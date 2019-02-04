@@ -12,18 +12,21 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/04/2019
 ---
 
 # The Azure SQL Database service
 
-SQL Database is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database delivers dynamically scalable performance within two different purchasing models: a [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and a [DTU-based purchasing model](sql-database-service-tiers-dtu.md). SQL Database also provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](sql-database-in-memory.md) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure.
+SQL Database is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database delivers dynamically scalable performance within two different purchasing models: a vCore-based purchasing model and a DTU-based purchasing model. SQL Database also provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](sql-database-in-memory.md) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure.
+
+> [!NOTE]
+> For a glossary of terms in Azure SQL Database, see [SQL Database terms glossary](sql-database-glossary-terms.md)
 
 Azure SQL Database provides the following deployment options for an Azure SQL database:
 
-- As a single database with its own set of resources managed via a SQL Database server
-- As a pooled database in an [elastic pool](sql-database-elastic-pool.md) with a shared set of resources managed via a SQL Database server
-- As a part of a collection of databases known as a [managed instance](sql-database-managed-instance.md) that contains system and user databases and sharing a set of resources
+- As a [single database](sql-database-single-database.md) with its own set of resources managed via a SQL Database server. A single database is similar to a [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) in SQL Server.
+- An [elastic pool](sql-database-elastic-pool.md), which is a collection of databases with a shared set of resources managed via a SQL Database server. Single databases can be moved into and out of an elastic pool.
+- [Managed instance](sql-database-managed-instance.md), which is a collection of system and user databases with a shared set of resources. A managed instance is similar to an instance of the [Microsoft SQL Server database engine](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation).
 
 The following illustration shows these deployment options:
 
@@ -40,15 +43,15 @@ SQL Database shares its code base with the [Microsoft SQL Server database engine
   A place where SQL Server product team members blog about SQL Database news and features.
 
 > [!IMPORTANT]
-> To understand the feature differences between SQL Database and SQL Server, see [SQL features](sql-database-features.md).
+> To understand the feature differences between SQL Database and SQL Server, as well as the differences between different Azure SQL Database deployment options, see [SQL features](sql-database-features.md).
 
 SQL Database delivers predictable performance with multiple resource types, service tiers, and compute sizes that provides dynamic scalability with no downtime, built-in intelligent optimization, global scalability and availability, and advanced security options — all with near-zero administration. These capabilities allow you to focus on rapid app development and accelerating your time to market, rather than allocating precious time and resources to managing virtual machines and infrastructure. The SQL Database service is currently in 38 data centers around the world, with more data centers coming online regularly, which enables you to run your database in a data center near you.
 
 ## Scalable performance and pools
 
-With SQL Database, each database is isolated from each other and portable, each with its own service tier within the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) or [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and a guaranteed compute size. SQL Database provides different compute sizes for different needs, and enables databases to be pooled to maximize the use of resources and save money.
+With a single database, each database is isolated from each other and portable, each with its own guaranteed compute, memory, and storage resources. SQL Database provides different compute, memory, and storage resources for different needs, and enables single databases to be pooled into an elastic pool to maximize the use of resources and save money.
 
-- With [SQL Database Managed Instance](sql-database-managed-instance.md), each instance is isolated from other instances with guaranteed resources. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md).
+- With a managed instance, each instance is isolated from other instances with guaranteed resources. For more information, see [SQL Database Managed Instance](sql-database-managed-instance.md).
 - With the [Hyperscale service tier](sql-database-service-tier-hyperscale.md) (preview) in the vCore purchasing model, you can scale to 100 TB with fast backup and restore capabilities.
 
 ### Adjust performance and scale without downtime
