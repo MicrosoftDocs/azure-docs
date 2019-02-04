@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/04/2019
 ms.author: alkohli
 ---
 # Azure Data Box Edge system requirements (preview)
@@ -93,4 +93,4 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 
 ## Next step
 
-* [Deploy your Azure Data Box Edge](data-box-Edge-deploy-prep.md)
+- [Deploy your Azure Data Box Edge](data-box-Edge-deploy-prep.md)
