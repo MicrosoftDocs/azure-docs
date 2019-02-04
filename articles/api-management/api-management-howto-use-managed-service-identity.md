@@ -124,7 +124,7 @@ The following example shows an Azure Resource Manager template that contains the
 		},
 		"publisherName": {
 			"type": "string",
-            "defaultValue": "Contoso",
+			"defaultValue": "Contoso",
 			"minLength": 1,
 			"metadata": {
 				"description": "The name of the owner of the service"
@@ -154,17 +154,17 @@ The following example shows an Azure Resource Manager template that contains the
 			}
 		},
 		"proxyCustomHostname1": {
-            "type": "string",
-            "metadata": {
-                "description": "Proxy Custom hostname."
-            }
-        },
-        "keyVaultIdToCertificate": {
-            "type": "string",
-            "metadata": {
-                "description": "Reference to the KeyVault certificate."
-            }
-        }
+			"type": "string",
+			"metadata": {
+				"description": "Proxy Custom hostname."
+			}
+		},
+		"keyVaultIdToCertificate": {
+			"type": "string",
+			"metadata": {
+				"description": "Reference to the KeyVault certificate."
+			}
+		}
 	},
 	"variables": {
 		"apiManagementServiceName": "[concat('apiservice', uniqueString(resourceGroup().id))]",
@@ -176,7 +176,6 @@ The following example shows an Azure Resource Manager template that contains the
 		"type": "Microsoft.ApiManagement/service",
 		"location": "[resourceGroup().location]",
 		"tags": {
-			
 		},
 		"sku": {
 			"name": "[parameters('sku')]",
@@ -194,9 +193,9 @@ The following example shows an Azure Resource Manager template that contains the
 		"type": "Microsoft.KeyVault/vaults/accessPolicies",
 		"name": "[concat(parameters('keyVaultName'), '/add')]",
 		"apiVersion": "2015-06-01",
-      "dependsOn": [
-        "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-      ],
+		"dependsOn": [
+			"[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
+		],
 		"properties": {
 			"accessPolicies": [{
 				"tenantId": "[reference(variables('apimServiceIdentityResourceId'), '2015-08-31-PREVIEW').tenantId]",
@@ -208,27 +207,27 @@ The following example shows an Azure Resource Manager template that contains the
 		}
 	},
 	{
-      "apiVersion": "2017-05-10",
-      "name": "apimWithKeyVault",
-      "type": "Microsoft.Resources/deployments",
-      "dependsOn": [
-        "[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
-      ],
-      "properties": {
-        "mode": "incremental",
-        "templateLink": {
-          "uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
-          "contentVersion": "1.0.0.0"
-        },
-        "parameters": {
-			"publisherEmail": { "value": "[parameters('publisherEmail')]"},
-			"publisherName": { "value": "[parameters('publisherName')]"},
-			"sku": { "value": "[parameters('sku')]"},
-		    "skuCount": { "value": "[parameters('skuCount')]"},
-		    "proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
-            "keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+		"apiVersion": "2017-05-10",
+		"name": "apimWithKeyVault",
+		"type": "Microsoft.Resources/deployments",
+		"dependsOn": [
+		"[resourceId('Microsoft.ApiManagement/service', variables('apiManagementServiceName'))]"
+		],
+		"properties": {
+			"mode": "incremental",
+			"templateLink": {
+				"uri": "https://raw.githubusercontent.com/solankisamir/arm-templates/master/basicapim.keyvault.json",
+				"contentVersion": "1.0.0.0"
+			},
+			"parameters": {
+				"publisherEmail": { "value": "[parameters('publisherEmail')]"},
+				"publisherName": { "value": "[parameters('publisherName')]"},
+				"sku": { "value": "[parameters('sku')]"},
+				"skuCount": { "value": "[parameters('skuCount')]"},
+				"proxyCustomHostname1": {"value" : "[parameters('proxyCustomHostname1')]"},
+				"keyVaultIdToCertificate": {"value" : "[parameters('keyVaultIdToCertificate')]"}
+			}
 		}
-      }
 	}]
 }
 ```
