@@ -4,15 +4,13 @@ description: Describes the parameters section of Azure Resource Manager template
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/03/2019
 ms.author: tomfitz
 
 ---
@@ -89,7 +87,7 @@ The preceding example showed only some of the properties you can use in the para
 | maxValue |No |The maximum value for int type parameters, this value is inclusive. |
 | minLength |No |The minimum length for string, secure string, and array type parameters, this value is inclusive. |
 | maxLength |No |The maximum length for string, secure string, and array type parameters, this value is inclusive. |
-| description |No |Description of the parameter that is displayed to users through the portal. |
+| description |No |Description of the parameter that is displayed to users through the portal. For more information, see [Comments in templates](resource-group-authoring-templates.md#comments). |
 
 ## Template functions with parameters
 
