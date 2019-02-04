@@ -77,7 +77,7 @@
     items:
     - name: Import data from various sources
       href: import-data.md
-    - name: Use data from on-prem SQL
+    - name: Use data from on-premises SQL
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
   - name: Create and train models
