@@ -18,7 +18,7 @@ This article contains known issues and temporary limitations with Azure Data Lak
 
 Blob Storage APIs and Azure Data Lake Gen2 APIs aren't interoperable with each other.
 
-If you need to use the same tool to work with all of the content that you upload to your account, then don't enable hierarchical namespaces on your Blob storage account until these APIs become interoperable with each other. Using a storage account without the hierarchical namespace means you then don't have access to Data Lake Storage Gen2 specific features, such as directory and filesystem access control lists.
+If you have custom tools, applications, or scripts that use Blob APIs, and you want to use them to work with all of the content that you upload to your account, then don't enable hierarchical namespaces on your Blob storage account until Blob APIs become interoperable with Azure Data Lake Gen2 APIs. Using a storage account without the hierarchical namespace means you then don't have access to Data Lake Storage Gen2 specific features, such as directory and filesystem access control lists.
 
 ## Blob storage APIs
 
