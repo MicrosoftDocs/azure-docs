@@ -1,0 +1,13 @@
+132.163.97.2
+
+MASBackup (file://WIN-0D0DBC86S8V/MASBackup)
+
+\\WIN-0D0DBC86S8V\MASBackup
+Q1lhbkh2WXhIQWtPT2ZNbm16TVFmTFdyeFhHdktQWk9ublFGdEZQQ0FoaFVIdE5QT0JXaE1XUWlySVF1Z0lvWg==
+
+4b21b376-fcb6-45cf-a2b6-0e6139e128d4
+
+
+
+
+the share has to have a folder called MASBackup in it for the path to find the backup GUID. Copy the MasBackup folder and delete whatever backusp you dont need. 

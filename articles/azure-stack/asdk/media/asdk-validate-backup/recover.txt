@@ -1,0 +1,7 @@
+$adminpass = ConvertTo-SecureString '???????????'-AsPlainText -Force
+$backupEncryptionKey = ConvertTo-SecureString 'Q1lhbkh2WXhIQWtPT2ZNbm16TVFmTFdyeFhHdktQWk9ublFGdEZQQ0FoaFVIdE5QT0JXaE1XUWlySVF1Z0lvWg==' -AsPlainText -Force
+$backupSharePassword = ConvertTo-SecureString '?????????' -AsPlainText -Force
+$backupShareCred = New-Object System.Management.Automation.PSCredential('redmond\jeffgilb', $backupSharePassword)
+$externalCertPassword = ConvertTo-SecureString '????????????' -AsPlainText -Force
+cd C:\CloudDeployment\Setup
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass -InfraAzureDirectoryTenantName jeffgilb.com -DNSForwarder 10.50.10.50 -TimeServer 132.163.97.2 -BackupStorePath \\azsdocslab\labshare\jeffgilb\1901Backup -BackupStoreCredential $backupShareCred -BackupEncryptionKeyBase64 $backupEncryptionKey -BackupId b867f00e-6e1e-44f1-b3b1-e0c52889a423 -ExternalCertPassword $externalCertPassword
