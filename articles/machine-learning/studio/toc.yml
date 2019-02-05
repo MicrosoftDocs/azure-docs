@@ -6,6 +6,8 @@
   - name: Machine Learning Studio
     displayName: overview
     href: what-is-ml-studio.md
+  - name: Compare our ML products
+    href: ../service/overview-more-machine-learning.md       
   - name: ML Studio capabilities
     displayName: overview
     href: studio-overview-diagram.md
@@ -213,5 +215,3 @@
     href: https://azure.microsoft.com/pricing/details/machine-learning/
   - name: Custom neural networks (Net#)
     href: azure-ml-netsharp-reference-guide.md
-  - name: Compare our ML products
-    href: ../service/overview-more-machine-learning.md       
