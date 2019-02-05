@@ -113,9 +113,6 @@ To configure Azure AD single sign-on with Zoom, perform the following steps:
 
 	![image](common/edit-attribute.png)
 
-	> [!NOTE]
-	> Please click [here](https://docs.microsoft.com/en-gb/azure/role-based-access-control/role-assignments-portal) to know how to configure Role in Azure AD
-
 6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
     
 	| Name | Namespace  |  Source Attribute|
@@ -126,6 +123,9 @@ To configure Azure AD single sign-on with Zoom, perform the following steps:
 	| Phone number  | user.telephonenumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
 	| Department  | user.department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
 	| role | 	user.assignedrole |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role |
+
+	> [!NOTE]
+	> Please click [here](https://docs.microsoft.com/en-gb/azure/role-based-access-control/role-assignments-portal) to know how to configure Role in Azure AD
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -144,7 +144,7 @@ To configure Azure AD single sign-on with Zoom, perform the following steps:
 	f. Click **Save**.
 
 	> [!NOTE]
-	> Zoom may expects group claim in SAML payload so if you have any group created then please contact to [Zoom Client support team](https://support.zoom.us/hc/en-us) with the group information so that they can configure this group information at their end also. You also need to provide the Object ID to [Zoom Client support team](https://support.zoom.us/hc/en-us) so that they can configure at their end. Please follow the [document](https://support.zoom.us/hc/en-us/articles/115005887566) to get the Object ID.
+	> Zoom may expect group claim in SAML payload so if you have created any group then please contact [Zoom Client support team](https://support.zoom.us/hc/en-us) with the group information so that they can configure this group information at their end also. You also need to provide the Object ID to [Zoom Client support team](https://support.zoom.us/hc/en-us) so that they can configure at their end. Please follow the [document](https://support.zoom.us/hc/en-us/articles/115005887566) to get the Object ID.
 
 7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
