@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/06/2019
 ms.author: celested
 ms.reviewer: paulgarn
 ---
@@ -80,7 +80,7 @@ You can add the public cert to your application configuration within the Azure p
 
 1. Select **Deactivate token encryption**.
 
-## Configure SAML token encryption using Graph API or PowerShell
+## Configure SAML token encryption using Graph API, PowerShell, or app manifest
 
 Encryption certificates are stored on the application object in Azure AD with an `encrypt` usage tag. You can configure multiple encryption certificates and the one that's active for encrypting tokens is identified by the `tokenEncryptionKeyID` attribute.
 
@@ -118,6 +118,9 @@ When you configure a keyCredential using Graph, PowerShell, or in the applicatio
 
 ### To configure token encryption using PowerShell
 
+This functionality is coming soon. 
+
+<!--
 1. Use the latest Azure AD PowerShell module to connect to your tenant.
 
 1. Set the token encryption settings using the **[Set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** command.
@@ -133,6 +136,7 @@ When you configure a keyCredential using Graph, PowerShell, or in the applicatio
     $app.KeyCredentials
     $app.TokenEncryptionKeyId
     ```
+-->
 
 ### To configure token encryption using the application manifest
 
