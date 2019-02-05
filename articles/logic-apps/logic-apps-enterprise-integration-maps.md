@@ -10,7 +10,7 @@ ms.reviewer: jonfan, estfan, LADocs
 manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
-ms.date: 01/22/2019
+ms.date: 02/06/2019
 ---
 
 # Transform XML with maps in Azure Logic Apps with Enterprise Integration Pack
@@ -43,34 +43,25 @@ integration and business-to-business (B2B) solutions.
 Make sure you *upload your assembly first*, and then upload the 
 map that references the assembly.
 
-  If your assembly is [2 MB or smaller](#smaller-assembly), 
-  you can add your assembly to your integrationacount 
-  directly from the Azure portal. However, if your assembly is 
-  bigger than 2 MB but no bigger than the [assembly size limit](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), 
-
-  up to 8 MB](#larger-assembly), 
-  you need an Azure blob container where you store your assembly 
-  and the content URI for that container so you can provide that 
-  location later when you add the assembly to your integration account.
-
-  If your schema is [2 MB or smaller](#smaller-schema), 
-  you can add your schema to your integration account 
-  directly from the Azure portal. However, if your 
-  schema is bigger than 2 MB but no bigger than the 
-  [schema size limit](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), 
-  you can upload your schema to an Azure storage account. 
-  To add that schema to your integration account, you can 
-  then link to your storage account from your integration account. 
+  If your assembly or map is 2 MB or smaller, you can add 
+  your assembly or map to your integration account *directly* 
+  from the Azure portal. However, if your assembly or map is 
+  bigger than 2 MB but no bigger than the 
+  [size limit for assemblies or maps](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), 
+  you need an Azure blob container where you store your 
+  assembly or map and the location reference for that file. 
+  That way, you can provide that location later when you add 
+  the assembly or map to your integration account.
   For this task, here are the items you need:
 
   * [Azure storage account](../storage/common/storage-account-overview.md) 
-  where you create a blob container for your schema. Learn how to 
+  where you create a blob container for your assembly or map. Learn how to 
   [create a storage account](../storage/common/storage-quickstart-create-account.md). 
 
-  * Blob container for storing your schema. Learn how to 
+  * Blob container for storing your assembly or map. Learn how to 
   [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). 
-  You need your container's content URI later when you 
-  add the schema to your integration account.
+  You need the container's location later when you add the assembly 
+  or map to your integration account.
 
   * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md), 
   which you can use for managing storage accounts and blob containers. 
@@ -84,6 +75,8 @@ map that references the assembly.
     by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
     To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
+   For limits on map sizes, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). 
+
 You don't need a logic app when creating and adding maps. 
 However, to use a map, your logic app needs linking to 
 an integration account where you store that map. Learn 
@@ -93,22 +86,22 @@ If you don't have a logic app yet, learn [how to create logic apps](../logic-app
 ## Add referenced assemblies
 
 1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
-with your Azure account credentials.
+   with your Azure account credentials.
 
 1. To find and open your integration account, 
-on the main Azure menu, select **All services**. 
-In the search box, enter "integration account". 
-Select **Integration accounts**.
+   on the main Azure menu, select **All services**. 
+   In the search box, enter "integration account". 
+   Select **Integration accounts**.
 
    ![Find integration account](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
 
-1. Select the integration account where you want to add your assembly, 
-for example:
+1. Select the integration account where you want to 
+   add your assembly, for example:
 
    ![Select integration account](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
 
 1. On your integration account's **Overview** page, 
-under **Components**, select the **Assemblies** tile.
+   under **Components**, select the **Assemblies** tile.
 
    ![Select "Assemblies"](./media/logic-apps-enterprise-integration-maps/select-assemblies.png)
 
@@ -119,18 +112,18 @@ under **Components**, select the **Assemblies** tile.
 Based on your assembly file's size, follow the 
 steps for uploading an assembly that's either 
 [up to 2 MB](#smaller-assembly) or 
-[more than 2 MB, up to 8 MB](#larger-assembly).
+[more than 2 MB but only up to 8 MB](#larger-assembly).
 For limits on assembly quantities in integration accounts, see 
 [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
 
 <a name="smaller-assembly"></a>
 
-### Upload assemblies up to 2 MB
+### Add assemblies up to 2 MB
 
-1. Under **Add Assembly**, enter a name for your assembly.
+1. Under **Add Assembly**, enter a name for your assembly. 
 Keep **Small file** selected. Next to the **Assembly** box, 
-choose the folder icon. Find and select the assembly you're uploading, 
-for example:
+choose the folder icon. Find and select the assembly 
+you're uploading, for example:
 
    ![Upload smaller assembly](./media/logic-apps-enterprise-integration-maps/upload-assembly-file.png)
 
@@ -152,25 +145,99 @@ for example:
 
 <a name="larger-assembly"></a>
 
-### Upload assemblies more than 2 MB
+### Add assemblies more than 2 MB
 
-To upload an assembly that's larger than 2 MB but only up to 8 MB,
-follow these steps. 
+To add larger assemblies, you can upload your assembly to 
+an Azure blob container in your Azure storage account. 
+Your steps for adding assemblies differs based whether 
+your blob container has public read access. So first, 
+check whether or not your blob container has public 
+read access by following these steps: 
+[Set public access level for blob container](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
-1. Under **Add Assembly**, enter a name for your assembly.
-Choose **Large file (larger than 2 MB)**. 
+#### Check container access level
+
+1. Open Azure Storage Explorer. In the Explorer window, 
+   expand your Azure subscription if not already expanded.
+
+1. Expand **Storage Accounts** > {*your-storage-account*} > 
+   **Blob Containers**. Select your blob container.
+
+1. From your blob container's shortcut menu, 
+   select **Set Public Access Level**.
+
+   * If your blob container has at least public access, choose **Cancel**, 
+   and follow these steps later on this page: 
+   [Upload to containers with public access](#public-access-assemblies)
+
+     ![Public access](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
+
+   * If your blob container doesn't have public access, choose **Cancel**, 
+   and follow these steps later on this page: 
+   [Upload to containers without public access](#no-public-access-assemblies)
+
+     ![No public access](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
+
+<a name="public-access-assemblies"></a>
+
+#### Upload to containers with public access
+
+1. Upload the assembly to your storage account. 
+   In the right-hand window, choose **Upload**.
+
+1. After you finish uploading, select your 
+   uploaded assembly. On the toolbar, choose **Copy URL** 
+   so that you copy the assembly's URL.
+
+1. Return to the Azure portal where the 
+   **Add Assembly** pane is open. 
+   Enter a name for your assembly. 
+   Choose **Large file (larger than 2 MB)**.
 
    The **Content URI** box now appears, 
-   rather than the **Assembly** box. 
+   rather than the **Assembly** box.
 
-1. In the **Content URI** box, enter the location for 
-the blob container where you're storing your assembly.
+1. In the **Content URI** box, paste your assembly's URL. 
+   Finish adding your assembly.
 
-   On your integration account's **Overview** page, 
-   under **Components**, the **Assemblies** tile now 
-   shows the number of uploaded assemblies, for example:
+After your assembly finishes uploading, 
+the schema appears in the **Assemblies** list.
+On your integration account's **Overview** page, 
+under **Components**, the **Assemblies** tile now 
+shows the number of uploaded assemblies.
 
-   ![Uploaded assemblies](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies.png)
+<a name="no-public-access-assemblies"></a>
+
+#### Upload to containers without public access
+
+1. Upload the assembly to your storage account. 
+   In the right-hand window, choose **Upload**.
+
+1. After you finish uploading, generate a 
+   shared access signature (SAS) for your assembly. 
+   From your assembly's shortcut menu, 
+   select **Get Shared Access Signature**.
+
+1. In the **Shared Access Signature** pane, select 
+   **Generate container-level shared access signature URI** > **Create**. 
+   After the SAS URL gets generated, next to the **URL** box, choose **Copy**.
+
+1. Return to the Azure portal where the 
+   **Add Assembly** pane is open. 
+   Enter a name for your assembly. 
+   Choose **Large file (larger than 2 MB)**.
+
+   The **Content URI** box now appears, 
+   rather than the **Assembly** box.
+
+1. In the **Content URI** box, paste the SAS URI 
+   you previously generated. Finish adding your assembly.
+
+After your assembly finishes uploading, 
+the assembly appears in the **Schemas** list. 
+On your integration account's **Overview** page, 
+under **Components**, the **Assemblies** tile now 
+shows the number of uploaded assemblies.
 
 ## Create maps
 
@@ -188,23 +255,23 @@ After you upload any assemblies that your map references,
 you can now upload your map.
 
 1. If you haven't signed in already, sign in to the 
-<a href="https://portal.azure.com" target="_blank">Azure portal</a> 
-with your Azure account credentials. 
+   <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+   with your Azure account credentials. 
 
 1. If your integration account isn't already open, 
-on the main Azure menu, select **All services**. 
-In the search box, enter "integration account". 
-Select **Integration accounts**.
+   on the main Azure menu, select **All services**. 
+   In the search box, enter "integration account". 
+   Select **Integration accounts**.
 
    ![Find integration account](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
 
 1. Select the integration account where you want to add your map, 
-for example:
+   for example:
 
    ![Select integration account](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
 
 1. On your integration account's **Overview** page, 
-under **Components**, select the **Maps** tile.
+   under **Components**, select the **Maps** tile.
 
    ![Select "Maps"](./media/logic-apps-enterprise-integration-maps/select-maps.png)
 
@@ -212,106 +279,125 @@ under **Components**, select the **Maps** tile.
 
    ![Choose "Add"](./media/logic-apps-enterprise-integration-maps/add-map.png)  
 
-1. Upload your map by following these steps:
+<a name="smaller-map"></a>
 
-   1. Under **Add Map**, enter a name for your map.
+### Add maps up to 2 MB
 
-   1. Under **Map type**, select the type, for example: 
+1. Under **Add Map**, enter a name for your map. 
+
+1. Under **Map type**, select the type, for example: 
    **Liquid**, **XSLT**, **XSLT 2.0**, or **XSLT 3.0**.
 
-   1. Next to the **Map** box, choose the folder icon.
+1. Keep **Small file** selected. Next to the **Map** box, 
+   choose the folder icon. Find and select the map 
+   you're uploading, for example:
 
-   1. Find and select the map file you're uploading, for example:
+   ![Upload map](./media/logic-apps-enterprise-integration-maps/upload-map-file.png)
 
-      ![Upload map](./media/logic-apps-enterprise-integration-maps/upload-map-file.png)
+   If you left the **Name** property empty, the map's file name automatically 
+   appears in that property automatically after you select the map file. 
+   However, you can use any unique name.
 
-      If you left the **Name** property empty, the map's file name automatically 
-      appears in that property automatically after you select the map file. 
-      However, you can use any unique name.
-
-      For limits on map sizes, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). 
-      To add maps larger than 2 MB up to the size limit, 
-      [follow the steps in this section](#add-larger-map).
-
-   1. When you're ready, choose **OK**. 
+1. When you're ready, choose **OK**. 
    After your map file finishes uploading, 
    the map appears in the **Maps** list.
 
-      ![Uploaded maps list](./media/logic-apps-enterprise-integration-maps/uploaded-maps-list.png)
+   ![Uploaded maps list](./media/logic-apps-enterprise-integration-maps/uploaded-maps-list.png)
 
-      On your integration account's **Overview** page, 
-      under **Components**, the **Maps** tile now 
-      shows the number of uploaded maps, for example:
+   On your integration account's **Overview** page, 
+   under **Components**, the **Maps** tile now 
+   shows the number of uploaded maps, for example:
 
-      ![Uploaded maps](./media/logic-apps-enterprise-integration-maps/uploaded-maps.png)
+   ![Uploaded maps](./media/logic-apps-enterprise-integration-maps/uploaded-maps.png)
 
-      For limits on map quantities in integration accounts, see 
-      [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits). 
+   For limits on map quantities in integration accounts, see 
+   [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits). 
 
-<a name="add-larger-map"></a>
+<a name="larger-map"></a>
 
-## Add maps larger than 2 MB
+### Add maps more than 2 MB
 
-To add a map file up to the [map size limit](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), 
-you need these items: 
+To add larger maps, you can upload your map to 
+an Azure blob container in your Azure storage account. 
+Your steps for adding maps differ based whether your 
+blob container has public read access. So first, check 
+whether or not your blob container has public read 
+access by following these steps: 
+[Set public access level for blob container](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
-* [Azure storage account](../storage/common/storage-account-overview.md) 
-for creating a blob container. Learn how to 
-[create a storage account](../storage/common/storage-quickstart-create-account.md).
+#### Check container access level
 
-* Blob container for storing your maps. Learn how to [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md).
+1. Open Azure Storage Explorer. In the Explorer window, 
+   expand your Azure subscription if not already expanded.
 
-* [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md), 
-which you can use for managing storage accounts and blob containers. If you don't have 
-this tool already, [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, follow these [steps for connecting Azure Storage Explorer to your storage account](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+1. Expand **Storage Accounts** > {*your-storage-account*} > 
+   **Blob Containers**. Select your blob container.
 
-Your steps for adding maps differ based whether or not your blob container 
-has public read access. So first, check your blob container's access level.
+1. From your blob container's shortcut menu, 
+   select **Set Public Access Level**.
 
-### Check blob container access level
+   * If your blob container has at least public access, choose **Cancel**, 
+   and follow these steps later on this page: 
+   [Upload to containers with public access](#public-access)
 
-1. Open Azure Storage Explorer. 
-If you haven't already connected to your Azure subscription and storage account, 
-[follow these steps to connect now](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+     ![Public access](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
-1. In the explorer window, select {*your-Azure-subscription*} > 
-**Storage Accounts** > {*your-storage-account*} > 
-**Blob Containers** > {*your-blob-container*}.
-From your blob container's shortcut menu, 
-select **Set Public Access Level**. 
+   * If your blob container doesn't have public access, choose **Cancel**, 
+   and follow these steps later on this page: 
+   [Upload to containers without public access](#public-access)
 
-   ![Check blob container access level](./media/logic-apps-enterprise-integration-maps/find-blob-container-access-level.png)
+     ![No public access](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
 
-1. Find the option that appears selected 
-and follow the steps for the selected option: 
+<a name="public-access-maps"></a>
 
-   * [**No public access**](#no-public-access)
-   * [**Public read access** (any)](#public-read-access)
+### Add maps to containers with public access
 
-   For example:
+1. Upload the map to your storage account. 
+   In the right-hand window, choose **Upload**. 
 
-   ![Check blob container access level](./media/logic-apps-enterprise-integration-maps/check-azure-blob-container-access-level.png)
+1. After you finish uploading, select your 
+   uploaded map. On the toolbar, choose **Copy URL** 
+   so that you copy the map's URL.
 
-<a name="no-public-access"></a>
+1. Return to the Azure portal where the 
+   **Add Map** pane is open. Choose **Large file**. 
+
+   The **Content URI** box now appears, 
+   rather than the **Map** box.
+
+1. In the **Content URI** box, paste your map's URL. 
+   Finish adding your map.
+
+After your map finishes uploading, 
+the map appears in the **Maps** list.
+
+<a name="no-public-access-maps"></a>
 
 ### Add maps to containers with no public access
 
-<a name="public-read-access"></a>
+1. Upload the map to your storage account. 
+   In the right-hand window, choose **Upload**.
 
-### Add maps to containers with public read access
+1. After you finish uploading, generate a 
+   shared access signature (SAS) for your schema. 
+   From your map's shortcut menu, 
+   select **Get Shared Access Signature**.
 
-1. On the blob container toolbar, choose **Upload**. 
-Find and select your map file for uploading to your storage account. 
+1. In the **Shared Access Signature** pane, select 
+   **Generate container-level shared access signature URI** > **Create**. 
+   After the SAS URL gets generated, next to the **URL** box, choose **Copy**.
 
-1. On the blob container toolbar, choose **View**. 
-Select your map file. Find the **Snapshot Qualified Storage Uri** 
-property, which has this value: 
+1. Return to the Azure portal where the 
+   **Add Maps** pane is open. Choose **Large file**.
 
-   `Primary =` <*URI-value*> 
+   The **Content URI** box now appears, 
+   rather than the **Map** box.
 
-1. Copy the URI. 
+1. In the **Content URI** box, paste the SAS URI 
+   you previously generated. Finish adding your map.
 
-
+After your map finishes uploading, 
+the map appears in the **Maps** list.
 
 ## Edit maps
 
@@ -326,65 +412,43 @@ find and open your integration account, if not already open.
 In the search box, enter "integration account". 
 Select **Integration accounts**.
 
-   ![Find integration account](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
-
-1. Select the integration account where you want to update your map, 
-for example:
-
-   ![Select integration account](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
+1. Select the integration account where you want to update your map.
 
 1. On your integration account's **Overview** page, 
-under **Components**, select the **Maps** tile.
-
-   ![Select "Maps"](./media/logic-apps-enterprise-integration-maps/select-maps-2.png)
+   under **Components**, select the **Maps** tile.
 
 1. After the **Maps** page opens, select your map. 
-To download and edit the map first, choose **Download**, 
-and save the map.
-
-   ![Choose "Download"](./media/logic-apps-enterprise-integration-maps/download-map.png)  
+   To download and edit the map first, choose **Download**, 
+   and save the map.
 
 1. When you're ready to upload the updated map, on the **Maps** page, 
-select the map you want to update, and choose **Update**.
-
-   ![Choose "Update"](./media/logic-apps-enterprise-integration-maps/update-map.png)
+   select the map you want to update, and choose **Update**.
 
 1. Find and select the updated map you want to upload. 
-After your map file finishes uploading, 
-the updated map appears in the **Maps** list.
+   After your map file finishes uploading, 
+   the updated map appears in the **Maps** list.
 
 ## Delete maps
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
-find and open your integration account, if not already open.
+   find and open your integration account, if not already open.
 
 1. On the main Azure menu, select **All services**. 
-In the search box, enter "integration account". 
-Select **Integration accounts**.
+   In the search box, enter "integration account". 
+   Select **Integration accounts**.
 
-   ![Find integration account](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
-
-1. Select the integration account where you want to delete your map, 
-for example:
-
-   ![Select integration account](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
+1. Select the integration account where you 
+   want to delete your map.
 
 1. On your integration account's **Overview** page, 
-under **Components**, select the **Maps** tile.
+   under **Components**, select the **Maps** tile.
 
-   ![Select "Maps"](./media/logic-apps-enterprise-integration-maps/select-maps-2.png)
-
-1. After the **Maps** page opens, select your map, 
-and choose **Delete**.
-
-   ![Choose "Delete"](./media/logic-apps-enterprise-integration-maps/delete-map.png)
+1. After the **Maps** page opens, select your map, and choose **Delete**.
 
 1. To confirm you want to delete the map, choose **Yes**.
 
-   ![Confirm deleting the map](./media/logic-apps-enterprise-integration-maps/confirm-delete.png)
-
 ## Next steps
 
-* [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)  
-* [Learn more about agreements](../logic-apps/logic-apps-enterprise-integration-agreements.md)  
-* [Learn more about transforms](logic-apps-enterprise-integration-transform.md)
+* [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)  
+* [Learn more about schemas](../logic-apps/logic-apps-enterprise-integration-schemas.md)
+* [Learn more about transforms](../logic-apps/logic-apps-enterprise-integration-transform.md)

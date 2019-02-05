@@ -102,7 +102,7 @@ steps for uploading a schema that's either
 
 <a name="smaller-schema"></a>
 
-### Upload schemas up to 2 MB
+### Add schemas up to 2 MB
 
 1. Under **Add Schema**, enter a name for your schema. 
    Keep **Small file** selected. Next to the **Schema** box, 
@@ -118,7 +118,7 @@ steps for uploading a schema that's either
 
 <a name="larger-schema"></a>
 
-### Upload schemas more than 2 MB
+### Add schemas more than 2 MB
 
 To add larger schemas, you can upload your schema to 
 an Azure blob container in your Azure storage account. 
@@ -126,7 +126,7 @@ Your steps for adding maps differ based whether your
 blob container has public read access. So first, check 
 whether or not your blob container has public read 
 access by following these steps: 
-[Set public access level for blob container](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container).
+[Set public access level for blob container](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### Check container access level
 
@@ -156,14 +156,16 @@ access by following these steps:
 #### Upload to containers with public access
 
 1. Upload the schema to your storage account. 
-   In the right-hand window, choose **Upload**. 
+   In the right-hand window, choose **Upload**.
 
 1. After you finish uploading, select your 
    uploaded schema. On the toolbar, choose **Copy URL** 
    so that you copy the schema's URL.
 
 1. Return to the Azure portal where the 
-   **Add Schema** pane is open. Choose **Large file**. 
+   **Add Schema** pane is open. 
+   Enter a name for your assembly. 
+   Choose **Large file (larger than 2 MB)**. 
 
    The **Content URI** box now appears, 
    rather than the **Schema** box.
@@ -172,7 +174,10 @@ access by following these steps:
    Finish adding your schema.
 
 After your schema finishes uploading, 
-the schema appears in the **Schemas** list.
+the schema appears in the **Schemas** list. 
+On your integration account's **Overview** page, 
+under **Components**, the **Schemas** tile now 
+shows the number of uploaded schemas.
 
 <a name="no-public-access"></a>
 
@@ -200,7 +205,10 @@ the schema appears in the **Schemas** list.
    you previously generated. Finish adding your schema.
 
 After your schema finishes uploading, 
-the schema appears in the **Schemas** list.
+the schema appears in the **Schemas** list. 
+On your integration account's **Overview** page, 
+under **Components**, the **Schemas** tile now 
+shows the number of uploaded schemas.
 
 ## Edit schemas
 
@@ -208,11 +216,10 @@ To update an existing schema, you have to upload a new
 schema file that has the changes you want. However, 
 you can first download the existing schema for editing.
 
-1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
-   with your Azure account credentials.
+1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+find and open your integration account, if not already open.
 
-1. Find and open your integration account. 
-   On the main Azure menu, select **All services**. 
+1. On the main Azure menu, select **All services**. 
    In the search box, enter "integration account". 
    Select **Integration accounts**.
 
@@ -235,11 +242,10 @@ you can first download the existing schema for editing.
 
 ## Delete schemas
 
-1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
-   with your Azure account credentials.
+1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, 
+find and open your integration account, if not already open.
 
-1. Find and open your integration account. 
-   On the main Azure menu, select **All services**. 
+1. On the main Azure menu, select **All services**. 
    In the search box, enter "integration account". 
    Select **Integration accounts**.
 
@@ -255,5 +261,6 @@ you can first download the existing schema for editing.
 
 ## Next steps
 
-* [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Learn about the enterprise integration pack").  
-
+* [Learn more about the Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)
+* [Learn more about maps](../logic-apps/logic-apps-enterprise-integration-maps.md)
+* [Learn more about transforms](../logic-apps/logic-apps-enterprise-integration-transform.md)
