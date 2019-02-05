@@ -38,7 +38,7 @@ A scale set has a "scale set model" that captures the *desired* state of the sca
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
-- Azure CLI with [az vmss show](/cli/azure/vmss#az_vmss_show):
+- Azure CLI with [az vmss show](/cli/azure/vmss):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -136,7 +136,7 @@ Similar to how a scale set has a model view, each VM instance in the scale set h
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI with [az vmss show](/cli/azure/vmss#az_vmss_show):
+- Azure CLI with [az vmss show](/cli/azure/vmss):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -255,7 +255,7 @@ To update a global scale set property, you must update the property in the scale
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
     ```
 
-- Azure CLI with [az vmss update](/cli/azure/vmss#az_vmss_update):
+- Azure CLI with [az vmss update](/cli/azure/vmss):
     - To modify a property:
 
         ```azurecli
@@ -302,7 +302,7 @@ To update existing VMs, you must do a "manual upgrade" of each existing VM. You 
     Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI with [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances)
+- Azure CLI with [az vmss update-instances](/cli/azure/vmss)
 
     ```azurecli
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
@@ -327,7 +327,7 @@ There is one type of modification to global scale set properties that does not f
     Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Azure CLI with [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
+- Azure CLI with [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss):
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -388,7 +388,7 @@ You may have a scale set that runs an old version of Ubuntu LTS 16.04. You want 
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
     ```
 
-- Azure CLI with [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
+- Azure CLI with [az vmss update](/cli/azure/vmss):
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
@@ -405,7 +405,7 @@ Alternatively, you may want to change the image your scale set uses. For example
         -ImageReferenceId /subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
     ```
 
-- Azure CLI with [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
+- Azure CLI with [az vmss update](/cli/azure/vmss):
 
     ```azurecli
     az vmss update \
