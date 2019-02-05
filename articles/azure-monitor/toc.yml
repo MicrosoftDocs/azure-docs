@@ -132,7 +132,7 @@
   - name: Partner integrations
     href: platform/partners.md
   - name: OMS portal transition
-  items:
+    items:
     - name: Overview
       href: platform/oms-portal-transition.md
     - name: Common questions
