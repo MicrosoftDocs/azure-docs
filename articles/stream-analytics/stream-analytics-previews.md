@@ -28,11 +28,11 @@ You can scale Stream Analytics jobs with Machine Learning (ML) functions. To lea
 
 ### Blob output partitioning by custom time
 
-Azure Stream Analytics can output to Blob storage based on custom time attributes. For more information, visit [Azure Stream Analytics custom blob output partitioning](stream-analytics-custom-path-patterns-blob-storage-output.md).
+Azure Stream Analytics can output to blob storage based on custom time attributes. For more information, visit [Azure Stream Analytics custom blob output partitioning](stream-analytics-custom-path-patterns-blob-storage-output.md).
 
 ### Blob output partitioning by field or attribute
 
-Azure Stream Analytics can output to Blob storage based on custom fields or attributes. For more information, visit [Azure Stream Analytics custom blob output partitioning](stream-analytics-custom-path-patterns-blob-storage-output.md).
+Azure Stream Analytics can output to blob storage based on custom fields or attributes. For more information, visit [Azure Stream Analytics custom blob output partitioning](stream-analytics-custom-path-patterns-blob-storage-output.md).
 
 ### JavaScript user-defined aggregate
 
