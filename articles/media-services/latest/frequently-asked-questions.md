@@ -61,7 +61,7 @@ v3 is based on a unified API surface, which exposes both management and operatio
 
 ## Live streaming 
 
-###  How to insert breaks/videos and image slates during live stream
+###  How to insert breaks/videos and image slates during live stream?
 
 Media Services v3 live encoding does not yet support inserting video or image slates during live stream. 
 
