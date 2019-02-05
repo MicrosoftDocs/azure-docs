@@ -20,8 +20,9 @@ ms.author: dekapur
 
 # Overview of Service Fabric Standalone clusters
 
-### Any cloud deployments vs. on-premises deployments
 A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that is part of a cluster is called a cluster node. Clusters can scale to thousands of nodes. If you add new nodes to the cluster, Service Fabric rebalances the service partition replicas and instances across the increased number of nodes. Overall application performance improves and contention for access to memory decreases. If the nodes in the cluster are not being used efficiently, you can decrease the number of nodes in the cluster. Service Fabric again rebalances the partition replicas and instances across the decreased number of nodes to make better use of the hardware on each node.
+
+A node type defines the size, number, and properties for a set nodes in the cluster. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. Node types are used to define roles for a set of cluster nodes, such as "front end" or "back end". Your cluster can have more than one node type, but the primary node type must have at least five VMs for production clusters (or at least three VMs for test clusters). [Service Fabric system services](service-fabric-technical-overview.md#system-services) are placed on the nodes of the primary node type.
 
 The process for creating a Service Fabric cluster on-premises is similar to the process of creating a cluster on any cloud of your choice with a set of VMs. The initial steps to provision the VMs are governed by the cloud provider or on-premises environment that you are using. Once you have a set of VMs with network connectivity enabled between them, then the steps to set up the Service Fabric package, edit the cluster settings, and run the cluster creation and management scripts are identical. This ensures that your knowledge and experience of operating and managing Service Fabric clusters is transferable when you choose to target new hosting environments.
 
@@ -45,8 +46,23 @@ Service Fabric also supports access control to limit access to certain cluster o
 
 For more information, read [Role-Based Access Control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac).
 
+## Scaling
+
+Application demands change over time. You may need to increase cluster resources to meet increased application workload or network traffic or decrease cluster resources when demand drops. After creating a Service Fabric cluster, you can scale the cluster horizontally (change the number of nodes) or vertically (change the resources of the nodes). You can scale the cluster at any time, even when workloads are running on the cluster. As the cluster scales, your applications automatically scale as well.
+
+For more information, read [Scaling standalone clusters](service-fabric-cluster-scaling-standalone.md).
+
+## Upgrading
+
+A standalone cluster is a resource that you entirely own. You are responsible for patching the underlying OS and initiating fabric upgrades. You can set your cluster to receive automatic runtime upgrades, when Microsoft releases a new version, or choose to select a supported runtime version that you want. In addition to fabric upgrades, you can also patch the OS and update cluster configuration such as certificates or application ports. 
+
+For more information, read [Upgrading standalone clusters](service-fabric-cluster-upgrade-standalone.md).
+
 ## Supported operating systems for standalone clusters
 You are able to create clusters on VMs or computers running these operating systems (Linux is not yet supported):
 
 * Windows Server 2012 R2
 * Windows Server 2016 
+
+## Next steps
+Read more about [securing](service-fabric-cluster-security.md), [scaling](service-fabric-cluster-scaling-standalone.md), and [upgrading](service-fabric-cluster-upgrade-standalone.md) standalone clusters.

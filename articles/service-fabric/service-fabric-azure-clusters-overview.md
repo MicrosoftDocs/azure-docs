@@ -21,7 +21,7 @@ ms.author: dekapur
 # Overview of Service Fabric clusters on Azure
 A Service Fabric cluster is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. A machine or VM that is part of a cluster is called a cluster node. Clusters can scale to thousands of nodes. If you add new nodes to the cluster, Service Fabric rebalances the service partition replicas and instances across the increased number of nodes. Overall application performance improves and contention for access to memory decreases. If the nodes in the cluster are not being used efficiently, you can decrease the number of nodes in the cluster. Service Fabric again rebalances the partition replicas and instances across the decreased number of nodes to make better use of the hardware on each node.
 
-A cluster allows hetrogeneous node types with different capacities and configurations. 
+A node type defines the size, number, and properties for a set of virtual machines in the cluster. Each node type can then be scaled up or down independently, have different sets of ports open, and can have different capacity metrics. Node types are used to define roles for a set of cluster nodes, such as "front end" or "back end". Your cluster can have more than one node type, but the primary node type must have at least five VMs for production clusters (or at least three VMs for test clusters). [Service Fabric system services](service-fabric-technical-overview.md#system-services) are placed on the nodes of the primary node type. 
 
 ## Cluster components and resources
 A Service Fabric cluster on Azure is an Azure resource that uses and interacts with other Azure resources:
@@ -57,6 +57,7 @@ VMs in a cluster have only private IP addresses.  Management traffic and service
 Each cluster node type is supported by a Azure storage account and managed disks.
 
 ## Cluster security
+
 ### Node-to-node security
 Node-to-node security secures communication between the VMs or computers in a cluster. This security scenario ensures that only computers that are authorized to join the cluster can participate in hosting applications and services in the cluster. Service Fabric uses X.509 certificates to secure a cluster and provide application security features.  A cluster certificate is required to secure cluster traffic and provide cluster and server authentication.  Self signed-certificates can be used for test clusters, but a certificate from a trusted certificate authority should be used to secure production clusters.
 
@@ -81,6 +82,17 @@ Network security groups (NSGs) control inbound and outbound traffic of a subnet,
 
 For more information, read [Service Fabric cluster security](service-fabric-cluster-security.md)
 
+## Scaling
+
+Application demands change over time. You may need to increase cluster resources to meet increased application workload or network traffic or decrease cluster resources when demand drops. After creating a Service Fabric cluster, you can scale the cluster horizontally (change the number of nodes) or vertically (change the resources of the nodes). You can scale the cluster at any time, even when workloads are running on the cluster. As the cluster scales, your applications automatically scale as well.
+
+For more information, read [Scaling Azure clusters](service-fabric-cluster-scaling.md).
+
+## Upgrading
+An Azure Service Fabric cluster is a resource that you own, but is partly managed by Microsoft. Microsoft is responsible for patching the underlying OS and performing fabric upgrades on your cluster. You can set your cluster to receive automatic runtime upgrades, when Microsoft releases a new version, or choose to select a supported runtime version that you want. In addition to fabric upgrades, you can also patch the VM operating system and update cluster configuration such as certificates or application ports.
+
+For more information, read [Upgrading clusters](service-fabric-cluster-upgrade.md).
+
 ## Supported operating systems for clusters on Azure
 You are able to create clusters on virtual machines running these operating systems:
 
@@ -96,3 +108,5 @@ You are able to create clusters on virtual machines running these operating syst
 >
 
 
+## Next steps
+Read more about [securing](service-fabric-cluster-security.md), [scaling](service-fabric-cluster-scaling.md), and [upgrading](service-fabric-cluster-upgrade.md) Azure clusters.
