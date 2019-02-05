@@ -329,5 +329,11 @@ blkid /dev/sda1
 Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  site recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
 **Please note** that this is just a warning and existing replication keeps on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. Apart from filter driver, **benefits of  any other enhancements and fixes in mobility service get realized without any reboot when the agent gets updated.**  
 
+## Protection couldn't be enabled as replica managed disk 'diskname-replica' already exists without expected tags in the target resource group( error code 150161
+
+**Cause**:  If the virtual machine was protected earlier and during disabling the replication replica disk was not cleaned due to some reason.
+**How to fix:** 
+Delete the mentioned replica disk and restart the protection job again. 
+
 ## Next steps
 [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)
