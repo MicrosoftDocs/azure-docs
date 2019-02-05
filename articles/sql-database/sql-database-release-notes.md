@@ -11,11 +11,13 @@ ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: carlrab
 ---
-# SQL Database January 2019 release notes
+# SQL Database release notes
 
 This article lists the new features and improvements in the SQL Database service and in the SQL Database documentation.
 
-## Service improvements
+## January 2019
+
+### Service improvements
 
 | Service improvements | Details |
 | --- | --- | 
@@ -24,7 +26,7 @@ This article lists the new features and improvements in the SQL Database service
 | Advance threat detection feature renamed to Advanced Data Security | Advance threat detection feature renamed to [Advanced Data Security](sql-advanced-threat-protection.md) for single databases, elastic pools, and managed instances |
 | &nbsp; |
 
-## Documentation improvements
+### Documentation improvements
 
 | Documentation improvements | Details |
 | --- | --- |
