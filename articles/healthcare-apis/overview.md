@@ -17,9 +17,9 @@ The Azure API for FHIR is a fully managed, standards-based, and compliant health
 
 FHIR helps unlock the value of data and respond to changing business dynamics more easily. 
 
-Organizations are able to bring together clinical data from multiple systems of records, normalize the data using common models and specifications, and use that data in AI workloads to derive insight and power new systems of engagement, including clinician and patient dashboards, diagnostic assistants, population health insights, and connected healthcare scenarios, such as Remote Patient Monitoring.  
+Organizations are able to bring together clinical data from multiple systems of records, normalize the data using common models and specifications, and use that data in AI workloads to derive insight and power new systems of engagement, including clinician and patient dashboards, diagnostic assistants, population health insights, and connected healthcare scenarios, such as remote patient monitoring.  
 
-The Azure API for FHIR is capable of powering Internet of Medical Things (IoMT) scenarios, population health research projects, AI-powered diagnostic solutions and much more.
+The Azure API for FHIR is capable of powering Internet of Things (IoMT) for healthcare scenarios, population health research projects, AI-powered diagnostic solutions and much more.
 
 The Azure API for FHIR meets all regulatory compliance for healthcare data.
 
@@ -29,7 +29,7 @@ The services have been designed to handle live patient data (Protected Health In
 
 ## FHIR API
 
-FHIR is an evolving standard and users would want to explore the source code and contribute features. The Azure API for FHIR are available in two flavors:
+FHIR is an evolving standard and users would want to explore the source code and contribute features. The Azure API for FHIR is available in two flavors:
 
 * The Open Source Microsoft FHIR Server for Azure. The source code can be found at [https://github.com/Microsoft/fhir-server](https://github.com/Microsoft/fhir-server).
 * The fully managed Platform as a Service (PaaS) Azure API for FHIR.
@@ -38,7 +38,7 @@ Use the Open Source FHIR Server if you want to make changes to the code. The Paa
 
 ## Get started
 
-To start working with the FHIR Service, follow the 5-minute quickstarts:
+To start working with the FHIR Service, follow the 5-minute quickstart:
 
 * Deploy Open Source FHIR Server using [PowerShell](fhir-oss-powershell-quickstart.md)
 
