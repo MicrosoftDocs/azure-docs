@@ -15,7 +15,7 @@ Version 5 and newer of the Azure File Sync agent supports the bulk migration of 
 
 This article describes the process you should follow to ensure your bulk migration is done in a sync-compatible way. It will describe the best practices that will help you avoid conflict files and preserve your file and folder ACLs once you enable sync.
 
-## Key benefits of utilizing an offline bulk-migration product with Azure File Sync
+## Key benefits of offline bulk-migration 
 The main benefit in migrating files into Azure though an offline bulk transfer process, such as Data Box, is that you won't have to upload all files from your server over the network. For large namespaces, this could mean significant savings in network bandwidth and time. Another core benefit of utilizing Azure File Sync is that regardless of the mode of transport used (Data Box, Azure Import, etc.), your live server will only have to upload the files that have changed since you have shipped the data to Azure. Moreover, Azure File Sync always ensures that your file and folder ACLs are synced as well - even if the offline bulk migration product does not transport ACLs. 
 
 Utilizing Azure Data Box and Azure File Sync allows for zero downtime. Using Data Box to transfer data in to Azure makes efficient use of network bandwidth while preserving file fidelity. It also keeps your namespace up-to-date by uploading only the files that have changed since the Data Box was sent.
@@ -75,6 +75,6 @@ You should only disable this mode when the state is "Completed" or you truly wan
 > [!Important]  
 > After you disable offline data transfer there is no way to enable it again, even if the staging share from the bulk migration is still available.
 
-## See also
+## Next steps
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
 - [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
