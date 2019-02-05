@@ -67,7 +67,7 @@ In the previous step, if you did not have a storage account connection string th
 
 ## Storage account credentials invalid
 
-The above Storage Account connection strings must be updated if you regenerate storage keys. [Read more about storage key management here](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-account)
+The above Storage Account connection strings must be updated if you regenerate storage keys. [Read more about storage key management here](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
 
 ## Storage account inaccessible
 
