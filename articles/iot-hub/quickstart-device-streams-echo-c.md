@@ -59,7 +59,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 2. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
     
     ```
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
     The size of this repository is currently around 220 MB.
@@ -68,7 +68,6 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
     ```
     cd azure-iot-sdk-c
-    git checkout public-preview
     mkdir cmake
     cd cmake
     ```
@@ -84,14 +83,14 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 In Windows, run the following commands in Developer Command Prompt for your Visual Studio 2015 or 2017 prompt:
 
 ```
-    # In Windows
-    # For VS2015
+    rem In Windows
+    rem For VS2015
     cmake .. -G "Visual Studio 15 2015"
     
-    # Or for VS2017
-    cmake .. -G "Visual Studio 15 2017
+    rem Or for VS2017
+    cmake .. -G "Visual Studio 15 2017"
 
-    # Then build the project
+    rem Then build the project
     cmake --build . -- /m /p:Configuration=Release
 ```
 
