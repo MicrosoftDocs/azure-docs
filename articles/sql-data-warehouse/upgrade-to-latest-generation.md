@@ -16,24 +16,25 @@ ms.reviewer: igorstan
 Upgrade Azure SQL Data Warehouse to latest generation of Azure hardware and storage architecture.
 
 ## Why upgrade?
-You can now seamlessly upgrade to the SQL Data Warehouse Compute Optimized Gen2 tier in the Azure portal. If you have a Compute Optimized Gen1 tier data warehouse, upgrading is recommended. By upgrading, you can use the latest generation of Azure hardware and enhanced storage architecture. You can take advantage of faster performance, higher scalability, and unlimited columnar storage. 
+You can now seamlessly upgrade to the SQL Data Warehouse Compute Optimized Gen2 tier in the Azure portal for [supported regions](get link to Azure Updates). If your region does not support self-upgrade, you can upgrade to a supported region or wait for self-upgrade to be available in your region. Upgrade now to take advantage of the latest generation of Azure hardware and enhanced storage architecture including faster performance, higher scalability, and unlimited columnar storage. 
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## Applies to
-This upgrade applies to Compute Optimized Gen1 tier data warehouses.
+This upgrade applies to Compute Optimized Gen1 tier data warehouses in [supported regions.](get link to Azure Updates)
+>
+## Before you begin
+> [!NOTE]
+> If your existing Compute Optimized Gen1 tier data warehouse is not in a region where the Compute Optimized Gen2 tier is available, you can [geo-restore](#Upgrade-from-an-Azure-geographical-region using restore) to a supported region using the Azure portal or PowerShell.
 
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Before you begin
-> [!NOTE]
-> If your existing Compute Optimized Gen1 tier data warehouse is not in a region where the Compute Optimized Gen2 tier is available, you can [geo-restore](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) through PowerShell to a supported region.
->
-> 
-
 1. If the Compute Optimized Gen1 tier data warehouse to be upgraded is paused, [resume the data warehouse](pause-and-resume-compute-portal.md).
+
+> [!NOTE]
+> Azure SQL Data Warehouse must be running to migrate to Gen2.
 
 2. Be prepared for a few minutes of downtime. 
 
@@ -73,14 +74,15 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Start the upgrade
 
-1. Go to your Compute Optimized Gen1 tier data warehouse in the Azure portal and click on the **Upgrade to Gen2** card under the Tasks tab:
+1. Go to your Compute Optimized Gen1 tier data warehouse in the Azure portal. If the Compute Optimized Gen1 tier data warehouse to be upgraded is paused, [resume the data warehouse](pause-and-resume-compute-portal.md). 
+2. Select **Upgrade to Gen2** card under the Tasks tab:
     ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
     
     > [!NOTE]
     > If you do not see the **Upgrade to Gen2** card under the Tasks tab, your subscription type is limited in the current region.
     > [Submit a support ticket](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) to get your subscription whitelisted.
 
-2. By default, **select the suggested performance level** for the data warehouse based on your current performance level on Compute Optimized Gen1 tier by using the mapping below:
+3. By default, **select the suggested performance level** for the data warehouse based on your current performance level on Compute Optimized Gen1 tier by using the mapping below:
 
    | Compute Optimized Gen1 tier | Compute Optimized Gen2 tier |
    | :-------------------------: | :-------------------------: |
@@ -97,20 +99,22 @@ Sign in to the [Azure portal](https://portal.azure.com/).
    |           DW3000            |           DW3000c           |
    |           DW6000            |           DW6000c           |
 
-3. Ensure your workload has completed running and quiesced before upgrading. You will experience downtime for a few minutes before your data warehouse is back online as a Compute Optimized Gen2 tier data warehouse. **Click Upgrade**:
+4. Ensure your workload has completed running and quiesced before upgrading. You'll experience downtime for a few minutes before your data warehouse is back online as a Compute Optimized Gen2 tier data warehouse. **Select Upgrade**:
 
    ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
 
-4. **Monitor your upgrade** by checking the status in the Azure portal:
+5. **Monitor your upgrade** by checking the status in the Azure portal:
 
    ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
 
    The first step of the upgrade process goes through the scale operation ("Upgrading - Offline") where all sessions will be killed, and connections will be dropped. 
 
-   The second step of the upgrade process is data migration ("Upgrading - Online"). Data migration is an online trickle background process, which slowly moves columnar data from the old storage architecture to the new storage architecture leveraging a local SSD cache. During this time, your data warehouse will be online for querying and loading. All your data will be available to query regardless of whether it has been migrated or not. The data migration happens at a varying rate depending on your data size, your performance level, and the number of your columnstore segments. 
+   The second step of the upgrade process is data migration ("Upgrading - Online"). Data migration is an online trickle background process. This process slowly moves columnar data from the old storage architecture to the new storage architecture using a local SSD cache. During this time, your data warehouse will be online for querying and loading. Your data will be available to query regardless of whether it has been migrated or not. The data migration happens at varying rates depending on your data size, your performance level, and the number of your columnstore segments. 
 
-5. **Optional Recommendation:** 
-  To expedite the data migration background process, you can immediately force data movement by running [Alter Index rebuild](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) on all primary columnstore tables you'd be querying at a larger SLO and resource class. This operation is **offline** compared to the trickle background process which can take hours to complete depending on the number and sizes of your tables; however, data migration will be much quicker where you can then take full advantage of the new enhanced storage architecture once complete with high-quality rowgroups. 
+6. **Optional Recommendation:** 
+  Once the scaling operation is complete, you can speed up the data migration background process. You can force data movement by running [Alter Index rebuild](sql-data-warehouse-tables-index) on all primary columnstore tables you'd be querying at a larger SLO and resource class. This operation is **offline** compared to the trickle background process, which can take hours to complete depending on the number and sizes of your tables. However, once complete data migration will be much quicker due to the new enhanced storage architecture with high-quality rowgroups. 
+> [!NOTE]
+> Alter Index rebuild is an offline operation and the tables will not be available until the rebuild completes.
 
 The following query generates the required Alter Index Rebuild commands to expedite the data migration process:
 
@@ -156,8 +160,90 @@ FROM   sys.indexes idx
                        AND idx.object_id = part.object_id 
 WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
 ```
+## Upgrade-from-an-Azure-geographical-region using restore
+
+## Restore through the Azure portal
+
+## Create a user-defined restore point using the Azure portal
+1. Sign in to the [Azure portal][Azure portal].
+
+2. Navigate to the SQL data warehouse that you want to create a restore point for.
+
+3. At the top of the Overview section, select **+New Restore Point**.
+
+    ![New Restore Point](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
+
+4. Specify a name for your restore point.
+
+    ![Name of Restore Point](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
+
+## Restore an active or paused database using the Azure portal
+1. Sign in to the [Azure portal][Azure portal].
+2. Navigate to the SQL data warehouse that you want to restore from.
+3. At the top of the Overview section, select **Restore**.
+
+    ![ Restore Overview](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)
+
+4. Select either **Automatic Restore Points** or **User-Defined Restore Points**.
+
+    ![Automatic Restore Points](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
+
+5. For User-Defined Restore Points, **select a Restore point** or **Create a new user-defined restore point**. Choose a server in a Gen2 supported geographic region. Select the suggested performance level for the data warehouse based on your current performance level on Compute Optimized Gen1 tier by using the mapping below:
+   | Compute Optimized Gen1 tier | Compute Optimized Gen2 tier |
+   |: -------------------------: | :-------------------------: |
+   |            DW100            |           DW100c            |
+   |            DW200            |           DW200c            |
+   |            DW300            |           DW300c            |
+   |            DW400            |           DW400c            |
+   |            DW500            |           DW500c            |
+   |            DW600            |           DW500c            |
+   |           DW1000            |           DW1000c           |
+   |           DW1200            |           DW1000c           |
+   |           DW1500            |           DW1500c           |
+   |           DW2000            |           DW2000c           |
+   |           DW3000            |           DW3000c           |
+   |           DW6000            |           DW6000c           |
 
 
+    ![User-defined Restore Points](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
+
+## Restore from an Azure geographical region using PowerShell
+To recover a database, use the [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase] cmdlet.
+
+> [!NOTE]
+> You can perform a geo-restore to Gen2! To do so, specify an Gen2 ServiceObjectiveName (e.g. DW1000**c**) as an optional parameter.
+>
+
+1. Open Windows PowerShell.
+2. Connect to your Azure account and list all the subscriptions associated with your account.
+3. Select the subscription that contains the database to be restored.
+4. Get the database you want to recover.
+5. Create the recovery request for the database, specifying a Gen2 ServiceObjectiveName.
+6. Verify the status of the geo-restored database.
+
+```Powershell
+Connect-AzureRmAccount
+Get-AzureRmSubscription
+Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
+
+# Get the database you want to recover
+$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
+
+# Recover database
+$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID -ServiceObjectiveName "<YourTargetServiceLevel>" -RequestedServiceObjectiveName "DW300c"
+
+# Verify that the geo-restored database is online
+$GeoRestoredDatabase.status
+```
+
+> [!NOTE]
+> To configure your database after the restore has completed, see [Configure your database after recovery][Configure your database after recovery].
+>
+
+The recovered database will be TDE-enabled if the source database is TDE-enabled.
+
+
+If you experience any issues with your data warehouse, create a [support request](sql-data-warehouse-get-started-create-support-ticket) and reference “Gen2 upgrade” as the possible cause.
 
 ## Next steps
 Your upgraded data warehouse is online. To take advantage of the enhanced architecture, see [Resource classes for Workload Management](resource-classes-for-workload-management.md).

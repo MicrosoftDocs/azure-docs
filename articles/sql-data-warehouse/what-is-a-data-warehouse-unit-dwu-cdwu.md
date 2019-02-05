@@ -32,7 +32,9 @@ Increasing DWUs:
 - Increases the maximum number of concurrent queries and concurrency slots.
 
 ## Service Level Objective
-The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 are measured in compute data warehouse units (cDWU), for example DW2000c. Gen1 service levels are measured in DWUs, for example DW2000. 
+The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 are measured in compute data warehouse units (cDWU), for example DW2000c. Gen1 service levels are measured in DWUs, for example DW2000.
+  > [!NOTE]
+  > Azure SQL Data Warehouse Gen2 recently added additional scale capabilities to support compute tiers as low as 100 cDWU. Existing data warehouses currently on Gen1 that require the lower compute tiers can now upgrade to Gen2 in the regions that are currently available for no additional cost.  If your region is not yet supported, you can still upgrade to a supported region. For more information see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
 In T-SQL the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your data warehouse.
 
