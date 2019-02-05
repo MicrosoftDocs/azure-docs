@@ -9,11 +9,11 @@ ms.author: cephalin
 
 Make sure you're still in the root directory of the sample project. Create a ZIP archive of everything in your project. The following command uses the default tool in your terminal:
 
-```
-# Bash
+```Bash
 zip -r myAppFiles.zip .
+```
 
-# PowerShell
+```PowerShell
 Compress-Archive -Path * -DestinationPath myAppFiles.zip
 ``` 
 
