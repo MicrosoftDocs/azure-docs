@@ -85,5 +85,3 @@ These policies are available to Storage accounts that don't have hierarchical na
 ## Diagnostic logs
 
 Diagnostic logs aren't available for Azure Data Lake Storage Gen2 accounts.
-
-To request diagnostic logs, contact Azure Support. Provide them with your account name and the period of time for which you require logs.
