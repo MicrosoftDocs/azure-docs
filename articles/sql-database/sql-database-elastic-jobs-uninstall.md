@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: 
 manager: craigg
-ms.date: 06/14/2018
+ms.date: 12/04/2018
 ---
 # Uninstall Elastic Database jobs components
 
