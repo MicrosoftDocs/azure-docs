@@ -63,7 +63,7 @@ v3 is based on a unified API surface, which exposes both management and operatio
 
 ###  How to insert breaks/videos and image slates during live stream
 
-Media Services v3 live encoding does not have support for inserting video or image slates yet. 
+Media Services v3 live encoding does not yet support inserting video or image slates during live stream. 
 
 You can use a [live on-premises encoder](recommended-on-premises-live-encoders.md) to switch the source video. Many apps provide ability to switch sources, including Telestream Wirecast, Switcher Studio (on iOS), OBS Studio (free app), and many more.
 
