@@ -43,7 +43,7 @@ See, [Scale media processing with CLI](media-reserved-units-cli-how-to.md).
 
 ### What is the recommended upload method?
 
-It is recommended to use the HTTP(s) ingests mehod. For more information, see [HTTP(s) ingest](job-input-from-http-how-to.md).
+It is recommended to use the HTTP(s) ingests method. For more information, see [HTTP(s) ingest](job-input-from-http-how-to.md).
 
 ### How does pagination work?
 
