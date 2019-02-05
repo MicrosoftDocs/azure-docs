@@ -5,28 +5,55 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 1/23/2019
+ms.date: 2/5/2019
 ms.author: victorh
 ---
 
-# Azure Firewall threat intelligence-based filtering - Public Preview
+# Azure Firewall threat intelligence based filtering - Public Preview
 
-Threat intelligence-based filtering can be enabled for your firewall to alert and block traffic to or from known malicious IP addresses and domains. The Microsoft Threat Intelligence feed is based on numerous internal and external data sources and is constantly updated. During the public preview, only high confidence indicators are provided.
+Threat intelligence based filtering can be enabled for your firewall to alert and block traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed, and during the preview only highest confidence records are included.
 
 > [!IMPORTANT]
-> Threat intelligence-based filtering is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+> Threat intelligence based filtering is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
 If threat intelligence-based filtering is enabled, the associated rules are processed before any of the NAT rules, network rules, or application rules.
 
-You can choose to just log an alert when a rule is triggered, or alert and block.
+You can choose to just log an alert when a rule is triggered, or you can choose alert and block.
 
-[portal screenshot]
+The public preview will be initially released without a user interface in the Azure portal. Shortly thereafter, portal support will be added and noted in this article. By default, threat intelligence based filtering is enabled in alert mode.
 
 ## Logs
 
-The following log excerpt is an example showing triggered rules:
+The following log excerpts are examples showing triggered rules.
 
-[log example]
+Here's a log entry for a packet dropped at layer 7:
+
+```
+
+{
+"category": "AzureFirewallApplicationRule",
+"time": "2018-04-16T23:45:04.8295030Z",
+"resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+"operationName": " AzureFirewallThreatIntelLog ",
+"properties": {
+     "msg": "HTTP request from 10.0.0.5:54074 to newdatastatsserv.com:80. Action: Alert. ThreatIntel: Bot Networks"
+}
+}
+```
+
+And here's a log entry for a packet dropped at layer 4:
+
+```
+{
+"category": "AzureFirewallNetworkRule",
+"time": "2018-06-14T23:44:11.0590400Z",
+"resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+"operationName": "AzureFirewallThreatIntelLog",
+"properties": {
+     "msg": "TCP request from 10.0.0.5:54084 to 64.95.103.180:80. Action: Alert. ThreatIntel: Bot Networks"
+}
+}
+```
 
 ## Next steps
 
