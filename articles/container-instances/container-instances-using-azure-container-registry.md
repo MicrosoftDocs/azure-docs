@@ -25,7 +25,7 @@ ms.custom: mvc
 
 In any production scenario, access to an Azure container registry should be provided by using [service principals](../container-registry/container-registry-auth-service-principal.md). Service principals allow you to provide [role-based access control](../container-registry/container-registry-roles.md) to your container images. For example, you can configure a service principal with pull-only access to a registry.
 
-In this section, you create an Azure key vault and a service principal, and store the service principal's credentials in the vault.
+In the following section, you create an Azure key vault and a service principal, and store the service principal's credentials in the vault. 
 
 ### Create key vault
 
@@ -130,9 +130,11 @@ For details on referencing Azure Key Vault secrets in a Resource Manager templat
 
 ## Deploy with Azure portal
 
-If you maintain container images in the Azure Container Registry, you can easily create a container in Azure Container Instances using the Azure portal.
+If you maintain container images in an Azure container registry, you can easily create a container in Azure Container Instances using the Azure portal. When using the portal to deploy a container instance from a container registry, you must enable the registry's [admin account](../container-registry/container-registry-authentication.md#admin-account). The admin account is designed for a single user to access the registry, mainly for testing purposes. 
 
 1. In the Azure portal, navigate to your container registry.
+
+1. To confirm that the admin account is enabled, select **Access keys**, and under **Admin user** select **Enable**.
 
 1. Select **Repositories**, then select the repository that you want to deploy from, right-click the tag for the container image you want to deploy, and select **Run instance**.
 
