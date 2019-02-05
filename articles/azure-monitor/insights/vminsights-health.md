@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2019
+ms.date: 02/01/2019
 ms.author: magoedte
 ---
 
@@ -137,13 +137,6 @@ Here you can quickly identify the top critical issues detected by the health cri
 The **VM distribution by operating system** list shows VMs listed by Windows edition or Linux distribution, along with their version. In each operating system category, the VMs are broken down further based on the health of the VM. 
 
 ![VM Insights virtual machine distribution perspective](./media/vminsights-health/vminsights-vmdistribution-by-os.png)
-
-The health states defined for a VM are: 
-
-* **Healthy** – no issues detected for the VM and it is functioning as required.  
-* **Critical** – one or more critical issues are detected, which need to be addressed in order to restore normal functionality as expected. 
-* **Warning** -  one or more issues are detected, which need to be addressed or the health condition could become critical.  
-* **Unknown** – if the service was not able to make a connection with the VM, the status changes to an unknown state.  
 
 You can click on any column item - **VM count**, **Critical**, **Warning**, **Healthy** or **Unknown** to drill-down into the **Virtual Machines** page see a list of filtered results matching the column selected. For example, if we want to review all VMs running **Red Hat Enterprise Linux release 7.5**, click on the **VM count** value for that OS and it will open the following page, listing the virtual machines matching that filter and their currently known health state.  
 

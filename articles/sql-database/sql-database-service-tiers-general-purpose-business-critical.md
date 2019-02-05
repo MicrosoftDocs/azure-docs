@@ -3,7 +3,7 @@ title: 'Azure SQL Database - general purpose and business critical | Microsoft D
 description: The article discusses the general purpose and business critical service tier in the vCore purchasing model.  
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual

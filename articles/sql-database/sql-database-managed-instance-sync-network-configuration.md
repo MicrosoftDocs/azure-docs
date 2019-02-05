@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 03/07/2018
+ms.date: 12/13/2018
 ---
 # Sync networking configuration for Azure App Service hosting plan
 
