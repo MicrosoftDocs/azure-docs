@@ -20,7 +20,7 @@ If threat intelligence-based filtering is enabled, the associated rules are proc
 
 You can choose to just log an alert when a rule is triggered, or you can choose alert and block.
 
-The public preview will be initially released without a user interface in the Azure portal. Shortly thereafter, portal support will be added and noted in this article. By default, threat intelligence based filtering is enabled in alert mode.
+During this initial public preview release, there is no user interface in the Azure portal. By default, threat intelligence-based filtering is enabled in alert mode. You can’t yet turn this feature off or change to blocking mode.
 
 ## Logs
 
@@ -31,13 +31,13 @@ Here's a log entry for a packet dropped at layer 7:
 ```
 
 {
-"category": "AzureFirewallApplicationRule",
-"time": "2018-04-16T23:45:04.8295030Z",
-"resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-"operationName": " AzureFirewallThreatIntelLog ",
-"properties": {
-     "msg": "HTTP request from 10.0.0.5:54074 to newdatastatsserv.com:80. Action: Alert. ThreatIntel: Bot Networks"
-}
+    "category": "AzureFirewallApplicationRule",
+    "time": "2018-04-16T23:45:04.8295030Z",
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+    "operationName": "AzureFirewallThreatIntelLog",
+    "properties": {
+         "msg": "HTTP request from 10.0.0.5:54074 to newdatastatsserv.com:80. Action: Alert. ThreatIntel: Bot Networks"
+    }
 }
 ```
 
@@ -45,13 +45,13 @@ And here's a log entry for a packet dropped at layer 4:
 
 ```
 {
-"category": "AzureFirewallNetworkRule",
-"time": "2018-06-14T23:44:11.0590400Z",
-"resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-"operationName": "AzureFirewallThreatIntelLog",
-"properties": {
-     "msg": "TCP request from 10.0.0.5:54084 to 64.95.103.180:80. Action: Alert. ThreatIntel: Bot Networks"
-}
+    "category": "AzureFirewallNetworkRule",
+    "time": "2018-06-14T23:44:11.0590400Z",
+    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
+    "operationName": "AzureFirewallThreatIntelLog",
+    "properties": {
+         "msg": "TCP request from 10.0.0.5:54084 to 64.95.103.180:80. Action: Alert. ThreatIntel: Bot Networks"
+    }
 }
 ```
 
