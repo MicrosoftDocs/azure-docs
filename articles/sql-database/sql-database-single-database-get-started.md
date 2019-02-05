@@ -39,7 +39,7 @@ To create a single database containing the AdventureWorksLT sample data:
     >[!IMPORTANT]
     >Make sure to select the **Sample (AdventureWorksLT)** data so you can follow easily this and other Azure SQL Database quickstarts that use this data.
   
-   ![Create single database](./media/sql-database-single-database-get-started/create-database-1.png)
+   ![Create single database](./media/sql-database-get-started-portal/create-database-1.png)
 
 4. Under **Server**, select **Create new**.
 5. In the **New server** form, type or select the following values:
@@ -53,7 +53,7 @@ To create a single database containing the AdventureWorksLT sample data:
    >[!IMPORTANT]
    >Remember to record the server admin login and password so you can log in to the server and databases for this and other quickstarts. If you forget your login or password, you can get the login name or reset the password on the **SQL server** page. To open the **SQL server** page, select the server name on the database **Overview** page after database creation.
 
-    ![Create server](./media/sql-database-single-database-get-started/create-database-server.png)
+    ![Create server](./media/sql-database-get-started-portal/create-database-server.png)
 
 6. Choose **Select**.
 7. On the **SQL Database** form, select **Pricing tier**. Explore the amount of DTUs and storage available for each service tier.
@@ -66,13 +66,13 @@ To create a single database containing the AdventureWorksLT sample data:
 8. For this quickstart, select the **Standard** service tier, and then use the slider to select **10 DTUs (S0)** and **1** GB of storage.
 9. Select **Apply**.  
 
-   ![Select pricing](./media/sql-database-single-database-get-started/create-database-s1.png)
+   ![Select pricing](./media/sql-database-get-started-portal/create-database-s1.png)
 
 10. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database.
 
    Deployment takes a few minutes. You can select **Notifications** on the toolbar to monitor deployment progress.
 
-   ![Notification](./media/sql-database-single-database-get-started/notification.png)
+   ![Notification](./media/sql-database-get-started-portal/notification.png)
 
 ## Query the database
 
@@ -80,7 +80,7 @@ Now that you've created the database, use the built-in query tool in the Azure p
 
 1. On the **SQL Database** page for your database, select **Query editor (preview)** in the left menu.
 
-   ![Sign in to Query editor](./media/sql-database-single-database-get-started/query-editor-login.png)
+   ![Sign in to Query editor](./media/sql-database-get-started-portal/query-editor-login.png)
 
 2. Enter your login information, and select **OK**.
 3. Enter the following query in the **Query editor** pane.
@@ -94,7 +94,7 @@ Now that you've created the database, use the built-in query tool in the Azure p
 
 4. Select **Run**, and then review the query results in the **Results** pane.
 
-   ![Query editor results](./media/sql-database-single-database-get-started/query-editor-results.png)
+   ![Query editor results](./media/sql-database-get-started-portal/query-editor-results.png)
 
 5. Close the **Query editor** page, and select **OK** when prompted to discard your unsaved edits.
 
