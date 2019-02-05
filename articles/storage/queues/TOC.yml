@@ -1,12 +1,15 @@
+- name: Azure Storage Documentation
+  href: /azure/storage/
 - name: Overview
+  expanded: true
   items:
   - name: Introduction to Queues
     href: storage-queues-introduction.md
-- name: Get started
+- name: Quickstarts
   items:
   - name: Create a storage account
     href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-  - name: Develop
+  - name: Develop with queues
     items:
     - name: .NET
       href: storage-dotnet-how-to-use-queues.md
@@ -24,9 +27,15 @@
       href: storage-ruby-how-to-use-queue-storage.md
     - name: PowerShell
       href: storage-powershell-how-to-use-queues.md
+- name: Samples
+  items:
+  - name: .NET
+    href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+  - name: Java
+    href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Concepts
   items:
-  - name: Storage accounts
+  - name: Storage account management
     href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     items:
     - name: Manage a storage account
@@ -51,38 +60,77 @@
       href: /rest/api/storageservices/authorize-with-shared-key
     - name: Authorize with SAS
       href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-- name: How to
-  items:
-  - name: Plan and design
-    items:
     - name: Data redundancy
+      href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       items:
-      - name: Redundancy overview
-        href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Locally-redundant storage
+      - name: Locally redundant storage
         href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Zone-redundant storage
         href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Geo-redundant storage
         href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Designing HA Apps using RA-GRS
-      href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Scalability and performance targets
-      href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Performance and scalability checklist
-      href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Disaster recovery and failover
+        href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Designing HA Apps using RA-GRS
+        href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Security
+      items:
+      - name: Security guide
+        href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Configure firewalls and virtual networks 
+        href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Encryption for data at rest
+        href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Encryption at rest with customer keys
+        href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Require secure transfer
+        href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Advanced Threat Protection (preview)
+        href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Enable secure TLS for Azure Storage client
+        href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Performance and scaling
+      items:
+      - name: Scalability and performance targets
+        href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Performance and scalability checklist
+        href: ../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Concurrency
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Disaster recovery and failover
-      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Monitor and troubleshoot
+      items:
+      - name: Troubleshooting tutorial
+        href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Monitor, diagnose, and troubleshoot
+        href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Metrics and logging
+        items:
+        - name: Metrics in Azure Monitor
+          href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Migrate to new metrics
+          href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Storage Analytics
+          href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Enable and view metrics (classic)
+          href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+- name: How to
+  items:
+  - name: Authorize requests to Storage
+    items: 
+    - name: Authenticate with Azure AD
+      items:
+        - name: Manage access rights with RBAC
+          href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Authenticate from an application
+          href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Authenticate with managed identities
+          href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Use an Azure AD identity with CLI or PowerShell
+          href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Authorize with Shared Key (REST)
+      href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Develop
     items:
-    - name: Samples
-      items:
-      - name: .NET
-        href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Java
-        href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Configure connection strings
       href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Use the Storage Emulator
@@ -95,8 +143,6 @@
       href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: PowerShell for China, Government, and German clouds
       href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Azure Automation
-      href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Initiate an account failover
       href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Secure
@@ -245,3 +291,6 @@
       href: https://github.com/Azure/azure-storage-ruby
     - name: iOS
       href: https://github.com/Azure/azure-storage-ios
+  - name: Compliance offerings
+    href: ../common/storage-compliance-offerings.md   
+

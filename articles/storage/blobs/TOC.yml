@@ -45,7 +45,7 @@
         href: storage-quickstart-blobs-ruby.md
   - name: Tutorials
     items:
-    - name: Upload and process an image
+    - name: Upload and process an image 
       items:
         - name: 1 - Upload and retrieve image data in the cloud
           href: storage-upload-process-images.md
@@ -105,15 +105,6 @@
       items:
       - name: Authenticate with Azure AD
         href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        items:
-          - name: Manage access rights with RBAC
-            href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Authenticate from an application
-            href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Authenticate with managed identities
-            href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-          - name: Use an Azure AD identity with CLI or PowerShell
-            href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Authorize with Shared Key
         href: /rest/api/storageservices/authorize-with-shared-key
       - name: Authorize with SAS
@@ -307,10 +298,10 @@
             href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Use an Azure AD identity with CLI or PowerShell
             href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Authorize with Shared Key (REST)
+        href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Develop with blobs
       items:
-      - name: REST
-        href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: C++
         href: storage-c-plus-plus-how-to-use-blobs.md
       - name: iOS
