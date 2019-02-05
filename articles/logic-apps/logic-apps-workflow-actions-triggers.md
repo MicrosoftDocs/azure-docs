@@ -160,7 +160,7 @@ behavior depends on whether or not sections are included.
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call. For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. |
 | <*max-runs*> | Integer | By default, logic app workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). |
 | <*max-runs-queue*> | Integer | When your logic app is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). |
-| <*splitOn-expression*> | String | For triggers that return arrays, this expression references the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
+| <*splitOn-expression*> | String | For triggers that return arrays, this expression references the array to use so that you can create and run a workflow instance for each array item, rather than use a "Foreach" loop. When you use the `SplitOn` property, you get concurrent instances up to the limit that the trigger and service can return. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
 | <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). |
 ||||
 
@@ -255,7 +255,7 @@ and waits for the endpoint to respond. For more information, see
 | <*query-parameters*> | JSON Object | Any query parameters to include with the API call <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. |
 | <*max-runs*> | Integer | By default, logic app workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). |
 | <*max-runs-queue*> | Integer | When your logic app is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). |
-| <*splitOn-expression*> | String | For triggers that return arrays, this expression references the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
+| <*splitOn-expression*> | String | For triggers that return arrays, this expression references the array to use so that you can create and run a workflow instance for each array item, rather than use a "Foreach" loop. When you use the `SplitOn` property, you get concurrent instances up to the limit that the trigger and service can return. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
 | <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). |
 ||||
 
@@ -743,9 +743,13 @@ sometimes a "for each" loop might take too long to process each array item.
 Instead, you can use the **SplitOn** property in your trigger to *debatch* the array. 
 Debatching splits up the array items and starts a new logic app instance 
 that runs for each array item. This approach is useful, for example, 
-when you want to poll an endpoint that might return multiple new items between polling intervals.
-For the maximum number of array items that **SplitOn** can process in a single logic app run, 
-see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+when you want to poll an endpoint that might return multiple new items 
+between polling intervals. 
+
+When you use the `SplitOn` property, you get concurrent instances up to 
+the limit that the trigger and service can return. For the maximum number 
+of array items that **SplitOn** can process in a single logic app run, 
+see [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
 
 > [!NOTE]
 > You can't use **SplitOn** with a synchronous response pattern. 
@@ -1559,11 +1563,11 @@ actions required by the **Response** action are finished within the
   how much time passes before the nested workflow finishes.
 
 * When your workflow uses the **Response** action and a synchronous response pattern, 
-the workflow can't also use the **splitOn** command in the trigger definition because 
+the workflow can't also use the **SplitOn** property in the trigger definition because 
 that command creates multiple runs. Check for this case when the PUT method is used, 
 and if true, return a "bad request" response.
 
-  Otherwise, if your workflow uses the **splitOn** command and a **Response** action, 
+  Otherwise, if your workflow uses the **SplitOn** property and a **Response** action, 
   the workflow runs asynchronously and immediately returns a "202 ACCEPTED" response.
 
 * When your workflow's execution reaches the **Response** action, 
