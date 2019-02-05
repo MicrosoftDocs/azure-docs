@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/05/2019
 ---
 # Getting started with single databases in Azure SQL Database
 
