@@ -24,7 +24,7 @@ The following tables show data that's included or isn't in Cost Management.
 
 | **Included** | **Not included** |
 | --- | --- |
-| Enterprise Agreement (EA) | Cloud Solution Provider (CSP) - For more information, see the [Partner Center overview](../cloud-solution-provider/overview/partner-center-overview.md). |
+| Enterprise Agreement (EA) | Cloud Solution Provider (CSP) - For more information, see the [Partner Center overview](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview). |
 | Pay-as-you-go (PAYG) |   |
 | Dev/test |   |
 | Free, trial, and sponsored |   |
