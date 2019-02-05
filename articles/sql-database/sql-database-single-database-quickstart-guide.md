@@ -42,6 +42,6 @@ These quickstarts enable you to quickly create or import your database to Azure 
 
 - Find a [high-level list of supported features in Azure SQL Database](sql-database-features.md).
 - Learn how to make your [database more secure](sql-database-security-tutorial.md).
-- Find more advanced how-to's in [how to use a single instance in Azure SQL Database](sql-database-howto-single-instance.yml).
+- Find more advanced how-to's in [how to use a single instance in Azure SQL Database](sql-database-howto-single-instance.md).
 - Find more sample scripts written in [PowerShell](sql-database-powershell-samples.md) and [Azure CLI](sql-database-cli-samples.md).
 - Learn more about the [management API](sql-database-single-databases-manage.md) that you can use to configure your databases.
