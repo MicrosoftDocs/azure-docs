@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Deploy models with the Azure Machine Learning service
 
-The Azure Machine Learning service provides several ways you can deploy your trained model using the SDK. In this document, learn how to deploy your model as a web service in the Azure cloud, or to IoT edge devices.
+The Azure Machine Learning service provides several ways you can deploy your trained model using the SDK. In this document, learn how to deploy your model as a web service in the Azure cloud, or to IoT Edge devices.
 
 > [!IMPORTANT]
 > Cross-origin resource sharing (CORS) is not currently supported when deploying a model as a web service.
@@ -114,7 +114,7 @@ The execution script receives data submitted to a deployed image, and passes it 
 
 #### Working with JSON data
 
-The following is an example script that accepts and returns JSON data. The `run` function transforms the data from JSON into a format that the model expects, and then transforms the response to JSON before returning it:
+The following example script accepts and returns JSON data. The `run` function transforms the data from JSON into a format that the model expects, and then transforms the response to JSON before returning it:
 
 ```python
 # import things required by this script
@@ -144,7 +144,7 @@ def run(raw_data):
 
 #### Working with Binary data
 
-If your model accepts __binary data__, use `AMLRequest`, `AMLResponse`, and `rawhttp`. The following is an example of a script that accepts binary data and returns the reversed bytes for POST requests. For GET requests, it returns the full URL in the response body:
+If your model accepts __binary data__, use `AMLRequest`, `AMLResponse`, and `rawhttp`. The following example script accepts binary data and returns the reversed bytes for POST requests. For GET requests, it returns the full URL in the response body:
 
 ```python
 from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
@@ -360,7 +360,7 @@ sudo ./createNregister <The Azure subscriptionID you want to use> <Resourcegroup
 
 Save the resulting connection string after "cs":"{copy this string}".
 
-Initialize your device by downloading [this script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) into an UbuntuX64 IoT edge node or DSVM to run the following commands:
+Initialize your device by downloading [this script](https://raw.githubusercontent.com/Azure/ai-toolkit-iot-edge/master/amliotedge/installIoTEdge) into an UbuntuX64 IoT Edge node or DSVM to run the following commands:
 
 ```bash
 ssh <yourusername>@<yourdeviceip>
@@ -371,7 +371,7 @@ sudo ./installIoTEdge
 
 The IoT Edge node is ready to receive the connection string for your IoT Hub. Look for the line ```device_connection_string:``` and paste the connection string from above in between the quotes.
 
-You can also learn how to register your device and install the IoT runtime step by step by following the [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md) document.
+You can also learn how to register your device and install the IoT runtime by following the [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md) document.
 
 
 #### Get the container registry credentials
@@ -379,7 +379,7 @@ To deploy an IoT Edge module to your device, Azure IoT needs the credentials for
 
 You can easily retrieve the necessary container registry credentials in two ways:
 
-+ **In the Azure Portal**:
++ **In the Azure portal**:
 
   1. Sign in to the [Azure portal](https://portal.azure.com/signin/index).
 
@@ -503,7 +503,7 @@ For more information, see the reference documentation for [WebService.delete()](
     logging.basicConfig(level=logging.DEBUG)
     ```
 
-    This change enables additional logging, and may return more information on why the error is occuring.
+    This change enables additional logging, and may return more information on why the error is occurring.
 
 ## Next steps
 
