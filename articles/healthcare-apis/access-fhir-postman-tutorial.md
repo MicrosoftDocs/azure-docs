@@ -12,20 +12,20 @@ ms.date: 02/07/2019
 
 # Tutorial: Access FHIR API with Postman
 
-A client application would access a FHIR API through a [REST API](https://www.hl7.org/fhir/http.html). You may also want to interact directly with the FHIR server as you build applications, for example, for debugging purposes. In this tutorial, we will walk through the steps needed to use [Postman](https://www.getpostman.com/) to access the FHIR server. Postman is a tool often used for debugging when building applications that access APIs.
+A client application would access a FHIR API through a [REST API](https://www.hl7.org/fhir/http.html). You may also want to interact directly with the FHIR server as you build applications, for example, for debugging purposes. In this tutorial, we will walk through the steps needed to use [Postman](https://www.getpostman.com/) to access a FHIR server. Postman is a tool often used for debugging when building applications that access APIs.
 
 ## Prerequisites
 
-- A FHIR endpoint in Azure. You can set that up using the Azure API for FHIR. There are quickstarts available for [Azure portal](fhir-oss-portal-quickstart.md), [PowerShell](fhir-oss-powershell-quickstart.md), or [Azure CLI](fhir-oss-cli-quickstart.md).
+- A FHIR endpoint in Azure. You can set that up using the managed Azure API for FHIR or the Open Source FHIR server for Azure. Set up the managed Azure API for FHIR using [Azure portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md), or [Azure CLI](fhir-paas-cli-quickstart.md).
 - Postman installed. You can get it from [https://www.getpostman.com](https://www.getpostman.com)
 
 ## FHIR server and authentication details
 
 In order to use Postman, you will need to know the following details:
 
-- Your FHIR server URL, for example, `https://MYFHIRSERVICE.azurewebsites.net` or `https://MYACCOUNT.azurehealthcareapis.com/fhir`
+- Your FHIR server URL, for example, `https://MYFHIRSERVICE.azurewebsites.net` or `https://MYACCOUNT.azurehealthcareapis.com`
 - The identity provider `Authority` for your FHIR server, for example, `https://login.microsoftonline.com/{TENANT-ID}`
-- The configured `audience`, which would be set in the [Azure AD resource application registration](register-resource-azure-ad-client-app.md).
+- The configured `audience`. For Azure API for FHIR this is `https://azurehealthcareapis.com` and for the open source FHIR server for Azure, it would be set in the [Azure AD resource application registration](register-resource-azure-ad-client-app.md).
 - The `client_id` (or application ID) of the [client application](register-confidential-azure-ad-client-app.md) you will be using to access the FHIR service.
 - The `client_secret` (or application secret) of the client application.
 
@@ -59,9 +59,9 @@ You will need to some details:
 | Token Name            | MYTOKEN                                                                                                         | A name you choose          |
 | Grant Type            | Authorization Code                                                                                              |                            |
 | Callback URL          | `https://www.getpostman.com/oauth2/callback`                                                                      |                            |
-| Auth URL              | `https://login.microsoftonline.com/{TENANT-ID}/oauth2/authorize?resource=https://MYFHIRSERVICE.azurewebsites.net` | resource is the `audience` |
+| Auth URL              | `https://login.microsoftonline.com/{TENANT-ID}/oauth2/authorize?resource=<audience>` | `audience` is `https://azurehealthcareapis.com` for Azure API for FHIR and `https://MYFHIRSERVICE.azurewebsites.net` for OSS FHIR server |
 | Access Token URL      | `https://login.microsoftonline.com/{TENANT ID}/oauth2/token`                                                      |                            |
-| Client ID             | `2a73e546-XXX-XXXX-XXXX-35d04139f7cc`                                                                            | Application ID             |
+| Client ID             | `XXXXXXXX-XXX-XXXX-XXXX-XXXXXXXXXXXX`                                                                            | Application ID             |
 | Client Secret         | `XXXXXXXX`                                                                                                        | Secret client key          |
 | State                 | `1234`                                                                                                            |                            |
 | Client Authentication | Send client credentials in body                                                                                 |                 
@@ -82,7 +82,7 @@ If you inspect the access token with a tool like [https://jwt.ms](https://jwt.ms
 
 ```json
 {
-  "aud": "https://FHIRSERVER-AUDIENCE.azurewebsites.net",
+  "aud": "https://azurehealthcareapis.com",
   "iss": "https://sts.windows.net/{TENANT-ID}/",
   "iat": 1545343803,
   "nbf": 1545343803,
@@ -92,14 +92,15 @@ If you inspect the access token with a tool like [https://jwt.ms](https://jwt.ms
   "amr": [
     "pwd"
   ],
-  "appid": "2a73e546-7a7f-4dc3-92e2-35d04139f7cc",
+  "appid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "oid": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "appidacr": "1",
 
   ...// Truncated
 }
 ```
 
-In troubleshooting situations, validating that you have the correct audience (`aud` claim) is a good place to start
+In troubleshooting situations, validating that you have the correct audience (`aud` claim) is a good place to start. The managed Azure API for FHIR uses [identity object IDs](find-identity-object-ids.md) to restrict access to the service. Make sure that `oid` claim of the token contains an object ID from the list of allowed object IDs.
 
 ## Inserting a patient
 
