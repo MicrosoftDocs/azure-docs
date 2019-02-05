@@ -31,9 +31,9 @@ Figure below illustrates the setup of how the device- and service-local proxy pr
 
 2. Device-local proxy completes the stream initiation handshake and establishes an end-to-end streaming tunnel through IoT Hub's streaming endpoint to the service side.
 
-3. Device-local proxy connects to the SSH daemon (SSHD) listening on port 22 on the device (this port is configurable, as described [below](#run-the-device-side-application)).
+3. Device-local proxy connects to the SSH daemon (SSHD) listening on port 22 on the device (this port is configurable, as described [below](#run-the-device-local-proxy)).
 
-4. Service-local proxy awaits for new SSH connections from the user by listening on a designated port which in this case is port 2222 (this is also configurable, as described [below](#run-the-service-local-application)). When user connects via SSH client, the tunnel enables application traffic to be exchanged between the SSH client and server programs.
+4. Service-local proxy awaits for new SSH connections from the user by listening on a designated port which in this case is port 2222 (this is also configurable, as described [below](#run-the-service-local-proxy)). When user connects via SSH client, the tunnel enables application traffic to be exchanged between the SSH client and server programs.
 
 > [!NOTE]
 > SSH traffic being sent over the stream will be tunneled through IoT Hub's streaming endpoint rather than being sent directly between service and device. This provides [these benefits](./iot-hub-device-streams-overview.md#benefits).
@@ -184,7 +184,7 @@ Console output of the SSH client program (SSH client communicates to SSH daemon 
 
 The setup for RDP is very similar to SSH (described above). We basically need to use the RDP destination IP and port 3389 instead and use RDP client (instead of SSH client).
 
-### Run the device-side application
+### Run the device-local proxy (RDP)
 
 Navigate to `device-streams-proxy/device` in your unzipped project folder. You will need the following information handy:
 
@@ -207,7 +207,7 @@ dotnet run $DeviceConnectionString localhost 3389
 dotnet run %DeviceConnectionString% localhost 3389
 ```
 
-### Run the service-side application
+### Run the service-local proxy (RDP)
 
 Navigate to `device-streams-proxy/service` in your unzipped project folder. You will need the following information handy:
 
