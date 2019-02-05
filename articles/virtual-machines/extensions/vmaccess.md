@@ -106,7 +106,7 @@ az vm user delete \
 ```
 
 ## Use JSON files and the VMAccess Extension
-The following examples use raw JSON files. Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to then call your JSON files. These JSON files can also be called from Azure templates. 
+The following examples use raw JSON files. Use [az vm extension set](/cli/azure/vm/extension) to then call your JSON files. These JSON files can also be called from Azure templates. 
 
 ### Reset user access
 If you have lost access to root on your Linux VM, you can launch a VMAccess script to update a user's SSH key or password.

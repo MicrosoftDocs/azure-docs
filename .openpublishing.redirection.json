@@ -2330,6 +2330,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-quickstart-guide.md",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-quickstart-guide",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-migrate-your-sql-server-database.md",
       "redirect_url": "/azure/dms/tutorial-sql-server-to-azure-sql",
       "redirect_document_id": false
@@ -11338,6 +11343,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/lab-services/devtest-lab-create-first-vm.md",
+      "redirect_url": "/azure/lab-services/tutorial-create-custom-lab#add-a-vm-to-the-lab",
+      "redirect_document_id": false
+    }, 
+    {
       "source_path": "articles/lab-services/how-to-manage-classroom-labs.md",
       "redirect_url": "/azure/lab-services/classroom-labs/how-to-manage-classroom-labs",
       "redirect_document_id": false
@@ -11943,13 +11953,28 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/import-data-from-an-experiment.md",
+      "redirect_url": "/azure/machine-learning/studio/import-data",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-import-data-from-local-file.md",
       "redirect_url": "/azure/machine-learning/studio/import-data-from-local-file",
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/import-data-from-local-file.md",
+      "redirect_url": "/azure/machine-learning/studio/import-data",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-import-data-from-online-sources.md",
       "redirect_url": "/azure/machine-learning/studio/import-data-from-online-sources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/import-data-from-online-sources.md",
+      "redirect_url": "/azure/machine-learning/studio/import-data",
       "redirect_document_id": false
     },
     {
@@ -13523,7 +13548,17 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-solution-quick-starts.md",
-      "redirect_url": "/azure/sql-database/sql-database-explore-tutorials",
+      "redirect_url": "/azure/sql-database/sql-database-explore-tutorials", 
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-advanced-threat-protection.md",
+      "redirect_url": "/azure/sql-database/sql-database-advanced-data-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-threat-protection.md",
+      "redirect_url": "/azure/sql-database/sql-database-advanced-data-security",
       "redirect_document_id": false
     },
     {
