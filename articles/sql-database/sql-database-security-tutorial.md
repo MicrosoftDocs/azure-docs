@@ -58,7 +58,7 @@ Set **Allow access to Azure services** to **OFF** for the most secure configurat
 
 ### Set up SQL Database server firewall rules
 
-Server-level firewall rules apply to all databases within the same SQL Database server.
+Server-level IP firewall rules apply to all databases within the same SQL Database server.
 
 To set up a server-level firewall rule:
 

@@ -22,7 +22,7 @@
   - name: Configure
     items:
     - name: Server-level IP firewall rules
-      href: sql-database-sql-database-server-level-firewall-rule.md
+      href: sql-database-server-level-firewall-rule.md
     - name: Client VM connection to a managed instance
       href: sql-database-managed-instance-configure-vm.md
     - name: Point-to-site connection to a managed instance

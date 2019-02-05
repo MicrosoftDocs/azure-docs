@@ -22,7 +22,7 @@ Azure SQL Database enables you to easily purchase fully managed PaaS database en
 
 Different purchasing models are available in Azure SQL Database deployment models:
 
-- [Single databases](sql-database-single-databases-manage.md) and  [elastic pools](sql-database-elastic-pool.md) in [Azure SQL Database](sql-database-technical-overview.md) offer both [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md). 
+- [Single databases](sql-database-single-databases-manage.md) and  [elastic pools](sql-database-elastic-pool.md) in [Azure SQL Database](sql-database-technical-overview.md) offer both [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 - [Managed Instances](sql-database-managed-instance.md) in Azure SQL Database only offer the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]

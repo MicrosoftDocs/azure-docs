@@ -110,7 +110,7 @@ When you're finished using these resources, you can delete them as follows:
 
 ## Next steps
 
-- Create a server-level firewall rule to connect to the single database from on-premises or remote tools. For more information, see [Create a server-level firewall rule](sql-database-sql-database-server-level-firewall-rule.md).
+- Create a server-level firewall rule to connect to the single database from on-premises or remote tools. For more information, see [Create a server-level firewall rule](sql-database-server-level-firewall-rule.md).
 - After you create a server-level firewall rule, [connect and query](sql-database-connect-query.md) your database using several different tools and languages.
   - [Connect and query using SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
