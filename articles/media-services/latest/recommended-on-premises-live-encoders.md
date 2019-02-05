@@ -26,12 +26,12 @@ ms.service: media-services
 
 In Azure Media Services, a [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) (channel) represents a pipeline for processing live-streaming content. The Live Event receives live input streams in one of two ways:
 
-* An on-premises live encoder sends a multi-bitrate RTMP or Smooth Streaming (fragmented MP4) stream to the Live Event that is not configured to perform live encoding with Media Services. The ingested streams pass through Live Events without any further processing. This method is called **pass-through**. A live encoder can send a single-bitrate stream to a pass-through channel. This configuration is not recommended because it does not allow for adaptive bitrate streaming to the client.
+* An on-premises live encoder sends a multi-bitrate RTMP or Smooth Streaming (fragmented MP4) stream to the Live Event that is not enabled to perform live encoding with Media Services. The ingested streams pass through Live Events without any further processing. This method is called **pass-through**. A live encoder can send a single-bitrate stream to a pass-through channel. This configuration is not recommended because it does not allow for adaptive bitrate streaming to the client.
 
   > [!NOTE]
   > Using a pass-through method is the most economical way to do live streaming.
 
-* An on-premises live encoder sends a single-bitrate stream to the Live Event that is configured to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (fragmented MP4). The Live Event then performs live encoding of the incoming single-bitrate stream to a multi-bitrate (adaptive) video stream.
+* An on-premises live encoder sends a single-bitrate stream to the Live Event that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (fragmented MP4). The Live Event then performs live encoding of the incoming single-bitrate stream to a multi-bitrate (adaptive) video stream.
 
 For detailed information about live encoding with Media Services, see [Live streaming with Media Services v3](live-streaming-overview.md).
 
@@ -78,10 +78,10 @@ To play back content, both an audio and video stream must be present. Playback o
 ### Configuration tips
 
 - Whenever possible, use a hardwired internet connection.
-- A good practice when determining bandwidth requirements is to double the streaming bitrates. While not mandatory, this simple rule helps to mitigate the impact of network congestion.
+- A good practice when determining bandwidth requirements is to double the streaming bitrates. Although not mandatory, this simple rule helps to mitigate the impact of network congestion.
 - When using software-based encoders, close out any unnecessary programs.
-- Changing your encoder configuration once it has started pushing has negative effects on the event. Configuration changes can cause the event to become unstable. 
-- Ensure that you give yourself ample time to set up your event. For high-scale events, it's recommended to start the setup an hour before your event.
+- Changing your encoder configuration after it has started pushing has negative effects on the event. Configuration changes can cause the event to become unstable. 
+- Ensure that you give yourself ample time to set up your event. For high-scale events, we recommended starting the setup an hour before your event.
 
 ## Becoming an on-premises encoder partner
 
@@ -101,7 +101,7 @@ As an Azure Media Services on-premises encoder partner, Media Services promotes 
 10. Combine the URL from step 8 with the hostname in step 9 to get the full URL.
 11. Run your live encoder for approximately 10 minutes.
 12. Stop the Live Event. 
-13. Use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that it is free of visible glitches at all quality levels. Or, watch and validate via the Preview URL during the live session.
+13. Use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches at all quality levels. Or, watch and validate via the Preview URL during the live session.
 14. Record the Asset ID, the published streaming URL for the live archive, and the settings and version used from your live encoder.
 15. Reset the Live Event state after creating each sample.
 16. Repeat steps 5 through 15 for all configurations supported by your encoder (with and without ad signaling/captions/different encoding speeds).
