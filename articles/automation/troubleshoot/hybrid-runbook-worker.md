@@ -40,7 +40,7 @@ The following are potential possible causes:
 
 * The runbooks can't authenticate with local resources
 
-* The computer configured to run the Hybrid Runbook Worker feature meets the minimum hardware requirements.
+* The computer configured to run the Hybrid Runbook Worker feature does not meet the minimum hardware requirements.
 
 #### Resolution
 
