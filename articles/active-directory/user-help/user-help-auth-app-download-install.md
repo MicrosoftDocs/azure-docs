@@ -34,10 +34,8 @@ Install the latest version of the Microsoft Authenticator app, based on your ope
 
 - **Apple iOS.** On your Apple iOS device, go to the App Store to [download and install the Microsoft Authenticator app](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
-- **Windows Phone.** On your Windows Phone, go to the Microsoft Store to [download and install the Microsoft Authenticator app](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fwww.microsoft.com%2Fen-us%2Fp%2Fmicrosoft-authenticator%2F9nblgggzmcj6).
-
-    >[!Note]
-    >You can't use the phone sign-in process on Windows phones. You must use the standard verification process, as described in the [Set up two-step verification](multi-factor-authentication-end-user-first-time.md) article.
+    >[Important]
+    >If you're not currently on your mobile device, you can still get the Microsoft Authenticator app by sending yourself a download link from the [Microsoft Authenticator page](https://www.microsoft.com/en-us/account/authenticator).
 
 ## Next steps
 

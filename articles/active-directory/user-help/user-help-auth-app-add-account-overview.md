@@ -21,6 +21,9 @@ ms.author: lizross
 
 The Microsoft Authenticator app helps you sign-in to your accounts if you use two-factor verification. Two-factor verification helps you to access your accounts more securely, especially while viewing sensitive information. Because passwords can be forgotten, stolen, or compromised, two-factor verification is an additional security step that helps protect your account by making it harder for other people to break in.
 
+>[!Important]
+>The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the time-based one-time password (TOTP) standards.
+
 You can use the Microsoft Authenticator app in multiple ways, including:
 
 - Providing a prompt for a second verification method after you sign in with your username and password.

@@ -24,7 +24,7 @@ You can use the Microsoft Authenticator app in multiple ways, including:
 - Providing sign-in without requiring a password, using your username and your mobile device with your fingerprint, face, or PIN.
 
  >[!Important]
- >This phone sign-in method only works with your personal Microsoft accounts. Your work or school account and non-Microsoft accounts require you to use the standard two-factor verification process.
+ >This phone sign-in method only works with your work or school and personal Microsoft accounts. Your non-Microsoft accounts require you to use the standard two-factor verification process.
 
 ## Prerequisites
 Before you can use the Microsoft Authenticator app, you must:
@@ -109,7 +109,6 @@ For the steps necessary to sign in to your work or school or your personal accou
 |**How do I stop using this feature and go back to using my password?**|For personal accounts, select the **Use a password instead** link during sign in. Your most recent choice is remembered and offered by default the next time you sign in. If you ever want to go back to using phone sign-in, select the **Use an app instead** link during sign in.<br><br>For work or school accounts, you must to your Additional security verification page (such as, https://aka.ms/MFASetup) and remove the Microsoft Authenticator app.|
 |**Why can’t I use more than one work or school account for phone sign-in?**| A phone must be registered to a single work or school account. If you want to turn on phone sign-in for a different work or school account, you must first unregister the old device through the **Settings** page.|
 |**Can I sign in to my PC using my phone?**| For your PC, we recommend signing in using Windows Hello on Windows 10. Windows Hello lets you use your face, fingerprint, or PIN to sign in.|
-|**Can I use phone sign-in with my Windows Phone?**| No. This feature isn’t supported by the Microsoft Authenticator app on Windows Phone.|
 
 ## Next steps
 - If you have more general questions about the app, see the [Microsoft Authenticator FAQs](user-help-auth-app-faq.md)
