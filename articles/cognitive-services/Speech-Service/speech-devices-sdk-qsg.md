@@ -43,11 +43,13 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
 ## Set up the development kit
 
-1. Connect the development kit to a PC or power adapter by using a high quality micro USB cable. A green power indicator will light up under the top board.
-
-1. Connect the development kit to a computer by using a second mini USB cable.
-
     ![Connecting the dev kit](media/speech-devices-sdk/qsg-1.png)
+    
+1. The development kit has two micro USB connectors. The left connector is to power the development kit and is highlighted as Power in the image above. The right one is to control it, and is marked Debug in the image.
+
+1. Power the development kit by using a micro USB cable to connect the power port to a PC or power adapter. A green power indicator will light up under the top board.
+
+1. To control the development kit connect the debug port to a computer by using a second micro USB cable. It is essential to use a high quality cable to ensure reliable communications.
 
 1. Orient your development kit for either the circular or linear configuration.
 
