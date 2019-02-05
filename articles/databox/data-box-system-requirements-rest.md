@@ -57,9 +57,7 @@ Public preview release (Azure Data Box 1.8 onwards)
 
 ## Supported Azure client libraries
 
-For Data Box Blob storage, there are specific client libraries and specific endpoint suffix requirements.
-
-The supported REST API versions for Data Box Blob storage are 2017-11-09, 2017-07-29, 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08, and 2015-04-05 for the Azure Data Box version 1.8 onwards. The Data Box Blob storage endpoints do not have full parity with the latest version of the Azure Blob Storage REST API. For the storage client libraries, you need to be aware of the version that is compatible with the REST API.
+For Data Box Blob storage, there are specific client libraries and specific endpoint suffix requirements. The Data Box Blob storage endpoints do not have full parity with the latest version of the Azure Blob Storage REST API, see the [supported versions for Azure Data Box 1.8 onwards](#supported-api-versions). For the storage client libraries, you need to be aware of the version that is compatible with the REST API.
 
 ### Azure Data Box 1.8 onwards
 
