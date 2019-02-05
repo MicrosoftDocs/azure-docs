@@ -333,6 +333,7 @@ For more information, see the [Denormalization pattern](#denormalization-pattern
 The following table summarizes the pros and cons of each of the approaches outlined above for storing employee and department entities that have a one-to-many relationship. You should also consider how often you expect to perform various operations: it may be acceptable to have a design that includes an expensive operation if that operation only happens infrequently.  
 
 | **Approach**| **Pros** | **Cons** |
+|---|---|---|
 | Separate entity types, same partition, same table|
 <ul>
 <li>You can update a department entity with a single operation.</li>
