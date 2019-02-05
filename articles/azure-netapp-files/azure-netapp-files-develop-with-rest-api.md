@@ -21,9 +21,9 @@ The REST API for the Azure NetApp Files service defines HTTP operations against 
 
 ## Access the Azure NetApp Files REST API 
 You can create snapshots only on demand.  Snapshot policies are not currently supported.  
-1. [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven't done so already.
+1. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven't done so already.
 2. Create a service principal in your Azure Active Directory (Azure AD):
-    1. Verify that you have [sufficient permissions](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+    1. Verify that you have [sufficient permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
     1. Enter the following command in the Azure CLI:  
 
