@@ -87,7 +87,7 @@ We've created this content to help you set up and use security info, two-step ve
                         <a href="/azure/active-directory/user-help/user-help-auth-app-download-install">Download and install the app</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-auth-app-add-account-overview">Add your accounts</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-auth-app-sign-in">Sign in using the app</a><br/>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">Backup and recover account credentials</a>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-backup-recovery">Backup and recover account credentials</a>
                         </p>
                     </div>
                 </div>

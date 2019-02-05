@@ -63,7 +63,7 @@
   - name: Sign in using the Microsoft Authenticator app
     href: user-help-auth-app-sign-in.md 
   - name: Backup and recover your accounts
-    href: microsoft-authenticator-app-backup-and-recovery.md
+    href: user-help-auth-app-backup-recovery.md
   - name: FAQ
     href: user-help-auth-app-faq.md
 
