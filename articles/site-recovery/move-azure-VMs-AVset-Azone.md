@@ -18,8 +18,6 @@ In a scenario where you deployed your Virtual machines as 'single instance' into
 - Move single instance VMs into Availability zones in a target region
 - Move VMs in an Availability set into Availability zones in a target region
 
-> [!div class="checklist"]
-> * 
 
 ## Verify Prerequisites
 
@@ -85,7 +83,7 @@ The below steps will guide you how to use Azure Site Recovery to enable replicat
 > If you don’t see the option for availability set or Availabilty zone, please snore that the [prerequisites](#prepare-the-source-vms) are met and the [preparation](#prepare-the-source-vms) of source VMs are complete.
 
    ![enable-rep-2.PNG](media/azure-vms-to-zones/enable-rep-2.PNG)
-   
+
 7. Click on enable replicaiton. This starts a job to enable replication for the VM.
 
 ## Verify settings
@@ -136,7 +134,7 @@ Stop replication as follows
 
 ## Perform the move to the target region and confirm.
 
-1.  In the virtual machie menu, click on  **Disaster Recovery**.
+1.  In the virtual machine menu, click on  **Disaster Recovery**.
 2. Click on **Failover** icon.
 3. In **Failover**, select **Latest**. 
 4. Select **Shut down machine before beginning failover**. Site Recovery attempts to shut down the source VM before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page. 
@@ -148,7 +146,7 @@ Stop replication as follows
 1. Navigate to the VM.  Click on **Disable Replication**.  This stops the process of copying the data for the VM.  
 
 > [!IMPORTANT]
-> It is important to perform the above step to avoid getting charged for Site Recovery replication post the move. The source replication settings are cleaned up automatically. Please note that the Site Recovery extension that is installed as part of the replication isnt removed and needs to be removed manually. 
+> It is important to perform the above step to avoid getting charged for Site Recovery replication post the move. The source replication settings are cleaned up automatically. Please note that the Site Recovery extension that is installed as part of the replication isn't removed and needs to be removed manually. 
 
 ## Next steps
 
