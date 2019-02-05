@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/05/2019
 ms.author: juliako
 ---
 
@@ -19,29 +19,33 @@ ms.author: juliako
 
 This article gives answers to Azure Media Services (AMS) v3 frequently asked questions.
 
-## Can I use the Azure portal to manage v3 resources?
+## Media Services v2 vs v3 
+
+### Can I use the Azure portal to manage v3 resources?
 
 Not yet. You can use one of the supported SDKs. See tutorials and samples in this doc set.
 
-## Is there an API for configuring Media Reserved Units?
-
-Currently, you have to use AMS v2 APIs to configure media Reserved Units (as described in [Scaling media processing](../previous/media-services-scale-media-processing-overview.md). 
-
-When using **VideoAnalyzerPreset** and/or **AudioAnalyzerPreset**, set your Media Services account to 10 S3 Media Reserved Units.
-
-## Does V3 Asset have no AssetFile concept?
+### Is there an AssetFile concept in v3?
 
 The AssetFiles were removed from the AMS API in order to separate Media Services from Storage SDK dependency. Now Storage, not Media Services, keeps the information that belongs in Storage. 
 
-## Where did client-side storage encryption go?
+For more information, see [Migrate to Media Services v3](migrate-from-v2-to-v3.md).
 
-We now recommend server-side storage encryption (which is on by default).For more information, see [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+### Where did client-side storage encryption go?
 
-## What is the recommended upload method?
+It is now recommended to use the server-side storage encryption (which is on by default). For more information, see [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
-We recommend the use of HTTP(s) ingests. For more information, see [HTTP(s) ingest](job-input-from-http-how-to.md).
+## v3 APIs
 
-## How does pagination work?
+### How do I configure Media Reserved Units?
+
+See, [Scale media processing with CLI](media-reserved-units-cli-how-to.md).
+
+### What is the recommended upload method?
+
+It is recommended to use the HTTP(s) ingests mehod. For more information, see [HTTP(s) ingest](job-input-from-http-how-to.md).
+
+### How does pagination work?
 
 Media Services supports $top for resources that support OData but the value passed to $top must be less than 1000 (for example, the page size for pagination).
 
@@ -49,11 +53,19 @@ This allows you to either get a small sample of items using $top (for example, t
 
 Media Services does not support paging through the data with a user specified page size.
 
-For more information, see [Filtering, ordering, paging](assets-concept.md#filtering-ordering-paging)
+For more information, see [Filtering, ordering, paging](entities-overview.md).
 
-## How to retrieve an entity in Media Services v3?
+### How to retrieve an entity in Media Services v3?
 
-v3 is based on a unified API surface, which exposes both management and operations functionality built on **Azure Resource Manager**. In accordance with **Azure Resource Manager**, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
+v3 is based on a unified API surface, which exposes both management and operations functionality built on **Azure Resource Manager**. In accordance with **Azure Resource Manager**, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource.
+
+## Live streaming 
+
+###  How to insert breaks/videos and image slates during live stream
+
+Media Services v3 live encoding does not have support for inserting video or image slates yet. 
+
+You can use a [live on-premises encoder](recommended-on-premises-live-encoders.md) to switch the source video. Many apps provide ability to switch sources, including Telestream Wirecast, Switcher Studio (on iOS), OBS Studio (free app), and many more.
 
 ## Next steps
 
