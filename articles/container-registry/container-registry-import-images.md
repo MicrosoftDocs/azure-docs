@@ -24,7 +24,7 @@ Azure Container Registry handles a number of common scenarios to copy images fro
 
 Image import into an Azure Azure container registry has the following benefits over using Docker CLI commands:
  
-1. Because the client doesn’t need a local Docker installation, you can import any container image, regardless of the supported OS type. 
+1. Because your client environment doesn’t need a local Docker installation, you can import any container image, regardless of the supported OS type. 
 
 2. When you import multi-architecture images (such as official Docker images), images for all architectures and platforms specified in the manifest list are copied to the registry.
 
@@ -40,7 +40,7 @@ To import an image to an Azure container registry, your identity must have write
 
 ### Import from Docker Hub
 
-For example, use the [az acr import][az-acr-import] import the multi-architecture `hello-world:latest` image from Docker Hub to a registry named *myregistry*. Because it is an official image from Docker Hub, the name is qualified with `docker.io/library`. (In addition to importing an image by tag, you can specify a manifest digest.)
+For example, use the [az acr import][az-acr-import] command to import the multi-architecture `hello-world:latest` image from Docker Hub to a registry named *myregistry*. Because `hello-world` is an official image from Docker Hub, this image is in the default `library` repository. Include the repository name and optionally a tag in the value of the `--source` image parameter. (In addition to importing an image by tag, you can specify a manifest digest.)
  
 ```azurecli
 az acr import --name myregistry --source docker.io/library/hello-world:latest --image hello-world:latest
@@ -52,7 +52,7 @@ You can verify that multiple manifests are associated with this image by running
 az acr repository show-manifests --name myregistry --repository hello-world
 ```
 
-The following example imports a public image from Docker Hub that's in the separate *tensorflow* repository:
+The following example imports a public image from the `tensorflow` repository in Docker Hub:
 
 ```azurecli
 az acr import --name myregistry --source docker.io/tensorflow/tensorflow:latest-gpu --image tensorflow:latest-gpu
@@ -60,7 +60,7 @@ az acr import --name myregistry --source docker.io/tensorflow/tensorflow:latest-
 
 ### Import from Microsoft Container Registry
 
-For example, import the latest Windows Server Core image from Microsoft Container Registry.
+For example, import the latest Windows Server Core image from the `windows` repository in Microsoft Container Registry.
 
 ```azurecli
 az acr import --name myregistry --source mcr.microsoft.com/windows/servercore:latest --image servercore:latest
@@ -76,7 +76,7 @@ You can import an image from another Azure container registry using integrated A
 
 ### Import from a registry in the same subscription
 
-For example, import the `aci-helloworld:latest` image from a source registry *mysourceregistry* to a registry called *myregistry* in the same Azure subscription.
+For example, import the `aci-helloworld:latest` image from a source registry *mysourceregistry* to *myregistry* in the same Azure subscription.
 
 ```azurecli
 az acr import --name myregistry --source mysourceregistry.azurecr.io/aci-helloworld:latest --image hello-world:latest
@@ -92,7 +92,7 @@ az acr import --name myregistry --source mysourceregistry.azurecr.io/aci-hellowo
 
 ### Import from a registry using service principal credentials
 
-If you are accessing an Azure container registry but are unable to use integrated Azure Active Directory permissions, you can use service principal credentials. Supply the appID and password of an Active Directory [service principal](container-registry-auth-service-principal.md) that has ACRPull access to the source registry. Using a service principal is useful for build systems and other unattended systems that need to import images to your registry.
+To import from an Azure container registry that you can't access using integrated Azure Active Directory permissions, you can use service principal credentials, if available. Supply the appID and password of an Active Directory [service principal](container-registry-auth-service-principal.md) that has ACRPull access to the source registry. Using a service principal is useful for build systems and other unattended systems that need to import images to your registry.
 
 ```azurecli
 az acr import --name myregistry --source sourceregistry.azurecr.io/sourcerepo/sourceimage:tag --image targetimage:tag --username <SP_App_ID> –-password <SP_Passwd>
@@ -110,7 +110,7 @@ az acr import --name myregistry --source docker.io/sourcerepo/sourceimage:tag --
 
 In this article, you learned about importing container images to an Azure container registry from a public Docker container registry or another private container registry. 
 
-For information about pushing trusted images to a container registry, using Docker's content trust model, see [Content trust in Azure Container Registry](container-registry-content-trust.md). 
+If you need to push only trusted images to a container registry, using Docker's content trust model, see [Content trust in Azure Container Registry](container-registry-content-trust.md). 
 
 <!-- LINKS - Internal -->
 [az-login]: /cli/azure/reference-index#az-login
