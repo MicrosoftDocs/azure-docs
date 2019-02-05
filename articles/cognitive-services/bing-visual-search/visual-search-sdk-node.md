@@ -48,7 +48,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 2. Instantiate the client.
 
     ```javascript
-    let visualSearchApiClient = new Search.VisualSearchAPIClient(credentials);
+    let visualSearchApiClient = new Search.VisualSearchClient(credentials);
     ```
 
 ## Search for images

@@ -59,7 +59,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 3. Instantiate the client
 
     ```python
-    var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"))
+    var client = new WebSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"))
     ```
 
 ## Send the search request
