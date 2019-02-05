@@ -21,6 +21,8 @@ ms.author: delhan
 
 This article helps you resolve the issue when your virtual machine (VM) is stuck on the "Getting Windows Ready. Don't turn off your computer" stage during startup.
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## Symptoms
 
 When you use **Boot diagnostics** to get the screenshot of a VM, the operating system doesn't fully start up. The VM displays the message "Getting Windows ready. Don't turn off your computer."
