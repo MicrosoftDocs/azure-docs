@@ -344,7 +344,7 @@ Create the second **Volume2**. Execute this PowerShell script:
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR2 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 
-![Figure 5: Multi-SID SOFS is the same as the SAP GLOBAL host name 2][sap-ha-guide-figure-8016]
+![Figure 5: Second Volume2 in Failover Cluster Manager][sap-ha-guide-figure-8016]
 
 _**Figure 5:** Second Volume2 in Failover Cluster Manager_
 
