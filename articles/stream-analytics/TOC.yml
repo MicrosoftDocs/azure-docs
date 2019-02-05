@@ -56,6 +56,8 @@
     href: stream-analytics-stream-analytics-query-patterns.md
   - name: Parse JSON and AVRO data
     href: stream-analytics-parsing-json.md
+  - name: Time handling considerations
+    href: stream-analytics-time-handling.md
   - name: Event ordering considerations
     href: stream-analytics-out-of-order-and-late-events.md
   - name: Checkpoint and replay
@@ -154,7 +156,7 @@
       href: stream-analytics-troubleshoot-output.md
     - name: Query logic
       href: stream-analytics-troubleshoot-query.md
-    - name: Diagnostic logs
+    - name: Activity and diagnostic logs
       href: stream-analytics-job-diagnostic-logs.md
   - name: Integrate with machine learning
     items:
