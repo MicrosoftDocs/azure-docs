@@ -10,9 +10,9 @@ ms.date: 12/13/2018
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want to learn how to use Spatial Anchors in my HoloLens app that can place and locate a 3D object that persists across devices and platforms.
+#Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my HoloLens C++/DirectX app that can place and locate a 3D object that persists across devices and platforms.
 ---
-# Quickstart: Create a HoloLens app with Spatial Anchors
+# Quickstart: Create a HoloLens app with Azure Spatial Anchors
 
 [Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create Mixed Reality experiences
 using objects that persist their location across devices over time. This tutorial covers how to create a HoloLens DirectX C++/WinRT

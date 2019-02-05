@@ -12,7 +12,7 @@ ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my HoloLens Unity app that can place and locate a 3D object that persists across devices and platforms.
 ---
-# Quickstart: Create a HoloLens Unity app using Spatial Anchors
+# Quickstart: Create a HoloLens Unity app using Azure Spatial Anchors
 
 [Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create Mixed Reality experiences
 using objects that persist their location across devices over time. This tutorial covers how to create a HoloLens Unity
