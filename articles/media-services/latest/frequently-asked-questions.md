@@ -23,11 +23,13 @@ This article gives answers to Azure Media Services (AMS) v3 frequently asked que
 
 ### How do I configure Media Reserved Units?
 
-See, [Scale media processing with CLI](media-reserved-units-cli-how-to.md).
+For the Audio Analysis and Video Analysis Jobs that are triggered by Media Services v3 or Video Indexer, it is highly recommended to provision your account with 10 S3 MRUs. If you need more than 10 S3 MRUs, open a support ticket using the [Azure portal](https://portal.azure.com/).
 
-### What is the recommended upload method?
+For details, see [Scale media processing with CLI](media-reserved-units-cli-how-to.md).
 
-It is recommended to use the HTTP(s) ingests method. For more information, see [HTTP(s) ingest](job-input-from-http-how-to.md).
+### What is the recommended method to process videos?
+
+It is recommended that you submit Jobs using a HTTP(s) URL pointing to the video. For more information, [HTTP(s) ingest](job-input-from-http-how-to.md). You are not required to create an Asset with the input video before it can be processed.
 
 ### How does pagination work?
 
