@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/17/2018
+ms.date: 2/5/2018
 
 ms.custom: seodec18
 
@@ -53,7 +53,7 @@ Use the [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enab
 
     >[!NOTE]
     > The syntax for the value of disk-encryption-keyvault parameter is the full identifier string: 
-/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> </br>
+/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br>
    > The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
 https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
@@ -97,7 +97,6 @@ Use the [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurerm.comput
      $keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
 
      Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $rgname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
-
      ```
 
     >[!NOTE]
@@ -172,8 +171,14 @@ Use the [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryptio
 -  **Encrypt a running virtual machine scale set using KEK to wrap the key**
     ```azurecli-interactive
      az vmss encryption enable --resource-group "MySecureRG" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
-
      ```
+
+    >[!NOTE]
+    > The syntax for the value of disk-encryption-keyvault parameter is the full identifier string:
+/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> 
+    > The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
+
 - **Get encryption status for a virtual machine scale set:** Use [az vmss encryption show](/cli/azure/vmss/encryption#az-vmss-encryption-show)
 
     ```azurecli-interactive
@@ -224,10 +229,17 @@ Use the [Set-Azure​RmVmss​Disk​Encryption​Extension](/powershell/module/
      $KeyVault = Get-AzureRmKeyVault -VaultName $KeyVaultName -ResourceGroupName $rgName;
      $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
-     Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $keyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+     $KeyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
+     Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $rgName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $KeyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
     ```
 
-- **Get encryption status for a virtual machine scale set:** Use the [Get-Azure​RmVmss​VMDisk​Encryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption) cmdlet.
+    >[!NOTE]
+    > The syntax for the value of disk-encryption-keyvault parameter is the full identifier string:
+/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> 
+    > The syntax for the value of the key-encryption-key parameter is the full URI to the KEK as in:
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
+
+- **Get encryption status for a virtual machine set**: Use the [Get-Azure​RmVmss​VMDisk​Encryption](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption) cmdlet.
     
     ```powershell
     get-AzureRmVmssVMDiskEncryption -ResourceGroupName "MySecureRG" -VMScaleSetName "MySecureVmss"
