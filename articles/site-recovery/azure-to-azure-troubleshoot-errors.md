@@ -331,9 +331,9 @@ Site Recovery mobility service has many components, one of which is called filte
 
 ## Protection couldn't be enabled as replica managed disk 'diskname-replica' already exists without expected tags in the target resource group( error code 150161
 
-**Cause**:  If the virtual machine was protected earlier and during disabling the replication replica disk was not cleaned due to some reason.
+**Cause**: It can occur if the  virtual machine was protected earlier in the past and during disabling the replication, replica disk was not cleaned due to some reason.</br>
 **How to fix:** 
-Delete the mentioned replica disk and restart the protection job again. 
+Delete the mentioned replica disk in the error message and restart the failed protection job again. 
 
 ## Next steps
 [Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)
