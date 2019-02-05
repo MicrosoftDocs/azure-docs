@@ -79,7 +79,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 
 ## Retrieve the Snapshot ID
 
-The snapshot taking method is asynchronous, so you'll need to wait for its completion (snapshot operations cannot be cancelled). In this code, the `WaitForOperation` method monitors the asynchronous call, checking the status every 100ms. When the operation completes, you will be able to retrieve a snapshot ID. You can obtain it by parsing the `OperationLocation` field. 
+The snapshot taking method is asynchronous, so you'll need to wait for its completion (snapshot operations cannot be cancelled). In this code, the `WaitForOperation` method monitors the asynchronous call, checking the status every 100ms. When the operation completes, you will be able to retrieve an operation ID. You can obtain it by parsing the `OperationLocation` field. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
@@ -121,7 +121,7 @@ private static async Task<OperationStatus> WaitForOperation(IFaceClient client, 
 }
 ```
 
-When the operation status is marked as `Succeeded`, you can then get the snapshot ID by parsing the `resourceLocation` field of the returned **OperationStatus** instance.
+When the operation status is marked as `Succeeded`, you can then get the snapshot ID by parsing the `ResourceLocation` field of the returned **OperationStatus** instance.
 
 ```csharp
 var snapshotId = Guid.Parse(operationStatus.ResourceLocation.Split('/')[2]);
@@ -146,7 +146,7 @@ var applySnapshotResult = await FaceClientWestUS.Snapshot.ApplyAsync(snapshotId,
 > [!NOTE]
 > A Snapshot object is only valid for 48 hours. You should only take a snapshot if you intend to use it for data migration soon after.
 
-A snapshot apply request will return an operation ID. You can get this ID by parsing the `OperationLocation` field of the returned **applySnapshotResult** instance. 
+A snapshot apply request will return annother operation ID. You can get this ID by parsing the `OperationLocation` field of the returned **applySnapshotResult** instance. 
 
 ```csharp
 var applyOperationId = Guid.Parse(applySnapshotResult.OperationLocation.Split('/')[2]);
