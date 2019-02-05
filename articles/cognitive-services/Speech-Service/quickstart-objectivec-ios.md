@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 2/19/2019
 ms.author: chlandsi
 ---
 
@@ -30,7 +30,7 @@ Before you get started, here's a list of prerequisites:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `1.2.0`.
+The current version of the Cognitive Services Speech SDK is `1.3.0`.
 
 The Cognitive Services Speech SDK for Mac and iOS is currently distributed as a Cocoa Framework.
 It can be downloaded from https://aka.ms/csspeech/iosbinary. Download the file to your home directory.

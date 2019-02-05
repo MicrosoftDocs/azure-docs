@@ -8,12 +8,26 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 2/19/2019
 ms.author: wolfma
 ms.custom: seodec18
 ---
 
 # Release notes
+
+## Speech SDK 1.3.0: 2019-February release
+
+TODO
+
+## Speech SDK 1.2.1
+
+This is a JavaScript-only release. No features have been added. The following fixes were made:
+
+* Fire end of stream at turn.end, not at speech.end.
+* Fix bug in audio pump that did not schedule next send if the current send failed.
+* Fix continuous recognition with auth token.
+* Bug fix for different recognizer / endpoints.
+* Documentation improvements.
 
 ## Speech SDK 1.2.0: 2018-December release
 
