@@ -86,7 +86,7 @@ The output is a JSON object of all endpoints that your hub's device and service 
 ```json
 {
   "streamingEndpoints": [
-    "https://<YourIoTHubName>.streams.azure-devices.net"
+    "https://<YourIoTHubName>.<region-stamp>.streams.azure-devices.net"
   ]
 }
 ```
