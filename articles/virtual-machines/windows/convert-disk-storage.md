@@ -23,7 +23,7 @@ ms.component: disks
 
 Azure Managed Disks offers three storage type options: [Premium SSD](../windows/premium-storage.md), [Standard SSD](../windows/disks-standard-ssd.md), and [Standard HDD](../windows/standard-storage.md). You can switch a managed disk between storage types with minimal downtime, based on your performance needs. Switching between storage types is not supported for an unmanaged disk; however, you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## Prerequisites
 
