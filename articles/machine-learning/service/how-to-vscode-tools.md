@@ -17,7 +17,7 @@ In this article, you'll learn how to install the **Azure Machine Learning for Vi
 
 Use the Azure Machine Learning extension in Visual Studio code to use the Azure Machine Learning service to prep your data, train, and test machine learning models on local and remote compute targets, deploy those models and track custom metrics and experiments.
 
-## Prerequisite
+## Prerequisites
 
 
 + If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
