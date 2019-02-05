@@ -52,7 +52,7 @@ The steps in this article show you how to deploy the ASDK using a graphical user
 5. On the **Network Configuration** page, provide a valid **Time server IP** address. This required field sets the time server to be used by the development kit. This parameter must be provided as a valid time server IP address. Server names are not supported.
 
       > [!TIP]
-      > To find a time server IP address, visit [pool.ntp.org](http://pool.ntp.org) or ping time.windows.com. 
+      > To find a time server IP address, visit [ntppool.org](https://www.ntppool.org/) or ping time.windows.com. 
 
     **Optionally**, you can provide a **DNS forwarder** IP address. A DNS server is created as part of the Azure Stack deployment. To allow computers inside the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server forwards unknown name resolution requests to this server.
 
