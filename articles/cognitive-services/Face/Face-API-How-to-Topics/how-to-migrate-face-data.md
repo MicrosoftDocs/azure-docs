@@ -146,7 +146,7 @@ var applySnapshotResult = await FaceClientWestUS.Snapshot.ApplyAsync(snapshotId,
 > [!NOTE]
 > A Snapshot object is only valid for 48 hours. You should only take a snapshot if you intend to use it for data migration soon after.
 
-A snapshot apply request will return annother operation ID. You can get this ID by parsing the `OperationLocation` field of the returned **applySnapshotResult** instance. 
+A snapshot apply request will return another operation ID. You can get this ID by parsing the `OperationLocation` field of the returned **applySnapshotResult** instance. 
 
 ```csharp
 var applyOperationId = Guid.Parse(applySnapshotResult.OperationLocation.Split('/')[2]);
