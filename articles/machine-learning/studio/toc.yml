@@ -92,10 +92,6 @@
     - name: Try experiments in AI Gallery
       displayName: gallery
       href: sample-experiments.md
-    - name: Choose algorithms
-      href: algorithm-choice.md
-    - name: Algorithm cheat sheet
-      href: algorithm-cheat-sheet.md
     - name: Evaluate and interpret results
       items:
       - name: Evaluate performance
@@ -117,6 +113,12 @@
         href: custom-r-modules.md
       - name: Execute Python scripts
         href: execute-python-scripts.md
+  - name: Select an algorithm
+    items:
+    - name: Choose algorithms
+      href: algorithm-choice.md
+    - name: Algorithm cheat sheet
+      href: algorithm-cheat-sheet.md        
   - name: Deploy models
     items:
     - name: Deploy a web service
