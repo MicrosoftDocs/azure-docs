@@ -28,9 +28,11 @@ Detailed next is step-by-step guide to using log alerts using the Azure portal i
 
 ### Create a log alert rule with the Azure portal
 1. In the [portal](https://portal.azure.com/), select **Monitor** and under the MONITOR section - choose **Alerts**.
+
     ![Monitoring](media/alerts-log/AlertsPreviewMenu.png)
 
 1. Select the **New Alert Rule** button to create a new alert in Azure.
+
     ![Add Alert](media/alerts-log/AlertsPreviewOption.png)
 
 1. The Create Alert section is shown with the three parts consisting of: *Define alert condition*, *Define alert details*, and *Define action group*.
@@ -60,6 +62,7 @@ Detailed next is step-by-step guide to using log alerts using the Azure portal i
     
     > Historical data visualization can only be shown if the query results have time details. If your query results in summarized data or specific column values - same is shown as a singular plot.
     > For Metric Measurement type of Log Alerts using Application Insights or [switched to new API](alerts-log-api-switch.md), you can specify which specific variable to group the data by using the **Aggregate on** option; as illustrated in below:
+    
     ![aggregate on option](media/alerts-log/aggregate-on.png)
 
 1. *Log Alerts*: With the visualization in place, **Alert Logic** can be selected from shown options of Condition, Aggregation and finally Threshold. Finally specify in the logic, the time to assess for the specified condition, using **Period** option. Along with how often Alert should run by selecting **Frequency**. **Log Alerts** can be based on:
