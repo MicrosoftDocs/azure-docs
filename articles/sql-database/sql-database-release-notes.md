@@ -15,30 +15,30 @@ ms.author: carlrab
 
 This article lists the new features and improvements in the SQL Database service and in the SQL Database documentation.
 
-## SQL Database service and documentation improvements for February 2019
+## February 2019
 
-### Service improvements for February 2019
+### Service improvements
 
 | Service improvements | Details |
 | --- | --- | 
 
-### Documentation improvements for February 2019
+### Documentation improvements
 
 | Documentation improvements | Details |
 | --- | --- |
 
-## SQL Database service and documentation improvements for January 2019
+## January 2019
 
-### Service improvements for January 2019
+### Service improvements
 
 | Service improvements | Details |
-| --- | --- | 
+| --- | --- |
 | Additional granularity options for compute resources | The general purpose and business critical service tiers for [single databases](sql-database-vcore-resource-limits-single-databases.md) and [elastic pools](sql-database-vcore-resource-limits-elastic-pools.md) now have more fine-grained compute options.|
 | Viewing audit records for managed instance in the Azure portal | Viewing [audit records for managed instances](sql-database-managed-instance-auditing.md) in the Azure portal is now supported.|
 | Advance threat detection feature renamed to Advanced Data Security | Advance threat detection feature renamed to [Advanced Data Security](sql-advanced-threat-protection.md) for single databases, elastic pools, and managed instances |
 | &nbsp; |
 
-### Documentation improvements for January 2019
+### Documentation improvements
 
 | Documentation improvements | Details |
 | --- | --- |
