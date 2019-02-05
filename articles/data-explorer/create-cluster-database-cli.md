@@ -21,7 +21,7 @@ The Management APIs are used to manage the resources, for instance create a clus
 
 ## Configure the CLI parameters
 
-Login to your account
+Log in to your account
 
 ```Bash
 az login
@@ -50,9 +50,9 @@ Provide the following values
     | resource-group | *testrg* | The resource group name where the cluster would be created. |
     | | |
 
-If you want, there are more optional parameters that your can use, such as the capacity of the cluster etc.
+If you want, there are more optional parameters that you can use, such as the capacity of the cluster etc.
 
-To check whether your cluster was successfully created you can run
+To check whether your cluster was successfully created, you can run
 
 ```Bash
 az kusto cluster show --name azureclitest --resource-group testrg
@@ -85,7 +85,7 @@ You can see the database your created by running
 az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest
 ```
 
-That's it you now have a cluster an a database.
+That's it you now have a cluster and a database.
 
 ## Clean up resources
 
