@@ -5,7 +5,7 @@ description: How to create a simple regression model to predict a price in Data 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: garyericson
 ms.author: garye

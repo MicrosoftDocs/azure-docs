@@ -17,6 +17,8 @@ ms.author: tomfitz
 
 When deploying your resources, you specify that the deployment is either an incremental update or a complete update.  The primary difference between these two modes is how Resource Manager handles existing resources in the resource group that aren't in the template. The default mode is incremental.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Incremental and complete deployments
 
 For both modes, Resource Manager tries to create all resources specified in the template. If the resource already exists in the resource group and its settings are unchanged, no operation is taken for that resource. If you change the property values for a resource, the resource is updated with those new values. If you try to update the location or type of an existing resource, the deployment fails with an error. Instead, deploy a new resource with the location or type that you need.
@@ -59,7 +61,7 @@ When deployed in **complete** mode, Resource C is deleted. The resource group ha
 To set the deployment mode when deploying with PowerShell, use the `Mode` parameter.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Mode Complete `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleResourceGroup `

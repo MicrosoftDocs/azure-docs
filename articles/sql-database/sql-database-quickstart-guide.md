@@ -3,7 +3,7 @@ title: Quickstart - single databases in Azure SQL Database | Microsoft Docs
 description: 'Learn how to quickly get started with single databases in Azure SQL Database'
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: single-database
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart

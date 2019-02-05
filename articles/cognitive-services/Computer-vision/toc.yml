@@ -109,6 +109,8 @@
     href: concept-tagging-images.md
   - name: Detecting objects
     href: concept-object-detection.md
+  - name: Detecting brands
+    href: concept-brand-detection.md
   - name: Categorizing images
     href: concept-categorizing-images.md
   - name: Describing images

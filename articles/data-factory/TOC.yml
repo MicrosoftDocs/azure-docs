@@ -146,6 +146,8 @@
       href: connector-azure-cosmos-db.md
     - name: Azure Cosmos DB MongDB API
       href: connector-azure-cosmos-db-mongodb-api.md
+    - name: Azure Data Explorer
+      href: connector-azure-data-explorer.md
     - name: Azure Data Lake Storage Gen1
       href: connector-azure-data-lake-store.md
     - name: Azure Data Lake Storage Gen2

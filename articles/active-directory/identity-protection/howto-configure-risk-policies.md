@@ -124,7 +124,7 @@ The user risk policy is in the **Configure** section on the [Azure AD Identity P
 
 ## User risk policy settings
 
-When you configure the sign-in risk policy, you need to set:
+When you configure the user risk policy, you need to set:
 
 - The users and groups the policy applies to:
 

@@ -5,7 +5,7 @@ description: 'Trade secret of data science: Get others to do your work for you. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: garyericson
 ms.author: garye
