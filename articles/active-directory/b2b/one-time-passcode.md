@@ -5,7 +5,7 @@ description: How to use Email one-time passcode to authenticate B2B guest users 
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 1/25/2019
 

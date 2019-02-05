@@ -17,7 +17,7 @@ ms.author: sethm
 ms.lastreviewed: 01/19/2019
 ---
 
-# Configure IPsec/IKE policy for site-to-site VPN or VNet-to-VNet connections
+# Configure IPsec/IKE policy for site-to-site VPN connections
 
 This article walks through the steps to configure an IPsec/IKE policy for site-to-site (S2S) VPN connections in Azure Stack.
 

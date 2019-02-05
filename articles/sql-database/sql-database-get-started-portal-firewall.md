@@ -11,7 +11,7 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 12/01/2018
+ms.date: 01/25/2019
 ---
 # Quickstart: Create a server-level firewall rule for your SQL database using the Azure portal
 
@@ -51,7 +51,7 @@ Follow these steps to create a server-level firewall rule for your client's IP a
    > By default, access through the SQL Database firewall is enabled for all Azure services. Choose **OFF** on this page to disable for all Azure services.
    >
 
-5. Select **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the logical server.
+5. Select **Save**. A server-level firewall rule is created for your current IP address opening port 1433 on the SQL Database server.
 
 6. Close the **Firewall settings** page.
 
@@ -60,7 +60,6 @@ Using SQL Server Management Studio or another tool of your choice, you can now c
 ## Clean up resources
 
 Save these resources if you want to go to [Next steps](#next-steps) and learn how to connect and query your database using a number of different methods. If, however, you want to delete the resources that you created in this quickstart, use the following steps.
-
 
 1. From the left-hand menu in the Azure portal, select **Resource groups** and then select **myResourceGroup**.
 2. On your resource group page, select **Delete**, type **myResourceGroup** in the text box, and then select **Delete**.

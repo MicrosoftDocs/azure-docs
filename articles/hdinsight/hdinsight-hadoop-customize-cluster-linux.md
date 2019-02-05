@@ -220,7 +220,7 @@ Get more information on how to deploy a template:
 
 ### Use a script action during cluster creation from Azure PowerShell
 
-In this section, you use the [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet to invoke scripts to customize a cluster. Before you start, make sure you install and configure Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Overview of Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+In this section, you use the [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet to invoke scripts to customize a cluster. Before you start, make sure you install and configure Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 The following script shows how to apply a script action when you create a cluster by using PowerShell:
 
@@ -272,7 +272,7 @@ Go to the [Azure portal](https://portal.azure.com):
 
 ### Apply a script action to a running cluster from Azure PowerShell
 
-Before you start, make sure you install and configure Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Overview of Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Before you start, make sure you install and configure Azure PowerShell. For information about configuring a workstation to run HDInsight PowerShell cmdlets, see [Overview of Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
 
 The following example shows how to apply a script action to a running cluster:
 

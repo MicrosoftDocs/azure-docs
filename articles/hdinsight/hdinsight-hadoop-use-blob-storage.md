@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 01/04/2019
+ms.date: 01/28/2019
 ---
 
 # Use Azure storage with Azure HDInsight clusters
@@ -30,7 +30,7 @@ Azure storage is a robust, general-purpose storage solution that integrates seam
 | General-purpose V1   | Blob               | Standard                    | N/A                    |
 | Blob storage         | Blob               | Standard                    | Hot, Cool, Archive*    |
 
-We do not recommend that you use the default blob container for storing business data. Deleting the default blob container after each use to reduce storage cost is a good practice. Note that the default container contains application and system logs. Make sure to retrieve the logs before deleting the container.
+We do not recommend that you use the default blob container for storing business data. Deleting the default blob container after each use to reduce storage cost is a good practice. The default container contains application and system logs. Make sure to retrieve the logs before deleting the container.
 
 Sharing one blob container as the default file system for multiple clusters is not supported.
  
@@ -58,9 +58,8 @@ Here are some considerations when using Azure Storage account with HDInsight clu
   
   > [!NOTE]  
   > Public containers allow you to get a list of all blobs that are available in that container and get container metadata. Public blobs allow you to access the blobs only if you know the exact URL. For more information, see <a href="https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources">Manage access to containers and blobs</a>.
-  > 
-  > 
-* **Private containers in storage accounts that are NOT connected to a cluster:** You can't access the blobs in the containers unless you define the storage account when you submit the WebHCat jobs. This is explained later in this article.
+
+* **Private containers in storage accounts that are NOT connected to a cluster:** You can't access the blobs in the containers unless you define the storage account when you submit WebHCat jobs. This is explained later in this article.
 
 The storage accounts that are defined in the creation process and their keys are stored in %HADOOP_HOME%/conf/core-site.xml on the cluster nodes. The default behavior of HDInsight is to use the storage accounts defined in the core-site.xml file. You can modify this setting using [Apache Ambari](./hdinsight-hadoop-manage-ambari.md).
 
@@ -97,7 +96,7 @@ The default Blob container stores cluster-specific information such as job histo
 ### Use the Azure portal
 When creating an HDInsight cluster from the Portal, you have the options (as shown below) to provide the storage account details. You can also specify whether you want an additional storage account associated with the cluster, and if so, choose from Data Lake Storage or another Azure Storage blob as the additional storage.
 
-![HDInsight hadoop creation data source](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+![HDInsight hadoop creation data source](./media/hdinsight-hadoop-use-blob-storage/storage.png)
 
 > [!WARNING]  
 > Using an additional storage account in a different location than the HDInsight cluster is not supported.
@@ -179,7 +178,7 @@ wasb:///example/jars/hadoop-mapreduce-examples.jar
 > [!NOTE]  
 > The file name is <i>hadoop-examples.jar</i> in HDInsight versions 2.1 and 1.6 clusters.
 
-The &lt;path&gt; is the file or directory HDFS path name. Because containers in Azure storage are simply key-value stores, there is no true hierarchical file system. A slash character ( / ) inside a blob key is interpreted as a directory separator. For example, the blob name for *hadoop-mapreduce-examples.jar* is:
+The &lt;path&gt; is the file or directory HDFS path name. Because containers in Azure storage are key-value stores, there is no true hierarchical file system. A slash character ( / ) inside a blob key is interpreted as a directory separator. For example, the blob name for *hadoop-mapreduce-examples.jar* is:
 
 ```bash
 example/jars/hadoop-mapreduce-examples.jar
@@ -343,7 +342,7 @@ For more information, see:
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
-[blob-storage-restAPI]: https://msdn.microsoft.com/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API
 [azure-storage-create]:../storage/common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png

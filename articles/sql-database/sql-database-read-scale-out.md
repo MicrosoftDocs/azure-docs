@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 01/17/2019
+ms.date: 01/25/2019
 ---
 # Use read-only replicas to load balance read-only query workloads (preview)
 
@@ -70,7 +70,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 ## Enable and disable Read Scale-Out
 
-Read Scale-Out is enabled by default in [Managed Instance](sql-database-managed-instance.md) Business Critical tier. It should be explicitly enabled in [database placed on logical server](sql-database-logical-servers.md) Premium and Business Critical tiers. The methods for enabling and disabling Read Scale-Out is described here.
+Read Scale-Out is enabled by default in [Managed Instance](sql-database-managed-instance.md) Business Critical tier. It should be explicitly enabled in [database placed on SQL Database server](sql-database-servers.md) Premium and Business Critical tiers. The methods for enabling and disabling Read Scale-Out is described here.
 
 ### PowerShell: Enable and disable Read Scale-Out
 

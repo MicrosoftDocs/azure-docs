@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 02/04/2018
 ms.author: tulasim
 ms.custom: seodec18
 ---

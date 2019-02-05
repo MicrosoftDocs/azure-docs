@@ -48,7 +48,7 @@ Once the preparation steps are completed, the application is ready for the actua
 If the upgrade completed successfully, you are now ready to switch the end users to the upgraded copy the application. It will now become a  production slot.  The switching involves a few more steps as illustrated on the following diagram.
 
 1. Activate a swap operation between production and staging slots of the web application (6). It will switch the URLs of the two slots. Now `contoso.azurewebsites.net` will point to V2 version of the web site and the database (production environment).  
-2. If you no longer need the V1 version, which became a staging copy after the swap,  you can decommission the staging envoronment (7).
+2. If you no longer need the V1 version, which became a staging copy after the swap,  you can decommission the staging environment (7).
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option1-3.png)
 
@@ -105,7 +105,7 @@ Once the preparation steps are completed, the staging environment is ready for t
 If the upgrade completed successfully, you are now ready to switch the end users to the V2 version of the application. The following diagram illustrates the steps involved.
 
 1. Activate a swap operation between production and staging slots of the web application in the primary region (13) and in the backup region (14). V2 of the application now becomes a production slot with a redundant copy in the backup region.
-2. You can decommission the the staging environment if you no longer need the V1 application (15 and 16).  
+2. You can decommission the staging environment if you no longer need the V1 application (15 and 16).  
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option2-3.png)
 

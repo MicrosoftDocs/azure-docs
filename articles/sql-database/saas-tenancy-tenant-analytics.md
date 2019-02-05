@@ -11,11 +11,11 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
-ms.date: 09/19/2018
+ms.date: 12/18/2018
 ---
 # Cross-tenant analytics using extracted data - single-tenant app
  
-In this tutorial, you walk through a complete analytics scenario for a single tenant implementatoin. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from each tenant database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
+In this tutorial, you walk through a complete analytics scenario for a single tenant implementation. The scenario demonstrates how analytics can enable businesses to make smart decisions. Using data extracted from each tenant database, you use analytics to gain insights into tenant behavior, including their use of the sample Wingtip Tickets SaaS application. This scenario involves three steps: 
 
 1.	**Extract** data from each tenant database and **Load** into an analytics store.
 2.	**Transform the extracted data** for analytics processing.

@@ -96,7 +96,7 @@ az group create \
 
 ### Create a storage account
 
-Create a storage account for your custom disk and VMs with [az storage account create](/cli/azure/storage/account#az-storageaccount-create). The following example creates a storage account named *mystorageaccount* in the resource group previously created:
+Create a storage account for your custom disk and VMs with [az storage account create](/cli/azure/storage/account). The following example creates a storage account named *mystorageaccount* in the resource group previously created:
 
 ```azurecli
 az storage account create \

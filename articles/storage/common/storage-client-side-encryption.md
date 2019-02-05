@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 # Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
