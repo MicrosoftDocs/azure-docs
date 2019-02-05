@@ -47,6 +47,8 @@ To add the custom route, follow these steps:
 
 ### For Resource Manager VMs
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 1. Open Azure PowerShell, and then [sign in to your Azure subscription](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 2. Run the following commands:
 
