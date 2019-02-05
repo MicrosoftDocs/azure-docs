@@ -10,19 +10,17 @@ ms.date: 12/13/2018
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my HoloLens C++/DirectX app that can place and locate a 3D object that persists across devices and platforms.
+#Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my HoloLens app (in C++/WinRT and DirectX) that can place and locate a 3D object that persists across devices and platforms.
 ---
-# Quickstart: Create a HoloLens app with Azure Spatial Anchors
+# Quickstart: Create a HoloLens with Azure Spatial Anchors, in C++/WinRT and DirectX
 
-[Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create Mixed Reality experiences
-using objects that persist their location across devices over time. This tutorial covers how to create a HoloLens DirectX C++/WinRT
-app using Spatial Anchors. When you're finished, you'll have a HoloLens app that can save and recall a spatial anchor.
+This quickstart covers how to create a HoloLens app using [Azure Spatial Anchors](../overview.md) in C++/WinRT and DirectX. Azure Spatial Anchors is a cross-platform developer service that allows you to create Mixed Reality experiences using objects that persist their location across devices over time. When you're finished, you'll have a HoloLens app that can save and recall a spatial anchor.
 
 You'll learn how to:
 
 > [!div class="checklist"]
 > * Create a Spatial Anchors account
-> * Configure the Spatial Anchors account id and account key
+> * Configure the Spatial Anchors account identifier and account key
 > * Deploy and run on a HoloLens device
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -31,14 +29,9 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-- A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> installed with the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.17763.0)** component.
+- A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> installed with the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.17763.0 or newer)** component.
 - The [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) for Visual Studio should be installed from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
-- A HoloLens device with [developer mode](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) enabled.
-
-> [!NOTE]
-> This article requires a HoloLens device with the [Windows 10 October 2018 Update](https://blogs.windows.com/windowsexperience/2018/10/02/find-out-whats-new-in-windows-and-office-in-october/) (also known
-> as RS5). To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, then select
-> the **Check for updates** button.
+- A HoloLens device with [developer mode](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) enabled. This article requires a HoloLens device with the [Windows 10 October 2018 Update](https://blogs.windows.com/windowsexperience/2018/10/02/find-out-whats-new-in-windows-and-office-in-october/) (also known as RS5). To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, then select the **Check for updates** button.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -48,15 +41,15 @@ To complete this quickstart, make sure you have:
 
 Open `HoloLens\DirectX\SampleHoloLens.sln` in Visual Studio.
 
-## Configure the Spatial Anchors account id and account key
+## Configure account identifier and key
 
-The next step is to use the account id and account key recorded previously when setting up the Spatial Anchors resource to configure the app.
+The next step is to use the account identifier and account key recorded previously when setting up the Spatial Anchors resource to configure the app.
 
 Open `HoloLens\DirectX\SampleHoloLens\ViewController.cpp`.
 
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
-Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account id.
+Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
 ## Deploy the app to your HoloLens
 

@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
 ---
-## Create a Spatial Anchors Account
+## Create a Spatial Anchors resource
 
 1. Navigate to the <a href="https://portal.azure.com" target="_blank">Azure portal</a>.
 

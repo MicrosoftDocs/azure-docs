@@ -12,12 +12,9 @@ ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my Android Unity app that can place and locate a 3D object that persists across devices and platforms.
 ---
-# Quickstart: Create an Android Unity app with Azure Spatial Anchors
+# Quickstart: Create an Android Unity app with Azure Spatial Anchors, in C#
 
-[Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create Mixed Reality experiences
-using objects that persist their location across devices over time. This tutorial covers how to create an Android Unity
-app using Spatial Anchors. When you're finished, you'll have an ARCore Android app built with Unity that can save and
-recall a spatial anchor.
+This quickstart covers how to create an Android Unity app using [Azure Spatial Anchors](../overview.md) in C#. Azure Spatial Anchors is a cross-platform developer service that allows you to create Mixed Reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an ARCore Android app built with Unity that can save and recall a spatial anchor.
 
 You'll learn how to:
 
@@ -25,7 +22,7 @@ You'll learn how to:
 > * Create a Spatial Anchors account
 > * Prepare Unity build settings
 > * Download and import the ARCore SDK for Unity
-> * Configure the Spatial Anchors account id and account key
+> * Configure the Spatial Anchors account identifier and account key
 > * Export the Android Studio project
 > * Deploy and run on an Android device
 
@@ -46,7 +43,7 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Android Unity Build Settings](../../../includes/spatial-anchors-unity-android-build-settings.md)]
 
-## Configure the Spatial Anchors account id and account key
+## Configure account identifier and key
 
 In the **Project** pane, navigate to `Assets/AzureSpatialAnchorsPlugin/Examples` and open the `AzureSpatialAnchorsBasicDemo.unity` scene file.
 

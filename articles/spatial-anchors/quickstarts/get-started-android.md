@@ -10,19 +10,17 @@ ms.date: 12/13/2018
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my Android app that can place and locate a 3D object that persists across devices and platforms.
+#Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my Android app (in either Java or C++/NDK) that can place and locate a 3D object that persists across devices and platforms.
 ---
-# Quickstart: Create an Android app with Azure Spatial Anchors
+# Quickstart: Create an Android app with Azure Spatial Anchors, in either Java or C++/NDK
 
-[Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create Mixed Reality experiences
-using objects that persist their location across devices over time. This tutorial covers how to create an Android
-app using Spatial Anchors. When you're finished, you'll have an ARCore Android app that can save and recall a spatial anchor.
+This quickstart covers how to create an Android app using [Azure Spatial Anchors](../overview.md) in either Java or C++/NDK. Azure Spatial Anchors is a cross-platform developer service that allows you to create Mixed Reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an ARCore Android app that can save and recall a spatial anchor.
 
 You'll learn how to:
 
 > [!div class="checklist"]
 > * Create a Spatial Anchors account
-> * Configure the Spatial Anchors account id and account key
+> * Configure the Spatial Anchors account identifier and account key
 > * Deploy and run on an Android device
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -52,9 +50,9 @@ Select **Open an existing Android Studio project** and select the project locate
 
 ***
 
-## Configure the Spatial Anchors account id and account key
+## Configure account identifier and key
 
-The next step is to use the account id and account key recorded previously when setting up the Spatial Anchors resource to configure the app.
+The next step is to use the account identifier and account key recorded previously when setting up the Spatial Anchors resource to configure the app.
 
 # [Java](#tab/openproject-java)
 
@@ -62,7 +60,7 @@ Open `Android/Java/app/src/main/java/com/microsoft/sampleandroid/ARActive.java`.
 
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
-Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account id.
+Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
 # [NDK](#tab/openproject-ndk)
 
@@ -70,7 +68,7 @@ Open `Android/NDK/app/src/main/cpp/spatial_anchors_application.cc`.
 
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
-Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account id.
+Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
 ***
 
