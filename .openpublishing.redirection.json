@@ -30840,6 +30840,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-how-to.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-download-install",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-add-accounts-overview.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-add-account-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-add-work-account.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-add-work-school-account",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-add-personal-account.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-add-personal-ms-account",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-add-non-microsoft-account.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-add-non-ms-account",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-add-account-manual.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-add-account-manual",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-sign-in",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-faq.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-faq",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.experimental.md",
       "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time",
       "redirect_document_id": false

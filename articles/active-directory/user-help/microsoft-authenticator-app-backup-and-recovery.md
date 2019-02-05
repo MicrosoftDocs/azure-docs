@@ -79,7 +79,7 @@ For personal Microsoft accounts, you can prove your identity by entering your pa
     ![Microsoft Authenticator app, allowing you to scan your QR code](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >For more info about how to get a QR code, see [Get started with the Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app) or [Set up security info to use an authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), based on whether your admin has turned on security info.
+    >For more info about how to get a QR code, see [Get started with the Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install#add-accounts-to-the-app) or [Set up security info to use an authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), based on whether your admin has turned on security info.
 
 ## Troubleshooting backup and recovery problems
 There are a few reasons why your backup might not be available:
@@ -97,7 +97,7 @@ There are a few reasons why your backup might not be available:
 Now that you've backed up and recovered your account credentials to your new device, you can continue to use the Microsoft Authenticator app to verify your identity.
 
 ## Related topics
-- [Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md)  
-- [Microsoft Authenticator app FAQ](microsoft-authenticator-app-faq.md)
+- [Get started with the Microsoft Authenticator app](user-help-auth-app-download-install.md)  
+- [Microsoft Authenticator app FAQ](user-help-auth-app-faq.md)
 
 - [Multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)
