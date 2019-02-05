@@ -87,7 +87,7 @@ want to add your schema, for example:
    ![Select integration account](./media/logic-apps-enterprise-integration-schemas/select-integration-account.png)
 
 1. On your integration account's **Overview** page, 
-under **Components**, choose the **Schemas** tile.
+under **Components**, select the **Schemas** tile.
 
    ![Select "Schemas"](./media/logic-apps-enterprise-integration-schemas/select-schemas.png)
 
@@ -105,9 +105,9 @@ steps for uploading a schema that's either
 ### Upload schemas up to 2 MB
 
 1. Under **Add Schema**, enter a name for your schema. 
-Keep **Small file** selected. Next to the **Schema** box, 
-choose the folder icon. Find and select the schema you're uploading, 
-for example:
+   Keep **Small file** selected. Next to the **Schema** box, 
+   choose the folder icon. Find and select the schema you're uploading, 
+   for example:
 
    ![Upload smaller schema](./media/logic-apps-enterprise-integration-schemas/upload-smaller-schema-file.png)
 
@@ -121,7 +121,7 @@ for example:
 ### Upload schemas more than 2 MB
 
 To add larger schemas, you can upload your schema to 
-an Azure blob container in your Azure storage account.
+an Azure blob container in your Azure storage account. 
 Your steps for adding maps differ based whether your 
 blob container has public read access. So first, check 
 whether or not your blob container has public read 
@@ -130,14 +130,14 @@ access by following these steps:
 
 #### Check container access level
 
-1.	Open Azure Storage Explorer. In the Explorer window, 
-   expand your Azure subscription if not already expanded. 
+1. Open Azure Storage Explorer. In the Explorer window, 
+   expand your Azure subscription if not already expanded.
 
 1. Expand **Storage Accounts** > {*your-storage-account*} > 
    **Blob Containers**. Select your blob container.
 
 1. From your blob container's shortcut menu, 
-   select **Set Public Access Level**. 
+   select **Set Public Access Level**.
 
    * If your blob container has at least public access, choose **Cancel**, 
    and follow these steps later on this page: 
@@ -156,82 +156,102 @@ access by following these steps:
 #### Upload to containers with public access
 
 1. Upload the schema to your storage account. 
-In the right-hand window, choose **Upload**. 
+   In the right-hand window, choose **Upload**. 
 
 1. After you finish uploading, select your 
-uploaded schema. On the toolbar, choose **Copy URL** 
-so that you copy the schema's URL.
+   uploaded schema. On the toolbar, choose **Copy URL** 
+   so that you copy the schema's URL.
 
 1. Return to the Azure portal where the 
-**Add Schema** pane is open. Choose **Large file**. 
+   **Add Schema** pane is open. Choose **Large file**. 
 
    The **Content URI** box now appears, 
-   rather than the **Schema** box. 
+   rather than the **Schema** box.
 
 1. In the **Content URI** box, paste your schema's URL. 
-Finish adding your schema.
+   Finish adding your schema.
+
+After your schema finishes uploading, 
+the schema appears in the **Schemas** list.
 
 <a name="no-public-access"></a>
 
 #### Upload to containers without public access
 
 1. Upload the schema to your storage account. 
-In the right-hand window, choose **Upload**. 
+   In the right-hand window, choose **Upload**.
 
 1. After you finish uploading, generate a 
-shared access signature (SAS) for your schema. 
-From your schema's shortcut menu, 
-select **Get Shared Access Signature**.
+   shared access signature (SAS) for your schema. 
+   From your schema's shortcut menu, 
+   select **Get Shared Access Signature**.
 
 1. In the **Shared Access Signature** pane, select 
-**Generate container-level shared access signature URI** > **Create**. 
-After the SAS URL gets generated, next to the **URL** box, choose **Copy**.
+   **Generate container-level shared access signature URI** > **Create**. 
+   After the SAS URL gets generated, next to the **URL** box, choose **Copy**.
 
 1. Return to the Azure portal where the 
-**Add Schema** pane is open. Choose **Large file**. 
+   **Add Schema** pane is open. Choose **Large file**.
 
    The **Content URI** box now appears, 
-   rather than the **Schema** box. 
+   rather than the **Schema** box.
 
 1. In the **Content URI** box, paste the SAS URI 
-you previously generated. Finish adding your schema.
+   you previously generated. Finish adding your schema.
+
+After your schema finishes uploading, 
+the schema appears in the **Schemas** list.
 
 ## Edit schemas
 
-1. Choose **Schemas**.
+To update an existing schema, you have to upload a new 
+schema file that has the changes you want. However, 
+you can first download the existing schema for editing.
 
-1. After the **Schemas** blade opens, 
-select the schema that you want to edit.
+1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+   with your Azure account credentials.
 
-1. On the **Schemas** blade, choose **Edit**.
+1. Find and open your integration account. 
+   On the main Azure menu, select **All services**. 
+   In the search box, enter "integration account". 
+   Select **Integration accounts**.
 
-   ![Schemas blade](media/logic-apps-enterprise-integration-schemas/edit-12.png)
+1. Select the integration account where you 
+   want to update your schema.
 
-1. Select the schema file that you want to edit, then select **Open**.
+1. On your integration account's **Overview** page, 
+   under **Components**, select the **Schemas** tile.
 
-   ![Open schema file to edit](media/logic-apps-enterprise-integration-schemas/edit-31.png)
+1. After the **Schemas** page opens, select your schema. 
+   To download and edit the schema first, choose **Download**, 
+   and save the schema.
 
-Azure shows a message that the schema uploaded successfully.
+1. When you're ready to upload the updated schema, on the **Schemas** page, 
+   select the schema you want to update, and choose **Update**.
+
+1. Find and select the updated schema you want to upload. 
+   After your schema file finishes uploading, 
+   the updated schema appears in the **Schemas** list.
 
 ## Delete schemas
 
-1. Choose the **Schemas** tile.
+1. Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+   with your Azure account credentials.
 
-1. After the **Schemas** blade opens, 
-select the schema you want to delete.
+1. Find and open your integration account. 
+   On the main Azure menu, select **All services**. 
+   In the search box, enter "integration account". 
+   Select **Integration accounts**.
 
-1. On the **Schemas** blade, choose **Delete**.
+1. Select the integration account where you 
+   want to delete your schema.
 
-   ![Schemas blade](media/logic-apps-enterprise-integration-schemas/delete-12.png)
+1. On your integration account's **Overview** page, 
+   under **Components**, select the **Schemas** tile.
 
-1. To confirm that you want to delete the selected schema, choose **Yes**.
+1. After the **Schemas** page opens, select your schema, and choose **Delete**.
 
-   !["Delete schema" confirmation message](media/logic-apps-enterprise-integration-schemas/delete-21.png)
-
-   In the **Schemas** blade, the schema list refreshes 
-   and no longer includes the schema that you deleted.
-
-   ![Your integration Account, with "Schemas" highlighted](media/logic-apps-enterprise-integration-schemas/delete-31.png)
+1. To confirm that you want to delete the schema, choose **Yes**.
 
 ## Next steps
 

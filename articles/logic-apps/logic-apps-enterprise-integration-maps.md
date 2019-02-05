@@ -364,7 +364,7 @@ Select **Integration accounts**.
 
    ![Find integration account](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
 
-1. Select the integration account where you want to update your map, 
+1. Select the integration account where you want to delete your map, 
 for example:
 
    ![Select integration account](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
