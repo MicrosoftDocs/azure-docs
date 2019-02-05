@@ -206,6 +206,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 In this section, a user called Britta Simon is created in Dovetale. Dovetale supports **just-in-time user provisioning**, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Dovetale, a new one is created after authentication.
 
+> [!Note]
+> If you need to create a user manually, contact [Dovetale support team](mailto:support@dovetale.com).
+
 ### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
