@@ -86,7 +86,7 @@ To view active alerts and the underlying rules that cause the alerts to be trigg
 
 ![Screenshot of analytics experience](media/app-map/alerts-view.png)
 
-## <a name="set-cloudrolename"></a>Set cloud_RoleName
+## Set cloud_RoleName
 
 Application Map uses the `cloud_RoleName` property to identify the components on the map. The Application Insights SDK automatically adds the `cloud_RoleName` property to the telemetry emitted by components. For example, the SDK will add a web site name or service role name to the `cloud_RoleName` property. However, there are cases where you may want to override the default value. To override cloud_RoleName and change what gets displayed on the Application Map:
 
