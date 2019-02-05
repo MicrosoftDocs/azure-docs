@@ -58,7 +58,7 @@ A standalone cluster is a resource that you entirely own. You are responsible fo
 
 For more information, read [Upgrading standalone clusters](service-fabric-cluster-upgrade-standalone.md).
 
-## Supported operating systems for standalone clusters
+## Supported operating systems
 You are able to create clusters on VMs or computers running these operating systems (Linux is not yet supported):
 
 * Windows Server 2012 R2
