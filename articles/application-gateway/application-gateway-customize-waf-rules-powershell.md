@@ -25,6 +25,8 @@ ms.author: victorh
 > * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
 > * [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The Azure Application Gateway web application firewall (WAF) provides protection for web applications. These protections are provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). Some rules can cause false positives and block real traffic. For this reason, Application Gateway provides the capability to customize rule groups and rules. For more information on the specific rule groups and rules, see [List of web application firewall CRS Rule groups and rules](application-gateway-crs-rulegroups-rules.md).
 
 ## View rule groups and rules
@@ -36,7 +38,7 @@ The following code examples show how to view rules and rule groups that are conf
 The following example shows how to view rule groups:
 
 ```powershell
-Get-AzureRmApplicationGatewayAvailableWafRuleSets
+Get-AzApplicationGatewayAvailableWafRuleSets
 ```
 
 The following output is a truncated response from the preceding example:
@@ -96,9 +98,9 @@ OWASP (Ver. 3.0):
 The following example disables rules `911011` and `911012` on an application gateway:
 
 ```powershell
-$disabledrules=New-AzureRmApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-911-METHOD-ENFORCEMENT -Rules 911011,911012
-Set-AzureRmApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+$disabledrules=New-AzApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-911-METHOD-ENFORCEMENT -Rules 911011,911012
+Set-AzApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway $gw -Enabled $true -FirewallMode Detection -RuleSetVersion 3.0 -RuleSetType OWASP -DisabledRuleGroups $disabledrules
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 ## Next steps

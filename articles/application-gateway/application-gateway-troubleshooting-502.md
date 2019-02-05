@@ -23,6 +23,8 @@ ms.author: amsriva
 
 Learn how to troubleshoot bad gateway (502) errors received when using application gateway.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Overview
 
 After configuring an application gateway, one of the errors that users may encounter is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This error may happen due to the following main reasons:
@@ -47,21 +49,21 @@ Validate NSG, UDR, and DNS configuration by going through the following steps:
 * Check UDR associated with Application Gateway subnet. Ensure that UDR is not directing traffic away from backend subnet - for example check for routing to network virtual appliances or default routes being advertised to Application Gateway subnet via ExpressRoute/VPN.
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
-Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
+$vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
+Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
 * Check effective NSG and route with the backend VM
 
 ```powershell
-Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
-Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
 ```
 
 * Check presence of custom DNS in the VNet. DNS can be checked by looking at details of the VNet properties in the output.
 
 ```json
-Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName 
 DhcpOptions            : {
                            "DnsServers": [
                              "x.x.x.x"
@@ -129,7 +131,7 @@ When a user request is received, Application Gateway applies the configured rule
 Application Gateway allows users to configure this setting via BackendHttpSetting, which can be then applied to different pools. Different back-end pools can have different BackendHttpSetting and hence different request time-out configured.
 
 ```powershell
-    New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+    New-AzApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
 ## Empty BackendAddressPool
@@ -143,7 +145,7 @@ If the Application Gateway has no VMs or virtual machine scale set configured in
 Ensure that the back-end address pool is not empty. This can be done either via PowerShell, CLI, or portal.
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
 The output from the preceding cmdlet should contain non-empty back-end address pool. Following is an example where two pools are returned which are configured with FQDN or IP addresses for backend VMs. The provisioning state of the BackendAddressPool must be 'Succeeded'.

@@ -12,6 +12,8 @@ ms.author: victorh
 
 # Frequently asked questions for Application Gateway
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## General
 
 ### What is Application Gateway?
@@ -37,9 +39,9 @@ HTTP/2 protocol support is available to clients connecting to application gatewa
 By default, HTTP/2 support is disabled. The following Azure PowerShell code snippet example shows how you can enable it:
 
 ```
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 ### What resources are supported today as part of backend pool?
@@ -337,7 +339,7 @@ There are three logs available for Application Gateway. For more information on 
 
 ### How do I know if my backend pool members are healthy?
 
-You can use the PowerShell cmdlet `Get-AzureRmApplicationGatewayBackendHealth` or verify health through the portal by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
+You can use the PowerShell cmdlet `Get-AzApplicationGatewayBackendHealth` or verify health through the portal by visiting [Application Gateway Diagnostics](application-gateway-diagnostics.md)
 
 ### What is the retention policy on the diagnostics logs?
 

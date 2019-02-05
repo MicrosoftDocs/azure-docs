@@ -30,6 +30,8 @@ In this article, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Log in to Azure
 
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
@@ -101,7 +103,7 @@ In this example, you create three virtual machines to be used as backend servers
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -112,7 +114,7 @@ In this example, you create three virtual machines to be used as backend servers
       -Settings $publicSettings
     ```
 
-3. Create two more virtual machines and install IIS using the steps that you just finished. Enter the names of *myVM2* and *myVM3* for the names and for the values of VMName in Set-AzureRmVMExtension.
+3. Create two more virtual machines and install IIS using the steps that you just finished. Enter the names of *myVM2* and *myVM3* for the names and for the values of VMName in Set-AzVMExtension.
 
 ## Create backend pools with the virtual machines
 
