@@ -41,7 +41,7 @@ You can use the Stored Procedure Activity to invoke a stored procedure in one of
 
 - Azure SQL Database
 - Azure SQL Data Warehouse
-- SQL Server Database.  If you are using SQL Server, install Data Management Gateway on the same machine that hosts the database or on a separate machine that has access to the database. Data Management Gateway is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details.
+- SQL Server Database. If you are using SQL Server, install Data Management Gateway on the same machine that hosts the database or on a separate machine that has access to the database. Data Management Gateway is a component that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details.
 
 > [!IMPORTANT]
 > When copying data into Azure SQL Database or SQL Server, you can configure the **SqlSink** in copy activity to invoke a stored procedure by using the **sqlWriterStoredProcedureName** property. For more information, see [Invoke stored procedure from copy activity](data-factory-invoke-stored-procedure-from-copy-activity.md). For details about the property, see following connector articles: [Azure SQL Database](data-factory-azure-sql-connector.md#copy-activity-properties), [SQL Server](data-factory-sqlserver-connector.md#copy-activity-properties). Invoking a stored procedure while copying data into an Azure SQL Data Warehouse by using a copy activity is not supported. But, you can use the stored procedure activity to invoke a stored procedure in a SQL Data Warehouse.
@@ -54,7 +54,7 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
 ### Sample table and stored procedure
 1. Create the following **table** in your Azure SQL Database using SQL Server Management Studio or any other tool you are comfortable with. The datetimestamp column is the date and time when the corresponding ID is generated.
 
-	```SQL
+    ```SQL
     CREATE TABLE dbo.sampletable
     (
         Id uniqueidentifier,
@@ -64,7 +64,7 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
 
     CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
     GO
-	```
+    ```
     Id is the unique identified and the datetimestamp column is the date and time when the corresponding ID is generated.
     
 	![Sample data](./media/data-factory-stored-proc-activity/sample-data.png)
@@ -72,7 +72,7 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
 	In this sample, the stored procedure is in an Azure SQL Database. If the stored procedure is in an Azure SQL Data Warehouse and SQL Server Database, the approach is similar. For a SQL Server database, you must install a [Data Management Gateway](data-factory-data-management-gateway.md).
 2. Create the following **stored procedure** that inserts data in to the **sampletable**.
 
-	```SQL
+    ```SQL
     CREATE PROCEDURE usp_sample @DateTime nvarchar(127)
     AS
 
@@ -80,7 +80,7 @@ The following walkthrough uses the Stored Procedure Activity in a pipeline to in
         INSERT INTO [sampletable]
         VALUES (newid(), @DateTime)
     END
-	```
+    ```
 
    > [!IMPORTANT]
    > **Name** and **casing** of the parameter (DateTime in this example) must match that of parameter specified in the pipeline/activity JSON. In the stored procedure definition, ensure that **@** is used as a prefix for the parameter.
@@ -131,7 +131,7 @@ You must specify an output dataset for a stored procedure activity even if the s
     ![tree view with linked service](media/data-factory-stored-proc-activity/new-dataset.png)
 2. Copy/paste the following JSON script in to the JSON editor.
 
-	```JSON
+    ```JSON
     {
         "name": "sprocsampleout",
         "properties": {
@@ -146,7 +146,7 @@ You must specify an output dataset for a stored procedure activity even if the s
             }
         }
     }
-	```
+    ```
 3. To deploy the dataset, click **Deploy** on the command bar. Confirm that you see the dataset in the tree view.
 
     ![tree view with linked services](media/data-factory-stored-proc-activity/tree-view-2.png)
@@ -163,7 +163,7 @@ Notice the following properties:
 1. Click **... More** on the command bar and click **New pipeline**.
 2. Copy/paste the following JSON snippet:
 
-	```JSON
+    ```JSON
     {
         "name": "SprocActivitySamplePipeline",
         "properties": {
@@ -188,12 +188,12 @@ Notice the following properties:
                     "name": "SprocActivitySample"
                 }
             ],
-             "start": "2017-04-02T00:00:00Z",
-             "end": "2017-04-02T05:00:00Z",
+            "start": "2017-04-02T00:00:00Z",
+            "end": "2017-04-02T05:00:00Z",
             "isPaused": false
         }
     }
-	```
+    ```
 3. To deploy the pipeline, click **Deploy** on the toolbar.
 
 ### Monitor the pipeline
@@ -224,7 +224,6 @@ For more information on chaining activities, see [multiple activities in a pipel
 
 ```json
 {
-
 	"name": "ADFTutorialPipeline",
 	"properties": {
 		"description": "Copy data from a blob to blob",
@@ -264,7 +263,6 @@ For more information on chaining activities, see [multiple activities in a pipel
 				},
 				"name": "RunStoredProcedure"
 			}
-
 		],
 		"start": "2017-04-12T00:00:00Z",
 		"end": "2017-04-13T00:00:00Z",
@@ -288,8 +286,8 @@ Here is the JSON format for defining a Stored Procedure Activity:
     "name": "SQLSPROCActivity",
     "description": "description",
     "type": "SqlServerStoredProcedure",
-    "inputs":  [ { "name": "inputtable"  } ],
-    "outputs":  [ { "name": "outputtable" } ],
+    "inputs": [ { "name": "inputtable" } ],
+    "outputs": [ { "name": "outputtable" } ],
     "typeProperties":
     {
         "storedProcedureName": "<name of the stored procedure>",
@@ -326,7 +324,7 @@ CREATE TABLE dbo.sampletable2
 (
     Id uniqueidentifier,
     datetimestamp nvarchar(127),
-	scenario nvarchar(127)
+    scenario nvarchar(127)
 )
 GO
 
