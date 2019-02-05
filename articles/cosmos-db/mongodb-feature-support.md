@@ -279,7 +279,7 @@ $box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 4
 $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Yes
 
 ## Sort Operations
-Sort operations on a single field is supported but sort operations on multiple fields are not supported.
+When using findAndModify command, sort operations on a single field is supported but sort operations on multiple fields are not supported.
 
 ## Additional operators
 
