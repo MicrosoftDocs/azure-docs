@@ -19,13 +19,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Register the Azure API for FHIR resource provider
 
-If the `Microsoft.HealthcareAPIs` resource provider is not already registered for your subscription, you can register it with:
+If the `Microsoft.HealthcareApis` resource provider is not already registered for your subscription, you can register it with:
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.HealthcareAPIs
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.HealthcareApis
 ```
 
-## Create an Azure Resource Manager template
+## Create Azure Resource Manager template
 
 Create an Azure Resource Manager template with the following content:
 
@@ -33,7 +33,23 @@ Create an Azure Resource Manager template with the following content:
 
 Save it with the name `azuredeploy.json`
 
-## Create an Azure resource group
+## Create Azure Resource Manager parameter file
+
+Create an Azure Resource Manager template parameter file with the following content:
+
+[!code-json[](samples/azuredeploy.parameters.json)]
+
+Save it with the name `azuredeploy.parameters.json`
+
+The object ID values `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` and `yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy` correspond to the object IDs of specific Azure Active Directory users or service principals in the directory associated with the subscription. If you would like to know the object ID of a specific user, you can find it with a command like:
+
+```azurepowershell-interactive
+$(Get-AzureADUser -Filter "UserPrincipalName eq 'myuser@consoso.com'").ObjectId
+```
+
+Read the how-to guide on [finding identity object IDs](find-identity-object-ids.md) for more details.
+
+## Create Azure resource group
 
 ```azurepowershell-interactive
 $rg = New-AzureRmResourceGroup -Name "myResourceGroupName" -Location westus2
@@ -42,8 +58,7 @@ $rg = New-AzureRmResourceGroup -Name "myResourceGroupName" -Location westus2
 ## Deploy template
 
 ```azurepowershell-interactive
-$accountName = "myHealthcareApis"
-New-AzureRmResourceGroupDeployment -ResourceGroup $rg.ResourceGroupName -TemplateFile azuredeploy.json -accountName $accountName
+New-AzureRmResourceGroupDeployment -ResourceGroup $rg.ResourceGroupName -TemplateFile azuredeploy.json -TemplateParameterFile azuredeploy.parameters.json
 ```
 
 ## Fetch capability statement
@@ -51,8 +66,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroup $rg.ResourceGroupName -Templat
 You'll be able to validate that the Azure API for FHIR account is running by fetching a FHIR capability statement:
 
 ```azurepowershell-interactive
-$metadataUrl = "https://" + $accountName + ".microsofthealthcare-apis.com/metadata"
-$metadata = Invoke-WebRequest -Uri $metadataUrl
+$metadata = Invoke-WebRequest -Uri $metadataUrl "https://nameOfFhirAccount.azurehealthcareapis.com/metadata"
 $metadata.RawContent
 ```
 
