@@ -229,4 +229,4 @@ The following options are supported:
 ## Next steps
 
 - Learn more about [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/).
-- Learn more about [Azure AD authentication scenarios](/azure/active-directory/develop/active-directory-authentication-scenarios#web-browser-to-web-application).
+- Learn more about [Azure AD authentication scenarios](/azure/active-directory/develop/active-directory-authentication-scenarios).
