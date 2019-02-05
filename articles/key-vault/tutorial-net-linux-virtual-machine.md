@@ -39,11 +39,11 @@ Before we go any further, read about [key vault basic concepts](key-vault-whatis
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * Azure CLI. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## Understand Managed Service Identity (MSI)
+## Understand Managed Service Identity
 
-Azure Key Vault can store credentials securely so they aren’t in your code, but to retrieve them you need to authenticate to Azure Key Vault. To authenticate to Key Vault, you need a credential! It's a classic bootstrap problem. With Azure and Azure Active Directory (Azure AD), MSI can provide a bootstrap identity that makes it much simpler to get things started.
+Azure Key Vault can store credentials securely so they aren’t in your code, but to retrieve them you need to authenticate to Azure Key Vault. To authenticate to Key Vault, you need a credential! It's a classic bootstrap problem. With Azure and Azure Active Directory (Azure AD), Managed Service Identity (MSI) can provide a bootstrap identity that makes it much simpler to get things started.
 
-When you enable MSI for an Azure service like Virtual Machines, App Service, or Functions, Azure creates a Service Principal for the instance of the service in Azure Active Directory. It injects the credentials for the Service Principal into the instance of the service.
+When you enable MSI for an Azure service like Virtual Machines, App Service, or Functions, Azure creates a service principal for the instance of the service in Azure Active Directory. It injects the credentials for the service principal into the instance of the service.
 
 ![MSI](media/MSI.png)
 
