@@ -535,11 +535,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/avere-vfxt/avere-vfxt-pre-role.md",
-      "redirect_url": "/azure/avere-vfxt/avere-vfxt-deploy",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/avere-vfxt/avere-vfxt-required-ports.md",
       "redirect_url": "/azure/avere-vfxt/avere-vfxt-additional-resources",
       "redirect_document_id": true
@@ -1757,6 +1752,11 @@
     {
       "source_path": "articles/active-directory/msi-tutorial-linux-vm-access-storage-sas.md",
       "redirect_url": "/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-sas",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/storage-security-attributes.md",
+      "redirect_url": "/azure/storage",
       "redirect_document_id": false
     },
     {
@@ -11943,13 +11943,28 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/import-data-from-an-experiment.md",
+      "redirect_url": "/azure/machine-learning/studio/import-data",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-import-data-from-local-file.md",
       "redirect_url": "/azure/machine-learning/studio/import-data-from-local-file",
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/import-data-from-local-file.md",
+      "redirect_url": "/azure/machine-learning/studio/import-data",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-import-data-from-online-sources.md",
       "redirect_url": "/azure/machine-learning/studio/import-data-from-online-sources",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/studio/import-data-from-online-sources.md",
+      "redirect_url": "/azure/machine-learning/studio/import-data",
       "redirect_document_id": false
     },
     {
@@ -13523,7 +13538,17 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-solution-quick-starts.md",
-      "redirect_url": "/azure/sql-database/sql-database-explore-tutorials",
+      "redirect_url": "/azure/sql-database/sql-database-explore-tutorials", 
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-advanced-threat-protection.md",
+      "redirect_url": "/azure/sql-database/sql-database-advanced-data-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-threat-protection.md",
+      "redirect_url": "/azure/sql-database/sql-database-advanced-data-security",
       "redirect_document_id": false
     },
     {
@@ -17591,22 +17616,22 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-agents-and-extensions.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/agents-and-extensions-classic",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/agents-and-extensions-classic",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-attach-disk.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/attach-disk-classic",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/attach-disk-classic",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-capture-image.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/capture-image-classic",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/capture-image-classic",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-cassandra-nodejs.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/cassandra-nodejs",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/cassandra-nodejs",
       "redirect_document_id": false
     },
     {
@@ -17616,7 +17641,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-configure-availability.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/configure-availability-classic",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/configure-availability-classic",
       "redirect_document_id": false
     },
     {
@@ -17626,32 +17651,32 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-create-custom.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/create-custom-classic",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/create-custom-classic",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/create-upload-vhd-classic",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/create-upload-vhd-classic",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-createportal.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/createportal-classic",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/createportal-classic",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-detach-disk.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/detach-disk-classic",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/detach-disk-classic",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/diagnostic-extension-v2",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-faq.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/faq-classic",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/faq-classic",
       "redirect_document_id": false
     },
     {
@@ -17661,32 +17686,32 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-hpcpack-cluster-namd.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/hpcpack-cluster-namd",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/hpcpack-cluster-namd",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-hpcpack-cluster-openfoam.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/hpcpack-cluster-openfoam",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/hpcpack-cluster-openfoam",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/hpcpack-cluster-powershell-script",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/hpcpack-cluster-powershell-script",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-hpcpack-cluster-starccm.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/hpcpack-cluster-starccm",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/hpcpack-cluster-starccm",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-hpcpack-cluster.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/hpcpack-cluster",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/hpcpack-cluster",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-inject-custom-data.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/inject-custom-data",
+      "redirect_url": "/azure/virtual-machines/linux/tutorial-automate-vm-deployment",
       "redirect_document_id": false
     },
     {
@@ -17701,12 +17726,12 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-manage-extensions.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/manage-extensions-classic",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/manage-extensions-classic",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-manage-visual-studio.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/manage-visual-studio",
+      "redirect_url": "/azure/virtual-machines/windows/csharp",
       "redirect_document_id": false
     },
     {
@@ -17716,12 +17741,12 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-mariadb-mysql-cluster.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/mariadb-mysql-cluster",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/mariadb-mysql-cluster",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-mysql-cluster.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/mysql-cluster",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/mysql-cluster",
       "redirect_document_id": false
     },
     {
@@ -17731,7 +17756,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-oracle-images.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/oracle-images",
+      "redirect_url": "/azure/virtual-machines/workloads/oracle/oracle-considerations",
       "redirect_document_id": false
     },
     {
@@ -17751,17 +17776,17 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-remote-desktop.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/remote-desktop-classic",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/remote-desktop-classic",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-reset-access.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/reset-access-classic",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-restart-resize-error-troubleshooting.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/restart-resize-error-troubleshooting",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/restart-resize-error-troubleshooting",
       "redirect_document_id": false
     },
     {
@@ -17771,22 +17796,22 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-setup-endpoints.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/setup-endpoints",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/setup-endpoints",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-optimize-mysql.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/optimize-mysql",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/optimize-mysql",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-setup-tomcat.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/setup-tomcat",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/setup-tomcat",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-web-app-visual-studio.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/web-app-visual-studio",
+      "redirect_url": "/azure/app-service/",
       "redirect_document_id": false
     },
     {
@@ -17801,7 +17826,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md",
-      "redirect_url": "/azure/virtual-machines/linux/classic/troubleshoot-deployment-new-vm",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/troubleshoot-deployment-new-vm",
       "redirect_document_id": false
     },
     {
@@ -19236,12 +19261,12 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-classic-about-images.md",
-      "redirect_url": "/azure/virtual-machines/windows/classic/about-images",
+      "redirect_url": "/azure/virtual-machines/windows/cli-ps-findimage",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-classic-agents-and-extensions.md",
-      "redirect_url": "/azure/virtual-machines/windows/classic/agents-and-extensions",
+      "redirect_url": "/azure/virtual-machines/windows/extensions-features",
       "redirect_document_id": false
     },
     {
@@ -35085,6 +35110,301 @@
         "source_path": "articles/backup/backup-azure-move-recovery-services-vault.md",
         "redirect_url": "/azure/backup/backup-azure-recovery-services-vault-overview",
         "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/agents-and-extensions-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/agents-and-extensions-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/attach-disk-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/attach-disk-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/capture-image-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/capture-image-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/cassandra-nodejs.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/cassandra-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/configure-availability-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/configure-availability-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/create-custom-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/create-custom-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/create-upload-vhd-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/create-upload-vhd-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/createportal-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/createportal-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/detach-disk-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/detach-disk-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/diagnostic-extension-v2.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/faq-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/faq-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/hpcpack-cluster-namd.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/hpcpack-cluster-namd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/hpcpack-cluster-openfoam.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/hpcpack-cluster-openfoam",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/hpcpack-cluster-powershell-script.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/hpcpack-cluster-powershell-script",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/hpcpack-cluster-starccm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/hpcpack-cluster-starccm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/hpcpack-cluster.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/hpcpack-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/index.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/manage-extensions-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/manage-extensions-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/mariadb-mysql-cluster.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/mariadb-mysql-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/mysql-cluster.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/mysql-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/optimize-mysql.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/optimize-mysql",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/planned-maintenance-schedule-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/planned-maintenance-schedule-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/remote-desktop-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/remote-desktop-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/reset-access-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/restart-resize-error-troubleshooting.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/restart-resize-error-troubleshooting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/ruby-rails-web-app.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/ruby-rails-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/setup-endpoints.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/setup-endpoints",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/setup-tomcat.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/setup-tomcat",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/troubleshoot-deployment-new-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/troubleshoot-deployment-new-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/classic/troubleshoot-recovery-disks-portal.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/troubleshoot-recovery-disks-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/agents-and-extensions-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/agents-and-extensions-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/attach-disk-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/attach-disk-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/capture-image-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/configure-availability-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/connect-logon-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/connect-logon-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/connect-vms-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/connect-vms-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/createportal-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/createportal-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/detach-disk-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/detach-disk-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/faq-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/faq-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/hpcpack-cluster-node-autogrowshrink.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/hpcpack-cluster-node-autogrowshrink",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/hpcpack-cluster-node-burst.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/hpcpack-cluster-node-burst",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/hpcpack-cluster-node-manage.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/hpcpack-cluster-node-manage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/hpcpack-cluster-powershell-script.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/hpcpack-cluster-powershell-script",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/hpcpack-rdma-cluster.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/hpcpack-rdma-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/index.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/java-run-compute-intensive-task.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/java-run-compute-intensive-task",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/java-run-tomcat-app-server.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/java-run-tomcat-app-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/manage-extensions-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/manage-extensions-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/manage-psh-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/manage-psh-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/mysql-2008r2.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/planned-maintenance-schedule-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/planned-maintenance-schedule-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/python-django-web-app.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/python-django-web-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/reset-rdp.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/reset-rdp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/resize-vm-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/resize-vm-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/setup-endpoints.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/troubleshoot-deployment-new-vm.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/troubleshoot-deployment-new-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/troubleshoot-recovery-disks-portal.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/troubleshoot-recovery-disks-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/tutorial-classic.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/tutorial-classic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/classic/virtual-machines-windows-classic-restart-resize-error-troubleshooting.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/virtual-machines-windows-classic-restart-resize-error-troubleshooting",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-device-registration-on-premises-setup.md",
