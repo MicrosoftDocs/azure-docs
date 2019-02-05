@@ -9,24 +9,8 @@
   items:
   - name: Create a storage account
     href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-  - name: Develop with queues
-    items:
-    - name: .NET
-      href: storage-dotnet-how-to-use-queues.md
-    - name: Java
-      href: storage-java-how-to-use-queue-storage.md
-    - name: Node.js
-      href: storage-nodejs-how-to-use-queues.md
-    - name: C++
-      href: storage-c-plus-plus-how-to-use-queues.md
-    - name: PHP
-      href: storage-php-how-to-use-queues.md
-    - name: Python
-      href: storage-python-how-to-use-queue-storage.md
-    - name: Ruby
-      href: storage-ruby-how-to-use-queue-storage.md
-    - name: PowerShell
-      href: storage-powershell-how-to-use-queues.md
+  - name: Manage queues without code
+
 - name: Samples
   items:
   - name: .NET
@@ -127,14 +111,37 @@
           href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Use an Azure AD identity with CLI or PowerShell
           href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Authorize with Shared Key (REST)
-      href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Authorize with Shared Key
+      items:
+      - name: Configure connection strings
+        href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Use the Azure Storage REST API
+        href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Develop
     items:
-    - name: Configure connection strings
-      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Use the Storage Emulator
       href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+
+  - name: Develop with queues
+    items:
+    - name: .NET
+      href: storage-dotnet-how-to-use-queues.md
+    - name: Java
+      href: storage-java-how-to-use-queue-storage.md
+    - name: Node.js
+      href: storage-nodejs-how-to-use-queues.md
+    - name: C++
+      href: storage-c-plus-plus-how-to-use-queues.md
+    - name: PHP
+      href: storage-php-how-to-use-queues.md
+    - name: Python
+      href: storage-python-how-to-use-queue-storage.md
+    - name: Ruby
+      href: storage-ruby-how-to-use-queue-storage.md
+    - name: PowerShell
+      href: storage-powershell-how-to-use-queues.md
+
+
   - name: Manage
     items:
     - name: PowerShell for Azure Queues
