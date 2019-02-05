@@ -11,13 +11,13 @@ ms.author: mihansen
 
 # Quickstart: Deploy Azure API for FHIR using Azure CLI
 
-In this quick start, you'll learn how to deploy Azure API for FHIR in Azure using the Azure CLI.
+In this quickstart, you'll learn how to deploy Azure API for FHIR in Azure using the Azure CLI.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-try-it.md)]
 
-## Create an Azure Resource Manager template
+## Create Azure Resource Manager template
 
 Create an Azure Resource Manager template with the following content:
 
@@ -25,15 +25,32 @@ Create an Azure Resource Manager template with the following content:
 
 Save it with the name `azuredeploy.json`
 
+## Create Azure Resource Manager parameter file
+
+Create an Azure Resource Manager template parameter file with the following content:
+
+[!code-json[](samples/azuredeploy.parameters.json)]
+
+Save it with the name `azuredeploy.parameters.json`
+
+The object ID values `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` and `yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy` correspond to the object IDs of specific Azure Active Directory users or service principals in the directory associated with the subscription. If you would like to know the object ID of a specific user, you can find it with a command like:
+
 ```azurecli-interactive
-servicename="myfhirservice"
-az group create --name $servicename --location westus2
+az ad user show --upn-or-object-id myuser@consoso.com | jq -r .objectId
+```
+
+Read the how-to guide on [finding identity object IDs](find-identity-object-ids.md) for more details.
+
+# Create Azure Resource Group
+
+```azurecli-interactive
+az group create --name "myResourceGroup" --location westus2
 ```
 
 ## Deploy the Azure API for FHIR account
 
 ```azurecli-interactive
-az group deployment create -g $servicename --template-file azuredeploy.json --parameters accountName=$servicename
+az group deployment create -g "myResourceGroup" --template-file azuredeploy.json --parameters @{azuredeploy.parameters.json}
 ```
 
 ## Fetch FHIR API capability statement
@@ -41,8 +58,7 @@ az group deployment create -g $servicename --template-file azuredeploy.json --pa
 Obtain a capability statement from the FHIR API with:
 
 ```azurecli-interactive
-metadataurl="https://${servicename}.microsofthealthcare-apis.com/fhir/metadata"
-curl --url $metadataurl
+curl --url "https://nameOfFhirAccount.azurehealthcareapis.com/fhir/metadata"
 ```
 
 ## Clean up resources
@@ -50,7 +66,7 @@ curl --url $metadataurl
 If you're not going to continue to use this application, delete the resource group with the following steps:
 
 ```azurecli-interactive
-az group delete --name $servicename
+az group delete --name "myResourceGroup"
 ```
 
 ## Next steps

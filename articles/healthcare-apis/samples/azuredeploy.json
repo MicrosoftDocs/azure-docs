@@ -1,28 +1,34 @@
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "accountName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the Microsoft Healthcare APIs account."
-            }
+            "type": "string"
         },
-        "validTokenOids": {
-            "type": "array",
+        "accessPolicies": {
+            "type": "array"
+        },
+        "offerThroughput": {
+            "type": "int",
+            "allowedValues": [1000],
+            "defaultValue": 1000,
             "metadata": {
-                "description": "A list of valid access token OIDs"
+                "description": "Cosmos DB throughput. Fix at 1000 RUs in initial public preview"
             }
         }
     },
     "resources": [
         {
-            "apiVersion": "2019-01-01",
-            "type": "Microsoft.HealthcareAPIs/service",
-            "name": "[variables('accountName')]",
+            "apiVersion": "2018-08-20-preview",
+            "type": "Microsoft.HealthcareApis/services",
+            "kind": "fhir",
+            "name": "[parameters('accountName')]",
             "location": "[resourceGroup().location]",
             "properties": {
-                "validTokenOids": "[parameters('validTokenOids')]"
+                "accessPolicies": "[parameters('accessPolicies')]",
+                "cosmosDbConfiguration": {
+                    "offerThroughput": "[parameters('offerThroughput')]"
+                }
             }
         }
     ]
