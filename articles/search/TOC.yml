@@ -273,6 +273,7 @@
     - name: Deprecated Skills
       href: cognitive-search-skill-deprecated.md
   - name: Custom skills (Preview)
+    items:
     - name: Custom Web API
       href: cognitive-search-custom-skill-web-api.md
 - name: Resources
