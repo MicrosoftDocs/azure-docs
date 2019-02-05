@@ -19,7 +19,7 @@ FHIR helps unlock the value of data and respond to changing business dynamics mo
 
 Organizations are able to bring together clinical data from multiple systems of records, normalize the data using common models and specifications, and use that data in AI workloads to derive insight and power new systems of engagement, including clinician and patient dashboards, diagnostic assistants, population health insights, and connected healthcare scenarios, such as remote patient monitoring.  
 
-The Azure API for FHIR is capable of powering Internet of Things (IoMT) for healthcare scenarios, population health research projects, AI-powered diagnostic solutions and much more.
+The Azure API for FHIR is capable of powering Internet of Things (IoT) for healthcare scenarios, population health research projects, AI-powered diagnostic solutions and much more.
 
 The Azure API for FHIR meets all regulatory compliance for healthcare data.
 
