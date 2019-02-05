@@ -334,30 +334,16 @@ The following table summarizes the pros and cons of each of the approaches outli
 
 | **Approach**| **Pros** | **Cons** |
 |---|---|---|
-| Separate entity types, same partition, same table|
-<ul>
-<li>You can update a department entity with a single operation.</li>
-<li>You can use an EGT to maintain consistency if you have a requirement to modify a department entity whenever you update/insert/delete an employee entity. For example, if you maintain a departmental employee count for each department.</li>
-</ul> |
-<ul>
-<li>You may need to retrieve both an employee and a department entity for some client activities.</li>
-<li>Storage operations happen in the same partition. At high transaction volumes, this may result in a hotspot.</li>
-<li>You cannot move an employee to a new department using an EGT.</li>
-</ul>
+| Separate entity types, same partition, same table| * You can update a department entity with a single operation.<br/> * You can use an EGT to maintain consistency if you have a requirement to modify a department entity whenever you update/insert/delete an employee entity. For example, if you maintain a departmental employee count for each department. <br/>| * You may need to retrieve both an employee and a department entity for some client activities. <br/>
+* Storage operations happen in the same partition. At high transaction volumes, this may result in a hotspot.<br/>
+* You cannot move an employee to a new department using an EGT. <br/> |
 | Separate entity types, different partitions, or tables or storage accounts|
-<ul>
-<li>You can update a department entity or employee entity with a single operation.</li>
-<li>At high transaction volumes, this may help spread the load across more partitions.</li>
-</ul>|
-<ul> <li>You may need to retrieve both an employee and a department entity for some client activities.</li>
-<li>You cannot use EGTs to maintain consistency when you update/insert/delete an employee and update a department. For example, updating an employee count in a department entity.</li>
-<li>You cannot move an employee to a new department using an EGT.</li>
-</ul> |
-| Denormalize into single entity type |<ul>
-<li>You can retrieve all the information you need with a single request.</li>
-</ul> | <ul>
-<li>It may be expensive to maintain consistency if you need to update department information (this would require you to update all the employees in a department).</li>
-</ul> |
+* You can update a department entity or employee entity with a single operation.<br/>
+* At high transaction volumes, this may help spread the load across more partitions.<br/>|
+* You may need to retrieve both an employee and a department entity for some client activities.<br/> 
+* You cannot use EGTs to maintain consistency when you update/insert/delete an employee and update a department. For example, updating an employee count in a department entity. <br/>
+* You cannot move an employee to a new department using an EGT. <br/> |
+| Denormalize into single entity type | * You can retrieve all the information you need with a single request.<br/> | * It may be expensive to maintain consistency if you need to update department information (this would require you to update all the employees in a department). <br/> |
 
 How you choose between these options, and which of the pros and cons are most significant, depends on your specific application scenarios. For example, how often do you modify department entities; do all your employee queries need the additional departmental information; how close are you to the scalability limits on your partitions or your storage account?  
 
