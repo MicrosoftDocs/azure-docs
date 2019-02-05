@@ -33,11 +33,7 @@ The Bing Entity Search API is a RESTful web service, making it easy to call from
 
 ## Next steps
 
-Try the [interactive demo](https://azure.microsoft.com/en-us/services/cognitive-services/bing-entity-search-api/) for the Bing Entity Search API. 
-
-To get started quickly with your first request, try a [Quickstart](quickstarts/csharp.md).
-
-## See also
-
-* The [Bing Entity Search API v7](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-entities-api-v7-reference) reference section.
+* Try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) for the Bing Entity Search API. 
+* To get started quickly with your first request, try a [Quickstart](quickstarts/csharp.md).
+* The [Bing Entity Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) reference section.
 * The [Bing Use and Display Requirements](./use-display-requirements.md) specify acceptable uses of the content and information gained through the Bing search APIs.

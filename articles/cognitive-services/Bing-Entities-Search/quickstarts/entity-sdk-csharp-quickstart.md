@@ -23,7 +23,6 @@ Use this quickstart to begin searching for entities with the Bing Entity Search 
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
 * If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
-
 * The [Bing News Search SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0). Installing this package also installs the following:
     * Microsoft.Rest.ClientRuntime
     * Microsoft.Rest.ClientRuntime.Azure
@@ -79,7 +78,5 @@ To add the Bing Entity Search SDK to your Visual Studio project, use the `Manage
 
 > [!div class="nextstepaction"]
 > [Create a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
-
-## See also
 
 * [What is the Bing Entity Search API?](../overview.md )

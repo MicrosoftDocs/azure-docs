@@ -3,13 +3,13 @@ title: "Sending search requests to the Bing Entity Search API"
 titleSuffix: Azure cognitive Services
 description: Learn how to send search requests to the Bing Entity Search API
 services: cognitive-services
-author: aahi
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: aahill
+ms.author: aahi
 ---
 
 # Sending search requests to the Bing Entity Search API

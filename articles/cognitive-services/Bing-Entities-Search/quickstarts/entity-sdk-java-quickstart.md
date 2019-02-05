@@ -146,6 +146,4 @@ Install the Bing Entity Search SDK dependencies by using Maven, Gradle, or anoth
 > [!div class="nextstepaction"]
 > [Build a single-page web app](../tutorial-bing-entities-search-single-page-app.md)
 
-## See also
-
 * [What is the Bing Entity Search API?](../overview.md )
