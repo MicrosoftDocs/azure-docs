@@ -44,19 +44,15 @@ This tutorial uses flight data from the Bureau of Transportation Statistics to d
 
 2. Select the **Prezipped File** check box to select all data fields.
 
-3. Select the **Download** button and save the results to your computer.
+3. Select the **Download** button and save the results to your computer. 
 
-   Make a note of the file name and the path of the download. You need this information in a later step.
+4. Unzip the contents of the zipped file and make a note of the file name and the path of the file. You need this information in a later step.
 
-## Set aside storage account configuration
+## Get your storage account name
 
-You'll need the name of your storage account, and a file system endpoint URI.
+You'll need the name of your storage account. To get it, Log into the [Azure portal](https://portal.azure.com/), choose **All Services** and filter on the term *storage*. Then, select **Storage accounts** and locate your storage account.
 
-To get the name of your storage account in the Azure portal, choose **All Services** and filter on the term *storage*. Then, select **Storage accounts** and locate your storage account.
-
-To get the file system endpoint URI, choose **Properties**, and in the properties pane find the value of the **Primary ADLS FILE SYSTEM ENDPOINT** field.
-
-Paste both of these values into a text file. You'll need them soon.
+Paste the name into a text file. You'll need it soon.
 
 <a id="service-principal"/>
 
@@ -64,9 +60,7 @@ Paste both of these values into a text file. You'll need them soon.
 
 Create a service principal by following the guidance in this topic: [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-There's a few specific things that you'll have to do as you perform the steps in that article.
-
-:heavy_check_mark: When performing the steps in the [Create an Azure Active Directory application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) section of the article,  make sure to set the **Sign-on URL** field of the **Create** dialog box to the endpoint URI that you just collected.
+There's a couple of things that you'll have to do as you perform the steps in that article.
 
 :heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign your application to the **Blob Storage Contributor Role**.
 
@@ -122,6 +116,8 @@ In this section, you create an Azure Databricks service by using the Azure porta
 
 ## Create a file system and mount it
 
+In this section, you'll create a file system and a folder in your storage account.
+
 1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks service that you created, and select **Launch Workspace**.
 
 2. On the left, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
@@ -149,7 +145,9 @@ In this section, you create an Azure Databricks service by using the Azure porta
     ```
 18. In this code block, replace the `storage-account-name`, `application-id`, `authentication-id`, and `tenant-id` placeholder values in this code block with the values that you collected when you completed the steps in the [Set aside storage account configuration](#config) and [Create a service principal](#service-principal) sections of this article. Replace the `file-system-name` placeholder with any name that you want to give your file system.
 
-19. Press the **SHIFT + ENTER** keys to run the code in this block.
+19. Press the **SHIFT + ENTER** keys to run the code in this block. 
+
+    Keep this notebook open as you will add commands to it later.
 
 ## Ingest data
 
@@ -163,57 +161,51 @@ Use AzCopy to copy data from the *.csv* file that you downloaded earlier into yo
    azcopy login
    ```
 
+   Follow the instructions the appear in the command prompt window to authenticate your user account.
+
 2. To copy data from the *.csv* account, enter the following command.
 
-   Replace the `<download-file-path>` placeholder value with the path to the *.csv* file that you downloaded earlier. Replace the `storage-account-name` placeholder value with the name of your storage account.
+   * Replace the `<csv-folder-path>` placeholder value with directory path to the *.csv* file (excluding the name of the file) that you downloaded earlier.
+
+   * Replace the `storage-account-name` placeholder value with the name of your storage account.
+
+   * Replace the `file-system-name` placeholder with any name that you want to give your file system.
 
    ```bash
-   azcopy cp "<csv-file-path>" https://<storage-account-name>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time
    ```
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
-Reopen Databricks in your browser and execute the following steps:
+In the notebook that you previously created, add a new cell, and paste the following code into that cell. Replace the `storage-account-name` placeholder value in this code snippet with the name of the folder that you saved the csv file to.
 
-1. Select **Azure Databricks** on the top left of the navigation bar.
-2. Select **Notebook** under the **New** section on the bottom half of the page.
-3. Enter **CSV2Parquet** in the **Name** field.
-4. All other fields can be left as default values.
-5. Select **Create**.
-6. Paste the following code into the **Cmd 1** cell. (This code auto-saves in the editor.)
+```python
+# Use the previously established DBFS mount point to read the data.
+# create a data frame to read data.
 
-    ```python
-    # Use the previously established DBFS mount point to read the data.
-    # create a dataframe to read data.
-    flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time_On_Time*.csv")
-    # read the airline csv file and write the output to parquet format for easy query.
-    flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
-    print("Done")
-    ```
+flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/*.csv")
+
+# read the airline csv file and write the output to parquet format for easy query.
+ flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
+ print("Done")
+ ```
 
 ## Explore data
 
-Return to the Databricks workspace and select the **Recent** icon in the left navigation bar.
-
-1. Select the **Flight Data Analytics** notebook.
-2. Press **Ctrl + Alt + N** to create a new cell.
-
-Enter each of the following code blocks into **Cmd 1** and press **Cmd + Enter** to run the Python script.
-
-To get a list of CSV files uploaded via AzCopy, run the following script:
+In a new cell, paste the following code to get a list of CSV files uploaded via AzCopy. Replace the `<csv-folder-path>` placeholder value with the same value for that placeholder that you used earlier.
 
 ```python
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-display(dbutils.fs.ls("/mnt/flightdata/folder1/"))
+display(dbutils.fs.ls("/mnt/flightdata/On_Time/<your-folder-name>"))
 ```
 
 To create a new file and list files in the *parquet/flights* folder, run this script:
 
 ```python
-dbutils.fs.put("/mnt/flightdata/folder1/1.txt", "Hello, World!", True)
-dbutils.fs.ls("/mnt/flightdata/folder1/parquet/flights")
+dbutils.fs.put("/mnt/flightdata/1.txt", "Hello, World!", True)
+dbutils.fs.ls("/mnt/flightdata/parquet/flights")
 ```
 
 With these code samples, you have explored the hierarchical nature of HDFS using data stored in a storage account with Data Lake Storage Gen2 enabled.
@@ -226,12 +218,13 @@ Next, you can begin to query the data you uploaded into your storage account. En
 
 To create dataframes for your data sources, run the following script:
 
-> [!IMPORTANT]
-> Make sure to replace the **<YOUR_CSV_FILE_NAME>** placeholder with the file name you downloaded at the beginning of this tutorial.
+* Replace the `<csv-folder-path>` placeholder value with directory path to the *.csv* file (excluding the name of the file) that you downloaded earlier.
+
+* Replace the `<your-csv-file-name` placeholder value with the name of your *csv* file.
 
 ```python
 #Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/<YOUR_CSV_FILE_NAME>.csv")
+acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/<your-csv-file-name>.csv")
 acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
 #read the existing parquet file for the flights database that was created earlier
@@ -280,7 +273,7 @@ out = spark.sql("SELECT distinct(OriginCityName) FROM FlightTable where OriginSt
 print('Airports in Texas: ', out.show(100))
 
 #find all airlines that fly from Texas
-out1 = spark.sql("SELECT distinct(Carrier) FROM FlightTable WHERE OriginStateName='Texas'")
+out1 = spark.sql("SELECT distinct(Reporting_Airline) FROM FlightTable WHERE OriginStateName='Texas'")
 print('Airlines that fly to/from Texas: ', out1.show(100, False))
 ```
 
