@@ -112,11 +112,11 @@ static void Main()
 }
 ```
 
-### Managing concurrent connections (v2.x)
+### <a name="jobhost-servicepointmanager-settings"></a>Managing concurrent connections (v2.x)
 
 In version 3.x, the connection limit defaults to infinite connections. If for some reason you need to change this limit, you can use the [MaxConnectionsPerServer](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) property of the [WinHttpHander](/dotnet/api/system.net.http.winhttphandler) class.
 
-For version 2.x, you control the number of concurrent connections to a host by using the ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) API. In 2.x, you should increase this value from the default of 2 before starting your WebJobs host.
+For version 2.x, you control the number of concurrent connections to a host by using the [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) API. In 2.x, you should increase this value from the default of 2 before starting your WebJobs host.
 
 All outgoing HTTP requests that you make from a function by using `HttpClient` flow through the `ServicePointManager`. Once you hit the `DefaultConnectionLimit`, the `ServicePointManager` starts queueing requests before sending them. Suppose your `DefaultConnectionLimit` is set to 2 and your code makes 1,000 HTTP requests. Initially, only two requests are allowed through to the OS. The other 998 are queued until there’s room for them. That means your `HttpClient` may time out, because it *thinks* it’s made the request, but the request was never sent by the OS to the destination server. So you might see behavior that doesn't seem to make sense: your local `HttpClient` is taking 10 seconds to complete a request, but your service is returning every request in 200 ms. 
 

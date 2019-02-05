@@ -370,8 +370,6 @@ In this section, you build and run the project locally and trigger the function 
     Content root path: C:\WebJobsSDKSample\WebJobsSDKSample\bin\Debug\netcoreapp2.1\
    ```
 
-   You may see a warning message about a `ServicePointManager` setting. For the testing you'll be doing with this project, you can ignore the warning. For more information about the warning, see [How to use the WebJobs SDK](webjobs-sdk-how-to.md#jobhost-servicepointmanager-settings).
-
 1. Close the console window.
 
 1. In **Server Explorer** in Visual Studio, expand the node for your new storage account, and then right-click **Queues**. 
@@ -396,7 +394,7 @@ In this section, you build and run the project locally and trigger the function 
 
    Because you used the `QueueTrigger` attribute in the `ProcessQueueMessage` function, the WeJobs SDK runtime listens for queue messages when it starts up. It finds a new queue message in the queue named *queue* and calls the function.
 
-   Due to [queue polling exponential backoff](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm), it might take as long as 2 minutes for the runtime to find the message and invoke the function. This wait time can be reduced by running in [development mode](webjobs-sdk-how-to.md#jobhost-development-settings).
+   Due to [queue polling exponential backoff](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm), it might take as long as 2 minutes for the runtime to find the message and invoke the function. This wait time can be reduced by running in [development mode](webjobs-sdk-how-to.md#host-development-settings).
 
   For version 3.x, the console output looks like this:
 
@@ -626,7 +624,7 @@ In this section, you deploy the project as a WebJob. You deploy it to an App Ser
 1. Refresh the **Queue** page, and the new message disappears because it has been processed by the function running in Azure.
 
    > [!TIP]
-   > When you're testing in Azure, use [development mode](webjobs-sdk-how-to.md#jobhost-development-settings) to ensure that a queue trigger function is invoked right away and avoid delays due to [queue polling exponential backoff](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm).
+   > When you're testing in Azure, use [development mode](webjobs-sdk-how-to.md#host-development-settings) to ensure that a queue trigger function is invoked right away and avoid delays due to [queue polling exponential backoff](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm).
 
 ### View logs in Application Insights
 
