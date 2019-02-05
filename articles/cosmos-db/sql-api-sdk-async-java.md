@@ -51,7 +51,7 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 * Changed the APIs accepting java.util.Collection for which order is important to accept java.util.List instead.
   Now ConnectionPolicy#getPreferredLocations(), JsonSerialization, and PartitionKey(.) accept List.
 * Fixed a Session bug for Document query in Gateway mode.
-* Upgraded dependencies (netty 0.4.2, RxJava 1.3.8).
+* Upgraded dependencies (netty 0.4.20 [github #79](https://github.com/Azure/azure-cosmosdb-java/issues/79), RxJava 1.3.8).
 
 ### <a name="2.3.1"/>2.3.1
 * Fixes handling very large query responses.
