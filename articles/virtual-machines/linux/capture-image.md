@@ -57,7 +57,7 @@ First you'll deprovision the VM by using the Azure VM agent to delete machine-sp
 ## Step 2: Create VM image
 Use the Azure CLI to mark the VM as generalized and capture the image. In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
 
-1. Deallocate the VM that you deprovisioned with [az vm deallocate](/cli/azure/vm#deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*.
+1. Deallocate the VM that you deprovisioned with [az vm deallocate](/cli/azure/vm). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*.
    
     ```azurecli
     az vm deallocate \
@@ -65,7 +65,7 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
 	  --name myVM
     ```
 
-2. Mark the VM as generalized with [az vm generalize](/cli/azure/vm#generalize). The following example marks the VM named *myVM* in the resource group named *myResourceGroup* as generalized.
+2. Mark the VM as generalized with [az vm generalize](/cli/azure/vm). The following example marks the VM named *myVM* in the resource group named *myResourceGroup* as generalized.
    
     ```azurecli
     az vm generalize \
@@ -87,7 +87,7 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
    > If you would like to store your image in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `--zone-resilient true` parameter.
 
 ## Step 3: Create a VM from the captured image
-Create a VM by using the image you created with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVMDeployed* from the image named *myImage*.
+Create a VM by using the image you created with [az vm create](/cli/azure/vm). The following example creates a VM named *myVMDeployed* from the image named *myImage*.
 
 ```azurecli
 az vm create \
