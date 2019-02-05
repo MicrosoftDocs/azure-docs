@@ -45,16 +45,13 @@ Confirm creation and await FHIR API deployment.
 
 Click **Next: Additional settings** to configure the identity object IDs that should be allowed to access this Azure API for FHIR:
 
-
 ![Configure allowed object IDs](media/quickstart-paas-portal/configure-allowed-oids.png)
 
 See [how to find identity object IDs](find-identity-object-ids.md) for details on how to locate identity object IDs for users and service principals.
 
 ## Fetch FHIR API capability statement
 
-To validate that the new FHIR API account is provisioned, fetch a capability statement by pointing a browser to `https://<ACCOUNT-NAME>.azurehealthcareapis.com/metadata`:
-
-![Capability statement in browser](media/quickstart-paas-portal/portal-metadata-browser.png)
+To validate that the new FHIR API account is provisioned, fetch a capability statement by pointing a browser to `https://<ACCOUNT-NAME>.azurehealthcareapis.com/metadata`.
 
 ## Clean up resources
 
