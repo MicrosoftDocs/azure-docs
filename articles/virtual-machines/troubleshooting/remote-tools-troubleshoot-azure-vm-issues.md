@@ -88,6 +88,8 @@ Set-AzureVMCustomScriptExtension "CustomScriptExtension" -VM $vm -StorageAccount
 
 ### For V2 VMs
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ```powershell
 #Setup the basic variables
 $subscriptionID = "<<SUBSCRIPTION ID>>"
@@ -100,7 +102,6 @@ $vmResourceGroup = "<<RESOURCE GROUP>>"
 $vmLocation = "<<DATACENTER>>" 
  
 #Setup the Azure Powershell module and ensure the access to the subscription
-Import-Module AzureRM
 Login-AzAccount #Ensure Login with account associated with subscription ID
 Get-AzSubscription -SubscriptionId $subscriptionID | Select-AzSubscription
 
