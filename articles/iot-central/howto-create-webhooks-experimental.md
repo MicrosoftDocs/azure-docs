@@ -21,7 +21,7 @@ In this example, you will connect to RequestBin to get notified when rules fire 
 
 1. Open [RequestBin](http://requestbin.net/). 
 1. Create a new RequestBin and copy the **Bin URL**. 
-1. Create a [telemetry rule](howto-create-telemetry-rules.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) or an [event rule](howto-create-event-rules.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). Save the rule and add a new action.
+1. Create a [telemetry rule](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) or an [event rule](howto-create-event-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). Save the rule and add a new action.
     ![Webhook creation screen](media/howto-create-webhooks-experimental/webhookcreate.png)
 1. Choose the webhook action and provide a display name and paste the Bin URL as the Callback URL. 
 1. Save the rule.

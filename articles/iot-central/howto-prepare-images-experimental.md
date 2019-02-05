@@ -114,4 +114,4 @@ Under Configure Image, click on the Image tile to upload your prepared image fro
 Now that you have learned how to prepare and upload images to your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Manage devices in your Azure IoT Central application](howto-manage-devices.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+> [Manage devices in your Azure IoT Central application](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)

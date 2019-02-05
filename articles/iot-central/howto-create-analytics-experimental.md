@@ -23,7 +23,7 @@ Azure IoT Central provides rich analytics capabilities to make sense of large am
 You'll need to choose a **device set**, add a **filter** (optional), and select a **time period** to get started. Once you're done, click on *Show results* to start visualizing your data.
 
 
-* **Device sets:** A [device set](howto-use-device-sets.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) is a user-defined group of your devices. For example, all Refrigerators in Oakland, or All rev 2.0 wind turbines.
+* **Device sets:** A [device set](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) is a user-defined group of your devices. For example, all Refrigerators in Oakland, or All rev 2.0 wind turbines.
 
 <!---
 to-do: confirm if 10 is the max number of filters
@@ -86,4 +86,4 @@ Lastly, you can arrange your data across the Y-axis by choosing from one of the 
 Now that you have learned how to create custom analytics for your Azure IoT Central application, here the suggested next step is:
 
 > [!div class="nextstepaction"]
-> [Prepare and connect a Node.js application](howto-connect-nodejs.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+> [Prepare and connect a Node.js application](howto-connect-nodejs-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)

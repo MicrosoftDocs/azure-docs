@@ -37,4 +37,4 @@ Play around with the various other tile types in the library to discover how you
 Now that you've learned how to configure your Azure IoT Central Homepage, you can:
 
 > [!div class="nextstepaction"]
-> [Learn how to prepare and upload images](howto-prepare-images.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+> [Learn how to prepare and upload images](howto-prepare-images-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)

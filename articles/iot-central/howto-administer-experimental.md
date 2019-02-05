@@ -168,4 +168,4 @@ To learn more, take a look at these packages on GitHub.
 Now that you've learned how to administer your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Set up the device template](howto-set-up-template.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+> [Set up the device template](howto-set-up-template-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
