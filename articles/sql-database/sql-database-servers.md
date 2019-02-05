@@ -72,7 +72,7 @@ To manage an existing database, navigate to the **SQL databases** page and click
 > [!IMPORTANT]
 > To configure performance properties for a database, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 > [!TIP]
-> For an Azure portal quickstart, see [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md).
+> For an Azure portal quickstart, see [Create an Azure SQL database in the Azure portal](sql-database-single-database-get-started.md).
 
 ## Manage Azure SQL servers, databases, and firewalls using PowerShell
 
@@ -96,7 +96,7 @@ To create and manage Azure SQL server, databases, and firewalls with Azure Power
 | New-AzureRmSqlServerVirtualNetworkRule | Creates a [*virtual network rule*](sql-database-vnet-service-endpoint-rule-overview.md), based on a subnet that is a Virtual Network service endpoint. |
 
 > [!TIP]
-> For a PowerShell quickstart, see [Create an Azure SQL single database using PowerShell](sql-database-get-started-portal.md). For PowerShell example scripts, see [Use PowerShell to create an Azure SQL single database and configure a firewall rule](scripts/sql-database-create-and-configure-database-powershell.md) and [Monitor and scale an Azure SQL single database using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> For a PowerShell quickstart, see [Create an Azure SQL single database using PowerShell](sql-database-single-database-get-started.md). For PowerShell example scripts, see [Use PowerShell to create an Azure SQL single database and configure a firewall rule](scripts/sql-database-create-and-configure-database-powershell.md) and [Monitor and scale an Azure SQL single database using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 >
 
 ## Manage Azure SQL servers, databases, and firewalls using the Azure CLI
