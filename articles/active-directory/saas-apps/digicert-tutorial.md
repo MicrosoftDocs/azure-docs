@@ -111,7 +111,7 @@ To configure Azure AD single sign-on with DigiCert, perform the following steps:
 
 	| Name |  Source Attribute|
 	| ---------------| --------------- |
-	| Name identifier value | user.userprincipalname |
+	| nameidentifier | user.userprincipalname |
 	| company | < companycode > |
 	| digicertrole | CanAccessCertCentral |
 
