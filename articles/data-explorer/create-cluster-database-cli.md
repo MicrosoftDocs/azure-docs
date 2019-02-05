@@ -79,7 +79,7 @@ Provide the following values
     | hot-cache-period | *3650:00:00:00* | Amount of time that data should be kept in cache. |
     | | |
 
-You can see the database your created by running
+You can see the database you created by running
 
 ```Bash
 az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest
