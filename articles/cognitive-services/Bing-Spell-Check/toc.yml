@@ -7,27 +7,27 @@
   - name: Compare the Bing Search APIs
     href: ../Bing-Web-Search/bing-api-comparison.md
     maintainContext: true
-- name: REST API Quickstarts
-  expanded: true
+- name: Quickstarts
   items:
-  - name: C#
-    href: quickstarts/csharp.md
-  - name: Java
-    href: quickstarts/java.md
-  - name: Node.js
-    href: quickstarts/nodejs.md
-  - name: PHP
-    href: quickstarts/php.md
-  - name: Python
-    href: quickstarts/python.md
-  - name: Ruby
-    href: quickstarts/ruby.md
-- name: SDK Quickstarts
-  items:
-  - name: SDK C# quickstart
-    href: sdk-quickstart-spell-check.md
-  - name: SDK samples overview
-    href: sdk.md
+  - name: REST API 
+    expanded: true
+    items:
+    - name: UsingC#
+      href: quickstarts/csharp.md
+    - name: Using Java
+      href: quickstarts/java.md
+    - name: Using Node.js
+      href: quickstarts/nodejs.md
+    - name: Using PHP
+      href: quickstarts/php.md
+    - name: Using Python
+      href: quickstarts/python.md
+    - name: Using Ruby
+      href: quickstarts/ruby.md
+  - name: SDK
+    items:
+    - name: Using C#
+      href: sdk-quickstart-spell-check.md
 - name: Tutorials
   items:
   - name: Build a spell check web app

@@ -20,52 +20,59 @@ Use this quickstart to make your first call to the Bing Spell Check REST API usi
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) or later.
 
-## Get Spell Check results
+## Create and initialize the application
 
-1. Create a new Ruby project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
+1. Create a new Ruby file in your favorite editor or IDE, and add the following requirements. 
 
-```ruby
-require 'net/http'
-require 'uri'
-require 'json'
+    ```javascript
+    require 'net/http'
+    require 'uri'
+    require 'json'
+    ```
 
-uri = 'https://api.cognitive.microsoft.com'
-path = '/bing/v7.0/spellcheck?'
-params = 'mkt=en-us&mode=proof'
+2. Create variables for your subscription key, endpoint URI and path. Create your request parameters by appending the `mkt=` parameter to your market, and `&mode` to the `proof` proof mode.
 
-uri = URI(uri + path + params)
-uri.query = URI.encode_www_form({
-    # Request parameters
-	'text' => 'Hollo, wrld!'
-})
+    ```ruby
+    key = 'ENTER YOUR KEY HERE'
+    uri = 'https://api.cognitive.microsoft.com'
+    path = '/bing/v7.0/spellcheck?'
+    params = 'mkt=en-us&mode=proof'
+    ```
 
-# NOTE: Replace this example key with a valid subscription key.
-key = 'ENTER KEY HERE'
+## Send a spell check request
 
-# The headers in the following example 
-# are optional but should be considered as required:
-#
-# X-MSEdge-ClientIP: 999.999.999.999  
-# X-Search-Location: lat: +90.0000000000000;long: 00.0000000000000;re:100.000000000000
-# X-MSEdge-ClientID: <Client ID from Previous Response Goes Here>
-#
-# See below for more information.
+1. Create a URI from your host uri, path, and parameters string. Set it's query to contain the text you want to spell check.
 
-request = Net::HTTP::Post.new(uri)
-request['Content-Type'] = "application/x-www-form-urlencoded"
+   ```ruby
+   uri = URI(uri + path + params)
+   uri.query = URI.encode_www_form({
+      # Request parameters
+   'text' => 'Hollo, wrld!'
+   })
+   ```
 
-request['Ocp-Apim-Subscription-Key'] = key
+2. Create a request using the URI constructed above. Add your key to the `Ocp-Apim-Subscription-Key` header.
 
-response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-    http.request(request)
-end
+    ```ruby
+    request = Net::HTTP::Post.new(uri)
+    request['Content-Type'] = "application/x-www-form-urlencoded"
+    request['Ocp-Apim-Subscription-Key'] = key
+    ```
 
-result = JSON.pretty_generate(JSON.parse(response.body))
-puts result
-```
+3. Send the request.
+
+    ```ruby
+    response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+        http.request(request)
+    end
+    ```
+
+4. Get the JSON response, and print it to the console. 
+
+    ```ruby
+    result = JSON.pretty_generate(JSON.parse(response.body))
+    puts result
+    ```
 
 ## Example JSON response
 
