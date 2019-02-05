@@ -1,9 +1,9 @@
 ---
-title: Create an Azure SQL database using the portal | Microsoft Docs
-description: Create an Azure SQL Database server and database in the Azure portal, and query it.
+title: 'Azure portal: Create a single database - Azure SQL Database | Microsoft Docs'
+description: Create and query a single database in Azure SQL Database using the Azure portal.
 services: sql-database
 ms.service: sql-database
-ms.subservice: security
+ms.subservice: single-database
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
@@ -11,42 +11,42 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 1/25/2019
+ms.date: 02/04/2019
 ---
-# Quickstart: Create an Azure SQL database in the Azure portal
+# Quickstart: Create a single database in Azure SQL Database using the Azure portal
 
-Azure SQL Database is a *Database-as-a-Service* that lets you run and scale highly available SQL Server databases in the cloud. This quickstart shows you how to get started by creating and then querying an Azure SQL database using the Azure portal. 
+Creating a [single database](sql-database-single-database.md) is the quickest and simplest deployment option for creating a database in Azure SQL Database. This quickstart shows you how to create and then query a single database using the Azure portal.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 
 For all steps in this quickstart, sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create a SQL database
+## Create a single database
 
-An Azure SQL database has a defined set of [compute and storage resources](sql-database-service-tiers-dtu.md). You create the database in an [SQL Database server](sql-database-features.md) within an [Azure resource group](../azure-resource-manager/resource-group-overview.md).
+A single database has a defined set of compute, memory, IO, and storage resources using one of two [purchasing model(sql-database-service-tiers.md). When you create a single database, you also define a [SQL Database server](sql-database-servers.md) to manage it and place it within [Azure resource group](../azure-resource-manager/resource-group-overview.md) in a specified region.
 
-To create a SQL database containing the AdventureWorksLT sample data:
+To create a single database containing the AdventureWorksLT sample data:
 
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Select **Databases** and then select **SQL Database**.
-3. In the **Create SQL Database** form, type or select the following values: 
+3. In the **Create SQL Database** form, type or select the following values:
 
    - **Database name**: Enter *mySampleDatabase*.
    - **Subscription**: Drop down and select the correct subscription, if it doesn't appear.
-   - **Resource group**: Select **Create new**, type *myResourceGroup*, and select **OK**. 
+   - **Resource group**: Select **Create new**, type *myResourceGroup*, and select **OK**.
    - **Select source**: Drop down and select **Sample (AdventureWorksLT)**.
 
     >[!IMPORTANT]
-    >Make sure to select the **Sample (AdventureWorksLT)** data so you can follow this and other Azure SQL Database quickstarts that use this data.
+    >Make sure to select the **Sample (AdventureWorksLT)** data so you can follow easily this and other Azure SQL Database quickstarts that use this data.
   
-   ![Create Azure SQL database](./media/sql-database-get-started-portal/create-database-1.png)
+   ![Create single database](./media/sql-database-get-started-portal/create-database-1.png)
 
-4. Under **Server**, select **Create new**. 
-5. In the **New server** form, type or select the following values: 
+4. Under **Server**, select **Create new**.
+5. In the **New server** form, type or select the following values:
 
    - **Server name**: Enter *mysqlserver*.
-   - **Server admin login**: Type *azureuser*. 
-   - **Password**: Enter *Azure1234567*. 
+   - **Server admin login**: Type *azureuser*.
+   - **Password**: Enter *Azure1234567*.
    - **Confirm Password**: Retype the password.
    - **Location**: Drop down and select any valid location.  
 
@@ -68,17 +68,17 @@ To create a SQL database containing the AdventureWorksLT sample data:
 
    ![Select pricing](./media/sql-database-get-started-portal/create-database-s1.png)
 
-10. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database. 
+10. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database.
 
    Deployment takes a few minutes. You can select **Notifications** on the toolbar to monitor deployment progress.
 
    ![Notification](./media/sql-database-get-started-portal/notification.png)
 
-## Query the SQL database
+## Query the database
 
-Now that you've created an Azure SQL database, use the built-in query tool in the Azure portal to connect to the database and query the data.
+Now that you've created the database, use the built-in query tool in the Azure portal to connect to the database and query the data.
 
-1. On the **SQL Database** page for your database, select **Query editor (preview)** in the left menu. 
+1. On the **SQL Database** page for your database, select **Query editor (preview)** in the left menu.
 
    ![Sign in to Query editor](./media/sql-database-get-started-portal/query-editor-login.png)
 
@@ -100,19 +100,19 @@ Now that you've created an Azure SQL database, use the built-in query tool in th
 
 ## Clean up resources
 
-Keep this resource group, SQL server, and SQL database if you want to go to the [Next steps](#next-steps). The next steps show you how to connect and query your database using different methods. 
+Keep this resource group, database server, and single database if you want to go to the [Next steps](#next-steps). The next steps show you how to connect and query your database using different methods.
 
 When you're finished using these resources, you can delete them as follows:
 
 1. From the left menu in the Azure portal, select **Resource groups**, and then select **myResourceGroup**.
-2. On your resource group page, select **Delete resource group**. 
+2. On your resource group page, select **Delete resource group**.
 3. Enter *myResourceGroup* in the field, and then select **Delete**.
 
 ## Next steps
 
-- Create a server-level firewall rule to connect to your Azure SQL database from on-premises or remote tools. For more information, see [Create a server-level firewall rule](sql-database-get-started-portal-firewall.md).
-- After you create a server-level firewall rule, [connect and query](sql-database-connect-query.md) your database using several different tools and languages. 
+- Create a server-level firewall rule to connect to the single database from on-premises or remote tools. For more information, see [Create a server-level firewall rule](sql-database-server-level-firewall-rule.md).
+- After you create a server-level firewall rule, [connect and query](sql-database-connect-query.md) your database using several different tools and languages.
   - [Connect and query using SQL Server Management Studio](sql-database-connect-query-ssms.md)
   - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
-- To create Azure SQL databases using Azure CLI, see [Azure CLI samples](sql-database-cli-samples.md).
-- To create Azure SQL databases using Azure PowerShell, see [Azure PowerShell samples](sql-database-powershell-samples.md).
+- To create a single databases using Azure CLI, see [Azure CLI samples](sql-database-cli-samples.md).
+- To create a single databases using Azure PowerShell, see [Azure PowerShell samples](sql-database-powershell-samples.md).
