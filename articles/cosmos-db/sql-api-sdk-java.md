@@ -214,7 +214,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [2.1.1](#2.1.1) |Nov 21, 2018 |--- |
+| 2.1.1 |Nov 21, 2018 |--- |
 | [2.0.0](#2.0.0) |Sept 21, 2018 |--- |
 | [1.16.4](#1.16.4) |Sept 10, 2018 |--- |
 | [1.16.3](#1.16.3) |Sept 09, 2018 |--- |
@@ -245,7 +245,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 | [1.3.0](#1.3.0) |October 05, 2015 |--- |
 | [1.2.0](#1.2.0) |August 05, 2015 |--- |
 | [1.1.0](#1.1.0) |July 09, 2015 |--- |
-| [1.0.1](#1.0.1) |May 12, 2015 |--- |
+| 1.0.1 |May 12, 2015 |--- |
 | [1.0.0](#1.0.0) |April 07, 2015 |--- |
 | 0.9.5-prelease |Mar 09, 2015 |February 29, 2016 |
 | 0.9.4-prelease |February 17, 2015 |February 29, 2016 |
