@@ -38,14 +38,9 @@ The host is a runtime container for functions.  It listens for triggers and call
 
 This is a key difference between using the WebJobs SDK directly and using it indirectly by using Azure Functions. In Azure Functions, the service controls the host, and you can't customize it by writing code. Azure Functions lets you customize host behavior through settings in the *host.json* file. Those settings are strings, not code, which limits the kinds of customizations you can do.
 
-### Host connection strings
+### Host connection strings (version 2.x)
 
-The WebJobs SDK looks for Storage and Service Bus connection strings in  *local.settings.json* when you run locally, or in the WebJob's environment when you run in Azure. If you want to use your own names for these connection strings, or store them elsewhere, you can set them in code, as shown here:
-
-#### Version 3.x
-
-
-#### Version 2.x
+Version 2.x of the WebJobs SDK looks for Storage and Service Bus connection strings in  *local.settings.json* when you run locally, or in the WebJob's environment when you run in Azure. If you want to use your own names for these connection strings, or store them elsewhere, you can set them in code, as shown here:
 
 ```cs
 static void Main(string[] args)
@@ -117,9 +112,11 @@ static void Main()
 }
 ```
 
-### JobHost ServicePointManager settings
+### Managing concurrent connections (v2.x)
 
-The .NET Framework contains an API called [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) that controls the number of concurrent connections to a host. We recommend that you increase this value from the default of 2 before starting your WebJobs host.
+In version 3.x, the connection limit defaults to infinite connections. If for some reason you need to change this limit, you can use the [MaxConnectionsPerServer](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) property of the [WinHttpHander](/dotnet/api/system.net.http.winhttphandler) class.
+
+For version 2.x, you control the number of concurrent connections to a host by using the ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) API. In 2.x, you should increase this value from the default of 2 before starting your WebJobs host.
 
 All outgoing HTTP requests that you make from a function by using `HttpClient` flow through the `ServicePointManager`. Once you hit the `DefaultConnectionLimit`, the `ServicePointManager` starts queueing requests before sending them. Suppose your `DefaultConnectionLimit` is set to 2 and your code makes 1,000 HTTP requests. Initially, only 2 requests are actually allowed through to the OS. The other 998 are queued until there’s room for them. That means your `HttpClient` may time out, because it *thinks* it’s made the request, but the request was never sent by the OS to the destination server. So you might see behavior that doesn't seem to make sense: your local `HttpClient` is taking 10 seconds to complete a request, but your service is returning every request in 200 ms. 
 
@@ -128,12 +125,6 @@ The default value for ASP.NET applications is `Int32.MaxValue`, and that's likel
 If your WebJob is running in a Free or Shared App Service Plan, your application is restricted by the App Service sandbox, which currently has a [connection limit of 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits). With an unbound connection limit in `ServicePointManager`, it's more likely that the sandbox connection threshold will be reached and the site shut down. In that case, setting `DefaultConnectionLimit` to something lower, like 50 or 100, can prevent this from happening and still allow for sufficient throughput.
 
 The setting must be configured before any HTTP requests are made. For this reason, the WebJobs host shouldn't try to adjust the setting automatically; there may be HTTP requests that occur before the host starts and this can lead to unexpected behavior. The best approach is to set the value immediately in your `Main` method before initializing the `JobHost`, as shown in the following example
-
-#### Version 3.x
-
-
-
-#### Version 2.x
 
 ```csharp
 static void Main(string[] args)
@@ -161,20 +152,45 @@ To trigger a function manually, use the `NoAutomaticTrigger` attribute, as shown
 ```cs
 [NoAutomaticTrigger]
 public static void CreateQueueMessage(
-    TextWriter logger,
-    string value,
-    [Queue("outputqueue")] out string message)
+ILogger logger,
+string value,
+[Queue("outputqueue")] out string message)
 {
     message = value;
-    logger.WriteLine("Creating queue message: ", message);
+    logger.LogInformation("Creating queue message: ", message);
 }
 ```
 
+The way that you manually trigger the function depends on the SDK version.
+
 #### Version 3.x
 
+```cs
+static async Task Main(string[] args)
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddAzureStorage();
+    });
+    var host = builder.Build();
+    using (host)
+    {
+        var jobHost = host.Services.GetService(typeof(IJobHost)) as JobHost;
+        var inputs = new Dictionary<string, object>
+        {
+            { "value", "Hello world!" }
+        };
+
+        await host.StartAsync();
+        await jobHost.CallAsync("CreateQueueMessage", inputs);
+        await host.StopAsync();
+    }
+}
+```
 
 #### Version 2.x
-
 
 ```cs
 static void Main(string[] args)
@@ -183,7 +199,6 @@ static void Main(string[] args)
     host.Call(typeof(Program).GetMethod("CreateQueueMessage"), new { value = "Hello world!" });
 }
 ```
-
 
 ## Input and output bindings
 
@@ -258,7 +273,6 @@ static void Main()
 ```
 
 To use the Files binding, install `Microsoft.Azure.WebJobs.Extensions` and call `UseFiles`.
-
 
 ### ExecutionContext
 
@@ -410,7 +424,7 @@ static void Main()
 ## Binding expressions
 
 In attribute constructor parameters, you can use expressions that resolve to values from various sources. For example, in the following code, the path for the `BlobTrigger` attribute creates an expression named `filename`. When used for the output binding, `filename` resolves to the name of the triggering blob.
- 
+
 ```cs
 public static void CreateThumbnail(
     [BlobTrigger("sample-images/{filename}")] Stream image,
@@ -438,7 +452,7 @@ public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
 }
 ```
 
-This code lets you use a queue named logqueuetest in the test environment and one named logqueueprod in production. Instead of a hard-coded queue name, you specify the name of an entry in the `appSettings` collection. 
+This code lets you use a queue named `logqueuetest` in the test environment and one named `logqueueprod` in production. Instead of a hard-coded queue name, you specify the name of an entry in the `appSettings` collection.
 
 There is a default NameResolver that takes effect if you don't provide a custom one. The default gets values from app settings or environment variables.
 
@@ -456,11 +470,33 @@ public class CustomNameResolver : INameResolver
 
 #### Version 3.x
 
+The resolver is configured using dependency injection. These samples require the following `using` statement:
 
+```cs
+using Microsoft.Extensions.DependencyInjection;
+```
 
+The resolver is added by calling the [`ConfigureServices`] extension method on  [HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder), as in the following example:
+
+```cs
+static async Task Main(string[] args)
+{
+    var builder = new HostBuilder();
+    var resolver = new CustomNameResolver();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+    });
+    builder.ConfigureServices(s => s.AddSingleton<INameResolver>(resolver));
+    var host = builder.Build();
+    using (host)
+    {
+        await host.RunAsync();
+    }
+}
+```
 
 #### Version 2.x
-
 
 Pass your `NameResolver` class in to the `JobHost` object as shown in the following example:
 
@@ -655,17 +691,46 @@ Each category can be independently filtered to a particular [LogLevel](/dotnet/a
 
 #### Version 3.x
 
+Version 3.x of the SDK relies on the filtering built into .NET Core. The `LogCategories` class lets you define categories for specific functions, triggers, or users. It also defines filters for specific host states, such as `Startup` and `Results`. In this way, you can fine-tune the logging output. If no match is found within the defined categories, the filter falls back to the `Default` value when deciding whether to filter the message.
 
+`LogCategories` requires the following using statement:
 
+```cs
+using Microsoft.Azure.WebJobs.Logging; 
+```
+
+The following example constructs a filter that by default filters all logs at the `Warning` level. Categories of `Function` or `results` (equivalent to `Host.Results` in version 2.x) are filtered at the `Error` level. The filter compares the current category to all registered levels in the `LogCategories` instance and chooses the longest match. This means that the `Debug` level registered for `Host.Triggers` will match `Host.Triggers.Queue` or `Host.Triggers.Blob`. This allows you to control broader categories without needing to add each one.
+
+```cs
+static async Task Main(string[] args)
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+    });
+    builder.ConfigureLogging(logging =>
+            {
+                logging.SetMinimumLevel(LogLevel.Warning);
+                logging.AddFilter("Function", LogLevel.Error);
+                logging.AddFilter(LogCategories.CreateFunctionCategory("MySpecificFunctionName"),
+                    LogLevel.Debug);
+                logging.AddFilter(LogCategories.Results, LogLevel.Error);
+                logging.AddFilter("Host.Triggers", LogLevel.Debug);
+            });
+    var host = builder.Build();
+    using (host)
+    {
+        await host.RunAsync();
+    }
+}
+```
 
 #### Version 2.x
 
+In version 2.x of the SDK, the `LogCategoryFilter` class is used to control filtering. The `LogCategoryFilter` has a `Default` property with an initial value of `Information`, meaning that any messages with levels of `Information`, `Warning`, `Error`, or `Critical` are logged, but any messages with levels of `Debug` or `Trace` are filtered away.
 
-To make it easier to specify filtering rules, the WebJobs SDK provides the `LogCategoryFilter` that can be passed into many of the existing logging providers, including Application Insights and Console.
-
-The `LogCategoryFilter` has a `Default` property with an initial value of `Information`, meaning that any messages with levels of `Information`, `Warning`, `Error`, or `Critical` are logged, but any messages with levels of `Debug` or `Trace` are filtered away.
-
-The `CategoryLevels` property allows you to specify log levels for specific categories so you can fine-tune the logging output. If no match is found within the `CategoryLevels` dictionary, the filter falls back to the `Default` value when deciding whether to filter the message.
+As with `LogCategories` in version 23.x, the `CategoryLevels` property allows you to specify log levels for specific categories so you can fine-tune the logging output. If no match is found within the `CategoryLevels` dictionary, the filter falls back to the `Default` value when deciding whether to filter the message.
 
 The following example constructs a filter that by default filters all logs at the `Warning` level. Categories of `Function` or `Host.Results` are filtered at the `Error` level. The `LogCategoryFilter` compares the current category to all registered `CategoryLevels` and chooses the longest match. This means that the `Debug` level registered for `Host.Triggers` will match `Host.Triggers.Queue` or `Host.Triggers.Blob`. This allows you to control broader categories without needing to add each one.
 
@@ -683,11 +748,76 @@ config.LoggerFactory = new LoggerFactory()
 
 ### Custom telemetry for Application Insights
 
-Internally, the `TelemetryClient` created by the Application Insights provider for the WebJobs SDK uses the [ServerTelemetryChannel](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs). When the Application Insights endpoint is unavailable or throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
+The way that you implement custom telemetry for [Application Insights](../azure-monitor/app/app-insights-overview.md) depends on the version of the SDK you are using. To learn how to configure Application Insights, see [Add Application Insights logging](webjobs-sdk-get-started.md#add-application-insights-logging).
 
-The `TelemetryClient` is created by a class that implements `ITelemetryClientFactory`. By default, this is the [DefaultTelemetryClientFactory](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs).
+#### Version 3.x
 
-If you want to modify any part of the Application Insights pipeline, you can supply your own `ITelemetryClientFactory`, and the host will use your class to construct a `TelemetryClient`. For example, this code overrides the `DefaultTelemetryClientFactory` to modify a property of the `ServerTelemetryChannel`:
+Because version 3.x of the WebJobs SDK relies on the .NET Core generic host, there is no longer a custom telemetry factory provided. However, you can add custom telemetry to the pipeline using dependency injection. The examples in ths section require the following `using` statements:
+
+```cs
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights.Channel;
+```
+
+The following custom implementation of [`ITelemetryInitializer`] lets you add your own [`ITelemetry`](/dotnet/api/microsoft.applicationinsights.channel.itelemetry) to the default [`TelemetryConfiguration`].
+
+```cs
+internal class CustomTelemetryInitializer : ITelemetryInitializer
+{
+    public void Initialize(ITelemetry telemetry)
+    {
+        // Do something with telemetry.
+    }
+}
+```
+
+Call [`ConfigureServices`] in the builder to add your custom [`ITelemetryInitializer`] to the pipeline.
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+    });
+    builder.ConfigureLogging((context, b) =>
+    {
+        // Add Logging Providers
+        b.AddConsole();
+
+        // If this key exists in any config, use it to enable App Insights
+        string appInsightsKey = context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"];
+        if (!string.IsNullOrEmpty(appInsightsKey))
+        {
+            // This uses the options callback to explicitly set the instrumentation key.
+            b.AddApplicationInsights(o => o.InstrumentationKey = appInsightsKey);
+        }
+    });
+    builder.ConfigureServices(services =>
+        {
+            services.AddSingleton<ITelemetryInitializer, CustomTelemetryInitializer>();
+        });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+When the [`TelemetryConfiguration`] is constructed, all registered types of [`ITelemetryInitializer`] are included. To learn more about working the see [Application Insights API for custom events and metrics](../azure-monitor/app/api-custom-events-metrics.md).
+
+In version 3.x, you no longer have to flush the [`TelemetryClient`] when the host stops. The .NET Core dependency injection system automatically disposes of the registered `ApplicationInsightsLoggerProvider`, which flushes the [`TelemetryClient`].
+
+#### Version 2.x
+
+In version 2.x, the [`TelemetryClient`] created internally by the Application Insights provider for the WebJobs SDK uses the [ServerTelemetryChannel](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs). When the Application Insights endpoint is unavailable or throttling incoming requests, this channel [saves requests in the web app's file system and resubmits them later](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
+
+The [`TelemetryClient`] is created by a class that implements `ITelemetryClientFactory`. By default, this is the [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs).
+
+If you want to modify any part of the Application Insights pipeline, you can supply your own `ITelemetryClientFactory`, and the host will use your class to construct a [`TelemetryClient`]. For example, this code overrides the `DefaultTelemetryClientFactory` to modify a property of the `ServerTelemetryChannel`:
 
 ```csharp
 private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
@@ -711,14 +841,6 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 
 The SamplingPercentageEstimatorSettings object configures [adaptive sampling](https://docs.microsoft.com/azure/application-insights/app-insights-sampling#adaptive-sampling-at-your-web-server). This means that in certain high-volume scenarios, App Insights sends a selected subset of telemetry data to the server.
 
-#### Version 3.x
-
-
-
-
-#### Version 2.x
-
-
 Once you've created the telemetry factory, you pass it in to the Application Insights logging provider:
 
 ```csharp
@@ -733,3 +855,7 @@ config.LoggerFactory = new LoggerFactory()
 This guide has provided code snippets that demonstrate how to handle common scenarios for working with the WebJobs SDK. For complete samples, see [azure-webjobs-sdk-samples](https://github.com/Azure/azure-webjobs-sdk-samples).
 
 [`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
+[`TelemetryClient`]: /dotnet/api/microsoft.applicationinsights.telemetryclient
+[`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
+[`ITelemetryInitializer`]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
+[`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
