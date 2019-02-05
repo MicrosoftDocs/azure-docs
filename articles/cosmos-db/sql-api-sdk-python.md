@@ -26,7 +26,8 @@ ms.author: sngun
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-
+| |  |
+|---|---|
 |**Download SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
 |**API documentation**|[Python API reference documentation](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
 |**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-cosmos-python)|
