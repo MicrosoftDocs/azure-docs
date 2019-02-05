@@ -37,8 +37,9 @@ sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
 ```
 
-If you're running Windows (64-bit) please ensure you have installed Microsoft Visual C++ Redistributable.
-* [VC 2015 Runtime Redistributable Update 3](https://www.microsoft.com/en-us/download/confirmation.aspx?id=52685)
+If you're running Windows (64-bit) please ensure you have installed Microsoft Visual C++ Redistributable for your platform.
+* [Download Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+
 
 ## Create and configure project
 
