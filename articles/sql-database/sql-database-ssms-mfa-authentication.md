@@ -11,7 +11,7 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 10/08/2018
 ---
 
 # Universal Authentication with SQL Database and SQL Data Warehouse (SSMS support for MFA)

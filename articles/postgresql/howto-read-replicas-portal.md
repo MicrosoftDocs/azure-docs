@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ---
 
 # How to create and manage read replicas in the Azure portal
@@ -136,7 +136,7 @@ Alternatively, you can delete it from the Replication window.
 
 ## Monitor a replica
 ### Max Lag Across Replicas
-The **Max lag across replicas** metric shows the lag time between the master and the most lagging replica. 
+The **Max lag across replicas** metric shows the lag in bytes between the master and the most lagging replica. 
 
 1.	In the Azure portal, select the **master** Azure Database for PostgreSQL server.
 

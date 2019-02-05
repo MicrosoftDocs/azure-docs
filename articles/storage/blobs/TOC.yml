@@ -129,7 +129,7 @@
         href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Geo-redundant storage
         href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Disaster recovery guidance
+      - name: Disaster recovery and failover
         href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Designing HA Apps using RA-GRS
         href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -315,6 +315,10 @@
         href: storage-c-plus-plus-how-to-use-blobs.md
       - name: iOS
         href: storage-ios-how-to-use-blob-storage.md
+      - name: Java
+        items:
+        - name: Use the Spring Boot Starter
+          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
       - name: Xamarin
         href: storage-xamarin-blob-storage.md
       - name: Legacy SDKs
@@ -349,14 +353,16 @@
       href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Route events to a custom endpoint
       href: storage-blob-event-quickstart.md
+    - name: Initiate account failover
+      href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Recover deleted blobs
       href: storage-blob-soft-delete.md
+    - name: Host a static website
+      href: storage-blob-static-website.md
     - name: Configure a custom domain
       href: storage-custom-domain-name.md
     - name: Search Blob storage with Azure Search
       href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Host a static website
-      href: storage-blob-static-website.md
     - name: Transfer data
       items:
       - name: AzCopy (v10)
