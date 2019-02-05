@@ -19,6 +19,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a resource group
 
+Pick a name for the resource group that will contain the provisioned resources and create it:
+
 ```azurepowershell-interactive
 $fhirServiceName = "MyFhirService"
 $rg = New-AzureRmResourceGroup -Name $fhirServiceName -Location westus2

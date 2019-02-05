@@ -19,6 +19,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create resource group
 
+Pick a name for the resource group that will contain the provisioned resources and create it:
+
 ```azurecli-interactive
 servicename="myfhirservice"
 az group create --name $servicename --location westus2
