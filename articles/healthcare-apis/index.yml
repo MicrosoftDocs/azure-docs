@@ -14,6 +14,10 @@ metadata:
 abstract:
   description: Azure API for FHIR® Preview is a fully managed, standards-based, compliant API for clinical health data that enables you to create new systems of engagement for analytics, machine learning, and actionable intelligence with your health data. 
 sections:
+- title: .
+  items:
+    - type: paragraph
+      text: FHIR&reg; is the registered trademark of HL7 and is used with the permission of HL7.
 - title: 5-Minute Quickstarts
   items:
     - type: paragraph
@@ -41,7 +45,4 @@ sections:
           - href: fhir-oss-portal-quickstart.md
           - href: fhir-oss-powershell-quickstart.md
           - href: fhir-oss-cli-quickstart.md
-- title: 
-    items:
-    - type: paragraph
-      text: FHIR&reg; is the registered trademark of HL7 and is used with the permission of HL7.
+  
