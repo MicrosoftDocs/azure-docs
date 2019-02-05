@@ -42,6 +42,7 @@ Watch Azure SQL Data Warehouse Gen2 in action in this [Microsoft Mechanics video
 - Japan East
 - India Central
 - Australia East
+- Australia Southeast
 - Canada Central
 - Japan West 
 - Canada Central

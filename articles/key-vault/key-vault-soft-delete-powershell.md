@@ -1,14 +1,11 @@
 ---
-ms.assetid: 
 title: Azure Key Vault - How to use soft-delete with PowerShell
 description: Use case examples of soft-delete with PowerShell code snips
-services: key-vault
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 10/16/2018
+ms.date: 02/01/2018
 ms.author: bryanla
 ---
 # How to use Key Vault soft-delete with PowerShell
@@ -75,7 +72,7 @@ To verify that a key vault has soft-delete enabled, run the *show* command and l
 Get-AzureRmKeyVault -VaultName "ContosoVault"
 ```
 
-## Deleting a key vault protected by soft-delete
+## Deleting a soft-delete protected key vault
 
 The command to delete a key vault changes in behavior, depending on whether soft-delete is enabled.
 
@@ -114,7 +111,7 @@ Undo-AzureRmKeyVaultRemoval -VaultName ContosoVault -ResourceGroupName ContosoRG
 
 When a key vault is recovered, a new resource is created with the key vault's original resource ID. If the original resource group is removed, one must be created with same name before attempting recovery.
 
-## Key Vault objects and soft-delete
+## Deleting and purging key vault objects
 
 The following command will delete the 'ContosoFirstKey' key, in a key vault named 'ContosoVault', which has soft-delete enabled:
 
@@ -196,17 +193,22 @@ Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
   Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
 
-## Purging and key vaults
+## Purging a soft-delete protected key vault
 
-### Key vault objects
+> [!IMPORTANT]
+> Purging a key vault or one of its contained objects, will permanently delete it, meaning it will not be recoverable!
 
-Purging a key, secret, or certificate, causes permanent deletion and it will not be recoverable. The key vault that contained the deleted object will however remain intact as will all other objects in the key vault. 
+The purge fuction is used to permanently delete a key vault object or an entire key vault, that was previously soft-deleted. As demonstrated in the previous section, objects stored in a key vault with the soft-delete feature enabled, can go through multiple states:
 
-### Key vaults as containers
-When a key vault is purged, its entire contents are permanently deleted, including keys, secrets, and certificates. To purge a key vault, use the `Remove-AzureRmKeyVault` command with the option `-InRemovedState` and by specifying the location of the deleted key vault with the `-Location location` argument. You can find the location of a deleted vault using the command `Get-AzureRmKeyVault -InRemovedState`.
+- **Active**: before deletion.
+- **Soft-Deleted**: after deletion, able to be listed and recovered back to active state.
+- **Permanently-Deleted**: after purge, not able to be recovered.
 
->[!IMPORTANT]
->Purging a key vault will permanently delete it, meaning it will not be recoverable!
+The same is true for the key vault. In order to permanently delete a soft-deleted key vault and its contents, you must purge the key vault itself.
+
+### Purging a key vault
+
+When a key vault is purged, its entire contents are permanently deleted, including keys, secrets, and certificates. To purge a soft-deleted key vault, use the `Remove-AzureRmKeyVault` command with the option `-InRemovedState` and by specifying the location of the deleted key vault with the `-Location location` argument. You can find the location of a deleted vault using the command `Get-AzureRmKeyVault -InRemovedState`.
 
 ```powershell
 Remove-AzureRmKeyVault -VaultName ContosoVault -InRemovedState -Location westus

@@ -5,7 +5,7 @@
   - name: What is SQL Database
     href: sql-database-technical-overview.md
   - name: Choose a version of Azure SQL
-    href: sql-database-paas-vs-sql-server-iaas.md  
+    href: sql-database-paas-vs-sql-server-iaas.md
 - name: Quickstarts
   expanded: true
   items:
@@ -95,7 +95,9 @@
   - name: Azure CLI
     href: sql-database-cli-samples.md
   - name: Azure PowerShell
-    href: sql-database-powershell-samples.md 
+    href: sql-database-powershell-samples.md
+  - name: Azure Resource Manager
+    href: sql-database-resource-manager-samples.md 
 - name: Concepts
   items:
   - name: Purchasing models
@@ -214,10 +216,10 @@
       href: sql-database-security-index.yml
     - name: Security capabilities
       href: sql-database-security-overview.md
-    - name: Advanced Data Security
+    - name: Advanced data security
       items:
-      - name: Advanced Data Security
-        href: sql-advanced-threat-protection.md
+      - name: Advanced data security
+        href: sql-database-advanced-data-security.md
       - name: Data discovery and classification
         href: sql-database-data-discovery-and-classification.md
       - name: Vulnerability assessment
@@ -544,6 +546,12 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
+    - name: Java
+      items:
+      - name: Use Spring Data JDBC
+        href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server 
+      - name: Use Spring Data JPA
+        href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server
   - name: Design applications
     items:
     - name: Design for disaster recovery

@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/10/2018
+ms.date: 12/21/2018
 ---
 # Quickstart: Use .NET Core (C#) to query an Azure SQL database
 

@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 11/01/2018
+ms.date: 12/18/2018
 ---
 # Quickstarts: Azure SQL Database connect and query
 
