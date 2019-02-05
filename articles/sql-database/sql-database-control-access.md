@@ -11,7 +11,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 02/04/2019
 ---
 # Azure SQL Database and SQL Data Warehouse access control
 
@@ -34,7 +34,7 @@ SQL Database supports two types of authentication:
 
 - **SQL Authentication**:
 
-  This authentication method uses a username and password. When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo." 
+  This authentication method uses a username and password. When you created the SQL Database server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo." 
 - **Azure Active Directory Authentication**:
 
   This authentication method uses identities managed by Azure Active Directory and is supported for managed and integrated domains. Use Active Directory authentication (integrated security) [whenever possible](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode). If you want to use Azure Active Directory Authentication, you must create another server admin called the "Azure AD admin," which is allowed to administer Azure AD users and groups. This admin can also perform all operations that a regular server admin can. See [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) for a walkthrough of how to create an Azure AD admin to enable Azure Active Directory Authentication.
@@ -63,5 +63,5 @@ You should familiarize yourself with the following features that can be used to 
 - For an overview of the SQL Database security features, see [SQL security overview](sql-database-security-overview.md).
 - To learn more about firewall rules, see [Firewall rules](sql-database-firewall-configure.md).
 - To learn about users and logins, see [Manage logins](sql-database-manage-logins.md). 
-- For a discussion of proactive monitoring, see [Database Auditing](sql-database-auditing.md) and [SQL Database Threat Detection](sql-database-threat-detection.md).
+- For a discussion of proactive monitoring, see [Database Auditing](sql-database-auditing.md) and [SQL Database threat detection](sql-database-threat-detection.md).
 - For a tutorial, see [Secure your Azure SQL Database](sql-database-security-tutorial.md).

@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/11/2018
+ms.date: 01/28/2019
 ms.author: juliako
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
 ---
@@ -31,13 +31,10 @@ By the end of the quickstart you will be able to stream a video.
 ## Prerequisites
 
 - If you do not have Visual Studio installed, you can get [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+- [Create a Media Services account](create-account-cli-how-to.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
+- Follow the steps in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) and save the credentials. You will need to use them to access the API.
 
-    Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
-
-- [Create a Media Services account](create-account-cli-how-to.md).
-
-## Download the sample
+## Download and configure the sample
 
 Clone a GitHub repository that contains the streaming .NET sample to your machine using the following command:  
 
@@ -47,19 +44,19 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
 
 The sample is located in the [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) folder.
 
+Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/appsettings.json) in you downloaded project. Replace the values with credentials that you got from [accessing APIs](access-api-cli-how-to.md).
+
 The sample performs the following actions:
 
-1. Creates a Transform (first, checks if the specified Transform exists). 
-2. Creates an output Asset that is used as the encoding Job's output.
-3. Creates the Job's input that is based on an HTTPS URL.
-4. Submits the encoding Job using the input and output that was created earlier.
+1. Creates a **Transform** (first, checks if the specified Transform exists). 
+2. Creates an output **Asset** that is used as the encoding **Job**'s output.
+3. Creates the **Job**'s input that is based on an HTTPS URL.
+4. Submits the encoding **Job** using the input and output that was created earlier.
 5. Checks the Job's status.
-6. Creates a StreamingLocator.
+6. Creates a **Streaming Locator**.
 7. Builds streaming URLs.
 
 For explanations about what each function in the sample does, examine the code and look at the comments in [this source file](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs).
-
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
 ## Run the sample app
 

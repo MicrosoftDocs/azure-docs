@@ -139,7 +139,7 @@ After adding the references, you must select the targeted platform (x64 or x86),
    The MediaElement control is used to playback media. The slider control named sliderProgress will be used in the next lesson to control the media progress.
 3. Press **CTRL+S** to save the file.
 
-The MediaElement control does not support Smooth Streaming content out-of-box. To enable the Smooth Streaming support, you must register the Smooth Streaming byte-stream handler by file name extension and MIME type.  To register, you use the MediaExtensionManager.RegisterByteStremHandler method of the Windows.Media namespace.
+The MediaElement control does not support Smooth Streaming content out-of-box. To enable the Smooth Streaming support, you must register the Smooth Streaming byte-stream handler by file name extension and MIME type.  To register, you use the MediaExtensionManager.RegisterByteStreamHandler method of the Windows.Media namespace.
 
 In this XAML file, some event handlers are associated with the controls.  You must define those event handlers.
 
@@ -818,7 +818,7 @@ You have completed lesson 3.  In this lesson, you add the functionality to choos
 A Smooth Streaming presentation can contain multiple video files encoded with different quality levels (bit rates) and resolutions. In this lesson, you will enable users to select tracks. This lesson contains the following procedures:
 
 1. Modify the XAML file
-2. Modify the code behand file
+2. Modify the code behind file
 3. Compile and test the application
 
 **To modify the XAML file**

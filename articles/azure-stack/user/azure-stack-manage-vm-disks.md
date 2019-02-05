@@ -15,6 +15,7 @@ ms.topic: get-started-article
 ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
+ms.lastreviewed: 01/18/2019
 ---
 
 # Create virtual machine disk storage in Azure Stack

@@ -166,4 +166,4 @@ A major benefit of Azure Files is that the file shares can be mounted and used b
 * [Overview of ML Services cluster on HDInsight](r-server-overview.md)
 * [Get started with ML Services cluster on Apache Hadoop](r-server-get-started.md)
 * [Compute context options for ML Services cluster on HDInsight](r-server-compute-contexts.md)
-
+* [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

@@ -1,5 +1,5 @@
 ---
-title: Avanced Media Encoder Premium Workflow tutorials
+title: Advanced Media Encoder Premium Workflow tutorials
 description: This document contains walkthroughs that show how to perform advanced tasks with Media Encoder Premium Workflow and also how to create complex workflows with Workflow Designer.
 services: media-services
 documentationcenter: ''

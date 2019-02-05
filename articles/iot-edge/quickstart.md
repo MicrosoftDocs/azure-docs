@@ -100,7 +100,7 @@ Since IoT Edge devices behave and can be managed differently than typical IoT de
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-3. Copy the connection string from the JSON output and save it. You'll use this value to configure the IoT Edge runtime in the next section.
+3. Copy the value of the `cs` key from the JSON output and save it. This value is the device connection string. You'll use this connection string to configure the IoT Edge runtime in the next section.
 
    ![Retrieve connection string from CLI output](./media/quickstart/retrieve-connection-string.png)
 
@@ -166,6 +166,8 @@ Verify that the runtime was successfully installed and configured.
    ```
 
    ![View one module on your device](./media/quickstart/iotedge-list-1.png)
+
+It may take a few minutes for the installation to complete and the IoT Edge agent module to start, especially if you are using a device with limited capacity or internet access. 
 
 Your IoT Edge device is now configured. It's ready to run cloud-deployed modules.
 

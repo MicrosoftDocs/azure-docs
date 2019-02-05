@@ -15,6 +15,7 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: anajod
+ms.lastreviewed: 11/07/2018
 ---
 
 # Tutorial: Deploy apps to Azure and Azure Stack
