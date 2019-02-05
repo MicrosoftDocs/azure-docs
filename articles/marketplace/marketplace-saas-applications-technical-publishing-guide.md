@@ -137,7 +137,7 @@ Microsoft hosts the commerce transaction. Microsoft bills your customer on your 
 | Requirement | Details |  
 |:--- |:--- |  
 |Billing and metering | Your offer is priced at a monthly flat rate. Usage-based pricing and usage-based "true-up" capabilities are not supported at this time. |  
-|Cancelation | Your offer is cancelable by the customer at any time. |  
+|Cancellation | Your offer is cancelable by the customer at any time. |  
 |Transaction landing page | You host an Azure co-branded transaction landing page where users can create and manage their SaaS service account. |   
 | Subscription API | You expose a service that can interact with the SaaS Subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. |  
 

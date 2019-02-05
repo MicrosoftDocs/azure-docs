@@ -33,13 +33,13 @@
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: DNS zones and records
+  - name: Zones and records
     href: dns-zones-records.md
-  - name: DNS alias records
+  - name: Alias records
     href: dns-alias.md
-  - name: DNS delegation with Azure DNS
+  - name: Delegation with Azure DNS
     href: dns-domain-delegation.md
-  - name: DNS FAQ
+  - name: FAQ
     href: dns-faq.md
   - name: Using private DNS zones
     href: private-dns-overview.md

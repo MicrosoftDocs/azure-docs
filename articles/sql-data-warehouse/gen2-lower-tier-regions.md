@@ -5,7 +5,7 @@ author: antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 12/03/2018
 ms.author: anvang
 ms.reviewer: igorstan
@@ -24,7 +24,7 @@ Currently the portal does not support the deployment of or scaling to the lower 
 Customers can choose to deploy a new Gen2 instance or upgrade an existing Gen1 data warehouse instance to experience the flexibility and performance of next generation data warehousing. 
 
 Try [Azure SQL Data Warehouse Compute Optimized Gen2 Tier.](https://azure.microsoft.com/services/sql-data-warehouse/?v=17.44)
-Upgrade [Azure SQL Warehouse Compute Optimized Gen1 to Gen2](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation)
+Upgrade [Azure SQL Data Warehouse Compute Optimized Gen1 to Gen2](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation)
 Watch Azure SQL Data Warehouse Gen2 in action in this [Microsoft Mechanics video.](https://www.youtube.com/watch?v=Ap8I3UZonzI&feature=youtu.be)
 
 
@@ -42,10 +42,11 @@ Watch Azure SQL Data Warehouse Gen2 in action in this [Microsoft Mechanics video
 - Japan East
 - India Central
 - Australia East
+- Australia Southeast
 - Canada Central
 - Japan West 
 - Canada Central
 
 ## Next steps
 
-- [Learn more](upgrade-to-latest-generation.md) about Optimize performance by upgrading SQL Data Warehouse. 
+- [Learn more](upgrade-to-latest-generation.md) about Compute Optimized performance by upgrading SQL Data Warehouse. 

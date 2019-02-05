@@ -182,7 +182,7 @@ Use the following steps to create and save a copy of the StorSimple Snapshot Man
 4. Restart the Microsoft StorSimple Management Service: 
    
    1. On the Server Manager Dashboard, on the **Tools** menu, select **Services**.
-   2. On the **Services** page, select the **Microsoft StorSimple Management Servic**e.
+   2. On the **Services** page, select the **Microsoft StorSimple Management Service**.
    3. In the right pane, under **Microsoft StorSimple Management Service**, click **Restart the service**. 
 
 ### Step 3: Reinstall StorSimple Snapshot Manager and restore the database

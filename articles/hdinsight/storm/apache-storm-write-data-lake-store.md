@@ -216,3 +216,5 @@ Storm topologies run until stopped, or the cluster is deleted. To stop the topol
 
 Now that you have learned how to use Apache Storm to write to Azure Storage and Azure Data Lake Storage, discover other [Apache Storm examples for HDInsight](apache-storm-example-topology.md).
 
+## See also
+* [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

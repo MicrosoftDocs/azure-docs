@@ -88,5 +88,5 @@ If that not possible, you can create a new cluster and [restore application stat
 * Learn about [application scalability](service-fabric-concepts-scalability.md).
 * [Scale an Azure cluster in or out](service-fabric-tutorial-scale-cluster.md).
 * [Scale an Azure cluster programmatically](service-fabric-cluster-programmatic-scaling.md) using the fluent Azure compute SDK.
-* [Scale a standaone cluster in or out](service-fabric-cluster-windows-server-add-remove-nodes.md).
+* [Scale a standalone cluster in or out](service-fabric-cluster-windows-server-add-remove-nodes.md).
 

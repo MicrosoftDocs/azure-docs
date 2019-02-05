@@ -199,7 +199,7 @@
           href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
         - name: Operations Manager
           href: platform/om-agents.md
-        - name: OMS Gateway
+        - name: Log Analytics gateway
           href: platform/gateway.md
         - name: Agent management
           href: platform/agent-manage.md
@@ -262,7 +262,7 @@
       - name: Azure apps
         items:
         - name: Azure app service
-          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
+          href: app/azure-web-apps.md
         - name: Azure Cloud Services
           href: app/cloudservices.md
         - name: Add continuous monitoring
@@ -341,7 +341,9 @@
         - name: Filter telemetry
           href: app/java-filter-telemetry.md
         - name: Micrometer Metrics
-          href: app/micrometer-java.md   
+          href: app/micrometer-java.md
+        - name: Configure a Spring Boot Initializer app
+          href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
       - name: Node.js apps
         items:
         - name: Node.js
@@ -633,24 +635,22 @@
         href: platform/view-designer-parts.md
       - name: Filters
         href: platform/view-designer-filters.md
-    - name: Dashboards
-      items:
-      - name: Logs
-        href: platform/dashboards.md
-      - name: Applications
-        href: app/app-insights-dashboards.md
     - name: Power BI
       items:
       - name: Export log data
         href: platform/powerbi.md
       - name: Export application data
         href: app/export-power-bi.md 
+    - name: Dashboards
+      href: app/app-insights-dashboards.md
     - name: Send data to Grafana
       href: platform/grafana-plugin.md
   - name: Analyze data
     items:
     - name: Create metrics charts in Metrics Explorer
       href: platform/metrics-charts.md
+    - name: Metric Explorer chart samples
+      href: platform/metric-chart-samples.md
     - name: View events in activity log
       href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
     - name: View service notifications
@@ -741,7 +741,7 @@
           href: platform/alerts-metric.md
         - name: Create, view and manage classic metric alerts in Azure Monitor
           href: platform/alerts-classic-portal.md
-        - name: Alerts with dynamic thresholds
+        - name: Metric Alerts with Dynamic Thresholds
           href: platform/alerts-dynamic-thresholds.md
         - name: Configure metric alerts on logs
           href: platform/alerts-metric-logs.md
@@ -968,7 +968,7 @@
   - name: Schemas
     items:
     - name: Diagnostic logs services, categories, and schemas
-      href: platform/tutorial-dashboards.md
+      href: platform/diagnostic-logs-schema.md
     - name: Activity log event schema
       href: platform/activity-log-schema.md
     - name: Azure Diagnostics extension schema
@@ -990,6 +990,8 @@
       href: platform/alerts-extend.md
     - name: Copy alerts from OMS portal to Azure portal 
       href: platform/alerts-extend-tool.md
+    - name: Switch log alert API preference
+      href: platform/alerts-log-api-switch.md
 - name: Resources
   items:
   - name: Azure Roadmap

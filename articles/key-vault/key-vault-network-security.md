@@ -73,7 +73,7 @@ Here's how to configure Key Vault firewalls and virtual networks by using the Az
 
 Here's how to configure Key Vault firewalls and virtual networks by using PowerShell:
 
-1. Install the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps), and [sign in](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+1. Install the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps), and [sign in](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 
 2. List available virtual network rules. If you have not set any rules for this key vault, the list will be empty.
    ```PowerShell

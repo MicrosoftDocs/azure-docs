@@ -110,6 +110,11 @@
     - name: Enforce Data Lake Store encryption
       displayName: deny
       href: samples/enforce-data-lake-store-encryption.md
+  - name: Key Vaults
+    items:
+    - name: Audit vaults for no virtual network endpoints
+      displayName: audit, KeyVault, indexed
+      href: samples/keyvault-no-vnet-rules.md
   - name: Monitoring
     items:
     - name: Audit diagnostic setting
@@ -265,7 +270,7 @@
   - name: Azure PowerShell
     items:
     - name: Policy
-      href: /powershell/module/azurerm.resources/#policies
+      href: /powershell/module/az.resources/#policies
     - name: Guest Configuration (preview)
       href: https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration
   - name: REST API

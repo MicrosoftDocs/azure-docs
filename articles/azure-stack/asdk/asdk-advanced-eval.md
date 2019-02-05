@@ -16,6 +16,8 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
+ms.lastreviewed: 10/16/2018
+
 ---
 
 # Advanced Azure Stack Development Kit evaluation tasks

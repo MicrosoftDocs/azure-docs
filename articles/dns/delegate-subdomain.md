@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/18/2019
+ms.date: 1/22/2019
 ms.author: victorh
 ---
 
@@ -42,7 +42,7 @@ Next, copy the four name servers for your subdomain.
 
 Next, create a name server (NS) record  for the **engineering** zone.
 
-1. Navigate to the zone file for the parent domain.
+1. Navigate to the zone for the parent domain.
 2. Select **+ Record set**.
 3. On the **Add record set** pane, type **engineering** in the **Name** text box.
 4. For **Type**, select **NS**.
