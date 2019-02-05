@@ -162,7 +162,15 @@ On iOS, you can have the delegate to your view provide frames from the callback 
 
 ### Authentication
 
-To access the service, you need to provide an account key, access token, or AAD auth token. To learn more, visit our [authentication overview](../authentication-overview.md).
+To access the service, you need to provide an account key, access token, or AAD auth token.
+
+**Account Keys:** Account Keys are a credential that allows your application to authenticate with the Azure Spatial Anchors service. The intended purpose of Account Keys is to help you get started quickly. Specially during the development phase of your application's integration with Azure Spatial Anchors. As such, you can use Account Keys by embedding them in your client applications during development. As you progress beyond development, it's highly recommended to move to an authentication mechanism that is production-level, supported by Access Tokens, or AAD-based user authentication. To get an Account Key for development, visit your Azure Spatial Anchors account, and navigate to the "Keys" tab.
+
+**Access Tokens:** Access Tokens are a more robust method to authenticate with Azure Spatial Anchors. Specially as you prepare your application for a production deployment. The summary of this approach is to set up a backend service that your client application can securely authenticate with. Your backend service interfaces with AAD at runtime and with the Azure Spatial Anchors STS service to request an Access Token. This token is then delivered to the client application and used in the SDK to authenticate with Azure Spatial Anchors.
+
+**AAD User Authentication:** Azure Spatial Anchors also allows applications to authenticate with user AAD tokens. For example, you can use AAD tokens to integrate with ASA. If an Enterprise maintains users in AAD, you can supply a user AAD token in the Azure Spatial Anchors SDK. Doing so allows you to authenticate directly to the ASA service for an account that's part of the same AAD tenant.
+
+For more detailed information on authentication with Azure Spatial Anchors, see [authentication overview](../authentication-overview.md).
 
 To set an account key:
 
