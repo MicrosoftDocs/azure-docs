@@ -222,7 +222,7 @@ To enable Azure AD users to sign in to dmarcian, they must be provisioned into d
 
 1. Sign in to dmarcian as a Security Administrator.
 
-2. Click on **Profile** on the top right corner and navigate to **Manage Users**.
+2. Click on **Profile** on the top right-corner and navigate to **Manage Users**.
 
 	![The user ](./media/dmarcian-tutorial/tutorial_dmarcian_user.png)
 
