@@ -15,7 +15,7 @@ ms.author: carlrab
 
 This article lists the new features and improvements in the SQL Database service and in the SQL Database documentation.
 
-## January 2019
+## SQL Database service and documentation improvements for January 2019
 
 ### Service improvements
 
