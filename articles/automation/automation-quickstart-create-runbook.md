@@ -4,7 +4,7 @@ description: Learn how to create an Azure Automation runbook
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 12/14/2017
+ms.date: 02/05/2019
 ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
