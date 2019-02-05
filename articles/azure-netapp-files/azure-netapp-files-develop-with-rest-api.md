@@ -25,19 +25,19 @@ You can create snapshots only on demand.  Snapshot policies are not currently su
 2. Create a service principal in your Azure Active Directory (Azure AD):
     1. Verify that you have [sufficient permissions](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-    1. Enter the following command in the Azure CLI: 
-    
-        az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
+    1. Enter the following command in the Azure CLI:  
+
+            az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
 
     The command output is similar to the following example:  
-   
-        { 
-            "appId": "appIDgoeshere", 
-            "displayName": "APPNAME", 
-            "name": "http://APPNAME", 
-            "password": "supersecretpassword", 
-            "tenant": "tenantIDgoeshere" 
-        } 
+
+            { 
+                "appId": "appIDgoeshere", 
+                "displayName": "APPNAME", 
+                "name": "http://APPNAME", 
+                "password": "supersecretpassword", 
+                "tenant": "tenantIDgoeshere" 
+            } 
 
     Keep the command output.  You will need the `appId`, `password`, and `tenant` values. 
 
