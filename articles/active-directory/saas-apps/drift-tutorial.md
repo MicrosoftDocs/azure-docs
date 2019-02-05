@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/04/2019
+ms.date: 02/05/2019
 ms.author: jeedes
 
 ---
@@ -43,7 +43,6 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 * Drift supports **SP** and **IDP** initiated SSO
 
 * Drift supports **Just In Time** user provisioning
-
 
 ## Adding Drift from the gallery
 
@@ -99,17 +98,19 @@ To configure Azure AD single sign-on with Drift, perform the following steps:
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, the user does not have to perform any steps as the app is already pre-integrated with Azure.
+4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
     ![Drift Domain and URLs single sign-on information](common/both-preintegrated-advanced-urls.png)
 
-5. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
+	a. Click **Set additional URLs**.
+ 
+	b. In the **Relay State** text box, type a URL:
+    `https://app.drift.com` 
 
-	a. In the **Sign-on URL** text box, type a URL using the following pattern:
+	c. If you wish to configure the application in **SP** initiated mode perform the following step:
+
+	d. In the **Sign-on URL** text box, type a URL:
     `https://start.drift.com`
-
-	b. In the **Relay State** text box, type a URL using the following pattern:
-    `https://app.drift.com`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Relay State. Contact [Drift Client support team](mailto:integrations@drift.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -123,7 +124,6 @@ To configure Azure AD single sign-on with Drift, perform the following steps:
 	| Name | Source Attribute|
 	| ---------------| --------------- |    
 	| Name | user.displayname |
-
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
