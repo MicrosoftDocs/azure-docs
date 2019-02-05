@@ -54,7 +54,7 @@ Public preview
 | Windows 10 IoT Enterprise build 17763 | Yes | No |
 | Windows Server 2019 | Yes | No |
 
-The Windows systems above are the requirments for systems which run Windows containers on Windows. This is the only supported configuration for production. The Azure IoT Edge installation packages for Windows allow the use of Linux containers on Windows; however this is for development and testing only. Use of Linux containers on Windows is not a supported configuration for production. Any version of Windows 10 build 14393 or newer and Windows Server 2016 or newer can be used for this development scenario.
+The Windows systems above are the requirements for systems which run Windows containers on Windows. This is the only supported configuration for production. The Azure IoT Edge installation packages for Windows allow the use of Linux containers on Windows; however, this is for development and testing only. Use of Linux containers on Windows is not a supported configuration for production. Any version of Windows 10 build 14393 or newer and Windows Server 2016 or newer can be used for this development scenario.
 
 ### Tier 2
 
@@ -77,6 +77,6 @@ Azure IoT Edge can be run in virtual machines. This is common when customers wan
 
 
 ## Minimum system requirements
-Azure IoT Edge runs great on devices from as small as a Raspberry Pi3 to server grade hardware. Choosing the right hardware for your scenario is very dependent on the workloads that you want to run. Making the final device decision can be complicated; however you can easily start prototyping a solution on traditional laptops or desktops.
+Azure IoT Edge runs great on devices from as small as a Raspberry Pi3 to server grade hardware. Choosing the right hardware for your scenario is very dependent on the workloads that you want to run. Making the final device decision can be complicated; however, you can easily start prototyping a solution on traditional laptops or desktops.
 
 Experience while prototyping will help guide your final device selection. Questions you should consider include: how many modules comprise your workload, how many layers do your modules’ containers share, in what language are your modules written, how much data will your modules be processing, do your modules need any specialized hardware for accelerating their workloads, what are the desired performance characteristics of your solution, what is your hardware budget?
