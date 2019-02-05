@@ -10,19 +10,19 @@
   expanded: true
   items:
   - name: Single database quickstart guide
-    href: sql-database-quickstart-guide.md
+    href: sql-database-single-database-quickstart-guide.md
   - name: Managed instance quickstart guide
     href: sql-database-managed-instance-quickstart-guide.md
   - name: Create
     items: 
     - name: Single database
-      href: sql-database-get-started-portal.md
+      href: sql-database-single-database-get-started.md
     - name: Managed instance
       href: sql-database-managed-instance-get-started.md
   - name: Configure
     items:
-    - name: Database server firewall rules
-      href: sql-database-get-started-portal-firewall.md
+    - name: Server-level IP firewall rules
+      href: sql-database-server-level-firewall-rule.md
     - name: Client VM connection to a managed instance
       href: sql-database-managed-instance-configure-vm.md
     - name: Point-to-site connection to a managed instance
@@ -226,7 +226,7 @@
         href: sql-vulnerability-assessment.md
       - name: Threat detection
         href: sql-database-threat-detection-overview.md
-    - name: Database server IP firewall rules
+    - name: Server-level IP firewall rules
       items:
       - name: Create and manage
         href: sql-database-firewall-configure.md      

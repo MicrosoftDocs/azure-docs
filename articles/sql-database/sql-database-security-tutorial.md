@@ -39,7 +39,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
 - An Azure SQL server and database
-  - Create them with [Azure portal](sql-database-get-started-portal.md), [CLI](sql-database-cli-samples.md), or [PowerShell](sql-database-powershell-samples.md)
+  - Create them with [Azure portal](sql-database-single-database-get-started.md), [CLI](sql-database-cli-samples.md), or [PowerShell](sql-database-powershell-samples.md)
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -58,7 +58,7 @@ Set **Allow access to Azure services** to **OFF** for the most secure configurat
 
 ### Set up SQL Database server firewall rules
 
-Server-level firewall rules apply to all databases within the same SQL Database server.
+Server-level IP firewall rules apply to all databases within the same SQL Database server.
 
 To set up a server-level firewall rule:
 

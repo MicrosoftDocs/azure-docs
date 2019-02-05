@@ -11,11 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/05/2019
 ms.author: magoedte
 ---
 
 # Connect computers without Internet access using the Log Analytics gateway
+
+>[!NOTE]
+>As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, the OMS gateway will be referred to as the Log Analytics gateway. 
+>
+
 This document describes how to configure communication with Azure Automation and Log Analytics using the Log Analytics gateway when direct connected or Operations Manager monitored computers do not have Internet access.  The Log Analytics gateway, which is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command, can collect data and send it to Azure Automation and Log Analytics on their behalf.  
 
 The Log Analytics gateway supports:
@@ -141,7 +146,7 @@ To understand requirements and steps on how to install the Log Analytics agent o
 
 After installing the agent on the gateway server, you can configure it to report to the workspace or workspaces agents talking to the gateway. If the Log Analytics Windows agent is not installed on the gateway, event 300 is written to the **OMS Gateway Log** event log indicating the agent needs to be installed. If the agent is installed but not configured to report to the same workspace as the agents communicating through it, event 105 is written to the same event log, stating the agent on the gateway needs to be configured to report to the same workspace as the agents talking to the gateway.
 
-After completing configuration, you need to restart the **OMS Gateway** service for the changes to take effect. Otherwise, the gateway will reject agents attempting to communicate with Log Analytics and report event id 105 in the **OMS Gateway Log** event log. This also applies when you add or remove a workspace from the agent config on the gateway server.   
+After completing configuration, you need to restart the **OMS Gateway** service for the changes to take effect. Otherwise, the gateway will reject agents attempting to communicate with Log Analytics and report event ID 105 in the **OMS Gateway Log** event log. This also applies when you add or remove a workspace from the agent config on the gateway server.   
 
 For information related to the Automation Hybrid Runbook Worker, see [Deploy Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
 
