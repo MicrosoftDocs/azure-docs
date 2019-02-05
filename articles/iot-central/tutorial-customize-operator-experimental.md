@@ -154,5 +154,5 @@ In this tutorial, you learned how to customize the operator's view of the applic
 
 Now that you have learned how to customize the operator's view of the application, the suggested next steps are:
 
-* [Monitor your devices (as an operator)](tutorial-monitor-devices.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-* [Add a new device to your application (as an operator and device developer)](tutorial-add-device.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [Monitor your devices (as an operator)](tutorial-monitor-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [Add a new device to your application (as an operator and device developer)](tutorial-add-device-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
