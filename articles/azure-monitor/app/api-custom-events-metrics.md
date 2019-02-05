@@ -16,7 +16,7 @@ ms.author: mbullwin
 ---
 # Application Insights API for custom events and metrics
 
-Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. Use the [Azure Application Insights](../../application-insights/app-insights-overview.md) core telemetry API to send custom events and metrics, and your own versions of standard telemetry. This API is the same API that the standard Application Insights data collectors use.
+Insert a few lines of code in your application to find out what users are doing with it, or to help diagnose issues. You can send telemetry from device and desktop apps, web clients, and web servers. Use the [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) core telemetry API to send custom events and metrics, and your own versions of standard telemetry. This API is the same API that the standard Application Insights data collectors use.
 
 > [!NOTE]
 > `TrackMetric()` is no longer the preferred method of sending custom metrics for your .NET based applications. In [version 2.60-beta 3](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3) of the Application Insights .NET SDK a new method, [`TelemetryClient.GetMetric()`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) was introduced. As of the Application Insights .NET SDK [version 2.72](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) this functionality is now part of the stable release.
@@ -45,9 +45,9 @@ If you don't have a reference on Application Insights SDK yet:
 * Add the Application Insights SDK to your project:
 
   * [ASP.NET project](../../azure-monitor/app/asp-net.md)
-  * [Java project](../../application-insights/app-insights-java-get-started.md)
-  * [Node.js project](../../application-insights/app-insights-nodejs.md)
-  * [JavaScript in each webpage](../../application-insights/app-insights-javascript.md) 
+  * [Java project](../../azure-monitor/app/java-get-started.md)
+  * [Node.js project](../../azure-monitor/app/nodejs.md)
+  * [JavaScript in each webpage](../../azure-monitor/app/javascript.md) 
 * In your device or web server code, include:
 
     *C#:* `using Microsoft.ApplicationInsights;`
@@ -108,7 +108,7 @@ In Node.js projects, you can use `new applicationInsights.TelemetryClient(instru
 
 ## TrackEvent
 
-In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md) as an aggregated count, and in [Diagnostic Search](../../application-insights/app-insights-diagnostic-search.md) as individual occurrences. (It isn't related to MVC or other framework "events.")
+In Application Insights, a *custom event* is a data point that you can display in [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) as an aggregated count, and in [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md) as individual occurrences. (It isn't related to MVC or other framework "events.")
 
 Insert `TrackEvent` calls in your code to count various events. How often users choose a particular feature, how often they achieve particular goals, or maybe how often they make particular types of mistakes.
 
@@ -148,7 +148,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 The telemetry is available in the `customEvents` table in [Application Insights Analytics](analytics.md). Each row represents a call to `trackEvent(..)` in your app.
 
-If [sampling](../../application-insights/app-insights-sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackEvent(), the sampling process only transmitted one of them. To get a correct count of custom events, you should use therefore use code such as `customEvents | summarize sum(itemCount)`.
+If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackEvent(), the sampling process only transmitted one of them. To get a correct count of custom events, you should use therefore use code such as `customEvents | summarize sum(itemCount)`.
 
 ## GetMetric
 
@@ -163,7 +163,7 @@ namespace User.Namespace.Example01
 {
     using System;
     using Microsoft.ApplicationInsights;
-    using TraceSeveretyLevel = Microsoft.ApplicationInsights.DataContracts.SeverityLevel;
+    using TraceSeverityLevel = Microsoft.ApplicationInsights.DataContracts.SeverityLevel;
 
     /// <summary>
     /// Most simple cases are one-liners.
@@ -215,7 +215,7 @@ namespace User.Namespace.Example01
             if (!animalsSold.TrackValue(count, species))
 
             {
-                client.TrackTrace($"Data series or dimension cap was reached for metric {animalsSold.Identifier.MetricId}.", TraceSeveretyLevel.Error);
+                client.TrackTrace($"Data series or dimension cap was reached for metric {animalsSold.Identifier.MetricId}.", TraceSeverityLevel.Error);
             }
 
             // You can inspect a metric object to reason about its current state. For example:
@@ -246,7 +246,7 @@ namespace User.Namespace.Example01
 > [!NOTE]
 > Microsoft.ApplicationInsights.TelemetryClient.TrackMetric is deprecated in the .NET SDK. Metrics should always be pre-aggregated across a time period before being sent. Use one of the GetMetric(..) overloads to get a metric object for accessing SDK pre-aggregation capabilities. If you are implementing your own pre-aggregation logic, you can 
 use the Track(ITelemetry metricTelemetry) method to send the resulting aggregates. If your application requires sending a separate telemetry item at every occasion without aggregation across time, you likely have a use case for event telemetry; see TelemetryClient.TrackEvent 
-(Microsoft.Applicationlnsights.DataContracts.EventTelemetry).
+(Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
 
 Application Insights can chart metrics that are not attached to particular events. For example, you could monitor a queue length at regular intervals. With metrics, the individual measurements are of less interest than the variations and trends, and so statistical charts are useful.
 
@@ -397,9 +397,9 @@ However, the recommended way to send request telemetry is where the request acts
 
 ## Operation context
 
-You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](../../application-insights/app-insights-diagnostic-search.md) and [Analytics](analytics.md), you can easily find any events associated with the request using its operation Id.
+You can correlate telemetry items together by associating them with operation context. The standard request-tracking module does this for exceptions and other events that are sent while an HTTP request is being processed. In [Search](../../azure-monitor/app/diagnostic-search.md) and [Analytics](analytics.md), you can easily find any events associated with the request using its operation Id.
 
-See [Telemetry correlation in Application Insights](../../application-insights/application-insights-correlation.md) for more details on correlation.
+See [Telemetry correlation in Application Insights](../../azure-monitor/app/correlation.md) for more details on correlation.
 
 When tracking telemetry manually, the easiest way to ensure telemetry correlation by using this pattern:
 
@@ -431,13 +431,13 @@ In Search, the operation context is used to create the **Related Items** list:
 
 ![Related items](./media/api-custom-events-metrics/21.png)
 
-See [Track custom operations with Application Insights .NET SDK](../../application-insights/application-insights-custom-operations-tracking.md) for more information on custom operations tracking.
+See [Track custom operations with Application Insights .NET SDK](../../azure-monitor/app/custom-operations-tracking.md) for more information on custom operations tracking.
 
 ### Requests in Analytics
 
 In [Application Insights Analytics](analytics.md), requests show up in the `requests` table.
 
-If [sampling](../../application-insights/app-insights-sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackRequest(), the sampling process only transmitted one of them. To get a correct count of requests and average duration segmented by request names, use code such as:
+If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCount property will show a value greater than 1. For example itemCount==10 means that of 10 calls to trackRequest(), the sampling process only transmitted one of them. To get a correct count of requests and average duration segmented by request names, use code such as:
 
 ```kusto
 requests
@@ -448,8 +448,8 @@ requests
 
 Send exceptions to Application Insights:
 
-* To [count them](../../application-insights/app-insights-metrics-explorer.md), as an indication of the frequency of a problem.
-* To [examine individual occurrences](../../application-insights/app-insights-diagnostic-search.md).
+* To [count them](../../azure-monitor/app/metrics-explorer.md), as an indication of the frequency of a problem.
+* To [examine individual occurrences](../../azure-monitor/app/diagnostic-search.md).
 
 The reports include the stack traces.
 
@@ -505,7 +505,7 @@ catch (ex)
 The SDKs catch many exceptions automatically, so you don't always have to call TrackException explicitly.
 
 * ASP.NET: [Write code to catch exceptions](../../azure-monitor/app/asp-net-exceptions.md).
-* J2EE: [Exceptions are caught automatically](../../application-insights/app-insights-java-get-started.md#exceptions-and-request-failures).
+* J2EE: [Exceptions are caught automatically](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
 * JavaScript: Exceptions are caught automatically. If you want to disable automatic collection, add a line to the code snippet that you insert in your webpages:
 
 ```javascript
@@ -519,7 +519,7 @@ The SDKs catch many exceptions automatically, so you don't always have to call T
 
 In [Application Insights Analytics](analytics.md), exceptions show up in the `exceptions` table.
 
-If [sampling](../../application-insights/app-insights-sampling.md) is in operation, the `itemCount` property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackException(), the sampling process only transmitted one of them. To get a correct count of exceptions segmented by type of exception, use code such as:
+If [sampling](../../azure-monitor/app/sampling.md) is in operation, the `itemCount` property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackException(), the sampling process only transmitted one of them. To get a correct count of exceptions segmented by type of exception, use code such as:
 
 ```kusto
 exceptions
@@ -542,11 +542,11 @@ exceptions
 
 ## TrackTrace
 
-Use TrackTrace to help diagnose problems by sending a "breadcrumb trail" to Application Insights. You can send chunks of diagnostic data and inspect them in [Diagnostic Search](../../application-insights/app-insights-diagnostic-search.md).
+Use TrackTrace to help diagnose problems by sending a "breadcrumb trail" to Application Insights. You can send chunks of diagnostic data and inspect them in [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md).
 
 In .NET [Log adapters](../../azure-monitor/app/asp-net-trace-logs.md) use this API to send third-party logs to the portal.
 
-In Java for [Standard loggers like Log4J, Logback](../../application-insights/app-insights-java-trace-logs.md) use Application Insights Log4j or Logback Appenders to send third-party logs to the portal.
+In Java for [Standard loggers like Log4J, Logback](../../azure-monitor/app/java-trace-logs.md) use Application Insights Log4j or Logback Appenders to send third-party logs to the portal.
 
 *C#*
 
@@ -594,13 +594,13 @@ properties.put("Database", db.ID);
 telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties);
 ```
 
-In [Search](../../application-insights/app-insights-diagnostic-search.md), you can then easily filter out all the messages of a particular severity level that relate to a particular database.
+In [Search](../../azure-monitor/app/diagnostic-search.md), you can then easily filter out all the messages of a particular severity level that relate to a particular database.
 
 ### Traces in Analytics
 
 In [Application Insights Analytics](analytics.md), calls to TrackTrace show up in the `traces` table.
 
-If [sampling](../../application-insights/app-insights-sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to `trackTrace()`, the sampling process only transmitted one of them. To get a correct count of trace calls, you should use therefore code such as `traces | summarize sum(itemCount)`.
+If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to `trackTrace()`, the sampling process only transmitted one of them. To get a correct count of trace calls, you should use therefore code such as `traces | summarize sum(itemCount)`.
 
 ## TrackDependency
 
@@ -665,17 +665,17 @@ finally
 
 Remember that the server SDKs include a [dependency module](../../azure-monitor/app/asp-net-dependencies.md) that discovers and tracks certain dependency calls automatically--for example, to databases and REST APIs. You have to install an agent on your server to make the module work. 
 
-In Java, certain dependency calls can be automatically tracked using [Java Agent](../../application-insights/app-insights-java-agent.md).
+In Java, certain dependency calls can be automatically tracked using [Java Agent](../../azure-monitor/app/java-agent.md).
 
 You use this call if you want to track calls that the automated tracking doesn't catch, or if you don't want to install the agent.
 
-To turn off the standard dependency-tracking module in C#, edit [ApplicationInsights.config](../../application-insights/app-insights-configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`. In Java, please do not install java agent if you do not want to collect standard dependencies automatically.
+To turn off the standard dependency-tracking module in C#, edit [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) and delete the reference to `DependencyCollector.DependencyTrackingTelemetryModule`. In Java, please do not install java agent if you do not want to collect standard dependencies automatically.
 
 ### Dependencies in Analytics
 
 In [Application Insights Analytics](analytics.md), trackDependency calls show up in the `dependencies` table.
 
-If [sampling](../../application-insights/app-insights-sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackDependency(), the sampling process only transmitted one of them. To get a correct count of dependencies segmented by target component, use code such as:
+If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCount property shows a value greater than 1. For example itemCount==10 means that of 10 calls to trackDependency(), the sampling process only transmitted one of them. To get a correct count of dependencies segmented by target component, use code such as:
 
 ```kusto
 dependencies
@@ -761,9 +761,9 @@ If your app groups users into accounts, you can also pass an identifier for the 
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-In [Metrics Explorer](../../application-insights/app-insights-metrics-explorer.md), you can create a chart that counts **Users, Authenticated**, and **User accounts**.
+In [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md), you can create a chart that counts **Users, Authenticated**, and **User accounts**.
 
-You can also [search](../../application-insights/app-insights-diagnostic-search.md) for client data points with specific user names and accounts.
+You can also [search](../../azure-monitor/app/diagnostic-search.md) for client data points with specific user names and accounts.
 
 ## <a name="properties"></a>Filtering, searching, and segmenting your data by using properties
 
@@ -894,7 +894,7 @@ requests
 Notice that:
 
 * When you extract a value from the customDimensions or customMeasurements JSON, it has dynamic type, and so you must cast it `tostring` or `todouble`.
-* To take account of the possibility of [sampling](../../application-insights/app-insights-sampling.md), you should use `sum(itemCount)`, not `count()`.
+* To take account of the possibility of [sampling](../../azure-monitor/app/sampling.md), you should use `sum(itemCount)`, not `count()`.
 
 ## <a name="timed"></a> Timing events
 
@@ -1023,7 +1023,7 @@ TelemetryConfiguration.Active.DisableTelemetry = true;
 telemetry.getConfiguration().setTrackingDisabled(true);
 ```
 
-To *disable selected standard collectors*--for example, performance counters, HTTP requests, or dependencies--delete or comment out the relevant lines in [ApplicationInsights.config](../../application-insights/app-insights-configuration-with-applicationinsights-config.md). You can do this, for example, if you want to send your own TrackRequest data.
+To *disable selected standard collectors*--for example, performance counters, HTTP requests, or dependencies--delete or comment out the relevant lines in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). You can do this, for example, if you want to send your own TrackRequest data.
 
 *Node.js*
 
@@ -1073,7 +1073,7 @@ telemetry.InstrumentationKey = "---my key---";
 
 ## <a name="dynamic-ikey"></a> Dynamic instrumentation key
 
-To avoid mixing up telemetry from development, test, and production environments, you can [create separate Application Insights resources](../../application-insights/app-insights-create-new-resource.md) and change their keys, depending on the environment.
+To avoid mixing up telemetry from development, test, and production environments, you can [create separate Application Insights resources](../../azure-monitor/app/create-new-resource.md ) and change their keys, depending on the environment.
 
 Instead of getting the instrumentation key from the configuration file, you can set it in your code. Set the key in an initialization method, such as global.aspx.cs in an ASP.NET service:
 
@@ -1120,7 +1120,7 @@ TelemetryClient has a Context property, which contains values that are sent alon
 telemetry.Context.Operation.Name = "MyOperationName";
 ```
 
-If you set any of these values yourself, consider removing the relevant line from [ApplicationInsights.config](../../application-insights/app-insights-configuration-with-applicationinsights-config.md), so that your values and the standard values don't get confused.
+If you set any of these values yourself, consider removing the relevant line from [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), so that your values and the standard values don't get confused.
 
 * **Component**: The app and its version.
 * **Device**: Data about the device where the app is running. (In web apps, this is the server or client device that the telemetry is sent from.)
@@ -1138,9 +1138,9 @@ If you set any of these values yourself, consider removing the relevant line fro
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 
-To avoid hitting the data rate limit, use [sampling](../../application-insights/app-insights-sampling.md).
+To avoid hitting the data rate limit, use [sampling](../../azure-monitor/app/sampling.md).
 
-To determine how long data is kept, see [Data retention and privacy](../../application-insights/app-insights-data-retention-privacy.md).
+To determine how long data is kept, see [Data retention and privacy](../../azure-monitor/app/data-retention-privacy.md).
 
 ## Reference docs
 
@@ -1167,9 +1167,9 @@ To determine how long data is kept, see [Data retention and privacy](../../appli
     None. You don't need to wrap them in try-catch clauses. If the SDK encounters problems, it will log messages in the debug console output and--if the messages get through--in Diagnostic Search.
 * *Is there a REST API to get data from the portal?*
 
-    Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [export from Analytics to Power BI](../../application-insights/app-insights-export-power-bi.md) and [continuous export](../../application-insights/app-insights-export-telemetry.md).
+    Yes, the [data access API](https://dev.applicationinsights.io/). Other ways to extract data include [export from Analytics to Power BI](../../azure-monitor/app/export-power-bi.md ) and [continuous export](../../azure-monitor/app/export-telemetry.md).
 
 ## <a name="next"></a>Next steps
 
-* [Search events and logs](../../application-insights/app-insights-diagnostic-search.md)
-* [Troubleshooting](../../application-insights/app-insights-troubleshoot-faq.md)
+* [Search events and logs](../../azure-monitor/app/diagnostic-search.md)
+* [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md)

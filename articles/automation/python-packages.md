@@ -3,7 +3,7 @@ title: Manage Python 2 packages in Azure Automation
 description: This article describes how to manage Python 2 packages in Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/11/2018

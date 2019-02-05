@@ -38,6 +38,7 @@ For more information about Resource Manager templates, see the following article
 
 * [Author Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Deploy an application with Azure Resource Manager templates](../azure-resource-manager/resource-group-template-deploy.md)
+* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters) template reference
 
 ## Generate templates
 
@@ -70,7 +71,7 @@ For an introduction to using Visual Studio with resource groups, see [Creating a
 
 ## Troubleshoot
 
-If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-administer-use-portal-linux.md#create-clusters).
+If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:

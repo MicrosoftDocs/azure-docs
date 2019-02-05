@@ -61,7 +61,7 @@ In your Python environment, install the required packages using `pip`.
 pip install -r requirements.txt
 ```
 
-Open the file `batch_python_tutorial_ffmpeg.py`. Update the Batch and storage account credential strings with the values unique to your accounts. For example:
+Open the file `config.py`. Update the Batch and storage account credential strings with the values unique to your accounts. For example:
 
 
 ```Python
@@ -71,8 +71,6 @@ _BATCH_ACCOUNT_URL = 'https://mybatchaccount.mybatchregion.batch.azure.com'
 _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ=='
 ```
-
-[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
 
 ### Run the app
 

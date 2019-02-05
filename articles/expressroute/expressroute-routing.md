@@ -6,7 +6,7 @@ author: ganesr
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 01/11/2019
 ms.author: ganesr
 ms.custom: seodec18
 
@@ -116,7 +116,7 @@ Routing exchange will be over eBGP protocol. EBGP sessions are established betwe
 ## Autonomous System numbers
 Microsoft uses AS 12076 for Azure public, Azure private and Microsoft peering. We have reserved ASNs from 65515 to 65520 for internal use. Both 16 and 32 bit AS numbers are supported.
 
-There are no requirements around data transfer symmetry. The forward and return paths may traverse different router pairs. Identical routes must be advertised from either sides across multiple circuit pairs belonging you. Route metrics are not required to be identical.
+There are no requirements around data transfer symmetry. The forward and return paths may traverse different router pairs. Identical routes must be advertised from either sides across multiple circuit pairs belonging to you. Route metrics are not required to be identical.
 
 ## Route aggregation and prefix limits
 We support up to 4000 prefixes advertised to us through the Azure private peering. This can be increased up to 10,000 prefixes if the ExpressRoute premium add-on is enabled. We accept up to 200 prefixes per BGP session for Azure public and Microsoft peering. 
@@ -131,7 +131,7 @@ Default routes are permitted only on Azure private peering sessions. In such a c
 
  To enable connectivity to other Azure services and infrastructure services, you must make sure one of the following items is in place:
 
-* Azure public peering is enabled to route traffic to public endpoints
+* Azure public peering is enabled to route traffic to public endpoints.
 * You use user-defined routing to allow internet connectivity for every subnet requiring Internet connectivity.
 
 > [!NOTE]
@@ -211,7 +211,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | Azure Global Services* | 12076:5050 |
 | Other Office 365 Online services | 12076:5100 |
 
-***Azure Global Services includes Azure DevOps**
+*Azure Global Services includes only Azure DevOps at this time.
 
 
 > [!NOTE]

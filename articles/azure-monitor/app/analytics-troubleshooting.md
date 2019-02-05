@@ -20,7 +20,7 @@ Problems with [Application Insights Analytics](analytics.md)? Start here. Analyt
 
 ## Limits
 * At present, query results are limited to just over a week of past data.
-* Browsers we test on: latest editions of Chrome, Edge, and Internet Explorer.
+* Browsers we test on: latest editions of Chrome, Microsoft Edge, and Internet Explorer.
 
 ## Known incompatible browser extensions
 * Ghostery
@@ -50,7 +50,7 @@ An authentication related error occurred (during authentication or during access
 2. Did you use a favorite, bookmark or saved link to open the Analytics portal? Are you signed in with different credentials than you used when you saved the link?
 3. Try using an in-private/incognito browser window (after closing all such windows). You'll have to provide your credentials. 
 4. Open another (ordinary) browser window and go to [Azure](https://portal.azure.com). Sign out. Then open your link and sign in with the correct credentials.
-5. Edge and Internet Explorer users can also get this error when trusted zone settings are not supported.
+5. Microsoft Edge and Internet Explorer users can also get this error when trusted zone settings are not supported.
    
     Verify both [Analytics portal](https://portal.azure.com) and [Azure Active Directory portal](https://portal.azure.com) are in the same security zone:
    
@@ -74,7 +74,7 @@ Application resource was deleted from Application Insights and isn�t available
 
 You don't have permission to open this application in Analytics.
 
-* Did you get the link from someone else? Ask them to make sure you are in the [readers or contributors for this resource group](../../application-insights/app-insights-resources-roles-access-control.md).
+* Did you get the link from someone else? Ask them to make sure you are in the [readers or contributors for this resource group](../../azure-monitor/app/resources-roles-access-control.md).
 * Did you save the link using different credentials? Open the [Azure portal](https://portal.azure.com), sign out, and then try this link again, providing the correct credentials.
 
 ## <a name="html-storage"></a>403 ... HTML5 Storage

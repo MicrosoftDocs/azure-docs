@@ -29,7 +29,7 @@ If you choose to install and use the CLI locally, this quickstart requires that 
 
 Blobs are always uploaded into a container. You can organize groups of blobs similar to the way you organize your files on your computer in folders.
 
-Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command.
+Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container) command.
 
 ```azurecli-interactive
 az storage container create --name mystoragecontainer
@@ -102,7 +102,7 @@ azcopy \
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the storage account you created in this Quickstart, delete the resource group with the [az group delete](/cli/azure/group#az_group_delete) command.
+If you no longer need any of the resources in your resource group, including the storage account you created in this Quickstart, delete the resource group with the [az group delete](/cli/azure/group) command.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

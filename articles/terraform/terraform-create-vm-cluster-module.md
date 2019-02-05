@@ -4,7 +4,7 @@ description: Learn how to use Terraform modules to create a Windows virtual mach
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, virtual machine, network, modules
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial

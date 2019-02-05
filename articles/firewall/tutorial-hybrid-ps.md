@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell'
-description: In this tutorial, you learn how to deploy and configure Azure Firewall using the Azure portal. 
+description: In this tutorial, you learn how to deploy and configure Azure Firewall using Azure PowerShell. 
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 12/14/2018
+ms.date: 1/30/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
@@ -39,13 +39,13 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-This tutorial requires that you run PowerShell locally. You must have Azure PowerShell module version 6.12.0 or later installed. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). After you verify the PowerShell version, run `Login-AzureRmAccount` to create a connection with Azure.
+This tutorial requires that you run PowerShell locally. You must have Azure PowerShell module version 6.12.0 or later installed. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). After you verify the PowerShell version, run `Login-AzureRmAccount` to create a connection with Azure.
 
 There are three key requirements for this scenario to work correctly:
 
-- A User Defined Route on the spoke subnet that points to the Azure Firewall IP address as the default gateway. BGP route propagation must be **Disabled** on this route table.
-- A User Defined Route on the hub gateway subnet must point to the firewall IP address as the next hop to the spoke networks.
-- No User Defined Route is required on the Azure Firewall subnet, as it learns routes from BGP.
+- A User Defined Route (UDR) on the spoke subnet that points to the Azure Firewall IP address as the default gateway. BGP route propagation must be **Disabled** on this route table.
+- A UDR on the hub gateway subnet must point to the firewall IP address as the next hop to the spoke networks.
+- No UDR is required on the Azure Firewall subnet, as it learns routes from BGP.
 - Make sure to set **AllowGatewayTransit** when peering VNet-Hub to VNet-Spoke and **UseRemoteGateways** when peering VNet-Spoke to VNet-Hub.
 
 See the [Create Routes](#create-routes) section in this tutorial to see how these routes are created.
@@ -54,7 +54,9 @@ See the [Create Routes](#create-routes) section in this tutorial to see how thes
 >Azure Firewall must have direct internet connectivity. If you have enabled forced tunneling to on-premises via ExpressRoute or Application Gateway, you need to configure UDR 0.0.0.0/0 with the **NextHopType** value set as **Internet**, and then assign it to **AzureFirewallSubnet**.
 
 >[!NOTE]
->Traffic between directly peered VNets is routed directly even if UDE points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, UDR must contain the target subnet network prefix explicitly on both subnets.
+>Traffic between directly peered VNets is routed directly even if a UDR points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
+
+To review the related Azure PowerShell reference documentation, see [Azure PowerShell Reference](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

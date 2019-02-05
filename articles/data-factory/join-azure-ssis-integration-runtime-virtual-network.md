@@ -1,4 +1,4 @@
-﻿---
+---
 title: Join Azure-SSIS integration runtime to a virtual network | Microsoft Docs
 description: Learn how to join the Azure-SSIS integration runtime to an Azure virtual network. 
 services: data-factory
@@ -6,9 +6,9 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 01/08/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -68,6 +68,10 @@ The following sections provide more details.
 -   If you are using Azure Express Route or configuring User Defined Route (UDR), see [Use Azure ExpressRoute or User Defined Route](#route). 
 
 -   Make sure the Resource Group of the virtual network can create and delete certain Azure Network resources. See [Requirements for Resource Group](#resource-group). 
+
+Here is a diagram showing the required connections for your Azure-SSIS IR:
+
+![Azure-SSIS IR](media/join-azure-ssis-integration-runtime-virtual-network/azure-ssis-ir.png)
 
 ### <a name="perms"></a> Required permissions
 

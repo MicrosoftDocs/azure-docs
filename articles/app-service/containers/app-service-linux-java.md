@@ -24,7 +24,7 @@ This guide provides key concepts and instructions for Java developers using in A
 
 ## Logging and debugging apps
 
-Performance reports, traffic visualizations, and health checkups are available for eeach app through the Azure portal. See the [Azure App Service diagnostics overview](/azure/app-service/overview-diagnostics) for more information on how to access and use these diagnostic tools.
+Performance reports, traffic visualizations, and health checkups are available for each app through the Azure portal. See the [Azure App Service diagnostics overview](/azure/app-service/overview-diagnostics) for more information on how to access and use these diagnostic tools.
 
 ## Application performance monitoring
 
@@ -135,7 +135,7 @@ Set up app authentication in the Azure Portal with the  **Authentication and Aut
 
 If you need to enable multiple sign-in providers, follow the instructions in the [customize App Service authentication](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) article.
 
- Spring Boot developers can use the [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) to secure applications using familiar Spring Security annotations and APIs.
+Spring Boot developers can use the [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) to secure applications using familiar Spring Security annotations and APIs. Be sure to increase the maximum header size in your `application.properties` file. We suggest a value of `16384`. 
 
 ### Configure TLS/SSL
 
@@ -169,9 +169,6 @@ customize the `CATALINA_OPTS` environment variable that is read in by Tomcat at 
 ```
 
 Or set the environment variables in the "Application Settings" blade in the Azure portal.
-
->[!NOTE]
-> If you are using Azure Database for Postgres, replace `ssl=true` with `sslmode=require` in the JDBC connection string.
 
 Next, determine if the data source should be available to one application or to all applications running on the Tomcat servlet.
 

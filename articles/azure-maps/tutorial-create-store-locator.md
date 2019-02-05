@@ -104,7 +104,7 @@ To create the project, you can use [Visual Studio](https://visualstudio.microsof
 
 To create the user interface, add code to *index.html*:
 
-1. Add the following `meta` tags to the `head` of *index.html*. The tags define the character set (UTF-8), tell Internet Explorer and Edge to use the latest browser versions, and specify a viewport that works well for responsive layouts.
+1. Add the following `meta` tags to the `head` of *index.html*. The tags define the character set (UTF-8), tell Internet Explorer and Microsoft Edge to use the latest browser versions, and specify a viewport that works well for responsive layouts.
 
     ```HTML
     <meta charset="utf-8" /> 

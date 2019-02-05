@@ -5,6 +5,7 @@ description: Learn how to use health probes to monitor instances behind Load Bal
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article

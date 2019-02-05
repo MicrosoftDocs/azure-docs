@@ -61,6 +61,8 @@
       href: classroom-labs/how-to-configure-student-usage.md      
     - name: Access classroom labs
       href: classroom-labs/how-to-use-classroom-lab.md
+    - name: Create and manage schedules
+      href: classroom-labs/how-to-create-schedules.md
   - name: DevTest labs
     items:
     - name: Create a lab
@@ -198,6 +200,8 @@
     href: /powershell/module/azurerm.devtestlabs/#devtest_labs
   - name: REST API
     href: https://docs.microsoft.com/rest/api/dtl/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.devtestlab/allversions
 - name: Resources
   items:
   - name: Azure Roadmap

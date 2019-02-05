@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 10/05/2018
+ ms.date: 10/19/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -52,7 +52,7 @@ Yes. Traffic flow when commencing would be from the on-premises device to the cl
 
 ### Can spoke VNets connected to a virtual hub communicate with each other?
 
-Yes. You can directly do VNet peering between spokes that are connected to a virtual hub. For more information, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md).
+Yes. Spoke VNets can communicate directly via Virtual Network Peering. However, we do not support VNets communicating transitively through the hub. For more information, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md).
 
 ### Can I deploy and use my favorite network virtual appliance (in an NVA VNet) with Azure Virtual WAN?
 

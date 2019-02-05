@@ -11,7 +11,7 @@ author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
 manager: craigg
-ms.date: 06/14/2018
+ms.date: 12/18/2018
 ---
 # Migrate to the new Elastic Database jobs
 

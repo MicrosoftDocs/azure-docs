@@ -7,7 +7,7 @@ ms.author: csand
 ms.date: 12/14/2017
 ms.topic: quickstart
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 ms.custom: mvc
 ---
 
@@ -97,3 +97,4 @@ In this quickstart, you’ve created, edited, tested, and published a runbook an
 
 > [!div class="nextstepaction"]
 > [Automation How To - Runbook Types](./automation-runbook-types.md)
+

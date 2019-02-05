@@ -8,7 +8,7 @@ ms.author: maxluk
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 01/08/2019
 ---
 # Optimize Apache Spark jobs
 
@@ -18,7 +18,7 @@ The following sections describe common Spark job optimizations and recommendatio
 
 ## Choose the data abstraction
 
-Spark 1.x uses RDDs to abstract data, and then Spark 2.x introduced DataFrames and DataSets. Consider the following relative merits:
+Earlier Spark versions use RDDs to abstract data, Spark 1.3 and 1.6 introduced DataFrames and DataSets, respectively. Consider the following relative merits:
 
 * **DataFrames**
     * Best choice in most situations.
@@ -36,7 +36,7 @@ Spark 1.x uses RDDs to abstract data, and then Spark 2.x introduced DataFrames a
     * High GC overhead.
     * Breaks whole-stage code generation.
 * **RDDs**
-    * In Spark 2.x, you do not need to use RDDs, unless you need to build a new custom RDD.
+    * You do not need to use RDDs, unless you need to build a new custom RDD.
     * No query optimization through Catalyst.
     * No whole-stage code generation.
     * High GC overhead.

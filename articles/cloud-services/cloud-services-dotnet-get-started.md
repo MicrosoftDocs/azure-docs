@@ -354,7 +354,7 @@ After the solution is created, you'll review the code that is unique to cloud se
 
 ### Set project references
 1. In the ContosoAdsWeb project, set a reference to the ContosoAdsCommon project. Right-click the ContosoAdsWeb project, and then click **References** - **Add References**. In the **Reference Manager** dialog box, select **Solution – Projects** in the left pane, select **ContosoAdsCommon**, and then click **OK**.
-2. In the ContosoAdsWorker project, set a reference to the ContosAdsCommon project.
+2. In the ContosoAdsWorker project, set a reference to the ContosoAdsCommon project.
 
     ContosoAdsCommon will contain the Entity Framework data model and context class, which will be used by both the front-end and back-end.
 3. In the ContosoAdsWorker project, set a reference to `System.Drawing`.
@@ -377,7 +377,7 @@ In this section, you configure Azure Storage and SQL connection strings for test
 3. In the ContosoAdsCloudService project, right-click ContosoAdsWeb under **Roles**, and then click **Properties**.
 
     ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. In the **ContosAdsWeb [Role]** properties window, click the **Settings** tab, and then click **Add Setting**.
+4. In the **ContosoAdsWeb [Role]** properties window, click the **Settings** tab, and then click **Add Setting**.
 
     Leave **Service Configuration** set to **All Configurations**.
 5. Add a setting named *StorageConnectionString*. Set **Type** to *ConnectionString*, and set **Value** to *UseDevelopmentStorage=true*.

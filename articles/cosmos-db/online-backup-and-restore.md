@@ -2,7 +2,6 @@
 title: Automatic, online backup and on-demand data restore in Azure Cosmos DB
 description: This article describes how automatic, online backup and on-demand data restore works in Azure Cosmos DB.
 author: kanshiG
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
@@ -23,7 +22,7 @@ The backups are taken without affecting the performance or availability of your 
 
 Azure Cosmos DB stores automatic backups in Azure Blob Storage whereas the actual data resides locally within Azure Cosmos DB. To guarantee the low latency, the snapshot of your backup is stored in Azure Blob storage in the same region as the current write region (or one of the write regions, if you have a multi-master configuration) of your Cosmos DB database account. For resiliency against regional disaster, each snapshot of the backup data in Azure Blob storage is again replicated to another region through geo-redundant storage (GRS). 
 The region to which the backup is replicated is based on your source region and the regional pair associated with the source region. To learn more, see the [list of geo-redundant pairs of Azure regions](../best-practices-availability-paired-regions.md) article. You cannot access this backup directly. Azure Cosmos DB will use this backup only if a backup restore is initiated.
-The following image shows how an Azure Cosmos container with all the three primary resource partitions in West US is backed up in a remote Azure Blob Storage account in West US and then replicated to East US:
+The following image shows how an Azure Cosmos container with all the three primary physical partitions in West US is backed up in a remote Azure Blob Storage account in West US and then replicated to East US:
 
 ![Periodic full backups of all Cosmos DB entities in GRS Azure Storage](./media/online-backup-and-restore/automatic-backup.png)
 

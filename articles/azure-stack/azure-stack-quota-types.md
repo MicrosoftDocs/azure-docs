@@ -16,6 +16,7 @@ ms.topic: get-started-article
 ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: xiaofmao
+ms.lastreviewed: 12/07/2018
 
 ---
 # Quota types in Azure Stack

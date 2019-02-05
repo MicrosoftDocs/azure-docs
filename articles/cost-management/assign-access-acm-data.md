@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
@@ -34,6 +34,14 @@ To view cost data, a user must have at least read access to one or more of the f
 <sup>1</sup> The billing account is also referred to as the Enterprise Agreement or Enrollment.
 
 <sup>2</sup> The enrollment account is also referred to as the account owner.
+
+The following diagram illustrates the relationship between Cost Management scopes with roles and EA portal settings.
+
+![Diagram showing the relationship between Cost Management scopes with roles and EA portal settings](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
+
+When **DA view charges** are disabled in the EA portal, you’ll see a message stating *Costs disabled for your organization* when you try to view costs for departments and accounts.
+
+Similarly, when **AO view charges** are disabled in the EA portal, you’ll see a message stating *Costs disabled for your organization* when you try to view costs for enrollment accounts, management groups, subscriptions, and resource groups.
 
 ## Enable access to costs in the EA portal
 
