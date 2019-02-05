@@ -164,9 +164,9 @@ To configure Azure AD single sign-on with Druva, perform the following steps:
 
 	![Single Sign-On Settings](./media/druva-tutorial/ic795092.png "Single Sign-On Settings")
 	
-	a. In **ID Provider Login URL** textbox, paste the value of **Single Sign-On Service URL**, which you have copied from Azure portal.
+	a. In **ID Provider Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 		
-	b. In **ID Provider Logout URL** textbox, paste the value of **Sign-Out URL**, which you have copied from Azure portal
+	b. In **ID Provider Logout URL** textbox, paste the value of **Logout URL**, which you have copied from Azure portal
 		
 	c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **ID Provider Certificate** textbox
 	 
