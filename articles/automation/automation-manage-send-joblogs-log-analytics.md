@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/12/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -59,12 +59,13 @@ If you need to find the *Name* of your Automation account, in the Azure portal s
    Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
    ```
 
-After running this script, you'll see records in Log Analytics within 10 minutes of new JobLogs or JobStreams being written.
+After running this script, it may take an hour before you start to see records in Log Analytics of new JobLogs or JobStreams being written.
 
 To see the logs, run the following query in Log Analytics log search:
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### Verify configuration
+
 To confirm that your Automation account is sending logs to your Log Analytics workspace, check that diagnostics are correctly configured on the Automation account by using the following PowerShell:
 
 ```powershell-interactive
@@ -138,7 +139,7 @@ To create an alert rule, you start by creating a log search for the runbook job 
 2. Create a log search query for your alert by typing the following search into the query field: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  You can also group by the RunbookName by using: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    If you set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account. Automation account name can be found in the Resource field in the search of JobLogs.
-1. To open the **Create rule** screen, click **+ New Alert Rule** at the top of the page. For more information on the options to configure the alert, see [Log alerts in Azure](../azure-monitor/platform/alerts-unified-log.md).
+3. To open the **Create rule** screen, click **+ New Alert Rule** at the top of the page. For more information on the options to configure the alert, see [Log alerts in Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### Find all jobs that have completed with errors
 In addition to alerting on failures, you can find when a runbook job has a non-terminating error. In these cases PowerShell produces an error stream, but the non-terminating errors don't cause your job to suspend or fail.    
