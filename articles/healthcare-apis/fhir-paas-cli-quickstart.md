@@ -43,11 +43,15 @@ Read the how-to guide on [finding identity object IDs](find-identity-object-ids.
 
 # Create Azure Resource Group
 
+Pick a name for the resource group that will contain the Azure API for FHIR and create it:
+
 ```azurecli-interactive
 az group create --name "myResourceGroup" --location westus2
 ```
 
 ## Deploy the Azure API for FHIR account
+
+Use the template (`azuredeploy.json`) and the template parameter file (`azuredeploy.parameters.json`) to deploy the Azure API for FHIR:
 
 ```azurecli-interactive
 az group deployment create -g "myResourceGroup" --template-file azuredeploy.json --parameters @{azuredeploy.parameters.json}
