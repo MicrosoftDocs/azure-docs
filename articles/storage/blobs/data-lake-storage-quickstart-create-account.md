@@ -187,7 +187,7 @@ To do that, enter the following command by using either the Cloud Shell or a loc
 
 ### Create a resource group
 
-To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group#az_group_create) command.
+To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group) command.
 
 ```azurecli-interactive
 az group create `
