@@ -5,10 +5,10 @@ services: active-directory
 keywords: identity protection, conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
-ms.component: identity-protection
+ms.subservice: identity-protection
 ms.topic: quickstart 
 ms.devlang: na
 ms.topic: article

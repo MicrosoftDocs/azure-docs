@@ -45,7 +45,7 @@ This section describes the elements of publishing a SaaS offer, and is intended 
 
 - [Prerequisites](./cpp-prerequisites.md) - Lists the technical and business requirements before creating or publishing a SaaS offer. 
 - [Create the offer](./cpp-create-offer.md) - Gives the steps required to create a new SaaS offer entry using the Cloud Partner Portal. 
-- [Publish the offer](./cpp-publish-offer.md) - Exlains how to submit the offer for publishing to the Azure Marketplace. 
+- [Publish the offer](./cpp-publish-offer.md) - Explains how to submit the offer for publishing to the Azure Marketplace. 
 
 ## SaaS publishing process 
 

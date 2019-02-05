@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/11/2019
 ms.custom: seodec18
 ---
 # Azure Stream Analytics output to Azure Cosmos DB  
@@ -23,7 +23,7 @@ For those who are unfamiliar with Cosmos DB, take a look at [Azure Cosmos DB’s
 The Azure Cosmos DB output in Stream Analytics enables writing your stream processing results as JSON output into your Cosmos DB collection(s). Stream Analytics doesn't create collections in your database, instead requiring you to create them upfront. This is so that the billing costs of Cosmos DB collections are controlled by you, and so that you can tune the performance, consistency, and capacity of your collections directly using the [Cosmos DB APIs](https://msdn.microsoft.com/library/azure/dn781481.aspx).
 
 > [!Note]
-> You must add 0.0.0.0 to the list of allowed IPs from you Azure Cosmos DB firewall.
+> You must add 0.0.0.0 to the list of allowed IPs from your Azure Cosmos DB firewall.
 
 Some of the Cosmos DB collection options are detailed below.
 
@@ -43,7 +43,7 @@ If the incoming JSON document has an existing ID field, that field is automatica
 If you want to save <i>all</i> documents including the ones with a duplicate ID, rename the ID field in your query (with the AS keyword) and let Cosmos DB create the ID field or replace the ID with another column's value (using the AS keyword or by using the 'Document ID' setting).
 
 ## Data partitioning in Cosmos DB
-Azure Cosmos DB [unlimited](../cosmos-db/partition-data.md) are the recommended approach for partitioning your data, as Azure Cosmos DB automatically scales partitions based on your workload. When writing to unlimited containers, Stream Analytics uses as many parallel writers as previous query step or input partitioning scheme.
+Azure Cosmos DB [unlimited](../cosmos-db/partition-data.md) containers are the recommended approach for partitioning your data, as Azure Cosmos DB automatically scales partitions based on your workload. When writing to unlimited containers, Stream Analytics uses as many parallel writers as the previous query step or input partitioning scheme.
 > [!Note]
 > At this time, Azure Stream Analytics only supports unlimited collections with partition keys at the top level. For example, `/region` is supported. Nested partition keys (e.g. `/region/name`) are not supported. 
 
@@ -52,16 +52,17 @@ For fixed Azure Cosmos DB collections, Stream Analytics allows no way to scale u
 Writing to multiple fixed containers is being deprecated and is not the recommended approach for scaling out your Stream Analytics job. The article [Partitioning and scaling in Cosmos DB](../cosmos-db/sql-api-partition-data.md) provides further details.
 
 ## Cosmos DB settings for JSON output
-Creating Cosmos DB as an output in Stream Analytics generates a prompt for information as seen below. This section provides an explanation of the properties definition.
 
+Creating Cosmos DB as an output in Stream Analytics generates a prompt for information as seen below. This section provides an explanation of the properties definition.
 
 ![documentdb stream analytics output screen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-Field           | Description 
--------------   | -------------
-Output Alias    | An alias to refer this output in your ASA query   
-Account Name    | The name or endpoint URI of the Azure Cosmos DB account 
-Account Key     | The shared access key for the Azure Cosmos DB account
-Database        | The Azure Cosmos DB database name
-Collection Name | The collection name for the collection to be used. `MyCollection` is a sample valid input - one collection named `MyCollection` must exist.  
-Document ID     | Optional. The column name in output events used as the unique key on which insert or update operations must be based. If left empty, all events will be inserted, with no update option.
+|Field           | Description|
+|-------------   | -------------|
+|Output alias    | An alias to refer this output in your ASA query.|
+|Subscription    | Choose the your Azure subscription.|
+|Account ID      | The name or endpoint URI of the Azure Cosmos DB account.|
+|Account key     | The shared access key for the Azure Cosmos DB account.|
+|Database        | The Azure Cosmos DB database name.|
+|Collection name pattern | The collection name for the collection to be used. `MyCollection` is a sample valid input - one collection named `MyCollection` must exist.  |
+|Document ID     | Optional. The column name in output events used as the unique key on which insert or update operations must be based. If left empty, all events will be inserted, with no update option.|

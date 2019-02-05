@@ -45,6 +45,8 @@
     href: expressroute-erdirect-about.md
   - name: About ExpressRoute Global Reach
     href: expressroute-global-reach.md
+  - name: ExpressRoute Global Reach Application Scenario
+    href: expressroute-global-reach-app-scenario.md
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup

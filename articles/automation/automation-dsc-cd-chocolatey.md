@@ -3,7 +3,7 @@ title: Azure Automation State Configuration Continuous Deployment with Chocolate
 description: DevOps continuous deployment using Azure Automation State Configuration, DSC, and Chocolatey package manager.  Example with full JSON Resource Manager template and PowerShell source.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 08/08/2018

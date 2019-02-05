@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to create a blob in Azure Storage using the Java Storage SDK v7 | Microsoft Docs
 description: Create a storage account and a container in object (Blob) storage. Then use the Azure Storage client library for Java v7 to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
@@ -126,7 +126,7 @@ container.createIfNotExists(BlobContainerPublicAccessType.CONTAINER, new BlobReq
 
 ### Upload blobs to the container
 
-To upload a file to a block blob, get a reference to the blob in the target container. Once you have the blob reference, you can upload data to it by using [Cloud​Block​Blob.​Upload​](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload#com_microsoft_azure_storage_blob__cloud_block_blob_upload_final_InputStream_final_long). This operation creates the blob if it doesn't already exist, or overwrites the blob if it already exists.
+To upload a file to a block blob, get a reference to the blob in the target container. Once you have the blob reference, you can upload data to it by using [Cloud​Block​Blob.​Upload​](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob.upload). This operation creates the blob if it doesn't already exist, or overwrites the blob if it already exists.
 
 The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as **source** and the name of the blob in **blob**. The following example uploads the file to your container called **quickstartcontainer**.
 
@@ -152,7 +152,7 @@ Block blobs can be any type of text or binary file. Page blobs are primarily use
 
 ### List the blobs in a container
 
-You can get a list of files in the container using [Cloud​Blob​Container.​List​Blobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobs#com_microsoft_azure_storage_blob__cloud_blob_container_listBlobs). The following code retrieves the list of blobs, then loops through them, showing the URIs of the blobs found. You can copy the URI from the command window and paste it into a browser to view the file.
+You can get a list of files in the container using [Cloud​Blob​Container.​List​Blobs](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobs). The following code retrieves the list of blobs, then loops through them, showing the URIs of the blobs found. You can copy the URI from the command window and paste it into a browser to view the file.
 
 ```java
 //Listing contents of container
@@ -163,7 +163,7 @@ for (ListBlobItem blobItem : container.listBlobs()) {
 
 ### Download blobs
 
-Download blobs to your local disk using [Cloud​Blob.​Download​To​File](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.downloadtofile#com_microsoft_azure_storage_blob__cloud_blob_downloadToFile_final_String).
+Download blobs to your local disk using [Cloud​Blob.​Download​To​File](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.downloadtofile).
 
 The following code downloads the blob uploaded in a previous section, adding a suffix of "_DOWNLOADED" to the blob name so you can see both files on local disk. 
 
@@ -178,7 +178,7 @@ blob.downloadToFile(downloadedFile.getAbsolutePath());
 
 ### Clean up resources
 
-If you no longer need the blobs that you have uploaded, you can delete the entire container using [Cloud​Blob​Container.​DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists). This method also deletes the files in the container.
+If you no longer need the blobs that you have uploaded, you can delete the entire container using [Cloud​Blob​Container.​DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists). This method also deletes the files in the container.
 
 ```java
 try {

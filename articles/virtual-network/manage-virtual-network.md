@@ -24,7 +24,7 @@ Complete the following tasks before completing steps in any section of this arti
 
 - If you don't already have an Azure account, sign up for a [free trial account](https://azure.microsoft.com/free).
 - If using the portal, open https://portal.azure.com, and log in with your Azure account.
-- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+- If using PowerShell commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. This tutorial requires the Azure PowerShell module version 5.7.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 - If using Azure Command-line interface (CLI) commands to complete tasks in this article, either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or by running the CLI from your computer. This tutorial requires the Azure CLI version 2.0.31 or later. Run `az --version` to find the installed version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you are running the Azure CLI locally, you also need to run `az login` to create a connection with Azure.
 - The account you log into, or connect to Azure with, must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate actions listed in [Permissions](#permissions).
 
@@ -38,7 +38,7 @@ Complete the following tasks before completing steps in any section of this arti
 		- 255.255.255.255/32 (Broadcast)
 		- 127.0.0.0/8 (Loopback)
 		- 169.254.0.0/16 (Link-local)
-		- 168.63.129.16/32 (Internal DNS)
+		- 168.63.129.16/32 (Internal DNS, DHCP, and Azure Load Balancer [health probe](../load-balancer/load-balancer-custom-probe-overview.md#probesource))
 
 	  Although you can define only one address range when you create the virtual network, you can add more address ranges to the address space after the virtual network is created. To learn how to add an address range to an existing virtual network, see [Add or remove an address range](#add-or-remove-an-address-range).
 
@@ -82,23 +82,23 @@ Complete the following tasks before completing steps in any section of this arti
 	- **Diagram**: The diagram provides a visual representation of all devices that are connected to the virtual network. The diagram has some key information about the devices. To manage a device in this view, in the diagram, select the device.
 	- **Common Azure settings**: To learn more about common Azure settings, see the following information:
 		*	[Activity log](../azure-monitor/platform/activity-logs-overview.md)
-		*	[Access control (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
+		*	[Access control (IAM)](../role-based-access-control/overview.md)
 		*	[Tags](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 		*	[Locks](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 		*	[Automation script](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group)
 
 **Commands**
 
-- Azure CLI: [az network vnet show](/cli/azure/network/vnet#az_network_vnet_show)
+- Azure CLI: [az network vnet show](/cli/azure/network/vnet)
 - PowerShell: [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork)
 
 ## Add or remove an address range
 
 You can add and remove address ranges for a virtual network. An address range must be specified in CIDR notation, and cannot overlap with other address ranges within the same virtual network. The address ranges you define can be public or private (RFC 1918). Whether you define the address range as public or private, the address range is reachable only from within the virtual network, from interconnected virtual networks, and from any on-premises networks that you have connected to the virtual network. 
 
-<!-- You can decrease the address range for a given virtual network if you don't have any subnets associated with it. Otherwise, you can only extend the address range; for example, changing a /16 to /8 is possible. We recommend that you begin with a small address range, and then extend it later or add additional ranges.
+You can decrease the address range for a virtual network if you don't have any subnets associated with it. Otherwise, you can only extend the address range, for example, changing a /16 to /8. You could begin with a small address range, and then extend it later or add additional ranges.
 
-the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+<!-- the last two sentences above are added per GitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
 
 You cannot add the following address ranges:
 
@@ -106,7 +106,7 @@ You cannot add the following address ranges:
 - 255.255.255.255/32 (Broadcast)
 - 127.0.0.0/8 (Loopback)
 - 169.254.0.0/16 (Link-local)
-- 168.63.129.16/32 (Internal DNS)
+- 168.63.129.16/32 (Internal DNS, DHCP, and Azure Load Balancer [health probe](../load-balancer/load-balancer-custom-probe-overview.md#probesource))
 
 To add or remove an address range:
 
@@ -120,7 +120,7 @@ To add or remove an address range:
 
 **Commands**
 
-- Azure CLI: [az network vnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- Azure CLI: [az network vnet update](/cli/azure/network/vnet)
 - PowerShell: [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
 
 ## Change DNS servers
@@ -142,7 +142,7 @@ All VMs that are connected to the virtual network register with the DNS servers 
 
 **Commands**
 
-- Azure CLI: [az network vnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- Azure CLI: [az network vnet update](/cli/azure/network/vnet)
 - PowerShell: [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
 
 ## Delete a virtual network
@@ -157,7 +157,7 @@ You can delete a virtual network only if there are no resources connected to it.
 
 **Commands**
 
-- Azure CLI: [azure network vnet delete](/cli/azure/network/vnet#az_network_vnet_delete)
+- Azure CLI: [azure network vnet delete](/cli/azure/network/vnet)
 - PowerShell: [Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork)
 
 ## Permissions

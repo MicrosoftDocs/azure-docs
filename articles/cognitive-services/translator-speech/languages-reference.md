@@ -7,7 +7,7 @@ author: Jann-Skotdal
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: translator-speech 
+ms.subservice: translator-speech 
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko

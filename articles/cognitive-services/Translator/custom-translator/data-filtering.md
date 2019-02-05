@@ -5,7 +5,7 @@ description: When you submit documents to be used for training a custom system, 
 author: jann-skotdal
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 12/18/2018
 ms.author: v-jansko
 ms.topic: article

@@ -1,53 +1,27 @@
 ---
-title: "Replication with Azure SQL Database Managed Instance| Microsoft Docs"
-description: Learn about using SQL Server replication with Azure SQL Database Managed Instance
+title: "Configure replication in Azure SQL Database Managed Instance| Microsoft Docs"
+description: Learn about configuring transactional replication in Azure SQL Database Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: howto
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 09/25/2018
+ms.date: 01/25/2019
 ---
-# Replication with SQL Database Managed Instance
+# Configure replication in Azure SQL Database Managed Instance
 
-Replication is available for public preview on [Azure SQL Database Managed Instance](sql-database-managed-instance.md). A Managed Instance can host publisher, distributor, and subscriber databases.
-
-## Common configurations
-
-In general, the publisher and the distributor must both be either in the cloud or on-premises. The following configurations are supported:
-
-- **Publisher with local distributor on managed instance**
-
-   ![Replication-with-azure-sql-db-single-managed-instance-publisher-distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
-
-   Publisher and distributor databases are configured on a single managed instance.
-
-- **Publisher with remote distributor on managed instance**
-
-   ![Replication-with-azure-sql-db-separate-managed-instances-publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
-
-   Publisher and distributor are configured on two managed instances. In this configuration:
-
-  - Both managed instances are in the same vNet.
-
-  - Both managed instances are in the same location.
-
-- **Publisher and distributor on-premises with subscriber on managed instance**
-
-   ![Replication-from-on-premises-to-azure-sql-db-subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
-
-   In this configuration, an Azure SQL database is a subscriber. This configuration supports migration from on-premises to Azure. In the subscriber role, SQL database does not require Managed Instance, however you can use a SQL Database Managed Instance as a step in migration from on-premises to the Azure. For more information about Azure SQL Database subscribers, see [Replication to SQL Database](replication-to-sql-database.md).
+Transactional replication enables you to replicate data from the SQL Server or Azure SQL Database Managed Instance databases into the Managed Instance, or to push changes made in your databases in Managed Instance to other SQL Server, SQL Database single database or elastic pool, or other Managed Instance. Replication is in the public preview on [Azure SQL Database Managed Instance](sql-database-managed-instance.md). A Managed Instance can host publisher, distributor, and subscriber databases. See [Transactional replication configurations](sql-database-managed-instance-transactional-replication.md#common-configurations) for available configurations.
 
 ## Requirements
 
 Publisher and distributor on Azure SQL Database requires:
 
-- Azure SQL Database Managed Instance.
+- Azure SQL Database Managed Instance that is not in Geo-DR configuration.
 
    >[!NOTE]
    >Azure SQL Databases that are not configured with Managed Instance can only be subscribers.
@@ -66,9 +40,15 @@ Supports:
 
 - Transactional and snapshot replication mix of on-premises and Azure SQL Database Managed Instance instances.
 
-- Subscribers can be on-premises, single databases in Azure SQL Database, or pooled databases in Azure SQL Database elastic pools.
+- Subscribers can be on-premises, single database in Azure SQL Database, or pooled databases in Azure SQL Database elastic pools.
 
-- One-way or bidirectional replication
+- One-way or bidirectional replication.
+
+The following features are not supported:
+
+- Updateable subscriptions.
+
+- Active geo replication.
 
 ## Configure publishing and distribution example
 
@@ -81,11 +61,11 @@ Supports:
 
    In the example scripts below, replace `<Publishing_DB>` with the name of this database.
 
-4. Create a database user with SQL Authentication for the distributor. See, [Creating database users](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Use a secure password.
+4. Create a database user with SQL Authentication for the distributor. Use a secure password.
 
    In the example scripts below, use `<SQL_USER>` and `<PASSWORD>` with this SQL Server Account database user and password.
 
-5. [Connect to the SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Connect to the SQL Database Managed Instance](sql-database-connect-query-ssms.md).
 
 6. Run the following query to add the distributor and the distribution database.
 
@@ -182,15 +162,8 @@ Supports:
                 @job_password = N'<PASSWORD>'
    GO​
    ```
-
-## Limitations
-
-The following features are not supported:
-
-- Updateable subscriptions
-
-- Active geo replication
-
+   
 ## See Also
 
-- [What is a Managed Instance?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [Transactional replication](sql-database-managed-instance-transactional-replication.md)
+- [What is a Managed Instance?](sql-database-managed-instance.md)

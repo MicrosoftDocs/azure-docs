@@ -1,15 +1,15 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Druva | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Druva.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: ab92b600-1fea-4905-b1c7-ef8e4d8c495c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn about the latest updates to Azure Machine Learning service and the machine learning and data prep Python SDKs.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: reference
 author: hning86
 ms.author: haining
@@ -15,13 +15,57 @@ ms.custom: seodec18
 
 # Azure Machine Learning service release notes
 
-In this article, learn about the Azure Machine Learning service releases. 
+In this article, learn about the Azure Machine Learning service releases.  For a full description of each SDK, visit the reference docs for:
++ The Azure Machine Learning's  [**main SDK for Python**](https://aka.ms/aml-sdk)
++ The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
+
+## 2019-01-28
+
+### Azure Machine Learning SDK for Python v1.0.10
+
++ **Changes**: 
+  + Azure ML SDK no longer has azure-cli packages as dependency. Specifically, azure-cli-core and azure-cli-profile dependencies have been removed from azureml-core. These are the  user impacting changes:
+  	+ If you are performing "az login" and then using azureml-sdk, the SDK will do the browser or device code login one more time. It won't use any credentials state created by "az login".
+	+ For Azure CLI authentication, such as using "az login", use _azureml.core.authentication.AzureCliAuthentication_ class. For Azure CLI authentication, do  _pip install azure-cli_ in the Python environment where you have installed azureml-sdk.
+	+ If you are doing "az login" using a service principal for automation, we recommend using _azureml.core.authentication.ServicePrincipalAuthentication_ class, as azureml-sdk won't use credentials state created by azure CLI. 
+
++ **Bug fixes**: This release mostly contains minor bug fixes
+
+### Azure Machine Learning Data Prep SDK v1.0.8
+
++ **Bug fixes**
+  + Significantly improved the performance of getting data profiles.
+  + Fixed minor bugs related to error reporting.
+  
+### Azure portal: new features
++ New drag and drop charting experience for reports. Users can drag a column or attribute from the well to the chart area where the system will automatically select an appropriate chart type for the user based on the type of data. Users can change the chart type to other applicable types or add additional attributes.
+
+	Supported Chart Types:
+	- Line Chart
+	- Histogram
+	- Stacked Bar Chart
+	- Box Plot
+	- Scatter Plot
+	- Bubble Plot
++ The portal now dynamically generates reports for experiments. When a user submits a run to an experiment, a report will automatically be generated with logged metrics and graphs to allow comparison across different runs. 
+
+## 2019-01-14
+
+### Azure Machine Learning SDK for Python v1.0.8
+
++ **Bug fixes**: This release mostly contains minor bug fixes
+
+### Azure Machine Learning Data Prep SDK v1.0.7
+
++ **New features**
+  + Datastore improvements (documented in [Datastore how-to-guide](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
+    + Added ability to read from and write to Azure File Share and ADLS Datastores in scale-up.
+    + When using Datastores, Data Prep now supports using service principal authentication instead of interactive authentication.
+    + Added support for wasb and wasbs urls.
 
 ## 2019-01-09
 
 ### Azure Machine Learning Data Prep SDK v1.0.6
-
-+ **SDK reference docs**: https://aka.ms/data-prep-sdk
 
 + **Bug fixes**
   + Fixed bug with reading from public readable Azure Blob containers on Spark
@@ -29,14 +73,9 @@ In this article, learn about the Azure Machine Learning service releases.
 ## 2018-12-20 
 
 ### Azure Machine Learning SDK for Python v1.0.6
-
-+ **SDK reference docs**: https://aka.ms/aml-sdk
-
 + **Bug fixes**: This release mostly contains minor bug fixes
 
 ### Azure Machine Learning Data Prep SDK v1.0.4
-
-+ **SDK reference docs**: https://aka.ms/data-prep-sdk
 
 + **New features**
   + `to_bool` function now allows mismatched values to be converted to Error values. This is the new default mismatch behavior for `to_bool` and `set_column_types`, whereas the previous default behavior was to convert mismatched values to False.
@@ -111,7 +150,7 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
   + Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md)
   + Learn how to [run batch predictions using pipelines](how-to-run-batch-predictions.md)
 + Azure Machine Learning compute target
-  + [Sample notebooks] (https://aka.ms/aml-notebooks) are now updated to use the new managed compute.
+  + [Sample notebooks](https://aka.ms/aml-notebooks) are now updated to use the new managed compute.
   + [Learn about this compute](how-to-set-up-training-targets.md#amlcompute)
 
 ### Azure portal: new features
@@ -132,7 +171,7 @@ Azure Machine Learning Compute can be created in Python, using Azure portal, or 
 
 + **Breaking changes** 
   * *azureml.train.widgets* namespace has moved to *azureml.widgets*.
-  * *azureml.core.compute.AmlCompute* deprecates the following classes - *azureml.core.compute.BatchAICompute* and *azureml.core.compute.DSVMCompute*. The latter class will be removed in subsequent releases. The AmlCompute class has an easier definition now, and simply needs a vm_size and the max_nodes, and will automatically scale your cluster from 0 to the max_nodes when a job is submitted. Our [sample notebooks] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training) have been updated with this information and should give you usage examples. We hope you like this simplification and lots of more exciting features to come in a later release!
+  * *azureml.core.compute.AmlCompute* deprecates the following classes - *azureml.core.compute.BatchAICompute* and *azureml.core.compute.DSVMCompute*. The latter class will be removed in subsequent releases. The AmlCompute class has an easier definition now, and simply needs a vm_size and the max_nodes, and will automatically scale your cluster from 0 to the max_nodes when a job is submitted. Our [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/training) have been updated with this information and should give you usage examples. We hope you like this simplification and lots of more exciting features to come in a later release!
 
 ### Azure Machine Learning Data Prep SDK v0.5.1 
 

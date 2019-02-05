@@ -4,17 +4,17 @@ description: Learn how to configure hybrid Azure Active Directory joined devices
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -107,7 +107,7 @@ If your organization requires access to the Internet via an authenticated outbou
 
 Hybrid Azure AD join is a process to automatically register your on-premises domain-joined devices with Azure AD. There are cases where you don't want all your devices to register automatically. If this is true for you, see [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md).
 
-If your Windows 10 domain joined devices are already [Azure AD registered](https://docs.microsoft.com/en-us/azure/active-directory/devices/overview#azure-ad-registered-devices) to your tenant, you should consider removing that state before enabling Hybrid Azure AD join. The dual state of a device to be both, hybrid Azure AD join and Azure AD registered is not supported. From Windows 10 1809 release, the following changes have been made to avoid this dual state: 
+If your Windows 10 domain joined devices are already [Azure AD registered](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) to your tenant, you should consider removing that state before enabling Hybrid Azure AD join. The dual state of a device to be both, hybrid Azure AD join and Azure AD registered is not supported. From Windows 10 1809 release, the following changes have been made to avoid this dual state: 
  - Any existing Azure AD registered state would be automatically removed after the device is Hybrid Azure AD joined. 
  - You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
 
@@ -141,7 +141,7 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
 - [Configure hybrid Azure Active Directory join for managed domains](hybrid-azuread-join-managed-domains.md)
 
 
- If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](../device-management-hybrid-azuread-joined-devices-setup.md). 
+ If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
 
 ## Alternate login ID support in Hybrid Azure AD join

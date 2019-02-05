@@ -5,7 +5,7 @@ description: In this tutorial, you learn how to use PowerShell and a CSV file to
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 08/14/2018
 
@@ -35,29 +35,29 @@ Make sure that you install the latest version of the Azure AD PowerShell for Gra
 
 First, check which modules you have installed. Open Windows PowerShell as an elevated user (Run as administrator), and run the following command:
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 Based on the output, do one of the following:
 
 - If no results are returned, run the following command to install the AzureADPreview module:
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - If only the AzureAD module shows up in the results, run the following commands to install the AzureADPreview module: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - If only the AzureADPreview module shows up in the results, but you receive a message that indicates there's a later version, run the following commands to update the module: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 You may receive a prompt that you're installing the module from an untrusted repository. This occurs if you haven't previously set the PSGallery repository as a trusted repository. Press **Y** to install the module.
 

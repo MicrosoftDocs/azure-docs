@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: This how-to guide explains the various quotas on resources for Azure Machine Learning and how to view and request more quota.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: jmartens
@@ -18,31 +18,31 @@ ms.custom: seodec18
 
 As with other Azure services, there are limits on certain resources associated with the Azure Machine Learning service. These limits range from a cap on the number of workspaces you can create to limits on the actual underlying compute that gets used for training or inferencing your models. This article gives more details on the pre-configured limits on various Azure resources for your subscription and also contains handy links to request quota enhancements for each type of resource. These limits are put in place to prevent budget over-runs due to fraud, and to honor Azure capacity constraints.
 
-Keep these quotas in mind as you design and scale up your Azure ML resources for production workloads. For example, if your cluster doesn't reach the target number of nodes you specified, then you might have reached a Azure Machine Learning Compute cores limit for your subscription. If you want to raise the limit or quota above the Default Limit, open an online customer support request at no charge. The limits can't be raised above the Maximum Limit value shown in the following tables due to Azure Capacity constraints. If there is no Maximum Limit column, then the resource doesn't have adjustable limits. 
+Keep these quotas in mind as you design and scale up your Azure Machine Learning service resources for production workloads. For example, if your cluster doesn't reach the target number of nodes you specified, then you might have reached a Azure Machine Learning Compute cores limit for your subscription. If you want to raise the limit or quota above the Default Limit, open an online customer support request at no charge. The limits can't be raised above the Maximum Limit value shown in the following tables due to Azure Capacity constraints. If there is no Maximum Limit column, then the resource doesn't have adjustable limits.
 
 ## Special considerations
 
 + A quota is a credit limit, not a capacity guarantee. If you have large-scale capacity needs, contact Azure support.
 
-+ Your quota is shared across all the services in your subscriptions including Azure Machine Learning service. The only exception is Azure Machine Learning compute which has a seperate quota from the core compute quota. Be sure to calculate the quota usage across all services when evaluating your capacity needs.
++ Your quota is shared across all the services in your subscriptions including Azure Machine Learning service. The only exception is Azure Machine Learning compute which has a separate quota from the core compute quota. Be sure to calculate the quota usage across all services when evaluating your capacity needs.
 
 + Default limits vary by offer Category Type, such as Free Trial, Pay-As-You-Go, and series, such as Dv2, F, G, and so on.
 
 ## Default resource quotas
 
-Here is a breakdown of the quota limits by various resource types within your Azure subscription. 
+Here is a breakdown of the quota limits by various resource types within your Azure subscription.
 
 > [!Important]
 > Limits are subject to change. The latest can always be found at the service-level quota [document](https://docs.microsoft.com/azure/azure-subscription-service-limits/) for all of Azure.
 
-### Virtual machines 
+### Virtual machines
 There is a limit on the number of virtual machines you can provision on an Azure subscription across your services or in a standalone manner. This limit is at the region level both on the total cores and also on a per family basis.
 
 It is important to emphasize that virtual machine cores have a regional total limit and a regional per size series (Dv2, F, etc.) limit that are separately enforced. For example, consider a subscription with a US East total VM core limit of 30, an A series core limit of 30, and a D series core limit of 30. This subscription would be allowed to deploy 30 A1 VMs, or 30 D1 VMs, or a combination of the two not to exceed a total of 30 cores (for example, 10 A1 VMs and 20 D1 VMs).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-For a more detailed and up-to-date list of quota limits, check the Azure-wide quota article [here](https://docs.microsoft.com/azure/azure-subscription-service-limits#subscription-limits-1).
+For a more detailed and up-to-date list of quota limits, check the Azure-wide quota article [here](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ### Azure Machine Learning Compute
 For Azure Machine Learning Compute, there is a default quota limit on both the number of cores and number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota above and the core limits are not shared currently between the two resource types.
@@ -87,8 +87,8 @@ Viewing your quota for various resources, such as Virtual Machines, Storage, Net
 
 1. From the list of subscriptions, select the subscription whose quota you are looking for.
 
-   **There is a caveat**, specifically for viewing the Azure Machine Learning Compute quota. As mentioned above, that quota is separate from the compute quota on your subscription. 
-   
+   **There is a caveat**, specifically for viewing the Azure Machine Learning Compute quota. As mentioned above, that quota is separate from the compute quota on your subscription.
+
 1. On the left pane, select **Machine Learning service** and then select any workspace from the list shown
 
 1. On the next blade, under the **Support + troubleshooting section** select **Usage + quotas** to view your current quota limits and usage.

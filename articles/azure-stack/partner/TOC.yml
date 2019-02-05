@@ -16,16 +16,16 @@
     href: azure-stack-vaas-automate-with-powershell.md
 - name: How to guide
   items:
-    - name: Schedule your first test
-      href: azure-stack-vaas-schedule-test-pass.md
     - name: Deploy the local agent
       href: azure-stack-vaas-local-agent.md
-    - name: Validate a new Azure Stack solution
-      href: azure-stack-vaas-validate-solution-new.md
+    - name: Schedule your test
+      href: azure-stack-vaas-schedule-test-pass.md
     - name: Create an OEM package
       href: azure-stack-vaas-create-oem-package.md
     - name: Validate OEM packages
       href: azure-stack-vaas-validate-oem-package.md
+    - name: Validate a new Azure Stack solution
+      href: azure-stack-vaas-validate-solution-new.md
     - name: Validate software updates from Microsoft
       href: azure-stack-vaas-validate-microsoft-updates.md
     - name: Interactive feature verification testing

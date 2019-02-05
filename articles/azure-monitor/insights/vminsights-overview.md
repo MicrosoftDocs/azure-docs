@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/07/2018
+ms.date: 01/23/2019
 ms.author: magoedte
 ---
 
@@ -45,7 +45,7 @@ You can view this data in a single VM from the virtual machine directly, or you 
 
 ![Virtual machine insights perspective in the Azure portal](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 
-Azure DevOps can deliver predictable performance and availability of vital applications. It identifies critical operating system events, performance bottlenecks, and network issues. Azure DevOps can also help you understand whether an issue is related to other dependencies.  
+Azure Monitor for VMs can deliver predictable performance and availability of vital applications. It identifies critical operating system events, performance bottlenecks, and network issues. Azure Monitor for VMs can also help you understand whether an issue is related to other dependencies.  
 
 ## Data usage 
 

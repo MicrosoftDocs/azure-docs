@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
+ms.subservice: tables
 ---
 # Design for data modification
 This article focuses on the design considerations for optimizing inserts, updates, and deletes. In some cases, you will need to evaluate the trade-off between designs that optimize for querying against designs that optimize for data modification just as you do in designs for relational databases (although the techniques for managing the design trade-offs are different in a relational database). The section [Table Design Patterns](#table-design-patterns) describes some detailed design patterns for the Table service and highlights some these trade-offs. In practice, you will find that many designs optimized for querying entities also work well for modifying entities.  

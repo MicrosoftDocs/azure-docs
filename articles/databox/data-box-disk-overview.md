@@ -72,7 +72,7 @@ For more information, go to [Azure Data Box Disk security and data protection](d
 
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
-| Weight                                                  | < 2 lbs. per box. Upto 5 disks in the box                |
+| Weight                                                  | < 2 lbs. per box. Up to 5 disks in the box                |
 | Dimensions                                              | Disk - 2.5" SSD |            
 | Cables                                                  | 1 USB 3.1 cable per disk|
 | Storage capacity per order                              | 40 TB (usable ~ 35 TB)|

@@ -3,7 +3,7 @@ title: Azure SQL Database Hyperscale FAQ | Microsoft Docs
 description: Answers to common questions customers ask about an Azure SQL database in the Hyperscale service tier - commonly called a Hyperscale database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 10/17/2018
+ms.date: 01/25/2019
 ---
 # FAQ about Azure SQL Hyperscale databases
 
@@ -69,9 +69,9 @@ The Hyperscale service tier is primarily intended for customers who have large o
 
 Hyperscale is currently available for single databases in the following regions:  West US1, West US2, East US1, Central US, West Europe, North Europe, UK West, SouthEast Asia, Japan East, Korea Central, Australia SouthEast, and Australia East.
 
-### Can I create multiple Hyperscale databases per logical server
+### Can I create multiple Hyperscale databases per SQL Database server
 
-Yes. For more information and limits on the number of Hyperscale databases per logical server, see [SQL Database resource limits for single and pooled databases on a logical server](sql-database-resource-limits-logical-server.md).
+Yes. For more information and limits on the number of Hyperscale databases per SQL Database server, see [SQL Database resource limits for single and pooled databases on a SQL Database server](sql-database-resource-limits-database-server.md).
 
 ### What are the performance characteristic of a Hyperscale database
 
@@ -92,7 +92,7 @@ SQL Database Hyperscale provides rapid scalability based on your workload demand
 
 ## Deep dive questions
 
-### Can I mix Hyperscale and single databases a my logical server
+### Can I mix Hyperscale and single databases a my SQL Database server
 
 Yes, you can.
 
@@ -229,7 +229,7 @@ Not yet known (still in preview)
 
 You can read data from Azure Storage and load data load into a Hyperscale database (just like you can do with a regular single database). Polybase is currently not supported on Azure SQL Database. You can do Polybase using [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) or running a Spark job in [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) with the [Spark connector for SQL](sql-database-spark-connector.md). The Spark connector to SQL supports bulk insert.
 
-Simple recovery or bulk logging model is not supported in Hyperscale. Full recovery model is required to provide high availability. However, Hyperscale provides a better data ingest rate compared to a single Azure SQL database because of the new log architecture.
+Simple recovery or bulk logging model is not supported in Hyperscale. Full recovery model is required to provide high availability. However, Hyperscale provides a better data ingest rate compared to a single database because of the new log architecture.
 
 ### Does SQL Database Hyperscale allow provisioning multiple nodes for ingesting large amounts of data
 
