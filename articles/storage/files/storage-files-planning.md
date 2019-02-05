@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
-ms.component: files
+ms.subservice: files
 ---
 
 # Planning for an Azure Files deployment
@@ -29,7 +29,7 @@ ms.component: files
 * **URL format**: For requests to an Azure file share made with the File REST protocol, files are addressable using the following URL format:
 
     ```
-    https://<storage account>.file.core.windows.net/<share>/<directory>/directories>/<file>
+    https://<storage account>.file.core.windows.net/<share>/<directory>/<file>
     ```
 
 ## Data access method

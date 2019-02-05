@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/04/2018
+ms.date: 12/18/2018
 ---
 # Configure and manage Azure SQL Database security for geo-restore or failover
 

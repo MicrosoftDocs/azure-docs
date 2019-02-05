@@ -2,13 +2,12 @@
 title: Back up and restore encrypted VMs by using Azure Backup
 description: This article talks about the backup and restore experience for VMs encrypted by using Azure Disk Encryption.
 services: backup
-author: sogup
+author: geetha
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 7/10/2018
-ms.author: sogup
-ms.custom: H1Hack27Feb2017
+ms.author: geetha
 ---
 # Back up and restore encrypted virtual machines with Azure Backup
 This article talks about the steps to back up and restore virtual machines (VMs) by using Azure Backup. It also provides details about supported scenarios, prerequisites, and troubleshooting steps for error cases.

@@ -99,6 +99,7 @@ Example of `series_fit_line()` and  `series_fit_2lines()` functions in a time se
 ```kusto
 demo_series2
 | extend series_fit_2lines(y), series_fit_line(y)
+| project x, y, series_fit_2lines_y_line_fit, series_fit_line_y_line_fit 
 | render linechart
 ```
 

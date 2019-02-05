@@ -50,7 +50,7 @@ This article shows how to reset the network interface for Azure Windows VM to re
 
     ```powershell
     #Set the variables 
-    $SubscriptionID = "<Suscription ID>"​
+    $SubscriptionID = "<Subscription ID>"​
     $VM = "<VM Name>"
     $ResourceGroup = "<Resource Group>"
     $VNET = "<Virtual Network>"
@@ -91,7 +91,7 @@ To reset network interface, follow these steps:
 
     ```powershell
     #Set the variables 
-    $SubscriptionID = "<Suscription ID>"​
+    $SubscriptionID = "<Subscription ID>"​
     $VM = "<VM Name>"
     $CloudService = "<Cloud Service>"
     $VNET = "<Virtual Network>"

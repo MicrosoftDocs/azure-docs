@@ -8,7 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
-ms.component: identity-protection
+ms.subservice: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -124,7 +124,7 @@ The user risk policy is in the **Configure** section on the [Azure AD Identity P
 
 ## User risk policy settings
 
-When you configure the sign-in risk policy, you need to set:
+When you configure the user risk policy, you need to set:
 
 - The users and groups the policy applies to:
 

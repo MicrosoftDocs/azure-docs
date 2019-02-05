@@ -26,6 +26,7 @@ The following items are required for completing the steps in this article:
 - A HDInsight cluster. To create a cluster, see [Get started with HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono is only required for Linux and macOS.
+- The VSCode [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ## Install the HDInsight Tools
    

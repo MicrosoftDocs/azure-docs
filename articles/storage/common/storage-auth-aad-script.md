@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 
 # Use an Azure AD identity to access Azure Storage with CLI or PowerShell (Preview)

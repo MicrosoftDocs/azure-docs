@@ -11,7 +11,7 @@ ms.service: monitoring
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2018
+ms.date: 02/01/2019
 ms.author: bwren
 ---
 # Configure Service Map in Azure
@@ -66,6 +66,7 @@ The following section list the supported operating systems for the Dependency ag
 | 7.3 | 3.10.0-514 |
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
 ### Red Hat Linux 6
 
@@ -81,6 +82,7 @@ The following section list the supported operating systems for the Dependency ag
 | 6.7 | 2.6.32-573 |
 | 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
 ### Ubuntu Server
 
@@ -377,11 +379,11 @@ If your Dependency agent installation succeeded, but you don't see your server i
 **Windows**: Look for the service named "Microsoft Dependency agent."<br>
 **Linux**: Look for the running process "microsoft-dependency-agent."
 
-* Are you on the [Free pricing tier of Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers)? The Free plan allows for up to five unique Service Map servers. Any subsequent servers won't show up in Service Map, even if the prior five are no longer sending data.
+* Are you on the [Free pricing tier of Operations Management Suite/Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)? The Free plan allows for up to five unique Service Map servers. Any subsequent servers won't show up in Service Map, even if the prior five are no longer sending data.
 
 * Is your server sending log and perf data to Log Analytics? Go to Log Search and run the following query for your computer: 
 
-	Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+	Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
 
 Did you get a variety of events in the results? Is the data recent? If so, your Log Analytics Agent is operating correctly and communicating with Log Analytics. If not, check the agent on your server: [Log Analytics agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) or [Log Analytics agent for Linux troubleshooting](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 
