@@ -95,7 +95,9 @@
   - name: Azure CLI
     href: sql-database-cli-samples.md
   - name: Azure PowerShell
-    href: sql-database-powershell-samples.md 
+    href: sql-database-powershell-samples.md
+  - name: Azure Resource Manager
+    href: sql-database-resource-manager-samples.md 
 - name: Concepts
   items:
   - name: Purchasing models
