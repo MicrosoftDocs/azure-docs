@@ -198,6 +198,8 @@
       href: https://aka.ms/ams-v3-nodejs-sdk   
     - name: Ruby
       href: https://aka.ms/ams-v3-ruby-sdk
+  - name: AMSE
+    href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: Release notes
     href: release-notes.md
   - name: FAQ

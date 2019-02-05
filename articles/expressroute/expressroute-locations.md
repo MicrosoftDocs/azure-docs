@@ -242,7 +242,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **[Webair](https://www.webair.com/microsoft-express-route-partnership/)**| Megaport | New York |
 | **[Windstream](http://www.windstreambusiness.com/solutions/cloud-services/cloud-and-managed-hosting-services)**| Equinix | Chicago, Silicon Valley, Washington DC |
 | **Zain** |Equinix |London|
-| **[Zertia](http://www.zertia.es/index.php/novedades)**| Level 3 | Madrid |
+| **[Zertia](http://www.zertia.es)**| Level 3 | Madrid |
 | **[Zirro](https://zirro.com/services/)**| Equinix | Montreal, Toronto |
 
 ## Connectivity Through Datacenter Providers
