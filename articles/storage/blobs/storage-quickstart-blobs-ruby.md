@@ -22,7 +22,7 @@ In this quickstart, you learn how to use Ruby to upload, download, and list bloc
 Make sure you have the following additional prerequisites installed:
 
 * [Ruby](https://www.ruby-lang.org/en/downloads/)
-* [Azure Storage library for Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage), using the rubygem package: 
+* [Azure Storage library for Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage), using the rubygem package: 
 
     ```
     gem install azure-storage-blob

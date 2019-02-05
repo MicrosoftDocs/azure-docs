@@ -39,7 +39,7 @@ The following headers are required:
 
 | Name | Description |
 | :--- | :---------- |
-| subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). |
+| subscriptionId | The subscription ID that identifies an Azure subscription. If you have multiple subscriptions, see [Working with multiple subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | api-version | The API version to use for the request.<br /><br /> This document covers api-version `2015-04-01`, included in the above URL.  |
 | $filter | The filtering option to reduce the set of returned results. The allowable patterns for this parameter are available [in the reference for the Activity Logs operation](/rest/api/monitor/activitylogs/list#uri-parameters). The example shown captures all events in a time range between 2018-05-16 and 2018-06-20 |
 | &nbsp; | &nbsp; |

@@ -256,10 +256,10 @@ In this tutorial, you learned how to use a task to automatically trigger contain
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build-run
 [az-acr-task-create]: /cli/azure/acr
-[az-acr-task-run]: /cli/azure/acr#az-acr-task-run
+[az-acr-task-run]: /cli/azure/acr-run
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-task-list-runs]: /cli/azure/acr
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-task]: /cli/azure/acr
 
 <!-- IMAGES -->
 [base-update-01]: ./media/container-registry-tutorial-base-image-update/base-update-01.png

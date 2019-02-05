@@ -2330,6 +2330,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-quickstart-guide.md",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-quickstart-guide",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-migrate-your-sql-server-database.md",
       "redirect_url": "/azure/dms/tutorial-sql-server-to-azure-sql",
       "redirect_document_id": false
@@ -13108,6 +13113,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-get-started-portal-firewall.md",
+      "redirect_url": "/azure/sql-database/sql-database-server-level-firewall-rule",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-configure-firewall-settings.md",
       "redirect_url": "/azure/sql-database/sql-database-firewall-configure",
       "redirect_document_id": false
@@ -13344,7 +13354,12 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-get-started.md",
-      "redirect_url": "/azure/sql-database/sql-database-get-started-portal",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-get-started-portal.md",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-get-started",
       "redirect_document_id": false
     },
     {
@@ -30014,6 +30029,51 @@
         "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/endpoint-entities.md",
+      "redirect_url": "/azure/cognitive-services/bing-Entities-search/entity-search-endpoint",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/entity-sdk-java-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-java-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/entity-sdk-python-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-python-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/entity-search-sdk-node-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-node-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/entity-search-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-csharp-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/search-the-web.md",
+      "redirect_url": "/azure/cognitive-services/bing-Entities-Search/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quick-start.md",
+      "redirect_url": "/azure/cognitive-services/bing-Entities-Search/quickstarts/csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/sdk.md",
+      "redirect_url": "/azure/cognitive-services/bing-Entities-Search/quickstarts/entity-sdk-csharp-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/tutorial-bing-entities-search-single-page-app-source.md",
+      "redirect_url": "/azure/cognitive-services/bing-Entities-Search/tutorial-bing-entities-search-single-page-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-appssoaccess-whatis.md",
       "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
       "redirect_document_id": true
@@ -35414,6 +35474,11 @@
     {
       "source_path": "articles/active-directory/active-directory-device-registration-on-premises-setup.md",
       "redirect_url": "/azure/active-directory/devices/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-handle-data-using-databricks.md",
+      "redirect_url": "/azure/azure-databricks/databricks-extract-load-sql-data-warehouse",
       "redirect_document_id": false
     }
   ]
