@@ -108,7 +108,7 @@ Run the following PowerShell script to install these modules on your development
     ```
 
     > [!Note]  
-    > The Azure Stack module version 1.7.0 is a breaking change. To migrate from AzureStack 1.6.0 please refer to the [migration guide](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack).
+    > The Azure Stack module version 1.7.0 is a breaking change. To migrate from AzureStack 1.6.0 please refer to the [migration guide](https://aka.ms/azspshmigration170).
 
 - Azure Stack 1811 or earlier.
 
