@@ -35,7 +35,7 @@ To create a HDInsight cluster, which uses Data Lake Storage Gen2 for storage, us
 
     ![Screenshot showing storage account creation in the Azure portal](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
  
-1. Assign the managed identity to the **Storage Blob Data Contributor (Preview)** role on the storage account. See [Manage access rights to Azure Blob and Queue data with RBAC (Preview)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)
+1. Assign the managed identity to the **Storage Blob Data Owner (Preview)** role on the storage account. See [Manage access rights to Azure Blob and Queue data with RBAC (Preview)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)
 
     1. In the [Azure portal](https://portal.azure.com), navigate to your storage account.
     1. Select your storage account, then select **Access control (IAM)** to display access control settings for the account. Select the **Role assignments** tab to see the list of role assignments.
@@ -43,9 +43,9 @@ To create a HDInsight cluster, which uses Data Lake Storage Gen2 for storage, us
         ![Screenshot showing storage access control settings](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
     1. Click the **Add role assignment** button to add a new role.
-    1. In the **Add role assignment** window, select the **Storage Blob Data Contributor (Preview)** role. Then, select the subscription that has the managed identity and storage account. Next, search to locate the user-assigned managed identity that you created previously. Finally, select the managed identity and it will be listed under **Selected members**.
+    1. In the **Add role assignment** window, select the **Storage Blob Data Owner (Preview)** role. Then, select the subscription that has the managed identity and storage account. Next, search to locate the user-assigned managed identity that you created previously. Finally, select the managed identity and it will be listed under **Selected members**.
     
-        ![Screenshot showing how to assign an RBAC role](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role2.png)
+        ![Screenshot showing how to assign an RBAC role](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
     1. Click **Save**. The user-assigned identity that you selected is now listed under the **Contributor** role.
 
