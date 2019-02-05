@@ -39,7 +39,7 @@ invoice and descriptions for each term.
 
 The **Invoice Summary** is on the top of the first page and shows information about your billing profile and how you pay.
 
-![Invoice summary section](./media/billing-understand-your-invoice-mca/1.png)
+![Invoice summary section](./media/billing-understand-your-invoice-mca/invoicesummary.png)
 
 | Term | Description |
 | --- | --- |
@@ -54,7 +54,7 @@ The **Invoice Summary** is on the top of the first page and shows information ab
 ### Understand the billing summary
 The **Billing Summary**  shows the charges against the billing profile since the previous billing period, any credits that were applied, tax, and the total amount due.
 
-![Billing summary section](./media/billing-understand-your-invoice-mca/2.png)
+![Billing summary section](./media/billing-understand-your-invoice-mca/billingsummary.png)
 
 | Term | Description |
 | --- | --- |
@@ -78,7 +78,7 @@ The total amount due for each service family is calculated by subtracting Azure 
 
 Total = Charges/Credits - Azure Credit + Tax
 
-![Details by invoice section](./media/billing-understand-your-invoice-mca/3.png)
+![Details by invoice section](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
 | Term |Description |
 | --- | --- |
