@@ -239,9 +239,6 @@ To deploy to Azure Container Instances, use the following steps:
 
     **Time estimate**: Approximately 3 minutes.
 
-    > [!TIP]
-    > If there are errors during deployment, use `service.get_logs()` to view the service logs. The logged information may indicate the cause of the error.
-
 For more information, see the reference documentation for the [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) classes.
 
 ### <a id="aks"></a> Deploy to Azure Kubernetes Service
@@ -328,9 +325,6 @@ print(service.state)
 ```
 
 **Time estimate**: Approximately 3 minutes.
-
-> [!TIP]
-> If there are errors during deployment, use `service.get_logs()` to view the service logs. The logged information may indicate the cause of the error.
 
 For more information, see the reference documentation for the [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) and [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) classes.
 
@@ -497,6 +491,19 @@ To delete an image, use `image.delete()`.
 To delete a registered model, use `model.delete()`.
 
 For more information, see the reference documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+
+## Troubleshooting
+
+* __If there are errors during deployment__, use `service.get_logs()` to view the service logs. The logged information may indicate the cause of the error.
+
+* The logs may contain an error that instructs you to __set logging level to DEBUG__. To set the logging level, add the following lines to your scoring script, create the image, and then create a service using the image:
+
+    ```python
+    import logging
+    logging.basicConfig(level=logging.DEBUG)
+    ```
+
+    This change enables additional logging, and may return more information on why the error is occuring.
 
 ## Next steps
 
