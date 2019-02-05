@@ -122,6 +122,6 @@ You can deploy Managed Instance in a dedicated subnet (the Managed Instance subn
 - [Calculate out the size of the subnet](sql-database-managed-instance-determine-size-vnet-subnet.md) where you will deploy Managed Instances. 
 - For a quickstart see how to create Managed Instance:
   - From the [Azure portal](sql-database-managed-instance-get-started.md)
-  - Using [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/)
+  - Using [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/)
   - using [Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/)
   - using [Azure Resource Manager template (jumpbox with SSMS included)](https://portal.azure.com/)
