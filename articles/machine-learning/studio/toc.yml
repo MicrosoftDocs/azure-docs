@@ -209,8 +209,6 @@
     href: https://azure.microsoft.com/regions/services/    
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/machine-learning/
-  - name: R developer's guide 
-    href: ../r-developers-guide.md
   - name: Custom neural networks (Net#)
     href: azure-ml-netsharp-reference-guide.md
   - name: Compare our ML products
