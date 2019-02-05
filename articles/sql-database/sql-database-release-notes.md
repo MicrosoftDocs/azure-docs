@@ -15,9 +15,21 @@ ms.author: carlrab
 
 This article lists the new features and improvements in the SQL Database service and in the SQL Database documentation.
 
+## SQL Database service and documentation improvements for February 2019
+
+### Service improvements for February 2019
+
+| Service improvements | Details |
+| --- | --- | 
+
+### Documentation improvements for February 2019
+
+| Documentation improvements | Details |
+| --- | --- |
+
 ## SQL Database service and documentation improvements for January 2019
 
-### Service improvements
+### Service improvements for January 2019
 
 | Service improvements | Details |
 | --- | --- | 
@@ -26,7 +38,7 @@ This article lists the new features and improvements in the SQL Database service
 | Advance threat detection feature renamed to Advanced Data Security | Advance threat detection feature renamed to [Advanced Data Security](sql-advanced-threat-protection.md) for single databases, elastic pools, and managed instances |
 | &nbsp; |
 
-### Documentation improvements
+### Documentation improvements for January 2019
 
 | Documentation improvements | Details |
 | --- | --- |
