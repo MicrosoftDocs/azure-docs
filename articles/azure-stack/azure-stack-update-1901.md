@@ -162,7 +162,7 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
            "autoUpgradeMinorVersion": "true"
    ```
 
-- There is a new consideration for accurately planning Azure Stack capacity. We have set limits on the total number of VMs that can be deployed within Azure Stack, to ensure all of our internal services fulfill the scale at which customers run. The limit is 60 VMs per host, with a maximum of 700 for the entire stamp (if the 60 per host limit is reached).
+- There is a new consideration for accurately planning Azure Stack capacity. We have set limits on the total number of VMs that can be deployed within Azure Stack, to ensure all of our internal services fulfill the scale at which customers run. The limit is 60 VMs per host, with a maximum of 700 for the entire stamp (if the 60 per host limit is reached). For more information, see the new release of the capacity planner at aka.ms/azstackcapacityplanner.
 
 ## Common vulnerabilities and exposures
 
