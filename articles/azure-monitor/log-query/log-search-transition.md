@@ -49,6 +49,15 @@ In Log Search, your saved searches are available through the action bar item **S
 
 ![Query explorer](media/log-search-transition/query-explorer.png)
 
+## Drill down on summarized rows
+In Log Search, you can click on a row in a summarized query to launch another query that lists detailed records in that row.
+
+![Log Search drilldown](media/log-search-transition/drilldown-search.png)
+
+In Azure Monitor logs, you must modify the query to return these records. Expand one of the rows in the results and click the **+** next to the value to add it to the query. Then comment out the **summarize** command and run the query again.
+
+![Azure Monitor logs drilldown](media/log-search-transition/drilldown-logs.png)
+
 ## Take action
 In Log Search, you can [start a runbook](take-action.md) from a search result by selectionselecting **Take action**.
 
