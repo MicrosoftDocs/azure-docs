@@ -190,6 +190,8 @@
       href: sql-database-automated-backups.md
     - name: Long-term backup retention
       href: sql-database-long-term-retention.md
+    - name: Planned manintenance events
+      href: sql-database-planned-maintenance.md  
     - name: Failover groups and geo-replication
       items: 
       - name: Active geo-replication
