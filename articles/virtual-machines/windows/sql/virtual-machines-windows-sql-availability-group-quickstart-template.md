@@ -37,7 +37,7 @@ To automate the setup of an Always On availability group using quickstart templa
 
 
 ## Step 1 - Create the WSFC and join SQL Server VMs to the cluster using quickstart template 
-Once your SQL Server VMs have been registered with the SQL VM new resource provider, you can join your SQL Server VMs into *SqlVirtualMachineGroups*. This resource defines the metadata of the Windows Failover Cluster, including the version, edition, Fully Qualified Domain Name, AD accounts to manage the cluster, and the Storage Account as the Cloud Witness. Adding SQL Server VMs to the *SqlVirtualMachineGroups* resource group bootstraps the Windows Failover Cluster Service to create the cluster and then joins those SQL Server VMs to that cluster. This step is automated with the **101-sql-vm-ag-setup** quickstart template and can be implemented with the following steps:
+Once your SQL Server VMs have been registered with the SQL VM new resource provider, you can join your SQL Server VMs into *SqlVirtualMachineGroups*. This resource defines the metadata of the Windows Failover Cluster, including the version, edition, Fully Qualified Domain Name, AD accounts to manage both the cluster and SQL Service, and the Storage Account as the Cloud Witness. Adding SQL Server VMs to the *SqlVirtualMachineGroups* resource group bootstraps the Windows Failover Cluster Service to create the cluster and then joins those SQL Server VMs to that cluster. This step is automated with the **101-sql-vm-ag-setup** quickstart template and can be implemented with the following steps:
 
 1. Navigate to the [**101-sql-vm-ag-setup**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) quickstart template and select **Deploy to Azure** to launch the quickstart template within the Azure portal.
 1. Fill out the required fields to configure the Windows Failover Cluster metadata. The optional fields can be left blank.
@@ -52,7 +52,7 @@ Once your SQL Server VMs have been registered with the SQL VM new resource provi
    | **Existing Vm List** | The SQL Server VMs you want to participate in the availability group, and as such, be part of this new cluster. Separate these values with a comma and a space (ex: SQLVM1, SQLVM2). |
    | **SQL Server Version** | Select the SQL Server version of your SQL Server VMs from the drop-down. Currently only SQL 2016 and SQL 2017 images are supported. |
    | **Existing Fully Qualified Domain Name** | The existing FQDN for the domain in which your SQL Server VMs reside. |
-   | **Existing Domain Account** | An existing domain user account that has permission to create the [CNO](/windows-server/failover-clustering/prestage-cluster-adds) in the domain (ex: account@domain.com). | 
+   | **Existing Domain Account** | An existing domain user account that has permission to 'Create Computer Object' in the domain as the [CNO](/windows-server/failover-clustering/prestage-cluster-adds) is created during template deployment. For example, a domain admin account typically has sufficient permission (ex: account@domain.com). | 
    | **Domain Account Password** | The password for the previously mentioned domain user account. | 
    | **Existing Sql Service Account** | The domain user account that controls the [SQL Server service](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) during availability group deployment (ex: account@domain.com). |
    | **Sql Service Password** | The password used by the domain user account that controls the SQL Server service. |
@@ -90,7 +90,7 @@ The Always On availability group (AG) listener requires an internal Azure Load B
    | **Virtual network** | Select the virtual network that the SQL Server instances are in. |
    | **Subnet** | Select the subnet that the SQL Server instances are in. |
    | **IP address assignment** |**Static** |
-   | **Private IP address** | Specify an available IP address from the subnet.|
+   | **Private IP address** | Specify an available IP address from the subnet. |
    | **Subscription** |If you have multiple subscriptions, this field might appear. Select the subscription that you want to associate with this resource. It is normally the same subscription as all the resources for the availability group. |
    | **Resource group** |Select the resource group that the SQL Server instances are in. |
    | **Location** |Select the Azure location that the SQL Server instances are in. |
