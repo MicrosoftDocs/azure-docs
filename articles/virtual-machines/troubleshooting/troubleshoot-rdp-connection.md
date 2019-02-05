@@ -23,6 +23,8 @@ The Remote Desktop Protocol (RDP) connection to your Windows-based Azure virtual
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 <a id="quickfixrdp"></a>
 
 ## Quick troubleshooting steps
