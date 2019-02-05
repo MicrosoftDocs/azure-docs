@@ -1,7 +1,7 @@
 ---
-title: How to delete and export personal data from Azure DevTest Labs | Microsoft Docs
-description: Learn how to delete and export personal data from the Azure DevLast Labs service to support your obligations under the General Data Protection Regulation (GDPR). 
-services: devtest-lab,virtual-machines,lab-services
+title: Specify resource group for VMs in Azure DevTest Labs | Microsoft Docs
+description: Learn how to specify a resource group for VMs in a lab in Azure DevTest Labs. 
+services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
 manager: femila
@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: spelluru
 
 ---
 
-# Configure resource group control for your DevTest Labs
+# Specify resource group for lab virtual machines in Azure DevTest Labs
 As a lab owner, you can configure your lab virtual machines to be created in a specific resource group. Use this feature so that you don't reach resource group limits on your Azure subscription. This feature also enables you to consolidate all your lab resources within a single resource group. It also simplifies tracking those resources and applying policies to manage them at the resource group level. This article talks on improving governance of your development and test environments by using [Azure polices](../governance/policy/overview.md) that you can apply at the resource group level. 
 
 With this feature, you can use a script to specify a new/ an existing resource group within your Azure subscription for all your lab virtual machines. Currently, DevTest Labs supports this feature through an API. 
 
-## API to coinfigure resource group for labs
+## API to configure resource group for labs
 Now let’s walk through the options you have as a lab owner while using this API: 
 
 - You can choose the **lab’s resource group** for all virtual machines.
@@ -29,7 +29,7 @@ Now let’s walk through the options you have as a lab owner while using this AP
 - You can enter a **new resource group** name for all virtual machines.
 - You can continue with the existing behavior, that is, a resource group is created for each VM in the lab.
  
-This setting applies to new virtual machines created in the lab. This means older VMs in your lab that are created in their own resource groups continue to remain unaffected. However, you can migrate these virtual machines from their individual resource groups to the common resource group so that all your lab virtual machines are in one common resource group. For more information, see [Move resources to a new resource group](../azure-resource-manager/resource-group-move-resources.md). Environments created in your lab continue to remain in their own resource groups.
+This setting applies to new virtual machines created in the lab. The older VMs in your lab that were created in their own resource groups continue to remain unaffected. However, you can migrate these virtual machines from their individual resource groups to the common resource group so that all your lab virtual machines are in one common resource group. For more information, see [Move resources to a new resource group](../azure-resource-manager/resource-group-move-resources.md). Environments created in your lab continue to remain in their own resource groups.
 
 ## How to use this API:
 - Use the API version **2018_10_15_preview** while using this API. 
@@ -63,7 +63,7 @@ Invoke the script using the following command (ResourceGroup.ps1 is the file tha
 ```
 
 ## Use Azure Resource Manager template
-If you are using Azure Resource Manager template to create a lab, use the **vmCreationResourceGroupId** property with a desired value in the lab properties section of your ARM template.
+If you are using Azure Resource Manager template to create a lab, use the **vmCreationResourceGroupId** property in the lab properties section of your Resource Manager template as shown in the following example:
 
 ```json
         {
