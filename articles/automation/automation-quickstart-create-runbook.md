@@ -17,9 +17,9 @@ Azure Automation runbooks can be created through Azure. This method provides a b
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to Azure at https://portal.azure.com
+Sign in to Azure at https://portal.azure.com
 
 ## Create runbook
 
