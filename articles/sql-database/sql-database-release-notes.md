@@ -13,7 +13,7 @@ ms.author: carlrab
 ---
 # SQL Database release notes
 
-This article lists the new features and improvements in the SQL Database service and in the SQL Database documentation.
+This article lists the new features and improvements in the SQL Database service and in the SQL Database documentation. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
 
 ## February 2019
 
