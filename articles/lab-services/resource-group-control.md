@@ -57,6 +57,7 @@ $rgId = "/subscriptions/"+$subId+"/resourceGroups/"+$vmRg
 "Updating lab '$labName' with vm rg '$rgId'..."
 
 az resource update -g $labRg -n $labName --resource-type "Microsoft.DevTestLab/labs" --api-version 2018-10-15-preview --set properties.vmCreationResourceGroupId=$rgId
+
 "Done. New virtual machines will now be created in the resource group '$vmRg'."
 ```
 
