@@ -32,10 +32,6 @@ You can use [Azure Data Factory](https://azure.microsoft.com/services/data-facto
 
 See [Move data to and from Data Lake Storage Gen2 using Data Factory](../../data-factory/connector-azure-data-lake-store.md).
 
-### Apache Sqoop
-
-You can use Apache Sqoop to import and export data between Azure SQL Database and Data Lake Storage Gen2. For more information, see [Copy data between Data Lake Storage Gen2 and Azure SQL database using Sqoop](../../data-lake-store/data-lake-store-data-transfer-sql-sqoop.md).
-
 ## Analyze and visualize data in your data lake
 
 These services can use Data Lake Storage Gen2 as a storage endpoint.
@@ -44,11 +40,7 @@ These services can use Data Lake Storage Gen2 as a storage endpoint.
 
 You can provision an [Azure HDInsight](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/) cluster that uses Data Lake Storage Gen2 as the HDFS-compliant storage. For this release, for Hadoop and Storm clusters on Windows and Linux, you can use Data Lake Storage Gen2 only as an additional storage. Such clusters still use Azure Storage (WASB) as the default storage. However, for HBase clusters on Windows and Linux, you can use Data Lake Storage Gen2 as the default storage and as additional storage.
 
-See these links:
-
-* [Provision an HDInsight cluster with Data Lake Storage Gen2 using Azure Portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Provision an HDInsight cluster with Data Lake Storage Gen2 as default storage using Azure PowerShell](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-* [Provision an HDInsight cluster with Data Lake Storage Gen2 as additional storage using Azure PowerShell](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
+See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)
 
 ### Azure Data Lake Analytics
 
