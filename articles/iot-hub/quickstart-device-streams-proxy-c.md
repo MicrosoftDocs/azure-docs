@@ -72,7 +72,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 2. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
     
     ```
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
     The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
 
@@ -81,7 +81,6 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
     ```
     cd azure-iot-sdk-c
-    git checkout public-preview
     mkdir cmake
     cd cmake
     ```
