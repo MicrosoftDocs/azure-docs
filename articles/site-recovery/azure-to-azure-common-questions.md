@@ -18,6 +18,10 @@ This article provides answers to common questions about deploying disaster recov
  **[General questions on Azure to Azure](#general)** 
  **[Replication](#replication)** 
  **[Replication policy](#replication-policy)** 
+ **[Multi-VM consistency](#multi-vm-consistency)** 
+ **[Recovery plan](#recovery-plan)** 
+ **[Reprotection and failback](#reprotection-and-failback)** 
+ **[Security](#security)** 
 ## <a name="general"></a>General
 ### How is Site Recovery priced?
 Review [Azure Site Recovery pricing](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) details.
@@ -112,7 +116,7 @@ The first recovery point that's generated has the complete copy. Any successive 
 ### Does increasing the retention period of recovery points increase the storage cost?
 Yes. If you increase the retention period from 24 hours to 72 hours, Site Recovery will save the recovery points for an additional 48 hours. The added time will incur storage charges. For example, if a single recovery point has delta changes of 10 GB and the per-GB cost is $0.16 per month, the additional charges would be $1.6 * 48 per month.
 
-## Multi-VM consistency 
+## <a name="multi-vm-consistency"></a>Multi-VM consistency 
 
 ### What is Multi-VM consistency?
 It means making sure that the recovery point is consistent across all the replicated virtual machines.
@@ -130,7 +134,7 @@ You can replicate 16 virtual machines together in a replication group.
 Because it is CPU intensive, enabling Multi-VM consistency can affect workload performance. It should be used only if machines are running the same workload and you need consistency across multiple machines. For example, if you have two SQL Server instances and two web servers in an application, you should have Multi-VM consistency for the SQL Server instances only.
 
 
-## Failover
+## <a name="failover"></a>Failover
 
 ### Is failover automatic?
 
@@ -163,7 +167,7 @@ You can trigger a failover after the outage. Site Recovery doesn't need connecti
 ### What is a RTO of a virtual machine failover ?
 Site Recovery has a [RTO SLA of 2 hours](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). However, most of the time, Site Recovery fail over virtual machines within minutes. You can calculate the RTO by going to the failover Jobs which shows the time it took to bring up the VM. For Recovery plan RTO, refer below section. 
 
-## Recovery plan
+## <a name="recovery-plan"></a>Recovery plan
 
 ### What is a recovery plan?
 A recovery plan in Site Recovery orchestrates the failover recovery of VMs. It helps make the recovery consistently accurate, repeatable, and automated. A recovery plan addresses the following needs for the user:
@@ -187,7 +191,7 @@ In the following example, the job called SAPTestRecoveryPlan took 8 minutes and 
 ### Can I add automation runbooks to the recovery plan?
 Yes, you can integrate Azure Automation runbooks into your recovery plan. [Learn more](site-recovery-runbook-automation.md).
 
-## Reprotection and failback 
+## <a name="reprotection-and-failback"></a>Reprotection and failback 
 
 ### After a failover from the primary region to a disaster recovery region, are VMs in a DR region protected automatically?
 No. When you [fail over](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) Azure VMs from one region to another, the VMs start up in the DR region in an unprotected state. To fail back the VMs to the primary region, you need to [reprotect](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) the VMs in the secondary region.
@@ -198,7 +202,7 @@ It depends on the situation. For example, if the source region VM exists, only c
 ### How much time does it take to fail back?
 After reprotection, the amount of time for failback is usually similar to the time for failover from the primary region to a secondary region. 
 
-## Security
+## <a name="security">Security
 ### Is replication data sent to the Site Recovery service?
 No, Site Recovery doesn't intercept replicated data, and it doesn't have any information about what's running on your virtual machines. Only the metadata needed to orchestrate replication and failover is sent to the Site Recovery service.  
 Site Recovery is ISO 27001:2013, 27018, HIPAA, DPA certified, and is in the process of SOC2 and FedRAMP JAB assessments.
