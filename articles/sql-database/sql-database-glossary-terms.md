@@ -40,7 +40,7 @@ Database objects|Azure SQL database|Any database in Azure SQL Database|
 ||Compute size|The amount of compute resources for a single database, elastic pool, or managed instance within a service tier|
 ||Storage amount|The amount of storage available to a single database, elastic pool, or managed instance|
 ||Compute generation|The generation of processor within a service tier|
-|Database server firewall rules|IP firewall rules|[IP firewall rules](sql-database-firewall-configure.md)|
+|Database server IP firewall rules|IP firewall rules|[IP firewall rules](sql-database-firewall-configure.md)|
+||Server-level IP firewall rules|[Server-level IP firewall rules](sql-database-firewall-configure.md#overview)|
+|| Database-level IP firewall rules|[Database-level IP firewall rules](sql-database-firewall-configure.md#overview)|
 ||Virtual network endpoints and rules|[Virtual network endpoints and rules](sql-database-vnet-service-endpoint-rule-overview.md)|
-||Server-level firewall rules|[Database-server-level firewall rules](sql-database-firewall-configure.md#server-level-firewall-rule-versus-a-database-level-firewall-rule)|
-|| Database-level firewall rules|[Database-server-level firewall rules](sql-database-firewall-configure.md#server-level-firewall-rule-versus-a-database-level-firewall-rule)|

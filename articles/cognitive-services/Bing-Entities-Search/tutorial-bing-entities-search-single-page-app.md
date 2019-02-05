@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 12/08/2017
+ms.date: 02/01/2019
 ms.author: aahi
 ---
 # Tutorial: Single-page web app

@@ -102,7 +102,7 @@ sections:
     rows:
       - title: Create single database
         values:
-          - href: /azure/sql-database/sql-database-get-started-portal
+          - href: /azure/sql-database/sql-database-single-database-get-started
           - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
           - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
           - href:

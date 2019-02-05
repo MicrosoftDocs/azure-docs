@@ -1,24 +1,22 @@
 ---
-title: "Quickstart: Bing Entity Search API"
-description: Shows how to get started using the Bing Entity Search API.
+title: "Sending search requests to the Bing Entity Search API"
+titleSuffix: Azure cognitive Services
+description: Learn how to send search requests to the Bing Entity Search API
 services: cognitive-services
-author: swhite-msft
+author: aahill
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 07/06/2017
-ms.author: scottwhi
+ms.date: 02/01/2019
+ms.author: aahi
 ---
 
-# Quickstart: Making your first Bing Entity Search request
+# Sending search requests to the Bing Entity Search API
 
 The Bing Entity Search API sends a search query to Bing and gets results that include entities and places. Place results include restaurants, hotel, or other local businesses. For places, the query can specify the name of the local business or it can ask for a list (for example, restaurants near me). Entity results include persons, places, or things. Place in this context is tourist attractions, states, countries, etc. 
 
-## First steps
-
-Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api). (If the Entities Search API isn't visible at the top, click the **Search** tab and scroll down until you see it.)
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## The endpoint
 
@@ -28,7 +26,7 @@ To get entity and place search results, send a GET request to the following endp
 https://api.cognitive.microsoft.com/bing/v7.0/entities
 ```
 
-The request must use the HTTPS protocol.
+Requests must use the HTTPS protocol.
 
 We recommend that all requests originate from a server. Distributing the key as part of a client application provides more opportunity for a malicious third party to access it. Also, making calls from a server provides a single upgrade point for future versions of the API.
 
@@ -67,7 +65,7 @@ If it's your first time calling any of the Bing APIs, don't include the client I
 
 The following shows the response to the previous request. The example also shows the Bing-specific response headers. For information about the response object, see [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse).
 
-```
+```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
 X-MSEdge-ClientID: 1C3352B306E669780D58D607B96869
 BingAPIs-Market: en-US
@@ -129,11 +127,7 @@ BingAPIs-Market: en-US
 ```
 
 
-
 ## Next steps
 
-Try out the API. Go to [Entities Search API Testing Console](https://dev.cognitive.microsoft.com/docs/services/7a3fb374be374859a823b79fd938cc65/). 
-
-For details about consuming the response objects, see [Searching the Web for entities and places](./search-the-web.md).
-
-Be sure to read [Bing Use and Display Requirements](./use-display-requirements.md) so you don't break any of the rules about using the search results.
+* [Searching for entities with the Bing Entity API](search-for-entities.md)
+* [Bing API Use and Display Requirements](../use-display-requirements.md)
