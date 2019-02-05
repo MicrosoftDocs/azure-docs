@@ -14,7 +14,11 @@ ms.author: asgang
 This article provides answers to common questions about deploying disaster recovery (DR) of Azure VMs to another Azure region by using Azure Site Recovery. If you have questions after reading this article, post them on the [Azure Recovery Services forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
-## General
+## In this article 
+ **[General questions on Azure to Azure](#general)** 
+ **[Replication](#replication)** 
+ **[Replication policy](#replication-policy)** 
+## <a name="general"></a>General
 ### How is Site Recovery priced?
 Review [Azure Site Recovery pricing](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) details.
 
@@ -25,7 +29,7 @@ Review [Azure Site Recovery pricing](https://azure.microsoft.com/blog/know-exact
 4. [Run a test failover](azure-to-azure-tutorial-dr-drill.md)
 5. [Fail over and fail back to the primary region](azure-to-azure-tutorial-failover-failback.md)
 
-## Replication
+## <a name="replication"></a>Replication
 
 ### Can I replicate VMs enabled through Azure disk encryption?
 Yes, you can replicate them. See the article [Replicate Azure disk encryption enabled virtual machines to another Azure region](azure-to-azure-how-to-enable-replication-ade-vms.md). Currently, Azure Site Recovery supports only Azure VMs that are running a Windows OS and enabled for encryption with Azure Active Directory (Azure AD) apps.
@@ -54,7 +58,7 @@ With Site Recovery, you can replicate and recover VMs between any two regions wi
 
 No, Site Recovery does not require internet connectivity. But it does require access to Site Recovery URLs and IP ranges, as mentioned in [this article](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
-## Replication policy
+## <a name="replication-policy"></a>Replication policy
 
 ### What is a replication policy?
 It defines the settings for the retention history of recovery points and the frequency of app-consistent snapshots. By default, Azure Site Recovery creates a new replication policy with default settings of:
