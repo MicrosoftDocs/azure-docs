@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Bing Spell Check API.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-spell-check

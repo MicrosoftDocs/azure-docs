@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: The Custom Speech Service is now part of the Speech Service. Switch to the Speech Service to benefit from the latest quality and feature updates.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual

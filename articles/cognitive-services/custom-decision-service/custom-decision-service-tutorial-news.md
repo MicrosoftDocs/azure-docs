@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: A tutorial for article personalization for contextual decision-making.
 services: cognitive-services
 author: slivkins
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-decision-service

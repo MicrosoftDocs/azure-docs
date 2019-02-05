@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: This article provides information to help you solve issues you might encounter when you use the Speech Service SDK.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
