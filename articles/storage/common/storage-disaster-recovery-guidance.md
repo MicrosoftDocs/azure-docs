@@ -158,7 +158,7 @@ Keep in mind that any data stored in a temporary disk is lost when the VM is shu
 The following features or services are not supported for account failover for the preview release:
 
 - Azure File Sync does not support storage account failover: storage accounts containing Azure file shares being used as cloud endpoints in Azure File Sync should not be failed over. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files.  
-- Azure Data Lake Storage Gen2 hierarchical file shares cannot be failed over.
+- Storage accounts using Azure Data Lake Storage Gen2 hierarchical namespace cannot be failed over.
 - A storage account containing archived blobs cannot be failed over. Maintain archived blobs in a separate storage account that you do not plan to fail over.
 - A storage account containing premium block blobs cannot be failed over. Storage accounts that support premium block blobs do not currently support geo-redundancy.
 
