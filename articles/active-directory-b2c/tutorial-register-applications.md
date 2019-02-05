@@ -3,7 +3,7 @@ title: Tutorial - Register your applications in Azure Active Directory B2C | Mic
 description: Learn how to register your applications in Azure Active Directory B2C using the Azure portal.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory-b2c
 ms.workload: identity

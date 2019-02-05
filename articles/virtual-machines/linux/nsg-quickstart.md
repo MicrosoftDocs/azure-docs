@@ -38,7 +38,7 @@ For more control over the rules, such as defining a source IP address range, con
 
 
 ## Create a Network Security Group and rules
-Create the network security group with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). The following example creates a network security group named *myNetworkSecurityGroup* in the *eastus* location:
+Create the network security group with [az network nsg create](/cli/azure/network/nsg). The following example creates a network security group named *myNetworkSecurityGroup* in the *eastus* location:
 
 ```azurecli
 az network nsg create \

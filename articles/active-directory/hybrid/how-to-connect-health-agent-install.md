@@ -166,10 +166,6 @@ Note that "basic" audit level is enabled by default. Read more about the [AD FS 
 
 
 ## Installing the Azure AD Connect Health agent for sync
-> [!NOTE]
-> Sync server should be different from your AD FS server. Do not install Sync agent to your AD FS server.
->
-
 The Azure AD Connect Health agent for sync is installed automatically in the latest build of Azure AD Connect. To use Azure AD Connect for sync, you need to download the latest version of Azure AD Connect and install it. You can download the latest version [here](https://www.microsoft.com/download/details.aspx?id=47594).
 
 To verify the agent has been installed, look for the following services on the server. If you completed the configuration, they should already be running. Otherwise, they are stopped until the configuration is complete.

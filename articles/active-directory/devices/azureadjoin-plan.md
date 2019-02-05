@@ -7,7 +7,7 @@ author: MarkusVi
 manager: daveba
 editor: ''
 
-ms.component: devices
+ms.subservice: devices
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
 ms.service: active-directory
 ms.workload: identity

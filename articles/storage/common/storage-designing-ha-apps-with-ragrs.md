@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 # Designing Highly Available Applications using RA-GRS
 

@@ -1,16 +1,15 @@
 ---
-title: Compare machine learning product options
-titleSuffix: Microsoft
-description: Compare the variety of products from Microsoft to build, deploy, and manage your machine learning models. Decide which products to choose for your solution.
+title: Choose a machine learning technology at Microsoft
+description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: overview
 
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 1/17/2019
+ms.date: 1/30/2019
 
 ---
 

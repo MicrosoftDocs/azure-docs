@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: fryu
-ms.component: common
+ms.subservice: common
 ---
 
 # Enable secure TLS for Azure Storage client

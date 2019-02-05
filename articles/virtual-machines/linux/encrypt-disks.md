@@ -158,7 +158,7 @@ az vm encryption enable \
     --name myVM \
     --disk-encryption-keyvault $keyvault_name \
     --key-encryption-key myKey \
-    --volume-type all
+    --volume-type data
 ```
 
 

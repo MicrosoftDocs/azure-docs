@@ -5,11 +5,12 @@ services: azure-stack
 keywords: 
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 01/22/2018
+ms.date: 01/25/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
+ms.lastreviewed: 01/25/2019
 ---
 
 # Prepare for extension host for Azure Stack

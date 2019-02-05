@@ -163,7 +163,7 @@ To implement a site-to-site VPN, you set up a VPN gateway in Azure.
 - Each VNet can have only one VPN gateway.
 - You can create multiple connections to the same VPN gateway. When you create multiple connections, all VPN tunnels share the available gateway bandwidth.
 - Every Azure VPN gateway consists of two instances in an active-standby configuration.
-    - For planned maintenance or unplaned disruption to the active instance, failover occurs and the standby instance takes over automatically, and resumes the site-to-site or VNet-to-VNet connection. 
+    - For planned maintenance or unplanned disruption to the active instance, failover occurs and the standby instance takes over automatically, and resumes the site-to-site or VNet-to-VNet connection. 
     - The switchover causes a brief interruption.
     - For planned maintenance, connectivity should be restored within 10 to 15 seconds.
     - For unplanned issues, the connection recovery will be longer, about one to 1.5 minutes in the worst case.

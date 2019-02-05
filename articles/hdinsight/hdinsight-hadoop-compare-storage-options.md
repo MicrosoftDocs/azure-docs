@@ -21,7 +21,7 @@ This article provides an overview of these different storage types and their uni
 
 ## Use Azure Data Lake Storage Gen2 with Apache Hadoop in Azure HDInsight
 
-For more information on Azure Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2](/../storage/blobs/data-lake-storage-introduction.md).
+For more information on Azure Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 Azure Data Lake Storage Gen2 takes core features from Azure Data Lake Storage Gen1 such as a Hadoop compatible file system, Azure Active Directory, and POSIX-based access control lists (ACLs) and integrates them into Azure Blob Storage. This combination allows you to take advantage of the performance of Azure Data Lake Storage Gen1 while also using Blob Storage’s tiering and data life-cycle management.
 
@@ -51,7 +51,7 @@ Apache Hadoop applications natively expect to read and write data from local dis
 
 Previously, the Hadoop filesystem driver would convert all filesystem operations to Azure Storage REST API calls on the client side and then invoke the REST API. This client-side conversion, however, resulted in multiple REST API calls for a single filesystem operation like a file rename. ABFS has moved some of the Hadoop filesystem logic from the client-side to the server-side and the Azure Data Lake Storage Gen2 API now runs in parallel with the Blob API. This migration improves performance because now common Hadoop filesystem operations can be executed with one REST API call.
 
-For more information, see [The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Hadoop](/../storage/blobs/data-lake-storage-abfs-driver.md).
+For more information, see [The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Hadoop](../storage/blobs/data-lake-storage-abfs-driver.md).
 
 #### Azure Data Lake Storage Gen 2 URI scheme
 
@@ -77,7 +77,7 @@ abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapredu
 > [!Note]
 > The file name is `hadoop-examples.jar` in HDInsight versions 2.1 and 1.6 clusters. When working with files outside of HDInsight, most utilities do not recognize the ABFS format and instead expect a basic path format, such as `example/jars/hadoop-mapreduce-examples.jar`.
 
-For more information, see [Use the Azure Data Lake Storage Gen2 URI](/../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
+For more information, see [Use the Azure Data Lake Storage Gen2 URI](../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
 
 ## Use Azure storage
 
@@ -97,7 +97,7 @@ We don't recommend that you use the default blob container for storing business 
 Using one blob container as the default file system for multiple clusters is not supported.
  
  > [!NOTE]  
- > The Archive access tier is an offline tier that has a several hour retrieval latency and is not recommended for use with HDInsight. For more information, see [Archive access tier](/../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
+ > The Archive access tier is an offline tier that has a several hour retrieval latency and is not recommended for use with HDInsight. For more information, see [Archive access tier](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
 
 ### HDInsight storage architecture
 The following diagram provides an abstract view of the HDInsight storage architecture of using Azure Storage:
@@ -119,7 +119,7 @@ Here are some considerations when using Azure Storage account with HDInsight clu
 * **Public containers or public blobs in storage accounts that are NOT connected to a cluster:** You have read-only permission to the blobs in the containers.
   
   > [!NOTE]  
-  > Public containers allow you to get a list of all blobs that are available in that container and get container metadata. Public blobs allow you to access the blobs only if you know the exact URL. For more information, see [Manage access to containers and blobs](/../storage/blobs/storage-manage-access-to-resources.md).
+  > Public containers allow you to get a list of all blobs that are available in that container and get container metadata. Public blobs allow you to access the blobs only if you know the exact URL. For more information, see [Manage access to containers and blobs](../storage/blobs/storage-manage-access-to-resources.md).
 
 * **Private containers in storage accounts that are NOT connected to a cluster:** You can't access the blobs in the containers unless you define the storage account when you submit the WebHCat jobs. This is explained later in this article.
 
@@ -147,7 +147,7 @@ Certain MapReduce jobs and packages may create intermediate results that you don
 
 ## Use Azure Data Lake Storage Gen1
 
-For more information on Azure Data Lake Storage Gen1, see [Overview of Azure Data Lake Storage Gen1](/../data-lake-store/data-lake-store-overview.md).
+For more information on Azure Data Lake Storage Gen1, see [Overview of Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md).
 
 Azure Data Lake Storage Gen1 is an enterprise-wide hyper-scale repository for big data analytic workloads. Azure Data Lake enables you to capture data of any size, type, and ingestion speed in one single place for operational and exploratory analytics.
 
@@ -188,29 +188,29 @@ Data Lake Storage Gen1 uses Azure Active Directory for authentication and access
 
 | Feature | Description |
 | --- | --- |
-| Authentication |Data Lake Storage Gen1 integrates with Azure Active Directory (AAD) for identity and access management for all the data stored in Data Lake Storage Gen1. As a result of the integration, Data Lake Storage Gen1 benefits from all AAD features including multi-factor authentication, conditional access, role-based access control, application usage monitoring, security monitoring and alerting, etc. Data Lake Storage Gen1 supports the OAuth 2.0 protocol for authentication with in the REST interface. See [Data Lake Storage Gen1 authentication](/../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
-| Access control |Data Lake Storage Gen1 provides access control by supporting POSIX-style permissions exposed by the WebHDFS protocol. ACLs can be enabled on the root folder, on subfolders, and on individual files. For more information on how ACLs work in context of Data Lake Storage Gen1, see [Access control in Data Lake Storage Gen1](/../data-lake-store/data-lake-store-access-control.md). |
-| Encryption |Data Lake Storage Gen1 also provides encryption for data that is stored in the account. You specify the encryption settings while creating a Data Lake Storage Gen1 account. You can chose to have your data encrypted or opt for no encryption. For more information, see [Encryption in Data Lake Storage Gen1](/../data-lake-store/data-lake-store-encryption.md). For instructions on how to provide encryption-related configuration, see [Get started with Azure Data Lake Storage Gen1 using the Azure portal](/../data-lake-store/data-lake-store-get-started-portal.md). |
+| Authentication |Data Lake Storage Gen1 integrates with Azure Active Directory (AAD) for identity and access management for all the data stored in Data Lake Storage Gen1. As a result of the integration, Data Lake Storage Gen1 benefits from all AAD features including multi-factor authentication, conditional access, role-based access control, application usage monitoring, security monitoring and alerting, etc. Data Lake Storage Gen1 supports the OAuth 2.0 protocol for authentication with in the REST interface. See [Data Lake Storage Gen1 authentication](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
+| Access control |Data Lake Storage Gen1 provides access control by supporting POSIX-style permissions exposed by the WebHDFS protocol. ACLs can be enabled on the root folder, on subfolders, and on individual files. For more information on how ACLs work in context of Data Lake Storage Gen1, see [Access control in Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md). |
+| Encryption |Data Lake Storage Gen1 also provides encryption for data that is stored in the account. You specify the encryption settings while creating a Data Lake Storage Gen1 account. You can chose to have your data encrypted or opt for no encryption. For more information, see [Encryption in Data Lake Storage Gen1](../data-lake-store/data-lake-store-encryption.md). For instructions on how to provide encryption-related configuration, see [Get started with Azure Data Lake Storage Gen1 using the Azure portal](../data-lake-store/data-lake-store-get-started-portal.md). |
 
 Want to learn more about securing data in Data Lake Storage Gen1? Follow the links below.
 
-* For instructions on how to secure data in Data Lake Storage Gen1, see [Securing data in Azure Data Lake Storage Gen1](/../data-lake-store/data-lake-store-secure-data.md).
+* For instructions on how to secure data in Data Lake Storage Gen1, see [Securing data in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-secure-data.md).
 
 ## Applications compatible with Data Lake Storage Gen1
 Data Lake Storage Gen1 is compatible with most open-source components in the Hadoop ecosystem. It also integrates nicely with other Azure services.  Follow the links below to learn more about how Data Lake Storage Gen1 can be used both with open-source components as well as other Azure services.
 
-* See [Applications and services compatible with Azure Data Lake Storage Gen1](/../data-lake-store/data-lake-store-compatible-oss-other-applications.md) for a list of open-source applications interoperable with Data Lake Storage Gen1.
-* See [Integrating with other Azure services](/../data-lake-store/data-lake-store-integrate-with-other-services.md) to understand how Data Lake Storage Gen1 can be used with other Azure services to enable a wider range of scenarios.
-* See [Scenarios for using Data Lake Storage Gen1](/../data-lake-store/data-lake-store-data-scenarios.md) to learn how to use Data Lake Storage Gen1 in scenarios such as ingesting data, processing data, downloading data, and visualizing data.
+* See [Applications and services compatible with Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-compatible-oss-other-applications.md) for a list of open-source applications interoperable with Data Lake Storage Gen1.
+* See [Integrating with other Azure services](../data-lake-store/data-lake-store-integrate-with-other-services.md) to understand how Data Lake Storage Gen1 can be used with other Azure services to enable a wider range of scenarios.
+* See [Scenarios for using Data Lake Storage Gen1](../data-lake-store/data-lake-store-data-scenarios.md) to learn how to use Data Lake Storage Gen1 in scenarios such as ingesting data, processing data, downloading data, and visualizing data.
 
 ## What is Data Lake Storage Gen1 file system (adl://)?
 Data Lake Storage Gen1 can be accessed via the new filesystem, the AzureDataLakeFilesystem (adl://), in Hadoop environments (available with HDInsight cluster). Applications and services that use adl:// are able to take advantage of further performance optimization that are not currently available in WebHDFS. As a result, Data Lake Storage Gen1 gives you the flexibility to either avail the best performance with the recommended option of using adl:// or maintain existing code by continuing to use the WebHDFS API directly. Azure HDInsight fully leverages the AzureDataLakeFilesystem to provide the best performance on Data Lake Storage Gen1.
 
-You can access your data in Data Lake Storage Gen1 using `adl://<data_lake_storage_gen1_name>.azuredatalakestore.net`. For more information on how to access the data in Data Lake Storage Gen1, see [View properties of the stored data](/../data-lake-store/data-lake-store-get-started-portal.md#properties)
+You can access your data in Data Lake Storage Gen1 using `adl://<data_lake_storage_gen1_name>.azuredatalakestore.net`. For more information on how to access the data in Data Lake Storage Gen1, see [View properties of the stored data](../data-lake-store/data-lake-store-get-started-portal.md#properties)
 
 
 
 ## Next steps
 
-* [Introduction to Azure Data Lake Storage Gen2](/../storage/blobs/data-lake-storage-introduction.md).
-* [Introduction to Azure Storage](/../storage/common/storage-introduction.md)
+* [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
+* [Introduction to Azure Storage](../storage/common/storage-introduction.md)

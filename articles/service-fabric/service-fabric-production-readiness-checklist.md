@@ -23,15 +23,15 @@ Is your application and cluster ready to take production traffic? Running and te
 
 
 ## Pre-requisites for production
-1. [Azure Service Fabric best practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) are: 
+1. [Azure Service Fabric Security best practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) are: 
 * Use X.509 certificates
 * Configure security policies
 * Configure SSL for Azure Service Fabric
 * Use network isolation and security with Azure Service Fabric
 * Set up Azure Key Vault for security
-* Assign users to roles
+* Microsoft.Network/loadBalancersAssign users to roles
 * Implement the Reliable Actors security configuration if using the Actors programming model
-2. For clusters with more than 20 cores or 10 nodes, create a dedicated primary node type for system services. Add [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) to reserve the primary node type for system services. 
+2. For clusters with more than 20 cores or 10 nodes, create a dedicated primary node type for system services. Add [placement constraints](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) to reserve the primary node type for system services.
 3. Use a D2v2 or higher SKU for the primary node type. It is recommended to pick a SKU with at least 50 GB hard disk capacity.
 4. Production clusters must be [secure](service-fabric-cluster-security.md). For an example of setting up a secure cluster, see this [cluster template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Use common names for certificates and avoid using self signed certs.
 5. Add [resource constraints on containers and services](service-fabric-resource-governance.md), so that they don't consume more than 75% of node resources. 
@@ -57,8 +57,8 @@ If you're using the Service Fabric Reliable Services or Reliable Actors programm
 22. Upgrade applications during local development to check that your service code is honoring the cancellation token in the `RunAsync` method and closing custom communication listeners.
 23. Avoid [common pitfalls](service-fabric-work-with-reliable-collections.md) when using Reliable Collections.
 24. Monitor the .NET CLR memory performance counters when running load tests and check for high rates of Garbage Collection or runaway heap growth.
-25. Maintain offline backup of [Reliable Services and Reliable Actors](service-fabric-reliable-services-backup-restore.md) and test the restoration process. 
-
+25. Maintain offline backup of [Reliable Services and Reliable Actors](service-fabric-reliable-services-backup-restore.md) and test the restoration process.
+26. Your Primary NodeType Virtual Machine instance count should ideally be equal to the minimum for your Clusters Reliability tier; conditions when appropriate to exceed the Tier minimum includes: temporarily when vertically scaling your Primary NodeTypes Virtual Machine Scale Set SKU.
 
 ## Optional best practices
 

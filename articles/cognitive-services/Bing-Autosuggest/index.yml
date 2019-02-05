@@ -9,7 +9,7 @@ metadata:
   author: v-jaswel
   manager: kamrani
   ms.service: cognitive-services
-  ms.component: bing-autosuggest
+  ms.subservice: bing-autosuggest
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page

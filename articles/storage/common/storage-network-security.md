@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
-ms.component: common
+ms.subservice: common
 ---
 # Configure Azure Storage firewalls and virtual networks
 

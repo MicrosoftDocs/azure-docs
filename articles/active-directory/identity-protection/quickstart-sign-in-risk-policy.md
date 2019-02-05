@@ -8,7 +8,7 @@ author: MarkusVi
 manager: daveba
 ms.assetid: 
 ms.service: active-directory
-ms.component: identity-protection
+ms.subservice: identity-protection
 ms.topic: quickstart 
 ms.devlang: na
 ms.topic: article

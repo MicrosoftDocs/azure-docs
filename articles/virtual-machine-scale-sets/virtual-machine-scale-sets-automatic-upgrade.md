@@ -20,6 +20,8 @@ ms.author: rajraj
 ---
 # Azure virtual machine scale set automatic OS image upgrades
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Automatic OS image upgrade is a feature of Azure virtual machine scale sets that automatically upgrades all VMs to the latest OS image.
 
 Automatic OS upgrade has the following characteristics:
@@ -136,7 +138,7 @@ You can check the history of the most recent OS upgrade performed on your scale 
 To following example uses Azure PowerShell to check the status for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
 
 ```powershell
-Get-AzureRmVmss -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS -OSUpgradeHistory
+Get-AzVmss -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS -OSUpgradeHistory
 ```
 
 ### Azure CLI 2.0
@@ -200,7 +202,7 @@ GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{lo
 ```
 
 ```powershell
-Get-AzureRmVmImage -Location "westus" -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS"
+Get-AzVmImage -Location "westus" -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS"
 ```
 
 ```azurecli

@@ -35,6 +35,7 @@ Azure Functions offers [built-in integration](https://docs.microsoft.com/azure/a
 | | | | 
 | **Supported features**             	|               	|                  	|           	
 | &bull; QuickPulse/LiveMetrics       | Yes           	| Yes              	| 
+| &nbsp;&nbsp;&nbsp;&mdash; Secure Control Channel|               	| Yes              	| 
 | &bull; Sampling                     | Yes           	| Yes              	| 
 | &bull; Heartbeats                   |   	            | Yes              	| 
 | | | | 
@@ -45,6 +46,10 @@ Azure Functions offers [built-in integration](https://docs.microsoft.com/azure/a
 | **Configurable**                  	|               	|                  	|           
 | &bull;Fully configurable.<br/>See [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) for instructions.<br/>See [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) for all options.           	|               	| Yes                 	| 
 
+
+## Live Metrics & Secure Control Channel
+
+The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key. See [Secure the control channel](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel) for instructions.
 
 ## Sampling
 

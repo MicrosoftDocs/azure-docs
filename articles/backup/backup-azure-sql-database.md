@@ -125,7 +125,7 @@ The tradeoffs between the options are manageability, granular control, and cost.
 
 ## Set permissions for non-Marketplace SQL VMs
 
-To back up a virtual machine, Azure Backup requires the **AzureBackupWindowsWorkload** extension to be installed. If you use Azure Marketplace virtual machines, continue to [Discover SQL Server databases](backup-azure-sql-database.md#discover-sql-server-databases). If the virtual machine that hosts your SQL databases isn't created from the Azure Marketplace, complete the following procedure to install the extension and set the appropriate permissions. In addition to the **AzureBackupWindowsWorkload** extension, Azure Backup requires SQL sysadmin privileges to protect SQL databases. TTo discover databases on the virtual machine, Azure Backup creates the account **NT SERVICE\AzureWLBackupPluginSvc**. This account is used for backup and restore and needs to have SQL sysadmin permission. Moreover, Azure Backup will leverage **NT AUTHORITY\SYSTEM** account for DB discovery/Inquiry, so this account need to be a public login on SQL.
+To back up a virtual machine, Azure Backup requires the **AzureBackupWindowsWorkload** extension to be installed. If you use Azure Marketplace virtual machines, continue to [Discover SQL Server databases](backup-azure-sql-database.md#discover-sql-server-databases). If the virtual machine that hosts your SQL databases isn't created from the Azure Marketplace, complete the following procedure to install the extension and set the appropriate permissions. In addition to the **AzureBackupWindowsWorkload** extension, Azure Backup requires SQL sysadmin privileges to protect SQL databases. To discover databases on the virtual machine, Azure Backup creates the account **NT SERVICE\AzureWLBackupPluginSvc**. This account is used for backup and restore and needs to have SQL sysadmin permission. Moreover, Azure Backup will leverage **NT AUTHORITY\SYSTEM** account for DB discovery/Inquiry, so this account need to be a public login on SQL.
 
 To configure permissions:
 
@@ -479,7 +479,14 @@ This procedure walks you through restoring data to an alternate location. To ove
 > You can restore the database to an instance of a SQL Server in the same Azure region. The destination server needs to be registered to the Recovery Services vault.
 >
 
-On the **Restore Configuration** menu, the **Server** drop-down list box shows only the SQL Server instances that are registered with the Recovery Services vault. If the server that you want isn't in the list, see [Discover SQL Server databases](backup-azure-sql-database.md#discover-sql-server-databases) to find the server. During the discovery process, new servers are registered to the Recovery Services vault.
+On the **Restore Configuration** menu, the **Server** drop-down list box shows only the SQL Server instances that are registered with the Recovery Services vault. If the server that you want isn't in the list, see [Discover SQL Server databases](backup-azure-sql-database.md#discover-sql-server-databases) to find the server. During the discovery process, new servers are registered to the Recovery Services vault.<br>
+In order to restore a SQL DB, you would need the following permissions:
+
+* **Backup Operator** permissions on Recovery Services **Vault** in which you are doing the restore.
+* **Contributor(write)** access to the **source SQL VM** (the VM that is backed up and you are trying to restore from).
+* **Contributor (write)** access to the target SQL VM (the VM that you are restoring to; will be the same VM as the source VM in case of Original Location Recovery(OLR)).
+
+To restore to an alternate location:
 
 1. In the **Restore Configuration** menu:
 

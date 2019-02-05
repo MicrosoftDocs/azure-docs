@@ -4,7 +4,7 @@ description: Frequently asked questions and answers related to Azure Multi-Facto
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 

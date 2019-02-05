@@ -106,18 +106,18 @@
   - name: Azure Data Explorer
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
-  - name: Azure Monitor
-    tocHref: /azure/application-insights/
-    topicHref: /azure/azure-monitor/
-  - name: Azure Monitor
-    tocHref: /azure/log-analytics/
-    topicHref: /azure/azure-monitor/
-  - name: Azure Monitor
-    tocHref: /azure/monitoring/
-    topicHref: /azure/azure-monitor/
-  - name: Azure Monitor
-    tocHref: /azure/monitoring-and-diagnostics/
-    topicHref: /azure/azure-monitor/
+  - name: Application Insights
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/application-insights/
+  - name: Log Analytics
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/log-analytics/
+  - name: Monitoring
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/monitoring/
+  - name: Monitoring and Diagnostics
+    tocHref: /azure/azure-monitor/
+    topicHref: /azure/monitoring-and-diagnostics/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -569,6 +569,9 @@
   - name: Service Fabric
     tocHref: /azure/service-fabric/
     topicHref: /azure/service-fabric/
+  - name: Service Fabric Mesh
+    tocHref: /azure/service-fabric-mesh/
+    topicHref: /azure/service-fabric-mesh/
   - name: Site Recovery
     tocHref: /azure/site-recovery/
     topicHref: /azure/site-recovery/

@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
-ms.component: disks
+ms.subservice: disks
 
 ---
 
@@ -34,7 +34,7 @@ You can migrate to Managed Disks in following scenarios:
 | Migrate...                                            | Documentation link                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Convert stand alone VMs and VMs in an availability set to managed disks   | [Convert VMs to use managed disks](convert-unmanaged-to-managed-disks.md) |
-| A single VM from classic to Resource Manager on managed disks     | [Migrate a single VM](migrate-single-classic-to-resource-manager.md)  | 
+| A single VM from classic to Resource Manager on managed disks     | [Create a VM from a classic VHD](create-vm-specialized-portal.md)  | 
 | All the VMs in a vNet from classic to Resource Manager on managed disks     | [Migrate IaaS resources from classic to Resource Manager](migration-classic-resource-manager-ps.md) and then [Convert a VM from unmanaged disks to managed disks](convert-unmanaged-to-managed-disks.md) | 
 
 

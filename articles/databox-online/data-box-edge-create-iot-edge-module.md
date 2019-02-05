@@ -139,7 +139,7 @@ Create a C# solution template that you can customize with your own code.
             static int counter;
             private const string InputFolderPath = "/home/LocalShare";
             private const string OutputFolderPath = "/home/CloudShare";
-    ````
+    ```
 
     > [!IMPORTANT]
     > Make a note of the `InputFolderPath` and the `OutputFolderPath`. You will need to provide these paths when you deploy this module.

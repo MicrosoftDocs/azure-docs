@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
+ms.lastreviewed: 01/02/2019
 ---
 
 # Prepare Azure Stack PKI certificates for use in deployment or rotation

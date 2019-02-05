@@ -67,7 +67,7 @@ Sample:
         }
     }
 }
-``````
+```
 
 For more information about Time Series Model types, see the [Reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 

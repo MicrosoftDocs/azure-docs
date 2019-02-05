@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 
 # What to do if an Azure Storage outage occurs

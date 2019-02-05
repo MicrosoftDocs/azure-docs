@@ -23,8 +23,6 @@ For this tutorial, you need:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for your computer's public IP address.
-
 - [.NET Core for your operating system](https://www.microsoft.com/net/core) installed. 
 
 > [!NOTE]

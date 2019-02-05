@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
-ms.component: files
+ms.subservice: files
 ---
 
 # Azure File Sync proxy and firewall settings
@@ -139,3 +139,4 @@ Setting up domain restricting firewall rules can be a measure to improve securit
 ## Next steps
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
 - [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Monitor Azure File Sync](storage-sync-files-monitoring.md)

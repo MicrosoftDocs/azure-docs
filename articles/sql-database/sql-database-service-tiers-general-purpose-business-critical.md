@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 11/30/2018
+ms.date: 01/25/2019
 ---
 # Azure SQL Database service tiers
 

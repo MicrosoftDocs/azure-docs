@@ -34,6 +34,8 @@
     href: ./concepts/explore-resources.md
 - name: Reference
   items:
+  - name: Azure PowerShell
+    href: /powershell/module/az.resourcegraph/
   - name: REST API
     href: /rest/api/azureresourcegraph/resources/resources
 - name: Resources

@@ -8,7 +8,7 @@ metadata:
   services: cognitive-services
   author: mikedodaro
   manager: rosh
-  ms.component: bing-local-business
+  ms.subservice: bing-local-business
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
