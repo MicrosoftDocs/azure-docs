@@ -46,12 +46,12 @@ You can use scale sets to deploy and manage a collection of virtual machines as 
 
 Choosing the number of node types for your cluster and the properties of each of node type (size, primary, internet facing, number of VMs, etc.) is an important task.  For more information, read [cluster capacity planning considerations](service-fabric-cluster-capacity.md).
 
-VM instances are joined behind an Azure load balancer, which is associated with a public IP and DNS label.  When you provision a cluster with <clustername>, the DNS name, <clustername>.<location>.cloudapp.azure.com is the DNS label associated with the loadbalancer in front of the scale set.
+VM instances are joined behind an Azure load balancer, which is associated with a public IP and DNS label.  When you provision a cluster with &lt;clustername&gt;, the DNS name, &lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com is the DNS label associated with the loadbalancer in front of the scale set.
 
 For more information, read [Service Fabric node types and virtual machine scale sets](service-fabric-cluster-nodetypes.md).
 
 ### Azure Load Balancer
-VMs in a cluster have only private IP addresses.  Management traffic and service traffic are routed through the public facing load balancer.  Network traffic is routed to these machines through NAT rules (clients connect to specific nodes/instances) or load-balancing rules (traffic goes to VMs round robin).  A load balancer has an associated public IP with a DNS name in the format: <clustername>.<location>.cloudapp.azure.com.  A public IP is another Azure resource in the resource group.  If you define multiple node types in a cluster, a load balancer is created for each node type/scale set.  The primary node type has the DNS lable <clustername>.<location>.cloudapp.azure.com, other node types have the DNS label <clustername>-<nodetype>.<location>.cloudapp.azure.com.
+VMs in a cluster have only private IP addresses.  Management traffic and service traffic are routed through the public facing load balancer.  Network traffic is routed to these machines through NAT rules (clients connect to specific nodes/instances) or load-balancing rules (traffic goes to VMs round robin).  A load balancer has an associated public IP with a DNS name in the format: &lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com.  A public IP is another Azure resource in the resource group.  If you define multiple node types in a cluster, a load balancer is created for each node type/scale set.  The primary node type has the DNS lable &lt;clustername&gt;.&lt;location&gt;.cloudapp.azure.com, other node types have the DNS label &lt;clustername&gt;-&lt;nodetype&gt;.&lt;location&gt;.cloudapp.azure.com.
 
 ### Storage accounts
 Each cluster node type is supported by a Azure storage account and managed disks.
