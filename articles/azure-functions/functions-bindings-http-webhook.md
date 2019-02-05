@@ -112,35 +112,7 @@ Here's the *function.json* file:
 
 The [configuration](#trigger---configuration) section explains these properties.
 
-Here's C# script code that binds to `HttpRequestMessage`:
-
-```csharp
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
-{
-    log.LogInformation($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
-
-    // parse query parameter
-    string name = req.GetQueryNameValuePairs()
-        .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
-        .Value;
-
-    // Get request body
-    dynamic data = await req.Content.ReadAsAsync<object>();
-
-    // Set name to query string or body data
-    name = name ?? data?.name;
-
-    return name == null
-        ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-        : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
-}
-```
-
-You can bind to a custom object instead of `HttpRequestMessage`. This object is created from the body of the request, parsed as JSON. Similarly, a type can be passed to the HTTP response output binding and returned as the response body, along with a 200 status code.
+You can bind to a custom object instead of `HttpRequest`. This object is created from the body of the request and parsed as JSON. Similarly, a type can be passed to the HTTP response output binding and returned as the response body, along with a 200 status code.
 
 ```csharp
 using System.Net;
