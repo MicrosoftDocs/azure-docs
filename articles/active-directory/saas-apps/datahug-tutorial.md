@@ -116,7 +116,7 @@ To configure Azure AD single sign-on with Datahug, perform the following steps:
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Datahug Client support team](http://datahug.com/about/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+6. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
