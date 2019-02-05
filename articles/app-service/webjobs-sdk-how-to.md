@@ -118,7 +118,7 @@ In version 3.x, the connection limit defaults to infinite connections. If for so
 
 For version 2.x, you control the number of concurrent connections to a host by using the ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) API. In 2.x, you should increase this value from the default of 2 before starting your WebJobs host.
 
-All outgoing HTTP requests that you make from a function by using `HttpClient` flow through the `ServicePointManager`. Once you hit the `DefaultConnectionLimit`, the `ServicePointManager` starts queueing requests before sending them. Suppose your `DefaultConnectionLimit` is set to 2 and your code makes 1,000 HTTP requests. Initially, only 2 requests are actually allowed through to the OS. The other 998 are queued until there’s room for them. That means your `HttpClient` may time out, because it *thinks* it’s made the request, but the request was never sent by the OS to the destination server. So you might see behavior that doesn't seem to make sense: your local `HttpClient` is taking 10 seconds to complete a request, but your service is returning every request in 200 ms. 
+All outgoing HTTP requests that you make from a function by using `HttpClient` flow through the `ServicePointManager`. Once you hit the `DefaultConnectionLimit`, the `ServicePointManager` starts queueing requests before sending them. Suppose your `DefaultConnectionLimit` is set to 2 and your code makes 1,000 HTTP requests. Initially, only two requests are allowed through to the OS. The other 998 are queued until there’s room for them. That means your `HttpClient` may time out, because it *thinks* it’s made the request, but the request was never sent by the OS to the destination server. So you might see behavior that doesn't seem to make sense: your local `HttpClient` is taking 10 seconds to complete a request, but your service is returning every request in 200 ms. 
 
 The default value for ASP.NET applications is `Int32.MaxValue`, and that's likely to work well for WebJobs running in a Basic or higher App Service plan. WebJobs typically need the Always On setting, and that's supported only by Basic and higher App Service plans. 
 
@@ -276,7 +276,7 @@ To use the Files binding, install `Microsoft.Azure.WebJobs.Extensions` and call 
 
 ### ExecutionContext
 
-WebJobs lets you bind to bind to an [`ExecutionContext`]. With this binding, you can access the [`ExecutionContext`] as a parameter in your function signature. For example, the following code uses the context object to access the invocation ID, which you can use to correlate all logs produced by a given function invocation.  
+WebJobs lets you bind to an [`ExecutionContext`]. With this binding, you can access the [`ExecutionContext`] as a parameter in your function signature. For example, the following code uses the context object to access the invocation ID, which you can use to correlate all logs produced by a given function invocation.  
 
 ```cs
 public class Functions
@@ -607,7 +607,7 @@ You can use these settings to ensure that your function runs as a singleton on a
 
 ### Scope Values
 
-You can specify a **scope expression/value** on the Singleton which will ensure that all executions of the function at that scope will be serialized. Implementing more granular locking in this way can allow for some level of parallelism for your function, while serializing other invocations as dictated by your requirements. For example, in the following example the scope expression binds to the `Region` value of the incoming message. If the queue contains 3 messages in Regions "East", "East", and "West" respectively, then the messages that have region "East" will be executed serially while the message with region "West" will be executed in parallel with those.
+You can specify a **scope expression/value** on the Singleton that ensures that all executions of the function at that scope will be serialized. Implementing more granular locking in this way can allow for some level of parallelism for your function, while serializing other invocations as dictated by your requirements. For example, in the following example the scope expression binds to the `Region` value of the incoming message. When the queue contains three messages in Regions "East", "East", and "West" respectively, then the messages that have region "East" are executed serially while the message with region "West" are executed in parallel with those in "East."
 
 ```csharp
 [Singleton("{Region}")]
@@ -752,7 +752,7 @@ The way that you implement custom telemetry for [Application Insights](../azure-
 
 #### Version 3.x
 
-Because version 3.x of the WebJobs SDK relies on the .NET Core generic host, there is no longer a custom telemetry factory provided. However, you can add custom telemetry to the pipeline using dependency injection. The examples in ths section require the following `using` statements:
+Since version 3.x of the WebJobs SDK relies on the .NET Core generic host, there's no longer a custom telemetry factory provided. However, you can add custom telemetry to the pipeline using dependency injection. The examples in this section require the following `using` statements:
 
 ```cs
 using Microsoft.ApplicationInsights.Extensibility;

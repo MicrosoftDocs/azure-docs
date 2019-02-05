@@ -26,7 +26,7 @@ The instructions are for [Visual Studio 2017](https://www.visualstudio.com/vs/),
 
 The Azure WebJobs SDK is a framework that simplifies the task of writing background processing code that accesses data in Azure services. The SDK features a declarative syntax for specifying events that should trigger a function, such as a new message added to a queue. Similar declarative syntax controls reading and writing data once a function has been triggered. This system of triggers and bindings takes care of most of the low-level coding tasks associated with accessing Azure and third-party services.
 
-### Functions, triggers and bindings
+### Functions, triggers, and bindings
 
 A WebJobs SDK project defines one or more *functions*. A function is a method that has a trigger attribute in its method signature. Triggers specify conditions for calling a function, and bindings specify what to read and write. For example, the trigger attribute in the following function tells the runtime to call the function whenever a queue message appears in the `items` queue. The `Blob` attribute tells the runtime to use the queue message to read a blob in the *workitems* container. The content of the queue message &mdash; provided in the `queueTrigger` parameter &mdash; is the name of the blob.
 
@@ -486,7 +486,7 @@ In this section, you do the following tasks to set up Application Insights loggi
 
 To take advantage of [Application Insights](../azure-monitor/app/app-insights-overview.md) logging, update your logging code to do the following:
 
-* Add an Application Insights logging provider with default [filtering](webjobs-sdk-how-to.md#log-filtering); all Information and higher level logs goes to both the console and Application Insights when you're running locally.
+* Add an Application Insights logging provider with default [filtering](webjobs-sdk-how-to.md#log-filtering); all Information and higher-level logs goes to both the console and Application Insights when you're running locally.
 * Put the `LoggerFactory` object in a `using` block to ensure that log output is flushed when the host exits.
 
 #### Version 3.x
@@ -573,7 +573,7 @@ To take advantage of [Application Insights](../azure-monitor/app/app-insights-ov
 
 ## Test Application Insights logging
 
-In this section you run locally again to verify that logging data is now going to Application Insights as well as to the console.
+In this section, you run locally again to verify that logging data is now going to Application Insights as well as to the console.
 
 1. Use **Server Explorer** in Visual Studio to create a queue message, the same way you did [earlier](#trigger-the-function-in-azure), except enter *Hello App Insights!* as the message text.
 
@@ -597,7 +597,7 @@ In this section you run locally again to verify that logging data is now going t
 
 ## Deploy as a WebJob
 
-In this section you deploy the project as a WebJob. You deploy it to an App Service app that you [created earlier](#create-app-service-app-and-application-insights-instance). To test your code while it runs in Azure, you'll trigger a function invocation by creating a queue message.
+In this section, you deploy the project as a WebJob. You deploy it to an App Service app that you [created earlier](#create-app-service-app-and-application-insights-instance). To test your code while it runs in Azure, you'll trigger a function invocation by creating a queue message.
 
 1. In **Solution Explorer**, right-click the project, and then select **Publish as Azure WebJob**.
 
@@ -654,7 +654,7 @@ Input bindings simplify code that reads data. For this example, the queue messag
    }
    ```
 
-   In this code, `queueTrigger` is a [binding expression](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns), which means it resolves to a different value at runtime.  At runtime it has the contents of the queue message.
+   In this code, `queueTrigger` is a [binding expression](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns), which means it resolves to a different value at runtime.  At runtime, it has the contents of the queue message.
 
 1. Add a `using`:
 
@@ -670,7 +670,7 @@ Input bindings simplify code that reads data. For this example, the queue messag
 
 1. Upload the *Program.cs* file to the blob container. (This file is used here as an example; you could upload any text file and create a queue message with the file's name.)
 
-   a. In **Server Explorer**, double-click the node for the container you just created.
+   a. In **Server Explorer**, double-click the node for the container you created.
 
    b. In the **Container** window, select the **Upload** button.
 
@@ -698,7 +698,7 @@ Input bindings simplify code that reads data. For this example, the queue messag
 
 ## Add an output binding
 
-Output bindings simplify code that writes data. This example modifies the previous one by writing a copy of the blob instead of logging its size. Note that Blob storage bindings are included in the Azure Storage extension package that we installed previously.
+Output bindings simplify code that writes data. This example modifies the previous one by writing a copy of the blob instead of logging its size. Blob storage bindings are included in the Azure Storage extension package that we installed previously.
 
 1. Replace the `ProcessQueueMessage` method with the following code:
 
@@ -724,7 +724,7 @@ Output bindings simplify code that writes data. This example modifies the previo
 
 This guide has shown how to create, run, and deploy a WebJobs SDK project.
 
-To show everything that goes into a WebJobs SDK project, the instructions had you create a project from scratch. However, when you create your next project, consider using the **Azure WebJob** template in the **Cloud** category. This template creates a project with NuGet packages and sample code already set up. Note that the sample code may need to be changed to use the new logging framework.
+To show everything that goes into a WebJobs SDK project, the instructions had you create a project from scratch. However, when you create your next project, consider using the **Azure WebJob** template in the **Cloud** category. This template creates a project with NuGet packages and sample code already set up. The sample code may need to be changed to use the new logging framework.
 
 > [!div class="nextstepaction"]
 > [Learn more about the WebJobs SDK](webjobs-sdk-how-to.md)
