@@ -661,6 +661,7 @@ This article describes whether a resource type supports [tags](resource-group-us
 | logDefinitions | No | 
 | logprofiles | No | 
 | logs | No | 
+| metricAlerts | Yes |
 | migrateToNewPricingModel | No | 
 | myWorkbooks | No | 
 | queries | No | 
@@ -1103,7 +1104,7 @@ This article describes whether a resource type supports [tags](resource-group-us
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | managedInstances | Yes |
-| managedInstances/databases | Yes |
+| managedInstances/databases | Yes (see note below) |
 | managedInstances/databases/backupShortTermRetentionPolicies | No |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | No |
 | managedInstances/databases/vulnerabilityAssessments | No |
@@ -1115,12 +1116,16 @@ This article describes whether a resource type supports [tags](resource-group-us
 | servers | Yes | 
 | servers/administrators | No | 
 | servers/communicationLinks | No | 
-| servers/databases | Yes | 
+| servers/databases | Yes (see note below) | 
 | servers/encryptionProtector | No | 
 | servers/keys | No | 
 | servers/restorableDroppedDatabases | No | 
 | servers/serviceobjectives | No | 
 | servers/tdeCertificates | No | 
+
+> [!NOTE]
+> The Master database doesn't support tags, but other databases support tags.
+
 
 ## Microsoft.SqlVirtualMachine
 | Resource type | Supports tags |
@@ -1158,8 +1163,11 @@ This article describes whether a resource type supports [tags](resource-group-us
 ## Microsoft.StreamAnalytics
 | Resource type | Supports tags |
 | ------------- | ----------- |
-| streamingjobs | Yes | 
+| streamingjobs | Yes (see note below) | 
 | streamingjobs/diagnosticSettings | No | 
+
+> [!NOTE]
+> You can't add a tag when streamingjobs is running. Stop the resource to add a tag.
 
 ## Microsoft.Subscription
 | Resource type | Supports tags |
