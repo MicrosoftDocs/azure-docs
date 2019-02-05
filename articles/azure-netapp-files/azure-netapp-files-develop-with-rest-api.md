@@ -65,7 +65,7 @@ This article uses the following URL for the baseline of requests. This URL point
 
 `https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2017-08-15`
 
-In the following examples, you should replace the `subID` and `resourceGroups` values with your own. 
+You should replace the `subID` and `resourceGroups` values in the following examples with your own values. 
         
 ### GET request examples
 You use a GET request to query Azure NetApp Files objects in a subscription, as the following examples show: 
@@ -88,23 +88,22 @@ You use a GET request to query Azure NetApp Files objects in a subscription, as 
 ### PUT request examples
 You use a PUT request to create new objects such as a new volume in Azure NetApp Files. The body of the PUT request can include the JSON formatted data for the changes, or it can specify a file to read from. 
 
-        #create a NetApp account 
+This example shows how to create a NetApp account:
+ 
         curl -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/ANFACCOUNTGOESHERE?api-version=2017-08-15
 
-
-        #create a capacity pool 
+This example shows how to create a capacity pool:
+ 
         curl -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/ANFACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE?api-version=2017-08-15
 
-
-        #create a volume 
+This example shows how to create a volume:
+ 
         curl -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/ANFACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME?api-version=2017-08-15
 
-
-        #create a volume snapshot 
+These examples show how to create a volume snapshot:
+ 
         curl -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/ANFACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME?api-version=2017-08-15
 
-
-        #create a volume snapshot 
         curl -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/a6789047-29d4-4ce0-89e6-dfbbe5ad95e0/resourceGroups/wstowe.rg/providers/Microsoft.NetApp/netAppAccounts/ANFACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME/Snapshots/SNAPNAME?api-version=2017-08-15
 
 ### JSON examples
