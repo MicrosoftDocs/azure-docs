@@ -62,7 +62,7 @@ It takes a few minutes to create and configure all the scale set resources and V
 
 
 ## View the VM instances in a scale set
-To view a list of VM instances in a scale set, use [az vmss list-instances](/cli/azure/vmss#az_vmss_list_instances) as follows:
+To view a list of VM instances in a scale set, use [az vmss list-instances](/cli/azure/vmss) as follows:
 
 ```azurecli-interactive
 az vmss list-instances \
