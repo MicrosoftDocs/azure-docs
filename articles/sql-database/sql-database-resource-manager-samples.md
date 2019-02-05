@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager templates for SQL Database | Microsoft Docs
-description: Use Azure resource Manager templates to create and configure Azure SQL Database. 
+description: Use Azure Resource Manager templates to create and configure Azure SQL Database. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: 
@@ -28,7 +28,7 @@ The following table includes links to Azure Resource Manager templates for Azure
 | [Logical server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | This Azure Resource Manager template creates a logical server for Azure SQL Database. |
 | [Elastic pool](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | This template allows you to deploy a new SQL Elastic Pool with its new associated SQL Server and new SQL Databases to assign to it. |
 | [Import data from blob storage using ADF V2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-v2-blob-to-sql-copy) | This Azure Resource Manager template creates Azure Data Factory V2 that copies data from Azure Blob Storage to SQL Database.|
-| [HDInsight cluster with a SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | This template allows you to create a HDInsight cluster, a SQL Database server, a SQL Database, and two tables. This template is used by the Use Sqoop with Hadoop in HDInsight article, https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/hdinsight-use-sqoop |
+| [HDInsight cluster with a SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-sql-database) | This template allows you to create a HDInsight cluster, a SQL Database server, a SQL Database, and two tables. This template is used by the Use Sqoop with Hadoop in HDInsight article, https://docs.microsoft.com/azure/hdinsight/hadoop/hdinsight-use-sqoop |
 | [Azure Logic App that runs a SQL Stored Procedure on a schedule](https://github.com/Azure/azure-quickstart-templates/tree/master/101-logic-app-sql-proc) | This template allows you to create a Logic App that will run a SQL stored procedure on schedule. Any arguments for the procedure can be put into the body section of the template.|
 
 ## Managed Instance
