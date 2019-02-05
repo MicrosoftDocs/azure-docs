@@ -118,13 +118,56 @@ Create the policy using the [kubectl apply][kubectl-apply] command and specify t
 kubectl apply -f psp-deny-privileged.yaml
 ```
 
-***-- ANYTHING ELSE NEEDED HERE ? --***
-
 ## Allow user account to use the pod security policy
 
-In the previous step, you created a pod security policy to reject pods that request privileged access. Associate this policy with a user account using a *RoleBinding* or *ClusterRoleBinding*. These bindings are typically created at a group level, and give you the ability to target pod security policies at a specific namespace or across the whole cluster.
+In the previous step, you created a pod security policy to reject pods that request privileged access. To allow the policy to be used, you first create a *Role* or a *ClusterRole*. Then, you associate one of these roles using a *RoleBinding* or *ClusterRoleBinding*. These roles and bindings are typically created at a group level, and give you the ability to target pod security policies at a specific namespace or across the whole cluster.
 
-***-- ADD STEPS ON HOW TO CREATE ROLEBINDING. OR, DO A CLUSTERROLEBINDING? USE A YAML MANIFEST FOR THIS, OR JUST CREATE THE BINDING DIRECTLY? --***
+For this article, create a ClusterRole that allows you to *use* the *psp-deny-privileged* policy created in the previous step. Create a file named *psp-deny-privileged-clusterrole.yaml* and paste the following YAML manifest:
+
+```yaml
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: psp-deny-privileged-clusterrole
+rules:
+- apiGroups:
+  - extensions
+  resources:
+  - podsecuritypolicies
+  resourceNames:
+  - psp-deny-privileged
+  verbs:
+  - use
+```
+
+Create the ClusterRole using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
+
+```console
+kubectl apply -f psp-deny-privileged-clusterrole.yaml
+```
+
+Now create a ClusterRoleBinding to use the ClusterRole created in the previous step. Create a file named *psp-deny-privileged-clusterrolebinding.yaml* and paste the following YAML manifest:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: psp-deny-privileged-clusterrolebinding
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: psp-deny-privileged-clusterrole
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: Group
+  name: system:serviceaccounts
+```
+
+Create a ClusterRoleBinding using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
+
+```console
+kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
+```
 
 ## Enable pod security policy on the AKS cluster
 
@@ -166,7 +209,12 @@ az aks update-cluster \
     --disable-pod-security-policy
 ```
 
-***-- DELETE THE ROLEBINDING / CLUSTERROLEBINDING --***
+Delete the ClusterRole and ClusterRoleBinding:
+
+```console
+kubectl delete -f psp-deny-privileged-clusterrolebinding.yaml
+kubectl delete -f psp-deny-privileged-clusterrole.yaml
+```
 
 Finally, delete the network policy using [kubectl delete][kubectl-delete] command and specify the name of your YAML manifest:
 
