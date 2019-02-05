@@ -35465,6 +35465,11 @@
       "source_path": "articles/active-directory/active-directory-device-registration-on-premises-setup.md",
       "redirect_url": "/azure/active-directory/devices/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-handle-data-using-databricks.md",
+      "redirect_url": "/azure/azure-databricks/databricks-extract-load-sql-data-warehouse",
+      "redirect_document_id": false
     }
   ]
 }
