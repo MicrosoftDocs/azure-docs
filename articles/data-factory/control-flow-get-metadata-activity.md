@@ -30,7 +30,7 @@ The following functionality is available in the control flow:
 
 ## Supported capabilities
 
-The GetMetadata Activity takes a dataset as a required input, and outputs metadata information available as activity output. Currently, the following connectors with corresponding retrievable meatadata are supported, and the maximum supported metadata size is up to **1MB**.
+The GetMetadata Activity takes a dataset as a required input, and outputs metadata information available as activity output. Currently, the following connectors with corresponding retrievable metadata are supported, and the maximum supported metadata size is up to **1MB**.
 
 >[!NOTE]
 >If you run GetMetadata activity on a Self-hosted Integration Runtime, the latest capability is supported on version 3.6 or above. 

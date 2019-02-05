@@ -82,7 +82,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ![Analytics graph of user requests over a period of time](./media/dotnetcore-quick-start/0007-dc.png)
 
-4. Return to the **Overview** page and examine the KPI Dashobards.  This dashboard provides statistics about your application health, including the number of incoming requests, the duration of those requests, and any failures that occur. 
+4. Return to the **Overview** page and examine the KPI Dashboards.  This dashboard provides statistics about your application health, including the number of incoming requests, the duration of those requests, and any failures that occur. 
 
    ![Health Overview timeline graphs](./media/dotnetcore-quick-start/overview-graphs.png)
 

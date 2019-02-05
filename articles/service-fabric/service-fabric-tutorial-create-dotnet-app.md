@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2018
+ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
 
@@ -323,8 +323,6 @@ In Solution Explorer, open  *VotingWeb/PackageRoot/ServiceManifest.xml*.  Find t
 
 Also update the Application URL property value in the Voting project so a web browser opens to the correct port when you debug your application.  In Solution Explorer, select the **Voting** project and update the **Application URL** property to **8080**.
 
-![Application URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
-
 ### Deploy and run the Voting application locally
 You can now go ahead and run the Voting application for debugging. In Visual Studio, press **F5** to deploy the application to your local Service Fabric cluster in debug mode. The application will fail if you didn't previously open Visual Studio as **administrator**.
 
@@ -451,12 +449,7 @@ In this next step, connect the two services and make the front-end Web applicati
 
 Service Fabric provides complete flexibility in how you communicate with reliable services. Within a single application, you might have services that are accessible via TCP. Other services that might be accessible via an HTTP REST API and still other services could be accessible via web sockets. For background on the options available and the tradeoffs involved, see [Communicating with services](service-fabric-connect-and-communicate-with-services.md).
 
-This tutorial uses [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) and the [Service Fabric reverse proxy](service-fabric-reverseproxy.md) so the VotingWeb front-end web service can communicate with the back-end VotingData service. The reverse proxy is configured by default to use port 19081 and should work for this tutorial. The port is set in the ARM template used to set up the cluster. To find which port is used, look in the cluster template in the **Microsoft.ServiceFabric/clusters** resource or look at the HttpApplicationGatewayEndpoint element in the cluster Manifest.
-
-> [!NOTE]
-> The reverse proxy is only supported on a cluster running Windows 8 and later or Windows Server 2012 and later.
-
-<u>Microsoft.ServiceFabric/clusters reverseProxyEndpointPort resource</u>
+This tutorial uses [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) and the [Service Fabric reverse proxy](service-fabric-reverseproxy.md) so the VotingWeb front-end web service can communicate with the back-end VotingData service. The reverse proxy is configured by default to use port 19081 and should work for this tutorial. The reverse proxy port is set in the Azure Resource Manager template used to set up the cluster. To find which port is used, look in the cluster template in the **Microsoft.ServiceFabric/clusters** resource: 
 
 ```json
 "nodeTypes": [
@@ -469,13 +462,10 @@ This tutorial uses [ASP.NET Core Web API](service-fabric-reliable-services-commu
           }
         ],
 ```
-To view the HttpApplicationGatewayEndpoint element in the local Service Fabric cluster Manifest:
-1. Open a browser window and navigate to http://localhost:19080.
-2. Click **Manifest**.
+To find the reverse proxy port used in your local development cluster, view the **HttpApplicationGatewayEndpoint** element in the local Service Fabric cluster manifest:
+1. Open a browser window and navigate to http://localhost:19080 to open the Service Fabric Explorer tool.
+2. Select **Cluster -> Manifest**.
 3. Make a note of the HttpApplicationGatewayEndpoint element port. By default this should be 19081. If it is not 19081, you will need to change the port in the GetProxyAddress method of the following VotesController.cs code.
-
-
-
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
@@ -619,9 +609,9 @@ When debugging application in Visual Studio, you are using a local Service Fabri
 
 To look at what happens in the code, complete the following steps:
 
-1. Open the **VotingWeb\VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 63).
+1. Open the **VotingWeb\VotesController.cs** file and set a breakpoint in the web API's **Put** method (line 72).
 
-2. Open the **VotingData\VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 53).
+2. Open the **VotingData\VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 54).
 
 3. Press **F5** to start the application in debug mode.
 

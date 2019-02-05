@@ -3,7 +3,7 @@ title: Tutorial - Create a development pipeline in Azure with Jenkins | Microsof
 description: Tutorial - In this tutorial, you learn how to create a Jenkins virtual machine in Azure that pulls from GitHub on each code commit and builds a new Docker container to run your app.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/27/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator or developer, I want to learn about CI/CD options in Azure so that I can automatically deploy my apps based on code commits to GitHub.
@@ -73,7 +73,7 @@ Before you can create a VM, create a resource group with [az group create](/cli/
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Now create a VM with [az vm create](/cli/azure/vm#az_vm_create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to *cloud-init-jenkins.txt* if you saved the file outside of your present working directory.
+Now create a VM with [az vm create](/cli/azure/vm). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to *cloud-init-jenkins.txt* if you saved the file outside of your present working directory.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
@@ -158,7 +158,7 @@ To test the GitHub integration with Jenkins, commit a change in your fork.
 
 Back in GitHub web UI, select your forked repo, and then select the **index.js** file. Select the pencil icon to edit this file so line 6 reads:
 
-```nodejs
+```javascript
 response.end("Hello World!");
 ```
 

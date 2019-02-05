@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
-ms.component: ""
+ms.subservice: ""
 ---
 # Consume monitoring data from Azure
 
@@ -23,7 +23,7 @@ Across the Azure platform, we are bringing together monitoring data in a single 
 | Storage metrics | Metrics | Azure Storage | <ul><li>**Storage table:** [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Billing data | Metrics | All Azure services | <ul><li>**REST API:** [Azure Resource Usage and RateCard APIs](../../billing/billing-usage-rate-card-overview.md)</li></ul> |
 | Activity Log | Events | All Azure services | <ul><li>**REST API:** [Azure Monitor Events API](https://docs.microsoft.com/rest/api/monitor/eventcategories)</li><li>**Storage blob or event hub:** [Log Profile](activity-logs-overview.md#export-the-activity-log-with-a-log-profile)</li></ul> |
-| Azure Monitor Diagnostic Logs | Events | [See list here](tutorial-dashboards.md) | <ul><li>**Storage blob or event hub:** [Diagnostic Settings](diagnostic-logs-overview.md#diagnostic-settings)</li></ul> |
+| Azure Monitor Diagnostic Logs | Events | [See list here](diagnostic-logs-schema.md) | <ul><li>**Storage blob or event hub:** [Diagnostic Settings](diagnostic-logs-overview.md#diagnostic-settings)</li></ul> |
 | Compute guest OS logs (eg. IIS, ETW, syslogs) | Events | [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) and Linux Virtual Machines (v2), [Cloud Services](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Storage table or blob:** [Windows or Linux Azure diagnostics](diagnostics-extension-to-storage.md)</li><li>**Event hub:** [Windows Azure diagnostics](diagnostics-extension-stream-event-hubs.md)</li></ul> |
 | App Service logs | Events | App services | <ul><li>**File, table, or blob storage:** [Web app diagnostics](../../app-service/troubleshoot-diagnostic-logs.md)</li></ul> |
 | Storage logs | Events | Azure Storage | <ul><li>**Storage table:** [Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
@@ -43,3 +43,4 @@ Across the Azure platform, we are bringing together monitoring data in a single 
 - Learn more about [Azure Monitor metrics](data-collection.md)
 - Learn more about [the Azure Activity Log](activity-logs-overview.md)
 - Learn more about [Azure Diagnostic Logs](diagnostic-logs-overview.md)
+

@@ -7,7 +7,7 @@ author: swhite-msft
 manager: cgronlun
 ms.assetid: 0BCD936E-D4C0-472D-AE40-F4B2AB6912D5
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
@@ -403,7 +403,7 @@ The following shows the response to the previous request. The response contains 
 }
 ```
 
-To get a list of the merchants that offer the product online (see the [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offer-offercount) field), call the API again and set `modules` to ShoppingSources. Then, set the `insightsToken` query parameter to the token found in the product summary image.  
+To get a list of the merchants that offer the product online (see the [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) field), call the API again and set `modules` to ShoppingSources. Then, set the `insightsToken` query parameter to the token found in the product summary image.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=ShoppingSources&insightsToken=ccid_hb3uRvUk*mid_BF5C252A47F2C765...&mkt=en-us HTTP/1.1    

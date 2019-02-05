@@ -32,7 +32,6 @@ You can set up an Azure Blob Storage indexer using:
 > [!NOTE]
 > Some features (for example, field mappings) are not yet available in the portal, and have to be used programmatically.
 >
->
 
 Here, we demonstrate the flow using the REST API.
 

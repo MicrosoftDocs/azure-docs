@@ -12,9 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/03/2018
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
+ms.lastreviewed: 01/30/2019
 
 ---
 # Azure Stack storage: Differences and considerations
@@ -31,7 +32,7 @@ This article summarizes the known Azure Stack Storage differences from Azure Sto
 | --- | --- | --- |
 |File storage|Cloud-based SMB file shares supported|Not yet supported
 |Azure storage service encryption for data at Rest|256-bit AES encryption. Support encryption using customer-managed keys in Key Vault.|BitLocker 128-bit AES encryption. Encryption using customer-managed keys isn’t supported.
-|Storage account type|General-purpose V1, V2 and Blob storage accounts|General-purpose V1 only.
+|Storage account type|General-purpose V1, V2, and Blob storage accounts|General-purpose V1 only.
 |Replication options|Locally redundant storage, geo-redundant storage, read-access geo-redundant storage, and zone-redundant storage|Locally redundant storage.
 |Premium storage|Fully supported|Can be provisioned, but no performance limit or guarantee.
 |Managed disks|Premium and standard supported|Supported when you use version 1808 or later.
@@ -62,16 +63,8 @@ Azure Storage services APIs:
 
 1811 update or newer versions:
 
- - [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
- - [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
- - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
-
-1802 update to 1809 update:
-
+- [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
@@ -80,35 +73,34 @@ Azure Storage services APIs:
 
 Previous versions:
 
+- [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+- [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+- [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+- [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
 - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Azure Storage services management APIs:
 
-- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+1811 update or newer versions:
+
+- [2017-10-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2017-06-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-12-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-05-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
 Previous versions:
 
- - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- 
-## SDK versions
+- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
-Azure Stack storage supports the following client libraries:
-
-| Client library | Azure Stack supported version | Link                                                                                                                                                                                                                                                                                                                                     | Endpoint specification       |
-|----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| .NET           | From 6.2.0 to 8.7.0.          | NuGet package:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>GitHub release:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | app.config file              |
-| Java           | From 4.1.0 to 6.1.0           | Maven package:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>GitHub release:<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | Connection string setup      |
-| Node.js        | From 1.1.0 to 2.7.0           | NPM link:<br>https://www.npmjs.com/package/azure-storage<br>(For example: run "npm install azure-storage@2.7.0")<br> <br>GitHub release:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Service instance declaration |
-| C++            | From 2.4.0 to 3.1.0           | NuGet package:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub release:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Connection string setup      |
-| PHP            | From 0.15.0 to 1.0.0          | GitHub release:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Install via Composer (see details below)                                                                                                                                                                                                                  | Connection string setup      |
-| Python         | From 0.30.0 to 1.0.0          | GitHub release:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Service instance declaration |
-| Ruby           | From 0.12.1 to 1.0.1          | RubyGems package:<br>Common:<br>https://rubygems.org/gems/azure-storage-common/<br>Blob: https://rubygems.org/gems/azure-storage-blob/<br>Queue: https://rubygems.org/gems/azure-storage-queue/<br>Table: https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub release:<br>https://github.com/Azure/azure-storage-ruby/releases | Connection string setup      |
+For more information about Azure Stack supported storage client libraries, see: [Get started with Azure Stack storage development tools](azure-stack-storage-dev.md).
 
 ## Next steps
 
 * [Get started with Azure Stack Storage development tools](azure-stack-storage-dev.md)
+* [Use data transfer tools for Azure Stack storage](azure-stack-storage-transfer.md)
 * [Introduction to Azure Stack Storage](azure-stack-storage-overview.md)

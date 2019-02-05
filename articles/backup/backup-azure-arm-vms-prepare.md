@@ -55,8 +55,6 @@ This article describes how to prepare for backing up an Azure VM using an [Azure
     - You don't need to specify storage accounts to store the backup data. The vault and the Azure Backup service handle that automatically.
 - Verify that the VM agent is installed on Azure VMs that you want to back up.
 
-
-
 ### Install the VM agent
 
 To enable backup, Azure Backup installs a backup extension (VM Snapshot or VM Snapshot Linux) to the VM agent that runs on the Azure VM.
@@ -73,12 +71,14 @@ If you have problems backing up the Azure VM, use the following table to check t
 
 ### Establish network connectivity
 
-The Backup extension running on the VM must have outbound access to Azure public IP addresses. To allow access you can:
+The Backup extension running on the VM must have outbound access to Azure public IP addresses.
 
+> [!NOTE]
+> No explicit outbound network access is required for Azure VM to communicate with Azure Backup Service. However, certain older virtual machines may face issues and fail with the error **ExtensionSnapshotFailedNoNetwork**, to overcome this error, choose one of the following options to allow the backup extension to communicate to Azure public IP addresses to provide a clear path for backup traffic.
 
-- **NSG rules**: Allow the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). You can add a rule that allows access to the Azure Backup service using a [service tag](../virtual-network/security-overview.md#service-tags), instead of individually allowing every address range, and managing them over time.
+- **NSG rules**: Allow the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). You can add a rule that allows access to the Azure Backup service using a [service tag](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure), instead of individually allowing every address range, and managing them over time. For more information on service tag, see this [article](../virtual-network/security-overview.md#service-tags).
 - **Proxy**: Deploy an HTTP proxy server for routing traffic.
-- **Azure Firewall**: Allow traffic through the Azure Firewall on the VM, using an FQDN tag for the Azure Backup service.
+- **Azure Firewall**: Allow traffic through the Azure Firewall on the VM, using an FQDN tag for the Azure Backup service
 
 When deciding between options, consider the tradeoffs.
 
@@ -88,22 +88,17 @@ When deciding between options, consider the tradeoffs.
 **HTTP proxy** | Granular control over the storage URLs is allowed.<br/><br/> Single point of internet access for VMs.<br/><br/> Additional costs for proxy.
 **FQDN tags** | Simple to use if you have Azure Firewall set up in a VNet subnet | Can't create your own FQDN tags, or modify FQDNs in a tag.
 
-
-
 If you use Azure Managed Disks, you might need an additional port opening (port 8443) on the firewalls.
-
-
 
 ### Set up an NSG rule to allow outbound access to Azure
 
 If your Azure VM has access managed by an NSG, allow outbound access for the backup storage to the required ranges and ports.
 
-
-
 1. In the VM > **Networking**, click **Add outbound port rule**.
-- If you have a rule denying access, the new allow rule must be higher. For example, if you have a **Deny_All** rule set at priority 1000, your new rule must be set to less than 1000.
+
+  - If you have a rule denying access, the new allow rule must be higher. For example, if you have a **Deny_All** rule set at priority 1000, your new rule must be set to less than 1000.
 2. In **Add outbound security rule**, click **Advanced**.
-3. In Source, select **VirtualNetwork**.
+3. In **Source**, select **VirtualNetwork**.
 4. In **Source port ranges**, type in an asterisk (*) to allow outbound access from any port.
 5. In **Destination**, select **Service Tag**. From the list, select Storage.<region>. The region is the region in which the vault, and the VMs you want to back up, are located.
 6. In **Destination port ranges**, select the port.
@@ -111,9 +106,9 @@ If your Azure VM has access managed by an NSG, allow outbound access for the bac
     - VM with unmanaged disks and unencrypted storage account: 80
     - VM with unmanaged disks and encrypted storage account: 443 (default setting)
     - Managed VM: 8443.
-1. In **Protocol**, select **TCP**.
-2. In **Priority**, give it a priority value less than any higher deny rules.
-3. Provide a name and description for the rule, and click **OK**.
+7. In **Protocol**, select **TCP**.
+8. In **Priority**, give it a priority value less than any higher deny rules.
+9. Provide a name and description for the rule, and click **OK**.
 
 You can apply the NSG rule to multiple VMs to allow outbound access to Azure for Azure Backup.
 
@@ -121,12 +116,12 @@ This video walks you through the process.
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-
+> [!WARNING]
+> Storage service tags are in preview. They are available only in specific regions. For a list of regions, see [Service tags for storage](../virtual-network/security-overview.md#service-tags).
 
 ### Route backup traffic through a proxy
 
 You can route backup traffic through a proxy, and then give the proxy access to the required Azure ranges.
-
 You should configure your proxy VM to allow the following:
 
 - The Azure VM should route all HTTP traffic bound for the public internet through the proxy.
@@ -148,7 +143,7 @@ If you don't have a system account proxy, set one up as follows:
         - Add these lines to the **/etc/waagent.conf** file:
             - **HttpProxy.Host=proxy IP address**
             - **HttpProxy.Port=proxy port**
-    - On Windows machines, in the browser settings, specify that a proxy should be used. If you're currently using a proxy on a user account, you can use this script to apply the setting at the system acccount level.
+    - On Windows machines, in the browser settings, specify that a proxy should be used. If you're currently using a proxy on a user account, you can use this script to apply the setting at the system account level.
         ```
        $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
        Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
@@ -161,8 +156,9 @@ If you don't have a system account proxy, set one up as follows:
 
 #### Allow incoming connections on the proxy
 
-1. Allow incoming connections in the proxy settings.
-2. For example, open **Windows Firewall with Advanced Security**.
+Allow incoming connections in the proxy settings.
+
+- For example, open **Windows Firewall with Advanced Security**.
     - Right-click **Inbound Rules** > **New Rule**.
     - In **Rule Type** select **Custom** > **Next**.
     - In **Program**, select **All Programs** > **Next**.
@@ -180,13 +176,13 @@ On the NSG **NSF-lockdown**, allow traffic from any port on 10.0.0.5 to any inte
     Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
     Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
     ```
+
 ### Allow firewall access with FQDN tag
 
 You can set up the Azure Firewall to allow outbound access for network traffic to Azure Backup.
 
 - [Learn about](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) deploying Azure Firewall.
 - [Read about](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN tags.
-
 
 ## Create a vault
 
@@ -221,7 +217,7 @@ After your vault is created, it appears in the list of Recovery Services vaults.
 
 ## Set up storage replication
 
-By default, your vault has [geo-redundant storage (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). We recommend GRS for your primary backup, but you can use[locally-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for a cheaper option. 
+By default, your vault has [geo-redundant storage (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). We recommend GRS for your primary backup, but you can use[locally-redundant storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for a cheaper option.
 
 Modify storage replication as follows:
 

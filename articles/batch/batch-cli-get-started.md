@@ -3,7 +3,7 @@ title: Get started with Azure CLI for Batch | Microsoft Docs
 description: Get a quick introduction to the Batch commands in Azure CLI for managing Azure Batch service resources
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 07/24/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -58,8 +58,8 @@ To use the Azure CLI with Batch, you need to log in and authenticate. There are 
 
 There are a few different ways to log into Azure, described in detail in [Log in with Azure CLI](/cli/azure/authenticate-azure-cli):
 
-1. [Log in interactively](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-interactive-log-in). Log in interactively when you are running Azure CLI commands yourself from the command line.
-2. [Log in with a service principal](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). Log in with a service principal when you are running Azure CLI commands from a script or an application.
+1. [Log in interactively](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Log in interactively when you are running Azure CLI commands yourself from the command line.
+2. [Log in with a service principal](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Log in with a service principal when you are running Azure CLI commands from a script or an application.
 
 For the purposes of this article, we show how to log into Azure interactively. Type [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) on the command line:
 

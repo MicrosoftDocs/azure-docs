@@ -2,32 +2,36 @@
   href: index.yml
 - name: SQL Database Service
   items:
-  - name: What is SQL DB
+  - name: What is SQL Database
     href: sql-database-technical-overview.md
   - name: Choose a version of Azure SQL
-    href: sql-database-paas-vs-sql-server-iaas.md  
+    href: sql-database-paas-vs-sql-server-iaas.md
 - name: Quickstarts
   expanded: true
   items:
+  - name: Single database quickstart guide
+    href: sql-database-single-database-quickstart-guide.md
+  - name: Managed instance quickstart guide
+    href: sql-database-managed-instance-quickstart-guide.md
   - name: Create
     items: 
     - name: Single database
       href: sql-database-get-started-portal.md
-    - name: Managed Instance
+    - name: Managed instance
       href: sql-database-managed-instance-get-started.md
   - name: Configure
     items:
-    - name: Logical server firewall rule
+    - name: Database server firewall rules
       href: sql-database-get-started-portal-firewall.md
-    - name: Client VM connection to a Managed Instance
+    - name: Client VM connection to a managed instance
       href: sql-database-managed-instance-configure-vm.md
-    - name: Point-to-site connection to a Managed Instance
+    - name: Point-to-site connection to a managed instance
       href: sql-database-managed-instance-configure-p2s.md
   - name: Load data
     items:
     - name: Import BACPAC into a new database
       href: sql-database-import.md
-    - name: Restore database backup to a Managed Instance
+    - name: Restore database backup to a managed instance
       href: sql-database-managed-instance-get-started-restore.md
   - name: Query
     href: sql-database-connect-query.md
@@ -70,12 +74,16 @@
       href: sql-database-design-first-database-csharp.md
   - name: Migrate to Azure SQL Database
     items:
-    - name: Migrate to a Single Database using DMS
+    - name: Migrate to a single/pooled database using DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-    - name: Migrate to a Managed Instance using DMS
+    - name: Migrate to a managed instance using DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-  - name: Secure your database
-    href: sql-database-security-tutorial.md
+  - name: Security in Azure SQL Database
+    items:
+    - name: Single database security
+      href: sql-database-security-tutorial.md
+    - name: Managed instance security with Azure AD logins
+      href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
   - name: Set up Azure SQL Data Sync
@@ -87,7 +95,9 @@
   - name: Azure CLI
     href: sql-database-cli-samples.md
   - name: Azure PowerShell
-    href: sql-database-powershell-samples.md 
+    href: sql-database-powershell-samples.md
+  - name: Azure Resource Manager
+    href: sql-database-resource-manager-samples.md 
 - name: Concepts
   items:
   - name: Purchasing models
@@ -106,11 +116,11 @@
     items:
     - name: Overview
       href: sql-database-service-tiers-general-purpose-business-critical.md
-    - name: General Purpose / Standard
+    - name: General purpose / Standard service tiers
       href: sql-database-service-tier-general-purpose.md
-    - name: Business Critical / Premium
+    - name: Business critical / Premium service tiers
       href: sql-database-service-tier-business-critical.md
-    - name: Hyperscale
+    - name: Hyperscale service tier
       href: sql-database-service-tier-hyperscale.md
     - name: Hyperscale FAQ
       href: sql-database-service-tier-hyperscale-faq.md
@@ -118,36 +128,42 @@
     items:
     - name: Single database overview
       href: sql-database-single-index.yml
-    - name: Create and manage
+    - name: Single database capabilities
+      href: sql-database-single-database.md  
+    - name: Management API reference
       href: sql-database-single-databases-manage.md
-    - name: Logical servers
-      items: 
-        - name: Create and manage
-          href: sql-database-logical-servers.md
-        - name: Resource limits
-          href: sql-database-resource-limits-logical-server.md
-        - name: Connectivity architecture
-          href: sql-database-connectivity-architecture.md 
-        - name: T-SQL differences
-          href: sql-database-transact-sql-information.md 
-    - name: Elastic pools
+    - name: T-SQL differences
+      href: sql-database-transact-sql-information.md 
+    - name: Database servers and resources
       items:
-      - name: Elastic pools
-        href: sql-database-elastic-pool.md
-      - name: Create and manage
-        href: sql-database-elastic-pool-manage.md
+      - name: Database server overview
+        href: sql-database-servers.md
+      - name: Database server resource limits 
+        href: sql-database-resource-limits-database-server.md
+      - name: Connectivity architecture
+        href: sql-database-connectivity-architecture.md 
+    - name: Single database resources
+      items:    
+      - name: vCore-based resource limits
+        href: sql-database-vcore-resource-limits-single-databases.md  
+      - name: DTU-based resource limits
+        href: sql-database-dtu-resource-limits-single-databases.md
+      - name: Scale resources
+        href: sql-database-single-database-scale.md
+  - name: Elastic pools
+    items:
+    - name: Elastic pools
+      href: sql-database-elastic-pool.md
+    - name: Elastic pool resources
+      items:
       - name: vCore-based resource limits
         href: sql-database-vcore-resource-limits-elastic-pools.md  
       - name: DTU-based resource limits
         href: sql-database-dtu-resource-limits-elastic-pools.md  
       - name: Scale resources
         href: sql-database-elastic-pool-scale.md
-    - name: vCore-based resource limits
-      href: sql-database-vcore-resource-limits-single-databases.md  
-    - name: DTU-based resource limits
-      href: sql-database-dtu-resource-limits-single-databases.md
-    - name: Scale resources
-      href: sql-database-single-database-scale.md
+    - name: Create and manage
+      href: sql-database-elastic-pool-manage.md
   - name: Managed instances
     items:
     - name: Managed instances overview
@@ -200,17 +216,17 @@
       href: sql-database-security-index.yml
     - name: Security capabilities
       href: sql-database-security-overview.md
-    - name: Advanced Threat Protection
+    - name: Advanced data security
       items:
-      - name: Advanced Threat Protection
-        href: sql-advanced-threat-protection.md
+      - name: Advanced data security
+        href: sql-database-advanced-data-security.md
       - name: Data discovery and classification
         href: sql-database-data-discovery-and-classification.md
       - name: Vulnerability assessment
         href: sql-vulnerability-assessment.md
       - name: Threat detection
         href: sql-database-threat-detection-overview.md
-    - name: Firewall rules
+    - name: Database server IP firewall rules
       items:
       - name: Create and manage
         href: sql-database-firewall-configure.md      
@@ -228,9 +244,9 @@
       href: sql-database-aad-authentication.md
     - name: Auditing
       items:
-      - name: Auditing - Servers, pools, and databases
+      - name: Auditing - Single databases and elastic pools
         href: sql-database-auditing.md
-      - name: Auditing - Managed Instance
+      - name: Auditing - Managed instance
         href: sql-database-managed-instance-auditing.md
       - name: Table auditing (deprecated)
         href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
@@ -278,8 +294,6 @@
       href: sql-database-elastic-query-overview.md
     - name: Elastic transactions
       href: sql-database-elastic-transactions-overview.md
-    - name: Elastic Database jobs
-      href: elastic-jobs-overview.md
   - name: SQL features comparison
     href: sql-database-features.md
   - name: Monitoring and tuning
@@ -306,6 +320,12 @@
         href: sql-database-performance.md
       - name: Database advisor performance recommendations
         href: sql-database-advisor.md
+  - name: Load and move data
+    items: 
+      - name: SQL Data Sync
+        href: sql-database-sync-data.md
+      - name: Transactional replication
+        href: sql-database-managed-instance-transactional-replication.md
   - name: Databases features
     items:
     - name: Databases features
@@ -316,6 +336,8 @@
       href: sql-database-in-memory.md
     - name: Temporal tables 
       href: sql-database-temporal-tables.md
+    - name: Job automation 
+      href: sql-database-job-automation-overview.md
 - name: How-to guides
   items:
   - name: Overview
@@ -328,12 +350,14 @@
       href: sql-database-cloud-migrate.md
     - name: Manage SQL database after migration
       href: sql-database-manage-after-migration.md
-    - name: Configure transactional replication
+    - name: Configure replication
       href: replication-to-sql-database.md
     - name: Configure threat detection
       href: sql-database-threat-detection.md
     - name: Configure backup retention using Azure blob storage
       href: sql-database-long-term-backup-retention-configure.md
+    - name: Configure Elastic Database jobs
+      href: elastic-jobs-overview.md
     - name: Configure dynamic data masking
       href: sql-database-dynamic-data-masking-get-started-portal.md
     - name: Configure geo-replication - Portal
@@ -408,11 +432,11 @@
       href: sql-database-managed-instance-migrate.md
     - name: Migrate TDE cert to Managed instance
       href: sql-database-managed-instance-migrate-tde-certificate.md
-    - name: Determine size of Managed Instance subnet 
+    - name: Determine size of managed instance subnet 
       href: sql-database-managed-instance-determine-size-vnet-subnet.md
-    - name: Create new VNet and subnet for Managed Instance
+    - name: Create new VNet and subnet for managed instance
       href: sql-database-managed-instance-create-vnet-subnet.md
-    - name: Configure existing VNet and subnet for Managed Instance
+    - name: Configure existing VNet and subnet for managed instance
       href: sql-database-managed-instance-configure-vnet-subnet.md
     - name: Configure custom DNS
       href: sql-database-managed-instance-custom-dns.md
@@ -438,8 +462,6 @@
       href: sql-database-export.md
     - name: Data sync
       items:
-      - name: SQL Data Sync
-        href: sql-database-sync-data.md
       - name: Data Sync Agent
         href: sql-database-data-sync-agent.md
       - name: Replicate schema changes
@@ -524,6 +546,12 @@
       href: sql-database-develop-cplusplus-simple.md
     - name: Excel
       href: sql-database-connect-excel.md
+    - name: Java
+      items:
+      - name: Use Spring Data JDBC
+        href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server 
+      - name: Use Spring Data JPA
+        href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server
   - name: Design applications
     items:
     - name: Design for disaster recovery
@@ -546,7 +574,7 @@
           href: saas-tenancy-welcome-wingtip-tickets-app.md
         - name: General guidance
           href: saas-tenancy-wingtip-app-guidance-tips.md
-        - name: Standalone application
+        - name: Single application
           items:
           - name: Deploy example app
             href: saas-standaloneapp-get-started-deploy.md
@@ -616,6 +644,8 @@
     href: /sql/t-sql/language-reference
   - name: REST
     href: /rest/api/sql/
+  - name: Resource Manager templates for SQL
+    href: /azure/templates/microsoft.sql/allversions
   - name: SQL Server tools
     href: /sql/tools/overview-sql-tools
   - name: SQL Server Management Studio (SSMS)
@@ -641,6 +671,8 @@
       href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Resources
   items:
+  - name: Glossary of terms
+    href: sql-database-glossary-terms.md
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-sql-database
   - name: Azure Roadmap

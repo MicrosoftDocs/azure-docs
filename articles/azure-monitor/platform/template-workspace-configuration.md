@@ -112,7 +112,7 @@ The following parameters set a default value:
     ```
 2. Edit the template to meet your requirements.  Review [Microsoft.OperationalInsights/workspaces template](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) reference to learn what properties and values are supported. 
 3. Save this file as **deploylaworkspacetemplate.json** to a local folder.
-4. You are ready to deploy this template. You use either PowerShell or the command line to cretae the workspace.
+4. You are ready to deploy this template. You use either PowerShell or the command line to create the workspace.
 
    * For PowerShell use the following commands from the folder containing the template:
    

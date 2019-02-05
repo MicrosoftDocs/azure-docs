@@ -3,11 +3,11 @@ title: Add or remove a group from another group - Azure Active Directory | Micro
 description: Instructions about how to add or remove a group from another group using Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: lizross

@@ -6,6 +6,8 @@
   - name: Machine Learning Studio
     displayName: overview
     href: what-is-ml-studio.md
+  - name: Compare our ML products
+    href: ../service/overview-more-machine-learning.md       
   - name: ML Studio capabilities
     displayName: overview
     href: studio-overview-diagram.md
@@ -15,9 +17,7 @@
   - name: Frequently asked questions
     displayName: FAQ
     href: faq.md
-  - name: What's new?
-    href: whats-new.md
-- name: Get Started
+- name: Tutorials
   items:
   - name: Create your first experiment
     displayName: quickstart
@@ -40,6 +40,14 @@
     - name: 6 - Access web service
       displayName: consume
       href: walkthrough-6-access-web-service.md
+- name: Samples
+  items:
+  - name: Available datasets
+    href: use-sample-datasets.md
+  - name: Azure AI Gallery
+    href: gallery-how-to-use-contribute-publish.md
+- name: Concepts
+  items:
   - name: Data Science for Beginners
     items:
     - name: 1 - Five questions
@@ -52,42 +60,6 @@
       href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
     - name: 5 - Copy other people's work
       href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
-  - name: R quick start
-    href: r-quickstart.md
-- name: Samples
-  items:
-  - name: Sample datasets
-    href: use-sample-datasets.md
-  - name: Customer churn example
-    href: azure-ml-customer-churn-scenario.md
-  - name: Azure AI Gallery
-    items:
-    - name: Overview
-      href: gallery-how-to-use-contribute-publish.md
-    - name: Sample experiments
-      href: sample-experiments.md
-    - name: Industries
-      href: gallery-industries.md
-    - name: Solutions
-      href: gallery-solutions.md
-    - name: Experiments
-      href: gallery-experiments.md
-    - name: Jupyter Notebooks
-      href: gallery-jupyter-notebooks.md
-    - name: Competitions
-      href: gallery-competitions.md
-    - name: Competitions FAQ
-      href: competition-faq.md
-    - name: Tutorials
-      href: gallery-tutorials.md
-    - name: Collections
-      href: gallery-collections.md
-    - name: Custom Modules
-      href: gallery-custom-modules.md
-    - name: View and delete account data
-      href: ai-gallery-control-personal-data-dsr.md 
-- name: Concepts
-  items:
   - name: Model management
     displayName: deploy, consume, web service
     href: deploy-consume-web-service-guide.md
@@ -103,20 +75,11 @@
       href: troubleshooting-creating-ml-workspace.md
     - name: Deploy using ARM
       href: deploy-with-resource-manager-template.md
-    - name: View and delete Studio account data
-      displayName: export
-      href: export-delete-personal-data-dsr.md
   - name: Import training data
     items:
-    - name: Overview
+    - name: Import data
       href: import-data.md
-    - name: From a local file
-      href: import-data-from-local-file.md
-    - name: From online sources
-      href: import-data-from-online-sources.md
-    - name: From an experiment
-      href: import-data-from-an-experiment.md
-    - name: Use on-prem SQL
+    - name: Use data from on-premises SQL
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
   - name: Create and train models
@@ -128,16 +91,9 @@
     - name: Use PowerShell to create models
       displayName: endpoint, endpoints
       href: create-models-and-endpoints-with-powershell.md
-    - name: Select algorithms
-      items:
-      - name: Choose algorithms
-        href: algorithm-choice.md
-      - name: Algorithm cheat sheet
-        href: algorithm-cheat-sheet.md
-      - name: Use linear regression
-        href: linear-regression-in-azure.md
-      - name: Use text analytics
-        href: text-analytics-module-tutorial.md
+    - name: Try experiments in AI Gallery
+      displayName: gallery
+      href: sample-experiments.md
     - name: Evaluate and interpret results
       items:
       - name: Evaluate performance
@@ -151,12 +107,20 @@
         href: debug-models.md
     - name: Use R and Python
       items:
+      - name: Get started in R
+        href: r-quickstart.md
       - name: Execute R scripts
         href: extend-your-experiment-with-r.md
       - name: Author custom R modules
         href: custom-r-modules.md
       - name: Execute Python scripts
         href: execute-python-scripts.md
+  - name: Select an algorithm
+    items:
+    - name: Choose algorithms
+      href: algorithm-choice.md
+    - name: Algorithm cheat sheet
+      href: algorithm-cheat-sheet.md        
   - name: Deploy models
     items:
     - name: Deploy a web service
@@ -213,30 +177,41 @@
       href: consume-web-service-with-web-app-template.md
     - name: Use Batch Pool
       href: dedicated-capacity-for-bes-jobs.md
+  - name: Examples
+    items: 
+    - name: Customer churn
+      href: azure-ml-customer-churn-scenario.md
+    - name: Sentiment analysis
+      href: text-analytics-module-tutorial.md
+    - name: Migrate analytics from Excel to Studio
+      href: linear-regression-in-azure.md
+  - name: View and delete Studio data
+    displayName: export
+    href: export-delete-personal-data-dsr.md
+  - name: View and delete Gallery data
+    displayName: export
+    href: ai-gallery-control-personal-data-dsr.md 
 - name: Reference
   items:
-  - name: Azure PowerShell module (New)
-    href: https://docs.microsoft.com/powershell/module/azurerm.machinelearning
-  - name: Azure PowerShell module (Classic)
+  - name: Algorithm & module reference
+    href: /azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help
+  - name: Azure PowerShell modules
     href: powershell-module.md
-  - name: Algorithm & Module reference
-    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
-  - name: REST management APIs
-    href: /rest/api/machinelearning
   - name: Web service error codes
     href: web-service-error-codes.md
+  - name: REST management APIs
+    href: /rest/api/machinelearning
 - name: Resources
   items:
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=machine-learning-studio
+  - name: Get support
+    href: support-aml-studio.md
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/    
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/machine-learning/
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Net# Neural Networks Language
+  - name: Custom neural networks (Net#)
     href: azure-ml-netsharp-reference-guide.md
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
-  - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-machine-learning
-  - name: R developer's guide 
-    href: ../r-developers-guide.md
-    
