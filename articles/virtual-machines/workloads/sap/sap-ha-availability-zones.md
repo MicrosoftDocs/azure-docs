@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 
 # SAP workload configurations with Azure Availability Zones
 
-One of the high availability functionalities Azure offers to improve the overall availability of SAP workload on Azure, are [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). Availability zones are available in different [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/) already. More regions will follow. 
+One of the high availability functionalities Azure offers to improve the overall availability of SAP workload on Azure, are [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). Availability zones are offered in several [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/) already. More regions will follow. 
 
 The basic architecture of SAP high availability can be described as displayed in this graphic:
 
