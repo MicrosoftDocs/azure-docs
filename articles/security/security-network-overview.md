@@ -81,7 +81,7 @@ Learn more:
 
 Learn more:
 
-* [Azure Security Center Just in T](../security-center/security-center-just-in-time.md)
+* [Azure Security Center Just in Time Access](../security-center/security-center-just-in-time.md)
 
 #### Service endpoints
 
