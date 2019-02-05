@@ -205,21 +205,27 @@ If you select **Use system proxy** setting for the HTTP proxy, gateway uses the 
 1. In File Explorer, make a safe copy of C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config to back up the original file.
 2. Launch Notepad.exe running as administrator, and open text file "C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config. You find the default tag for system.net as shown in the following code:
 
-         <system.net>
-             <defaultProxy useDefaultCredentials="true" />
-         </system.net>
+    ```
+    <system.net>
+        <defaultProxy useDefaultCredentials="true" />
+    </system.net>
+    ```
 
-   You can then add proxy server details as shown in the following example:
+    You can then add proxy server details as shown in the following example:
 
-         <system.net>
-               <defaultProxy enabled="true">
-                     <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
-               </defaultProxy>
-         </system.net>
+    ```
+    <system.net>
+        <defaultProxy enabled="true">
+            <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
+        </defaultProxy>
+    </system.net>
+    ```
 
-   Additional properties are allowed inside the proxy tag to specify the required settings like scriptLocation. Refer to [proxy Element (Network Settings)](https://msdn.microsoft.com/library/sa91de1e.aspx) on syntax.
+    Additional properties are allowed inside the proxy tag to specify the required settings like scriptLocation. Refer to [proxy Element (Network Settings)](https://msdn.microsoft.com/library/sa91de1e.aspx) on syntax.
 
-         <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
+    ```
+    <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
+    ```
 3. Save the configuration file into the original location, then restart the Data Management Gateway Host service, which picks up the changes. To restart the service: use services applet from the control panel, or from the **Data Management Gateway Configuration Manager** > click the **Stop Service** button, then click the **Start Service**. If the service does not start, it is likely that an incorrect XML tag syntax has been added into the application configuration file that was edited.
 
 > [!IMPORTANT]
@@ -456,8 +462,8 @@ To encrypt credentials in the Data Factory Editor, do the following steps:
 				"connectionString": "data source=myserver;initial catalog=mydatabase;Integrated Security=False;EncryptedCredential=eyJDb25uZWN0aW9uU3R",
 				"gatewayName": "adftutorialgateway"
 			}
-     	}
- 	}
+		}
+	}
 	```
 If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it does not allow you to set credentials for the data source and to test connection to the data source.
 
