@@ -168,7 +168,7 @@ Create the Site-to-Site VPN connection between your virtual network gateway and 
 Create the connection using the [az network vpn-connection create](/cli/azure/network/vpn-connection) command.
 
 ```azurecli-interactive
-az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
+az network vpn-connection create --name VNet1toSite2 --resource-group TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key abc123 --local-gateway2 Site2
 ```
 
 After a short while, the connection will be established.

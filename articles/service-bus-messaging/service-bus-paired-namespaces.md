@@ -98,7 +98,7 @@ Within an application that hosts the syphon, once the primary or secondary [Mess
 ## Next steps
 See [Asynchronous messaging patterns and high availability][Asynchronous messaging patterns and high availability] for a detailed discussion of Service Bus asynchronous messaging. 
 
-[PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_
+[PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
 [SendAvailabilityPairedNamespaceOptions]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
 [MessageSender]: /dotnet/api/microsoft.servicebus.messaging.messagesender
 [MessagingFactory]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory
@@ -108,11 +108,11 @@ See [Asynchronous messaging patterns and high availability][Asynchronous messagi
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [QueueDescription]: /dotnet/api/microsoft.servicebus.messaging.queuedescription
 [TimeSpan]: https://msdn.microsoft.com/library/azure/system.timespan.aspx
-[PingPrimaryInterval]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions#Microsoft_ServiceBus_Messaging_SendAvailabilityPairedNamespaceOptions_PingPrimaryInterval
+[PingPrimaryInterval]: /dotnet/api/microsoft.servicebus.messaging.sendavailabilitypairednamespaceoptions
 [QueueClient]: /dotnet/api/microsoft.servicebus.messaging.queueclient
 [TopicClient]: /dotnet/api/microsoft.servicebus.messaging.topicclient
 [ContentType]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
-[TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive
+[TimeToLive]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md
 [0]: ./media/service-bus-paired-namespaces/IC673405.png
 [1]: ./media/service-bus-paired-namespaces/IC673406.png

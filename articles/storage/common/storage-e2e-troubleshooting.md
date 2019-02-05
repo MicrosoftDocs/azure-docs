@@ -92,7 +92,7 @@ To configure logging and metrics for your storage account using the [Azure porta
 
 To get started with PowerShell for Azure, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
-1. Use the [Add-AzAccount](/powershell/module/az.account/add-azaccount) cmdlet to add your Azure user account to the PowerShell window:
+1. Use the [Add-AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) cmdlet to add your Azure user account to the PowerShell window:
    
 	```powershell
 	Add-AzAccount
