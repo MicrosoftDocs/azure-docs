@@ -61,8 +61,8 @@ Here are the sizes of the Azure objects that can be written. Make sure that all 
 
 | Azure object type | Default limit                                             |
 |-------------------|-----------------------------------------------------------|
-| Block Blob        | ~ 4.75 TB                                                 |
-| Page Blob         | 8 TB <br> (Every file uploaded in Page Blob format must be 512 bytes aligned (an integral multiple), else the upload fails. <br> The VHD and VHDX are 512 bytes aligned.) |
+| Block Blob        | ~ 4.75 TiB                                                 |
+| Page Blob         | 8 TiB <br> (Every file uploaded in Page Blob format must be 512 bytes aligned (an integral multiple), else the upload fails. <br> The VHD and VHDX are 512 bytes aligned.) |
 
 
 ## Azure block blob and page blob naming conventions
