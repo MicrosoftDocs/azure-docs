@@ -120,7 +120,7 @@ Create a Batch pool for rendering using the [az batch pool create](/cli/azure/ba
       "publisher": "batch",
       "offer": "rendering-windows2016",
       "sku": "rendering",
-      "version": "1.3.1"
+      "version": "1.3.2"
     },
     "nodeAgentSKUId": "batch.node.windows amd64"
   },
