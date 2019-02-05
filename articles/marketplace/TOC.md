@@ -1,7 +1,7 @@
 # [Azure Marketplace and AppSource documentation](index.md)
+## [Azure Marketplace and AppSource roadmap](./marketplace-roadmap.md)
 
 ## [Azure Marketplace and AppSource overview and benefits](./marketplace-publishers-guide.md)  
-
 ### [Become a publisher on the marketplace](./become-publisher.md)  
 #### [Create a Microsoft account](./guidelines.md)
 #### [Register in Dev Center](./register-dev-center.md) 
@@ -35,7 +35,10 @@
 #### [Promote your business with Microsoft](./gtm-promote-your-business.md)
 #### [Preferred solutions](./preferred-solutions.md) 
 
-### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)  
+### [Support for Azure Marketplace and AppSource](./support-azure-marketplace.md)
+#### [Marketplace FAQs](./marketplace-faq-publisher-guide.md)
+#### [Marketplace terms](./marketplace-terms.md)
+#### [Marketplace participation policy](./marketplace-participation-policy.md)
 
 
 <!-- Following section is for Cloud Partner Portal (CPP). -->
@@ -64,7 +67,7 @@
 
 ### [Manage offers](./cloud-partner-portal/manage-offers/cpp-manage-offers.md)
 #### [Create offer](./cloud-partner-portal/manage-offers/cpp-create-offer.md)
-<!-- #### [Publish offer](./cloud-partner-portal/manage-offers/cpp-publish-offer.md)   -->
+#### [Publish offer](./cloud-partner-portal/manage-offers/cpp-publish-offer.md) 
 #### [View offer status](./cloud-partner-portal/manage-offers/cpp-view-status-offer.md)
 #### [Update offer](./cloud-partner-portal/manage-offers/cpp-update-offer.md)
 #### [Delete offer](./cloud-partner-portal/manage-offers/cpp-delete-offer.md) 
@@ -138,6 +141,17 @@
 #### [Publish IoT Edge module offer](./cloud-partner-portal/iot-edge-module/cpp-publish-offer.md)
 #### [Update existing offer](./cloud-partner-portal/iot-edge-module/cpp-update-existing-offer.md)
 
+### [Power BI App offer](./cloud-partner-portal/power-bi/cpp-power-bi-offer.md)
+#### [Prerequisites](./cloud-partner-portal/power-bi/cpp-prerequisites.md)
+#### [Create Power BI App offer](./cloud-partner-portal/power-bi/cpp-create-offer.md)
+##### [Offer Settings tab](./cloud-partner-portal/power-bi/cpp-offer-settings-tab.md)
+##### [Technical Info tab](./cloud-partner-portal/power-bi/cpp-technical-info-tab.md)
+##### [Storefront Details tab](./cloud-partner-portal/power-bi/cpp-storefront-details-tab.md)
+##### [Contacts tab](./cloud-partner-portal/power-bi/cpp-contacts-tab.md)
+#### [Create Power BI App technical assets](./cloud-partner-portal/power-bi/cpp-create-technical-assets.md)
+#### [Publish Power BI App offer](./cloud-partner-portal/power-bi/cpp-publish-offer.md)
+#### [Update existing offer](./cloud-partner-portal/power-bi/cpp-update-existing-offer.md)
+
 ### [SaaS application offer](./cloud-partner-portal/saas-app/cpp-saas-offer.md)
 #### [Prerequisites](./cloud-partner-portal/saas-app/cpp-prerequisites.md)
 #### [Create SaaS application offer](./cloud-partner-portal/saas-app/cpp-create-offer.md)
@@ -151,7 +165,6 @@
 #### [Publish offer](./cloud-partner-portal/saas-app/cpp-publish-offer.md)
 #### [Update existing offer](./cloud-partner-portal/saas-app/cpp-update-existing-offer.md)
 #### [SaaS APIs](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
-#### [SaaS self-test client](./cloud-partner-portal/saas-app/cpp-selftest-client.md)
 
 ### [Virtual machine offer](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
 #### [Prerequisites](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
@@ -176,6 +189,7 @@
 ###### [VHD Deployment Template](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
 ###### [Deploy a VM from marketplace](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md)
 ##### [Certify VM image](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
+##### [VM self-test client](./cloud-partner-portal/virtual-machine/cpp-selftest-client.md)
 ##### [Get SAS URI](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
 ##### [Common SAS URL issues](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
 #### [Publish VM offer](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)

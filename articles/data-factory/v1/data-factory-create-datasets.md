@@ -52,7 +52,7 @@ A dataset in Data Factory is defined in JSON format as follows:
     "name": "<name of dataset>",
     "properties": {
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
-        "external": <boolean flag to indicate external data. only for input datasets>,
+        "external": "<boolean flag to indicate external data. only for input datasets>",
         "linkedServiceName": "<Name of the linked service that refers to a data store.>",
         "structure": [
             {

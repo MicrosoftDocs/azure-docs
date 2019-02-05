@@ -244,8 +244,6 @@
       href: sql-data-warehouse-how-to-monitor-cache.md
     - name: Restore your data warehouse
       href: sql-data-warehouse-restore.md
-    - name: Automate performance levels
-      href: manage-compute-with-azure-functions.md
   - name: Integrate
     items:
     - name: Use machine learning

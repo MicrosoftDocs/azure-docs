@@ -4,7 +4,7 @@ description: Get help resolving issues with the NPS extension for Azure Multi-Fa
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/13/2018
 

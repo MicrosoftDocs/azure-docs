@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/13/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ---
 

@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
+ms.lastreviewed: 08/16/2018
 
 ---
 # Enable Backup for Azure Stack with PowerShell

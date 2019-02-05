@@ -59,7 +59,7 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 2. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
     
     ```
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
     The size of this repository is currently around 220 MB.
@@ -68,7 +68,6 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
     ```
     cd azure-iot-sdk-c
-    git checkout public-preview
     mkdir cmake
     cd cmake
     ```
@@ -77,21 +76,21 @@ For this quickstart, you will be using the [Azure IoT device SDK for C](iot-hub-
 
 ```
     # In Linux
-    cmake -Denable_streaming=ON ..
+    cmake ..
     make -j
 ```
 
 In Windows, run the following commands in Developer Command Prompt for your Visual Studio 2015 or 2017 prompt:
 
 ```
-    # In Windows
-    # For VS2015
-    cmake -Denable_streaming=ON .. -G "Visual Studio 15 2015"
+    rem In Windows
+    rem For VS2015
+    cmake .. -G "Visual Studio 15 2015"
     
-    # Or for VS2017
-    cmake -Denable_streaming=ON .. -G "Visual Studio 15 2017
+    rem Or for VS2017
+    cmake .. -G "Visual Studio 15 2017"
 
-    # Then build the project
+    rem Then build the project
     cmake --build . -- /m /p:Configuration=Release
 ```
 
@@ -172,7 +171,7 @@ To run the device-side application, you need to perform the following steps:
 
 ### Run the service-side application
 
-As mentioned earlier, IoT Hub C SDK only supports device streams on the device side. For the service-side application, use the accompaying service programs available in [C# quickstart](./quickstart-device-streams-echo-csharp.md) or [Node.js quickstart](./quickstart-device-streams-echo-nodejs.md) guides.
+As mentioned earlier, IoT Hub C SDK only supports device streams on the device side. For the service-side application, use the accompanying service programs available in [C# quickstart](./quickstart-device-streams-echo-csharp.md) or [Node.js quickstart](./quickstart-device-streams-echo-nodejs.md) guides.
 
 
 ## Clean up resources

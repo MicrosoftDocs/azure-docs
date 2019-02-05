@@ -65,7 +65,7 @@ The health hierarchy is composed of parent-child relationships. A cluster is com
 The health hierarchy represents the latest state of the system based on the latest health reports, which is almost real-time information.
 Internal and external watchdogs can report on the same entities based on application-specific logic or custom monitored conditions. User reports coexist with the system reports.
 
-Plan to invest in how to report and respond to health during the design of a large cloud service. This up-front investement makes the service easier to debug, monitor, and operate.
+Plan to invest in how to report and respond to health during the design of a large cloud service. This up-front investment makes the service easier to debug, monitor, and operate.
 
 ## Health states
 Service Fabric uses three health states to describe whether an entity is healthy or not: OK, warning, and error. Any report sent to the health store must specify one of these states. The health evaluation result is one of these states.

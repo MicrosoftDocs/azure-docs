@@ -150,6 +150,17 @@ Below is a table of smart detection rule names as they appear in the portal, alo
 | Potential security issue detected (preview) | extension_securityextensionspackage |
 | Resource utilization issue detected (preview) | extension_resourceutilizationextensionspackage |
 
+## Who receives the (classic) alert notifications?
+
+This section only applies to smart detection classic alerts and will help you optimize your alert notifications to ensure that only your desired recipients receive notifications. To understand more about the difference between [classic alerts](../platform/alerts-classic.overview.md) and the new alerts experience refer to the [alerts overview article](../platform/alerts-overview.md). Currently smart detection alerts only support the classic alerts experience. The one exception to this is [smart detection alerts on Azure cloud services](./proactive-cloud-services.md). To control alert notification for smart detection alerts on Azure cloud services use [action groups](../platform/action-groups.md).
+
+* We recommend the use of specific recipients for smart detection/classic alert notifications.
+
+* For smart detection alerts, the **bulk/group** check-box option, if enabled, sends to users with owner, contributor, or reader roles in the subscription. In effect, _all_ users with access to the subscription the Application Insights resource are in scope and will receive notifications. 
+
+> [!NOTE]
+> If you currently use the **bulk/group** check-box option, and disable it, you will not be able to revert the change.
+
 ## Next Steps
 
 Learn more about automatically detecting:

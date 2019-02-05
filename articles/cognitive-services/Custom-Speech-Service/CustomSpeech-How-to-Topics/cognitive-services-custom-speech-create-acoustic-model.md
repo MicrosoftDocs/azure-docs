@@ -5,7 +5,7 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper

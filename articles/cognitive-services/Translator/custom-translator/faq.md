@@ -5,7 +5,7 @@ description: Provides answers to frequently asked questions about the Custom Tra
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: reference
@@ -59,7 +59,7 @@ webpage.
 
 The Custom Translator skips sentence alignment and sentence breaking for TMX
 files and for text files with the `.align` extension. `.align` files give users
-an option to Custom Translator’s sentence breaking and alignment process for the
+an option to skip Custom Translator's sentence breaking and alignment process for the
 files that are perfectly aligned, and need no further processing. We recommend
 using `.align` extension only for files that are perfectly aligned.
 

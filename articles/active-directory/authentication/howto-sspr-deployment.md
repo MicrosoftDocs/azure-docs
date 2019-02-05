@@ -4,7 +4,7 @@ description: Tips for successful rollout of Azure AD self-service password reset
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/17/2018
 
