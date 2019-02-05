@@ -21,14 +21,25 @@ There are a variety of ways to seek support for the Azure IoT Edge product.
 
 **Feature requests** – The Azure IoT Edge product tracks feature requests via the product’s [User Voice page](https://feedback.azure.com/forums/907045-azure-iot-edge).
 
+## Container engines
+Azure IoT Edge needs a container engine to launch modules since they are implemented as containers. Microsoft provides a container engine, moby-engine, to fulfill this requirement. It is based on the Moby open-source project. Docker CE and Docker EE are other popular container engines. They are also based on the Moby open-source project and are compatible with Azure IoT Edge. Microsoft provides best effort support for systems using those container engines; however, Microsoft does not have the ability to ship fixes for issues in them. For this reason, Microsoft recommends using moby-engine on production systems.
+
+![Moby as container runtime](./media/support/only-moby-for-production.png)
+
 ## Operating systems
 Azure IoT Edge runs on most operating systems that can run containers; however, all of these are not equally supported. Operating systems are grouped into tiers that represent the level of support users can expect.
+* Tier 1 systems can be thought of as officially supported. This means that Microsoft:
+    * has this operating system in automated tests
+    * provides installation packages for them
+* Tier 2 systems can be thought of as compatible with Azure IoT Edge and can be used relatively easily. This means that:
+    * Microsoft has done ad-hoc testing on the platforms or knows of a partner successfully running Azure IoT Edge on the platform
+    * Installation packages for other platforms may work on these platforms
+    
+The family of the host OS must always match the family of the guest OS used inside a module's container. In other words, you can only use Linux containers on Linux and Windows containers on Windows.   
+
+![Host OS matches guest OS](./media/support/edge-on-device.png)
 
 ### Tier 1
-Tier 1 systems can be thought of as officially supported. This means that Microsoft:
-* has these operating system in automated tests
-* provides installation packages for them
-
 Generally available
 | Operating System | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
@@ -46,9 +57,6 @@ Public preview
 \* Microsoft provides installation packages for Linux containers on Windows devices for development and testing only. This is not a supported configuration for production use. 
 
 ### Tier 2
-Tier 2 systems can be thought of as compatible with Azure IoT Edge and can be used relatively easily. This means that:
-* Microsoft has done ad-hoc testing on the platforms or knows of a partner successfully running Azure IoT Edge on the platform
-* Installation packages for other platforms may work on these platforms
 
 | Operating System | AMD64 | ARM32 |
 | ---------------- | ----- | ----- |
@@ -61,6 +69,8 @@ Tier 2 systems can be thought of as compatible with Azure IoT Edge and can be us
 | Wind River 8 | Yes | No |
 | Yocto | Yes | No |
 
-## Container engines
-Azure IoT Edge needs a container engine to launch modules, regardless of the operating system on which it is running. Microsoft provides a container engine, moby-engine, to fulfill this requirement. It is based on the Moby open-source project. Docker CE and Docker EE are other popular container engines. They are also based on the Moby opens-source project and are compatible with Azure IoT Edge. Microsoft provides best effort support for systems using those container engines; however, Microsoft does not have the ability to ship fixes for issues in them. For this reason, Microsoft recommends using moby-engine on production systems.
 
+## Virtual Machines
+Azure IoT Edge can be run in virtual machines. This is common when customers want to augment existing infrastructure with edge intelligence. The family of the host VM OS must match the family of the guest OS used inside a module's container. This is the same requirement when Azure IoT Edge is run directly on a device. Additionally, the hardware and OS on which the host VM runs must support nested virtualization.
+
+![Azure IoT Edge in a VM](./media/support/edge-on-vm.png)
