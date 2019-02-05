@@ -32,12 +32,12 @@ Other parts of the availability group configuration must be done manually, such 
 ## Prerequisites 
 To automate the setup of an Always On availability group using quickstart templates, you must already have the following prerequisites: 
 - An [Azure Subscription](https://azure.microsoft.com/free/).
-- A resource group with a [domain controller](/azure/architecture/reference-architectures/identity/adds-forest). 
+- A resource group with a domain controller. 
 - One or more domain-joined [VMs in Azure running SQL Server 2016 (or greater) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the same availability set or availability zone that have been [registered with the SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).  
 
 
 ## Step 1 - Create the WSFC and join SQL Server VMs to the cluster using quickstart template 
-Once your SQL Server VMs have been registered with the SQL VM new resource provider, you can join your SQL Server VMs into *SqlVirtualMachineGroup*. This resource defines the metadata of the Windows Failover Cluster, including the version, edition, Fully Qualified Domain Name, AD accounts to manage the cluster, and the Storage Account as the Cloud Witness. Adding the SQL Server VM to the *SqlVirtualMachineGroup* bootstraps the Windows Failover Cluster Service and joins the SQL Server VMs to the cluster. This step is automated with the **101-sql-vm-ag-setup** quickstart template and can be implemented with the following steps:
+Once your SQL Server VMs have been registered with the SQL VM new resource provider, you can join your SQL Server VMs into *SqlVirtualMachineGroups*. This resource defines the metadata of the Windows Failover Cluster, including the version, edition, Fully Qualified Domain Name, AD accounts to manage the cluster, and the Storage Account as the Cloud Witness. Adding SQL Server VMs to the *SqlVirtualMachineGroups* resource group bootstraps the Windows Failover Cluster Service to create the cluster and then joins those SQL Server VMs to that cluster. This step is automated with the **101-sql-vm-ag-setup** quickstart template and can be implemented with the following steps:
 
 1. Navigate to the [**101-sql-vm-ag-setup**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) quickstart template and select **Deploy to Azure** to launch the quickstart template within the Azure portal.
 1. Fill out the required fields to configure the Windows Failover Cluster metadata. The optional fields can be left blank.
@@ -54,7 +54,7 @@ Once your SQL Server VMs have been registered with the SQL VM new resource provi
    | **Existing Fully Qualified Domain Name** | The existing FQDN for the domain in which your SQL Server VMs reside. |
    | **Existing Domain Account** | An existing domain user account that has permission to create the [CNO](/windows-server/failover-clustering/prestage-cluster-adds) in the domain (ex: account@domain.com). | 
    | **Domain Account Password** | The password for the previously mentioned domain user account. | 
-   | **Existing Sql Service Account** | The domain user account that is being used to control the [SQL Server service](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) (ex: account@domain.com). |
+   | **Existing Sql Service Account** | The domain user account that controls the [SQL Server service](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) during availability group deployment (ex: account@domain.com). |
    | **Sql Service Password** | The password used by the domain user account that controls the SQL Server service. |
    | **Cloud Witness Name** | This is a new Azure storage account that will be created and used for the cloud witness. This name could  be modified. |
    | **\_artifacts Location** | This field is set by default and should not be modified. |
@@ -106,6 +106,7 @@ The Always On availability group (AG) listener requires an internal Azure Load B
 
 Create the availability group listener and configure the Internal Load Balancer (ILB) automatically with the **101-sql-vm-aglistener-setup**  quickstart template as it provisions the Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/AvailabilityGroupListener resource. The  **101-sql-vm-aglistener-setup** quickstart template, via the SQL VM resource provider, does the following actions:
 
+ - Creates a new frontend IP resource (based on the IP address value provided during deployment) for the listener. 
  - Configures the network settings for the cluster and ILB. 
  - Configures the ILB backend pool, health probe, and load-balancing rules.
  - Creates the AG listener with the given IP address and name.
