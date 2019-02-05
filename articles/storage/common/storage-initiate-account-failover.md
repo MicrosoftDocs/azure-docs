@@ -33,6 +33,9 @@ When you initiate an account failover for your storage account, the DNS records 
 
 To estimate the extent of likely data loss before you initiate a failover, check the **Last Sync Time** property using the `Get-AzureRmStorageAccount` PowerShell cmdlet, and include the `-IncludeGeoReplicationStats` parameter. Then check the `GeoReplicationStats` property for your account. 
 
+> [!Important]  
+> Failing over a storage account with a Azure file share being used as a cloud endpoint in Azure File Sync is currently not supported. Doing so will cause sync to stop working and may also cause unexpected data loss in the case of newly tiered files.  
+
 After the failover, your storage account type is automatically converted to locally redundant storage (LRS) in the new primary region. You can re-enable geo-redundant storage (GRS) or read-access geo-redundant storage (RA-GRS) for the account. Note that converting from LRS to GRS or RA-GRS incurs an additional cost. For additional information, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 After you re-enable GRS for your storage account, Microsoft begins replicating the data in your account to the new secondary region. Replication time is dependent on the amount of data being replicated.  
