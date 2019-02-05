@@ -24,7 +24,7 @@ Webhooks are one of the many ways to receive events from Azure Event Grid. When 
 
 Like many other services that support webhooks, Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint. This requirement prevents a malicious user from flooding your endpoint with events. When you use any of the three Azure services listed below, the Azure infrastructure automatically handles this validation:
 
-* Azure Logic Apps with [Event Grid Connector](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)
+* Azure Logic Apps with [Event Grid Connector](https://docs.microsoft.com/connectors/azureeventgrid/)
 * Azure Automation via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 * Azure Functions with [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)
 
@@ -45,7 +45,7 @@ If you're using any other type of endpoint, such as an HTTP trigger based Azure 
 * The event body has the same schema as other Event Grid events.
 * The eventType property of the event is `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * The data property of the event includes a `validationCode` property with a randomly generated string. For example, "validationCode: acb13…".
-* If you're using API version 2018-05-01-preview, the event data also includes a `validationUrl` property with a URL for manually validating the subscription.
+* The event data also includes a `validationUrl` property with a URL for manually validating the subscription.
 * The array contains only the validation event. Other events are sent in a separate request after you echo back the validation code.
 * The EventGrid DataPlane SDKs have classes corresponding to the subscription validation event data and subscription validation response.
 

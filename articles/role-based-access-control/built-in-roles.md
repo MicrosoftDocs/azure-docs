@@ -21,7 +21,7 @@ ms.custom: it-pro
 # Built-in roles for Azure resources
 [Role-based access control (RBAC)](overview.md) has several built-in role definitions that you can assign to users, groups, and service principals. Role assignments are the way you control access to resources in Azure. If the built-in roles don't meet the specific needs of your organization, you can create your own [custom roles](custom-roles.md).
 
-The built-in roles are always evolving. To get the latest role definitions, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) or [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+The built-in roles are always evolving. To get the latest role definitions, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) or [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ## Built-in role descriptions
 The following table provides brief descriptions of the built-in roles. Click the role name to see the list of `Actions`, `NotActions`, `DataActions`, and `NotDataActions` for each role.
@@ -145,8 +145,8 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | * | Create and manage resources of all types |
 > | **NotActions** |  |
-> | Microsoft.Authorization/*/Delete | Can't delete roles and role assignments |
-> | Microsoft.Authorization/*/Write | Can't create roles and role assignments |
+> | Microsoft.Authorization/*/Delete | Delete roles and role assignments |
+> | Microsoft.Authorization/*/Write | Create roles and role assignments |
 > | Microsoft.Authorization/elevateAccess/Action | Grants the caller User Access Administrator access at the tenant scope |
 > | Microsoft.Blueprint/blueprintAssignments/write | Create or update any blueprint artifacts |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Delete any blueprint artifacts |
@@ -1596,15 +1596,15 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit audit policies |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Can't edit audit settings |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | Edit audit policies |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | Edit audit settings |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Retrieve the database blob audit records |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Can't edit connection policies |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Can't edit data masking policies |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | Edit connection policies |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Edit data masking policies |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Can't edit security alert policies |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Can't edit security metrics |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Edit security alert policies |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Edit security metrics |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
@@ -1672,23 +1672,23 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/auditingPolicies/* | Can't edit SQL server auditing policies |
-> | Microsoft.Sql/servers/auditingSettings/* | Can't edit SQL server auditing settings |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit SQL server database auditing policies |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Can't edit SQL server database auditing settings |
-> | Microsoft.Sql/servers/databases/auditRecords/read | Can't read audit records |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Can't edit SQL server database connection policies |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Can't edit SQL server database data masking policies |
+> | Microsoft.Sql/servers/auditingPolicies/* | Edit SQL server auditing policies |
+> | Microsoft.Sql/servers/auditingSettings/* | Edit SQL server auditing settings |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | Edit SQL server database auditing policies |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | Edit SQL server database auditing settings |
+> | Microsoft.Sql/servers/databases/auditRecords/read | Read audit records |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | Edit SQL server database connection policies |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Edit SQL server database data masking policies |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Can't edit SQL server database security alert policies |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Can't edit SQL server database security metrics |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Edit SQL server database security alert policies |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Edit SQL server database security metrics |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
-> | Microsoft.Sql/servers/securityAlertPolicies/* | Can't edit SQL server security alert policies |
+> | Microsoft.Sql/servers/securityAlertPolicies/* | Edit SQL server security alert policies |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## Storage Account Contributor
