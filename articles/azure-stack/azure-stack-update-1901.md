@@ -65,6 +65,7 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 This update includes the following new features and improvements for Azure Stack:
 
 - Managed images on Azure Stack enable you to create a managed image object on a generalized VM (both unmanaged and managed) that can only create managed disk VMs going forward. For more information, see [Azure Stack Managed Disks](user/azure-stack-managed-disk-considerations.md#managed-images).
+- The Compute API version has been upped to 2017-12-01.
 
 ## Fixed issues
 
