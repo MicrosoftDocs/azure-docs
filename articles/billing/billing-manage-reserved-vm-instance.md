@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Reservations | Microsoft Docs
-description: Learn how you can change subscription scope and manage access for Azure Reservations. 
+description: Learn how you can change subscription scope and manage access for Azure Reservations.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 01/30/2019
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -30,11 +30,11 @@ To update the scope of a reservation:
 2. Select **All services** > **Reservations**.
 3. Select the reservation.
 4. Select **Settings** > **Configuration**.
-5. Change the scope. 
+5. Change the scope.
 
 If you change from shared to single scope, you can only select subscriptions where you are the owner. Only subscriptions within the same billing context as the reservation, can be selected.
 
-The scope only applies to Pay-As-You-Go offer MS-AZR-0003P, Enterprise offer MS-AZR-0017P, or CSP subscription types. For enterprise agreements, dev/test subscriptions are not eligible to get the reservation discount.
+The scope only applies to Pay-As-You-Go offer MS-AZR-0003P or MS-AZR-0023P, Enterprise offer MS-AZR-0017P or MS-AZR-0148P, or CSP subscription types.
 
 ## Add or change users who can manage a reservation
 
