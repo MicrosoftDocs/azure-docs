@@ -23,7 +23,7 @@ translation.priority.mt:
 ---
 # Add suggesters to an Azure Search index
 
-A **Suggester** is an Azure Search construct supporting the "search-as-you-type" [Suggestions](suggestions.md) feature and the [autocomplete (preview)](search-autocomplete-tutorial.md) feature. Before you can call the Suggestions API, you must define a **suggester** in an index to enable suggestions on specific fields.
+A **Suggester** is an Azure Search construct supporting the "search-as-you-type" [Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) feature and the [autocomplete (preview)](search-autocomplete-tutorial.md) feature. Before you can call the Suggestions API, you must define a **suggester** in an index to enable suggestions on specific fields.
 
 Although a **suggester** has several properties, it is primarily a collection of fields for which you are enabling the [Suggestions API](https://docs.microsoft.com/rest/api/searchservice/suggestions). For example, a travel app might want to enable typeahead search on destinations, cities, and attractions. As such, all three fields would go in the field collection.
 
@@ -35,13 +35,13 @@ You can create a **suggester** at any time, but the impact on your index varies 
 
  **Suggesters** work best when used to suggest specific documents rather than loose terms or phrases. The best candidate fields are titles, names, and other relatively short phrases that can identify an item. Less effective are repetitive fields, such as categories and tags, or very long fields such as descriptions or comments fields.  
 
-After a suggester is created, add the [Suggestions API](suggestions.md) in your query logic to invoke the feature.  
+After a suggester is created, add the [Suggestions API](https://docs.microsoft.com/rest/api/searchservice/suggestions) in your query logic to invoke the feature.  
 
 Properties that define a **suggester** include the following:  
 
 |Property|Description|  
 |--------------|-----------------|  
-|`name`|The name of the **suggester**. You use the name of the **suggester** when calling the [Suggestions &#40;Azure Search Service REST API&#41;](suggestions.md).|  
+|`name`|The name of the **suggester**. You use the name of the **suggester** when calling the [Suggestions &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions).|  
 |`searchMode`|The strategy used to search for candidate phrases. The only mode currently supported is `analyzingInfixMatching`, which performs flexible matching of phrases at the beginning or in the middle of sentences.|  
 |`sourceFields`|A list of one or more fields that are the source of the content for suggestions. Only fields of type `Edm.String` and `Collection(Edm.String)` may be sources for suggestions. Only fields that don't have a custom language analyzer set can be used. |  
 
