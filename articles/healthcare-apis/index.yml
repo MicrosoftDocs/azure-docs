@@ -23,13 +23,13 @@ sections:
       columns:
         - image:
             src: media/index/portal.svg
-          text: Azure portal
+          title: Azure portal
         - image:
             src: media/index/powershell.svg
-          text: Azure PowerShell
+          title: Azure PowerShell
         - image:
             src: media/index/cli.svg
-          text: Azure CLI
+          title: Azure CLI
       rows:
         - title: Deploy Azure API for FHIR
           values:
