@@ -8,7 +8,7 @@ ms.date: 11/15/2018
 ms.author: mjbrown
 
 ---
-# SQL query examples to query data from Azure Cosmos DB
+# SQL query examples for Azure Cosmos DB
 
 Azure Cosmos DB supports querying items using SQL (Structured Query Language) as a JSON query language on SQL API accounts. While designing the query language for Azure Cosmos DB, the following two goals are considered:
 
@@ -16,7 +16,7 @@ Azure Cosmos DB supports querying items using SQL (Structured Query Language) as
 
 * Azure Cosmos DB uses JavaScript's programming model as the foundation for the query language. The SQL API is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON items, self-joins, spatial queries, and invocation of user-defined functions (UDFs) written entirely in JavaScript, among other features.
 
-This article walks you through some examples SQL queries by using simple JSON items. To learn about Azure Cosmos DB SQL language syntax, see [SQL syntax reference](sql-api-query-reference.md) article.
+This article walks you through some example SQL queries by using simple JSON items. To learn about Azure Cosmos DB SQL language syntax, see [SQL syntax reference](sql-api-query-reference.md) article.
 
 ## <a id="GettingStarted"></a>Get started with SQL commands
 

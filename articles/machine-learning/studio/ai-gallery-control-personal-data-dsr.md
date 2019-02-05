@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning Studio
 description: You can export and delete your in-product user data from Azure AI Gallery using the interface or AI Gallery Catalog API. This article shows you how.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: conceptual
 
 author: ericlicoding

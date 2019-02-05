@@ -109,7 +109,7 @@ After you have built your Service Fabric application, follow these steps to depl
 
 To learn how to debug your application in Eclipse using the local cluster, see [Debug a Java service in Eclipse](./service-fabric-debugging-your-application-java.md).
 
-You can also deploy your application to the local cluster wuth the **Publish Application** command:
+You can also deploy your application to the local cluster with the **Publish Application** command:
 
 1. Right-click your Service Fabric application, and then select **Service Fabric**.
 2. From the context menu, click **Publish Application...**.
@@ -162,7 +162,7 @@ To publish your application to the cloud, follow these steps:
 
 On secure Linux clusters, if your application contains Reliable Services services, you will also need to configure a certificate that your services can use to call Service Fabric runtime APIs. To learn more, see [Configure a Reliable Services app to run on Linux clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
 
-For a quick walk through of how to deploy a Service Fabric Reliable Services application written in Java to a secure Linux cluster, see [Quckstart: Deploy a Java Reliable Services application](./service-fabric-quickstart-java-reliable-services.md).
+For a quick walk through of how to deploy a Service Fabric Reliable Services application written in Java to a secure Linux cluster, see [Quickstart: Deploy a Java Reliable Services application](./service-fabric-quickstart-java-reliable-services.md).
 
 ## Deploy a Service Fabric application by using Eclipse run configurations
 
@@ -208,7 +208,7 @@ If you check the option **Automatically update application and service versions*
 
 ## Upgrade your Service Fabric Java application
 
-For an upgrade scenario, say you created the **App1** project by using the Service Fabric plug-in in Eclipse. You deployed it by using the plug-in to create an application named **fabric:/App1Application**. The application type is **App1AppicationType**, and the application version is 1.0. Now, you want to upgrade your application without interrupting availability.
+For an upgrade scenario, say you created the **App1** project by using the Service Fabric plug-in in Eclipse. You deployed it by using the plug-in to create an application named **fabric:/App1Application**. The application type is **App1ApplicationType**, and the application version is 1.0. Now, you want to upgrade your application without interrupting availability.
 
 First, make any changes to your application, and then rebuild the modified service. Update the modified service’s manifest file (ServiceManifest.xml) with the updated versions for the service (and Code, Config, or Data, as relevant). Also, modify the application’s manifest (ApplicationManifest.xml) with the updated version number for the application and the modified service.  
 
@@ -227,7 +227,7 @@ We have recently moved Service Fabric Java libraries from Service Fabric Java SD
 
 ## Next steps
 
-- For quick steps on building Java Reliable service application and deploying it locally and to Azure, see [Quckstart: Deploy a Java Reliable Services application](./service-fabric-quickstart-java-reliable-services.md).
+- For quick steps on building Java Reliable service application and deploying it locally and to Azure, see [Quickstart: Deploy a Java Reliable Services application](./service-fabric-quickstart-java-reliable-services.md).
 - To learn how to debug a Java application on your local cluster, see [Debug a Java service in Eclipse](./service-fabric-debugging-your-application-java.md).
 - To learn how to monitor and diagnose Service Fabric applications, see [Monitor and diagnose services in a local machine development setup](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
 

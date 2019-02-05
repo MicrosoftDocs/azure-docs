@@ -4,7 +4,7 @@ description: How to enable self-service password reset using forgot password at 
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/11/2018
 

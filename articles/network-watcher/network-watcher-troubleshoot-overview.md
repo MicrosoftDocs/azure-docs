@@ -70,7 +70,7 @@ The following tables show the different fault types (id under results from the p
 | ConnectionEntityNotFound | Connection configuration is missing | No |
 | ConnectionIsMarkedDisconnected | The connection is marked "disconnected" |No|
 | ConnectionNotConfiguredOnGateway | The underlying service does not have the connection configured. | Yes |
-| ConnectionMarkedStandy | The underlying service is marked as standby.| Yes|
+| ConnectionMarkedStandby | The underlying service is marked as standby.| Yes|
 | Authentication | Preshared key mismatch | Yes|
 | PeerReachability | The peer gateway is not reachable. | Yes|
 | IkePolicyMismatch | The peer gateway has IKE policies that are not supported by Azure. | Yes|

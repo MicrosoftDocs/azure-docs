@@ -11,7 +11,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 01/25/2019
 ---
 # Set up and use Log Analytics with a multitenant SQL Database SaaS app
 
@@ -98,7 +98,7 @@ In this exercise, open Log Analytics in the Azure portal to look at the telemetr
 
     ![Time filter](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
-1. Select a single database to explore the query usage and metrics for that database.
+1. Select an individual database to explore the query usage and metrics for that database.
 
     ![Database analytics](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
 

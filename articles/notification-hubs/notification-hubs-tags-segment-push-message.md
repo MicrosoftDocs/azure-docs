@@ -6,14 +6,13 @@ documentationcenter: .net
 author: jwargo
 manager: patniko
 editor: spelluru
-
 ms.assetid: 0fffb3bb-8ed8-4e0f-89e8-0de24a47f644
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/23/2019
 ms.author: jowargo
 ---
 
@@ -25,8 +24,7 @@ Tag expressions enable you to target specific sets of devices, or more specifica
 
 ## Targeting specific registrations
 
-The only way to target specific notification registrations is to associate tags with them, then target those tags. As discussed in [Registration Management](notification-hubs-push-notification-registration-management.md), in order to receive push notifications an app has to register a device handle on a notification hub. Once a registration is created on a notification hub, the application backend can send push notifications to it.
-The application backend can choose the registrations to target with a specific notification in the following ways:
+The only way to target specific notification registrations is to associate tags with them, then target those tags. As discussed in [Registration Management](notification-hubs-push-notification-registration-management.md), in order to receive push notifications an app has to register a device handle on a notification hub. Once a registration is created on a notification hub, the application backend can send push notifications to it. The application backend can choose the registrations to target with a specific notification in the following ways:
 
 1. **Broadcast**: all registrations in the notification hub receive the notification.
 2. **Tag**: all registrations that contain the specified tag receive the notification.
@@ -67,6 +65,9 @@ In this picture, Alice is interested in updates for the Beatles, and Bob is inte
 While you can encode multiple concerns in tags (for example, “band_Beatles” or “follows_Charlie”), tags are simple strings and not properties with values. A registration is matched only on the presence or absence of a specific tag.
 
 For a full step-by-step tutorial on how to use tags for sending to interest groups, see [Breaking News](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
+
+> [!NOTE]
+> Azure Notification Hubs supports a maximum of 60 tags per registration.
 
 ## Using tags to target users
 

@@ -3,14 +3,14 @@ title: Region availability & data residency in Azure Active Directory B2C | Micr
 description: A topic on the types of Azure Active Directory B2C tenants.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Azure Active Directory B2C: Region availability & data residency

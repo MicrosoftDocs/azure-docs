@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
 ms.author: aahi
