@@ -102,7 +102,7 @@ Based on the above mentioned [architectures](#typical-architectures-for-a-multi-
 
 ![AzoneCross.PNG](media/move-vm-overview/AzoneCross.PNG)
 
- ## Move VMs to increase availability 
+ ## Move VMs to increase availability     
 Based on the above mentioned [architectures](#typical-architectures-for-a-multi-tier-deployment), heres how the deployments will look like once you perform the move to increase the availability by moving VMs into Availability zones from source region to target region.
 
 
