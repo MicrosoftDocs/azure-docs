@@ -35468,7 +35468,7 @@
     },
     {
       "source_path": "articles/storage/blobs/data-lake-storage-handle-data-using-databricks.md",
-      "redirect_url": "/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/storage/blobs/toc.json",
+      "redirect_url": "/azure/azure-databricks/databricks-extract-load-sql-data-warehouse",
       "redirect_document_id": false
     }
   ]
