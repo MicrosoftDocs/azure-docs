@@ -150,7 +150,7 @@ az vmss extension set \
 
 ## Test the application gateway
 
-To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ipwork_public_ip_show).
+To get the public IP address of the application gateway, you can use [az network public-ip show](/cli/azure/network/public-ip).
 
 ```azurecli-interactive
 az network public-ip show \
