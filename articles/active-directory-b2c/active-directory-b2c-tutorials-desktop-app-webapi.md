@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* Complete the steps and prerequisites in [Tutorial: Enable desktop app authentication with accounts using Azure Active Directory B2C](active-directory-b2c-tutorials-desktop-app.md).
+Complete the steps and prerequisites in [Tutorial: Enable desktop app authentication with accounts using Azure Active Directory B2C](active-directory-b2c-tutorials-desktop-app.md).
 
 ## Add a web API application
 
@@ -58,7 +58,7 @@ Scopes provide a way to govern access to protected resources. Scopes are used by
 
 The published scopes can be used to grant a client app permission to the web API.
 
-### Grant permissions
+## Grant permissions
 
 To call a protected web API from an application, you need to grant your application permissions to the API. In the prerequisite tutorial, you created a web application in Azure AD B2C named *app1*. You use this application to call the web API.
 
