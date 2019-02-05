@@ -10,7 +10,7 @@ ms.date: 1/30/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want to learn how to use Cosmos DB to store Spatial Anchors to be able to share them across other devices.
+#Customer intent: As a Mixed Reality developer, I want to learn how to use Cosmos DB to store Azure Spatial Anchors to be able to share them across other devices.
 ---
 # Tutorial: Use Cosmos DB to Store Azure Spatial Anchors
 

@@ -10,7 +10,7 @@ ms.date: 1/29/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want to learn how to share Spatial Anchors I create across other devices.
+#Customer intent: As a Mixed Reality developer, I want to learn how to share Azure Spatial Anchors I create across other devices.
 ---
 # Tutorial: Share Azure Spatial Anchors across devices
 

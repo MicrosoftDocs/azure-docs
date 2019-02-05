@@ -10,7 +10,7 @@ ms.date: 12/13/2018
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want to learn how to use Spatial Anchors in my iOS app that can place and locate a 3D object that persists across devices and platforms.
+#Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my iOS app that can place and locate a 3D object that persists across devices and platforms.
 ---
 # Quickstart: Create an iOS app with Spatial Anchors
 
