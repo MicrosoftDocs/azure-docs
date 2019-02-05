@@ -19,22 +19,6 @@ ms.author: juliako
 
 This article gives answers to Azure Media Services (AMS) v3 frequently asked questions.
 
-## Media Services v2 vs v3 
-
-### Can I use the Azure portal to manage v3 resources?
-
-Not yet. You can use one of the supported SDKs. See tutorials and samples in this doc set.
-
-### Is there an AssetFile concept in v3?
-
-The AssetFiles were removed from the AMS API in order to separate Media Services from Storage SDK dependency. Now Storage, not Media Services, keeps the information that belongs in Storage. 
-
-For more information, see [Migrate to Media Services v3](migrate-from-v2-to-v3.md).
-
-### Where did client-side storage encryption go?
-
-It is now recommended to use the server-side storage encryption (which is on by default). For more information, see [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
-
 ## v3 APIs
 
 ### How do I configure Media Reserved Units?
@@ -66,6 +50,22 @@ v3 is based on a unified API surface, which exposes both management and operatio
 Media Services v3 live encoding does not yet support inserting video or image slates during live stream. 
 
 You can use a [live on-premises encoder](recommended-on-premises-live-encoders.md) to switch the source video. Many apps provide ability to switch sources, including Telestream Wirecast, Switcher Studio (on iOS), OBS Studio (free app), and many more.
+
+## Media Services v2 vs v3 
+
+### Can I use the Azure portal to manage v3 resources?
+
+Not yet. You can use one of the supported SDKs. See tutorials and samples in this doc set.
+
+### Is there an AssetFile concept in v3?
+
+The AssetFiles were removed from the AMS API in order to separate Media Services from Storage SDK dependency. Now Storage, not Media Services, keeps the information that belongs in Storage. 
+
+For more information, see [Migrate to Media Services v3](migrate-from-v2-to-v3.md).
+
+### Where did client-side storage encryption go?
+
+It is now recommended to use the server-side storage encryption (which is on by default). For more information, see [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
 ## Next steps
 
