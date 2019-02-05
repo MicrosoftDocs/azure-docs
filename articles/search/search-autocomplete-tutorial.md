@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial for adding auto-complete to your search box using Azure Search | Microsoft Docs'
+title: 'Tutorial for adding auto-complete to your search box - Azure Search'
 description: Examples of how to improve the end user experience of your data-centric applications using Azure Search auto-complete and suggestions APIs. 
 manager: pablocas
 author: mrcarter8
@@ -9,6 +9,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
+ms.custom: seodec2018
 #Customer intent: As a developer, I want to understand auto-complete implementation, benefits, and tradeoffs.
 ---
 
@@ -55,7 +56,7 @@ Follow the steps in this section if you would like to import the data for the NY
 
 ### Running the sample
 
-You are now ready to run the tutorial sample application.  Open the AutocompleteTutorial.sln solution file in Visual Studio to run the tutorial.  The solution contains an ASP.NET MVC project.  Press F5 to run the project and load the page in your browser of choice.  At the top, you'll see an option to select C# or JavaScript.  The C# option calls into the HomeController from the browser and uses the Azure Search .Net SDK to retrieve results.  The JavaScript option calls the Azure Search REST API directly from the browser.  This option will typically have noticably better performance since it takes the controller out of the flow.  You can choose the option that suits your needs and language preferences.  There are several auto-complete examples on the page with some guidance for each.  Each example has some recommended sample text you can try.  Try typing in a few letters in each search box to see what happens.
+You are now ready to run the tutorial sample application.  Open the AutocompleteTutorial.sln solution file in Visual Studio to run the tutorial.  The solution contains an ASP.NET MVC project.  Press F5 to run the project and load the page in your browser of choice.  At the top, you'll see an option to select C# or JavaScript.  The C# option calls into the HomeController from the browser and uses the Azure Search .Net SDK to retrieve results.  The JavaScript option calls the Azure Search REST API directly from the browser.  This option will typically have noticeably better performance since it takes the controller out of the flow.  You can choose the option that suits your needs and language preferences.  There are several auto-complete examples on the page with some guidance for each.  Each example has some recommended sample text you can try.  Try typing in a few letters in each search box to see what happens.
 
 ## How this works in code
 

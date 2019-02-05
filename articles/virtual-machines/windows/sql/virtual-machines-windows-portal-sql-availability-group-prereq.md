@@ -105,7 +105,7 @@ The new virtual network has one subnet, named **Admin**. The domain controllers 
 
     If **SQL-HA-RG** isn't visible, find it by clicking **Resource Groups** and filtering by the resource group name.
 2. Click **autoHAVNET** on the list of resources. 
-3. On the **autoHAVNET** virtual network, under **Settings** , click **Subnets**.
+3. On the **autoHAVNET** virtual network, under **Settings** select **Subnets**.
 
     Note the subnet that you already created.
 
@@ -132,7 +132,7 @@ The following table summarizes the network configuration settings:
 
 ## Create availability sets
 
-Before you create virtual machines, you need to create availability sets. Availability sets reduce the downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set aren't brought down for maintenance at the same time. For additional information, see [Manage the availability of virtual machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Before you create virtual machines, you need to create availability sets. Availability sets reduce the downtime for planned or unplanned maintenance events. An Azure availability set is a logical group of resources that Azure places on physical fault domains and update domains. A fault domain ensures that the members of the availability set have separate power and network resources. An update domain ensures that members of the availability set aren't brought down for maintenance at the same time. For more information, see [Manage the availability of virtual machines](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 You need two availability sets. One is for the domain controllers. The second is for the SQL Server VMs.
 
@@ -186,7 +186,7 @@ The following table shows the settings for these two machines:
 | **Subnet** |admin |
 | **Public IP address** |*Same name as the VM* |
 | **Network security group** |*Same name as the VM* |
-| **Availability set** |adavailabilityset </br>**Fault domains**:2</br>**Update domains**:2|
+| **Availability set** |adavailabilityset </br>**Fault domains**:2 </br>**Update domains**:2|
 | **Diagnostics** |Enabled |
 | **Diagnostics storage account** |*Automatically created* |
 
@@ -459,6 +459,10 @@ To add Failover Clustering features, do the following steps on both SQL Server V
 6. Click **Install** to add the features.
 
 Repeat the steps on the other SQL Server VM.
+
+  >[!NOTE]
+  > This step, along with actually joining the SQL Server VMs to the failover cluster, can now be automated with an Azure Quickstart Template. For more information, see [Create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM with Azure Quickstart template](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+
 
 ## <a name="endpoint-firewall"> Configure the firewall on each SQL Server VM
 

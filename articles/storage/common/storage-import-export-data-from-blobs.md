@@ -5,9 +5,9 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 12/11/2018
 ms.author: alkohli
-ms.component: common
+ms.subservice: common
 ---
 # Use the Azure Import/Export service to export data from Azure Blob storage
 This article provides step-by-step instructions on how to use the Azure Import/Export service to securely export large amounts of data from Azure Blob storage. The service requires you to ship empty drives to the Azure datacenter. The service exports data from your storage account to the drives and then ships the drives back.
@@ -122,7 +122,7 @@ The export is complete. At this time, you can delete the job or it automatically
 
 This *optional* step helps you determines the number of drives required for the export job. Perform this step on a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
 
-1. [Download the WAImportExport version 1](https://www.microsoft.com/en-us/download/details.aspx?id=42659) on the Windows system. 
+1. [Download the WAImportExport version 1](https://aka.ms/waiev1) on the Windows system. 
 2. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
 3. Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
     

@@ -16,7 +16,7 @@ during the cluster creation process for installing additional software on a clus
 
 The information in this article is specific to Windows-based HDInsight clusters. For Linux-based clusters, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 HDInsight clusters can be customized in a variety of other ways as well, such as including
@@ -38,7 +38,7 @@ When the script is running, the cluster enters the **ClusterCustomization** stag
 stage, the script is run under the system admin account, in parallel on all the specified
 nodes in the cluster, and provides full admin privileges on the nodes.
 
-> [!NOTE]
+> [!NOTE]  
 > Because you have admin privileges on the cluster nodes during the
 > **ClusterCustomization** stage, you can use the script to perform operations like stopping
 > and starting services, including Hadoop-related services. So, as part of the script, you must
@@ -94,8 +94,9 @@ HDInsight provides several scripts to install the following components on HDInsi
 ## Call scripts using Azure PowerShell
 This following PowerShell script demonstrates how to install Spark on Windows based HDInsight cluster.  
 
+    ```powershell
     # Provide values for these variables
-    $subscriptionID = "<Azure Suscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
+    $subscriptionID = "<Azure Subscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
     $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
     $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
@@ -172,7 +173,7 @@ This following PowerShell script demonstrates how to install Spark on Windows ba
             -OSType Windows `
             -DefaultStorageContainer $defaultBlobContainerName `
             -Config $config
-
+    ```
 
 To install other software, you will need to replace the script file in the script:
 
@@ -185,12 +186,14 @@ The following sample demonstrates how to install Apache Spark on Windows based H
 
 1. Create a C# console application in Visual Studio.
 2. From the Nuget Package Manager Console, run the following command.
-
+    ```powershell
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
+    ```
 3. Use the following using statements in the Program.cs file:
 
+    ```csharp
         using System;
         using System.Security;
         using Microsoft.Azure;
@@ -200,8 +203,10 @@ The following sample demonstrates how to install Apache Spark on Windows based H
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Rest;
         using Microsoft.Rest.Azure.Authentication;
+    ```
 4. Place the code in the class with the following:
 
+    ```csharp
         private static HDInsightManagementClient _hdiManagementClient;
 
         // Replace with your AAD tenant ID if necessary
@@ -290,6 +295,8 @@ The following sample demonstrates how to install Apache Spark on Windows based H
             // Register the HDInsight provider
             var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
         }
+    ```
+
 5. Press **F5** to run the application.
 
 ## Support for open-source software used on HDInsight clusters
@@ -302,10 +309,10 @@ There are two types of open-source components that are available in the HDInsigh
 
 Built-in components are fully supported, and Microsoft Support will help to isolate and resolve issues related to these components.
 
-> [!WARNING]
+> [!WARNING]  
 > Components provided with the HDInsight cluster are fully supported and Microsoft Support will help to isolate and resolve issues related to these components.
 >
-> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Also Apache projects have project sites on [http://apache.org](http://apache.org), for example: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> Custom components receive commercially reasonable support to help you to further troubleshoot the issue. This might result in resolving the issue OR asking you to engage available channels for the open source technologies where deep expertise for that technology is found. For example, there are many community sites that can be used, like: [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Also Apache projects have project sites on [https://apache.org](https://apache.org), for example: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 >
 >
 

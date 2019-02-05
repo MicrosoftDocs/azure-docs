@@ -65,7 +65,7 @@ For more information, see the [Use volumes](https://docs.docker.com/engine/admin
 
 Before you install the OPC components, complete the following steps to prepare your environment:
 
-1. To complete the gateway deployment, you need the **iothubowner** connection string of the IoT Hub in your Connected Factory deployment. In the [Azure portal](http://portal.azure.com/), navigate to your IoT Hub in the resource group created when you deployed the Connected Factory solution. Click **Shared access policies** to access the **iothubowner** connection string:
+1. To complete the gateway deployment, you need the **iothubowner** connection string of the IoT Hub in your Connected Factory deployment. In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub in the resource group created when you deployed the Connected Factory solution. Click **Shared access policies** to access the **iothubowner** connection string:
 
     ![Find the IoT Hub connection string](./media/iot-accelerators-connected-factory-gateway-deployment/image2.png)
 

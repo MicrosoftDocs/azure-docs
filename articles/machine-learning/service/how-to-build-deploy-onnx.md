@@ -1,10 +1,10 @@
 ---
-title: Create and deploy interoperable ONNX models
+title: Create & deploy interoperable ONNX models
 titleSuffix: Azure Machine Learning service
 description: Learn about ONNX and how to use Azure Machine Learning to create and deploy ONNX models 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 
 ms.reviewer: jmartens
@@ -66,7 +66,7 @@ With Azure Machine Learning service, you can deploy, manage, and monitor your ON
 
 ### Install and configure ONNX Runtime
 
-ONNX Runtime is an open source high-performance inference engine for ONNX models. It provides hardware acceleration on both CPU and GPU, with APIs available for Python, C#, and C. ONNX Runtime supports ONNX 1.2+ models and runs on Linux, Windows, and Mac. Python packages are available on [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), and [C# package](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) is on [Nuget.org](https://www.nuget.org). See more about the project on [Github](https://github.com/Microsoft/onnxruntime). 
+ONNX Runtime is an open source high-performance inference engine for ONNX models. It provides hardware acceleration on both CPU and GPU, with APIs available for Python, C#, and C. ONNX Runtime supports ONNX 1.2+ models and runs on Linux, Windows, and Mac. Python packages are available on [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime), [GPU](https://pypi.org/project/onnxruntime-gpu)), and [C# package](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/) is on [Nuget.org](https://www.nuget.org). See more about the project on [GitHub](https://github.com/Microsoft/onnxruntime). 
 
 To install ONNX Runtime for Python, use:
 ```python
@@ -182,10 +182,7 @@ Here is an example for deploying an ONNX model:
     f.write(myenv.serialize_to_string())
    ```
 
-4. Deploy your ONNX model with Azure Machine Learning to:
-   + Azure Container Instances (ACI): [Learn how...](how-to-deploy-to-aci.md)
-
-   + Azure Kubernetes Service (AKS): [Learn how...](how-to-deploy-to-aks.md)
+4. To deploy your model, see the [How to deploy and where](how-to-deploy-and-where.md) document.
 
 
 ## Examples
@@ -202,6 +199,6 @@ Learn more about ONNX or contribute to the project:
 + [ONNX code on GitHub](https://github.com/onnx/onnx)
 
 Learn more about ONNX Runtime or contribute to the project:
-+ [ONNX Runtime Github Repo](https://github.com/Microsoft/onnxruntime)
++ [ONNX Runtime GitHub Repo](https://github.com/Microsoft/onnxruntime)
 
 

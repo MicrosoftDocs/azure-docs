@@ -140,7 +140,7 @@ Use the following PowerShell script to upload the files, run the job, and view t
 
     This command copies the files from the local system to the head node.
 
-    > [!NOTE]
+    > [!NOTE]  
     > If you used a password to secure your SSH account, you are prompted for the password. If you used an SSH key, you may have to use the `-i` parameter and the path to the private key. For example, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
 
 2. Connect to the cluster by using SSH:
@@ -197,6 +197,6 @@ Use the following PowerShell script to upload the files, run the job, and view t
 
 Now that you have learned how to use streaming MapRedcue jobs with HDInsight, use the following links to explore other ways to work with Azure HDInsight.
 
-* [Use Hive with HDInsight](hdinsight-use-hive.md)
-* [Use Pig with HDInsight](hdinsight-use-pig.md)
+* [Use Apache Hive with HDInsight](hdinsight-use-hive.md)
+* [Use Apache Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce jobs with HDInsight](hdinsight-use-mapreduce.md)

@@ -1,12 +1,15 @@
 ---
-title: Configure High Availability Ports for Azure Load Balancer| Microsoft Docs
+title: Configure High Availability Ports for Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Learn how to use High Availability Ports for load balancing internal traffic on all ports 
 services: load-balancer
 documentationcenter: na
 author: rdhillon
+manager: narayan
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018

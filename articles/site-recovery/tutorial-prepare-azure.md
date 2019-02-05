@@ -4,8 +4,9 @@ description: Learn how to prepare Azure for disaster recovery of on-premises mac
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
+services: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 01/08/2019
 ms.author: raynew
 ms.custom: MVC
 
@@ -63,11 +64,12 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 
 ## Create a Recovery Services vault
 
-1. In the Azure portal, select **Create a resource** > **Storage** > **Backup and Site Recovery (OMS)**.
-2. In **Name**, enter a friendly name to identify the vault. For this set of tutorials we're using **ContosoVMVault**.
-3. In **Resource group**, we're using **contosoRG**.
-4. In **Location**. We're using **West Europe**.
-5. To quickly access the vault from the dashboard, select **Pin to dashboard** > **Create**.
+1. In the Azure portal, click **+Create a resource**, and search the Marketplace for **Recovery services**.
+2. Click **Backup and Site Recovery (OMS)**, and in the Backup and Site Recovery page, click **Create**. 
+1. In **Recovery Services vault** > **Name**, enter a friendly name to identify the vault. For this set of tutorials we're using **ContosoVMVault**.
+2. In **Resource group**, select an existing resource group or create a new one. For this tutorial we're using **contosoRG**.
+3. In **Location**, select the region in which the vault should be located. We're using **West Europe**.
+4. To quickly access the vault from the dashboard, select **Pin to dashboard** > **Create**.
 
    ![Create a new vault](./media/tutorial-prepare-azure/new-vault-settings.png)
 

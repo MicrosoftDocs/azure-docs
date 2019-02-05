@@ -1,20 +1,12 @@
 ---
-title: Build Real-time Apps with Azure Functions and Azure SignalR | Microsoft Docs
+title: Build Real-time Apps with Azure Functions and Azure SignalR
 description: An overview of using Azure SignalR service in serverless applications.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: 
-
 ms.service: signalr
-ms.devlang: na
 ms.topic: overview
-ms.workload: tbd
 ms.date: 09/18/2018
 ms.author: zhshang
 ---
-
 # Build Real-time Apps with Azure Functions and Azure SignalR Service
 
 Because Azure SignalR Service and Azure Functions are both fully managed, highly scalable services that allow you to focus on building applications instead of managing infrastructure, it's common to use the two services together to provide real-time communications in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment.
@@ -67,4 +59,3 @@ In this article, you got an overview of how to use Azure Functions with SignalR 
 
 * [Azure SignalR Service Serverless Quickstart - C#](signalr-quickstart-azure-functions-csharp.md)
 * [Azure SignalR Service Serverless Quickstart - JavaScript](signalr-quickstart-azure-functions-javascript.md)
-

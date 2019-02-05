@@ -1,16 +1,16 @@
 ---
-title: Feature selection in the Team Data Science Process | Microsoft Docs
+title: Feature selection in the Team Data Science Process
 description: Explains the purpose of feature selection and provides examples of their role in the data enhancement process of machine learning.
 services: machine-learning
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Feature selection in the Team Data Science Process (TDSP)
 This article explains the purposes of feature selection and provides examples of its role in the data enhancement process of machine learning. These examples are drawn from Azure Machine Learning Studio. 
@@ -36,21 +36,21 @@ Among others, one widely applied category of feature selection methods in a supe
 
 In Azure Machine Learning Studio, there are modules provided for feature selection. As shown in the following figure, these modules include [Filter-Based Feature Selection][filter-based-feature-selection] and [Fisher Linear Discriminant Analysis][fisher-linear-discriminant-analysis].
 
-![Feature selection example](./media/select-features/feature-Selection.png)
+![Feature Selection modules](./media/select-features/feature-Selection.png)
 
 Consider, for example, the use of the [Filter-Based Feature Selection][filter-based-feature-selection] module. For convenience, continue using the text mining example. Assume that you want to build a regression model after a set of 256 features are created through the [Feature Hashing][feature-hashing] module, and that the response variable is the "Col1" that contains book review ratings ranging from 1 to 5. By setting "Feature scoring method" to be "Pearson Correlation", the "Target column" to be "Col1", and the "Number of desired features" to 50. Then the module [Filter-Based Feature Selection][filter-based-feature-selection] produces a dataset containing 50 features together with the target attribute "Col1". The following figure shows the flow of this experiment and the input parameters:
 
-![Feature selection example](./media/select-features/feature-Selection1.png)
+![Filter Based Feature Selection module properties](./media/select-features/feature-Selection1.png)
 
 The following figure shows the resulting datasets:
 
-![Feature selection example](./media/select-features/feature-Selection2.png)
+![Resulting dataset for Filter Based Feature Selection module](./media/select-features/feature-Selection2.png)
 
 Each feature is scored based on the Pearson Correlation between itself and the target attribute "Col1". The features with top scores are kept.
 
 The corresponding scores of the selected features are shown in the following figure:
 
-![Feature selection example](./media/select-features/feature-Selection3.png)
+![Scores for Filter Based Feature Selection module](./media/select-features/feature-Selection3.png)
 
 By applying this [Filter-Based Feature Selection][filter-based-feature-selection] module, 50 out of 256 features are selected because they have the most correlated features with the target variable "Col1", based on the scoring method "Pearson Correlation".
 

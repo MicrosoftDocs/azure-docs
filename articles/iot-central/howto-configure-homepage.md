@@ -1,16 +1,16 @@
 ---
 title: Configure the Homepage of your Azure IoT Central application | Microsoft Docs
 description: As a builder, learn how to configure the Homepage of your Azure IoT Central application.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 07/10/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
+manager: philmea
 ---
 
-## Configuring Homepage
+# Configuring Homepage
 
 The Homepage is the page that loads when users who have access to the application navigate to the application's URL. If you selected either the "Sample Contoso" or "Sample Devkits" Application Templates while creating your application, your application will have pre-defined Homepages. If on the other hand you selected the "Custom Application" Application Template, your Homepage will be blank.
 

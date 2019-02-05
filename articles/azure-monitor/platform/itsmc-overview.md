@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.component: 
 ---
 
 # Connect Azure to ITSM tools using IT Service Management Connector
@@ -255,7 +254,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## Output data for a ServiceNow change request
 
-| Log Analytics | ServieNow field |
+| Log Analytics | ServiceNow field |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
 | CreatedBy_s | Requested by |

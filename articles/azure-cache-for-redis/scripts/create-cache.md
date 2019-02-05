@@ -26,7 +26,7 @@ In this scenario, you learn how to create an Azure Cache for Redis.
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/redis-cache/create-cache/create-cache.sh "Azure Azure Cache for Redis")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/create-cache/create-cache.sh "Azure Cache for Redis")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
 
@@ -36,8 +36,8 @@ This script uses the following commands to create a resource group and an Azure 
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az redis create](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | Create Azure Cache for Redis instance. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az redis create](https://docs.microsoft.com/cli/azure/redis) | Create Azure Cache for Redis instance. |
 
 
 ## Next steps

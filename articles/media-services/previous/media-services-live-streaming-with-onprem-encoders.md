@@ -123,7 +123,7 @@ The following table shows how the segment duration is calculated:
 
 You can change the fragments-per-segment ratio by configuring the channel’s output and setting FragmentsPerSegment on ChannelOutputHls.
 
-You can also change the keyframe interval value by setting the KeyFrameInterval property on ChanneInput. If you explicitly set KeyFrameInterval, the HLS segment packaging ratio FragmentsPerSegment is calculated via the rules described previously.  
+You can also change the keyframe interval value by setting the KeyFrameInterval property on ChannelInput. If you explicitly set KeyFrameInterval, the HLS segment packaging ratio FragmentsPerSegment is calculated via the rules described previously.  
 
 If you explicitly set both KeyFrameInterval and FragmentsPerSegment, Media Services uses the values that you set.
 

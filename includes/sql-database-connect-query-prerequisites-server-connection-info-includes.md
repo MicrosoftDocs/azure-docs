@@ -2,23 +2,23 @@
 author: MightyPen
 ms.service: sql-database
 ms.topic: include
-ms.date: 11/09/2018	
+ms.date: 12/06/2018	
 ms.author: genemi
 ---
 
 <!-- sql-database-connect-query-prerequisites-server-connection-info-includes.md 
 
-## SQL server connection information
+## Get SQL server connection information
 -->
 
-Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
+Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name, database name, and login information for the upcoming procedures.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Select **SQL databases** from the left-hand menu, and click your database on the **SQL databases** page.
+1. Select **SQL databases** from the left menu, then select your database on the **SQL databases** page.
 
-1. On the **Overview** page for your database, review the fully qualified server name as shown in the following image. You can hover over the **Server name** to bring up the **Click to copy** option.  
+1. On the **Overview** page for your database, review the fully qualified server name next to **Server name**. To copy the server name, hover over it and select the **Copy** icon.  
 
-   ![server-name](./media/sql-database-connect-query-prerequisites-server-connection-info-includes/server-name.png)
+![server-name](./media/sql-database-connect-query-prerequisites-server-connection-info-includes/server-name.png)
 
-1. If you forget your server login information, you can click on the **Server name** to navigate to the **SQL server** page and view the **Server admin** name. If necessary, select **Reset password**.
+If you forget your login information, select the server name to open the **SQL server** page. Here you can view the **Server admin** name, and select **Reset password** if necessary.

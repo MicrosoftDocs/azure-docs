@@ -1,15 +1,15 @@
 ---
 title: Frequently asked questions for Cloudyn in Azure | Microsoft Docs
-description: Provides answers to some of the common questions about Cloudyn.
+description: This article provides answers to some of the common questions about Cloudyn.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/06/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
-ms.custom:
+ms.custom: seodec18
 ---
 
 # Frequently asked questions for Cloudyn

@@ -6,7 +6,7 @@ author: mialdrid
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 01/25/2019
 ms.author: mialdrid
 ms.custom: seodec18
 
@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # About ExpressRoute Direct (Preview)
 
-ExpressRoute Direct gives you the the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100-Gbps connectivity, which supports Active/Active connectivity at scale.
+ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100-Gbps connectivity, which supports Active/Active connectivity at scale.
 
 Key features that ExpressRoute Direct provides include, but aren't limited to:
 
@@ -67,7 +67,7 @@ ExpressRoute Direct supports both QinQ and Dot1Q VLAN tagging.
 
 ## Workflow
 
-![workflow](./media/expressroute-erdirect-about/workflow1.png)
+[ ![workflow](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
 ## SLA
 

@@ -147,6 +147,9 @@ $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestor
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 ```
 
+> [!IMPORTANT]
+> Due to an issue in the runtime, ensure that the retention duration in the retention policy is configured to be less than 24 days or else it would result in Backup Restore service to go into quorum loss post replica failover.
+
 ### Enable periodic backup
 After defining backup policy to fulfill data protection requirements of the application, the backup policy should be associated with the application. Depending on requirement, the backup policy can be associated with an application, service, or a partition.
 
@@ -225,8 +228,10 @@ FailureError            :
 
 ## Limitation/ caveats
 - No Service Fabric built in PowerShell cmdlets.
-- No support for Service Fabric CLI.
 - No support for Service Fabric clusters on Linux.
+
+## Known Issues
+- Ensure that the retention duration is configured to be less than 24 days. 
 
 ## Next steps
 - [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)

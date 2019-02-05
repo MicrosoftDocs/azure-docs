@@ -6,13 +6,14 @@ services: cognitive-services
 author: tulasim88
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/14/2019
 ms.author: tulasim
+ms.custom: seodec18
 ---
 
-# Knowledge base lifecycle
+# Knowledge base lifecycle in QnA Maker
 QnA Maker learns best in an iterative cycle of model changes, utterance examples, publishing, and gathering data from endpoint queries. 
 
 ![Authoring cycle](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)

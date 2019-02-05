@@ -78,6 +78,8 @@ For details on upgrading your Classic registry to one of the managed SKUs, see [
 
 For pricing information on each of the Azure Container Registry SKUs, see [Container Registry pricing][container-registry-pricing].
 
+For details about pricing for data transfers, see [Bandwidth Pricing Details](https://azure.microsoft.com/pricing/details/bandwidth/). 
+
 ## Next steps
 
 **Azure Container Registry Roadmap**

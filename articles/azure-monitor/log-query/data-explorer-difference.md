@@ -10,11 +10,9 @@ ms.assetid:
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: bwren
-ms.component: na
 ---
 
 # Log Analytics query language differences

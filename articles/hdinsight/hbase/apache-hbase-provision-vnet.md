@@ -30,7 +30,7 @@ Before you begin this tutorial, you must have the following items:
 ## Create Apache HBase cluster into virtual network
 In this section, you create a Linux-based Apache HBase cluster with the dependent Azure Storage account in an Azure virtual network using an [Azure Resource Manager template](../../azure-resource-manager/resource-group-template-deploy.md). For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md). For more information about using a template to create Apache Hadoop clusters in HDInsight, see [Create Apache Hadoop clusters in HDInsight using Azure Resource Manager templates](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-> [!NOTE]
+> [!NOTE]  
 > Some properties are hard-coded into the template. For example:
 >
 > * **Location**: East US 2
@@ -70,10 +70,8 @@ To begin working with your new HBase cluster, you can use the procedures found i
    * **Virtual network**: &lt;Cluster name>-vnet
    * **Subnet**: subnet1
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Replace &lt;Cluster name> with the name you used when creating the HDInsight cluster in previous steps.
-   >
-   >
 
    Using these values, the virtual machine is placed in the same virtual network and subnet as the HDInsight cluster. This configuration allows them to directly communicate with each other. There is a way to create an HDInsight cluster with an empty edge node. The edge node can be used to manage the cluster.  For more information, see [Use empty edge nodes in HDInsight](../hdinsight-apps-use-edge-node.md).
 
@@ -228,10 +226,8 @@ To use this information in a Java application, you can follow the steps in [Use 
         <value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
     </property>
 
-> [!NOTE]
+> [!NOTE]  
 > For more information about name resolution in Azure virtual networks, including how to use your own DNS server, see [Name Resolution (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
->
->
 
 ## Next steps
 In this tutorial, you learned how to create an Apache HBase cluster. To learn more, see:

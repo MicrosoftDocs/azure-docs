@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
-ms.component: 
 ---
 # Import Azure Log Analytics data into Power BI
 

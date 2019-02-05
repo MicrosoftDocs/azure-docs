@@ -72,7 +72,9 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ### Important tips for assigning users to Samanage
 
-*	It is recommended that a single Azure AD user is assigned to Samanage to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+*    Samanage roles are automatically and dynamically populated in the Azure portal UI today. Before assigning Samanage roles to users, ensure that an initial sync is completed against Samanage to retrieve the latest roles in your Samanage tenant.
+
+*    It is recommended that a single Azure AD user is assigned to Samanage to test your initial automatic user provisioning configuration. Additional users and/or groups may be assigned later once the tests are successful.
 
 *	When assigning a user to Samanage, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 

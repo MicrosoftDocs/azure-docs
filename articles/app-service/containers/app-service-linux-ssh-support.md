@@ -1,5 +1,5 @@
 ---
-title: SSH support for Azure App Service on Linux | Microsoft Docs
+title: SSH support for App Service on Linux - Azure | Microsoft Docs
 description: Learn about using SSH with Azure App Service on Linux.
 keywords: azure app service, web app, linux, oss
 services: app-service
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
+ms.custom: seodec18
 
 ---
 # SSH support for Azure App Service on Linux
@@ -64,7 +65,7 @@ These steps are shown in the Azure App Service repository as [an example](https:
     	&& echo "root:Docker!" | chpasswd
     ```
 
-1. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](https://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on the sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
+2. Add a [`COPY` instruction](https://docs.docker.com/engine/reference/builder/#copy) to the Dockerfile to copy a [sshd_config](https://man.openbsd.org/sshd_config) file to the */etc/ssh/* directory. Your configuration file should be based on the sshd_config file in the Azure-App-Service GitHub repository [here](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
 
     > [!NOTE]
     > The *sshd_config* file must include the following or the connection fails: 
@@ -75,13 +76,13 @@ These steps are shown in the Azure App Service repository as [an example](https:
     COPY sshd_config /etc/ssh/
     ```
 
-1. Include port 2222 in the [`EXPOSE` instruction](https://docs.docker.com/engine/reference/builder/#expose) for the Dockerfile. Although the root password is known, port 2222 cannot be accessed from the internet. It is an internal only port accessible only by containers within the bridge network of a private virtual network.
+3. Include port 2222 in the [`EXPOSE` instruction](https://docs.docker.com/engine/reference/builder/#expose) for the Dockerfile. Although the root password is known, port 2222 cannot be accessed from the internet. It is an internal only port accessible only by containers within the bridge network of a private virtual network.
 
     ```docker
     EXPOSE 2222 80
     ```
 
-1. Make sure to start the SSH service using a shell script (see example at [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
+4. Make sure to start the SSH service using a shell script (see example at [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh)).
 
     ```bash
     #!/bin/bash

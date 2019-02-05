@@ -12,7 +12,7 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ---
 # Iterative development and debugging with Azure Data Factory
 

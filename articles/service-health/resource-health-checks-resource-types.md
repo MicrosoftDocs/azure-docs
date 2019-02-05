@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 11/15/2018
+ms.date: 01/29/2019
 ms.author: stbaron
 ---
 
@@ -112,6 +112,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li>Can diagnostics operations be performed on the cluster?</li></ul>|
 
+## Microsoft.ServiceBus/namespaces
+|Executed Checks|
+|---|
+|<ul><li>Are customers experiencing user generated Service Bus errors?</li><li>Are users experiencing an increase in transient errors due to a Service Bus namespace upgrade?</li></ul>|
+
 ## Microsoft.SQL/Server/database
 |Executed Checks|
 |---|
@@ -140,4 +145,4 @@ Below is a complete list of all the checks executed through resource health by r
 # Next Steps
 -  See [Introduction to Azure Service Health dashboard](service-health-overview.md) and [Introduction to Azure Resource Health](resource-health-overview.md) to understand more about them. 
 -  [Frequently asked questions about Azure Resource Health](resource-health-faq.md)
-- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md). 
+- Set up alerts so you are notified of health issues. For more information, see [Configure Alerts for service health events](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 

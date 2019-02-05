@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Perform cross-resource log searches in Log Analytics  
@@ -121,7 +120,6 @@ applicationsScoping
 | where success == 'False'
 | parse SourceApp with * '(' applicationName ')' * 
 | summarize count() by applicationName, bin(timestamp, 1h) 
-| sort by count_ desc 
 | render timechart
 ```
 ![Timechart](media/cross-workspace-query/chart.png)

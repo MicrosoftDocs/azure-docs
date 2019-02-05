@@ -5,7 +5,7 @@ services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: include
-ms.date: 08/29/2018
+ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -24,6 +24,7 @@ The following table lists quota information specific to Service Bus messaging. F
 | Number of [partitioned topics/queues](/azure/service-bus-messaging/service-bus-partitioning) per namespace |Namespace |Subsequent requests for creation of a new partitioned topic or queue on the namespace are rejected. As a result, if configured through the [Azure portal][Azure portal], an error message is generated. If called from the management API, a **QuotaExceededException** exception is received by the calling code. |Basic and Standard Tiers - 100<br/><br/>Partitioned entities are not supported in the [Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md) tier.<br/><br />Each partitioned queue or topic counts towards the quota of 1000 entities per namespace. |
 | Maximum size of any messaging entity path: queue or topic |Entity |- |260 characters |
 | Maximum size of any messaging entity name: namespace, subscription, or subscription rule |Entity |- |50 characters |
+| Maximum size of a [message ID](/dotnet/api/microsoft.azure.servicebus.message.messageid) | Entity |- | 128 |
 | Maximum size of a message [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid) | Entity |- | 128 |
 | Message size for a queue/topic/subscription entity |Entity |Incoming messages that exceed these quotas are rejected and an exception is received by the calling code. |Maximum message size: 256 KB ([Standard tier](../articles/service-bus-messaging/service-bus-premium-messaging.md)) / 1 MB ([Premium tier](../articles/service-bus-messaging/service-bus-premium-messaging.md)). <br /><br />Due to system overhead, this limit is less than these values.<br /><br />Maximum header size: 64 KB<br /><br />Maximum number of header properties in property bag: **byte/int.MaxValue**<br /><br />Maximum size of property in property bag: No explicit limit. Limited by maximum header size. |
 | Message property size for a queue/topic/subscription entity |Entity |A **SerializationException** exception is generated. |Maximum message property size for each property is 32 K. Cumulative size of all properties cannot exceed 64 K. This limit applies to the entire header of the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), which has both user properties as well as system properties (such as [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label), [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid), and so on). |

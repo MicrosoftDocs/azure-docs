@@ -1,6 +1,6 @@
 ---
 title: Bindings for Durable Functions - Azure
-description: How to use triggers and bindings for the Durable Functons extension for Azure Functions.
+description: How to use triggers and bindings for the Durable Functions extension for Azure Functions.
 services: functions
 author: kashimiz
 manager: jeconnoc
@@ -8,7 +8,7 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
 ---
 
@@ -22,7 +22,7 @@ The orchestration trigger enables you to author durable orchestrator functions. 
 
 When you use the Visual Studio tools for Azure Functions, the orchestration trigger is configured using the [OrchestrationTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationTriggerAttribute.html) .NET attribute.
 
-When you write orchestrator functions in scripting languages (for example, in the Azure portal), the orchestration trigger is defined by the following JSON object in the `bindings` array of the *function.json* file:
+When you write orchestrator functions in scripting languages (for example, JavaScript or C# scripting), the orchestration trigger is defined by the following JSON object in the `bindings` array of the *function.json* file:
 
 ```json
 {
@@ -49,12 +49,15 @@ Here are some notes about the orchestration trigger:
 > [!WARNING]
 > Orchestrator functions should never use any input or output bindings other than the orchestration trigger binding. Doing so has the potential to cause problems with the Durable Task extension because those bindings may not obey the single-threading and I/O rules.
 
-### Trigger usage
+> [!WARNING]
+> JavaScript orchestrator functions should never be declared `async`.
+
+### Trigger usage (.NET)
 
 The orchestration trigger binding supports both inputs and outputs. Here are some things to know about input and output handling:
 
-* **inputs** - Orchestration functions support only [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) as a parameter type. Deserialization of inputs directly in the function signature is not supported. Code must use the [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1) method to fetch orchestrator function inputs. These inputs must be JSON-serializable types.
-* **outputs** - Orchestration triggers support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a function returns `Task` or `void`, a `null` value will be saved as the output.
+* **inputs** - .NET orchestration functions support only [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) as a parameter type. Deserialization of inputs directly in the function signature is not supported. Code must use the [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetInput__1)(.NET) or `getInput` (JavaScript) method to fetch orchestrator function inputs. These inputs must be JSON-serializable types.
+* **outputs** - Orchestration triggers support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a .NET function returns `Task` or `void`, a `null` value will be saved as the output.
 
 ### Trigger sample
 
@@ -71,7 +74,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-#### JavaScript (Functions v2 only)
+#### JavaScript (Functions 2.x only)
 
 ```javascript
 const df = require("durable-functions");
@@ -81,6 +84,9 @@ module.exports = df.orchestrator(function*(context) {
     return `Hello ${name}!`;
 });
 ```
+
+> [!NOTE]
+> The `context` object in JavaScript does not represent the DurableOrchestrationContext, but the [function context as a whole.](../functions-reference-node.md#context-object). You can access orchestration methods via the `context` object's `df` property.
 
 > [!NOTE]
 > JavaScript orchestrators should use `return`. The `durable-functions` library takes care of calling the `context.done` method.
@@ -100,7 +106,7 @@ public static async Task<string> Run(
 }
 ```
 
-#### JavaScript (Functions v2 only)
+#### JavaScript (Functions 2.x only)
 
 ```javascript
 const df = require("durable-functions");
@@ -116,7 +122,7 @@ module.exports = df.orchestrator(function*(context) {
 
 The activity trigger enables you to author functions that are called by orchestrator functions.
 
-If you're using Visual Studio, the activity trigger is configured using the [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET attribute. 
+If you're using Visual Studio, the activity trigger is configured using the [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET attribute.
 
 If you're using VS Code or the Azure portal for development, the activity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
@@ -145,13 +151,13 @@ Here are some notes about the activity trigger:
 > [!WARNING]
 > The storage backend for activity functions is an implementation detail and user code should not interact with these storage entities directly.
 
-### Trigger usage
+### Trigger usage (.NET)
 
 The activity trigger binding supports both inputs and outputs, just like the orchestration trigger. Here are some things to know about input and output handling:
 
-* **inputs** - Activity functions natively use [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) as a parameter type. Alternatively, an activity function can be declared with any parameter type that is JSON-serializable. When you use `DurableActivityContext`, you can call [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) to fetch and deserialize the activity function input.
-* **outputs** - Activity functions support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a function returns `Task` or `void`, a `null` value will be saved as the output.
-* **metadata** - Activity functions can bind to a `string instanceId` parameter to get the instance ID of the parent orchestration.
+* **inputs** - .NET activity functions natively use [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) as a parameter type. Alternatively, an activity function can be declared with any parameter type that is JSON-serializable. When you use `DurableActivityContext`, you can call [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) to fetch and deserialize the activity function input.
+* **outputs** - Activity functions support output values as well as inputs. The return value of the function is used to assign the output value and must be JSON-serializable. If a .NET function returns `Task` or `void`, a `null` value will be saved as the output.
+* **metadata** - .NET activity functions can bind to a `string instanceId` parameter to get the instance ID of the parent orchestration.
 
 ### Trigger sample
 
@@ -168,17 +174,7 @@ public static string SayHello([ActivityTrigger] DurableActivityContext helloCont
 }
 ```
 
-#### JavaScript (Functions v2 only)
-
-```javascript
-module.exports = function(context) {
-    context.done(null, `Hello ${context.bindings.name}!`);
-};
-```
-
-The default parameter type for the `ActivityTriggerAttribute` binding is `DurableActivityContext`. However, activity triggers also support binding directly to JSON-serializeable types (including primitive types), so the same function could be simplified as follows:
-
-#### C#
+The default parameter type for the .NET `ActivityTriggerAttribute` binding is `DurableActivityContext`. However, .NET activity triggers also support binding directly to JSON-serializeable types (including primitive types), so the same function could be simplified as follows:
 
 ```csharp
 [FunctionName("SayHello")]
@@ -188,17 +184,25 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### JavaScript (Functions v2 only)
+#### JavaScript (Functions 2.x only)
 
 ```javascript
-module.exports = function(context, name) {
-    context.done(null, `Hello ${name}!`);
+module.exports = async function(context) {
+    return `Hello ${context.bindings.name}!`;
 };
 ```
 
-### Passing multiple parameters 
+JavaScript bindings can also be passed in as additional parameters, so the same function could be simplified as follows:
 
-It is not possible to pass multiple parameters to an activity function directly. The recommendation in this case is to pass in an array of objects or to use [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) objects.
+```javascript
+module.exports = async function(context, name) {
+    return `Hello ${name}!`;
+};
+```
+
+### Passing multiple parameters
+
+It is not possible to pass multiple parameters to an activity function directly. The recommendation in this case is to pass in an array of objects or to use [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) objects in .NET.
 
 The following sample is using new features of [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) added with [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
 
@@ -217,7 +221,7 @@ public static async Task<dynamic> RunOrchestrator(
 [FunctionName("CourseRecommendations")]
 public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContext inputs)
 {
-    // parse input for student's major and year in university 
+    // parse input for student's major and year in university
     (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();
 
     // retrieve and return course recommendations by major and university year
@@ -237,6 +241,7 @@ public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContex
 ## Orchestration client
 
 The orchestration client binding enables you to write functions which interact with orchestrator functions. For example, you can act on orchestration instances in the following ways:
+
 * Start them.
 * Query their status.
 * Terminate them.
@@ -265,17 +270,20 @@ If you're using scripting languages (e.g. *.csx* or *.js* files) for development
 
 ### Client usage
 
-In C# functions, you typically bind to `DurableOrchestrationClient`, which gives you full access to all client APIs supported by Durable Functions. APIs on the client object include:
+In .NET functions, you typically bind to `DurableOrchestrationClient`, which gives you full access to all client APIs supported by Durable Functions. In JavaScript, the same APIs are exposed by the `DurableOrchestrationClient` object returned from `getClient`. APIs on the client object include:
 
 * [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_)
 * [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_)
 * [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_)
 * [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_)
-* [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_)
+* [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_) (currently .NET only)
 
-Alternatively, you can bind to `IAsyncCollector<T>` where `T` is [StartOrchestrationArgs](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) or `JObject`.
+Alternatively, .NET functions can bind to `IAsyncCollector<T>` where `T` is [StartOrchestrationArgs](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.StartOrchestrationArgs.html) or `JObject`.
 
 See the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) API documentation for additional details on these operations.
+
+> [!WARNING]
+> When developing locally in JavaScript, you will need to set the environment variable `WEBSITE_HOSTNAME` to `localhost:<port>`, ex. `localhost:7071` to use methods on `DurableOrchestrationClient`. For more information about this requirement, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-js/issues/28).
 
 ### Client sample (Visual Studio development)
 
@@ -310,9 +318,8 @@ If you're not using Visual Studio for development, you can create the following 
       "type": "orchestrationClient",
       "direction": "in"
     }
-  ],
-  "disabled": false
-} 
+  ]
+}
 ```
 
 Following are language-specific samples that start new orchestrator function instances.
@@ -334,22 +341,18 @@ public static Task<string> Run(string input, DurableOrchestrationClient starter)
 
 The following sample shows how to use the durable orchestration client binding to start a new function instance from a JavaScript function:
 
-```js
-module.exports = function (context, input) {
-    var id = generateSomeUniqueId();
-    context.bindings.starter = [{
-        FunctionName: "HelloWorld",
-        Input: input,
-        InstanceId: id
-    }];
+```javascript
+const df = require("durable-functions");
 
-    context.done(null, id);
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    return instanceId = await client.startNew("HelloWorld", undefined, context.bindings.input);
 };
 ```
 
 More details on starting instances can be found in [Instance management](durable-functions-instance-management.md).
 
-<a name="host-json"></a>  
+<a name="host-json"></a>
 
 ## host.json settings
 
@@ -359,4 +362,3 @@ More details on starting instances can be found in [Instance management](durable
 
 > [!div class="nextstepaction"]
 > [Learn about checkpointing and replay behaviors](durable-functions-checkpointing-and-replay.md)
-

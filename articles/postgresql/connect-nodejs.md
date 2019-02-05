@@ -1,11 +1,8 @@
 ---
 title: Connect to Azure Database for PostgreSQL from Node.js
 description: This quickstart provides a Node.js code sample you can use to connect and query data from Azure Database for PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: nodejs

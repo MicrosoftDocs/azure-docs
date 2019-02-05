@@ -1,9 +1,9 @@
 ---
-title: Service quotas and limits for Azure Batch | Microsoft Docs
+title: Service quotas and limits - Azure Batch | Microsoft Docs
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
@@ -13,9 +13,9 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2018
-ms.author: danlep
-ms.custom: H1Hack27Feb2017
+ms.date: 12/18/2018
+ms.author: lahugh
+ms.custom: seodec18
 
 ---
 # Batch service quotas and limits
@@ -61,9 +61,9 @@ If you created a Batch account with pool allocation mode set to **user subscript
 | [Concurrent tasks](batch-parallel-node-tasks.md) per compute node | 4 x number of node cores |
 | [Applications](batch-application-packages.md) per Batch account | 20 |
 | Application packages per application | 40 |
-| Maximum task lifetime | 7 days<sup>1</sup> |
+| Maximum task lifetime | 180 days<sup>1</sup> |
 
-<sup>1</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 7 days. Completed tasks persist indefinitely; data for tasks not completed within the maximum lifetime is not accessible.
+<sup>1</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 180 days. Completed tasks persist for 7 days; data for tasks not completed within the maximum lifetime is not accessible.
 
 ## View Batch quotas
 

@@ -7,7 +7,7 @@ author: shizn
 manager: philmea
 
 ms.author: xshi
-ms.date: 11/25/2018
+ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: "mvc, seodec18"
@@ -33,6 +33,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 An Azure IoT Edge device:
 
 * You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+* If you're running IoT Edge on Windows, IoT Edge version 1.0.5 does not support Node.js modules. For more information, see [1.0.5 release notes](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). For steps on how to install a specific version, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).
 
 Cloud resources:
 
@@ -41,13 +42,13 @@ Cloud resources:
 Development resources:
 
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Azure IoT Edge extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code. 
+* [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) for Visual Studio Code. 
 * [Docker CE](https://docs.docker.com/engine/installation/). 
 * [Node.js and npm](https://nodejs.org). The npm package is distributed with Node.js, which means that when you download Node.js, you automatically get npm installed on your computer.
 
 ## Create a container registry
 
-In this tutorial, you use the Azure IoT Edge extension for Visual Studio Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
+In this tutorial, you use the Azure IoT Tools for Visual Studio Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
 
 You can use any Docker-compatible registry to hold your container images. Two popular Docker registry services are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry. 
 
@@ -73,7 +74,7 @@ If you don't already have a container registry, follow these steps to create a n
 7. Copy the values for **Login server**, **Username**, and **Password**. You use these values later in the tutorial to provide access to the container registry. 
 
 ## Create an IoT Edge module project
-The following steps show you how to create an IoT Edge Node.js module using Visual Studio Code and the Azure IoT Edge extension.
+The following steps show you how to create an IoT Edge Node.js module using Visual Studio Code and the Azure IoT Tools.
 
 ### Create a new solution
 
@@ -99,7 +100,7 @@ Use **npm** to create a Node.js solution template that you can build on top of.
    | Provide a solution name | Enter a descriptive name for your solution or accept the default **EdgeSolution**. |
    | Select module template | Choose **Node.js Module**. |
    | Provide a module name | Name your module **NodeModule**. |
-   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. The final string looks like \<registry name\>.azurecr.io/nodemodule. |
+   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the name you provided in the last step. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. <br><br>The final image repository looks like \<registry name\>.azurecr.io/nodemodule. |
  
    ![Provide Docker image repository](./media/tutorial-node-module/repository.png)
 
@@ -176,15 +177,21 @@ Each template comes with sample code included, which takes simulated sensor data
     });
     ```
 
-9. Save this file.
+9. Save the app.js file.
 
-10. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. 
+10. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the IoT Edge agent which modules to deploy, in this case **tempSensor** and **NodeModule**, and tells the IoT Edge hub how to route messages between them. The Visual Studio Code extension automatically populates most of the information that you need in the deployment template, but verify that everything is accurate for your solution: 
 
-   This file tells the `$edgeAgent` to deploy two modules: **tempSensor**, which simulates device data, and **NodeModule**. The default platform of your IoT Edge is set to **amd64** in your VS Code status bar, which means your **NodeModule** is set to Linux amd64 version of the image. Change the default platform in status bar from **amd64** to **arm32v7** or **windows-amd64** if that is your IoT Edge device's architecture. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md). 
+   1. The default platform of your IoT Edge is set to **amd64** in your VS Code status bar, which means your **NodeModule** is set to Linux amd64 version of the image. Change the default platform in status bar from **amd64** to **arm32v7** or **windows-amd64** if that is your IoT Edge device's architecture. 
 
-   This file also contains your registry credentials. In the template file, your username and password are filled in with placeholders. When you generate the deployment manifest, the fields are updated with the values you added to **.env**. 
+      ![Update module image platform](./media/tutorial-node-module/image-platform.png)
 
-12. Add the NodeModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin: 
+   2. Verify that the template has the correct module name, not the default **SampleModule** name that you changed when you created the IoT Edge solution.
+
+   3. The **registryCredentials** section stores your Docker registry credentials, so that the IoT Edge agent can pull your module image. The actual username and password pairs are stored in the .env file, which is ignored by git. Add your credentials to the .env file if you haven't already.  
+
+   4. If you want to learn more about deployment manifests, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
+
+11. Add the NodeModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin: 
 
    ```json
        "NodeModule": {
@@ -196,7 +203,7 @@ Each template comes with sample code included, which takes simulated sensor data
 
    ![Add module twin to deployment template](./media/tutorial-node-module/module-twin.png)
 
-13. Save this file.
+12. Save the deployment.template.json file.
 
 
 ## Build your IoT Edge solution
@@ -216,9 +223,15 @@ When you tell Visual Studio Code to build your solution, it first takes the info
 
 You can see the full container image address with tag in the `docker build` command that runs in the VS Code integrated terminal. The image address is built from information in the `module.json` file, with the format **\<repository\>:\<version\>-\<platform\>**. For this tutorial, it should look like **registryname.azurecr.io/nodemodule:0.0.1-amd64**.
 
+>[!TIP]
+>If you receive an error trying to build and push your module, make the following checks:
+>* Did you sign in to Docker in Visual Studio Code using the credentials from your container registry? These credentials are different than the ones you use to sign in to the Azure portal.
+>* Is your container repository correct? Open **modules** > **cmodule** > **module.json** and find the **repository** field. The image repository should look like **\<registryname\>.azurecr.io/nodemodule**. 
+>* Are you building the same type of containers that your development machine is running? Visual Studio Code defaults to Linux amd64 containers. If your development machine is running Windows containers or Linux arm32v7 containers, update the platform on the blue status bar at the bottom of your VS Code window to match your container platform.
+
 ## Deploy and run the solution
 
-In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Azure IoT Toolkit extension for Visual Studio Code. You already have a deployment manifest prepared for your scenario, the **deployment.json** file. All you need to do now is select a device to receive the deployment.
+In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Azure IoT Hub Toolkit extension (formerly Azure IoT Toolkit extension) for Visual Studio Code. You already have a deployment manifest prepared for your scenario, the **deployment.json** file. All you need to do now is select a device to receive the deployment.
 
 1. In the VS Code command palette, run **Azure IoT Hub: Select IoT Hub**. 
 

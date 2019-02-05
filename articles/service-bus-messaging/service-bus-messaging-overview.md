@@ -3,21 +3,21 @@ title: Azure Service Bus messaging overview | Microsoft Docs
 description: Description of Service Bus messaging
 services: service-bus-messaging
 documentationcenter: ''
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
-ms.author: spelluru
+ms.author: aschhab
 #Customer intent: As a developer, I want to be able to securely and reliably send messages between applications and services, with the ability to use publish/subscribe capabilities.
 ---
 
 # What is Azure Service Bus?
 
-Microsoft Azure Service Bus is a fully managed enterprise integration message broker. Service Bus is most commonly used to decouple applications and services from each other, and is a reliable and secure platform for asynchronous data and state transfer. Data is transferred between different applications and services using *messages*. A message is in binary format, which can contain JSON, XML, or just text. 
+Microsoft Azure Service Bus is a fully managed enterprise [integration](http://azure.com/integration) message broker. Service Bus is most commonly used to decouple applications and services from each other, and is a reliable and secure platform for asynchronous data and state transfer. Data is transferred between different applications and services using *messages*. A message is in binary format, which can contain JSON, XML, or just text. 
 
 Some common messaging scenarios are:
 

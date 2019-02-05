@@ -9,7 +9,7 @@ ms.date: 11/27/2018
 ms.author: mayg
 
 ---
-# Overview of multi-tenant support for VMware fisaster recovery to Azure with CSP
+# Overview of multi-tenant support for VMware disaster recovery to Azure with CSP
 
 [Azure Site Recovery](site-recovery-overview.md) supports multi-tenant environments for tenant subscriptions. It also supports multi-tenancy for tenant subscriptions that are created and managed through the Microsoft Cloud Solution Provider (CSP) program.
 

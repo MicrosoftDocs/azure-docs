@@ -24,9 +24,9 @@ Webhooks are one of the many ways to receive events from Azure Event Grid. When 
 
 Like many other services that support webhooks, Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint. This requirement prevents a malicious user from flooding your endpoint with events. When you use any of the three Azure services listed below, the Azure infrastructure automatically handles this validation:
 
-* Azure Logic Apps,
-* Azure Automation,
-* Azure Functions for Event Grid Trigger.
+* Azure Logic Apps with [Event Grid Connector](https://docs.microsoft.com/connectors/azureeventgrid/)
+* Azure Automation via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
+* Azure Functions with [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md)
 
 If you're using any other type of endpoint, such as an HTTP trigger based Azure function, your endpoint code needs to participate in a validation handshake with Event Grid. Event Grid supports two ways of validating the subscription.
 
@@ -45,7 +45,7 @@ If you're using any other type of endpoint, such as an HTTP trigger based Azure 
 * The event body has the same schema as other Event Grid events.
 * The eventType property of the event is `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * The data property of the event includes a `validationCode` property with a randomly generated string. For example, "validationCode: acb13…".
-* If you're using API version 2018-05-01-preview, the event data also includes a `validationUrl` property with a URL for manually validating the subscription.
+* The event data also includes a `validationUrl` property with a URL for manually validating the subscription.
 * The array contains only the validation event. Other events are sent in a separate request after you echo back the validation code.
 * The EventGrid DataPlane SDKs have classes corresponding to the subscription validation event data and subscription validation response.
 
@@ -75,6 +75,8 @@ To prove endpoint ownership, echo back the validation code in the validationResp
 }
 ```
 
+You must return an HTTP 200 OK response status code. HTTP 202 Accepted is not recognized as a valid Event Grid subscription validation response.
+
 Or, you can manually validate the subscription by sending a GET request to the validation URL. The event subscription stays in a pending state until validated.
 
 For an example of handling the subscription validation handshake, see a [C# sample](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
@@ -90,7 +92,7 @@ During event subscription creation, if you're seeing an error message such as "T
 
 ### Event delivery security
 
-You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a secret such as an [access token](https://en.wikipedia.org/wiki/Access_token). The webhook can use to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook.
+You can secure your webhook endpoint by adding query parameters to the webhook URL when creating an Event Subscription. Set one of these query parameters to be a secret such as an [access token](https://en.wikipedia.org/wiki/Access_token). The webhook can use the secret to recognize the event is coming from Event Grid with valid permissions. Event Grid will include these query parameters in every event delivery to the webhook.
 
 When editing the Event Subscription, the query parameters aren't displayed or returned unless the [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parameter is used in Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 

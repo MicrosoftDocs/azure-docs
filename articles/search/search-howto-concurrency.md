@@ -1,5 +1,5 @@
 ---
-title: How to manage concurrent writes to resources in Azure Search
+title: How to manage concurrent writes to resources - Azure Search
 description: Use optimistic concurrency to avoid mid-air collisions on updates or deletes to Azure Search indexes, indexers, data sources.
 author: HeidiSteen
 manager: cgronlun
@@ -8,7 +8,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
-
+ms.custom: seodec2018
 ---
 # How to manage concurrency in Azure Search
 
@@ -19,9 +19,9 @@ When managing Azure Search resources such as indexes and data sources, it's impo
 
 ## How it works
 
-Optimistic concurrency is implemented through access condition checks in API calls writing to indexes, indexers, datasources, and synonymMap resources. 
+Optimistic concurrency is implemented through access condition checks in API calls writing to indexes, indexers, datasources, and synonymMap resources.
 
-All resources have an [*entity tag (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) that provides object version information. By checking the ETag first, you can avoid concurrent updates in a typical workflow (get, modify locally, update) by ensuring the resource's ETag matches your local copy. 
+All resources have an [*entity tag (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) that provides object version information. By checking the ETag first, you can avoid concurrent updates in a typical workflow (get, modify locally, update) by ensuring the resource's ETag matches your local copy.
 
 + The REST API uses an [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the request header.
 + The .NET SDK sets the ETag through an accessCondition object, setting the [If-Match | If-Match-None header](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) on the resource. Any object inheriting from [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) has an accessCondition object.
@@ -29,7 +29,7 @@ All resources have an [*entity tag (ETag)*](https://en.wikipedia.org/wiki/HTTP_E
 Every time you update a resource, its ETag changes automatically. When you implement concurrency management, all you're doing is putting a precondition on the update request that requires the remote resource to have the same ETag as the copy of the resource that you modified on the client. If a concurrent process has changed the remote resource already, the ETag will not match the precondition and the request will fail with HTTP 412. If you're using the .NET SDK, this manifests as a `CloudException` where the `IsAccessConditionFailed()` extension method returns true.
 
 > [!Note]
-> There is only one mechanism for concurrency. It's always used regardless of which API is used for resource updates. 
+> There is only one mechanism for concurrency. It's always used regardless of which API is used for resource updates.
 
 <a name="samplecode"></a>
 ## Use cases and sample code
@@ -106,7 +106,7 @@ The following code demonstrates accessCondition checks for key update operations
             {
                 indexForClient2.Fields.Add(new Field("b", DataType.Boolean));
                 serviceClient.Indexes.CreateOrUpdate(
-                    indexForClient2, 
+                    indexForClient2,
                     accessCondition: AccessCondition.IfNotChanged(indexForClient2));
 
                 Console.WriteLine("Whoops; This shouldn't happen");
@@ -162,9 +162,9 @@ The following code demonstrates accessCondition checks for key update operations
 
 ## Design pattern
 
-A design pattern for implementing optimistic concurrency should include a loop that retries the access condition check, a test for the access condition, and optionally retrieves an updated resource before attempting to re-apply the changes. 
+A design pattern for implementing optimistic concurrency should include a loop that retries the access condition check, a test for the access condition, and optionally retrieves an updated resource before attempting to re-apply the changes.
 
-This code snippet illustrates the addition of a synonymMap to an index that already exists. This code is from the [Synonym (preview) C# tutorial for Azure Search](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk). 
+This code snippet illustrates the addition of a synonymMap to an index that already exists. This code is from the [Synonym (preview) C# tutorial for Azure Search](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk).
 
 The snippet gets the "hotels" index, checks the object version on an update operation, throws an exception if the condition fails, and then retries the operation (up to three times), starting with index retrieval from the server to get the latest version.
 
@@ -206,11 +206,11 @@ Review the [synonyms C# sample](https://github.com/Azure-Samples/search-dotnet-g
 
 Try modifying either of the following samples to include ETags or AccessCondition objects.
 
-+ [REST API sample on Github](https://github.com/Azure-Samples/search-rest-api-getting-started) 
-+ [.NET SDK sample on Github](https://github.com/Azure-Samples/search-dotnet-getting-started). This solution includes the "DotNetEtagsExplainer" project containing the code presented in this article.
++ [REST API sample on GitHub](https://github.com/Azure-Samples/search-rest-api-getting-started)
++ [.NET SDK sample on GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started). This solution includes the "DotNetEtagsExplainer" project containing the code presented in this article.
 
 ## See also
 
-  [Common HTTP request and response headers](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)    
-  [HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) 
-  [Index operations (REST API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)
+[Common HTTP request and response headers](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
+[HTTP status codes](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
+[Index operations (REST API)](https://docs.microsoft.com/rest/api/searchservice/index-operations)

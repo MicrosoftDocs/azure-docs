@@ -1,5 +1,5 @@
 ---
-title: Import and export data with projects with Azure Notebooks | Microsoft Docs 
+title: Import and export data with projects with Azure Notebooks
 description: How to bring data into an Azure Notebooks project from external sources, and how to export data from a project.
 services: app-service
 documentationcenter: ''
@@ -48,7 +48,7 @@ You can bring files into a project from the project dashboard, or within a runni
 
 1. Once imported, files appear on the project dashboard and can be accessed within notebook code using relative pathnames to the containing folder.
 
-### Import files from the Data menu in a notebook
+### Import files from the File menu in a notebook
 
 1. Within a running notebook, select the **File** > **Upload** command:
 

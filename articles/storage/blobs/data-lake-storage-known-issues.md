@@ -3,8 +3,7 @@ title: Known issues with Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Learn about the limitations and known issues with Azure Data Lake Storage Gen2
 services: storage
 author: normesta
-
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/05/2018
@@ -19,7 +18,7 @@ This article contains known issues and temporary limitations with Azure Data Lak
 
 Blob Storage APIs and Azure Data Lake Gen2 APIs aren't interoperable with each other.
 
-If you need to use the same tool to work with all of the content that you upload to your account, then don't enable hierarchical namespaces on your Blob storage account until these APIs become interoperable with each other. Using a storage account without the hierarchical namespace means you then don't have access to Data Lake Storage Gen2 specific features, such as directory and filesystem access control lists.
+If you have custom tools, applications, or scripts that use Blob APIs, and you want to use them to work with all of the content that you upload to your account, then don't enable hierarchical namespaces on your Blob storage account until Blob APIs become interoperable with Azure Data Lake Gen2 APIs. Using a storage account without the hierarchical namespace means you then don't have access to Data Lake Storage Gen2 specific features, such as directory and filesystem access control lists.
 
 ## Blob storage APIs
 
@@ -63,10 +62,6 @@ AzCopy version 8 doesn’t support Azure Data Lake Storage Gen2.
 
 Instead, use the latest preview version of AzCopy ( [AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json) ) as it supports Azure Data Lake Storage Gen2 endpoints.
 
-## OAuth authentication
-
-Services such as Azure Databricks, HDInsight, and Azure Data Factory don't yet integrate with Azure Active Directory (Azure AD) OAuth bearer token authentication.
-
 ## Azure Event Grid
 
 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) doesn't receive events from Azure Data Lake Gen2 accounts because those accounts don't yet generate them.  
@@ -79,16 +74,14 @@ All versioning features including [snapshots](https://docs.microsoft.com/rest/ap
 
 ## Object level storage tiers
 
-Object level storage tiers (Hot, Cold, and Archive) aren't yet available for Azure Data Lake Storage Gen 2 accounts, but they are available to Storage accounts that don't have hierarchical spaces enabled.
+Object level storage tiers (Hot, Cold, and Archive) aren't yet available for Azure Data Lake Storage Gen 2 accounts, but they are available to Storage accounts that don't have hierarchical namespaces enabled.
 
 ## Azure Blob Storage lifecycle management (Preview) policies
 
 Azure Blob Storage lifecycle management (Preview) policies aren't yet available for Azure Data Lake Storage Gen2 accounts.
 
-These policies are available to Storage accounts that don't have hierarchical spaces enabled.
+These policies are available to Storage accounts that don't have hierarchical namespaces enabled.
 
 ## Diagnostic logs
 
 Diagnostic logs aren't available for Azure Data Lake Storage Gen2 accounts.
-
-To request diagnostic logs, contact Azure Support. Provide them with your account name and the period of time for which you require logs.

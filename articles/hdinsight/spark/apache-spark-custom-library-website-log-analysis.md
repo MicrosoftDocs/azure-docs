@@ -16,7 +16,7 @@ ms.author: hrasheed
 
 This notebook demonstrates how to analyze log data using a custom library with Apache Spark on HDInsight. The custom library we use is a Python library called **iislogparser.py**.
 
-> [!TIP]
+> [!TIP]  
 > This tutorial is also available as a Jupyter notebook on a Spark (Linux) cluster that you create in HDInsight. The notebook experience lets you run the Python snippets from the notebook itself. To perform the tutorial from within a notebook, create a Spark cluster, launch a Jupyter notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), and then run the notebook **Analyze logs with Spark using a custom library.ipynb** under the **PySpark** folder.
 >
 >
@@ -186,7 +186,7 @@ Once your data is saved as an Apache Hive table, in the next section we will con
        %%sql -o averagetime
        SELECT * FROM AverageTime
 
-   The `%%sql` magic followed by `-o averagetime` ensures that the output of the query is persisted locally on the Jupyter server (typically the headnode of the cluster). The output is persisted as a [Pandas](http://pandas.pydata.org/) dataframe with the specified name **averagetime**.
+   The `%%sql` magic followed by `-o averagetime` ensures that the output of the query is persisted locally on the Jupyter server (typically the headnode of the cluster). The output is persisted as a [Pandas](https://pandas.pydata.org/) dataframe with the specified name **averagetime**.
 
    You should see an output like the following:
 
@@ -218,7 +218,7 @@ Once your data is saved as an Apache Hive table, in the next section we will con
 
 ### Create and run applications
 * [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
-* [Run jobs remotely on an Apache Spark cluster using Livy](apache-spark-livy-rest-interface.md)
+* [Run jobs remotely on an Apache Spark cluster using Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Apache Spark Scala applications](apache-spark-intellij-tool-plugin.md)

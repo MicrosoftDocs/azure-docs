@@ -1,12 +1,10 @@
 ---
 title: Server concepts in Azure Database for PostgreSQL
 description: This article provides considerations and guidelines for configuring and managing Azure Database for PostgreSQL servers.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/07/2018
 ---
 # Azure Database for PostgreSQL servers

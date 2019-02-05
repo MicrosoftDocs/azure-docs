@@ -4,13 +4,13 @@ description: Azure AD Multi-Factor Authentication and self-service password rese
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 01/30/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry, michmcla
 
 ---

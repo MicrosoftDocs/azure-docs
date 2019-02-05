@@ -4,11 +4,11 @@ description: Learn how to create a real-time fraud detection solution with Strea
 services: stream-analytics 
 author: mamccrea
 ms.author: mamccrea
-manager: kfile 
 ms.reviewer: jasonh
 ms.service: stream-analytics 
 ms.topic: conceptual 
-ms.date: 03/28/2017 
+ms.date: 12/07/2018
+ms.custom: seodec18 
 --- 
 # Get started using Azure Stream Analytics: Real-time fraud detection
 
@@ -38,7 +38,7 @@ Before you start, make sure you have the following:
     >[!NOTE]
     >Windows might block the downloaded .zip file. If you can't unzip it, right-click the file and select **Properties**. If you see the "This file came from another computer and might be blocked to help protect this computer" message, select the **Unblock** option and then click **Apply**.
 
-If you want to examine the results of the Streaming Analytics job, you also need a tool for viewing the contents of an Azure Blob Storage container. If you use Visual Studio, you can use [Azure Tools for Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) or [Visual Studio Cloud Explorer](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer). Alternatively, you can install standalone tools like [Azure Storage Explorer](http://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
+If you want to examine the results of the Streaming Analytics job, you also need a tool for viewing the contents of an Azure Blob Storage container. If you use Visual Studio, you can use [Azure Tools for Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) or [Visual Studio Cloud Explorer](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer). Alternatively, you can install standalone tools like [Azure Storage Explorer](https://storageexplorer.com/) or [Cerulean](https://www.cerebrata.com/products/cerulean/features/azure-storage). 
 
 ## Create an Azure Event Hubs to ingest events
 
@@ -56,7 +56,7 @@ In this procedure, you first create an event hub namespace, and then you add an 
     
 3. Select a subscription and create or choose a resource group, then click **Create**.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="Create event hub namespace in Azure portal" width="300px"/>
 
 4. When the namespace has finished deploying, find the event hub namespace in your list of Azure resources. 
 
@@ -66,7 +66,7 @@ In this procedure, you first create an event hub namespace, and then you add an 
  
 6. Name the new event hub `asa-eh-frauddetection-demo`. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub right now.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="drawing" width="400px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
  
 7. Click **Create**.
@@ -84,7 +84,7 @@ Before a process can send data to an event hub, the event hub must have a policy
 
 3.	Add a policy named `sa-policy-manage-demo` and for **Claim**, select **Manage**.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
 4.	Click **Create**.
 
@@ -92,7 +92,7 @@ Before a process can send data to an event hub, the event hub must have a policy
 
 6.	Find the box labeled **CONNECTION STRING-PRIMARY KEY** and click the copy button next to the connection string. 
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png" alt="Stream Analytics shared access policy" width="300px"/>
  
 7.	Paste the connection string into a text editor. You need this connection string for the next section, after you make some small edits to it.
 
@@ -119,7 +119,7 @@ Before you start the TelcoGenerator app, you must configure it so that it will s
 
     The `<appSettings>` section will look like the following example. (For clarity, the lines are wrapped and some characters have been removed from the authorization token.)
 
-   ![TelcoGenerator app configuration file showing the event hub name and connection string](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
+   ![TelcoGenerator config file shows event hub name and connection string](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
  
 4.	Save the file. 
 
@@ -127,7 +127,9 @@ Before you start the TelcoGenerator app, you must configure it so that it will s
 1.	Open a command window and change to the folder where the TelcoGenerator app is unzipped.
 2.	Enter the following command:
 
+        ```cmd
         telcodatagen.exe 1000 0.2 2
+        ```
 
     The parameters are: 
 
@@ -161,7 +163,7 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
 
     It's a good idea to place the job and the event hub in the same region for best performance and so that you don't pay to transfer data between regions.
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
 
 3. Click **Create**.
 
@@ -184,7 +186,7 @@ Now that you have a stream of call events, you can set up a Stream Analytics job
    |Event Hub name  | asa-eh-frauddetection-demo | Select the name of your Event Hub.   |
    |Event Hub policy name  | asa-policy-manage-demo | Select the access policy that you created earlier.   |
     </br>
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
 
 4. Click **Create**.
@@ -213,7 +215,7 @@ The TelcoGenerator app is sending call records to the event hub, and your Stream
 
 5. Set **Minutes** to 3 and then click **OK**. 
     
-   ![Options for sampling the input stream, with "3 minutes" selected.](./media/stream-analytics-real-time-fraud-detection/stream-analytics-input-create-sample-data.png)
+   ![Options for sampling input stream with 3 minutes selected](./media/stream-analytics-real-time-fraud-detection/stream-analytics-input-create-sample-data.png)
 
     Azure samples 3 minutes' worth of data from the input stream and notifies you when the sample data is ready. (This takes a short while.) 
 
@@ -226,11 +228,13 @@ As an alternative, you can get a .json file that has sample data in it [from Git
 If you want to archive every event, you can use a pass-through query to read all the fields in the payload of the event.
 
 1. In the query window, enter this query:
-
-        SELECT 
-            *
-        FROM 
-            CallStream
+        
+   ```SQL
+   SELECT 
+       *
+   FROM 
+       CallStream
+   ```
 
     >[!NOTE]
     >As with SQL, keywords are not case-sensitive, and whitespace is not significant.
@@ -251,13 +255,15 @@ In many cases, your analysis doesn't need all the columns from the input stream.
 
 1. Change the query in the code editor to the following:
 
-        SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum 
-        FROM 
-            CallStream
+   ```SQL
+   SELECT CallRecTime, SwitchNum, CallingIMSI, CallingNum, CalledNum 
+   FROM 
+       CallStream
+   ```
 
 2. Click **Test** again. 
 
-   ![Stream Analytics job output for projection, showing 25 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
+   ![Stream Analytics job output for projection shows 25 records](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-projection.png)
  
 ### Count incoming calls by region: Tumbling window with aggregation
 
@@ -267,11 +273,13 @@ For this transformation, you want a sequence of temporal windows that don't over
 
 1. Change the query in the code editor to the following:
 
+        ```SQL
         SELECT 
             System.Timestamp as WindowEnd, SwitchNum, COUNT(*) as CallCount 
         FROM
             CallStream TIMESTAMP BY CallRecTime 
         GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
+        ```
 
     This query uses the `Timestamp By` keyword in the `FROM` clause to specify which timestamp field in the input stream to use to define the Tumbling window. In this case, the window divides the data into segments by the `CallRecTime` field in each record. (If no field is specified, the windowing operation uses the time that each event arrives at the event hub. See "Arrival Time Vs Application Time" in [Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
 
@@ -281,7 +289,7 @@ For this transformation, you want a sequence of temporal windows that don't over
 
 2. Click **Test** again. In the results, notice that the timestamps under **WindowEnd** are in 5-second increments.
 
-   ![Stream Analytics job output for aggregation, showing 13 records generated](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
+   ![Stream Analytics job output for aggregation showing 13 records](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-sample-output-aggregation.png)
  
 ### Detect SIM fraud using a self-join
 
@@ -293,6 +301,7 @@ When you use a join with streaming data, the join must provide some limits on ho
 
 1. Change the query in the code editor to the following: 
 
+        ```SQL
         SELECT  System.Timestamp as Time, 
             CS1.CallingIMSI, 
             CS1.CallingNum as CallingNum1, 
@@ -304,6 +313,7 @@ When you use a join with streaming data, the join must provide some limits on ho
             ON CS1.CallingIMSI = CS2.CallingIMSI 
             AND DATEDIFF(ss, CS1, CS2) BETWEEN 1 AND 5 
         WHERE CS1.SwitchNum != CS2.SwitchNum
+        ```
 
     This query is like any SQL join except for the `DATEDIFF` function in the join. This version of `DATEDIFF` is specific to Streaming Analytics, and it must appear in the `ON...BETWEEN` clause. The parameters are a time unit (seconds in this example) and the aliases of the two sources for the join. This is different from the standard SQL `DATEDIFF` function.
 
@@ -315,7 +325,7 @@ When you use a join with streaming data, the join must provide some limits on ho
 
 3. Click **Save** to save the self-join query as part of the Streaming Analytics job. (It doesn't save the sample data.)
 
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-query-editor-save-button-new-portal.png" alt="Save Stream Analytics query in portal" width="300px"/>
 
 ## Create an output sink to store transformed data
 
@@ -329,7 +339,7 @@ If you have an existing blob storage account, you can use that. For this tutoria
 
 1. From the upper left-hand corner of the Azure portal, select **Create a resource** > **Storage** > **Storage account**. Fill out the Storage account job page with **Name** set to "asaehstorage", **Location** set to "East US", **Resource group** set to "asa-eh-ns-rg" (host the storage account in the same resource group as the Streaming job for increased performance). The remaining settings can be left to their default values.  
 
-   ![Create storage account](./media/stream-analytics-real-time-fraud-detection/stream-analytics-storage-account-create.png)
+   ![Create storage account in Azure portal](./media/stream-analytics-real-time-fraud-detection/stream-analytics-storage-account-create.png)
 
 2. In the Azure portal, return to the Streaming Analytics job pane. (If you closed the pane, search for `asa_frauddetection_job_demo` in the **All resources** pane.)
 
@@ -344,7 +354,7 @@ If you have an existing blob storage account, you can use that. For this tutoria
    |Storage account  |  asaehstorage |  Enter the name of the storage account you created. |
    |Container  | asa-fraudulentcalls-demo | Choose Create new and enter a container name. |
     <br/>
-    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="drawing" width="300px"/>
+    <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
 5. Click **Save**. 
 
@@ -365,7 +375,7 @@ The job is now configured. You've specified an input (the event hub), a transfor
 
 You now have a complete Streaming Analytics job. The job is examining a stream of phone call metadata, looking for fraudulent phone calls in real time, and writing information about those fraudulent calls to storage. 
 
-To complete this tutorial, you might want to look at the data being captured by the Streaming Analytics job. The data is being written to Azure Blog Storage in chunks (files). You can use any tool that reads Azure Blob Storage. As noted in the Prerequisites section, you can use Azure extensions in Visual Studio, or you can use a tool like [Azure Storage Explorer](http://storageexplorer.com/) or [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). 
+To complete this tutorial, you might want to look at the data being captured by the Streaming Analytics job. The data is being written to Azure Blog Storage in chunks (files). You can use any tool that reads Azure Blob Storage. As noted in the Prerequisites section, you can use Azure extensions in Visual Studio, or you can use a tool like [Azure Storage Explorer](https://storageexplorer.com/) or [Cerulean](https://www.cerebrata.com/products/cerulean/features/azure-storage). 
 
 When you examine the contents of a file in blob storage, you see something like the following:
 

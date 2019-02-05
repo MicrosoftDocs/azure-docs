@@ -1,16 +1,16 @@
 ---
-title: Sample Data in SQL Server on Azure | Microsoft Docs
-description: Sample Data in SQL Server on Azure
+title: Sample Data in SQL Server on Azure - Team Data Science Process
+description: Sample data stored in SQL Server on Azure using SQL or the Python programming language, then move it to Azure Machine Learning.
 services: machine-learning
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # <a name="heading"></a>Sample data in SQL Server on Azure
 
@@ -70,7 +70,7 @@ The [Pandas](http://pandas.pydata.org/) library in Python provides a rich set of
     import pandas as pd
 
     # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select column1, cloumn2... from <table_name> tablesample (0.1 percent)''', conn)
+    data_frame = pd.read_sql('''select column1, column2... from <table_name> tablesample (0.1 percent)''', conn)
 
 You can now work with the sampled data in the Pandas data frame. 
 

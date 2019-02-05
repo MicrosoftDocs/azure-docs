@@ -8,7 +8,7 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
 ---
 
@@ -33,7 +33,7 @@ When `ContinueAsNew` is called, the instance enqueues a message to itself before
 
 One use case for eternal orchestrations is code that needs to do periodic work indefinitely.
 
-#### C#
+### C#
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
@@ -50,7 +50,7 @@ public static async Task Run(
 }
 ```
 
-#### JavaScript (Functions v2 only)
+### JavaScript (Functions 2.x only)
 
 ```javascript
 const df = require("durable-functions");

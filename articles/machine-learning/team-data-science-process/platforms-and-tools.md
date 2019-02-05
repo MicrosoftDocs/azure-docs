@@ -1,15 +1,15 @@
 ---
-title: Platforms and tools for data science team projects - Azure  | Microsoft Docs
+title: Platforms and tools for data science projects - Team Data Science Process
 description: Itemizes and discusses the data and analytics resources available to enterprises standardizing on the Team Data Science Process.
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
 
@@ -125,17 +125,17 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 		ssh-keygen
 		cat .ssh/id_rsa.pub
 
-![](./media/platforms-and-tools/resources-1-generate_ssh.png)
+![Commands to generate the SSH key](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Copy the entire ssh key including *ssh-rsa*. 
 - Log in to your Azure DevOps Services. 
 - Click **<Your Name\>** at the top right corner of the page and click **security**. 
 	
-	![](./media/platforms-and-tools/resources-2-user-setting.png)
+	![Click your name and then click security](./media/platforms-and-tools/resources-2-user-setting.png)
 
 - Click **SSH public keys**, and click **+Add**. 
 
-	![](./media/platforms-and-tools/resources-3-add-ssh.png)
+	![Click SSH public keys and then click +Add](./media/platforms-and-tools/resources-3-add-ssh.png)
 
 - Paste the ssh key just copied into the text box and save.
 

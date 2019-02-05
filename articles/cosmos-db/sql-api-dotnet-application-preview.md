@@ -2,9 +2,8 @@
 title: Tutorial to develop an ASP.NET MVC web application with Azure Cosmos DB by using .Net preview SDK.
 description: This tutorial describes how to create an ASP .Net MVC web application by using Azure Cosmos DB. You'll store and access JSON data from a todo app hosted on Azure.
 author: deborahc
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2018
@@ -284,8 +283,8 @@ In this tutorial, you've learned how to build a ASP.NET MVC web application that
 > [Build a Java application to access data stored in SQL API account of Azure Cosmos DB]( sql-api-java-application.md)
 
 
-[Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
+[Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
+[Preventing Cross-Site Request Forgery]: https://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/cosmos-dotnet-todo-app

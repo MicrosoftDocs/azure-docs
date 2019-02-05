@@ -40,11 +40,11 @@ The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](https:
 
 See the language-specific example:
 
-* [C#](#trigger---c-example)
-* [C# script (.csx)](#trigger---c-script-example)
-* [F#](#trigger---f-example)
-* [JavaScript](#trigger---javascript-example)
-* [Java](#trigger---java-example)
+* [C#](#c-example)
+* [C# script (.csx)](#c-script-example)
+* [F#](#f-example)
+* [JavaScript](#javascript-example)
+* [Java](#java-example)
 
 ### C# example
 

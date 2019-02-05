@@ -126,6 +126,8 @@
       href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
     - name: Service module
       href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.maps/accounts
 - name: Related
   items:
   - name: Solutions
@@ -169,7 +171,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-maps
+    href: https://stackoverflow.com/questions/tagged/azure-maps
   - name: Technical case studies
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Videos

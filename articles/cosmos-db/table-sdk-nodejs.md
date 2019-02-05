@@ -1,16 +1,13 @@
 ---
 title: Azure Cosmos DB Table API for Node.js
 description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
-services: cosmos-db
-author: yarong
-
 ms.service: cosmos-db
-ms.component: cosmosdb-table
+ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: reference
 ms.date: 11/20/2017
-ms.author: yaronyg
-ms.custom: 
+author: wmengmsft
+ms.author: wmeng
 
 ---
 # Azure Cosmos DB Table API for Node.js: Release notes and resources
@@ -25,7 +22,7 @@ ms.custom:
 |   |   |
 |---|---|
 |**SDK download**|[NPM](https://www.npmjs.com/package/azure-storage)|
-|**API documentation**|[Node.js API reference documentation](http://azure.github.io/azure-storage-node/)|
+|**API documentation**|[Node.js API reference documentation](https://azure.github.io/azure-storage-node/)|
 |**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-storage-node#contribute)|
 
 > [!IMPORTANT]

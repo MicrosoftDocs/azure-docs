@@ -31,7 +31,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * Android SDK 27 is used by the sample in this article. 
 
-* The [sample Android application](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) you run in this quickstart is part of the azure-iot-samples-java repository on Github. Download or clone the [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
+* The [sample Android application](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) you run in this quickstart is part of the azure-iot-samples-java repository on GitHub. Download or clone the [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
 
 
 
@@ -70,7 +70,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## Send telemetry
 
-1. Open the github sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
+1. Open the GitHub sample Android project in Android Studio. The project is located in the following directory of your cloned or downloaded copy of [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
 
         \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
 

@@ -190,7 +190,7 @@ In this section, we create an HDInsight Hadoop Linux cluster with Data Lake Stor
 
         # Create an Azure storage account
         $location = "East US 2"
-        $storageAccountName = "<StorageAcccountName>"   # Provide a Storage account name
+        $storageAccountName = "<StorageAccountName>"   # Provide a Storage account name
 
         New-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -Location $location -Type Standard_GRS
 

@@ -3,7 +3,7 @@ title: How to use Service Bus topics (Ruby) | Microsoft Docs
 description: Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications.
 services: service-bus-messaging
 documentationcenter: ruby
-author: spelluru
+author: axisc
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 08/10/2018
-ms.author: spelluru
+ms.date: 01/23/2019
+ms.author: aschhab
 
 ---
 # How to use Service Bus topics and subscriptions with Ruby
@@ -35,7 +35,7 @@ The **Azure::ServiceBusService** object enables you to work with topics. The fol
 ```ruby
 azure_service_bus_service = Azure::ServiceBus::ServiceBusService.new(sb_host, { signer: signer})
 begin
-  topic = azure_service_bus_service.create_queue("test-topic")
+  topic = azure_service_bus_service.create_topic("test-topic")
 rescue
   puts $!
 end
@@ -159,7 +159,7 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 Now that you've learned the basics of Service Bus topics, follow these links to learn more.
 
 * See [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
-* API reference for [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter).
+* API reference for [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter).
 * Visit the [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) repository on GitHub.
 
 [Azure portal]: https://portal.azure.com

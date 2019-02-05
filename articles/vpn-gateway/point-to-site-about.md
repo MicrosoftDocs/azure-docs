@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/18/2019
 ms.author: cherylmc
 
 ---
@@ -18,7 +18,7 @@ A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection
 
 Point-to-site VPN can use one of the following protocols:
 
-* OpenVPN, an SSL/TLS based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which SSL uses. OpenVPN can be used to connect from Android, iOS, Linux and Mac devices (OSX versions 10.11 and above).
+* OpenVPN, an SSL/TLS based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which SSL uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Linux and Mac devices (OSX versions 10.13 and above).
 
 * Secure Socket Tunneling Protocol (SSTP), a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later).
 
@@ -89,6 +89,8 @@ A P2S configuration requires quite a few specific steps. The following articles 
 * [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 
 * [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
+
+* [Configure OpenVPN](vpn-gateway-howto-openvpn.md)
 
 ## <a name="faqcert"></a>FAQ for native Azure certificate authentication
 

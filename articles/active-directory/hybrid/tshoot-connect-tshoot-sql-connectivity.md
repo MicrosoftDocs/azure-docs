@@ -4,14 +4,14 @@ description: Explains how to troubleshoot SQL connectivity issues that occur wit
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/14/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
 ---

@@ -35,7 +35,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
   For the instructions on how to create an HDInsight cluster, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-> [!NOTE]
+> [!NOTE]  
 > It is recommended to place both the HDInsight cluster and the Log Analytics workspace in the same region for better performance. Azure Log Analytics is not available in all Azure regions.
 
 ## Enable Log Analytics by using the portal

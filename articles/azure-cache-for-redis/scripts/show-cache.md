@@ -26,7 +26,7 @@ In this scenario, you learn how to retrieve the details of an Azure Cache for Re
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/redis-cache/show-cache/show-cache.sh "Azure Azure Cache for Redis")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/show-cache/show-cache.sh "Azure Cache for Redis")]
 
 ## Script explanation
 
@@ -34,7 +34,7 @@ This script uses the following commands to retrieve the details of an Azure Cach
 
 | Command | Notes |
 |---|---|
-| [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) | Retrieve details of an Azure Cache for Redis instance. |
+| [az redis show](https://docs.microsoft.com/cli/azure/redis) | Retrieve details of an Azure Cache for Redis instance. |
 
 
 ## Next steps

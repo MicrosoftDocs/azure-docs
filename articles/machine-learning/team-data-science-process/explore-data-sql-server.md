@@ -1,16 +1,16 @@
 ---
-title: Explore data in SQL Server Virtual Machine on Azure | Microsoft Docs
-description: How to explore data that is stored in a SQL Server VM on Azure.
+title: Explore data in SQL Server virtual machine - Team Data Science Process
+description: How to explore data that is stored in a SQL Server VM on Azure using SQL or a programming language like Python.
 services: machine-learning
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Explore data in SQL Server Virtual Machine on Azure
 
@@ -56,7 +56,7 @@ The following connection string format can be used to connect to a SQL Server da
 The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of data structures and data analysis tools for data manipulation for Python programming. The following code reads the results returned from a SQL Server database into a Pandas data frame:
 
     # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
+    data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 
 Now you can work with the Pandas DataFrame as covered in the topic [Process Azure Blob data in your data science environment](data-blob.md).
 

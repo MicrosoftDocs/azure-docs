@@ -23,7 +23,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 * __Using Beeline on a client, connecting to HDInsight over an Azure Virtual Network__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
 * __Using Beeline on a client, connecting to HDInsight over the public internet__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
-> [!NOTE]
+> [!NOTE]  
 > Replace `admin` with the cluster login account for your cluster.
 >
 > Replace `password` with the password for the cluster login account.
@@ -36,7 +36,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
 * A Linux-based Hadoop on HDInsight cluster version 3.4 or greater.
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * An SSH client or a local Beeline client. Most of the steps in this document assume that you are using Beeline from an SSH session to the cluster. For information on running Beeline from outside the cluster, see the [use Beeline remotely](#remote) section.
@@ -135,7 +135,7 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
 
     * `INPUT__FILE__NAME LIKE '%.log'` - Hive attempts to apply the schema to all files in the directory. In this case, the directory contains files that do not match the schema. To prevent garbage data in the results, this statement tells Hive that it should only return data from files ending in .log.
 
-  > [!NOTE]
+  > [!NOTE]  
   > External tables should be used when you expect the underlying data to be updated by an external source. For example, an automated data upload process or a MapReduce operation.
   >
   > Dropping an external table does **not** delete the data, only the table definition.
@@ -189,7 +189,7 @@ Use the following steps to create a file, then run it using Beeline.
     * **STORED AS ORC** - Stores the data in Optimized Row Columnar (ORC) format. ORC format is a highly optimized and efficient format for storing Hive data.
     * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain **[ERROR]**, then inserts the data into the **errorLogs** table.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Unlike external tables, dropping an internal table deletes the underlying data as well.
 
 3. To save the file, use **Ctrl**+**_X**, then enter **Y**, and finally **Enter**.
@@ -200,7 +200,7 @@ Use the following steps to create a file, then run it using Beeline.
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i query.hql
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > The `-i` parameter starts Beeline and runs the statements in the `query.hql` file. Once the query completes, you arrive at the `jdbc:hive2://headnodehost:10001/>` prompt. You can also run a file using the `-f` parameter, which exits Beeline after the query completes.
 
 5. To verify that the **errorLogs** table was created, use the following statement to return all the rows from **errorLogs**:
@@ -238,11 +238,11 @@ If you have Beeline installed locally, and connect over an Azure Virtual Network
 
 * __Connection string__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
 
-To find the fully qualified domain name of a headnode, use the information in the [Manage HDInsight using the Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
+To find the fully qualified domain name of a headnode, use the information in the [Manage HDInsight using the Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
 
-## <a id="sparksql"></a>Use Beeline with Spark
+## <a id="sparksql"></a>Use Beeline with Apache Spark
 
-Spark provides its own implementation of HiveServer2, which is sometimes referred to as the Spark Thrift server. This service uses Spark SQL to resolve queries instead of Hive, and may provide better performance depending on your query.
+Apache Spark provides its own implementation of HiveServer2, which is sometimes referred to as the Spark Thrift server. This service uses Spark SQL to resolve queries instead of Hive, and may provide better performance depending on your query.
 
 The __connection string__ used when connecting over the internet is slightly different. Instead of containing `httpPath=/hive2` it is `httpPath/sparkhive2`. The following is an example of connecting over the internet:
 
@@ -260,17 +260,17 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
 For more general information on Hive in HDInsight, see the following document:
 
-* [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
+* [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
 
 For more information on other ways you can work with Hadoop on HDInsight, see the following documents:
 
-* [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
-* [Use MapReduce with Hadoop on HDInsight](hdinsight-use-mapreduce.md)
+* [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
+* [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
 If you are using Tez with Hive, see the following documents:
 
-* [Use the Tez UI on Windows-based HDInsight](../hdinsight-debug-tez-ui.md)
-* [Use the Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md)
+* [Use the Apache Tez UI on Windows-based HDInsight](../hdinsight-debug-tez-ui.md)
+* [Use the Apache Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md)
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/

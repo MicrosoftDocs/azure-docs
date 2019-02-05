@@ -1,5 +1,5 @@
 ---
-title: How to update an existing Azure Blueprint assignment
+title: How to update an existing assignment
 description: Learn about the mechanism for updating an existing assignment in Azure Blueprints.
 services: blueprints
 author: DCtheGeek
@@ -8,6 +8,7 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
+ms.custom: seodec18
 ---
 # How to update an existing blueprint assignment
 

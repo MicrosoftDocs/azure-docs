@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 12/05/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom:
+ms.custom: seodec18
 ---
 
 # How to optimize your cloud investment with Azure Cost Management
@@ -59,7 +59,7 @@ Act to reduce your spending. Make the most of it based on the findings gathered 
 
 Everyone in your organization must engage in the cost management lifecycle. They need to stay involved on an ongoing basis to optimize costs. Be rigorous about this iterative process and make it a key tenet of responsible cloud governance in your organization.
 
-![Key principles](./media/cost-mgt-best-practices/principles.png)
+![Key principles diagram showing visibility, accountability, and optimization](./media/cost-mgt-best-practices/principles.png)
 
 ## Plan with cost in mind
 

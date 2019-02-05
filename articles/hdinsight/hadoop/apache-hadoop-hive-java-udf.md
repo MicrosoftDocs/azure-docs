@@ -209,7 +209,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Apa
     ```
 
     > [!NOTE]
-    > This example assumes that Azure Storage is default storage for the cluster. If your cluster uses Data Lake Store instead, change the `wasb:///` value to `adl:///`.
+    > This example assumes that Azure Storage is default storage for the cluster. If your cluster uses Data Lake Storage instead, change the `wasb:///` value to `adl:///`.
 
 3. Use the UDF to convert values retrieved from a table to lower case strings.
 
@@ -236,6 +236,6 @@ Learn how to create a Java-based user-defined function (UDF) that works with Apa
 
 ## Next steps
 
-For other ways to work with Hive, see [Use Hive with HDInsight](hdinsight-use-hive.md).
+For other ways to work with Hive, see [Use Apache Hive with HDInsight](hdinsight-use-hive.md).
 
-For more information on Hive User-Defined Functions, see [Hive Operators and User-Defined Functions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) section of the Hive wiki at apache.org.
+For more information on Hive User-Defined Functions, see [Apache Hive Operators and User-Defined Functions](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) section of the Hive wiki at apache.org.

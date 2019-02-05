@@ -45,7 +45,7 @@ In the Azure portal, navigate to your Automation Account. Under **Monitoring**, 
 
 ### Define the action to take
 
-1. Under **3. Define action group**, click **+ New action group**. An action group is a group of actions that you can use across more than one alert. These can include but aren't limited to, email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../monitoring-and-diagnostics/monitoring-action-groups.md)
+1. Under **3. Define action group**, click **+ New action group**. An action group is a group of actions that you can use across more than one alert. These can include but aren't limited to, email notifications, runbooks, webhooks, and many more. To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md)
 
 1. In the **Action group name** box, give it a friendly name and short name. The short name is used in place of a full action group name when notifications are sent using this group.
 

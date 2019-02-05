@@ -6,16 +6,13 @@ documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-
 ms.assetid: 
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.component: 
 ---
 
 # Troubleshooting the Log Analytics VM extension
@@ -23,7 +20,7 @@ This article provides help troubleshooting errors you might experience with the 
 
 To verify the status of the extension, perform the following steps from the Azure portal.
 
-1. Sign into the [Azure portal](http://portal.azure.com).
+1. Sign into the [Azure portal](https://portal.azure.com).
 2. In the Azure portal, click **All services**. In the list of resources, type **virtual machines**. As you begin typing, the list filters based on your input. Select **Virtual machines**.
 3. In your list of virtual machines, find and select it.
 3. On the virtual machine, click **Extensions**.

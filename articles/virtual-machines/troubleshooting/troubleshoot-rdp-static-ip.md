@@ -20,11 +20,11 @@ ms.author: genli
 
 This article describes a problem in which you cannot remote desktop to Azure Windows Virtual Machines (VMs) after a static IP is configured in the VM.
 
-> [!NOTE] 
-> Azure has two different deployment models for creating and working with resources: 
-[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model. 
+> [!NOTE]
+> Azure has two different deployment models for creating and working with resources:
+[Resource Manager and classic](../../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which we recommend using for new deployments instead of the classic deployment model.
 
-## Symptoms 
+## Symptoms
 
 When you make an RDP connection to a VM in Azure, you receive the following error message:
 
@@ -44,7 +44,7 @@ When you check the screenshot in the [Boot diagnostics](../troubleshooting/boot-
 
 The VM has a static IP address that's defined on the network interface within Windows. This IP address differs from the address that's defined in the Azure portal.
 
-## Solution 
+## Solution
 
 Before you follow these steps, take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
@@ -52,7 +52,7 @@ To resolve this issue, use Serial control to enable DHCP or [reset network inter
 
 ### Use Serial control
 
-1. Connect to [Serial Console and open CMD instance](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+1. Connect to [Serial Console and open CMD instance](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). If the Serial Console is not enabled on your VM, see [Reset network interface](reset-network-interface.md).
 2. Check if the DHCP is disabled on the network interface:
 
@@ -60,7 +60,7 @@ To resolve this issue, use Serial control to enable DHCP or [reset network inter
 3. If the DHCP is disabled, revert the configuration of your network interface to use DHCP:
 
         netsh interface ip set address name="<NIC Name>" source=dhc
-        
+
     For example, if the interwork interface names "Ethernet 2", run the following command:
 
         netsh interface ip set address name="Ethernet 2" source=dhc

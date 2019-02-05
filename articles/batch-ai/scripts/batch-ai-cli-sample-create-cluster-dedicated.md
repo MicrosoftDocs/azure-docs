@@ -15,9 +15,14 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 07/26/2018
 ms.author: danlep
+
+ROBOTS: NOINDEX
+
 ---
 
 # CLI example: Create and manage a Batch AI cluster of dedicated nodes
+
+[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
 
 This script demonstrates some of the commands available in the Azure CLI to create and
 manage a Batch AI cluster consisting of dedicated nodes (virtual machines).
@@ -52,8 +57,8 @@ This script uses the following commands. Each command in the table links to comm
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az batchai workspace create](/cli/azure/batchai/workspace#az-batchai-workspace-create) | Creates a Batch AI workspace. |
 | [az batchai cluster create](/cli/azure/batchai/cluster#az-batchai-cluster-create) | Creates a Batch AI cluster. |
-| [az batchai cluster show](/cli/azure/batchai/cluster#az-batchai-cluster-show) | Shows information about a Batch AI cluster. |
-| [az batchai cluster node list](/cli/azure/batchai/cluster/node#az-batchai-cluster-show) | Lists the nodes in a Batch AI cluster. |
+| [az batchai cluster show](/cli/azure/batchai/cluster) | Shows information about a Batch AI cluster. |
+| [az batchai cluster node list](/cli/azure/batchai/cluster/node) | Lists the nodes in a Batch AI cluster. |
 | [az batchai cluster resize](/cli/azure/batchai/cluster#az-batchai-cluster-resize) | Resizes the Batch AI cluster.  |
 | [az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |
 
