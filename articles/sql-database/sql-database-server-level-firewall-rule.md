@@ -1,6 +1,6 @@
 ---
-title: 'Azure portal: Create a SQL Database firwall rule| Microsoft Docs'
-description: Create a SQL Database server-level firewall rule
+title: 'Create a server-level firewall rule - Azure SQL Database| Microsoft Docs'
+description: Create a SQL Database server-level firewall rule for a single or pooled database
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,13 +13,13 @@ ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 01/25/2019
 ---
-# Quickstart: Create a server-level firewall rule for your SQL database using the Azure portal
+# Quickstart: Create a server-level firewall rule in Azure SQL Database using the Azure portal
 
-This quickstart walks through how to create a server-level firewall rule for an Azure SQL database to enable you to connect to it from an on-premises resource.
+This quickstart walks through how to create a server-level firewall rule in Azure SQL Database using the Azure portal to enable you to connect to it from an on-premises resource.
 
 ## Prerequisites
 
-This quickstart uses the resources created in [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md) as its starting point.
+This quickstart uses the resources created in [Create a single database using the Azure portal](sql-database-single-database-get-started.md) as its starting point.
 
 ## Sign in to the Azure portal
 
@@ -39,11 +39,11 @@ Follow these steps to create a server-level firewall rule for your client's IP a
 
 2. Copy this fully qualified server name to use when connecting to your server and its databases in other quickstarts.
 
-   ![server name](./media/sql-database-get-started-portal/server-name.png)
+   ![server name](./media/sql-database-single-database-get-started/server-name.png)
 
 3. Select **Set server firewall** on the toolbar. The **Firewall settings** page for the SQL Database server opens.
 
-   ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png)
+   ![server firewall rule](./media/sql-database-single-database-get-started/server-firewall-rule.png)
 
 4. Choose **Add client IP** on the toolbar to add your current IP address to a new firewall rule. A firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 

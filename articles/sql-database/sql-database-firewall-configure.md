@@ -91,17 +91,17 @@ To improve performance, server-level firewall rules are temporarily cached at th
 To set a server-level firewall rule in the Azure portal, you can either go to the Overview page for your Azure SQL database or the Overview page for your SQL Database server.
 
 > [!TIP]
-> For a tutorial, see [Create a DB using the Azure portal](sql-database-get-started-portal.md).
+> For a tutorial, see [Create a DB using the Azure portal](sql-database-single-database-get-started.md).
 
 ### From database overview page
 
 1. To set a server-level firewall rule from the database overview page, click **Set server firewall** on the toolbar as shown in the following image: The **Firewall settings** page for the SQL Database server opens.
 
-      ![server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule.png)
+      ![server firewall rule](./media/sql-database-single-database-get-started/server-firewall-rule.png)
 
 2. Click **Add client IP** on the toolbar to add the IP address of the computer you are currently using and then click **Save**. A server-level firewall rule is created for your current IP address.
 
-      ![set server firewall rule](./media/sql-database-get-started-portal/server-firewall-rule-set.png)
+      ![set server firewall rule](./media/sql-database-single-database-get-started/server-firewall-rule-set.png)
 
 ### From server overview page
 
@@ -239,7 +239,7 @@ Consider the following points when access to the Microsoft Azure SQL Database se
 
 ## Next steps
 
-- For a quick start on creating a database and a server-level firewall rule, see [Create an Azure SQL database](sql-database-get-started-portal.md).
+- For a quick start on creating a database and a server-level firewall rule, see [Create an Azure SQL database](sql-database-single-database-get-started.md).
 - For help in connecting to an Azure SQL database from open source or third-party applications, see [Client quick-start code samples to SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - For information on additional ports that you may need to open, see the **SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
 - For an overview of Azure SQL Database security, see [Securing your database](sql-database-security-overview.md)

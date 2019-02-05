@@ -13108,6 +13108,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-get-started-portal-firewall.md",
+      "redirect_url": "/azure/sql-database/sql-database-server-level-firewall-rule",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-configure-firewall-settings.md",
       "redirect_url": "/azure/sql-database/sql-database-firewall-configure",
       "redirect_document_id": false
@@ -13344,7 +13349,12 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-get-started.md",
-      "redirect_url": "/azure/sql-database/sql-database-get-started-portal",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-get-started-portal.md",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-get-started",
       "redirect_document_id": false
     },
     {

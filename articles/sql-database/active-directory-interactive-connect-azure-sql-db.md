@@ -47,7 +47,7 @@ For screenshots of these dialogs, see [Configure multi-factor authentication for
 
 ## Preparations for C#, by using the Azure portal
 
-We assume that you already have an [Azure SQL Database server created](sql-database-get-started-portal.md) and available.
+We assume that you already have an [Azure SQL Database server created](sql-database-single-database-get-started.md) and available.
 
 ### A. Create an app registration
 
