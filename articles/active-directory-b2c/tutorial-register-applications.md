@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 02/05/2019
 ms.author: davidmu
 
 ---
@@ -33,9 +33,6 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
 2. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 3. Select **Applications**, and then select **Add**.
-
-    ![Add application](./media/tutorial-register-applications/add-application.png)
-
 4. Enter a name for the application. For example, *webapp1*.
 5. For **Include web app/ web API** and **Allow implicit flow**, select **Yes**.
 6. For **Reply URL**, enter an endpoint where Azure AD B2C should return any tokens that your application requests. For example, you can set it to listen locally at `https://localhost:44316` If you don't yet know the port number, you can enter a placeholder value and change it later. For testing purposes you could set it to `https://jwt.ms`, which displays the contents of a token for inspection. For this tutorial, set it to `https://jwt.ms`. 
@@ -44,23 +41,12 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 
 7. Click **Create**.
 
-    ![Set application properties](./media/tutorial-register-applications/application-properties.png)
-
 ## Create a client secret
 
 If you’re application exchanges a code for a token, you need to create an application secret.
 
 1. Select **Keys** and then click **Generate key**.
-
-    ![Generate keys](./media/tutorial-register-applications/generate-keys.png)
-
 2. Select **Save** to view the key. Make note of the **App key** value. You use the value as the application secret in your application's code.
-
-    ![Save the key](./media/tutorial-register-applications/save-key.png)
-    
-3. Select **API Access**, click **Add**, and select your web API and scopes (permissions).
-
-    ![Configure API access](./media/tutorial-register-applications/api-access.png)
 
 ## Next steps
 
