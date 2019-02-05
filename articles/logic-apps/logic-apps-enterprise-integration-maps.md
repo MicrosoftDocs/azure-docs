@@ -61,7 +61,7 @@ map that references the assembly.
   you can upload your schema to an Azure storage account. 
   To add that schema to your integration account, you can 
   then link to your storage account from your integration account. 
-  For this task, here are the items you need: 
+  For this task, here are the items you need:
 
   * [Azure storage account](../storage/common/storage-account-overview.md) 
   where you create a blob container for your schema. Learn how to 
@@ -76,19 +76,19 @@ map that references the assembly.
   which you can use for managing storage accounts and blob containers. 
   To use Storage Explorer, choose either option here:
   
-    * Go to your storage account in the Azure portal. 
-    On your storage account menu, select **Storage Explorer**.
+    * In the Azure portal, find and select your storage account. 
+    From your storage account menu, select **Storage Explorer**.
 
     * For the desktop version, [download and install Azure Storage Explorer](https://www.storageexplorer.com/). 
-  Then, follow these [steps for connecting Azure Storage Explorer to your storage account](../vs-azure-tools-storage-manage-with-storage-explorer.md).
-
-
+    Then, connect Storage Explorer to your storage account 
+    by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
+    To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
 
 You don't need a logic app when creating and adding maps. 
 However, to use a map, your logic app needs linking to 
 an integration account where you store that map. Learn 
 [how to link logic apps to integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). 
-If you don't have a logic app yet, learn [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+If you don't have a logic app yet, learn [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Add referenced assemblies
 
