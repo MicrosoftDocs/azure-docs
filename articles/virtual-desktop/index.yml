@@ -30,7 +30,7 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Set up Windows Virtual Desktop tenants</a>
-    - html: <a href="/azure/virtual-desktop/manage-host-pools">Create a host pool in Windows Virtual Desktop</a>
+    - html: <a href="/azure/virtual-desktop/create-host-pools-azure-marketplace">Create a host pool in Windows Virtual Desktop</a>
     - html: <a href="/azure/virtual-desktop/manage-app-groups">Manage app groups for Windows Virtual Desktop</a>
     - html: <a href="/azure/virtual-desktop/manage-user-storage">Manage user storage for Windows Virtual Desktop</a>
     - html: <a href="/azure/virtual-desktop/create-service-principal-role-powershell">Create service principals and role assignments with PowerShell</a>
