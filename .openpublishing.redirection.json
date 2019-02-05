@@ -2330,6 +2330,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-quickstart-guide.md",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-quickstart-guide",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-migrate-your-sql-server-database.md",
       "redirect_url": "/azure/dms/tutorial-sql-server-to-azure-sql",
       "redirect_document_id": false
@@ -11337,6 +11342,11 @@
       "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/create-mongodb-dotnet",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/lab-services/devtest-lab-create-first-vm.md",
+      "redirect_url": "/azure/lab-services/tutorial-create-custom-lab#add-a-vm-to-the-lab",
+      "redirect_document_id": false
+    }, 
     {
       "source_path": "articles/lab-services/how-to-manage-classroom-labs.md",
       "redirect_url": "/azure/lab-services/classroom-labs/how-to-manage-classroom-labs",
@@ -30007,6 +30017,51 @@
         "source_path": "articles/cognitive-services/Bing-News-Search/sdk.md",
         "redirect_url": "/azure/cognitive-services/bing-News-search/news-search-sdk-quickstart",
         "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/endpoint-entities.md",
+      "redirect_url": "/azure/cognitive-services/bing-Entities-search/entity-search-endpoint",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/entity-sdk-java-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-java-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/entity-sdk-python-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-python-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/entity-search-sdk-node-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-node-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/entity-search-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Entities-Search/quickstarts/entity-sdk-csharp-quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/search-the-web.md",
+      "redirect_url": "/azure/cognitive-services/bing-Entities-Search/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/quick-start.md",
+      "redirect_url": "/azure/cognitive-services/bing-Entities-Search/quickstarts/csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/sdk.md",
+      "redirect_url": "/azure/cognitive-services/bing-Entities-Search/quickstarts/entity-sdk-csharp-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Entities-Search/tutorial-bing-entities-search-single-page-app-source.md",
+      "redirect_url": "/azure/cognitive-services/bing-Entities-Search/tutorial-bing-entities-search-single-page-app",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-appssoaccess-whatis.md",
