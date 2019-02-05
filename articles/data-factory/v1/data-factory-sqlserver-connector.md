@@ -106,17 +106,17 @@ Data Management Gateway will impersonate the specified user account to connect t
 
 ```json
 {
-     "Name": " MyOnPremisesSQLDB",
-     "Properties":
-     {
-         "type": "OnPremisesSqlServer",
-         "typeProperties": {
-             "ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
-             "username": "<domain\\username>",
-             "password": "<password>",
-             "gatewayName": "<gateway name>"
+    "Name": " MyOnPremisesSQLDB",
+    "Properties":
+    {
+        "type": "OnPremisesSqlServer",
+        "typeProperties": {
+            "ConnectionString": "Data Source=<servername>;Initial Catalog=MarketingCampaigns;Integrated Security=True;",
+            "username": "<domain\\username>",
+            "password": "<password>",
+            "gatewayName": "<gateway name>"
         }
-     }
+    }
 }
 ```
 
@@ -310,8 +310,8 @@ The pipeline contains a Copy Activity that is configured to use these input and 
 
 ```json
 {
-    "name":"SamplePipeline",
-    "properties":{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2016-06-01T18:00:00",
     "end":"2016-06-01T19:00:00",
     "description":"pipeline for copy activity",
@@ -339,7 +339,7 @@ The pipeline contains a Copy Activity that is configured to use these input and 
             "type": "BlobSink"
           }
         },
-       "scheduler": {
+        "scheduler": {
           "frequency": "Hour",
           "interval": 1
         },
@@ -350,8 +350,8 @@ The pipeline contains a Copy Activity that is configured to use these input and 
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
 In this example, **sqlReaderQuery** is specified for the SqlSource. The Copy Activity runs this query against the SQL Server Database source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters). The sqlReaderQuery can reference multiple tables within the database referenced by the input dataset. It is not limited to only the table set as the dataset's tableName typeProperty.
@@ -492,8 +492,8 @@ The pipeline contains a Copy Activity that is configured to use these input and 
 
 ```json
 {
-    "name":"SamplePipeline",
-    "properties":{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2014-06-01T18:00:00",
     "end":"2014-06-01T19:00:00",
     "description":"pipeline with copy activity",
@@ -521,7 +521,7 @@ The pipeline contains a Copy Activity that is configured to use these input and 
             "type": "SqlSink"
           }
         },
-       "scheduler": {
+        "scheduler": {
           "frequency": "Hour",
           "interval": 1
         },
@@ -532,8 +532,8 @@ The pipeline contains a Copy Activity that is configured to use these input and 
           "timeout": "01:00:00"
         }
       }
-      ]
-   }
+    ]
+  }
 }
 ```
 
@@ -570,8 +570,8 @@ This section provides an example that copies data from a source table with no id
 ```sql
 create table dbo.SourceTbl
 (
-       name varchar(100),
-       age int
+    name varchar(100),
+    age int
 )
 ```
 **Destination table:**
@@ -579,9 +579,9 @@ create table dbo.SourceTbl
 ```sql
 create table dbo.TargetTbl
 (
-       identifier int identity(1,1),
-       name varchar(100),
-       age int
+    identifier int identity(1,1),
+    name varchar(100),
+    age int
 )
 ```
 
