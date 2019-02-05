@@ -25,7 +25,7 @@ You'll learn how to:
 > * Create a Spatial Anchors account
 > * Prepare Unity build settings
 > * Download and import the ARCore SDK for Unity
-> * Configure the Spatial Anchors endpoint and account key
+> * Configure the Spatial Anchors account id and account key
 > * Export the Android Studio project
 > * Deploy and run on an Android device
 
@@ -46,7 +46,7 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Android Unity Build Settings](../../../includes/spatial-anchors-unity-android-build-settings.md)]
 
-## Configure the Spatial Anchors endpoint and account key
+## Configure the Spatial Anchors account id and account key
 
 In the **Project** pane, navigate to `Assets/AzureSpatialAnchorsPlugin/Examples` and open the `AzureSpatialAnchorsBasicDemo.unity` scene file.
 

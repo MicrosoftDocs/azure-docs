@@ -25,7 +25,7 @@ You'll learn how to:
 > * Create a Spatial Anchors account
 > * Prepare Unity build settings
 > * Download and import the Unity ARKit Plugin
-> * Configure the Spatial Anchors endpoint and account key
+> * Configure the Spatial Anchors account id and account key
 > * Export the Xcode project
 > * Deploy and run on an iOS device
 
@@ -46,7 +46,7 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [iOS Unity Build Settings](../../../includes/spatial-anchors-unity-ios-build-settings.md)]
 
-## Configure the Spatial Anchors endpoint and account key
+## Configure the Spatial Anchors account id and account key
 
 In the **Project** pane, navigate to `Assets/AzureSpatialAnchorsPlugin/Examples` and open the `AzureSpatialAnchorsBasicDemo.unity` scene file.
 

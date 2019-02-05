@@ -22,7 +22,7 @@ You'll learn how to:
 
 > [!div class="checklist"]
 > * Create a Spatial Anchors account
-> * Configure the Spatial Anchors endpoint and account key
+> * Configure the Spatial Anchors account id and account key
 > * Deploy and run on an Android device
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -52,9 +52,9 @@ Select **Open an existing Android Studio project** and select the project locate
 
 ***
 
-## Configure the Spatial Anchors endpoint and account key
+## Configure the Spatial Anchors account id and account key
 
-The next step is to use the endpoint and account key recorded previously when setting up the Spatial Anchors resource to configure the app.
+The next step is to use the account id and account key recorded previously when setting up the Spatial Anchors resource to configure the app.
 
 # [Java](#tab/openproject-java)
 
@@ -62,7 +62,7 @@ Open `Android/Java/app/src/main/java/com/microsoft/sampleandroid/ARActive.java`.
 
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
-Locate the `SpatialAnchorsEndpoint` field and replace `Set me` with the endpoint.
+Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account id.
 
 # [NDK](#tab/openproject-ndk)
 
@@ -70,7 +70,7 @@ Open `Android/NDK/app/src/main/cpp/spatial_anchors_application.cc`.
 
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
-Locate the `SpatialAnchorsEndpoint` field and replace `Set me` with the endpoint.
+Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account id.
 
 ***
 

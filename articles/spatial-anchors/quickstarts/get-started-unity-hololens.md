@@ -24,7 +24,7 @@ You'll learn how to:
 > [!div class="checklist"]
 > * Create a Spatial Anchors account
 > * Prepare Unity build settings
-> * Configure the Spatial Anchors endpoint and account key
+> * Configure the Spatial Anchors account id and account key
 > * Export the HoloLens Visual Studio project
 > * Deploy and run on a HoloLens device
 
