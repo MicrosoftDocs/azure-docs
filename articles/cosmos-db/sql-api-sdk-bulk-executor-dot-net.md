@@ -27,20 +27,13 @@ ms.author: ramkris
 > * [Bulk Executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Bulk Executor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
 
-<tr><td>**Description**</td><td>The Bulk Executor library allows client applications to perform bulk operations on Azure Cosmos DB accounts. Bulk Executor library provides BulkImport, BulkUpdate, and BulkDelete namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent. The BulkUpdate module can bulk update existing data in Azure Cosmos DB containers as patches. The BulkDelete module can bulk delete documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent.</td></tr>
-
-<tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/)</td></tr>
-
-<tr><td>**BulkExecutor library in GitHub**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)</td></tr>
-
-<tr><td>**API documentation**</td><td>[.Net API reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)</td></tr>
-
-<tr><td>**Get started**</td><td>[Get started with the Bulk Executor library .NET SDK](bulk-executor-dot-net.md)</td></tr>
-
-<tr><td>**Current supported framework**</td><td>Microsoft .NET Framework 4.5.2, 4.6.1 and .NET Standard 2.0 </td></tr>
-</table></br>
+| **Description**| The Bulk Executor library allows client applications to perform bulk operations on Azure Cosmos DB accounts. Bulk Executor library provides BulkImport, BulkUpdate, and BulkDelete namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent. The BulkUpdate module can bulk update existing data in Azure Cosmos DB containers as patches. The BulkDelete module can bulk delete documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent.|
+|**SDK download**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
+| **BulkExecutor library in GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
+|**API documentation**|[.Net API reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
+|**Get started**|[Get started with the Bulk Executor library .NET SDK](bulk-executor-dot-net.md)|
+| **Current supported framework**| Microsoft .NET Framework 4.5.2, 4.6.1 and .NET Standard 2.0 |
 
 ## Release notes
 

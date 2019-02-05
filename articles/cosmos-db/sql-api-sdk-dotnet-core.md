@@ -26,20 +26,12 @@ ms.author: sngun
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
-
-<tr><td>**API documentation**</td><td>[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
-
-<tr><td>**Samples**</td><td>[.NET code samples](sql-api-dotnet-samples.md)</td></tr>
-
-<tr><td>**Get started**</td><td>[Get started with the Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
-
-<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
-
-<tr><td>**Current supported framework**</td><td>[.NET Standard 1.6 and .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
-</table></br>
+|**SDK download**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
+|**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**Samples**|[.NET code samples](sql-api-dotnet-samples.md)|
+|**Get started**|[Get started with the Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)|
+|**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)|
+|**Current supported framework**|[.NET Standard 1.6 and .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## Release Notes
 
