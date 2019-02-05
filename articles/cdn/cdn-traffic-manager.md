@@ -38,7 +38,7 @@ Create two or more Azure CDN profiles and endpoints with different providers.
 ## Set up Azure Traffic Manager
 Create an Azure Traffic Manager profile and set up load balancing across your CDN endpoints. 
 
-1. Create an Azure Traffic Manager profile by following the steps in [Create a Traffic Manager profile](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#create-a-traffic-manager-profile-1). 
+1. Create an Azure Traffic Manager profile by following the steps in [Create a Traffic Manager profile](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile). 
 
     For **Routing method**, select **Priority**.
 
