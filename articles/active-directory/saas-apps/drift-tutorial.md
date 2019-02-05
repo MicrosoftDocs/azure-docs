@@ -112,9 +112,6 @@ To configure Azure AD single sign-on with Drift, perform the following steps:
 	d. In the **Sign-on URL** text box, type a URL:
     `https://start.drift.com`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Relay State. Contact [Drift Client support team](mailto:integrations@drift.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
 6. Drift application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
