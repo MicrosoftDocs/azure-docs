@@ -19,26 +19,31 @@ In machine learning, a *feature* is a distinguishing trait or attribute of data 
 Add features to a language model to provide hints about how to recognize input that you want to label or classify. Features help LUIS recognize both intents and entities, but features are not intents or entities themselves. Instead, features might provide examples of related terms.  
 
 ## What is a phrase list feature?
-A phrase list includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them is automatically applied to the others as well. This list is not a closed [list entity](luis-concept-entity-types.md#types-of-entities) (exact text matches) of matched words.
+A phrase list is a list of words or phrases that are significant to your app, more so than other words in utterances. A phrase list adds to the vocabulary of the app domain as an additional signal to LUIS about those words. What LUIS learns about one of them is automatically applied to the others as well. This list is not a closed [list entity](luis-concept-entity-types.md#types-of-entities) of exact text matches.
 
-A phrase list adds to the vocabulary of the app domain as a second signal to LUIS about those words.
+Phrase lists do not help with stemming so you need to add utterance examples that use a variety of stemming for any significant vocabulary words and phrases.
 
 ## Phrase lists help all models
 
-Phrase lists are not linked to a specific intent or entity but are added as a boost to all the models. Its purpose is to improve intent detection and entity classification.
+Phrase lists are not linked to a specific intent or entity but are added as a significant boost to all the intents and entities. Its purpose is to improve intent detection and entity classification.
 
 ## How to use phrase lists
 
-Create a phrase list when your app has words or phrases that are that are important to the app such as industry terms, slang, abbreviations, and company-specific language. Once you've entered a few words or phrases, use the **Recommend** feature to find related values. Review the related values before adding to your phrase list values.
+Create a phrase list when your app has words or phrases that are important to the app such as:
+
+* industry terms
+* slang
+* abbreviations
+* company-specific language
+* language that is from another language but frequently used in your app
+* key words and phrases in your example utterances
+
+ Once you've entered a few words or phrases, use the **Recommend** feature to find related values. Review the related values before adding to your phrase list values.
 
 |List type|Purpose|
 |--|--|
 |Interchangeable|Synonyms or words that, when changed to another word in the list, have the same intent, and entity extraction.|
 |Non-interchangeable|App vocabulary, specific to your app, more so than generally other words in that language.|
-
-Phrase lists not only help with entity detection but also intent classification where non-interchangeable makes sense like adding out of vocabulary words that are not known in the English language.
-
-Phrase lists do not help with stemming so you need to add utterance examples that use a variety of stemming for any significant vocabulary words and phrases.
 
 ### Interchangeable lists
 
