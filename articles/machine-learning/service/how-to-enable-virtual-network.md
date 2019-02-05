@@ -131,7 +131,7 @@ When the creation process finishes, you can train your model by using the cluste
 
 ## Use a virtual machine or HDInsight cluster
 
-To use a virtual machine or Azure HDInsight cluster in a Virtual Network with your workspace, follow these steps:
+To use a virtual machine or Azure HDInsight cluster in a virtual network with your workspace, follow these steps:
 
 > [!IMPORTANT]
 > The Azure Machine Learning service only supports virtual machines that are running Ubuntu.
