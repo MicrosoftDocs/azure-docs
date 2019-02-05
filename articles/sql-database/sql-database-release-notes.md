@@ -27,7 +27,7 @@ This article lists the new features and improvements in the SQL Database service
 ## Documentation improvements
 
 | Documentation improvements | Details |
-| --- | --- | 
+| --- | --- |
 | Managed instances and transactional replication | Added article about using [transactional replication with managed instances](replication-with-sql-database-managed-instance.md) |
 | Added Azure AD with managed instance tutorial | This [Azure AD with managed instance](sql-database-managed-instance-aad-security-tutorial.md) tutorial shows you have to configure and test managed instance security using Azure AD logins. |
 | Updated content for job automation using Transact-SQL scripts | Updated and clarified content for using [job automation using Transact-SQL scripts](sql-database-job-automation-overview.md) for single databases, elastic pools, and managed instances |
