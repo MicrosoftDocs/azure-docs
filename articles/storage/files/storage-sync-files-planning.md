@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
-ms.component: files
+ms.subservice: files
 ---
 
 # Planning for an Azure File Sync deployment
@@ -201,6 +201,9 @@ If you are using an on-premises backup solution, backups should be performed on 
 > [!Note]  
 > Bare-metal (BMR) restore can cause unexpected results and is not currently supported.
 
+> [!Note]  
+> VSS snapshots (including Previous Versions tab) are not currently supported on volumes which have cloud tiering enabled. If cloud tiering is enabled, use the Azure file share snapshots to restore a file from backup.
+
 ### Encryption solutions
 Support for encryption solutions depends on how they are implemented. Azure File Sync is known to work with:
 
@@ -275,3 +278,4 @@ To support the failover integration between geo-redundant storage and Azure File
 * [Planning for an Azure Files deployment](storage-files-planning.md)
 * [Deploy Azure Files](storage-files-deployment-guide.md)
 * [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
+* [Monitor Azure File Sync](storage-sync-files-monitoring.md)

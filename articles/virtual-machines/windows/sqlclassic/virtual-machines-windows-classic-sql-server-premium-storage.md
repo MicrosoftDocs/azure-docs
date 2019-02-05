@@ -3,7 +3,7 @@ title: Use Azure Premium Storage with SQL Server | Microsoft Docs
 description: This article uses resources created with the classic deployment model, and gives guidance on using Azure Premium Storage with SQL Server running on Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
-ms.author: jroth
-
+ms.author: mathoma
+ms.reviewer: jroth
 ---
 # Use Azure Premium Storage with SQL Server on Virtual Machines
 ## Overview
@@ -541,7 +541,7 @@ This document does not demonstrate a complete end to end example, however the [A
 * Update Listener by either:
   * Taking the Always On Group offline and updating the Always On Listener with new ILB / ELB IP address.
   * Or adding the IP address resource of new Cloud Service ILB/ELB through PowerShell into Windows clustering. Then set the Possible owners of the IP Address resource to the migrated node, SQL2, and set this as OR dependency in the Network Name. See the ‘Adding IP Address Resource on Same Subnet’ section of the [Appendix](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
-* Check DNS configuration/propogation to the clients.
+* Check DNS configuration/propagation to the clients.
 * Migrate SQL1 VM, and go through steps 2 – 4.
 * If using steps 5ii, then add SQL1 as a Possible Owner for the added IP Address Resource
 * Test failovers.

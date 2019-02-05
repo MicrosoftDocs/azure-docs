@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Manage smart groups
@@ -21,4 +21,5 @@ ms.component: alerts
 ![Monitoring](./media/alerts-managing-smart-groups/sg-list.jpg)
 3.	Clicking on any Smart Group opens up the details page, where you can see the grouping reason, along with the member alerts. This aggregation allows you to deal with a singular smart group, instead of sifting through multiple alerts.   
 ![Monitoring](./media/alerts-managing-smart-groups/sg-details.jpg)
+
 

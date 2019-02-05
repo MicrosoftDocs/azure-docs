@@ -1,20 +1,15 @@
 ---
-title: Algorithm examples - Azure Machine Learning Studio | Microsoft Docs'
+title: Algorithm examples
+titleSuffix: Azure Machine Learning Studio
 description: An easy-to-understand overview of machine learning basics includes algorithm examples. The downloadable infographic covers most machine learning questions.
-keywords: machine learning basics,algorithm examples,machine learning for beginners,machine learning questions,popular algorithms,algorithm infographic
 services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: seodc18
-ms.author: garye
-editor: cgronlun
-ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
+
+author: garyericson
+ms.author: garye
+ms.custom: seodc18
 ms.date: 12/18/2017
 ---
 # Downloadable Infographic: Machine learning basics with algorithm examples

@@ -42,7 +42,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
-* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 * **Azure Storage account**. The Azure Storage account is used as staging blob storage in the bulk copy operation. 
 * **Azure SQL Database**. This database contains the source data. 
 * **Azure SQL Data Warehouse**. This data warehouse holds the data copied over from the SQL Database. 

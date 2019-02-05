@@ -18,7 +18,7 @@ In the following example, Application Gateway is serving traffic for contoso.com
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Requests for http://contoso.com/video/* are routed to VideoServerPool, and http://contoso.com/images/* are routed to ImageServerPool. DefaultServerPool is selected if none of the path patterns match.
+Requests for http\://contoso.com/video/* are routed to VideoServerPool, and http\://contoso.com/images/* are routed to ImageServerPool. DefaultServerPool is selected if none of the path patterns match.
 
 > [!IMPORTANT]
 > Rules are processed in the order they are listed in the portal. It is highly recommended to configure multi-site listeners first prior to configuring a basic listener.  This ensures that traffic gets routed to the right back end. If a basic listener is listed first and matches an incoming request, it gets processed by that listener.
@@ -60,7 +60,7 @@ The urlPathMap element is used to specify Path patterns to back-end server pool 
 
 PathPattern is a list of path patterns to match. Each must start with / and the only place a "*" is allowed is at the end following a "/." The string fed to the path matcher does not include any text after the first ? or #, and those chars are not allowed here. Otherwise, any characters allowed in a URL are allowed in PathPattern.
 
-The patterns supported depend on which whether you deploy Application Gateway v1 or v2:
+The supported patterns depend on whether you deploy Application Gateway v1 or v2:
 
 #### v1
 

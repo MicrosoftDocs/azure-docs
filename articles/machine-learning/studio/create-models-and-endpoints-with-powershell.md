@@ -1,20 +1,15 @@
 ---
-title: Create multiple models from one Studio experiment - Azure Machine Learning Studio | Microsoft Docs
+title: Create multiple models from one Studio experiment
+titleSuffix: Azure Machine Learning Studio
 description: Use PowerShell to create multiple Machine Learning models and web service endpoints with the same algorithm but different training datasets.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 04/04/2017
 ---
 # Use PowerShell to create Studio models and web service endpoints from one experiment

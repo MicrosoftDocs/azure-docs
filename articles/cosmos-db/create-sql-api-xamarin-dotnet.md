@@ -195,7 +195,7 @@ Now let's take a quick review of how the app communicates with Azure Cosmos DB.
     }
     ```
 
-    Again note the unique doument URI being created and passed to the `DocumentClient.DeleteDocumentAsync` function.
+    Again note the unique document URI being created and passed to the `DocumentClient.DeleteDocumentAsync` function.
 
 ## Run the app
 

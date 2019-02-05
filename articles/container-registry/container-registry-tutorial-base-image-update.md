@@ -255,10 +255,10 @@ In this tutorial, you learned how to use a task to automatically trigger contain
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build-run
-[az-acr-task-create]: /cli/azure/acr#az-acr-task-create
+[az-acr-task-create]: /cli/azure/acr
 [az-acr-task-run]: /cli/azure/acr#az-acr-task-run
 [az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-task-list-runs]: /cli/azure/acr#az-acr-task-list-runs
+[az-acr-task-list-runs]: /cli/azure/acr
 [az-acr-task]: /cli/azure/acr#az-acr-task
 
 <!-- IMAGES -->

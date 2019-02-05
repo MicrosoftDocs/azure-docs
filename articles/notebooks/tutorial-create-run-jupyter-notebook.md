@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
 ---
 
@@ -125,7 +125,7 @@ With the data file ready and the project environment set, you can now create and
 1. Because you have a *requirements.txt* file in the environment settings, you see the message, "Waiting for your container to finish being prepared." You can select **OK** to close the message and continue working in the notebook; you can't run code cells, however, until the environment is set up fully.
 1. The notebook opens in the Jupyter interface with a single empty code cell as the default.
 
-    [![](media/tutorial/tutorial-new-notebook.png "Initial view of a new notebook in Azure Notebooks")](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Initial view of a new notebook in Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## Tour the notebook interface
 
@@ -141,7 +141,7 @@ Along the top of the window you see the following items:
 (F) indicator of whether the notebook is trusted (default is **Not Trusted**).
 (G) the kernel used to run the notebook along with an activity indicator.
 
-[![](media/tutorial/tutorial-notebook-ui.png "Primary UI areas of the Jupyter interface")](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Primary UI areas of the Jupyter interface](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter provides a built-in tour of the primary UI elements. Start the tour by selecting the **Help** > **User Interface Tour** command and clicking through the popups.
 
@@ -408,17 +408,13 @@ When you're done with a notebook, use the **File** > **Close and halt** command,
 
 ## Debug notebooks using Visual Studio Code
 
-If the code cells in your notebook don't behave in the way you expect, you may have code bugs or other defects. However, other than using `print` statements to show the value of variables, a Jupyter notebook doesn't offer any debugging facilities.
+If the code cells in your notebook don't behave in the way you expect, you may have code bugs or other defects. However, other than using `print` statements to show the value of variables, a typical Jupyter environment doesn't offer any debugging facilities.
 
-Fortunately, the Python extension for Visual Studio Code can directly import a Jupyter notebook as a single code file with your Markdown cells in comments. You can then run the Visual Studio Code debugger to step through your code, set breakpoints, examine state, and so forth. 
+Fortunately, you can download the notebook's *.ipynb* file, then open it in Visual Studio Code using the Python extension. The extension directly imports a notebook as a single code file, preserving your Markdown cells in comments. Once you've imported the notebook, you can use the Visual Studio Code debugger to step through your code, set breakpoints, examine state, and so forth. After making corrections to your code, you then export the *.ipynb* file from Visual Studio Code and upload it back into Azure Notebooks.
 
-Once you've made corrections to your code, save the *.ipynb* file, then upload it into Azure Notebooks.
+For more information, see [Debug a Jupyter notebook](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) in the Visual Studio Code documentation.
 
-For more information, see the following articles in the Visual Studio Code documentation:
-
-- [Overview of Jupyter notebooks in VS Code](https://code.visualstudio.com/docs/languages/python#_jupyter-notebooks)
-- [Python tutorial - Configure and run the debugger](https://code.visualstudio.com/docs/python/python-tutorial#_configure-and-run-the-debugger)
-- [Editing - Jupyter code cells](https://code.visualstudio.com/docs/python/editing#_jupyter-code-cells)
+Also see [Visual Studio Code - Jupyter support](https://code.visualstudio.com/docs/python/jupyter-support) for additional features of Visual Studio Code for Jupyter notebooks.
 
 ## Next steps
 

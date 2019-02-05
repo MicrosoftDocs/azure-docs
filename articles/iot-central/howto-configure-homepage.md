@@ -1,13 +1,13 @@
 ---
 title: Configure the Homepage of your Azure IoT Central application | Microsoft Docs
 description: As a builder, learn how to configure the Homepage of your Azure IoT Central application.
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 07/10/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
+manager: philmea
 ---
 
 # Configuring Homepage

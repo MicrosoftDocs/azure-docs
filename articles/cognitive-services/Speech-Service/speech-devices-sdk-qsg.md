@@ -7,7 +7,7 @@ author: erhopf
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
@@ -43,7 +43,7 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
 ## Set up the development kit
 
-1. Connect the development kit to a PC or power adapter by using a mini USB cable. When the kit is connected, a green power indicator lights up under the top board.
+1. Connect the development kit to a PC or power adapter by using a high quality micro USB cable. A green power indicator will light up under the top board.
 
 1. Connect the development kit to a computer by using a second mini USB cable.
 

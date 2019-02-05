@@ -184,7 +184,7 @@ You have two options for capturing an F12 trace:
 3. Verify that the **Network** tab is selected, and then select the green **Play** button.
 4. Do the steps that reproduce the issue.
 5. Select the red **Stop** button.
-6. Select the **Save** button (disk icon), and save the HAR file (in Internet Explorer and Edge) *or* right-click the HAR file, and then select **Save as HAR with content** (in Chrome).
+6. Select the **Save** button (disk icon), and save the HAR file (in Internet Explorer and Microsoft Edge) *or* right-click the HAR file, and then select **Save as HAR with content** (in Chrome).
 
 ### F12 console output
 

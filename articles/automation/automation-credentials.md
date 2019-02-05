@@ -3,7 +3,7 @@ title: Credential assets in Azure Automation
 description: Credential assets in Azure Automation contain security credentials that can be used to authenticate to resources accessed by the runbook or DSC configuration. This article describes how to create credential assets and use them in a runbook or DSC configuration.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/08/2018
@@ -67,10 +67,9 @@ The function in the following table is used to access credentials in a Python2 r
 
 ### To create a new credential asset with the Azure portal
 
-1. From your automation account, click the **Assets** part to open the **Assets** blade.
-2. Click the **Credentials** part to open the **Credentials** blade.
-3. Click **Add a credential** at the top of the blade.
-4. Complete the form and click **Create** to save the new credential.
+1. From your automation account, select **Credentials** under **Shared Resources**.
+1. Click **+ Add a credential**.
+1. Complete the form and click **Create** to save the new credential.
 
 > [!NOTE]
 > User accounts that use multi-factor authentication are not supported for use in Azure Automation.
@@ -136,4 +135,5 @@ print cred["password"]
 * To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md) 
 * To get started with Python2 runbooks, see [My first Python2 runbook](automation-first-runbook-textual-python2.md) 
+
 

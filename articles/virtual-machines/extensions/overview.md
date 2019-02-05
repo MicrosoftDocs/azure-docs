@@ -1,6 +1,6 @@
 ---
 title: Azure virtual machine extensions and features | Microsoft Docs
-description: Learn what Azure VM extensions anre how to use them with Azure virtual machines
+description: Learn what Azure VM extensions are and how to use them with Azure virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft

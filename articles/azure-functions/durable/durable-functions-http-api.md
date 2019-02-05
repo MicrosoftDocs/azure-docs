@@ -91,9 +91,9 @@ All HTTP APIs implemented by the extension take the following parameters. The da
 | taskHub    | Query string    | The name of the [task hub](durable-functions-task-hubs.md). If not specified, the current function app's task hub name is assumed. |
 | connection | Query string    | The **name** of the connection string for the storage account. If not specified, the default connection string for the function app is assumed. |
 | systemKey  | Query string    | The authorization key required to invoke the API. |
-| showInput  | Query string    | Optional parameter. If set to `false`, the execution input will not be included in the response payload.|
-| showHistory| Query string    | Optional parameter. If set to `true`, the orchestration execution history will be included in the response payload.|
-| showHistoryOutput| Query string    | Optional parameter. If set to `true`, the activity outputs will be included in the orchestration execution history.|
+| showInput  | Query string    | Optional parameter; single-instance request only. If set to `false`, the execution input will not be included in the response payload.|
+| showHistory| Query string    | Optional parameter; single-instance request only. If set to `true`, the orchestration execution history will be included in the response payload.|
+| showHistoryOutput| Query string    | Optional parameter; single-instance request only. If set to `true`, the activity outputs will be included in the orchestration execution history.|
 | createdTimeFrom  | Query string    | Optional parameter. When specified, filters the list of returned instances which were created at or after the given ISO8601 timestamp.|
 | createdTimeTo    | Query string    | Optional parameter. When specified, filters the list of returned instances which were created at or before the given ISO8601 timestamp.|
 | runtimeStatus    | Query string    | Optional parameter. When specified, filters the list of returned instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](durable-functions-instance-management.md) topic. |
@@ -141,7 +141,7 @@ The response payload for the **HTTP 200** and **HTTP 202** cases is a JSON objec
 | output          | JSON      | The JSON output of the instance. This field is `null` if the instance is not in a completed state. |
 | createdTime     | string    | The time at which the instance was created. Uses ISO 8601 extended notation. |
 | lastUpdatedTime | string    | The time at which the instance last persisted. Uses ISO 8601 extended notation. |
-| historyEvents   | JSON      | A JSON array containing the orchestration execution history. This field is `null` unless the `showHistory` query string parameter is set to `true`.  |
+| historyEvents   | JSON      | A JSON array containing the orchestration execution history. This field is `null` unless the `showHistory` query string parameter is set to `true`. |
 
 Here is an example response payload including the orchestration execution history and activity outputs (formatted for readability):
 

@@ -4,11 +4,11 @@ title: Create and manage Azure IoT Central applications as a CSP | Microsoft Doc
 description: As a CSP, how to create an Azure IoT Central application on behalf of your customer.
 services: iot-central
 ms.service: iot-central
-author: tbhagwat3
-ms.author: tanmayb
+author: dominicbetts
+ms.author: dobett
 ms.date: 10/29/2018
 ms.topic: conceptual
-manager: peterpr
+manager: philmea
 ---
 
 # As a CSP, create and manage an Azure IoT Central Application on behalf of your customer 

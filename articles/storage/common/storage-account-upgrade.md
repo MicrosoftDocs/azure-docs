@@ -17,7 +17,8 @@ General-purpose v2 storage accounts support the latest Azure Storage features an
 Upgrading to a general-purpose v2 storage account from your general-purpose v1 or Blob storage accounts is simple. You can upgrade using the Azure portal, PowerShell, or Azure CLI. 
 
 > [!NOTE]
-> Changing the storage tier may result in additional charges. For more information, see the [Pricing and billing](#pricing-and-billing) section.
+> Upgrading your storage account to a general-purpose v2 account is free.
+> Changing the storage access tier may result in changes to your bill. For more information, see the [Pricing and billing](#pricing-and-billing) section.
 
 ## Upgrade using the Azure portal
 
@@ -58,8 +59,8 @@ Access tiers enable you to choose the most cost-effective storage based on your 
 
 By default, a new storage account is created in the Hot access tier, and a general-purpose v1 storage account is upgraded to the Hot access tier. If you are exploring which access tier to use for your data post-upgrade, consider your scenario. There are two typical user scenarios for migrating to a general-purpose v2 account:
 
-* You have an existing general-purpose v1 storage account and want to evaluate a change to a general-purpose v2 storage account, with the right storage tier for blob data.
-* You have decided to use a general-purpose v2 storage account or already have one and want to evaluate whether you should use the Hot or Cool storage tier for blob data.
+* You have an existing general-purpose v1 storage account and want to evaluate an upgrade to a general-purpose v2 storage account, with the right storage access tier for blob data.
+* You have decided to use a general-purpose v2 storage account or already have one and want to evaluate whether you should use the Hot or Cool storage access tier for blob data.
 
 In both cases, the first priority is to estimate the cost of storing, accessing, and operating on your data stored in a general-purpose v2 storage account and compare that against your current costs.
 
@@ -67,9 +68,9 @@ In both cases, the first priority is to estimate the cost of storing, accessing,
 ## Pricing and billing
 All storage accounts use a pricing model for blob storage based on the tier of each blob. When using a storage account, the following billing considerations apply:
 
-* **Storage costs**: In addition to the amount of data stored, the cost of storing data varies depending on the storage tier. The per-gigabyte cost decreases as the tier gets cooler.
+* **Storage costs**: In addition to the amount of data stored, the cost of storing data varies depending on the storage access tier. The per-gigabyte cost decreases as the tier gets cooler.
 
-* **Data access costs**: Data access charges increase as the tier gets cooler. For data in the cool and archive storage tier, you are charged a per-gigabyte data access charge for reads.
+* **Data access costs**: Data access charges increase as the tier gets cooler. For data in the cool and archive storage access tier, you are charged a per-gigabyte data access charge for reads.
 
 * **Transaction costs**: There is a per-transaction charge for all tiers that increases as the tier gets cooler.
 
@@ -77,7 +78,7 @@ All storage accounts use a pricing model for blob storage based on the tier of e
 
 * **Outbound data transfer costs**: Outbound data transfers (data that is transferred out of an Azure region) incur billing for bandwidth usage on a per-gigabyte basis, consistent with general-purpose storage accounts.
 
-* **Changing the storage tier**: Changing the account storage tier from cool to hot incurs a charge equal to reading all the data existing in the storage account. However, changing the account storage tier from hot to cool incurs a charge equal to writing all the data into the cool tier (GPv2 accounts only).
+* **Changing the storage access tier**: Changing the account storage access tier from cool to hot incurs a charge equal to reading all the data existing in the storage account. However, changing the account access tier from hot to cool incurs a charge equal to writing all the data into the cool tier (GPv2 accounts only).
 
 > [!NOTE]
 > For more information on the pricing model for storage accounts, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) page. For more information on outbound data transfer charges, see [Data Transfers Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/) page.
@@ -152,7 +153,7 @@ In order to estimate the data access costs for Blob storage accounts, you need t
 The cost of geo-replication data transfer for Blob storage accounts can also be calculated by using the estimate for the amount of data written when using a GRS or RA-GRS storage account.
 
 > [!NOTE]
-> For a more detailed example about calculating the costs for using the hot or cool storage tier, take a look at the FAQ titled *'What are Hot and Cool access tiers and how should I determine which one to use?'* in the [Azure Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/).
+> For a more detailed example about calculating the costs for using the hot or cool storage access tier, take a look at the FAQ titled *'What are Hot and Cool access tiers and how should I determine which one to use?'* in the [Azure Storage Pricing Page](https://azure.microsoft.com/pricing/details/storage/).
 
 ## Next steps
 

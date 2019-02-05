@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 01/21/2019
 ms.author: raynew
 
 ---
@@ -21,7 +21,7 @@ This article summarizes supported configurations and components when you deploy 
 --- | ---
 **Azure portal** | Supported
 **PowerShell** | [Azure to Azure replication with PowerShell](azure-to-azure-powershell.md)
-**REST API** | Not currently supported
+**REST API** | Supported
 **CLI** | Not currently supported
 
 
@@ -39,9 +39,7 @@ This article summarizes supported configurations and components when you deploy 
 
 You can replicate and recover VMs between any two regions within the same geographic cluster. Geographic clusters are defined keeping data latency and sovereignty in mind.
 
->[!NOTE]
->If you are not able to see a region within a Geographic cluster during enabling replication then make sure your subscription has access to create virtual machine in that region. If not than raise a support request under "Issue type" subscription.
->
+
 **Geographic cluster** | **Azure regions**
 -- | --
 America | Canada East, Canada Central, South Central US, West Central US, East US, East US 2, West US, West US 2, Central US, North Central US
@@ -54,9 +52,13 @@ China | China East, China North, China North2, China East2
 
 >[!NOTE]
 >
-> For Brazil South region, you can replicate and fail over to one of the following: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US regions.
->
-> It should be noted that Site Recovery has only enabled Brazil South to be used as a source region from where VMs can be protected. It cannot be used as a Target DR region for any of the Azure regions like South Central US. The reason being latency observed due to geographical distance it is recommended to select any other America's region other than Brazil South.
+> - For **Brazil South** region, you can replicate and fail over to one of the following: South Central US, West Central US, East US, East US 2, West US, West US 2, and North Central US regions. It should be noted that Site Recovery has only enabled Brazil South to be used as a source region from where VMs can be protected. It **cannot be used as a Target DR region** for any of the Azure regions like South Central US. The reason being latency observed due to geographical distance it is recommended to select any other America's region other than Brazil South.
+> 
+> - If you are **not able to see a region** where you want **to create a vault** then make sure your subscription has access to create resources in that region. For example: If you are not able to create vault in France South then your subscription doesn't have access to France south region. Please file support ticket under issue Type "subscription management" and  problem type "other General questions" subject " whitelist subscription for the XXX Azure region"
+> 
+> - If you are **not able to see a region** within a Geographic cluster **during enabling replication** then make sure your subscription has access to create virtual machine in that region. For example: If you are trying to protect virtual machines from France Central to France south and don't see France south under the region drop down then your subscription doesn't have access to deploy VM in that region. Please file support ticket under issue Type "subscription management" and  problem type "other General questions" subject " whitelist subscription for the XXX Azure region"
+> - You cannot select regions across geographic clusters mentioned above.
+
 
 ## Cache storage
 
@@ -101,15 +103,15 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
+14.04 LTS | 9.22 | 3.13.0-24-generic to 3.13.0-164-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-140-generic,<br/>4.15.0-1023-azure to 4.15.0-1036-azure |
 14.04 LTS | 9.21 | 3.13.0-24-generic to 3.13.0-163-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-140-generic,<br/>4.15.0-1023-azure to 4.15.0-1035-azure |
 14.04 LTS | 9.20 | 3.13.0-24-generic to 3.13.0-161-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-138-generic,<br/>4.15.0-1023-azure to 4.15.0-1030-azure |
 14.04 LTS | 9.19 | 3.13.0-24-generic to 3.13.0-153-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-131-generic |
-14.04 LTS | 9.18 | 3.13.0-24-generic to 3.13.0-151-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-128-generic |
 |||
+16.04 LTS | 9.22 | 4.4.0-21-generic to 4.4.0-140-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-43-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1036-azure|
 16.04 LTS | 9.21 | 4.4.0-21-generic to 4.4.0-140-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-42-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1035-azure|
 16.04 LTS | 9.20 | 4.4.0-21-generic to 4.4.0-138-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-38-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1030-azure|
 16.04 LTS | 9.19 | 4.4.0-21-generic to 4.4.0-131-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-30-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1019-azure|
-16.04 LTS | 9.18 | 4.4.0-21-generic to 4.4.0-128-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure |
 
 
 #### Supported Debian kernel versions for Azure virtual machines
@@ -179,7 +181,7 @@ Data disk - standard storage account | Supported |
 Data disk - premium storage account | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk, to ensure you have the same storage configuration in the target region.
 Managed disk - standard | Supported in Azure regions in which Azure Site Recovery is supported. |
 Managed disk - premium | Supported in Azure regions in which Azure Site Recovery is supported. |
-Standard SSD | Not Supported |
+Standard SSD | Supported |
 Redundancy | LRS and GRS are supported.<br/><br/> ZRS isn't supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
 Storage Spaces | Supported |
@@ -188,8 +190,8 @@ Azure Disk Encryption (ADE) for Windows OS | VMs enabled for [encryption with Az
 Azure Disk Encryption (ADE) for Linux OS | Not supported |
 Hot add/remove disk	| Not supported | If you add or remove data disk on the VM, you need to disable replication and enable replication again for the VM.
 Exclude disk | Not supported|	Temporary disk is excluded by default.
-Storage Spaces Direct  | Not supported|
-Scale-out File Server  | Not supported|
+Storage Spaces Direct  | Supported for crash consistent recovery points. Application consistent recovery points are not supported. |
+Scale-out File Server  | Supported for crash consistent recovery points. Application consistent recovery points are not supported. |
 LRS | Supported |
 GRS | Supported |
 RA-GRS | Supported |

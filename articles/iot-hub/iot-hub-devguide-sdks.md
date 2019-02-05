@@ -60,7 +60,7 @@ Azure IoT Hub device SDK for Java:
 * Add to [Maven](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md#for-the-device-sdk) project
 * [Source code](https://github.com/Azure/azure-iot-sdk-java)
 * [API reference](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device)
-* [Module reference](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable)
+* [Module reference](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)
 
 Azure IoT Hub device SDK for Node.js: 
 

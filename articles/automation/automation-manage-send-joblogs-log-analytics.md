@@ -3,7 +3,7 @@ title: Forward Azure Automation job data to Log Analytics
 description: This article demonstrates how to send job status and runbook job streams to Azure Log Analytics to deliver additional insight and management.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 06/12/2018
@@ -180,3 +180,4 @@ Log Analytics provides greater operational visibility to your Automation jobs an
 * To understand how to create and retrieve output and error messages from runbooks, see [Runbook output and messages](automation-runbook-output-and-messages.md).
 * To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md).
 * To learn more about Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../azure-monitor/platform/collect-azure-metrics-logs.md).
+

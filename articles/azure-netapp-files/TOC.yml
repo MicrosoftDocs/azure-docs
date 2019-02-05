@@ -42,3 +42,5 @@
   items:
   - name: REST
     href: https://docs.microsoft.com/rest/api/netapp/ 
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.netapp/allversions

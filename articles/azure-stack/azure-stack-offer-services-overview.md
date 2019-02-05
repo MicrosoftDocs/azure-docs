@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
-ms.reviewer:
+ms.reviewer: unknown
+ms.lastreviewed: 09/17/2018
 
 ---
 # Overview of offering services in Azure Stack

@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -218,7 +218,7 @@ To activate the py35 environment again:
 
 To invoke a Python interactive session, just type **python** in the shell. 
 
-Install additional Python libraries using ```conda``` or ````pip```` . For pip, activate the correct environment first if you do not want the default:
+Install additional Python libraries using ```conda``` or ```pip``` . For pip, activate the correct environment first if you do not want the default:
 
     source activate root
     pip install <package>
@@ -269,7 +269,7 @@ Before running in Spark context in Microsoft R Server, you need to do a one time
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-You can stop the Hadoop related services when you dont need them by running ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn````
+You can stop the Hadoop related services when you dont need them by running ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```
 A sample demonstrating how to develop and test MRS in remote Spark context (which is the standalone Spark instance on the DSVM) is provided and available in the `/dsvm/samples/MRS` directory. 
 
 ### IDEs and editors

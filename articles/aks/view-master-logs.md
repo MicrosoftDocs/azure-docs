@@ -33,6 +33,19 @@ Log Analytics is enabled and managed in the Azure portal. To enable log collecti
 1. In the list of available logs, select the logs you wish to enable. By default, the *kube-apiserver*, *kube-controller-manager*, and *kube-scheduler* logs are enabled. You can enable additional logs, such as *kube-audit* and *cluster-autoscaler*. You can return and change the collected logs once Log Analytics are enabled.
 1. When ready, select **Save** to enable collection of the selected logs.
 
+> [!NOTE]
+> AKS only captures audit logs for clusters that are created or upgraded after a feature flag is enabled on your subscription. To register the *AKSAuditLog* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
+>
+> `az feature register --name AKSAuditLog --namespace Microsoft.ContainerService`
+>
+> Wait for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
+>
+> `az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAuditLog')].{Name:name,State:properties.state}"`
+>
+> When ready, refresh the registration of the AKS resource provider using the [az provider register][az-provider-register] command:
+>
+> `az provider register --namespace Microsoft.ContainerService`
+
 The following example portal screenshot shows the *Diagnostics settings* window and then option to create an Log Analytics workspace:
 
 ![Enable Log Analytics workspace for Log Analytics of AKS cluster](media/view-master-logs/enable-oms-log-analytics.png)
@@ -129,3 +142,6 @@ In this article, you learned how to enable and review the logs for the Kubernete
 [analyze-log-analytics]: ../azure-monitor/learn/tutorial-viewdata.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

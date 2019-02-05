@@ -2,7 +2,7 @@
 title: Navigate Azure Digital Twins APIs | Microsoft Docs
 description: Learn how to common patterns of querying the Azure Digital Twins management APIs.
 author: dsk-2015
-manager: bertvanhoof
+manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
@@ -20,11 +20,11 @@ The following list shows the components of the Digital Twins APIs.
 
 * [/spaces](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Spaces): These APIs interact with the physical locations in your setup. These help you create, delete, and manage the digital mappings of your physical locations in the form of a [spatial graph](concepts-objectmodel-spatialgraph.md#spatial-intelligence-graph).
 
-* [/resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): These APIs help you set up resources, such as an IoT hub, for your Digital Twins instance.
-
 * [/devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices): These APIs interact with the devices in your setup. These devices can manage one or more sensors. For example, a device could be your phone, or a Raspberry Pi sensor pod, or a Lora gateway, and so on.
 
 * [/sensors](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Sensors): These APIs help you communicate with the sensors associated with your devices and your physical locations. The sensors record and send ambient values which can then be used to manipulate your spatial environment.  
+
+* [/resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): These APIs help you set up resources, such as an IoT hub, for your Digital Twins instance.
 
 * [/types](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Types): These APIs allow you to associate extended types with your Digital Twins objects, to add specific characteristics to those objects. These types allow for easy filtering and grouping of objects in the UI and the custom functions that process your telemetry data. Examples of extended types are *DeviceType*, *SensorType*, *SensorDataType*, *SpaceType*, *SpaceSubType*, *SpaceBlobType*, *SpaceResourceType*, and so on.
 

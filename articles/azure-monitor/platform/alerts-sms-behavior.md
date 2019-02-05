@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
-ms.component: alerts
+ms.subservice: alerts
 ---
 # SMS Alert Behavior in Action Groups
 ## Overview ##
@@ -39,3 +39,4 @@ An SMS receiver configured as part of an action group receives an SMS when an al
 Get an [overview of activity log alerts](alerts-overview.md) and learn how to get alerted  
 Learn more about [SMS rate limiting](alerts-rate-limiting.md)  
 Learn more about [action groups](../../azure-monitor/platform/action-groups.md)
+

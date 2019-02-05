@@ -93,7 +93,7 @@ AzureActivity
 
 
 ### Regular expressions
-If your data can be identified with a regular expression, you can use [functions that use regular expressions](/azure/kusto/query/re2) to extract individual values. The following example uses [extract](/kusto/query/extractfunction) to break out the _UPN_ field from _AzureActivity_ records and then return distinct users.
+If your data can be identified with a regular expression, you can use [functions that use regular expressions](/azure/kusto/query/re2) to extract individual values. The following example uses [extract](/azure/kusto/query/extractfunction) to break out the _UPN_ field from _AzureActivity_ records and then return distinct users.
 
 ```Kusto
 AzureActivity
