@@ -14,7 +14,7 @@ ms.author: luisca
 ms.custom: seojan2018
 ---
 
-#	 Custom Web API skill
+# Custom Web API skill
 
 The **Custom Web API** skill allows you to extend cognitive search by calling out to a web API endpoint providing custom operations. Similar to built-in skills, a **Custom Web API** skill has inputs and outputs. Depending on the inputs, your web API receives a JSON payload when the indexer runs, and outputs a JSON payload as a response, along with a success status code. The response is expected to have the outputs specified by your custom skill. Any other response is considered an error and no enrichments are performed.
 
@@ -49,7 +49,7 @@ There are no "predefined" inputs for this skill. You can choose one or more fiel
 There are no "predefined" outputs for this skill. Depending on the response your Web API will return, add output fields so that they can be picked up from the _JSON_ response.
 
 
-##	Sample definition
+## Sample definition
 
 ```json
   {
@@ -80,13 +80,13 @@ There are no "predefined" outputs for this skill. Depending on the response your
         ]
       }
 ```
-##	Sample input JSON structure
+## Sample input JSON structure
 
 This _JSON_ structure represents the payload that will be sent to your Web API.
 It will always follow these constraints:
 
-1. The top-level entity is called `values` and will be an array of objects. The number of such objects will be at most the `batchSize`
-2. Each object in the `values` array will have
+* The top-level entity is called `values` and will be an array of objects. The number of such objects will be at most the `batchSize`
+* Each object in the `values` array will have
     * A `recordId` property that is a **unique** string, used to identify that record.
     * A `data` property that is a _JSON_ object. The fields of the `data` property will correspond to the "names" specified in the `inputs` section of the skill definition. The value of those fields will be from the `source` of those fields (which could be from a field in the document, or potentially from another skill)
 
@@ -133,18 +133,18 @@ It will always follow these constraints:
 }
 ```
 
-##	Sample output JSON structure
+## Sample output JSON structure
 
 The "output" corresponds to the response returned from your web api. The web api should only return a _JSON_ payload (verified by looking at the `Content-Type` response header) and should satisfy the following constraints:
 
-1. There should be a top-level entity called `values` which should be an array of objects.
-2. The number of objects in the array should be the same as the number of objects sent to the web api.
-3. Each object should have:
+* There should be a top-level entity called `values` which should be an array of objects.
+* The number of objects in the array should be the same as the number of objects sent to the web api.
+* Each object should have:
    * A `recordId` property
    * A `data` property, which is an object where the fields are enrichments matching the "names" in the `output` and whose value is considered the enrichment.
    * An `errors` property, an array listing any errors encountered that will be added to the indexer execution history. This property is required, but can have a `null` value.
    * A `warnings` property, an array listing any warnings encountered that will be added to the indexer execution history. This property is required, but can have a `null` value.
-4. The objects in the `values` array need not be in the same order as the objects in the `values` array sent as a request to the Web API. However, the `recordId` is used for correlation so any record in the response containing a `recordId` which was not part of the original request to the Web API will be discarded.
+* The objects in the `values` array need not be in the same order as the objects in the `values` array sent as a request to the Web API. However, the `recordId` is used for correlation so any record in the response containing a `recordId` which was not part of the original request to the Web API will be discarded.
 
 ```json
 {
