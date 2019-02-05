@@ -73,14 +73,16 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 In the output ensure that:
-+ Under *Logs*, the value for *Enabled* is *True*.
-+ The value of *WorkspaceId* is set to the ResourceId of your Log Analytics workspace.
+
+* Under *Logs*, the value for *Enabled* is *True*.
+* The value of *WorkspaceId* is set to the ResourceId of your Log Analytics workspace.
 
 ## Log Analytics records
 
 Diagnostics from Azure Automation creates two types of records in Log Analytics and are tagged as **AzureDiagnostics**. The following queries use the upgraded query language to Log Analytics. For information on common queries between legacy query language and the new Azure Log Analytics query language visit [Legacy to new Azure Log Analytics Query Language cheat sheet](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
 
 ### Job Logs
+
 | Property | Description |
 | --- | --- |
 | TimeGenerated |Date and time when the runbook job executed. |
@@ -125,6 +127,7 @@ Diagnostics from Azure Automation creates two types of records in Log Analytics 
 | ResourceType | AUTOMATIONACCOUNTS |
 
 ## Viewing Automation Logs in Log Analytics
+
 Now that you started sending your Automation job logs to Log Analytics, let’s see what you can do with these logs inside Log Analytics.
 
 To see the logs, run the following query:
