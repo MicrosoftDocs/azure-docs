@@ -22,7 +22,10 @@ This article provides answers to common questions about deploying disaster recov
 1.  **[Recovery plan](#recovery-plan)** 
 1.  **[Reprotection and failback](#reprotection-and-failback)** 
 1.  **[Security](#security)** 
+
+
 ## <a name="general"></a>General
+
 ### How is Site Recovery priced?
 Review [Azure Site Recovery pricing](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) details.
 
