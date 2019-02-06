@@ -25,8 +25,10 @@ The Investigation feature in Security Center allows you to triage, understand th
 
 The intent is to facilitate the investigation process by linking all entities ([security alerts](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), users, computers and incidents) that are involved with the incident you are investigating.  Security Center can do this by correlating relevant data with any involved entities and exposing this correlation in using a live graph that helps you navigate through the objects and visualize relevant information.
 
+
 > [!NOTE]
-> [Custom alerts](security-center-custom-alert.md) are not supported in Security Center's investigation feature.
+    > * [Custom alerts](security-center-custom-alert.md) are not supported in Security Center's investigation feature.
+    > * Investigation is only supported for alerts based on data collected from Windows servers.
 >
 >
 
