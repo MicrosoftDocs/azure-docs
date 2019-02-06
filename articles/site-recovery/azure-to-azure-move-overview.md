@@ -17,13 +17,10 @@ Azure is growing extensively along with the customer base and is adding support 
 This document walks through the various scenarios where you would want to move your VMs and a guide on how the architecture should be configured in the target to achieve higher availability. 
 > [!div class="checklist"]
 > * [Why would you move Azure VMs](#why-would-you-move-azure-vms)
-> * [Typical architectures](#typical-architectures-for-a-multi-tier-deployment)
 > * [How to move Azure VMs](#how-to-move-azure-vms)
-> * Prepare the target region
-> * Copy data to the target region
-> * Test the configuration 
-> * Perform the move 
-> * Discard the resource in the source region 
+> * [Typical architectures](#typical-architectures-for-a-multi-tier-deployment)
+> * [Move VMs as is to a target region](#move-azure-vms-to-another-region)
+> * [Move VMs to increase availability](#move-vms-to-increase-availability)
 
 
 ## Why would you move Azure VMs
@@ -87,7 +84,7 @@ Based on the above mentioned [architectures](#typical-architectures-for-a-multi-
 
      ![AzoneCross.PNG](media/move-vm-overview/AzoneCross.PNG)
 
- ## Move VMs to increase availabiltiy
+## Move VMs to increase availability
 
 1. **Single instance VMs deployed across various tiers** 
 
