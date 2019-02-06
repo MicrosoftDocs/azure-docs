@@ -27,20 +27,12 @@ It has been tuned to work well with your choice of development environment.
 - Objective-C on iOS
 - Swift on iOS
 - Java on Android
-- Native C SDK on Android
+- C++/NDK on Android
+- C++/WinRT on HoloLens
 
-## Using the Azure Spatial Anchors
-
-### Setting up the library
+## Initializing the session
 
 The main entry point for the library is the class representing your session. Typically you'll declare a field in the class that manages your view and native AR session.
-
-Invoke Start() to enable your session to process environment data.
-
-To handle events raised by your session:
-
-- In C#, Java and C++, attach an event handler.
-- In Objective-C and Swift, set the `delegate` property of your session to an object, like your view. This object must implement the SSCCloudSpatialAnchorSessionDelegate protocol.
 
 # [C#](#tab/csharp)
 
@@ -48,20 +40,6 @@ To handle events raised by your session:
     CloudSpatialAnchorSession cloudSession;
     // In your view handler
     this.cloudSession = new CloudSpatialAnchorSession();
-
-#if UNITY_IOS
-    this.arkitSession = UnityARSessionNativeInterface.GetARSessionNativeInterface();
-    this.cloudSession.Session = this.arkitSession.GetNativeSessionPtr();
-#elif UNITY_ANDROID
-    this.nativeSession = GoogleARCoreInternal.ARCoreAndroidLifecycleManager.Instance.NativeSession;
-    this.cloudSession.Session = this.nativeSession.SessionHandle;
-#elif UNITY_WSA || WINDOWS_UWP
-    // No need to set a native session pointer for HoloLens.
-#else
-    throw new NotSupportedException("The platform is not supported.");
-#endif
-
-    this.cloudSession.Start();
 ```
 
 # [ObjC](#tab/objc)
@@ -70,9 +48,6 @@ To handle events raised by your session:
     SSCCloudSpatialAnchorSession *_cloudSession;
     // In your view handler
     _cloudSession = [[SSCCloudSpatialAnchorSession alloc] init];
-    _cloudSession.session = self.sceneView.session;
-    _cloudSession.delegate = self;
-    [_cloudSession start];
 ```
 
 # [Swift](#tab/swift)
@@ -81,9 +56,6 @@ To handle events raised by your session:
     var _cloudSession : SSCCloudSpatialAnchorSession? = nil
     // In your view handler
     _cloudSession = SSCCloudSpatialAnchorSession()
-    _cloudSession!.session = self.sceneView.session;
-    _cloudSession!.delegate = self;
-    _cloudSession!.start()
 ```
 
 # [Java](#tab/java)
@@ -92,8 +64,6 @@ To handle events raised by your session:
     private CloudSpatialAnchorSession mCloudSession;
     // In your view handler
     mCloudSession = new CloudSpatialAnchorSession();
-    mCloudSession.setSession(mSession);
-    mCloudSession.start();
 ```
 
 # [C++](#tab/cpp)
@@ -102,75 +72,17 @@ To handle events raised by your session:
     std::shared_ptr<SpatialServices::CloudSpatialAnchorSession> cloudSession_;
     // In your view handler
     cloudSession_ = std::make_shared<CloudSpatialAnchorSession>();
-    cloudSession_->Session(ar_session_);
-    cloudSession_->Start();
 ```
 
 ***
 
-The spatial anchor session works by mapping the space around the user. Doing so helps to determine where anchors are located. On non-HoloLens platforms, you should provide frames from your platform's AR library.
-
-On iOS, you can have the delegate to your view provide frames from the callback for - `(void)session:(ARSession *)session didUpdateFrame:(ARFrame *)frame;`.
-
-# [C#](#tab/csharp)
-
-```csharp
-#if UNITY_ANDROID
-    long latestFrameTimeStamp = this.nativeSession.FrameApi.GetTimestamp();
-    bool newFrameToProcess = latestFrameTimeStamp > this.lastFrameProcessedTimeStamp;
-    if (newFrameToProcess)
-    {
-        this.cloudSession.ProcessFrame(this.nativeSession.FrameHandle);
-        this.lastFrameProcessedTimeStamp = latestFrameTimeStamp;
-    }
-#endif
-#if UNITY_IOS
-    UnityARSessionNativeInterface.ARFrameUpdatedEvent += UnityARSessionNativeInterface_ARFrameUpdatedEvent;
-
-    void UnityARSessionNativeInterface_ARFrameUpdatedEvent(UnityARCamera camera)
-    {
-        this.cloudSession.ProcessFrame(this.arkitSession.GetNativeFramePtr());
-    }
-#endif
-```
-
-# [ObjC](#tab/objc)
-
-```objc
-    [_cloudSession processFrame:_sceneView.session.currentFrame];
-```
-
-# [Swift](#tab/swift)
-
-```swift
-    _cloudSession?.processFrame(self.sceneView.session.currentFrame)
-```
-
-# [Java](#tab/java)
-
-```java
-    mCloudSession.processFrame(mSession.update());
-```
-
-# [C++](#tab/cpp)
-
-```cpp
-    cloudSession_->ProcessFrame(ar_frame_);
-```
-
-***
-
-### Authentication
+## Setting up authentication
 
 To access the service, you need to provide an account key, access token, or AAD auth token.
 
-**Account Keys:** Account Keys are a credential that allows your application to authenticate with the Azure Spatial Anchors service. The intended purpose of Account Keys is to help you get started quickly. Specially during the development phase of your application's integration with Azure Spatial Anchors. As such, you can use Account Keys by embedding them in your client applications during development. As you progress beyond development, it's highly recommended to move to an authentication mechanism that is production-level, supported by Access Tokens, or AAD-based user authentication. To get an Account Key for development, visit your Azure Spatial Anchors account, and navigate to the "Keys" tab.
+### Account Keys
 
-**Access Tokens:** Access Tokens are a more robust method to authenticate with Azure Spatial Anchors. Specially as you prepare your application for a production deployment. The summary of this approach is to set up a backend service that your client application can securely authenticate with. Your backend service interfaces with AAD at runtime and with the Azure Spatial Anchors STS service to request an Access Token. This token is then delivered to the client application and used in the SDK to authenticate with Azure Spatial Anchors.
-
-**AAD User Authentication:** Azure Spatial Anchors also allows applications to authenticate with user AAD tokens. For example, you can use AAD tokens to integrate with ASA. If an Enterprise maintains users in AAD, you can supply a user AAD token in the Azure Spatial Anchors SDK. Doing so allows you to authenticate directly to the ASA service for an account that's part of the same AAD tenant.
-
-To set an account key:
+Account Keys are a credential that allows your application to authenticate with the Azure Spatial Anchors service. The intended purpose of Account Keys is to help you get started quickly. Specially during the development phase of your application's integration with Azure Spatial Anchors. As such, you can use Account Keys by embedding them in your client applications during development. As you progress beyond development, it's highly recommended to move to an authentication mechanism that is production-level, supported by Access Tokens, or AAD-based user authentication. To get an Account Key for development, visit your Azure Spatial Anchors account, and navigate to the "Keys" tab.
 
 # [C#](#tab/csharp)
 
@@ -205,7 +117,9 @@ To set an account key:
 
 ***
 
-To set an access token:
+### Access Tokens
+
+Access Tokens are a more robust method to authenticate with Azure Spatial Anchors. Specially as you prepare your application for a production deployment. The summary of this approach is to set up a backend service that your client application can securely authenticate with. Your backend service interfaces with AAD at runtime and with the Azure Spatial Anchors STS service to request an Access Token. This token is then delivered to the client application and used in the SDK to authenticate with Azure Spatial Anchors.
 
 # [C#](#tab/csharp)
 
@@ -240,53 +154,16 @@ To set an access token:
 
 ***
 
-To set an AAD auth token:
-
-# [C#](#tab/csharp)
-
-```csharp
-    this.cloudSesssion.Configuration.AuthenticationToken = @"MyAuthenticationToken";
-```
-
-# [ObjC](#tab/objc)
-
-```objc
-    _cloudSession.configuration.authenticationToken = @"MyAuthenticationToken";
-```
-
-# [Swift](#tab/swift)
-
-```swift
-    _cloudSession!.configuration.authenticationToken = "MyAuthenticationToken"
-```
-
-# [Java](#tab/java)
-
-```java
-    mCloudSession.getConfiguration().setAuthenticationToken("MyAuthenticationToken");
-```
-
-# [C++](#tab/cpp)
-
-```cpp
-    auto configuration = cloudSession_->Configuration();
-    configuration->AuthenticationToken(R"(MyAuthenticationToken)");
-```
-
-***
-
-If tokens aren't set, you must handle the TokenRequired event, or implement the tokenRequired method on the delegate protocol.
+If an access token isn't set, you must handle the TokenRequired event, or implement the tokenRequired method on the delegate protocol.
 
 You can handle the event synchronously by setting the property on the event arguments.
-
-There are two properties you can set, AccessToken or AuthenticationToken, you only need to set one of them.
 
 # [C#](#tab/csharp)
 
 ```csharp
     this.cloudSession.TokenRequired += (object sender, TokenRequiredEventArgs args) =>
     {
-        args.AccessToken = @"MyAccessToken"; // Or args.AuthenticationToken = @"MyAuthenticationToken";
+        args.AccessToken = @"MyAccessToken";
     };
 ```
 
@@ -294,7 +171,7 @@ There are two properties you can set, AccessToken or AuthenticationToken, you on
 
 ```objc
     - (void)tokenRequired:(SSCCloudSpatialAnchorSession *)cloudSession :(SSCTokenRequiredEventArgs *)args {
-        args.accessToken = @"MyAccessToken"; // Or args.authenticationToken = @"MyAuthenticationToken";
+        args.accessToken = @"MyAccessToken";
     }
 ```
 
@@ -302,7 +179,7 @@ There are two properties you can set, AccessToken or AuthenticationToken, you on
 
 ```swift
     internal func tokenRequired(_ cloudSession:SSCCloudSpatialAnchorSession!, _ args:SSCTokenRequiredEventArgs!) {
-        args.accessToken = "MyAccessToken" // Or args.authenticationToken = "MyAuthenticationToken";
+        args.accessToken = "MyAccessToken"
     }
 ```
 
@@ -310,7 +187,7 @@ There are two properties you can set, AccessToken or AuthenticationToken, you on
 
 ```java
     mCloudSession.addTokenRequiredListener(args -> {
-        args.setAccessToken("MyAccessToken"); // Or args.setAuthenticationToken("MyAuthenticationToken");
+        args.setAccessToken("MyAccessToken");
     });
 ```
 
@@ -318,7 +195,7 @@ There are two properties you can set, AccessToken or AuthenticationToken, you on
 
 ```cpp
     auto accessTokenRequiredToken = cloudSession_->AccessTokenRequired([](auto&&, auto&& args) {
-        args->AccessToken(R"(MyAccessToken)"); // Or args->AuthenticationToken(R"(MyAuthenticationToken)");
+        args->AccessToken(R"(MyAccessToken)");
     });
 ```
 
@@ -391,7 +268,269 @@ If you need to execute asynchronous work in your handler, you can defer setting 
 
 ***
 
-### Providing feedback to the user
+### AAD User Authentication
+
+Azure Spatial Anchors also allows applications to authenticate with user AAD tokens. For example, you can use AAD tokens to integrate with ASA. If an Enterprise maintains users in AAD, you can supply a user AAD token in the Azure Spatial Anchors SDK. Doing so allows you to authenticate directly to the ASA service for an account that's part of the same AAD tenant.
+
+# [C#](#tab/csharp)
+
+```csharp
+    this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
+```
+
+# [ObjC](#tab/objc)
+
+```objc
+    _cloudSession.configuration.authenticationToken = @"MyAuthenticationToken";
+```
+
+# [Swift](#tab/swift)
+
+```swift
+    _cloudSession!.configuration.authenticationToken = "MyAuthenticationToken"
+```
+
+# [Java](#tab/java)
+
+```java
+    mCloudSession.getConfiguration().setAuthenticationToken("MyAuthenticationToken");
+```
+
+# [C++](#tab/cpp)
+
+```cpp
+    auto configuration = cloudSession_->Configuration();
+    configuration->AuthenticationToken(R"(MyAuthenticationToken)");
+```
+
+***
+
+Like with access tokens, if an AAD token isn't set, you must handle the TokenRequired event, or implement the tokenRequired method on the delegate protocol.
+
+You can handle the event synchronously by setting the property on the event arguments.
+
+# [C#](#tab/csharp)
+
+```csharp
+    this.cloudSession.TokenRequired += (object sender, TokenRequiredEventArgs args) =>
+    {
+        args.AuthenticationToken = @"MyAuthenticationToken";
+    };
+```
+
+# [ObjC](#tab/objc)
+
+```objc
+    - (void)tokenRequired:(SSCCloudSpatialAnchorSession *)cloudSession :(SSCTokenRequiredEventArgs *)args {
+        args.authenticationToken = @"MyAuthenticationToken";
+    }
+```
+
+# [Swift](#tab/swift)
+
+```swift
+    internal func tokenRequired(_ cloudSession:SSCCloudSpatialAnchorSession!, _ args:SSCTokenRequiredEventArgs!) {
+        args.authenticationToken = "MyAuthenticationToken"
+    }
+```
+
+# [Java](#tab/java)
+
+```java
+    mCloudSession.addTokenRequiredListener(args -> {
+        args.setAuthenticationToken("MyAuthenticationToken");
+    });
+```
+
+# [C++](#tab/cpp)
+
+```cpp
+    auto accessTokenRequiredToken = cloudSession_->AccessTokenRequired([](auto&&, auto&& args) {
+        args->AuthenticationToken(R"(MyAuthenticationToken)");
+    });
+```
+
+***
+
+If you need to execute asynchronous work in your handler, you can defer setting the token by requesting a deferral object and then completing it, as in the following example.
+
+# [C#](#tab/csharp)
+
+```csharp
+    this.cloudSession.TokenRequired += async (object sender, TokenRequiredEventArgs args) =>
+    {
+        var deferral = args.GetDeferral();
+        string myToken = await MyGetTokenAsync();
+        if (myToken != null) args.AuthenticationToken = myToken;
+        deferral.Complete();
+    };
+```
+
+# [ObjC](#tab/objc)
+
+```objc
+    - (void)tokenRequired:(SSCCloudSpatialAnchorSession *)cloudSession :(SSCTokenRequiredEventArgs *)args {
+        SSCCloudSpatialAnchorSessionDeferral *deferral = [args getDeferral];
+        [myGetTokenAsync callback:^(NSString *myToken) {
+            if (myToken) args.authenticationToken = myToken;
+            [deferral complete];
+        }];
+    }
+```
+
+# [Swift](#tab/swift)
+
+```swift
+    internal func tokenRequired(_ cloudSession:SSCCloudSpatialAnchorSession!, _ args:SSCTokenRequiredEventArgs!) {
+        let deferral = args.getDeferral()
+        myGetTokenAsync( withCompletionHandler: { (myToken: String?) in
+            if (myToken != nil) {
+                args.authenticationToken = myToken
+            }
+            deferral?.complete()
+        })
+    }
+
+```
+
+# [Java](#tab/java)
+
+```java
+    mCloudSession.addTokenRequiredListener(args -> {
+        CloudSpatialAnchorSessionDeferral deferral = args.getDeferral();
+        MyGetTokenAsync(myToken -> {
+            if (myToken != null) args.setAuthenticationToken(myToken);
+            deferral.complete();
+        });
+    });
+```
+
+# [C++](#tab/cpp)
+
+```cpp
+    auto accessTokenRequiredToken = cloudSession_->TokenRequired([this](auto&&, auto&& args) {
+        std::shared_ptr<CloudSpatialAnchorSessionDeferral> deferral = args->GetDeferral();
+        MyGetTokenAsync([&deferral, &args](std::string const& myToken) {
+            if (myToken != nullptr) args->AuthenticationToken(myToken);
+            deferral->Complete();
+        });
+    });
+```
+
+***
+
+## Setting up the library
+
+Invoke Start() to enable your session to process environment data.
+
+To handle events raised by your session:
+
+- In C#, Java and C++, attach an event handler.
+- In Objective-C and Swift, set the `delegate` property of your session to an object, like your view. This object must implement the SSCCloudSpatialAnchorSessionDelegate protocol.
+
+# [C#](#tab/csharp)
+
+```csharp
+#if UNITY_IOS
+    this.arkitSession = UnityARSessionNativeInterface.GetARSessionNativeInterface();
+    this.cloudSession.Session = this.arkitSession.GetNativeSessionPtr();
+#elif UNITY_ANDROID
+    this.nativeSession = GoogleARCoreInternal.ARCoreAndroidLifecycleManager.Instance.NativeSession;
+    this.cloudSession.Session = this.nativeSession.SessionHandle;
+#elif UNITY_WSA || WINDOWS_UWP
+    // No need to set a native session pointer for HoloLens.
+#else
+    throw new NotSupportedException("The platform is not supported.");
+#endif
+
+    this.cloudSession.Start();
+```
+
+# [ObjC](#tab/objc)
+
+```objc0
+    _cloudSession.session = self.sceneView.session;
+    _cloudSession.delegate = self;
+    [_cloudSession start];
+```
+
+# [Swift](#tab/swift)
+
+```swift
+    _cloudSession!.session = self.sceneView.session;
+    _cloudSession!.delegate = self;
+    _cloudSession!.start()
+```
+
+# [Java](#tab/java)
+
+```java
+    mCloudSession.setSession(mSession);
+    mCloudSession.start();
+```
+
+# [C++](#tab/cpp)
+
+```cpp
+    cloudSession_->Session(ar_session_);
+    cloudSession_->Start();
+```
+
+***
+
+## Providing native frames to the library
+
+The spatial anchor session works by mapping the space around the user. Doing so helps to determine where anchors are located. On non-HoloLens platforms, you should provide frames from your platform's AR library.
+
+# [C#](#tab/csharp)
+
+```csharp
+#if UNITY_ANDROID
+    long latestFrameTimeStamp = this.nativeSession.FrameApi.GetTimestamp();
+    bool newFrameToProcess = latestFrameTimeStamp > this.lastFrameProcessedTimeStamp;
+    if (newFrameToProcess)
+    {
+        this.cloudSession.ProcessFrame(this.nativeSession.FrameHandle);
+        this.lastFrameProcessedTimeStamp = latestFrameTimeStamp;
+    }
+#endif
+#if UNITY_IOS
+    UnityARSessionNativeInterface.ARFrameUpdatedEvent += UnityARSessionNativeInterface_ARFrameUpdatedEvent;
+
+    void UnityARSessionNativeInterface_ARFrameUpdatedEvent(UnityARCamera camera)
+    {
+        this.cloudSession.ProcessFrame(this.arkitSession.GetNativeFramePtr());
+    }
+#endif
+```
+
+# [ObjC](#tab/objc)
+
+```objc
+    [_cloudSession processFrame:_sceneView.session.currentFrame];
+```
+
+# [Swift](#tab/swift)
+
+```swift
+    _cloudSession?.processFrame(self.sceneView.session.currentFrame)
+```
+
+# [Java](#tab/java)
+
+```java
+    mCloudSession.processFrame(mSession.update());
+```
+
+# [C++](#tab/cpp)
+
+```cpp
+    cloudSession_->ProcessFrame(ar_frame_);
+```
+
+***
+
+## Providing feedback to the user
 
 You can write code to handle the session updated event. Doing so, allows you to:
 
@@ -406,10 +545,7 @@ You can write code to handle the session updated event. Doing so, allows you to:
         var status = args.Status;
         if (status.UserFeedback == SessionUserFeedback.None) return;
         this.feedback = $"Feedback: {Enum.GetName(typeof(SessionUserFeedback), status.UserFeedback)} -" +
-            $" Create Ready={status.ReadyForCreateProgress: 0.#%}," +
-            $" Recommend Create={status.RecommendedForCreateProgress: 0.#%}," +
-            $" Locate Ready={status.ReadyForLocateProgress: 0.#%}," +
-            $" Recommend Locate={status.RecommendedForLocateProgress: 0.#%}";
+            $" Recommend Create={status.RecommendedForCreateProgress: 0.#%}";
     };
 ```
 
@@ -420,10 +556,9 @@ You can write code to handle the session updated event. Doing so, allows you to:
         SSCSessionStatus *status = [args status];
         if (status.userFeedback == SSCSessionUserFeedbackNone) return;
         _feedback = [NSString
-            stringWithFormat:@"Feedback: %@ - Create Ready=%.0f%%, Recommend Create=%.0f%%, Locate Ready=%.0f%%, Recommend Locate=%.0f%%",
+            stringWithFormat:@"Feedback: %@ - Recommend Create=%.0f%%",
             FeedbackToString(status.userFeedback),
-            status.readyForCreateProgress * 100.f, status.recommendedForCreateProgress * 100.f,
-            status.readyForLocateProgress * 100.f, status.recommendedForLocateProgress * 100.f];
+            status.recommendedForCreateProgress * 100.f];
     }
 ```
 
@@ -435,7 +570,7 @@ You can write code to handle the session updated event. Doing so, allows you to:
         if (status.userFeedback.isEmpty) {
             return
         }
-        _feedback = "Feedback: \(FeedbackToString(userFeedback:status.userFeedback)) - Create Ready=\(status.readyForCreateProgress * 100), Recommend Create=\(status.recommendedForCreateProgress * 100), Locate Ready=\(status.readyForLocateProgress * 100), Recommend Locate=\(status.recommendedForLocateProgress * 100)"
+        _feedback = "Feedback: \(FeedbackToString(userFeedback:status.userFeedback)) - Recommend Create=\(status.recommendedForCreateProgress * 100)"
     }
 ```
 
@@ -447,12 +582,9 @@ You can write code to handle the session updated event. Doing so, allows you to:
         if (status->UserFeedback() == SessionUserFeedback::None) return;
         NumberFormat percentFormat = NumberFormat.getPercentInstance();
         percentFormat.setMaximumFractionDigits(1);
-        mFeedback = String.format("Feedback: %s - Create Ready=%s, Recommend Create=%s, Locate Ready=%s, Recommend Locate=%s",
+        mFeedback = String.format("Feedback: %s - Recommend Create=%s",
             FeedbackToString(status.getUserFeedback()),
-            percentFormat.format(status.getReadyForCreateProgress()),
-            percentFormat.format(status.getRecommendedForCreateProgress()),
-            percentFormat.format(status.getReadyForLocateProgress()),
-            percentFormat.format(status.getRecommendedForLocateProgress()));
+            percentFormat.format(status.getRecommendedForCreateProgress()));
     });
 ```
 
@@ -474,7 +606,7 @@ You can write code to handle the session updated event. Doing so, allows you to:
 
 ***
 
-### Creating a cloud spatial anchor
+## Creating a cloud spatial anchor
 
 To create a cloud anchor, you first create an anchor in your platform's AR system, and then create a cloud counterpart. You use the CreateAnchorAsync method.
 
@@ -677,7 +809,7 @@ To create a cloud anchor, you first create an anchor in your platform's AR syste
 
 ***
 
-It's a good idea to make sure that there's sufficient data before trying to create a new cloud anchor.
+It's a good idea to make sure that there's sufficient environment data captured before trying to create a new cloud anchor.
 
 # [C#](#tab/csharp)
 
@@ -762,6 +894,8 @@ It's a good idea to make sure that there's sufficient data before trying to crea
 
 ***
 
+## Setting anchor properties
+
 You may choose to add some properties when saving your cloud anchors. Like the type of object being saved, or basic properties like whether it should be enabled for interaction. Doing so can be useful upon discovery: you can immediately render the object for the user, for example a picture frame with blank content. Then, a different download in the background gets additional state details, for example, the picture to display in the frame.
 
 # [C#](#tab/csharp)
@@ -823,7 +957,192 @@ You may choose to add some properties when saving your cloud anchors. Like the t
 
 ***
 
-You can also set your anchor to expire automatically at a given date in the future. Just set its expiration before saving it to the cloud.
+## Updating properties on an existing cloud spatial anchor
+
+To update the properties on an anchor, you use the UpdateAnchorPropertiesAsync method.
+
+# [C#](#tab/csharp)
+
+```csharp
+    CloudSpatialAnchor anchor = /* locate your anchor */;
+    anchor.AppProperties[@"last-user-access"] = @"just now";
+    await this.cloudSession.UpdateAnchorPropertiesAsync(anchor);
+```
+
+# [ObjC](#tab/objc)
+
+```objc
+    SSCCloudSpatialAnchor *anchor = /* locate your anchor */;
+    [anchor.appProperties setValue:@"just now" forKey:@"last-user-access"];
+    [_cloudSession updateAnchorProperties:anchor withCompletionHandler:^(NSError *error) {
+        if (error) _feedback = [NSString stringWithFormat:@"Updating Properties Failed:%@", error.localizedDescription];
+    }];
+```
+
+# [Swift](#tab/swift)
+
+```swift
+    var anchor : SSCCloudSpatialAnchor? = /* locate your anchor */;
+    anchor!.appProperties["last-user-access"] = "just now"
+    _cloudSession?.updateAnchorProperties(anchor!, withCompletionHandler: { (error:Error?) in
+        if (error != nil) {
+            _feedback = "Updating Properties Failed:\(error!.localizedDescription)"
+        }
+    })
+```
+
+# [Java](#tab/java)
+
+```java
+    CloudSpatialAnchor anchor = /* locate your anchor */;
+    anchor.getAppProperties().put("last-user-access", "just now");
+    Future updateAnchorPropertiesFuture = mCloudSession.updateAnchorPropertiesAsync(anchor);
+    CheckForCompletion(updateAnchorPropertiesFuture);
+
+    // ...
+
+    private void CheckForCompletion(Future updateAnchorPropertiesFuture) {
+        new android.os.Handler().postDelayed(() -> {
+            if (updateAnchorPropertiesFuture.isDone()) {
+                try {
+                    updateAnchorPropertiesFuture.get();
+                }
+                catch(InterruptedException e) {
+                    mFeedback = String.format("Updating Properties Failed:%s", e.getMessage());
+                }
+                catch(ExecutionException e) {
+                    mFeedback = String.format("Updating Properties Failed:%s", e.getMessage());
+                }
+            }
+            else {
+                CheckForCompletion1(updateAnchorPropertiesFuture);
+            }
+        }, 500);
+    }
+```
+
+# [C++](#tab/cpp)
+
+```cpp
+    std::shared_ptr<SpatialServices::CloudSpatialAnchor> anchor = /* locate your anchor */;
+    auto properties = anchor->AppProperties();
+    properties->Lookup(R"(last-user-access)") = R"(just now)";
+    cloudSession_->UpdateAnchorPropertiesAsync(anchor, [this](Status status) {
+        if (status != Status::OK) {
+            std::ostringstream str;
+            str << "Updating Properties Failed: " << std::to_string(static_cast<uint32_t>(status));
+            feedback_ = str.str();
+        }
+    });
+```
+
+***
+
+You can't update the location of an anchor once it has been created on the service - you must create a new anchor and delete the old one to track a new position.
+
+If you don't need to locate an anchor to update its properties, you can use the GetAnchorPropertiesAsync method, which returns a CloudSpatialAnchor object with properties.
+
+# [C#](#tab/csharp)
+
+```csharp
+    var anchor = await cloudSession.GetAnchorPropertiesAsync(@"anchorId");
+    if (anchor != nullptr)
+    {
+        anchor.AppProperties[@"last-user-access"] = @"just now";
+        await this.cloudSession.UpdateAnchorPropertiesAsync(anchor);
+    }
+```
+
+# [ObjC](#tab/objc)
+
+```objc
+    [_cloudSession getAnchorProperties:@"anchorId" withCompletionHandler:^(SCCCloudSpatialAnchor *anchor, NSError *error) {
+        if (error) {
+            _feedback = [NSString stringWithFormat:@"Getting Properties Failed:%@", error.localizedDescription];
+            return;
+        }
+        if (anchor) {
+            [anchor.appProperties setValue:@"just now" forKey:@"last-user-access"];
+            [_cloudSession updateAnchorProperties:anchor withCompletionHandler:^(NSError *error) {
+                // ...
+            }];
+        }
+    }];
+```
+
+# [Swift](#tab/swift)
+
+```swift
+    _cloudSession?.getAnchorProperties("anchorId", withCompletionHandler: { (anchor:SCCCloudSpatialAnchor?, error:Error?) in
+        if (error != nil) {
+            _feedback = "Getting Properties Failed:\(error!.localizedDescription)"
+        }
+        if (anchor != nil) {
+            anchor!.appProperties["last-user-access"] = "just now"
+            _cloudSession?.updateAnchorProperties(anchor!, withCompletionHandler: { (error:Error?) in
+                // ...
+            })
+        }
+    })
+
+```
+
+# [Java](#tab/java)
+
+```java
+    Future<CloudSpatialAnchor> getAnchorPropertiesFuture = mCloudSession.getAnchorPropertiesAsync("anchorId");
+    CheckForCompletion(getAnchorPropertiesFuture);
+
+    // ...
+
+    private void CheckForCompletion(Future<CloudSpatialAnchor> getAnchorPropertiesFuture) {
+        new android.os.Handler().postDelayed(() -> {
+            if (getAnchorPropertiesFuture.isDone()) {
+                try {
+                    CloudSpatialAnchor anchor = getAnchorPropertiesFuture.get();
+                    if (anchor != null) {
+                        anchor.getAppProperties().put("last-user-access", "just now");
+                        Future updateAnchorPropertiesFuture = mCloudSession.updateAnchorPropertiesAsync(anchor);
+                        // ...
+                    }
+                } catch (InterruptedException e) {
+                    mFeedback = String.format("Getting Properties Failed:%s", e.getMessage());
+                } catch (ExecutionException e) {
+                    mFeedback = String.format("Getting Properties Failed:%s", e.getMessage());
+                }
+            } else {
+                CheckForCompletion(getAnchorPropertiesFuture);
+            }
+        }, 500);
+    }
+```
+
+# [C++](#tab/cpp)
+
+```cpp
+    cloudSession_->GetAnchorPropertiesAsync(R"(anchorId)", [this](Status status, const std::shared_ptr<SpatialServices::CloudSpatialAnchor>& anchor) {
+        if (status != Status::OK) {
+            std::ostringstream str;
+            str << "Getting Properties Failed: " << std::to_string(static_cast<uint32_t>(status));
+            feedback_ = str.str();
+            return;
+        }
+        if (anchor != nullptr) {
+            auto properties = anchor->AppProperties();
+            properties->Lookup(R"(last-user-access)") = R"(just now)";
+            cloudSession_->UpdateAnchorPropertiesAsync(anchor, [this](Status status) {
+                // ...
+            });
+        }
+    });
+```
+
+***
+
+## Setting anchor expiration
+
+It's also possible to configure your anchor to expire automatically at a given date in the future. When an anchor expires, it will no longer be located or updated. Expiration can only be set when the anchor is created. Updating expiration afterwards isn't possible. So, you can set its expiration before saving it to the cloud.
+
 
 # [C#](#tab/csharp)
 
@@ -869,11 +1188,11 @@ You can also set your anchor to expire automatically at a given date in the futu
 
 ***
 
-### Locating a cloud spatial anchor
+## Locating a cloud spatial anchor
 
-To locate cloud spatial anchors, you'll need to know their identity values. Typically, anchor IDs can be stored in a service that's accessible to all devices.
+To locate cloud spatial anchors, you'll need to know their identifiers. Anchor IDs can be stored in your application’s backend service, and accessible to all devices that can properly authenticate to it. For an example of this see [Tutorial: Share Spatial Anchors across devices](../tutorials/tutorial-share-anchors-across-devices.md).
 
-Instantiate an AnchorLocateCriteria object, set the identity values you're looking for, and invoke the CreateWatcher method on the session by providing your AnchorLocateCriteria.
+Instantiate an AnchorLocateCriteria object, set the identifiers you're looking for, and invoke the CreateWatcher method on the session by providing your AnchorLocateCriteria.
 
 # [C#](#tab/csharp)
 
@@ -917,7 +1236,7 @@ Instantiate an AnchorLocateCriteria object, set the identity values you're looki
 
 ***
 
-After your watcher is created, the AnchorLocated event will fire for every anchor requested. This event fires when an anchor is found, or if the anchor can't be located. If this situation happens, the reason will be stated in the status. After all anchors for a watcher are processed, found or not found, then the LocateAnchorsCompleted event will fire.
+After your watcher is created, the AnchorLocated event will fire for every anchor requested. This event fires when an anchor is located, or if the anchor can't be located. If this situation happens, the reason will be stated in the status. After all anchors for a watcher are processed, found or not found, then the LocateAnchorsCompleted event will fire.
 
 # [C#](#tab/csharp)
 
@@ -1077,193 +1396,53 @@ After your watcher is created, the AnchorLocated event will fire for every ancho
 
 ***
 
-### Updating an existing cloud spatial anchor
+## Deleting anchors
 
-There are two kinds of updates you can make: update properties on an anchor, or delete the anchor altogether.
-
-To update the properties on an anchor, you use the UpdateAnchorPropertiesAsync method.
+To delete a cloud spatial anchor, you use the DeleteAnchorAsync method.
 
 # [C#](#tab/csharp)
 
 ```csharp
-    CloudSpatialAnchor anchor = /* locate your anchor */;
-    anchor.AppProperties[@"last-user-access"] = @"just now";
-    await this.cloudSession.UpdateAnchorPropertiesAsync(anchor);
+    await this.cloudSession..DeleteAnchorAsync(cloudAnchor);
+    // Perform any processing you may want when delete finishes
 ```
 
 # [ObjC](#tab/objc)
 
 ```objc
-    SSCCloudSpatialAnchor *anchor = /* locate your anchor */;
-    [anchor.appProperties setValue:@"just now" forKey:@"last-user-access"];
-    [_cloudSession updateAnchorProperties:anchor withCompletionHandler:^(NSError *error) {
-        if (error) _feedback = [NSString stringWithFormat:@"Updating Properties Failed:%@", error.localizedDescription];
+    [_cloudSession deleteAnchor:cloudAnchor withCompletionHandler:^(NSError *error) {
+        // Perform any processing you may want when delete finishes
     }];
 ```
 
 # [Swift](#tab/swift)
 
 ```swift
-    var anchor : SSCCloudSpatialAnchor? = /* locate your anchor */;
-    anchor!.appProperties["last-user-access"] = "just now"
-    _cloudSession?.updateAnchorProperties(anchor!, withCompletionHandler: { (error:Error?) in
-        if (error != nil) {
-            _feedback = "Updating Properties Failed:\(error!.localizedDescription)"
-        }
+    _cloudSession?.delete(cloudAnchor!, withCompletionHandler: { (error: Error?) in
+        // Perform any processing you may want when delete finishes
     })
 ```
 
 # [Java](#tab/java)
 
 ```java
-    CloudSpatialAnchor anchor = /* locate your anchor */;
-    anchor.getAppProperties().put("last-user-access", "just now");
-    Future updateAnchorPropertiesFuture = mCloudSession.updateAnchorPropertiesAsync(anchor);
-    CheckForCompletion(updateAnchorPropertiesFuture);
-
-    // ...
-
-    private void CheckForCompletion(Future updateAnchorPropertiesFuture) {
-        new android.os.Handler().postDelayed(() -> {
-            if (updateAnchorPropertiesFuture.isDone()) {
-                try {
-                    updateAnchorPropertiesFuture.get();
-                }
-                catch(InterruptedException e) {
-                    mFeedback = String.format("Updating Properties Failed:%s", e.getMessage());
-                }
-                catch(ExecutionException e) {
-                    mFeedback = String.format("Updating Properties Failed:%s", e.getMessage());
-                }
-            }
-            else {
-                CheckForCompletion1(updateAnchorPropertiesFuture);
-            }
-        }, 500);
-    }
+    Future deleteAnchorFuture = mCloudSession.deleteAnchorAsync(cloudAnchor);
+    // Perform any processing you may want when delete finishes (deleteAnchorFuture is done)
 ```
 
 # [C++](#tab/cpp)
 
 ```cpp
-    std::shared_ptr<SpatialServices::CloudSpatialAnchor> anchor = /* locate your anchor */;
-    auto properties = anchor->AppProperties();
-    properties->Lookup(R"(last-user-access)") = R"(just now)";
-    cloudSession_->UpdateAnchorPropertiesAsync(anchor, [this](Status status){
-        if (status != Status::OK) {
-            std::ostringstream str;
-            str << "Updating Properties Failed: " << std::to_string(static_cast<uint32_t>(status));
-            feedback_ = str.str();
-        }
+    cloudSession_->DeleteAnchorAsync(cloudAnchor, [this](Status status) {
+        // Perform any processing you may want when delete finishes
     });
 ```
 
 ***
 
-You can't change the location of an anchor - you must create a new anchor and delete the old one to track a new position.
+## Pausing, resetting, or stopping the session
 
-If you don't care to locate an anchor to update its properties, you can use the GetAnchorPropertiesAsync method, which returns a CloudSpatialAnchor object with properties.
-
-# [C#](#tab/csharp)
-
-```csharp
-    var anchor = await cloudSession.GetAnchorPropertiesAsync(@"anchorId");
-    if (anchor != nullptr)
-    {
-        anchor.AppProperties[@"last-user-access"] = @"just now";
-        await this.cloudSession.UpdateAnchorPropertiesAsync(anchor);
-    }
-```
-
-# [ObjC](#tab/objc)
-
-```objc
-    [_cloudSession getAnchorProperties:@"anchorId" withCompletionHandler:^(SCCCloudSpatialAnchor *anchor, NSError *error) {
-        if (error) {
-            _feedback = [NSString stringWithFormat:@"Getting Properties Failed:%@", error.localizedDescription];
-            return;
-        }
-        if (anchor) {
-            [anchor.appProperties setValue:@"just now" forKey:@"last-user-access"];
-            [_cloudSession updateAnchorProperties:anchor withCompletionHandler:^(NSError *error) {
-                // ...
-            }];
-        }
-    }];
-```
-
-# [Swift](#tab/swift)
-
-```swift
-    _cloudSession?.getAnchorProperties("anchorId", withCompletionHandler: { (anchor:SCCCloudSpatialAnchor?, error:Error?) in
-        if (error != nil) {
-            _feedback = "Getting Properties Failed:\(error!.localizedDescription)"
-        }
-        if (anchor != nil) {
-            anchor!.appProperties["last-user-access"] = "just now"
-            _cloudSession?.updateAnchorProperties(anchor!, withCompletionHandler: { (error:Error?) in
-                // ...
-            })
-        }
-    })
-
-```
-
-# [Java](#tab/java)
-
-```java
-    Future<CloudSpatialAnchor> getAnchorPropertiesFuture = mCloudSession.getAnchorPropertiesAsync("anchorId");
-    CheckForCompletion(getAnchorPropertiesFuture);
-
-    // ...
-
-    private void CheckForCompletion(Future<CloudSpatialAnchor> getAnchorPropertiesFuture) {
-        new android.os.Handler().postDelayed(() -> {
-            if (getAnchorPropertiesFuture.isDone()) {
-                try {
-                    CloudSpatialAnchor anchor = getAnchorPropertiesFuture.get();
-                    if (anchor != null) {
-                        anchor.getAppProperties().put("last-user-access", "just now");
-                        Future updateAnchorPropertiesFuture = mCloudSession.updateAnchorPropertiesAsync(anchor);
-                        // ...
-                    }
-                } catch (InterruptedException e) {
-                    mFeedback = String.format("Getting Properties Failed:%s", e.getMessage());
-                } catch (ExecutionException e) {
-                    mFeedback = String.format("Getting Properties Failed:%s", e.getMessage());
-                }
-            } else {
-                CheckForCompletion(getAnchorPropertiesFuture);
-            }
-        }, 500);
-    }
-```
-
-# [C++](#tab/cpp)
-
-```cpp
-    cloudSession_->GetAnchorPropertiesAsync(R"(anchorId)", [this](Status status, const std::shared_ptr<SpatialServices::CloudSpatialAnchor>& anchor){
-        if (status != Status::OK) {
-            std::ostringstream str;
-            str << "Getting Properties Failed: " << std::to_string(static_cast<uint32_t>(status));
-            feedback_ = str.str();
-            return;
-        }
-        if (anchor != nullptr) {
-            auto properties = anchor->AppProperties();
-            properties->Lookup(R"(last-user-access)") = R"(just now)";
-            cloudSession_->UpdateAnchorPropertiesAsync(anchor, [this](Status status){
-                // ...
-            });
-        }
-    });
-```
-
-***
-
-### Pausing or stopping the session
-
-To stop the session temporarily, you can invoke the Stop method. Doing so will stop any watchers and environment processing, even if you invoke ProcessFrame(). You can then invoke Start() to resume processing.
+To stop the session temporarily, you can invoke the Stop method. Doing so will stop any watchers and environment processing, even if you invoke ProcessFrame(). You can then invoke Start() to resume processing. When resuming, environment data already captured in the session is maintained.
 
 # [C#](#tab/csharp)
 
@@ -1297,7 +1476,41 @@ To stop the session temporarily, you can invoke the Stop method. Doing so will s
 
 ***
 
-To clean up properly after a session, invoke the Dispose() method in C#, or release all references in other languages.
+To reset the environment data that has been captured in your session, you can invoke the Reset method.
+
+# [C#](#tab/csharp)
+
+```csharp
+    this.cloudSession.Reset();
+```
+
+# [ObjC](#tab/objc)
+
+```objc
+    [_cloudSession reset];
+```
+
+# [Swift](#tab/swift)
+
+```swift
+    _cloudSession!.reset()
+```
+
+# [Java](#tab/java)
+
+```java
+    mCloudSession.reset();
+```
+
+# [C++](#tab/cpp)
+
+```cpp
+    cloudSession_->Reset();
+```
+
+***
+
+To clean up properly after a session, invoke the Dispose() method in C#, close() on java, or release all references in other languages.
 
 # [C#](#tab/csharp)
 
@@ -1320,7 +1533,7 @@ To clean up properly after a session, invoke the Dispose() method in C#, or rele
 # [Java](#tab/java)
 
 ```java
-    mCloudSession = null;
+    mCloudSession.close();
 ```
 
 # [C++](#tab/cpp)
