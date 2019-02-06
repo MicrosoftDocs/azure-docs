@@ -20,7 +20,7 @@
 4. Switch to the **SDK Tools** tab. If you haven't already installed Google Play Service, select **Google Play Services** as shown in the following image. Then click **Apply** to install. Note the SDK path, for use in a later step.
 
     ![Android SDK Manager - Google Play Services selected](./media/notification-hubs-android-studio-add-google-play-services/google-play-services-selected.png)
-3. Select **OK** on the **Confirm Change** dialog box. The Component Installer installs the requested components. Select **Finish** after the components are installed.
+3. If you see the **Confirm Change** dialog box, select **OK**. The Component Installer installs the requested components. Select **Finish** after the components are installed.
 4. Select **OK** to close the **Settings for New Projects** dialog box.  
 5. Open the `build.gradle` file in the **app** directory, and add this line under `dependencies`. 
 

@@ -11,7 +11,7 @@
 ---
 
 1. Sign in to the [Firebase console](https://firebase.google.com/console/). Create a new Firebase project if you don't already have one.
-2. After you create your project, select **Add Firebase to your Android app**. Then follow the instructions that are provided. Download **google-services.json** file. 
+2. After you create your project, select **Add Firebase to your Android app**. 
 
     ![Add Firebase to your Android app](./media/notification-hubs-enable-firebase-cloud-messaging/notification-hubs-add-firebase-to-android-app.png)
 3. On the **Add Firebase to your Android app** page, do the following steps: 
