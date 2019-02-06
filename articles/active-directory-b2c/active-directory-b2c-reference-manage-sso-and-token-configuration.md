@@ -22,14 +22,6 @@ This article provides information about how you can manage your token, session, 
 To change the settings on your token lifetimes, you add a [ClaimsProviders](claimsproviders.md) element in the relying party file of the policy you want to impact.  The **ClaimsProviders** element is a child of the [TrustFrameworkPolicy](trustframeworkpolicy.md) element. Inside, you'll need to put the information that affects your token lifetimes. The XML looks like this example:
 
 ```XML
-<BuildingBlocks>
-  <ClaimsSchema>
-    <ClaimType Id="trustFrameworkPolicy">
-      <DisplayName>Trust framework policy name</DisplayName>
-      <DataType>string</DataType>
-    </ClaimType>
-  </ClaimsSchema>
-</BuildingBlocks>
 <ClaimsProviders>
    <ClaimsProvider>
       <DisplayName>Token Issuer</DisplayName>
@@ -58,7 +50,16 @@ The following values are set in the previous example:
 - **Issuer (iss) claim** - The Issuer (iss) claim is set with the **IssuanceClaimPattern** metadata item. The applicable values are `AuthorityAndTenantGuid` and `AuthorityWithTfp`.
 - **Setting claim representing policy ID** - The options for setting this value are `TFP` (trust framework policy) and `ACR` (authentication context reference). `TFP` is the recommended value. Set **AuthenticationContextReferenceClaimPattern** with the value of `None`. 
 
-    Make sure that the **ClaimType** element with an ID of **trustFrameworkPolicy**  is added to the **ClaimsSchema** element. In your **OutputClaims** item, add this element:
+    In the **ClaimsSchema** element, add this element: 
+    
+    ```XML
+    <ClaimType Id="trustFrameworkPolicy">
+      <DisplayName>Trust framework policy name</DisplayName>
+      <DataType>string</DataType>
+    </ClaimType>
+    ```
+    
+    In your **OutputClaims** element, add this element:
     
     ```XML
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
