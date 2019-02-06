@@ -63,7 +63,7 @@ Ephemeral ports of the load balancer's public IP address frontend are used to di
 
 SNAT ports are pre-allocated as described in the [Understanding SNAT and PAT](#snat) section. They're a finite resource that can be exhausted. It's important to understand how they are [consumed](#pat). To understand how to design for this consumption and mitigate as necessary, review [Managing SNAT exhaustion](#snatexhaust).
 
-When [multiple public IP addresses are associated with Load Balancer Basic](load-balancer-multivip-overview.md), any of these public IP addresses are a [candidate for outbound flows](#multivipsnat), and one is selected at random.  
+When [multiple public IP addresses are associated with Load Balancer Basic](load-balancer-multivip-overview.md), any of these public IP addresses are a candidate for outbound flows, and one is selected at random.  
 
 To monitor the health of outbound connections with Load Balancer Basic, you can use [Log Analytics for Load Balancer](load-balancer-monitor-log.md) and [alert event logs](load-balancer-monitor-log.md#alert-event-log) to monitor for SNAT port exhaustion messages.
 
@@ -159,7 +159,7 @@ The following table shows the SNAT port preallocations for tiers of backend pool
 | 801-1,000 | 32 |
 
 >[!NOTE]
-> When using Standard Load Balancer with [multiple frontends](load-balancer-multivip-overview.md), [each frontend IP address multiplies the number of available SNAT ports](#multivipsnat) in the previous table. For example, a backend pool of 50 VM's with 2 load balancing rules, each with a separate frontend IP address, will use 2048 (2x 1024) SNAT ports per IP configuration. See details for [multiple frontends](#multife).
+> When using Standard Load Balancer with [multiple frontends](load-balancer-multivip-overview.md), each frontend IP address multiplies the number of available SNAT ports in the previous table. For example, a backend pool of 50 VM's with 2 load balancing rules, each with a separate frontend IP address, will use 2048 (2x 1024) SNAT ports per IP configuration. See details for [multiple frontends](#multife).
 
 Remember that the number of SNAT ports available does not translate directly to number of flows. A single SNAT port can be reused for multiple unique destinations. Ports are consumed only if it's necessary to make flows unique. For design and mitigation guidance, refer to the section about [how to manage this exhaustible resource](#snatexhaust) and the section that describes [PAT](#pat).
 

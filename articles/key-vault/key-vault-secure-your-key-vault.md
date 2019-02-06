@@ -31,7 +31,7 @@ For authentication both management plane and data plane use Azure Active Directo
 
 Here is a brief overview of the topics covered:
 
-[Authentication using Azure Active Directory](#authentication-using-azure-active-directory) - This section explains how a caller authenticates with Azure Active Directory to access a key vault via management plane and data plane. 
+Authentication using Azure Active Directory - This section explains how a caller authenticates with Azure Active Directory to access a key vault via management plane and data plane. 
 
 For authentication, both planes use Azure Active Directory (Azure AD). For authorization, the management plane uses role-based access control (RBAC), while the data plane uses Key Vault access policy.
 
