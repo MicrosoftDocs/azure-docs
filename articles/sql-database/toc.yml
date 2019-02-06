@@ -296,8 +296,6 @@
       href: sql-database-elastic-query-overview.md
     - name: Elastic transactions
       href: sql-database-elastic-transactions-overview.md
-  - name: SQL features comparison
-    href: sql-database-features.md
   - name: Monitoring and tuning
     items:
     - name: Monitoring and tuning overview
@@ -324,6 +322,8 @@
         href: sql-database-advisor.md
   - name: Databases features
     items:
+    - name: SQL features comparison
+      href: sql-database-features.md
     - name: Multi-model capabilities
       href: sql-database-multi-model-features.md
     - name: In-memory
