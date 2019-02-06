@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 1/31/2019
+ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
 ---
@@ -163,7 +163,7 @@ Windows Server Failover Clustering is supported by Azure File Sync for the "File
 
 ### Data Deduplication
 **Agent version 5.0.2.0**   
-Data Deduplication is supported on volumes with cloud tiering enabled on Windows Server 2016 and Windows Server 2019. Enabling deduplication on a volume with cloud tiering enabled lets you increase the size of your cache on-premises without provisioning more storage. 
+Data Deduplication is supported on volumes with cloud tiering enabled on Windows Server 2016 and Windows Server 2019. Enabling deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage.
 
 **Windows Server 2012 R2 or older agent versions**  
 For volumes that don't have cloud tiering enabled, Azure File Sync supports Windows Server Data Deduplication being enabled on the volume.
