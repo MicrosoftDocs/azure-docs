@@ -52,7 +52,7 @@ You can run the commands in the steps that follow:
 
 The account that you use must have the necessary [permissions](required-rbac-permissions.md).
 
-1. If you already have a network watcher in the same region as the virtual network that you want to create a topology for, skip to step 3. Create a resource group to contain a network watcher with [az group create](/cli/azure/group#az_group_create). The following example creates the resource group in the *eastus* region:
+1. If you already have a network watcher in the same region as the virtual network that you want to create a topology for, skip to step 3. Create a resource group to contain a network watcher with [az group create](/cli/azure/group). The following example creates the resource group in the *eastus* region:
 
     ```azurecli-interactive
     az group create --name NetworkWatcherRG --location eastus

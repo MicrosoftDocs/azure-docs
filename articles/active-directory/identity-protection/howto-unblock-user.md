@@ -9,7 +9,7 @@ manager: daveba
 
 ms.assetid: a953d425-a3ef-41f8-a55d-0202c3f250a7
 ms.service: active-directory
-ms.subservice: conditional-access
+ms.subservice: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
