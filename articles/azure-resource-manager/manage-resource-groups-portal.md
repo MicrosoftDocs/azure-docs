@@ -22,13 +22,13 @@ Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resour
 
 For managing Azure resources, see [Manage Azure resources by using the Azure portal](./manage-resources-portal.md).
 
-## What is resource group
+## What is a resource group
 
 A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. Generally, add resources that share the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.
 
 The resource group stores metadata about the resources. Therefore, when you specify a location for the resource group, you are specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
 
-## Add a resource group
+## Add resource groups
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Resource groups**
@@ -69,6 +69,14 @@ The resource group stores metadata about the resources. Therefore, when you spec
 4. Select **Delete resource group**.
 
     ![delete azure resource group](./media/resource-group-portal/delete-group.png)
+
+## Move to another resource group
+
+You can move the resources in the group to another resource group. For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
+
+## Move to another subscription
+
+You can move the resources in the resource group to another subscription. For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 
 ## Tag resource groups
 
