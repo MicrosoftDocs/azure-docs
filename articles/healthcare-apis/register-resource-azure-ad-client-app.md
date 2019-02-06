@@ -27,7 +27,7 @@ In this article, you'll learn how to register a resource (or API) application in
 
 Fill in the details for the new application. There are no specific requirements for the display name, but setting it to the URI of the FHIR server makes it easy to find:
 
-    ![New application registration](media/how-to-aad/portal-aad-register-new-app-registration-NAME.png)
+![New application registration](media/how-to-aad/portal-aad-register-new-app-registration-NAME.png)
 
 ## Set identifier URI and define scopes
 
