@@ -195,4 +195,4 @@ Response:
 In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure Storage using an access key.  To learn more about Azure Storage access keys see:
 
 > [!div class="nextstepaction"]
->[Manage your storage access keys](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
+>[Manage your storage access keys](/azure/storage/common/storage-create-storage-account)

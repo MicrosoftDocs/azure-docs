@@ -4,7 +4,7 @@ description: Azure Policy evaluations and effects determine compliance. Learn ho
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/31/2019
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -195,6 +195,30 @@ the assignment and the events. The activity log provides additional context and 
 those events.
 
 ![Policy Compliance Activity Log](../media/getting-compliance-data/compliance-activitylog.png)
+
+### Change history (Preview)
+
+As part of a new **public preview**, the last fourteen days of change history are available for a
+non-compliant resource. Change history provides details about when a change was detected and a
+_visual diff_ for each change. A change detection is triggered when the Resource Manager properties
+of a non-compliant resource are added, removed, or altered.
+
+1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching for and selecting **Policy**.
+
+1. On the **Overview** or **Compliance** page, select a policy that is _Non-Compliant_.
+
+1. Under the **Resource compliance** tab of the **Policy compliance** page, select a resource this is _Non-Compliant_.
+
+1. Select the **Change History (preview)** tab on the **Resource Compliance** page. A list of detected changes, if any exist, are displayed.
+
+   ![Policy Change History - Tab](../media/getting-compliance-data/change-history-tab.png)
+
+1. Select one of the detected changes. The _visual diff_ for the non-compliant resource is presented on the **Change history** page.
+
+   ![Policy Change History - Visual Diff](../media/getting-compliance-data/change-history-visual-diff.png)
+
+The _visual diff_ aides in identifying changes to a resource. The changes detected may not be
+related to what caused the resource to be non-compliant to the selected policy.
 
 ## Command line
 
