@@ -65,7 +65,6 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 This update includes the following new features and improvements for Azure Stack:
 
 - Managed images on Azure Stack enable you to create a managed image object on a generalized VM (both unmanaged and managed) that can only create managed disk VMs going forward. For more information, see [Azure Stack Managed Disks](user/azure-stack-managed-disk-considerations.md#managed-images).
-- The Compute API version has been upped to 2017-12-01.
 
 ## Fixed issues
 
@@ -164,6 +163,8 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
    ```
 
 - There is a new consideration for accurately planning Azure Stack capacity. We have set limits on the total number of VMs that can be deployed within Azure Stack, to ensure all of our internal services fulfill the scale at which customers run. The limit is 60 VMs per host, with a maximum of 700 for the entire stamp (if the 60 per host limit is reached). For more information, see the [new release of the capacity planner](http://aka.ms/azstackcapacityplanner).
+
+- The Compute API version has increased to 2017-12-01.
 
 ## Common vulnerabilities and exposures
 
