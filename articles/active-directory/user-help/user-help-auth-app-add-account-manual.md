@@ -20,23 +20,23 @@ If your camera is unable to capture the QR code, you can manually add your accou
 The codes provided for your accounts aren't case-sensitive and don't require spaces when added into the Microsoft Authenticator app.
 
 >[!Important]
->Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.
+>Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](user-help-auth-app-download-install.md) article.
 
 ## Add your work or school account
 
 1. On your PC, note the **Code** and **Url** information on the **Configure mobile app** page. Keep this page open so you can see the code and URL.
     
-    ![Screen that provides the QR code](./media/microsoft-authenticator-app-add-account-manual/auth-app-barcode.png)
+    ![Screen that provides the QR code](./media/user-help-auth-app-add-account-manual/auth-app-barcode.png)
 
 2. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Work or school account**.
 
 3. Select **OR ENTER CODE MANUALLY**.
 
-    ![Screen for scanning a QR code](./media/microsoft-authenticator-app-add-account-manual/auth-app-manual-code.png)
+    ![Screen for scanning a QR code](./media/user-help-auth-app-add-account-manual/auth-app-manual-code.png)
    
 4. Enter the **Code** and **URL** from Step 1, and then select **Finish**.
 
-    ![Screen for entering code and URL](./media/microsoft-authenticator-app-add-account-manual/auth-app-code-url.png)
+    ![Screen for entering code and URL](./media/user-help-auth-app-add-account-manual/auth-app-code-url.png)
 
     The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing someone from using a code multiple times.
 
@@ -96,6 +96,6 @@ You can add your Amazon account by turning on two-factor verification and then a
 
 ## Next steps
 
-- After you add your accounts to the app, you can sign in using the Microsoft Authenticator app on your device. For more information, see [Sign in using the app](microsoft-authenticator-app-phone-signin-faq.md).
+- After you add your accounts to the app, you can sign in using the Microsoft Authenticator app on your device. For more information, see [Sign in using the app](user-help-auth-app-sign-in.md).
 
-- For devices running iOS, you can also back up your account credentials and related app settings, such as the order of your accounts, to the cloud. For more information, see [Backup and recover with Microsoft Authenticator app](microsoft-authenticator-app-backup-and-recovery.md).
+- For devices running iOS, you can also back up your account credentials and related app settings, such as the order of your accounts, to the cloud. For more information, see [Backup and recover with Microsoft Authenticator app](user-help-auth-app-backup-recovery.md).

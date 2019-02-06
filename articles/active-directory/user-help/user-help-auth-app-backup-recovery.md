@@ -39,7 +39,7 @@ Requiring you to sign in to both accounts together provides stronger security fo
 
     Your account credentials are backed up to your iCloud account.
 
-    ![iOS settings screen, showing the location of the iCloud backup settings](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
+    ![iOS settings screen, showing the location of the iCloud backup settings](./media/user-help-auth-app-backup-recovery/backup-and-recovery-turn-on.png)
 
 ## Recover your account credentials on your new device
 You can recover your account credentials from your iCloud account, using the same Microsoft recovery account you set up when you backed up your information.
@@ -47,7 +47,7 @@ You can recover your account credentials from your iCloud account, using the sam
 ### To recover your information
 1.	On your iOS device, open the Microsoft Authenticator app, and select **Begin recovery** from the bottom of the screen.
 
-    ![Microsoft Authenticator app, showing where to click Begin recovery](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-begin-recovery.png)
+    ![Microsoft Authenticator app, showing where to click Begin recovery](./media/user-help-auth-app-backup-recovery/backup-and-recovery-begin-recovery.png)
 
 2.	Sign in to your recovery account, using the same personal Microsoft account you used during the backup process.
 
@@ -63,23 +63,23 @@ For personal Microsoft accounts, you can prove your identity by entering your pa
 ### To provide additional verification for personal accounts
 1.	In the **Accounts** screen of the Microsoft Authenticator app, select the drop-down arrow next to the account you want to recover.
 
-    ![Microsoft Authenticator app, showing the available accounts with their associated drop-down arrows](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-arrow.png)
+    ![Microsoft Authenticator app, showing the available accounts with their associated drop-down arrows](./media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png)
 
 2.	Select **Sign in to recover**, type your password, and then confirm your email address or phone number as additional verification.
 
-    ![Microsoft Authenticator app, allowing you to enter your sign-in info](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-sign-in.png)
+    ![Microsoft Authenticator app, allowing you to enter your sign-in info](./media/user-help-auth-app-backup-recovery/backup-and-recovery-sign-in.png)
 
 ### To provide additional verification for work or school accounts
 1.	In the **Accounts** screen of the Microsoft Authenticator app, select the drop-down arrow next to the account you want to recover.
 
-    ![Microsoft Authenticator app, showing the available accounts with their associated drop-down arrows](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additional-accts.png)
+    ![Microsoft Authenticator app, showing the available accounts with their associated drop-down arrows](./media/user-help-auth-app-backup-recovery/backup-and-recovery-additional-accts.png)
 
 2.	Select **Scan QR code to recover**, and then scan the QR code.
 
-    ![Microsoft Authenticator app, allowing you to scan your QR code](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
+    ![Microsoft Authenticator app, allowing you to scan your QR code](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >For more info about how to get a QR code, see [Get started with the Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app) or [Set up security info to use an authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), based on whether your admin has turned on security info.
+    >For more info about how to get a QR code, see [Get started with the Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install#add-accounts-to-the-app) or [Set up security info to use an authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), based on whether your admin has turned on security info.
 
 ## Troubleshooting backup and recovery problems
 There are a few reasons why your backup might not be available:
@@ -97,7 +97,7 @@ There are a few reasons why your backup might not be available:
 Now that you've backed up and recovered your account credentials to your new device, you can continue to use the Microsoft Authenticator app to verify your identity.
 
 ## Related topics
-- [Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md)  
-- [Microsoft Authenticator app FAQ](microsoft-authenticator-app-faq.md)
+- [Get started with the Microsoft Authenticator app](user-help-auth-app-download-install.md)  
+- [Microsoft Authenticator app FAQ](user-help-auth-app-faq.md)
 
 - [Multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

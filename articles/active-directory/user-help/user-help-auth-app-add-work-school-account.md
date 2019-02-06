@@ -18,7 +18,7 @@ ms.reviewer: olhaun
 If your organization uses two-factor verification, you can set up your work or school account to use the Microsoft Authenticator app as one of the verification methods.
 
 >[!Important]
->Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](microsoft-authenticator-app-how-to.md) article.
+>Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](user-help-auth-app-download-install.md) article.
 
 ## Add your work or school account
 
@@ -31,21 +31,21 @@ If your organization uses two-factor verification, you can set up your work or s
 
     The **Configure mobile app** page appears.
     
-    ![Screen that provides the QR code](./media/microsoft-authenticator-app-how-to/auth-app-barcode.png)
+    ![Screen that provides the QR code](./media/user-help-auth-app-download-install/auth-app-barcode.png)
 
 3. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Work or school account**.
 
 4. Use your device's camera to scan the QR code from the **Configure mobile app** screen on your PC, and then choose **Done**.
 
     >[!Note]
-    >If your camera is unable to capture the QR code, you can manually add your account information to the Microsoft Authenticator app for two-factor verification. For more information and how to do it, see [Manually add your account](microsoft-authenticator-app-add-account-manual.md).
+    >If your camera is unable to capture the QR code, you can manually add your account information to the Microsoft Authenticator app for two-factor verification. For more information and how to do it, see [Manually add your account](user-help-auth-app-add-account-manual.md).
 
 5. Review the **Accounts** screen of the app on your device, to make sure your account is right and that there's an associated six-digit verification code. For additional security, the verification code changes every 30 seconds preventing someone from using a code multiple times.
 
-    ![Accounts screen](./media/microsoft-authenticator-app-how-to/auth-app-accounts.png)
+    ![Accounts screen](./media/user-help-auth-app-download-install/auth-app-accounts.png)
 
 ## Next steps
 
-- After you add your accounts to the app, you can sign in using the Authenticator app on your device. For more information, see [Sign in using the app](microsoft-authenticator-app-phone-signin-faq.md).
+- After you add your accounts to the app, you can sign in using the Authenticator app on your device. For more information, see [Sign in using the app](user-help-auth-app-sign-in.md).
 
-- For devices running iOS, you can also back up your account credentials and related app settings, such as the order of your accounts, to the cloud. For more information, see [Backup and recover with Microsoft Authenticator app](microsoft-authenticator-app-backup-and-recovery.md).
+- For devices running iOS, you can also back up your account credentials and related app settings, such as the order of your accounts, to the cloud. For more information, see [Backup and recover with Microsoft Authenticator app](user-help-auth-app-backup-recovery.md).
