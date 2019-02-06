@@ -82,6 +82,7 @@
 ##### [Support tab](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
 #### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 #### [Publish Azure application offer](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
+#### [Handling review feedback](./cloud-partner-portal/azure-applications/cpp-handling-review-feedback.md)
 #### [Update existing offer](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
 ### [Consulting services](./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md)
