@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 01/25/2019
+ms.date: 02/05/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -107,6 +107,9 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Site Recovery Contributor](#site-recovery-contributor) | Lets you manage Site Recovery service except vault creation and role assignment |
 | [Site Recovery Operator](#site-recovery-operator) | Lets you failover and failback but not perform other Site Recovery management operations |
 | [Site Recovery Reader](#site-recovery-reader) | Lets you view Site Recovery status but not perform other management operations |
+| [Spatial Anchors Account Contributor](#spatial-anchors-account-contributor) | Lets you manage Spatial Anchors, but not delete them |
+| [Spatial Anchors Account Owner](#spatial-anchors-account-owner) | Lets you manage Spatial Anchors, including deleting them |
+| [Spatial Anchors Account Reader](#spatial-anchors-account-reader) | Lets you read Spatial Anchors |
 | [SQL DB Contributor](#sql-db-contributor) | Lets you manage SQL databases, but not access to them. Also, you can't manage their security-related policies or their parent SQL servers. |
 | [SQL Security Manager](#sql-security-manager) | Lets you manage the security-related policies of SQL servers and databases, but not access to them. |
 | [SQL Server Contributor](#sql-server-contributor) | Lets you manage SQL servers and databases, but not access to them, and not their security -related policies. |
@@ -921,16 +924,16 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | Evaluates lab policy. |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | Take ownership of an existing virtual machine |
 > | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | Lists the applicable start/stop schedules, if any. |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool. Not Alertable. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule. Not Alertable. |
 > | Microsoft.Network/networkInterfaces/*/read | Read the properties of a network interface (for example, all the load balancers that the network interface is a part of) |
-> | Microsoft.Network/networkInterfaces/join/action | Joins a Virtual Machine to a network interface |
+> | Microsoft.Network/networkInterfaces/join/action | Joins a Virtual Machine to a network interface. Not Alertable. |
 > | Microsoft.Network/networkInterfaces/read | Gets a network interface definition.  |
 > | Microsoft.Network/networkInterfaces/write | Creates a network interface or updates an existing network interface.  |
 > | Microsoft.Network/publicIPAddresses/*/read | Read the properties of a public IP address |
-> | Microsoft.Network/publicIPAddresses/join/action | Joins a public ip address |
+> | Microsoft.Network/publicIPAddresses/join/action | Joins a public ip address. Not Alertable. |
 > | Microsoft.Network/publicIPAddresses/read | Gets a public ip address definition. |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
 > | Microsoft.Resources/deployments/operations/read | Gets or lists deployment operations. |
 > | Microsoft.Resources/deployments/read | Gets or lists deployments. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -1575,6 +1578,47 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
+## Spatial Anchors Account Contributor
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Lets you manage Spatial Anchors, but not delete them |
+> | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Create Spatial Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Discover nearby Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Get properties of Spatial Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate Spatial Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit Diagnostics for Spatial Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Update Spatial Anchors |
+
+## Spatial Anchors Account Owner
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Lets you manage Spatial Anchors, including deleting them |
+> | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Create Spatial Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Delete Spatial Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Discover nearby Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Get properties of Spatial Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate Spatial Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit Diagnostics for Spatial Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Update Spatial Anchors |
+
+## Spatial Anchors Account Reader
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Lets you read Spatial Anchors |
+> | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
+> | **DataActions** |  |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Discover nearby Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Get properties of Spatial Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate Spatial Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit Diagnostics for Spatial Anchors |
+
 ## SQL DB Contributor
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1620,7 +1664,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read Microsoft authorization |
 > | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -1701,7 +1745,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Authorization/*/read | Read all authorization |
 > | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
 > | Microsoft.Insights/diagnosticSettings/* | Manage diagnostic settings |
-> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -1848,20 +1892,20 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Compute/virtualMachineScaleSets/* | Create and manage virtual machine scale sets |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
-> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Joins an application gateway backend address pool |
-> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool |
-> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Joins a load balancer inbound nat pool |
-> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule |
-> | Microsoft.Network/loadBalancers/probes/join/action | Allows using probes of a load balancer. For example, with this permission healthProbe property of VM scale set can reference the probe. |
+> | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Joins an application gateway backend address pool. Not Alertable. |
+> | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool. Not Alertable. |
+> | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Joins a load balancer inbound NAT pool. Not alertable. |
+> | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule. Not Alertable. |
+> | Microsoft.Network/loadBalancers/probes/join/action | Allows using probes of a load balancer. For example, with this permission healthProbe property of VM scale set can reference the probe. Not alertable. |
 > | Microsoft.Network/loadBalancers/read | Gets a load balancer definition |
 > | Microsoft.Network/locations/* | Create and manage network locations |
 > | Microsoft.Network/networkInterfaces/* | Create and manage network interfaces |
-> | Microsoft.Network/networkSecurityGroups/join/action | Joins a network security group |
+> | Microsoft.Network/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
 > | Microsoft.Network/networkSecurityGroups/read | Gets a network security group definition |
-> | Microsoft.Network/publicIPAddresses/join/action | Joins a public ip address |
+> | Microsoft.Network/publicIPAddresses/join/action | Joins a public ip address. Not Alertable. |
 > | Microsoft.Network/publicIPAddresses/read | Gets a public ip address definition. |
 > | Microsoft.Network/virtualNetworks/read | Get the virtual network definition |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
 > | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Create a backup Protection Intent |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |

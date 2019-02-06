@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/25/2019
+ms.date: 02/05/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -99,6 +99,8 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ADHybridHealthService/reports/badpassworduseridipfrequency/read | Gets Blob SAS URI containing status and eventual result of newly enqueued report job for frequency of Bad Username/Password attempts per UserId per IPAddress per Day for a given Tenant. |
 > | Action | Microsoft.ADHybridHealthService/reports/consentedtodevopstenants/read | Gets the list of DevOps consented tenants. Typically used for customer support. |
 > | Action | Microsoft.ADHybridHealthService/reports/isdevops/read | Gets a value indicating whether the tenant is DevOps Consented or not. |
+> | Action | Microsoft.ADHybridHealthService/reports/riskyIp/blobUri/action | Generates Risky IP report and returns a URI pointing to it. |
+> | Action | Microsoft.ADHybridHealthService/reports/riskyIp/blobUris/read | Gets all Risky IP report URIs for the last 7 days. |
 > | Action | Microsoft.ADHybridHealthService/reports/riskyIp/GetAllBlobUri/read | Gets all the blob uri for the risky ip download report requested for a given service for last 7 days. |
 > | Action | Microsoft.ADHybridHealthService/reports/riskyIp/GetBlobUri/read | Gets only the current requested risky ip download report for a given service. |
 > | Action | Microsoft.ADHybridHealthService/reports/selectdevopstenant/read | Updates userid(objectid) for the selected dev ops tenant. |
@@ -1237,6 +1239,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Consumption/reservationSummaries/read | List the utilization summary for reserved instances by reservation order or management groups. The summary data is either at monthly or daily level. |
 > | Action | Microsoft.Consumption/reservationTransactions/read | List the transaction history for reserved instances by management groups. |
 > | Action | Microsoft.Consumption/tags/read | List tags for EA and subscriptions. |
+> | Action | Microsoft.Consumption/tenants/read | List tenants |
 > | Action | Microsoft.Consumption/tenants/register/action | Register action for scope of Microsoft.Consumption by a tenant. |
 > | Action | Microsoft.Consumption/terms/read | List the terms for a subscription or a management group. |
 > | Action | Microsoft.Consumption/usageDetails/read | List the usage details for a scope for EA and WebDirect subscriptions. |
@@ -1705,6 +1708,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DataLakeAnalytics/accounts/storageAccounts/write | Create or update a linked Storage account of a DataLakeAnalytics account. |
 > | Action | Microsoft.DataLakeAnalytics/accounts/TakeOwnership/action | Grant permissions to cancel jobs submitted by other users. |
 > | Action | Microsoft.DataLakeAnalytics/accounts/transferAnalyticsUnits/action | Transfer SystemMaxAnalyticsUnits among DataLakeAnalytics accounts. |
+> | Action | Microsoft.DataLakeAnalytics/accounts/virtualNetworkRules/delete | Delete a virtual network rule. |
+> | Action | Microsoft.DataLakeAnalytics/accounts/virtualNetworkRules/read | Get information about a virtual network rule. |
+> | Action | Microsoft.DataLakeAnalytics/accounts/virtualNetworkRules/write | Create or update a virtual network rule. |
 > | Action | Microsoft.DataLakeAnalytics/accounts/write | Create or update a DataLakeAnalytics account. |
 > | Action | Microsoft.DataLakeAnalytics/locations/capability/read | Get capability information of a subscription regarding using DataLakeAnalytics. |
 > | Action | Microsoft.DataLakeAnalytics/locations/checkNameAvailability/action | Check availability of a DataLakeAnalytics account name. |
@@ -1732,6 +1738,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DataLakeStore/accounts/trustedIdProviders/delete | Delete a trusted identity provider. |
 > | Action | Microsoft.DataLakeStore/accounts/trustedIdProviders/read | Get information about a trusted identity provider. |
 > | Action | Microsoft.DataLakeStore/accounts/trustedIdProviders/write | Create or update a trusted identity provider. |
+> | Action | Microsoft.DataLakeStore/accounts/virtualNetworkRules/delete | Delete a virtual network rule. |
+> | Action | Microsoft.DataLakeStore/accounts/virtualNetworkRules/read | Get information about a virtual network rule. |
+> | Action | Microsoft.DataLakeStore/accounts/virtualNetworkRules/write | Create or update a virtual network rule. |
 > | Action | Microsoft.DataLakeStore/accounts/write | Create or update a DataLakeStore account. |
 > | Action | Microsoft.DataLakeStore/locations/capability/read | Get capability information of a subscription regarding using DataLakeStore. |
 > | Action | Microsoft.DataLakeStore/locations/checkNameAvailability/action | Check availability of a DataLakeStore account name. |
@@ -2684,7 +2693,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/write | Add or modify schedules. |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/Start/action | Starts a template by starting all resources inside the template. |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/Stop/action | Stops a template by stopping all resources inside the template. |
-> | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/Upload/action | Uploads environment setting current template to the shared gallery in the lab account |
+> | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/Upload/action | Uploads current template image to the shared gallery in the lab account |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/write | Add or modify environment setting. |
 > | Action | Microsoft.LabServices/labAccounts/labs/read | Read labs. |
 > | Action | Microsoft.LabServices/labAccounts/labs/Register/action | Register to managed lab. |
@@ -2982,6 +2991,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Logic/workflows/runs/actions/requestHistories/read | Reads the workflow run action request history. |
 > | Action | Microsoft.Logic/workflows/runs/actions/scoperepetitions/read | Reads the workflow run action scope repetition. |
 > | Action | Microsoft.Logic/workflows/runs/cancel/action | Cancels the run of a workflow. |
+> | Action | Microsoft.Logic/workflows/runs/delete | Deletes a run of a workflow. |
 > | Action | Microsoft.Logic/workflows/runs/operations/read | Reads the workflow run operation status. |
 > | Action | Microsoft.Logic/workflows/runs/read | Reads the workflow run. |
 > | Action | Microsoft.Logic/workflows/suspend/action | Suspends the workflow. |
@@ -3262,6 +3272,23 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Migrate/projects/write | Creates a new project or updates an existing project |
 > | Action | Microsoft.Migrate/register/action | Registers Subscription with Microsoft.Migrate resource provider |
 
+## Microsoft.MixedReality
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Action Type | Operation | Description |
+> | --- | --- | --- |
+> | Action | Microsoft.MixedReality/register/action | Registers a subscription for the Mixed Reality resource provider. |
+> | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Create Spatial Anchors |
+> | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Delete Spatial Anchors |
+> | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Discover nearby Anchors |
+> | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Get properties of Spatial Anchors |
+> | Action | Microsoft.MixedReality/SpatialAnchorsAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for Microsoft.MixedReality/SpatialAnchorsAccounts |
+> | Action | Microsoft.MixedReality/SpatialAnchorsAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for Microsoft.MixedReality/SpatialAnchorsAccounts |
+> | Action | Microsoft.MixedReality/SpatialAnchorsAccounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Microsoft.MixedReality/SpatialAnchorsAccounts |
+> | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate Spatial Anchors |
+> | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit Diagnostics for Spatial Anchors |
+> | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Update Spatial Anchors |
+
 ## Microsoft.NetApp
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -3298,16 +3325,19 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/applicationGatewayAvailableSslOptions/predefinedPolicies/read | Application Gateway Ssl Predefined Policy |
 > | Action | Microsoft.Network/applicationGatewayAvailableSslOptions/read | Application Gateway available Ssl Options |
 > | Action | Microsoft.Network/applicationGatewayAvailableWafRuleSets/read | Gets Application Gateway Available Waf Rule Sets |
-> | Action | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Joins an application gateway backend address pool |
+> | Action | Microsoft.Network/applicationGateways/backendAddressPools/join/action | Joins an application gateway backend address pool. Not Alertable. |
 > | Action | Microsoft.Network/applicationGateways/backendhealth/action | Gets an application gateway backend health |
 > | Action | Microsoft.Network/applicationGateways/delete | Deletes an application gateway |
 > | Action | Microsoft.Network/applicationGateways/read | Gets an application gateway |
 > | Action | Microsoft.Network/applicationGateways/start/action | Starts an application gateway |
 > | Action | Microsoft.Network/applicationGateways/stop/action | Stops an application gateway |
 > | Action | Microsoft.Network/applicationGateways/write | Creates an application gateway or updates an application gateway |
+> | Action | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/delete | Deletes an Application Gateway WAF policy |
+> | Action | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read | Gets an Application Gateway WAF policy |
+> | Action | Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/write | Creates an Application Gateway WAF policy or updates an Application Gateway WAF policy |
 > | Action | Microsoft.Network/applicationSecurityGroups/delete | Deletes an Application Security Group |
-> | Action | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action | Joins an IP Configuration to Application Security Groups. |
-> | Action | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Joins a Security Rule to Application Security Groups. |
+> | Action | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action | Joins an IP Configuration to Application Security Groups. Not alertable. |
+> | Action | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Joins a Security Rule to Application Security Groups. Not alertable. |
 > | Action | Microsoft.Network/applicationSecurityGroups/listIpConfigurations/action | Lists IP Configurations in the ApplicationSecurityGroup |
 > | Action | Microsoft.Network/applicationSecurityGroups/read | Gets an Application Security Group ID. |
 > | Action | Microsoft.Network/applicationSecurityGroups/write | Creates an Application Security Group, or updates an existing Application Security Group. |
@@ -3333,7 +3363,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/ddosCustomPolicies/read | Gets a DDoS customized policy definition Definition |
 > | Action | Microsoft.Network/ddosCustomPolicies/write | Creates a DDoS customized policy or updates an existing DDoS customized policy |
 > | Action | Microsoft.Network/ddosProtectionPlans/delete | Deletes a DDoS Protection Plan |
-> | Action | Microsoft.Network/ddosProtectionPlans/join/action | Joins a DDoS Protection Plan |
+> | Action | Microsoft.Network/ddosProtectionPlans/join/action | Joins a DDoS Protection Plan. Not alertable. |
 > | Action | Microsoft.Network/ddosProtectionPlans/read | Gets a DDoS Protection Plan |
 > | Action | Microsoft.Network/ddosProtectionPlans/write | Creates a DDoS Protection Plan or updates a DDoS Protection Plan  |
 > | Action | Microsoft.Network/dnsoperationresults/read | Gets results of a DNS operation |
@@ -3376,7 +3406,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/expressRouteCircuits/authorizations/read | Gets an ExpressRouteCircuit Authorization |
 > | Action | Microsoft.Network/expressRouteCircuits/authorizations/write | Creates or updates an existing ExpressRouteCircuit Authorization |
 > | Action | Microsoft.Network/expressRouteCircuits/delete | Deletes an ExpressRouteCircuit |
-> | Action | Microsoft.Network/expressRouteCircuits/join/action | Joins an Express Route Circuit |
+> | Action | Microsoft.Network/expressRouteCircuits/join/action | Joins an Express Route Circuit. Not alertable. |
 > | Action | Microsoft.Network/expressRouteCircuits/peerings/arpTables/action | Gets an ExpressRouteCircuit Peering ArpTable |
 > | Action | Microsoft.Network/expressRouteCircuits/peerings/connections/delete | Deletes an ExpressRouteCircuit Connection |
 > | Action | Microsoft.Network/expressRouteCircuits/peerings/connections/read | Gets an ExpressRouteCircuit Connection |
@@ -3391,7 +3421,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/expressRouteCircuits/read | Get an ExpressRouteCircuit |
 > | Action | Microsoft.Network/expressRouteCircuits/stats/read | Gets an ExpressRouteCircuit Stat |
 > | Action | Microsoft.Network/expressRouteCircuits/write | Creates or updates an existing ExpressRouteCircuit |
-> | Action | Microsoft.Network/expressRouteCrossConnections/join/action | Joins an Express Route Cross Connection |
+> | Action | Microsoft.Network/expressRouteCrossConnections/join/action | Joins an Express Route Cross Connection. Not alertable. |
 > | Action | Microsoft.Network/expressRouteCrossConnections/peerings/arpTables/action | Gets an Express Route Cross Connection Peering Arp Table |
 > | Action | Microsoft.Network/expressRouteCrossConnections/peerings/delete | Deletes an Express Route Cross Connection Peering |
 > | Action | Microsoft.Network/expressRouteCrossConnections/peerings/read | Gets an Express Route Cross Connection Peering |
@@ -3402,10 +3432,10 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/expressRouteGateways/expressRouteConnections/delete | Deletes an Express Route Connection |
 > | Action | Microsoft.Network/expressRouteGateways/expressRouteConnections/read | Gets an Express Route Connection |
 > | Action | Microsoft.Network/expressRouteGateways/expressRouteConnections/write | Creates an Express Route Connection or Updates an existing Express Route Connection |
-> | Action | Microsoft.Network/expressRouteGateways/join/action | Joins an Express Route Gateway |
+> | Action | Microsoft.Network/expressRouteGateways/join/action | Joins an Express Route Gateway. Not alertable. |
 > | Action | Microsoft.Network/expressRouteGateways/read | Get Express Route Gateway |
 > | Action | Microsoft.Network/expressRoutePorts/delete | Deletes ExpressRoutePorts |
-> | Action | Microsoft.Network/expressRoutePorts/join/action | Joins ExpressRoutePorts |
+> | Action | Microsoft.Network/expressRoutePorts/join/action | Joins Express Route ports. Not alertable. |
 > | Action | Microsoft.Network/expressRoutePorts/links/read | Gets ExpressRouteLink |
 > | Action | Microsoft.Network/expressRoutePorts/read | Gets ExpressRoutePorts |
 > | Action | Microsoft.Network/expressRoutePorts/write | Creates or updates ExpressRoutePorts |
@@ -3439,21 +3469,21 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/interfaceEndpoints/delete | Deletes an interface endpoint resource. |
 > | Action | Microsoft.Network/interfaceEndpoints/read | Gets an interface endpoint resource. |
 > | Action | Microsoft.Network/interfaceEndpoints/write | Creates a new interface endpoint, or updates an existing interface endpoint. |
-> | Action | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool |
+> | Action | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool. Not Alertable. |
 > | Action | Microsoft.Network/loadBalancers/backendAddressPools/read | Gets a load balancer backend address pool definition |
 > | Action | Microsoft.Network/loadBalancers/delete | Deletes a load balancer |
-> | Action | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Joins a Load Balancer Frontend IP Configuration. |
+> | Action | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Joins a Load Balancer Frontend IP Configuration. Not alertable. |
 > | Action | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Gets a load balancer frontend IP configuration definition |
-> | Action | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Joins a load balancer inbound nat pool |
+> | Action | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Joins a load balancer inbound NAT pool. Not alertable. |
 > | Action | Microsoft.Network/loadBalancers/inboundNatPools/read | Gets a load balancer inbound nat pool definition |
 > | Action | Microsoft.Network/loadBalancers/inboundNatRules/delete | Deletes a load balancer inbound nat rule |
-> | Action | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule |
+> | Action | Microsoft.Network/loadBalancers/inboundNatRules/join/action | Joins a load balancer inbound nat rule. Not Alertable. |
 > | Action | Microsoft.Network/loadBalancers/inboundNatRules/read | Gets a load balancer inbound nat rule definition |
 > | Action | Microsoft.Network/loadBalancers/inboundNatRules/write | Creates a load balancer inbound nat rule or updates an existing load balancer inbound nat rule |
 > | Action | Microsoft.Network/loadBalancers/loadBalancingRules/read | Gets a load balancer load balancing rule definition |
 > | Action | Microsoft.Network/loadBalancers/networkInterfaces/read | Gets references to all the network interfaces under a load balancer |
 > | Action | Microsoft.Network/loadBalancers/outboundRules/read | Gets a load balancer outbound rule definition |
-> | Action | Microsoft.Network/loadBalancers/probes/join/action | Allows using probes of a load balancer. For example, with this permission healthProbe property of VM scale set can reference the probe. |
+> | Action | Microsoft.Network/loadBalancers/probes/join/action | Allows using probes of a load balancer. For example, with this permission healthProbe property of VM scale set can reference the probe. Not alertable. |
 > | Action | Microsoft.Network/loadBalancers/probes/read | Gets a load balancer probe |
 > | Action | Microsoft.Network/loadBalancers/read | Gets a load balancer definition |
 > | Action | Microsoft.Network/loadBalancers/virtualMachines/read | Gets references to all the virtual machines under a load balancer |
@@ -3476,9 +3506,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/networkInterfaces/delete | Deletes a network interface |
 > | Action | Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action | Get Network Security Groups configured On Network Interface Of The Vm |
 > | Action | Microsoft.Network/networkInterfaces/effectiveRouteTable/action | Get Route Table configured On Network Interface Of The Vm |
-> | Action | Microsoft.Network/networkInterfaces/ipconfigurations/join/action | Joins a Network Interface IP Configuration. |
+> | Action | Microsoft.Network/networkInterfaces/ipconfigurations/join/action | Joins a Network Interface IP Configuration. Not alertable. |
 > | Action | Microsoft.Network/networkInterfaces/ipconfigurations/read | Gets a network interface ip configuration definition.  |
-> | Action | Microsoft.Network/networkInterfaces/join/action | Joins a Virtual Machine to a network interface |
+> | Action | Microsoft.Network/networkInterfaces/join/action | Joins a Virtual Machine to a network interface. Not Alertable. |
 > | Action | Microsoft.Network/networkInterfaces/loadBalancers/read | Gets all the load balancers that the network interface is part of |
 > | Action | Microsoft.Network/networkInterfaces/read | Gets a network interface definition.  |
 > | Action | Microsoft.Network/networkInterfaces/tapConfigurations/delete | Deletes a Network Interface Tap Configuration. |
@@ -3493,7 +3523,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/networkProfiles/write | Creates or updates a Network Profile |
 > | Action | Microsoft.Network/networkSecurityGroups/defaultSecurityRules/read | Gets a default security rule definition |
 > | Action | Microsoft.Network/networkSecurityGroups/delete | Deletes a network security group |
-> | Action | Microsoft.Network/networkSecurityGroups/join/action | Joins a network security group |
+> | Action | Microsoft.Network/networkSecurityGroups/join/action | Joins a network security group. Not Alertable. |
 > | Action | Microsoft.Network/networkSecurityGroups/read | Gets a network security group definition |
 > | Action | Microsoft.Network/networkSecurityGroups/securityRules/delete | Deletes a security rule |
 > | Action | Microsoft.Network/networkSecurityGroups/securityRules/read | Gets a security rule definition |
@@ -3550,23 +3580,23 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/privateLinkServices/read | Gets an private link service resource. |
 > | Action | Microsoft.Network/privateLinkServices/write | Creates a new private link service, or updates an existing private link service. |
 > | Action | Microsoft.Network/publicIPAddresses/delete | Deletes a public Ip address. |
-> | Action | Microsoft.Network/publicIPAddresses/join/action | Joins a public ip address |
+> | Action | Microsoft.Network/publicIPAddresses/join/action | Joins a public ip address. Not Alertable. |
 > | Action | Microsoft.Network/publicIPAddresses/read | Gets a public ip address definition. |
 > | Action | Microsoft.Network/publicIPAddresses/write | Creates a public Ip address or updates an existing public Ip address.  |
 > | Action | Microsoft.Network/publicIPPrefixes/delete | Deletes A Public Ip Prefix |
-> | Action | Microsoft.Network/publicIPPrefixes/join/action | Joins a PublicIPPrefix |
+> | Action | Microsoft.Network/publicIPPrefixes/join/action | Joins a PublicIPPrefix. Not alertable. |
 > | Action | Microsoft.Network/publicIPPrefixes/read | Gets a Public Ip Prefix Definition |
 > | Action | Microsoft.Network/publicIPPrefixes/write | Creates A Public Ip Prefix Or Updates An Existing Public Ip Prefix |
 > | Action | Microsoft.Network/register/action | Registers the subscription |
 > | Action | Microsoft.Network/routeFilters/delete | Deletes a route filter definition |
-> | Action | Microsoft.Network/routeFilters/join/action | Joins a route filter |
+> | Action | Microsoft.Network/routeFilters/join/action | Joins a route filter. Not Alertable. |
 > | Action | Microsoft.Network/routeFilters/read | Gets a route filter definition |
 > | Action | Microsoft.Network/routeFilters/routeFilterRules/delete | Deletes a route filter rule definition |
 > | Action | Microsoft.Network/routeFilters/routeFilterRules/read | Gets a route filter rule definition |
 > | Action | Microsoft.Network/routeFilters/routeFilterRules/write | Creates a route filter rule or Updates an existing route filter rule |
 > | Action | Microsoft.Network/routeFilters/write | Creates a route filter or Updates an existing route filter |
 > | Action | Microsoft.Network/routeTables/delete | Deletes a route table definition |
-> | Action | Microsoft.Network/routeTables/join/action | Joins a route table |
+> | Action | Microsoft.Network/routeTables/join/action | Joins a route table. Not Alertable. |
 > | Action | Microsoft.Network/routeTables/read | Gets a route table definition |
 > | Action | Microsoft.Network/routeTables/routes/delete | Deletes a route definition |
 > | Action | Microsoft.Network/routeTables/routes/read | Gets a route definition |
@@ -3576,8 +3606,8 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/securegateways/read | Get Secure Gateway |
 > | Action | Microsoft.Network/securegateways/write | Creates or updates a Secure Gateway |
 > | Action | Microsoft.Network/serviceEndpointPolicies/delete | Deletes a Service Endpoint Policy |
-> | Action | Microsoft.Network/serviceEndpointPolicies/join/action | Joins a Service Endpoint Policy |
-> | Action | Microsoft.Network/serviceEndpointPolicies/joinSubnet/action | Joins a Subnet To Service Endpoint Policies |
+> | Action | Microsoft.Network/serviceEndpointPolicies/join/action | Joins a Service Endpoint Policy. Not alertable. |
+> | Action | Microsoft.Network/serviceEndpointPolicies/joinSubnet/action | Joins a Subnet To Service Endpoint Policies. Not alertable. |
 > | Action | Microsoft.Network/serviceEndpointPolicies/read | Gets a Service Endpoint Policy Description |
 > | Action | Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/delete | Deletes a Service Endpoint Policy Definition |
 > | Action | Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/read | Gets a Service Endpoint Policy Definition Description |
@@ -3629,8 +3659,8 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/virtualNetworks/peer/action | Peers a virtual network with another virtual network |
 > | Action | Microsoft.Network/virtualNetworks/read | Get the virtual network definition |
 > | Action | Microsoft.Network/virtualNetworks/subnets/delete | Deletes a virtual network subnet |
-> | Action | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
-> | Action | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. |
+> | Action | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
+> | Action | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
 > | Action | Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action | Prepares a subnet by applying necessary Network Policies |
 > | Action | Microsoft.Network/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
 > | Action | Microsoft.Network/virtualNetworks/subnets/virtualMachines/read | Gets references to all the virtual machines in a virtual network subnet |
@@ -3642,7 +3672,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write | Creates a virtual network peering or updates an existing virtual network peering |
 > | Action | Microsoft.Network/virtualNetworks/write | Creates a virtual network or updates an existing virtual network |
 > | Action | Microsoft.Network/virtualNetworkTaps/delete | Delete Virtual Network Tap |
-> | Action | Microsoft.Network/virtualNetworkTaps/join/action | Joins a virtual network tap |
+> | Action | Microsoft.Network/virtualNetworkTaps/join/action | Joins a virtual network tap. Not Alertable. |
 > | Action | Microsoft.Network/virtualNetworkTaps/read | Get Virtual Network Tap |
 > | Action | Microsoft.Network/virtualNetworkTaps/write | Create or Update Virtual Network Tap |
 > | Action | Microsoft.Network/virtualWans/delete | Deletes a Virtual Wan |
@@ -3818,6 +3848,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.OperationalInsights/workspaces/query/ContainerImageInventory/read | Read data from the ContainerImageInventory table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ContainerInventory/read | Read data from the ContainerInventory table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ContainerLog/read | Read data from the ContainerLog table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/ContainerNodeInventory/read | Read data from the ContainerNodeInventory table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ContainerServiceLog/read | Read data from the ContainerServiceLog table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DeviceAppCrash/read | Read data from the DeviceAppCrash table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DeviceAppLaunch/read | Read data from the DeviceAppLaunch table |
@@ -4231,7 +4262,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | --- | --- | --- |
 > | Action | Microsoft.Relay/checkNameAvailability/action | Checks availability of namespace under given subscription. |
 > | Action | Microsoft.Relay/checkNamespaceAvailability/action | Checks availability of namespace under given subscription. This API is deprecated please use CheckNameAvailability instead. |
-> | Action | Microsoft.Relay/namespaces/authorizationRules/action | Updates Namespace Authorization Rule. This API is deprecated. Please use a PUT call to update the Namespace Authorization Rule instead.. This operation is not supported on API version 2017-04-01. |
+> | Action | Microsoft.Relay/namespaces/authorizationRules/action | Updates Namespace Authorization Rule. This API is depricated. Please use a PUT call to update the Namespace Authorization Rule instead.. This operation is not supported on API version 2017-04-01. |
 > | Action | Microsoft.Relay/namespaces/authorizationRules/delete | Delete Namespace Authorization Rule. The Default Namespace Authorization Rule cannot be deleted.  |
 > | Action | Microsoft.Relay/namespaces/authorizationRules/listkeys/action | Get the Connection String to the Namespace |
 > | Action | Microsoft.Relay/namespaces/authorizationRules/read | Get the list of Namespaces Authorization Rules description. |
@@ -4591,6 +4622,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Sql/checkNameAvailability/action | Verify whether given server name is available for provisioning worldwide for a given subscription. |
 > | Action | Microsoft.Sql/instancePools/delete | Deletes an instance pool |
 > | Action | Microsoft.Sql/instancePools/read | Gets an instance pool |
+> | Action | Microsoft.Sql/instancePools/usages/read | Gets an instance pool usages info. |
 > | Action | Microsoft.Sql/instancePools/write | Creates or updates an instance pool |
 > | Action | Microsoft.Sql/locations/auditingSettingsAzureAsyncOperation/read | Retrieve result of the extended server blob auditing policy Set operation |
 > | Action | Microsoft.Sql/locations/auditingSettingsOperationResults/read | Retrieve result of the server blob auditing policy Set operation |
@@ -4943,7 +4975,6 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Storage/storageAccounts/fileServices/fileShare/delete | Allows user to delete fileshare |
 > | Action | Microsoft.Storage/storageAccounts/fileServices/fileShare/read | Allows user to read fileshare |
 > | Action | Microsoft.Storage/storageAccounts/fileServices/fileShare/write | Allows user to write to a fileshare |
-> | Action | Microsoft.Storage/storageAccounts/lastsynctime/read | Returns storage account's last sync time |
 > | Action | Microsoft.Storage/storageAccounts/listAccountSas/action | Returns the Account SAS token for the specified storage account. |
 > | Action | Microsoft.Storage/storageAccounts/listkeys/action | Returns the access keys for the specified storage account. |
 > | Action | Microsoft.Storage/storageAccounts/listServiceSas/action | Returns the Service SAS token for the specified storage account. |
