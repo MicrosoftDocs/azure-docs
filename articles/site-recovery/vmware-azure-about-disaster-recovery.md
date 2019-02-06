@@ -67,7 +67,7 @@ On-premises here's what you need to do:
 
 1. You need to set up a couple of accounts:
 
-    - If you're replicating VMware VMs, an account is needed for Site Recovery to access vCenter SErver or vSphere ESXi hosts to automatically discover VMs.
+    - If you're replicating VMware VMs, an account is needed for Site Recovery to access vCenter Server or vSphere ESXi hosts to automatically discover VMs.
     - An account is needed to install the Site Recovery Mobility service agent on each physical machine or VM you want to replicate.
 
 2. You need to check the compatibility of your VMware infrastructure if you didn't previously do that.

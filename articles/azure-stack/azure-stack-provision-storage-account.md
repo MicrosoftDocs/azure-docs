@@ -11,8 +11,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 1/14/2019
+ms.date: 1/18/2019
 ms.author: mabrigg
+ms.lastreviewed: 1/18/2019
 
 ---
 # Storage accounts in Azure Stack

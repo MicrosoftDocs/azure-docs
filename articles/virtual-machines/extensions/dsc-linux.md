@@ -34,22 +34,17 @@ DSCForLinux Extension is published and supported by Microsoft. The extension ins
 
 ### Operating system
 
-The DSC Linux extension supports all the [Extension Supported OS's](https://azurewiki.cloudapp.netVMAgentExtension/extensionSupportedOSs) except:
+The DSC Linux extension supports all the [Linux distributions endorsed on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros) except:
 
 | Distribution | Version |
 |---|---|
-| CentOS Linux | 6.5 and higher |
-| Ubuntu| 12.04 LTS, 14.04 LTS, 16.04 LTS  |
-| RHEL| 6.5 and higher  |
-| openSUSE| 13.1 and higher  |
-| SUSE Linux Enterprise Server| 11 SP3 and higher  |
-
-  
+| Debian | all versions |
+| Ubuntu| 18.04 |
  
 ### Internet connectivity
 
 The DSCForLinux extension requires that the target virtual machine is connected to the internet. For example, Register extension requires connectivity to Automation service. 
-For other actions such as Pull, Pull, Install requires connectivity to azure stroage/github. It depends on settings provided by Customer.
+For other actions such as Pull, Pull, Install requires connectivity to azure storage/github. It depends on settings provided by Customer.
 
 ## Extension schema
 

@@ -7,7 +7,7 @@ author: swhite-msft
 manager: cgronlun
 ms.assetid: 5365B568-EA55-4D97-8FBE-0AF60158D4D5
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi

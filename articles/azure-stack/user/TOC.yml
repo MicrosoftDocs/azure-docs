@@ -178,7 +178,7 @@
           href: azure-stack-version-profiles-powershell.md
         - name: Azure CLI
           href: azure-stack-version-profiles-azurecli2.md
-        - name: GO
+        - name: Go
           href: azure-stack-version-profiles-go.md
         - name: Ruby
           href: azure-stack-version-profiles-ruby.md

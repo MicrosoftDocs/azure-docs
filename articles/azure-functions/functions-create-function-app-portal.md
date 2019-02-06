@@ -49,6 +49,3 @@ To learn more about storage account types, see [Introducing the Azure Storage Se
 ## Next steps
 
 [!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
-
-
-

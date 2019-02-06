@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
-ms.component: 
+ms.subservice: 
 ---
  
 # Manage usage and costs for Log Analytics
@@ -108,7 +108,7 @@ If your Log Analytics workspace has access to legacy pricing tiers, to change be
 3. Under **Pricing tier**, select a pricing tier and then click **Select**.  
     ![Selected pricing plan](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-If you want to move your workspace into the current pricing tier, you need to [change your subscription's monitoring pricing model in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) which will change the pricing tier of all workspaces in that subscription.
+If you want to move your workspace into the current pricing tier, you need to [change your subscription's monitoring pricing model in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) which will change the pricing tier of all workspaces in that subscription.
 
 > [!NOTE]
 > If your workspace is linked to an Automation account, before you can select the *Standalone (Per GB)* pricing tier you must delete any **Automation and Control** solutions and unlink the Automation account. In the workspace blade, under **General**, click **Solutions** to see and delete solutions. To unlink the Automation account, click the name of the Automation account on the **Pricing tier** blade.
@@ -228,7 +228,7 @@ Some suggestions for reducing the volume of logs collected include:
 
 | Source of high data volume | How to reduce data volume |
 | -------------------------- | ------------------------- |
-| Security events            | Select [common or minimal security events](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Change the security audit policy to collect only needed events. In particular, review the need to collect events for <br> - [audit filtering platform](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [audit registry](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [audit file system](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [audit kernel object](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [audit handle manipulation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - audit removable storage |
+| Security events            | Select [common or minimal security events](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) <br> Change the security audit policy to collect only needed events. In particular, review the need to collect events for <br> - [audit filtering platform](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [audit registry](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [audit file system](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [audit kernel object](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [audit handle manipulation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - audit removable storage |
 | Performance counters       | Change [performance counter configuration](data-sources-performance-counters.md) to: <br> - Reduce the frequency of collection <br> - Reduce number of performance counters |
 | Event logs                 | Change [event log configuration](data-sources-windows-events.md) to: <br> - Reduce the number of event logs collected <br> - Collect only required event levels. For example, do not collect *Information* level events |
 | Syslog                     | Change [syslog configuration](data-sources-syslog.md) to: <br> - Reduce the number of facilities collected <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events |
@@ -328,8 +328,9 @@ When you receive an alert, use the steps in the following section to troubleshoo
 * See [Log searches in Log Analytics](../log-query/log-query-overview.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
 * Use the steps described in [create a new log alert](alerts-metric.md) to be notified when a search criteria is met.
 * Use [solution targeting](../insights/solution-targeting.md) to collect data from only required groups of computers.
-* To configure an effective security event collection policy, review [Azure Security Center filtering policy](../../security-center/security-center-enable-data-collection.md).
+* To configure an effective   event collection policy, review [Azure Security Center filtering policy](../../security-center/security-center-enable-data-collection.md).
 * Change [performance counter configuration](data-sources-performance-counters.md).
 * To modify your event collection settings, review [event log configuration](data-sources-windows-events.md).
 * To modify your syslog collection settings, review [syslog configuration](data-sources-syslog.md).
+
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -18,9 +18,9 @@ This tutorial describes procedures to connect to Azure Data Box Blob storage via
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Prerequisites
 > * Connect to Data Box Blob storage via *http* or *https*
 > * Copy data to Data Box
-> * Prepare to ship
 
 ## Prerequisites
 
@@ -150,7 +150,7 @@ The first step is to create a container, because blobs are always uploaded into 
 
    ![Create blob containers context menu](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
 
-4. A text box appears below the **Blob Containers** folder. Enter the name for your blob container. See the [Create the container and set permissions](../storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) for information on rules and restrictions on naming blob containers.
+4. A text box appears below the **Blob Containers** folder. Enter the name for your blob container. See the [Create the container and set permissions](../storage/blobs/storage-quickstart-blobs-dotnet.md) for information on rules and restrictions on naming blob containers.
 5. Press **Enter** when done to create the blob container, or **Esc** to cancel. Once the blob container is successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
 
    ![Blob container created](media/data-box-deploy-copy-data-via-rest/create-blob-container-2.png)
@@ -197,18 +197,17 @@ If you only want to copy source resources that do not exist in the destination, 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 
 
-## Prepare to ship
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
+Next step is to prepare your device to ship.
 
 ## Next steps
 
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
+> * Prerequisites
 > * Connect to Data Box Blob storage via *http* or *https*
 > * Copy data to Data Box
-> * Prepare to ship
+
 
 Advance to the next tutorial to learn how to ship your Data Box back to Microsoft.
 

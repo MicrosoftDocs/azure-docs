@@ -77,6 +77,8 @@
       href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json 
     - name: AzCopy on Linux (v8)
       href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json 
+  - name: Initiate an account failover
+    href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
 - name: Resources
   items:
   - name: Table storage REST APIs
