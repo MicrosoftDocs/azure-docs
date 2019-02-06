@@ -167,7 +167,7 @@ Any request to Cosmos DB using a retired SDK are rejected by the service.
 | [1.6.0](#1.6.0) |March 29, 2016 |--- |
 | [1.5.0](#1.5.0) |January 03, 2016 |--- |
 | [1.4.2](#1.4.2) |October 06, 2015 |--- |
-| [1.4.1](#1.4.1) |October 06, 2015 |--- |
+| 1.4.1 |October 06, 2015 |--- |
 | [1.2.0](#1.2.0) |August 06, 2015 |--- |
 | [1.1.0](#1.1.0) |July 09, 2015 |--- |
 | [1.0.1](#1.0.1) |May 25, 2015 |--- |
