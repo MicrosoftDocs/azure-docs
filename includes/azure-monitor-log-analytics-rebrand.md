@@ -7,4 +7,4 @@ ms.date: 01/19/2019
 --- 
 
 >[!NOTE]
->Previous versions of this article referred to Log Analytics as its own service. Its functionality hasn't changed, but it's [now the log feature  of Azure Monitor](../articles/azure-monitor/azure-monitor-rebrand.md). The term log analytics now refers to the [page in the Azure portal](../articles/azure-monitor/log-query/get-started-portal.md) used to [write and run queries](../articles/azure-monitor/log-query/get-started-queries.md) and analyze log data.
+> This article was recently updated to use the term Azure Monitor logs instead of Log Analytics. Log data is still stored in a Log Analytics workspace and is still collected and analyzed by the same Log Analytics service. We are updating the terminology to better reflect the role of [logs in Azure Monitor](../articles/azure-monitor/platform/data-collection.md#logs). See [Azure Monitor terminology changes](../articles/azure-monitor/azure-monitor-rebrand.md) for details.

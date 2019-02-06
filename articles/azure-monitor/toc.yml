@@ -79,6 +79,12 @@
       href: platform/data-ingestion-time.md  
     - name: Custom metrics to metric store
       href: platform/metrics-custom-overview.md       
+    - name: Analyze log data
+      items: 
+      - name: Log queries
+        href: log-query/log-query-overview.md
+      - name: Log query portals
+        href: log-query/portals.md
     - name: Data security
       items:
       - name: Log data
@@ -105,18 +111,6 @@
       href: insights/vminsights-overview.md
     - name: Monitoring solutions
       href: insights/solutions-inventory.md
-  - name: Analyze data
-    items: 
-    - name: Log Analytics
-      href: log-query/log-query-overview.md
-    - name: Log query portals
-      href: log-query/portals.md
-    - name: OMS portal transition
-      items:
-        - name: Overview
-          href: platform/oms-portal-transition.md
-        - name: Common questions
-          href: platform/oms-portal-faq.md
   - name: Respond to incidents
     items:
     - name: Alerts 
@@ -137,6 +131,12 @@
     href: visualizations.md?toc=/azure/azure-monitor/toc.json
   - name: Partner integrations
     href: platform/partners.md
+  - name: OMS portal transition
+    items:
+    - name: Overview
+      href: platform/oms-portal-transition.md
+    - name: Common questions
+      href: platform/oms-portal-faq.md
   - name: FAQ
     items:
     - name: Log Analytics
