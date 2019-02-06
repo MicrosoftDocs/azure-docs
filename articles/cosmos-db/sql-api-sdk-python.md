@@ -26,20 +26,14 @@ ms.author: sngun
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Download SDK**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
-
-<tr><td>**API documentation**</td><td>[Python API reference documentation](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)</td></tr>
-
-<tr><td>**SDK installation instructions**</td><td>[Python SDK installation instructions](https://github.com/Azure/azure-cosmos-python)</td></tr>
-
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-python)</td></tr>
-
-<tr><td>**Get started**</td><td>[Get started with the Python SDK](sql-api-python-application.md)</td></tr>
-
-<tr><td>**Current supported platform**</td><td>[Python 2.7](https://www.python.org/downloads/) and [Python 3.5](https://www.python.org/downloads/)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**Download SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
+|**API documentation**|[Python API reference documentation](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-cosmos-python)|
+|**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
+|**Get started**|[Get started with the Python SDK](sql-api-python-application.md)|
+|**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.5](https://www.python.org/downloads/)|
 
 ## Release notes
 
