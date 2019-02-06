@@ -22,7 +22,7 @@ sections:
   - type: list
     style: cards
     className: cardsM
-    columns: 4
+    columns: 3
     items:
       - title: In-memory technologies
         href: /azure/sql-database/sql-database-in-memory
