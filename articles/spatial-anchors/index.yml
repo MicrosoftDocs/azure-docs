@@ -43,11 +43,11 @@ sections:
     - image:
         src: /media/logos/logo_Windows.svg
       text: Unity HoloLens
-      href: quickstarts/get-started-unity-android.md
+      href: quickstarts/get-started-unity-hololens.md
     - image:
         src: /media/logos/logo_ios.svg
       text: Unity iOS
-      href: quickstarts/get-started-unity-android.md
+      href: quickstarts/get-started-unity-ios.md
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

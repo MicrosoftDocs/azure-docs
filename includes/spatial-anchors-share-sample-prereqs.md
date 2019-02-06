@@ -9,7 +9,7 @@ ms.author: rgarcia
 
 To complete this tutorial, make sure you have:
 
-* A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> installed with the **ASP.NET and web development** workload.
+* A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> installed with the **ASP.NET and web development** workload.
 * The [.NET Core 2.2 SDK](https://dotnet.microsoft.com/download).
 * One or more devices (iOS or Android) to deploy and run.
   * If using Android:

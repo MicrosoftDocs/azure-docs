@@ -12,7 +12,7 @@ ms.topic: overview
 ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 ---
-# Spatial Anchors overview
+# Azure Spatial Anchors overview
 
 Welcome to Azure Spatial Anchors. Spatial Anchors empowers developers with essential capabilities to build spatially aware
 Mixed Reality applications. These applications may support Microsoft HoloLens, iOS-based devices supporting ARKit, and

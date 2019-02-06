@@ -17,7 +17,7 @@ ms.author: rgarcia
 
 [!INCLUDE [iOS Unity Build Settings](spatial-anchors-unity-ios-build-settings.md)]
 
-## Configure the Spatial Anchors endpoint, account key, and Sharing Service url
+## Configure account identifier and key
 
 In the **Project** pane, navigate to `Assets/AzureSpatialAnchorsPlugin/Examples` and open the `AzureSpatialAnchorsLocalSharedDemo.unity` scene file.
 
