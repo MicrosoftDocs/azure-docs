@@ -92,7 +92,7 @@ The output is a JSON object of all endpoints that your hub's device and service 
 ```
 
 > [!NOTE]
-> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version [here](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 > 
 
 ## Whitelist Device Streaming Endpoints
@@ -109,7 +109,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version [here](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 > 
 
 ## Troubleshoot via Device Streams Activity Logs
