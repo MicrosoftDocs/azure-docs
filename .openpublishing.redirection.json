@@ -35548,7 +35548,7 @@
     },
     {
       "source_path": "articles/hdinsight/hdinsight-autoscale-clusters.md",
-      "redirect_url": "azure/hdinsight/hdinsight-scaling-best-practices",
+      "redirect_url": "/azure/hdinsight/hdinsight-scaling-best-practices",
       "redirect_document_id": false
     }
   ]
