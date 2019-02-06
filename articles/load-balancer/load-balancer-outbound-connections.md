@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/01/2018
+ms.date: 02/05/2019
 ms.author: kumud
 ---
 
@@ -29,7 +29,7 @@ Azure uses source network address translation (SNAT) to perform this function. W
 There are multiple [outbound scenarios](#scenarios). You can combine these scenarios as needed. Review them carefully to understand the capabilities, constraints, and patterns as they apply to your deployment model and application scenario. Review guidance for [managing these scenarios](#snatexhaust).
 
 >[!IMPORTANT] 
->Standard Load Balancer introduces new abilities and different behaviors to outbound connectivity.   For example, [scenario 3](#defaultsnat) does not exist when an internal Standard Load Balancer is present and different steps need to be taken.   Carefully review this entire document to understand the overall concepts and differences between SKUs.
+>Standard Load Balancer introduces new abilities and different behaviors to outbound connectivity and this is different than what you may be used to with Basic SKUs.  If you want outbound connectivity when working with Standard SKUs, you must explicitly define it either with Standard SKU Public IP addresses or outbound rules on a Standard public Load Balancer. More specifically, [scenario 3](#defaultsnat) does not exist when an internal Standard Load Balancer is present and different steps need to be taken. In the context of outbound connectivity, a single standalone VM, all the VM's in an Availability Set, all the instances in a VMSS behave as a group. This means, if a single VM in an Availability Set is associated with a Standard SKU, all VM instances within this Availability Set now behave by the same rules as if their associated with Standard SKU, even if an individual member is not directly associated with it.  Carefully review this entire document to understand the overall concepts and differences between SKUs and review [outbound rules](load-balancer-outbound-rules-overview.md).  Using outbound rules allows you fine grained control over all aspects of outbound connectivity.
 
 ## <a name="scenarios"></a>Scenario overview
 
