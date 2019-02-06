@@ -13,7 +13,7 @@ manager: carmonm
 
 # Azure Automation Integration Modules
 
-PowerShell is the fundamental technology behind Azure Automation. Since Azure Automation is built on PowerShell, PowerShell modules are key to the extensibility of Azure Automation. In this article, we guide you through the specifics of Azure Automation's use of PowerShell modules, referred to as Integration Modules, and best practices for creating your own PowerShell modules to make sure they work as Integration Modules within Azure Automation. The [Azure Powershell Az modules](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) are supported in runbooks but are not imported by default. The Az module can not be used in conjunction with the AzureRM modules. To learn about the `Az` modules and considerations to take into account, see [Az module support in Azure Automation](az-modules.md).
+PowerShell is the fundamental technology behind Azure Automation. Since Azure Automation is built on PowerShell, PowerShell modules are key to the extensibility of Azure Automation. In this article, we guide you through the specifics of Azure Automation's use of PowerShell modules, referred to as Integration Modules, and best practices for creating your own PowerShell modules to make sure they work as Integration Modules within Azure Automation. 
 
 ## What is a PowerShell Module?
 
@@ -213,6 +213,8 @@ Even though Integration Modules are essentially PowerShell modules, there's stil
     ```
 
 6. The module should be fully contained in an Xcopy-able package. Because Azure Automation modules are distributed to the Automation sandboxes when runbooks need to execute, they need to work independently of the host they are running on. What this means is that you should be able to Zip up the module package, move it to any other host with the same or newer PowerShell version, and have it function as normal when imported into that host's PowerShell environment. In order for that to happen, the module should not depend on any files outside the module folder (the folder that gets zipped up when importing into Azure Automation), or on any unique registry settings on a host, such as those set by the install of a product. If this best practice is not followed, the module will not be usable in Azure Automation.  
+
+7. If referencing [Azure Powershell Az modules](/powershell/azure/new-azureps-module-az?view=azps-1.1.0) in your module ensure you are not also referencing `AzureRM`. The `Az` module can not be used in conjunction with the `AzureRM` modules. `Az` is supported in runbooks but are not imported by default. To learn about the `Az` modules and considerations to take into account, see [Az module support in Azure Automation](az-modules.md).
 
 ## Next steps
 
