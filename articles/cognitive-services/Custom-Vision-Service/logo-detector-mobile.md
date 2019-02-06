@@ -51,7 +51,7 @@ Once you've uploaded the training images, select the first one on the display. T
 
 ![image of logos with tags being applied on the Custom Vision website](media/azure-logo-tutorial/tag-logos.png)
 
-Note that the app is configured to work with specific tag strings; see the definitions in the *Source\VisualProvision\Services\Recognition\RecognitionService.cs* file:
+The app is configured to work with specific tag strings; see the definitions in the *Source\VisualProvision\Services\Recognition\RecognitionService.cs* file:
 
 [!code-csharp[tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?range=18-33)]
 
