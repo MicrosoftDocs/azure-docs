@@ -29,7 +29,7 @@ The basic architecture of SAP high availability can be described as displayed in
 
 ![Standard HA configuration](./media/sap-ha-availability-zones/standard-ha-config.png)
 
-The SAP application layer is deployed across one Azure [Availability Set](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). For high availability of SAP Central Services, you deploy two VMs in a separate availability set. Use Windows Failover Cluster Services or Pacemaker (Linux) to deploy a high availability framework that allows automatic failover in case of an infrastructure or software problem. Documents detailing such deployments are listed here:
+The SAP application layer is deployed across one Azure [Availability Set](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). For high availability of SAP Central Services, you deploy two VMs in a separate availability set. Use Windows Failover Cluster Services or Pacemaker (Linux) to deploy a high availability framework with automatic failover in case of an infrastructure or software problem. Documents detailing such deployments are listed here:
 
 - [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
 - [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using file share](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share)
@@ -45,9 +45,9 @@ In order to deploy the same architecture using Azure availability zones, some ch
 When using Availability Zones, consider the following points:
 
 - Azure availability zones do not guarantee a minimum distance between the different zones within one Azure region.
-- Azure availability zones are not an ideal DR solution. When natural disasters cause wide spread damage in some world regions, including heavy damage to power infrastructure, the distance between different zones might be not large enough to qualify as a proper DR solution.
-- The network latency across Azure availability zones in the different Azure regions varies from Azure region to region. In some cases you can run the SAP application layer deployed across different zones, because the network latency from one zone to the active DBMS VM is still acceptable from a business process impact. But there are scenarios in some Azure regions, where the latency between the active DBMS VM in one zone and an SAP application instance in another zone can be too intrusive and unacceptable for the SAP business processes. As a result, the deployment architecture needs to be different with an active/active architecture for the application or active/passive architecture where cross zone latency is too high.
-- Make a decision in which configuration you could use Azure availability zones, based on the network latency you measure between the different zones. The network latency plays an important role in two areas:
+- Azure availability zones are not an ideal DR solution. When natural disasters cause wide spread regional damage, including heavy damage to power infrastructure, the distance between different zones might be not large enough to qualify as a proper DR solution.
+- The network latency across availability zones varies in the different Azure regions. You can run the SAP application layer deployed across different zones, where the network latency from one zone to the active DBMS VM is acceptable from a business process impact. But in some Azure regions the latency between the active DBMS VM in one zone and an SAP application instance in another zone can be too intrusive and unacceptable for the SAP business processes. As a result, the deployment architecture needs to be different with an active/active architecture for the application or active/passive architecture where cross zone latency is too high.
+- Decide in which configuration you could use Azure availability zones, based on the network latency you measure between the different zones. The network latency plays an important role in two areas:
 	- Latency between the two DBMS instances that need to have a synchronous replication established. The higher the network latency, the higher the potential to impact scalability of your workload
 	- The difference in network latency between a VM that runs an SAP dialog instance in the same zone as the active DBMS instance and a similar VM in another zone. The higher this difference, the higher the impact on run time of business processes and batch jobs, dependent on whether they run in-zone or across-zone with the DBMS
 
@@ -62,7 +62,7 @@ There are some restrictions, when deploying Azure VMs with failover solutions ac
 
 
 ## Ideal Availability Zones combination
-In order to decide how you can leverage availability zones, you need to perform an investigation that gives you:
+Before you decide how to leverage availability zones, perform an investigation that gives you:
 
 - The network latency between the three different zones of an Azure region. That allows you to identify the zones with the least network latency in cross zone network traffic
 - The difference between VM-to-VM latency within one of the zones chosen by you and the network latency across the two zones you chose
@@ -78,8 +78,8 @@ To find out what the latency between the different zones is, you need to:
 Based on the measurements and the availability of your VM SKUs in the availability zones, you need to make the following decisions:
 
 - Define the ideal zones for the DBMS layer
-- Answer the question whether, based on differences of network latency within a zone or across zones, you could distribute your active SAP application layer across one, two or all three zones
-- Answer the question whether you want to deploy an active/passive or an active/active configuration from an application point of view (see later)
+- Do you distribute your active SAP application layer across one, two or all three zones, based on differences of network latency in-zone vs. across zones
+- Do you want to deploy an active/passive or an active/active configuration from an application point of view (see later)
 
 Making these decisions, also recall SAP's network latency recommendations as documented in SAP note [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E).
 
