@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/06/2019
 ms.author: diberry
 ---
 
