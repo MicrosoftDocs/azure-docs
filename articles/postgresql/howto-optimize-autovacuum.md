@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ---
 
-# Optimize autovacuum on an Azure Database for PostgreSQL 
+# Optimize autovacuum on an Azure Database for PostgreSQL server 
 This article describes how to effectively optimize autovacuum on an Azure Database for PostgreSQL server.
 
 ## Overview of autovacuum
