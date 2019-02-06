@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 
 # SAP workload configurations with Azure Availability Zones
 
-One of the high availability functionalities Azure offers to improve the overall availability of SAP workload on Azure, are [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). Availability zones are offered in several [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/) already. More regions will follow. 
+You can use [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview) to improve the overall availability of SAP workload on Azure. Availability zones are offered in several [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/) already. More regions will follow. 
 
 The basic architecture of SAP high availability can be described as displayed in this graphic:
 
@@ -105,7 +105,7 @@ A simplified schema of an active/active deployment across two zones could look l
 The following considerations apply for this configuration:
 
 - You treat the Azure availability zones as fault and update domains for all the VMs since availability sets can't be deployed in Azure availability zones
-- The Azure load balancers you use for the failover clusters of the SAP Central Services as well as DBMS layer, need to be the [Standard SKU load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). The basic load balancer will not work across zones
+- The Azure load balancers you use for the failover clusters of the SAP Central Services and the DBMS layer, need to be the [Standard SKU load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). The basic load balancer will not work across zones
 - The Azure virtual network and its subnets you deployed to host the SAP system are stretched across zones. You **don't need** separate virtual networks for each zone
 - For all virtual machines you deploy, use [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). Unmanaged disks are not supported for zonal deployments
 - Azure Premium storage or [Ultra SSD storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) are not supporting any type of storage replication across zones. As a result it is responsibility of the application (DBMS or SAP Central Services) to replicate important data
@@ -119,7 +119,7 @@ The following considerations apply for this configuration:
 
 
 ## Active/passive deployment
-In cases where you are not finding an acceptable delta between the network latency within one zone and cross zone network traffic, the architecture you can deploy has an active/passive character from the SAP application layer point of view. You define an 'active' zone, which is the zone you deploy the complete application layer into and where you attempt to run the active DBMS instance and the active SAP Central Services instance. With such a configuration, you make sure that you don't have extreme run time difference in business transactions and batch jobs, dependent on whether a job runs in the same zone with the active DBMS instance or not.
+If you do not find an acceptable delta between the network latency within one zone and cross zone network traffic, the architecture you can deploy has an active/passive character from the SAP application layer point of view. You define an 'active' zone, which is the zone where you deploy the complete application layer and where you attempt to run both the active DBMS and SAP Central Services instance. With such a configuration, you make sure you don't have extreme run time variations in business transactions and batch jobs, dependent on whether a job runs in-zone with the active DBMS instance or not.
 
 The basic layout of such an architecture looks like:
 
@@ -127,10 +127,10 @@ The basic layout of such an architecture looks like:
 
 The following considerations apply for this configuration:
 
-- Availability sets can't be deployed in Azure availability zones. Hence, in this case, you are ending up with one update and fault domain for your application layer. Reason is that it is only deployed in one zone. This configuration is a slight 
+- Availability sets can't be deployed in Azure availability zones. Hence, in this case, you have one update and fault domain for your application layer. Reason is that it is only deployed in one zone. This configuration is a slight 
 -  compared to the reference architecture that foresees that you deploy the application layer in an Azure availability set.
 - Operating such an architecture, you need to monitor closely and try to keep the active DBMS and SAP Central services instances in the same zone as your deployed application layer. In case of a failover of SAP Central Service or the DBMS instance, you want to make sure that you can manually fail back into the zone with the SAP application layer deployed as early as possible
-- The Azure load balancers you use for the failover clusters of the SAP Central Services as well as DBMS layer, need to be the [Standard SKU load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). The basic load balancer will not work across zones
+- The Azure load balancers you use for the failover clusters of the SAP Central Services and the DBMS layer, need to be the [Standard SKU load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). The basic load balancer will not work across zones
 - The Azure virtual network and its subnets you deployed to host the SAP system are stretched across zones. You **don't need** separate virtual networks for each zone
 - For all virtual machines you deploy, you need to use [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). Unmanaged disks are not supported for zonal deployments
 - Azure Premium storage or [Ultra SSD storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) are not supporting any type of storage replication across zones. As a result it is responsibility of the application (DBMS or SAP Central Services) to replicate important data
@@ -161,7 +161,7 @@ The following considerations apply for this configuration:
 - 
 - run the active QA application instances.
 - In case of a zonal failure, you shut down the QA application instances and start the production instances instead. Keep in mind that you need to work with virtual names for the application instances to make this work
-- The Azure load balancers you use for the failover clusters of the SAP Central Services as well as DBMS layer, need to be the [Standard SKU load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). The basic load balancer will not work across zones
+- The Azure load balancers you use for the failover clusters of the SAP Central Services and the DBMS layer, need to be the [Standard SKU load balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). The basic load balancer will not work across zones
 - The Azure virtual network and its subnets you deployed to host the SAP system are stretched across zones. You **don't need** separate virtual networks for each zone
 - For all virtual machines you deploy, you need to use [Azure managed disks](https://azure.microsoft.com/services/managed-disks/). Unmanaged disks are not supported for zonal deployments
 - Azure Premium storage or [Ultra SSD storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) are not supporting any type of storage replication across zones. As a result it is responsibility of the application (DBMS or SAP Central Services) to replicate important data
