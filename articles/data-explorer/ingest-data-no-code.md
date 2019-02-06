@@ -16,12 +16,10 @@ ms.date: 2/5/2019
 
 This tutorial will teach you how to ingest diagnostic and activity log data to an Azure Data Explorer cluster without one line of code, enabling you to query Azure Data Explorer for data analysis.
 
-// TODO: edit.
-In this tutorial you will:
-* Collect data from [Azure Monitor diagnostic logs](/azure/azure-monitor/platform/diagnostic-logs-overview) and [Azure Monitor activity logs](/azure/azure-monitor/platform/activity-logs-overview).
-* Stream data to an [Event Hub](/azure/event-hubs/event-hubs-about).
-* Connect the Event Hub to Azure Data Explorer.
-* In an Azure Data Explorer database, create tables and an ingestion mapping. Format the ingested data using an update policy.
+In this tutorial you'll learn how to:
+* In an Azure Data Explorer database, create tables and ingestion mapping. Format the ingested data using an update policy.
+* Create an Event Hub and connect it to Azure Data Explorer.
+* Stream data to an [Event Hub](/azure/event-hubs/event-hubs-about) from [Azure Monitor diagnostic logs](/azure/azure-monitor/platform/diagnostic-logs-overview) and [Azure Monitor activity logs](/azure/azure-monitor/platform/activity-logs-overview).
 * Query the ingested data using Azure Data Explorer.
 
 ## Prerequisites
@@ -138,7 +136,7 @@ Use the Azure Data Explorer web UI to create the target tables in Azure Data Exp
 
 #### Activity logs tables
 
-Since the activity logs structure is not tabular, you will need to manipulate the data and expand each event to one or more records. The raw data will be ingested to an intermediate table *ActivityLogsRawRecords* where the data will be manipulated and expanded. The data will then be re-ingested into the *ActivityLogsRecords* table using an update policy. Therefore, you will need to create two separate tables for activity logs ingestion.
+Since the activity logs structure isn't tabular, you will need to manipulate the data and expand each event to one or more records. The raw data will be ingested to an intermediate table *ActivityLogsRawRecords* where the data will be manipulated and expanded. The data will then be re-ingested into the *ActivityLogsRecords* table using an update policy. Therefore, you will need to create two separate tables for activity logs ingestion.
 
 1. Create a table *ActivityLogsRecords* in the *AzureMonitoring* database that will receive activity log records. Run the following Azure Data Explorer query to create the table:
 
@@ -150,10 +148,13 @@ Since the activity logs structure is not tabular, you will need to manipulate th
 
     ```kusto
     .create table ActivityLogsRawRecords (Records:dynamic)
-    .alter-merge table ActivityLogsRawRecords policy retention softdelete = 0d
     ```
 
-[Retention](/azure/kusto/management/retention-policy) for an intermediate data table is set at zero retention policy.
+<!--
+     ```kusto
+     .alter-merge table ActivityLogsRawRecords policy retention softdelete = 0d
+    <[Retention](/azure/kusto/management/retention-policy) for an intermediate data table is set at zero retention policy.
+-->
 
 ### Create table mappings
 
@@ -207,7 +208,7 @@ Since the activity logs structure is not tabular, you will need to manipulate th
 2. Add an [update policy](/azure/kusto/concepts/updatepolicy) to the target table. It will automatically run the query on any newly-ingested data in the *ActivityLogsRawRecords* intermediate data table and ingest its results into *ActivityLogsRecords* table:
 
     ```kusto
-    .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()"}]'
+    .alter table ActivityLogRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
 ## Create an Event Hub Namespace
@@ -358,20 +359,11 @@ Repeat the steps in the [Diagnostic logs data connection](#diagnostic-logs-data-
 
 1. Click **Create**  
 
-## Connect Azure Monitoring to Event Hub
-
-1. Collect data from [Azure Monitoring diagnostic logs](/azure/azure-monitor/platform/diagnostic-logs-overview#how-to-enable-collection-of-diagnostic-logs).
-
 ## Query the new tables
 
 you have a pipeline with data flowing. The kusto cluster reports metrics every 1 minute. Ingestion via the cluster take a few minutes, by default, so allow the data flow for a few minutes prior to query.
 
-### Diagnostic logs table query
-
-    ```kusto
-    DiagnosticLogsRecords
-    | count
-    ```
+### Diagnostic logs table query example
 
     ```kusto
     DiagnosticLogsRecords
@@ -379,17 +371,19 @@ you have a pipeline with data flowing. The kusto cluster reports metrics every 1
     | summarize avg(Average) by MetricName, ResourceId
     ```
 
-### Activity logs table query
+### Activity logs table query example
 
-    ```kusto
-    ActivityLogsRawRecords
-    | take 1
-    ```
-
-    ```kusto
+     ```kusto
     ActivityLogsRecords
-    | take 10
-    ```
+    | where OperationName == 'MICROSOFT.EVENTHUB/NAMESPACES/AUTHORIZATIONRULES/LISTKEYS/ACTION'
+    | where ResultType == 'Success'
+    | summarize avg(DurationMs)
+      ```
+
+    |   |   |
+    | --- | --- |
+    |   |  avg(DurationMs) |
+    |   | 768.333 |
 
 ## Next steps
 
