@@ -30,22 +30,20 @@ You can leverage open-source tools like [cheetah](https://github.com/wunderlist/
 
 ## Authentication
 
-Access to Azure SQL Database is protected with logins and firewalls.
- - Azure SQL Database supports both SQL Server and [Azure Active Directory (AAD) authentication](sql-database-aad-authentication.md) users and logins. AAD logins are available only in Managed Instance. 
- - You need to specify a particular database, instead of defaulting to the *master* database.
-  
+Access to Azure SQL Database is protected with logins and firewalls. Azure SQL Database supports both SQL Server and [Azure Active Directory (AAD) authentication](sql-database-aad-authentication.md) users and logins. AAD logins are available only in Managed Instance. 
+
 Learn more about [managing database access and login](sql-database-manage-logins.md).
 
 ## Connections
 
-Azure SQL Database is a cloud service where you might expect transient errors that happens in the underlying infrastructure or in communication between cloud entities.
-Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while connecting to SQL Database, your code should [retry the call](sql-database-connectivity-issues.md). We recommend that retry logic use backoff logic, so that it does not overwhelm the SQL Database with multiple clients retrying simultaneously. Retry logic depend on the [error messages for SQL Database client programs](sql-database-develop-error-messages.md).
+Azure SQL Database is a cloud service where you might expect transient errors that happen in the underlying infrastructure or in the communication between cloud entities.
+Although Azure SQL Database is resilient on the transitive infrastructure failures, these failures might affect your connectivity. When a transient error occurs while connecting to SQL Database, your code should [retry the call](sql-database-connectivity-issues.md). We recommend that retry logic use backoff logic, so that it does not overwhelm the SQL Database with multiple clients retrying simultaneously. Retry logic depends on the [error messages for SQL Database client programs](sql-database-develop-error-messages.md).
 
 In your client connection logic, override the default timeout to be 30 seconds. The default of 15 seconds is too short for connections that depend on the internet.
 
 If you are using a [connection pool](https://msdn.microsoft.com/library/8xx3tyca.aspx), be sure to close the connection the instant your program is not actively using it, and is not preparing to reuse it.
 
-Avoid long-running transactions because any infrastructure or connection failure might rollback transaction. If possible, split the transaction in multiple smaller transactions and use [batching to improve performance](sql-database-use-batching-to-improve-performance.md).
+Avoid long-running transactions because any infrastructure or connection failure might roll back the transaction. If possible, split the transaction in the multiple smaller transactions and use [batching to improve performance](sql-database-use-batching-to-improve-performance.md).
 
 ## Network considerations
 
