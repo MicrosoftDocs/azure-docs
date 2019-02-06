@@ -21,8 +21,8 @@ ms.date: 02/04/2019
 
 In this section, you will see an overview of available articles that can help you to quickly get started with single databases. The following quickstarts enable you to quickly create a single database, configure a database server firewall rule, and then import a database into the new single database using a `.bacpac` file:
 
-- [Create a single database using the Azure portal](sql-database-get-started-portal.md).
-- After creating the database, you would need to [secure your database by configuring firewall rules](sql-database-get-started-portal-firewall.md).
+- [Create a single database using the Azure portal](sql-database-single-database-get-started.md).
+- After creating the database, you would need to [secure your database by configuring firewall rules](sql-database-server-level-firewall-rule.md).
 - If you have an existing database on SQL Server that you want to migrate to Azure, you should install [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) that will analyze your databases on SQL Server and find any issue that could block migration to the single database deployment option. If you don't find any issue, you can export your database as `.bacpac` file and [import it using the Azure portal or SqlPackage](sql-database-import.md).
 
 ## Automating management operations

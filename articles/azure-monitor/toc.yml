@@ -199,7 +199,7 @@
           href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
         - name: Operations Manager
           href: platform/om-agents.md
-        - name: OMS Gateway
+        - name: Log Analytics gateway
           href: platform/gateway.md
         - name: Agent management
           href: platform/agent-manage.md

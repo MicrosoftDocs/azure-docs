@@ -1,24 +1,22 @@
 ---
-title: What is Bing Entity Search?
+title: Search for entities with the Bing Entity Search API
 titlesuffix: Azure Cognitive Services
-description: Learn how to use the Bing Entity Search API to search the web for entities and places.
+description: Use the Bing Entity Search API to extract and search for entities and places from search queries.
 services: cognitive-services
-author: swhite-msft
+author: aahill
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: overview
-ms.date: 07/06/2016
-ms.author: scottwhi
+ms.date: 02/01/2019
+ms.author: aahi
 ---
-# What is Bing Entity Search?
 
-The Bing Entity Search API sends a search query to Bing and gets results that include entities and places. Place results include restaurants, hotel, or other local businesses. Bing returns places if the query specifies the name of the local business or asks for a type of business (for example, restaurants near me). Bing returns entities if the query specifies well-known people, places (tourist attractions, states, countries, etc.), or things.
+# Searching for entities with the Bing Entity API
 
-## Suggesting & using search terms
+## Suggest search terms with the Bing Autosuggest API
 
-If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
+If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 
 After the user enters their search term, URL encode the term before setting the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) query parameter. For example, if the user enters *Marcus Appel*, set `q` to *Marcus+Appel* or *Marcus%20Appel*.
 
@@ -33,19 +31,15 @@ If the search term contains a spelling mistake, the search response includes a [
 }
 ```
 
-## Requesting entities
+## The Bing Entity Search API response
 
-For an example request, see [Making your first request](./quick-start.md).
-
-## The response
-
-The response contains a [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse) object. If Bing finds an entity or place that's relevant, the object includes the `entities` field, `places` field, or both. Otherwise, the response object does not include either field.
+The API response contains a [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse) object. If Bing finds an entity or place that's relevant, the object includes the `entities` field, `places` field, or both. Otherwise, the response object does not include either field.
 > [!NOTE]
 > Entity responses support multiple markets, but the Places response supports only US Business locations. 
 
 The `entities` field is an [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) object that contains a list of [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) objects (see the `value` field). The list may contain a single dominant entity, multiple disambiguation entities, or both. 
 
-A dominant entity is an entity that Bing believes is the only entity that satisfies the request (there is no ambiguity as to which entity satisfies the request). If multiple entities could satisfy the request, the list contains more than one disambiguation entity. For example, if the request uses the generic title of a movie franchise, the list likely contains disambiguation entities. But, if the request specifies a specific title from the franchise, the list likely contains a single dominant entity.
+A dominant entity is returned when Bing believes it to be the only entity that satisfies the request (there is no ambiguity as to which entity satisfies the request). If multiple entities could satisfy the request, the list contains more than one disambiguation entity. For example, if the request uses the generic title of a movie franchise, the list likely contains disambiguation entities. But, if the request specifies a specific title from the franchise, the list likely contains a single dominant entity.
 
 Entities include well-known personalities such as singers, actors, athletes, models, etc.; places and landmarks such as Mount Rainier or Lincoln Memorial; and things such as a banana, goldendoodle, book, or movie title. The [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) field contains hints that identify the entity's type. For example, if it's a person, movie, animal, or attraction. For a list of possible types, see [Entity Types](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
 
@@ -173,8 +167,9 @@ The entity includes a `name`, `description`, and `image` field. When you display
 
 When you display the entity information (name, description, and image), you must also use the URL in the `webSearchUrl` field to link to the Bing search results page that contains the entity.
 
+## Find places
 
-The `places` field is a [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#localentityanswer) object that contains a list of [Place](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place) objects (see the `value` field). The list contains one or more local entities that satisfy the request.
+The `places` field is a [LocalEntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#localentityanswer) object that contains a list of [Place](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#place) objects (see the [Entity Types](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types) for more information). The list contains one or more local entities that satisfy the request.
 
 Places include restaurant, hotels, or local businesses. The [entityPresentationInfo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entitypresentationinfo) field contains hints that identify the local entity's type. The list contains a list of hints such as Place, LocalBusiness, Restaurant. Each successive hint in the array narrows the entity's type. For a list of possible types, see [Entity Types](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity-types)
 
@@ -294,7 +289,7 @@ If the list of contractual rules includes a [LicenseAttribution](https://docs.mi
 
 The following shows an example that includes a `LicenseAttribution` rule.
 
-![License attribution](./media/cognitive-services-bing-entities-api/licenseattribution.png)
+![License attribution](../media/cognitive-services-bing-entities-api/licenseattribution.png)
 
 The license notice that you display must include a hyperlink to the website that contains information about the license. Typically, you make the name of the license a hyperlink. For example, if the notice is **Text under CC-BY-SA license** and CC-BY-SA is the name of the license, you would make CC-BY-SA a hyperlink.
 
@@ -306,7 +301,7 @@ To attribute the providers, include a line immediately following the content tha
 
 The following shows an example that includes `LinkAttribution` and `TextAttribution` rules.
 
-![Link text attribution](./media/cognitive-services-bing-entities-api/linktextattribution.png)
+![Link text attribution](../media/cognitive-services-bing-entities-api/linktextattribution.png)
 
 ### Media attribution
 
@@ -314,7 +309,7 @@ If the entity includes an image and you display it, you must provide a click-thr
 
 The following shows an example that includes an image's `provider` field and contractual rules. Because the example includes the contractual rule, you ignore the image's `provider` field and apply the `MediaAttribution` rule.
 
-![Media attribution](./media/cognitive-services-bing-entities-api/mediaattribution.png)
+![Media attribution](../media/cognitive-services-bing-entities-api/mediaattribution.png)
 
 ### Search or search-like experience
 
@@ -329,14 +324,8 @@ If you are not sure if your experience can be considered a search-like experienc
 
 ## Throttling requests
 
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+[!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 ## Next steps
 
-To get started quickly with your first request, see [Making Your First Request](./quick-start.md).
-
-Familiarize yourself with the [Bing Entity Search API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) reference. The reference contains the headers and query parameters that you use to request search results. It also includes definitions of the response objects. 
-
-To improve your search box user experience, see [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md). As the user enters their query term, you can call this API to get relevant query terms that were used by others.
-
-Be sure to read [Bing Use and Display Requirements](./use-display-requirements.md) so you don't break any of the rules about using the search results.
+* Try a [Quickstart](../quickstarts/csharp.md) to get started searching for entities with the Bing Entity Search API.

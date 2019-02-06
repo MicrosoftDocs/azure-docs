@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
-ms.date: 10/02/2018
+ms.date: 02/05/2019
 ms.custom: seodec18
 ---
 
@@ -99,5 +99,6 @@ Next, you must update your DNS to point to the web service.
 Using SSL with services deployed to FPGA is not currently supported.
 
 ## Next steps
-
-Learn how to [Consume a ML Model deployed as a web service](how-to-consume-web-service.md).
+Learn how to:
++ [Consume a machine learning model deployed as a web service](how-to-consume-web-service.md)
++ [Securely run experiments and inferencing inside an Azure Virtual Network](how-to-enable-virtual-network.md)
