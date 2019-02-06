@@ -137,7 +137,7 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
 2. Select the file  **HelloWorld.hql** created [earlier](#open-hdinsight-work-folder) and it will open in the script editor.
 
-3. [Connect](connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
+3. [Connect](#connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
 
 4. Right-click the script editor, and select **HDInsight: Set Default Cluster**.  
 
@@ -147,7 +147,7 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
 ## Set the Azure environment
 
-1. [Connect](connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
+1. [Connect](#connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
 
 2. From the menu bar navigate to **View** > **Command Palette...**, and enter **HDInsight: Set Azure Environment**.
 
@@ -166,7 +166,7 @@ With HDInsight Tools for VS Code, you can submit interactive Hive queries, and H
 
 2. Select the file  **HelloWorld.hql** created [earlier](#open-hdinsight-work-folder) and it will open in the script editor.
 
-3. [Connect](connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
+3. [Connect](#connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
 
 4. Copy and paste the following code into your Hive file, and then save it.
 
@@ -194,7 +194,7 @@ With HDInsight Tools for VS Code, you can submit interactive Hive queries, and H
 
     >![HDInsight for Visual Studio Code Python install](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
 
-4. [Connect](connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
+4. [Connect](#connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
 
 5. Copy and paste the following code into the script file:
    ```python
@@ -248,7 +248,7 @@ Follow the steps to use Python2.x:
 
 2. Create a new file **BatchFile.py** following the [earlier](#open-hdinsight-work-folder) steps.
 
-3. [Connect](connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
+3. [Connect](#connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
 
 4. Copy and paste the following code into the script file:
 
@@ -344,7 +344,7 @@ Submit a file, notice the .vscode folder is added automatically to the work fold
 
 **Azure HDInsight** has been added to the Explorer view. You can browse and manage you cluster(s) directly through **Azure HDInsight**.
 
-1. [Connect](connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
+1. [Connect](#connect-to-hdinsight-cluster) to your Azure account if you haven't yet done so.
 
 2. From the menu bar, navigate to **View** > **Explorer**.
 
