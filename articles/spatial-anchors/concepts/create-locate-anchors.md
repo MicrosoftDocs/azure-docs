@@ -800,7 +800,7 @@ In Objective-C:
             _feedback = [NSString stringWithFormat:@"Session status error:%@", error.localizedDescription];
             return;
         }
-        if (value.readyForCreateProgress < 1.0f) return;
+        if (value.recommendedForCreateProgress < 1.0f) return;
         // Issue the creation request ...
     }];
 ```
@@ -813,7 +813,7 @@ In Swift:
             _feedback = "Session status error:\(error!.localizedDescription)"
             return
         }
-        if (value!.readyForCreateProgress <> 1.0) {
+        if (value!.recommendedForCreateProgress <> 1.0) {
             return
         }
         // Issue the creation request ...
@@ -860,7 +860,7 @@ In C++:
             feedback_ = str.str();
             return;
         }
-        if (value->ReadyForCreateProgress() < 1.0f) return;
+        if (value->RecommendedForCreateProgress() < 1.0f) return;
         // Issue the creation request ...
     });
 ```
