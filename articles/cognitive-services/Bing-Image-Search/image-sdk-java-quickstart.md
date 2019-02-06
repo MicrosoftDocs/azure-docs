@@ -58,9 +58,10 @@ Install the Bing Image Search SDK dependencies by using Maven, Gradle, or anothe
     BingImageSearchAPI client = BingImageSearchManager.authenticate(subscriptionKey);
     ```
 
-## Send a search request to the Bing Image Search API
+## Send a search request to the API
 
 1. Using `bingImages().search()`, send the HTTP request containing the search query. Save the response as a `ImagesModel`.
+
    ```java
     ImagesModel imageResults = client.bingImages().search()
                 .withQuery(searchTerm)
