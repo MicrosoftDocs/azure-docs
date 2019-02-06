@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 02/06/2019
 ---
 
 # Tutorial: Migrate SQL Server to Azure SQL Database online using DMS
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > * Download a migration report.
 
 > [!NOTE]
-> Using the Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier.
+> Using the Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier. For more information see the Azure Database Migration Service [pricing](https://azure.microsoft.com/pricing/details/database-migration/) page.
 
 > [!IMPORTANT]
 > For an optimal migration experience, Microsoft recommends creating an instance of the Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
@@ -41,7 +41,7 @@ To complete this tutorial, you need to:
 
 - Download and install [SQL Server 2012 or later](https://www.microsoft.com/sql-server/sql-server-downloads) (any edition).
 - Enable the TCP/IP protocol, which is disabled by default during SQL Server Express installation, by following the instructions in the article [Enable or Disable a Server Network Protocol](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-- Create an instance of Azure SQL Database instance, which you do by following the detail in the article [Create an Azure SQL database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+- Create an instance of Azure SQL Database, which you do by following the detail in the article [Create an Azure SQL database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 
     > [!NOTE]
     > If you use SQL Server Integration Services (SSIS) and want to migrate the catalog database for your SSIS projects/packages (SSISDB) from SQL Server to Azure SQL Database, the destination SSISDB will be created and managed automatically on your behalf when you provision SSIS in Azure Data Factory (ADF). For more information about migrating SSIS packages, see the article [Migrate SQL Server Integration Services packages to Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages). 

@@ -91,7 +91,7 @@ To enable dump logs and Serial Console, run the following script.
 
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
-2. [Detach the OS disk and then re-attach the OS disk to the affected VM](troubleshoot-recovery-disks-portal-windows.md). The VM will boot into Safe mode. If you still experience the error, go to the [optional step](#optional-analysis-the-dump-logs-in-boot-debug-mode).
+2. [Detach the OS disk and then re-attach the OS disk to the affected VM](troubleshoot-recovery-disks-portal-windows.md). The VM will boot into Safe mode. If you still experience the error, go to the optional step.
 3. Open the **Run** box and run **verifier** to start the Driver Verifier Manager tool.
 4. Select **Automatically select unsigned drivers**, and then click **Next**.
 5. You will get the list of the driver files that are unsigned. Remember the file names.
