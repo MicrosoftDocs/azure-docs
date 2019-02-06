@@ -46,8 +46,8 @@ The steps that follow constitute the On-Behalf-Of flow and are explained with th
 
 
 1. The client application makes a request to API A with the token A (with an `aud` claim of API A).
-2. API A authenticates to the Azure AD token issuance endpoint and requests a token to access API B.
-3. The Azure AD token issuance endpoint validates API A's credentials with token A and issues the access token for API B (token B).
+2. API A authenticates to the Microsoft identity platform token issuance endpoint and requests a token to access API B.
+3. The token issuance endpoint validates API A's credentials with token A and issues the access token for API B (token B).
 4. The token B is set in the authorization header of the request to API B.
 5. Data from the secured resource is returned by API B.
 
@@ -56,7 +56,7 @@ The steps that follow constitute the On-Behalf-Of flow and are explained with th
 >
 
 ## Service to service access token request
-To request an access token, make an HTTP POST to the tenant-specific Azure AD v2.0 token endpoint with the following parameters.
+To request an access token, make an HTTP POST to the tenant-specific Microsoft identity platform v2.0 token endpoint with the following parameters.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
@@ -184,9 +184,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## Gaining consent for the middle-tier application
 
-Depending on the audience for your application, you may consider different strategies for ensuring that the OBO flow is succesful.  In all cases, ensuring proper consent is given is ultiamte goal. How that occurs, however, depends on which users your application supports. 
+Depending on the audience for your application, you may consider different strategies for ensuring that the OBO flow is succesful.  In all cases, ensuring proper consent is given is ultimate goal. How that occurs, however, depends on which users your application supports. 
 
-### Consent for AAD-only applications
+### Consent for AzureADMyOrg or AzureADMultipleOrgs audiences
 
 #### /.default and combined consent
 
@@ -202,13 +202,13 @@ A new feature of the preview application portal is "pre-authorized applications"
 
 A tenant admin can guarantee that applications have permission to call their required APIs through providing admin consent for the middle tier application.  To do this, the admin can find the middle tier application in their tenant, open the required permissions page, and choose to give permission for the app.  To learn more about admin consent, see the [consent and permissions documentation](v2-permissions-and-consent.md). 
 
-### Consent for AAD+MSA applications
+### Consent for the AzureADandPersonalMicrosoftAccount audience
 
-Due to restrictions in the permissions model for personal accounts and the lack of a governing tenant, the consent requirements for personal accounts are a bit different from Azure AD.  There is no tenant to provide tenant-wide consent for, nor is there the ability to do combined consent.  Thus, other strategies present themselves - note that these work for applications that only need to support Azure AD accounts as well. 
+Due to restrictions in the permissions model for personal accounts and the lack of a governing tenant, the consent requirements for personal accounts are a bit different from Azure AD.  There is no tenant to provide tenant-wide consent for, nor is there the ability to do combined consent.  Thus, other strategies present themselves - note that these work for applications that only need to support Azure AD accounts as well.
 
-#### Use of a single application
+#### Use of a single clientID for front-end and middle-tier
 
-In some scenarios, you may only have a single pairing of middle-tier and front-end client.  In this scenario, you may find it easier to make this a single application, negating the need for a middle-tier application altogether.  To authenticate between the front-end and the Web API, you can use cookies, an id_token, or an access token requested for the application itself.  Then, request consent from this single application to the back-end resource. 
+In some scenarios, you may only have a single pairing of middle-tier and front-end client.  In this scenario, you may find it easier to make this a single application, negating the need for a middle-tier application altogether.  To authenticate between the front-end and the Web API, you can use cookies, an id_token, or an access token requested for the application itself.  Then, request consent from this single application to the downstream API. 
 
 ## Client limitations
 If a client uses the implicit flow to get an id_token, and that client also has wildcards in a reply URL, the id_token cannot be used for an OBO flow.  However, access tokens acquired via the implicit grant flow can still be redeemed by a confidential client even if the initiating client has a wildcard reply URL registered. 
