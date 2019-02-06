@@ -30990,6 +30990,51 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-backup-recovery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-how-to.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-download-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-add-accounts-overview.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-add-account-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-add-work-account.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-add-work-school-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-add-personal-account.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-add-personal-ms-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-add-non-microsoft-account.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-add-non-ms-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-add-account-manual.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-add-account-manual",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-sign-in",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-faq.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-faq",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.experimental.md",
       "redirect_url": "/azure/active-directory/user-help/multi-factor-authentication-end-user-first-time",
       "redirect_document_id": false
@@ -35479,6 +35524,31 @@
     {
       "source_path": "articles/storage/blobs/data-lake-storage-handle-data-using-databricks.md",
       "redirect_url": "/azure/azure-databricks/databricks-extract-load-sql-data-warehouse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/gdpr-analytics-overview.md",
+      "redirect_url": "https://aka.ms/azureblueprint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/gdpr-datawarehouse-overview.md",
+      "redirect_url": "https://aka.ms/azureblueprint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/gdpr-iaaswa-overview.md",
+      "redirect_url": "https://aka.ms/azureblueprint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/gdpr-paaswa-overview.md",
+      "redirect_url": "https://aka.ms/azureblueprint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-autoscale-clusters.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-scaling-best-practices",
       "redirect_document_id": false
     }
   ]
