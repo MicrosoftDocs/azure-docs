@@ -21,7 +21,7 @@ ms.author: gokuma
 
 # Provision a Windows Data Science Virtual Machine on Azure
 
-The Data Science Virtual Machine (DSVM) is a Windows Server 2016 virtual machine (VM) image on Azure that comes preinstalled and configured with tools for data analytics and machine learning.
+The Microsoft Data Science Virtual Machine (DSVM) is a Windows Server 2016 virtual machine (VM) image on Azure that comes preinstalled and configured with tools for data analytics and machine learning.
 
 ## Included data science tools
 
@@ -101,15 +101,15 @@ To create a DSVM instance:
 
 ## How to access the DSVM
 
-\*******
-
 After the VM is created and provisioned, you can remote desktop into it by using the admin account credentials that you configured in the preceding **Basics** section. You're ready to start using the tools that are installed and configured on the VM. Many of the tools can be accessed through start menu tiles and desktop icons.
 
-## Tools installed on the Microsoft Data Science Virtual Machine
+## Tools installed on the DSVM
+
+Learn more about the tools that come installed on the Microsoft Data Science Virtual Machine:
 
 ### Microsoft Machine Learning Server Developer edition
 
-You can use Microsoft Enterprise Library for scalable R or Python for your analytics because Machine Learning Server Developer edition is installed on the VM. Previously known as Microsoft R Server, Machine Learning Server is a broadly-deployable, enterprise-class analytics platform. It's available for both R and Python, and it's scalable, commercially-supported, and secure.
+You can use Microsoft Enterprise Library for scalable R or Python for your analytics because Machine Learning Server Developer edition is installed on the VM. Previously known as Microsoft R Server, Machine Learning Server is a broadly-deployable, enterprise-class analytics platform. It's available for both R and Python. It's also scalable, commercially-supported, and secure.
 
 Machine Learning Server supports various big data statistics, predictive modeling, and machine learning tasks. It supports the full range of analytics: exploration, analysis, visualization, and modeling. By using and extending open-source R and Python, Machine Learning Server is compatible with R and Python scripts and functions. It's also compatible with CRAN, pip, and Conda packages to analyze data at the enterprise scale.
 
