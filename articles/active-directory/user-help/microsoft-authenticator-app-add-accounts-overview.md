@@ -21,6 +21,9 @@ ms.author: lizross
 
 The Microsoft Authenticator app helps you sign-in to your accounts if you use two-factor verification. Two-factor verification helps you to access your accounts more securely, especially while viewing sensitive information. Because passwords can be forgotten, stolen, or compromised, two-factor verification is an additional security step that helps protect your account by making it harder for other people to break in.
 
+>[!Important]
+>The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the time-based one-time password (TOTP) standards.
+
 You can use the Microsoft Authenticator app in multiple ways, including:
 
 - Providing a prompt for a second verification method after you sign in with your username and password.
@@ -40,7 +43,7 @@ You can turn on two-factor verification for many accounts that you use every day
 |------|------------|
 |[Add your work or school account](microsoft-authenticator-app-add-work-account.md)|Describes how to add your work or school account to the Microsoft Authenticator app for two-factor verification.|
 |[Add your personal Microsoft account](microsoft-authenticator-app-add-personal-account.md)|Describes how to add your Microsoft personal accounts for two-factor verification and phone sign-in (also known as passwordless sign-in).|
-|[Add your personal non-Microsoft account](microsoft-authenticator-app-add-non-microsoft-account.md)|Describes how to add your non-Microsoft personal accounts for two-factor verification.|
+|[Add your non-Microsoft account](microsoft-authenticator-app-add-non-microsoft-account.md)|Describes how to add your non-Microsoft accounts for two-factor verification.|
 |[Manually add your account](microsoft-authenticator-app-add-account-manual.md)|Describes how to manually add your account to the Microsoft Authenticator app if your camera can't capture the QR code.|
 
 

@@ -65,7 +65,7 @@ A snapshot is a full, read-only copy of a VHD. To create a snapshot of a VM's OS
 
 ### Create an image from one or more snapshots
 
-To create a managed image from a snapshot, use Azure command-line tools such as the [az image create](/cli/azure/image#az_image_create) command. You can create an image by specifying an OS disk snapshot and optionally one or more data disk snapshots.
+To create a managed image from a snapshot, use Azure command-line tools such as the [az image create](/cli/azure/image) command. You can create an image by specifying an OS disk snapshot and optionally one or more data disk snapshots.
 
 ## Create a pool from a custom image in the portal
 
