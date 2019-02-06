@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 10/25/2018
+ms.date: 02/20/2019
 ms.author: helohr
 ---
 # Tutorial: Manage app groups for Windows Virtual Desktop (Preview)
@@ -18,6 +18,12 @@ In this tutorial, learn how to:
 > [!div class="checklist"]
 > * Create a RemoteApp group.
 > * Grant access to RemoteApps.
+
+You need the Windows Virtual Desktop PowerShell module to follow the instructions in this article. Install the Windows Virtual Desktop PowerShell module from the PowerShell Gallery by running this cmdlet:
+
+```powershell
+PS C:\> Install-Module WindowsVirtualDesktop
+```
 
 ## Create a RemoteApp group
 

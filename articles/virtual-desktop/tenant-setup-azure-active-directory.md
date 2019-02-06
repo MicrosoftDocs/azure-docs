@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 10/25/2018
+ms.date: 02/20/2019
 ms.author: helohr
 ---
 # Tutorial: Create a tenant in Windows Virtual Desktop (Preview)
@@ -20,9 +20,13 @@ In this tutorial, learn how to:
 > * Create a Windows Virtual Desktop tenant.
 > * Confirm your Windows Virtual Desktop tenant.
 
-## Prerequisites
+You need the Windows Virtual Desktop PowerShell module to follow the instructions in this article. Install the Windows Virtual Desktop PowerShell module from the PowerShell Gallery by running this cmdlet:
 
-You need the following things to set up your Windows Virtual Desktop tenant:
+```powershell
+PS C:\> Install-Module WindowsVirtualDesktop
+```
+
+You also need the following things to set up your Windows Virtual Desktop tenant:
 
 * The Windows Virtual Desktop PowerShell module installed to your computer.
 * An [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) account.

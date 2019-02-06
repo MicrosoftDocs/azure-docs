@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 10/25/2018
+ms.date: 02/20/2019
 ms.author: helohr
 ---
 # What is Windows Virtual Desktop? (Preview)
@@ -36,11 +36,17 @@ As a Remote Desktop service, Windows Virtual Desktop makes it easy for users to 
 
 ## Prerequisites
 
-You'll need one of the following things to deploy Windows Virtual Desktop:
+You need one of the following things to deploy Windows Virtual Desktop:
 
 * A Windows E3 or E6 license
 * A Microsoft 365 E3, E5, F1, or Business license
 * An Azure subscription
+
+You should also have the Windows Virtual Desktop PowerShell module if you don't have it already. Install the Windows Virtual Desktop PowerShell module from the PowerShell Gallery by running this cmdlet:
+
+```powershell
+PS C:\> Install-Module WindowsVirtualDesktop
+```
 
 ## How does Windows Virtual Desktop work?
 
@@ -61,7 +67,7 @@ Each host pool may have one or more app groups. An app group is a logical groupi
 
 ### End-users
 
-Once their Windows Virtual Desktop accounts are set up, users can connect to a Windows Virtual Desktop deployment with either a Windows client or the Remote Desktop web client.
+Once their Windows Virtual Desktop accounts are set up, users can connect to a Windows Virtual Desktop deployment with either a Windows client or the [Remote Desktop web client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin).
 
 ## Solutions that benefit from Windows Virtual Desktop
 

@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 11/21/2018
+ms.date: 02/20/2019
 ms.author: helohr
 ---
 # Create a host pool with an Azure Resource Manager template (Preview)

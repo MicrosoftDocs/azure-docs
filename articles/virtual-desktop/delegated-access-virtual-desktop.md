@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 02/20/2019
 ms.author: helohr
 ---
 # Delegated access in Windows Virtual Desktop (Preview)
