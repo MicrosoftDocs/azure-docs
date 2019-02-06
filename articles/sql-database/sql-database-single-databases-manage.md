@@ -47,7 +47,7 @@ To manage an existing database, navigate to the **SQL databases** page and click
 > [!IMPORTANT]
 > To configure performance properties for a database, see [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 > [!TIP]
-> For an Azure portal quickstart, see [Create an Azure SQL database in the Azure portal](sql-database-get-started-portal.md).
+> For an Azure portal quickstart, see [Create an Azure SQL database in the Azure portal](sql-database-single-database-get-started.md).
 
 ## PowerShell: Manage SQL Database servers and single databases
 

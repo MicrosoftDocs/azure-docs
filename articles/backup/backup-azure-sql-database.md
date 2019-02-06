@@ -198,6 +198,7 @@ To ensure smooth backups using Azure Backup for SQL Server in IaaS VM, avoid the
 
   * Trailing/Leading spaces
   * Trailing ‘!’
+  * Close square bracket ‘]’
 
 We do have aliasing for Azure table unsupported characters, but we recommend avoiding those as well. For more information see this [article](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 

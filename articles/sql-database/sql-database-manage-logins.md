@@ -43,13 +43,13 @@ The **Server admin** and **Azure AD admin** accounts has the following character
 - These accounts enter user databases as the `dbo` user and they have all the permissions in the user databases. (The owner of a user database also enters the database as the `dbo` user.) 
 - Do not enter the `master` database as the `dbo` user, and have limited permissions in master. 
 - Are **not** members of the standard SQL Server `sysadmin` fixed server role, which is not available in SQL database.  
-- Can create, alter, and drop databases, logins, users in master, and server-level firewall rules.
+- Can create, alter, and drop databases, logins, users in master, and server-level IP firewall rules.
 - Can add and remove members to the `dbmanager` and `loginmanager` roles.
 - Can view the `sys.sql_logins` system table.
 
 ### Configuring the firewall
 
-When the server-level firewall is configured for an individual IP address or range, the **SQL server admin** and the **Azure Active Directory admin** can connect to the master database and all the user databases. The initial server-level firewall can be configured through the [Azure portal](sql-database-get-started-portal.md), using [PowerShell](sql-database-powershell-samples.md) or using the [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Once a connection is made, additional server-level firewall rules can also be configured by using [Transact-SQL](sql-database-configure-firewall-settings.md).
+When the server-level firewall is configured for an individual IP address or range, the **SQL server admin** and the **Azure Active Directory admin** can connect to the master database and all the user databases. The initial server-level firewall can be configured through the [Azure portal](sql-database-single-database-get-started.md), using [PowerShell](sql-database-powershell-samples.md) or using the [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx). Once a connection is made, additional server-level IP firewall rules can also be configured by using [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### Administrator access path
 
@@ -61,7 +61,7 @@ When using an open port in the server-level firewall, administrators can connect
 
 ### Connecting to a database by using SQL Server Management Studio
 
-For a walk-through of creating a server, a database, server-level firewall rules, and using SQL Server Management Studio to query a database, see [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started-portal.md).
+For a walk-through of creating a server, a database, server-level IP firewall rules, and using SQL Server Management Studio to query a database, see [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-single-database-get-started.md).
 
 > [!IMPORTANT]
 > It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
