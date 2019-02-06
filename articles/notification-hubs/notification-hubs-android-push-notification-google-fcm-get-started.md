@@ -436,6 +436,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
     import android.os.Bundle;
     import android.support.v4.app.NotificationCompat;
     import com.microsoft.windowsazure.notifications.NotificationsHandler;    
+    import com.microsoft.windowsazure.notifications.NotificationsManager;
     ```
 
 13. Add the following code for the `MyHandler` class making it a subclass of `com.microsoft.windowsazure.notifications.NotificationsHandler`.
@@ -498,6 +499,7 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
     
                 NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
                 notificationManager.createNotificationChannel(channel);
+                NotificationsManager.handleNotifications(context, "", MyHandler.class);
             }
         }
     }
