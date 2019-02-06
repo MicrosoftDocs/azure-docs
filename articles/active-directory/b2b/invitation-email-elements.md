@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 02/06/2019
 
 ms.author: mimart
 author: msmimart
@@ -67,6 +67,14 @@ The footer contains the Microsoft company brand and lets the recipient know if t
 
   ![when recipient doesn't need to redeem invitation](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
+## How the language is determined
+The language used in the invitation email that's presented to the guest user is determined by the following settings. These settings are listed in order of precedence. If a setting isn’t configured, the next setting on the list determines the language. 
+- The **messageLanguage** property of the [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) object if the Create invitation API is used
+-	The **-PreferredLanguage** parameter specified in the guest user’s [AzureADUser](https://docs.microsoft.com/powershell/module/azuread/new-azureaduser?view=azureadps-2.0) object
+-	The **Notification language** set in the properties of the guest user’s home tenant (for Azure AD tenants only)
+-	The **Notification language** set in the properties of the resource tenant
+
+If none of these settings are configured, the language defaults to English (US).
 
 ## Next steps
 
