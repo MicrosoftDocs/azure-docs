@@ -60,7 +60,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## Create network resources
 
-Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet). You can then add the subnet named *myBackendSubnet* that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/network/public-ipwork_public_ip_create).
+Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet). You can then add the subnet named *myBackendSubnet* that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -129,7 +129,7 @@ az network application-gateway frontend-port create \
 
 ### Add the HTTP listener
 
-You can use [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listenerwork_application_gateway_http_listener_create) to add the listener named *myListener* to the application gateway.
+You can use [az network application-gateway http-listener create](/cli/azure/network/application-gateway/http-listener#az-network-application-gateway-http-listener-create) to add the listener named *myListener* to the application gateway.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
