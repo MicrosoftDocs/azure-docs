@@ -48,7 +48,7 @@ Because the storage service shares are for the exclusive use of storage services
 
 Shares on volumes hold tenant data. Tenant data includes page blobs, block blobs, append blobs, tables, queues, databases, and related metadata stores. Because the storage objects (blobs, etc.) are individually contained within a single share, the maximum size of each object cannot exceed the size of a share. The maximum size of new objects depends on the capacity that remains in a share as unused space when that new object is created.
 
-When a share is low on free space and actions to [reclaim](#reclaim-capacity) space are not successful or available, the Azure Stack cloud operator can [migrate](#migrate-a-container-between) the blob containers from one share to another.
+When a share is low on free space and actions to [reclaim](#reclaim-capacity) space are not successful or available, the Azure Stack cloud operator can migrate the blob containers from one share to another.
 
 - For more information about containers and blobs, see [Blob storage](azure-stack-key-features.md#blob-storage) in Key features and concepts in Azure Stack.
 - For information about how tenant users work with blob storage in Azure Stack, see [Azure Stack Storage services](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
