@@ -24,7 +24,9 @@ There are a variety of ways to seek support for the Azure IoT Edge product.
 ## Container engines
 Azure IoT Edge needs a container engine to launch modules since they are implemented as containers. Microsoft provides a container engine, moby-engine, to fulfill this requirement. It is based on the Moby open-source project. Docker CE and Docker EE are other popular container engines. They are also based on the Moby open-source project and are compatible with Azure IoT Edge. Microsoft provides best effort support for systems using those container engines; however, Microsoft does not have the ability to ship fixes for issues in them. For this reason, Microsoft recommends using moby-engine on production systems.
 
+<center>
 ![Moby as container runtime](./media/support/only-moby-for-production.png)
+</center>
 
 ## Operating systems
 Azure IoT Edge runs on most operating systems that can run containers; however, all of these are not equally supported. Operating systems are grouped into tiers that represent the level of support users can expect.
@@ -37,7 +39,9 @@ Azure IoT Edge runs on most operating systems that can run containers; however, 
     
 The family of the host OS must always match the family of the guest OS used inside a module's container. In other words, you can only use Linux containers on Linux and Windows containers on Windows. When using Windows, only process isolated containers are supported, not hyper-v isolated containers.  
 
+<center>
 ![Host OS matches guest OS](./media/support/edge-on-device.png)
+</center>
 
 ### Tier 1
 Generally available
@@ -73,8 +77,9 @@ The Windows OSes above are the requirements for devices which run Windows contai
 ## Virtual Machines
 Azure IoT Edge can be run in virtual machines. This is common when customers want to augment existing infrastructure with edge intelligence. The family of the host VM OS must match the family of the guest OS used inside a module's container. This is the same requirement when Azure IoT Edge is run directly on a device. Azure IoT Edge is agnostic of the underlying virtualization technology and works in VMs powered by platforms like Hyper-V and vSphere.
 
+<center>
 ![Azure IoT Edge in a VM](./media/support/edge-on-vm.png)
-
+</center>
 
 ## Minimum system requirements
 Azure IoT Edge runs great on devices as small as a Raspberry Pi3 to server grade hardware. Choosing the right hardware for your scenario is very dependent on the workloads that you want to run. Making the final device decision can be complicated; however, you can easily start prototyping a solution on traditional laptops or desktops.
