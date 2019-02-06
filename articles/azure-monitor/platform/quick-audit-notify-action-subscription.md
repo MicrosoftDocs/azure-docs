@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Audit and receive notifications about important actions in your Azure subscription
@@ -93,4 +93,5 @@ When no longer needed, delete the resource group and network security group. To 
 In this quick start, you performed an operation to generate an Activity Log event and then created an Activity Log alert to become notified when this operation occurs again in the future. You then tested the alert by performing that operation again. Azure makes available Activity Log events from the past 90 days. If you need to retain events longer than 90 days, try archiving your Activity Log data alongside your other monitoring data.
 
 > [!div class="nextstepaction"]
-> [Archive monitoring data](./../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md)
+> [Archive monitoring data](./../../azure-monitor/learn/tutorial-archive-data.md)
+

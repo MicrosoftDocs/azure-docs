@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights reference data - How to add a reference data set to your Azure Time Series Insights environment | Microsoft Docs
+title: 'How to add a reference data set to your Azure Time Series Insights environment | Microsoft Docs'
 description: This article describes how to add a reference data set to augment data in your Azure Time Series Insights environment.
 ms.service: time-series-insights
 services: time-series-insights
@@ -95,4 +95,4 @@ Reference data is not joined retroactively. This means that only current and fut
 
 ## Next steps
 * [Manage reference data](time-series-insights-manage-reference-data-csharp.md) programmatically.
-* For the complete API reference, see [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) document.
+* For the complete API reference, see [Reference Data API](/rest/api/time-series-insights/ga-reference-data-api) document.

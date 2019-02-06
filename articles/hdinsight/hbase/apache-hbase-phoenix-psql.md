@@ -14,7 +14,7 @@ ms.author: ashishth
 ---
 # Bulk load data into Apache Phoenix using psql
 
-[Apache Phoenix](http://phoenix.apache.org/) is an open source, massively parallel relational database built on [Apache HBase](../hbase/apache-hbase-overview.md). Phoenix provides SQL-like queries over HBase. Phoenix uses JDBC drivers to enable users to create, delete, and alter SQL tables, indexes, views and sequences, and upsert rows individually and in bulk. Phoenix uses noSQL native compilation rather than using MapReduce to compile queries, to create low-latency applications on top of HBase. Phoenix adds co-processors to support running client-supplied code in the address space of the server, executing the code co-located with the data. This minimizes client/server data transfer.  To work with data using Phoenix in HDInsight, first create tables and then load data into them.
+[Apache Phoenix](https://phoenix.apache.org/) is an open source, massively parallel relational database built on [Apache HBase](../hbase/apache-hbase-overview.md). Phoenix provides SQL-like queries over HBase. Phoenix uses JDBC drivers to enable users to create, delete, and alter SQL tables, indexes, views and sequences, and upsert rows individually and in bulk. Phoenix uses noSQL native compilation rather than using MapReduce to compile queries, to create low-latency applications on top of HBase. Phoenix adds co-processors to support running client-supplied code in the address space of the server, executing the code co-located with the data. This minimizes client/server data transfer.  To work with data using Phoenix in HDInsight, first create tables and then load data into them.
 
 ## Bulk loading with Apache Phoenix
 
@@ -69,7 +69,7 @@ Before you start loading data, verify that Phoenix is enabled and that query tim
     python psql.py ZookeeperQuorum createCustomersTable.sql /tmp/customers.csv listCustomers.sql
     ```
 
-    > [!NOTE] 
+    > [!NOTE]   
     > To determine the `ZookeeperQuorum` name, locate the [Apache ZooKeeper](https://zookeeper.apache.org/) quorum string in the file `/etc/hbase/conf/hbase-site.xml` with property name `hbase.zookeeper.quorum`.
 
 5. After the `psql` operation has completed, you should see a message in your command window:
@@ -137,7 +137,7 @@ For higher-throughput loading distributed over the cluster, use the MapReduce lo
 
 ## Next steps
 
-* [Bulk Data Loading with Apache Phoenix](http://phoenix.apache.org/bulk_dataload.html)
+* [Bulk Data Loading with Apache Phoenix](https://phoenix.apache.org/bulk_dataload.html)
 * [Use Apache Phoenix with Linux-based Apache HBase clusters in HDInsight](../hbase/apache-hbase-phoenix-squirrel-linux.md)
 * [Salted Tables](https://phoenix.apache.org/salted.html)
-* [Phoenix Grammar](http://phoenix.apache.org/language/index.html)
+* [Apache Phoenix Grammar](https://phoenix.apache.org/language/index.html)

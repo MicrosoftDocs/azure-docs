@@ -132,7 +132,7 @@ No, your cache name and keys are unchanged during a scaling operation.
 ### Will I lose data from my cache during scaling?
 * When a **Basic** cache is scaled to a new size, all data is lost and the cache is unavailable during the scaling operation.
 * When a **Basic** cache is scaled to a **Standard** cache, the data in the cache is typically preserved.
-* When a **Standard** cache is scaled to a larger size or tier, or a **Premium** cache is scaled to a larger size, all data is typically preserved. When scaling a **Standard** or **Premium** cache down to a smaller size, data may be lost depending on how much data is in the cache related to the new size when it is scaled. If data is lost when scaling down, keys are evicted using the [allkeys-lru](http://redis.io/topics/lru-cache) eviction policy. 
+* When a **Standard** cache is scaled to a larger size or tier, or a **Premium** cache is scaled to a larger size, all data is typically preserved. When scaling a **Standard** or **Premium** cache down to a smaller size, data may be lost depending on how much data is in the cache related to the new size when it is scaled. If data is lost when scaling down, keys are evicted using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy. 
 
 ### Is my custom databases setting affected during scaling?
 If you configured a custom value for the `databases` setting during cache creation, keep in mind that some pricing tiers have different [databases limits](cache-configure.md#databases). Here are some considerations when scaling in this scenario:

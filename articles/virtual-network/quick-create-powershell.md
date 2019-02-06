@@ -1,15 +1,12 @@
 ﻿---
-title: Create a virtual network - quickstart - Azure PowerShell | Microsoft Docs
+title: Create a virtual network - quickstart - Azure PowerShell
+titlesuffix: Azure Virtual Network
 description: In this quickstart, you learn to create a virtual network using the Azure portal. A virtual network lets Azure resources, like virtual machines, communicate privately with each other, and with the internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: 
 ms.topic: quickstart
@@ -17,7 +14,6 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: jdial
-ms.custom: mvc
 ---
 
 # Quickstart: Create a virtual network using PowerShell
@@ -28,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-If you decide to install and use PowerShell locally instead, this quickstart requires you to use AzureRM PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable AzureRM`. See [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) for install and upgrade info.
+If you decide to install and use PowerShell locally instead, this quickstart requires you to use AzureRM PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable AzureRM`. See [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) for install and upgrade info.
 
 Finally, if you're running PowerShell locally, you'll also need to run `Connect-AzureRmAccount`. That command creates a connection with Azure.
 

@@ -1,14 +1,12 @@
 ---
 title: 'Azure Cosmos DB: SQL Async Java API, SDK & resources'
 description: Learn all about the SQL Async Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Async Java SDK.
-services: cosmos-db
-author: SnehaGunda
-
+author: moderakh
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/29/2018
+ms.date: 2/4/2019
 ms.author: moderakh
 
 ---
@@ -33,7 +31,7 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 
 <tr><td>**SDK Download**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**API documentation**</td><td>[Java API reference documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client?view=azure-java-stable)</td></tr>
+<tr><td>**API documentation**</td><td>[Java API reference documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient?view=azure-java-stable)</td></tr>
 
 <tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
@@ -47,6 +45,18 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 </table></br>
 
 ## Release notes
+
+### <a name="2.4.0-beta-1"/>2.4.0-beta-1
+* Added support for Direct.
+* Changed the APIs accepting java.util.Collection for which order is important to accept java.util.List instead.
+  Now ConnectionPolicy#getPreferredLocations(), JsonSerialization, and PartitionKey(.) accept List.
+* Fixed a session bug for document query in gateway mode.
+* Upgraded dependencies (netty 0.4.20 [github #79](https://github.com/Azure/azure-cosmosdb-java/issues/79), RxJava 1.3.8).
+
+### <a name="2.3.1"/>2.3.1
+* Fixes handling very large query responses.
+* Fixes resource token handling when instantiating client ([github #78](https://github.com/Azure/azure-cosmosdb-java/issues/78)).
+* Upgraded vulnerable dependency jackson-databind ([github #77](https://github.com/Azure/azure-cosmosdb-java/pull/77)).
 
 ### <a name="2.3.0"/>2.3.0
 * Fixed a resource leak bug.
@@ -122,6 +132,8 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.4.0-beta-1](#2.4.0-beta-1) |Feb 4, 2019|--- |
+| [2.3.1](#2.3.1) |Jan 15, 2019|--- |
 | [2.3.0](#2.3.0) |Nov 29, 2018|--- |
 | [2.2.2](#2.2.2) |Nov 8, 2018|--- |
 | [2.2.1](#2.2.1) |Nov 2, 2018|--- |

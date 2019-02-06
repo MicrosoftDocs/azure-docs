@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning service
 description: Learn how Azure Machine Learning service can automatically pick an algorithm for you, and generate a model from it to save you time by using the parameters and criteria you provide to select the best algorithm for your model.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 author: nacharya1
 ms.author: nilesha
-ms.date: 12/04/2018
+ms.date: 12/12/2018
 ms.custom: seodec18
 
 ---
@@ -61,9 +61,10 @@ Follow this [sample notebook](https://github.com/Azure/MachineLearningNotebooks/
 ## Next steps
 
 See examples and learn how to build models using Automated Machine Learning:
++ [Samples: Use Jupyter notebooks to explore Azure Machine Learning service](samples-notebooks.md#automated-ml-setup)
 
 + [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
 
-+ [Configure settings for automatic training](how-to-configure-auto-train.md)
++ [Use automatic training on a remote resource](how-to-auto-train-remote.md)
 
-+ [Use automatic training on a remote resource](how-to-auto-train-remote.md) 
++ [Configure settings for automatic training](how-to-configure-auto-train.md)

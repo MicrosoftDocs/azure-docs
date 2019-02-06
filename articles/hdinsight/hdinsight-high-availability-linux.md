@@ -43,7 +43,7 @@ Nimbus nodes are available with Apache Storm clusters. The Nimbus nodes provide 
 
 ### Apache Zookeeper nodes
 
-[ZooKeeper](http://zookeeper.apache.org/) nodes are used for leader election of master services on head nodes. They are also used to insure that services, data (worker) nodes, and gateways know which head node a master service is active on. By default, HDInsight provides three ZooKeeper nodes.
+[ZooKeeper](https://zookeeper.apache.org/) nodes are used for leader election of master services on head nodes. They are also used to insure that services, data (worker) nodes, and gateways know which head node a master service is active on. By default, HDInsight provides three ZooKeeper nodes.
 
 ### Worker nodes
 
@@ -188,7 +188,7 @@ Once connected, you are presented with a `sftp>` prompt. From this prompt, you c
 For a list of available commands, enter `help` at the `sftp>` prompt.
 
 > [!NOTE]  
-> There are also graphical interfaces that allow you to visualize the file system when connected using SFTP. For example, [MobaXTerm](http://mobaxterm.mobatek.net/) allows you to browse the file system using an interface similar to Windows Explorer.
+> There are also graphical interfaces that allow you to visualize the file system when connected using SFTP. For example, [MobaXTerm](https://mobaxterm.mobatek.net/) allows you to browse the file system using an interface similar to Windows Explorer.
 
 ### Ambari
 

@@ -16,7 +16,7 @@ ms.author: hrasheed
 
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
-Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning library with Azure HDInsight to generate movie recommendations. The example in this document uses Azure PowerShell to run Mahout jobs.
+Learn how to use the [Apache Mahout](https://mahout.apache.org) machine learning library with Azure HDInsight to generate movie recommendations. The example in this document uses Azure PowerShell to run Mahout jobs.
 
 ## Prerequisites
 
@@ -208,10 +208,10 @@ Now that you have learned how to use Apache Mahout, discover other ways of worki
 * [Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
 * [MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
-[build]: http://mahout.apache.org/developers/buildingmahout.html
+[build]: https://mahout.apache.org/developers/buildingmahout.html
 [aps]: /powershell/azureps-cmdlets-docs
-[movielens]: http://grouplens.org/datasets/movielens/
-[100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
+[movielens]: https://grouplens.org/datasets/movielens/
+[100k]: https://files.grouplens.org/datasets/movielens/ml-100k.zip
 [getstarted]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [upload]: hdinsight-upload-data.md
 [ml]: https://en.wikipedia.org/wiki/Machine_learning

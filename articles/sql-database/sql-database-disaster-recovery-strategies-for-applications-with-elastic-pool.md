@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 08/27/2018
+ms.date: 01/25/2019
 ---
 # Disaster recovery strategies for applications using SQL Database elastic pools
 

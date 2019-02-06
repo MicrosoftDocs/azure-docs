@@ -16,7 +16,7 @@ This article discusses how to query Avro data to efficiently route messages from
 
 The challenge has been that when Azure IoT Hub routes messages to Azure Blob storage, IoT Hub writes the content in Avro format, which has both a message body property and a message property. IoT Hub supports writing data to Blob storage only in the Avro data format, and this format is not used for any other endpoints. For more information, see an article about using Azure Storage containers. Although the Avro format is great for data and message preservation, it's a challenge to use it to query data. In comparison, JSON or CSV format is much easier for querying data.
 
-<!-- https://review.docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
+<!-- https://review.docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
 
 To address non-relational big-data needs and formats and overcome this challenge, you can use many of the big-data patterns for both transforming and scaling data. One of the patterns, "pay per query", is Azure Data Lake Analytics, which is the focus of this article. Although you can easily execute the query in Hadoop or other solutions, Data Lake Analytics is often better suited for this "pay per query" approach. 
 
@@ -166,7 +166,7 @@ In this section, you query Avro data and export it to a CSV file in Azure Blob s
 
 In this tutorial, you learned how to query Avro data to efficiently route messages from Azure IoT Hub to Azure services.
 
-For examples of complete end-to-end solutions that use IoT Hub, see the [Azure IoT Solution Accelerators Documentation](../iot-accelerators/index.yml).
+For examples of complete end-to-end solutions that use IoT Hub, see the [Azure IoT Solution Accelerators Documentation](/azure/iot-accelerators).
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).
 

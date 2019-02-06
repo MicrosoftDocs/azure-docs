@@ -12,8 +12,6 @@ ms.author: iainfou
 
 # Best practices for container image management and security in Azure Kubernetes Service (AKS)
 
-As you develop and run applications in Azure Kubernetes Service (AKS), the security of your containers is a key consideration. Containers that include out-of-date base images or application runtime introduce a security risk and possible attack vector. To minimize these risks, you should integrate tools that scan for and remediate issues in your containers.
-
 As you develop and run applications in Azure Kubernetes Service (AKS), the security of your containers and container images is a key consideration. Containers that include out of date base images or unpatched application runtimes introduce a security risk and possible attack vector. To minimize these risks, you should integrate tools that scan for and remediate issues in your containers at build time as well as runtime. The earlier in the process the vulnerability or out of date base image is caught, the more secure the cluster. In this article, *containers* means both the container images stored in a container registry, and the running containers.
 
 This article focuses on how to secure your containers in AKS. You learn how to:

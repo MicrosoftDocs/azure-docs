@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Use Application Insights to monitor web services deployed through Azure Machine Learning service 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
@@ -19,7 +19,7 @@ In this article, you learn how to set up Azure Application Insights for your Azu
 * Dependency rates, response times, and failure rates.
 * Exceptions.
 
-[Learn more about Application Insights](../../application-insights/app-insights-overview.md). 
+[Learn more about Application Insights](../../azure-monitor/app/app-insights-overview.md). 
 
 
 ## Prerequisites
@@ -120,7 +120,7 @@ To view it:
 
    [![Custom traces](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
-To learn more about how to use Application Insights, see [What is Application Insights?](../../application-insights/app-insights-overview.md).
+To learn more about how to use Application Insights, see [What is Application Insights?](../../azure-monitor/app/app-insights-overview.md).
     
 
 ## Example notebook

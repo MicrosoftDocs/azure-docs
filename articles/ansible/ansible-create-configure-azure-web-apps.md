@@ -3,7 +3,7 @@ title: Create Azure web apps by using Ansible
 description: Learn how to use Ansible to create a web app with Java 8 and the Tomcat container runtime in App Service on Linux
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, Java
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
@@ -11,7 +11,7 @@ ms.date: 12/08/2018
 ---
 
 # Create Azure App Service web apps by using Ansible
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (or just Web Apps) hosts web applications, REST APIs, and mobile backends. You can develop in your favorite language&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (or just Web Apps) hosts web applications, REST APIs, and mobile backends. You can develop in your favorite language&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
 
 Ansible enables you to automate the deployment and configuration of resources in your environment. This article shows you how to use Ansible to create a web app by using the Java runtime. 
 
@@ -88,7 +88,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ## Create an app service by using Traffic Manager
 You can use [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) to control how requests from web clients are distributed to apps in Azure App Service. When App Service endpoints are added to an Azure Traffic Manager profile, Traffic Manager tracks the status of your App Service apps. Statuses include running, stopped, and deleted. Traffic Manager can then decide which of those endpoints should receive traffic.
 
-In App Service, an app runs in an [App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
+In App Service, an app runs in an [App Service plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans
 ). An App Service plan defines a set of compute resources for a web app to run. You can manage your App Service plan and web app in different groups.
 
 This section presents a sample Ansible playbook that defines the following resources:

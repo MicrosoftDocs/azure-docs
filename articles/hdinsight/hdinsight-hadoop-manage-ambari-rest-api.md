@@ -22,7 +22,7 @@ Apache Ambari simplifies the management and monitoring of a Hadoop cluster by pr
 
 ## <a id="whatis"></a>What is Apache Ambari
 
-[Apache Ambari](http://ambari.apache.org) provides web UI that can be used to manage and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the [Ambari REST APIs](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+[Apache Ambari](https://ambari.apache.org) provides web UI that can be used to manage and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the [Ambari REST APIs](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 Ambari is provided by default with Linux-based HDInsight clusters.
 
@@ -228,7 +228,7 @@ foreach($item in $respObj.items) {
 
 ## Example: Get the default storage
 
-When you create an HDInsight cluster, you must use an Azure Storage Account or Data Lake Store as the default storage for the cluster. You can use Ambari to retrieve this information after the cluster has been created. For example, if you want to read/write data to the container outside HDInsight.
+When you create an HDInsight cluster, you must use an Azure Storage Account or Data Lake Storage as the default storage for the cluster. You can use Ambari to retrieve this information after the cluster has been created. For example, if you want to read/write data to the container outside HDInsight.
 
 The following examples retrieve the default storage configuration from the cluster:
 
@@ -251,9 +251,9 @@ The return value is similar to one of the following examples:
 
 * `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` - This value indicates that the cluster is using an Azure Storage account for default storage. The `ACCOUNTNAME` value is the name of the storage account. The `CONTAINER` portion is the name of the blob container in the storage account. The container is the root of the HDFS compatible storage for the cluster.
 
-* `adl://home` - This value indicates that the cluster is using an Azure Data Lake Store for default storage.
+* `adl://home` - This value indicates that the cluster is using Azure Data Lake Storage for default storage.
 
-    To find the Data Lake Store account name, use the following examples:
+    To find the Data Lake Storage account name, use the following examples:
 
     ```bash
     curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -267,9 +267,9 @@ The return value is similar to one of the following examples:
     $respObj.items.configurations.properties.'dfs.adls.home.hostname'
     ```
 
-    The return value is similar to `ACCOUNTNAME.azuredatalakestore.net`, where `ACCOUNTNAME` is the name of the Data Lake Store account.
+    The return value is similar to `ACCOUNTNAME.azuredatalakestore.net`, where `ACCOUNTNAME` is the name of the Data Lake Storage account.
 
-    To find the directory within Data Lake Store that contains the storage for the cluster, use the following examples:
+    To find the directory within Data Lake Storage that contains the storage for the cluster, use the following examples:
 
     ```bash
     curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" \
@@ -283,7 +283,7 @@ The return value is similar to one of the following examples:
     $respObj.items.configurations.properties.'dfs.adls.home.mountpoint'
     ```
 
-    The return value is similar to `/clusters/CLUSTERNAME/`. This value is a path within the Data Lake Store account. This path is the root of the HDFS compatible file system for the cluster. 
+    The return value is similar to `/clusters/CLUSTERNAME/`. This value is a path within the Data Lake Storage account. This path is the root of the HDFS compatible file system for the cluster. 
 
 > [!NOTE]  
 > The `Get-AzureRmHDInsightCluster` cmdlet provided by [Azure PowerShell](/powershell/azure/overview) also returns the storage information for the cluster.

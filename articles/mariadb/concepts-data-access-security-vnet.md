@@ -3,8 +3,6 @@ title: 'Azure Database for MariaDB Server VNet services endpoint overview | Micr
 description: 'Describes how VNet service endpoints work for your Azure Database for MariaDB server.'
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/19/2018

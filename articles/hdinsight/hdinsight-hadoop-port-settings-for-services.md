@@ -153,7 +153,7 @@ Examples:
 
 | Service | Nodes | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
-| Broker |Worker nodes |9092 |[Kafka Wire Protocol](http://kafka.apache.org/protocol.html) |Used for client communication |
+| Broker |Worker nodes |9092 |[Kafka Wire Protocol](https://kafka.apache.org/protocol.html) |Used for client communication |
 | &nbsp; |Zookeeper nodes |2181 |&nbsp; |The port that clients use to connect to Zookeeper |
 
 ### Spark ports

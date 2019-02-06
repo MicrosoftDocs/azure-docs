@@ -4,15 +4,13 @@ description: Describes the parameters section of Azure Resource Manager template
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 02/03/2019
 ms.author: tomfitz
 
 ---
@@ -87,9 +85,9 @@ The preceding example showed only some of the properties you can use in the para
 | allowedValues |No |Array of allowed values for the parameter to make sure that the right value is provided. |
 | minValue |No |The minimum value for int type parameters, this value is inclusive. |
 | maxValue |No |The maximum value for int type parameters, this value is inclusive. |
-| minLength |No |The minimum length for string, securestring, and array type parameters, this value is inclusive. |
-| maxLength |No |The maximum length for string, securestring, and array type parameters, this value is inclusive. |
-| description |No |Description of the parameter that is displayed to users through the portal. |
+| minLength |No |The minimum length for string, secure string, and array type parameters, this value is inclusive. |
+| maxLength |No |The maximum length for string, secure string, and array type parameters, this value is inclusive. |
+| description |No |Description of the parameter that is displayed to users through the portal. For more information, see [Comments in templates](resource-group-authoring-templates.md#comments). |
 
 ## Template functions with parameters
 
@@ -184,74 +182,6 @@ Then, reference the subproperties of the parameter by using the dot operator.
 ]
 ```
 
-## Recommendations
-The following information can be helpful when you work with parameters:
-
-* Minimize your use of parameters. Whenever possible, use a variable or a literal value. Use parameters only for these scenarios:
-   
-   * Settings that you want to use variations of according to environment (SKU, size, capacity).
-   * Resource names that you want to specify for easy identification.
-   * Values that you use frequently to complete other tasks (such as an admin user name).
-   * Secrets (such as passwords).
-   * The number or array of values to use when you create more than one instance of a resource type.
-* Use camel case for parameter names.
-* Provide a description of every parameter in the metadata:
-
-   ```json
-   "parameters": {
-       "storageAccountType": {
-           "type": "string",
-           "metadata": {
-               "description": "The type of the new storage account created to store the VM disks."
-           }
-       }
-   }
-   ```
-
-* Define default values for parameters (except for passwords and SSH keys). By specifying a default value, the parameter becomes optional during deployment. The default value can be an empty string. 
-   
-   ```json
-   "parameters": {
-        "storageAccountType": {
-            "type": "string",
-            "defaultValue": "Standard_GRS",
-            "metadata": {
-                "description": "The type of the new storage account created to store the VM disks."
-            }
-        }
-   }
-   ```
-
-* Use **securestring** for all passwords and secrets. If you pass sensitive data in a JSON object, use the **secureObject** type. Template parameters with securestring or secureObject types can't be read after resource deployment. 
-   
-   ```json
-   "parameters": {
-       "secretValue": {
-           "type": "securestring",
-           "metadata": {
-               "description": "The value of the secret to store in the vault."
-           }
-       }
-   }
-   ```
-
-* Use a parameter to specify location, and share that parameter value as much as possible with resources that are likely to be in the same location. This approach minimizes the number of times users are asked to provide location information. If a resource type is supported in only a limited number of locations, you might want to specify a valid location directly in the template, or add another location parameter. When an organization limits the allowed regions for its users, the **resourceGroup().location** expression might prevent a user from deploying the template. For example, one user creates a resource group in a region. A second user must deploy to that resource group but does not have access to the region. 
-   
-   ```json
-   "resources": [
-     {
-         "name": "[variables('storageAccountName')]",
-         "type": "Microsoft.Storage/storageAccounts",
-         "apiVersion": "2016-01-01",
-         "location": "[parameters('location')]",
-         ...
-     }
-   ]
-   ```
-    
-* Avoid using a parameter or variable for the API version for a resource type. Resource properties and values can vary by version number. IntelliSense in a code editor cannot determine the correct schema when the API version is set to a parameter or variable. Instead, hard-code the API version in the template.
-* Avoid specifying a parameter name in your template that matches a parameter in the deployment command. Resource Manager resolves this naming conflict by adding the postfix **FromTemplate** to the template parameter. For example, if you include a parameter named **ResourceGroupName** in your template, it conflicts with the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. During deployment, you are prompted to provide a value for **ResourceGroupNameFromTemplate**.
-
 ## Example templates
 
 These example templates demonstrate some scenarios for using parameters. Deploy them to test how parameters are handled in different scenarios.
@@ -265,5 +195,5 @@ These example templates demonstrate some scenarios for using parameters. Deploy 
 
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
 * For how to input the parameter values during deployment, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md). 
-* For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md).
+* For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md).
 * For information about using a parameter object, see [Use an object as a parameter in an Azure Resource Manager template](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).

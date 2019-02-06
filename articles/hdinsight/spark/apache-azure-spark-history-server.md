@@ -20,7 +20,7 @@ Apache Spark History Server is the web UI for completed and running Spark applic
 
 ### Open the Apache Spark History Server Web UI from Azure portal
 
-1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#showClusters).
 2. From **Quick Links**, click **Cluster Dashboard**, and then click **Spark History Server**. When prompted, enter the admin credentials for the Spark cluster. 
 
     ![Spark History Server](./media/apache-azure-spark-history-server/launch-history-server.png "Spark History Server")
@@ -113,7 +113,7 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
     ![graph color sample, failed](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
-    > [!NOTE]
+    > [!NOTE]  
     > Playback for each job is allowed. For incomplete job, playback is not supported.
 
 
@@ -126,8 +126,8 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
     ![graph tooltip](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
 
 + In job graph tab, stages will have tooltip and small icon displayed if they have tasks meet the below conditions:
-    + Data skew: data read size > average data read size of all tasks inside this stage * 2 and data read size > 10 MB
-    + Time skew: execution time > average execution time of all tasks inside this stage * 2 and execution time > 2 mins
+    + Data skew: data read size > average data read size of all tasks inside this stage * 2 and data read size > 10 MB.
+    + Time skew: execution time > average execution time of all tasks inside this stage * 2 and execution time > 2 mins.
 
     ![graph skew icon](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
@@ -141,10 +141,10 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
     + Row count: the sum of input records, output records, shuffle read records and shuffle write records.
     + Progress.
 
-    > [!NOTE]
+    > [!NOTE]  
     > By default, the job graph node will display information from last attempt of each stage (except for stage execution time), but during playback graph node will show information of each attempt.
 
-    > [!NOTE]
+    > [!NOTE]  
     > For data size of read and write we use 1MB = 1000 KB = 1000 * 1000 Bytes.
 
 + Send feedback with issues by clicking **Provide us feedback**.

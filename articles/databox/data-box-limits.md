@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 12/20/2018
 ms.author: alkohli
 ---
 # Azure Data Box limits
@@ -17,7 +17,6 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box. T
 
 ## Data Box service limits
 
- - Data Box service is available only within US at all the [Azure regions for Azure public cloud](https://azure.microsoft.com/regions/).
  - If using multiple storage accounts with Data Box service, all the storage accounts need to belong to the same Azure region only.
  - We recommend that you use no more than three storage accounts. Using more storage accounts could potentially impact the performance.
 

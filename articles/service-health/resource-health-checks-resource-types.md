@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 11/15/2018
+ms.date: 01/29/2019
 ms.author: stbaron
 ---
 
@@ -111,6 +111,11 @@ Below is a complete list of all the checks executed through resource health by r
 |Executed Checks|
 |---|
 |<ul><li>Can diagnostics operations be performed on the cluster?</li></ul>|
+
+## Microsoft.ServiceBus/namespaces
+|Executed Checks|
+|---|
+|<ul><li>Are customers experiencing user generated Service Bus errors?</li><li>Are users experiencing an increase in transient errors due to a Service Bus namespace upgrade?</li></ul>|
 
 ## Microsoft.SQL/Server/database
 |Executed Checks|

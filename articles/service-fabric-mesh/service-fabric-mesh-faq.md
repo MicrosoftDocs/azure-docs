@@ -74,7 +74,7 @@ To delete the resource group, use the `az group delete <nameOfResourceGroup>` co
 
 ## Supported container OS images
 
-If you are developing on a Windows Fall Creators Update (version 1709) machine, you can only use Windows version 1709 docker docker images.
+If you are developing on a Windows Fall Creators Update (version 1709) machine, you can only use Windows version 1709 docker images.
 
 If you are developing on a Windows 10 April 2018 update (version 1803) machine, you can use either Windows version 1709 or Windows version 1803 docker images.
 
@@ -88,15 +88,15 @@ The following container OS images can be used to deploy services:
 
 ## Developer experience issues
 
-### DNS resolution from an outbound container doesn't work
+### DNS resolution from a container doesn't work
 
-Service-to-service communication may fail under certain circumstances. This is being  investigated. To mitigate:
+Outgoing DNS queries from a container to the Service Fabric DNS service may fail under certain circumstances. This is being investigated. To mitigate:
 
 - Use Windows Fall Creators update (version 1709) or higher as your base container image.
 - If the service name alone doesn't work, try the fully qualified name: ServiceName.ApplicationName.
 - In the Docker file for your service, add `EXPOSE <port>` where port is the port you are exposing your service on. For example:
 
-```
+```DockerFile
 EXPOSE 80
 ```
 

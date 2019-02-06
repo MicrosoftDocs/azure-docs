@@ -71,7 +71,7 @@ Use of ASEs for this architecture are allowed for the following controls/configu
 The [Guidance and recommendations](#guidance-and-recommendations) section contains additional information about ASEs.
 
 **Azure Web App**:
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service/) enables customers to build and host web applications in the programming language of their choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo.
+[Azure App Service](https://docs.microsoft.com/azure/app-service/) enables customers to build and host web applications in the programming language of their choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo.
 
 ### Virtual Network
 The architecture defines a private virtual network with an address space of 10.200.0.0/16.
@@ -170,7 +170,7 @@ Additionally, the following monitoring solutions are included as a part of this 
 
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/fedrampPaaSWebAppDFD) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![PaaS Web Application for FedRAMP threat model](images/fedramp-paaswa-threat-model.png?raw=true "PaaS Web Applicaiton for FedRAMP threat model")
+![PaaS Web Application for FedRAMP threat model](images/fedramp-paaswa-threat-model.png?raw=true "PaaS Web Application for FedRAMP threat model")
 
 ## Compliance documentation
 The [Azure Security and Compliance Blueprint - FedRAMP High Customer Responsibility Matrix](https://aka.ms/blueprinthighcrm) lists all security controls required by the FedRAMP High baseline. The matrix denotes whether the implementation of each control is the responsibility of Microsoft, the customer, or shared between the two.

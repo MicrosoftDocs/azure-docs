@@ -12,7 +12,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer:
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 01/03/2019
 ---
 # Always Encrypted: Protect sensitive data and store encryption keys in Azure Key Vault
 
@@ -54,6 +54,7 @@ You can quickly create a key vault by running the following script. For a detail
     $userPrincipalName = '<username@domain.com>'
     $applicationId = '<application ID from your AAD application>'
     $resourceGroupName = '<resource group name>'
+    # Use the same resource group name when creating your SQL Database below
     $location = '<datacenter location>'
     $vaultName = 'AeKeyVault'
 
@@ -74,7 +75,7 @@ You can quickly create a key vault by running the following script. For a detail
 ## Create a blank SQL database
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Go to **Create a resource** > **Databases** > **SQL Database**.
-3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed directions about how to create a database in the Azure portal, see [Your first Azure SQL database](sql-database-get-started-portal.md).
+3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed directions about how to create a database in the Azure portal, see [Your first Azure SQL database](sql-database-single-database-get-started.md).
    
     ![Create a blank database](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 

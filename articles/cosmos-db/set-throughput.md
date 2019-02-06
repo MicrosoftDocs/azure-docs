@@ -1,8 +1,7 @@
 ---
-title: Provision throughput for Azure Cosmos DB 
+title: Provision throughput on Azure Cosmos containers and databases
 description: Learn how to set provisioned throughput for your Azure Cosmos DB containers and databases.
 author: aliuy
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
@@ -10,7 +9,7 @@ ms.author: andrl
 
 ---
 
-# Provision throughput on Azure Cosmos containers and databases
+# Provision throughput on containers and databases
 
 An Azure Cosmos database is a unit of management for a set of containers. A database consists of a set of schema-agnostic containers. An Azure Cosmos container is the unit of scalability for both throughput and storage. A container is horizontally partitioned across a set of machines within an Azure region and is distributed across all Azure regions associated with your Azure Cosmos account.
 
@@ -24,9 +23,9 @@ Setting provisioned throughput on a container is the widely used option. While y
 
 It is recommended that you configure throughput at the container granularity when you want guaranteed performance for the container.
 
-Throughput provisioned on a Azure Cosmos container is uniformly distributed across all the logical partitions of the container. Since one or more logical partitions of a container are hosted by a resource partition, the physical partitions belong exclusively to the container and support the throughput provisioned on the container. The following image shows how a resource partition hosts one or more logical partitions of a container:
+Throughput provisioned on a Azure Cosmos container is uniformly distributed across all the logical partitions of the container. Since one or more logical partitions of a container are hosted by a physical partition, the physical partitions belong exclusively to the container and support the throughput provisioned on the container. The following image shows how a physical partition hosts one or more logical partitions of a container:
 
-![Resource partition](./media/set-throughput/resource-partition.png)
+![Physical partition](./media/set-throughput/resource-partition.png)
 
 ## Setting throughput on a database
 
@@ -46,9 +45,9 @@ It is recommended that you configure throughput on a database when you want to s
 
 All containers created inside a database with provisioned throughput must be created with a partition key. At any given point of time, the throughput allocated to a container within a database is distributed across all the logical partitions of that container. When you have containers sharing provisioned throughput on a database, you can't selectively apply the throughput to a specific container or a logical partition. If the workload on a logical partition consumes more than the throughput that is allocated to a specific logical partition, your operations will be rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire container or retry the operation. For more information on partitioning, see [Logical partitions](partition-data.md).
 
-Multiple logical partitions sharing the throughput provisioned to a database can be hosted on a single resource partition. While a single logical partition of a container is always scoped within a resource partition, 'L' logical partitions across 'C' containers sharing the provisioned throughput of a database can be mapped and hosted on 'R' physical partitions. The following image shows how a resource partition can host one or more logical partitions that belong to different containers within a database:
+Multiple logical partitions sharing the throughput provisioned to a database can be hosted on a single physical partition. While a single logical partition of a container is always scoped within a physical partition, 'L' logical partitions across 'C' containers sharing the provisioned throughput of a database can be mapped and hosted on 'R' physical partitions. The following image shows how a physical partition can host one or more logical partitions that belong to different containers within a database:
 
-![Resource partition](./media/set-throughput/resource-partition2.png)
+![Physical partition](./media/set-throughput/resource-partition2.png)
 
 ## Setting throughput on a database and a container
 

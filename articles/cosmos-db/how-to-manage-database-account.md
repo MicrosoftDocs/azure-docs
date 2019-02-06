@@ -1,16 +1,14 @@
 ---
 title: Learn how to manage database accounts in Azure Cosmos DB
 description: Learn how to manage database accounts in Azure Cosmos DB
-services: cosmos-db
 author: christopheranderson
-
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
 ---
 
-# Manage database accounts in Azure Cosmos DB
+# Manage an Azure Cosmos account
 
 This article describes how to manage your Azure Cosmos DB account. You learn how to set up multi-homing, add or remove a region, configure multiple write regions, and set up failover priorities. 
 

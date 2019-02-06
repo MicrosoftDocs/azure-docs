@@ -7,11 +7,13 @@ author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
+ms.custom: seodec18
 ---
+
 # Quickstart: Summary
 
 These quickstarts provide information and code samples to help you quickly get started using the Computer Vision service.

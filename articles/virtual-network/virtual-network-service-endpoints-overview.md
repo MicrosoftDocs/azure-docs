@@ -1,13 +1,10 @@
 ---
-title: Azure virtual network service endpoints | Microsoft Docs
+title: Azure virtual network service endpoints
+titlesuffix: Azure Virtual Network
 description: Learn how to enable direct access to Azure resources from a virtual network using service endpoints.
 services: virtual-network
 documentationcenter: na
 author: sumeetmittal
-manager: narayan
-editor: ''
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -39,7 +36,6 @@ This feature is available for the following Azure services and regions:
 
 **Preview**
 
-- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Available in preview in all Azure public cloud regions.
 - **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: Available in preview.
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
@@ -59,6 +55,7 @@ Service endpoints provide the following benefits:
 - The feature is available only to virtual networks deployed through the Azure Resource Manager deployment model.
 - Endpoints are enabled on subnets configured in Azure virtual networks. Endpoints cannot be used for traffic from your premises to Azure services. For more information, see [Securing Azure service access from on-premises](#securing-azure-services-to-virtual-networks)
 - For Azure SQL, a service endpoint applies only to Azure service traffic within a virtual network's region. For Azure Storage, to support RA-GRS and GRS traffic, endpoints also extend to include paired regions where the virtual network is deployed. Learn more about [Azure paired regions.](../best-practices-availability-paired-regions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-paired-regions).
+- For ADLS Gen 1, the VNet Integration capability is only available for virtual networks within the same region.
 
 ## Securing Azure services to virtual networks
 

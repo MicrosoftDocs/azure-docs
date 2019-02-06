@@ -174,7 +174,7 @@ In this section, you create the ability to handle redundancy.
 		        CreateFileInfosForAssetWithRest(_contextTarget, targetAsset, MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget);
 		
 		        // Check if the AssetFiles are now  associated with the asset.
-		        Console.WriteLine("Asset files assocated with the {0} asset:", targetAsset.Name);
+		        Console.WriteLine("Asset files associated with the {0} asset:", targetAsset.Name);
 		        foreach (var af in targetAsset.AssetFiles)
 		        {
 		            Console.WriteLine(af.Name);

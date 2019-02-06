@@ -15,16 +15,15 @@ ROBOTS: NOINDEX
 # Use the Apache Tez UI to debug Tez Jobs on Windows-based HDInsight
 The [Apache TEZ](https://tez.apache.org/) UI can be used to debug [Apache Hive](https://hive.apache.org/) jobs that use Tez as the execution engine. The Tez UI visualizes the job as a graph of connected items, can drill into each item, and retrieve statistics and logging information.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The steps in this document require an HDInsight cluster that uses Windows. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Prerequisites
 * A Windows-based HDInsight cluster. For steps on creating a new cluster, see [Get started using Windows-based HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md).
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > The Apache Tez UI is only available on Windows-based HDInsight clusters created after February 8th, 2016.
-  >
-  >
+
 * A Windows-based Remote Desktop client.
 
 ## Understanding Apache Tez
@@ -61,10 +60,8 @@ Use the following steps to run a Hive query that uses Tez.
         en-GB   Nairobi Area    Kenya
 
 ## Use the Tez UI
-> [!NOTE]
+> [!NOTE]  
 > The Tez UI is only available from the desktop of the cluster head nodes, so you must use Remote Desktop to connect to the head nodes.
->
->
 
 1. From the [Azure portal](https://portal.azure.com), select your HDInsight cluster. From the top of the HDInsight blade, select the **Remote Desktop** icon. This link displays the remote desktop blade
 
@@ -73,10 +70,9 @@ Use the following steps to run a Hive query that uses Tez.
 
     ![Remote desktop connect icon](./media/hdinsight-debug-tez-ui/remotedesktopconnect.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > If you have not enabled Remote Desktop connectivity, provide a user name, password, and expiration date, then select **Enable** to enable Remote Desktop. Once it has been enabled, use the previous steps to connect.
-   >
-   >
+
 3. Once connected, open Internet Explorer on the remote desktop, select the gear icon in the upper right of the browser, and then select **Compatibility View Settings**.
 4. From the bottom of **Compatibility View Settings**, clear the check box for **Display intranet sites in Compatibility View** and **Use Microsoft compatibility lists**, and then select **Close**.
 5. In Internet Explorer, browse to http://headnodehost:8188/tezui/#/. This displays the Tez UI
@@ -97,10 +93,8 @@ Use the following steps to run a Hive query that uses Tez.
    * **All Tasks** displays a list of the tasks for all vertices in this DAG.
    * **All TaskAttempts** displays information about the attempts to run tasks for this DAG.
 
-     > [!NOTE]
+     > [!NOTE]  
      > If you scroll the column display for Vertices, Tasks and TaskAttempts, notice that there are links to view **counters** and **view or download logs** for each row.
-     >
-     >
 
      If there was a failure with the job, the DAG Details display a status of FAILED, along with links to information about the failed task. Diagnostics information is be displayed beneath the DAG details.
 8. Select **Graphical View**. This displays a graphical representation of the DAG. You can place the mouse over each vertex in the view to display information about it.
@@ -111,20 +105,17 @@ Use the following steps to run a Hive query that uses Tez.
     ![Vertex details](./media/hdinsight-debug-tez-ui/vertexdetails.png)
 10. Note that you now have links at the top of the page that are related to vertices and tasks.
 
-    > [!NOTE]
+    > [!NOTE]  
     > You can also arrive at this page by going back to **DAG Details**, selecting **Vertex Details**, and then selecting the **Map 1** vertex.
-    >
-    >
 
     * **Vertex Counters** displays counter information for this vertex.
     * **Tasks** displays tasks for this vertex.
     * **Task Attempts** displays information about attempts to run tasks for this vertex.
     * **Sources & Sinks** displays data sources and sinks for this vertex.
 
-      > [!NOTE]
+      > [!NOTE]  
       > As with the previous menu, you can scroll the column display for Tasks, Task Attempts, and Sources & Sinks__ to display links to more information for each item.
-      >
-      >
+
 11. Select **Tasks**, and then select the item named **00_000000**. This link displays **Task Details** for this task. From this screen, you can view **Task Counters** and **Task Attempts**.
 
     ![Task details](./media/hdinsight-debug-tez-ui/taskdetails.png)

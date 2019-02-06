@@ -38,7 +38,7 @@
     href: powershell-samples.md
 - name: Concepts
   items:
-  - name: What is Load Balancer Standard?
+  - name: What is Standard Load Balancer?
     href: load-balancer-standard-overview.md
   - name: Health probes
     href: load-balancer-custom-probe-overview.md

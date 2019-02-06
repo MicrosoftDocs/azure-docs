@@ -4,8 +4,7 @@ description: Tutorial about using Terraform to configure and version an Azure vi
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, virtual machine, Azure, scale set, network, storage, modules
-author: tomarcher
-manager: jeconnoc
+author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
@@ -186,7 +185,7 @@ Within the Azure Cloud Shell, perform the following steps:
     name                         = "vmss-public-ip"
     location                     = "${var.location}"
     resource_group_name          = "${azurerm_resource_group.vmss.name}"
-    public_ip_address_allocation = "static"
+    allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}"
     tags                         = "${var.tags}"
   }
@@ -459,7 +458,7 @@ An SSH *jumpbox* is a single server that you "jump" through in order to access o
     name                         = "jumpbox-public-ip"
     location                     = "${var.location}"
     resource_group_name          = "${azurerm_resource_group.vmss.name}"
-    public_ip_address_allocation = "static"
+    allocation_method = "Static"
     domain_name_label            = "${random_string.fqdn.result}-ssh"
     tags                         = "${var.tags}"
   }

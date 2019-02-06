@@ -26,8 +26,6 @@ Script Action can be used to install additional software running on an Apache Ha
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 > 
 > It is because you didn't include the helper methods.  See [Helper methods for custom scripts](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
->
->
 
 ## Sample scripts
 For creating HDInsight clusters on Windows operating system, the Script Action is Azure PowerShell script. The following script is a sample for configuring the site configuration files:

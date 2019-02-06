@@ -292,11 +292,11 @@ You have been running the function app and chat application locally. You will no
 
 ### Configure function app for authentication
 
-So far, the chat app works anonymously. In Azure, you will use [App Service Authentication](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview) to authenticate the user. The user ID or username of the authenticated user can be passed to the *SignalRConnectionInfo* binding to generate connection information that is authenticated as the user.
+So far, the chat app works anonymously. In Azure, you will use [App Service Authentication](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) to authenticate the user. The user ID or username of the authenticated user can be passed to the *SignalRConnectionInfo* binding to generate connection information that is authenticated as the user.
 
 When a sending message, the app can decide whether to send it to all connected clients, or only to the clients that have been authenticated to a given user.
 
-1. In VS Code, open **SendMessage/function.json**.
+1. In VS Code, open **SignalRInfo/function.json**.
 
 1. Insert a [binding expression](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#binding-expressions-and-patterns) into the *userId* property of the *SignalRConnectionInfo* binding: `{headers.x-ms-client-principal-name}`. This sets the value to the username of the authenticated user. The attribute should now look like this.
 

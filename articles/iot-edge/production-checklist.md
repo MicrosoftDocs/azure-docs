@@ -158,6 +158,17 @@ In all three cases, the DNS name would match the pattern \*.azure-devices.net.
 
 Additionally, the **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the DNS name is mcr.microsoft.com. The container engine connects to other registries as configured in the deployment. 
 
+This checklist is a starting point for firewall rules:
+
+   | URL (\* = wildcard) | Outbound TCP Ports | Usage |
+   | ----- | ----- | ----- |
+   | mcr.microsoft.com  | 443 | Microsoft container registry |
+   | global.azure-devices-provisioning.net  | 443 | DPS access (optional) |
+   | \*.azurecr.io | 443 | Personal and 3rd party container registries |
+   | \*.blob.core.windows.net | 443 | Download of image deltas | 
+   | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub access |
+   | \*.docker.io  | 443 | Docker access (optional) |
+
 ### Configure communication through a proxy
 
 If your devices are going to be deployed on a network that uses a proxy server, they need to be able to communicate through the proxy to reach IoT Hub and container registries. For more information, see [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).

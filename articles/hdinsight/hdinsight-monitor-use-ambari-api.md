@@ -17,8 +17,6 @@ Learn how to monitor HDInsight clusters by using Apache Ambari APIs.
 
 > [!NOTE]  
 > The information in this article is primarily for Windows-based HDInsight clusters, which provide a read-only version of the Ambari REST API. For Linux-based clusters, see [Manage Apache Hadoop clusters using Apache Ambari](hdinsight-hadoop-manage-ambari.md).
-> 
-> 
 
 ## What is Ambari?
 [Apache Ambari][ambari-home] is used for provisioning, managing, and monitoring Apache Hadoop clusters. It includes an intuitive collection of operator tools and a robust set of APIs that hide the complexity of Hadoop, simplifying the operation of clusters. For more information about the APIs, see [Ambari API Reference][ambari-api-reference]. 
@@ -34,8 +32,7 @@ Before you begin this tutorial, you must have the following items:
   
   > [!NOTE]  
   > When use the cURL command in Windows, use double-quotation marks instead of single-quotation marks for the option values.
-  > 
-  > 
+
 * **An Azure HDInsight cluster**. For instructions about cluster provisioning, see [Get started using HDInsight][hdinsight-get-started] or [Provision HDInsight clusters][hdinsight-provision]. You need the following data to go through the tutorial:
   
   | Cluster property | Azure PowerShell variable name | Value | Description |
@@ -142,13 +139,13 @@ Now you have learned how to use Apache Ambari monitoring API calls. To learn mor
 * [HDInsight documentation][hdinsight-documentation]
 * [Get started with HDInsight][hdinsight-get-started]
 
-[ambari-home]: http://ambari.apache.org/
+[ambari-home]: https://ambari.apache.org/
 [ambari-api-reference]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 
-[curl]: http://curl.haxx.se
+[curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html
 
-[microsoft-hadoop-SDK]: http://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
+[microsoft-hadoop-SDK]: https://hadoopsdk.codeplex.com/wikipage?title=Ambari%20Monitoring%20Client
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: https://technet.microsoft.com/library/ee176949.aspx

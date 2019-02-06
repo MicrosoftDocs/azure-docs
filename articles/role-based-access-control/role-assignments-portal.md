@@ -163,5 +163,5 @@ In RBAC, to remove access, you remove a role assignment. Follow these steps to r
 
 * [Tutorial: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
 * [Tutorial: Grant access for a user using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Built-in roles](built-in-roles.md)
+* [Troubleshoot RBAC in Azure](troubleshooting.md)
 * [Organize your resources with Azure management groups](../azure-resource-manager/management-groups-overview.md)

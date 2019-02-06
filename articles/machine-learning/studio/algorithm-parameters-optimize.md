@@ -1,20 +1,15 @@
 ---
-title: Optimize algorithms - Azure Machine Learning Studio | Microsoft Docs
+title: Optimize algorithms
+titleSuffix: Azure Machine Learning Studio
 description: Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning Studio.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 11/29/2017
 ---
 # Choose parameters to optimize your algorithms in Azure Machine Learning Studio

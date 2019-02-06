@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/18/2018
+ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -17,6 +17,9 @@ ms.reviewer: minewiskan
 
 Azure Analysis Services supports tabular models at the 1200 and 1400 compatibility levels. 
 
+> [!NOTE]
+> Power BI Desktop September 2018 and later releases have a .pbix compatibility level of 1465. This compatibility level is supported in Azure Analysis Services. However, importing a Power BI Desktop file is not recommended for production environments. To learn more, see [Import a Power BI Desktop file](analysis-services-import-pbix.md).
+
 The latest compatibility level is 1400. This level coincides with SQL Server 2017 Analysis Services. Major features in the 1400 compatibility level include:
 
 *  New features for data connectivity and import with support for TOM APIs and TMSL scripting. 
@@ -25,8 +28,9 @@ The latest compatibility level is 1400. This level coincides with SQL Server 201
 *  Object-level security for table and column names, in addition to the data within them.
 *  Enhanced support for ragged hierarchies.
 *  Performance and monitoring improvements.
-  
-## Set compatibility level 
+ 
+## Set compatibility level
+
  When creating a new tabular model project in SSDT, you can specify the compatibility level on the **Tabular model designer** dialog. 
   
  ![ssas_tabularproject_compat1200](./media/analysis-services-compat-level/aas-tabularproject-compat.png)  
@@ -36,13 +40,16 @@ The latest compatibility level is 1400. This level coincides with SQL Server 201
  To upgrade an existing tabular model project in SSDT, set  the **Compatibility Level** property in the model **Properties** window. Keep in-mind, upgrading the compatibility level is irreversible.
   
 ## Check compatibility level for a tabular model database in SQL Server Management Studio 
+
  In SSMS, right-click the database name > **Properties** > **Compatibility Level**.  
   
 ## Check supported compatibility level for a server in SSMS  
+
  In SSMS, right-click the server name>  **Properties** > **Supported Compatibility Level**.  
   
  This property specifies the highest compatibility level of a database that will run on the server (excluding preview). The supported compatibility level cannot be changed.  
 
 ## Next steps
+
   [Create a model in Azure portal](analysis-services-create-model-portal.md)   
   [Manage Analysis Services](analysis-services-manage.md)  

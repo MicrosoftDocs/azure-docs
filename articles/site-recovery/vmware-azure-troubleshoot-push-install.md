@@ -6,7 +6,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 12/12/2018
+ms.date: 01/18/2019
 
 
 
@@ -133,19 +133,30 @@ Other WMI troubleshooting articles could be found at the following articles.
 
 ## Unsupported Operating Systems
 
-Another most common reason for failure could be due to unsupported operating system. Ensure you are on the supported Operating System/Kernel version for successful installation of Mobility service.
-
-To learn about which operating systems are supported by Azure Site Recovery, refer to our [support matrix document](vmware-physical-azure-support-matrix.md#replicated-machines).
+Another most common reason for failure could be due to unsupported operating system. Ensure you are on the supported Operating System/Kernel version for successful installation of Mobility service. Avoid the usage of private patch.
+To view the list of operating systems and kernel versions supported by Azure Site Recovery, refer to our [support matrix document](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## Boot and system partitions / volumes are not the same disk (ErrorID: 95309)
 
 Before 9.20 version, boot and system partitions/ volumes on different disks was an unsupported configuration. 
 From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), this configuration is supported. Use latest version for this support.
 
+## Boot disk not found (ErrorID: 95310)
+
+A virtual machine without a boot disk cannot be protected. This is to ensure smooth recovery of virtual machine during failover operation. Absence of boot disk results in failure to boot the machine after failover. Ensure that the virtual machine contains boot disk and retry the operation. Also, note that multiple boot disks on the same machine is not supported.
+
+## Multiple Boot disks found (ErrorID: 95311)
+
+A virtual machine with multiple boot disks is not a [supported configuration](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
+
 ## System partition on multiple disks (ErrorID: 95313)
 
 Before 9.20 version, root partition or volume laid on multiple disks was an unsupported configuration. 
 From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), this configuration is supported. Use latest version for this support.
+
+## GRUB UUID failure (ErrorID: 95320)
+
+If source machine's GRUB is using device name instead of UUID, then mobility agent installation fails. Reach out to system admin to make the changes to GRUB file.
 
 ## LVM support from 9.20 version
 

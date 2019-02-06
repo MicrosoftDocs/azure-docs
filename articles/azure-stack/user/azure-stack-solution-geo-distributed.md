@@ -12,9 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
+ms.reviewer: anajod
+ms.lastreviewed: 01/14/2019
 ---
 
 # Tutorial: Create a geo-distributed app solution with Azure and Azure Stack
@@ -37,7 +38,7 @@ With the geo-distributed pattern, your app can spans regions. You can default to
 
 #### Scalability considerations
 
-The solution you will build with this tutorial is not to accommodate scalability. However, if used in combination with other Azure and On-Premises technologies and solutions you can accommodate scalability requirements. For information on creating a hyrbid solution with auto-scaling via traffic manager, see [Create cross-cloud scaling solutions with Azure](azure-stack-solution-cloud-burst.md).
+The solution you will build with this tutorial is not to accommodate scalability. However, if used in combination with other Azure and On-Premises technologies and solutions you can accommodate scalability requirements. For information on creating a hybrid solution with auto-scaling via traffic manager, see [Create cross-cloud scaling solutions with Azure](azure-stack-solution-cloud-burst.md).
 
 #### Availability considerations
 
@@ -89,7 +90,7 @@ An Azure subscription and Azure Stack installation are required.
 
 ### Obtain a custom domain and configure DNS
 
-Update the DNS zone file foCreate web apps and publishr the domain. Azure AD can then verify ownership of the custom domain name. Use [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) for Azure/Office 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+Update the DNS zone file for the domain. Azure AD can then verify ownership of the custom domain name. Use [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) for Azure/Office 365/external DNS records within Azure, or add the DNS entry at [a different DNS registrar](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
 
 1. Register a custom domain with a public Registrar.
 
@@ -102,7 +103,7 @@ Update the DNS zone file foCreate web apps and publishr the domain. Azure AD can
 Set up hybrid CI/CD to deploy Web App to Azure and Azure Stack, and auto push changes to both clouds.
 
 > [!Note]  
-> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation "[Before you get started with App Service on Azure Stack](/articles/azure-stack/azure-stack-app-service-before-you-get-started)" section for Azure Stack Operator.
+> Azure Stack with proper images syndicated to run (Windows Server and SQL) and App Service deployment are required. Review the App Service documentation [Before you get started with App Service on Azure Stack](../azure-stack-app-service-before-you-get-started.md) section for Azure Stack Operator.
 
 #### Add Code to Azure Repos
 
@@ -238,7 +239,7 @@ Azure DevOps and Azure DevOps Server provide a highly configurable and manageabl
 
 ## Part 2: Update web app options
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) provides a highly scalable, self-patching web hosting service. 
+[Azure App Service](https://docs.microsoft.com/azure/app-service/overview) provides a highly scalable, self-patching web hosting service. 
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image27.png)
 
@@ -251,7 +252,7 @@ Azure DevOps and Azure DevOps Server provide a highly configurable and manageabl
 > [!Note]  
 >  Use a CNAME for all custom DNS names except a root domain (for example,northwind.com).
 
-To migrate a live site and its DNS domain name to App Service, see [Migrate an active DNS name to Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-custom-domain-name-migrate).
+To migrate a live site and its DNS domain name to App Service, see [Migrate an active DNS name to Azure App Service](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain).
 
 ### Prerequisites
 
@@ -269,10 +270,10 @@ Update the DNS zone file for the domain. Azure AD will verify ownership of the c
 
 -   Update the DNS zone file for the domain by adding the DNS entry provided by Azure AD.
 
-For example, to add DNS entries fornorthwindcloud.comandwww.northwindcloud.com, configure DNS settings for thenorthwindcloud.com root domain.
+For example, to add DNS entries for northwindcloud.com and www.northwindcloud.com, configure DNS settings for the northwindcloud.com root domain.
 
 > [!Note]  
->  A domain name may be purchased using the [Azure portal](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app).  
+>  A domain name may be purchased using the [Azure portal](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain).  
 > To map a custom DNS name to a web app, the web app's [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be a paid tier (**Shared**, **Basic**, **Standard**, or **Premium**).
 
 
@@ -298,7 +299,7 @@ The following screenshot is an example of a DNS records page:
 
 2.  Add a CNAME record to map a subdomain to the app's default hostname.
 
-  For thewww.northwindcloud.comdomain example, add a CNAME record that maps the namewwwto<app\_name>.azurewebsites.net.
+  For the www.northwindcloud.com domain example, add a CNAME record that maps the name to <app\_name>.azurewebsites.net.
 
 After adding the CNAME, the DNS records page looks like the following example:
 

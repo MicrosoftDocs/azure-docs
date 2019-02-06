@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights Preview shaping events - Shape events with Azure Time Series Insights Preview | Microsoft Docs
+title: 'Shape events with Azure Time Series Insights Preview | Microsoft Docs'
 description: Understand how to shape events Azure Time Series Insights Preview.
 author: ashannon7
 ms.author: anshan

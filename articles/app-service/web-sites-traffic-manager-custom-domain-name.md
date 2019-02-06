@@ -23,7 +23,7 @@ ms.custom: seodec18
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-This article provides generic instructions for using a custom domain name with an [App Service](app-service-web-overview.md) app that is integrated with [Traffic Manager](../traffic-manager/traffic-manager-overview.md) for load balancing.
+This article provides generic instructions for using a custom domain name with an [App Service](overview.md) app that is integrated with [Traffic Manager](../traffic-manager/traffic-manager-overview.md) for load balancing.
 
 [!INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -43,7 +43,7 @@ This article provides generic instructions for using a custom domain name with a
 
 ## Add a DNS record for your custom domain
 > [!NOTE]
-> If you have purchased domain through Azure App Service Web Apps then skip following steps and refer to the final step of [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md) article.
+> If you have purchased domain through Azure App Service Web Apps then skip following steps and refer to the final step of [Buy Domain for Web Apps](manage-custom-dns-buy-domain.md) article.
 > 
 > 
 

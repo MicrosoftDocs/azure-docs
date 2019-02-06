@@ -160,7 +160,7 @@ For more information, see [Configure web apps in App Service](web-sites-configur
 
 Azure Load Balancer has a default idle timeout setting of four minutes. This is generally a reasonable response time limit for a web request. If your web app requires background processing, we recommend using Azure WebJobs. The Azure web app can call WebJobs and be notified when background processing is finished. You can choose from multiple methods for using WebJobs, including queues and triggers.
 
-WebJobs is designed for background processing. You can do as much background processing as you want in a WebJob. For more information about WebJobs, see [Run background tasks with WebJobs](web-sites-create-web-jobs.md).
+WebJobs is designed for background processing. You can do as much background processing as you want in a WebJob. For more information about WebJobs, see [Run background tasks with WebJobs](webjobs-create.md).
 
 ## ASP.NET Core applications that are hosted in App Service sometimes stop responding. How do I fix this issue?
 

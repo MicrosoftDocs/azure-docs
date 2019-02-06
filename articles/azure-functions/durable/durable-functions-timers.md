@@ -50,7 +50,7 @@ public static async Task Run(
 
 ```js
 const df = require("durable-functions");
-const moment = require("moment-js");
+const moment = require("moment");
 
 module.exports = df.orchestrator(function*(context) {
     for (let i = 0; i < 10; i++) {
@@ -104,13 +104,13 @@ public static async Task<bool> Run(
 
 ```js
 const df = require("durable-functions");
-const moment = require("moment-js");
+const moment = require("moment");
 
 module.exports = df.orchestrator(function*(context) {
     const deadline = moment.utc(context.df.currentUtcDateTime).add(30, "s");
 
     const activityTask = context.df.callActivity("GetQuote");
-    const timeoutTask = context.df.createTimer(deadline);
+    const timeoutTask = context.df.createTimer(deadline.toDate());
 
     const winner = yield context.df.Task.any([activityTask, timeoutTask]);
     if (winner === activityTask) {

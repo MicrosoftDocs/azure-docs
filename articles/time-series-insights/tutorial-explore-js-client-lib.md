@@ -1,5 +1,5 @@
 ---
-title: Explore the Azure Time Series Insights JavaScript client library | Microsoft Docs
+title: 'Tutorial: Explore the Azure Time Series Insights JavaScript client library | Microsoft Docs'
 description: Learn about the Azure Time Series Insights JavaScript client library and the related programming model.
 author: ashannon7
 manager: cshankar

@@ -6,7 +6,7 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: sample
 ms.date: 08/16/2018
 ms.author: aahi
