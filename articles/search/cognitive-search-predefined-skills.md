@@ -23,7 +23,7 @@ In this article, you learn about the cognitive skills provided with Azure Search
 
 ## Predefined skills
 
-Several skills are flexible in what they consume or produce. In general, most skills are based on pre-trained models, which means you cannot train the model using your own training data. For guidance on creating a custom skill, see [How to define a custom interface](cognitive-search-custom-skill-interface.md) and [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md). The following table enumerates and describes the skills provided by Microsoft. 
+Several skills are flexible in what they consume or produce. In general, most skills are based on pre-trained models, which means you cannot train the model using your own training data. The following table enumerates and describes the skills provided by Microsoft. 
 
 | Skill | Description |
 |-------|-------------|
@@ -36,6 +36,10 @@ Several skills are flexible in what they consume or produce. In general, most sk
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | This skill uses an image detection algorithm to identify the content of an image and generate a text description. |
 | [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Optical character recognition. |
 | [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | Maps output to a complex type (a multi-part data type, which might be used for a full name, a multi-line address, or a combination of last name and a personal identifier.) |
+| [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | Allows extensibility of cognitive search pipeline by making an HTTP call into a custom Web API |
+
+
+For guidance on creating a [custom skill](cognitive-search-custom-skill-web-api.md), see [How to define a custom interface](cognitive-search-custom-skill-interface.md) and [Example: creating a custom skill](cognitive-search-create-custom-skill-example.md).
 
 ## See also
 
