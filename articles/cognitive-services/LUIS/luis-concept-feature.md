@@ -38,7 +38,7 @@ Create a phrase list when your app has words or phrases that are important to th
 * language that is from another language but frequently used in your app
 * key words and phrases in your example utterances
 
- Once you've entered a few words or phrases, use the **Recommend** feature to find related values. Review the related values before adding to your phrase list values.
+Once you've entered a few words or phrases, use the **Recommend** feature to find related values. Review the related values before adding to your phrase list values.
 
 |List type|Purpose|
 |--|--|
