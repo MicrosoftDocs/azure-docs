@@ -65,7 +65,7 @@ In this section, you will:
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError, DeviceMethodReturnValue
     ```
 
-1. Add variables including a **CONNECTION_STRING** variable and the client intialization.  Replace the connection string with your device connection string.  
+1. Add variables including a **CONNECTION_STRING** variable and the client initialization.  Replace the connection string with your device connection string.  
    
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"

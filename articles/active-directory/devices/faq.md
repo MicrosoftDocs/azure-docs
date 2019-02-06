@@ -24,7 +24,7 @@ ms.reviewer: jairoc
 **Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?**
 
 **A:** Windows 10 devices that are hybrid Azure AD joined don't show up under **USER devices**.
-Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](https://docs.microsoft.com/en-us/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
+Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.
 
 Only the following devices are listed under **USER devices**:
 
@@ -221,6 +221,12 @@ Hybrid Azure AD join takes precedence over the Azure AD registered state. So you
 **Q: Why do my users have issues on Windows 10 hybrid Azure AD joined devices after changing their UPN?**
 
 **A:** Currently UPN changes are not fully supported with hybrid Azure AD joined devices. While users can sign in to the device and access their on-premises applications, authentication with Azure AD fails after a UPN change. As a result, users have SSO and Conditional Access issues on their devices. At this time, you need to unjoin the device from Azure AD (run "dsregcmd /leave" with elevated privileges) and re-join (happens automatically) to resolve the issue. We are currently working on addressing this issue. However, users signing in with Windows Hello for Business do not face this issue. 
+
+---
+
+**Q: Do Windows 10 hybrid Azure AD joined devices require line of sight to the domain controller to get access to cloud resources?**
+
+**A:** No. Ater Windows 10 hybrid Azure AD join is complete, and the user has signed in at least once, the device doesn't require line of sight to the domain controller to access cloud resources. Windows 10 can get single sign on to Azure AD applications from anywhere with an internet connection, except when a password is changed. If a password is changed outside the corporate network (for example, by using Azure AD SSPR), then the user needs to have line of sight to the domain controller before they're able to sign in to the device with their new password. Otherwise, they can only sign in with their old password, which is invalidated by Azure AD and prevents single sign on. However, this issue doesn't occur when you use Windows Hello for Business. Users who sign in with Windows Hello for Business continue to get single sign on to Azure AD applications after a password change, even if they don't have line of sight to their domain controller. 
 
 ---
 
