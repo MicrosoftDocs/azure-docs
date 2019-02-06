@@ -60,4 +60,4 @@ Locate the `StorageConnectionString` property, and set the value to be the `Conn
 In this tutorial, you've used Azure Cosmos DB to share anchor identifiers across devices. To learn more about the Azure Spatial Anchors library, continue to our concept guide on how to create and locate anchors.
 
 > [!div class="nextstepaction"]
-> [Concept: Create and locate anchors using Azure Spatial Anchors](../concepts/create-and-locate-anchors.md)
+> [Concept: Create and locate anchors using Azure Spatial Anchors](../concepts/create-locate-anchors.md)

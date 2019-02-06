@@ -14,7 +14,7 @@ ms.service: azure-spatial-anchors
 ---
 # Concept: Create and locate anchors using Azure Spatial Anchors
 
-## Getting Started
+## Getting started
 
 Azure Spatial Anchors allow you share anchors in the world between different devices.
 
@@ -169,8 +169,6 @@ To access the service, you need to provide an account key, access token, or AAD 
 **Access Tokens:** Access Tokens are a more robust method to authenticate with Azure Spatial Anchors. Specially as you prepare your application for a production deployment. The summary of this approach is to set up a backend service that your client application can securely authenticate with. Your backend service interfaces with AAD at runtime and with the Azure Spatial Anchors STS service to request an Access Token. This token is then delivered to the client application and used in the SDK to authenticate with Azure Spatial Anchors.
 
 **AAD User Authentication:** Azure Spatial Anchors also allows applications to authenticate with user AAD tokens. For example, you can use AAD tokens to integrate with ASA. If an Enterprise maintains users in AAD, you can supply a user AAD token in the Azure Spatial Anchors SDK. Doing so allows you to authenticate directly to the ASA service for an account that's part of the same AAD tenant.
-
-For more detailed information on authentication with Azure Spatial Anchors, see [authentication overview](../authentication-overview.md).
 
 To set an account key:
 
