@@ -114,6 +114,12 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 <!-- bug 3615401, IS -->
 - Fixed issue with automatic backups where the scheduler service would go into disabled state unexpectedly. 
 
+<!--2850083, IS ASDK -->
+- Removed the Reset Gateway button from the Azure Stack Portal, which would throw an error if the button was pressed.  Since this button serves no function in Azure Stack, as Azure Stack has a multi-tenant gateway rather than dedicated VM instances for each tenant VPN Gateway, we removed it to prevent confusion. 
+
+<!-- 3209594, IS ASDK -->
+-Removed the **Effective Security Rules** link from the **Networking Properties** blade as this feature is not supported in Azure Stack today.  Having the link present gave customers the impression that this feature was supported but not working for them.  To alleviate this confusion, we removed the link and will add it back once the feature is supported.
+
 ## Changes
 
 <!-- 3083238 IS -->
@@ -263,9 +269,6 @@ The following are post-installation known issues for this build version.
 
     You can safely ignore this message; the IP address will be changed even if the VM instance does not restart.
 
-<!-- 3631677 - IS, ASDK -->
-- In the portal, on the **Networking Properties** blade there is a link for **Effective Security Rules** for each network adapter. If you select this link, a new blade opens that shows the error message `Not Found.` This error occurs because Azure Stack does not yet support **Effective Security Rules**.
-
 <!-- 3632798 - IS, ASDK -->
 - In the portal, if you add an inbound security rule and select **Service Tag** as the source, several options are displayed in the **Source Tag** list that are not available for Azure Stack. The only options that are valid in Azure Stack are as follows:
 
@@ -275,9 +278,10 @@ The following are post-installation known issues for this build version.
   
     The other options are not supported as source tags in Azure Stack. Similarly, if you add an outbound security rule and select **Service Tag** as the destination, the same list of options for **Source Tag** is displayed. The only valid options are the same as for **Source Tag**, as described in the previous list.
 
-- The **New-AzureRmIpSecPolicy** PowerShell cmdlet does not support setting **DHGroup24** for the `DHGroup` parameter.
+- Network security groups (NSGs) do not work in Azure Stack in the same way as global Azure. In Azure, you can set multiple ports on one NSG rule (using the portal, PowerShell, and Resource Manager templates). In Azure Stack however, you cannot set multiple ports on one NSG rule via the portal. To work around this issue, use a Resource Manager template or PowerShell to set these additional rules.
 
-- Network security groups (NSGs) do not work in Azure Stack in the same way as global Azure. In Azure, you can set multiple ports on one NSG rule (using the portal, PowerShell, and Resource Manager templates). In Azure Stack however, you cannot set multiple ports on one NSG rule via the portal. To work around this issue, use a Resource Manager template to set these additional rules.
+<!-- 3203799 - IS, ASDK -->
+- Azure Stack does not support attaching more than 4 Network Interfaces (NICs) to a VM instances today, regardless of the instance size.  This will be fixed in a future update.
 
 <!-- ### SQL and MySQL-->
 
