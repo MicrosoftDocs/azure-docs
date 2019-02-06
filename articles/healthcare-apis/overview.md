@@ -10,10 +10,10 @@ ms.author: mihansen
 ---
 
 # What is Azure API for FHIR&reg; Preview?
-Azure API for FHIR enables rapid exchange of data thru FHIR APIs, backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingestion, manage, and persistence Protected Health Information [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) in the cloud: 
+Azure API for FHIR enables rapid exchange of data through FHIR APIs, backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingestion, manage, and persistence Protected Health Information [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) in the cloud: 
 
 - Managed FHIR service, provisioned in the cloud in minutes 
-- Enterprise-grade, FHIR®-based endpoint in Azure for data access,and storage in FHIR® format
+- Enterprise-grade, FHIR®-based endpoint in Azure for data access, and storage in FHIR® format
 - High performance, low latency
 - Secure management of Protected Health Data (PHI) in a compliant cloud environment
 - SMART on FHIR for mobile and web implementations
@@ -22,7 +22,7 @@ Azure API for FHIR enables rapid exchange of data thru FHIR APIs, backed by a ma
 
 Azure API for FHIR allows you to create and deploy a FHIR service in just minutes to leverage the elastic scale of the cloud.  You pay only for the throughput and storage you need. The Azure services that power Azure API for FHIR are designed for rapid performance no matter what size datasets you’re managing.  The data persistence layer in the Azure API for FHIR leverages Azure Cosmos DB, which guarantees latencies at the 99th percentile and guarantees high availability with multi-homing capabilities. 
 
-The FHIR API and compliant data store enables you to securely connect and interact with any system that utilizes FHIR APIs.  Microsoft takes on the operations, maintenance, updates and compliance requirements in the PaaS offering, so you can free up your own operational and development resources. 
+The FHIR API and compliant data store enable you to securely connect and interact with any system that utilizes FHIR APIs.  Microsoft takes on the operations, maintenance, updates and compliance requirements in the PaaS offering, so you can free up your own operational and development resources. 
 
 ## **Leveraging the power of your data with FHIR**
 The healthcare industry is rapidly transforming health data to the emerging standard of [FHIR&reg;](https://hl7.org/fhir) (Fast Healthcare Interoperability Resources). FHIR enables a robust, extensible data model with standardized semantics and data exchange that enables all systems using FHIR to work together.  Transforming your data to FHIR allows you to quickly connect existing data sources such as the electronic health record systems or research databases. FHIR also enables the rapid exchange of data in modern implementations of mobile and web development. Most importantly, FHIR can simplify data ingestion and accelerate development with analytics and machine learning tools.  
