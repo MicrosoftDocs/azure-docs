@@ -28,8 +28,6 @@
       href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
     - name: Authorize with SAS
       href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Anonymous access to queues
-      href: storage-manage-access-to-resources.md
   - name: Data redundancy
     href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     items:
