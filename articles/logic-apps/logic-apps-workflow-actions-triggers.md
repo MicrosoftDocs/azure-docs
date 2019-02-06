@@ -2906,7 +2906,7 @@ Here are the kinds of authentication you can set up:
 > that your logic app workflow definition handles. 
 > Use secured parameters and encode data as necessary. 
 > For more information about using and securing parameters, 
-> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
+> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 <a name="basic-authentication"></a>
 
@@ -2952,7 +2952,7 @@ information about using and securing parameters, see
 > that your logic app workflow definition handles. 
 > Use secured parameters and encode data as necessary. 
 > For more information about securing parameters, 
-> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
+> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 <a name="client-certificate-authentication"></a>
 
@@ -3001,7 +3001,7 @@ For more information about using and securing parameters, see
 > that your logic app workflow definition handles. 
 > Use secured parameters and encode data as necessary. 
 > For more information about securing parameters, 
-> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
+> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
@@ -3054,7 +3054,7 @@ For more information about using and securing parameters, see
 > that your logic app workflow definition handles. 
 > Use secured parameters and encode data as necessary. 
 > For more information about securing parameters, 
-> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
+> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 ## Next steps
 
