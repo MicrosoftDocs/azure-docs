@@ -144,39 +144,39 @@ behavior depends on whether or not sections are included.
 
 | Value | Type | Description | 
 |-------|------|-------------| 
-| <*APIConnection_trigger_name*> | String | The name for the trigger | 
+| <*APIConnection_trigger_name*> | String | The name for the trigger |
 | <*connection-name*> | String | The name for the connection to the managed API that the workflow uses | 
 | <*method-type*> | String | The HTTP method for communicating with the managed API: "GET", "PUT", "POST", "PATCH", "DELETE" | 
-| <*api-operation*> | String | The API operation to call | 
+| <*api-operation*> | String | The API operation to call |
 | <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" | 
 | <*number-of-time-units*> | Integer | A value that specifies how often the trigger fires based on the frequency, which is the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. | 
 |||| 
 
 *Optional*
 
-| Value | Type | Description | 
-|-------|------|-------------| 
+| Value | Type | Description |
+|-------|------|-------------|
 | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*query-parameters*> | JSON Object | Any query parameters to include with the API call. For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. | 
-| <*max-runs*> | Integer | By default, logic app workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). | 
+| <*query-parameters*> | JSON Object | Any query parameters to include with the API call. For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. |
+| <*max-runs*> | Integer | By default, logic app workflow instances run at the same time, or in parallel up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change this limit by setting a new <*count*> value, see [Change trigger concurrency](#change-trigger-concurrency). |
 | <*max-runs-queue*> | Integer | When your logic app is already running the maximum number of instances, which you can change based on the `runtimeConfiguration.concurrency.runs` property, any new runs are put into this queue up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). To change the default limit, see [Change waiting runs limit](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | For triggers that return arrays, this expression references the array to use so that you can create and run a workflow instance for each array item, rather than use a "for each" loop. <p>For example, this expression represents an item in the array returned within the trigger's body content: `@triggerbody()?['value']` |
-| <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
+| <*operation-option*> | String | You can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). |
 ||||
 
 *Outputs*
  
 | Element | Type | Description |
-|---------|------|-------------| 
-| headers | JSON Object | The headers from the response | 
-| body | JSON Object | The body from the response | 
-| status code | Integer | The status code from the response | 
+|---------|------|-------------|
+| headers | JSON Object | The headers from the response |
+| body | JSON Object | The body from the response |
+| status code | Integer | The status code from the response |
 |||| 
 
 *Example*
 
 This trigger definition checks for email every day 
-inside the inbox for an Office 365 Outlook account: 
+inside the inbox for an Office 365 Outlook account:
 
 ```json
 "When_a_new_email_arrives": {
@@ -185,7 +185,7 @@ inside the inbox for an Office 365 Outlook account:
       "host": {
          "connection": {
             "name": "@parameters('$connections')['office365']['connectionId']"
-         }     
+         }
       },
       "method": "get",
       "path": "/Mail/OnNewEmail",
