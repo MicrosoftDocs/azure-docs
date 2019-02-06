@@ -30,6 +30,10 @@ Image import into an Azure container registry has the following benefits over us
 
 To import container images, this article requires that you run the Azure CLI in Azure Cloud Shell or locally (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
+> [!NOTE]
+> If you need to distribute identical container images across multiple Azure regions, Azure Container Registry also supports [geo-replication](container-registry-geo-replication.md). By geo-replicating a registry (Premium SKU required), you can serve multiple regions with identical image and tag names from a single registry.
+>
+
 ## Prerequisites
 
 If you don't already have an Azure container registry, create a registry. For steps, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
@@ -114,11 +118,8 @@ az acr import --name myregistry --source docker.io/sourcerepo/sourceimage:tag --
 
 ## Next steps
 
-In this article, you learned about importing container images to an Azure container registry from a public registry or another private registry.
+In this article, you learned about importing container images to an Azure container registry from a public registry or another private registry. For additional image import options, see the [az acr import][az-acr-import] command reference. 
 
-* For additional options, see the [az acr import][az-acr-import] command reference. 
-
-* If you need to push only trusted images to a container registry, using Docker's content trust model, see [Content trust in Azure Container Registry](container-registry-content-trust.md). 
 
 <!-- LINKS - Internal -->
 [az-login]: /cli/azure/reference-index#az-login
