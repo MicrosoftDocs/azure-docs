@@ -10,7 +10,6 @@ ms.date: 12/06/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 ms.lastreviewed: 12/06/2018
-keywords:
 ---
 
 # Azure Stack datacenter integration - Publish endpoints
