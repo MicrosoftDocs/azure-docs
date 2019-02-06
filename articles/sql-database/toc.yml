@@ -324,8 +324,6 @@
         href: sql-database-advisor.md
   - name: Databases features
     items:
-    - name: Databases features
-      href: sql-database-develop-overview.md
     - name: Multi-model capabilities
       href: sql-database-multi-model-features.md
     - name: In-memory
@@ -528,8 +526,8 @@
       href: sql-database-manage-automation.md
   - name: Develop apps
     items:
-    - name: Connectivity
-      href: sql-database-libraries.md
+    - name: Overview
+      href: sql-database-develop-overview.md
     - name: Working with JSON data
       href: sql-database-json-features.md
     - name: Use Spark Connector
