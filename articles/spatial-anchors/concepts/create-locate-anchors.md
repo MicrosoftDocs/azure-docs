@@ -576,10 +576,7 @@ In C++:
         std::ostringstream str;
         str << std::fixed << std::setw(2) << std::setprecision(0)
             << "Feedback: " << FeedbackToString(status.UserFeedback()) << " -"
-            << " Create Ready=" << (status->ReadyForCreateProgress() * 100) << "%,"
-            << " Recommend Create=" << (status->RecommendedForCreateProgress() * 100) << "%,"
-            << " Locate Ready=" << (status->ReadyForLocateProgress() * 100) << "%,"
-            << " Recommend Locate=" << (status->RecommendedForLocateProgress() * 100) << "%";
+            << " Recommend Create=" << (status->RecommendedForCreateProgress() * 100) << "%";
         feedback_ = str.str();
     });
 ```
