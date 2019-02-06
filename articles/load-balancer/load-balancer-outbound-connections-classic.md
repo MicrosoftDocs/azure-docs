@@ -49,7 +49,7 @@ Different deployments in Classic have different functionality:
 
 [Mitigation strategies](#snatexhaust) also have the same differences.
 
-The [algorithm used for preallocating ephemeral ports](#ephemeralports) for PAT for classic deployments is the same as for Azure Resource Manager resource deployments.
+The algorithm used for preallocating ephemeral ports for PAT for classic deployments is the same as for Azure Resource Manager resource deployments.
 
 ### <a name="ilpip"></a>Scenario 1: VM with an Instance Level Public IP address
 
@@ -69,13 +69,13 @@ Ephemeral ports of the load balancer's public IP address frontend are used to di
 
 SNAT ports are preallocated as described in the [Understanding SNAT and PAT](#snat) section. They're a finite resource that can be exhausted. It's important to understand how they are [consumed](#pat). To understand how to design for this consumption and mitigate as necessary, review [Managing SNAT exhaustion](#snatexhaust).
 
-When [multiple public load-balanced endpoints](load-balancer-multivip.md) exist, any of these public IP addresses are a [candidate for outbound flows](#multivipsnat), and one is selected at random.  
+When [multiple public load-balanced endpoints](load-balancer-multivip.md) exist, any of these public IP addresses are a candidate for outbound flows, and one is selected at random.  
 
 ### <a name="defaultsnat"></a>Scenario 3: No public IP address associated
 
 In this scenario, the VM or Web Worker ROle is not part of a public load-balanced endpoint.  And in the case of VM, it does not have an ILPIP address assigned to it. When the VM creates an outbound flow, Azure translates the private source IP address of the outbound flow to a public source IP address. The public IP address used for this outbound flow is not configurable and does not count against the subscription's public IP resource limit.  Azure automatically allocates this address.
 
-Azure uses SNAT with port masquerading ([PAT](#pat)) to perform this function. This scenario is similar to [scenario 2](#lb), except there is no control over the IP address used. This is a fallback scenario for when scenarios 1 and 2 do not exist. We don't recommend this scenario if you want control over the outbound address. If outbound connections are a critical part of your application, you should chose another scenario.
+Azure uses SNAT with port masquerading ([PAT](#pat)) to perform this function. This scenario is similar to scenario 2, except there is no control over the IP address used. This is a fallback scenario for when scenarios 1 and 2 do not exist. We don't recommend this scenario if you want control over the outbound address. If outbound connections are a critical part of your application, you should chose another scenario.
 
 SNAT ports are preallocated as described in the [Understanding SNAT and PAT](#snat) section.  The number of VMs or Web Worker Roles sharing the public IP address determines the number of preallocated ephemeral ports.   It's important to understand how they are [consumed](#pat). To understand how to design for this consumption and mitigate as necessary, review [Managing SNAT exhaustion](#snatexhaust).
 
