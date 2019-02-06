@@ -35545,6 +35545,11 @@
       "source_path": "articles/security/blueprints/gdpr-paaswa-overview.md",
       "redirect_url": "https://aka.ms/azureblueprint",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-autoscale-clusters.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-scaling-best-practices",
+      "redirect_document_id": false
     }
   ]
 }
