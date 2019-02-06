@@ -102,7 +102,7 @@ There are multiple techniques at your disposal that you could use to attain opti
 
 A firewall prevents access to your server from an external entity by allowing only specific entities access to your SQL Database server. By default, all connections and databases inside the SQL Database server are disallowed, except connections coming in from other Azure Services. With a firewall rule you can open access to your server only to entities (for example, a developer machine) that you approve of, by allowing that computer’s IP address through the firewall. It also allows you to specify a range of IPs that you would want to allow access to the SQL Database server. For example, developer machine IP addresses in your organization can be added at once by specifying a range in the Firewall settings page.
 
-You can create firewall rules at the server level or at the database level. Server level firewall rules can either be created using the Azure portal or with SSMS. For learning more about how to set a server and database level firewall rule, see: [Create firewall rules in SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
+You can create firewall rules at the server level or at the database level. Server level IP firewall rules can either be created using the Azure portal or with SSMS. For learning more about how to set a server-level and database-level firewall rule, see: [Create IP firewall rules in SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### Service endpoints
 

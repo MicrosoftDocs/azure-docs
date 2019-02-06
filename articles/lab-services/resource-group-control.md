@@ -34,7 +34,7 @@ This setting applies to new virtual machines created in the lab. The older VMs i
 ### How to use this API:
 - Use the API version **2018_10_15_preview** while using this API. 
 - If you specify a new resource group, ensure that you have **write permissions on resource groups** within your subscription. Without write permissions, creating new virtual machines in the specified resource group result in a failure. 
-- While using the API, pass in the **full resource group ID**. For example: `/subscriptions/<subid>/resourceGroups/<rgName>`. Ensure that the resource group is in the same subscription as that of the lab. 
+- While using the API, pass in the **full resource group ID**. For example: `/subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>`. Ensure that the resource group is in the same subscription as that of the lab. 
 
 ## Use PowerShell 
 Following example describes how to create all lab virtual machines in a new resource group using a PowerShell script.
@@ -79,7 +79,7 @@ If you are using Azure Resource Manager template to create a lab, use the **vmCr
             "tags": {},
             "scale": null,
             "properties": {
-                "vmCreationResourceGroupId": "/subscriptions/<Subscription ID>/resourcegroups/<ResourceGroupName>"
+                "vmCreationResourceGroupId": "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>",
                 "labStorageType": "Premium",
                 "premiumDataDisks": "Disabled",
                 "provisioningState": "Succeeded",
