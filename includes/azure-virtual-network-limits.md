@@ -19,7 +19,7 @@
 | Local network sites |20 |contact support |
 | DNS Servers per virtual network |20 |20 |
 | Private IP Addresses per virtual network |4096 |4096 |
-| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
+| Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K, up to 1000K for two or more NICs |500K, up to 1000K for two or more NICs |
 | Network Security Groups (NSG) |100 |200 |
 | NSG rules per NSG |200 |1000 |
 | User defined route tables |100 |200 |
