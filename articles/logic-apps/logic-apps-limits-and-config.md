@@ -209,53 +209,58 @@ This tier restricts throughput and usage, and has no service-level agreement (SL
 
 | Artifact | Limit | Notes | 
 |----------|-------|-------| 
-| EDI trading partners | 25 | | 
-| EDI trading agreements | 10 | | 
-| Maps | 25 | | 
-| Schemas | 25 | 
 | Assemblies | 10 | | 
 | Batch configurations | 5 | 
 | Certificates | 25 | | 
+| EDI trading agreements | 10 | | 
+| EDI trading partners | 25 | | 
+| Maps | 25 | | 
+| Schemas | 25 | 
 |||| 
 
 *Basic tier*
 
 | Artifact | Limit | Notes | 
 |----------|-------|-------| 
-| EDI trading partners | 2 | | 
-| EDI trading agreements | 1 | | 
-| Maps | 500 | | 
-| Schemas | 500 | 
 | Assemblies | 25 | | 
 | Batch configurations | 1 | | 
 | Certificates | 2 | | 
+| EDI trading agreements | 1 | | 
+| EDI trading partners | 2 | | 
+| Maps | 500 | | 
+| Schemas | 500 | 
 |||| 
 
 *Standard tier*
 
 | Artifact | Limit | Notes | 
 |----------|-------|-------| 
-| EDI trading partners | 500 | | 
-| EDI trading agreements | 500 | | 
-| Maps | 500 | | 
-| Schemas | 500 | 
 | Assemblies | 50 | | 
 | Batch configurations | 5 |  
 | Certificates | 50 | | 
+| EDI trading agreements | 500 | | 
+| EDI trading partners | 500 | | 
+| Maps | 500 | | 
+| Schemas | 500 | 
 |||| 
 
 <a name="artifact-capacity-limits"></a>
 
 ### Artifact capacity limits
 
-| Name | Limit | Notes | 
-| ---- | ----- | ----- | 
-| Schema | 8 MB | To upload files larger than 2 MB, use the [blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
-| Map (XSLT file) | 2 MB | | 
-| Runtime endpoint: Read calls per 5 minutes | 60,000 | You can distribute the workload across more than one account as necessary. | 
-| Runtime endpoint: Invoke calls per 5 minutes | 45,000 | You can distribute the workload across more than one account as necessary. | 
-| Runtime endpoint: Tracking calls per 5 minutes | 45,000 | You can distribute the workload across more than one account as necessary. | 
-| Runtime endpoint: Blocking concurrent calls | ~1,000 | You can reduce the number of concurrent requests or reduce the duration as necessary. | 
+| Artifact | Limit | Notes | 
+| -------- | ----- | ----- | 
+| Assembly | 8 MB | To upload files larger than 2 MB, use an [Azure storage account and blob container](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+| Map (XSLT file) | 8 MB | To upload files larger than 2 MB, use the [Azure Logic Apps REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). | 
+| Schema | 8 MB | To upload files larger than 2 MB, use an [Azure storage account and blob container](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
+||||
+
+| Runtime endpoint | Limit | Notes |
+|------------------|-------|-------|
+| Read calls per 5 minutes | 60,000 | You can distribute the workload across more than one account as necessary. | 
+| Invoke calls per 5 minutes | 45,000 | You can distribute the workload across more than one account as necessary. | 
+| Tracking calls per 5 minutes | 45,000 | You can distribute the workload across more than one account as necessary. | 
+| Blocking concurrent calls | ~1,000 | You can reduce the number of concurrent requests or reduce the duration as necessary. | 
 ||||  
 
 <a name="b2b-protocol-limits"></a>
