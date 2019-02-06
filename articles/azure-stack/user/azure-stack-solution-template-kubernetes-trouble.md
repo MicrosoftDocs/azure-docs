@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/24/2019
@@ -50,7 +50,7 @@ The following diagram shows the general process for deploying the cluster.
 
 2. Create the deployment VM and custom script extension.
     -  Create the deployment Linux VM by using the marketplace Linux image **Ubuntu Server 16.04-LTS**.
-    -  Download and run the customer script extension from the marketplace. The script is **Custom Script for Linux 2.0**.
+    -  Download and run the custom  script extension from the marketplace. The script is **Custom Script for Linux 2.0**.
     -  Run the DVM custom script. The script does the following tasks:
         1. Gets the gallery endpoint from the Azure Resource Manager metadata endpoint.
         2. Gets the active directory resource ID from the Azure Resource Manager metadata endpoint.
@@ -58,7 +58,7 @@ The following diagram shows the general process for deploying the cluster.
         4. Deploys the ACS Engine to the Kubernetes cluster and saves the Azure Stack cloud profile to `/etc/kubernetes/azurestackcloud.json`.
 3. Create the master VMs.
 
-4. Download and run customer script extensions.
+4. Download and run custom script extensions.
 
 5. Run the master script.
 
@@ -72,7 +72,7 @@ The following diagram shows the general process for deploying the cluster.
         3. Starts the scheduler service.
 6. Create agent VMs.
 
-7. Download and run the customer script extension.
+7. Download and run the custom script extension.
 
 7. Run the agent script. The agent custom script does the following tasks:
     - Installs etcd
