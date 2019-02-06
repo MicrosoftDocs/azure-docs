@@ -78,8 +78,22 @@ Both the device and the service sides of a device stream must be capable of esta
 Alternatively, the endpoints information can use be retrieved using Azure CLI under the hub's properties section, specifically, `property.hostname` and `property.deviceStreams` keys.
 
 ```azurecli-interactive
-az iot hub show --name <YourIoTHubName>
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+The output is a JSON object of all endpoints that your hub's device and service may need to connect to in order to establish a device stream.
+
+```json
+{
+  "streamingEndpoints": [
+    "https://<YourIoTHubName>.<region-stamp>.streams.azure-devices.net"
+  ]
+}
+```
+
+> [!NOTE]
+> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version [here](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> 
 
 ## Whitelist Device Streaming Endpoints
 
@@ -89,9 +103,14 @@ The hostname of device streaming endpoint can be found on the Azure IoT Hub port
 ![Alt text](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "Device stream endpoints")
 
 Alternatively, you can find this information using Azure CLI:
-```cmd/sh
-az iot hub show --name <YourIoTHubName>
+
+```azurecli-interactive
+az iot hub devicestream show --name <YourIoTHubName>
 ```
+
+> [!NOTE]
+> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version [here](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> 
 
 ## Troubleshoot via Device Streams Activity Logs
 

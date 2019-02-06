@@ -100,7 +100,7 @@ All application in the Azure AD gallery enabled with Enterprise Single Sign-On c
 
 To configure an application from the Azure AD gallery you need to:
 
--   [Add an application from the Azure AD gallery](#add-an-application)
+-   Add an application from the Azure AD gallery
 
 -   [Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
@@ -110,7 +110,7 @@ To configure an application from the Azure AD gallery you need to:
 
 -   [Configure Azure AD metadata values in the application (Sign on URL, Issuer, Logout URL and certificate)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
--   [Assign users to the application](#assign-users-to-the-application)
+-   Assign users to the application
 
 ### Add an application from the Azure AD gallery
 
@@ -358,9 +358,9 @@ To download the application metadata or certificate from Azure AD, follow the st
 
 To configure an application from the Azure AD gallery you need to:
 
--   [Add an application from the Azure AD gallery](#add-an-application)
+-   Add an application from the Azure AD gallery
 
--   [Configure the application for password single sign-on](#configure-the-application)
+-   Configure the application for password single sign-on
 
 ### Add an application from the Azure AD gallery
 

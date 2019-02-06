@@ -17,9 +17,6 @@ ms.author: lizross
 # What is the Microsoft Authenticator app?
 The Microsoft Authenticator app helps you sign-in to your accounts if you use two-factor verification. Two-factor verification helps you to access your accounts more securely, especially while viewing sensitive information. Because passwords can be forgotten, stolen, or compromised, two-factor verification is an additional security step that helps protect your account by making it harder for other people to break in.
 
->[!Important]
->The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the time-based one-time password (TOTP) standards.
-
 You can use the Microsoft Authenticator app in multiple ways, including:
 
 - Providing a prompt for a second verification method after you sign in with your username and password.
@@ -27,7 +24,11 @@ You can use the Microsoft Authenticator app in multiple ways, including:
 - Providing sign-in without requiring a password, using your username and your mobile device with your fingerprint, face, or PIN.
 
 >[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).<br><br>If you're having issues signing in to your account, see [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) for help.  Get more info about what to do when you receive the [“That Microsoft account doesn't exist”](https://support.microsoft.com/help/13811) message when you try to sign in to your Microsoft account.
+>The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the time-based one-time password (TOTP) standards.
+
+>This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
+
+>If you're having issues signing in to your account, see [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) for help. Get more info about what to do when you receive the [“That Microsoft account doesn't exist”](https://support.microsoft.com/help/13811) message when you try to sign in to your Microsoft account.
 
 ## Terminology
 |Term|Description|
@@ -63,7 +64,7 @@ Depending on your account type, your organization might decide that you must use
 
 |Article |Description |
 |------|------------|
-|[Download and install the app](user-help-auth-app-download-install.md)|Describes where and how to get and install the Microsoft Authenticator app for devices running Android, iOS, and Windows Phone.|
+|[Download and install the app](user-help-auth-app-download-install.md)|Describes where and how to get and install the Microsoft Authenticator app for devices running Android and iOS.|
 |[Add your work or school accounts](user-help-auth-app-add-work-school-account.md)|Describes how to add your various work or school and personal accounts to the Microsoft Authenticator app.|
 |[Add your personal accounts](user-help-auth-app-add-personal-ms-account.md)|Describes how to add your personal Microsoft and non-Microsoft accounts to the Microsoft Authenticator app.|
 |[Manually add your accounts](user-help-auth-app-add-account-manual.md)|Describes how to manually add your accounts to the Microsoft Authenticator app, if you're unable to scan the provided QR code.|
