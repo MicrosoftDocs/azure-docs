@@ -2912,7 +2912,8 @@ Here are the kinds of authentication you can set up:
 
 ### Basic authentication
 
-For this authentication type, your trigger or action definition can 
+For [basic authentication](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) 
+by using Azure Active Directory, your trigger or action definition can 
 include an `authentication` JSON object, which has the properties 
 specified by the following table. To access parameter values at runtime, 
 you can use the `@parameters('parameterName')` expression, which is 
@@ -2921,8 +2922,8 @@ provided by the [Workflow Definition Language](https://aka.ms/logicappsdocs).
 | Property | Required | Value | Description | 
 |----------|----------|-------|-------------| 
 | **type** | Yes | "Basic" | The authentication type to use, which is "Basic" here | 
-| **username** | Yes | "@parameters('userNameParam')" | A parameter that accepts the user name for authenticating access to the target service endpoint |
-| **password** | Yes | "@parameters('passwordParam')" | A parameter that accepts the password for authenticating access to the target service endpoint |
+| **username** | Yes | "@parameters('userNameParam')" | The user name for authenticating access to the target service endpoint |
+| **password** | Yes | "@parameters('passwordParam')" | The password for authenticating access to the target service endpoint |
 ||||| 
 
 In this example HTTP action definition, the `authentication` 
@@ -2957,17 +2958,21 @@ information about using and securing parameters, see
 
 ### Client Certificate authentication
 
-For this authentication type, your trigger or action definition can 
-include an `authentication` JSON object, which has the properties 
-specified by the following table. To access parameter values at runtime, 
-you can use the `@parameters('parameterName')` expression, which is 
-provided by the [Workflow Definition Language](https://aka.ms/logicappsdocs). 
+For [certificate-based authentication](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) 
+using Azure Active Directory, your trigger or action 
+definition can include an `authentication` JSON object, 
+which has the properties specified by the following table. 
+To access parameter values at runtime, you can use the 
+`@parameters('parameterName')` expression, which is provided 
+by the [Workflow Definition Language](https://aka.ms/logicappsdocs). 
+For limits on the number of client certificates you can use, see 
+[Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md).
 
 | Property | Required | Value | Description | 
 |----------|----------|-------|-------------| 
 | **type** | Yes | "ClientCertificate" | The authentication type to use for Secure Sockets Layer (SSL) client certificates. While self-signed certificates are supported, self-signed certificates for SSL aren't supported. | 
-| **pfx** | Yes | "@parameters('pfxParam') | A parameter that accepts the base64-encoded content from a Personal Information Exchange (PFX) file |
-| **password** | Yes | "@parameters('passwordParam')" | A parameter that accepts the password for accessing the PFX file |
+| **pfx** | Yes | "@parameters('pfxParam') | The base64-encoded content from a Personal Information Exchange (PFX) file |
+| **password** | Yes | "@parameters('passwordParam')" | The password for accessing the PFX file |
 ||||| 
 
 In this example HTTP action definition, the `authentication` 
@@ -3002,9 +3007,9 @@ For more information about using and securing parameters, see
 
 ### Azure Active Directory (AD) OAuth authentication
 
-For this authentication type, your trigger or action definition can 
-include an `authentication` JSON object, which has the properties 
-specified by the following table. To access parameter values at runtime, 
+For [Azure AD OAuth authentication](../active-directory/develop/authentication-scenarios.md), 
+your trigger or action definition can include an `authentication` JSON object, 
+which has the properties specified by the following table. To access parameter values at runtime, 
 you can use the `@parameters('parameterName')` expression, which is 
 provided by the [Workflow Definition Language](https://aka.ms/logicappsdocs). 
 
@@ -3016,9 +3021,9 @@ provided by the [Workflow Definition Language](https://aka.ms/logicappsdocs).
 | **audience** | Yes | <*resource-to-authorize*> | The resource that you want to use for authorization, for example, `https://management.core.windows.net/` | 
 | **clientId** | Yes | <*client-ID*> | The client ID for the app requesting authorization | 
 | **credentialType** | Yes | "Certificate" or "Secret" | The credential type the client uses for requesting authorization. This property and value don't appear in your underlying definition, but determines the required parameters for the credential type. | 
-| **pfx** | Yes, only for "Certificate" credential type | "@parameters('pfxParam') | A parameter that accepts the base64-encoded content from a Personal Information Exchange (PFX) file | 
-| **password** | Yes, only for "Certificate" credential type | "@parameters('passwordParam')" | A parameter that accepts the password for accessing the PFX file | 
-| **secret** | Yes, only for "Secret" credential type | "@parameters('secretParam')" | A parameter that accepts the client secret for requesting authorization |
+| **pfx** | Yes, only for "Certificate" credential type | "@parameters('pfxParam') | The base64-encoded content from a Personal Information Exchange (PFX) file | 
+| **password** | Yes, only for "Certificate" credential type | "@parameters('passwordParam')" | The password for accessing the PFX file | 
+| **secret** | Yes, only for "Secret" credential type | "@parameters('secretParam')" | The client secret for requesting authorization |
 ||||| 
 
 In this example HTTP action definition, the `authentication` section specifies 
