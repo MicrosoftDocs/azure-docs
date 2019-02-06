@@ -35,7 +35,7 @@ Azure SQL Database Managed Instance can be deployed on two hardware generation (
 | Memory | 7 GB per vCore | 5.1 GB per vCore |
 | In-Memory OLTP memory | 3 GB per vCore | 2.6 GB per vCore |
 | Max storage (General Purpose) |  8 TB | 1 TB |
-| Max storage (Business Critical) | 8 TB | 1 TB, 2 TB, or 4 TB depending on the number of cores |
+| Max storage (Business Critical) | 1 TB | 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
 ### Service tier characteristics
 
