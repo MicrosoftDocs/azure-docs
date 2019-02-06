@@ -1,18 +1,17 @@
 ---
-title: Description of job's states
+title: Azure Stream Analytics job states
 description: This article describes different states of a Stream Analytics job
 services: stream-analytics
 author: sidram
 ms.author: sidram
-manager: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/06/2019
 ---
-# Different states of a Stream Analytics job
+# Azure Stream Analytics job states
 
-This article lists and describes all possible states of a Stream Analytics job. You can find the state of your job in the overview blade on the Azure portal. 
+This article lists and describes all possible states of a Stream Analytics job. You can find the state of your job on your Stream Analytics job's Overview page in the Azure portal. 
 
 | State | Description | Recommended actions |
 | --- | --- | --- |
