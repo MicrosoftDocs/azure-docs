@@ -9,15 +9,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: quickstart
-ms.date: 1/23/2019
+ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
 # Quickstart: Search for images using the Bing Image Search REST API and Java
 
-Use this quickstart to make your first call to the Bing Image Search API and receive a JSON response. This simple Java application sends a search query to the API and displays the raw results. While this application is written in Java, the API is a RESTful web service compatible with most programming languages.
+Use this quickstart to start sending search requests to the Bing Image Search API. This Java application sends a search query to the API, and displays the URL of the first image in the results. While this application is written in Java, the API is a RESTful web service compatible with most programming languages.
 
-The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) with additional error handling, and code annotations.
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) with additional error handling and annotations.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Construct the search request and query
 
-1. Use the variables from the last step to format a search URL for the API request. Note that your search term must be URL-encoded before being appended to the request.
+1. Use the variables from the last step to format a search URL for the API request. The search term must be URL-encoded before being appended to the request.
 
     ```java
     // construct the search request URL (in the form of endpoint + query string)

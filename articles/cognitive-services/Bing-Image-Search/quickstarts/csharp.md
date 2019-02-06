@@ -8,19 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: quickstart
-ms.date: 1/23/2019
+ms.date: 02/06/2019
 ms.author: aahi
 ---
 # Quickstart: Search for images using the Bing Image Search REST API and C#
 
-Use this quickstart to make your first call to the Bing Image Search API and view a search result from the JSON response. This simple C# application sends an image search query to the API, and displays the URL of the first image returned. While this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
+Use this quickstart to start sending search requests to the Bing Image Search API. This C# application sends a search query to the API, and displays the URL of the first image in the results. While this application is written in C#, the API is a RESTful web service compatible with most programming languages.
 
-The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) with additional error handling, and code annotations.
+The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) with additional error handling and annotations.
 
 ## Prerequisites
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
-* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+* If you're using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -91,7 +91,7 @@ namespace BingSearchApisQuickstart
 
 In the `BingImageSearch` method, perform the following steps.
 
-1. Construct the URI for the search request. Note that the search term `SearchTerm` must be formatted before being appended to the string.
+1. Construct the URI for the search request. The search term `SearchTerm` must be formatted before being appended to the string.
 
     ```csharp
     static SearchResult BingImageSearch(string SearchTerm){
@@ -100,7 +100,7 @@ In the `BingImageSearch` method, perform the following steps.
     //...
     ```
 
-2. Perform the web request and get the response as a JSON string.
+2. Send the web request and get the response as a JSON string.
 
     ```csharp
     WebRequest request = WebRequest.Create(uriQuery);
