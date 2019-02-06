@@ -60,7 +60,7 @@
 - name: Concepts
   items:
   - name: Azure management
-    href: azure-management.md?toc=/azure/azure-monitor/toc.json
+    href: azure-management.md
   - name: Continuous monitoring
     href: continuous-monitoring.md
   - name: Monitoring data
@@ -134,7 +134,7 @@
     - name: Activity log alerts
       href: platform/activity-log-alerts.md  
   - name: Visualize data
-    href: visualizations.md?toc=/azure/azure-monitor/toc.json
+    href: visualizations.md
   - name: Partner integrations
     href: platform/partners.md
   - name: FAQ
@@ -194,12 +194,12 @@
         - name: Windows agents
           href: platform/agent-windows.md
         - name: VM Extension for Windows
-          href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machines/windows/extensions-oms.md
         - name: VM Extension for Linux
-          href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machines/linux/extensions-oms.md
         - name: Operations Manager
           href: platform/om-agents.md
-        - name: OMS Gateway
+        - name: Log Analytics gateway
           href: platform/gateway.md
         - name: Agent management
           href: platform/agent-manage.md
@@ -286,7 +286,7 @@
           - name: Profiler Troubleshooting
             href: app/profiler-troubleshooting.md 
         - name: Diagnostics
-          href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: ../application-insights/app-insights-azure-diagnostics.md
         - name: Previews
           href: app/previews.md
       - name: ASP.NET apps
@@ -341,7 +341,9 @@
         - name: Filter telemetry
           href: app/java-filter-telemetry.md
         - name: Micrometer Metrics
-          href: app/micrometer-java.md   
+          href: app/micrometer-java.md
+        - name: Configure a Spring Boot Initializer app
+          href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
       - name: Node.js apps
         items:
         - name: Node.js
@@ -351,7 +353,7 @@
         - name: JavaScript
           href: app/javascript.md
       - name: Monitor Azure Functions
-        href: ../azure-functions/functions-monitoring.md?toc=/azure/application-insights/toc.json 
+        href: ../azure-functions/functions-monitoring.md
       - name: Distributed tracing
         items:
         - name: Local forwarder
@@ -394,7 +396,7 @@
         - name: No data for .NET
           href: app/asp-net-troubleshoot-no-data.md
         - name: Snapshot debugger
-          href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
+          href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
         - name: Analytics
           href: app/analytics-troubleshooting.md
         - name: Java
@@ -601,7 +603,7 @@
       - name: Key Vault Analytics
         href: insights/azure-key-vault.md
       - name: Service Fabric Analytics
-        href: ../service-fabric/service-fabric-diagnostics-oms-agent.md?toc=/azure/azure-monitor/toc.json
+        href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
     - name: Monitor other resources
       items:
       - name: Assess AD Health
@@ -647,8 +649,10 @@
     items:
     - name: Create metrics charts in Metrics Explorer
       href: platform/metrics-charts.md
+    - name: Metric Explorer chart samples
+      href: platform/metric-chart-samples.md
     - name: View events in activity log
-      href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
+      href: ../azure-resource-manager/resource-group-audit.md
     - name: View service notifications
       href: platform/service-notifications.md
     - name: Query log data
@@ -814,7 +818,7 @@
       - name: Autoscale VM scale sets using Resource Manager templates
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Automatically scale machines in a VM scale set
-        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json?toc=/azure/azure-monitor/toc.json
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
       - name: Configure webhooks and email notifications on autoscale
         href: platform/autoscale-webhook-email.md
     - name: Service notifications
@@ -986,6 +990,8 @@
       href: platform/alerts-extend.md
     - name: Copy alerts from OMS portal to Azure portal 
       href: platform/alerts-extend-tool.md
+    - name: Switch log alert API preference
+      href: platform/alerts-log-api-switch.md
 - name: Resources
   items:
   - name: Azure Roadmap

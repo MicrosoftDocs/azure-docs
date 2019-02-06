@@ -60,7 +60,7 @@ If machines you want to replicate have active anti-virus software running, make 
 
 5. The Update Mobility Service job starts for each of the selected machines.
 
-## Update the acount used for push installation of the Mobility service
+## Update the account used for push installation of the Mobility service
 
 When you deployed Site Recovery, to enable push installation of the Mobility service, you specified an account that the Site Recovery process server uses to access the machines and install the service when replication is enabled for the machine. If you want to update the credentials for this account, follow [these instructions](vmware-azure-manage-configuration-server.md).
 

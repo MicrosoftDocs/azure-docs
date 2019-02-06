@@ -4,7 +4,7 @@ description: Use this quickstart to learn how Azure AD admins can add B2B guest 
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: quickstart
 ms.date: 07/02/2018
 

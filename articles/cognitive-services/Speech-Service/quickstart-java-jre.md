@@ -6,7 +6,7 @@ services: cognitive-services
 author: fmegen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: fmegen
@@ -36,6 +36,10 @@ If you're running Ubuntu 16.04/18.04, make sure these dependencies are installed
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
 ```
+
+If you're running Windows (64-bit) please ensure you have installed Microsoft Visual C++ Redistributable for your platform.
+* [Download Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+
 
 ## Create and configure project
 

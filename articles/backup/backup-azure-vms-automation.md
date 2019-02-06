@@ -349,11 +349,17 @@ $restorejob
 #### Restore managed disks
 
 > [!NOTE]
-> If the backed VM has managed disks and you want to restore them as managed disks, we have introduced the capability from Azure PowerShell v 6.7.0. onwards
+> If the backed VM has managed disks and you want to restore them as managed disks, we have introduced the capability from Azure PowerShell RM module v 6.7.0. onwards
 >
 >
 
-Provide an additional parameter **TargetResourceGroupName** to specify the RG to which managed disks will be restored.
+Provide an additional parameter **TargetResourceGroupName** to specify the RG to which managed disks will be restored. 
+
+> [!NOTE]
+> It is strongly recommended to use the **TargetResourceGroupName** parameter for restoring managed disks since it results in significant performance improvements. Also, from Azure Powershell Az module 1.0 onwards, this parameter is mandatory in case of a restore with managed disks
+>
+>
+
 
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"

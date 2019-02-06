@@ -1,6 +1,6 @@
 ---
-title: Upload, encode, and stream using Azure Media Services | Microsoft Docs
-description: Follow the steps of this tutorial to upload a file, and encode the video, and stream your content with Azure Media Services.
+title: Upload, encode, and stream with Azure Media Services v3 using .NET | Microsoft Docs
+description: Follow the steps of this tutorial to upload a file, and encode the video, and stream your content with Media Services v3 using .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,11 +11,11 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 01/28/2019
 ms.author: juliako
 ---
 
-# Tutorial: Upload, encode, and stream videos using APIs
+# Tutorial: Upload, encode, and stream videos using .NET
 
 Azure Media Services enables you to encode your media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For encoding guidance, see [Encoding concept](encoding-concept.md). This tutorial uploads a local video file and encodes the uploaded file. You can also encode content that you make accessible via a HTTPS URL. For more information, see [Create a job input from an HTTP(s) URL](job-input-from-http-how-to.md).
 
@@ -24,8 +24,7 @@ Azure Media Services enables you to encode your media files into formats that ca
 This tutorial shows you how to:    
 
 > [!div class="checklist"]
-> * Access the Media Services API
-> * Configure the sample app
+> * Download the sample app described in the topic
 > * Examine the code that uploads, encodes, and streams
 > * Run the app
 > * Test the streaming URL
@@ -36,15 +35,10 @@ This tutorial shows you how to:
 ## Prerequisites
 
 - If you do not have Visual Studio installed, you can get [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
-- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+- [Create a Media Services account](create-account-cli-how-to.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
+- Follow the steps in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) and save the credentials. You will need to use them to access the API.
 
-    Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
-
-- [Create a Media Services account](create-account-cli-how-to.md).
-
-    Make sure to remember the values that you used for the resource group name and Media Services account name
-
-## Download the sample
+## Download and configure the sample
 
 Clone a GitHub repository that contains the streaming .NET sample to your machine using the following command:  
 
@@ -54,7 +48,7 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
 
 The sample is located in the [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/UploadEncodeAndStreamFiles) folder.
 
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) in you downloaded project. Replace the values with credentials that you got from [accessing APIs](access-api-cli-how-to.md).
 
 ## Examine the code that uploads, encodes, and streams
 

@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.author: normesta
 ms.date: 12/19/2018
 ms.service: storage
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ---
 
 # Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2 Preview

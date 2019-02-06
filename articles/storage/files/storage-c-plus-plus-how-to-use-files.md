@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
-ms.component: files
+ms.subservice: files
 ---
 
 # Develop for Azure Files with C++

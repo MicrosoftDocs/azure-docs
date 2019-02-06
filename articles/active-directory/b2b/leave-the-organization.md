@@ -1,11 +1,11 @@
-﻿---
+---
 
 title: Leave an organization as a guest user - Azure Active Directory | Microsoft Docs
 description: Shows how an Azure AD B2B guest user can leave an organization by using the Access Panel.
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/11/2018
 

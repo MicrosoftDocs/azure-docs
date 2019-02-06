@@ -139,7 +139,7 @@ The name passed as the parameter of the `CreatePipeline` method of the `ServiceF
 
 ### Use Service Fabric settings and application parameters in eventFlowConfig
 
-EventFlow supports using Service Fabric settings and application paremeters to configure EventFlow settings. You can refer to Service Fabric settings parameters using this special syntax for values:
+EventFlow supports using Service Fabric settings and application parameters to configure EventFlow settings. You can refer to Service Fabric settings parameters using this special syntax for values:
 
 ```json
 servicefabric:/<section-name>/<setting-name>

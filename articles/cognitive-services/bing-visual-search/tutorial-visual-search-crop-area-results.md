@@ -5,7 +5,7 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
@@ -108,4 +108,4 @@ Getting the actual image URLs requires a cast that reads an `ActionType` as `Ima
 > [!div class="nextstepaction"]
 > [Build a single-page web app](tutorial-bing-visual-search-single-page-app.md)
 
-[Visual Search response](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)
+[Visual Search response](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)

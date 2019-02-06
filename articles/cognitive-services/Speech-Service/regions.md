@@ -7,7 +7,7 @@ author: mahilleb-msft
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mahilleb
