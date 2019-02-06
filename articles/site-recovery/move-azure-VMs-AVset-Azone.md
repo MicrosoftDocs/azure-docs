@@ -13,7 +13,7 @@ ms.custom: MVC
 # Move Azure VMs into Availability Zones
 Availability Zones in Azure protects your applications and data from datacenter failures. Each availability Zones is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. The physical separation of Availability Zones within a region protects applications and data from datacenter failures. With Availability Zones, Azure offers industry best 99.99% VM uptime SLA. Availability zone is supported in select regions as mentioned [here](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones). 
 
-In a scenario where you deployed your Virtual machines as 'single instance' into a specific region, and you want to improve your availability by moving these into Availability zone, you can do so by suing Azure Site Recovery. This can further be categorized into:
+In a scenario where you deployed your Virtual machines as 'single instance' into a specific region, and you want to improve your availability by moving these into Availability zone, you can do so by using Azure Site Recovery. This can further be categorized into:
 
 - Move single instance VMs into Availability zones in a target region
 - Move VMs in an Availability set into Availability zones in a target region
