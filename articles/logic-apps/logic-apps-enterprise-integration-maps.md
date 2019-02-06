@@ -306,7 +306,8 @@ you can now upload your map.
 
 Currently, to add larger maps, use the [Azure Logic Apps REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
 
-<!--->
+<!--
+
 To add larger maps, you can upload your map to 
 an Azure blob container in your Azure storage account. 
 Your steps for adding maps differ based whether your 
@@ -389,7 +390,7 @@ the map appears in the **Maps** list.
 After your map finishes uploading, 
 the map appears in the **Maps** list.
 
-<!--->
+-->
 
 ## Edit maps
 
