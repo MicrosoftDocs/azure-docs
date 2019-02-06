@@ -148,8 +148,7 @@ To view the list of options, type `CosmosDB.Emulator.exe /?` at the command prom
 
 |**Option** | **Description** | **Command**| **Arguments**|
 |---|---|---|---|
-|[No arguments] | Starts up the Azure Cosmos DB Emulator with default settings. |
-CosmosDB.Emulator.exe| |
+|[No arguments] | Starts up the Azure Cosmos DB Emulator with default settings. |CosmosDB.Emulator.exe| |
 |[Help] |Displays the list of supported command-line arguments.|CosmosDB.Emulator.exe /? | |
 | GetStatus |Gets the status of the Azure Cosmos DB Emulator. The status is indicated by the exit code: 1 = Starting, 2 = Running, 3 = Stopped. A negative exit code indicates that an error occurred. No other output is produced. | CosmosDB.Emulator.exe /GetStatus| |
 | Shutdown| Shuts down the Azure Cosmos DB Emulator.| CosmosDB.Emulator.exe /Shutdown | |
