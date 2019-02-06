@@ -85,11 +85,11 @@ In HR2day by Merces, assign the **user name** in Azure AD to  **Username** to es
 
 To configure and test Azure AD single sign-on with HR2day by Merces, you need to complete the following building blocks:
 
-1. [Configure Azure AD single sign-on](#configuring-azure-ad-single-sign-on): Enable your users to use this feature.
-1. [Create an Azure AD test user](#creating-an-azure-ad-test-user): Test Azure AD single sign-on with Britta Simon.
-1. [Create an HR2day by Merces test user](#creating-an-hr2day-by-merces-test-user): Create a counterpart of Britta Simon in HR2day by Merces that is linked to the Azure AD representation of user.
-1. [Assign the Azure AD test user](#assigning-the-azure-ad-test-user): Enable Britta Simon to use Azure AD single sign-on.
-1. [Test single sign-on](#testing-single-sign-on): Verify whether the configuration works.
+1. Configure Azure AD single sign-on: Enable your users to use this feature.
+1. Create an Azure AD test user: Test Azure AD single sign-on with Britta Simon.
+1. Create an HR2day by Merces test user: Create a counterpart of Britta Simon in HR2day by Merces that is linked to the Azure AD representation of user.
+1. Assign the Azure AD test user: Enable Britta Simon to use Azure AD single sign-on.
+1. Test single sign-on: Verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
