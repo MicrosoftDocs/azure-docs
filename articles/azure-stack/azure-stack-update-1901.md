@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 02/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -115,10 +115,10 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 - Fixed issue with automatic backups where the scheduler service would go into disabled state unexpectedly. 
 
 <!--2850083, IS ASDK -->
-- Removed the Reset Gateway button from the Azure Stack Portal, which would throw an error if the button was pressed.  Since this button serves no function in Azure Stack, as Azure Stack has a multi-tenant gateway rather than dedicated VM instances for each tenant VPN Gateway, we removed it to prevent confusion. 
+- Removed the **Reset Gateway** button from the Azure Stack portal, which threw an error if the button was clicked. This button serves no function in Azure Stack, as Azure Stack has a multi-tenant gateway rather than dedicated VM instances for each tenant VPN Gateway, so it was removed to prevent confusion. 
 
 <!-- 3209594, IS ASDK -->
--Removed the **Effective Security Rules** link from the **Networking Properties** blade as this feature is not supported in Azure Stack today.  Having the link present gave customers the impression that this feature was supported but not working for them.  To alleviate this confusion, we removed the link and will add it back once the feature is supported.
+- Removed the **Effective Security Rules** link from the **Networking Properties** blade as this feature is not supported in Azure Stack. Having the link present gave the impression that this feature was supported but not working. To alleviate confusion, we removed the link.
 
 ## Changes
 
@@ -281,7 +281,7 @@ The following are post-installation known issues for this build version.
 - Network security groups (NSGs) do not work in Azure Stack in the same way as global Azure. In Azure, you can set multiple ports on one NSG rule (using the portal, PowerShell, and Resource Manager templates). In Azure Stack however, you cannot set multiple ports on one NSG rule via the portal. To work around this issue, use a Resource Manager template or PowerShell to set these additional rules.
 
 <!-- 3203799 - IS, ASDK -->
-- Azure Stack does not support attaching more than 4 Network Interfaces (NICs) to a VM instances today, regardless of the instance size.  This will be fixed in a future update.
+- Azure Stack does not support attaching more than 4 Network Interfaces (NICs) to a VM instances today, regardless of the instance size.
 
 <!-- ### SQL and MySQL-->
 
