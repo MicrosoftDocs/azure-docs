@@ -101,7 +101,7 @@ The following sections provide an overview of the steps to recover using either 
 
 Regardless of the business continuity feature you use, you must:
 
-- Identify and prepare the target server, including server-level firewall rules, logins, and master database level permissions.
+- Identify and prepare the target server, including server-level IP firewall rules, logins, and master database level permissions.
 - Determine how to redirect clients and client applications to the new server
 - Document other dependencies, such as auditing settings and alerts
 
@@ -126,7 +126,7 @@ If you are using the automated backups with geo-redundant storage (enabled by de
 After recovery from either recovery mechanism, you must perform the following additional tasks before your users and applications are back up and running:
 
 - Redirect clients and client applications to the new server and restored database
-- Ensure appropriate server-level firewall rules are in place for users to connect (or use [database-level firewalls](sql-database-firewall-configure.md#creating-and-managing-firewall-rules))
+- Ensure appropriate server-level IP firewall rules are in place for users to connect or use [database-level firewalls](sql-database-firewall-configure.md#manage-ip-firewall-rules-using-the-azure-portal) to enable appropriate rules.
 - Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - Configure auditing, as appropriate
 - Configure alerts, as appropriate
