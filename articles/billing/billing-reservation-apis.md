@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/10/2018
-ms.author: cwatson
+ms.author: banders
 
 ---
 # APIs for Azure reservation automation

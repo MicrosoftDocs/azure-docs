@@ -16,13 +16,13 @@ ms.date: 03/08/2018
 ms.author: jdial
 ---
 
-# Traffic analytics frequently asked questions
+# Traffic Analytics frequently asked questions
 
 This article collects in one place many of the most frequently asked questions about traffic analytics in Azure Network Watcher.
 
 ## What are the prerequisites to use traffic analytics?
 
-Traffic analytics requires the following prerequisites:
+Traffic Analytics requires the following prerequisites:
 
 - A Network Watcher enabled subscription.
 - Network Security Group (NSG) flow logs enabled for the NSGs you want to monitor.
@@ -31,7 +31,6 @@ Traffic analytics requires the following prerequisites:
 
 Your account must meet one of the following to enable traffic analytics:
 
-- Your account must be assigned to one of the following roles at the subscription level: account administrator, service administrator, or co-administrator.
 - Your account must have any one of the following role-based access control (RBAC) roles at the subscription scope: owner, contributor, reader, or network contributor.
 - If your account is not assigned to one of the previously listed roles, it must be assigned to a custom role that is assigned the following actions, at the subscription level.
             
@@ -58,7 +57,7 @@ To check roles assigned to a user for a subscription:
 If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more details, see [Manage role-based access control with Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
-## In which Azure regions are traffic analytics available?
+## In which Azure regions is Traffic Analytics available?
 
 You can use traffic analytics for NSGs in any of the following supported regions:
 - Canada Central
@@ -142,7 +141,7 @@ If problems persist, raise concerns in the [User voice forum](https://feedback.a
 ## What if I get this message: “Analyzing your NSG flow logs for the first time. This process may take 20-30 minutes to complete. Check back after some time. 2) If the above step doesn’t work and your workspace is under the free SKU, then check your workspace usage here to validate over quota, else refer to FAQs for further information.”?
 
 You might see this message because:
-- Traffic analytics was recently enabled, and might not yet have aggregated enough data for it to derive meaningful insights.
+- Traffic Analytics was recently enabled, and might not yet have aggregated enough data for it to derive meaningful insights.
 - You are using the free version of the Log Analytics workspace, and it exceeded the quota limits. You might need to use a workspace with a larger capacity.
     
 If problems persist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
@@ -220,9 +219,9 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 
 
-## How is traffic analytics priced?
+## How is Traffic Analytics priced?
 
-Traffic analytics is metered. The metering is based on processing of flow log data by the service, and storing the resulting enhanced logs in a Log Analytics workspace. 
+Traffic Analytics is metered. The metering is based on processing of flow log data by the service, and storing the resulting enhanced logs in a Log Analytics workspace. 
 
 For example, as per the [pricing plan](https://azure.microsoft.com/pricing/details/network-watcher/), considering West Central US region, if flow logs data stored in a storage account processed by Traffic Analytics is 10 GB and enhanced logs ingested in Log Analytics workspace is 1 GB then the applicable charges are:
 10 x 2.3$ + 1 x 2.76$ = 25.76$

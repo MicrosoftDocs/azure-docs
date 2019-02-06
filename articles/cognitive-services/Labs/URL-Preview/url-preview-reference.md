@@ -7,7 +7,7 @@ author: mikedodaro
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
@@ -27,10 +27,10 @@ You must use only the data from URL Preview to display preview snippets and thum
 To request URL Preview results, send a request to the following endpoint. Use the headers and URL parameters to define further specifications.
 
 Endpoint GET:
-````
+```
 https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 
-````
+```
 
 The request must use the HTTPS protocol and include following query parameter:
 

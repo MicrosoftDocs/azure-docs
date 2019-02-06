@@ -4,7 +4,7 @@ description: Introduction to Azure Active Directory activity logs in Azure Monit
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: concept
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
@@ -113,6 +113,12 @@ This section answers frequently asked questions and discusses known issues with 
 **Q: How soon after an action will the corresponding logs show up in my storage account?**
 
 **A**: For Azure storage accounts, the latency is anywhere from 5 to 15 minutes after the action is performed.
+
+---
+
+**Q: What happens if an Adminstrator changes the retention period of a diagnostic setting?**
+
+**A**: The new retention policy will be applied to logs collected after the change. Logs collected before the policy change will be unaffected.
 
 ---
 

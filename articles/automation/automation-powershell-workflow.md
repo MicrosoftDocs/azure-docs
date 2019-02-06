@@ -3,7 +3,7 @@ title: Learning PowerShell Workflow for Azure Automation
 description: This article is intended as a quick lesson for authors familiar with PowerShell to understand the specific differences between PowerShell and PowerShell Workflow and concepts applicable to Automation runbooks.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 12/14/2018
@@ -290,3 +290,4 @@ For more information about checkpoints, see [Adding Checkpoints to a Script Work
 ## Next steps
 
 * To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md)
+

@@ -35,7 +35,7 @@ Here's how Azure Backup completes a  backup for Azure VMs.
 
 Azure Backup doesn't encrypt data as a part of the backup process. Azure Backup does support backup of Azure VMs that are encrypted using Azure Disk Encryption.
 
-- Backup of VMs encrypted with Bitlocker Encryption Key(BEK) only, and BEK together with Key Encryption Key(KEK) is supported, for managed and unmanaged Azure VMs.
+- Backup of VMs encrypted with BitLocker Encryption Key(BEK) only, and BEK together with Key Encryption Key(KEK) is supported, for managed and unmanaged Azure VMs.
 - The BEK(secrets) and KEK(keys) backed up are encrypted so they can be read and used only when restored back to key vault by the authorized users.
 - Since the BEK is also backed up, in scenarios where BEK is lost, authorized users can restore the BEK to the KeyVault and recover the encrypted VM. Keys and secrets of encrypted VMs are backed up in encrypted form, so neither unauthorized users nor Azure can read or use backed up keys and secrets. Only users with the right level of permissions can back up and restore encrypted VMs, as well as keys and secrets.
 
@@ -50,6 +50,10 @@ To take snapshots while apps are running, Azure Backup takes app-consistent snap
         [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
         ""USEVSSCOPYBACKUP"="TRUE"
         ```
+        - Run the below command from elevated (as administrator) command prompt, to set the above registry key:
+          ```
+          REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f
+          ```
 - **Linux VMs**: To ensure that your Linux VMs are app-consistent when Azure Backup takes a snapshot, you can use the Linux pre-script and post-script framework. You can write your own custom scripts to ensure consistency when taking a VM snapshot.
     -  Azure Backup only invokes the pre- and post-scripts written by you.
     - If the pre-script and post-scripts execute successfully, Azure Backup marks the recovery point as application-consistent. However, you're ultimately responsible for the application consistency when using custom scripts.
@@ -60,11 +64,11 @@ To take snapshots while apps are running, Azure Backup takes app-consistent snap
 
 The following table explains different types of consistency.
 
-**Snapshot** | **VSS-based** | **Details** | **Recovery**
+**Snapshot** | **Details** | **Recovery** | **Consideration**
 --- | --- | --- | ---
-**Application-consistent** | Yes (Windows only) | App-consistent backups capture memory content and pending I/O operations. App-consistent snapshots use VSS writer (or pre/post script for Linux) that ensure the consistency of app data before a backup occurs. | When recovering with an app-consistent snapshot, the VM boots up. There's no data corruption or loss. The apps start in a consistent state.
-**File system consistent** | Yes (Windows only) |  File consistent backups provide consistent backups of disk files by taking a snapshot of all files at the same time.<br/><br/> Azure Backup recovery points are file consistent for:<br/><br/> -Linux VMs backups that don't have pre/post scripts, or that have script that failed.<br/><br/> - Windows VM backups where VSS failed. | When recovering with a file-consistent snapshot, the VM boots up. There's no data corruption or loss. Apps need to implement their own "fix-up" mechanism to make sure that restored data is consistent.
-**Crash-consistent** | No | Crash consistency often happens when an Azure VM shuts down at the time of backup.  Only the data that already exists on the disk at the time of backup is captured and backed up.<br/><br/> A crash-consistent recovery point doesn't guarantee data consistency for the operating system or the app. | There are no guarantees, but usually the VM boots, and follows with a disk check to fix corruption errors. Any in-memory data or write that weren't transferred to disk are lost. Apps implement their own data verification. For example, for a database app, if a transaction log has entries that aren't in the database, the database software rolls until data is consistent.
+**Application-consistent** | App-consistent backups capture memory content and pending I/O operations. App-consistent snapshots use VSS writer (or pre/post script for Linux) that ensure the consistency of app data before a backup occurs. | When recovering with an app-consistent snapshot, the VM boots up. There's no data corruption or loss. The apps start in a consistent state. | Windows: All VSS writers succeeded<br/><br/> Linux: Pre/post scripts are configured and succeeded
+**File system consistent** | File consistent backups provide consistent backups of disk files by taking a snapshot of all files at the same time.<br/><br/> | When recovering with a file-consistent snapshot, the VM boots up. There's no data corruption or loss. Apps need to implement their own "fix-up" mechanism to make sure that restored data is consistent. | Windows: Some VSS writers failed <br/><br/> Linux: Default (if pre/post scripts are not configured or failed)
+**Crash-consistent** | Crash consistency often happens when an Azure VM shuts down at the time of backup.  Only the data that already exists on the disk at the time of backup is captured and backed up.<br/><br/> A crash-consistent recovery point doesn't guarantee data consistency for the operating system or the app. | There are no guarantees, but usually the VM boots, and follows with a disk check to fix corruption errors. Any in-memory data or write that weren't transferred to disk are lost. Apps implement their own data verification. For example, for a database app, if a transaction log has entries that aren't in the database, the database software rolls until data is consistent. | VM is in shutdown state
 
 
 ## Service and subscription limits

@@ -11,9 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
+ms.lastreviewed: 01/18/2019
 
 ---
 
@@ -33,6 +34,9 @@ When a Microsoft or OEM update package for Azure Stack is available, download th
 
 - A `Metadata.xml` file. This file contains essential information about the update, for example the publisher, name, prerequisite, size, and support path URL.
 
+> [!IMPORTANT]  
+> After the Azure Stack 1901 update package is applied, the packaging format for Azure Stack update pacakges will move from .exe, .bin(s), and .xml format to a .zip(s) and .xml format. Azure Stack operators that have connected stamps won't be impacted. Azure Stack operators that are disconnected will simply import the .xml and .zip file(s) by using the same process described below.
+
 ## Import and install updates
 
 The following procedure shows how to import and install update packages in the administrator portal.
@@ -46,13 +50,11 @@ The following procedure shows how to import and install update packages in the a
 
 2. In the filter box, type **update**, and select the **updateadminaccount** storage account.
 
-    ![Shows how to search for updateadminaccount](media/azure-stack-apply-updates/ApplyUpdates2.png)
-
 3. In the storage account details, under **Services**, select **Blobs**.
  
     ![Shows how to get to Blobs for the storage account](media/azure-stack-apply-updates/ApplyUpdates3.png) 
- 
-4. Under **Blob service**, select **+ Container** to create a  container. Enter a name (for example *Update-1709*), and then select **OK**.
+
+4. Under **Blob service**, select **+ Container** to create a  container. Enter a name (for example *Update-1811*), and then select **OK**.
  
      ![Shows how to add a container in the storage account](media/azure-stack-apply-updates/ApplyUpdates4.png)
 
@@ -62,12 +64,12 @@ The following procedure shows how to import and install update packages in the a
 
 6. Under **Upload blob**, click the folder icon, browse to the update package's .exe file, and then click **Open** in the file explorer window.
   
-7. Under **Upload blob**, click **Upload**. 
+7. Under **Upload blob**, click **Upload**.
   
     ![Shows where to upload each package file](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
-8. Repeat steps 6 and 7 for the *PackageName*.bin and Metadata.xml files. Do not import the Supplemental Notice.txt file if included.
-9. When done, you can review the notifications (bell icon in the top-right corner of the portal). The notifications should indicate that the upload has completed. 
+8. Repeat steps 6 and 7 for the *PackageName*.bin and Metadata.xml files. Do not import the Supplemental Notice.txt file if included.
+9. When done, you can review the notifications (bell icon in the top-right corner of the portal). The notifications should indicate that the upload has completed.
 10. Navigate back to the Update tile on the dashboard. The tile should indicate that an update is available. Click the tile to review the newly added update package.
 11. To install the update, select the package that's marked as **Ready** and either right-click the package and select **Update now**, or click the **Update now** action near the top.
 12. When you click the installing update package, you can view the status in the **Update run details** area. From here, you can also click **Download full logs** to download the log files.

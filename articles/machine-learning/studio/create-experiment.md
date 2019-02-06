@@ -1,20 +1,15 @@
 ---
-title: Simple experiment - Azure Machine Learning Studio | Microsoft Docs
+title: Simple experiment
+titleSuffix: Azure Machine Learning Studio
 description: This machine learning tutorial walks you through an easy data science experiment. We'll predict the price of a car using a regression algorithm.
-keywords: experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques,data science experiment
 services: machine-learning
-documentationcenter: ''
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cgronlun
-ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: tutorial
+
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
 ms.date: 03/20/2017
 ---
 

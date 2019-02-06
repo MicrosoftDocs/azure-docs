@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
-ms.component: ""
+ms.subservice: ""
 ---
 # Get started with roles, permissions, and security with Azure Monitor
 Many teams need to strictly regulate access to monitoring data and settings. For example, if you have team members who work exclusively on monitoring (support engineers, devops engineers) or if you use a managed service provider, you may want to grant them access to only monitoring data while restricting their ability to create, modify, or delete resources. This article shows how to quickly apply a built-in monitoring RBAC role to a user in Azure or build your own custom role for a user who needs limited monitoring permissions. It then discusses security considerations for your Azure Monitor-related resources and how you can limit access to the data they contain.
@@ -182,4 +182,5 @@ For more information, see [Network security and Azure Storage](../../storage/com
 ## Next steps
 * [Read about RBAC and permissions in Resource Manager](../../role-based-access-control/overview.md)
 * [Read the overview of monitoring in Azure](../../azure-monitor/overview.md)
+
 

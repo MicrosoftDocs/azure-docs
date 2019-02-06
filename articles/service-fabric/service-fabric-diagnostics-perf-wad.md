@@ -40,7 +40,7 @@ To collect performance counters via WAD, you need to modify the configuration ap
     }
     ```
 
-    The `scheduledTransferPeriod` defines how frquently the values of the counters that are collected are transferred to your Azure storage table and to any configured sink. 
+    The `scheduledTransferPeriod` defines how frequently the values of the counters that are collected are transferred to your Azure storage table and to any configured sink. 
 
 3. Add the performance counters you would like to collect to the `PerformanceCounterConfiguration` that was declared in the previous step. Each counter you would like to collect is defined with a `counterSpecifier`, `sampleRate`, `unit`, `annotation`, and any relevant `sinks`.
 

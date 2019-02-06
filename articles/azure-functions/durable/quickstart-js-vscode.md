@@ -90,7 +90,7 @@ We've added an orchestrator to coordinate activity functions. Let's now add the 
 
 ## Create an Activity Function
 
-1. Repeat the steps from the previous sections to create a third function using the HTTP trigger template. But this time name the function  `SayHello`.
+1. Repeat the steps from the previous sections to create a third function using the HTTP trigger template. But this time name the function  `E1_SayHello`.
 
 2. Open the index.js file for the new function and replace the contents with the following code:
 
@@ -117,9 +117,11 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     ![Azure local output](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. Paste the URL for the HTTP request into your browser's address bar, and see the status of your orchestration.
+4. Replace `{functionName}` with `OrchestratorFunction`.
 
-5. To stop debugging, press Shift + F1.
+5. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send a HTTP POST request to the URL endpoint.
+
+6. To stop debugging, press Shift + F1 in VS Code.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 

@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: kuhussai
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Azure Blob storage: Premium (preview), Hot, Cool, and Archive storage tiers

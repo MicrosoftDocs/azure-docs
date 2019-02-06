@@ -8,7 +8,7 @@ ms.topic: include
 > [!IMPORTANT]
 >
 > Using this Azure feature from PowerShell requires that you have the `AzureRM` module installed. This
-> is an older module only available for Windows PowerShell 5.x that recieves critical updates, but no
+> is an older module only available for Windows PowerShell 5.x that receives critical updates, but no
 > longer gets new features. If you have the `Az` module installed, you will need to install `AzureRM`
 > as well. To install `AzureRM`:
 > 

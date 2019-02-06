@@ -18,7 +18,7 @@ The article [Understand the device model schema](iot-accelerators-remote-monitor
 - **Method** JavaScript files that run when the solution invokes a method on the device.
 
 > [!NOTE]
-> Device model behaviors are only for simulated devices hosted in the device simulation service. If you want to create a physical device, see [Connect your device to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).
+> Device model behaviors are only for simulated devices hosted in the device simulation service. If you want to create a real device, see [Connect your device to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).
 
 In this article, you learn how to:
 

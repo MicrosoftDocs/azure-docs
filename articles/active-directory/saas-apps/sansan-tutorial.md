@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: f653a0f2-c44a-4670-b936-68c136b578ea
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -147,7 +147,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	e. Use the following script to update multiple URLs to an application:
 
-	```poweshell
+	```powershell
 	 Param(
 	[Parameter(Mandatory=$true)][guid]$ServicePrincipalObjectId,
 	[Parameter(Mandatory=$false)][string[]]$ReplyUrls,

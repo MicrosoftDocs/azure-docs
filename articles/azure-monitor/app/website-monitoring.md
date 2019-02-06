@@ -16,7 +16,7 @@ manager: carmonm
 
 With Azure Monitor Application Insights, you can easily monitor your website for availability, performance, and usage. You can also quickly identify and diagnose errors in your application without waiting for a user to report them. Application Insights provides both server-side monitoring as well as client/browser-side monitoring capabilities.
 
-This quickstart guides you through adding the [open source Application Insights JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS) which allows you to understand the client/brower-side experience for visitors to your website.
+This quickstart guides you through adding the [open source Application Insights JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS) which allows you to understand the client/browser-side experience for visitors to your website.
 
 ## Prerequisites
 

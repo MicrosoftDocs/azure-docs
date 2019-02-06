@@ -96,7 +96,7 @@ To copy data from SAP ECC, set the type property of the dataset to **SapEccResou
     "name": "SapEccDataset",
     "properties": {
         "type": "SapEccResource",
-        "typePoperties": {
+        "typeProperties": {
             "path": "<entity path e.g. dd04tentitySet>"
         },
         "linkedServiceName": {

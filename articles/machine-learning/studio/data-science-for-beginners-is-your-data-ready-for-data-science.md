@@ -1,20 +1,15 @@
 ---
-title: Data evaluation - Azure Machine Learning Studio | Microsoft Docs
+title: Data evaluation
+titleSuffix: Azure Machine Learning Studio
 description: Four criteria your data needs to meet to be ready for data science. This video has concrete examples to help with basic data evaluation.
-keywords: relevant data,evaluate data,prepare data,data criteria,data ready
 services: machine-learning
-documentationcenter: na
-author: garyericson
-ms.custom: seodec18
-ms.author: garye
-editor: cjgronlund
-ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
 ms.date: 01/03/2018
 ---
 # Is your data ready for data science?
