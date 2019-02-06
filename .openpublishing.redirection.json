@@ -2330,6 +2330,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-libraries.md",
+      "redirect_url": "/azure/sql-database/sql-database-connect-query#libraries",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/sql-database/sql-database-quickstart-guide.md",
       "redirect_url": "/azure/sql-database/sql-database-single-database-quickstart-guide",
       "redirect_document_id": false

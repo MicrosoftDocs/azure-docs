@@ -239,7 +239,7 @@ For more information on creating an HDInsight cluster and running Hive jobs, see
 Uploading the data file and the [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) script files (see [Appendix B](#appendix-b)) requires some planning. The idea is to store the data files and the HiveQL file before creating an HDInsight cluster and running the Hive job. You have two options:
 
 * **Use the same Azure Storage account that will be used by the HDInsight cluster as the default file system.** Because the HDInsight cluster will have the Storage account access key, you don't need to make any additional changes.
-* **Use a different Azure Storage account from the HDInsight cluster default file system.** If this is the case, you must modify the creation part of the Windows PowerShell script found in [Create HDInsight cluster and run Apache Hive/Sqoop jobs](#runjob) to link the Storage account as an additional Storage account. For instructions, see [Create Apache Hadoop clusters in HDInsight][hdinsight-provision]. The HDInsight cluster then knows the access key for the Storage account.
+* **Use a different Azure Storage account from the HDInsight cluster default file system.** If this is the case, you must modify the creation part of the Windows PowerShell script found in Create HDInsight cluster and run Apache Hive/Sqoop jobs to link the Storage account as an additional Storage account. For instructions, see [Create Apache Hadoop clusters in HDInsight][hdinsight-provision]. The HDInsight cluster then knows the access key for the Storage account.
 
 > [!NOTE]  
 > The Blob storage path for the data file is hard coded in the HiveQL script file. You must update it accordingly.
