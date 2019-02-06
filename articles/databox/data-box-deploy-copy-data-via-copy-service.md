@@ -41,7 +41,7 @@ Once you're connected to the NAS device, the next step is to copy your data. Bef
 - While copying data, make sure that the data size conforms to the size limits described in the article [Azure storage and Data Box limits](data-box-limits.md).
 - If data uploaded by Data Box is concurrently uploaded by other applications outside of Data Box, upload-job failures and data corruption could result.
 - If the data is being modified as the data copy service is reading it, you could see failures or corruption of data.
-
+- 
 To copy data using the data copy service, you need to create a job:
 
 1. In the local web UI of your Data Box, go to **Manage > Copy data**.
