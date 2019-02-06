@@ -21,8 +21,6 @@ ms.custom: mvc
 ---
 # Tutorial: Create and manage a virtual machine scale set with Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. Throughout the lifecycle of a virtual machine scale set, you may need to run one or more management tasks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -34,9 +32,10 @@ A virtual machine scale set allows you to deploy and manage a set of identical, 
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell Az module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure. 
 
 
 ## Create a resource group
@@ -98,7 +97,8 @@ Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 ## List connection information
 A public IP address is assigned to the load balancer that routes traffic to the individual VM instances. By default, Network Address Translation (NAT) rules are added to the Azure load balancer that forwards remote connection traffic to each VM on a given port. To connect to the VM instances in a scale set, you create a remote connection to an assigned public IP address and port number.
 
-To list the NAT ports to connect to VM instances in a scale set, first get the load balancer object with [Get-AzLoadBalancer](/powershell/module/az.Network/Get-azLoadBalancer). Then, view the inbound NAT rules with [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.Network/Get-azLoadBalancerInboundNatRuleConfig):
+To list the NAT ports to connect to VM instances in a scale set, first get the load balancer object with [Get-AzLoadBalancer](/powershell/module/az.network/Get-AzLoadBalancer). Then, view the inbound NAT rules with [Get-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/Get-AzLoadBalancerInboundNatRuleConfig):
+
 
 ```azurepowershell-interactive
 # Get the load balancer object
@@ -121,7 +121,8 @@ myScaleSet5985.1 Tcp             51002        5985
 
 The *Name* of the rule aligns with the name of the VM instance as shown in a previous [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) command. For example, to connect to VM instance *0*, you use *myScaleSet3389.0* and connect to port *50001*. To connect to VM instance *1*, use the value from *myScaleSet3389.1* and connect to port *50002*. To use PowerShell remoting, you connect to the appropriate VM instance rule for *TCP* port *5985*.
 
-View the public IP address of the load balancer with [Get-AzPublicIpAddress](/powershell/module/az.Network/Get-azPublicIpAddress):
+View the public IP address of the load balancer with [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress):
+
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" -Name "myPublicIPAddress" | Select IpAddress

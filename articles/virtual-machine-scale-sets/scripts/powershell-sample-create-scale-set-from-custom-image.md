@@ -23,13 +23,11 @@ ms.custom: mvc
 # Create a virtual machine scale set from a custom VM image with PowerShell
 This script creates a virtual machine scale set that uses a custom VM image as the source for the VM instances.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Sample script
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+## Sample script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/use-custom-vm-image/use-custom-vm-image.ps1 "Create a virtual machine scale set with a custom VM image")]
 

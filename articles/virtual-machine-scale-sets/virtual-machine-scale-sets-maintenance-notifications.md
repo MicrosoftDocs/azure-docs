@@ -20,7 +20,6 @@ ms.author: shants
 
 # Planned maintenance notifications for virtual machine scale sets
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Azure periodically performs updates to improve the reliability, performance, and security of the host infrastructure for virtual machines (VMs). Updates might include patching the hosting environment or upgrading and decommissioning hardware. Most updates don't affect the hosted VMs. However, updates affect VMs in these scenarios:
 

@@ -23,13 +23,11 @@ ms.custom: mvc
 # Install applications into a virtual machine scale set with PowerShell
 This script creates a virtual machine scale set running Windows Server 2016 and uses the Custom Script Extension to install a basic web application. After running the script, you can access the web app through a web browser.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Sample script
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+## Sample script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/install-apps/install-apps.ps1 "Install apps into a scale set")]
 
