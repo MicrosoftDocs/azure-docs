@@ -66,7 +66,7 @@ The **Billing Summary**  shows the charges against the billing profile since the
 | Estimated total savings |The estimated total amount you saved from effective discounts. If applicable, effective discount rates are listed beneath the purchase line items in Details by Invoice Section. |
 
 #### Understand invoice sections
-For each invoice section under your billing profile, you'll see the charges, the amount of Azure credits applied, tax (if applicable), and the total amount due.
+For each invoice section under your billing profile, you'll see the charges, the amount of Azure credits applied, tax, and the total amount due.
 
 `Total = Charges - Azure Credit + Tax`
 
@@ -74,7 +74,7 @@ For each invoice section under your billing profile, you'll see the charges, the
 The details show the cost for each invoice section broken down by product order name.
 Within each product order, cost is broken down by service family.
 
-The total amount due for each service family is calculated by subtracting Azure credits from Credits/Charges and adding tax:
+The total amount due for each service family is calculated by subtracting Azure credits from credits/charges and adding tax:
 
 `Total = Charges/Credits - Azure Credit + Tax`
 
