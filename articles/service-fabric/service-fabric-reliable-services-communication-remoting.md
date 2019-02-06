@@ -235,7 +235,7 @@ This step makes sure that the service is listening only on the V2 listener.
 
 ## Use the remoting V2 (interface compatible) stack
 
- The remoting V2 (interface compatible, known as V2_1) stack has all the features of the V2 remoting stack. Its interface stack is compatible with the remoting V1 stack, but it is not backward compatible with V2 and V1. To upgrade from V1 to V2_1 without affecting service availability, follow the steps in the article [Upgrade from V1 to V2 (interface compatible)](#upgrade-from-remoting-v1-to-remoting-v2interfacecompatible).
+ The remoting V2 (interface compatible, known as V2_1) stack has all the features of the V2 remoting stack. Its interface stack is compatible with the remoting V1 stack, but it is not backward compatible with V2 and V1. To upgrade from V1 to V2_1 without affecting service availability, follow the steps in the article Upgrade from V1 to V2 (interface compatible).
 
 
 ### Use an assembly attribute to use the remoting V2 (interface compatible) stack

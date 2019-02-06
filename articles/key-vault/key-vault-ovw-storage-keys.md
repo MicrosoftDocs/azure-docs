@@ -48,35 +48,48 @@ In the below instructions, we are assigning Key Vault as a service to have opera
 1. After creating a storage account run the following command to get the resource ID of the storage account, you want to manage
 
     ```
-    az storage account show -n storageaccountname (Copy ID field out of the result of this command)
+    az storage account show -n storageaccountname 
     ```
+    Copy ID field out of the result of the above command
     
-2. Get Application ID of Azure Key Vault's service principal 
+2. Get Object ID of Azure Key Vault's service principal by running the below command
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
+    Upon successful completion of this command find the Object ID in the result
+    ```console
+        {
+            ...
+            "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
+            ...
+        }
+    ```
+    
 3. Assign Storage Key Operator role to Azure Key Vault Identity
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ApplicationIdOfKeyVault> --scope <IdOfStorageAccount>
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
     ```
     
 4. Create a Key Vault Managed Storage Account.     <br /><br />
-   Below, we are setting a regeneration period of 90 days. After 90 days, Key Vault will regenerate 'key1' and swap the active key from 'key2' to 'key1'.
+   Below, we are setting a regeneration period of 90 days. After 90 days, Key Vault will regenerate 'key1' and swap the active key from 'key2' to 'key1'. It will mark Key1 as the active key now. 
    
     ```
-    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
+    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id <Id-of-storage-account>
     ```
     In case the user didn't create the storage account and does not have permissions to the storage account, the steps below set the permissions for your account to ensure that you can manage all the storage permissions in the Key Vault.
+    
  > [!NOTE] 
-    In the case that the user does not have permissions to the storage account, we first get the Object-Id of the user
+ > In the case that the user does not have permissions to the storage account, we first get the Object-Id of the user
+
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+    
     ```
     
 ## How to access your storage account with SAS tokens
@@ -87,9 +100,9 @@ In the below section, we demonstrate how to fetch your storage account key that'
 
 > [!NOTE] 
   There are 3 ways to authenticate to Key Vault as you can read in the [basic concepts](key-vault-whatis.md#basic-concepts)
-- Using Managed Service Identity (Highly recommended)
-- Using Service Principal and certificate 
-- Using Service Principal and password (NOT recommended)
+> - Using Managed Service Identity (Highly recommended)
+> - Using Service Principal and certificate 
+> - Using Service Principal and password (NOT recommended)
 
 ```cs
 // Once you have a security token from one of the above methods, then create KeyVaultClient with vault credentials
