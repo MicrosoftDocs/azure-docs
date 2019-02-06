@@ -22,11 +22,11 @@ Azure SQL Database enables you to easily purchase fully managed PaaS database en
 
 Different purchasing models are available in Azure SQL Database deployment models:
 
-- The [Single database](sql-database-single-databases-manage.md) and [elastic pool](sql-database-elastic-pool.md) deployment options in [Azure SQL Database](sql-database-technical-overview.md) offer both the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
-- The [Managed instance](sql-database-managed-instance.md) deployment option in Azure SQL Database only offers the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
+- The [single database](sql-database-single-databases-manage.md) and [elastic pool](sql-database-elastic-pool.md) deployment options in [Azure SQL Database](sql-database-technical-overview.md) offer both the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) and the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
+- The [managed instance](sql-database-managed-instance.md) deployment option in Azure SQL Database only offers the [vCore-based purchasing model](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
-> [Hyperscale service tier (preview)](sql-database-service-tier-hyperscale.md) is in public preview only for single databases using the vCore purchasing model.
+> The [hyperscale service tier (preview)](sql-database-service-tier-hyperscale.md) is in public preview only for single databases using the vCore purchasing model.
 
 The following table and chart compare and contrast these two purchasing models.
 
