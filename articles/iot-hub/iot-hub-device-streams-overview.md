@@ -108,6 +108,10 @@ Alternatively, you can find this information using Azure CLI:
 az iot hub devicestream show --name <YourIoTHubName>
 ```
 
+> [!NOTE]
+> Ensure you have installed Azure CLI version 2.0.57 or newer. You can download the latest version [here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+> 
+
 ## Troubleshoot via Device Streams Activity Logs
 
 You can set up Azure Log Analytics to collect the activity log of device streams in your IoT Hub. This can be very helpful in troubleshooting scenarios.
