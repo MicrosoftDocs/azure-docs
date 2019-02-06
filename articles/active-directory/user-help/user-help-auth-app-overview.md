@@ -63,11 +63,10 @@ Depending on your account type, your organization might decide that you must use
 
 |Article |Description |
 |------|------------|
-|[Download and install the app](microsoft-authenticator-app-how-to.md)|Describes where and how to get and install the Microsoft Authenticator app for devices running Android and iOS.|
-|[Add your work or school account](microsoft-authenticator-app-add-work-account.md)|Describes how to add your various work or school and personal accounts to the Microsoft Authenticator app.|
-|[Add a personal Microsoft account](microsoft-authenticator-app-add-personal-account.md)|Describes how to add your personal Microsoft account to the Microsoft Authenticator app.|
-|[Add a non-Microsoft account](microsoft-authenticator-app-add-non-microsoft-account.md)|Describes how to add your non-Microsoft accounts to the Microsoft Authenticator app.|
-|[Manually add your accounts](microsoft-authenticator-app-add-account-manual.md)|Describes how to manually add your accounts to the Microsoft Authenticator app, if you're unable to scan the provided QR code.|
-|[Sign-in using the app](microsoft-authenticator-app-phone-signin-faq.md)|Describes how to sign in to your various accounts, using the Microsoft Authenticator app.|
-|[Backup and recover account credentials](microsoft-authenticator-app-backup-and-recovery.md)| Provides information about how to back up and recover your account credentials, using the Microsoft Authenticator app.|
-|[Microsoft Authenticator app FAQ](microsoft-authenticator-app-faq.md)|Provides answers to frequently asked questions about the app.|
+|[Download and install the app](user-help-auth-app-download-install.md)|Describes where and how to get and install the Microsoft Authenticator app for devices running Android, iOS, and Windows Phone.|
+|[Add your work or school accounts](user-help-auth-app-add-work-school-account.md)|Describes how to add your various work or school and personal accounts to the Microsoft Authenticator app.|
+|[Add your personal accounts](user-help-auth-app-add-personal-ms-account.md)|Describes how to add your personal Microsoft and non-Microsoft accounts to the Microsoft Authenticator app.|
+|[Manually add your accounts](user-help-auth-app-add-account-manual.md)|Describes how to manually add your accounts to the Microsoft Authenticator app, if you're unable to scan the provided QR code.|
+|[Sign-in using the app](user-help-auth-app-sign-in.md)|Describes how to sign in to your various accounts, using the Microsoft Authenticator app.|
+|[Backup and recover account credentials](user-help-auth-app-backup-recovery.md)| Provides information about how to back up and recover your account credentials, using the Microsoft Authenticator app.|
+|[Microsoft Authenticator app FAQ](user-help-auth-app-faq.md)|Provides answers to frequently asked questions about the app.|
