@@ -1,5 +1,5 @@
 ---
-title: Offline Data Transfer and Data Box integration
+title: Use Data Box and other methods for offline ingestion into Azure File Sync.
 description: Process and best practices to enable sync compatible bulk migration support.
 services: storage
 author: fauhse
@@ -10,40 +10,42 @@ ms.author: fauhse
 ms.component: files
 ---
 
-# Offline data transfer and Data Box support
-Version 5 and newer of the Azure File Sync agent supports the bulk migration of files through online migration tools (for example AzCopy) as well as offline migration tools such as [Azure Data Box](https://azure.microsoft.com/services/storage/databox).
+# Supporting Data Box and other bulk migration methods
+The Azure File Sync agent (version 5 and later) supports the bulk migration of files through offline migration tools such as [Azure Data Box](https://azure.microsoft.com/services/storage/databox) and online migration tools (for example, AzCopy).
 
 This article describes the process you should follow to ensure your bulk migration is done in a sync-compatible way. It will describe the best practices that will help you avoid conflict files and preserve your file and folder ACLs once you enable sync.
 
-## Key benefits of offline bulk-migration 
-The main benefit in migrating files into Azure though an offline bulk transfer process, such as Data Box, is that you won't have to upload all files from your server over the network. For large namespaces, this could mean significant savings in network bandwidth and time. Another core benefit of utilizing Azure File Sync is that regardless of the mode of transport used (Data Box, Azure Import, etc.), your live server will only have to upload the files that have changed since you have shipped the data to Azure. Moreover, Azure File Sync always ensures that your file and folder ACLs are synced as well - even if the offline bulk migration product does not transport ACLs. 
+## Offline data transfer benefits
+The main benefits of offline migration when using a Data Box are as follows:
 
-Utilizing Azure Data Box and Azure File Sync allows for zero downtime. Using Data Box to transfer data in to Azure makes efficient use of network bandwidth while preserving file fidelity. It also keeps your namespace up-to-date by uploading only the files that have changed since the Data Box was sent.
+- When migrating files into Azure via an offline bulk transfer process, such as Data Box, you don't have to upload all the files from your server over the network. For large namespaces, this could mean significant savings in network bandwidth and time.
+- When you use Azure File Sync, then regardless of the mode of transport used (Data Box, Azure Import, etc.), your live server only uploads the files that have changed since you shipped the data to Azure.
+- Azure File Sync ensures that your file and folder ACLs are synced as well - even if the offline bulk migration product does not transport ACLs.
+- When using Azure Data Box and Azure File Sync, there is zero downtime. Using Data Box to transfer data in to Azure makes efficient use of network bandwidth while preserving the file fidelity. It also keeps your namespace up-to-date by uploading only the files that have changed since the Data Box was sent.
 
-## Planning your offline data transfer
+Most customers will find the benefits of an offline transport method, such as Data Box, most suitable for their needs. However, Azure File Sync supports any bulk migration method (Data Box, third party products or other ways that get files into Azure) when the below steps are followed.
+
+## Plan your offline data transfer
+Before you begin, review the following information:
+
 - Complete your bulk migration to one or multiple Azure file shares prior to enabling sync with Azure File Sync.
-- You will have to plan your bulk migration by:
-  - Planning your final Azure File Sync topology: [Plan for an Azure File Sync deployment](storage-sync-files-planning.md)
-  - As part of this plan, you select Azure Storage Account(s) that will hold the file shares you want to sync with. Ensure that your bulk migration happens to temporary staging shares in the same Storage Account(s). Bulk migration can only be enabled utilizing a final- and a staging- share that reside in the same Storage Account.
-  - Keep in mind that you can utilize a bulk migration only when you create a new sync relationship with a server location. It cannot be added to an existing sync relationship.
+- If you plan to use Data Box for your bulk migration: Review the [deployment prerequisites for Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
+- Planning your final Azure File Sync topology: [Plan for an Azure File Sync deployment](storage-sync-files-planning.md)
+- Select Azure storage account(s) that will hold the file shares you want to sync with. Ensure that your bulk migration happens to temporary staging shares in the same Storage Account(s). Bulk migration can only be enabled utilizing a final- and a staging- share that reside in the same storage account.
+- A bulk migration can only be utilized when you create a new sync relationship with a server location. You can't enable a bulk migration with an existing sync relationship.
 
-## Best practices
-For the following best practices, it is irrelevant how your files got into Azure. You can use Data Box, Azure Import, AzCopy, or third-party tools and services. In the following best practice steps, we use Data Box as an example. Azure File Sync works with any bulk migration solution if the best practices are followed.
+## Offline data transfer process
+This section describes the process of setting up Azure File Sync in a way compatible with bulk migration tools such as Azure Data Box.
 
 ![Visualizing process steps that are also explained in detail in a following paragraph](media/storage-sync-files-offline-data-transfer/DataBoxIntegration_1_600.png)
 
-## Process details
 | Step | Detail |
 |---|---------------------------------------------------------------------------------------|
-| ![Process step 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Order your Data Box](../../databox/data-box-deploy-ordered.md). There are [several variations](https://azure.microsoft.com/services/storage/databox/data) to match your needs. Receive your Data Box and follow the Data Box [documentation to copy your data](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) and send it back to Azure. |
-| ![Process step 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Your files will show up in the Azure file shares you designated during the Data Box process. View these file shares as temporary, staging shares. **Do not enable sync to them!** |
+| ![Process step 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Order your Data Box](../../databox/data-box-deploy-ordered.md). There are [several offerings within the Data Box family](https://azure.microsoft.com/services/storage/databox/data) to match your needs. Receive your Data Box and follow the Data Box [documentation to copy your data](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box). Make sure that the data is copied to this UNC path on the Data Box: `\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>` where the `ShareName` is the name of the staging share. Send the Data Box back to Azure. |
+| ![Process step 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Wait until your files show up in the Azure file shares you designated as temporary staging shares. **Do not enable sync to these shares!** |
 | ![Process step 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Create a new share that is empty for each file share that Data Box created for you. Make sure that this new share is in the same storage account as the Data Box share. [How to create a new Azure file share](storage-how-to-create-file-share.md). |
 | ![Process step 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Create a sync group](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) in a storage sync service and reference the empty share as a cloud endpoint. Repeat this step for every Data Box file share. Review the [Deploy Azure File Sync](storage-sync-files-deployment-guide.md) guide and follow the steps required to set up Azure File Sync. |
-| ![Process step 5](media/storage-sync-files-offline-data-transfer/bullet_5.png) | [Add your live server directory as a server endpoint](storage-sync-files-deployment-guide.md#create-a-server-endpoint) – specify in the process that you already moved the files to Azure and reference the file share Data Box moved the files into (in this guide called the "staging share"). It is important to recognize that the share used for the cloud endpoint and the Data Box share must reside in the same storage account. It is your choice to enable or disable cloud tiering as needed. |
-
-## Enable offline data transfer
-Once your files have been transferred from the Data Box to your staging share, your next step is to enable sync. You enable sync to a specific location on a server by creating a server endpoint in a sync group. During this create process, you need to reference the staging share.
-Enable "Offline Data Transfer" in the new server endpoint blade and reference the staging share that must reside in the same storage account as the cloud endpoint. The list of available shares is filtered by storage account and shares that are not already syncing.
+| ![Process step 5](media/storage-sync-files-offline-data-transfer/bullet_5.png) | [Add your live server directory as a server endpoint](storage-sync-files-deployment-guide.md#create-a-server-endpoint). Specify in the process that you already moved the files to Azure and reference the staging shares. It is your choice to enable or disable cloud tiering as needed. While creating a server endpoint on your live server, you need to reference the staging share. Enable "Offline Data Transfer" (image below) in the new server endpoint blade and reference the staging share that must reside in the same storage account as the cloud endpoint. The list of available shares is filtered by storage account and shares that are not already syncing. |
 
 ![Visualizing the Azure portal user interface for enabling Offline Data Transfer while creating a new server endpoint.](media/storage-sync-files-offline-data-transfer/DataBoxIntegration_2_600.png)
 
@@ -53,8 +55,8 @@ Once you have created your server endpoint, sync will commence. For each file th
 > **Important:**   
 > You can only enable the bulk migration mode during the creation of a server endpoint. Once a server endpoint is established, there is currently no way to integrate bulk migrated data from an already syncing server into the namespace.
 
-## File and folder ACLs
-Azure File Sync will ensure that file and folder ACLs are synced from the live server even if the bulk migration tool that was used did not transport ACLs initially. This means it is OK for the staging share to not contain any ACLs on files and folders. When you enable the offline data migration feature as you create a new server endpoint, ACLs will be synced at that time for all files on the server.
+## ACLs and timestamps on files and folders
+Azure File Sync will ensure that file and folder ACLs are synced from the live server even if the bulk migration tool that was used did not transport ACLs initially. This means it is OK for the staging share to not contain any ACLs on files and folders. When you enable the offline data migration feature as you create a new server endpoint, ACLs will be synced at that time for all files on the server. The same is true for create- and modified- timestamps.
 
 ## Shape of the namespace
 The shape of the namespace is determined by what's on the server when sync is enabled. If files are deleted on the local server after the Data Box "-snapshot" and -migration, then these files won't be brought into the live, syncing namespace. They will still be in the staging share but never copied. That is the desired behavior as sync keeps the namespace according to the live server. The Data Box "snapshot" is just a staging ground for efficient file copy and not the authority for the shape of the live namespace.
