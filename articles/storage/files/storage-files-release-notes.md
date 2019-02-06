@@ -41,11 +41,11 @@ The following release notes are for version 5.0.2.0 of the Azure File Sync agent
 - Support for Azure Government cloud
     - We have added preview support for the Azure Government cloud. This requires a white-listed subscription and a special agent download from Microsoft. To get access to the preview, please email us directly at [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
 - Support for Data Deduplication
-    - Data Deduplication is now fully supported with cloud tiering enabled on Windows Server 2016 and Windows Server 2019. Enabling deduplication on a volume with cloud tiering enabled lets you increase the size of your cache on-premises without provisioning more storage.
+    - Data Deduplication is now fully supported with cloud tiering enabled on Windows Server 2016 and Windows Server 2019. Enabling deduplication on a volume with cloud tiering enabled lets you cache more files on-premises without provisioning more storage.
 - Support for offline data transfer (e.g. via Data Box)
     - Easily migrate large amounts of data into Azure File Sync via any means you choose. You can choose Azure Data Box, AzCopy and even third party migration services. No need to use massive amounts of bandwidth to get your data into Azure, in the case of Data Box – simply mail it there! To learn more, see [Offline Data Transfer Docs](https://aka.ms/AFS/OfflineDataTransfer).
 - Improved sync performance
-    - Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles. Sync now supports multiple server endpoints syncing on a volume when a VSS sync session is active. No more waiting for a VSS sync session to complete so sync can resume on other server endpoints on the volume.
+    - Customers with multiple server endpoints on the same volume may have experienced slow sync performance prior to this release. Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles. Sync now supports multiple server endpoints syncing on a volume when a VSS sync session is active. No more waiting for a VSS sync session to complete so sync can resume on other server endpoints on the volume.
 - Improved monitoring in the portal
     - Charts have been added in the Storage Sync Service portal to view:
         - Number of files synced
@@ -56,7 +56,7 @@ The following release notes are for version 5.0.2.0 of the Azure File Sync agent
     - To learn more, see [Monitor Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring).
 - Improved scalability and reliability
     - Maximum number of file system objects (directories and files) in a directory has increased to 1,000,000. Previous limit was 200,000.
-    - Sync will try to resume data transfer for large files when a transfer is interrupted.
+    - Sync will try to resume data transfer rather than retransmitting when a transfer is interrupted for large files 
 
 ### Evaluation Tool
 Before deploying Azure File Sync, you should evaluate whether it is compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported characters or an unsupported OS version. For installation and usage instructions, see [Evaluation Tool](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-tool) section in the planning guide. 
