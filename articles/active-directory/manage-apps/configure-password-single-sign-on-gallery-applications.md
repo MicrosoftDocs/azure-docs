@@ -47,7 +47,7 @@ To configure an application from the Azure AD gallery you need to:
 
 -   [Configure the application for password single sign-on](#configure-the-application-for-password-single-sign-on)
 
--   [Assign the application to a user or a group](#assign-the-application-to-a-user-or-a-group)
+-   Assign the application to a user or a group
 
     -   [Assign a user to an application directly](#assign-a-user-to-an-application-directly)
 
