@@ -14,6 +14,8 @@ manager: philmea
 
 The Homepage is the page that loads when users who have access to the application navigate to the application's URL. If you selected either the "Sample Contoso" or "Sample Devkits" Application Templates while creating your application, your application will have pre-defined Homepages. If on the other hand you selected the "Custom Application" Application Template, your Homepage will be blank.
 
+## Add tiles
+
 For example, here's the Homepage for applications based on the "Sample Contoso" template. To customize the Homepage for your application, first select **Edit** on the top right. 
 
 ![Homepage for applications based on the "Sample Contoso" template](media/howto-configure-homepage-experimental/image1.png)

@@ -124,11 +124,10 @@ The following steps show how to create a client application that implements the 
     var client = clientFromConnectionString(connectionString);
     ```
 
-  > [!NOTE]
-  > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instrustions to [Get the device connection string](concepts-connectivity.md#getting-device-connection-string) and continue with the rest of the tutorial. For more help, you can also find a detailed set of instructions in [Prepare the client code](tutorial-add-device-experimental.md#prepare-the-client-code) in Tutorials > Add a device.
+    > [!NOTE]
+    > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instrustions to [Get the device connection string](concepts-connectivity.md#getting-device-connection-string) and continue with the rest of the tutorial. For more help, you can also find a detailed set of instructions in [Prepare the client code](tutorial-add-device-experimental.md#prepare-the-client-code) in Tutorials > Add a device.
 
-
-  Update the placeholder `{your device connection string}` with the device connection string. In this sample, we initialize `targetTemperature` to zero, you can optionally take the current reading from the device or value from the device twin. 
+    Update the placeholder `{your device connection string}` with the device connection string. In this sample, we initialize `targetTemperature` to zero, you can optionally take the current reading from the device or value from the device twin. 
 
 1. To send telemetry, state and event measurements to your Azure IoT Central application, add the following function to the file:
 
