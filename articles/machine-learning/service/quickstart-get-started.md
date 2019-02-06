@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Get started with Azure Machine Learning service. Use Azure portal to create a workspace, which is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.  
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
@@ -57,7 +57,7 @@ This example shows how the workspace can help you keep track of information gene
 
 ### Open a notebook 
 
-Azure Notebooks provides a free cloud platform for Jupyter notebooks that's preconfigured with everything you need to run Machine Learning. From your workspace you can launch this platform to get started using your Azure Machine Learning service workspace.
+[Azure Notebooks](https://notebooks.azure.com) provides a free cloud platform for Jupyter notebooks that is preconfigured with everything you need to run Machine Learning. From your workspace you can launch this platform to get started using your Azure Machine Learning service workspace.
 
 1. On the workspace page, select **Explore your Azure Machine Learning service Workspace**.
 

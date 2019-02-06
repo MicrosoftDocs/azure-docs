@@ -56,7 +56,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     pip install azure-mgmt-datafactory
     ```
 
-    The [Python SDK for Data Factory](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7, 3.3, 3.4, 3.5 and 3.6.
+    The [Python SDK for Data Factory](https://github.com/Azure/azure-sdk-for-python) supports Python 2.7, 3.3, 3.4, 3.5, 3.6 and 3.7.
 
 ## Create a data factory client
 

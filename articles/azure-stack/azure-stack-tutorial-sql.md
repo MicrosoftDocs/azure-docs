@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
+ms.lastreviewed: 10/23/2018
 ---
 
 # Tutorial: Offer highly available SQL databases

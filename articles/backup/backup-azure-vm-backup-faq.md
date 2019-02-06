@@ -2,12 +2,12 @@
 title: Azure VM Backup FAQ
 description: 'Answers to common questions about: how Azure VM backup works, limitations and what happens when changes to policy occur'
 services: backup
-author: trinadhk
-manager: shreeshd
+author: sogup
+manager: vijayts
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
-ms.author: trinadhk
+ms.author: sogup
 ---
 # Frequently asked questions-Azure Backup
 

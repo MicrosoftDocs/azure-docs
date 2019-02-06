@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 01/10/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
+ms.lastreviewed: 01/10/2019
 
 ---
 # Create a registration role for Azure Stack

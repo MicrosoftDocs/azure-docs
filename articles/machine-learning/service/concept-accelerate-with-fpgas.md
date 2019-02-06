@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn how to accelerate models and deep neural networks with FPGAs on Azure. This article provides an introduction to field-programmable gate arrays (FPGA) and how the Azure Machine Learning service provides real-time artificial intelligence (AI) when you deploy your model to an Azure FPGA.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: tedway
 author: tedway

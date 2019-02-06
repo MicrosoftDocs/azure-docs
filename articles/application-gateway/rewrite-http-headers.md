@@ -89,8 +89,6 @@ This capability supports rewriting headers to the following server variables:
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | returns the list of ciphers supported by the client          |
 | ciphers_used               | returns the string of ciphers used for an established SSL connection |
-| client_latitude            | to determine the country, region, and city depending on the client IP address |
-| client_longitude           | to determine the country, region, and city depending on the client IP address |
 | client_port                | client port                                                  |
 | client_tcp_rtt             | information about the client TCP connection; available on systems that support the TCP_INFO socket option |
 | client_user                | when using HTTP authentication, the username supplied for authentication |

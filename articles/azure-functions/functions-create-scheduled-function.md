@@ -79,8 +79,6 @@ You now have a function that runs once every hour.
 
 ## Next steps
 
-You have created a function that runs based on a schedule.
+You have created a function that runs based on a schedule. For more information about timer triggers, see [Schedule code execution with Azure Functions](functions-bindings-timer.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-For more information timer triggers, see [Schedule code execution with Azure Functions](functions-bindings-timer.md).

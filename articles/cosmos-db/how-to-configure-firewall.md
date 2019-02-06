@@ -9,7 +9,7 @@ ms.author: govindk
 
 ---
 
-# Configure an IP firewall for your Azure Cosmos DB account
+# Configure IP firewall in Azure Cosmos DB
 
 You can secure the data stored in your Azure Cosmos DB account by using IP firewalls. Azure Cosmos DB supports IP-based access controls for inbound firewall support. You can set an IP firewall on the Azure Cosmos DB account by using one of the following ways:
 

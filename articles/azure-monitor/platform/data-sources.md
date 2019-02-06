@@ -58,7 +58,7 @@ Most Azure services will generate [platform metrics](data-collection.md#metrics)
 
 
 ### Resource diagnostic Logs
-While the Activity Log provides information about operations performed on an Azure resources, resource level [Diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md) provide insights into the operation of the resource itself.   The configuration requirements and content of these logs [varies by resource type](../../azure-monitor/platform/tutorial-dashboards.md).
+While the Activity Log provides information about operations performed on an Azure resources, resource level [Diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md) provide insights into the operation of the resource itself.   The configuration requirements and content of these logs [varies by resource type](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 You can't directly view diagnostic logs in the Azure portal, but you can [send them to Azure storage for archiving](../../azure-monitor/platform/archive-diagnostic-logs.md) and export them to [Event Hub](../../event-hubs/event-hubs-about.md) for redirection to other services, or [to Log Analytics](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) for analysis. Some resources can write directly to Log Analytics while others write to a storage account before being [imported into Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 

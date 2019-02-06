@@ -5,7 +5,7 @@ author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 02/01/2019
 ---
 
 # Azure Database for PostgreSQL pricing tiers
@@ -124,5 +124,5 @@ For the most up-to-date pricing information, see the service [pricing page](http
 ## Next steps
 
 - Learn how to [create a PostgreSQL server in the portal](tutorial-design-database-using-azure-portal.md).
-- Learn how to [monitor and scale an Azure Database for PostgreSQL server by using Azure CLI](scripts/sample-scale-server-up-or-down.md).
-- Learn about the [service limitations](concepts-limits.md). 
+- Learn about [service limits](concepts-limits.md). 
+- Learn how to [scale out with read replicas](howto-read-replicas-portal.md).

@@ -6,9 +6,9 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
 #Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using Java. 
 ---

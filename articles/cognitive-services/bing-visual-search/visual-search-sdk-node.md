@@ -7,7 +7,7 @@ author: mikedodaro
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
@@ -48,7 +48,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 2. Instantiate the client.
 
     ```javascript
-    let visualSearchApiClient = new Search.VisualSearchAPIClient(credentials);
+    let visualSearchClient = new Search.VisualSearchClient(credentials);
     ```
 
 ## Search for images
@@ -60,7 +60,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
     let visualSearchRequest = JSON.stringify({});
     let visualSearchResults;
     try {
-        visualSearchResults = await visualSearchApiClient.images.visualSearch({
+        visualSearchResults = await visualSearchClient.images.visualSearch({
             image: fileStream,
             knowledgeRequest: visualSearchRequest
         });

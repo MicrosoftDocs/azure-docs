@@ -10,7 +10,7 @@ ms.reviewer: sngun
 
 ---
 
-# Working with Azure Cosmos databases, containers and items
+# Work with databases, containers, and items
 
 After you create an [Azure Cosmos DB account](account-overview.md) under your Azure subscription, you can manage data in your account by creating databases, containers, and items. This article describes each of these entities: databases, containers, and items. The following image shows the hierarchy of different entities in an Azure Cosmos account:
 
