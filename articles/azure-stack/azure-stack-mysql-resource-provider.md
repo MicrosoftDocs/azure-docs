@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 10/25/2018 
-ms.author: jeffgilb 
+ms.date: 10/25/2018
+ms.author: jeffgilb
 ms.reviewer: quying
-ms.lastreviewed: 10/25/2018 
+ms.lastreviewed: 10/25/2018
 
 ---
 

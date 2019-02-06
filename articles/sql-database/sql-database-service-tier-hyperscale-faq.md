@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/06/2019
 ---
 # FAQ about Azure SQL Hyperscale databases
 
@@ -216,7 +216,7 @@ Yes. Some of Azure SQL Database features are not supported in Hyperscale during 
 
 Yes. You can use all existing migration technologies to migrate to Hyperscale, including BACPAC, transactional replication, logical data loading. See also the [Azure Database Migration Service](../dms/dms-overview.md).
 
-### What is my downtown during migration from an on-premises or virtual machine environment to Hyperscale and how can I minimize it
+### What is my downtime during migration from an on-premises or virtual machine environment to Hyperscale and how can I minimize it
 
 Downtime is the same as the downtime when you migrate your databases to a single database in Azure SQL Database. You can use [transactional replication](replication-to-sql-database.md#data-migration-scenario
 ) to minimize downtime migration for databases up to few TB in size. For very large database (10+ TB), you can consider to migrate data using ADF, Spark, or other data movement technologies.
