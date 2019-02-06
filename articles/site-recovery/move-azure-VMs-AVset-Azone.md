@@ -146,7 +146,7 @@ After the replication job has finished, you can check the replication status, mo
 
 ## Next steps
 
-In this tutorial you increased the availability of an Azure VM by moving into an AAvailability set or Availability Zone. Now you can configure disaster recovery for the moved VM.
+In this tutorial you increased the availability of an Azure VM by moving into an Availability set or Availability Zone. Now you can configure disaster recovery for the moved VM.
 
 > [!div class="nextstepaction"]
 > [Set up disaster recovery after migration](azure-to-azure-quickstart.md)
