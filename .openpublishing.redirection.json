@@ -35480,6 +35480,26 @@
       "source_path": "articles/storage/blobs/data-lake-storage-handle-data-using-databricks.md",
       "redirect_url": "/azure/azure-databricks/databricks-extract-load-sql-data-warehouse",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/gdpr-analytics-overview.md",
+      "redirect_url": "https://aka.ms/azureblueprint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/gdpr-datawarehouse-overview.md",
+      "redirect_url": "https://aka.ms/azureblueprint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/gdpr-iaaswa-overview.md",
+      "redirect_url": "https://aka.ms/azureblueprint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/blueprints/gdpr-paaswa-overview.md",
+      "redirect_url": "https://aka.ms/azureblueprint",
+      "redirect_document_id": false
     }
   ]
 }
