@@ -313,7 +313,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-The tasks generate output files named *dragon0002.jpg* - *dragon0007.jpg* on the compute nodes and upload them to the *job-myrenderjob* container in your storage account. To view the output, download the files to a folder on your local computer using the [az storage blob download-batch](/cli/azure/storage/blob#az-storage-blob-download_batch) command. For example:
+The tasks generate output files named *dragon0002.jpg* - *dragon0007.jpg* on the compute nodes and upload them to the *job-myrenderjob* container in your storage account. To view the output, download the files to a folder on your local computer using the [az storage blob download-batch](/cli/azure/storage/blob) command. For example:
 
 ```azurecli-interactive
 az storage blob download-batch \
