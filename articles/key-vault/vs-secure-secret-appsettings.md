@@ -24,9 +24,9 @@ This article describes how to securely save secret application configuration set
 
 Traditionally all web application configuration settings are saved in configuration files such as Web.config. This practice leads to checking in secret settings such as Cloud credentials to public source control systems like GitHub. Meanwhile, it could be hard to follow security best practice because of the overhead required to change source code and reconfigure development settings.
 
-To make sure development process is secure, tooling and framework libraries are created to save application secret settings securely with minimal or no source code change.
+To make sure the development process is secure, tooling and framework libraries are created to save application secret settings securely with minimal or no source code change.
 
-## ASP.NET and .NET core applications
+## ASP.NET and .NET Core applications
 
 ### Save secret settings in User Secret store that is outside of source control folder
 If you are doing a quick prototype or you don't have internet access, start with moving your secret settings outside of source control folder to User Secret store. User Secret store is a file saved under user profiler folder, so secrets are not checked in to source control. The following diagram demonstrates how [User Secret](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio) works.
@@ -46,11 +46,11 @@ If you are developing a project and need to share source code securely, use [Azu
 
     ![Add Key Vault access policy](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-3. Add your secret to Key Vault on Azure portal. For nested configuration settings, replace ':' with '--' so the Key Vault secret name is valid. ':' is not allowed to be in the name of a Key Vault secret.
+3. Add your secret to Key Vault on the Azure portal. For nested configuration settings, replace ':' with '--' so the Key Vault secret name is valid. ':' is not allowed to be in the name of a Key Vault secret.
 
     ![Add Key Vault secret](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
-4. Install the [Azure Services Authentication extension for Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354). Through this extension, app can access Key Vault using the Visual Studio sign-in identity.
+4. Install the [Azure Services Authentication extension for Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354). Through this extension, an app can access Key Vault using the Visual Studio sign-in identity.
 
 5. Add the following NuGet packages to your project:
 
@@ -96,10 +96,10 @@ If you are writing a quick prototype and don't want to provision Azure resources
 
 1. Install the following NuGet package to your project
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic
+    Microsoft.Configuration.ConfigurationBuilders.Base
     ```
 
-2. Create a file that's similar to the follow. Save it under a location outside of your project folder.
+2. Create a file that's similar to the following. Save it under a location outside of your project folder.
 
     ```xml
     <root>
@@ -122,7 +122,7 @@ If you are writing a quick prototype and don't want to provision Azure resources
     </configBuilders>
     ```
 
-4. Specify appSettings section is using the secret configuration builder. Make sure there is any entry for the secret setting with a dummy value.
+4. Specify appSettings section is using the secret configuration builder. Make sure there is an entry for the secret setting with a dummy value.
 
     ```xml
         <appSettings configBuilders="Secrets">
