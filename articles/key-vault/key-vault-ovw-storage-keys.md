@@ -52,16 +52,25 @@ In the below instructions, we are assigning Key Vault as a service to have opera
     ```
     Copy ID field out of the result of the above command
     
-2. Get Application ID of Azure Key Vault's service principal 
+2. Get Object ID of Azure Key Vault's service principal by running the below command
 
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
     
+    Upon successful completion of this command find the Object ID in the result
+    ```console
+        {
+            ...
+            "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
+            ...
+        }
+    ```
+    
 3. Assign Storage Key Operator role to Azure Key Vault Identity
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ApplicationIdOfKeyVault> --scope <IdOfStorageAccount>
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
     ```
     
 4. Create a Key Vault Managed Storage Account.     <br /><br />
