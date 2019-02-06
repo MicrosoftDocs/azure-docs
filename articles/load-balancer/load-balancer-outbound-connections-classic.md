@@ -99,7 +99,7 @@ For patterns to mitigate conditions that commonly lead to SNAT port exhaustion, 
 
 Azure uses an algorithm to determine the number of preallocated SNAT ports available based on the size of the backend pool when using port masquerading SNAT ([PAT](#pat)). SNAT ports are ephemeral ports available for a particular public IP source address.
 
-Azure preallocates SNAT ports when an instance is deployed based on how many VM or Web Worker Role instances share a given public IP address.  When outbound flows are created, [PAT](#pat) dynamically consumes (up to the preallocated limit) and releases these ports when the flow closes or [idle timeouts](#ideltimeout) happen.
+Azure preallocates SNAT ports when an instance is deployed based on how many VM or Web Worker Role instances share a given public IP address.  When outbound flows are created, [PAT](#pat) dynamically consumes (up to the preallocated limit) and releases these ports when the flow closes or idle timeouts happen.
 
 The following table shows the SNAT port preallocations for tiers of backend pool sizes:
 
