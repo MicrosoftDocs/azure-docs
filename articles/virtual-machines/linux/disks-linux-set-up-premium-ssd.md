@@ -12,7 +12,9 @@ ms.subservice: disks
 
 # Premium Storage for Linux VMs
 
-This article describes how to achieve scalability targets with premium solid state drives (SSDs) attached to Linux VMs. For all premium SSDs with cache set to **ReadOnly** or **None**, you must disable "barriers" when you mount the file system. You don't need barriers in this scenario because the writes to premium storage disks are durable for these cache settings. When the write request successfully finishes, data has been written to the persistent store. To disable "barriers," use one of the following methods. Choose the one for your file system:
+This article describes how to achieve scalability targets with premium solid-state drives (SSDs) attached to Linux VMs.
+
+For all premium SSDs with cache set to **ReadOnly** or **None**, you must disable "barriers" when you mount the file system. You don't need barriers in this scenario because the writes to premium storage disks are durable for these cache settings. When the write request successfully finishes, data has been written to the persistent store. To disable "barriers," use one of the following methods. Choose the one for your file system:
   
 * For **reiserFS**, to disable barriers, use the  `barrier=none` mount option. (To enable barriers, use `barrier=flush`.)
 * For **ext3/ext4**, to disable barriers, use the `barrier=0` mount option. (To enable barriers, use `barrier=1`.)
@@ -20,7 +22,9 @@ This article describes how to achieve scalability targets with premium solid sta
 * For premium storage disks with cache set to **ReadWrite**, enable barriers for write durability.
 * For volume labels to persist after you restart the VM, you must update /etc/fstab with the universally unique identifier (UUID) references to the disks. For more information, see [Add a managed disk to a Linux VM](add-disk.md).
 
-The following Linux distributions have been validated for premium SSDs. For better performance and stability with premium SSDs, we recommend that you upgrade your VMs to one of these versions, at a minimum (or to a later version). Some of the versions require the latest Linux Integration Services (LIS), v4.0, for Azure. To download and install a distribution, follow the link listed in the following table. We add images to the list as we complete validation. Note that our validations show that performance varies for each image. Performance depends on workload characteristics and your image settings. Different images are tuned for different kinds of workloads.
+The following Linux distributions have been validated for premium SSDs. For better performance and stability with premium SSDs, we recommend that you upgrade your VMs to one of these versions or later. 
+
+Some of the versions require the latest Linux Integration Services (LIS), v4.0, for Azure. To download and install a distribution, follow the link listed in the following table. We add images to the list as we complete validation. Our validations show that performance varies for each image. Performance depends on workload characteristics and your image settings. Different images are tuned for different kinds of workloads.
 
 | Distribution | Version | Supported kernel | Details |
 | --- | --- | --- | --- |
@@ -39,7 +43,7 @@ The following Linux distributions have been validated for premium SSDs. For bett
 
 ## LIS drivers for OpenLogic CentOS
 
-If you are running OpenLogic CentOS VMs, run the following command to install the latest drivers:
+If you're running OpenLogic CentOS VMs, run the following command to install the latest drivers:
 
 ```
 sudo rpm -e hypervkvpd  ## (Might return an error if not installed. That's OK.)
