@@ -10,7 +10,7 @@ ms.author: mihansen
 ---
 
 # What is Azure API for FHIR&reg; Preview?
-Azure API for FHIR enables rapid exchange of data through FHIR APIs, backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingestion, manage, and persistence Protected Health Information [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) in the cloud: 
+Azure API for FHIR enables rapid exchange of data through FHIR APIs, backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) in the cloud: 
 
 - Managed FHIR service, provisioned in the cloud in minutes 
 - Enterprise-grade, FHIR®-based endpoint in Azure for data access, and storage in FHIR® format
@@ -28,7 +28,7 @@ The FHIR API and compliant data store enable you to securely connect and interac
 The healthcare industry is rapidly transforming health data to the emerging standard of [FHIR&reg;](https://hl7.org/fhir) (Fast Healthcare Interoperability Resources). FHIR enables a robust, extensible data model with standardized semantics and data exchange that enables all systems using FHIR to work together.  Transforming your data to FHIR allows you to quickly connect existing data sources such as the electronic health record systems or research databases. FHIR also enables the rapid exchange of data in modern implementations of mobile and web development. Most importantly, FHIR can simplify data ingestion and accelerate development with analytics and machine learning tools.  
 
 ### **Securely manage health data in the cloud**
-The Azure API for FHIR allows for the exchange of data via consistent, restful, FHIR APIs based on the HL7 FHIR specification.  Backed by a managed Platform as a Service (PaaS) offering in Azure, it also provides a scalable and secure environment for the management and storage of Protected Health Information (PHI) data in the native FHIR format.  
+The Azure API for FHIR allows for the exchange of data via consistent, RESTful, FHIR APIs based on the HL7 FHIR specification. Backed by a managed PaaS offering in Azure, it also provides a scalable and secure environment for the management and storage of Protected Health Information (PHI) data in the native FHIR format.  
 
 ### **Free up your resources to innovate**
 You could invest resources building and running your own FHIR service, but with the Azure API for FHIR, Microsoft takes on the workload of operations, maintenance, updates and compliance requirements, allowing you to free up your own operational and development resources.
@@ -54,14 +54,14 @@ FHIR servers are key tools for interoperability of health data.  The Azure API f
 - **Research:** Healthcare researchers will find the FHIR standard in general and the Azure API for FHIR useful as it normalizes data around a common FHIR data model and reduces the workload for machine learning and data sharing.
 Exchange of data via the Azure API for FHIR provides audit logs and access controls which help control the flow of data and who has access to what data types. 
 
-## Azure API for FHIR
+## FHIR from Microsoft
 
-The Azure API for FHIR is available in two flavors:
+FHIR capabilities from Microsoft are available in two configurations:
 
-* The Open Source Microsoft FHIR Server for Azure. The source code can be found at [https://github.com/Microsoft/fhir-server](https://github.com/Microsoft/fhir-server).
-* The fully managed Platform as a Service (PaaS) Azure API for FHIR.
+* Azure API for FHIR – A PaaS offering in Azure, easily provisioned in the Azure Portal and managed by Microsoft.
+* FHIR Server for Azure – an open source project that can be deployed into your Azure subscription, available on GitHub at https://github.com/Microsoft/fhir-server.
 
-Use the Open Source FHIR Server if you want to make changes to the code. The PaaS FHIR service is recommended for production use cases (using PHI).
+For use cases that requires extending or customizing the FHIR server or require access the underlying services—such as the database—without going through the FHIR APIs, developers should choose the open source FHIR Server for Azure.   For implementation of a turn-key, production-ready FHIR API and backend service where persisted data should only be accessed thru the FHIR API, developers should choose the Azure API for FHIR
 
 ## Get started
 
@@ -75,4 +75,4 @@ After setting up the FHIR service, take important steps to configure and test th
 
 * [Access FHIR Service using Postman](access-fhir-postman-tutorial.md)
 
-FHIR&reg; is the registered trademark of HL7 and is used with the permission of HL7.
+FHIR is the registered trademark of HL7 and is used with the permission of HL7.
