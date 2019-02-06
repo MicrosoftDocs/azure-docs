@@ -15,13 +15,13 @@ This article provides answers to common questions about deploying disaster recov
 
 
 ## In this article 
- **[General questions on Azure to Azure](#general)** 
- **[Replication](#replication)** 
- **[Replication policy](#replication-policy)** 
- **[Multi-VM consistency](#multi-vm-consistency)** 
- **[Recovery plan](#recovery-plan)** 
- **[Reprotection and failback](#reprotection-and-failback)** 
- **[Security](#security)** 
+1.  **[General questions on Azure to Azure](#general)** 
+1.  **[Replication](#replication)** 
+1.  **[Replication policy](#replication-policy)** 
+1.  **[Multi-VM consistency](#multi-vm-consistency)** 
+1.  **[Recovery plan](#recovery-plan)** 
+1.  **[Reprotection and failback](#reprotection-and-failback)** 
+1.  **[Security](#security)** 
 ## <a name="general"></a>General
 ### How is Site Recovery priced?
 Review [Azure Site Recovery pricing](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) details.
