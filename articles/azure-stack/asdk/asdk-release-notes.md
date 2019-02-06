@@ -33,7 +33,42 @@ This build includes the following improvements and fixes for Azure Stack:
 
 ### Fixed issues
 
+<<<<<<< HEAD
 For a list of issues fixed in this release, please see [this section](../azure-stack-update-1901.md#fixed-issues).
+=======
+<!-- TBD - IS ASDK --> 
+- Fixed an issue in which the public IP address usage meter data showed the same **EventDateTime** value for each record instead of the **TimeDate** stamp that shows when the record was created. You can now use this data to perform accurate accounting of public IP address usage.
+
+<!-- 3099544 – IS, ASDK --> 
+- Fixed an issue that occurred when creating a new virtual machine (VM) using the Azure Stack portal. Selecting the VM size caused the USD/Month column to display an **Unavailable** message. This column no longer appears; displaying the VM pricing column is not supported in Azure Stack.
+
+<!-- 2930718 - IS ASDK --> 
+- Fixed an issue in which the administrator portal, when accessing the details of any user subscription, after closing the blade and clicking on **Recent**, the user subscription name did not appear. The user subscription name now appears.
+
+<!-- 3060156 - IS ASDK --> 
+- Fixed an issue in both the administrator and user portals: clicking on the portal settings and selecting **Delete all settings and private dashboards** did not work as expected and an error notification was displayed. 
+
+<!-- 2930799 - IS ASDK --> 
+- Fixed an issue in both the administrator and user portals: under **All services**, the asset **DDoS protection plans** was incorrectly listed, while not available in Azure Stack.
+ 
+<!--2760466 – IS  ASDK --> 
+- Fixed an issue that occurred when you installed a new Azure Stack environment in which the alert that indicates **Activation Required** did not display. It now correctly displays.
+
+<!--1236441 – IS  ASDK --> 
+- Fixed an issue that prevented applying RBAC policies to a user group when using ADFS.
+
+<!--3463840 - IS, ASDK --> 
+- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the  latest Azure Stack hotfix for 1809 that addresses this issue, the 1811 update will not make any further modifications. 
+
+<!-- 2967387 – IS, ASDK --> 
+- Fixed an issue in which the account you used to sign in to the Azure Stack admin or user portal displayed as **Unidentified user**. This message was displayed when the account did not have either a *First* or *Last* name specified.   
+
+<!--  2873083 - IS ASDK --> 
+- Fixed an issue in which using the portal to create a virtual machine scale set (VMSS), the *instance size* dropdown did not load correctly when using Internet Explorer. This browser now works correctly.  
+
+<!-- 3190553 - IS ASDK -->
+- Fixed an issue that generated noisy alerts indicating that an Infrastructure Role Instance was unavailable or Scale Unit Node was offline.
+>>>>>>> e1c981740d07703a55c1035723cbb9a89e1eb643
 
 ### Known issues
 
