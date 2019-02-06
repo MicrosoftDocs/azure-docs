@@ -17,7 +17,7 @@ ms.topic: conceptual
 The Remote Monitoring solution accelerator lets you define your own simulated devices. This article shows you how to define a new simulated lightbulb device and then test it locally. The solution accelerator includes simulated devices such as chillers and trucks. However, you can define your own simulated devices to test your IoT solutions before you deploy real devices.
 
 > [!NOTE]
-> This article describes how to use simulated devices hosted in the device simulation service. If you want to create a physical device, see [Connect your device to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).
+> This article describes how to use simulated devices hosted in the device simulation service. If you want to create a real device, see [Connect your device to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).
 
 This how-to guide shows you how to customize the device simulation microservice. This microservice is part of the Remote Monitoring solution accelerator. To show the device simulation capabilities, this how-to guide uses two scenarios in the Contoso IoT application:
 

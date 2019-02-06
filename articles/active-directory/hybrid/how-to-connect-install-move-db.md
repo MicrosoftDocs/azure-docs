@@ -3,12 +3,12 @@ title: 'Move Azure AD Connect database from SQL Server Express to SQL Server. | 
 description: This document describes how to move the Azure AD Connect database from the local SQL Server Express server to a remote SQL Server.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/19/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ---
 

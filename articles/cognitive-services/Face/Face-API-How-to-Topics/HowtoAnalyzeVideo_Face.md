@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Example: Real-time video analysis - Face API"
 titleSuffix: Azure Cognitive Services
 description: Use the Face API to perform near-real-time analysis on frames taken from a live video stream.
@@ -7,7 +7,7 @@ author: SteveMSFT
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles

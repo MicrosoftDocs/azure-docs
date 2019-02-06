@@ -6,7 +6,7 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
@@ -50,7 +50,7 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 
 - On Windows, you need the command prompt or Anaconda prompt (installed by Anaconda and Miniconda).
 
-## <a id="anotebooks"></a>Azure Notebooks
+## <a id="aznotebooks"></a>Azure Notebooks
 
 [Azure Notebooks](https://notebooks.azure.com) (preview) is an interactive development environment in the Azure cloud. It's the easiest way to get started with Azure Machine Learning development.
 
@@ -58,6 +58,8 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 * After you create an Azure Machine Learning service workspace in the Azure portal, you can click a button to automatically configure your Azure Notebook environment to work with the workspace.
 
 To get started developing with Azure Notebooks, see [Get started with Azure Machine Learning service](quickstart-get-started.md).
+
+By default, Azure Notebooks uses a free service tier that is limited to 4GB of memory and 1GB of data. You can, however, remove these limits by attaching a Data Science Virtual Machine instance to the Azure Notebooks project. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 

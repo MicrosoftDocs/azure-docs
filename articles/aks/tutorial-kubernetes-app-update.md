@@ -71,7 +71,7 @@ The updated values provided in the *config_file.cfg* file are displayed in your 
 
 ## Tag and push the image
 
-To correctly use the updated image, tag the *azure-vote-front* image with the login server name of your ACR registry. Get the login server name with the [az acr list](/cli/azure/acr#az_acr_list) command:
+To correctly use the updated image, tag the *azure-vote-front* image with the login server name of your ACR registry. Get the login server name with the [az acr list](/cli/azure/acr) command:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -170,5 +170,5 @@ Advance to the next tutorial to learn how to upgrade an AKS cluster to a new ver
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
-[az-acr-login]: /cli/azure/acr#az_acr_login
+[az-acr-login]: /cli/azure/acr
 [azure-cli-install]: /cli/azure/install-azure-cli

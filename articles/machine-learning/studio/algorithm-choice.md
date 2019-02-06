@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning Studio
 description: How to choose Azure Machine Learning Studio algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 
 author: ericlicoding

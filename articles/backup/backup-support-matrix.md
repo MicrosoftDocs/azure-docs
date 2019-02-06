@@ -25,13 +25,13 @@ Number of vaults | Up to 500 Recovery Services vaults in a single subscription.
 Machines in a vault | Up to 1000 Azure VMs in a single vault.<br/><br/> Up to 50 on-premises machines running the Azure Backup agent (Microsoft Azure Recovery Services agent (MABS)) can be registered in a single vault.
 Data source in vault storage | Maximum 54400 GB. There's no limit for Azure VM backups.
 Backups to vault | Azure VMs: once a day; Machines protected by DPM/MABS: twice a day; Machines backed up directly using MARS agent: three times a day.  
-Move vault | You can move backup Recovery Services vaults across subscriptions and resource groups. [Learn more](backup-azure-move-recovery-services-vault.md).
+Move vault | To move a Recovery Services vault, you must enroll in a private preview. To try it out, write to AskAzureBackupTeam@microsoft.com.
 Move data between vaults | Moving backed up data between vaults isn't supported.
 Storage replication type | You can modify the storage replication type (GRS/LRS) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
 
 
 
-## On-premises backup support 
+## On-premises backup support
 
 Here's what's supported if you want to back up on-premises machines.
 
@@ -72,8 +72,8 @@ Here's what's supported if you want to back up Azure VMs.
 Here's what's supported if you want to back up Linux machines.
 
 **Backup** | **Linux (Azure endorsed)**
---- | --- 
-**On-premises Linux machine (without DPM or MABS)**. | No. The MARS agent can only be installed on Windows machines. 
+--- | ---
+**On-premises Linux machine (without DPM or MABS)**. | No. The MARS agent can only be installed on Windows machines.
 **Azure VM (without DPM or MABS)** | App-consistent backup using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> File-level recovery.<br/><br/> Restore by creating a VM from a recovery point or disk.
 **On-premises machine/Azure VM with DPM** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/><br/> VM restore of Hyper-V and VMWare Linux Guest VMs</br></br> File-consistent backup not available for Azure VMs
 **On-premises machine/Azure VM with MABS** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/><br/> VM restore of Hyper-V and VMWare Linux guest VMs</br></br> File-consistent backup not available for Azure VMs.
@@ -105,7 +105,7 @@ Data security:
 **Machine** | **In transit** | **At rest**
 --- | --- | ---
 On-premises Windows machines without DPM/MABS | ![Yes][green] | ![Yes][green]
-Azure VMs | ![Yes][green] | ![Yes][green] 
+Azure VMs | ![Yes][green] | ![Yes][green]
 On-premises/Azure VMs with DPM | ![Yes][green] | ![Yes][green]
 On-premises/Azure VMs with MABS | ![Yes][green] | ![Yes][green]
 
@@ -116,7 +116,7 @@ On-premises/Azure VMs with MABS | ![Yes][green] | ![Yes][green]
 Backup supports the compression of backup traffic, as summarized in the table below. Note that:
 
 - For Azure VMs, the VM extension reads the data directly from the Azure storage account over the storage network, so it is not necessary to compress this traffic.
-- If you're using DPM or MABS, you can compress the data before it's backed up to DPM/MABS, to save bandwidth. 
+- If you're using DPM or MABS, you can compress the data before it's backed up to DPM/MABS, to save bandwidth.
 
 **Machine** | **Compress to MABS/DPM (TCP)** | **Compress (HTTPS) to vault**
 --- | --- | ---
@@ -129,8 +129,8 @@ On-premises/Azure VMs with MABS | ![Yes][green] | ![Yes][green]
 
 ## Retention limits
 
-**Setting** | **Limits** 
---- | --- 
+**Setting** | **Limits**
+--- | ---
 Max recovery points per protected instance (machine/workload | 9999
 Max expiry time for a recovery point | No limit
 Maximum backup frequency to DPM/MABS | Every 15 minutes for SQL Server<br/><br/> Once a hour for other workloads.

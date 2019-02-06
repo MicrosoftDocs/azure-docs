@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
+ms.subservice: metrics
 ---
 # Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API
 
@@ -113,3 +113,4 @@ If you receive an error message with some part of the process, consider the foll
  
 ## Next steps
 - Learn more about [custom metrics](../../azure-monitor/platform/metrics-custom-overview.md).
+

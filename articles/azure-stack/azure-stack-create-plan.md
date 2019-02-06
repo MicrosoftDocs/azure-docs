@@ -16,6 +16,7 @@ ms.topic: get-started-article
 ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: unknown
+ms.lastreviewed: 01/09/2019
 
 ---
 # Create a plan in Azure Stack

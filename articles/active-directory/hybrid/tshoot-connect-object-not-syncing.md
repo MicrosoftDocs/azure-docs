@@ -4,7 +4,7 @@ description: Troubleshoot why an object is not synchronizing to Azure AD.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ---
 # Troubleshoot an object that is not synchronizing to Azure AD
@@ -23,6 +23,34 @@ If an object is not synchronizing as expected to Azure AD, then it can be becaus
 
 >[!IMPORTANT]
 >For Azure Active Directory (AAD) Connect deployment with version 1.1.749.0 or higher, use the [troubleshooting task](tshoot-connect-objectsync.md) in the wizard to troubleshoot object synchronization issues. 
+
+## Synchronization Process
+
+Before investigating synchronization issues, let’s understand the **Azure AD Connect** Synchronization process:
+
+  ![Azure AD Connect Synchronization Process](./media/tshoot-connect-object-not-syncing/syncingprocess.png)
+
+### **Terminology**
+
+* **CS:** Connector Space, a table in database.
+* **MV:** Metaverse, a table in database.
+* **AD:** Active Directory
+* **AAD:** Azure Active Directory
+
+### **Synchronization Steps**
+The synchronization process involves following steps:
+
+1. **Import from AD:** **Active Directory** objects are brought into **AD CS**.
+
+2. **Import from AAD:** **Azure Active Directory** objects are brought into **AAD CS**.
+
+3. **Synchronization:** **Inbound Synchronization Rules** and **Outbound Synchronization Rules** are run in the order of precedence number from lower to higher. To view the Synchronization Rules, you can go to **Synchronization Rules Editor** from the desktop applications. The **Inbound Synchronization Rules** brings in data from CS to MV. The **Outbound Synchronization Rules** moves data from MV to CS.
+
+4. **Export to AD:** After running Synchronization, objects are exported from AD CS to **Active Directory**.
+
+5. **Export to AAD:** After running Synchronization, objects are exported from AAD CS to **Azure Active Directory**.
+
+## Troubleshooting
 
 To find the errors, you are going to look at a few different places in the following order:
 
@@ -118,7 +146,28 @@ In **Synchronization Service Manager**, click **Metaverse Search**. Create a que
 
 In the **Search Results** window, click the object.
 
-If you did not find the object, then it has not yet reached the metaverse. Continue to search for the object in the Active Directory [connector space](#connector-space-object-properties). There could be an error from synchronization that is blocking the object from coming to the metaverse or there might be a filter applied.
+If you did not find the object, then it has not yet reached the metaverse. Continue to search for the object in the **Active Directory** [connector space](#connector-space-object-properties). If you find the object in the **Active Directory** connector space, then there could be an error from synchronization that is blocking the object from coming to the metaverse or there might be a synchronization rule scoping filter applied.
+
+### Object not found in the MV
+If the object is in the **Active Directory** CS, however not present in the MV then scoping filter is applied. 
+
+* To look at the scoping filter go to the desktop application menu and click on **Synchronization Rules Editor**. Filter the rules applicable the object by adjusting the filter below.
+
+  ![Inbound Synchronization Rules Search](./media/tshoot-connect-object-not-syncing/syncrulessearch.png)
+
+* View each rule in the list from above and check the **Scoping filter**. In the below scoping filter, if the **isCriticalSystemObject** value is null or FALSE or empty then it's in scope.
+
+  ![Inbound Synchronization Rules Search](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
+
+* Go to the [CS Import](#cs-import) attribute list and check which filter is blocking the object to move to the MV. That apart the **Connector Space** attribute list will show only non-null and non-empty attributes. For example, if **isCriticalSystemObject** is not showing up in the list, then this means that the value of this attribute is null or empty.
+
+### Object not found in the AAD CS
+If the object is not present in the **Connector Space** of **Azure Active Directory**. However, it is present in the MV, then look at the Scoping filter of the **Outbound** rules of the corresponding **Connector Space** and check if the object is filtered out because of the [MV attributes](#mv-attributes) not meeting the criteria.
+
+* To look at the outbound scoping filter, select the applicable rules for the object by adjusting the filter below. View each rule and look at the corresponding [MV attribute](#mv-attributes) value.
+
+  ![Outbound Synchroniztion Rules Search](./media/tshoot-connect-object-not-syncing/outboundfilter.png)
+
 
 ### MV Attributes
 On the attributes tab, you can see the values and which Connector contributed it.  

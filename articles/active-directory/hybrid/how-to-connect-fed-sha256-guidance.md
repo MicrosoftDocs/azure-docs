@@ -5,14 +5,14 @@ keywords: SHA1,SHA256,O365,federation,aadconnect,adfs,ad fs,change sha,federatio
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: cf6880e2-af78-4cc9-91bc-b64de4428bbd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: billmath
 

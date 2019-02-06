@@ -93,7 +93,7 @@ waiting for AAD role to propagate.done
 }
 ```
 
-Now that you have a cluster, you can import the credentials by using the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command. Now you have a local configuration file for your cluster, which is what Helm and Draft need to get their work done.
+Now that you have a cluster, you can import the credentials by using the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes) command. Now you have a local configuration file for your cluster, which is what Helm and Draft need to get their work done.
 
 ## Install and configure draft
 

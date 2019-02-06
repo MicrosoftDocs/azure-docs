@@ -4,7 +4,7 @@ description: Give locally-managed external partners access to both local and clo
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 04/24/2018
 

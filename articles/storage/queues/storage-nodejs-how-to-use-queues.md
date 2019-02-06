@@ -9,7 +9,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.component: queues
+ms.subservice: queues
 ---
 # How to use Queue storage from Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

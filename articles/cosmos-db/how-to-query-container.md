@@ -8,7 +8,7 @@ ms.date: 11/06/2018
 ms.author: mjbrown
 ---
 
-# Query containers in Azure Cosmos DB
+# Query an Azure Cosmos container
 
 This article explains how to query a container (collection, graph, table) in Azure Cosmos DB.
 

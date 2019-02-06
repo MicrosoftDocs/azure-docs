@@ -272,7 +272,7 @@ The `-AsJob` parameter creates the VM as a background task, so the PowerShell pr
  
 Install IIS with a custom web page on both backend VMs as follows:
 
-1. Get the Public IP address of the Load Balancer. Using `Get-AzureRmPublicIPAdress`, obtain the Public IP address of the Load Balancer.
+1. Get the Public IP address of the Load Balancer. Using `Get-AzureRmPublicIPAddress`, obtain the Public IP address of the Load Balancer.
 
   ```azurepowershell-interactive
     Get-AzureRmPublicIPAddress `

@@ -1,6 +1,6 @@
 ---
 title: Concepts - Networking in Azure Kubernetes Services (AKS)
-description: Learn about networking in Azure Kubernetes Service (AKS), including basic and advanced networking, ingress controllers, load balancers, and static IP addresses.
+description: Learn about networking in Azure Kubernetes Service (AKS), including kubenet and Azure CNI networking, ingress controllers, load balancers, and static IP addresses.
 services: container-service
 author: iainfoulds
 
@@ -57,37 +57,32 @@ Both *internal* and *external* load balancers can be created. Internal load bala
 
 In AKS, you can deploy a cluster that uses one of the following two network models:
 
-- *Basic* networking - The network resources are created and configured as the AKS cluster is deployed.
-- *Advanced* networking - The AKS cluster is connected to existing virtual network resources and configurations.
+- *Kubenet* networking - The network resources are typically created and configured as the AKS cluster is deployed.
+- *Azure Container Networking Interface (CNI)* networking - The AKS cluster is connected to existing virtual network resources and configurations.
 
-### Basic networking
+### Kubenet (basic) networking
 
-The *basic* networking option is the default configuration for AKS cluster creation. The Azure platform manages the network configuration of the cluster and pods. Basic networking is appropriate for deployments that do not require custom virtual network configuration. With basic networking, you can't define network configuration such as subnet names or the IP address ranges assigned to the AKS cluster.
+The *kubenet* networking option is the default configuration for AKS cluster creation. With *kubenet*, nodes get an IP address from the Azure virtual network subnet. Pods receive an IP address from a logically different address space to the Azure virtual network subnet of the nodes. Network address translation (NAT) is then configured so that the pods can reach resources on the Azure virtual network. The source IP address of the traffic is NAT'd to the node's primary IP address.
 
-Nodes in an AKS cluster configured for basic networking use the [kubenet][kubenet] Kubernetes plugin.
+Nodes use the [kubenet][kubenet] Kubernetes plugin. You can let the Azure platform create and configure the virtual networks for you, or choose to deploy your AKS cluster into an existing virtual network subnet. Again, only the nodes receiving a routable IP address, and the pods use NAT to communicate with other resources outside the AKS cluster. This approach greatly reduces the number of IP addresses that you need to reserve in your network space for pods to use.
 
-Basic networking provides the following features:
+For more information, see [Configure kubenet networking for an AKS cluster][aks-configure-kubenet-networking].
 
-- Expose a Kubernetes service externally or internally through the Azure Load Balancer.
-- Pods can access resources on the public Internet.
+### Azure CNI (advanced) networking
 
-### Advanced networking
+With Azure CNI, every pod gets an IP address from the subnet and can be accessed directly. These IP addresses must be unique across your network space, and must be planned in advance. Each node has a configuration parameter for the maximum number of pods that it supports. The equivalent number of IP addresses per node are then reserved up front for that node. This approach requires more planning, and often leads to IP address exhaustion or the need to rebuild clusters in a larger subnet as your application demands grow.
 
-*Advanced* networking places your pods in an Azure virtual network that you configure. This virtual network provides automatic connectivity to other Azure resources and integration with a rich set of capabilities. Advanced networking is appropriate for deployments that require specific virtual network configurations, such as to use an existing subnet and connectivity. With advanced networking, you can define these subnet names and IP address ranges.
-
-Nodes in an AKS cluster configured for advanced networking use the [Azure Container Networking Interface (CNI)][cni-networking] Kubernetes plugin.
+Nodes use the [Azure Container Networking Interface (CNI)][cni-networking] Kubernetes plugin.
 
 ![Diagram showing two nodes with bridges connecting each to a single Azure VNet][advanced-networking-diagram]
 
-Advanced networking provides the following features over basic networking:
+Azure CNI provides the following features over kubenet networking:
 
-- Deploy your AKS cluster into an existing Azure virtual network, or create a new virtual network and subnet for your cluster.
 - Every pod in the cluster is assigned an IP address in the virtual network. The pods can directly communicate with other pods in the cluster, and other nodes in the virtual network.
-- A pod can connect to other services in a peered virtual network, including to on-premises networks over ExpressRoute and site-to-site (S2S) VPN connections. Pods are also reachable from on-premises.
 - Pods in a subnet that have service endpoints enabled can securely connect to Azure services, such as Azure Storage and SQL DB.
 - You can create user-defined routes (UDR) to route traffic from pods to a Network Virtual Appliance.
 
-For more information, see [Configure advanced network for an AKS cluster][aks-configure-advanced-networking].
+For more information, see [Configure Azure CNI for an AKS cluster][aks-configure-advanced-networking].
 
 ## Ingress controllers
 
@@ -109,7 +104,7 @@ Default network security group rules exist for traffic such as SSH. These defaul
 
 ## Next steps
 
-To get started with AKS networking, see [Create and configure advanced networking for an AKS cluster][aks-configure-advanced-networking].
+To get started with AKS networking, create and configure an AKS cluster with your own IP address ranges using [kubenet][aks-configure-kubenet-networking] or [Azure CNI][aks-configure-advanced-networking].
 
 For additional information on core Kubernetes and AKS concepts, see the following articles:
 
@@ -133,7 +128,8 @@ For additional information on core Kubernetes and AKS concepts, see the followin
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md
 [aks-ingress-tls]: ingress.md
-[aks-configure-advanced-networking]: configure-advanced-networking.md
+[aks-configure-kubenet-networking]: configure-kubenet.md
+[aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-scale]: concepts-scale.md

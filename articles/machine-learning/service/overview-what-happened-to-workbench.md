@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn about what happened to the Machine Learning Workbench application, what changed in Azure Machine Learning service, and what the support timeline is.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: overview
 ms.reviewer: jmartens
 author: j-martens

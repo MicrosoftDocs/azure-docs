@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/13/2018
 ms.author: tamram
-ms.component: queues
+ms.subservice: queues
 ---
 
 # Get started with Azure Queue storage using .NET

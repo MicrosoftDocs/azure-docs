@@ -84,7 +84,7 @@ The following example creates an open authorization policy and adds it to the co
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKey.AuthorizationPolicyId = policy.Id;
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
@@ -181,7 +181,7 @@ The following example creates an authorization policy with a token restriction. 
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKey.AuthorizationPolicyId = policy.Id;
         IContentKey updatedKey = contentKey.UpdateAsync().Result;
         Console.WriteLine("Adding Key to Asset: Key ID is " + updatedKey.Id);
@@ -311,7 +311,7 @@ To configure the token restriction option, you need to use an XML to describe th
 
         policy.Options.Add(policyOption);
 
-        // Add ContentKeyAutorizationPolicy to ContentKey
+        // Add ContentKeyAuthorizationPolicy to ContentKey
         contentKeyAuthorizationPolicy.Options.Add(policyOption);
 
         // Associate the content key authorization policy with the content key
