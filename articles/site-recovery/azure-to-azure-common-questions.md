@@ -65,6 +65,10 @@ With Site Recovery, you can replicate and recover VMs between any two regions wi
 
 No, Site Recovery does not require internet connectivity. But it does require access to Site Recovery URLs and IP ranges, as mentioned in [this article](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
+### Can I replicate the application having separate resource group for separate tiers? 
+Yes, you can replicate the application and keep the disaster recovery configuration in separate resource group too.
+For example, if you have  three tiers app, db and web, then you have to click the [replication wizard](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) thrice to protect all the tiers. ASR will replicate the these three tiers in three different resource group.
+
 ## <a name="replication-policy"></a>Replication policy
 
 ### What is a replication policy?
