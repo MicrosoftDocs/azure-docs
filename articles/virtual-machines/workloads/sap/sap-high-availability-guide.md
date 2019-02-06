@@ -590,7 +590,7 @@ To set the required DNS IP addresses, do the following steps.
 2.  Select your settings based on the type of network you have. For more information, see the following resources:
     * [Corporate network connectivity (cross-premises)][planning-guide-2.2]: Add the IP addresses of the on-premises DNS servers.  
     You can extend on-premises DNS servers to the virtual machines that are running in Azure. In that scenario, you can add the IP addresses of the Azure virtual machines on which you run the DNS service.
-    * [Cloud-only deployment][planning-guide-2.1]: Deploy an additional virtual machine in the same Virtual Network instance that serves as a DNS server. Add the IP addresses of the Azure virtual machines that you've set up to run DNS service.
+    * For VM deployments isolated in Azure: Deploy an additional virtual machine in the same Virtual Network instance that serves as a DNS server. Add the IP addresses of the Azure virtual machines that you've set up to run DNS service.
 
     ![Figure 12: Configure DNS servers for Azure Virtual Network][sap-ha-guide-figure-3001]
 

@@ -83,4 +83,4 @@ If you have problems signing in with two-step verification, get more information
 
 Learn how to [Manage your two-step verification settings](multi-factor-authentication-end-user-manage-settings.md).
 
-Find out how to [Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) so that you can use notifications to sign in, instead of texts and phone calls.
+Find out how to [Get started with the Microsoft Authenticator app](user-help-auth-app-download-install.md) so that you can use notifications to sign in, instead of texts and phone calls.

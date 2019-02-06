@@ -53,7 +53,7 @@ The algorithm to determine proximity is not a simple calculation. The ranges in 
 
 Active learning is off by default. Turned it on to see suggested questions. 
 
-1. To turn active learning on, go to your **Service Settings** in the QnA Maker portal, in the top-right corner.  
+1. To turn active learning on, Click on your **Name**, go to [**Service Settings**](https://www.qnamaker.ai/UserSettings) in the QnA Maker portal, in the top-right corner.  
 
     ![On the service settings page, toggle on Active learning](../media/improve-knowledge-base/Endpoint-Keys.png)
 

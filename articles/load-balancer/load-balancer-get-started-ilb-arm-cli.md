@@ -122,7 +122,7 @@ In this example, you create two virtual machines to be used as backend servers f
 
 ### Create an Availability set
 
-Create an availability set with [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
+Create an availability set with [az vm availabilityset create](/cli/azure/network/nic)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -209,7 +209,7 @@ To test the load balancer, create a virtual machine, *myVMTest*, and associate i
 
 To test the load balancer, you must first obtain the private IP address of the load balancer. Next, sign in to virtual machine myVMTest, and type the private IP address into the address bar of its web browser.
 
-To get the private IP address of the load balancer, use [az network lb show](/cli/azure/network/public-ip##az-network-lb-show). Copy the private IP address, and then paste it into the address bar of a web browser of your virtual machine - *myVMTest*.
+To get the private IP address of the load balancer, use [az network lb show](/cli/azure/network/public-ip). Copy the private IP address, and then paste it into the address bar of a web browser of your virtual machine - *myVMTest*.
 
 ```azurecli-interactive
   az network lb show \

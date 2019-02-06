@@ -98,7 +98,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 ## Create a Virtual Machine
 
-Create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command.
+Create a VM with the [az vm create](/cli/azure/vm) command.
 
 The following example creates a VM named *myVM* and adds a user account named *azureuser*. The `--generate-ssh-keys` parameter us used to automatically generate an SSH key, and put it in the default key location (*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-value` option.
 
