@@ -31,11 +31,11 @@ There are three main ways that a user can get access to a Microsoft-published ap
 
 -   For applications that Microsoft or a 3rd Party publishes freely for anyone to use, users may also be granted access through **administrator consent**. This means that an administrator has determined the application may be used by everyone in the organization, so they sign in to the application with a Global Administrator account and grant access to everyone in the organization.
 
-To troubleshoot your issue, start with the [General Problem Areas with Application Access to consider](#general-problem-areas-with-application-access-to-consider) and then read the [Walkthrough: Steps to troubleshoot Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access) to get into the details.
+To troubleshoot your issue, start with the [General Problem Areas with Application Access to consider](#general-problem-areas-with-application-access-to-consider) and then read the Walkthrough: Steps to troubleshoot Microsoft Application access to get into the details.
 
 ## General Problem Areas with Application Access to consider
 
-Following is a list of the general problem areas that you can drill into if you have an idea of where to start, but we recommend you read the walkthrough to get going quickly: [Walkthrough: Steps to troubleshoot Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Following is a list of the general problem areas that you can drill into if you have an idea of where to start, but we recommend you read the walkthrough to get going quickly: Walkthrough: Steps to troubleshoot Microsoft Application access.
 
 -   [Problems with the user’s account](#problems-with-the-users-account)
 

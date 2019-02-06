@@ -92,7 +92,7 @@ Following are the supported **single sign-on** modes for Azure AD applications.
 
 ## Single sign-on modes for custom-developed applications
 
-Applications you have custom developed through the [Custom-developed application](#_Custom-Developed_Applications) experience also support additional single sign-on modes not previously listed, which include:
+Applications you have custom developed through the Custom-developed application experience also support additional single sign-on modes not previously listed, which include:
 
 -   [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) based sign-on
 
