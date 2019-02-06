@@ -132,7 +132,7 @@ To configure Azure AD single sign-on with Envi MMIS, perform the following steps
 
 ### Configure Envi MMIS Single Sign-On
 
-1. In a different web browser window, log into your Envi MMIS site as an administrator.
+1. In a different web browser window, sign into your Envi MMIS site as an administrator.
 
 2. Click on **My Domain** tab.
 
@@ -180,9 +180,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -209,20 +209,20 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     ![The Add Assignment pane](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog, select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog, select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+7. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create Envi MMIS test user
 
-To enable Azure AD users to log in to Envi MMIS, they must be provisioned into Envi MMIS.  
+To enable Azure AD users to sign in to Envi MMIS, they must be provisioned into Envi MMIS.  
 In the case of Envi MMIS, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your Envi MMIS company site as an administrator.
+1. Sign in to your Envi MMIS company site as an administrator.
 
 2. Click on **User List** tab.
 
