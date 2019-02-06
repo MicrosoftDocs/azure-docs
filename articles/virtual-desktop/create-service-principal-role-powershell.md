@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 10/25/2018
+ms.date: 02/20/2019
 ms.author: helohr
 ---
 # Tutorial: Create service principals and role assignments with PowerShell

@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 02/20/2019
 ms.author: helohr
 ---
 # Configure the Windows Virtual Desktop load-balancing method

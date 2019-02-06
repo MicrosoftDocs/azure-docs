@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 02/20/2019
 ms.author: helohr
 ---
 # Host pool load-balancing methods
