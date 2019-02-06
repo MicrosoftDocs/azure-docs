@@ -38,7 +38,7 @@ Premium Storage Caching: Not Supported
 
 <sup>2</sup> Local NVMe Disks are ephemeral, data will be lost on these disks if you stop/deallocate your VM.
 
-<sup>3</sup> Hyper-V NVMe Direct technology provides unthrottled access to NVMe drives mapped securely into the guest VM space.  Achieving maximum performance requires using either the latest WS2019 build or Ubuntu 18.04 or 16.04 from the Azure Marketplace.  Write performance varies based on IO size, drive load, and capacity utilization.
+<sup>3</sup> Hyper-V NVMe Direct technology provides unthrottled access to local NVMe drives mapped securely into the guest VM space.  Achieving maximum performance requires using either the latest WS2019 build or Ubuntu 18.04 or 16.04 from the Azure Marketplace.  Write performance varies based on IO size, drive load, and capacity utilization.
 
 <sup>4</sup> Lsv2-series VMs do not provide host cache for data disk as it does not benefit the Lsv2 workloads.  However, Lsv2 VMs can accommodate Azure’s Ephemeral VM OS disk option (up to 30 GiB). 
 
