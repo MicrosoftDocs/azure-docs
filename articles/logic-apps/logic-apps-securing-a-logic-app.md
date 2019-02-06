@@ -530,7 +530,7 @@ When working with an HTTP, HTTP + Swagger (Open API), or Webhook action,
 you can add authentication to the request sent by your logic app. 
 For example, you can use basic authentication, certificate authentication, 
 or Azure Active Directory authentication. For more information, 
-see [Authenticate triggers or actions](../logic-apps-workflow-actions-triggers.md#connector-authentication).
+see [Authenticate triggers or actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
 ### Restrict access to logic app IP addresses
 
