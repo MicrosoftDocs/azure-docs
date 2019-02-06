@@ -165,8 +165,7 @@ CosmosDB.Emulator.exe| |
 | PartitionCount | Specifies the maximum number of partitioned collections. See [Change the number of collections](#set-partitioncount) for more information. | CosmosDB.Emulator.exe /PartitionCount=\<partitioncount\> | \<partitioncount\>: Maximum number of allowed single partition collections. Default is 25. Maximum allowed is 250.|
 | DefaultPartitionCount| Specifies the default number of partitions for a partitioned collection. | CosmosDB.Emulator.exe /DefaultPartitionCount=\<defaultpartitioncount\> | \<defaultpartitioncount\> Default is 25.|
 | AllowNetworkAccess | Enables access to the emulator over a network. You must also pass /Key=\<key_string\> or /KeyFile=\<file_name\> to enable network access. | CosmosDB.Emulator.exe /AllowNetworkAccess /Key=\<key_string\> or  CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=\<file_name\>| |
-| NoFirewall | Don't adjust firewall rules when /AllowNetworkAccess is used. |
-CosmosDB.Emulator.exe /NoFirewall | |
+| NoFirewall | Don't adjust firewall rules when /AllowNetworkAccess is used. |CosmosDB.Emulator.exe /NoFirewall | |
 | GenKeyFile | Generate a new authorization key and save to the specified file. The generated key can be used with the /Key or /KeyFile options. | CosmosDB.Emulator.exe /GenKeyFile=\<path to key file\> | |
 | Consistency | Set the default consistency level for the account. | CosmosDB.Emulator.exe /Consistency=\<consistency\> | \<consistency\>: Value must be one of the following [consistency levels](consistency-levels.md): Session, Strong, Eventual, or BoundedStaleness. The default value is Session. |
 | ? | Show the help message.| | |
