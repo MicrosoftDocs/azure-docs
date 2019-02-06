@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: conceptual
-ms.date: 8/13/2018
+ms.date: 02/06/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
