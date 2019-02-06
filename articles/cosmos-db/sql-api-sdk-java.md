@@ -28,20 +28,14 @@ ms.author: sngun
 
 The SQL API Java SDK supports synchronous operations. For asynchronous support, use the [SQL API Async Java SDK](sql-api-sdk-async-java.md). 
 
-<table>
-
-<tr><td>**SDK Download**</td><td>[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
-
-<tr><td>**API documentation**</td><td>[Java API reference documentation](/java/api/com.microsoft.azure.documentdb)</td></tr>
-
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-
-<tr><td>**Get started**</td><td>[Get started with the Java SDK](sql-api-java-get-started.md)</td></tr>
-
-<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](sql-api-java-application.md)</td></tr>
-
-<tr><td>**Minimum supported runtime**</td><td>[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**SDK Download**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
+|**API documentation**|[Java API reference documentation](/java/api/com.microsoft.azure.documentdb)|
+|**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
+|**Get started**|[Get started with the Java SDK](sql-api-java-get-started.md)|
+|**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-java-application.md)|
+|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
 
 ## Release notes
 
