@@ -338,6 +338,12 @@
       href: sql-database-temporal-tables.md
     - name: Job automation 
       href: sql-database-job-automation-overview.md
+    - name: Machine learning
+      items:
+      - name: Machine learning overview
+        href: sql-database-machine-learning-services-overview.md
+      - name: Key differences
+        href: sql-database-machine-learning-services-differences.md
 - name: How-to guides
   items:
   - name: Overview
