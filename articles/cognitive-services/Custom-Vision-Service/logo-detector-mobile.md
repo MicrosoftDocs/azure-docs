@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 - Xamarin workload for Visual Studio (see [Installing Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
 - An iOS or Android emulator for Visual Studio
-- [Azure command-line interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (optional)
+- [Azure command-line interface (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (optional)
 
 ## Get the source code
 
@@ -100,7 +100,7 @@ Then, open the *Source\VisualProvision\AppSettings.cs* file and populate the `Co
 
 ## Create a service principal
 
-The app requires an Azure service principal account to deploy services to your Azure subscription. A service principal lets you delegate specific permissions to an app using role-based access control. See the [service principals guide](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-create-service-principals) if you'd like to learn more.
+The app requires an Azure service principal account to deploy services to your Azure subscription. A service principal lets you delegate specific permissions to an app using role-based access control. See the [service principals guide](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals) if you'd like to learn more.
 
 You can create a service principal using either Azure Cloud Shell or the Azure CLI (as follows). First, log in and select the subscription you'd like to use.
 
