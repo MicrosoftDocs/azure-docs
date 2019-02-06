@@ -459,7 +459,7 @@ The webservice is a REST API, so you can create client applications in a variety
 
 ## <a id="update"></a> Update the web service
 
-To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new image:
+When you create a new image, you must must manually update each service that you want to use the new image. To update the web service, use the `update` method. The following code demonstrates how to update the web service to use a new image:
 
 ```python
 from azureml.core.webservice import Webservice
@@ -476,9 +476,6 @@ new_image = Image(workspace = ws, id="myimage2:1")
 service.update(image = new_image)
 print(service.state)
 ```
-
-> [!NOTE]
-> When you update an image, the web service is not automatically updated. You must manually update each service that you want to use the new image.
 
 For more information, see the reference documentation for the [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class.
 
