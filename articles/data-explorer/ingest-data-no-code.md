@@ -203,20 +203,25 @@ Add an [update policy](/azure/kusto/concepts/updatepolicy) to the target table. 
 
 Azure diagnostic logs enable exporting metrics to a Storage account or an Event Hub. In this tutorial, we route metrics via an Event Hub. Create an Event Hubs Namespace and Event Hub for diagnostic logs. Azure Monitoring will create the event hub 'insights-operational-logs' for activity logs.
 
-You do this by .
-
-1. Create an event hub using an Azure Resource Manager template in the Azure portal. Use the following button to start the deployment. Right-click and select **Open in new window**, so you can follow the rest of the steps in this article.
+1. Create an event hub using an Azure Resource Manager template in the Azure portal. Use the following button to start the deployment. Right-click and select **Open in new window**, so you can follow the rest of the steps in this article. The **Deploy to Azure** button takes you to the Azure portal.
 
     [![Deploy to Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
-    The **Deploy to Azure** button takes you to the Azure portal to create an Event Hub and Event Hub Namespace.
+1. Create an Event Hub and Event Hub Namespace for the diagnostic logs.
 
-    ![Event Hub creation]((media/ingest-data-no-code/eh-create.png)
+    ![Event Hub creation]((media/ingest-data-no-code/event-hub.png)
 
-Create an Event Hubs Namespace and Event Hub for diagnostic logs
+    Fill out the form with the following information. Use defaults for any settings not listed in the following table.
 
-Screen capture
-Name of namespace and event hub. Name of consumer groups as wanted. subscription according to subscription.
+    **Setting** | **Suggested value** | **Field description**
+    |---|---|---|
+    | Subscription | Your subscription | Select the Azure subscription that you want to use for your event hub.|
+    | Resource group | *test-resource-group* | Create a new resource group. |
+    | Location | Select the region that best meets your needs. | Create the event hub namespace in the same Location as the Kusto cluster for best performance (most important for event hub namespaces with high throughput).
+    | Namespace name | *AzureMonitoringData* | Choose a unique name that identifies your namespace.
+    | Event hub name | *DiagnosticLogsData* | The event hub sits under the namespace, which provides a unique scoping container. The event hub name must be unique within the namespace. |
+    | Consumer group name | *adxpipeline* | Create a consumer group name. This enables multiple consuming applications to each have a separate view of the event stream. |
+    | | |
 
 ## Connect Azure Monitoring logs to Event Hub
 
@@ -225,22 +230,71 @@ Name of namespace and event hub. Name of consumer groups as wanted. subscription
 Select a resource from which to export metrics. There are several resource types that enables exporting diagnostic logs (Event Hub Namespace, KeyVault, IoT Hub, Azure Data Explorer cluster etc.). In this tutorial we use the Azure Data Explorer cluster as our resource.
 
 1. Select your Kusto cluster in the Azure portal.
+
+    ![Diagnostic settings]((media/ingest-data-no-code/diagnostic-settings.png)
+
 1. Select **Diagnostic settings** from left menu.
-1. Click **Turn on diagnostics** link. (screen capture on my computer)
-1. Select all metrics (optional) **Save**
-1. Check **Stream to an Event Hub**
-1. Configure exporting to the event hub you just created. (screen capture)
+1. Click **Turn on diagnostics** link. The **Diagnostics settings** window opens.
 
-#### Activity logs connection to Event Hub
+    ![Diagnostic settings window]((media/ingest-data-no-code/diagnostic-settings-window.png)
 
+1. In the **Diagnostics settings** pane:
+    1. Name your diagnostics log data: *ADXExportedData*
+    1. Select **AllMetrics** checkbox (optional).
+    1. Select **Stream to an event hub** checkbox.
+    1. Click **Configure**
+
+1. In the **Select event hub** pane configure exporting to the event hub you just created:
+    1. **Select event hub namespace** from dropdown: *AzureMonitoringData*.
+    1. **Select event hub name (optional)** from dropdown: *diagnosticlogsdata*.
+    1. **Select event hub policy name** from dropdown.
+    1. Click **OK**.
+
+1. Click **Save** to finalize the diagnostic settings. Event hub namespace, name and policy name will appear in the window.
+
+    ![Save diagnostic settings]((media/ingest-data-no-code/save-diagnostic-settings.png)
+
+#### Activity logs connection to Event Hub**
+
+// TODO: edit and create screens???.
 Select a subscription to export metrics from. Go to Activity Logs > Export to Event Hub. 
 Note to select all regions.
 An event hub with the name 'insights-operational-logs' will be created.
 
 ## Connect Event Hub to ADX
-Database
-Data Ingestion
-Add Data Ingestion
+
+1. In your Azure Data Explorer cluster *kustodocs*, select **Databases** in the left menu.
+1. In the **Databases** window, select your database name *AzureMonitoring*
+1. In the left menu, select **Data ingestion**
+1. In the **Data ingestion** window, click **+ Add Data Connection**
+1. In the **Data connection** window, enter the following:
+
+    ![Save diagnostic settings]((media/ingest-data-no-code/event-hub-data-connection.png)
+
+    Data Source:
+
+    **Setting** | **Suggested value** | **Field description**
+    |---|---|---|
+    | Data connection name | *DiagnosticsLogsConnection* | The name of the connection you want to create in Azure Data Explorer.|
+    | Event hub namespace | *AzureMonitoringData* | The name you chose earlier that identifies your namespace. |
+    | Event hub | *diagnosticlogsdata* | The event hub you created. |
+    | Consumer group | *adxpipeline* | The consumer group defined in the event hub you created. |
+    | | |
+
+    Target table:
+
+    There are two options for routing: *static* and *dynamic*. For this tutorial, you use static routing (the default), where you specify the table name, file format, and mapping. Therefore, leave **My data includes routing info** unselected.
+
+     **Setting** | **Suggested value** | **Field description**
+    |---|---|---|
+    | Table | *DiagnosticLogsRecords* | The table you created in *AzureMonitoring* database. |
+    | Data format | *JSON* | Format in table. |
+    | Column mapping | *DiagnosticLogsRecords* | The mapping you created in *AzureMonitoring* database, which maps incoming JSON data to the column names and data types of *DiagnosticLogsRecords*.|
+    | | |
+
+1. Click **Create**  
+
+// TODO: Repeat process for additional table???.
 // TODO: Table of Ingestion properties.
 
 ## Connect Azure Monitoring to Event Hub
