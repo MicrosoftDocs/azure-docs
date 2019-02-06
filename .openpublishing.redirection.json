@@ -2331,7 +2331,7 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-libraries.md",
-      "redirect_url": "articles/sql-database/sql-database-connect-query#libraries",
+      "redirect_url": "/azure/sql-database/sql-database-connect-query#libraries",
       "redirect_document_id": true
     },
     {
