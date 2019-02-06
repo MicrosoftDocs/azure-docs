@@ -20,7 +20,7 @@ In this tutorial, you will:
 > [!div class="checklist"]
 > * Create a Databricks cluster
 > * Ingest unstructured data into a storage account
-> * Running analytics on your data in Blob storage
+> * Run analytics on your data in Blob storage
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -153,7 +153,7 @@ In this section, you'll create a file system and a folder in your storage accoun
 
 ### Copy source data into the storage account
 
-Use AzCopy to copy data from the *.csv* file that you downloaded earlier into your Data Lake Storage Gen2 account.
+Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 account.
 
 1. Open a command prompt window, and enter the following command to log into your storage account.
 
@@ -165,15 +165,14 @@ Use AzCopy to copy data from the *.csv* file that you downloaded earlier into yo
 
 2. To copy data from the *.csv* account, enter the following command.
 
-   * Replace the `<csv-folder-path>` placeholder value with directory path to the *.csv* file (excluding the name of the file) that you downloaded earlier.
+   ```bash
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time
+   ```
+   * Replace the `<csv-folder-path>` placeholder value with directory path to the *.csv* file (excluding the name of the file).
 
    * Replace the `storage-account-name` placeholder value with the name of your storage account.
 
    * Replace the `file-system-name` placeholder with any name that you want to give your file system.
-
-   ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time
-   ```
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
@@ -214,11 +213,9 @@ With these code samples, you have explored the hierarchical nature of HDFS using
 
 Next, you can begin to query the data you uploaded into your storage account. Enter each of the following code blocks into **Cmd 1** and press **Cmd + Enter** to run the Python script.
 
-### Run simple queries
+To create data frames for your data sources, run the following script:
 
-To create dataframes for your data sources, run the following script:
-
-* Replace the `<csv-folder-path>` placeholder value with directory path to the *.csv* file (excluding the name of the file) that you downloaded earlier.
+* Replace the `<csv-folder-path>` placeholder value with directory path to the *.csv* file (excluding the name of the file).
 
 * Replace the `<your-csv-file-name` placeholder value with the name of your *csv* file.
 
@@ -247,7 +244,7 @@ flightDF.show(20, False)
 display(flightDF)
 ```
 
-To run analysis queries against the data, run the following script:
+Enter this script to run some basic analysis queries against the data.
 
 ```python
 #Run each of these queries, preferably in a separate cmd cell for separate analysis
@@ -277,49 +274,6 @@ out1 = spark.sql("SELECT distinct(Reporting_Airline) FROM FlightTable WHERE Orig
 print('Airlines that fly to/from Texas: ', out1.show(100, False))
 ```
 
-### Run complex queries
-
-To execute the following more complex queries, run each segment at a time in the notebook and inspect the results.
-
-```python
-#find the airline with the most flights
-
-#create a temporary view to hold the flight delay information aggregated by airline, then select the airline name from the Airlinecodes dataframe
-spark.sql("DROP VIEW IF EXISTS v")
-spark.sql("CREATE TEMPORARY VIEW v AS SELECT Carrier, count(*) as NumFlights from FlightTable group by Carrier, UniqueCarrier order by NumFlights desc LIMIT 10")
-output = spark.sql("SELECT AirlineName FROM AirlineCodes WHERE AirlineCode in (select Carrier from v)")
-
-#show the top row without truncation
-output.show(1, False)
-
-#show the top 10 airlines
-output.show(10, False)
-
-#Determine which is the least on time airline
-
-#create a temporary view to hold the flight delay information aggregated by airline, then select the airline name from the Airlinecodes dataframe
-spark.sql("DROP VIEW IF EXISTS v")
-spark.sql("CREATE TEMPORARY VIEW v AS SELECT Carrier, count(*) as NumFlights from FlightTable WHERE DepDelay>60 or ArrDelay>60 group by Carrier, UniqueCarrier order by NumFlights desc LIMIT 10")
-output = spark.sql("select * from v")
-#output = spark.sql("SELECT AirlineName FROM AirlineCodes WHERE AirlineCode in (select Carrier from v)")
-#show the top row without truncation
-output.show(1, False)
-
-#which airline improved its performance
-#find the airline with the most improvement in delays
-#create a temporary view to hold the flight delay information aggregated by airline, then select the airline name from the Airlinecodes dataframe
-spark.sql("DROP VIEW IF EXISTS v1")
-spark.sql("DROP VIEW IF EXISTS v2")
-spark.sql("CREATE TEMPORARY VIEW v1 AS SELECT Carrier, count(*) as NumFlights from FlightTable WHERE (DepDelay>0 or ArrDelay>0) and Year=2016 group by Carrier order by NumFlights desc LIMIT 10")
-spark.sql("CREATE TEMPORARY VIEW v2 AS SELECT Carrier, count(*) as NumFlights from FlightTable WHERE (DepDelay>0 or ArrDelay>0) and Year=2017 group by Carrier order by NumFlights desc LIMIT 10")
-output = spark.sql("SELECT distinct ac.AirlineName, v1.Carrier, v1.NumFlights, v2.NumFlights from v1 INNER JOIN v2 ON v1.Carrier = v2.Carrier INNER JOIN AirlineCodes ac ON v2.Carrier = ac.AirlineCode WHERE v1.NumFlights > v2.NumFlights")
-#show the top row without truncation
-output.show(10, False)
-
-#display for visual analysis
-display(output)
-```
-
 ## Clean up resources
 
 When they're no longer needed, delete the resource group and all related resources. To do so, select the resource group for the storage account and select **Delete**.
@@ -328,4 +282,3 @@ When they're no longer needed, delete the resource group and all related resourc
 
 [!div class="nextstepaction"] 
 > [Extract, transform, and load data using Apache Hive on Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)
-
