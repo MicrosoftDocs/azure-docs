@@ -30,6 +30,8 @@ Resource Manager provides the following functions for getting resource values:
 
 To get values from parameters, variables, or the current deployment, see [Deployment value functions](resource-group-template-functions-deployment.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 <a id="listkeys" />
 <a id="list" />
 

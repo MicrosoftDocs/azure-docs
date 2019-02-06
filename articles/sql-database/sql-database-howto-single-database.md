@@ -3,7 +3,7 @@ title: How to configure Azure SQL Database - standalone | Microsoft Docs
 description: Learn how to configure and manage Azure SQL Database - Standalone Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: single-database
 ms.custom: 
 ms.devlang: 
 ms.topic: howto

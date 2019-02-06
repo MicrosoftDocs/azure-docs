@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -45,13 +45,13 @@ Review the [information for planning your network](#network-planning) before you
 You can remove one or more Hybrid Runbook Workers from a group, or you can remove the group, depending on your requirements. To remove a Hybrid Runbook Worker from an on-premises computer, use the following steps:
 
 1. In the Azure portal, go to your Automation account.
-2. Under **Settings**, select **Keys** and note the values for **URL** and **Primary Access Key**. You need this information for the next step.
+2. Under **Account Settings**, select **Keys** and note the values for **URL** and **Primary Access Key**. You need this information for the next step.
 
 ### Windows
 
 Open a PowerShell session in Administrator mode and run the following command. Use the **-Verbose** switch for a detailed log of the removal process.
 
-```powershell
+```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
 ```
 
@@ -62,6 +62,8 @@ Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <Comp
 ```
 
 ### Linux
+
+You can use the command `ls /var/opt/microsoft/omsagent` on the Hybrid Runbook Worker to get the workspaceid. There is a folder in the directory in which the name of the folder is the workspace Id.
 
 ```bash
 sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
@@ -75,11 +77,11 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 To remove a group, you first need to remove the Hybrid Runbook Worker from every computer that is a member of the group by using the procedure shown earlier. Then, use the following steps to remove the group:
 
 1. Open the Automation account in the Azure portal.
-1. Under **Process Automation**, select **Hybrid worker groups**. Select the group that you want to delete. The properties page for that group appears.
+2. Under **Process Automation**, select **Hybrid worker groups**. Select the group that you want to delete. The properties page for that group appears.
 
    ![Properties page](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-1. On the properties page for the selected group, select **Delete**. A message asks you to confirm this action. Select **Yes** if you're sure that you want to continue.
+3. On the properties page for the selected group, select **Delete**. A message asks you to confirm this action. Select **Yes** if you're sure that you want to continue.
 
    ![Confirmation message](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
 

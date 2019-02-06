@@ -100,6 +100,9 @@ The following diagram shows how managed service identities work with Azure virtu
 
 To learn how to use managed identities to access different Azure resources, try these tutorials.
 
+> [!NOTE]
+> Check out the [Implementing Managed Identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing) course for more information about managed identities, including detailed video walkthroughs of several supported scenarios.
+
 Learn how to use a managed identity with a Windows VM:
 
 * [Access Azure Data Lake Store](tutorial-windows-vm-access-datalake.md)
