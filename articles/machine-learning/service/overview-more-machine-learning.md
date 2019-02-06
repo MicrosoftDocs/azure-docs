@@ -28,6 +28,7 @@ The following options are available for machine learning in the Azure cloud.
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | Drag&ndash;and&ndash;drop visual interface for ML | Build, experiment, and deploy models using preconfigured algorithms  (Python and R)|
 | [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
 | [Azure Cognitive Services](#azure-cognitive-services) | Azure services with pre-built AI and ML models | Easily add intelligent features to your apps |
+| [Azure Custom Vision](#azure-custom-vision) | Azure services with customizable vision models | Build custom image classifiers |
 | [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Virtual machine with pre-installed data science tools | Develop ML solutions in a pre-configured environment |
 
 **On-premises options**
@@ -88,6 +89,13 @@ Use Databricks when you want to collaborate on building machine learning solutio
 - Knowledge and search
 
 Use Cognitive Services to develop apps across devices and platforms. The APIs keep improving, and are easy to set up.
+
+## Azure Custom Vision
+
+[Azure Custom Vision](/azure/cognitive-services/custom-vision-service/home) is a cognitive service that lets you build, deploy and improve custom image classifiers. An image classifier is an AI service that sorts images into classes (tags) according to certain characteristics. Unlike other Azure Cognitive Services, Custom Vision allows you to create your own classifications.
+
+Use Custom Vision to create custom image classifiers with your own training images.
+
 
 ## Azure Data Science Virtual Machine
 
