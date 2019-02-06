@@ -38,7 +38,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ### Create a resource group
 
-To create a resource group, use the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. In this example, a resource group named *myResourceGroup* in the *eastus* region.
+To create a resource group, use the [az group create](/cli/azure/group) command. An Azure resource group is a logical container in which Azure resources are deployed and managed. In this example, a resource group named *myResourceGroup* in the *eastus* region.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
