@@ -108,4 +108,4 @@ Getting the actual image URLs requires a cast that reads an `ActionType` as `Ima
 > [!div class="nextstepaction"]
 > [Build a single-page web app](tutorial-bing-visual-search-single-page-app.md)
 
-[Visual Search response](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)
+[Visual Search response](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)
