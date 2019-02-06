@@ -92,9 +92,6 @@ The bot responds with "Please set QnAKnowledgebaseId and QnASubscriptionKey in A
 
     ![QnA Maker values](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
 
-> [!NOTE]
-> If you want to connect the preview version of the knowledge base with the QnA bot, set the value of **Ocp-Apim-Subscription-Key** to **QnAAuthKey**. Leave the **QnAEndpointHostName** empty.
-
 ## Test the bot
 
 In the Azure portal, select **Test in Web Chat** to test the bot. 

@@ -41,7 +41,7 @@ Each feed provides a list of articles. In RSS, each one is specified by an `<ite
 </channel></rss>
 ```
 
-The order of articles matters. It specifies the default ranking, which is your best guess for how the articles should be ordered. The default ranking is then used for performance comparison on the [dashboard](#performance-dashboard).
+The order of articles matters. It specifies the default ranking, which is your best guess for how the articles should be ordered. The default ranking is then used for performance comparison on the dashboard.
 
 For more information on the feed format, see the [API reference](custom-decision-service-api-reference.md#action-set-api-customer-provided).
 

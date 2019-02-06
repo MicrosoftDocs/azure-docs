@@ -156,7 +156,7 @@ To see the deployment operations, use the following steps:
 
 ## REST
 
-1. Get information about a deployment with the [Get information about a template deployment](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get) operation.
+1. Get information about a deployment with the [Get information about a template deployment](https://docs.microsoft.com/rest/api/resources/deployments) operation.
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -179,7 +179,7 @@ To see the deployment operations, use the following steps:
   }
   ```
 
-2. Get information about deployments with [List all template deployment operations](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
+2. Get information about deployments with [List all template deployment operations](https://docs.microsoft.com/rest/api/resources/deployments). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

@@ -235,7 +235,7 @@ Open the [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-servi
 
     [![Screenshot of create new phrase list dialog pop-up with words in phrase list values box](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot of create new phrase list dialog pop-up with words in phrase list values box")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-1. [Train](#train) and [publish](#publish) the app again to use phrase list.
+1. Train and publish the app again to use phrase list.
 
 1. Requery at the endpoint with the same utterance: `This is the lead welder paperwork.`
 

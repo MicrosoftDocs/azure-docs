@@ -23,7 +23,7 @@ This article describes how to use the Azure Quickstart Templates to partially au
    | Template | Description |
    | --- | --- |
    | [101-sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Creates the Windows Failover Cluster and joins the SQL Server VMs to it. |
-   | [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Creates the availability group listener and configures the Internal Load Balancer. |
+   | [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Creates the availability group listener and configures the Internal Load Balancer. This template can only be used if the Windows Failover Cluster was created with the **101-sql-vm-ag-setup** template. |
    | &nbsp; | &nbsp; |
 
 Other parts of the availability group configuration must be done manually, such as creating the availability group, and creating the Internal Load Balancer. This article provides the sequence of automated and manual steps.
@@ -110,7 +110,11 @@ Create the availability group listener and configure the Internal Load Balancer 
  - Configures the network settings for the cluster and ILB. 
  - Configures the ILB backend pool, health probe, and load-balancing rules.
  - Creates the AG listener with the given IP address and name.
-
+ 
+   >[!NOTE]
+   > The **101-sql-vm-aglistener-setup** can only be used if the Windows Failover Cluster was created with the **101-sql-vm-ag-setup** template.
+   
+   
 To configure the ILB and create the AG listener, do the following:
 1. Navigate to the [**101-sql-vm-aglistener-setup**](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) quickstart template and select **Deploy to Azure** to launch the quickstart template within the Azure portal.
 1. Fill out the required fields to configure the ILB, and create the availability group listener. The optional fields can be left blank. 

@@ -59,8 +59,12 @@
       href: migrate-tutorial-aws-azure.md
   - name: Move Azure VMs
     items:
+    - name: Overview
+      href: azure-to-azure-move-overview.md
     - name: Move Azure VMs to another region
       href: azure-to-azure-tutorial-migrate.md 
+    - name: Move Azure VMs to Availability Zones
+      href: move-Azure-VMs-AVset-Azone.md
 - name: Concepts
   items:
   - name: Common questions about Site Recovery
