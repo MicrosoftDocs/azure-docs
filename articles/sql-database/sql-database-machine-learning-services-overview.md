@@ -18,7 +18,7 @@ ms.date: 02/06/2019
 Machine Learning Services is a feature of Azure SQL Database, used for executing in-database R scripts. The feature includes Microsoft R packages for high-performance predictive analytics and machine learning. The relational data can be used in R scripts through stored procedures, T-SQL script containing R statements, or R code containing T-SQL.
 
 > [!IMPORTANT]
-> Machine Learning Services (with R) in Azure SQL Database is currently in public preview for single databases and elastic pools using the vCore-based purchasing model in the **general purpose** and **business critical** service tiers . In this initial public preview, the **hyperscale** service tier and the **managed instance** deployment option are not supported. Currently, R is the only supported language. There is no support for Python at this time. 
+> Machine Learning Services (with R) in Azure SQL Database is currently in public preview for single databases and elastic pools using the vCore-based purchasing model in the **general purpose** and **business critical** service tiers. In this initial public preview, the **hyperscale** service tier and the **managed instance** deployment option are not supported. Currently, R is the only supported language. There is no support for Python at this time. 
 >
 > The preview is initially available in the following regions:West Europe, North Europe, West US 2, East US, South Central US, North Central US, Canada Central, Southeast Asia, India South, and Australia Southeast. Additional regions will be added later. 
 >
