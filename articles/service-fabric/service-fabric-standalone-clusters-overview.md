@@ -66,3 +66,5 @@ You are able to create clusters on VMs or computers running these operating syst
 
 ## Next steps
 Read more about [securing](service-fabric-cluster-security.md), [scaling](service-fabric-cluster-scaling-standalone.md), and [upgrading](service-fabric-cluster-upgrade-standalone.md) standalone clusters.
+
+Learn about [Service Fabric support options](service-fabric-support.md).
