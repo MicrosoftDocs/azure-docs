@@ -515,9 +515,9 @@ Your notification hub is now configured to work with Firebase Cloud Messaging, a
     > [!NOTE]
     > Registration may fail on the initial launch until the `onTokenRefresh()` method of instance ID service is called. The refresh should initiate a successful registration with the notification hub.
 
-## Test the app
+    ![Device registration successful](./media/notification-hubs-android-push-notification-google-fcm-get-started/device-registration.png)
 
-### Test send notification from the notification hub
+## Test send notification from the notification hub
 
 You can send push notifications from the [Azure portal] by doing the following actions:
 
@@ -527,27 +527,19 @@ You can send push notifications from the [Azure portal] by doing the following a
 5. See the **result** of the operation in the list at the bottom.
 
     ![Azure Notification Hubs - Test Send](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
+6. You see the notificaiton message on your device. 
+
+    ![Notification message on device](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-on-device.png)
+    
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-### Run the mobile app
-
-If you want to test push notifications inside an emulator, make sure that your emulator image supports the Google API level that you chose for your app. If your image doesn't support native Google APIs, you end up with the **SERVICE\_NOT\_AVAILABLE** exception.
+### Run the mobile app on emulator
+If you want to test push notifications inside an emulator, make sure that your emulator image supports the Google API level that you chose for your app. If your image doesn't support native Google APIs, you may get the **SERVICE\_NOT\_AVAILABLE** exception.
 
 In addition, ensure that you have added your Google account to your running emulator under **Settings** > **Accounts**. Otherwise, your attempts to register with GCM may result in the **AUTHENTICATION\_FAILED** exception.
 
-1. Run the app and notice that the registration ID is reported for a successful registration.
-
-    ![Testing on Android - Channel registration](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-registered.png)
-2. Enter a notification message to be sent to all Android devices that have registered with the hub.
-
-    ![Testing on Android - sending a message](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-set-message.png)
-3. Press **Send Notification**. Any devices that have the app running shows an `AlertDialog` instance with the push notification message. Devices that don't have the app running but were previously registered for push notifications receive a notification in the Android Notification Manager. The notifications can be viewed by swiping down from the upper-left corner.
-
-    ![Testing on Android - notifications](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-received-message.png)
-
 ## Next steps
-
 In this tutorial, you used Firebase Cloud Messaging to push notifications to Android devices. To learn how to push notifications by using Google Cloud Messaging, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
