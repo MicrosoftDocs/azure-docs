@@ -43,39 +43,27 @@ integration and business-to-business (B2B) solutions.
 Make sure you *upload your assembly first*, and then upload the 
 map that references the assembly.
 
-  If your assembly or map is 2 MB or smaller, you can add 
-  your assembly or map to your integration account *directly* 
-  from the Azure portal. However, if your assembly or map is 
-  bigger than 2 MB but no bigger than the 
+  If your assembly is 2 MB or smaller, you can add 
+  your assembly to your integration account *directly* 
+  from the Azure portal. However, if your assembly or 
+  map is bigger than 2 MB but not bigger than the 
   [size limit for assemblies or maps](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), 
-  you need an Azure blob container where you store your 
-  assembly or map and the location reference for that file. 
-  That way, you can provide that location later when you add 
-  the assembly or map to your integration account.
-  For this task, here are the items you need:
+  you have these options:
 
-  * [Azure storage account](../storage/common/storage-account-overview.md) 
-  where you create a blob container for your assembly or map. Learn how to 
-  [create a storage account](../storage/common/storage-quickstart-create-account.md). 
+  * For assemblies, you need an Azure blob container 
+  where you can upload your assembly and that container's 
+  location. That way, you can provide that location later 
+  when you add the assembly to your integration account. 
+  For this task, you need these items:
 
-  * Blob container for storing your assembly or map. Learn how to 
-  [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). 
-  You need the container's location later when you add the assembly 
-  or map to your integration account.
+    | Item | Description |
+    |------|-------------|
+    | [Azure storage account](../storage/common/storage-account-overview.md) | In this account, create an Azure blob container for your assembly. Learn [how to create a storage account](../storage/common/storage-quickstart-create-account.md). |
+    | Blob container | In this container, you can upload your assembly. You also need this container's location when you add the assembly to your integration account. Learn how to [create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md). |
+    | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, either [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Or, in the Azure portal, find and select your storage account. From your storage account menu, select **Storage Explorer**. |
+    |||
 
-  * [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md), 
-  which you can use for managing storage accounts and blob containers. 
-  To use Storage Explorer, choose either option here:
-  
-    * In the Azure portal, find and select your storage account. 
-    From your storage account menu, select **Storage Explorer**.
-
-    * For the desktop version, [download and install Azure Storage Explorer](https://www.storageexplorer.com/). 
-    Then, connect Storage Explorer to your storage account 
-    by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). 
-    To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md).
-
-   For limits on map sizes, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). 
+  * For maps, you can currently add larger maps by using the [Azure Logic Apps REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
 
 You don't need a logic app when creating and adding maps. 
 However, to use a map, your logic app needs linking to 
@@ -248,6 +236,8 @@ BizTalk Integration project by using the
 In this project, you can build an integration map file, 
 which lets you visually map items between two XML schema files. 
 After you build this project, you get an XSLT document.
+For limits on map quantities in integration accounts, see 
+[Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits). 
 
 ## Add maps
 
@@ -310,13 +300,13 @@ you can now upload your map.
 
    ![Uploaded maps](./media/logic-apps-enterprise-integration-maps/uploaded-maps.png)
 
-   For limits on map quantities in integration accounts, see 
-   [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits). 
-
 <a name="larger-map"></a>
 
 ### Add maps more than 2 MB
 
+Currently, to add larger maps, use the [Azure Logic Apps REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+
+<!--->
 To add larger maps, you can upload your map to 
 an Azure blob container in your Azure storage account. 
 Your steps for adding maps differ based whether your 
@@ -398,6 +388,8 @@ the map appears in the **Maps** list.
 
 After your map finishes uploading, 
 the map appears in the **Maps** list.
+
+<!--->
 
 ## Edit maps
 
