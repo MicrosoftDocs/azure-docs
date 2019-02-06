@@ -38,7 +38,7 @@ Before following the steps in this article, you should have two devices ready to
     Currently, only downstream devices with symmetric key authentication can connect through IoT Edge gateways. X.509 certificate authorities and X.509 self-signed certificates are not currently supported.
     
     >[!NOTE]
->The "<gateway name>" used  to create the certificates in this instruction, needs to be the same name as used as hostname in your IoT Edge config.yaml file and as GatewayHostName in the connection string of the downstream device. The "<gateway name>" needs to be resolvable to an IP Address, either using DNS or a host file entry. Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparant IoT Edge. If a firewall is in between, the respective port needs to be open.
+>The "gateway name" used  to create the certificates in this instruction, needs to be the same name as used as hostname in your IoT Edge config.yaml file and as GatewayHostName in the connection string of the downstream device. The "gateway name" needs to be resolvable to an IP Address, either using DNS or a host file entry. Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparant IoT Edge. If a firewall is in between, the respective port needs to be open.
 
 ## Prepare a downstream device
 
