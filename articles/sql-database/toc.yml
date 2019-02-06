@@ -320,12 +320,6 @@
         href: sql-database-performance.md
       - name: Database advisor performance recommendations
         href: sql-database-advisor.md
-  - name: Load and move data
-    items: 
-      - name: SQL Data Sync
-        href: sql-database-sync-data.md
-      - name: Transactional replication
-        href: sql-database-managed-instance-transactional-replication.md
   - name: Databases features
     items:
     - name: Databases features
@@ -334,6 +328,10 @@
       href: sql-database-multi-model-features.md
     - name: In-memory
       href: sql-database-in-memory.md
+    - name: Transactional replication
+      href: sql-database-managed-instance-transactional-replication.md
+    - name: SQL Data Sync
+      href: sql-database-sync-data.md
     - name: Temporal tables 
       href: sql-database-temporal-tables.md
     - name: Job automation 

@@ -15,7 +15,7 @@ ms.reviewer: olhaun
 ---
 
 # Manually add an account to the app
-If your camera is unable to capture the QR code, you can manually add your account information to the Microsoft Authenticator app for two-factor verification. This works for work or school accounts and non-Microsoft personal accounts.
+If your camera is unable to capture the QR code, you can manually add your account information to the Microsoft Authenticator app for two-factor verification. This works for work or school accounts and non-Microsoft accounts.
 
 The codes provided for your accounts aren't case-sensitive and don't require spaces when added into the Microsoft Authenticator app.
 
