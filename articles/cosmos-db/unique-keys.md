@@ -1,6 +1,6 @@
 ---
 title: Use unique keys in Azure Cosmos DB
-description: Learn how to use unique keys in your Azure Cosmos DB database
+description: Learn how to use unique keys in your Azure Cosmos database
 author: aliuy
 ms.author: andrl
 ms.service: cosmos-db
@@ -11,11 +11,11 @@ ms.reviewer: sngun
 
 # Unique key constraints in Azure Cosmos DB
 
-Unique keys add a layer of data integrity to an Azure Cosmos DB container. You create a unique key policy when you create an Azure Cosmos DB container. With unique keys, you make sure that one or more values within a logical partition is unique. You also can guarantee uniqueness per [partition key](partition-data.md). 
+Unique keys add a layer of data integrity to an Azure Cosmos container. You create a unique key policy when you create an Azure Cosmos container. With unique keys, you make sure that one or more values within a logical partition is unique. You also can guarantee uniqueness per [partition key](partition-data.md). 
 
 After you create a container with a unique key policy, the creation of new or updated duplicate items within a logical partition is prevented, as specified by the unique key constraint. The partition key combined with the unique key guarantees the uniqueness of an item within the scope of the container.
 
-For example, consider an Azure Cosmos DB container with email address as the unique key constraint and `CompanyID` as the partition key. When you configure the user's email address with a unique key, each item has a unique email address within a given `CompanyID`. Two items can't be created with duplicate email addresses and with the same partition key value. 
+For example, consider an Azure Cosmos container with email address as the unique key constraint and `CompanyID` as the partition key. When you configure the user's email address with a unique key, each item has a unique email address within a given `CompanyID`. Two items can't be created with duplicate email addresses and with the same partition key value. 
 
 To create items with the same email address, but not the same first name, last name, and email address, add more paths to the unique key policy. Instead of creating a unique key based on the email address, you also can create a unique key with a combination of the first name, last name, and email address. This key is known as a composite unique key. In this case, each unique combination of the three values within a given `CompanyID` is allowed. 
 
@@ -34,7 +34,7 @@ If you attempt to insert another item with the combinations listed in the previo
 
 ## Define a unique key
 
-You can define unique keys only when you create an Azure Cosmos DB container. A unique key is scoped to a logical partition. In the previous example, if you partition the container based on the ZIP code, you end up with duplicated items in each logical partition. Consider the following properties when you create unique keys:
+You can define unique keys only when you create an Azure Cosmos container. A unique key is scoped to a logical partition. In the previous example, if you partition the container based on the ZIP code, you end up with duplicated items in each logical partition. Consider the following properties when you create unique keys:
 
 * You can't update an existing container to use a different unique key. In other words, after a container is created with a unique key policy, the policy can't be changed.
 

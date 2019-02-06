@@ -1,6 +1,6 @@
 ---
 title: Create a synthetic partition key in Azure Cosmos DB to distribute your data and workload evenly.
-description: Learn how to use synthetic partition keys in your Azure Cosmos DB containers
+description: Learn how to use synthetic partition keys in your Azure Cosmos containers
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -55,6 +55,6 @@ With this strategy, the writes are evenly spread across the partition key values
 You can learn more about the partitioning concept in the following articles:
 
 * Learn more about [logical partitions](partition-data.md).
-* Learn more about how to [provision throughput on Azure Cosmos DB containers and databases](set-throughput.md).
-* Learn how to [provision throughput on an Azure Cosmos DB container](how-to-provision-container-throughput.md).
-* Learn how to [provision throughput on an Azure Cosmos DB database](how-to-provision-database-throughput.md).
+* Learn more about how to [provision throughput on Azure Cosmos containers and databases](set-throughput.md).
+* Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
+* Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).

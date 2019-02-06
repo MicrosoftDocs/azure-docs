@@ -10,11 +10,11 @@ ms.author: rimman
 ---
 # Request Units in Azure Cosmos DB
 
-With Azure Cosmos DB, you pay for the throughput you provision and the storage you consume on an hourly basis. Throughput must be provisioned to ensure that sufficient system resources are available for your Azure Cosmos DB database all the time. You need enough resources to meet or exceed the Azure Cosmos DB SLA.
+With Azure Cosmos DB, you pay for the throughput you provision and the storage you consume on an hourly basis. Throughput must be provisioned to ensure that sufficient system resources are available for your Azure Cosmos database all the time. You need enough resources to meet or exceed the Azure Cosmos DB SLA.
 
 Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, and Table. Each API has its own set of database operations. These operations range from simple point reads and writes to complex queries. Each database operation consumes system resources based on the complexity of the operation. 
 
-The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (RUs). The cost to read a 1-KB item is 1 Request Unit (RU). The minimum RUs required to consume 1 GB of storage is 40. All other database operations are similarly assigned a cost by using RUs. No matter which API you use to interact with your Azure Cosmos DB container, costs are always measured by RUs. Whether the database operation is a write, read, or query, RUs are used to measure costs.
+The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (RUs). The cost to read a 1-KB item is 1 Request Unit (RU). The minimum RUs required to consume 1 GB of storage is 40. All other database operations are similarly assigned a cost by using RUs. No matter which API you use to interact with your Azure Cosmos container, costs are always measured by RUs. Whether the database operation is a write, read, or query, costs are always measured in RUs.
 
 You can think of RUs per second as the currency for throughput. RUs per second is a rate-based currency. It abstracts the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB. The following image shows the RUs consumed by different database operations:
 
@@ -26,8 +26,8 @@ You're billed on an hourly basis. You provision the number of RUs for your appli
 
 You can provision throughput at two distinct granularities: 
 
-* **Containers**. For more information, see [Provision throughput on an Azure Cosmos DB container](how-to-provision-container-throughput.md).
-* **Databases**. For more information, see [Provision throughput on an Azure Cosmos DB database](how-to-provision-database-throughput.md).
+* **Containers**. For more information, see [Provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
+* **Databases**. For more information, see [Provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
 
 ## Request Unit considerations
 
@@ -53,14 +53,14 @@ While you estimate the number of RUs per second to provision, consider the follo
     - The size of the result set.
     - Projections.
 
-Azure Cosmos DB guarantees that the same query on the same data always costs the same number of RUs on repeat executions.
+Azure Cosmos DB guarantees that the same query on the same data always costs the same number of RUs on repeated executions.
 
 * **Script usage**: As with queries, stored procedures and triggers consume RUs based on the complexity of the operations that are performed. As you develop your application, inspect the request charge header to better understand how much RU capacity each operation consumes.
 
 ## Next steps
 
-* Learn more about how to [provision throughput for Azure Cosmos DB containers and databases](set-throughput.md).
+* Learn more about how to [provision throughput for Azure Cosmos containers and databases](set-throughput.md).
 * Learn more about [logical partitions](partition-data.md).
 * Learn more about how to [globally scale provisioned throughput](scaling-throughput.md).
-* Learn how to [provision throughput on an Azure Cosmos DB container](how-to-provision-container-throughput.md).
-* Learn how to [provision throughput on an Azure Cosmos DB database](how-to-provision-database-throughput.md).
+* Learn how to [provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
+* Learn how to [provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
