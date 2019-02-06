@@ -12,12 +12,13 @@ ms.custom: MVC
 
 # Move Azure VMs to another region
 
-Azure is growing extensively along with the customer base and is adding support for new regions with the rising demands. There are also newer capabilities that get added on a monthly basis across services. With this, there are times when you'd want to move your VMs to a different region or to increase availability into Availability zones
+Azure is growing extensively along with the customer base and is adding support for new regions with rising demands. There are also newer capabilities that get added on a monthly basis across services. With this, there are times when you'd want to move your VMs to a different region or into Availability Zones to increase availability.
 
 This document walks through the various scenarios where you would want to move your VMs and a guide on how the architecture should be configured in the target to achieve higher availability. 
 > [!div class="checklist"]
+> * [Why would you move Azure VMs](#why-would-you-move-azure-vms)
 > * [Typical architectures](#typical-architectures-for-a-multi-tier-deployment)
-> * Prepare the source VMs
+> * [How to move Azure VMs](#how-to-move-azure-vms)
 > * Prepare the target region
 > * Copy data to the target region
 > * Test the configuration 
@@ -29,11 +30,11 @@ This document walks through the various scenarios where you would want to move y
 
 Customers move the VMs for the following reasons:-
 
-- If you had already deployed in one region and a new region support was added which is closer to the end users of your application or service then you'd want to **move your VMs as is, to the new region** to reduce latency. The same approach is taken if you want to consolidate subscriptions or there are governance / organization rules. 
+- If you had already deployed in one region and a new region support was added, which is closer to the end users of your application or service then you'd want to **move your VMs as is, to the new region** to reduce latency. The same approach is taken if you want to consolidate subscriptions or there are governance / organization rules that requires you to move. 
 - If your VM was deployed as a single instance VM or as part of availability set and you want to increase the availability SLAsm you can **move your VMs an availability set**. 
 
 ## How to move Azure VMs
-Moving VMs involves the following steps.
+Moving VMs involves the following steps:
 
 1. Verify prerequisites 
 2. Prepare the source VMs 
@@ -45,13 +46,13 @@ Moving VMs involves the following steps.
 
 
 > [!IMPORTANT]
-> Currently Azure Site Recovery supports moving VMs from on region to another and doesn't support within a region movement. 
+> Currently Azure Site Recovery supports moving VMs from on region to another and doesn't support moving within a region. 
 
 > [!NOTE]
 > Detailed guidance on these steps are provided in the documentation for each of the scenario as mentioned here
 
 ## Typical architectures for a multi-tier deployment
-Below section walks through the the most common deployment architectures customers adopt for a multi-tier application in Azure. The example we are taking here is of a 3 tiered application with a public IP. Each of the tiers – Web, Application & Databases have 2 VMs each, & are connected by a Load Balancer to the other tiers. The Database tier has SQL Always ON replication between the VMs for High Availability (HA)
+Below section walks through the the most common deployment architectures customers adopt, for a multi-tier application in Azure. The example we are taking here is of a 3 tiered application with a public IP. Each of the tiers – Web, Application & Database have 2 VMs each, & are connected by a Load Balancer to the other tiers. The Database tier has SQL Always ON replication between the VMs for High Availability (HA).
 
 1.	**Single instance VMs deployed across various tiers**- Each VM in a tier is configured as a single instance VM, connected by load balancers to the other tiers. This is the simplest configuration that customers adopt.
 
@@ -74,45 +75,27 @@ Based on the above mentioned [architectures](#typical-architectures-for-a-multi-
 
 1. **Single instance VMs deployed across various tiers** 
 
-![single-zone.PNG](media/move-vm-overview/single-zone.PNG)
+     ![single-zone.PNG](media/move-vm-overview/single-zone.PNG)
 
 2. **VMs in each tier deployed across Availability Set**
 
-![crossregionAset.PNG](media/move-vm-overview/crossregionAset.PNG)
+     ![crossregionAset.PNG](media/move-vm-overview/crossregionAset.PNG)
 
 
 3. **VMs in each tier deployed across Availability Zone**
       
 
-![AzoneCross.PNG](media/move-vm-overview/AzoneCross.PNG)
+     ![AzoneCross.PNG](media/move-vm-overview/AzoneCross.PNG)
 
  ## Move VMs to increase availabiltiy
 
 1. **Single instance VMs deployed across various tiers** 
 
-![single-zone.PNG](media/move-vm-overview/single-zone.PNG)
-
-2. **VMs in each tier deployed across Availability Set**
-
-![crossregionAset.PNG](media/move-vm-overview/crossregionAset.PNG)
-
-
-3. **VMs in each tier deployed across Availability Zone**
-      
-
-![AzoneCross.PNG](media/move-vm-overview/AzoneCross.PNG)
-
- ## Move VMs to increase availability     
-Based on the above mentioned [architectures](#typical-architectures-for-a-multi-tier-deployment), heres how the deployments will look like once you perform the move to increase the availability by moving VMs into Availability zones from source region to target region.
-
-
-1. **Single instance VMs deployed across various tiers** 
-
-![single-zone.PNG](media/move-vm-overview/single-zone.PNG)
+     ![single-zone.PNG](media/move-vm-overview/single-zone.PNG)
 
 2. **VMs in each tier deployed across Availability Set** - You can choose to configure to place your VMs in an Availability set into separate Availability zones, when you choose to enable replication for your VM using Azure Site Recovery. The SLA for availability will be 99.9 % once you complete the move operation.
 
-![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
+      ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
 
 
 ## Next steps
@@ -122,5 +105,6 @@ In this document you read about the general guidance for moving VMs. To know the
 
 > [!div class="nextstepaction"]
 > * [Move Azure VMs to another region](azure-to-azure-tutorial-migrate.md)
+
 > * [Move Azure VMs into Availability Zones](move-azure-VMs-AVset-Azone.md)
 
