@@ -64,7 +64,7 @@ In AKS, you can deploy a cluster that uses one of the following two network mode
 
 The *kubenet* networking option is the default configuration for AKS cluster creation. With *kubenet*, nodes get an IP address from the Azure virtual network subnet. Pods receive an IP address from a logically different address space to the Azure virtual network subnet of the nodes. Network address translation (NAT) is then configured so that the pods can reach resources on the Azure virtual network. The source IP address of the traffic is NAT'd to the node's primary IP address.
 
-Nodes use the [kubenet][kubenet] Kubernetes plugin. You can let the Azure platform create and configure the virtual networks for you, or choose to deploy your AKS cluster into an existing virtual network subnet. Again, only the the nodes receiving a routable IP address, and the pods use NAT to communicate with other resources outside the AKS cluster. This approach greatly reduces the number of IP addresses that you need to reserve in your network space for pods to use.
+Nodes use the [kubenet][kubenet] Kubernetes plugin. You can let the Azure platform create and configure the virtual networks for you, or choose to deploy your AKS cluster into an existing virtual network subnet. Again, only the nodes receiving a routable IP address, and the pods use NAT to communicate with other resources outside the AKS cluster. This approach greatly reduces the number of IP addresses that you need to reserve in your network space for pods to use.
 
 For more information, see [Configure kubenet networking for an AKS cluster][aks-configure-kubenet-networking].
 

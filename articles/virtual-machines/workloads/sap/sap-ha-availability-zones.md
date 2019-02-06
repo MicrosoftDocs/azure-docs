@@ -3,7 +3,7 @@ title: SAP workload configurations with Azure Availability Zones  | Microsoft Do
 description: High-availability architecture and scenarios for SAP NetWeaver using Azure availability zones
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: juergent
+author: msjuergent
 manager: patfilot
 editor: ''
 tags: azure-resource-manager
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2019
-ms.author: msjuergent
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -71,7 +71,7 @@ In order to decide in how you can leverage availability zones, you need to perfo
 ### Network latency between zones and within zone
 To find out what the latency between the different zones is, you need to:
 
-- Deploy the VM SKU you want to use for your DBMS instance in all three zones. Make sure that that [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled when performing this measurement
+- Deploy the VM SKU you want to use for your DBMS instance in all three zones. Make sure that [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled when performing this measurement
 - As you find the two zones with the least network latency, deploy another three VMs of the VM SKU you want to use as application layer VM across the three availability zones. Measure the network latency against the two 'DBMS VMs' in the two different 'DBMS' zones of your choice. 
 - As a tool to measure, use **niping**. A tool from SAP, which works as described in the SAP support notes [#500235](https://launchpad.support.sap.com/#/notes/500235) and [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Focus on the commands SAP documented for latency measurements. Using **ping** is not a recommended tool since **ping** does not work through the Azure accelerated network code paths.
 
