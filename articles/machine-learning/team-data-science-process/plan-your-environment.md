@@ -17,7 +17,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 What resources are required for you to create an environment that can perform advanced analytics processing on a dataset? This article suggests a series of questions to ask that can help identify tasks and resources relevant your scenario.
 
-To learn about the order of high-level steps for predictive analytics, see [What is the Team Data Science Process (TDSP)?](overview.md). Each step requires specific resources for the tasks relevant to your particular scenario.
+To learn about the order of high-level steps for predictive analytics, see [What is the Team Data Science Process (TDSP)](overview.md). Each step requires specific resources for the tasks relevant to your particular scenario.
 
 Answer key questions in the following areas to identify your scenario:
 
@@ -32,20 +32,24 @@ Answer key questions in the following areas to identify your scenario:
 
 The logistic questions cover the following items:
 
-* the data source location
-* the target destination in Azure
-* the requirements for moving the data, including the schedule, amount, and resources involved
+* data source location
+* target destination in Azure
+* requirements for moving the data, including the schedule, amount, and resources involved
 
 You may need to move the data several times during the analytics process. A common scenario is to move local data into some form of storage on Azure and then into Machine Learning Studio.
 
-### What is your data source? (Is it local or in the cloud?)
+### What is your data source?
 
-* The data is publicly available at an HTTP address.
-* The data resides in a local/network file location.
-* The data is in a SQL Server database.
-* The data is stored in an Azure storage container
+Is your data local or in the cloud? Possible locations include:
 
-### What is the Azure destination? (Where does your data need to be for processing or modeling?)
+* a publicly available HTTP address
+* a local or network file location
+* a SQL Server database
+* an Azure storage container
+
+### What is the Azure destination?
+
+Where does your data need to be for processing or modeling? 
 
 * Azure Blob Storage
 * SQL Azure databases
@@ -72,7 +76,7 @@ For further information, see [Move data from an on-premises SQL server to SQL Az
 
 ### How much of the data is to be moved to Azure?
 
-Datasets that are extremely large may exceed the storage capacity of certain environments. For an example, see the discussion of size limits for Machine Learning Studio in the next section. In such cases, you might use a sample of the data during the analysis. For details of how to down-sample a dataset in various Azure environments, see [Sample data in the Team Data Science Process](sample-data.md).
+Extremely large datasets may exceed the storage capacity of certain environments. For an example, see the discussion of size limits for Machine Learning Studio in the next section. In such cases, you might use a sample of the data during the analysis. For details of how to down-sample a dataset in various Azure environments, see [Sample data in the Team Data Science Process](sample-data.md).
 
 ## Data characteristics questions: type, format, and size
 
@@ -103,7 +107,6 @@ Take the Azure Machine Learning Studio environment for example:
 
 * For a list of the data formats and types supported by Azure Machine Learning Studio, see
   [Data formats and data types supported](../studio/import-data.md#supported-data-formats-and-data-types) section.
-
 * For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md).
 
 ## Data quality questions: exploration and pre-processing

@@ -21,10 +21,14 @@ ms.author: gokuma
 
 # Provision a Windows Data Science Virtual Machine on Azure
 
-The Microsoft Data Science Virtual Machine (DSVM) is a Windows Azure virtual machine (VM) image that comes preinstalled and configured with tools for data analytics and machine learning. The following tools are included:
+The Data Science Virtual Machine (DSVM) is a Windows Server 2016 virtual machine (VM) image on Azure that comes preinstalled and configured with tools for data analytics and machine learning.
 
-* [Azure Machine Learning service](../service/index.yml) Python SDK.
-* [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer edition.
+## Included data science tools
+
+The following tools are included in a DSVM:
+
+* [Azure Machine Learning service](../service/index.yml) Python SDK
+* [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer edition
 * Anaconda Python distribution
 * Jupyter Notebook with R, Python, and PySpark kernels
 * Microsoft Visual Studio Community
@@ -35,12 +39,14 @@ The Microsoft Data Science Virtual Machine (DSVM) is a Windows Azure virtual mac
 * Machine learning and data analytics tools:
   * Deep learning frameworks - a rich set of AI frameworks are included on the VM: [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/), [TensorFlow](https://www.tensorflow.org/), [Chainer](https://chainer.org/), mxNet, and Keras
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) - a fast machine learning system that supports techniques like online hashing, allreduce, reductions, learning2search, and active and interactive learning
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/) - atool that provides fast and accurate boosted tree implementation
+  * [XGBoost](https://xgboost.readthedocs.org/en/latest/) - a tool that provides fast and accurate boosted tree implementation
   * [Rattle](https://togaware.com/rattle/) - the R analytical tool that gets you started with data analytics and machine learning in R. It includes GUI-based data exploration and modeling with automatic R code generation.
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/) - visual data mining and machine learning software in Java
   * [Apache Drill](https://drill.apache.org/) - a schema-free SQL query engine for Apache Hadoop, NoSQL, and cloud storage. It supports ODBC and JDBC interfaces for querying NoSQL and files from standard BI tools like Power BI, Microsoft Excel, and Tableau.
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services
 * Git, including Git Bash, to work with source code repositories that include GitHub and Azure DevOps. Git provides several popular Linux command-line utilities that are accessible both on Git Bash and a command prompt. Examples are awk, sed, perl, grep, find, wget, and curl.
+
+### About data science
 
 Data science involves iterating on a sequence of tasks:
 
@@ -54,7 +60,7 @@ The DSVM jump-starts your analytics project. You can work on tasks in various la
 
 There are no software charges for this data science VM image. You pay only the Azure usage fees. They depend on the size of the virtual machine you provision. More details on compute fees are in the **Pricing details** section on the [Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice) page.
 
-## Other DSVM versions
+### Other DSVM versions
 
 * An [Ubuntu](dsvm-ubuntu-intro.md) image. It has many tools similar to the DSVM plus a few additional deep learning frameworks.
 * A [Linux CentOS](linux-dsvm-intro.md) image.
@@ -66,7 +72,7 @@ To create a Microsoft Data Science Virtual Machine, you must have an Azure subsc
 
 ## Create your DSVM
 
-To create an instance of the Microsoft Data Science Virtual Machine, follow these steps:
+To create a DSVM instance:
 
 1. Go to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016). You may be prompted to login to your Azure account if you are not already signed in.
 1. Select the **Create** button at the bottom.
@@ -86,14 +92,16 @@ To create an instance of the Microsoft Data Science Virtual Machine, follow thes
    1. **Size**: Select one of the server types that meets your functional requirements and cost constraints. For more choices of VM sizes, select **View All**.
    1. **Settings**:  
       * **Use Managed Disks**. Choose **Managed** if you want Azure to manage the disks for the VM. If not, you need to specify a new or existing storage account.  
-      * **Other parameters**. You can use the default values. If you want to use nondefault values, hover over the informational link for help on the specific fields.
+      * **Other parameters**. You can use the default values. If you want to use non-default values, hover over the informational link for help on the specific fields.
    1. **Summary**: Verify that all the information you entered is correct. Select **Create**.
 
 > [!NOTE]
-> * The VM doesn't have any additional charges beyond the compute cost for the server size you chose in the **Size** step.
-> * Provisioning takes about 10 to 20 minutes. Its status displays on the Azure portal.
+> * The VM doesn't incur any additional charges beyond the compute cost for the server size you chose in the **Size** step.
+> * Provisioning takes about 10 to 20 minutes. You can view the status of your VM on the Azure portal.
 
-## How to access the Microsoft Data Science Virtual Machine
+## How to access the DSVM
+
+\*******
 
 After the VM is created and provisioned, you can remote desktop into it by using the admin account credentials that you configured in the preceding **Basics** section. You're ready to start using the tools that are installed and configured on the VM. Many of the tools can be accessed through start menu tiles and desktop icons.
 
