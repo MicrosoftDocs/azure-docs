@@ -93,7 +93,7 @@ Application-consistent recovery points are created from application-consistent s
 Because of their extra content, application-consistent snapshots are the most involved and take the longest to perform. We recommend application-consistent recovery points for database operating systems and applications such as SQL Server.
 
 ### What is the impact of application-consistent recovery point on application performance?
-Considering application-consistent recovery points captures all the data in memory and in process it requires the framework like VSS on windows to quiesce the application. This if done very frequently can have performance impact if the workload is already very busy. It is usually suggested not to use low frequency for non- database workloads and even for database workload 1 hour is enough 
+Considering application-consistent recovery points captures all the data in memory and in process it requires the framework like VSS on windows to quiesce the application. This, if done very frequently can have performance impact if the workload is already very busy. It is usually suggested not to use low frequency for app-consistent recovery points for non- database workloads and even for database workload 1 hour is enough. 
 
 ### What is the minimum frequency of application-consistent recovery point generation?
 Site Recovery can creates a application-consistent recovery point with a minimum frequency of in 1 hour.
