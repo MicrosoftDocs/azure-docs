@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 01/29/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -73,8 +73,8 @@ To use application permissions in your app, follow the steps discussed in the ne
 
 1. Register and create an app through the [Application Registration Portal](quickstart-v2-register-an-app.md) or the new [App registrations (Preview) experience](quickstart-register-app.md).
 1. Go to your application in the portal that you used to register or create your app. You'll need to use at least one application secret when you create your app.
-2. Locate the **Microsoft Graph Permissions** section, and then add the **application permissions** that your app requires.
-3. **Save** the app registration.
+1. Locate the **API permissions** section, and then add the **application permissions** that your app requires.
+1. **Save** the app registration.
 
 #### Recommended: Sign the user in to your app
 
@@ -166,7 +166,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | --- | --- | --- |
 | `tenant` | Required | The directory tenant the application plans to operate against, in GUID or domain-name format. |
 | `client_id` | Required | The application ID that's assigned to your app. You can find this information in the portal where you registered your app. |
-| `scope` | Required |The value passed for the `scope` parameter in this request should be the resource identifier (Application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. This value informs the v2.0 endpoint that of all the direct application permissions you have configured for your app, it should issue a token for the ones associated with the resource you want to use. |
+| `scope` | Required |The value passed for the `scope` parameter in this request should be the resource identifier (Application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. This value informs the v2.0 endpoint that of all the direct application permissions you have configured for your app, it should issue a token for the ones associated with the resource you want to use.  Learn more about `/.default` in the [consent documentation](v2-permissions-and-consent.md#the-default-scope).  |
 | `client_secret` | Required | The application secret that you generated for your app in the app registration portal. The client secret must be URL-encoded before being sent. |
 | `grant_type` | Required | Must be `client_credentials`. |
 
@@ -188,7 +188,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 | --- | --- | --- |
 | `tenant` | Required | The directory tenant the application plans to operate against, in GUID or domain-name format. |
 | `client_id` | Required |The application ID that's assigned to your app. |
-| `scope` | Required | The value passed for the `scope` parameter in this request should be the resource identifier (application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. <br>This value informs the v2.0 endpoint that of all the direct application permissions you have configured for your app, it should issue a token for the ones associated with the resource you want to use. |
+| `scope` | Required | The value passed for the `scope` parameter in this request should be the resource identifier (application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. <br>This value informs the v2.0 endpoint that of all the direct application permissions you have configured for your app, it should issue a token for the ones associated with the resource you want to use. Learn more about `/.default` in the [consent documentation](v2-permissions-and-consent.md#the-default-scope) |
 | `client_assertion_type` | Required | The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | `client_assertion` | Required | An assertion (a JSON Web Token) that you need to create and sign with the certificate you registered as credentials for your application. Read about [certificate credentials](active-directory-certificate-credentials.md) to learn how to register your certificate and the format of the assertion.|
 | `grant_type` | Required | Must be set to `client_credentials`. |

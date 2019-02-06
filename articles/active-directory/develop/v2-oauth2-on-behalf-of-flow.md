@@ -29,11 +29,15 @@ The OAuth 2.0 On-Behalf-Of flow serves the use case where an application invokes
 > [!NOTE]
 > The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 >
+>Specifically - known client applications are not supported for apps with MSA+AAD audiences.  Thus, a common consent pattern for OBO will not work clients that sign in both personal and work or school accounts.  See [Gaining consent for the middle-tier application](#gaining-consent-for-the-middle-tier-application) to learn more about how to handle this step of the flow.
+>
+
 
 > [!IMPORTANT]
-> As of May 2018, an `id_token` cannot be used for the On-Behalf-Of flow - SPAs must pass an **access** token to a middle-tier confidential client to perform OBO flows. See [limitations](#client-limitations) for more details on which clients can perform On-Behalf-Of calls.
+> As of May 2018, some implicit-flow derived `id_token` cannot be used for the On-Behalf-Of flow - SPAs should pass an **access** token to a middle-tier confidential client to perform OBO flows instead. See [limitations](#client-limitations) for more details on which clients can perform On-Behalf-Of calls.
 
 ## Protocol diagram
+
 Assume that the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](v2-oauth2-auth-code-flow.md). At this point, the application has an access token *for API A* (token A) with the user’s claims and consent to access the middle-tier web API (API A). Now, API A needs to make an authenticated request to the downstream web API (API B).
 
 The steps that follow constitute the On-Behalf-Of flow and are explained with the help of the following diagram.
@@ -48,12 +52,11 @@ The steps that follow constitute the On-Behalf-Of flow and are explained with th
 5. Data from the secured resource is returned by API B.
 
 > [!NOTE]
-> In this scenario, the middle-tier service has no user interaction to obtain the user's consent to access the downstream API. Therefore, the option to grant access to the downstream API is presented upfront as a part of the consent step
-> during authentication.
+> In this scenario, the middle-tier service has no user interaction to obtain the user's consent to access the downstream API. Therefore, the option to grant access to the downstream API is presented upfront as a part of the consent step during authentication. See [Gaining consent for the middle-tier application](#gaining-consent-for-the-middle-tier-application) to learn how to set this up for your apps. 
 >
 
 ## Service to service access token request
-To request an access token, make an HTTP POST to the tenant-specific Azure AD v2.0 endpoint with the following parameters.
+To request an access token, make an HTTP POST to the tenant-specific Azure AD v2.0 token endpoint with the following parameters.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
@@ -179,10 +182,39 @@ Host: graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVGFlN0NkV1c3UWZkSzdNN0RyNXlvUUdLNmFEc19vdDF3cEQyZjNqRkxiNlVrcm9PcXA2cXBJclAxZVV0QktzMHEza29HN3RzXzJpSkYtQjY1UV8zVGgzSnktUHZsMjkxaFNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIiwia2lkIjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNDkzOTMwMDE2LCJuYmYiOjE0OTM5MzAwMTYsImV4cCI6MTQ5MzkzMzg3NSwiYWNyIjoiMCIsImFpbyI6IkFTUUEyLzhEQUFBQUlzQjN5ZUljNkZ1aEhkd1YxckoxS1dlbzJPckZOUUQwN2FENTVjUVRtems9IiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJUb2RvRG90bmV0T2JvIiwiYXBwaWQiOiIyODQ2ZjcxYi1hN2E0LTQ5ODctYmFiMy03NjAwMzViMmYzODkiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkNhbnVtYWxsYSIsImdpdmVuX25hbWUiOiJOYXZ5YSIsImlwYWRkciI6IjE2Ny4yMjAuMC4xOTkiLCJuYW1lIjoiTmF2eWEgQ2FudW1hbGxhIiwib2lkIjoiZDVlOTc5YzctM2QyZC00MmFmLThmMzAtNzI3ZGQ0YzJkMzgzIiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTIxMjc1MjExODQtMTYwNDAxMjkyMC0xODg3OTI3NTI3LTI2MTE4NDg0IiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzM0ZGRkEwNkQxN0M5Iiwic2NwIjoiVXNlci5SZWFkIiwic3ViIjoibWtMMHBiLXlpMXQ1ckRGd2JTZ1JvTWxrZE52b3UzSjNWNm84UFE3alVCRSIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVuaXF1ZV9uYW1lIjoibmFjYW51bWFAbWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hY2FudW1hQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJzUVlVekYxdUVVS0NQS0dRTVFVRkFBIiwidmVyIjoiMS4wIn0.Hrn__RGi-HMAzYRyCqX3kBGb6OS7z7y49XPVPpwK_7rJ6nik9E4s6PNY4XkIamJYn7tphpmsHdfM9lQ1gqeeFvFGhweIACsNBWhJ9Nx4dvQnGRkqZ17KnF_wf_QLcyOrOWpUxdSD_oPKcPS-Qr5AFkjw0t7GOKLY-Xw3QLJhzeKmYuuOkmMDJDAl0eNDbH0HiCh3g189a176BfyaR0MgK8wrXI_6MTnFSVfBePqklQeLhcr50YTBfWg3Svgl6MuK_g1hOuaO-XpjUxpdv5dZ0SvI47fAuVDdpCE48igCX5VMj4KUVytDIf6T78aIXMkYHGgW3-xAmuSyYH_Fr0yVAQ
 ```
 
+## Gaining consent for the middle-tier application
+
+Depending on the audience for your application, you may consider different strategies for ensuring that the OBO flow is succesful.  In all cases, ensuring proper consent is given is ultiamte goal. How that occurs, however, depends on which users your application supports. 
+
+### Consent for AAD-only applications
+
+#### /.default and combined consent
+
+For applications that only need to sign in work or school accounts, the traditional "Known Client Applications" approach suffices.  The middle tier application adds the client to the known client applications list in its manifest, and then the client can trigger a combined consent flow for both itself and the middle tier application.  On the v2.0 endpoint, this is done using the [`/.default` scope](v2-permissions-and-consent.md#the-default-scope). When triggering a consent screen using known client applications and `/.default`, the consent screen will show permissions for both the client to the middle tier API, and also request whatever permissions are required by the middle-tier API.  The user provides consent for both applications, and then the OBO flow works. 
+
+At this time, however, the personal Microsoft account system does not support combined consent, and therefore this approach does not work for apps that want to specifically sign in personal accounts.  Personal Microsoft accounts being used as guest accounts in a tenant are handled using the Azure AD system, and can go through combined consent. 
+
+#### Pre-authorized applications
+
+A new feature of the preview application portal is "pre-authorized applications".  In this way, a resource can indicate that a given application always has permission to receive certain scopes.  This is primarily useful to make connections between a front-end client and a back-end resource more seamless.  A resource can declare multiple pre-authorized applications - any such application can request these permissions in an OBO flow and receive them without the user providing consent.
+
+#### Admin consent
+
+A tenant admin can guarantee that applications have permission to call their required APIs through providing admin consent for the middle tier application.  To do this, the admin can find the middle tier application in their tenant, open the required permissions page, and choose to give permission for the app.  To learn more about admin consent, see the [consent and permissions documentation](v2-permissions-and-consent.md). 
+
+### Consent for AAD+MSA applications
+
+Due to restrictions in the permissions model for personal accounts and the lack of a governing tenant, the consent requirements for personal accounts are a bit different from Azure AD.  There is no tenant to provide tenant-wide consent for, nor is there the ability to do combined consent.  Thus, other strategies present themselves - note that these work for applications that only need to support Azure AD accounts as well. 
+
+#### Use of a single application
+
+In some scenarios, you may only have a single pairing of middle-tier and front-end client.  In this scenario, you may find it easier to make this a single application, negating the need for a middle-tier application altogether.  To authenticate between the front-end and the Web API, you can use cookies, an id_token, or an access token requested for the application itself.  Then, request consent from this single application to the back-end resource. 
+
 ## Client limitations
 If a client uses the implicit flow to get an id_token, and that client also has wildcards in a reply URL, the id_token cannot be used for an OBO flow.  However, access tokens acquired via the implicit grant flow can still be redeemed by a confidential client even if the initiating client has a wildcard reply URL registered. 
 
 ## Next steps
 Learn more about the OAuth 2.0 protocol and another way to perform service to service auth using client credentials.
 * [OAuth 2.0 client credentials grant in Azure AD v2.0](v2-oauth2-client-creds-grant-flow.md)
-* [OAuth 2.0 in Azure AD v2.0](v2-oauth2-auth-code-flow.md)
+* [OAuth 2.0 code flow in Azure AD v2.0](v2-oauth2-auth-code-flow.md)
+* [Using the `/.default` scope](v2-permissions-and-consent.md#the-default-scope) 
