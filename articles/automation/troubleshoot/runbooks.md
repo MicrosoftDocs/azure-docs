@@ -188,7 +188,7 @@ At line:16 char:1
 
 #### Cause
 
-This error is caused by using both AzureRM and Az cmdlets in a runbook.
+This error is caused by using both AzureRM and Az cmdlets in a runbook. It occurs when you import `Az` before importing `AzureRM`.
 
 #### Resolution
 
