@@ -1,5 +1,5 @@
 ---
-title: Migrate knowledge bases - Qna Maker
+title: Migrate knowledge bases - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Move a knowledge base created with QnA Maker into a new knowledge base.
 services: cognitive-services
