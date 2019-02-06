@@ -24,7 +24,7 @@ The following benefits are associated with file systems that implement a hierarc
 
 - **Familiar Interface Style:** File systems are well understood by developers and users alike. There is no need to learn a new storage paradigm when you move to the cloud as the file system interface exposed by Data Lake Storage Gen2 is the same paradigm used by computers, large and small.
 
-One of the reasons that object stores haven't historically supported hierarchical namespaces is that hierarchical namespaces limit scale. However, the Data Lake Storage Gen2 hierarchical namespace scales linearly and does not degrade either the data capacity or performance.
+One of the reasons that object stores haven't historically supported a hierarchical namespace is that a hierarchical namespace limits scale. However, the Data Lake Storage Gen2 hierarchical namespace scales linearly and does not degrade either the data capacity or performance.
 
 ## When to enable the hierarchical namespace
 
