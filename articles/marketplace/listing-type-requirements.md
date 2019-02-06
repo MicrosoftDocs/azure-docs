@@ -61,7 +61,7 @@ The List listing type includes the following Offer types on the storefronts in t
 
 | Offer type | Storefront | Details |  
 |:---        |:---        |:---     |  
-| Consulting Services | AppSource | [Requirements: AppSource: List: Consulting Services](#requirements-appsource-list-consulting-services) |  
+| Consulting Services | AppSource | Requirements: AppSource: List: Consulting Services |  
 | Consulting Services | Azure Marketplace | Requirements: Azure Marketplace: List: Consulting Services |  
 | Contact Me | AppSource | [](#) |  
 | Contact Me | Azure Marketplace | Requirements: AppSource: List: Contact Me |  
@@ -130,7 +130,7 @@ The List listing type includes the following Offer types on the storefronts in t
 
 | Offer type | Storefront | Details |   
 |:---        |:---        | :--- |  
-| Azure apps: Managed app | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Azure apps: Managed app](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
+| Azure apps: Managed app | Azure Marketplace | Requirements: Azure Marketplace: Transact: Azure apps: Managed app |  
 | Azure apps: Solution template | Azure Marketplace | Requirements: Azure Marketplace: Transact: Azure apps: Solution template |  
 | Containers | Azure Marketplace | [Requirements: Azure Marketplace: Transact: Container](#requirements-azure-marketplace-transact-container) |  
 | SaaS app  | Azure Marketplace | [Requirements: Azure Marketplace: Transact: SaaS app](#requirements-azure-marketplace-transact-saas-app) |  
