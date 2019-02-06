@@ -92,7 +92,7 @@ To configure Azure AD single sign-on with Envi MMIS, perform the following steps
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set-up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -116,7 +116,7 @@ To configure Azure AD single sign-on with Envi MMIS, perform the following steps
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Envi MMIS Client support team](mailto:support@ioscorp.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+6. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
@@ -160,7 +160,7 @@ To configure Azure AD single sign-on with Envi MMIS, perform the following steps
 
 	c. Click **Ok**.
 
-7. After uploading the downloaded metadata file the fields will get populated automatically. Click **Update**
+7. After uploading the downloaded metadata file, the fields will get populated automatically. Click **Update**
 
 	![Configure Single Sign-On Save button](./media/envimmis-tutorial/configure6.png)
 
@@ -217,8 +217,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Envi MMIS test user
 
-To enable Azure AD users to sign in to Envi MMIS, they must be provisioned into Envi MMIS.  
-In the case of Envi MMIS, provisioning is a manual task.
+To enable Azure AD users to sign in to Envi MMIS, they must be provisioned into Envi MMIS. In the case of Envi MMIS, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
