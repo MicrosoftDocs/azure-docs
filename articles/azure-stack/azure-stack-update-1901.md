@@ -116,8 +116,6 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 
 ## Changes
 
-- A new way to view and edit the quotas in a plan was introduced in 1811. For more information, see [View an existing quota](azure-stack-quota-types.md#view-an-existing-quota).
-
 <!-- 3083238 IS -->
 - Security enhancements in this update result in an increase in the backup size of the directory service role. For updated sizing guidance for the external storage location, see the [infrastructure backup documentation](azure-stack-backup-reference.md#storage-location-sizing). This change results in a longer time to complete the backup due to the larger size data transfer. This change impacts integrated systems. 
 
@@ -227,10 +225,10 @@ The following are post-installation known issues for this build version.
 <!-- TBD - IS ASDK --> 
 - The two administrative subscription types that were introduced with version 1804 should not be used. The subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider** subscription type.
 
-<!-- TBD - IS ASDK --> 
+<!-- 3557860 - IS ASDK --> 
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete the user subscriptions.
 
-<!-- TBD - IS ASDK --> 
+<!-- 1663805 - IS ASDK --> 
 - You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use [PowerShell to verify permissions](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
 
 <!-- ### Health and monitoring -->
