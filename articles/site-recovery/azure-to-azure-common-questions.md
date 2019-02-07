@@ -67,7 +67,7 @@ No, Site Recovery does not require internet connectivity. But it does require ac
 
 ### Can I replicate the application having separate resource group for separate tiers? 
 Yes, you can replicate the application and keep the disaster recovery configuration in separate resource group too.
-For example, if you have  three tiers app, db and web, then you have to click the [replication wizard](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) thrice to protect all the tiers. ASR will replicate the these three tiers in three different resource group.
+For example, if you have an application with each tiers app, db and web in separate resource group, then you have to click the [replication wizard](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) thrice to protect all the tiers. ASR will replicate these three tiers in three different resource group.
 
 ## <a name="replication-policy"></a>Replication policy
 
@@ -92,7 +92,7 @@ Application-consistent recovery points are created from application-consistent s
 
 Because of their extra content, application-consistent snapshots are the most involved and take the longest to perform. We recommend application-consistent recovery points for database operating systems and applications such as SQL Server.
 
-### What is the impact of application-consistent recovery point on application performance?
+### What is the impact of application-consistent recovery points on application performance?
 Considering application-consistent recovery points captures all the data in memory and in process it requires the framework like VSS on windows to quiesce the application. This, if done very frequently can have performance impact if the workload is already very busy. It is usually suggested not to use low frequency for app-consistent recovery points for non- database workloads and even for database workload 1 hour is enough. 
 
 ### What is the minimum frequency of application-consistent recovery point generation?
