@@ -60,10 +60,8 @@ Next, create a name server (NS) record  for the **engineering** zone.
 Use nslookup to test the delegation.
 
 1. Open a PowerShell window.
-2. At command prompt, type `nslookup www.engineering.<your domain name>.`
+2. At command prompt, type `nslookup www.engineering.contoso.com.`
 3. You should receive a non-authoritative answer showing the address **10.10.10.10**.
-
-
 
 ## Next steps
 
