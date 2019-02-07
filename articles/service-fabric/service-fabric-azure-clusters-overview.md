@@ -32,6 +32,8 @@ A Service Fabric cluster on Azure is an Azure resource that uses and interacts w
 * storage accounts
 * public IP addresses
 
+![Service Fabric Cluster][./media/service-fabric-azure-clusters-overview/Cluster.PNG]
+
 ### Virtual machine
 A [virtual machine](/azure/virtual-machines/) that's part of a cluster is called a node though, technically, a cluster node is a Service Fabric runtime process. Each node is assigned a node name (a string). Nodes have characteristics, such as [placement properties](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). Each machine or VM has an auto-start service, *FabricHost.exe*, that starts running at boot time and then starts two executables, *Fabric.exe* and *FabricGateway.exe*, which make up the node. A production deployment is one node per physical or virtual machine. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of *Fabric.exe* and *FabricGateway.exe*.
 
@@ -42,7 +44,7 @@ All VMs in a cluster are placed in a virtual network.  All nodes in the same nod
 ### Scale set/node type
 When you create a cluster, you define one or more node types.  The nodes, or VMs, in a node type have the same size and characteristics such as number of CPUs, memory, number of disks, and disk I/O.  For example, one node type could be for small, front-end VMs with ports open to the internet while another node type could be for large, back-end VMs that process data. In Azure clusters, each node type is mapped to a [virtual machine scale set](/azure/virtual-machine-scale-sets/).
 
-You can use scale sets to deploy and manage a collection of virtual machines as a set. Each node type that you define in an Azure Service Fabric cluster sets up a separate scale. The Service Fabric runtime is bootstrapped onto each virtual machine in the scale set using Azure VM extensions. You can independently scale each node type up or down, change the OS SKU running on each cluster node, have different sets of ports open, and use different capacity metrics. A scale set has five [upgrade domains](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) and five [fault domains](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains) and can have up to 100 VMs.  You create clusters of more than 100 nodes by creating multiple scale sets/node types.
+You can use scale sets to deploy and manage a collection of virtual machines as a set. Each node type that you define in an Azure Service Fabric cluster sets up a separate scale set. The Service Fabric runtime is bootstrapped onto each virtual machine in the scale set using Azure VM extensions. You can independently scale each node type up or down, change the OS SKU running on each cluster node, have different sets of ports open, and use different capacity metrics. A scale set has five [upgrade domains](service-fabric-cluster-resource-manager-cluster-description.md#upgrade-domains) and five [fault domains](service-fabric-cluster-resource-manager-cluster-description.md#fault-domains) and can have up to 100 VMs.  You create clusters of more than 100 nodes by creating multiple scale sets/node types.
 
 > [!IMPORTANT]
 > Choosing the number of node types for your cluster and the properties of each of node type (size, primary, internet facing, number of VMs, etc.) is an important task.  For more information, read [cluster capacity planning considerations](service-fabric-cluster-capacity.md).
