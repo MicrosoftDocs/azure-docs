@@ -20,7 +20,7 @@ If your application sends queries to any of the Bing Search APIs, you can use th
 
 | Feature                                                                                                                                                                                 | Description                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Suggest search terms in real-time](concepts/sending-requests.md#suggest-search-terms-with-the-bing-autosuggest-api) | Improve your app experience by using the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to display suggested search terms as they're typed. |
+| Suggest search terms in real-time | Improve your app experience by using the Autosuggest API to display suggested search terms as they're typed. |
 
 ## Workflow
 
