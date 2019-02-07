@@ -8,9 +8,6 @@
     href: what-is-ml-studio.md
   - name: Compare our ML products
     href: ../service/overview-more-machine-learning.md       
-  - name: ML Studio capabilities
-    displayName: overview
-    href: studio-overview-diagram.md
   - name: ML Studio basics (infographic)
     displayName: algorithm, algorithms
     href: basics-infographic-with-algorithm-examples.md
