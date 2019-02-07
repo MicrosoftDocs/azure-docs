@@ -110,7 +110,7 @@ For the most current list of services, see the [Products available by region](ht
 
 ## Monitoring + Management
 
-* [Advisor](documentation-government-services-monitoringandmanagement.md#advisor) (Preview)
+* [Advisor](documentation-government-services-monitoringandmanagement.md#advisor)
 * [Automation](documentation-government-services-monitoringandmanagement.md#automation)
 * [Backup](documentation-government-services-backup.md)
 * [Policy](documentation-government-services-monitoringandmanagement.md#policy)

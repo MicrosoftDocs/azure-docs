@@ -3,7 +3,7 @@ title: What is the Face API?
 titleSuffix: Azure Cognitive Services
 description: Learn how to use the Face service to detect and analyze faces in images.
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
