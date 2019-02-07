@@ -33,7 +33,7 @@ Azure AD Privileged Identity Management (PIM) is the best way for you to manage 
 
 ### Business value of PIM
 
-**Manage risk** - Secure your organization by enforcing the principle of [least privilege access](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) and just-in-time access. By minimizing the number of permanent assignments of users to privileged roles and enforcing approvals and MFA for elevation, you can greatly reduce security risks related to privileged access in your organization. This will also allow you to view a history of access to privileged roles and track down security issues as they happen.
+**Manage risk** - Secure your organization by enforcing the principle of [least privilege access](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) and just-in-time access. By minimizing the number of permanent assignments of users to privileged roles and enforcing approvals and MFA for elevation, you can greatly reduce security risks related to privileged access in your organization. Enforcing least privilege and just-in-time access will also allow you to view a history of access to privileged roles and track down security issues as they happen.
 
 **Address compliance and governance** - Deploying PIM creates an environment for on-going identity governance. Just-in-time elevation of privileged identities provides a way for PIM to keep track of privileged access activities in your organization. You will also be able to view and receive notifications for all assignments of permanent and eligible roles inside your organization. Through access review, you can regularly audit and remove unnecessary privileged identities and make sure your organization is compliant with the most rigorous identity, access, and security standards.
 
@@ -82,7 +82,7 @@ For more information, see [Roles you cannot manage in PIM](pim-roles.md).
 
 ## Step 2. Plan your deployment
 
-This section focuses on what you need to do before deploying PIM in your organization. It is essential to follow the instructions and understand the concepts in this section as they will guide you in coming up with the best plan tailored for your organization’s privileged identities.
+This section focuses on what you need to do before deploying PIM in your organization. It is essential to follow the instructions and understand the concepts in this section as they will guide you to create the best plan tailored for your organization’s privileged identities.
 
 ### Identify your stakeholders
 
@@ -113,9 +113,9 @@ The following section helps you identify all the stakeholders that are involved 
 
 ### Enable PIM
 
-As part of the planning process, you must first consent to and enable PIM by following our [start using PIM guide](pim-getting-started.md). Enabling PIM gives you access to some features that are specifically designed to help with your deployment.
+As part of the planning process, you must first consent to and enable PIM by following our [start using PIM document](pim-getting-started.md). Enabling PIM gives you access to some features that are specifically designed to help with your deployment.
 
-If your objective is to deploy PIM for Azure resources, you will also want to follow our [discover Azure resources to manage in PIM](pim-resource-roles-discover-resources.md) guide. Only owners of each resource, resource group, and subscription will be able to discover them inside PIM. If you are a Global Administrator trying to deploy PIM for your Azure resources, you can [elevate access to manage all Azure subscriptions ](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) to give yourself access to all Azure resources in the directory for discovery. However, we advise that you get approval from each of your subscription owners before managing their resources with PIM.
+If your objective is to deploy PIM for Azure resources, you should follow our [discover Azure resources to manage in PIM document](pim-resource-roles-discover-resources.md). Only owners of each resource, resource group, and subscription will be able to discover them inside PIM. If you are a Global Administrator trying to deploy PIM for your Azure resources, you can [elevate access to manage all Azure subscriptions ](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) to give yourself access to all Azure resources in the directory for discovery. However, we advise that you get approval from each of your subscription owners before managing their resources with PIM.
 
 ### Enforce principle of least privilege
 
@@ -147,7 +147,7 @@ To automate steps 3 and 4, you can utilize the access review function inside PIM
 
 ![Create an access review](./media/pim-deployment-plan/create-access-review.png)
 
-You should set the reviewers to **Members (self)**. This will send out an email to all members in the role to get them to confirm whether they need the access. You will also need to turn on **Require reason on approval** in the advanced settings so that users can state why they need the role. Based on this information, you will be able to remove users from unnecessary roles and delegate more granular administrator roles in the case of Global Administrators.
+You should set the reviewers to **Members (self)**. This will send out an email to all members in the role to get them to confirm whether they need the access. You should also turn on **Require reason on approval** in the advanced settings so that users can state why they need the role. Based on this information, you will be able to remove users from unnecessary roles and delegate more granular administrator roles in the case of Global Administrators.
 
 **Note:** Access reviews relies on emails to notify people to review their access to the roles. If you have privileged accounts that don’t have emails linked, be sure to populate the secondary email field on those accounts. For more information, see [proxyAddresses attribute in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
@@ -185,14 +185,14 @@ It is important to prioritize protecting Azure AD roles that have the most numbe
 > [!TIP]
 > :heavy_check_mark: **Microsoft recommends** you manage all your Global Administrators and Security Administrators using PIM as a first step as they are the ones that can do the most harm when compromised.
 
-It is also important to consider what data and permission are most sensitive for your organization. As an example, some organizations may want to protect their Power BI Administrator role or their Teams Administrator role using PIM as they have the ability to access data and/or change core workflows.
+It is important to consider what data and permission are most sensitive for your organization. As an example, some organizations may want to protect their Power BI Administrator role or their Teams Administrator role using PIM as they have the ability to access data and/or change core workflows.
 
 If there are any roles with guest users assigned, they are particularly vulnerable to attack.
 
 > [!TIP]
 > :heavy_check_mark: **Microsoft recommends** you manage all roles with guest users using PIM to reduce risk associated with compromised guest user accounts.
 
-Reader roles like the Directory Reader, Message Center Reader, and Security Reader are sometimes believed to be less important compared to other roles as they don’t have write permission. However, we have seen some of customers also protect these roles as attackers who have gained access to these accounts may be able to read sensitive data, such as personally identifiable information (PII). You should take this into consideration when deciding whether reader roles in your organization need to be managed using PIM.
+Reader roles like the Directory Reader, Message Center Reader, and Security Reader are sometimes believed to be less important compared to other roles as they don’t have write permission. However, we have seen some customers also protect these roles because attackers who have gained access to these accounts may be able to read sensitive data, such as personally identifiable information (PII). You should take this into consideration when deciding whether reader roles in your organization need to be managed using PIM.
 
 #### Azure resource roles
 
@@ -346,7 +346,7 @@ If PIM failed to work as desired in the production environment, the following ro
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Open **Azure AD Privileged Identity Management**.
-1. Click **Azure AD roles** and and then click **Roles**.
+1. Click **Azure AD roles** and then click **Roles**.
 1. For each role that you have configured, click the ellipsis (**...**) for all users with an eligible assignment.
 1. Click the **Make permanent** option to make the role assignment permanent.
 
