@@ -50,7 +50,7 @@ The vCore-based purchasing model enables you to independently choose compute and
 
 > [!IMPORTANT]
 > Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For moreinformation about managed instance charges, see [managed instances](sql-database-managed-instance.md).
-> **Region limitations:** For the current list of supported regions, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). If you want to create a Managed Instance in the region that is currently not supported, you can [send support request via Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance).
+> **Region limitations:** For the current list of supported regions, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). If you want to create a Managed Instance in the region that is currently not supported, you can [send support request via Azure portal](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
 If your single database or elastic pool consumes more than 300 DTUs, converting to the vCore-based purchasing model may reduce your cost. If you decide to convert, you can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required and is not done automatically. If the DTU-based purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-based purchasing model to the vCore-based purchasing model, select the compute size using the following rules of thumb: 
