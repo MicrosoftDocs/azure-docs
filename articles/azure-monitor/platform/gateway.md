@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/06/2019
 ms.author: magoedte
 ---
 
@@ -29,7 +29,7 @@ The Log Analytics gateway supports:
 * Azure Automation Hybrid Runbook Workers  
 * Windows computers with the Microsoft Monitoring Agent directly connected to a Log Analytics workspace
 * Linux computers with the Log Analytics agent for Linux directly connected to a Log Analytics workspace  
-* System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, Operations Manager 2016, and Operations Manager version 1801 management group integrated with Log Analytics.  
+* System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, Operations Manager 2016 or later management group integrated with Log Analytics.  
 
 If your IT security policies do not allow computers on your network to connect to the Internet, such as point of sale (POS) devices, or servers supporting IT services, but you need to connect them to Azure Automation or Log Analytics to manage and monitor them, they can be configured to communicate directly with the Log Analytics gateway to receive configuration and forward data on their behalf.  If these computers are configured with the Log Analytics agent to directly connect to a Log Analytics workspace, all computers will instead communicate with the Log Analytics gateway.  The gateway transfers data from the agents to the service directly, it does not analyze any of the data in transit.
 
