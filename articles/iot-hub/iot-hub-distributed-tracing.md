@@ -127,15 +127,15 @@ These instructions are for building the sample from. For other environments, see
 
     [!code-c[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=3)]
 
-    Also add a one second delay at the end of the send message loop:
-
-    [!code-c[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_sleep&highlight=8)]
-
-1. Find the line of code that calls `IoTHubDeviceClient_LL_SetConnectionStatusCallback` to register a connection status callback function. Add code under that line as shown below to call `IoTHubDeviceClient_LL_EnablePolicyConfiguration` enabling distributed tracing for the device:
+1. Find the line of code that calls `IoTHubDeviceClient_LL_SetConnectionStatusCallback` to register a connection status callback function before the send message loop. Add code under that line as shown below to call `IoTHubDeviceClient_LL_EnablePolicyConfiguration` enabling distributed tracing for the device:
 
     [!code-c[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_tracing&highlight=5)]
 
     The `IoTHubDeviceClient_LL_EnablePolicyConfiguration` function enables policies for specific IoTHub features that are configured via [device twins](./iot-hub-devguide-device-twins.md). Once `POLICY_CONFIGURATION_DISTRIBUTED_TRACING` is enabled with the line of code above, the tracing behavior of the device will reflect distributed tracing changes made on the device twin.
+
+    Also add a one second delay at the end of the send message loop:
+
+    [!code-c[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_sleep&highlight=8)]
 
 1. Navigate to the *iothub_ll_telemetry_sample* project directory from the CMake directory (`azure-iot-sdk-c/cmake`) you created earlier, and compile the sample:
 
@@ -206,10 +206,10 @@ To update the distributed tracing sampling configuration for multiple devices, u
 
 ```json
 "desired": {
-	"azureiot*com^dtracing^1": {
-		"sampling_mode": 1,
-		"sampling_rate": 100
-	},
+    "azureiot*com^dtracing^1": {
+    "sampling_mode": 1,
+    "sampling_rate": 100
+  },
 ```
 
 | Element name | Required | Type | Description |
