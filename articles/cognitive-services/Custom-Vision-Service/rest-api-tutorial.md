@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use the REST API to create, train, test, and export a custom vision model.
 services: cognitive-services
 author: blackmist
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision

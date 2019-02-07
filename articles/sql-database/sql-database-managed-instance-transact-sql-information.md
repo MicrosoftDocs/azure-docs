@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova 
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/07/2019
 ---
 # Azure SQL Database managed instance T-SQL differences from SQL Server
 
@@ -164,7 +164,7 @@ For more information, see [ALTER DATABASE SET PARTNER and SET WITNESS](https://d
 - In-memory objects are not supported in the General Purpose service tier.  
 - There is a limit of 280 files per instance implying max 280 files per database. Both data and log files are counted toward this limit.  
 - Database cannot contain filegroups containing filestream data.  Restore will fail if .bak contains `FILESTREAM` data.  
-- Every file is placed in Azure Premium storage. IO and throughput per file depend on the size of each individual file, in the same way as they do for Azure Premium Storage disks. See [Azure Premium disk performance](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
+- Every file is placed in Azure blob storage. IO and throughput per file depend on the size of each individual file.  
 
 #### CREATE DATABASE statement
 
