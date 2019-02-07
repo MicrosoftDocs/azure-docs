@@ -104,7 +104,7 @@ If you use Active Directory Federated Services (AD FS) for your identity managem
 2.  Make a note of the new certificate ID displayed in your PowerShell session, `1C2ED76081405F14747DC3B5F76BB1D83227D824`. The ID will be used when creating the service principal.
 
     ```PowerShell  
-    VERBOSE: Generated new certificate 'CN=<certificate name>' (0C2ED76081405F14747DC3B5F76BB1D83227D824).
+    VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
     ```
 
 3. Create service principal using the certificate.
@@ -194,7 +194,7 @@ Add the following Ubuntu Server image to the Marketplace:
 
 1. Select **+ Add from Azure**.
 
-1. Enter `UbuntuServer`.
+1. Enter `Ubuntu Server`.
 
 1. Select the newest version of the server. Check the full version and ensure that you have the newest version:
     - **Publisher**: Canonical
