@@ -24,7 +24,7 @@ An HTTP trigger can be customized to respond to [webhooks](https://en.wikipedia.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-The code in this article defaults to Functions 2.x syntax which uses .NET Core.
+The code in this article defaults to Functions 2.x syntax which uses .NET Core. For information on the 1.x syntax, see the [1.x functions templates](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
 ## Packages - Functions 1.x
 
