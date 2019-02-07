@@ -84,7 +84,7 @@ For steps on how to set up Postman for this tutorial, see [Configure Postman](me
 	```
 4. On the left of the **Postman** window, click on **1. Get AAD Auth token** -> **Get Azure AD Token for Service Principal**.
 
-    The URL portion is filled with the **AzureADSTSEndpoint** environment variable (earlier in the tutorial, you set the values of [environment variables](#configure-the-environment) that support the [collection](#configure-the-collection)).
+    The URL portion is filled with the **AzureADSTSEndpoint** environment variable (earlier in the tutorial, you set the values of environment variables that support the collection).
 
     ![Upload a file](./media/media-services-rest-upload-files/postment-get-token.png)
 
