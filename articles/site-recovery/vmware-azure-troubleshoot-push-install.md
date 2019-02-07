@@ -21,7 +21,7 @@ Installation of Mobility service is a key step during Enable Replication. The su
 * [File and printer sharing errors](#file-and-printer-sharing-services-check-errorid-95105--95106)
 * [WMI failures](#windows-management-instrumentation-wmi-configuration-check-error-code-95103)
 * [Unsupported Operating systems](#unsupported-operating-systems)
-* [Unsupported Boot configurations](#boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309)
+* [Unsupported Boot configurations](#unsupported-boot-disk-configurations-errorid-95309-95310-95311)
 * [VSS installation failures](#vss-installation-failures)
 * [Device name in GRUB configuration instead of device UUID](#enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320)
 * [LVM volume](#lvm-support-from-920-version)
@@ -144,16 +144,18 @@ Other WMI troubleshooting articles could be found at the following articles.
 Another most common reason for failure could be due to unsupported operating system. Ensure you are on the supported Operating System/Kernel version for successful installation of Mobility service. Avoid the usage of private patch.
 To view the list of operating systems and kernel versions supported by Azure Site Recovery, refer to our [support matrix document](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-## Boot and system partitions / volumes are not the same disk (ErrorID: 95309)
+## Unsupported boot disk configurations (ErrorID: 95309, 95310, 95311)
+
+### Boot and system partitions / volumes are not the same disk (ErrorID: 95309)
 
 Before 9.20 version, boot and system partitions/ volumes on different disks was an unsupported configuration. 
 From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), this configuration is supported. Use latest version for this support.
 
-## Boot disk not found (ErrorID: 95310)
+### The boot disk is not available (ErrorID: 95310)
 
 A virtual machine without a boot disk cannot be protected. This is to ensure smooth recovery of virtual machine during failover operation. Absence of boot disk results in failure to boot the machine after failover. Ensure that the virtual machine contains boot disk and retry the operation. Also, note that multiple boot disks on the same machine is not supported.
 
-## Multiple Boot disks found (ErrorID: 95311)
+### Multiple Boot disks present on the source machine (ErrorID: 95311)
 
 A virtual machine with multiple boot disks is not a [supported configuration](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 
