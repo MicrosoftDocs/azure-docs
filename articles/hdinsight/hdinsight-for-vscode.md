@@ -381,6 +381,4 @@ From the menu bar navigate to **View** > **Command Palette...**, and then enter 
 
 
 ## Next steps
-
-### Demo
-* HDInsight for Visual Studio Code: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
+For a demonstration video of using HDInsight for Visual Studio Code, see [HDInsight for Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706)
