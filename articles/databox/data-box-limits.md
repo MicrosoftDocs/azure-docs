@@ -66,6 +66,7 @@ Here are the sizes of the Azure objects that can be written. Make sure that all 
 | Block blob        | ~ 4.75 TiB                                                 |
 | Page blob         | 8 TiB <br> Every file uploaded in page blob format must be 512 bytes aligned (an integral multiple), else the upload fails. <br> VHD and VHDX are 512 bytes aligned. |
 | Azure File        | 1 TiB                                                      |
+| Managed disks     | 4 TiB <br> For more information on size and limits, see: <li>[Scalability targets of Standard SSDs](/azure/virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets)</li><li>[Scalability targets of Premium SSDs](/azure/virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)</li><li>[Scalability targets of Ultra SSDs](/azure/virtual-machines/windows/disks-ultra-ssd#scalability-and-performance-targets)</li><li>[Pricing and billing of managed disks](/azure/virtual-machines/windows/managed-disks-overview.md#pricing-and-billing)</li>                                                     |
 
 ## Azure block blob, page blob, and file naming conventions
 

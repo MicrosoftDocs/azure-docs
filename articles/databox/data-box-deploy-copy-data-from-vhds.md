@@ -98,7 +98,6 @@ If using a Windows Server host computer, follow these steps to connect to the Da
     ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer2.png)
 
 
-
 ### Connect to Data Box via NFS
 
 If you are using a Linux host computer, perform the following steps to configure Data Box to allow access to NFS clients.
@@ -111,7 +110,7 @@ If you are using a Linux host computer, perform the following steps to configure
 
     ![Configure NFS client access 2](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
 
-2. Ensure that the Linux host computer has a [supported version](data-box-system-requirements.md) of NFS client installed. Use the specific version for your Linux distribution. 
+2. Ensure that the Linux host computer has a [supported version](data-box-system-requirements.md) of NFS client installed. Use the specific version for your Linux distribution.
 
 3. Once the NFS client is installed, use the following command to mount the NFS share on your Data Box device:
 
@@ -124,17 +123,18 @@ If you are using a Linux host computer, perform the following steps to configure
 
 ## Copy data to Data Box
 
-Once you're connected to the data server, the next step is to copy data. Depending on whether you are connecting via SMB or NFS, you can use:
+After you're connected to the data server, the next step is to copy data. Review the following considerations before you begin data copy:
+
+- Always copy the VHDs to one of the precreated folders. If you copy the VHDs outside of these folders or in a folder that you created, the VHDs will be uploaded to Azure Storage account as page blobs and not managed disks.
+- Only the fixed VHDs can be uploaded to create managed disks. VHDX files or dynamic and differencing VHDs are not supported.
+- Ensure that you copy data only to those precreated folders that correspond to the managed disk types supported by your subscription. For example, if Ultra SSDs are not supported by your subscription, and if you copy data to the Ultra SSD folder, the VHDs will be uploaded to Azure Storage account as page blobs and not managed disks.
+- You can only have one managed disk with a given name in a resource group across all the precreated folders. This implies that the VHDs uploaded to the precreated folders should have unique names. Make sure that the given name does not match an already existing managed disk in a resource group.
+- Review managed disk limits in [Azure object size limits](data-box-limits.md#azure-object-size-limits).
+
+Depending on whether you are connecting via SMB or NFS, you can use:
 
 - [Copy data via SMB](data-box-deploy-copy-data.md#copy-data-to-data-box)
 - [Copy data via NFS](data-box-deploy-copy-data-via-nfs.md#copy-data-to-data-box)
-
-
-> [!IMPORTANT]
-> - Always copy the VHDs to one of the precreated folders. If you copy the VHDs outside of these folders or in a folder that you created, the VHDs will be uploaded to Azure Storage account as page blobs and not managed disks.
-> - Only the fixed VHDs can be uploaded to create managed disks. VHDX files or dynamic and differencing VHDs are not supported.
-> -  Ensure that you copy data only to those precreated folders that correspond to the managed disk types supported by your subscription. For example, if Ultra SSDs are not supported by your subscription, and if you copy data to the Ultra SSD folder, the VHDs will be uploaded to Azure Storage account as page blobs and not managed disks.
-> -  You can only have one managed disk with a given name in a resource group across all the precreated folders. This implies that the VHDs uploaded to the precreated folders should have unique names. Make sure that the given name does not match an with already existing managed disk in a resource group.
 
 Wait for the copy jobs to finish. As some errors are only logged in the **Connect and copy** page, make sure that the copy jobs have finished with no errors before you go to the next step.
 
