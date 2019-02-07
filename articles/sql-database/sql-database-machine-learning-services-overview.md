@@ -11,14 +11,18 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
+ms.date: 02/06/2019
 ---
 # Machine Learning Services (with R) in Azure SQL Database (preview)
 
 Machine Learning Services is a feature of Azure SQL Database, used for executing in-database R scripts. The feature includes Microsoft R packages for high-performance predictive analytics and machine learning. The relational data can be used in R scripts through stored procedures, T-SQL script containing R statements, or R code containing T-SQL.
 
-> [!NOTE]
-> Machine Learning Services (with R) in Azure SQL Database is currently in public preview. [Sign up for the preview](#signup) below.
+> [!IMPORTANT]
+> Machine Learning Services (with R) in Azure SQL Database is currently in public preview for single databases and elastic pools using the vCore-based purchasing model in the **general purpose** and **business critical** service tiers. In this initial public preview, the **hyperscale** service tier and the **managed instance** deployment option are not supported. Currently, R is the only supported language. There is no support for Python at this time. 
+>
+> The preview is currently available in the following regions:West Europe, North Europe, West US 2, East US, South Central US, North Central US, Canada Central, Southeast Asia, India South, and Australia Southeast. 
+>
+> [Sign up for the preview](#signup) below.
 
 ## What you can do with R
 
@@ -49,10 +53,6 @@ To sign up for the public preview, follow these steps:
 2. Send an email to Microsoft at [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) to sign up for the public preview. The public preview of Machine Learning Services (with R) in SQL Database is not enabled by default.
 
 Once you are enrolled in the program, Microsoft will onboard you to the public preview and enable R for your existing or new database.
-
-Machine Learning Services (with R) in SQL Database is currently only available in the vCore-based purchasing model in the **General Purpose** and **Business Critical** service tiers for standalone and elastic pool deployment choices. In this initial public preview, the **Hyperscale** service tier and **Managed Instance** deployment choice are not supported.
-
-Currently, R is the only supported language. There is no support for Python at this time. The preview is initially available in the following regions:West Europe, North Europe, West US 2, East US, South Central US, North Central US, Canada Central, Southeast Asia, India South, and Australia Southeast. Additional regions will be added later.
 
 Do not use Machine Learning Services with R for production workloads during the public preview.
 
