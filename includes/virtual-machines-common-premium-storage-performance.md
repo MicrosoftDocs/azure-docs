@@ -293,7 +293,7 @@ For all premium SSDs or ultra disks with cache set to **ReadOnly** or **None**, 
 * For **ext3/ext4**, to disable barriers, use the `barrier=0` mount option. (To enable barriers, use `barrier=1`.)
 * For **XFS**, to disable barriers, use the `nobarrier` mount option. (To enable barriers, use `barrier`.)
 * For premium storage disks with cache set to **ReadWrite**, enable barriers for write durability.
-* For volume labels to persist after you restart the VM, you must update /etc/fstab with the universally unique identifier (UUID) references to the disks. For more information, see [Add a managed disk to a Linux VM](add-disk.md).
+* For volume labels to persist after you restart the VM, you must update /etc/fstab with the universally unique identifier (UUID) references to the disks. For more information, see [Add a managed disk to a Linux VM](../articles/virtual-machines/linux/add-disk.md).
 
 The following Linux distributions have been validated for premium SSDs. For better performance and stability with premium SSDs, we recommend that you upgrade your VMs to one of these versions or later. 
 
