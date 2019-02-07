@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 02/05/2019
+ms.date: 02/07/2019
 ---
 # Azure SQL Database purchasing models
 
@@ -53,7 +53,10 @@ The vCore-based purchasing model enables you to independently choose compute and
 > **Region limitations:** For the current list of supported regions, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). If you want to create a Managed Instance in the region that is currently not supported, you can [send support request via Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
-If your database or elastic pool consumes more than 300 DTU conversion to vCore may reduce your cost. You can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required. If the DTU purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-model to vCore-model, you should select the compute size using the following rule of thumb: each 100 DTU in Standard tier requires at least 1 vCore in General Purpose tier; each 125 DTU in Premium tier requires at least 1 vCore in Business Critical tier.
+If your single database or elastic pool consumes more than 300 DTUs, converting to the vCore-based purchasing model may reduce your cost. If you decide to convert, you can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required and is not done automatically. If the DTU-based purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-based purchasing model to the vCore-based purchasing model, select the compute size using the following rules of thumb: 
+
+- Each 100 DTU in Standard tier requires at least 1 vCore in General Purpose tier
+- Each 125 DTU in Premium tier requires at least 1 vCore in Business Critical tier
 
 ## DTU-based purchasing model
 

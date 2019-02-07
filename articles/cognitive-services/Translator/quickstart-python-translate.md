@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll translate text from one language to another using the Translator Text API with Python in less than 10 minutes.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
