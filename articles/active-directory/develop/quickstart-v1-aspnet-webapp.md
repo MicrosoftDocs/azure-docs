@@ -61,7 +61,7 @@ These steps show how to install and configure the authentication pipeline throug
 
 To download this sample's Visual Studio project instead, follow these steps:
 1. [Download the project on GitHub](https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet/archive/GuidedSetup.zip).
-1. Skip to the [Configuration step](#configure-your-webconfig-and-register-an-application) to configure the code sample before executing.
+1. Skip to the Configuration step to configure the code sample before executing.
 
 ## Step 2: Create your ASP.NET project
 

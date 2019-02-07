@@ -39,7 +39,7 @@ The following environment variables may be set when you install Java and the JDK
 ## How to use the HdfsBolt with HDInsight
 
 > [!IMPORTANT]  
-> Before using the HdfsBolt with Storm on HDInsight, you must first use a script action to copy required jar files into the `extpath` for Storm. For more information, see the [Configure the cluster](#configure) section.
+> Before using the HdfsBolt with Storm on HDInsight, you must first use a script action to copy required jar files into the `extpath` for Storm. For more information, see the Configure the cluster section.
 
 The HdfsBolt uses the file scheme that you provide to understand how to write to HDFS. With HDInsight, use one of the following schemes:
 

@@ -275,7 +275,7 @@ The following example creates an open authorization policy and adds it to the co
 ```
 
 ### Token restriction
-To configure the token restriction option, you need to use an XML to describe the token's authorization requirements. The token restriction configuration XML must conform to the XML schema shown in the "[Token restriction schema](#token-restriction-schema)" section.
+To configure the token restriction option, you need to use an XML to describe the token's authorization requirements. The token restriction configuration XML must conform to the XML schema shown in the "Token restriction schema" section.
 
 ```csharp
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
