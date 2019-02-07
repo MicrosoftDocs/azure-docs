@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Explains how to use the Bing Video Search API in a single-page Web application.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-video-search

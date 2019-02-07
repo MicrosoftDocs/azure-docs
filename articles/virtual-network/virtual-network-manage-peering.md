@@ -35,7 +35,7 @@ The account you log into, or connect to Azure with, must be assigned to the [net
 
 ## Create a peering
 
-Before creating a peering, familiarize yourself with the [requirements and constraints](#requirements-and-contstraints) and [necessary permissions](#permissions).
+Before creating a peering, familiarize yourself with the requirements and constraints and [necessary permissions](#permissions).
 
 1. In the search box at the top of the Azure portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it. Do not select **Virtual networks (classic)** if it appears in the list, as you cannot create a peering from a virtual network deployed through the classic deployment model.
 2. Select the virtual network in the list that you want to create a peering for.
@@ -71,7 +71,7 @@ For step-by-step instructions for implementing peering between virtual networks 
 
 ## View or change peering settings
 
-Before changing a peering, familiarize yourself with the [requirements and constraints](#requirements-and-contstraints) and [necessary permissions](#permissions).
+Before changing a peering, familiarize yourself with the requirements and constraints and [necessary permissions](#permissions).
 
 1. In the search box at the top of the portal, enter *virtual networks* in the search box. When **Virtual networks** appear in the search results, select it. Do not select **Virtual networks (classic)** if it appears in the list, as you cannot create a peering from a virtual network deployed through the classic deployment model.
 2. Select the virtual network in the list that you want to change peering settings for.

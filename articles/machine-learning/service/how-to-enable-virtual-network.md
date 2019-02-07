@@ -227,4 +227,5 @@ Once the creation process completes, you can do inferencing on an AKS cluster be
 
 * [Set up training environments](how-to-set-up-training-targets.md)
 * [Where to deploy models](how-to-deploy-and-where.md)
-* [Secure deployed models with SSL](how-to-secure-web-service.md)
+* [Securely deploy models with SSL](how-to-secure-web-service.md)
+

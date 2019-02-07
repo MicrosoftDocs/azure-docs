@@ -243,7 +243,7 @@ Enable Key Vault for template deployment: Allows Resource Manager to retrieve se
 
 ## Working with Hardware security modules (HSMs)
 
-For added assurance, you can import or generate keys from hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to [Delete the key vault and associated keys and secrets](#delete-the-key-vault-and-associated-keys-and-secrets).
+For added assurance, you can import or generate keys from hardware security modules (HSMs) that never leave the HSM boundary. The HSMs are FIPS 140-2 Level 2 validated. If this requirement doesn't apply to you, skip this section and go to Delete the key vault and associated keys and secrets.
 
 To create these HSM-protected keys, you must have a vault subscription that supports HSM-protected keys.
 
