@@ -32,14 +32,21 @@ The following Advisor recommendations are not currently available in Azure Gover
   * Configure your VPN gateway to active-active for connection resilience
   * Create Azure Service Health alerts to be notified when Azure issues affect you
   * Configure Traffic Manager endpoints for resiliency
+  * Use soft delete for your Azure Storage Account
 * Performance
   * Improve App Service performance and reliability
   * Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
   * Improve SQL Datawarehouse performance
+  * Use Premium Storage
+  * Migrate your Storage Account to Azure Resource Manager
 * Cost
   * Buy reserved virtual machines instances to save money over pay-as-you-go costs
   * Eliminate unprovisioned ExpressRoute circuits
   * Delete or reconfigure idle virtual network gateways
+
+The calculation used to recommend that you should right-size or shutdown underutilized virtual machines is as follows in Azure Government:
+
+Advisor monitors your virtual machine usage for 7 days and identifies low-utilization virtual machines. Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2% or if the current workload can be accommodated by a smaller virtual machine size. If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
 
 ## Automation
 Automation is generally available in Azure Government.

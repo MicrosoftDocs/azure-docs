@@ -124,7 +124,7 @@ When data collection stops, the OperationStatus is Warning. When data collection
 |Reason collection stops| Solution| 
 |-----------------------|---------|
 |Daily limit of legacy Free pricing tier  reached |Wait until the following day for collection to automatically restart, or change to a paid pricing tier.|
-|Daily cap of your workspace was reached|Wait for collection to automatically restart, or increase the daily data volume limit described in [manage the maximum daily data volume](#manage-the-maximum-daily-volume). The daily cap reset time is shows on the **Data volume management** page. |
+|Daily cap of your workspace was reached|Wait for collection to automatically restart, or increase the daily data volume limit described in manage the maximum daily data volume. The daily cap reset time is shows on the **Data volume management** page. |
 |Azure subscription is in a suspended state due to:<br> Free trial ended<br> Azure pass expired<br> Monthly spending limit reached (for example on an MSDN or Visual Studio subscription)|Convert to a paid subscription<br> Remove limit, or wait until limit resets|
 
 To be notified when data collection stops, use the steps described in *Create daily data cap* alert to be notified when data collection stops and follow the steps Use the steps described in add actions to alert rules configure an e-mail, webhook, or runbook action for the alert rule. 
