@@ -6,17 +6,11 @@
   - name: Machine Learning Studio
     displayName: overview
     href: what-is-ml-studio.md
-  - name: ML Studio capabilities
-    displayName: overview
-    href: studio-overview-diagram.md
-  - name: ML Studio basics (infographic)
-    displayName: algorithm, algorithms
-    href: basics-infographic-with-algorithm-examples.md
+  - name: Compare our ML products
+    href: ../service/overview-more-machine-learning.md       
   - name: Frequently asked questions
     displayName: FAQ
     href: faq.md
-  - name: What's new?
-    href: whats-new.md
 - name: Tutorials
   items:
   - name: Create your first experiment
@@ -40,8 +34,6 @@
     - name: 6 - Access web service
       displayName: consume
       href: walkthrough-6-access-web-service.md
-  - name: Get started in R
-    href: r-quickstart.md
 - name: Samples
   items:
   - name: Available datasets
@@ -79,15 +71,9 @@
       href: deploy-with-resource-manager-template.md
   - name: Import training data
     items:
-    - name: Overview
+    - name: Import data
       href: import-data.md
-    - name: From a local file
-      href: import-data-from-local-file.md
-    - name: From online sources
-      href: import-data-from-online-sources.md
-    - name: From an experiment
-      href: import-data-from-an-experiment.md
-    - name: Use on-prem SQL
+    - name: Use data from on-premises SQL
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
   - name: Create and train models
@@ -102,10 +88,6 @@
     - name: Try experiments in AI Gallery
       displayName: gallery
       href: sample-experiments.md
-    - name: Choose algorithms
-      href: algorithm-choice.md
-    - name: Algorithm cheat sheet
-      href: algorithm-cheat-sheet.md
     - name: Evaluate and interpret results
       items:
       - name: Evaluate performance
@@ -119,12 +101,23 @@
         href: debug-models.md
     - name: Use R and Python
       items:
+      - name: Get started in R
+        href: r-quickstart.md
       - name: Execute R scripts
         href: extend-your-experiment-with-r.md
       - name: Author custom R modules
         href: custom-r-modules.md
       - name: Execute Python scripts
         href: execute-python-scripts.md
+  - name: Select an algorithm
+    items:
+    - name: Choose algorithms
+      href: algorithm-choice.md
+    - name: Algorithm cheat sheet
+      href: algorithm-cheat-sheet.md        
+    - name: Algorithm examples
+      displayName: infographic, studio basics
+      href: basics-infographic-with-algorithm-examples.md
   - name: Deploy models
     items:
     - name: Deploy a web service
@@ -197,8 +190,8 @@
     href: ai-gallery-control-personal-data-dsr.md 
 - name: Reference
   items:
-  - name: Algorithm & Module reference
-    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
+  - name: Algorithm & module reference
+    href: /azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help
   - name: Azure PowerShell modules
     href: powershell-module.md
   - name: Web service error codes
@@ -207,15 +200,15 @@
     href: /rest/api/machinelearning
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/machine-learning/
-  - name: R developer's guide 
-    href: ../r-developers-guide.md
-  - name: Custom Neural Networks with Net#
-    href: azure-ml-netsharp-reference-guide.md
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=machine-learning-studio
   - name: Get support
     href: support-aml-studio.md
-  - name: Compare our ML products
-    href: ../service/overview-more-machine-learning.md       
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/    
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/machine-learning/
+  - name: Custom neural networks (Net#)
+    href: azure-ml-netsharp-reference-guide.md

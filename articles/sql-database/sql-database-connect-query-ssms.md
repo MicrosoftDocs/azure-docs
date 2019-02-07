@@ -4,7 +4,7 @@ description: Learn how to connect to SQL Database on Azure by using SQL Server M
 keywords: connect to sql database,sql server management studio
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
@@ -24,7 +24,7 @@ To complete this tutorial, you need:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-* A configured server-level firewall rule. For more information, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
+* A configured server-level firewall rule. For more information, see [Create server-level firewall rule](sql-database-server-level-firewall-rule.md).
 
 ## Install the latest SSMS
 

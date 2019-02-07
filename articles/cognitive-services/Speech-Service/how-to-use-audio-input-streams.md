@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: An overview of the capabilities of the Speech SDK's audio input stream API.
 services: cognitive-services
 author: fmegen
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -43,7 +43,7 @@ The following steps are required when using audio input streams:
           this.config = config;
       }
 
-      public size_t Read(byte *buffer, size_t size) {
+      public int Read(byte[] buffer, uint size) {
           // returns audio data to the caller.
           // e.g. return read(config.YYY, buffer, size);
       }

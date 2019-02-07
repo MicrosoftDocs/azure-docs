@@ -200,7 +200,7 @@ var app = new ConfidentialClientApplication(
 > | `userTokenCache`  | Instance of a token cache for the user. In this case, because this app runs in context of the app, and not the user, this value is null|
 > | `appTokenCache`  | Instance of a token cache for the app|
 
-For more information, please see the [reference documentation for `ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.-ctor?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication__ctor_System_String_System_String_System_String_Microsoft_Identity_Client_ClientCredential_Microsoft_Identity_Client_TokenCache_Microsoft_Identity_Client_TokenCache)
+For more information, please see the [reference documentation for `ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.-ctor?view=azure-dotnet)
 
 ### Requesting tokens
 
