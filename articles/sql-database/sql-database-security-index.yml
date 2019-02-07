@@ -73,8 +73,8 @@ sections:
       - title: Set up database server firewall rules on single database
         values:
           - href: /azure/sql-database/sql-database-firewall-configure#manage-ip-firewall-rules-using-the-azure-portal
-          - href: /azure/sql-database/sql-database-firewall-configure#manage-ip-firewall-rules-using-azure-cli
-          - href: /azure/sql-database/sql-database-firewall-configure#manage-ip-firewall-rules-using-azure-powershell
+          - href: /azure/sql-database/sql-database-firewall-configure
+          - href: /azure/sql-database/sql-database-firewall-configure
       - title: Manage vulnerability assessments rules
         values:
           - href:
