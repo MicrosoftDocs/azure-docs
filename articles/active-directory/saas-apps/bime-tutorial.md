@@ -141,7 +141,7 @@ To configure Azure AD single sign-on with Bime, perform the following steps:
 
     a. Select **Enable SAML authentication**.
 
-    b. In the **Remote Login URL** textbox, paste the value of **SAML Single Sign-On Service URL**, which you have copied from Azure portal.
+    b. In the **Remote Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
     c. In the **Certificate Fingerprint** textbox, paste the **THUMBPRINT** value which you have copied from Azure portal.
 
