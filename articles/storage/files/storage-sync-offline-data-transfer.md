@@ -5,15 +5,25 @@ services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/11/2019
 ms.author: fauhse
 ms.component: files
 ---
 
-# Supporting Data Box and other bulk migration methods
-The Azure File Sync agent (version 5 and later) supports the bulk migration of files through offline migration tools such as [Azure Data Box](https://azure.microsoft.com/services/storage/databox) and online migration tools (for example, AzCopy).
+# Migrate to Azure File Sync
+There are several options to move to Azure File Sync:
 
-This article describes the process you should follow to ensure your bulk migration is done in a sync-compatible way. It will describe the best practices that will help you avoid conflict files and preserve your file and folder ACLs once you enable sync.
+### Uploading files via Azure File Sync
+The simplest option is to move your files locally to a Windows Server 2012 R2 or later,  and install the Azure File Sync agent. Once sync is configured, your files will upload from the server. We are currently observing an average upload speed across all our customers of 1 TB about every 2 days.
+Consider a [bandwidth throttling schedule](storage-sync-files-server-registration.md#ensuring-azure-file-sync-is-a-good-neighbor-in-your-datacenter) to ensure your server is a good citizen in your data center.
+
+### Offline bulk transfer
+While uploading is certainly the simplest option, it may not work for you if your available bandwidth will not allow to sync your files to Azure in a reasonable amount of time . The challenge to overcome here is the initial sync of the whole set of files. Subsequently Azure File Sync will only move changes as they occur in the namespace, which typically uses much less bandwidth.
+To overcome this initial upload challenge, offline bulk migration tools such as the Azure [Data Box family](https://azure.microsoft.com/services/storage/databox) can be used. The following article focuses on the process you need to follow to benefit from the offline migration in an Azure File Sync compatible way. It will describe the best practices that will help you avoid conflict files and preserve your file and folder ACLs and timestamps once you enable sync.
+
+### Online migration tools
+The process outlined below does not only work for Data Box. It works for any offline migration tool (such as Data Box) or online tools, such as AzCopy, Robocopy, or third party tools and services. So regardless of the method to overcome the initial upload challenge, it is still important to follow steps outlined below to utilize these tools in a sync compatible way.
+
 
 ## Offline data transfer benefits
 The main benefits of offline migration when using a Data Box are as follows:
@@ -22,8 +32,6 @@ The main benefits of offline migration when using a Data Box are as follows:
 - When you use Azure File Sync, then regardless of the mode of transport used (Data Box, Azure Import, etc.), your live server only uploads the files that have changed since you shipped the data to Azure.
 - Azure File Sync ensures that your file and folder ACLs are synced as well - even if the offline bulk migration product does not transport ACLs.
 - When using Azure Data Box and Azure File Sync, there is zero downtime. Using Data Box to transfer data in to Azure makes efficient use of network bandwidth while preserving the file fidelity. It also keeps your namespace up-to-date by uploading only the files that have changed since the Data Box was sent.
-
-Most customers will find the benefits of an offline transport method, such as Data Box, most suitable for their needs. However, Azure File Sync supports any bulk migration method (Data Box, third party products or other ways that get files into Azure) when the below steps are followed.
 
 ## Plan your offline data transfer
 Before you begin, review the following information:
