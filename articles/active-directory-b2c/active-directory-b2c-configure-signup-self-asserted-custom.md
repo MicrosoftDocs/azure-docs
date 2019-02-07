@@ -106,7 +106,7 @@ The following elements are used to define the claim:
 </ClaimType>
 ```
 
-## Add the claim to the user journey
+### Add the claim to the user journey
 
 1. Add the claim as an `<OutputClaim ClaimTypeReferenceId="city"/>` to the `LocalAccountSignUpWithLogonEmail` technical profile found in the TrustFrameworkBase policy file. This technical profile uses the SelfAssertedAttributeProvider.
 
