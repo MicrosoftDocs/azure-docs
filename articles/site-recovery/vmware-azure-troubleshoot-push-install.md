@@ -175,12 +175,10 @@ The device names should be replaced with the corresponding UUID.<br>
 
 1. Find the UUID of the device by executing the command "blkid <device name>". For example:<br>
 ```
-blkid /dev/sda1 
-```<br>
-```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br>
-```blkid /dev/sda2```<br> 
-```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
-```<br>
+blkid /dev/sda1
+/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+blkid /dev/sda2 
+/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
 ```
 
 2. Now replace the device name with its UUID in the format like "root=UUID=<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
