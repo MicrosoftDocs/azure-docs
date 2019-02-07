@@ -75,7 +75,7 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
-    Your UNC share path in this example are as follows:
+    Your UNC share paths in this example are as follows:
 
     - `\\169.254.250.200\mydbmdrg1_MDisk`
     - `\\169.254.250.200\mydbmdrg2_MDisk`
