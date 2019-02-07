@@ -181,7 +181,7 @@ Console.WriteLine();
 
 Next, the sample adds a message to the back of the queue. 
 
-A message must be in a format that can be included in an XML request with UTF-8 encoding, and may be up to 64 KB in size. If a messae contains binary data, then Microsoft recommends that you Base64-encode the message.
+A message must be in a format that can be included in an XML request with UTF-8 encoding, and may be up to 64 KB in size. If a message contains binary data, then Microsoft recommends that you Base64-encode the message.
 
 By default, the maximum time-to-live for a message is set to 7 days. You can specify any positive number for the message time-to-live, as well as -1 to indicate that the message does not expire.
 
