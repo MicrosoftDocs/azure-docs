@@ -1,5 +1,5 @@
 ---
-title: Automate migration of large number of VMs | Microsoft Docs
+title: Automate migration of large number of VMs to Azure | Microsoft Docs
 description: Describes how to use scripts to migrate a large number of VMs using Azure Site Recovery
 author: snehaamicrosoft
 ms.service: azure-migrate
@@ -21,7 +21,7 @@ This article helps you understand the process of using scripts to migrate large 
 
 ## How does it work?
 
-### Pre-requisites
+### Prerequisites
 Before you get started, you need to do the following steps:
 - Ensure that the Site Recovery vault is created in your Azure subscription
 - Ensure that the Configuration Server and Process Server are installed in the source environment and the vault is able to discover the environment
@@ -58,3 +58,7 @@ Once the CSV is ready, you can execute the following steps to perform migration 
 7 | asr_migration.ps1 | Perform an unplanned failover for the VMs listed in the csv, the script creates a CSV output with the job details for each VM. The script does not shutdown the on-prem VMs before triggering the failover, for application consistency, it is recommended that you manually shut down the VMs before executing the script.
 8 | asr_completemigration.ps1 | Perform the commit operation on the VMs and delete the ASR entities
 9 | asr_postmigration.ps1 | If you plan to assign network security groups to the NICs post-failover, you can use this script to do that. It assigns a NSG to any one NIC in the target VM.
+
+## Next Steps
+
+[Learn more](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) migrating servers to Azure using Azure Site Recovery
