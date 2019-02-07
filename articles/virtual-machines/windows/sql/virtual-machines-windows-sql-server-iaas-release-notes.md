@@ -24,9 +24,9 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 | Service improvements | Details |
 | --- | --- |
-| **New SQL cluster group resource provider** | There is a new resource provider (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups) that defines the metadata about the Windows Failover Cluster. Joining a SQL Server VM to the *SqlVirtualMachineGroups* bootstraps the Windows Failover Cluster service and joins the VM to the cluster.  |
+| **New SQL cluster group resource provider** | A new resource provider (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups) that defines the metadata of the Windows Failover Cluster. Joining a SQL Server VM to the *SqlVirtualMachineGroups* bootstraps the Windows Failover Cluster service and joins the VM to the cluster.  |
 |**Automate setting up an availability group deployment with Azure Quickstart Templates** |It is now possible to create the Windows Failover Cluster, join SQL Server VMs to it, create the listener, and configure the Internal Load Balancer with two Azure Quickstart Templates. For more information, see [Create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM with Azure Quickstart Template](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
-| **Automatic SQL VM Resource Provider Registration** | SQL Server VMs deployed after this month are automatically registered with the new SQL Server resource provider. SQL Server VMs deployed prior to this month will still need to be registered manually. For more information, see [Register existing SQL VM with new resource provider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).|
+| **Automatic SQL VM Resource Provider Registration** | SQL Server VMs deployed after this month are automatically registered with the new SQL Server resource provider. SQL Server VMs deployed prior to this month still need to be manually registered. For more information, see [Register existing SQL VM with new resource provider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).|
 | &nbsp; | &nbsp; |
 
 ### Documentation improvements
@@ -42,7 +42,7 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 | Service improvements | Details |
 | --- | --- |
-| **New SQL VM resource provider** |  There is a new resource provider for SQL Server VMs  (Microsoft.SqlVirtualMachine) that allows for better management of your SQL Server VM. For more information on registering your VM, see [Register existing SQL VM with new resource provider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider). |
+| **New SQL VM resource provider** |  A new resource provider for SQL Server VMs (Microsoft.SqlVirtualMachine) that provides better management of your SQL Server VM. For more information on registering your VM, see [Register existing SQL VM with new resource provider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider). |
 |**Switch licensing model** |You can now switch between the pay-per-usage and bring-your-own license model for your SQL VM using Azure CLI or Powershell. For more information, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md). | 
 | &nbsp; | &nbsp; |
 
@@ -67,6 +67,6 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 **Linux VMs**:
 
 * [Overview of SQL Server on a Linux VM](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
-* [Provision a SQL Server Linux VM](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
+* [Provision a SQL Server Linux Virtual Machine](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 * [FAQ (Linux)](../../linux/sql/sql-server-linux-faq.md)
 * [SQL Server on Linux documentation](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
