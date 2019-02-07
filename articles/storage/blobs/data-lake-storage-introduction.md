@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen2 Introduction
-description: Provides an overview of Azure Data Lake Storage Gen2
+description: Provides an overview of Azure Data Lake Storage Gen2 
 services: storage
 author: jamesbak
 

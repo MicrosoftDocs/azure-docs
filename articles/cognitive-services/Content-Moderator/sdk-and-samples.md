@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Get SDKs and samples for Content Moderator
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

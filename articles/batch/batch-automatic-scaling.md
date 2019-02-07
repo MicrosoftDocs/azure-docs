@@ -372,7 +372,7 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> When you create an autoscale-enabled pool, do not specify the _targetDedicatedComputeNodes_ parameter or the _targetLowPriorityComputeNodes_ parameter on the call to **CreatePool**. Instead, specify the **AutoScaleEnabled** and **AutoScaleFormula** properties on the pool. The values for these properties determine the target number of each type of node. Also, to manually resize an autoscale-enabled pool (for example, with [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), first **disable** automatic scaling on the pool, then resize it.
+> When you create an autoscale-enabled pool, do not specify the _targetDedicatedNodes_ parameter or the _targetLowPriorityNodes_ parameter on the call to **CreatePool**. Instead, specify the **AutoScaleEnabled** and **AutoScaleFormula** properties on the pool. The values for these properties determine the target number of each type of node. Also, to manually resize an autoscale-enabled pool (for example, with [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), first **disable** automatic scaling on the pool, then resize it.
 >
 >
 
@@ -408,7 +408,7 @@ When you enable autoscaling on an existing pool, keep in mind the following poin
   * If you omit either the autoscale formula or evaluation interval, the Batch service continues to use the current value of that setting.
 
 > [!NOTE]
-> If you specified values for the *targetDedicatedComputeNodes* or *targetLowPriorityComputeNodes* parameters of the **CreatePool** method when you created the pool in .NET, or for the comparable parameters in another language, then those values are ignored when the automatic scaling formula is evaluated.
+> If you specified values for the *targetDedicatedNodes* or *targetLowPriorityNodes* parameters of the **CreatePool** method when you created the pool in .NET, or for the comparable parameters in another language, then those values are ignored when the automatic scaling formula is evaluated.
 >
 >
 
