@@ -28,10 +28,10 @@ The term _log analytics_ now primarily applies to the page in the Azure portal u
 ### Log Analytics workspaces
 Workspaces that hold log data in Azure Monitor are still referred to as Log Analytics workspaces. The **Log Analytics** page in the Azure portal has been renamed to **Log Analytics workspaces** and is where you create new workspaces and configure data sources. Monitor your logs with other monitoring data in **Azure Monitor** and configure them in **Log Analytics workspaces**.
 
-## Log query language
+### Log query language
 Azure Monitor uses Data Explorer query language for log queries. Before Azure Data Explorer was released, this language was referred to as Kusto or the Azure Monitor query language. We're now referring to it with the same name as Data Explorer to reinforce that they use the same language. There are minor differences with the Azure Monitor flavor of the language as detailed in [Azure Monitor log query language differences](log-query/data-explorer-difference.md).
 
-## Management solutions
+### Management solutions
 [Management solutions](insights/solutions.md) have been renamed to _monitoring solutions_ which better describes their functionality.
 
 
