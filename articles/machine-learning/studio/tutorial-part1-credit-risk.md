@@ -28,7 +28,7 @@ In this part of the tutorial you:
 > * Upload existing data
 > * Create an experiment
 
-You can then use this experiment to [train models in part 2](tutorial-part1-credit-risk.md) and then [deploy them in part 3](tutorial-part3-credit-risk-deploy.md).
+You can then use this experiment to [train models in part 2](tutorial-part2-train-credit-risk.md) and then [deploy them in part 3](tutorial-part3-credit-risk-deploy.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
