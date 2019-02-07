@@ -15,7 +15,7 @@ ms.author: magoedte
 ---
 
 # Unify multiple Azure Monitor Application Insights resources 
-This article describes how to query and view all your Application Insights application log data in one place, even when they are in different Azure subscriptions, as a replacement for the deprecation of the Application Insights Connector.  
+This article describes how to query and view all your Application Insights application log data in one place, even when they are in different Azure subscriptions, as a replacement for the deprecation of the Application Insights Connector. The number of resources Application Insights resources that you can include in a single query is limited to 100.  
 
 ## Recommended approach to query multiple Application Insights resources 
 Listing multiple Application Insights resources in a query can be cumbersome and difficult to maintain. Instead, you can leverage function to separate the query logic from the applications scoping.  

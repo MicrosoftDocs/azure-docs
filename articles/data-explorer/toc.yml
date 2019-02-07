@@ -8,6 +8,8 @@
   items:
   - name: Create a cluster - Azure portal
     href: create-cluster-database-portal.md
+  - name: Create a cluster - Azure CLI
+    href: create-cluster-database-cli.md
   - name: Ingest data
     items:
     - name: Streaming data - Event Hub
@@ -81,6 +83,8 @@
       href: kqlmagic.md
     - name: Visualize data in Grafana
       href: grafana.md
+    - name: Apache Spark connector
+      href: spark-integration.md
   - name: Troubleshoot
     items:
     - name: Creating a cluster

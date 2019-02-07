@@ -27,7 +27,7 @@ Ansible allows you to automate the deployment and configuration of resources in 
 Sign in to your Linux machine and select one of the following distros for steps on how to install Ansible:
 
 - [CentOS 7.4](#centos-74)
-- [Ubuntu 16.04 LTS](#ubuntu1604-lts)
+- Ubuntu 16.04 LTS
 - [SLES 12 SP2](#sles-12-sp2)
 
 ### CentOS 7.4
