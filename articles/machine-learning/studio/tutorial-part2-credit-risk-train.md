@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ---
 
-# Tutorial: Develop predictive solution for credit risk assessment in Azure Machine Learning Studio
+# Tutorial: Train and evaluate models for credit risk assessment in Azure Machine Learning Studio
 
 In this tutorial, you take an extended look at the process of developing a predictive analytics solution. You develop a simple model in Machine Learning Studio.  You then deploy the model as an Azure Machine Learning web service.  This deployed model can make predictions using new data. This tutorial is **part two of a three-part tutorial series**.
 
@@ -21,12 +21,11 @@ Credit risk assessment is a complex problem, but this tutorial will simplify it 
 
 In this three-part tutorial, you start with publicly available credit risk data.  You then develop and train a predictive model.  Finally you deploy the model as a web service.
 
-In [part one of the tutorial](tutorial-part1-credit-risk.md), you created a Machine Learning Studio workspace and uploaded data.
+In [part one of the tutorial](tutorial-part1-credit-risk.md), you created a Machine Learning Studio workspace, uploaded data, and created an experiment.
 
-In this tutorial you will:
+In this part of the tutorial you will:
  
 > [!div class="checklist"]
-> * Create an experiment
 > * Train multiple models
 > * Score and evaluate the models
 
@@ -39,149 +38,6 @@ In [part three of the tutorial](tutorial-part3-credit-risk-deploy.md), you'll de
 ## Prerequisites
 
 Complete [part one of the tutorial](tutorial-part1-credit-risk.md).
-
-## Create an experiment
-
-The next step in this tutorial is to create an experiment in Machine Learning Studio that uses the dataset you uploaded.  
-
-1. In Studio, click **+NEW** at the bottom of the window.
-1. Select **EXPERIMENT**, and then select "Blank Experiment". 
-
-    ![Create a new experiment](./media/tutorial-part2-credit-risk-train/create-new-experiment.png)
-
-
-1. Select the default experiment name at the top of the canvas and rename it to something meaningful.
-
-    ![Rename experiment](./media/tutorial-part2-credit-risk-train/rename-experiment.png)
-
-   
-   > [!TIP]
-   > It's a good practice to fill in **Summary** and **Description** for the experiment in the **Properties** pane. These properties give you the chance to document the experiment so that anyone who looks at it later will understand your goals and methodology.
-   > 
-   > ![Experiment properties](./media/tutorial-part2-credit-risk-train/experiment-properties.png)
-   > 
-
-1. In the module palette to the left of the experiment canvas, expand **Saved Datasets**.
-1. Find the dataset you created under **My Datasets** and drag it onto the canvas. You can also find the dataset by entering the name in the **Search** box above the palette.  
-
-    ![Add the dataset to the experiment](./media/tutorial-part2-credit-risk-train/add-dataset-to-experiment.png)
-
-
-### Prepare the data
-
-You can view the first 100 rows of the data and some statistical information for the whole dataset: Click the output port of the dataset (the small circle at the bottom) and select **Visualize**.  
-
-Because the data file didn't come with column headings, Studio has provided generic headings (Col1, Col2, *etc.*). Good headings aren't essential to creating a model, but they make it easier to work with the data in the experiment. Also, when you eventually publish this model in a web service, the headings help identify the columns to the user of the service.  
-
-You can add column headings using the [Edit Metadata][edit-metadata] module.
-
-You use the [Edit Metadata][edit-metadata] module to change metadata associated with a dataset. In this case, you use it to provide more friendly names for column headings. 
-
-To use [Edit Metadata][edit-metadata], you first specify which columns to modify (in this case, all of them.) Next, you specify the action to be performed on those columns (in this case, changing column headings.)
-
-1. In the module palette, type "metadata" in the **Search** box. The [Edit Metadata][edit-metadata] appears in the module list.
-
-1. Click and drag the [Edit Metadata][edit-metadata] module onto the canvas and drop it below the dataset you added earlier.
-
-1. Connect the dataset to the [Edit Metadata][edit-metadata]: click the output port of the dataset (the small circle at the bottom of the dataset), drag to the input port of [Edit Metadata][edit-metadata] (the small circle at the top of the module), then release the mouse button. The dataset and module remain connected even if you move either around on the canvas.
-   
-   The experiment should now look something like this:  
-   
-   ![Adding Edit Metadata](./media/tutorial-part2-credit-risk-train/experiment-with-edit-metadata-module.png)
-
-   
-   The red exclamation mark indicates that you haven't set the properties for this module yet.  You'll do that next.
-   
-   > [!TIP]
-   > You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Edit Metadata][edit-metadata] module and type the comment "Add column headings". Click anywhere else on the canvas to close the text box. To display the comment, click the down-arrow on the module.
-   > 
-   > ![Edit Metadata module with comment added](./media/tutorial-part2-credit-risk-train/edit-metadata-with-comment.png)
-
-   > 
-1. Select [Edit Metadata][edit-metadata], and in the **Properties** pane to the right of the canvas, click **Launch column selector**.
-
-1. In the **Select columns** dialog, select all the rows in **Available Columns** and click > to move them to **Selected Columns**.
-   The dialog should look like this:
-
-   ![Column Selector with all columns selected](./media/tutorial-part2-credit-risk-train/select-columns.png)
-
-
-1. Click the **OK** check mark.
-
-1. Back in the **Properties** pane, look for the **New column names** parameter. In this field, enter a list of names for the 21 columns in the dataset, separated by commas and in column order. You can obtain the columns names from the dataset documentation on the UCI website, or for convenience you can copy and paste the following list:  
-   
-       Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
-   
-   The Properties pane looks like this:
-   
-   ![Properties for Edit Metadata](./media/tutorial-part2-credit-risk-train/edit-metadata-properties.png)
-
-> [!TIP]
-> If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas). When it finishes running (a green check mark appears on [Edit Metadata][edit-metadata]), click the output port of the [Edit Metadata][edit-metadata] module, and select **Visualize**. You can view the output of any module in the same way to view the progress of the data through the experiment.
-> 
-> 
-
-### Create training and test datasets
-
-You need some data to train the model and some to test it.
-So in the next step of the experiment, you split the dataset into two separate datasets: one for training our model and one for testing it.
-
-To do this, you use the [Split Data][split] module.  
-
-1. Find the [Split Data][split] module, drag it onto the canvas, and connect it to the [Edit Metadata][edit-metadata] module.
-
-1. By default, the split ratio is 0.5 and the **Randomized split** parameter is set. This means that a random half of the data is output through one port of the [Split Data][split] module, and half through the other. You can adjust these parameters, as well as the **Random seed** parameter, to change the split between training and testing data. For this example, you leave them as-is.
-   
-   > [!TIP]
-   > The property **Fraction of rows in the first output dataset** determines how much of the data is output through the *left* output port. For instance, if you set the ratio to 0.7, then 70% of the data is output through the left port and 30% through the right port.  
-   > 
-   > 
-
-1. Double-click the [Split Data][split] module and enter the comment, "Training/testing data split 50%". 
-
-you can use the outputs of the [Split Data][split] module however you like, but let's choose to use the left output as training data and the right output as testing data.  
-
-As mentioned in the [previous step](tutorial-part1-credit-risk.md#upload), the cost of misclassifying a high credit risk as low is five times higher than the cost of misclassifying a low credit risk as high. To account for this, you generate a new dataset that reflects this cost function. In the new dataset, each high risk example is replicated five times, while each low risk example is not replicated.   
-
-you can do this replication using R code:  
-
-1. Find and drag the [Execute R Script][execute-r-script] module onto the experiment canvas. 
-
-1. Connect the left output port of the [Split Data][split] module to the first input port ("Dataset1") of the [Execute R Script][execute-r-script] module.
-
-1. Double-click the [Execute R Script][execute-r-script] module and enter the comment, "Set cost adjustment".
-
-1. In the **Properties** pane, delete the default text in the **R Script** parameter and enter this script:
-   
-       dataset1 <- maml.mapInputPort(1)
-       data.set<-dataset1[dataset1[,21]==1,]
-       pos<-dataset1[dataset1[,21]==2,]
-       for (i in 1:5) data.set<-rbind(data.set,pos)
-       maml.mapOutputPort("data.set")
-
-    ![R script in the Execute R Script module](./media/tutorial-part2-credit-risk-train/execute-r-script.png)
-
-You need to do this same replication operation for each output of the [Split Data][split] module so that the training and testing data have the same cost adjustment. The easiest way to do this is by duplicating the [Execute R Script][execute-r-script] module you just made and connecting it to the other output port of the [Split Data][split] module.
-
-1. Right-click the [Execute R Script][execute-r-script] module and select **Copy**.
-
-1. Right-click the experiment canvas and select **Paste**.
-
-1. Drag the new module into position, and then connect the right output port of the [Split Data][split] module to the first input port of this new [Execute R Script][execute-r-script] module. 
-
-1. At the bottom of the canvas, click **Run**. 
-
-> [!TIP]
-> The copy of the Execute R Script module contains the same script as the original module. When you copy and paste a module on the canvas, the copy retains all the properties of the original.  
-> 
->
-
-Our experiment now looks something like this:
-
-![Adding Split module and R scripts](./media/tutorial-part2-credit-risk-train/experiment.png)
-
-For more information on using R scripts in your experiments, see [Extend your experiment with R](extend-your-experiment-with-r.md).
-
 
 ## <a name="train"></a>Train multiple models
 
