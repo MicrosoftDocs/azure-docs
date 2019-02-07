@@ -25,9 +25,9 @@ For managing resource groups, see [Manage Azure resource groups by using the Azu
 
 ## Deploy resources to a resource group
 
-After you have created a Resource Manager template, you can use the Azure portal to deploy your Azure resources. For creating a template, see [](),  For deploying a template using the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
+After you have created a Resource Manager template, you can use the Azure portal to deploy your Azure resources. For creating a template, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md). For deploying a template using the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
 
-## Open resources 
+## Open resources
 
 Azure resources are organized by Azure services and by resource groups. The following procedures shows how to open a storage account called **mystorage0207**. The virtual machine resides in a resource group called **mystorage0207rg**.
 
@@ -49,7 +49,7 @@ To open a resource by the service type:
 To open a resource by resource group:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the left pane, select **Resource groups**
+2. In the left pane, select **Resource groups** to list the resource within the group.
 3. Select the resource you want to open. 
 
 ## Manage resources
@@ -63,7 +63,7 @@ The screenshot shows the management options for an Azure virtual machine. You ca
 ## Delete resources
 
 1. Open the resource in the portal. For the steps, see [Open resources](#open-resources).
-2. Select **Delete**. The following screenshot shows a virtual machine.
+2. Select **Delete**. The following screenshot shows the management options for a virtual machine.
 
     ![delete azure resource](./media/manage-resources-portal/manage-azure-resources-portal-delete-resource.png)
 3. Type the name of the resource to confirm the deletion, and then select **Delete**.
@@ -71,7 +71,7 @@ The screenshot shows the management options for an Azure virtual machine. You ca
 ## Move resources
 
 1. Open the resource in the portal. For the steps, see [Open resources](#open-resources).
-2. Select **Move**. The following screenshot shows a storage account.
+2. Select **Move**. The following screenshot shows the management options for a storage account.
 
     ![move azure resource](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
 3. Select **Move to another resource group** or **Moeve to another subscription** depending on your needs.
@@ -83,21 +83,19 @@ For more information, see [Move resources to new resource group or subscription]
 Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource. 
 
 1. Open the resource in the portal. For the steps, see [Open resources](#open-resources).
-2. Select **Locks**. The following screenshot shows a storage account.
+2. Select **Locks**. The following screenshot shows the management options for a storage account.
 
     ![lock azure resource](./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png)
 3. Select **Add**, and then specify the lock properties.
 
 For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
-[!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
-
 ## Tag resources
 
 Tagging helps organizing your resource group and resources logically. 
 
 1. Open the resource in the portal. For the steps, see [Open resources](#open-resources).
-2. Select **Tags**. The following screenshot shows a storage account.
+2. Select **Tags**. The following screenshot shows the management options for a storage account.
 
     ![tag azure resource](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
 3. Specify the tag properties, and then select **Save**.

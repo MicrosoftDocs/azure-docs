@@ -33,7 +33,7 @@ The resource group stores metadata about the resources. Therefore, when you spec
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Resource groups**
 
-    ![add resource group](./media/resource-group-portal/add-resource-group.png)
+    ![add resource group](./media/manage-resource-groups-portal/manage-resource-groups-add-group.png)
 3. Select **Add**.
 4. Enter the following values:
 
@@ -41,34 +41,30 @@ The resource group stores metadata about the resources. Therefore, when you spec
     **Resource group**: Enter a new resource group name. 
     **Region**: Select an Azure location, such as **Central US**.
 
-    ![create resource group](./media/resource-group-portal/create-empty-group.png)
+    ![create resource group](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
 5. Select **Review + Create**
 6. Select **Create**. It takes a few seconds to create a resource group.
 7. Select **Refresh** from the top menu to refresh the resource group list, and then select the newly created resource group to open it. Or select **Notification**(the bell icon) from the top, and then select **Go to resource group** to open the newly created resource group
 
-    ![go to resource group](./media/resource-group-portal/resource-group-add-go-to-resource-group.png)
+    ![go to resource group](./media/manage-resource-groups-portal/manage-resource-group-add-group-go-to-resource-group.png)
 
 ## List resource groups
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. To list the resource groups, select **Resource groups**
 
-    ![browse resource groups](./media/resource-group-portal/browse-groups.png)
+    ![browse resource groups](./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png)
 
 3. To customize the information displayed for the resource groups, select **Edit columns**. The following screenshot shows the addition columns you could add to the display:
-
-    ![customize columns](./media/resource-group-portal/select-columns.png)
 
 ## Delete resource groups
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Resource groups**
-
-    ![list azure resource group](./media/resource-group-portal/add-resource-group.png)
 3. Select the resource group you want to delete.
 4. Select **Delete resource group**.
 
-    ![delete azure resource group](./media/resource-group-portal/delete-group.png)
+    ![delete azure resource group](./media/manage-resource-groups-portal/delete-group.png)
 
 ## Deploy resources to a resource group
 
