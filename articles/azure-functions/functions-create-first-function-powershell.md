@@ -1,6 +1,6 @@
 ---
 title: Create your first PowerShell function in Azure
-description: Learn how to create your first Python function in Azure using the Azure Functions Core Tools and Azure PowerShell (or the Azure CLI).
+description: Learn how to create your first PowerShell function in Azure using the Azure Functions Core Tools and Azure PowerShell (or the Azure CLI).
 services: functions
 keywords:
 author: joeyaiello
@@ -171,7 +171,7 @@ Http Functions:
         HttpTrigger: http://localhost:7071/api/HttpTrigger
 ```
 
-If you open up `http://localhost:7071/api/MyHttpTrigger` using `Invoke-RestMethod`, you should get:
+If you access `http://localhost:7071/api/MyHttpTrigger` using `Invoke-RestMethod`, you should get:
 
 ```output
 PS > Invoke-RestMethod http://localhost:7071/api/MyHttpTrigger
