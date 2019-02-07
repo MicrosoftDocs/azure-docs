@@ -19366,7 +19366,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md",
-      "redirect_url": "/azure/virtual-machines/windows/classic/hpcpack-cluster-node-autogrowshrink",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/hpcpack-cluster-node-autogrowshrink",
       "redirect_document_id": false
     },
     {
