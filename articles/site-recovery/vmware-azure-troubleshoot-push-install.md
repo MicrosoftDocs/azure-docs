@@ -154,9 +154,45 @@ A virtual machine with multiple boot disks is not a [supported configuration](vm
 Before 9.20 version, root partition or volume laid on multiple disks was an unsupported configuration. 
 From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), this configuration is supported. Use latest version for this support.
 
-## GRUB UUID failure (ErrorID: 95320)
+## Enable protection failed as device name mentioned in the GRUB configuration instead of UUID (ErrorID: 95320)
 
-If source machine's GRUB is using device name instead of UUID, then mobility agent installation fails. Reach out to system admin to make the changes to GRUB file.
+**Possible Cause:** </br>
+The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the value for the parameters **root** and **resume** as the actual device names instead of UUID. Site Recovery mandates UUID approach as devices name may change across reboot of the VM as VM may not come-up with the same name on failover resulting in issues. For example: </br>
+
+
+- The following line is from the GRUB file **/boot/grub2/grub.cfg**. <br>
+*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+
+
+- The following line is from the GRUB file **/boot/grub/menu.lst**
+*kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+
+If you observe the bold string above, GRUB has actual device names for the parameters "root" and "resume" instead of UUID.
+ 
+**How to Fix:**<br>
+The device names should be replaced with the corresponding UUID.<br>
+
+
+1. Find the UUID of the device by executing the command "blkid <device name>". For example:<br>
+```
+blkid /dev/sda1
+/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+blkid /dev/sda2 
+/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+```
+
+2. Now replace the device name with its UUID in the format like "root=UUID=<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
+*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+3. Restart the protection again
+
+## Install Mobility Service completed with warning to reboot (ErrorID: 95265 & 95266)
+
+Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded; which can happen only at the time of system reboot.
+
+**Please note** that this is a warning and existing replication will work even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. So, after an update without reboot, apart from filter driver, **benefits of other enhancements and fixes in mobility service gets realized**. So,though recommended, it is not mandatory to reboot after every upgrade. For information on when a reboot is mandatory, click [here](https://aka.ms/v2a_asr_reboot).
+
+> [!TIP]
+>For best practices on scheduling upgrades during your maintenance window, refer [here](https://aka.ms/v2a_asr_upgrade_practice).
 
 ## LVM support from 9.20 version
 

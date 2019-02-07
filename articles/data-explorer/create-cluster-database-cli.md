@@ -43,12 +43,11 @@ az kusto cluster create --name azureclitest --sku D11_v2 --resource-group testrg
 
 Provide the following values
 
-    **Setting** | **Suggested value** | **Field description**
-    |---|---|---|
-    | name | *azureclitest* | The desired name of your cluster.|
-    | sku | *D13_v2* | The SKU which will be used for your cluster. |
-    | resource-group | *testrg* | The resource group name where the cluster would be created. |
-    | | |
+   |**Setting** | **Suggested value** | **Field description**|
+   |---|---|---|
+   | name | *azureclitest* | The desired name of your cluster.|
+   | sku | *D13_v2* | The SKU which will be used for your cluster. |
+   | resource-group | *testrg* | The resource group name where the cluster would be created. |
 
 If you want, there are more optional parameters that you can use, such as the capacity of the cluster etc.
 
@@ -70,14 +69,13 @@ az kusto database create --cluster-name azureclitest --name clidatabase --resour
 
 Provide the following values
 
-    **Setting** | **Suggested value** | **Field description**
-    |---|---|---|
-    | cluster-name | *azureclitest* | The name of your cluster where the should be created.|
-    | name | *clidatabase* | The desired name of your database.|
-    | resource-group | *testrg* | The resource group name where the cluster would be created. |
-    | soft-delete-period | *3650:00:00:00* | Amount of time that data should be kept so it is available to query. |
-    | hot-cache-period | *3650:00:00:00* | Amount of time that data should be kept in cache. |
-    | | |
+   |**Setting** | **Suggested value** | **Field description**|
+   |---|---|---|
+   | cluster-name | *azureclitest* | The name of your cluster where the should be created.|
+   | name | *clidatabase* | The desired name of your database.|
+   | resource-group | *testrg* | The resource group name where the cluster would be created. |
+   | soft-delete-period | *3650:00:00:00* | Amount of time that data should be kept so it is available to query. |
+   | hot-cache-period | *3650:00:00:00* | Amount of time that data should be kept in cache. |
 
 You can see the database you created by running
 
