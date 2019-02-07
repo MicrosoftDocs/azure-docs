@@ -12,27 +12,7 @@ ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want and in-depth explanation of how to create and locate anchors using Azure Spatial Anchors.
 ---
-# Concept: Create and locate anchors using Azure Spatial Anchors
-
-## Getting started
-
-Azure Spatial Anchors allow you share anchors in the world between different devices.
-
-It has been tuned to work well with your choice of development environment.
-
-- C# on Unity
-    - For HoloLens
-    - For iOS
-    - For Android
-- Objective-C on iOS
-- Swift on iOS
-- Java on Android
-- C++/NDK on Android
-- C++/WinRT on HoloLens
-
-## Initializing the session
-
-The main entry point for the library is the class representing your session. Typically you'll declare a field in the class that manages your view and native AR session.
+[!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
 In CSharp:
 
@@ -74,13 +54,7 @@ In C++:
     cloudSession_ = std::make_shared<CloudSpatialAnchorSession>();
 ```
 
-## Setting up authentication
-
-To access the service, you need to provide an account key, access token, or AAD auth token.
-
-### Account Keys
-
-Account Keys are a credential that allows your application to authenticate with the Azure Spatial Anchors service. The intended purpose of Account Keys is to help you get started quickly. Specially during the development phase of your application's integration with Azure Spatial Anchors. As such, you can use Account Keys by embedding them in your client applications during development. As you progress beyond development, it's highly recommended to move to an authentication mechanism that is production-level, supported by Access Tokens, or AAD-based user authentication. To get an Account Key for development, visit your Azure Spatial Anchors account, and navigate to the "Keys" tab.
+[!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
 
 In CSharp:
 
@@ -113,9 +87,7 @@ In C++:
     configuration->AccountKey(R"(MyAccountKey)");
 ```
 
-### Access Tokens
-
-Access Tokens are a more robust method to authenticate with Azure Spatial Anchors. Specially as you prepare your application for a production deployment. The summary of this approach is to set up a backend service that your client application can securely authenticate with. Your backend service interfaces with AAD at runtime and with the Azure Spatial Anchors STS service to request an Access Token. This token is then delivered to the client application and used in the SDK to authenticate with Azure Spatial Anchors.
+[!INCLUDE [Access Tokens](../../../includes/spatial-anchors-create-locate-anchors-access-tokens.md)]
 
 In CSharp:
 
@@ -148,9 +120,7 @@ In C++:
     configuration->AccessToken(R"(MyAccessToken)");
 ```
 
-If an access token isn't set, you must handle the TokenRequired event, or implement the tokenRequired method on the delegate protocol.
-
-You can handle the event synchronously by setting the property on the event arguments.
+[!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
 
 In CSharp:
 
@@ -193,7 +163,7 @@ In C++:
     });
 ```
 
-If you need to execute asynchronous work in your handler, you can defer setting the token by requesting a deferral object and then completing it, as in the following example.
+[!INCLUDE [Asynchronous Tokens](../../../includes/spatial-anchors-create-locate-anchors-asynchronous-tokens.md)]
 
 In CSharp:
 
@@ -258,9 +228,7 @@ In C++:
     });
 ```
 
-### AAD User Authentication
-
-Azure Spatial Anchors also allows applications to authenticate with user AAD tokens. For example, you can use AAD tokens to integrate with ASA. If an Enterprise maintains users in AAD, you can supply a user AAD token in the Azure Spatial Anchors SDK. Doing so allows you to authenticate directly to the ASA service for an account that's part of the same AAD tenant.
+[!INCLUDE [AAD Tokens](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens.md)]
 
 In CSharp:
 
@@ -293,9 +261,7 @@ In C++:
     configuration->AuthenticationToken(R"(MyAuthenticationToken)");
 ```
 
-Like with access tokens, if an AAD token isn't set, you must handle the TokenRequired event, or implement the tokenRequired method on the delegate protocol.
-
-You can handle the event synchronously by setting the property on the event arguments.
+[!INCLUDE [AAD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens-event.md)]
 
 In CSharp:
 
@@ -338,7 +304,7 @@ In C++:
     });
 ```
 
-If you need to execute asynchronous work in your handler, you can defer setting the token by requesting a deferral object and then completing it, as in the following example.
+[!INCLUDE [Asynchronous Tokens](../../../includes/spatial-anchors-create-locate-anchors-asynchronous-tokens.md)]
 
 In CSharp:
 
@@ -403,14 +369,7 @@ In C++:
     });
 ```
 
-## Setting up the library
-
-Invoke Start() to enable your session to process environment data.
-
-To handle events raised by your session:
-
-- In C#, Java and C++, attach an event handler.
-- In Objective-C and Swift, set the `delegate` property of your session to an object, like your view. This object must implement the SSCCloudSpatialAnchorSessionDelegate protocol.
+[!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup.md)]
 
 In CSharp:
 
@@ -460,9 +419,7 @@ In C++:
     cloudSession_->Start();
 ```
 
-## Providing native frames to the library
-
-The spatial anchor session works by mapping the space around the user. Doing so helps to determine where anchors are located. On non-HoloLens platforms, you should provide frames from your platform's AR library.
+[!INCLUDE [Frames](../../../includes/spatial-anchors-create-locate-anchors-frames.md)]
 
 In CSharp:
 
@@ -510,12 +467,7 @@ In C++:
     cloudSession_->ProcessFrame(ar_frame_);
 ```
 
-## Providing feedback to the user
-
-You can write code to handle the session updated event. Doing so, allows you to:
-
-- Provide feedback to the user as the device moves and the session updates its environment understanding.
-- Determine at what point there's enough tracked spatial data to create or locate spatial anchors - we'll learn more at a later step.
+[!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
 In CSharp:
 
@@ -581,9 +533,7 @@ In C++:
     });
 ```
 
-## Creating a cloud spatial anchor
-
-To create a cloud anchor, you first create an anchor in your platform's AR system, and then create a cloud counterpart. You use the CreateAnchorAsync method.
+[!INCLUDE [Creating](../../../includes/spatial-anchors-create-locate-anchors-creating.md)]
 
 In CSharp:
 
@@ -782,7 +732,7 @@ In C++:
     });
 ```
 
-It's a good idea to make sure that there's sufficient environment data captured before trying to create a new cloud anchor.
+[!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
 In CSharp:
 
@@ -865,9 +815,7 @@ In C++:
     });
 ```
 
-## Setting anchor properties
-
-You may choose to add some properties when saving your cloud anchors. Like the type of object being saved, or basic properties like whether it should be enabled for interaction. Doing so can be useful upon discovery: you can immediately render the object for the user, for example a picture frame with blank content. Then, a different download in the background gets additional state details, for example, the picture to display in the frame.
+[!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
 In CSharp:
 
@@ -926,9 +874,7 @@ In C++:
     });
 ```
 
-## Updating properties on an existing cloud spatial anchor
-
-To update the properties on an anchor, you use the UpdateAnchorPropertiesAsync method.
+[!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
 In CSharp:
 
@@ -1005,9 +951,7 @@ In C++:
     });
 ```
 
-You can't update the location of an anchor once it has been created on the service - you must create a new anchor and delete the old one to track a new position.
-
-If you don't need to locate an anchor to update its properties, you can use the GetAnchorPropertiesAsync method, which returns a CloudSpatialAnchor object with properties.
+[!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
 
 In CSharp:
 
@@ -1104,10 +1048,7 @@ In C++:
     });
 ```
 
-## Setting anchor expiration
-
-It's also possible to configure your anchor to expire automatically at a given date in the future. When an anchor expires, it will no longer be located or updated. Expiration can only be set when the anchor is created. Updating expiration afterwards isn't possible. So, you can set its expiration before saving it to the cloud.
-
+[!INCLUDE [Expiration](../../../includes/spatial-anchors-create-locate-anchors-expiration.md)]
 
 In CSharp:
 
@@ -1151,11 +1092,7 @@ In C++:
     cloudAnchor->Expiration(oneWeekFromNowUnixEpochTimeMs);
 ```
 
-## Locating a cloud spatial anchor
-
-To locate cloud spatial anchors, you'll need to know their identifiers. Anchor IDs can be stored in your application’s backend service, and accessible to all devices that can properly authenticate to it. For an example of this see [Tutorial: Share Spatial Anchors across devices](../tutorials/tutorial-share-anchors-across-devices.md).
-
-Instantiate an AnchorLocateCriteria object, set the identifiers you're looking for, and invoke the CreateWatcher method on the session by providing your AnchorLocateCriteria.
+[!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
 In CSharp:
 
@@ -1197,7 +1134,7 @@ In C++:
     auto cloudSpatialAnchorWatcher = cloudSession_->CreateWatcher(criteria);
 ```
 
-After your watcher is created, the AnchorLocated event will fire for every anchor requested. This event fires when an anchor is located, or if the anchor can't be located. If this situation happens, the reason will be stated in the status. After all anchors for a watcher are processed, found or not found, then the LocateAnchorsCompleted event will fire.
+[!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
 
 In CSharp:
 
@@ -1355,9 +1292,7 @@ In C++:
     });
 ```
 
-## Deleting anchors
-
-To delete a cloud spatial anchor, you use the DeleteAnchorAsync method.
+[!INCLUDE [Deleting](../../../includes/spatial-anchors-create-locate-anchors-deleting.md)]
 
 In CSharp:
 
@@ -1397,9 +1332,7 @@ In C++:
     });
 ```
 
-## Pausing, resetting, or stopping the session
-
-To stop the session temporarily, you can invoke the Stop method. Doing so will stop any watchers and environment processing, even if you invoke ProcessFrame(). You can then invoke Start() to resume processing. When resuming, environment data already captured in the session is maintained.
+[!INCLUDE [Stopping](../../../includes/spatial-anchors-create-locate-anchors-stopping.md)]
 
 In CSharp:
 
@@ -1431,7 +1364,7 @@ In C++:
     cloudSession_->Stop();
 ```
 
-To reset the environment data that has been captured in your session, you can invoke the Reset method.
+[!INCLUDE [Resetting](../../../includes/spatial-anchors-create-locate-anchors-resetting.md)]
 
 In CSharp:
 
@@ -1463,7 +1396,7 @@ In C++:
     cloudSession_->Reset();
 ```
 
-To clean up properly after a session, invoke the Dispose() method in C#, close() on java, or release all references in other languages.
+[!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup.md)]
 
 In CSharp:
 
