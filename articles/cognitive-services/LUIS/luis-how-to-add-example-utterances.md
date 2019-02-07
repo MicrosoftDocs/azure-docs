@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 02/07/2019
 ms.author: diberry
 ---
 
@@ -30,21 +30,17 @@ Certain entity types, such as prebuilt entities and regular expression entities,
 In the following procedure, you create and tag a custom entity within the following utterance on the intent page:
 
 ```text
-Does John Smith work in Seattle?
+This is my resume for the new accounting position.
 ```
 
-1. Select `Seattle` in the utterance to label it as a simple entity.
+1. Select `accounting` in the utterance to label it as a simple entity. In the entity drop-down box that appears, you can either select an existing entity or add a new entity. To add a new entity, type its name `Job` in the text box, and then select **Create new entity**.
 
-    [![Screenshot of selecting text in utterance for simple entity](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)
+    ![Screenshot of entering entity name](./media/luis-how-to-add-example-utterances/hr-create-simple-2.png)
 
     > [!NOTE]
     > When selecting words to tag as entities:
     > * For a single word, just select it. 
     > * For a set of two or more words, select at the beginning and then at the end of the set.
-
-1. In the entity drop-down box that appears, you can either select an existing entity or add a new entity. To add a new entity, type its name in the text box, and then select **Create new entity**. 
-
-    ![Screenshot of entering entity name](./media/luis-how-to-add-example-utterances/hr-create-simple-2.png)
 
 1. In the **What type of entity do you want to create?** pop-up box, verify the entity name and select the **Simple** entity type, and then select **Done**.
 
@@ -57,8 +53,6 @@ List entities represent a fixed, closed set (exact text matches) of related word
 For a company's department list, you can have normalized values: `Accounting` and `Human Resources`. Each normalized name has synonyms. For a department, these synonyms can include any department acronyms, numbers, or slang. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
 
 1. In the example utterance list, for a specific utterance, select the word or phrase that you want in the new list. Then enter the name of the list in the top textbox, then select **Create new entity**.   
-
-    ![Screenshot of entering list entity name](./media/luis-how-to-add-example-utterances/hr-create-list-1.png)
 
 
 1. In the **What type of entity do you want to create?** pop-up box, name the entity and select **List** as the type. Add synonyms of this list item, then select **Done**. 
@@ -77,15 +71,11 @@ The employee name, John Smith, is a prebuilt [personName](luis-reference-prebuil
 
 1. To wrap the individual entities into a composite, select the **first** labeled entity (left-most) in the utterance for the composite entity. A drop-down list appears showing the choices for this selection.
 
-1. Select **Wrap composite entity** from the drop-down list. 
-
-    ![Screenshot of Select "Wrap in composite entity"](./media/luis-how-to-add-example-utterances/hr-create-composite-1.png)
+1. Select **Wrap in composite entity** from the drop-down list. 
 
 1. Select the last word of the composite entity (right-most). Notice a green line follows the composite entity.
 
 1. Enter the composite entity name in the drop-down list.
-
-    ![Screenshot of enter the composite entity name in the drop-down list](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     When you wrap the entities correctly, a green line is under the entire phrase.
 
@@ -105,15 +95,11 @@ In the utterance `Move John Smith from Seattle to Cairo`, Seattle is the origin 
 
 1. On the Intent page, in the utterance, select `Seattle`, then enter the entity name `Location`, and then select Enter on the keyboard.
 
-    ![Screenshot of Create Hierarchical Entity Labeling dialog box](./media/luis-how-to-add-example-utterances/hr-hier-1.png)
-
 1. In the **What type of entity do you want to create?** pop-up box, select _hierarchical_ for **Entity type**, then add `Origin` and `Destination` as children, and then select **Done**.
 
     ![Screenshot of Intents details page, with ToLocation entity highlighted](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
 
 1. The word in the utterance was labeled with the parent hierarchical entity. You need to assign the word to a child entity. Return to the utterance on the intent detail page. Select the word, then from the drop-down list choose the entity name you created, and follow the menu to the right to choose the correct child entity.
-
-    ![Screenshot of Intents details page, where you need to assign the word to a child entity](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >Child entity names must be unique across all entities in a single app. Two different hierarchical entities may not contain child entities with the same name. 
@@ -129,8 +115,6 @@ This difference is visually represented in the LUIS portal with a red underline 
 Select the words that are underlined in red in the utterance. 
 
 The entity box displays the **Entity status** with a red exclamation mark if there is a prediction discrepancy. To see the Entity status with information about the difference between labeled and predicted entities, select **Entity status** then select the item to the right.
-
-![Screenshot of selecting correct item to fix prediction discrepancy](./media/luis-how-to-add-example-utterances/entity-status.png)
 
 The red-line can appear at any of the following times:
 
@@ -158,7 +142,6 @@ You can remove machine-learned entity labels from an utterance on the Intent pag
 
 To remove a machine-learned entity label from an utterance, select the entity in the utterance. Then select **Remove Label** in the entity drop-down box that appears.
 
-![Screenshot of Intents details page, with Remove Label highlighted](./media/luis-how-to-add-example-utterances/remove-label.png) 
 
 ### Add prebuilt entity label
 
