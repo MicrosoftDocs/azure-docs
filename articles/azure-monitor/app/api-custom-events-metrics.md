@@ -771,7 +771,7 @@ You can attach properties and measurements to your events (and also to metrics, 
 
 *Properties* are string values that you can use to filter your telemetry in the usage reports. For example, if your app provides several games, you can attach the name of the game to each event so that you can see which games are more popular.
 
-There's a limit of 8192 on the string length. (If you want to send large chunks of data, use the message parameter of [TrackTrace](#track-trace).)
+There's a limit of 8192 on the string length. (If you want to send large chunks of data, use the message parameter of TrackTrace.)
 
 *Metrics* are numeric values that can be presented graphically. For example, you might want to see if there's a gradual increase in the scores that your gamers achieve. The graphs can be segmented by the properties that are sent with the event, so that you can get separate or stacked graphs for different games.
 
@@ -989,7 +989,7 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 Individual telemetry calls can override the default values in their property dictionaries.
 
-*For JavaScript web clients*, [use JavaScript telemetry initializers](#js-initializer).
+*For JavaScript web clients*, use JavaScript telemetry initializers.
 
 *To add properties to all telemetry*, including the data from standard collection modules, [implement `ITelemetryInitializer`](../../azure-monitor/app/api-filtering-sampling.md#add-properties).
 
