@@ -64,7 +64,7 @@ You can set quotas per user by using the following steps:
 2. Select **Quota per user: unlimited** on the toolbar. 
 3. On the **Quota per user** page, select one of the following options: 
     1. **None**. Users can use their virtual machines only during scheduled time or when lab owner turns on virtual machines for them.
-    2. **Unlimiited (default)**. Users can use their virtual machines without any time restrictions.
+    2. **Unlimited (default)**. Users can use their virtual machines without any time restrictions.
     3. **Specify number of hours per user**. Users can use their virtual machines for the set number of hours (specified below) in addition to the scheduled time. If you select this option, enter the **number of hours** in the text box. 
 
         ![Number of hours per user](../media/how-to-configure-student-usage/number-of-hours-per-user.png)

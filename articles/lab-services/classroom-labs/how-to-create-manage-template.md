@@ -88,7 +88,7 @@ Use the following steps to set title and description for the first time, and upd
 1. In the **Template** section, move your mouse over **name** of the template or **description** of the template, and select it. 
 2. Enter the **new name** or **new description** for the template, and press **ENTER**.
 
-    ![Templae name and description](../media/how-to-create-manage-template/template-name-description.png)
+    ![Template name and description](../media/how-to-create-manage-template/template-name-description.png)
 
 ## Set up or update a template VM
  You connect to the template VM and install any required software on it before making it available to your students. Use the following steps to set up a template VM for the first time or to update the VM. 

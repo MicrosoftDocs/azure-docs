@@ -1,6 +1,6 @@
 ---
 title: Manage classroom labs in Azure Lab Services | Microsoft Docs
-description: Learn how to create and configure a classroom lab, view all the classroom labs, shre the registration link with a lab user, or delete a lab. 
+description: Learn how to create and configure a classroom lab, view all the classroom labs, share the registration link with a lab user, or delete a lab. 
 services: lab-services
 documentationcenter: na
 author: spelluru
