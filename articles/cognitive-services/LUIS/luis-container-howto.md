@@ -248,7 +248,7 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 
 The container provides REST-based query prediction endpoint APIs. Endpoints for published (staging or production) apps have a _different_ route than endpoints for trained apps. 
 
-Use the host, https://localhost:5000, for container APIs. 
+Use the host, `https://localhost:5000`, for container APIs. 
 
 |Package type|Method|Route|Query parameters|
 |--|--|--|--|
