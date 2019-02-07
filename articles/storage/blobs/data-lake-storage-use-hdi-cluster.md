@@ -203,7 +203,6 @@ For more information, see:
 
 * [The ABFS Hadoop Filesystem driver for Azure Data Lake Storage Gen2](data-lake-storage-abfs-driver.md)
 * [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
-* [Set up HDInsight clusters using Azure Data Lake Storage Gen2 with Hadoop, Spark, Kafka, and more](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 * [Ingest data into Azure Data Lake Storage Gen2 using distcp](data-lake-storage-use-distcp.md)
 
 [powershell-install]: /powershell/azure/install-az-ps

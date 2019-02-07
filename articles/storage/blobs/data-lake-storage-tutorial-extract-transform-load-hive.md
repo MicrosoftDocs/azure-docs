@@ -26,11 +26,13 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* **A Linux-based Hadoop cluster on HDInsight**: 
+* **An Azure Data Lake Storage Gen2 storage account that is configured for HDInsight**
 
-   To create a new Linux-based HDInsight cluster, see [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). 
+    See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2).
 
-   For guidance on using an Azure Data Lake Storage Gen2 endpoint, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2).
+* **A Linux-based Hadoop cluster on HDInsight**
+
+    See [Quickstart: Get started with Apache Hadoop and Apache Hive in Azure HDInsight using the Azure portal](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
 
 * **Azure SQL Database**: You use an Azure SQL database as a destination data store. If you don't have a SQL database, see [Create an Azure SQL database in the Azure portal](../../sql-database/sql-database-get-started.md).
 
