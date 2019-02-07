@@ -102,8 +102,7 @@ Run the following PowerShell script to install these modules on your development
     Install-Module -Name AzureRm.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2.4.0 -Force
-
+    Install-Module AzureRM -RequiredVersion 2.4.0
     Install-Module -Name AzureStack -RequiredVersion 1.7.0
     ```
 
