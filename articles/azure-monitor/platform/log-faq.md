@@ -46,7 +46,7 @@ A: List view is not available in the new Logs. There is an arrow to the left of 
 
 ### Q. After running a query, a list of suggested filters are available. How can I see filters? 
 
-A: Click ‘Filters’ on the left pan to see a preview of the new Filters implementation. This is now based on your full result set instead of being limited by the 10,000 record limit of the UI. This is currently a list of the most popular filters and the 10 most common values for each filter. 
+A: Click ‘Filters’ on the left pane to see a preview of the new Filters implementation. This is now based on your full result set instead of being limited by the 10,000 record limit of the UI. This is currently a list of the most popular filters and the 10 most common values for each filter. 
 
 ### Q. Why am I getting the error: "Register resource provider 'Microsoft.Insights' for this subscription to enable this query" in Logs, after drilling-in from VM? 
 
