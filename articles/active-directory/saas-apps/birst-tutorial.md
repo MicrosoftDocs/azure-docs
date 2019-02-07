@@ -98,7 +98,7 @@ To configure Azure AD single sign-on with Birst Agile Business Analytics, perfor
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![Birst Agile Business Analytics Domain and URLs single sign-on information](common/sp-identifier.png)
+    ![Birst Agile Business Analytics Domain and URLs single sign-on information](common/sp-intiated.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
 
@@ -111,7 +111,7 @@ To configure Azure AD single sign-on with Birst Agile Business Analytics, perfor
 	> [!NOTE]
 	> This value is not real. Update the value with the actual Sign-On URL. Contact [Birst Agile Business Analytics Client support team](mailto:info@birst.com) to get the value.
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
