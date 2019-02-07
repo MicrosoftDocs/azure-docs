@@ -103,7 +103,7 @@ To configure Azure AD single sign-on with BC in the Cloud, perform the following
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://app.bcinthecloud.com/router/loginSaml/<customerid>`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    b. In the **Identifier (Entity ID)** text box, type the URL:
     `https://app.bcinthecloud.com`
 
 	> [!NOTE]
