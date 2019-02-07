@@ -7,7 +7,7 @@ author: heatherbshapiro
 ms.author: hshapiro
 ms.reviewer: sgilley
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
@@ -32,18 +32,14 @@ In this article, you learn how to use various compute targets for model training
 Azure Machine Learning service has varying support across different compute targets. A typical model development lifecycle starts with dev/experimentation on a small amount of data. At this stage, we recommend using a local environment. For example, your local computer or a cloud-based VM. As you scale up your training on larger data sets, or do distributed training, we recommend using Azure Machine Learning Compute to create a single- or multi-node cluster that autoscales each time you submit a run. You can also attach your own compute resource, although support for various scenarios may vary as detailed below:
 
 
-|Compute target for training| GPU acceleration | Automated<br/> hyperparameter tuning | Automated</br> machine learning | Pipeline friendly|
+|Compute target for training| GPU acceleration | Automated<br/> hyperparameter tuning | Automated</br> machine learning | Azure Machine Learning Pipelines |
 |----|:----:|:----:|:----:|:----:|
 |[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning Compute](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
 |[Remote VM](#vm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓[*](#pipeline-only) |
-|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Databricks](how-to-create-your-first-pipeline.md#databricks)| &nbsp; | &nbsp; | ✓ | ✓ |
+|[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
-
-<a id="pipeline-only"></a>__*__ Azure Databricks and Azure Data Lake Analytics can __only__ be used in a pipeline. 
-
->You create compute targets for machine learning pipelines as shown in this article, but you use these computes in pipeline steps instead of the methods listed here.  Also, only some pipeline steps use the run configuration described in this article.  For more information about using compute targets in a pipeline see [Create and run a machine learning pipeline](how-to-create-your-first-pipeline.md).
 
 ## What's a run configuration?
 
@@ -153,7 +149,7 @@ You can use a system-built conda environment, an already existing Python environ
 
 Use the Azure Data Science Virtual Machine (DSVM)  as the Azure VM of choice for this scenario. This VM is a pre-configured data science and AI development environment in Azure. The VM offers a curated choice of tools and frameworks for full-lifecycle machine learning development. For more information on how to use the DSVM with Azure Machine Learning, see [Configure a development environment](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-environment#dsvm).
 
-1. **Create**: Create a DSVM before using it to train your model. To create this resource, see [Provision the Data Science Virtual Machine for Linux (Ubuntu)](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+1. **Create**: Create a DSVM before using it to train your model. To create this resource, see [Provision the Data Science Virtual Machine for Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
 
     > [!WARNING]
     > Azure Machine Learning only supports virtual machines that run Ubuntu. When you create a VM or choose an existing VM, you must select a VM that uses Ubuntu.
@@ -379,5 +375,5 @@ See these notebooks for examples of training with various compute targets:
 
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
-* View the [RunConfiguration class](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK reference.
+* View the [RunConfiguration class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK reference.
 * [Use Azure Machine Learning service with Azure Virtual Networks](how-to-enable-virtual-network.md)

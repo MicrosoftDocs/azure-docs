@@ -4,7 +4,7 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: The LUIS container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings.   
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
@@ -13,9 +13,9 @@ ms.date: 01/22/2019
 ms.author: diberry 
 ---
 
-# Configure Language Understanding docker containers 
+# Configure Language Understanding Docker containers 
 
-The Language Understanding (LUIS) container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the input [mount settings](#mount-settings) and the billing settings. 
+The **Language Understanding** (LUIS) container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the input [mount settings](#mount-settings) and the billing settings. 
 
 Container settings are [hierarchical](#hierarchical-settings) and can be set with [environment variables](#environment-variable-settings) or docker [command-line arguments](#command-line-argument-settings).
 

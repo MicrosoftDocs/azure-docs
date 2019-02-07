@@ -18,7 +18,7 @@ ms.author: dugill
 
 ---
 # Use Resource Manager authentication API to access subscriptions
-## Introduction
+
 If you are a software developer who needs to create an app that manages a customer's Azure resources, this article shows you how to authenticate with the Azure Resource Manager APIs and gain access to resources in other subscriptions.
 
 Your app can access the Resource Manager APIs in couple of ways:
@@ -28,7 +28,10 @@ Your app can access the Resource Manager APIs in couple of ways:
 
 This article provides step-by-step instructions to create an app that employs both these authorization methods. It shows how to perform each step with REST API or C#. The complete ASP.NET MVC application is available at [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## What the web app does
+
 The web app:
 
 1. Signs-in an Azure user.
@@ -70,7 +73,7 @@ Because your app accesses other subscription, you must configure it as a multi-t
 The following example shows how to register the app by using Azure PowerShell. You must have the latest version (August 2016) of Azure PowerShell for this command to work.
 
 ```azurepowershell-interactive
-$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
 ```
 
 To sign in as the AD application, you need the application ID and password. To see the application ID that is returned from the previous command, use:

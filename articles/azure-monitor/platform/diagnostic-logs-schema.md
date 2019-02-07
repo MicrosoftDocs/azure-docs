@@ -70,7 +70,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 | Service Bus |[Azure Service Bus diagnostic logs](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database diagnostic logging](../../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[Job diagnostic logs](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Traffic Manager | Schema not available. |
+| Traffic Manager | [Traffic Manager Log schema](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtual Networks | Schema not available. |
 | Virtual Network Gateways | Schema not available. |
 

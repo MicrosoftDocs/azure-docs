@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/09/2018
 ms.author: artemuwka
-ms.component: common
+ms.subservice: common
 ---
 # Transfer data with the AzCopy v10 (Preview)
 

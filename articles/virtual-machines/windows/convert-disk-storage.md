@@ -3,7 +3,7 @@ title: Convert Azure managed disks storage from standard to premium, and vice ve
 description: How to convert Azure managed disks from standard to premium, and vice versa, by using Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: ''
-author: ramankum
+author: ramankumarlive
 manager: kavithag
 editor: ''
 tags: azure-resource-manager
@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
-ms.component: disks
+ms.subservice: disks
 ---
 
 # Update the storage type of a managed disk

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 02/01/2019
 ms.author: jingwang
 
 ---
@@ -51,7 +51,7 @@ The following properties are supported for the Azure SQL Database Managed Instan
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **SqlServer**. | Yes. |
-| connectionString |This property specifies the connectionString information that's needed to connect to the managed instance by using either SQL authentication or Windows authentication. For more information, see the following examples. Select **SecureString** to store the connectionString information securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes. |
+| connectionString |This property specifies the connectionString information that's needed to connect to the managed instance by using either SQL authentication or Windows authentication. For more information, see the following examples. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password in Azure Key Vault，and if it's SQL authentication pull the `password` configuration out of the connection string. See the JSON example below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. |Yes. |
 | userName |This property specifies a user name if you use Windows authentication. An example is **domainname\\username**. |No. |
 | password |This property specifies a password for the user account you specified for the user name. Select **SecureString** to store the connectionString information securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |No. |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. Provision the self-hosted integration runtime in the same virtual network as your managed instance. |Yes. |
@@ -63,7 +63,7 @@ The following properties are supported for the Azure SQL Database Managed Instan
 
 ```json
 {
-    "name": "SqlServerLinkedService",
+    "name": "AzureSqlMILinkedService",
     "properties": {
         "type": "SqlServer",
         "typeProperties": {
@@ -80,11 +80,40 @@ The following properties are supported for the Azure SQL Database Managed Instan
 }
 ```
 
-**Example 2: Use Windows authentication**
+**Example 2: Use SQL authentication with password in Azure Key Vault**
 
 ```json
 {
-    "name": "SqlServerLinkedService",
+    "name": "AzureSqlMILinkedService",
+    "properties": {
+        "type": "SqlServer",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example 3: Use Windows authentication**
+
+```json
+{
+    "name": "AzureSqlMILinkedService",
     "properties": {
         "type": "SqlServer",
         "typeProperties": {
@@ -92,17 +121,17 @@ The following properties are supported for the Azure SQL Database Managed Instan
                 "type": "SecureString",
                 "value": "Data Source=<servername>\\<instance name if using named instance>;Initial Catalog=<databasename>;Integrated Security=True;"
             },
-             "userName": "<domain\\username>",
-             "password": {
+            "userName": "<domain\\username>",
+            "password": {
                 "type": "SecureString",
                 "value": "<password>"
-             }
+            }
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
             "type": "IntegrationRuntimeReference"
         }
-     }
+    }
 }
 ```
 
@@ -121,7 +150,7 @@ To copy data to and from Azure SQL Database Managed Instance, set the type prope
 
 ```json
 {
-    "name": "SQLServerDataset",
+    "name": "AzureSqlMIDataset",
     "properties":
     {
         "type": "SqlServerTable",
@@ -161,7 +190,7 @@ Note the following points:
 ```json
 "activities":[
     {
-        "name": "CopyFromSQLServer",
+        "name": "CopyFromAzureSqlMI",
         "type": "Copy",
         "inputs": [
             {
@@ -193,7 +222,7 @@ Note the following points:
 ```json
 "activities":[
     {
-        "name": "CopyFromSQLServer",
+        "name": "CopyFromAzureSqlMI",
         "type": "Copy",
         "inputs": [
             {
@@ -235,9 +264,9 @@ CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
 AS
 SET NOCOUNT ON;
 BEGIN
-     select *
-     from dbo.UnitTestSrcTable
-     where dbo.UnitTestSrcTable.stringData != stringData
+    select *
+    from dbo.UnitTestSrcTable
+    where dbo.UnitTestSrcTable.stringData != stringData
     and dbo.UnitTestSrcTable.identifier != identifier
 END
 GO
@@ -265,7 +294,7 @@ To copy data to Azure SQL Database Managed Instance, set the sink type in the co
 ```json
 "activities":[
     {
-        "name": "CopyToSQLServer",
+        "name": "CopyToAzureSqlMI",
         "type": "Copy",
         "inputs": [
             {
@@ -299,7 +328,7 @@ Learn more details from [Invoke a stored procedure from a SQL sink](#invoke-a-st
 ```json
 "activities":[
     {
-        "name": "CopyToSQLServer",
+        "name": "CopyToAzureSqlMI",
         "type": "Copy",
         "inputs": [
             {
@@ -340,8 +369,8 @@ The following example copies data from a source table with no identity column to
 ```sql
 create table dbo.SourceTbl
 (
-       name varchar(100),
-       age int
+    name varchar(100),
+    age int
 )
 ```
 
@@ -350,9 +379,9 @@ create table dbo.SourceTbl
 ```sql
 create table dbo.TargetTbl
 (
-       identifier int identity(1,1),
-       name varchar(100),
-       age int
+    identifier int identity(1,1),
+    name varchar(100),
+    age int
 )
 ```
 
@@ -412,7 +441,7 @@ The following sample shows how to use a stored procedure to do an upsert into a 
 
 ```json
 {
-    "name": "SQLServerDataset",
+    "name": "AzureSqlMIDataset",
     "properties":
     {
         "type": "SqlServerTable",

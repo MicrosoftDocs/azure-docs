@@ -8,10 +8,14 @@
   items:
   - name: Create a cluster - Azure portal
     href: create-cluster-database-portal.md
+  - name: Create a cluster - Azure CLI
+    href: create-cluster-database-cli.md
   - name: Ingest data
     items:
     - name: Streaming data - Event Hub
       href: ingest-data-event-hub.md
+    - name: Streaming data - Event Grid
+      href: ingest-data-event-grid.md
     - name: Streaming data - Kafka
       href: ingest-data-kafka.md
     - name: Batching data - Python
@@ -38,6 +42,8 @@
       href: power-bi-sql-query.md
 - name: Tutorials
   items:
+  - name: Ingest data without using code
+    href: ingest-data-no-code.md  
   - name: Visualize data in Power BI
     href: visualize-power-bi.md  
 - name: Concepts
@@ -63,8 +69,10 @@
       href: manage-database-permissions.md
     - name: Check cluster health
       href: check-cluster-health.md
-    - name: Manage cluster scaling
-      href: manage-cluster-scaling.md
+    - name: Manage cluster scale out
+      href: manage-cluster-scale-out.md
+    - name: Manage cluster scale up
+      href: manage-cluster-scale-up.md
     - name: Delete data
       href: delete-data.md
     - name: Deal with duplicate data
@@ -77,6 +85,8 @@
       href: kqlmagic.md
     - name: Visualize data in Grafana
       href: grafana.md
+    - name: Apache Spark connector
+      href: spark-integration.md
   - name: Troubleshoot
     items:
     - name: Creating a cluster

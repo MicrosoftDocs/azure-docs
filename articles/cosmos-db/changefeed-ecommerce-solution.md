@@ -161,7 +161,7 @@ To see how change feed processes new actions on an e-commerce site, have to simu
 
 1. Navigate back to the repository in File Explorer, and right-click **ChangeFeedFunction.sln** to open it again in a new Visual Studio window.  
 
-2. Navigate to the **App.config** file.Within the <appSettings> block, add the URI and unique **PRIMARY KEY** that of your Azure Cosmos DB account that you retrieved earlier.  
+2. Navigate to the **App.config** file.Within the <appSettings> block, add the endpoint and unique **PRIMARY KEY** that of your Azure Cosmos DB account that you retrieved earlier.  
 
 3. Add in the **collection** and **database** names. (These names should be **changefeedlabcollection** and **changefeedlabdatabase** unless you choose to name yours differently.)
 

@@ -22,7 +22,7 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box Ga
 
 ## Data Box Gateway service limits
 
-- In this release, service is available only in certain regions in US, EU, and Asia Pacific. For more information, go to [region availability](#data-box-gateway-overview#region-availability). The storage account should be physically closest to the region where the device deployed (can be different from service geo).
+- In this release, service is available only in certain regions in US, EU, and Asia Pacific. For more information, go to region availability. The storage account should be physically closest to the region where the device deployed (can be different from service geo).
 - Moving a Data Box Gateway resource to a different subscription or resource group is not supported. For more details, go to [Move resources to new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## Data Box Gateway device limits

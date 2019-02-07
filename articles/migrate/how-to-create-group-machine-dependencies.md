@@ -69,6 +69,11 @@ To install the agent on a Linux machine:
 
 [Learn more](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) about the list of Linux operating systems support by MMA.
 
+#### Install the agent on a machine monitored by SCOM
+
+For machines monitored by System Center Operations Manager 2012 R2 or later, there is no need to install the MMA agent. Service Map has an integration with SCOM that leverages the SCOM MMA to gather the necessary dependency data. You can enable the integration using the guidance [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Note, however, that the dependency agent will need to installed on these machines.
+
+
 ### Install the Dependency agent
 1. To install the Dependency agent on a Windows machine, double-click the setup file and follow the wizard.
 2. To install the Dependency agent on a Linux machine, install as root using the following command:
@@ -78,6 +83,7 @@ To install the agent on a Linux machine:
 Learn more about the Dependency agent support for the [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) and [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) operating systems.
 
 [Learn more](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) about how you can use scripts to install the Dependency agent.
+
 
 ## Create a group
 
@@ -111,7 +117,7 @@ Once the group is created, it is recommended to install agents on all the machin
 
 ## Query dependency data from Log Analytics
 
-Dependency data captured by Service Map is available for querying in Log Analytics. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) about the Service Map data tables to query in Log Analytics. 
+Dependency data captured by Service Map is available for querying in Log Analytics workspace associated with your Azure Migrate project. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) about the Service Map data tables to query in Log Analytics. 
 
 To run the Log Analytics queries:
 

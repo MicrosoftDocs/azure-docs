@@ -541,7 +541,7 @@ This document does not demonstrate a complete end to end example, however the [A
 * Update Listener by either:
   * Taking the Always On Group offline and updating the Always On Listener with new ILB / ELB IP address.
   * Or adding the IP address resource of new Cloud Service ILB/ELB through PowerShell into Windows clustering. Then set the Possible owners of the IP Address resource to the migrated node, SQL2, and set this as OR dependency in the Network Name. See the ‘Adding IP Address Resource on Same Subnet’ section of the [Appendix](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
-* Check DNS configuration/propogation to the clients.
+* Check DNS configuration/propagation to the clients.
 * Migrate SQL1 VM, and go through steps 2 – 4.
 * If using steps 5ii, then add SQL1 as a Possible Owner for the added IP Address Resource
 * Test failovers.
@@ -1187,7 +1187,7 @@ If you have only two SQL Servers and want to migrate them to a new cloud service
 
 Once you have brought up the migrated secondary and added in the new IP Address resource for the new cloud service before failover the existing Primary, you should take these steps within the Cluster Failover Manager:
 
-To add in IP Address, see the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage), step 14.
+To add in IP Address, see the Appendix, step 14.
 
 1. For the current IP Address resource, change the possible owner to ‘Existing Primary SQL Server’, in the example, ‘dansqlams4’:
 
