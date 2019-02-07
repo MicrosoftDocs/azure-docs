@@ -70,7 +70,7 @@ msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /q
 
 The Azure Resource Manager PowerShell module can be used to retrieve information about Azure VMs. To see information about a VM, such as the provisioning state for the Azure VM Agent, use [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm):
 
-```powershell`
+```powershell
 Get-AzVM
 ```
 
