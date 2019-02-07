@@ -7,7 +7,7 @@ author: erhopf
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf

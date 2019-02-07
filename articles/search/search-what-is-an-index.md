@@ -10,18 +10,11 @@ ms.topic: conceptual
 ms.date: 11/08/2017
 ms.custom: seodec2018
 ---
-# Indexes in Azure Search
-> [!div class="op_single_selector"]
-> * [Overview](search-what-is-an-index.md)
-> * [Portal](search-create-index-portal.md)
-> * [.NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
-> 
-> 
+# Indexes and indexing overview in Azure Search
 
-In Azure Search, an *index* is a persistent store of *documents* and other constructs used by an Azure Search service. A document is a single unit of searchable data in your index. For example, an e-commerce retailer might have a document for each item they sell, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: an *index* is conceptually similar to a *table*, and *documents* are roughly equivalent to *rows* in a table.
+In Azure Search, an *index* is a persistent store of *documents* and other constructs used for filtered and full text search on an Azure Search service. A document is a single unit of searchable data in your index. For example, an e-commerce retailer might have a document for each item they sell, a news organization might have a document for each article, and so forth. Mapping these concepts to more familiar database equivalents: an *index* is conceptually similar to a *table*, and *documents* are roughly equivalent to *rows* in a table.
 
-When you add/upload documents and submit search queries to Azure Search, you submit your requests to a specific index in your search service.
+When you add or upload documents, or submit search queries to Azure Search, you are sending requests to a specific index in your search service. The process of adding documents to an index is called *indexing*.
 
 ## Field types and attributes in an Azure Search index
 As you define your schema, you must specify the name, type, and attributes of each field in your index. The field type classifies the data that is stored in that field. Attributes are set on individual fields to specify how the field is used. The following tables enumerate the types and attributes you can specify.

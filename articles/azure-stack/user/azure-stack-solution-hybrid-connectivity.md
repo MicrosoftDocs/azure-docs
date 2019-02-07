@@ -12,9 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/28/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
+ms.lastreviewed: 01/14/2019
 ---
 
 # Tutorial: configure hybrid cloud connectivity with Azure and Azure Stack
@@ -56,7 +57,7 @@ This tutorial assumes that you have some basic knowledge of Azure and Azure Stac
 ### Azure
 
  - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
- - Create a [Web App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts#create-an-azure-web-app-using-the-portal) in Azure. Make note of the Web App URL, because you'll need it in the tutorial.
+ - Create a [Web App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?view=vsts&tabs=vsts) in Azure. Make note of the Web App URL, because you'll need it in the tutorial.
 
 ### Azure Stack
 

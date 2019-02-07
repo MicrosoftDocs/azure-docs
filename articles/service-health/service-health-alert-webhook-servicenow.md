@@ -74,7 +74,7 @@ This article shows you how to integrate Azure service health alerts with Service
                     short_description += " - Service Issue - ";
                 } else if (event.data.context.activityLog.properties.incidentType == "Maintenance") {
                     short_description += " - Planned Maintenance - ";
-                } else if (event.data.context.activityLog.properties.incidentType == "Information" || event.data.context.activityLog.properties.incidentType == "ActionRequired") {
+                } else if (event.data.context.activityLog.properties.incidentType == "Informational" || event.data.context.activityLog.properties.incidentType == "ActionRequired") {
                     short_description += " - Health Advisory - ";
                 }
                 short_description += event.data.context.activityLog.properties.title;

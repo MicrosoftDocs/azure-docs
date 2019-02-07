@@ -241,6 +241,9 @@
   - name: Update Management
     href: troubleshoot/update-management.md
     displayName: troubleshoot
+  - name: Start/Stop VMs
+    href: troubleshoot/start-stop-vm.md
+    displayName: start,stop
   - name: Shared resources
     href: troubleshoot/shared-resources.md
     displayName: module, import
@@ -264,6 +267,8 @@
     href: /rest/api/automation
   - name: REST (Classic)
     href: https://msdn.microsoft.com/library/azure/mt163781
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.automation/allversions
 - name: Resources
   items:
   - name: Automation introduction video

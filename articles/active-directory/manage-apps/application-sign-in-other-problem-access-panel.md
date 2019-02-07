@@ -4,11 +4,11 @@ description: How to troubleshoot issues accessing an application from the Micros
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -64,7 +64,7 @@ For password-based SSO, the end user’s browsers can be:
 
 -   Internet Explorer 8, 9, 10, 11 -- on Windows 7 or later
 
--   Edge on Windows 10 Anniversary Edition or later
+-   Microsoft Edge on Windows 10 Anniversary Edition or later
 
 -   Chrome -- on Windows 7 or later, and on MacOS X or later
 
@@ -88,11 +88,11 @@ To install the Access Panel Browser extension, follow the steps below:
 
 7.  Sign in into the Access Panel and see if you can **launch** your password-SSO applications
 
-You may also download the extension for Chrome and Edge from the direct links below:
+You may also download the extension for Chrome and Microsoft Edge from the direct links below:
 
 -   [Chrome Access Panel Extension](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Edge Access Panel Extension](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+-   [Microsoft Edge Access Panel Extension](https://www.microsoft.com/store/apps/9pc9sckkzk84)
 
 ## How to configure federated single sign-on for an Azure AD gallery application
 
@@ -100,7 +100,7 @@ All application in the Azure AD gallery enabled with Enterprise Single Sign-On c
 
 To configure an application from the Azure AD gallery you need to:
 
--   [Add an application from the Azure AD gallery](#add-an-application)
+-   Add an application from the Azure AD gallery
 
 -   [Configure the application’s metadata values in Azure AD (Sign on URL, Identifier, Reply URL)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
@@ -110,7 +110,7 @@ To configure an application from the Azure AD gallery you need to:
 
 -   [Configure Azure AD metadata values in the application (Sign on URL, Issuer, Logout URL and certificate)](#configure-single-sign-on-for-an-application-from-the-azure-ad-gallery)
 
--   [Assign users to the application](#assign-users-to-the-application)
+-   Assign users to the application
 
 ### Add an application from the Azure AD gallery
 
@@ -358,9 +358,9 @@ To download the application metadata or certificate from Azure AD, follow the st
 
 To configure an application from the Azure AD gallery you need to:
 
--   [Add an application from the Azure AD gallery](#add-an-application)
+-   Add an application from the Azure AD gallery
 
--   [Configure the application for password single sign-on](#configure-the-application)
+-   Configure the application for password single sign-on
 
 ### Add an application from the Azure AD gallery
 

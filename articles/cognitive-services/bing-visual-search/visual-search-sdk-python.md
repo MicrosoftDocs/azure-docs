@@ -7,7 +7,7 @@ author: mikedodaro
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
@@ -38,7 +38,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
     import http.client, urllib.parse
     import json
     import os.path
-    from azure.cognitiveservices.search.visualsearch import VisualSearchAPI
+    from azure.cognitiveservices.search.visualsearch import VisualSearchClient
     from azure.cognitiveservices.search.visualsearch.models import (
         VisualSearchRequest,
         CropArea,
@@ -59,7 +59,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 3. Instantiate the client
 
     ```python
-    var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"))
+    var client = new VisualSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"))
     ```
 
 ## Send the search request

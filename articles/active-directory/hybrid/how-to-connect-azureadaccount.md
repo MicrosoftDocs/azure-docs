@@ -5,7 +5,7 @@ services: active-directory
 keywords: AADSTS70002, AADSTS50054, How to reset the password for the Azure AD Connect sync Connector service account
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 6077043a-27f1-4304-a44b-81dc46620f24
@@ -13,9 +13,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
 ---

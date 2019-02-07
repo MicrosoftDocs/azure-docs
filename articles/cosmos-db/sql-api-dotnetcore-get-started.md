@@ -3,7 +3,7 @@ title: 'Tutorial: Build a .NET Core app to manage data stored in the SQL API acc
 description: This tutorial creates an online database and C# console application by using the SQL API .NET Core SDK for Azure Cosmos DB. 
 author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 03/12/2018

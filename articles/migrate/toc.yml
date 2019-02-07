@@ -78,6 +78,8 @@
     href: resources-faq.md
   - name: REST API
     href: https://docs.microsoft.com/rest/api/migrate/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.migrate/allversions
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-migrate/
   - name: UserVoice

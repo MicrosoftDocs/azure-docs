@@ -4,8 +4,9 @@ description: Learn how to fail over VMware VMs and physical servers to Azure, an
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: tutorial
-ms.date: 11/27/2018
+ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -57,7 +58,7 @@ Verify the VM properties, and make sure that the VM complies with [Azure require
 
 3. In **Compute and Network**, you can modify the Azure name, resource group, target size,
    [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and
-   [managed disk settings](#managed-disk-considerations)
+   managed disk settings
 
 4. You can view and modify network settings, including the network/subnet in which the Azure VM
    will be located after failover, and the IP address that will be assigned to it.

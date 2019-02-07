@@ -301,6 +301,18 @@
       "url": "https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-cogserv-containers",
+      "url": "https://github.com/Azure-Samples/cognitive-services-containers-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "AIVisualProvision",
+      "url": "https://github.com/Microsoft/AIVisualProvision",
+      "branch": "master",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {

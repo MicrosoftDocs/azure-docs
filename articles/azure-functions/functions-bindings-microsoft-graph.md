@@ -222,7 +222,8 @@ The binding itself does not require any Azure AD permissions, but depending on h
 
 The token is always presented to code as a string.
 
-
+> [!Note]
+> When developing locally with either of `userFromId`, `userFromToken` or `userFromRequest` options, required token can be [obtained manually](https://github.com/Azure/azure-functions-microsoftgraph-extension/issues/54#issuecomment-392865857) and specified in `X-MS-TOKEN-AAD-ID-TOKEN` request header from a calling client application.
 
 
 <a name="excel-input"></a>
@@ -1416,7 +1417,7 @@ This section contains an example for each of these approaches:
 See the language-specific example:
 
 * [C# script (.csx)](#app-identity-refresh---c-script-example)
-* [JavaScript](#app-identity-refresh---javascript-example)
+* JavaScript
 
 ### App identity refresh - C# script example
 

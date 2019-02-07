@@ -1,6 +1,7 @@
 ---
-title: Overview - Azure Machine Learning Studio | Microsoft Docs
-description: Overview of Azure ML Studio, a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
+title: What is
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio is a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
@@ -9,7 +10,7 @@ ms.custom: seodec18
 ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -30,12 +31,12 @@ To develop a predictive analysis model, you typically use data from one or more 
 
 There is no programming required, just visually connecting datasets and modules to construct your predictive analysis model.
 
-> [!TIP]
-> To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](studio-overview-diagram.md).
-> 
-> 
+<a id="studio-diagram"></a>
 
-![Azure ML Studio diagram: Create experiments, read data for many sources, write scored data, write models.][ml-studio-overview]
+> [!TIP]
+> You can download and print a diagram that gives an overview of the capabilities of Machine Learning Studio: [Microsoft Azure Machine Learning Studio Capabilities Overview (PDF)](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf).
+
+![Azure Machine Learning studio diagram: Create experiments, read data for many sources, write scored data, write models.][ml-studio-overview]
 
 ## Get started with Machine Learning Studio
 When you first enter [Machine Learning Studio](https://studio.azureml.net) you see the **Home** page. From here you can view documentation, videos, webinars, and find other valuable resources.
@@ -97,7 +98,7 @@ A module is an algorithm that you can perform on your data. Machine Learning Stu
 * [Linear Regression][linear-regression] - Creates an online gradient descent-based linear regression model.
 * [Score Model][score-model] - Scores a trained classification or regression model.
 
-As you build an experiment you can choose from the list of modules available to the left of the canvas.  
+As you build an experiment you can choose from the list of modules available to the left of the canvas.
 
 A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the **Properties** pane to the right of the canvas. You can modify the parameters in that pane to tune your model.
 
@@ -155,7 +156,7 @@ Once you have a trained model, evaluate the model using the remaining test data.
 * **sample**: A part of a data set intended to be representative of the whole. Samples can be selected randomly or based on specific features of the data set.
 
 ## Next steps
-You can learn the basics of predictive analytics and machine learning using a [step-by-step tutorial](create-experiment.md) and by [building on samples](sample-experiments.md).  
+You can learn the basics of predictive analytics and machine learning using a [step-by-step tutorial](create-experiment.md) and by [building on samples](sample-experiments.md).
 
 
 <!-- Module References -->

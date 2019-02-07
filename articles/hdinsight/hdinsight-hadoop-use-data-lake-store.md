@@ -12,7 +12,7 @@ ms.date: 11/06/2018
 ---
 # Use Data Lake Storage with Azure HDInsight clusters
 
-To analyze data in HDInsight cluster, you can store the data either in [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md), or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
+To analyze data in HDInsight cluster, you can store the data either in [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md), or both. Both storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
 In this article, you learn how Data Lake Storage works with HDInsight clusters. To learn how Azure Storage works with HDInsight clusters, see [Use Azure Storage with Azure HDInsight clusters](hdinsight-hadoop-use-blob-storage.md). For more information about creating an HDInsight cluster, see [Create Apache Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -63,7 +63,7 @@ To be able to use Data Lake Storage as default storage, you must grant the servi
 - The folder for all cluster folders.  For example: adl://mydatalakestore/clusters.
 - The folder for the cluster.  For example: adl://mydatalakestore/clusters/cluster1storage.
 
-For more information for creating service principal and grant access, see [Configure Data Lake Storage access](#configure-data-lake-store-access).
+For more information for creating service principal and grant access, see Configure Data Lake Storage access.
 
 ### Extracting a certificate from Azure Keyvault for use in cluster creation
 
@@ -111,12 +111,12 @@ To be able to use a Data Lake Storage as additional storage, you only need to gr
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
-For more information for creating service principal and grant access, see [Configure Data Lake Storage access](#configure-data-lake-store-access).
+For more information for creating service principal and grant access, see Configure Data Lake Storage access.
 
 
 ## Use more than one Data Lake Storage accounts
 
-Adding a Data Lake Storage account as additional and adding more than one Data Lake Storage accounts are accomplished by giving the HDInsight cluster permission on data in one ore more Data Lake Storage accounts. See [Configure Data Lake Storage access](#configure-data-lake-store-access).
+Adding a Data Lake Storage account as additional and adding more than one Data Lake Storage accounts are accomplished by giving the HDInsight cluster permission on data in one ore more Data Lake Storage accounts. See Configure Data Lake Storage access.
 
 ## Configure Data Lake Storage access
 

@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/02/2019
 ms.author: tamram
 ---
 
@@ -57,9 +57,6 @@ Before you enable Azure AD over SMB for Azure Files, make sure you have complete
 4.  **Select or create an Azure file share.**
 
     Select a new or existing file share that's associated with the same subscription as your Azure AD tenant. For information about creating a new file share, see [Create a file share in Azure Files](storage-how-to-create-file-share.md). 
-
-    The Azure AD tenant must be deployed to a region supported for the preview of Azure AD over SMB. The preview is available in all public regions except for: West US, West US 2, South Central US, East US, East US 2, Central US, North Central US, Australia East, West Europe, North Europe.
-
     For optimal performance, Microsoft recommends that your file share is in the same region as the VM from which you plan to access the share.
 
 5.  **Verify Azure Files connectivity by mounting Azure file shares using your storage account key.**
@@ -134,7 +131,7 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --f
 To access Azure Files resources using Azure AD credentials, an identity (a user, group, or service principal) must have the necessary permissions at the share level. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity.
 
 > [!IMPORTANT]
-> Full administrative control of a file share, including the ability to assign a role to an identity, requires using the storage account key. Adminstrative control is not supported with Azure AD credentials. 
+> Full administrative control of a file share, including the ability to assign a role to an identity, requires using the storage account key. Administrative control is not supported with Azure AD credentials. 
 
 ### Define a custom role
 
@@ -150,17 +147,17 @@ The following custom role template provides share-level Change permissions, gran
   "Name": "<Custom-Role-Name>",
   "Id": null,
   "IsCustom": true,
-  "Description": "Allows for read, write and delete access to Azure File Share",
+  "Description": "Allows for read, write and delete access to Azure File Share over SMB",
   "Actions": [
-	"*"
+   	"*"
   ],
   "NotActions": [
-	  "Microsoft.Authorization/*/Delete",
-    "Microsoft.Authorization/*/Write",
-    "Microsoft.Authorization/elevateAccess/Action"
+	"Microsoft.Authorization/*/Delete",
+        "Microsoft.Authorization/*/Write",
+        "Microsoft.Authorization/elevateAccess/Action"
   ],
   "DataActions": [
-  	"*"
+   	"*"
   ],
   "AssignableScopes": [
     	"/subscriptions/<Subscription-ID>"
@@ -176,9 +173,9 @@ The following custom role template provides share-level Read permissions, granti
   "Name": "<Custom-Role-Name>",
   "Id": null,
   "IsCustom": true,
-  "Description": "Allows for read access to Azure File Share",
+  "Description": "Allows for read access to Azure File Share over SMB",
   "Actions": [
-	"*/read"
+   	"*/read"
   ],
   "DataActions": [
   	"*/read"
@@ -240,7 +237,7 @@ When running the following sample script, remember to replace placeholder values
 #List the custom roles
 az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "description":.description, "roleType":.roleType}'
 #Assign the custom role to the target identity
-az role assignment create --role "<custome-role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
+az role assignment create --role "<custom-role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
 ```
 
 ## Configure NTFS permissions over SMB 

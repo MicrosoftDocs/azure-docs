@@ -36,7 +36,7 @@ For customers with Software Assurance, Azure Hybrid Benefit for Windows Server a
 ## Ways to use Azure Hybrid Benefit for Windows Server
 There are few ways to use Windows virtual machines with the Azure Hybrid Benefit:
 
-1. You can deploy VMs from one of the provided  [Windows Server images on the Azure Marketplace](#https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview)
+1. You can deploy VMs from one of the provided  Windows Server images on the Azure Marketplace
 2. You can  upload a custom VM and deploy using a Resource Manager template or Azure PowerShell
 3. You can toggle and convert existing VM between running with Azure Hybrid Benefit or pay on-demand cost for Windows Server
 4. You can also apply Azure Hybrid Benefit for Windows Server on virtual machine scale set as well
@@ -139,7 +139,7 @@ LicenseType              :
 
 ### CLI
 ```azurecli
-az vm get-instance-view -g MyResourceGroup -n MyVM --query '[?licenseType==Windows_Server]' -o table
+az vm get-instance-view -g MyResourceGroup -n MyVM --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 > [!NOTE]
@@ -160,7 +160,7 @@ $vms | ?{$_.LicenseType -like "Windows_Server"} | select ResourceGroupName, Name
 
 ### CLI
 ```azurecli
-az vm list --query '[?licenseType==Windows_Server]' -o table
+az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## Deploy a Virtual Machine Scale Set with Azure Hybrid Benefit for Windows Server

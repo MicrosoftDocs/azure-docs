@@ -1,13 +1,10 @@
 ---
-title: Testing Azure VM network throughput | Microsoft Docs
+title: Testing Azure VM network throughput
+titlesuffix: Azure Virtual Network
 description: Learn how to test Azure virtual machine network throughput.
 services: virtual-network
 documentationcenter: na
 author: steveesp
-manager: Gerald DeGrace
-editor: ''
-
-ms.assetid:
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

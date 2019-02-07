@@ -11,7 +11,7 @@ ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
@@ -24,7 +24,7 @@ robots: noindex
 
 This article describes an architecture of a sample solution that moves and processes large-scale datasets in an automatic and scheduled manner. It also provides an end-to-end walkthrough to implement the solution by using Data Factory and Azure Batch.
 
-This article is longer than a typical article because it contains a walkthrough of an entire sample solution. If you're new to Batch and Data Factory, you can learn about these services and how they work together. If you know something about the services and are designing/architecting a solution, you can focus on the [architecture section](#architecture-of-sample-solution) of the article. If you're developing a prototype or a solution, you might want to try out the step-by-step instructions in the [walkthrough](#implementation-of-sample-solution). We invite your comments about this content and how you use it.
+This article is longer than a typical article because it contains a walkthrough of an entire sample solution. If you're new to Batch and Data Factory, you can learn about these services and how they work together. If you know something about the services and are designing/architecting a solution, you can focus on the architecture section of the article. If you're developing a prototype or a solution, you might want to try out the step-by-step instructions in the walkthrough. We invite your comments about this content and how you use it.
 
 First, let's look at how Data Factory and Batch services can help you process large datasets in the cloud.     
 

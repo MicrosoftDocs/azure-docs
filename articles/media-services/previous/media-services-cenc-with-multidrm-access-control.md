@@ -56,7 +56,7 @@ The following table summarizes the native platform/native app and browsers suppo
 | **Client platform** | **Native DRM support** | **Browser/app** | **Streaming formats** |
 | --- | --- | --- | --- |
 | **Smart TVs, operator STBs, OTT STBs** |PlayReady primarily, and/or Widevine, and/or other |Linux, Opera, WebKit, other |Various formats |
-| **Windows 10 devices (Windows PC, Windows tablets, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>Universal Windows Platform |DASH (for HLS, PlayReady isn't supported)<br/><br/>DASH, Smooth Streaming (for HLS, PlayReady isn't supported) |
+| **Windows 10 devices (Windows PC, Windows tablets, Windows Phone, Xbox)** |PlayReady |Microsoft Edge/IE11/EME<br/><br/><br/>Universal Windows Platform |DASH (for HLS, PlayReady isn't supported)<br/><br/>DASH, Smooth Streaming (for HLS, PlayReady isn't supported) |
 | **Android devices (phone, tablet, TV)** |Widevine |Chrome/EME |DASH, HLS |
 | **iOS (iPhone, iPad), OS X clients and Apple TV** |FairPlay |Safari 8+/EME |HLS |
 

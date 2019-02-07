@@ -1,9 +1,7 @@
 ---
 title: High availability in Azure Cosmos DB 
 description: This article describes how Azure Cosmos DB provides high availability
-services: cosmos-db
 author: markjbrown
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/15/2018
@@ -12,11 +10,11 @@ ms.reviewer: sngun
 
 ---
 
-# High Availability with Azure Cosmos DB
+# High availability with Azure Cosmos DB
 
 Azure Cosmos DB transparently replicates your data across all the Azure regions associated with your Cosmos account. Cosmos DB employs multiple layers of redundancy for your data as shown in the following image:
 
-![Resource partitioning](./media/high-availability/figure1.png)
+![Physical partitioning](./media/high-availability/cosmosdb-data-redundancy.png)
 
 - The data within Cosmos containers is horizontally partitioned.
 
@@ -46,7 +44,7 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 
 - Multi-region accounts configured with multiple-write regions will be highly available for both writes and reads. Regional failovers are instantaneous and don't require any changes from the application.
 
-- Multi-region accounts with a single-write region: During a write region outage, these accounts will remain highly available for reads. However, for writes you must “enable automatic failover” on your Cosmos account to failover the impacted region to another region associated. The failover will occur in the order of region priority you’ve specified. Eventually, when the impacted region is back online, the un-replicated data present in the impacted write region during the outage is made available through the conflicts feed. Applications can read the conflicts feed, resolve the conflicts based on application-specific logic, and write the updated data back to the Cosmos container as appropriate. Once the previously impacted write region recovers, it becomes automatically available as a read region. You can invoke a manual failover and configure the impacted region as the write region. You can do a manual failover by using [Azure CLI or Azure portal](how-to-manage-database-account.md#manual-failover).  
+- Multi-region accounts with a single-write region: During a write region outage, these accounts will remain highly available for reads. However, for writes you must “enable automatic failover” on your Cosmos account to failover the impacted region to another region associated. The failover will occur in the order of region priority you’ve specified. Eventually, when the impacted region is back online, the un-replicated data present in the impacted write region during the outage is made available through the conflicts feed. Applications can read the conflicts feed, resolve the conflicts based on application-specific logic, and write the updated data back to the Cosmos container as appropriate. Once the previously impacted write region recovers, it becomes automatically available as a read region. You can invoke a manual failover and configure the impacted region as the write region. You can do a manual failover by using [Azure CLI or Azure portal](how-to-manage-database-account.md#manual-failover). There is **no data or availability loss** before, during or after the manual failover. Your application continues to be highly available. 
 
 - Multi-region accounts with a single-write region: During a read region outage, these accounts will remain highly available for reads and writes. The impacted region is automatically disconnected from the write region and will be marked offline. The Cosmos DB SDKs will redirect read calls to the next available region in the preferred region list. If none of the regions in the preferred region list is available, calls automatically fall back to the current write region. No changes are required in your application code to handle read region outage. Eventually, when the impacted region is back online, the previously impacted read region will automatically sync with the current write region and will be available again to serve read requests. Subsequent reads are redirected to the recovered region without requiring any changes to your application code. During both failover and rejoining of a previously failed region, read-consistency guarantees continue to be honored by Cosmos DB.
 

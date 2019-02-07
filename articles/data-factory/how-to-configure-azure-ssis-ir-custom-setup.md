@@ -6,9 +6,9 @@ documentationcenter: ""
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 12/3/2018
+ms.date: 1/25/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -22,6 +22,8 @@ You configure your custom setup by preparing a script and its associated files, 
 
 You can install both free or unlicensed components, and paid or licensed components. If you're an ISV, see [How to develop paid or licensed components for the Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
+> [!IMPORTANT]
+> The v2-series nodes of Azure-SSIS IR are not suitable for custom setup, so please use the v3-series nodes instead.  If you already use the v2-series nodes, please switch to use the v3-series nodes as soon as possible.
 
 ## Current limitations
 
@@ -73,7 +75,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
        ![Create a blob container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-    1.  Select the new container and upload your custom setup script and its associated files. Make sure that you upload `main.cmd` at the top level of the container, not in any folder. 
+    1.  Select the new container and upload your custom setup script and its associated files. Make sure that you upload `main.cmd` at the top level of your container, not in any folder. Please also ensure that your container contains only the necessary custom setup files, so downloading them onto your Azure-SSIS IR later will not take a long time.
 
        ![Upload files to the blob container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -135,15 +137,15 @@ To customize your Azure-SSIS IR, you need the following things:
 
        1. A `.NET FRAMEWORK 3.5` folder, which contains a custom setup to install an earlier version of the .NET Framework that might be required for custom components on each node of your Azure-SSIS IR.
 
-       1. An `AAS` folder, which contains a custom setup to install client libraries on each node of your Azure-SSIS IR that enable your Analysis Services tasks to connect to Azure Analysis Services (AAS) instance using service principal authentication. First, download the latest **MSOLAP (amd64)** and **AMO** client libraries/Windows installers - for example, `x64_15.0.900.108_SQL_AS_OLEDB.msi` and `x64_15.0.900.108_SQL_AS_AMO.msi` - from [here](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers), then upload them all together with `main.cmd` into your container.  
-
        1. A `BCP` folder, which contains a custom setup to install SQL Server command-line utilities (`MsSqlCmdLnUtils.msi`), including the bulk copy program (`bcp`), on each node of your Azure-SSIS IR.
 
        1. An `EXCEL` folder, which contains a custom setup to install open-source assemblies (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, and `ExcelDataReader.dll`) on each node of your Azure-SSIS IR.
 
        1. An `ORACLE ENTERPRISE` folder, which contains a custom setup script (`main.cmd`) and silent install config file (`client.rsp`) to install the Oracle connectors and OCI driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Oracle Connection Manager, Source, and Destination. First, download Microsoft Connectors v5.0 for Oracle (`AttunitySSISOraAdaptersSetup.msi` and `AttunitySSISOraAdaptersSetup64.msi`) from [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) and the latest Oracle client - for example, `winx64_12102_client.zip` - from [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), then upload them all together with `main.cmd` and `client.rsp` into your container. If you use TNS to connect to Oracle, you also need to download `tnsnames.ora`, edit it, and upload it into your container, so it can be copied into the Oracle installation folder during setup.
 
-       1. An `ORACLE STANDARD` folder, which contains a custom setup script (`main.cmd`) to install the Oracle ODP.NET driver on each node of your Azure-SSIS IR. This setup lets you use the ADO.NET Connection Manager, Source, and Destination. First, download the latest Oracle ODP.NET driver - for example, `ODP.NET_Managed_ODAC122cR1.zip` - from [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), and then upload it together with `main.cmd` into your container.
+       1. An `ORACLE STANDARD ADO.NET` folder, which contains a custom setup script (`main.cmd`) to install the Oracle ODP.NET driver on each node of your Azure-SSIS IR. This setup lets you use the ADO.NET Connection Manager, Source, and Destination. First, download the latest Oracle ODP.NET driver - for example, `ODP.NET_Managed_ODAC122cR1.zip` - from [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), and then upload it together with `main.cmd` into your container.
+	   
+	   1. An `ORACLE STANDARD ODBC` folder, which contains a custom setup script (`main.cmd`) to install the Oracle ODBC driver and configure DSN on each node of your Azure-SSIS IR. This setup lets you use the ODBC Connection Manager/Source/Destination or Power Query Connection Manager/Source with ODBC data source kind to connect to Oracle server. First, download the latest Oracle Instant Client (Basic Package or Basic Lite Package) and ODBC Package - for example, the 64-bit packages from [here](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (Basic Package: `instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`, Basic Lite Package: `instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`, ODBC Package: `instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip`) or the 32-bit packages from [here](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (Basic Package: `instantclient-basic-nt-18.3.0.0.0dbru.zip`, Basic Lite Package: `instantclient-basiclite-nt-18.3.0.0.0dbru.zip`, ODBC Package: `instantclient-odbc-nt-18.3.0.0.0dbru.zip`), and then upload them together with `main.cmd` into your container.
 
        1. An `SAP BW` folder, which contains a custom setup script (`main.cmd`) to install the SAP .NET connector assembly (`librfc32.dll`) on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the SAP BW Connection Manager, Source, and Destination. First, upload the 64-bit or the 32-bit version of `librfc32.dll` from the SAP installation folder into your container, together with `main.cmd`. The script then copies the SAP assembly into the `%windir%\SysWow64` or `%windir%\System32` folder during setup.
 

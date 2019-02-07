@@ -38,7 +38,7 @@ The following table includes links to sample [Azure Policy](../azure-policy/azur
 | [Require match pattern](../azure-policy/scripts/enforce-match-pattern.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Ensure resource names match a specified naming pattern. |
 | [Require tag match pattern](../azure-policy/scripts/enforce-tag-match-pattern.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Ensure that a tag value matches a text pattern. |
 |**Tags**||
-| [Billing tags policy initiative](../azure-policy/scripts/billing-tags-policy-init.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Requires specified tag values for cost center and product name. Uses built-in policies to apply and enforce required tags. You specify the required values for the tags.  |
+| [Billing tags policy initiative](../governance/policy/samples/billing-tags-policy-initiative.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Requires specified tag values for cost center and product name. Uses built-in policies to apply and enforce required tags. You specify the required values for the tags.  |
 | [Enforce tag and its value on resource groups](../azure-policy/scripts/enforce-tag-rg.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Requires a tag and value on a resource group. You specify the required tag name and value.  |
 | [Enforce tag and its value](../azure-policy/scripts/enforce-tag-val.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Requires a specified tag name and value. You specify the tag name and value to enforce.  |
 | [Apply tag and its default value](../azure-policy/scripts/apply-tag-def-val.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Appends a specified tag name and value, if that tag is not provided. You specify the tag name and value to apply.  |

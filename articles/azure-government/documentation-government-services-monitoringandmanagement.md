@@ -21,21 +21,32 @@ ms.author: gsacavdm
 This article outlines the monitoring and management services variations and considerations for the Azure Government environment.
 
 ## Advisor
-Advisor is in public preview in Azure Government.
+Advisor is generally available in Azure Government.
 
 For more information, see [Advisor public documentation](../advisor/advisor-overview.md).
 
 ### Variations
 The following Advisor recommendations are not currently available in Azure Government:
 
-* Security
-  * Security recommendations from Security Center
-* Cost
-  * Optimize virtual machine spend by resizing or shutting down underutilized instances
-  * Eliminate unprovisioned ExpressRoute circuits
+* High Availability
+  * Configure your VPN gateway to active-active for connection resilience
+  * Create Azure Service Health alerts to be notified when Azure issues affect you
+  * Configure Traffic Manager endpoints for resiliency
+  * Use soft delete for your Azure Storage Account
 * Performance
   * Improve App Service performance and reliability
-  * Improve Azure Cache for Redis performance and reliability
+  * Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
+  * Improve SQL Datawarehouse performance
+  * Use Premium Storage
+  * Migrate your Storage Account to Azure Resource Manager
+* Cost
+  * Buy reserved virtual machines instances to save money over pay-as-you-go costs
+  * Eliminate unprovisioned ExpressRoute circuits
+  * Delete or reconfigure idle virtual network gateways
+
+The calculation used to recommend that you should right-size or shutdown underutilized virtual machines is as follows in Azure Government:
+
+Advisor monitors your virtual machine usage for 7 days and identifies low-utilization virtual machines. Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2% or if the current workload can be accommodated by a smaller virtual machine size. If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
 
 ## Automation
 Automation is generally available in Azure Government.
@@ -86,7 +97,7 @@ The following URLs for Site Recovery are different in Azure Government:
 | \*.hypervrecoverymanager.windowsazure.com | \*.hypervrecoverymanager.windowsazure.us | Access to the Site Recovery Service |
 | \*.backup.windowsazure.com  | \*.backup.windowsazure.us | Access to Protection Service |
 | \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | For storing the VM Snapshots |
-| http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
+| https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
 
 ## Monitor
 Azure Monitor is generally available in Azure Government.

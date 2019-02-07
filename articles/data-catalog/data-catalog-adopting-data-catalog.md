@@ -60,7 +60,7 @@ Here are some tips to identify use cases:
 * **Define the goals of the team** - How does the team achieve their goals? Don't focus on Data Catalog yet since you want to be objective at this stage. Remember it's about the business results, not about the technology.
 * **Define the business problem** - What are the issues faced by the team regarding finding and learning about data assets? For example, information about important data sources may be found in Excel workbooks in a network folder, and the team may spend much time locating the workbooks.
 * **Understand team culture related to change** - Many adoption challenges relate to resistance to change rather than the implementation of a new tool. How a team responds to change is important when identifying use cases since the existing process could be in place because "this is how we've always done it" or "if it ain't broke, why fix it?". Adopting any new tool or process is always easiest when the people affected understand the value to be realized from the change, and appreciate the importance of the problems to be solved.
-* **Keep focus related to data assets** - When discussing the business problems a team faces, you need to "cut through the weeds", and focus on what's relevant to leveraging enterprise data assets more effectivity.
+* **Keep focus related to data assets** - When discussing the business problems a team faces, you need to "cut through the weeds", and focus on what's relevant to leveraging enterprise data assets more effectively.
 
 Here are some example use cases related to Data Catalog:
 

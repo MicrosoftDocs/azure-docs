@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 02/07/2019
 ---
 # Scale elastic pool resources in Azure SQL Database
 
@@ -21,8 +21,8 @@ This article describes how to scale the compute and storage resources available 
 
 - Storage can be provisioned up to the max size limit:
 
-  - For Standard storage, increase or decrease size in 10-GB increments
-  - For Premium storage, increase or decrease size in 250-GB increments
+  - For storage in the standard or general purpose service tiers, increase or decrease size in 10-GB increments
+  - For storage in the premium or business critical service tiers, increase or decrease size in 250-GB increments
 - Storage for an elastic pool can be provisioned by increasing or decreasing its max size.
 - The price of storage for an elastic pool is the storage amount multiplied by the storage unit price of the service tier. For details on the price of extra storage, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 

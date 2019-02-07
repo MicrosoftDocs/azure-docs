@@ -28,14 +28,18 @@ As a Microsoft partner, you can associate Azure usage with any Azure resources t
 - Azure Resource Manager templates: Resource Manager templates or solution templates to deploy the Azure services to run the partner's software. Partners can create a Resource Manager template to define the infrastructure and configuration of their Azure solution. A Resource Manager template allows you and your customers to deploy your solution throughout its lifecycle. You can be confident that your resources are deployed in a consistent state. 
 - Azure Resource Manager APIs: Partners can call the Resource Manager APIs directly to deploy a Resource Manager template or to generate the API calls to directly provision Azure services. 
 
-Customer usage attribution is required on all [solution templates](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) published to Azure Marketplace. 
+Customer usage attribution is required on [Azure Application offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) published to Azure Marketplace.
 
 ## Use Resource Manager templates
 
-Many partner solutions are deployed on a customer’s subscription by using Resource Manager templates. If you have a Resource Manager template that's available in the Azure Marketplace, on GitHub, or as a Quickstart, the process to modify your template to enable the new tracking method should be straight forward. If you aren't using an Azure Resource Manager template, here are a few links to help you better understand Resource Manager templates and how to create one: 
+Many partner solutions are deployed on a customer’s subscription by using Resource Manager templates. If you have a Resource Manager template that's available in the Azure Marketplace, on GitHub, or as a Quickstart, the process to modify your template to enable the new tracking method should be straight forward.
 
-*	[Create and deploy your first Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-*	[Create a solution template for Azure Marketplace](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
+For more information on creating and publishing Solution Templates, see
+
+* [Create and deploy your first Resource Manager template](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+* [Azure Application offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
+* Video: [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+
 
 ## Add a GUID to your template
 
@@ -266,11 +270,15 @@ Microsoft provides partners with a view of customer deployments of their templat
 
 **Who can add a GUID to a template?**
 
-The tracking resource is intended to connect the partner's solution to the customer's Azure usage. The usage data is tied to a partner's Microsoft Partner Network identity (MPN ID). 
+The tracking resource is intended to connect the partner's solution to the customer's Azure usage. The usage data is tied to a partner's Microsoft Partner Network identity (MPN ID). Reporting is available to partners in the CPP.
 
 **After a GUID is added, can it be changed?**
  
 Yes, a customer or implementation partner may customize the template and can change or remove the GUID. We suggest that partners proactively describe the role of the resource and GUID to their customers and partners to prevent removal or edits to the tracking GUID. Changing the GUID affects only new, not existing, deployments, and resources.
+
+**When will reporting be available?**
+
+A beta version of reporting should be available soon. Reporting will be integrated into the CPP.
 
 **Can I track templates deployed from a non-Microsoft repository like GitHub?**
 

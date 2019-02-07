@@ -3,7 +3,6 @@ title: Modeling document data in a NoSQL database
 titleSuffix: Azure Cosmos DB
 description: Learn about data modeling in NoSQL databases, differences between modeling data in a relational database and a document database.
 author: aliuy
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/06/2018
