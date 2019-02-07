@@ -3,9 +3,9 @@ title: Migrate from Azure Active Directory Access Control Service to Shared Acce
 description: Migrate applications from Access Control Service to SAS
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 

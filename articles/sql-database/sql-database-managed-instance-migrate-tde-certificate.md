@@ -11,7 +11,7 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 08/09/2018
+ms.date: 01/17/2019
 ---
 
 # Migrate certificate of TDE protected database to Azure SQL Database Managed Instance
@@ -34,7 +34,7 @@ To complete the steps in this article, you need the following prerequisites:
 
 - [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) command-line tool installed on the on-premises server or other computer with access to the certificate exported as a file. Pvk2Pfx tool is part of the [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), a standalone self-contained command-line environment.
 - [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) version 5.0 or higher installed.
-- AzureRM PowerShell module [installed and updated](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+- AzureRM PowerShell module [installed and updated](https://docs.microsoft.com/powershell/azure/install-az-ps).
 - [AzureRM.Sql module](https://www.powershellgallery.com/packages/AzureRM.Sql) version 4.10.0 or higher.
   Run the following commands in PowerShell to install/update the PowerShell module:
 

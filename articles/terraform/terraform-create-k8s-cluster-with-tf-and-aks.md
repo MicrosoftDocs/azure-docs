@@ -347,7 +347,7 @@ In this section, you see how to use the `terraform init` command to create the r
 
     ![Example of "terraform plan" results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-plan-complete.png)
 
-1. Run the `terraform apply` command to apply the plan to create the Kubernetes cluster. The process to create a Kubernetes cluster can take several minutes, resulting in the Cloud Shell session timing out. If the Cloud Shell session times out, you can follow the steps in the section ["Recover from a Cloud Shell timeout"](#recover-from-a-dloud-shell-timeout) to enable you to complete the tutorial.
+1. Run the `terraform apply` command to apply the plan to create the Kubernetes cluster. The process to create a Kubernetes cluster can take several minutes, resulting in the Cloud Shell session timing out. If the Cloud Shell session times out, you can follow the steps in the section "Recover from a Cloud Shell timeout" to enable you to complete the tutorial.
 
     ```bash
     terraform apply out.plan
@@ -357,7 +357,7 @@ In this section, you see how to use the `terraform init` command to create the r
 
     ![Example of "terraform apply" results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-apply-complete.png)
 
-1. In the Azure portal, select **All services** in the left menu to see the resources created for your new Kubernetese cluster.
+1. In the Azure portal, select **All services** in the left menu to see the resources created for your new Kubernetes cluster.
 
     ![Cloud Shell prompt](./media/terraform-create-k8s-cluster-with-tf-and-aks/k8s-resources-created.png)
 

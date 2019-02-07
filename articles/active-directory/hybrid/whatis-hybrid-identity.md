@@ -4,13 +4,13 @@ description: Azure AD Connect will integrate your on-premises directories with A
 keywords: introduction to Azure AD Connect, Azure AD Connect overview, what is Azure AD Connect, install active directory
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 11/28/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ---
 

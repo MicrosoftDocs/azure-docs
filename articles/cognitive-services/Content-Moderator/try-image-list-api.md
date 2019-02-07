@@ -4,10 +4,10 @@ titlesuffix: Azure Content Moderator
 description: You use the List Management API in Azure Content Moderator to create custom lists of images.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap

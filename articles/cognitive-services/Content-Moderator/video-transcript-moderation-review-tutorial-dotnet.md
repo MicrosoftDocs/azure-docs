@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: This tutorial helps you understand how to build a complete video and transcript moderation solution with machine-assisted moderation and human-in-the-loop review creation.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: sajagtap
@@ -238,7 +238,7 @@ The code performs the following steps:
 
 - Checks to make sure the configuration in `App.config` contains all necessary data
 - Checks to make sure the `ffmpeg` binary is present
-- Builds the output filename by appending `_c.mp4` to the base name of the file (such as `Example.mp4` -> `E>xample_c.mp4`)
+- Builds the output filename by appending `_c.mp4` to the base name of the file (such as `Example.mp4` -> `Example_c.mp4`)
 - Builds a command-line string to perform the conversion
 - Starts an `ffmpeg` process using the command line
 - Waits for the video to be processed

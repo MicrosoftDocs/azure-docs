@@ -159,9 +159,9 @@ The version of the API you specify in your template affects which properties you
 
 Use these opportunities for getting the latest API versions:
 
-- REST API - [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
+- REST API - [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers)
 - PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider)
 
 ## Parameters and variables
 

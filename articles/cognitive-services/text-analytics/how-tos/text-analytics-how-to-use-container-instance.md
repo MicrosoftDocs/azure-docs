@@ -4,11 +4,11 @@ titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Deploy the language detection container, with a running sample, to the Azure Kubernetes Service, and test it in a web browser. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/22/2019
 ms.author: diberry
 ---
 
@@ -33,7 +33,7 @@ This procedure requires several tools that must be installed and run locally. Do
 
 This procedure loads and runs the Cognitive Services Container sample for language detection. The sample has two containers, one for the client application and one for the Cognitive Services container. You need to push both these images to your own Azure Container Registry. Once they are on your own registry, create an Azure Kubernetes Service to access these images and run the containers. When the containers are running, use the **kubectl** CLI to watch the containers performance. Access the client application with an HTTP request and see the results. 
 
-
+![Conceptual idea of running sample containers](../media/how-tos/container-instance-sample/containers.png)
 
 ## The sample containers
 
@@ -402,8 +402,8 @@ az group delete --name cogserv-container-rg
 
 ## Next steps 
 
-> [!div class="nextstepaction"]
-> [Use the Text Analytics Connected Service](../vs-text-connected-service.md)
+* Use more [Cognitive Services Containers](../../cognitive-services-container-support.md)
+* Use the Text Analytics Connected Service](../vs-text-connected-service.md)
 
 
 <!--

@@ -60,7 +60,7 @@
     href: how-to-manage-workspace.md 
   - name: Set up development environment 	
     items:    
-    - name: Configure your dev environment
+    - name: Configure dev environments
       displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
     - name: Visual Studio Code extension
@@ -85,6 +85,7 @@
       displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, Databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: Access data in training
+      displayName: blob
       href: how-to-access-data.md
     - name: Create estimators in training
       href: how-to-train-ml-models.md
@@ -106,9 +107,7 @@
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
   - name: ONNX models	
-    items:    
-    - name: Create and deploy
-      href: how-to-build-deploy-onnx.md   
+    href: how-to-build-deploy-onnx.md   
   - name: Deploy models	
     items:    
     - name: Where and how to deploy
@@ -123,13 +122,15 @@
   - name: Consume web services
     items:  
     - name: Consume in real-time
-      displayName: create client consume
+      displayName: create client consume request response synchronous
       href: how-to-consume-web-service.md
     - name: Run batch predictions
+      displayName: score scoring asynchronous consume pipeline
       href: how-to-run-batch-predictions.md
   - name: Monitor web services
     items:  
-    - name: Collect and evaluate model data 
+    - name: Collect & evaluate model data
+      displayName: track production
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights  
       href: how-to-enable-app-insights.md 
@@ -138,11 +139,11 @@
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
-  - name: Secure with Virtual Networks
+  - name: Secure with virtual networks
     displayName: vnet
     href: how-to-enable-virtual-network.md
   - name: Use the Machine Learning CLI
-    displayName: cli command line command-line az ci/cd automate automated
+    displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: Export and delete data
     displayName: gdpr    
@@ -158,6 +159,8 @@
   - name: Monitoring SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk 
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.machinelearningservices/allversions
 - name: Resources
   items:  
   - name: Azure roadmap
@@ -171,5 +174,5 @@
     href: resource-known-issues.md
   - name: Get support
     href: support-for-aml-services.md
-  - name: Compare ML products at Microsoft
+  - name: Compare our ML products
     href: overview-more-machine-learning.md   

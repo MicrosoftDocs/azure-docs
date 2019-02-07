@@ -8,7 +8,7 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.component: common
+ms.subservice: common
 ---
 # Using the Azure CLI with Azure Storage
 
@@ -32,7 +32,7 @@ This guide assumes that you understand the basic concepts of Azure Storage. It a
 Download and install the Azure CLI by following the instructions outlined in [Install the Azure CLI](/cli/azure/install-az-cli2).
 
 > [!TIP]
-> If you have trouble with the installation, check out the [Installation Troubleshooting](/cli/azure/install-az-cli2#installation-troubleshooting) section of the article, and the [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) guide on GitHub.
+> If you have trouble with the installation, check out the [Installation Troubleshooting](/cli/azure/install-az-cli2) section of the article, and the [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) guide on GitHub.
 >
 
 ## Working with the CLI
@@ -167,7 +167,7 @@ Done
 ## Manage storage accounts
 
 ### Create a new storage account
-To use Azure Storage, you need a storage account. You can create a new Azure Storage account after you've configured your computer to [connect to your subscription](#connect-to-your-azure-subscription).
+To use Azure Storage, you need a storage account. You can create a new Azure Storage account after you've configured your computer to connect to your subscription.
 
 ```azurecli
 az storage account create \
@@ -191,7 +191,7 @@ az storage account create \
 
 You can have multiple storage accounts in your Azure subscription. To select one of them to use for all subsequent storage commands, you can set these environment variables:
 
-First, display your storage account keys by using the [az storage account keys list](/cli/azure/storage/account/keys#list) command:
+First, display your storage account keys by using the [az storage account keys list](/cli/azure/storage/account/keys) command:
 
 ```azurecli-interactive
 az storage account keys list \
@@ -271,7 +271,7 @@ az storage blob download \
 
 ### List the blobs in a container
 
-List the blobs in a container with the [az storage blob list](/cli/azure/storage/blob#az_storage_blob_list) command.
+List the blobs in a container with the [az storage blob list](/cli/azure/storage/blob) command.
 
 ```azurecli
 az storage blob list \

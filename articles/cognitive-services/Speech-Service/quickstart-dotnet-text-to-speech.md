@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to convert text-to-speech with the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
@@ -227,9 +227,10 @@ If you've hardcoded your subscription key into your program, make sure to remove
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Text-to-speech API reference](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+> [Explore .NET samples on GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/NETCore)
 
 ## See also
 
+* [Text-to-speech API reference](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
 * [Creating custom voice fonts](how-to-customize-voice-font.md)
 * [Record voice samples to create a custom voice](record-custom-voice-samples.md)

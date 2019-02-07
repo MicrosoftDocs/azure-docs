@@ -88,7 +88,7 @@ To copy data from SAP Cloud for Customer, set the type property of the dataset t
     "name": "SAPC4CDataset",
     "properties": {
         "type": "SapCloudForCustomerResource",
-        "typePoperties": {
+        "typeProperties": {
             "path": "<path e.g. LeadCollection>"
         },
         "linkedServiceName": {

@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started with using the Text Analytics API.
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
@@ -177,6 +177,40 @@ namespace ConsoleApp1
         }
     }
 }
+```
+
+## Application output
+
+The application displays the following information:
+
+```console
+===== LANGUAGE EXTRACTION ======
+Document ID: 1 , Language: English
+Document ID: 2 , Language: Spanish
+Document ID: 3 , Language: Chinese_Simplified
+
+
+===== KEY-PHRASE EXTRACTION ======
+Document ID: 1
+         Key phrases:
+                幸せ
+Document ID: 2
+         Key phrases:
+                Stuttgart
+                Hotel
+Document ID: 3
+         Key phrases:
+                cat
+                rock
+Document ID: 4
+         Key phrases:
+                fútbol
+
+===== SENTIMENT ANALYSIS ======
+Document ID: 0 , Sentiment Score: 0.87
+Document ID: 1 , Sentiment Score: 0.11
+Document ID: 2 , Sentiment Score: 0.44
+Document ID: 3 , Sentiment Score: 1.00
 ```
 
 ## Next steps

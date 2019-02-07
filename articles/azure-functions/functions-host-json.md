@@ -104,6 +104,9 @@ Controls the [sampling feature in Application Insights](./functions-monitoring.m
 }
 ```
 
+> [!NOTE]
+> Log sampling may cause some executions to not show up in the Application Insights monitor blade.
+
 |Property  |Default | Description |
 |---------|---------|---------| 
 |isEnabled|true|Enables or disables sampling.| 

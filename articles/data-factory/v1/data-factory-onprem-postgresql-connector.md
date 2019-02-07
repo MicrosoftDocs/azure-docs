@@ -29,7 +29,7 @@ robots: noindex
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises PostgreSQL database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
-You can copy data from an on-premises PostgreSQL data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data factory currently supports moving data from a PostgreSQL database to other data stores, but not for moving data from other data stores to an PostgreSQL database. 
+You can copy data from an on-premises PostgreSQL data store to any supported sink data store. For a list of data stores supported as sinks by the copy activity, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data factory currently supports moving data from a PostgreSQL database to other data stores, but not for moving data from other data stores to an PostgreSQL database.
 
 ## Prerequisites
 
@@ -44,10 +44,10 @@ Gateway is required even if the PostgreSQL database is hosted in an Azure IaaS V
 For Data Management Gateway to connect to the PostgreSQL Database, install the [Ngpsql data provider for PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) with version between 2.0.12 and 3.1.9 on the same system as the Data Management Gateway. PostgreSQL version 7.4 and above is supported.
 
 ## Getting started
-You can create a pipeline with a copy activity that moves data from an on-premises PostgreSQL data store by using different tools/APIs. 
+You can create a pipeline with a copy activity that moves data from an on-premises PostgreSQL data store by using different tools/APIs.
 
-- The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
-- You can also use the following tools to create a pipeline: 
+- The easiest way to create a pipeline is to use the **Copy Wizard**. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
+- You can also use the following tools to create a pipeline:
     - Azure portal
     - Visual Studio
     - Azure PowerShell
@@ -55,15 +55,15 @@ You can create a pipeline with a copy activity that moves data from an on-premis
     - .NET API
     - REST API
 
-     See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity. 
+    See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions to create a pipeline with a copy activity.
 
 Whether you use the tools or APIs, you perform the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
 1. Create **linked services** to link input and output data stores to your data factory.
-2. Create **datasets** to represent input and output data for the copy operation. 
-3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output. 
+2. Create **datasets** to represent input and output data for the copy operation.
+3. Create a **pipeline** with a copy activity that takes a dataset as an input and a dataset as an output.
 
-When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format.  For a sample with JSON definitions for Data Factory entities that are used to copy data from an on-premises PostgreSQL data store, see [JSON example: Copy data from PostgreSQL to Azure Blob](#json-example-copy-data-from-postgresql-to-azure-blob) section of this article. 
+When you use the wizard, JSON definitions for these Data Factory entities (linked services, datasets, and the pipeline) are automatically created for you. When you use tools/APIs (except .NET API), you define these Data Factory entities by using the JSON format. For a sample with JSON definitions for Data Factory entities that are used to copy data from an on-premises PostgreSQL data store, see [JSON example: Copy data from PostgreSQL to Azure Blob](#json-example-copy-data-from-postgresql-to-azure-blob) section of this article.
 
 The following sections provide details about JSON properties that are used to define Data Factory entities specific to a PostgreSQL data store:
 
@@ -102,14 +102,14 @@ When source is of type **RelationalSource** (which includes PostgreSQL), the fol
 | query |Use the custom query to read data. |SQL query string. For example: `"query": "select * from \"MySchema\".\"MyTable\""`. |No (if **tableName** of **dataset** is specified) |
 
 > [!NOTE]
-> Schema and table names are case-sensitive. Enclose them in `""` (double quotes) in the query.  
+> Schema and table names are case-sensitive. Enclose them in `""` (double quotes) in the query.
 
 **Example:**
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
 ## JSON example: Copy data from PostgreSQL to Azure Blob
-This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from PostgreSQL database to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.   
+This example provides sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data from PostgreSQL database to Azure Blob Storage. However, data can be copied to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
 
 > [!IMPORTANT]
 > This sample provides JSON snippets. It does not include step-by-step instructions for creating the data factory. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions.
@@ -151,10 +151,10 @@ As a first step, set up the data management gateway. The instructions are in the
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-    "type": "AzureStorage",
-    "typeProperties": {
-        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
-    }
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
+        }
     }
 }
 ```

@@ -6,7 +6,7 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan

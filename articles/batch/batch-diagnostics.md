@@ -3,7 +3,7 @@ title: Metrics, alerts, and diagnostic logs - Azure Batch | Microsoft Docs
 description: Record and analyze diagnostic log events for Azure Batch account resources like pools and tasks.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 12/05/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: seodec18
 
 ---
@@ -33,7 +33,7 @@ Metrics are:
 
 * Enabled by default in each Batch account without additional configuration
 * Generated every 1 minute
-* Not persisted automatically, but have a 30-day rolling history. You can persist activity metrics as part of [diagnostic logging](#work-with-diagnostic-logs).
+* Not persisted automatically, but have a 30-day rolling history. You can persist activity metrics as part of diagnostic logging.
 
 ### View metrics
 

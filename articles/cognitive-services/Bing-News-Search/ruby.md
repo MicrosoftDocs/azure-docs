@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing News Search REST API using Ruby, and receive a JSON response.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
@@ -22,7 +22,7 @@ While this application is written in Python, the API is a RESTful Web service co
 
 ## Prerequisites
 
-* Ruby [2.4 or later](https://www.ruby-lang.org/downloads/)
+* Ruby [2.4 or later](https://www.ruby-lang.org/en/downloads/)
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 

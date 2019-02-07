@@ -46,6 +46,8 @@
       href: stream-analytics-sql-output-perf.md
     - name: Blob custom path patterns
       href: stream-analytics-custom-path-patterns-blob-storage-output.md
+  - name: States of a job
+    href: job-states.md
   - name: Window functions
     href: stream-analytics-window-functions.md
   - name: Geospatial functions
@@ -80,6 +82,8 @@
       href: stream-analytics-job-reliability.md
     - name: Authenticate with managed identity
       href: stream-analytics-managed-identities-adls.md
+    - name: Use SQL reference
+      href: sql-reference-data.md
   - name: Build solutions
     items:
     - name: Twitter sentiment analysis
@@ -154,7 +158,7 @@
       href: stream-analytics-troubleshoot-output.md
     - name: Query logic
       href: stream-analytics-troubleshoot-query.md
-    - name: Diagnostic logs
+    - name: Activity and diagnostic logs
       href: stream-analytics-job-diagnostic-logs.md
   - name: Integrate with machine learning
     items:
@@ -347,9 +351,7 @@
           href: /stream-analytics-query/data-types-azure-stream-analytics 
         - name: Parsing JSON and AVRO data
           href: stream-analytics-parsing-json.md
-          maintainContext: true
     - name: Query Language Elements
-      expanded: true
       items: 
         - name: Query Language Elements Overview
           href: /stream-analytics-query/query-language-elements-azure-stream-analytics 

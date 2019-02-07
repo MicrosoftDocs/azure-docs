@@ -4,11 +4,11 @@ description: How to configure federated single sign-on for a custom non-gallery 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -33,7 +33,7 @@ Below is a high-level overview of the steps required to configure federated sing
 
 -   [Configure Azure AD metadata values in the application (Sign on URL, Issuer, Logout URL and certificate)](#_Configuring_single_sign-on)
 
--   [Assign users to the application](#_Assign_users_to_the_application)
+-   Assign users to the application
 
 ## Configuring single sign-on to non-gallery applications
 

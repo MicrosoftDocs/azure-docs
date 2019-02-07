@@ -232,7 +232,7 @@ Starting v6.1, Service Fabric automatically integrates [docker HEALTHCHECK](http
 
 ![HealthCheckHealthy][1]
 
-![HealthCheckUnealthyApp][2]
+![HealthCheckUnhealthyApp][2]
 
 ![HealthCheckUnhealthyDsp][3]
 
@@ -261,7 +261,8 @@ Connect to the local Service Fabric cluster.
 sfctl cluster select --endpoint http://localhost:19080
 ```
 
-Use the install script provided in the template to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+Use the install script provided in the templates at https://github.com/Azure-Samples/service-fabric-containers/ to copy the application package to the cluster's image store, register the application type, and create an instance of the application.
+
 
 ```bash
 ./install.sh

@@ -23,6 +23,9 @@
     href: quickstarts/ruby.md
 - name: Tutorials
   items:
+   - name: Sentiment analysis on streaming data using Azure Databricks
+     href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
+     maintainContext: true
    - name: Text Analytics with Power BI
      href: Tutorials/tutorial-power-bi-key-phrases.md
    - name: Text Analytics in Power Apps

@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
+ms.subservice: disks
 ---
 
 # Convert Azure managed disks storage from standard to premium, and vice versa

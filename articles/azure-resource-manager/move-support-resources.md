@@ -10,13 +10,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 01/22/2018
 ms.author: tomfitz
 
 ---
 # Move operation support for resources
 
 This article lists whether an Azure resource type supports the move operation. Although a resource type supports the move operation, there may be conditions that prevent the resource from being moved. For details about conditions that affect move operations, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Find resource provider and resource type
 
@@ -25,7 +27,7 @@ To determine if a resource can be moved, you must find its resource provider and
 For PowerShell, use:
 
 ```azurepowershell-interactive
-Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
+Get-AzResource -ResourceGroupName demogroup | Select Name, ResourceType | Format-table
 ```
 
 For Azure CLI, use:
@@ -367,6 +369,11 @@ After finding the resource provider and resource type, use the tables in this ar
 | Resource type | Resource group | Subscription |
 | ------------- | -------------- | ------------ |
 | vaults | Yes | Yes |
+
+## Microsoft.Kusto
+| Resource type | Resource group | Subscription |
+| ------------- | -------------- | ------------ |
+| clusters | Yes | Yes |
 
 ## Microsoft.LabServices
 | Resource type | Resource group | Subscription |

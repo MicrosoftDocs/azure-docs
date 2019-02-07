@@ -4,17 +4,17 @@ description: Explains the different methods to upgrade to the latest release of 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/18/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
 ---

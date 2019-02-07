@@ -26,20 +26,14 @@ ms.author: sngun
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
-
-<tr><td>**API documentation**</td><td>[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
-
-<tr><td>**Samples**</td><td>[.NET code samples](sql-api-dotnet-samples.md)</td></tr>
-
-<tr><td>**Get started**</td><td>[Get started with the Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
-
-<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
-
-<tr><td>**Current supported framework**</td><td>[.NET Standard 1.6 and .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**SDK download**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
+|**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**Samples**|[.NET code samples](sql-api-dotnet-samples.md)|
+|**Get started**|[Get started with the Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)|
+|**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)|
+|**Current supported framework**|[.NET Standard 1.6 and .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## Release Notes
 
@@ -64,7 +58,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 * For direct/TCP transport diagnostics, added TransportException, an internal exception type of the SDK. When present in exception messages, this type prints additional information for troubleshooting client connectivity problems.
 
-* Added new constuctor overload which takes a HttpMessageHandler, a HTTP handler stack to use for sending HttpClient requests (e.g., HttpClientHandler).
+* Added new constructor overload which takes a HttpMessageHandler, a HTTP handler stack to use for sending HttpClient requests (e.g., HttpClientHandler).
 
 * Fix bug where header with null values were not being handled properly.
 
@@ -117,7 +111,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 ### <a name="1.9.1"/>1.9.1
 
 * Fixed KeyNotFoundException for cross partition order by queries in corner cases.
-* Fixed bug where JsonPropery attribute in select clause for LINQ queries was not being honored.
+* Fixed bug where JsonProperty attribute in select clause for LINQ queries was not being honored.
 
 ### <a name="1.8.2"/>1.8.2
 

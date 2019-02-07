@@ -4,13 +4,13 @@ description: Azure AD self-service password reset licensing requirements
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 01/11/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 ---
@@ -47,7 +47,7 @@ Additional licensing information, including costs, can be found on the following
 * [Azure Active Directory features and capabilities](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/microsoft-365/enterprise)
-* [Microsoft 365 Business service description](/office365/servicedescriptions/microsoft-365-business-service-description.md)
+* [Microsoft 365 Business service description](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-business-service-description)
 
 ## Enable group or user-based licensing
 

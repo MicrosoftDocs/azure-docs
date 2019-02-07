@@ -37,6 +37,8 @@
     href: resource-manager-tutorial-secure-artifacts.md
   - name: Use safe deployment practices
     href: deployment-manager-tutorial.md
+  - name: Troubleshoot template deployment
+    href: resource-manager-tutorial-troubleshoot.md
 - name: Samples
   items:
   - name: Resource Manager templates

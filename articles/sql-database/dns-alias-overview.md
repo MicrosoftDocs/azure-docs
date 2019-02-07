@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi,ayolubek, jrasnick
 manager: craigg
-ms.date: 02/05/2018
+ms.date: 12/19/2018
 ---
 # DNS alias for Azure SQL Database
 

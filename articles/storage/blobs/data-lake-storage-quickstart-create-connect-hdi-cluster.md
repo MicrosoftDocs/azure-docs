@@ -3,15 +3,15 @@ title: Cluster setup for Hadoop, Spark, Kafka, HBase, or R Server - Azure HDInsi
 description: Set up Hadoop, Kafka, Spark, HBase, R Server, or Storm clusters for HDInsight from a browser, the Azure CLI, Azure PowerShell, REST, or SDK.
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/15/2019
 ms.author: jamesbak
 ---
 # Quickstart: Set up clusters in HDInsight
 
-In this quickstart you learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, R Server, or Storm. You also learn to customize clusters, join them to a domain, and attach them to a storage account with [Azure Data Lake Storage Gen2 preview](data-lake-storage-introduction.md) enabled.
+In this quickstart you learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, R Server, or Storm. You also learn to customize clusters, join them to a domain, and attach them to a storage account with [Azure Data Lake Storage Gen2](data-lake-storage-introduction.md) enabled.
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks. Azure HDInsight handles implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information.
 
@@ -19,6 +19,10 @@ A Hadoop cluster consists of several virtual machines (nodes) that are used for 
 >HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. Learn how to [delete a cluster.](../../hdinsight/hdinsight-delete-cluster.md)
 
 A storage account with Data Lake Storage Gen2 capabilities is used as the data layer in this quickstart. With its hierarchical namespace service and [Hadoop driver](data-lake-storage-abfs-driver.md), Data Lake Storage Gen2 is optimized for distributed processing and analysis. Data stored in a storage account which has Data Lake Storage Gen2 enabled persists even after an HDInsight cluster is deleted.
+
+## Prerequisites
+
+- You'll need to create a user-assigned managed identity and then assign the **Blob Storage Contributor Role** to the identity. See [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
 ## Cluster setup methods
 
@@ -98,8 +102,7 @@ During configuration, for the default storage endpoint you specify Data Lake Sto
 
 ![Cluster storage settings: HDFS-compatible storage endpoints](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
-> [!IMPORTANT]
-> Be sure to **disable Data Lake Store access**. This settings refers to the old *Data Lake Store* functionality and needs to be disabled in order for *Data Lake Storage* features to operate correctly.
+In the **User assigned managed identity**, make sure to select the user-managed user-assigned managed identity that you created as a prerequisite of this article.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
@@ -180,11 +183,11 @@ For more information, see [Sizes for virtual machines](../../virtual-machines/wi
 
 Custom cluster setup builds on the Quick create settings, and adds the following options:
 
-- [HDInsight applications](#hdinsight-applications)
-- [Cluster size](#cluster-size)
+- HDInsight applications
+- Cluster size
 - Advanced settings
-  - [Script actions](#customize-clusters-using-script-action)
-  - [Virtual network](#use-virtual-network)
+  - Script actions
+  - Virtual network
 
 ## Install HDInsight applications on clusters
 

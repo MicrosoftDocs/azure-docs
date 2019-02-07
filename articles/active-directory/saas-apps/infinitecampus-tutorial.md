@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 3995b544-e751-4e0f-ab8b-c9a3862da6ba
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -108,7 +108,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](common/editconfigure.png)
 
-5. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** (skip to step **11.c**), perform the following steps:
+4. On the **Basic SAML Configuration** section, if you have a **Service Provider metadata file**, complete steps 4.a through 4.d, and then skip to step 11.c. If you don't have a Service Provider Metadata file, skip to step 5.
 
 	a. Click **Upload metadata file**.
 
@@ -124,10 +124,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. In the **Sign-on URL** textbox, type a URL using the following pattern (the domain will vary with Hosting Model): `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
-	> [!NOTE]
-	> You get the **Service Provider metadata file** on the Infinite Campus SSO Service Provider Configuration page which is explained later in the tutorial. If you're starting with a new SAML Service Provider configuration in Infinite Campus, skip to **step 11** to complete the export of the Service Provider metadata file.
-
-6. If you dont have **Service Provider metadata file**, perform the following steps (note that the domain will vary with Hosting Model):
+5. If you do not have **Service Provider metadata file**, perform the following steps (note that the domain will vary with Hosting Model):
 
 	a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 

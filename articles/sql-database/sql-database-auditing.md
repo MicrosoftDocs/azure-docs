@@ -11,7 +11,7 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/03/2019
+ms.date: 02/07/2019
 ---
 # Get started with SQL database auditing
 
@@ -35,9 +35,9 @@ You can use SQL database auditing to:
 - **Analyze** reports. You can find suspicious events, unusual activity, and trends.
 
 > [!IMPORTANT]
-> Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription.
+> Audit logs are written to **Append Blobs** in an Azure blob storage on your Azure subscription.
 >
-> - **Premium Storage** is currently **not supported** by Append Blobs.
+> - **Premium storage** is currently **not supported** by Append Blobs.
 > - **Storage in VNet** is currently **not supported**.
 
 ## <a id="subheading-8"></a>Define server-level vs. database-level auditing policy
@@ -149,7 +149,7 @@ If you chose to write audit logs to an Azure storage account, there are several 
 
     4. The merged file opens in SSMS, where you can view and analyze it, as well as export it to an XEL or CSV file, or to a table.
 
-- Use Power BI. You can view and analyze audit log data in Power BI. For more information and to access a downloadable template, see [Analyzie audit log data in Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+- Use Power BI. You can view and analyze audit log data in Power BI. For more information and to access a downloadable template, see [Analyze audit log data in Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 - Download log files from your Azure Storage blob container via the portal or by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
   - After you have downloaded a log file locally, double-click the file to open, view, and analyze the logs in SSMS.
   - You can also download multiple files simultaneously via Azure Storage Explorer. To do so, right-click a specific subfolder and select **Save as** to save in a local folder.
