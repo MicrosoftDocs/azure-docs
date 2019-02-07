@@ -49,7 +49,6 @@ The Azure AD audit logs provide records of system activities for compliance. To 
 An audit log has a default list view that shows:
 
 - the date and time of the occurrence
-- the initiator / actor (*who*) of an activity 
 - the activity (*what*) 
 - the target
 
