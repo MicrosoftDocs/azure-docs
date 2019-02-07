@@ -70,6 +70,10 @@ The resource group stores metadata about the resources. Therefore, when you spec
 
     ![delete azure resource group](./media/resource-group-portal/delete-group.png)
 
+## Deploy resources to a resource group
+
+You can use the Azure portal with Azure Resource Manager to deploy your Azure resources.  For more information, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
+
 ## Move to another resource group
 
 You can move the resources in the group to another resource group. For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).

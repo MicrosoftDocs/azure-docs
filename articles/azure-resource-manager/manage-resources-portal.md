@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 02/07/2019
 ms.author: jgao
 
 ---
@@ -25,55 +25,92 @@ For managing resource groups, see [Manage Azure resource groups by using the Azu
 
 ## Deploy resources to a resource group
 
-See [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
+After you have created a Resource Manager template, you can use the Azure portal to deploy your Azure resources. For creating a template, see [](),  For deploying a template using the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
 
-## List resources
+## Open resources 
 
-## Delete resources
+Azure resources are organized by Azure services and by resource groups. The following procedures shows how to open a storage account called **mystorage0207**. The virtual machine resides in a resource group called **mystorage0207rg**.
+
+To open a resource by the service type:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. In the left pane, select the Azure service. In this case, **Storage accounts**.  If you don't see the service listed, select **All services**, and then select the service type.
+
+    ![open azure resource in the portal](./media/manage-resources-portal/manage-azure-resources-portal-open-service.png)
+
+3. Select the resource you want to open.
+
+    ![open azure resource in the portal](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
+
+    A storage account looks like:
+
+    ![open azure resource in the portal](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
+
+To open a resource by resource group:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. In the left pane, select **Resource groups**
+3. Select the resource you want to open. 
 
 ## Manage resources
 
 When viewing a resource in the portal, you see the options for managing that particular resource.
 
-![manage resources](./media/resource-group-portal/manage-resources.png)
+![manage Azure resources](./media/manage-resources-portal/manage-azure-resources-portal-manage-resource.png)
 
-From these options, you can perform operations such as starting and stopping a virtual machine, or reconfiguring the properties of the virtual machine.
+The screenshot shows the management options for an Azure virtual machine. You can perform operations such as starting, restarting, and stopping a virtual machine.
+
+## Delete resources
+
+1. Open the resource in the portal. For the steps, see [Open resources](#open-resources).
+2. Select **Delete**. The following screenshot shows a virtual machine.
+
+    ![delete azure resource](./media/manage-resources-portal/manage-azure-resources-portal-delete-resource.png)
+3. Type the name of the resource to confirm the deletion, and then select **Delete**.
 
 ## Move resources
 
-If you need to move resources to another resource group or another subscription, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
+1. Open the resource in the portal. For the steps, see [Open resources](#open-resources).
+2. Select **Move**. The following screenshot shows a storage account.
+
+    ![move azure resource](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
+3. Select **Move to another resource group** or **Moeve to another subscription** depending on your needs.
+
+For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 
 ## Lock resources
 
-You can lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
+Locking prevents other users in your organization from accidentally deleting or modifying critical resources, such as Azure subscription, resource group, or resource. 
+
+1. Open the resource in the portal. For the steps, see [Open resources](#open-resources).
+2. Select **Locks**. The following screenshot shows a storage account.
+
+    ![lock azure resource](./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png)
+3. Select **Add**, and then specify the lock properties.
+
+For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## Tag resources
 
-You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](./resource-group-using-tags.md#portal).
+Tagging helps organizing your resource group and resources logically. 
+
+1. Open the resource in the portal. For the steps, see [Open resources](#open-resources).
+2. Select **Tags**. The following screenshot shows a storage account.
+
+    ![tag azure resource](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
+3. Specify the tag properties, and then select **Save**.
+
+For information, see [Using tags to organize your Azure resources](./resource-group-using-tags.md#portal).
 
 ## Monitor resources
 
-When you select a resource, the portal presents default graphs and tables for monitoring that resource type.
+When you open a resource, the portal presents default graphs and tables for monitoring that resource type. The following screenshot shows the graphs for a virtual machine:
 
-1. Select a resource and notice the **Monitoring** section. It includes graphs that are relevant to the resource type. The following image shows the default monitoring data for a storage account.
+![monitor azure resource](./media/manage-resources-portal/manage-azure-resources-portal-monitor-resource.png)
 
-    ![show monitoring](./media/resource-group-portal/show-monitoring.png)
-2. You can pin a section to your dashboard by selecting the ellipsis (...) above the section. You can also customize the size the section or remove it completely. The following image shows how to pin, customize, or remove the CPU and Memory section.
-
-    ![pin section](./media/resource-group-portal/pin-cpu-section.png)
-3. After pinning the section to the dashboard, you will see the summary on the dashboard. And, selecting it immediately takes you to more details about the data.
-
-    ![view dashboard](./media/resource-group-portal/view-startboard.png)
-4. To completely customize the data you monitor through the portal, navigate to your default dashboard, and select **New dashboard**.
-
-    ![dashboard](./media/resource-group-portal/dashboard.png)
-5. Give your new dashboard a name and drag tiles onto the dashboard. The tiles are filtered by different options.
-
-    ![dashboard](./media/resource-group-portal/create-dashboard.png)
-
-     To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
+You can select the pin icon on the upper right corner of the graphs to pin the graph to the dashboard. To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
 
 ## Next steps
 
