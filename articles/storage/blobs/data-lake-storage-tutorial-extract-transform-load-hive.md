@@ -65,46 +65,57 @@ This tutorial uses flight data from the Bureau of Transportation Statistics to d
 
 In this section, you use `scp` to upload data to your HDInsight cluster.
 
-Open a command prompt and use the following command to upload the .zip file to the HDInsight cluster head node:
+1. Open a command prompt and use the following command to upload the .zip file to the HDInsight cluster head node:
 
-```bash
-scp <FILE_NAME>.zip <SSH_USER_NAME>@<CLUSTER_NAME>-ssh.azurehdinsight.net:<FILE_NAME.zip>
-```
+   ```bash
+   scp <file-name>.zip <ssh-user-name>@<cluster-name>-ssh.azurehdinsight.net:<file-name.zip>
+   ```
 
-* Replace \<FILE_NAME> with the name of the .zip file.
-* Replace \<SSH_USER_NAME> with the SSH login for the HDInsight cluster.
-* Replace \<CLUSTER_NAME> with the name of the HDInsight cluster.
+   * Replace \<file-name> with the name of the .zip file.
+   * Replace \<ssh-user-name> with the SSH login for the HDInsight cluster.
+   * Replace \<cluster-name> with the name of the HDInsight cluster.
 
-If you use a password to authenticate your SSH login, you're prompted for the password. 
+   If you use a password to authenticate your SSH login, you're prompted for the password. 
 
-If you use a public key, you might need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa FILE_NAME.zip USER_NAME@CLUSTER_NAME-ssh.azurehdinsight.net:`.
+   If you use a public key, you might need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`.
 
-After the upload has finished, connect to the cluster by using SSH. On the command prompt, enter the following command:
+2. After the upload has finished, connect to the cluster by using SSH. On the command prompt, enter the following command:
 
-```bash
-ssh <SSH_USER_NAME>@<CLUSTER_NAME>-ssh.azurehdinsight.net
-```
+   ```bash
+   ssh <ssh-user-name>@<cluster-name>-ssh.azurehdinsight.net
+   ```
 
-Use the following command to unzip the .zip file:
+3. Use the following command to unzip the .zip file:
 
-```bash
-unzip <FILE_NAME>.zip
-```
+   ```bash
+   unzip <file-name>.zip
+   ```
 
-The command extracts a **.csv** file that is roughly 60 MB.
+   The command extracts a **.csv** file.
 
-Use the following commands to create a directory, and copy the *.csv* file to the directory:
+4. Use the following command to create the Data Lake Storage Gen2 file system.
 
-```bash
-hdfs dfs -mkdir -p abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data
-hdfs dfs -put <FILE_NAME>.csv abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/data/
-```
+   ```bash
+   hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
+   ```
+   
+   Replace the /<file-system-name> placeholder with the name that you want to give your file system.
 
-Use the following command to create the Data Lake Storage Gen2 file system.
+   Replace the /<storage-account-name> placeholder with the name of your storage account.
 
-```bash
-hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/
-```
+5. Use the following command to create a directory.
+
+   ```bash
+   hdfs dfs -mkdir -p abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data
+   ```
+
+6. Use the following command to copy the *.csv* file to the directory:
+
+   ```bash
+   hdfs dfs -put "<file-name>.csv" abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data/
+   ```
+
+   Use quotes around the file name if the file name contains spaces or special characters.
 
 ## Transform the data
 
