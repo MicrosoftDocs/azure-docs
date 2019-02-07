@@ -169,27 +169,27 @@ Since the activity logs structure isn't tabular, you'll need to manipulate the d
 
 Use the following query to map the data to the table:
 
-    ```kusto
-    .create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[
-    {"column":"Timestamp","path":"$.time"},
-    {"column":"ResourceId","path":"$.resourceId"},
-    {"column":"MetricName","path":"$.metricName"},
-    {"column":"Count","path":"$.count"},
-    {"column":"Total","path":"$.total"},
-    {"column":"Minimum","path":"$.minimum"},
-    {"column":"Maximum","path":"$.maximum"},
-    {"column":"Average","path":"$.average"},
-    {"column":"TimeGrain","path":"$.timeGrain"}]'
-    ```
+```kusto
+.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[
+{"column":"Timestamp","path":"$.time"},
+{"column":"ResourceId","path":"$.resourceId"},
+{"column":"MetricName","path":"$.metricName"},
+{"column":"Count","path":"$.count"},
+{"column":"Total","path":"$.total"},
+{"column":"Minimum","path":"$.minimum"},
+{"column":"Maximum","path":"$.maximum"},
+{"column":"Average","path":"$.average"},
+{"column":"TimeGrain","path":"$.timeGrain"}]'
+```
 
 #### Activity logs table mapping
 
 Use the following query to map the data to the table:
 
-    ```kusto
-    .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[
-    {"column":"Records","path":"$.records"}]'
-    ```
+```kusto
+.create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[
+{"column":"Records","path":"$.records"}]'
+```
 
 ### Create update policy
 
@@ -376,37 +376,37 @@ you have a pipeline with data flowing. Ingestion via the cluster takes 5 minutes
 
 The following query analyzes query duration data from Azure Data Explorer diagnostic log records:
 
-    ```kusto
-    DiagnosticLogsRecords
-    | where Timestamp > ago(15m) and MetricName == 'QueryDuration'
-    | summarize avg(Average)
-    ```
-    
-    Query results:
-    
-    |   |   |
-    | --- | --- |
-    |   |  avg_Average |
-    |   | 00:06.156 |
-    | | |
+```kusto
+DiagnosticLogsRecords
+| where Timestamp > ago(15m) and MetricName == 'QueryDuration'
+| summarize avg(Average)
+```
+
+Query results:
+
+|   |   |
+| --- | --- |
+|   |  avg_Average |
+|   | 00:06.156 |
+| | |
 
 ### Activity logs table query example
 
-The following query analyzes successful operation data from Azure Data Explorer activity log records:
+The following query analyzes data from Azure Data Explorer activity log records:
 
-    ```kusto
-    ActivityLogsRecords
-    | where OperationName == 'MICROSOFT.EVENTHUB/NAMESPACES/AUTHORIZATIONRULES/LISTKEYS/ACTION'
-    | where ResultType == 'Success'
-    | summarize avg(DurationMs)
-    ```
+```kusto
+ActivityLogsRecords
+| where OperationName == 'MICROSOFT.EVENTHUB/NAMESPACES/AUTHORIZATIONRULES/LISTKEYS/ACTION'
+| where ResultType == 'Success'
+| summarize avg(DurationMs)
+```
 
 Query results:
-    |   |   |
-    | --- | --- |
-    |   |  avg(DurationMs) |
-    |   | 768.333 |
-    | | |
+|   |   |
+| --- | --- |
+|   |  avg(DurationMs) |
+|   | 768.333 |
+| | |
 
 ## Next steps
 
