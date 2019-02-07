@@ -66,7 +66,7 @@ For example, for the Azure region West US 2 (displayed below), you will use "wes
 | --- | --- | --- | --- | --- |
 | Azure Resource Manager |  `https://management.azure.com/` | `https://management.usgovcloudapi.net/` | `https://management.cloudapi.de/` | `https://management.chinacloudapi.cn/` |
 | Authentication | `https://login.microsoftonline.com/` | `https://login.microsoftonline.us/` | `https://login.microsoftonline.de/` | `https://login.chinacloudapi.cn/` |
-| Token audience | `https://management.core.windows.net/` | `https://management.core.usgovcloudapi.net` | `https://management.core.cloudapi.de`| `https://management.core.chinacloudapi.cn/` |
+| Token audience | `https://management.core.windows.net/` | `https://management.core.usgovcloudapi.net/` | `https://management.core.cloudapi.de/`| `https://management.core.chinacloudapi.cn/` |
 
 ## Next steps
 
