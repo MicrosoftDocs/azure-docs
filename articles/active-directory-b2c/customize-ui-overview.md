@@ -20,7 +20,7 @@ The ability for you to brand and customize the user interface (UI) that Azure Ac
 Depending on your needs when it comes to these experiences, you customize the UI of your application in different ways. For example:
 
 - If you're using [user flows](active-directory-b2c-reference-policies.md) to provide sign-up or sign-in, password reset, or profile-editing experiences in your application, you use the [Azure portal to customize the UI](tutorial-customize-ui.md).
-- If you’re using a v2 user flow, you can use a page layout template to change the look of your user flow pages without further customization. For example, you can apply an Ocean Blue or Slate Gray theme to all pages in your user flow.
+- If you’re using a v2 user flow, you can use a [page layout template](#page-layout-templates) to change the look of your user flow pages without further customization. For example, you can apply an Ocean Blue or Slate Gray theme to all pages in your user flow.
 - If you're providing sign-in only, its accompanying password reset page, and verification emails, you use the same customization steps that are used for an [Azure AD sign-in page](../active-directory/fundamentals/customize-branding.md).
 - If customers try to edit their profile before they sign in, they are redirected to a page that you customize using the same steps that are used for customizing the Azure AD sign-in page.
 - If you're using [custom policies](active-directory-b2c-overview-custom.md) to provide sign-up or sign-in, password reset, or profile-editing in your application, you use [policy files to customize the UI](active-directory-b2c-ui-customization-custom.md).
