@@ -125,45 +125,45 @@ To configure Azure AD single sign-on with Soloinsight-CloudGate SSO, perform the
 
 ### Configure Soloinsight-CloudGate SSO Single Sign-On
 
-1. To get the values that are to be pasted in the Azure portal while configuring Basic SAML, login to the CloudGate Web Portal using your credentials then access the SSO settings which can be found on the following path **Home>Administration>Systemsettings>General**.
+1. To get the values that are to be pasted in the Azure portal while configuring Basic SAML, login to the CloudGate Web Portal using your credentials then access the SSO settings, which can be found on the following path **Home>Administration>System settings>General**.
 
 	![CloudGate SSO Settings](./media/soloinsight-cloudgate-sso-tutorial/sso-main-settings.png)
 
 2. **SAML Consumer URL**
 
-	* Copy the links available against the **Saml Consumer URL** and the **Redirect URL** fields and paste them in the Azure Portal **Basic SAML Configuration** section for **Identifier (Entity ID)** and **Reply URL** feilds respectively.
+	* Copy the links available against the **Saml Consumer URL** and the **Redirect URL** fields and paste them in the Azure Portal **Basic SAML Configuration** section for **Identifier (Entity ID)** and **Reply URL** fields respectively.
 
 		![SAMLIdentifier](./media/soloinsight-cloudgate-sso-tutorial/saml-identifier.png)
 
 3. **SAML Signing Certificate**
 
-	* Go to the source of the Certificate (Base64) file that was downloaded from Azure Portal SAML Signing Certificate lists and right click on it. Choose **Edit with Notepad++** option from the list. 
+	* Go to the source of the Certificate (Base64) file that was downloaded from Azure Portal SAML Signing Certificate lists and right-click on it. Choose **Edit with Notepad++** option from the list. 
 
 		![SAMLcertificate](./media/soloinsight-cloudgate-sso-tutorial/certificate-file.png)
 
-	* Copy the content in the Certificate (Base64) Notpad++ file.
+	* Copy the content in the Certificate (Base64) Notepad++ file.
 
-		![Certificatecopy](./media/soloinsight-cloudgate-sso-tutorial/certificate-copy.png)
+		![Certificate copy](./media/soloinsight-cloudgate-sso-tutorial/certificate-copy.png)
 
 	* Paste the content in the CloudGate Web Portal SSO settings **Certificate** field and click on Save button.
 
-		![Certificateportal](./media/soloinsight-cloudgate-sso-tutorial/certificate-portal.png)
+		![Certificate portal](./media/soloinsight-cloudgate-sso-tutorial/certificate-portal.png)
 
 4. **Default Group**
 
-	* Select **Business Admin** from the drop down list of the **Default Group** option in the CloudGate Web Portal
+	* Select **Business Admin** from the drop-down list of the **Default Group** option in the CloudGate Web Portal
 
-		![Defaultgroup](./media/soloinsight-cloudgate-sso-tutorial/default-group.png)
+		![Default group](./media/soloinsight-cloudgate-sso-tutorial/default-group.png)
 
 5. **AD Identifier and Login URL**
 
 	* The copied **Login URL** from the Azure Portal **Set up Soloinsight-CloudGate SSO** configurations are to be entered in the CloudGate Web Portal SSO settings section. 
 
-	* Paste the **Login URL** link from Azure Portal in the CloudGate Web Portal **AD Login URL field** field.
+	* Paste the **Login URL** link from Azure Portal in the CloudGate Web Portal **AD Login URL** field.
 	 
 	* Paste the **Azure AD Identifier** link from Azure Portal in the CloudGate Web Portal **AD Identifier** field
 
-		![Adlogin](./media/soloinsight-cloudgate-sso-tutorial/ad-login.png)
+		![Ad login](./media/soloinsight-cloudgate-sso-tutorial/ad-login.png)
 
 ### Create an Azure AD test user 
 
@@ -181,9 +181,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -212,15 +212,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog, select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+7. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create Soloinsight-CloudGate SSO test user
 
 To Create a test user, Select **Employees** from the main menu of your CloudGate Web Portal and fill out the Add New employee form. The Authority Level that is to be assigned to the test user is **Business Admin** Click on **Create** once all the required fields are filled.
 
-![Employeetest](./media/soloinsight-cloudgate-sso-tutorial/employee-test.png)
+![Employee test](./media/soloinsight-cloudgate-sso-tutorial/employee-test.png)
 
 ### Test single sign-on 
 
