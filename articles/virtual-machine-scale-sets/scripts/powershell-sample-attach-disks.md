@@ -23,13 +23,11 @@ ms.custom: mvc
 # Attach and use data disks with a virtual machine scale set with PowerShell
 This script creates a virtual machine scale set and attaches and prepares data disks.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Sample script
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+## Sample script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/use-data-disks/use-data-disks.ps1 "Create a virtual machine scale set with data disks")]
 

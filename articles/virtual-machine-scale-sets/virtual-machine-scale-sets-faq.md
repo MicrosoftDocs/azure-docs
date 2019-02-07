@@ -14,15 +14,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
 
 ---
 
 # Azure virtual machine scale sets FAQs
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Get answers to frequently asked questions about virtual machine scale sets in Azure.
 
@@ -60,7 +58,7 @@ Get answers to frequently asked questions about virtual machine scale sets in Az
 
 **Q.** When I'm using multiple extensions in a scale set, can I enforce an execution sequence?
 
-**A.** Not directly, but for the customScript extension, your script can wait for another extension to finish. You can get additional guidance on extension sequencing in the blog post [Extension Sequencing in Azure virtual machine scale sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+**A.** Yes, you can use scale set [extension sequencing](virtual-machine-scale-sets-extension-sequencing.md).
 
 **Q.** Do scale sets work with Azure availability sets?
 
@@ -175,7 +173,7 @@ az sf cluster create -h
 
 Please review keyvaults documentation for the latest API supported certificate operations in Azure.
 
-Self-signed certificates can not be used for distributed trust provided by a Certificate Authority, and should not be used for any Service Fabric Cluster intended to host enterprise production solutions; for additional Service Fabric Security guidance, review [Azure Service Fabric Security Best Practices](https://docs.microsoft.com/en-us/azure/security/azure-service-fabric-security-best-practices) and [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+Self-signed certificates can not be used for distributed trust provided by a Certificate Authority, and should not be used for any Service Fabric Cluster intended to host enterprise production solutions; for additional Service Fabric Security guidance, review [Azure Service Fabric Security Best Practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) and [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
 ### Can I specify an SSH key pair to use for SSH authentication with a Linux virtual machine scale set from a Resource Manager template?
 
@@ -229,6 +227,7 @@ You can provide SSH public keys in plain text when you create a Linux VM:
             }
         ]
     }
+}
 ```
 
 linuxConfiguration element name | Required | Type | Description
@@ -391,13 +390,13 @@ There are two main ways to change the password for VMs in scale sets.
 - Reset the password using the VM access extensions.
 
     Use the following PowerShell example:
-    
+
     ```powershell
     $vmssName = "myvmss"
     $vmssResourceGroup = "myvmssrg"
     $publicConfig = @{"UserName" = "newuser"}
     $privateConfig = @{"Password" = "********"}
-    
+
     $extName = "VMAccessAgent"
     $publisher = "Microsoft.Compute"
     $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
@@ -629,7 +628,9 @@ You have some flexibility in how you handle alerts for specified thresholds. For
                     }
                 ]
             }
-        ],
+        ]
+    }
+}
 ```
 
 In this example, an alert goes to Pagerduty.com when a threshold is reached.

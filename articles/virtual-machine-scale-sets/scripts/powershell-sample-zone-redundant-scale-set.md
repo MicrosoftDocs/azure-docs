@@ -23,13 +23,11 @@ ms.custom: mvc
 # Create a zone-redundant virtual machine scale set with PowerShell
 This script creates a virtual machine scale set running Windows Server 2016 across multiple Availability Zones. After running the script, you can access the virtual machine over RDP.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Sample script
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+## Sample script
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.ps1 "Create zone-redundant scale set")]
 

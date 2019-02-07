@@ -21,8 +21,6 @@ ms.author: cynthn
 
 # Encrypt OS and attached data disks in a virtual machine scale set with Azure PowerShell (Preview)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 To protect and safeguard data at rest using industry standard encryption technology, virtual machine scale sets support Azure Disk Encryption (ADE). Encryption can be enabled for Windows and Linux virtual machine scale sets. For more information, see [Azure Disk Encryption for Windows and Linux](../security/azure-security-disk-encryption.md).
 
 > [!NOTE]
@@ -35,9 +33,10 @@ Azure disk encryption is supported:
 
 Scale set VM reimage and upgrade operations are not supported in the current preview. The Azure disk encryption for virtual machine scale sets preview is recommended only in test environments. In the preview, do not enable disk encryption in production environments where you might need to upgrade an OS image in an encrypted scale set.
 
+[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell Az module version 1.0.0 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 
 ## Register for disk encryption preview
 
@@ -47,7 +46,9 @@ The Azure disk encryption for virtual machine scale sets preview requires you to
 Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-It can take up to 10 minutes for the registration request to propagate. You can check on the registration state with [Get-AzProviderFeature](/powershell/module/az.Resources/Get-azProviderFeature). When the `RegistrationState` reports *Registered*, re-register the *Microsoft.Compute* provider with [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider):
+
+It can take up to 10 minutes for the registration request to propagate. You can check on the registration state with [Get-AzProviderFeature](/powershell/module/az.resources/Get-AzProviderFeature). When the `RegistrationState` reports *Registered*, re-register the *Microsoft.Compute* provider with [Register-AzResourceProvider](/powershell/module/az.resources/Register-AzResourceProvider):
+
 
 ```azurepowershell-interactive
 Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
@@ -73,7 +74,8 @@ New-AzKeyVault -VaultName $vaultName -ResourceGroupName $rgName -Location $locat
 
 This step is only required if you have an existing Key Vault that you wish to use with disk encryption. Skip this step if you created a Key Vault in the previous section.
 
-You can enable an existing Key Vault in the same subscription and region as the scale set for disk encryption with [Set-AzKeyVaultAccessPolicy](/powershell/module/az.KeyVault/Set-azKeyVaultAccessPolicy). Define the name of your existing Key Vault in the *$vaultName* variable as follows:
+You can enable an existing Key Vault in the same subscription and region as the scale set for disk encryption with [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-AzKeyVaultAccessPolicy). Define the name of your existing Key Vault in the *$vaultName* variable as follows:
+
 
 ```azurepowershell-interactive
 $vaultName="myexistingkeyvault"
@@ -107,7 +109,8 @@ New-AzVmss `
 
 ## Enable encryption
 
-To encrypt VM instances in a scale set, first get some information on the Key Vault URI and resource ID with [Get-AzKeyVault](/powershell/module/az.KeyVault/Get-azKeyVault). These variables are used to then start the encryption process with [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.Compute/Set-azVmssDiskEncryptionExtension):
+To encrypt VM instances in a scale set, first get some information on the Key Vault URI and resource ID with [Get-AzKeyVault](/powershell/module/az.keyvault/Get-AzKeyVault). These variables are used to then start the encryption process with [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/Set-AzVmssDiskEncryptionExtension):
+
 
 ```azurepowershell-interactive
 $diskEncryptionKeyVaultUrl=(Get-AzKeyVault -ResourceGroupName $rgName -Name $vaultName).VaultUri
@@ -121,7 +124,8 @@ When prompted, type *y* to continue the disk encryption process on the scale set
 
 ## Check encryption progress
 
-To check on the status of disk encryption, use [Get-AzVmssDiskEncryption](/powershell/module/az.Compute/Get-azVmssDiskEncryption):
+To check on the status of disk encryption, use [Get-AzVmssDiskEncryption](/powershell/module/az.compute/Get-AzVmssDiskEncryption):
+
 
 ```azurepowershell-interactive
 Get-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
@@ -149,7 +153,8 @@ EncryptionExtensionInstalled : True
 
 ## Disable encryption
 
-If you no longer wish to use encrypted VM instances disks, you can disable encryption with [Disable-AzVmssDiskEncryption](/powershell/module/az.Compute/Disable-azVmssDiskEncryption) as follows:
+If you no longer wish to use encrypted VM instances disks, you can disable encryption with [Disable-AzVmssDiskEncryption](/powershell/module/az.compute/Disable-AzVmssDiskEncryption) as follows:
+
 
 ```azurepowershell-interactive
 Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $vmssName
