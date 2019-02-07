@@ -32,7 +32,7 @@ A Service Fabric cluster on Azure is an Azure resource that uses and interacts w
 * storage accounts
 * public IP addresses
 
-![Service Fabric Cluster][./media/service-fabric-azure-clusters-overview/Cluster.PNG]
+![Service Fabric Cluster][media/service-fabric-azure-clusters-overview/Cluster.PNG]
 
 ### Virtual machine
 A [virtual machine](/azure/virtual-machines/) that's part of a cluster is called a node though, technically, a cluster node is a Service Fabric runtime process. Each node is assigned a node name (a string). Nodes have characteristics, such as [placement properties](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). Each machine or VM has an auto-start service, *FabricHost.exe*, that starts running at boot time and then starts two executables, *Fabric.exe* and *FabricGateway.exe*, which make up the node. A production deployment is one node per physical or virtual machine. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of *Fabric.exe* and *FabricGateway.exe*.
