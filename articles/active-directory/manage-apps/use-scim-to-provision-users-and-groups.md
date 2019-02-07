@@ -85,7 +85,7 @@ Applications that support the SCIM profile described in this article can be conn
     >[!NOTE]
     >You can optionally disable syncing of group objects by disabling the "groups" mapping. 
 
-11. Under **Settings**, the **Scope** field defines which users and or groups are synchronized. Selecting "Sync only assigned users and groups" (recommended) will only sync users and groups assigned in the **Users and groups** tab.
+11. Under **Settings**, the **Scope** field defines which users and groups are synchronized. Selecting "Sync only assigned users and groups" (recommended) will only sync users and groups assigned in the **Users and groups** tab.
 12. Once your configuration is complete, change the **Provisioning Status** to **On**.
 13. Click **Save** to start the Azure AD provisioning service. 
 14. If syncing only assigned users and groups (recommended), be sure to select the **Users and groups** tab and assign the users and/or groups you wish to sync.
