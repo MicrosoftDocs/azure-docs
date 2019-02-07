@@ -1,18 +1,12 @@
 ---
-title: Tutorial: Predictive solution for credit risk - Azure Machine Learning Studio | Microsoft Docs
-description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio. This tutorial is part two of a three-part tutorial series.  
+title: 'Credit risk tutorial: Train and evaluate models - Azure Machine Learning Studio | Microsoft Docs'
+description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio. This tutorial is part two of a three-part tutorial series. It shows how to train and evaluate models.  
 keywords: credit risk, predictive analytics solution,risk assessment
-services: machine-learning
-documentationcenter: ''
 author: sdgilley
-ms.custom: seodec18
 ms.author: sgilley
-ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
+services: machine-learning
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
 ---
