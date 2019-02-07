@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: This article provides the recommended workflow for the Azure Custom Decision Service.
 services: cognitive-services
 author: noellelacharite
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: custom-decision-service

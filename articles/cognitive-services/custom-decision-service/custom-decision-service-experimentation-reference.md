@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: This article is a guide for experimentation with Custom Decision Service.
 services: cognitive-services
 author: marco-rossi29
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: custom-decision-service

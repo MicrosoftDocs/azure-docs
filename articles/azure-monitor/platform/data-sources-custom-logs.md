@@ -37,10 +37,6 @@ The log files to be collected must match the following criteria.
 > If your application creates a new log file each day or when it reaches a certain size, the Log Analytics agent for Linux does not discover them until after it is restarted. This is because the agent only enumerates and begins monitoring for patterns with the specified logs upon start up, and because of this you need to plan around it by automating the restart of the agent.  This limitation does not exist with the Log Analytics agent for Windows.  
 >
 
->[!NOTE]
-> A maximum of 500 custom logs can be created per Log Analytics Workspace. 
->
-
 ## Defining a custom log
 Use the following procedure to define a custom log file.  Scroll to the end of this article for a walkthrough of a sample of adding a custom log.
 

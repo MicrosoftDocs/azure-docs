@@ -4,7 +4,7 @@ description: Use this quickstart to make your first image search using the Bing 
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
-manager: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart

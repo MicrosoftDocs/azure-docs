@@ -4,7 +4,7 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: This article contains the known limits of Azure Cognitive Services Language Understanding (LUIS). LUIS has several boundary areas. Model boundary controls intents, entities, and features in LUIS. Quota limits based on key type. Keyboard combination controls the LUIS website. 
 services: cognitive-services
 author: diberry
-manager: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article

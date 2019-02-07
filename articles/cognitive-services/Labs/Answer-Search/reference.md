@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Reference for Project Answer Search endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: answer-search

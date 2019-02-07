@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Get G0 REST-based information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: diberry
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: qna-maker

@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: This article contains age prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: nitinme
+manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding

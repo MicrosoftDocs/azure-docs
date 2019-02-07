@@ -4,7 +4,7 @@ titlesuffix: Face - Azure Cognitive Services
 description: Configuration settings for containers.
 services: cognitive-services
 author: diberry
-manager: nitinme
+manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api

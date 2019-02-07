@@ -5,7 +5,7 @@ description:  Use this quickstart to send image search requests to the Bing Imag
 services: cognitive-services
 documentationcenter: ''
 author: aahill
-manager: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart

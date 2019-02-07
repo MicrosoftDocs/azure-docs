@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Concepts related to recognizing printed and handwritten text in images using the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: computer-vision

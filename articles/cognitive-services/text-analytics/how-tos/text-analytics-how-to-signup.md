@@ -5,7 +5,7 @@ description: Instructions for signing up to use text analysis and operating with
 services: cognitive-services
 author: HeidiSteen
 
-manager: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual

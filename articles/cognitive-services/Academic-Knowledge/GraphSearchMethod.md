@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use the Graph Search method in the Academic Knowledge API to return a set of academic entities based on specific graph patterns.
 services: cognitive-services
 author: alch-msft
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: academic-knowledge

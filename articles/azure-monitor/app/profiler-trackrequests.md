@@ -3,15 +3,15 @@ title: Write code to track requests with Azure Application Insights | Microsoft 
 description: Write code to track requests with Application Insights so you can get profiles for your requests.
 services: application-insights
 documentationcenter: ''
-author: cweining
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: mbullwin
+ms.reviewer: cawa
 ms.date: 08/06/2018
-ms.author: cweining
+ms.author: mbullwin
 ---
 # Write code to track requests with Application Insights
 

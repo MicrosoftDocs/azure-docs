@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how Docker containers can get Cognitive Services closer to your data.
 services: cognitive-services
 author: diberry
-manager: nitinme
+manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article 

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Describes how to share a custom search instance.
 services: cognitive-services
 author: aahill
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: bing-custom-search

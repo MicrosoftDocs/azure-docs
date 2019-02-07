@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use Content Moderator in your applications through REST API calls.
 services: cognitive-services
 author: PatrickFarley
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

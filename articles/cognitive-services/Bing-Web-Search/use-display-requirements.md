@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: The requirements for displaying search results from the Bing Search APIs in your applications.
 services: cognitive-services
 author: aahill
-manager: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: conceptual

@@ -1,12 +1,20 @@
 ---
 title: Azure Resource Health overview | Microsoft Docs
 description: Overview of Azure Resource Health
+services: Resource health
+documentationcenter: ''
 author: stephbaron
-ms.author: stbaron
-ms.topic: conceptual
+manager: ''
+editor: ''
+
+ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 11/16/2018
+ms.author: stbaron
 
 ---
 # Azure Resource Health overview

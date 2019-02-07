@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to migrate your applications from the Translator Speech API to the Speech Service.
 services: cognitive-services
 author: aahill
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: speech-service

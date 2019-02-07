@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Build a bot integrated with a LUIS application and Application Insights using C#.
 services: cognitive-services
 author: diberry
-manager: nitinme
+manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Create video transcript reviews using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

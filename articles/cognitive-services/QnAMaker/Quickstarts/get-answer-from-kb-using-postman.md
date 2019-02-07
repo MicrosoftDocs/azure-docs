@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: This quickstart walks you through getting an answer from your knowledge base using Postman.
 services: cognitive-services
 author: diberry
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: qna-maker

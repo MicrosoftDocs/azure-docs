@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn more about request throttling and when using the Bing Web Search API.
 services: cognitive-services
 author: aahill
-manager: nitinme
+manager: cgronlun
 ms.assetid:
 ms.service: cognitive-services
 ms.subservice: bing-web-search

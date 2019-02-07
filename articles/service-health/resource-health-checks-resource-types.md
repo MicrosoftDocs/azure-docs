@@ -1,12 +1,20 @@
 ---
 title: Supported Resource Types through Azure Resource Health | Microsoft Docs
 description: Supported Resource Types through Azure Resource health
+services: Resource health
+documentationcenter: ''
 author: stephbaron
-ms.author: stbaron
-ms.topic: conceptual
+manager: ''
+editor: ''
+
+ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
 ms.service: service-health
-ms.topic: how-to 
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: Supportability
 ms.date: 01/29/2019
+ms.author: stbaron
 ---
 
 # Resource types and health checks in Azure resource health

@@ -63,6 +63,8 @@ Download and print the Machine Learning Studio Algorithm Cheat Sheet in tabloid 
 
 * For a complete alphabetical list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules][a-z-list] in Machine Learning Studio Algorithm and Module Help.
 
+* To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](studio-overview-diagram.md).
+
 
 
 <!-- Module References -->
