@@ -58,7 +58,7 @@ Verify the VM properties, and make sure that the VM complies with [Azure require
 
 3. In **Compute and Network**, you can modify the Azure name, resource group, target size,
    [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and
-   [managed disk settings](#managed-disk-considerations)
+   managed disk settings
 
 4. You can view and modify network settings, including the network/subnet in which the Azure VM
    will be located after failover, and the IP address that will be assigned to it.

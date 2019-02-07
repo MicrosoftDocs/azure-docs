@@ -16,7 +16,7 @@
     href: apache-kafka-get-started.md
   - name: Create an Apache Kafka cluster - PowerShell
     href: apache-kafka-quickstart-powershell.md
-  - name: Create an Apache kafka cluster - Template
+  - name: Create an Apache kafka cluster - Resource Manager Template
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Tutorials
   items:
