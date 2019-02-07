@@ -20,23 +20,9 @@ If your application sends queries to any of the Bing Search APIs, you can use th
 
 | Feature                                                                                                                                                                                 | Description                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Suggest search terms in real-time | Improve your app experience by using the Autosuggest API to display suggested search terms as they're typed. |
+| [Suggest search terms in real-time](concepts/getting-suggestions.md) | Improve your app experience by using the Autosuggest API to display suggested search terms as they're typed. |
 
 ## Workflow
-
-The Bing Autosuggest API is a RESTful web service, easy to call from any programming language that can make HTTP requests and parse JSON. 
-
-1. Create a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with access to the Bing Search APIs. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) for free.
-2. Send a request to this API each time the user types a new character in the search box.
-3. Process the API response by parsing the returned JSON message.
-
-| Feature                                                                                                                                                                                 | Description                                                                                                                                                            |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Suggest search terms in real-time](concepts/get-suggestions.md) | Improve your app experience by using the Autosuggest API to display suggested search terms as they're typed. |
-
-Typically, you'd call this API each time the user types a new character in the search box. The completeness of the query string impacts the relevance of the suggested query terms that the API returns. The more complete the query string, the more relevant the list of suggested query terms are. For example, the suggestions that the API may return for *s* are likely to be less relevant than the queries it returns for *sailing dinghies*.
-
-The following example shows a request that returns the suggested query strings for *sail*. Remember to URL encode the user's partial query term when you set the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#query) query parameter. For example, if the user entered *sailing les*, set `q` to `sailing+les` or `sailing%20les`.
 
 The Bing Autosuggest API is a RESTful web service, easy to call from any programming language that can make HTTP requests and parse JSON. 
 
@@ -50,7 +36,7 @@ The following example shows a drop-down search box with suggested query terms fr
 
 ![Autosuggest drop-down search box list](./media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
-If the user selects a suggested query from the drop-down list, you'd use the query term in the `query` field to call the [Bing Web Search API](../bing-web-search/search-the-web.md) and display the results yourself. Or, you could use the URL in the `url` field to send the user to the Bing search results page instead.
+When a user selects a suggestion from the drop-down list, you can use it to begin searching with one of the Bing Search APIs, or directly go to the Bing search results page.
 
 ## Next steps
 
