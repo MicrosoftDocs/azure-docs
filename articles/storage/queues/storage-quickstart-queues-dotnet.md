@@ -131,7 +131,8 @@ Message 'aa8fa95f-07ea-4df7-bf86-82b3f7debfb7' becomes visible again at 2/7/2019
 
 Processed and deleted message 'aa8fa95f-07ea-4df7-bf86-82b3f7debfb7'
 
-Press any key to delete the sample queue.```
+Press any key to delete the sample queue.
+```
 
 ## Understand the sample code
 
