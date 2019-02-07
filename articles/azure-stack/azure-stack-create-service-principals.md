@@ -34,10 +34,10 @@ Service principals are preferable to running the app under your own credentials 
 
 Depending on how you have deployed Azure Stack, you start by creating a service principal. This document describes creating a service principal for:
 
-- [Azure Active Directory (Azure AD)](#create-service-principal-for-azure-ad). Azure AD is a multi-tenant, cloud-based directory, and identity management service. You can use Azure AD with a connected Azure Stack.
-- [Active Directory Federation Services (AD FS)](#create-service-principal-for-ad-fs). AD FS provides simplified, secured identity federation, and Web single sign-on (SSO) capabilities. You can use AD FS with both connected and disconnected Azure Stack instances.
+- Azure Active Directory (Azure AD). Azure AD is a multi-tenant, cloud-based directory, and identity management service. You can use Azure AD with a connected Azure Stack.
+- Active Directory Federation Services (AD FS). AD FS provides simplified, secured identity federation, and Web single sign-on (SSO) capabilities. You can use AD FS with both connected and disconnected Azure Stack instances.
 
-Once you've created the service principal, a set of steps common to both AD FS and Azure Active Directory are used to [delegate permissions](#assign-role-to-service-principal) to the role.
+Once you've created the service principal, a set of steps common to both AD FS and Azure Active Directory are used to delegate permissions to the role.
 
 ## Manage service principal for Azure AD
 
@@ -59,7 +59,7 @@ When programmatically logging in, you use the ID for your application, and for a
 
 1. From **App registrations** in Active Directory, select your application.
 
-2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client ID.
+2. Copy the **Application ID** and store it in your application code. The applications in the sample applications section refer to this value as the client ID.
 
      ![Client id](./media/azure-stack-create-service-principal/image12.png)
 3. To generate an authentication key for a Web app / API, select **Settings** > **Keys**. 
@@ -70,7 +70,7 @@ After saving the key, the value of the key is displayed. Copy this value to Note
 
 ![Saved key](./media/azure-stack-create-service-principal/image15.png)
 
-Once complete, you can [assign your application a role](#assign-role-to-service-principal).
+Once complete, you can assign your application a role.
 
 ## Manage service principal for AD FS
 

@@ -16,7 +16,7 @@
       href: apache-spark-jupyter-spark-sql-use-portal.md
     - name: Create an Apache Spark cluster - PowerShell
       href: apache-spark-jupyter-spark-sql-use-powershell.md
-    - name: Create an Apache Spark cluster - Template
+    - name: Create an Apache Spark cluster - Resource Manager Template
       href: apache-spark-jupyter-spark-sql.md
 - name: Tutorials
   items:

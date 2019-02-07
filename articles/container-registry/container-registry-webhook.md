@@ -70,7 +70,7 @@ To test an ACR webhook with the Azure CLI, use the [az acr webhook ping](/cli/az
 az acr webhook ping --registry mycontainerregistry --name myacrwebhook01
 ```
 
-To see the results, use the [az acr webhook list-events](/cli/azure/acr/webhook#list-events) command.
+To see the results, use the [az acr webhook list-events](/cli/azure/acr/webhook) command.
 
 ```azurecli-interactive
 az acr webhook list-events --registry mycontainerregistry08 --name myacrwebhook01

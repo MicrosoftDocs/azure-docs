@@ -367,7 +367,7 @@ The following sample shows:
 2. The linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
 3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 4. An output [dataset](data-factory-create-datasets.md) of type [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties).
-5. The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) and [SqlSink](#sql-server-copy-activity-type-properties).
+5. The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) and SqlSink.
 
 The sample copies time-series data from an Azure blob to a SQL Server table every hour. The JSON properties used in these samples are described in sections following the samples.
 

@@ -103,8 +103,6 @@ You can verify the link between a Log Analytics workspace and an Automation acco
 To remove an installed solution, locate it in the [list of installed solutions](#list-installed-monitoring-solutions). Click on the name of the solution to open its summary page and then click on **Delete**.
 
 
-
-
 ## Next steps
 * Get a [list of monitoring solutions from Microsoft](solutions-inventory.md).
 * Learn how to [create queries](../log-query/log-query-overview.md) to analyze data collected by monitoring solutions.

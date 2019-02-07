@@ -190,6 +190,8 @@
       href: sql-database-automated-backups.md
     - name: Long-term backup retention
       href: sql-database-long-term-retention.md
+    - name: Planned manintenance events
+      href: sql-database-planned-maintenance.md  
     - name: Failover groups and geo-replication
       items: 
       - name: Active geo-replication
@@ -294,8 +296,6 @@
       href: sql-database-elastic-query-overview.md
     - name: Elastic transactions
       href: sql-database-elastic-transactions-overview.md
-  - name: SQL features comparison
-    href: sql-database-features.md
   - name: Monitoring and tuning
     items:
     - name: Monitoring and tuning overview
@@ -322,8 +322,8 @@
         href: sql-database-advisor.md
   - name: Databases features
     items:
-    - name: Databases features
-      href: sql-database-develop-overview.md
+    - name: SQL features comparison
+      href: sql-database-features.md
     - name: Multi-model capabilities
       href: sql-database-multi-model-features.md
     - name: In-memory
@@ -336,6 +336,12 @@
       href: sql-database-temporal-tables.md
     - name: Job automation 
       href: sql-database-job-automation-overview.md
+    - name: Machine learning
+      items:
+      - name: Machine learning overview
+        href: sql-database-machine-learning-services-overview.md
+      - name: Key differences
+        href: sql-database-machine-learning-services-differences.md
 - name: How-to guides
   items:
   - name: Overview
@@ -520,8 +526,8 @@
       href: sql-database-manage-automation.md
   - name: Develop apps
     items:
-    - name: Connectivity
-      href: sql-database-libraries.md
+    - name: Overview
+      href: sql-database-develop-overview.md
     - name: Working with JSON data
       href: sql-database-json-features.md
     - name: Use Spark Connector
