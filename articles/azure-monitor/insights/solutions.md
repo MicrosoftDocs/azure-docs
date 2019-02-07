@@ -95,7 +95,7 @@ You can verify the link between a Log Analytics workspace and an Automation acco
 1. If the **Workspace** setting is enabled, then this account is linked to a Log Analytics workspace. You can click on **Workspace** to view the details of the workspace.
 
 ## Remove a management solution
-To remove an installed solution, locate it in the [list of installed solutions](#list-installed-monitoring-solutions). Click on the name of the solution to open its summary page and then click on **Delete**.
+To remove an installed solution, locate it in the list of installed solutions. Click on the name of the solution to open its summary page and then click on **Delete**.
 
 
 
