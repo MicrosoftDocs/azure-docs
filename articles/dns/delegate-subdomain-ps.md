@@ -14,7 +14,7 @@ ms.author: victorh
 You can use Azure PowerShell to delegate a DNS subdomain. For example, if you own the contoso.com domain, you can delegate a subdomain called *engineering* to another, separate zone that can be administered separately from the contoso.com zone.
 
 > [!NOTE]
-> Contoso.com is used as an example throughout this tutorial. Substitute your own domain name for contoso.com.
+> Contoso.com is used as an example throughout this article. Substitute your own domain name for contoso.com.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -38,7 +38,7 @@ Next, note the four name servers for the engineering subdomain.
 
 ## Create a test record
 
-Create an **A** record to use for testing.
+Create an **A** record in the engineering zone to use for testing.
 
    `New-AzDnsRecordSet -ZoneName engineering.contoso.com -ResourceGroupName <resource group name> -Name www -RecordType A -ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address 10.10.10.10)`.
 
