@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use the Translator Speech service API to add speech to speech and speech to text translation to your applications.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-speech

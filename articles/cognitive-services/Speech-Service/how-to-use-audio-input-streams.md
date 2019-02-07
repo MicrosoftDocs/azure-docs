@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: An overview of the capabilities of the Speech SDK's audio input stream API.
 services: cognitive-services
 author: fmegen
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
