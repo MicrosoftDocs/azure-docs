@@ -358,7 +358,7 @@
       href: replication-to-sql-database.md
     - name: Configure threat detection
       href: sql-database-threat-detection.md
-    - name: Configure backup retention using Azure blob storage
+    - name: Configure backup retention using Azure Blob storage
       href: sql-database-long-term-backup-retention-configure.md
     - name: Configure Elastic Database jobs
       href: elastic-jobs-overview.md
