@@ -62,6 +62,8 @@ For example, for the Azure region West US 2 (displayed below), you will use "wes
 
 ## Endpoints  
 
+The following endpoints are important to know when connecting to Media Services accounts from different national Azure clouds.
+
 | Endpoint|Global Azure | Azure Government|Azure Germany|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
 | Azure Resource Manager |  `https://management.azure.com/` | `https://management.usgovcloudapi.net/` | `https://management.cloudapi.de/` | `https://management.chinacloudapi.cn/` |
