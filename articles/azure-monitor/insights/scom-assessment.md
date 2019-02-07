@@ -50,7 +50,7 @@ Use the following information to install and configure the solution.
 
  To configure the assessment through Operations Manager Operations console, perform the steps below in the following order:
 1. [Set the Run As account for System Center Operations Manager Health Check](#operations-manager-run-as-accounts-for-log-analytics)  
-2. [Configure the System Center Operations Manager Health Check rule](#configure-the-assessment-rule)
+2. Configure the System Center Operations Manager Health Check rule
 
 ## System Center Operations Manager assessment data collection details
 

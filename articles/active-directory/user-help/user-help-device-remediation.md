@@ -64,4 +64,4 @@ If your device isn't joined to your organization's network, you can do one of tw
 ## Next steps
 - [What is the MyApps portal?](active-directory-saas-access-panel-introduction.md)
 
-- [Sign in with your phone, not your password](microsoft-authenticator-app-phone-signin-faq.md)
+- [Sign in with your phone, not your password](user-help-auth-app-sign-in.md)

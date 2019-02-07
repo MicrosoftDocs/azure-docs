@@ -44,7 +44,7 @@ Apply richer policy controls before connections to your network are established.
 
 With [conditional access](../conditional-access/overview.md), you can define restrictions on what traffic is allowed to access your back-end applications. You can create policies that restrict sign-ins based on location, strength of authentication, and user risk profile.
 
-You can also use conditional access to configure Multi-Factor Authentication policies, adding another layer of security to your user authentications. Additionally, your applications can also be routed to Microsoft Cloud App Security via Azure AD conditional access to provide real-time monitoring and controls, via [access](https://docs.microsoft.com/en-us/cloud-app-security/access-policy-aad) and [session](https://docs.microsoft.com/en-us/cloud-app-security/session-policy-aad) policies
+You can also use conditional access to configure Multi-Factor Authentication policies, adding another layer of security to your user authentications. Additionally, your applications can also be routed to Microsoft Cloud App Security via Azure AD conditional access to provide real-time monitoring and controls, via [access](https://docs.microsoft.com/cloud-app-security/access-policy-aad) and [session](https://docs.microsoft.com/cloud-app-security/session-policy-aad) policies
 
 ### Traffic termination
 
@@ -124,11 +124,11 @@ Whenever the Application Proxy service updates the configuration settings, the f
 
 When users access a published application, the following events take place between the Application Proxy service and the Application Proxy connector:
 
-1. [The service authenticates the user for the app](#the-service-checks-the-configuration-settings-for-the-app)
-2. [The service places a request in the connector queue](#The-service-places-a-request-in-the-connector-queue)
-3. [A connector processes the request from the queue](#the-connector-receives-the-request-from-the-queue)
-4. [The connector waits for a response](#the-connector-waits-for-a-response)
-5. [The service streams data to the user](#the-service-streams-data-to-the-user)
+1. The service authenticates the user for the app
+2. The service places a request in the connector queue
+3. A connector processes the request from the queue
+4. The connector waits for a response
+5. The service streams data to the user
 
 To learn more about what takes place in each of these steps, keep reading.
 
