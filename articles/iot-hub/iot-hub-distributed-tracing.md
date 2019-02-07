@@ -207,9 +207,9 @@ To update the distributed tracing sampling configuration for multiple devices, u
 ```json
 "desired": {
     "azureiot*com^dtracing^1": {
-    "sampling_mode": 1,
-    "sampling_rate": 100
-  },
+        "sampling_mode": 1,
+        "sampling_rate": 100
+    },
 ```
 
 | Element name | Required | Type | Description |
