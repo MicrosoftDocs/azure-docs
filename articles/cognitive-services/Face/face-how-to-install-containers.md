@@ -4,12 +4,12 @@ titlesuffix: Face - Azure Cognitive Services
 description: How to download, install, and run containers for Face in this walkthrough tutorial.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/06/2019
 ms.author: diberry
 ---
 
@@ -87,7 +87,7 @@ Replace these parameters with your own values in the following example `docker r
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-containerpreview.azurecr.io/microsoft/ognitive-services-face \
+containerpreview.azurecr.io/microsoft/cognitive-services-face \
 Eula=accept \
 Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY}

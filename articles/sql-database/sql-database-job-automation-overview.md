@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 01/22/2019
+ms.date: 01/25/2019
 ---
 # Automate management tasks using database jobs
 
@@ -21,6 +21,7 @@ You can define target database or groups of Azure SQL databases where the job wi
 A job handles the task of logging in to target database. You also define, maintain, and persist Transact-SQL scripts to be executed across a group of Azure SQL databases.
 
 There are several scenarios when you could use job automation:
+
 - Automate management tasks and schedule then to run every weekday, after hours, etc.
   - Deploy schema changes, credentials management, performance data collection or tenant (customer) telemetry collection.
   - Update reference data (information common across all databases), load data from Azure Blob storage.
@@ -34,14 +35,15 @@ There are several scenarios when you could use job automation:
  - Create jobs that load data from or to your databases using SQL Server Integration Services (SSIS).
 
 The following job scheduling technologies are available in Azure SQL Database:
-- **SQL Agent Jobs** are classic and battle-tested SQL Server job scheduling component that is available in Managed Instance. SQL Agent Jobs are not available in Singleton databases.
+
+- **SQL Agent Jobs** are classic and battle-tested SQL Server job scheduling component that is available in Managed Instance. SQL Agent Jobs are not available in single databases.
 - **Elastic Database Jobs** are Job Scheduling service that executes custom jobs on one or many Azure SQL Databases.
 
-It is worth noting a couple of differences between SQL Agent (available on-premises and as part of SQL Database Managed Instance), and the Database Elastic Job agent (available for Singleton SQL Database and SQL Data Warehouse).
+It is worth noting a couple of differences between SQL Agent (available on-premises and as part of SQL Database Managed Instance), and the Database Elastic Job agent (available for single databases in Azure SQL database and databases in SQL Data Warehouse).
 
 |  |Elastic Jobs  |SQL Agent |
 |---------|---------|---------|
-|Scope     |  Any number of Azure SQL databases and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different logical servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shardmap (dynamically enumerated at job runtime). | Any single database in the same SQL Server instance as the SQL agent. |
+|Scope     |  Any number of Azure SQL databases and/or data warehouses in the same Azure cloud as the job agent. Targets can be in different SQL Database servers, subscriptions, and/or regions. <br><br>Target groups can be composed of individual databases or data warehouses, or all databases in a server, pool, or shardmap (dynamically enumerated at job runtime). | Any individual database in the same SQL Server instance as the SQL agent. |
 |Supported APIs and Tools     |  Portal, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SQL Server Management Studio (SSMS)     |
 
 ## SQL Agent Jobs
@@ -49,6 +51,7 @@ It is worth noting a couple of differences between SQL Agent (available on-premi
 SQL Agent Jobs are specified series of T-SQL scripts against your database. Use jobs to define an administrative task that can be run one or more times and monitored for success or failure.
 A job can run on one local server or on multiple remote servers. SQL Agent Job is an internal Database Engine component that is executed within the Managed Instance service.
 There are several key concepts in SQL Agent Jobs:
+
 - **Job steps** set of one or many steps that should be executed within the job. For every job step you can define retry strategy and the action that should happen if the job step succeeds or fails.
 - **Schedules** define when the job should be executed.
 - **Notifications** enable you to define rules that will be used to notify operators via emails once the job completes.
@@ -59,11 +62,13 @@ SQL Agent Job steps are sequences of actions that SQL Agent should execute. Ever
 SQL Agent enables you to create different types of the job steps, such as Transact-SQL job step that executes a single Transact-SQL batch against the database, or OS command/PowerShell steps that can execute custom OS script, SSIS job steps enable you to load data using SSIS runtime, or [replication](sql-database-managed-instance-transactional-replication.md) steps that can publish changes from your database to other databases.
 
 [Transactional replication](sql-database-managed-instance-transactional-replication.md) is a Database Engine feature that enables you to publish the changes made on one or multiple tables in one database and publish/distribute them to a set of subscriber databases. Publishing of the changes is implemented using the following SQL Agent job step types:
+
 - Transaction-log reader.
 - Snapshot.
 - Distributor.
 
 Other types of job steps are not currently supported, including:
+
 - Merge replication job step is not supported.
 - Queue Reader is not supported.
 - Analysis Services are not supported
@@ -72,6 +77,7 @@ Other types of job steps are not currently supported, including:
 
 A schedule specifies when a job runs. More than one job can run on the same schedule, and more than one schedule can apply to the same job.
 A schedule can define the following conditions for the time when a job runs:
+
 - Whenever Instance is restarted (or when SQL Server Agent starts). Job is activated after every failover.
 - One time, at a specific date and time, which is useful for delayed execution of some job.
 - On a recurring schedule.
@@ -210,7 +216,7 @@ During job agent creation, a schema, tables, and a role called *jobs_reader* are
 
 A *target group* defines the set of databases a job step will execute on. A target group can contain any number and combination of the following:
 
-- **Azure SQL server** - if a server is specified, all databases that exist in the server at the time of the job execution are part of the group. The master database credential must be provided so that the group can be enumerated and updated prior to job execution.
+- **SQL Database server** - if a server is specified, all databases that exist in the server at the time of the job execution are part of the group. The master database credential must be provided so that the group can be enumerated and updated prior to job execution.
 - **Elastic pool** - if an elastic pool is specified, all databases that are in the elastic pool at the time of the job execution are part of the group. As for a server, the master database credential must be provided so that the group can be updated prior to the job execution.
 - **Single database** - specify one or more individual databases to be part of the group.
 - **Shardmap** - databases of a shardmap.
@@ -253,6 +259,7 @@ The outcome of a job's steps on each target database are recorded in detail, and
 #### Job history
 
 Job execution history is stored in the *Job database*. A system cleanup job purges execution history that is older than 45 days. To remove history less than 45 days old, call the **sp_purge_history** stored procedure in the *Job database*.
+
 ### Agent performance, capacity, and limitations
 
 Elastic Jobs use minimal compute resources while waiting for long-running jobs to complete.

@@ -13,6 +13,8 @@
     maintainContext: true
   - name: Configure Apache Hive policies
     href: apache-domain-joined-run-hive.md
+  - name: Apache HBase RBAC with Apache Ranger
+    href: apache-domain-joined-run-hbase.md
   - name: Apache Kafka RBAC with Apache Ranger
     href: apache-domain-joined-run-kafka.md
     maintainContext: true
@@ -78,6 +80,7 @@
   - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
   - name: Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
     href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resources
   items:

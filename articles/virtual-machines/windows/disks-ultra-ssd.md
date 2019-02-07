@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: rogarana
-ms.component: disks
+ms.subservice: disks
 ---
 
 [!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-disks-ultra-ssd.md)]

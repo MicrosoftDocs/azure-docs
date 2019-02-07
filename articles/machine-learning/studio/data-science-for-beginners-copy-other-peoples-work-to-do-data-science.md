@@ -4,8 +4,8 @@ titleSuffix: Azure Machine Learning Studio
 description: 'Trade secret of data science: Get others to do your work for you. Get machine learning examples from the Azure AI Gallery.'
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
-ms.topic: article
+ms.subservice: studio
+ms.topic: article
 
 author: garyericson
 ms.author: garye

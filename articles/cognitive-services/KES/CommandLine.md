@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use the command-line interface to build index and grammar files from structured data, and then deploy them as web services.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration

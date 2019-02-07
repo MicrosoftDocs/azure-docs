@@ -10,7 +10,7 @@ ms.reviewer: sngun
 
 ---
 
-# Azure Cosmos DB compliance
+# Compliance in Azure Cosmos DB 
 
 Azure Cosmos DB is available in all Azure regions. Microsoft makes five distinct Azure cloud environments available to customers:
 

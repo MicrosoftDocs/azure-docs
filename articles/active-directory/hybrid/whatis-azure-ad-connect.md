@@ -6,11 +6,11 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: get-started-article
-ms.component: hybrid
+ms.topic: overview
 ms.date: 01/30/2019
 ms.subservice: hybrid
 ms.author: billmath
+ms.topic: conceptual
 ---
 
 # What is Azure AD Connect?

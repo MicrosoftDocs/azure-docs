@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning Studio
 description: 'Azure Machine Learning Studio: FAQ covering billing, capabilities, and limitations of a cloud service for streamlined predictive modeling.'
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: conceptual
 
 author: ericlicoding
