@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Integrate the Translator Text API into your applications, websites, tools, and other solutions to provide multi-language user experiences.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview

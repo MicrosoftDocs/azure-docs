@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use this article to configure and integrate a hosted UI for Bing Custom Search.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-custom-search

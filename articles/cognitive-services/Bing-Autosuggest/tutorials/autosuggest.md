@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Shows how to use Bing Autosuggest.
 services: cognitive-services
 author: v-jaswel
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
