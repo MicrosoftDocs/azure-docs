@@ -1,5 +1,5 @@
 ---
-title: Set up Windows Virtual Desktop tenants in Azure Active Directory - Azure
+title: Create a tenant in Windows Virtual Desktop - Azure
 description: Describes how to set up Windows Virtual Desktop tenants in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr

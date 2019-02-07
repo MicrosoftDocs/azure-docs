@@ -1,5 +1,5 @@
 ---
-title: Identify issues with the Windows Virtual Desktop diagnostics role service - Azure
+title: Identify issues with the diagnostics role service - Azure
 description: Describes the Windows Virtual Desktop diagnostics role service and how to use it.
 services: virtual-desktop
 author: Heidilohr

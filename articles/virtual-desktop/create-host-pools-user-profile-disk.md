@@ -1,5 +1,5 @@
 ---
-title: Create a User Profile Disk share for a Windows Virtual Desktop host pool - Azure
+title: Create a User Profile Disk share for a host pool - Azure
 description: How to create a User Profile Disk share for a Windows Virtual Desktop host pool.
 services: virtual-desktop
 author: Heidilohr

@@ -1,5 +1,5 @@
 ---
-title: Create a Windows Virtual Desktop host pool with Azure Marketplace - Azure
+title: Create a host pool with Azure Marketplace - Azure
 description: How to create a Windows Virtual Desktop host pool with Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
