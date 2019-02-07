@@ -17,10 +17,11 @@ ms.date: 2/5/2019
 This tutorial will teach you how to ingest diagnostic and activity log data to an Azure Data Explorer cluster without one line of code. This simple ingestion method enables you to quickly begin querying Azure Data Explorer for data analysis.
 
 In this tutorial you'll learn how to:
-* In an Azure Data Explorer database, create tables and ingestion mapping. Format the ingested data using an update policy.
-* Create an Event Hub and connect it to Azure Data Explorer.
-* Stream data to an [Event Hub](/azure/event-hubs/event-hubs-about) from [Azure Monitor diagnostic logs](/azure/azure-monitor/platform/diagnostic-logs-overview) and [Azure Monitor activity logs](/azure/azure-monitor/platform/activity-logs-overview).
-* Query the ingested data using Azure Data Explorer.
+> [!div class="checklist"]
+> * Create tables and ingestion mapping in an Azure Data Explorer database. Format the ingested data using an update policy.
+> * Create an Event Hub and connect it to Azure Data Explorer.
+> * Stream data to an [Event Hub](/azure/event-hubs/event-hubs-about) from [Azure Monitor diagnostic logs](/azure/azure-monitor/platform/diagnostic-logs-overview) and [Azure Monitor activity logs](/azure/azure-monitor/platform/activity-logs-overview).
+>  Query the ingested data using Azure Data Explorer.
 
 > [!NOTE]
 > Create all resources in the same Azure location/region. This is a requirement for Azure Monitor diagnostic logs.
@@ -119,7 +120,7 @@ The Azure Data Explorer pipeline setup contains various steps that include [tabl
 
 1. In your Azure Data Explorer *AzureMonitoring* database, select **Query**, which will open the Azure Data Explorer web UI.
 
-![Query]((media/ingest-data-no-code/query-database.png)
+    ![Query](media/ingest-data-no-code/query-database.png)
 
 ### Create target tables
 
@@ -135,7 +136,7 @@ Use the Azure Data Explorer web UI to create the target tables in Azure Data Exp
 
 1. Select **Run** to create the table.
 
-![Run Query]((media/ingest-data-no-code/run-query.png)
+    ![Run Query](media/ingest-data-no-code/run-query.png)
 
 #### Activity logs tables
 
@@ -191,9 +192,9 @@ Since the activity logs structure isn't tabular, you'll need to manipulate the d
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
-        ActivityLogsRawRecords 
-        | mvexpand events = Records 
-        | project 
+        ActivityLogsRawRecords
+        | mvexpand events = Records
+        | project
             Timestamp = todatetime(events["time"]),
             ResourceId = tostring(events["resourceId"]),
             OperationName = tostring(events["operationName"]),
@@ -224,7 +225,7 @@ Azure diagnostic logs enable exporting metrics to a Storage account or an Event 
 
 1. Create an Event Hub Namespace and an Event Hub for the diagnostic logs.
 
-    ![Event Hub creation]((media/ingest-data-no-code/event-hub.png)
+    ![Event Hub creation](media/ingest-data-no-code/event-hub.png)
 
     Fill out the form with the following information. Use defaults for any settings not listed in the following table.
 
@@ -246,12 +247,12 @@ Select a resource from which to export metrics. There are several resource types
 
 1. Select your Kusto cluster in the Azure portal.
 
-    ![Diagnostic settings]((media/ingest-data-no-code/diagnostic-settings.png)
+    ![Diagnostic settings](media/ingest-data-no-code/diagnostic-settings.png)
 
 1. Select **Diagnostic settings** from left menu.
 1. Click **Turn on diagnostics** link. The **Diagnostics settings** window opens.
 
-    ![Diagnostic settings window]((media/ingest-data-no-code/diagnostic-settings-window.png)
+    ![Diagnostic settings window](media/ingest-data-no-code/diagnostic-settings-window.png)
 
 1. In the **Diagnostics settings** pane:
     1. Name your diagnostics log data: *ADXExportedData*
@@ -267,18 +268,18 @@ Select a resource from which to export metrics. There are several resource types
 
 1. Click **Save**. The Event hub namespace, name, and policy name will appear in the window.
 
-![Save diagnostic settings]((media/ingest-data-no-code/save-diagnostic-settings.png)
+    ![Save diagnostic settings](media/ingest-data-no-code/save-diagnostic-settings.png)
 
 ### Activity logs connection to Event Hub
 
 1. In left menu of Azure portal, select **Activity log**
 1. **Activity log** window opens. **Click Export to Event Hub**
 
-    ![Activity logs]((media/ingest-data-no-code/activity-log.png)
+    ![Activity log](media/ingest-data-no-code/activity-log.png)
 
 1. In the **Export activity log** window:
  
-    ![Export activity log]((media/ingest-data-no-code/export-activity-log.png)
+    ![Export activity log](media/ingest-data-no-code/export-activity-log.png)
 
     1. Select your subscription.
     1. In **Regions** dropdown, choose **Select all**
@@ -292,11 +293,11 @@ Select a resource from which to export metrics. There are several resource types
 
 1. Wait a few minutes until connection is defined, and activity log export to event hub is completed. Go to your Event Hub namespace to see the event hubs you created.
 
-![Event Hubs created]((media/ingest-data-no-code/event-hubs-created.png)
+    ![Event Hubs created](media/ingest-data-no-code/event-hubs-created.png)
 
 1. See data flowing to your Event Hub:
 
-![Event Hubs data]((media/ingest-data-no-code/event-hubs-data.png)
+    ![Event Hubs data](media/ingest-data-no-code/event-hubs-data.png)
 
 ## Connect Event Hub to Azure Data Explorer
 
@@ -308,7 +309,7 @@ Select a resource from which to export metrics. There are several resource types
 1. In the **Data ingestion** window, click **+ Add Data Connection**
 1. In the **Data connection** window, enter the following information:
 
-    ![Save diagnostic settings]((media/ingest-data-no-code/event-hub-data-connection.png)
+    ![Event Hub connection](media/ingest-data-no-code/event-hub-data-connection.png)
 
     Data Source:
 
@@ -374,10 +375,12 @@ you have a pipeline with data flowing. Ingestion via the cluster takes 5 minutes
     | summarize avg(Average)
     ```
 
+
     |   |   |
     | --- | --- |
     |   |  avg_Average |
     |   | 00:06.156 |
+    | | |
 
 ### Activity logs table query example
 
@@ -388,10 +391,12 @@ you have a pipeline with data flowing. Ingestion via the cluster takes 5 minutes
     | summarize avg(DurationMs)
     ```
 
+
     |   |   |
     | --- | --- |
     |   |  avg(DurationMs) |
     |   | 768.333 |
+    | | |
 
 ## Next steps
 
