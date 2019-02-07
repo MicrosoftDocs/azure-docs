@@ -183,11 +183,11 @@ For more information, see [Sizes for virtual machines](../../virtual-machines/wi
 
 Custom cluster setup builds on the Quick create settings, and adds the following options:
 
-- [HDInsight applications](#hdinsight-applications)
-- [Cluster size](#cluster-size)
+- HDInsight applications
+- Cluster size
 - Advanced settings
-  - [Script actions](#customize-clusters-using-script-action)
-  - [Virtual network](#use-virtual-network)
+  - Script actions
+  - Virtual network
 
 ## Install HDInsight applications on clusters
 
