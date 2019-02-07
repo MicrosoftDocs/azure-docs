@@ -178,7 +178,14 @@ In this section, you set up console logging that uses this framework.
    using Microsoft.Extensions.Logging;
    ```
 
-1. The logging code updates depend on your SDK version:
+1. In the `Main` method, add code to update the `JobHostConfiguration` before creating the `JobHost`:
+ 
+   ```csharp
+   config.DashboardConnectionString = "";
+   var loggerFactory = new LoggerFactory();
+   config.LoggerFactory = loggerFactory
+       .AddConsole();
+   ```
 
     **Version 3.x**
 
@@ -265,6 +272,16 @@ Starting with version 3.x, you must explicitly install extensions for the WebJob
                     });
     ```
 
+   ```csharp
+   var config = new JobHostConfiguration();
+   config.DashboardConnectionString = "";
+   var loggerFactory = new LoggerFactory();
+   config.LoggerFactory = loggerFactory
+       .AddConsole();
+   var host = new JobHost(config);
+   host.RunAndBlock();
+   ```
+   
 ## Create a function
 
 1. Right-click the project, select **Add** > **New Item...**, and name the new C# class file *Functions.cs*.
