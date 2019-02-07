@@ -69,7 +69,7 @@ When logging in programmatically, use the ID for your application and an authent
 
 1. From **App registrations** in Active Directory, select your application.
 
-2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) use **client id** when referring to the **Application ID**.
+2. Copy the **Application ID** and store it in your application code. The applications in the sample applications use **client id** when referring to the **Application ID**.
 
      ![Application ID for the application](./media/azure-stack-create-service-principal/image12.png)
 3. To generate an authentication key, select **Keys**.

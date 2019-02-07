@@ -175,6 +175,6 @@ Properties are the device metadata associated with the device, such as city and 
 Now that you've learned how to manage devices in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [How to use device sets](howto-use-device-sets.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+> [How to use device sets](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
 
 <!-- Next how-tos in the sequence -->

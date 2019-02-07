@@ -26,8 +26,8 @@ Enterprise developers and software-as-a-service (SaaS) providers who have regist
 
 In this quickstart, you'll learn how to:
 
-* [Remove an application authored by you or your organization](#remove-an-application-authored-by-your-organization)
-* [Remove an application authored by another organization](#remove-an-application-authoried-by-another-organization)
+* Remove an application authored by you or your organization
+* Remove an application authored by another organization
 
 ## Prerequisites
 

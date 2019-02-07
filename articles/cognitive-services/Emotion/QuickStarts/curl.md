@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Emotion API with cURL.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: emotion-api

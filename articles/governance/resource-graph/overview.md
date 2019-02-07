@@ -4,7 +4,7 @@ description: Azure Resource Graph is a service in Azure that enables complex que
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 02/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
@@ -53,6 +53,14 @@ To use Resource Graph, you must have appropriate rights in [Role-based access
 control](../../role-based-access-control/overview.md) (RBAC) with at least read access to the
 resources you want to query. Without at least `read` permissions to the Azure object or object
 group, results won't be returned.
+
+## Throttling
+
+Queries to Resource Graph are throttled to provide the best experience and response time for all
+customers. If your organization wants to use the Resource Graph API for large-scale and frequent
+queries, please use portal 'Feedback' from the Resource Graph page. Be sure to provide your
+business case and select the 'Microsoft can email you about your feedback' checkbox in order for
+the team to contact you.
 
 ## Running your first query
 
