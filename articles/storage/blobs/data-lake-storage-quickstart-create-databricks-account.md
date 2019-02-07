@@ -12,7 +12,7 @@ ms.date: 01/24/2019
 
 # Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks
 
-This quickstart shows you how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in a storage account that has Azure Data Lake Storage Gen2 preview enabled.
+This quickstart shows you how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in a storage account that has Azure Data Lake Storage Gen2 enabled.
 
 As part of the Spark job, you'll analyze a radio channel subscription data to gain insights into free/paid usage based on demographics.
 
