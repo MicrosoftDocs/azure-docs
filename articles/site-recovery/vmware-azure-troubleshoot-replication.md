@@ -89,9 +89,9 @@ The following list shows ways you can check the source machine:
 
 The following list shows ways you can check the process server:
 
-> [!NOTES]
-> 1. Process Server must have a static IPv4 address. 
-> 2. NAT IP configuration on the Process Server is not supported. 
+>     [!NOTES]
+>     1. Process Server must have a static IPv4 address. 
+>     2. NAT IP configuration on the Process Server is not supported. 
 
 * **Check connectivity between source machines and Process Server**
 1. In case you are able to telnet from source machine and yet the PS is not reachable from source, check the end-to-end connection with cxprocessserver from the source VM by running cxpsclient tool on source VM:
