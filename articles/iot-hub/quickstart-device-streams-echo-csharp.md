@@ -104,7 +104,7 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run ServiceConnectionString MyDevice
+dotnet run "ServiceConnectionString" "MyDevice"
 
 # In Windows
 dotnet run ServiceConnectionString MyDevice
