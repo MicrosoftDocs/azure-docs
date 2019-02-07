@@ -21,7 +21,7 @@ Microsoft Azure Media Services (AMS) enables you to securely upload, store, enco
 
 AMS operates in multiple datacenters around the world. These datacenters are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. You can review the [list of regions and their locations](https://azure.microsoft.com/regions/). 
 
-This topic shows common scenarios for delivering your content [live](#live_scenarios) or [on-demand](#vod_scenarios). The topic also provides details about availability of media features and services across datacenters.
+This topic shows common scenarios for delivering your content [live](#live_scenarios) or on-demand. The topic also provides details about availability of media features and services across datacenters.
 
 ## Overview
 

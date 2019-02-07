@@ -224,7 +224,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 The HTTP communication listener acts as a controller that sets up the HTTP server and exposes the APIs defining voting actions. Right-click on the *statelessservice* package in the *VotingWeb/src/statelessservice* folder, then select **New->File**.  Name the file *HttpCommunicationListener.java* and click **Finish**.
 
-Replace the file contents with the following, then save your changes.  Later, in [Update the HttpCommunicationListener.java file](#updatelistener_anchor), this file is modified to render, read, and write voting data from the back-end service.  For now, the listener simply returns the static HTML for the Voting app.
+Replace the file contents with the following, then save your changes.  Later, in Update the HttpCommunicationListener.java file, this file is modified to render, read, and write voting data from the back-end service.  For now, the listener simply returns the static HTML for the Voting app.
 
 ```java
 // ------------------------------------------------------------
