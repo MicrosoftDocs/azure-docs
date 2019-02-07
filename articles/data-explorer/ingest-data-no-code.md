@@ -370,7 +370,7 @@ Repeat the steps in the [Diagnostic logs data connection](#diagnostic-logs-data-
 
 ## Query the new tables
 
-you have a pipeline with data flowing. Ingestion via the cluster takes 5 minutes, by default, so allow the data flow for a few minutes before beginning to query.
+You have a pipeline with data flowing. Ingestion via the cluster takes 5 minutes, by default, so allow the data flow for a few minutes before beginning to query.
 
 ### Diagnostic logs table query example
 
