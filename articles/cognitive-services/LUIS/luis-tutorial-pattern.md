@@ -5,7 +5,7 @@ description: Use patterns to increase intent and entity prediction while providi
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
