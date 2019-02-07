@@ -80,7 +80,7 @@ ms.service: azure-spatial-anchors
     });
 ```
 
-[!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup.md)]
+[!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
 ```java
     mCloudSession.setSession(mSession);
@@ -324,7 +324,7 @@ ms.service: azure-spatial-anchors
     mCloudSession.reset();
 ```
 
-[!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup.md)]
+[!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup-java.md)]
 
 ```java
     mCloudSession.close();

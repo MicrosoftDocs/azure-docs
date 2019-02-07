@@ -83,7 +83,7 @@ ms.service: azure-spatial-anchors
     });
 ```
 
-[!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup.md)]
+[!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
 ```cpp
     cloudSession_->Session(ar_session_);
@@ -290,7 +290,7 @@ ms.service: azure-spatial-anchors
     cloudSession_->Reset();
 ```
 
-[!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup.md)]
+[!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup-others.md)]
 
 ```cpp
     cloudSession_ = nullptr;

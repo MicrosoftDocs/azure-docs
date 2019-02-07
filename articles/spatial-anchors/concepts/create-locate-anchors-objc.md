@@ -80,7 +80,7 @@ ms.service: azure-spatial-anchors
     }
 ```
 
-[!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup.md)]
+[!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-ios.md)]
 
 ```objc0
     _cloudSession.session = self.sceneView.session;
@@ -251,7 +251,7 @@ ms.service: azure-spatial-anchors
     [_cloudSession reset];
 ```
 
-[!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup.md)]
+[!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup-others.md)]
 
 ```objc
     _cloudSession = NULL;

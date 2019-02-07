@@ -1,6 +1,6 @@
 ---
-title: Concept - Create and locate anchors using Azure Spatial Anchors in C# | Microsoft Docs
-description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in C#.
+title: Concept - Create and locate anchors using Azure Spatial Anchors in Unity | Microsoft Docs
+description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in Unity.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -10,9 +10,9 @@ ms.date: 1/31/2019
 ms.topic: concept
 ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want and in-depth explanation of how to create and locate anchors using Azure Spatial Anchors in C#.
+#Customer intent: As a Mixed Reality developer, I want and in-depth explanation of how to create and locate anchors using Azure Spatial Anchors in Unity.
 ---
-# Concept: Create and locate anchors using Azure Spatial Anchors in C#
+# Concept: Create and locate anchors using Azure Spatial Anchors in Unity
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
@@ -82,7 +82,7 @@ ms.service: azure-spatial-anchors
     };
 ```
 
-[!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup.md)]
+[!INCLUDE [Setup](../../../includes/spatial-anchors-create-locate-anchors-setup-non-ios.md)]
 
 ```csharp
 #if UNITY_IOS
@@ -283,7 +283,7 @@ ms.service: azure-spatial-anchors
     this.cloudSession.Reset();
 ```
 
-[!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup.md)]
+[!INCLUDE [Cleanup](../../../includes/spatial-anchors-create-locate-anchors-cleanup-unity.md)]
 
 ```csharp
     this.cloudSession.Dispose();
