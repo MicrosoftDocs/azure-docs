@@ -14,7 +14,7 @@ ms.date: 2/5/2019
 
 # Tutorial: Ingest data in Azure Data Explorer without one line of code
 
-This tutorial will teach you how to ingest diagnostic and activity log data to an Azure Data Explorer cluster without one line of code, enabling you to query Azure Data Explorer for data analysis.
+This tutorial will teach you how to ingest diagnostic and activity log data to an Azure Data Explorer cluster without one line of code. This simple ingestion method enables you to quickly begin querying Azure Data Explorer for data analysis.
 
 In this tutorial you'll learn how to:
 * In an Azure Data Explorer database, create tables and ingestion mapping. Format the ingested data using an update policy.
@@ -36,7 +36,7 @@ View and understand the data provided by the Azure Monitoring diagnostic and act
 
 ### Diagnostic logs example
 
-Azure diagnostic logs are metrics emitted by an Azure service that provide data about the operation of that service. Data is aggregated with time grain of 1 minute. Each diagnostic logs event contains one record. This is an example of an Azure Data Explorer metric event schema, on query duration:
+Azure diagnostic logs are metrics emitted by an Azure service that provide data about the operation of that service. Data is aggregated with time grain of 1 minute. Each diagnostic logs event contains one record. Following is an example of an Azure Data Explorer metric event schema, on query duration:
 
 ```json
 {
@@ -54,7 +54,7 @@ Azure diagnostic logs are metrics emitted by an Azure service that provide data 
 
 ### Activity logs example
 
-Azure activity logs are subscription level logs containing a collection of records. The logs provide insight into the operations performed on resources in your subscription. Unlike diagnostic logs, an activity logs event has an array of records. We will need to split this array of records later in the tutorial. This is an example of an activity log event for checking access:
+Azure activity logs are subscription level logs containing a collection of records. The logs provide insight into the operations performed on resources in your subscription. Unlike diagnostic logs, an activity logs event has an array of records. We will need to split this array of records later in the tutorial. Following is an example of an activity log event for checking access:
 
 ```json
 {
@@ -113,7 +113,7 @@ Azure activity logs are subscription level logs containing a collection of recor
 
 ## Azure Data Explorer ingestion pipeline setup
 
-The Azure Data Explorer pipeline setup contains various steps that include [table creation and data ingestion](/azure/data-explorer/ingest-sample-data#ingest-data) as well as manipulating, mapping, and updating the data.
+The Azure Data Explorer pipeline setup contains various steps that include [table creation and data ingestion](/azure/data-explorer/ingest-sample-data#ingest-data). You can also manipulate, map, and update the data.
 
 ### Connect to Azure Data Explorer Web UI
 
@@ -139,7 +139,7 @@ Use the Azure Data Explorer web UI to create the target tables in Azure Data Exp
 
 #### Activity logs tables
 
-Since the activity logs structure isn't tabular, you will need to manipulate the data and expand each event to one or more records. The raw data will be ingested to an intermediate table *ActivityLogsRawRecords* where the data will be manipulated and expanded. The expanded data data will then be ingested into the *ActivityLogsRecords* table using an update policy. Therefore, you will need to create two separate tables for activity logs ingestion.
+Since the activity logs structure isn't tabular, you'll need to manipulate the data and expand each event to one or more records. The raw data will be ingested to an intermediate table *ActivityLogsRawRecords*. At that time, the data will be manipulated and expanded. The expanded data will then be ingested into the *ActivityLogsRecords* table using an update policy. Therefore, you'll need to create two separate tables for activity logs ingestion.
 
 1. Create a table *ActivityLogsRecords* in the *AzureMonitoring* database that will receive activity log records. Run the following Azure Data Explorer query to create the table:
 
@@ -208,7 +208,7 @@ Since the activity logs structure isn't tabular, you will need to manipulate the
     }
     ```
 
-2. Add an [update policy](/azure/kusto/concepts/updatepolicy) to the target table. It will automatically run the query on any newly-ingested data in the *ActivityLogsRawRecords* intermediate data table and ingest its results into *ActivityLogsRecords* table:
+2. Add an [update policy](/azure/kusto/concepts/updatepolicy) to the target table. It will automatically run the query on any newly ingested data in the *ActivityLogsRawRecords* intermediate data table and ingest its results into *ActivityLogsRecords* table:
 
     ```kusto
     .alter table ActivityLogRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
@@ -216,7 +216,7 @@ Since the activity logs structure isn't tabular, you will need to manipulate the
 
 ## Create an Event Hub Namespace
 
-Azure diagnostic logs enable exporting metrics to a Storage account or an Event Hub. In this tutorial, we route metrics via an Event Hub. You will create an Event Hubs Namespace and Event Hub for diagnostic logs in the following steps. Azure Monitoring will create the Event Hub *insights-operational-logs* for activity logs.
+Azure diagnostic logs enable exporting metrics to a Storage account or an Event Hub. In this tutorial, we route metrics via an Event Hub. You'll create an Event Hubs Namespace and Event Hub for diagnostic logs in the following steps. Azure Monitoring will create the Event Hub *insights-operational-logs* for activity logs.
 
 1. Create an event hub using an Azure Resource Manager template in the Azure portal. Use the following button to start the deployment. Right-click and select **Open in new window**, so you can follow the rest of the steps in this article. The **Deploy to Azure** button takes you to the Azure portal.
 
@@ -235,14 +235,14 @@ Azure diagnostic logs enable exporting metrics to a Storage account or an Event 
     | Location | Select the region that best meets your needs. | Create the event hub namespace in same location as other resources.
     | Namespace name | *AzureMonitoringData* | Choose a unique name that identifies your namespace.
     | Event hub name | *DiagnosticLogsData* | The event hub sits under the namespace, which provides a unique scoping container. |
-    | Consumer group name | *adxpipeline* | Create a consumer group name. This enables multiple consuming applications to each have a separate view of the event stream. |
+    | Consumer group name | *adxpipeline* | Create a consumer group name. Enables multiple consuming applications to each have a separate view of the event stream. |
     | | |
 
 ## Connect Azure Monitoring logs to Event Hub
 
 ### Diagnostic logs connection to Event Hub
 
-Select a resource from which to export metrics. There are several resource types that enables exporting diagnostic logs (Event Hub Namespace, KeyVault, IoT Hub, Azure Data Explorer cluster etc.). In this tutorial we use the Azure Data Explorer cluster as our resource.
+Select a resource from which to export metrics. There are several resource types that enable exporting diagnostic logs including Event Hub Namespace, KeyVault, IoT Hub, and Azure Data Explorer cluster. In this tutorial, we use the Azure Data Explorer cluster as our resource.
 
 1. Select your Kusto cluster in the Azure portal.
 
@@ -259,13 +259,13 @@ Select a resource from which to export metrics. There are several resource types
     1. Select **Stream to an event hub** checkbox.
     1. Click **Configure**
 
-1. In the **Select event hub** pane configure exporting to the event hub you just created:
+1. In the **Select event hub** pane configure exporting to the event hub you created:
     1. **Select event hub namespace** dropdown: *AzureMonitoringData*.
     1. **Select event hub name** dropdown: *diagnosticlogsdata*.
     1. **Select event hub policy name** from dropdown.
     1. Click **OK**.
 
-1. Click **Save** to finalize the diagnostic settings. Event hub namespace, name, and policy name will appear in the window.
+1. Click **Save**. The Event hub namespace, name, and policy name will appear in the window.
 
 ![Save diagnostic settings]((media/ingest-data-no-code/save-diagnostic-settings.png)
 
@@ -286,11 +286,11 @@ Select a resource from which to export metrics. There are several resource types
     1. Click on **Select a service bus namespace** to open the **Select event hub** pane.
     1. In the **Select event hub** pane, select from the dropdown menus: your subscription, your event namespace *AzureMonitoringData*, and the default event hub policy name.
     1. Click **OK**.
-    1. Click **Save** on top right side of the window. An event hub with the name *insights-operational-logs* will be created.
+    1. Click **Save** on top-right side of the window. An event hub with the name *insights-operational-logs* will be created.
 
 ### See data flowing to your Event Hubs
 
-1. Wait a few minutes until connection is defined and activity log export to event hub is completed. Go to your Event Hub namespace to see the event hubs you created.
+1. Wait a few minutes until connection is defined, and activity log export to event hub is completed. Go to your Event Hub namespace to see the event hubs you created.
 
 ![Event Hubs created]((media/ingest-data-no-code/event-hubs-created.png)
 
@@ -306,7 +306,7 @@ Select a resource from which to export metrics. There are several resource types
 1. In the **Databases** window, select your database name *AzureMonitoring*
 1. In the left menu, select **Data ingestion**
 1. In the **Data ingestion** window, click **+ Add Data Connection**
-1. In the **Data connection** window, enter the following:
+1. In the **Data connection** window, enter the following information:
 
     ![Save diagnostic settings]((media/ingest-data-no-code/event-hub-data-connection.png)
 
@@ -364,15 +364,20 @@ Repeat the steps in the [Diagnostic logs data connection](#diagnostic-logs-data-
 
 ## Query the new tables
 
-you have a pipeline with data flowing. Ingestion via the cluster takes 5 minutes, by default, so allow the data flow for a few minutes prior to query.
+you have a pipeline with data flowing. Ingestion via the cluster takes 5 minutes, by default, so allow the data flow for a few minutes before beginning to query.
 
 ### Diagnostic logs table query example
 
     ```kusto
     DiagnosticLogsRecords
     | where Timestamp > ago(15m) and MetricName == 'QueryDuration'
-    | summarize avg(Average) by MetricName, ResourceId
+    | summarize avg(Average)
     ```
+
+    |   |   |
+    | --- | --- |
+    |   |  avg_Average |
+    |   | 00:06.156 |
 
 ### Activity logs table query example
 
