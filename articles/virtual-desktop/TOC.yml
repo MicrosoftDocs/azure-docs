@@ -8,13 +8,13 @@
   items:
   - name: 1. Create a tenant in Windows Virtual Desktop
     href: tenant-setup-azure-active-directory.md
-  - name: 2. Create a host pool with Azure Marketplace (Preview)
+  - name: 2. Create a host pool with Azure Marketplace
     href: create-host-pools-azure-marketplace.md
-  - name: 3. Manage app groups (Preview)
+  - name: 3. Manage app groups
     href: manage-app-groups.md
   - name: 4. Manage user storage
     href: manage-user-storage.md
-  - name: 5. Create service principals and role assignments with PowerShell (Preview)
+  - name: 5. Create service principals and role assignments with PowerShell
     href: create-service-principal-role-powershell.md
 - name: How-to
   items:
@@ -30,9 +30,9 @@
         href: connect-macOS.md
   - name: Create a host pool with an Azure Resource Manager template
     href: create-host-pools-arm-template.md
-  - name: Create a host pool with PowerShell (Preview)
+  - name: Create a host pool with PowerShell
     href: create-host-pools-powershell.md
-  - name: Create a User Profile Disk share for a host pool (Preview)
+  - name: Create a User Profile Disk share for a host pool
     href: create-host-pools-user-profile-disk.md
   - name: Configure the Windows Virtual Desktop load-balancing method
     href: configure-host-pool-load-balancing.md
@@ -48,12 +48,7 @@
     href: host-pool-load-balancing.md
 - name: Reference
   items:
-<<<<<<< HEAD
-  - name: PowerShell - Get started
+  - name: Get started with PowerShell
     href: https://rdmipreview.blob.core.windows.net/preview/Windows%20Virtual%20Destkop%20-%20PowerShell%20Reference.pdf?st=2019-02-18T19%3A03%3A00Z&se=2019-03-31T19%3A03%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=n4Wb3v%2Bc0xbzWmlljPJqVuXZMCoqQ1C%2F6uA7DfAsOQY%3D
   - name: PowerShell cmdlets
     href: powershell-cmdlet-table.md
-=======
-  - name: PowerShell cmdlets (Preview)
-    href: powershell-cmdlet-table.md
->>>>>>> 68a969fbcb2... Add new "connect" articles, remove duplicate section
