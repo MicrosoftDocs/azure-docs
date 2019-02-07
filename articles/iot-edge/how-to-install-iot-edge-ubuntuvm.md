@@ -22,13 +22,13 @@ This article lists the steps to run the Azure IoT Edge runtime on an Ubuntu 16.0
 On first boot, the Azure IoT Edge on Ubuntu VM preinstalls the latest version of the Azure IoT Edge runtime. It also includes a script to set the connection string and then restart the runtime, which can be triggered remotely through the Azure VM portal or Azure command line, allowing you to easily configure and connect the IoT Edge device without starting an SSH or remote desktop session. This script will wait to set the connection string until the IoT Edge client is fully installed so that you don’t have to build that into your automation.
 
 ## Deploy from the Azure Marketplace
-1.	Navigate to the ["Azure IoT Edge on Ubuntu"](https://aka.ms/azure-iot-edge-ubuntuvm) Marketplace offer or by searching “Azure IoT Edge on Ubuntu” on [the Azure Marketplace](https://azuremarketplace.microsoft.com/)
+1.	Navigate to the [Azure IoT Edge on Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm) Marketplace offer or by searching “Azure IoT Edge on Ubuntu” on [the Azure Marketplace](https://azuremarketplace.microsoft.com/)
 2.	Select **GET IT NOW** and then **Continue** on the next dialog.
 3.	Once in the Azure portal, select **Create** and follow the wizard to deploy the VM. 
     *	If it’s your first time trying out a VM, it’s easiest to use a password and to enable the SSH in the public inbound port menu. 
     *	If you have a resource intensive workload, you should upgrade the virtual machine size by adding more CPUs and/or memory.
 4.	Once the virtual machine is deployed, configure it to connect to your IoT Hub:
-    1.	Copy your device connection string from your IoT Edge device created in your IoT Hub (You can follow the [“Register a new Azure IoT Edge device from the Azure portal”](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-register-device-portal) how-to guide if you aren’t familiar with this process)
+    1.	Copy your device connection string from your IoT Edge device created in your IoT Hub (You can follow the [Register a new Azure IoT Edge device from the Azure portal](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-register-device-portal) how-to guide if you aren’t familiar with this process)
     1.	Select your newly created virtual machine resource from the Azure portal and open the **run command** option
     1.	Select the **RunShellScript** option
     1.	Execute the script below via the command window with your device connection string: 
@@ -42,7 +42,7 @@ From the Azure portal, search for “Azure IoT Edge” and select **Ubuntu Serve
 
 ## Deploy from Azure CLI
 1.  If this is your first time deploying a virtual machine from CLI, you'll need to enable programmatic deployment for your Azure subscription:
-    1. Open the ["Azure IoT Edge on Ubuntu"](https://aka.ms/azure-iot-edge-ubuntuvm) Marketplace offer
+    1. Open the [Azure IoT Edge on Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm) Marketplace offer
     1. Select **GET IT NOW** and **Continue** on the subsequent dialog
     1. Select **Want to deploy programmatically? Get started** at the bottom of the dialog within the portal
     1. Click on the **Enable** button in the **Configure Programmatic Deployment** page then click **Save**
@@ -78,7 +78,7 @@ From the Azure portal, search for “Azure IoT Edge” and select **Ubuntu Serve
     az vm create --resource-group IoTEdgeResources --name EdgeVM –image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
     ```
 
-1.	Set the device connection string (You can follow the [“Register a new Azure IoT Edge device with Azure CLI”](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-register-device-cli) how-to guide if you’re not familiar with this process):
+1.	Set the device connection string (You can follow the [Register a new Azure IoT Edge device with Azure CLI](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-register-device-cli) how-to guide if you’re not familiar with this process):
 
     ```azurecli-interactive
     az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
