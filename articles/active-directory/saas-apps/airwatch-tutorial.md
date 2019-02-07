@@ -117,7 +117,7 @@ To configure Azure AD single sign-on with AirWatch, perform the following steps:
 
 	| Name |  Source Attribute|
 	|---------------|----------------|
-	| Unique User Identifier | user.userprincipalname |
+	| UID | user.userprincipalname |
     | | |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
