@@ -158,7 +158,7 @@ To configure Azure AD single sign-on with etouches, perform the following steps:
 
     ![etouches configuration](./media/etouches-tutorial/tutorial_etouches_06.png) 
 
-    a. Log in to **etouches** application using the Admin rights.
+    a. Sign in to **etouches** application using the Admin rights.
    
     b. Go to the **SAML** Configuration.
 
@@ -174,7 +174,7 @@ To configure Azure AD single sign-on with etouches, perform the following steps:
 
     h. Copy the **SP entity ID** value and paste it into the **Identifier**  textbox, which is in **Basic SAML Configuration** section on Azure portal.
 
-	i. Copy the **SSO URL / ACS** value and paste it into the **Sign on URL** textbox, which is in **Basic SAML Configuration** section on Azure portal.
+	i. Copy the **SSO URL / ACS** value and paste it into the **Sign-on URL** textbox, which is in **Basic SAML Configuration** section on Azure portal.
    
 ### Create an Azure AD test user 
 
