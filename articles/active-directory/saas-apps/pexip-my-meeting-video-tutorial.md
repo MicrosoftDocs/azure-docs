@@ -100,16 +100,7 @@ To configure Azure AD single sign-on with Pexip My Meeting Video, perform the fo
 
     ![Pexip My Meeting Video Domain and URLs single sign-on information](common/sp-signonurl.png)
 
-    In the **Sign-on URL** text box, type any of the URL:
-	| |
-	|--|
-	| `https://my.videxio.com` |
-	| `https://my.pexip.com` |
-	| `https://pexip.com` |
-	| `https://www.pexip.com` |
-	| `https://onpexip.com` |
-	| `https://meet.vmr.vc` |
-	| `https://mpg.vp.vc` |
+    In the **Sign-on URL** text box, type the URL: `https://my.videxio.com` 
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
