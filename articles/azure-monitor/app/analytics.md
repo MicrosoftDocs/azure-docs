@@ -29,7 +29,7 @@ You can also use the [Analytics playground](https://go.microsoft.com/fwlink/?lin
 ## Relation to Azure Monitor logs
 Application Insights analytics is based on [Azure Data Explorer](/azure/data-explorer) like Azure Monitor logs and also uses the [Data Explorer query language](/azure/kusto/query). It uses the same [log analytics portal](../log-query/get-started-portal.md) as Azure Monitor logs, although its data is stored in a separate partition.
 
-You cannot directly access log data from Application Insights analytics, nor can you directly access application data from log analytics. In order to query both sets of data together, write a [query in log analytics](../log-query/log-query-overview.md) and the use the [app() expression](../log-query/app-expression.md) to access application data.
+You cannot directly access data in a Log Analytics workspace from Application Insights analytics, nor can you directly access application data from log analytics. In order to query both sets of data together, write a [query in log analytics](../log-query/log-query-overview.md) and the use the [app() expression](../log-query/app-expression.md) to access application data.
 
 
 ## Query data in Analytics
