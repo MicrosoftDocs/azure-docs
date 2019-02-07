@@ -1,5 +1,5 @@
 ---
-title: Connect to the Remote Desktop client on Windows 7 and Windows 10 - Azure
+title: Connect with Windows 7 and Windows 10 - Azure
 description: How to connect to the Windows Virtual Desktop HTML5 web client.
 services: virtual-desktop
 author: Heidilohr
@@ -9,9 +9,9 @@ ms.topic: how-to
 ms.date: 02/20/2019
 ms.author: helohr
 ---
-# Connect to the Remote Desktop client on Windows 7 and Windows 10
+# Connect with Windows 7 and Windows 10 (Preview)
 
-> Applies to Windows 7 and Windows 10.
+> Applies to: Windows 7 and Windows 10.
 
 A downloadable client is available that provides access to Windows Virtual Desktop resources from devices running Windows 7 and Windows 10.
 

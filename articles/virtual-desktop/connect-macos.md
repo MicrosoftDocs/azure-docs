@@ -1,6 +1,6 @@
 ---
-title: Connect to Microsoft Remote Desktop on macOS - Azure
-description: How to connect to the Microsfot Remote Desktop client with macOS.
+title: Connect with Microsoft Remote Desktop for macOS - Azure
+description: How to connect to the Microsoft Remote Desktop client with macOS.
 services: virtual-desktop
 author: Heidilohr
 
@@ -9,19 +9,15 @@ ms.topic: how-to
 ms.date: 02/20/2019
 ms.author: helohr
 ---
-# Connect to Microsoft Remote Desktop on macOS
+# Connect with Microsoft Remote Desktop for macOS (Preview)
 
-The **Microsoft Remote Desktop 10** client found on the Mac App Store can be used to access resources published through Windows Virtual Desktop.
+You can use the Microsoft Remote Desktop client to access published resources on Windows Virtual Desktop. To get started, go to the Mac App Store and install [Microsoft Remote Desktop](https://aka.ms/rdmac).
 
-## Install the client
+## Install the client and subscribe to a feed
 
-Install [Microsoft Remote Desktop 10](https://aka.ms/rdmac) from the Mac App Store.
+Now that you've installed the client, get the list of resources available to you by subscribing to the feed provided by your admin.
 
-## Subscribe to a feed
-
-Get the list of resources available to you by subscribing to the feed provided by your admin.
-
-1. Start the **Microsoft Remote Desktop 10** client on the MacOS device.
+1. Start the **Microsoft Remote Desktop** client on the MacOS device.
 2. Switch to the **Feeds** tab.
 3. Select **+**, then select **Remote Resources**.
 4. Enter the URL provided by your admin.
@@ -30,8 +26,4 @@ Get the list of resources available to you by subscribing to the feed provided b
 >[!NOTE]
 >If your admin has set up email discovery, the client will automatically look up your feed URL when you enter your email address.
 
-After successfully authenticating, you should now see a list of resources available to you.
-
-## Launch Windows Virtual Desktop resources
-
-Once you are subscribed to a feed, you can launch resources by double-clicking them from the main page of the client.
+You should now see a list of the feed's available resources. You can launch resources by selecting them on the Microsoft Remote Desktop client's main page.

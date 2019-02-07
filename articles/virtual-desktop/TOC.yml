@@ -22,11 +22,11 @@
     href: tenant-setup-remote-desktop.md
   - name: Connect to Windows Virtual Desktop resources (Preview)
     items:
-      - name: Connect to the Remote Desktop client on Windows 7 and Windows 10 (Preview)
+      - name: Connect with Windows 7 and Windows 10 (Preview)
         href: connect-windows-7-and-10.md
-      - name: Connect to the Windows Virtual Desktop web client (Preview)
+      - name: Connect with the web client (Preview)
         href: connect-web.md
-      - name: Connect to Microsoft Remote Desktop on macOS (Preview)
+      - name: Connect with Microsoft Remote Desktop for macOS (Preview)
         href: connect-macOS.md
   - name: Create a host pool with an Azure Resource Manager template (Preview)
     href: create-host-pools-arm-template.md
