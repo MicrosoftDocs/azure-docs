@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Describes how to configure a custom search instance and integrate it into a web page.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
