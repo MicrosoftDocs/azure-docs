@@ -1,7 +1,7 @@
 ---
 title: 'Common questions - VMware to Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
 description: This article summarizes common questions when you set up disaster recovery of on-premises VMware VMs to Azure using Azure Site Recovery
-author: mayuri-gupta
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 services: site-recovery
@@ -103,7 +103,7 @@ For replication, a VMware VM must be running a supported operating system. In ad
 ### How often can I replicate to Azure?
 Replication is continuous when replicating VMware VMs to Azure.
 
-### Can I replicate the IP address on failover?
+### Can I retain the IP address on failover?
 Yes, you can retain the IP address on failover. Ensure that you mention the target IP address on 'Compute and Network' blade before failover. Also, ensure to shut down the machines at the time of failover to avoid IP conflicts at the time of failback.
 
 ### Can I extend replication?
