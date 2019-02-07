@@ -103,9 +103,9 @@ To create a DSVM instance:
 
 After the VM is created and provisioned, you can remote desktop into it by using the admin account credentials that you configured in the preceding **Basics** section. You're ready to start using the tools that are installed and configured on the VM. Many of the tools can be accessed through start menu tiles and desktop icons.
 
-## Tools installed on the DSVM
+## Tools installed on the Microsoft Data Science Virtual Machine
 
-Learn more about the tools that come installed on the Microsoft Data Science Virtual Machine:
+Learn more about the tools that come installed on the DSVM:
 
 ### Microsoft Machine Learning Server Developer edition
 
