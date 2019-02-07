@@ -7,14 +7,14 @@ ms.reviewer: v-orspod
 ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 2/7/2019
 ---
 
 # Manage cluster scale up to accommodate changing demand
 
 Sizing a cluster appropriately is critical to the performance of Azure Data Explorer. But demand on a cluster can’t be predicted with 100% accuracy. A static cluster size can lead to under-utilization or over-utilization, neither of which is ideal. A better approach is to *scale* a cluster, adding and removing capacity and CPU with changing demand. This article shows you how to manage cluster scale up.
 
-Navigate to your cluster, and under **Settings** select **Scale up**.
+1. Navigate to your cluster, and under **Settings** select **Scale up**.
 
 You would then be given the list of SKUs that are available. You can choose from the list of enabled cards. For instance in the below figure there is only one SKU that can be chosen from D14_vs.
 
