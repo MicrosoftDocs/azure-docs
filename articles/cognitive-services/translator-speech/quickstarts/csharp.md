@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Translator Speech API.
 services: cognitive-services
 author: v-jaswel
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-speech
