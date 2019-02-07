@@ -217,14 +217,16 @@ For subscriptions/resources that are not as critical, you won’t need to set up
 
 Once you have decided the list of roles to be managed by PIM, you must decide which users should get the eligible role versus the permanently active role. Permanently active roles are the normal roles assigned through Azure Active Directory and Azure resources while eligible roles can only be assigned in PIM.
 
-:heavy_check_mark: **Microsoft recommends** you have zero permanently active assignments for both Azure AD roles and Azure resource roles other than the recommended [two break-glass emergency access accounts](../users-groups-roles/directory-emergency-access.md), which should have the permanent Global Administrator role.
+> [!TIP]
+> :heavy_check_mark: **Microsoft recommends** you have zero permanently active assignments for both Azure AD roles and Azure resource roles other than the recommended [two break-glass emergency access accounts](../users-groups-roles/directory-emergency-access.md), which should have the permanent Global Administrator role.
 
 Even though we recommend zero standing administrator, it is sometimes difficult for organizations to achieve this right away. Here are things to consider when making this decision:
 
 - Frequency of elevation – If the user only needs the privileged assignment once, they shouldn’t have the permanent assignment. On the other hand, if the user needs the role for their day-to-day job and using PIM would greatly reduce their productivity, they can be considered for the permanent role.
 - Cases specific to your organization – If the person being given the eligible role is from a very distant team or a high-ranking executive to the point that communicating and enforcing the elevation process is difficult, they can be considered for the permanent role.
 
-:heavy_check_mark: **Microsoft recommends** you to set up recurring access reviews for users with permanent role assignments (should you have any). Learn more about recurring access review in the final section of this deployment plan
+> [!TIP]
+> :heavy_check_mark: **Microsoft recommends** you to set up recurring access reviews for users with permanent role assignments (should you have any). Learn more about recurring access review in the final section of this deployment plan
 
 ### Draft your PIM settings
 
@@ -270,7 +272,8 @@ The foundation of proper planning is the basis upon which you can deploy an appl
 
 Use this section to identify a set of users and or groups of users to validate the implementation. Based on the settings that you selected in the planning section, identify the users that you want to test for each role.
 
-:heavy_check_mark: **Microsoft recommends** you make service owners of each Azure AD role to be the test users so they can become familiar with the process and become an internal advocator for the roll out.
+> [!TIP]
+> :heavy_check_mark: **Microsoft recommends** you make service owners of each Azure AD role to be the test users so they can become familiar with the process and become an internal advocator for the roll out.
 
 In this table, identify the test users that will verify that the settings for each role is working.
 
@@ -328,7 +331,8 @@ Deploying PIM will introduce additional steps for users of privileged roles. Alt
     - [Activate Azure resource roles](pim-resource-roles-activate-your-roles.md)
 - Contact information or helpdesk link for any issues associated with PIM
 
-:heavy_check_mark: **Microsoft recommends** you to set up time with your helpdesk/support team to walk them through the PIM workflow (if your organization has an internal IT support team). Provide them with the appropriate documentations as well as your contact information
+> [!TIP]
+> :heavy_check_mark: **Microsoft recommends** you to set up time with your helpdesk/support team to walk them through the PIM workflow (if your organization has an internal IT support team). Provide them with the appropriate documentations as well as your contact information.
 
 ### Move to production
 
@@ -367,7 +371,8 @@ You should utilize PIM’s built-in alerting functionality to better safeguard y
 1. Open **Azure AD Privileged Identity Management**.
 1. Click **Azure AD roles** and then click **Alerts**.
 
-:heavy_check_mark: **Microsoft recommends** you deal with all alerts marked with high severity immediately. For medium and low severity alerts, you should stay informed and make changes if you believe there is a security threat.
+> [!TIP]
+> :heavy_check_mark: **Microsoft recommends** you deal with all alerts marked with high severity immediately. For medium and low severity alerts, you should stay informed and make changes if you believe there is a security threat.
 
 If any of the specific alerts aren’t useful or does not apply to your organization, you can always dismiss the alert on the alerts page. You can always revert this dismissal later in the Azure AD settings page.
 
@@ -375,11 +380,13 @@ If any of the specific alerts aren’t useful or does not apply to your organiza
 
 Access reviews are the best way for you to ask users assigned with privileged roles or specific reviewers whether each user need the privileged identity. Access reviews are great if you want to reduce attack surface and stay compliant. For more information about starting an access review, see [Azure AD roles access reviews](pim-how-to-start-security-review.md) and [Azure resource roles access reviews](pim-resource-roles-start-access-review.md). For some organizations, performing periodic access review is required to stay compliant with laws and regulations while for others, access review is the best way to enforce the principal of least privilege throughout your organization.
 
-:heavy_check_mark: **Microsoft recommends** you set up quarterly access reviews for all your Azure AD and Azure resource roles.
+> [!TIP]
+> :heavy_check_mark: **Microsoft recommends** you set up quarterly access reviews for all your Azure AD and Azure resource roles.
 
 In most cases, the reviewer for Azure AD roles is the users themselves while the reviewer for Azure resource roles is the owner of the subscription, which the role is in. However, it is often the case where companies have privileged accounts that are not linked with any particular person’s email address. In those cases, no one reads and reviews the access.
 
-:heavy_check_mark: **Microsoft recommends** you add a secondary email address for all accounts with privileged role assignments that are not linked to a regularly checked email address
+> [!TIP]
+> :heavy_check_mark: **Microsoft recommends** you add a secondary email address for all accounts with privileged role assignments that are not linked to a regularly checked email address
 
 ### Get the most out of your audit log to improve security and compliance
 
@@ -393,8 +400,10 @@ The Audit log is the place where you can stay up-to-date and be compliant with r
 
 You can access these audit logs if you are a Global Administrator or a privileged role administrator. For more information, see [audit history for Azure AD roles](pim-how-to-use-audit-log.md) and [audit history for Azure resource roles](azure-pim-resource-rbac.md).
 
-:heavy_check_mark: **Microsoft recommends** you to have at least one administrator read through all audit events on a weekly basis and export your audit events on a monthly basis.
+> [!TIP]
+> :heavy_check_mark: **Microsoft recommends** you to have at least one administrator read through all audit events on a weekly basis and export your audit events on a monthly basis.
 
 If you want to automatically store your audit events for a longer period of time, PIM’s audit log is automatically synced into the [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md).
 
-:heavy_check_mark: **Microsoft recommends** you to set up [Azure log monitoring](../reports-monitoring/concept-activity-logs-azure-monitor.md) to archive audit events in an Azure storage account for the need of security and compliance.
+> [!TIP]
+> :heavy_check_mark: **Microsoft recommends** you to set up [Azure log monitoring](../reports-monitoring/concept-activity-logs-azure-monitor.md) to archive audit events in an Azure storage account for the need of security and compliance.
