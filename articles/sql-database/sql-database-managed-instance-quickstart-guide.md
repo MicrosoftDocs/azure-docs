@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/07/2019
 ---
 # Getting started with Azure SQL Database managed instance
 
@@ -38,7 +38,7 @@ Once you are sure that you can migrate your database to a managed instance, you 
 
 These quickstarts enable you to quickly create, configure, and restore database backup to a managed instance. In some scenarios, you would need to customize or automate deployment of managed instances and the required networking environment. These scenarios will be described below.
 
-## Customizing network environment
+## Customize network environment
 
 Although the VNet/subnet can be automatically configured when the instance is created using the Azure portal, you may want to create the VNet/subnet before you start creating managed instances so that you can configure the parameters of VNet and subnet. The easiest way to create and configure the network environment is to use an [Azure Resource deployment](sql-database-managed-instance-create-vnet-subnet.md) template to create and configure the network and subnet for the managed instance. You just need to press the Azure Resource Manager deploy button and populate the form with parameters. 
 
