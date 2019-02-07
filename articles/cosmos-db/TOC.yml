@@ -372,12 +372,6 @@
           href: tutorial-query-table.md
         - name: 4 - Distribute data globally
           href: tutorial-global-distribution-table.md
-      - name: How-to guides
-        items:
-        - name: Build apps with Table API
-          href: table-support.md
-        - name: Table storage design guide
-          href: table-storage-design-guide.md
       - name: Samples
         items:
         - name: .NET
@@ -396,6 +390,12 @@
           href: table-storage-how-to-use-ruby.md
         - name: F#
           href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+      - name: How-to guides
+        items:
+        - name: Build apps with Table API
+          href: table-support.md
+        - name: Table storage design guide
+          href: table-storage-design-guide.md
       - name: Reference
         items:
           - name: .NET
