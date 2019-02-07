@@ -173,13 +173,15 @@ Next, open the *azuredeploy.json* file in a text editor and make three updates t
             "commonNames": [
             {
                 "certificateCommonName": "[parameters('certificateCommonName')]",
-                "certificateIssuerThumbprint": ""
+                "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
             }
             ],
             "x509StoreName": "[parameters('certificateStoreValue')]"
         },
         ...
     ```
+> [!NOTE]
+> Declaring Issuer Thumbprint is a best practice, as a common seperated list of valid issuer thumpbrints, is less frequently to change relative to certificate thumbprints; declaring common name without issuer thumbprint is not supported for production Service Fabric Clusters deployed in Azure. 
 
 ## Deploy the updated template
 Redeploy the updated template after making the changes.
