@@ -77,7 +77,9 @@ Set-RdsHostPool <tenantname> <hostpoolname> -DiskPath <\\FileServer\PathOfShare>
 
 ## Next steps
 
-Now that you have everything set up, it's time to connect to the Windows Virtual Desktop client. To learn how to do this, see the tutorial for connecting to the Windows Virtual Desktop client.
+Now that you have everything set up, it's time to connect to the Windows Virtual Desktop client. To learn how to do this, see the following articles about how to the Windows Virtual Desktop client.
 
 > [!div class="nextstepaction"]
-> [Connect to Windows Virtual Desktop tutorial](./connect.md)
+> [Connect to the Remote Desktop client on Windows 7 and Windows 10](connect-windows-7-and-10.md)
+> [Connect to Microsoft Remote Desktop on macOS](connect-macos.md)
+> [Connect to the Windows Virtual Desktop web client](connect-web.md)

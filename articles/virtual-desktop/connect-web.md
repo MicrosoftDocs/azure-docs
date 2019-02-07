@@ -1,10 +1,23 @@
-# Windows Virtual Desktop web client
-> Applies to browsers running on a desktop OS. Running the web client on a mobile OS is not currently supported.
+---
+title: Connect to the Windows Virtual Desktop web client - Azure
+description: How to connect to the Windows Virtual Desktop HTML5 web client.
+services: virtual-desktop
+author: Heidilohr
 
-The web client is a no-install client that allows you to access your resources from a browser. 
+ms.service: virtual-desktop
+ms.topic: how-to
+ms.date: 02/20/2019
+ms.author: helohr
+---
+# Connect to the Windows Virtual Desktop web client
+
+>Applies to browsers running on a desktop OS. Running the web client on a mobile OS is not currently supported.
+
+The web client is a no-install client that allows you to access your resources from a browser.
 
 ## Supported OS and browsers
-While any HTML5-capable browser should work, we officially support the following OS and browsers. 
+
+While any HTML5-capable browser should work, we officially support the following OS and browsers.
 
 | Browser           | Supported OS                     | Notes               |
 |-------------------|----------------------------------|---------------------|
@@ -14,15 +27,15 @@ While any HTML5-capable browser should work, we officially support the following
 | Mozilla Firefox   | Windows, macOS, Linux            | Version 55 or later |
 | Google Chrome     | Windows, macOS, Linux, Chrome OS |                     |
 
+## Access remote resources feed
 
-## Access remote resources feed 
 In a browser, navigate to the web client URL provided by your admin to access the client and sign in with your user account.
 
-> [!NOTE]
-> If you are already signed in using an Azure AD account that is different than the one you would like to use for Windows Virtual Desktop, you may need to sign out or use an in-private browser windows.
+>[!NOTE]
+>If you are already signed in using an Azure AD account that is different than the one you would like to use for Windows Virtual Desktop, you may need to sign out or use an in-private browser windows.
 
-After successfully authenticating, you should now see a list of resources available to you. 
+After successfully authenticating, you should now see a list of resources available to you.
 
-## Launch Windows Virtual Desktop resources 
+## Launch Windows Virtual Desktop resources
 
-Once you have access to a feed, you can launch resources by clicking them in the **All Resources** tab.
+Once you have access to a feed, you can launch resources by selecting them in the **All Resources** tab.

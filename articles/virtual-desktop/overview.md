@@ -76,4 +76,4 @@ Once their Windows Virtual Desktop accounts are set up, users can connect to a W
 
 ## Next steps
 
-To learn how to set up a tenant, see either [Set up Windows Virtual Desktop tenants in Active Directory](tenant-setup-azure-active-directory.md) or [Connect Windows Virtual Desktop to a Remote Desktop environment](connect.md).
+To learn how to set up a tenant, see [Set up Windows Virtual Desktop tenants in Active Directory](tenant-setup-azure-active-directory.md).
