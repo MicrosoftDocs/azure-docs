@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/04/2019
+ms.date: 02/05/2019
 ms.author: tomfitz
 ---
 
@@ -313,22 +313,30 @@ When deploying the template through the portal, the text you provide in the desc
 
 ![Show parameter tip](./media/resource-group-authoring-templates/show-parameter-tip.png)
 
-For **resources**, add a `comments` element.
+For **resources**, add a `comments` element or a metadata object. The following example shows both a comments element and a metadata object.
 
 ```json
 "resources": [
-    {
-      "comments": "Storage account used to store VM disks",
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "apiVersion": "2018-07-01",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "[variables('storageAccountType')]"
-      },
-      "kind": "Storage",
-      "properties": {}
+  {
+    "comments": "Storage account used to store VM disks",
+    "apiVersion": "2018-07-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+    "location": "[parameters('location')]",
+    "metadata": {
+      "comments": "These tags are needed for policy compliance."
     },
+    "tags": {
+      "Dept": "[parameters('deptName')]",
+      "Environment": "[parameters('environment')]"
+    },
+    "sku": {
+      "name": "Standard_LRS"
+    },
+    "kind": "Storage",
+    "properties": {}
+  }
+]
 ```
 
 You can add a `metadata` object almost anywhere in your template. Resource Manager ignores the object, but your JSON editor may warn you that the property isn't valid. In the object, define the properties you need.
@@ -358,14 +366,27 @@ For **outputs**, add a metadata object to the output value.
 
 You can't add a metadata object to user-defined functions.
 
-For general comments, you can use `//` but this syntax causes an error when deploying the template with Azure CLI.
+For inline comments, you can use `//` but this syntax doesn't work with all tools. You can't use Azure CLI to deploy the template with inline comments. And, you can't use the portal template editor to work on templates with inline comments. If you add this style of comment, be sure the tools you use support inline JSON comments.
 
 ```json
-"variables": {
-    // Create unique name for the storage account
-    "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
-},
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[parameters('location')]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  "dependsOn": [ // storage account and network interface must be deployed first
+      "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+      "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
 ```
+
+In VS Code, you can set the language mode to JSON with comments. The inline comments are no longer marked as invalid. To change the mode:
+
+1. Open language mode selection (Ctrl+K M)
+
+1. Select **JSON with Comments**.
+
+   ![Select language mode](./media/resource-group-authoring-templates/select-json-comments.png)
 
 ## Template limits
 
@@ -388,4 +409,4 @@ You can exceed some template limits by using a nested template. For more informa
 * For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md).
 * To combine several templates during deployment, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md).
-* For recommendations on creating Resource Manager templates that you can use across global Azure, Azure sovereign clouds, and Azure Stack, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).
+* For recommendations on creating Resource Manager templates that you can use across all Azure environments and Azure Stack, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).

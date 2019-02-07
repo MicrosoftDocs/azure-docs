@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use the Academic Knowledge API to interpret user queries and retrieve rich information from the Academic Graph.
 services: cognitive-services
 author: darrine
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: academic-knowledge

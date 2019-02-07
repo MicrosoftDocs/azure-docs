@@ -6,12 +6,8 @@
   - name: Machine Learning Studio
     displayName: overview
     href: what-is-ml-studio.md
-  - name: ML Studio capabilities
-    displayName: overview
-    href: studio-overview-diagram.md
-  - name: ML Studio basics (infographic)
-    displayName: algorithm, algorithms
-    href: basics-infographic-with-algorithm-examples.md
+  - name: Compare our ML products
+    href: ../service/overview-more-machine-learning.md       
   - name: Frequently asked questions
     displayName: FAQ
     href: faq.md
@@ -92,10 +88,6 @@
     - name: Try experiments in AI Gallery
       displayName: gallery
       href: sample-experiments.md
-    - name: Choose algorithms
-      href: algorithm-choice.md
-    - name: Algorithm cheat sheet
-      href: algorithm-cheat-sheet.md
     - name: Evaluate and interpret results
       items:
       - name: Evaluate performance
@@ -117,6 +109,15 @@
         href: custom-r-modules.md
       - name: Execute Python scripts
         href: execute-python-scripts.md
+  - name: Select an algorithm
+    items:
+    - name: Choose algorithms
+      href: algorithm-choice.md
+    - name: Algorithm cheat sheet
+      href: algorithm-cheat-sheet.md        
+    - name: Machine learning basic algorithms
+      displayName: infographic
+      href: basics-infographic-with-algorithm-examples.md
   - name: Deploy models
     items:
     - name: Deploy a web service
@@ -209,9 +210,5 @@
     href: https://azure.microsoft.com/regions/services/    
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/machine-learning/
-  - name: R developer's guide 
-    href: ../r-developers-guide.md
   - name: Custom neural networks (Net#)
     href: azure-ml-netsharp-reference-guide.md
-  - name: Compare our ML products
-    href: ../service/overview-more-machine-learning.md       

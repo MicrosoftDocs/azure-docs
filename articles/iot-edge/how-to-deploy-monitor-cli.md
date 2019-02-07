@@ -133,14 +133,14 @@ You deploy modules to your target devices by creating a deployment that consists
 Use the following command to create a deployment:
 
    ```cli
-   az iot edge deployment create --deployment-id [deployment id] --labels [labels] --content [file path] --hub-name [hub name] --target-condition [target query] --priority [int]
+   az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
    ```
 
 * **--deployment-id** - The name of the deployment that will be created in the IoT hub. Give your deployment a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
-* **--labels** - Add labels to help track your deployments. Labels are Name, Value pairs that describe your deployment. For example, `HostPlatform, Linux` or `Version, 3.0.1`
+* **--hub-name** - Name of the IoT hub in which the deployment will be created. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`.
 * **--content** - Filepath to the deployment manifest JSON. 
-* **--hub-name** - Name of the IoT hub in which the deployment will be created. The hub must be in the current subscription. Switch to the desired subscription with the command `az account set -s [subscription name]`
-* **--target-condition** - Enter a target condition to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test'` or `properties.reported.devicemodel='4000x'`. 
+* **--labels** - Add labels to help track your deployments. Labels are Name, Value pairs that describe your deployment. Labels take JSON formatting for the names and values. For example, `{"HostPlatform":"Linux", "Version:"3.0.1"}`
+* **--target-condition** - Enter a target condition to determine which devices will be targeted with this deployment. The condition is based on device twin tags or device twin reported properties and should match the expression format. For example, `tags.environment='test' and properties.reported.devicemodel='4000x'`. 
 * **--priority** - A positive integer. In the event that two or more deployments are targeted at the same device, the deployment with the highest numerical value for Priority will apply.
 
 ## Monitor a deployment

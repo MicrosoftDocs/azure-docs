@@ -180,7 +180,9 @@ The current API version is `api-version=2017-04-15`.
 
 ### Resolve subscription
 
-POST action on resolve endpoint allows users to resolve a token to a persistent Resource ID.
+POST action on resolve endpoint allows users to resolve a marketplace token to a persistent Resource ID.  The Resource ID is the unique identifier for SAAS subscription. 
+
+When a user is redirected to an ISV’s website, the URL contains a token in the query parameters. The ISV is expected to use this token, and make a request to resolve it. The response contains the unique SAAS subscription ID, name, offer ID, and plan for the resource. This token is valid for an hour only.
 
 *Request*
 
