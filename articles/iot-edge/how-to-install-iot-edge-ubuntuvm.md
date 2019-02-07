@@ -38,7 +38,7 @@ On first boot, the Azure IoT Edge on Ubuntu VM preinstalls the latest version of
 
 
 ## Deploy from the Azure Portal
-From the Azure portal, search for “Azure IoT Edge” and select **Ubuntu Server 16.04 LTS + Azure IoT Edge runtime** to begin the VM creation workflow. From there, complete steps #3 to #5 in the "Deploy from the Azure Marketplace" instructions above.
+From the Azure portal, search for “Azure IoT Edge” and select **Ubuntu Server 16.04 LTS + Azure IoT Edge runtime** to begin the VM creation workflow. From there, complete steps 3 and 4 in the "Deploy from the Azure Marketplace" instructions above.
 
 ## Deploy from Azure CLI
 1.  If this is your first time deploying a virtual machine from CLI, you'll need to enable programmatic deployment for your Azure subscription:
