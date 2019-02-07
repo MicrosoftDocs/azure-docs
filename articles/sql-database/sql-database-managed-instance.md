@@ -87,8 +87,8 @@ Both service tiers guarantee 99.99% availability and enable you to independently
 The following list describes key characteristic of the General Purpose service tier:
 
 - Design for the majority of business applications with typical performance requirements
-- High-performance Azure blob storage (8 TB)
-- Built-in [high-availability](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) based on reliable Azure blob storage and [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
+- High-performance Azure Blob storage (8 TB)
+- Built-in [high-availability](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) based on reliable Azure Blob storage and [Azure Service Fabric](../service-fabric/service-fabric-overview.md)
 
 For more information, see [storage layer in general purpose tier](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) and [storage performance best practices and considerations for managed instances (general purpose)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
@@ -173,7 +173,7 @@ The managed instance deployment option targets user scenarios with mass database
 
 ### Back up and restore  
 
-The migration approach leverages SQL backups to Azure blob storage. Backups stored in Azure storage blob can be directly restored into a managed instance using the [T-SQL RESTORE command](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
+The migration approach leverages SQL backups to Azure Blob storage. Backups stored in Azure storage blob can be directly restored into a managed instance using the [T-SQL RESTORE command](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
 - For a quickstart showing how to restore the Wide World Importers - Standard database backup file, see [Restore a backup file to a managed instance](sql-database-managed-instance-get-started-restore.md). This quickstart shows you have to upload a backup file to Azure blog storage and secure it using a Shared access signature (SAS) key.
 - For information about restore from URL, see [Native RESTORE from URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
