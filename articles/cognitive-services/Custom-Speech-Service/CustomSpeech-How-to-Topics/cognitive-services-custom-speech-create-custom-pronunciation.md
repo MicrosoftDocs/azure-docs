@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: custom-speech
 ms.topic: article
 ms.date: 11/23/2017
-ms.author: panosper
+ms.author: nitinme
 ---
 
 # Enable custom pronunciation

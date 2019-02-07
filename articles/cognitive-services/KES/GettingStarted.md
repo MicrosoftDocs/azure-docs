@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use Knowledge Exploration Service (KES) API to create an engine for an interactive search experience across academic publications.
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration

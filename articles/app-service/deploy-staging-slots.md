@@ -302,7 +302,7 @@ Get-AzureRmLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Calle
 
 - - -
 ### Delete slot
-```
+```PowerShell
 Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 

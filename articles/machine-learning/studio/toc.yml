@@ -8,12 +8,6 @@
     href: what-is-ml-studio.md
   - name: Compare our ML products
     href: ../service/overview-more-machine-learning.md       
-  - name: ML Studio capabilities
-    displayName: overview
-    href: studio-overview-diagram.md
-  - name: ML Studio basics (infographic)
-    displayName: algorithm, algorithms
-    href: basics-infographic-with-algorithm-examples.md
   - name: Frequently asked questions
     displayName: FAQ
     href: faq.md
@@ -121,6 +115,9 @@
       href: algorithm-choice.md
     - name: Algorithm cheat sheet
       href: algorithm-cheat-sheet.md        
+    - name: Machine learning basic algorithms
+      displayName: infographic
+      href: basics-infographic-with-algorithm-examples.md
   - name: Deploy models
     items:
     - name: Deploy a web service

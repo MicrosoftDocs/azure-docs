@@ -11,7 +11,7 @@ author: vainolo
 ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
-ms.date: 01/03/2019
+ms.date: 02/07/2019
 ---
 # Get started with SQL database auditing
 
@@ -35,9 +35,9 @@ You can use SQL database auditing to:
 - **Analyze** reports. You can find suspicious events, unusual activity, and trends.
 
 > [!IMPORTANT]
-> Audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription.
+> Audit logs are written to **Append Blobs** in an Azure blob storage on your Azure subscription.
 >
-> - **Premium Storage** is currently **not supported** by Append Blobs.
+> - **Premium storage** is currently **not supported** by Append Blobs.
 > - **Storage in VNet** is currently **not supported**.
 
 ## <a id="subheading-8"></a>Define server-level vs. database-level auditing policy
