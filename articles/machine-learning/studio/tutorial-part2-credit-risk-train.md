@@ -27,7 +27,7 @@ Credit risk assessment is a complex problem, but this tutorial will simplify it 
 
 In this three-part tutorial, you start with publicly available credit risk data.  You then develop and train a predictive model.  Finally you deploy the model as a web service.
 
-In [part one of the tutorial](tutorial-part2-credit-risk.md), you created a Machine Learning Studio workspace and uploaded data.
+In [part one of the tutorial](tutorial-part1-credit-risk.md), you created a Machine Learning Studio workspace and uploaded data.
 
 In this tutorial you will:
  
@@ -147,7 +147,7 @@ To do this, you use the [Split Data][split] module.
 
 you can use the outputs of the [Split Data][split] module however you like, but let's choose to use the left output as training data and the right output as testing data.  
 
-As mentioned in the [previous step](tutorial-2-upload-data.md), the cost of misclassifying a high credit risk as low is five times higher than the cost of misclassifying a low credit risk as high. To account for this, you generate a new dataset that reflects this cost function. In the new dataset, each high risk example is replicated five times, while each low risk example is not replicated.   
+As mentioned in the [previous step](tutorial-part1-credit-risk.md#upload), the cost of misclassifying a high credit risk as low is five times higher than the cost of misclassifying a low credit risk as high. To account for this, you generate a new dataset that reflects this cost function. In the new dataset, each high risk example is replicated five times, while each low risk example is not replicated.   
 
 you can do this replication using R code:  
 
@@ -189,7 +189,7 @@ Our experiment now looks something like this:
 For more information on using R scripts in your experiments, see [Extend your experiment with R](extend-your-experiment-with-r.md).
 
 
-## Train multiple models
+## <a name="train"></a>Train multiple models
 
 One of the benefits of using Azure Machine Learning Studio for creating machine learning models is the ability to try more than one type of model at a time in a single experiment and compare the results. This type of experimentation helps you find the best solution for your problem.
 
@@ -215,7 +215,7 @@ First, set up the boosted decision tree model.
    The [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] module initializes the generic model, and [Train Model][train-model] uses training data to train the model. 
 
 1. Connect the left output of the left [Execute R Script][execute-r-script] module to the right input port of the [Train Model][train-model] module
-(you decided in [Step 3](tutorial-3-create-new-experiment.md) of this tutorial to use the data coming from the left side of the Split Data module for training).
+(in this tutorial you [used the data coming from the left side](#train) of the Split Data module for training).
    
    > [!TIP]
    > you don't need two of the inputs and one of the outputs of the [Execute R Script][execute-r-script] module for this experiment, so you can leave them unattached. 

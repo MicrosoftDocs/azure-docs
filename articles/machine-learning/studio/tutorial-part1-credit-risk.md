@@ -71,7 +71,7 @@ After your workspace is created, open Machine Learning Studio ([https://studio.a
 > On the **SETTINGS** page, click **USERS**, then click **INVITE MORE USERS** at the bottom of the window.
 > 
 
-## Upload existing data
+## <a name="upload"></a>Upload existing data
 
 To develop a predictive model for credit risk, you need data that you can use to train and then test the model. For this tutorial, You'll use the "UCI Statlog (German Credit Data) Data Set" from the UC Irvine Machine Learning repository. You can find it here:  
 <a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>

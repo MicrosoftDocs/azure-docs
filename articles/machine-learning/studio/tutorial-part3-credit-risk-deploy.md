@@ -26,7 +26,7 @@ Credit risk assessment is a complex problem, but this tutorial will simplify it 
 
 In this three-part tutorial, you start with publicly available credit risk data.  You then develop and train a predictive model.  Finally you deploy the model as a web service.
 
-In [part one of the tutorial](tutorial-part2-credit-risk.md), you created a Machine Learning Studio workspace and uploaded data.
+In [part one of the tutorial](tutorial-part1-credit-risk.md), you created a Machine Learning Studio workspace and uploaded data.
 
 In [part two of the tutorial](tutorial-part2-credit-risk-train.md), you  trained and evaluated models.
 
@@ -71,12 +71,12 @@ you need to delete the following modules:
 
 Select each module and press the Delete key, or right-click the module and select **Delete**. 
 
-![Removed the SVM model](./media/tutorial-5-publish-web-service/publish3a.png)
+![Removed the SVM model](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 
 Our model should now look something like this:
 
-![Removed the SVM model](./media/tutorial-5-publish-web-service/publish3.png)
+![Removed the SVM model](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
 Now we're ready to deploy this model using the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree].
 
@@ -113,7 +113,7 @@ Machine Learning Studio removed one [Execute R Script][execute-r-script] module 
 
 Our experiment should now look like this:  
 
-![Scoring the trained model](./media/tutorial-5-publish-web-service/publish4.png)
+![Scoring the trained model](./media/tutorial-part3-credit-risk-deploy/publish4.png)
 
 
 > [!NOTE]
@@ -132,12 +132,12 @@ You can deploy the experiment as either a Classic web service, or as a New web s
 ### Deploy as a Classic web service
 To deploy a Classic web service derived from our experiment, click **Deploy Web Service** below the canvas and select **Deploy Web Service [Classic]**. Machine Learning Studio deploys the experiment as a web service and takes you to the dashboard for that web service. From this page, you can return to the experiment (**View snapshot** or **View latest**) and run a simple test of the web service (see **Test the web service** below). There is also information here for creating applications that can access the web service (more on that in the next step of this tutorial).
 
-![Web service dashboard](./media/tutorial-5-publish-web-service/publish6.png)
+![Web service dashboard](./media/tutorial-part3-credit-risk-deploy/publish6.png)
 
 
 You can configure the service by clicking the **CONFIGURATION** tab. Here you can modify the service name (it's given the experiment name by default) and give it a description. You can also give more friendly labels for the input and output data.  
 
-![Configure the web service](./media/tutorial-5-publish-web-service/publish5.png)
+![Configure the web service](./media/tutorial-part3-credit-risk-deploy/publish5.png)
 
 
 ### Deploy as a New web service
