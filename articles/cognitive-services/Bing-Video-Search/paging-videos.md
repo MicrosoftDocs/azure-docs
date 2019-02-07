@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to page through all of the videos returned by the Bing Video Search API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-video-search
