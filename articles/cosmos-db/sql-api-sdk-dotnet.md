@@ -353,7 +353,7 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [2.2.2](#2.2.2) |february 06, 2019 |--- |
+| [2.2.2](#2.2.2) |February 06, 2019 |--- |
 | [2.2.1](#2.2.1) |December 24, 2018 |--- |
 | [2.2.0](#2.2.0) |December 07, 2018 |--- |
 | [2.1.3](#2.1.3) |October 15, 2018 |--- |
