@@ -59,7 +59,7 @@ To provide educators the permission to create labs for their classes, add them t
     ![Add lab creator](../media/tutorial-setup-lab-account/add-lab-creator.png)
 
 
-## Specify Marketplace images available to lab owners
+## Specify Marketplace images available to lab creators
 As a lab account owner, you can specify the Marketplace images that lab creators can use to create labs in the lab account. 
 
 1. Select **Marketplace images** on the menu to the left. By default, you see the full list of images (both enabled and disabled). You can filter the list to see only enabled/disabled images by selecting the **Enabled only**/**Disabled only** option from the drop-down list at the top. 
@@ -85,16 +85,23 @@ As a lab account owner, you can specify the Marketplace images that lab creators
 ## View lab accounts
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All resources** from the menu. 
-3. Select **Lab Services** for the **type**. 
+3. Select **Lab Accounts** for the **type**. 
     You can also filter by subscription, resource group, locations, and tags. 
+
+    ![All resources -> Lab Accounts](../media/how-to-manage-lab-accounts/all-resources-lab-accounts.png)
+
 
 ## Delete a lab account
 Follow instructions from the previous section that displays lab accounts in a list. Use the following instructions to delete a lab account: 
 
 1. Select the **lab account** that you want to delete. 
 2. Select **Delete** from the toolbar. 
-3. Type **Yes** for confirmation.
-4. Select **Delete**. 
+
+    ![Lab Accounts -> Delete button](../media/how-to-manage-lab-accounts/delete-button.png)
+1. Type **Yes** for confirmation.
+1. Select **Delete**. 
+
+    ![Delete lab account - confirmation](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
 
 ## View and manage labs in the lab account
 
@@ -116,7 +123,7 @@ Follow instructions in the previous section to see a list of the labs in the lab
     ![Delete a lab - button](../media/how-to-manage-lab-accounts/delete-lab-button.png)
 2. Select **Yes** on the warning message. 
 
-
+    ![Confirm lab deletion](../media/how-to-manage-lab-accounts/confirm-lab-delete.png)
 
 ## Next steps
 See the following articles:
