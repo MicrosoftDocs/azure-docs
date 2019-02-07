@@ -61,4 +61,4 @@ Once the CSV is ready, you can execute the following steps to perform migration 
 
 ## Next Steps
 
-[Learn more](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) migrating servers to Azure using Azure Site Recovery
+[Learn more](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) about migrating servers to Azure using Azure Site Recovery
