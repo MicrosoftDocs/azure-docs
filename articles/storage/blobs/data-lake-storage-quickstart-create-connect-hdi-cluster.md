@@ -11,7 +11,7 @@ ms.author: jamesbak
 ---
 # Quickstart: Set up clusters in HDInsight
 
-In this quickstart you learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, R Server, or Storm. You also learn to customize clusters, join them to a domain, and attach them to a storage account with [Azure Data Lake Storage Gen2 preview](data-lake-storage-introduction.md) enabled.
+In this quickstart you learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, R Server, or Storm. You also learn to customize clusters, join them to a domain, and attach them to a storage account with [Azure Data Lake Storage Gen2](data-lake-storage-introduction.md) enabled.
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks. Azure HDInsight handles implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information.
 

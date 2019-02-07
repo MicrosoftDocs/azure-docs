@@ -12088,6 +12088,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/studio-overview-diagram.md",
+      "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio#studio-diagram",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-text-analytics-module-tutorial.md",
       "redirect_url": "/azure/machine-learning/studio/text-analytics-module-tutorial",
       "redirect_document_id": false
