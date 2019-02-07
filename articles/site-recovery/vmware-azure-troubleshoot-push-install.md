@@ -6,7 +6,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 01/18/2019
+ms.date: 02/07/2019
 
 
 
@@ -15,11 +15,17 @@ ms.date: 01/18/2019
 
 Installation of Mobility service is a key step during Enable Replication. The success of this step depends solely on meeting prerequisites and working with supported configurations. The most common failures you face during Mobility service installation are due to:
 
-* Credential/Privilege errors
-* Login failures
-* Connectivity errors
-* Unsupported Operating systems
-* VSS installation failures
+* [Credential/Privilege errors](#credentials-check-errorid-95107--95108)
+* [Login failures](#login-failures-errorid-95519-95520-95521-95522)
+* [Connectivity errors](#connectivity-failure-errorid-95117--97118)
+* [File and printer sharing errors](#file-and-printer-sharing-services-check-errorid-95105--95106)
+* [WMI failures](#windows-management-instrumentation-wmi-configuration-check-error-code-95103)
+* [Unsupported Operating systems](#unsupported-operating-systems)
+* [Unsupported Boot configurations](#boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309)
+* [VSS installation failures](#vss-installation-failures)
+* [Device name in GRUB configuration instead of device UUID](#enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320)
+* [LVM volume](#lvm-support-from-920-version)
+* [Reboot warnings](#install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266)
 
 When you enable replication, Azure Site Recovery tries to push install mobility service agent on your virtual machine. As part of this, Configuration server tries to connect with the virtual machine and copy the Agent. To enable successful installation, follow the step by step troubleshooting guidance given below.
 
@@ -53,12 +59,14 @@ When domain trust relationship establishment between the primary domain and work
 
 If you wish to modify the credentials of chosen user account, follow the instructions given [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## Login Failure (ErrorID: 95519)
+## Login Failures (ErrorID: 95519, 95520, 95521, 95522)
+
+### Credentials of the user account have been disabled (ErrorID: 95519)
 
 The user account chosen during Enable Replication has been disabled. To enable the user account, refer to the article [here](https://aka.ms/enable_login_user) or run the following command by replacing text *username* with the actual user name.
 `net user 'username' /active:yes`
 
-## Login Failure (ErrorID: 95520)
+### Credentials locked out due to multiple failed login attempts (ErrorID: 95520)
 
 Multiple failed retry efforts to access a machine will lock the user account. The failure can be due to:
 
@@ -67,11 +75,11 @@ Multiple failed retry efforts to access a machine will lock the user account. Th
 
 So, modify the credentials chosen by following the instructions given [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation) and retry the operation after sometime.
 
-## Login Failure (ErrorID: 95521)
+### Logon servers are not available on the source machine (ErrorID: 95521)
 
 This error occurs when the logon servers are not available on source machine. Unavailability of logon servers will lead to failure of login request and thus mobility agent cannot be installed. For successful Login, ensure that Logon servers are available on the source machine and start the Logon service. For detailed instructions, click [here](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
 
-## Login Failure (ErrorID: 95522)
+### Logon service isn't running on the source machine (ErrorID: 95522)
 
 The login service isn't running on your source machine and caused failure of login request. So, mobility agent cannot be installed. To resolve, ensure that Logon service is running on the source machine for successful Login. To start the logon service, run the command "net start Logon" from command prompt or start "NetLogon" service from task manager.
 
