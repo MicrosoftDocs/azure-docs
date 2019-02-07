@@ -8,7 +8,7 @@ ms.date: 11/06/2018
 ms.author: mjbrown
 ---
 
-# Create an Azure Cosmos DB container
+# Create an Azure Cosmos container
 
 This article explains the different ways to create a container (collection, table, or graph). You use the Azure portal, the Azure CLI, or supported SDKs. This article demonstrates how to create a container, specify the partition key, and provision throughput.
 

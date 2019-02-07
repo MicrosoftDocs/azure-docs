@@ -8,7 +8,7 @@ ms.date: 11/06/2018
 ms.author: mjbrown
 ---
 
-# Provision throughput on an Azure Cosmos DB container
+# Provision throughput on an Azure Cosmos container
 
 This article explains how to provision throughput for a container (collection, graph, or table) in Azure Cosmos DB. You can provision throughput for a single container, or [provision for a database](how-to-provision-database-throughput.md) and share it among the containers within the database. You can provision throughput for a container by using the Azure portal, the Azure CLI, or Azure Cosmos DB SDKs.
 
