@@ -124,7 +124,7 @@ This section guides you through the process of connecting your Azure AD to the u
     e. Repeat the preceding steps for any additional domains that you intend to add to Google Apps.
      
      > [!WARNING]
-     > If you change the primary domain for your G Suite tenant, and if you have already configured single sign-on with Azure AD, then you have to repeat step #3 under [Step 2: Enable single sign-on](#step-two-enable-single-sign-on).
+     > If you change the primary domain for your G Suite tenant, and if you have already configured single sign-on with Azure AD, then you have to repeat step #3 under Step 2: Enable single sign-on.
        
 1. In the [Google Apps Admin console](https://admin.google.com/), select **Admin Roles**.
    
