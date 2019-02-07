@@ -455,7 +455,7 @@ The Contoso security team reviews the Azure VMs, to determine any security issue
 - To control access, the team reviews the Network Security Groups (NSGs) for the VMs. NSGs are used to ensure that only traffic allowed to the app can reach it.
 - The team also consider securing the data on the disk using Azure Disk Encryption and KeyVault.
 
-[Read more](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) about security practices for VMs.
+[Read more](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms) about security practices for VMs.
 
 ## BCDR
 

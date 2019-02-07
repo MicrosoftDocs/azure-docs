@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to use the speech-to-text and text-to-speech REST APIs. In this article, you'll learn about authorization options, query options, how to structure a request and receive a response.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual

@@ -38,7 +38,7 @@ This article covers basic commands you will want to use with Azure classic CLI t
 | Delete a VM |`azure vm delete [options] <resource_group> <name>` |
 | Capture a VM |`azure vm capture [options] <resource_group> <name>` |
 | Create a VM from a user image |`azure  vm create [options] –q <image-name> <resource-group> <name> <location> <os-type>` |
-| Create a VM from a specialized disk |`azue  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
+| Create a VM from a specialized disk |`azure  vm create [options] –d <os-disk-vhd> <resource-group> <name> <location> <os-type>` |
 | Add a data disk to a VM |`azure  vm disk attach-new [options] <resource-group> <vm-name> <size-in-gb> [vhd-name]` |
 | Remove a data disk from a VM |`azure  vm disk detach [options] <resource-group> <vm-name> <lun>` |
 | Add a generic extension to a VM |`azure  vm extension set [options] <resource-group> <vm-name> <name> <publisher-name> <version>` |
