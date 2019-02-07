@@ -246,7 +246,7 @@ You can add and remove trusted root certificates from Azure. When you remove a r
 
 ### To add a trusted root certificate
 
-You can add up to 20 trusted root certificate .cer files to Azure. For instructions, see [Upload the root certificate .cer file](#upload-the-root-certificate-.cer-file).
+You can add up to 20 trusted root certificate .cer files to Azure. For instructions, see Upload the root certificate .cer file.
 
 ### To remove a trusted root certificate
 

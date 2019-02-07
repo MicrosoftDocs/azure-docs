@@ -684,7 +684,7 @@ The following process restores the HANA snapshot that is included in the storage
 >[!IMPORTANT]
 >Before you proceed, make sure that you have a complete and contiguous chain of transaction log backups. Without these backups, you cannot restore the current state of the database.
 
-1. Complete steps 1-6 in [Recover to the most recent HANA snapshot](#recovering-to-the-most-recent-hana-snapshot).
+1. Complete steps 1-6 in Recover to the most recent HANA snapshot.
 
 1. Select **Recover the database to its most recent state**.
 
@@ -710,7 +710,7 @@ The following process restores the HANA snapshot that is included in the storage
 To recover to a point in time between the HANA snapshot (included in the storage snapshot) and one that is later than the HANA snapshot point-in-time recovery, perform the following steps:
 
 1. Make sure that you have all the transaction log backups from the HANA snapshot for the time you want to recover to.
-1. Begin the procedure under [Recover to the most recent state](#recovering-to-the-most-recent-state).
+1. Begin the procedure under Recover to the most recent state.
 1. In step 2 of the procedure, in the **Specify Recovery Type** window, select **Recover the database to the following point in time**, and then specify the point in time. 
 1. Complete steps 3-6.
 

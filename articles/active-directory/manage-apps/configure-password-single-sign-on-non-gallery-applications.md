@@ -39,7 +39,7 @@ This is a great way to get started integrating any kind of application into Azur
 
 -   Allow a **member of the business group** to specify the usernames and passwords assigned to a user by using the [Self-Service Application Access](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) feature
 
--   Allow an **administrator** to specify the usernames and passwords assigned to a user by using the Update Credentials feature when [assigning a user to an application](#_How_to_configure_1)
+-   Allow an **administrator** to specify the usernames and passwords assigned to a user by using the Update Credentials feature when assigning a user to an application
 
 -   Allow an **administrator** to specify the shared username or password used by a group of people by using the Update Credentials feature when [assigning a group to an application](#assign-an-application-to-a-group-directly)
 
@@ -53,7 +53,7 @@ To configure an application from the Azure AD gallery you need to:
 
 -   [Configure the application for password single sign-on](#configure-the-application-for-password-single-sign-on)
 
--   [Assign the application to a user or a group](#assign-the-application-to-a-user-or-a-group)
+-   Assign the application to a user or a group
 
     -   [Assign a user to an application directly](#assign-a-user-to-an-application-directly)
 

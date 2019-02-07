@@ -235,6 +235,8 @@ Refresh tokens can be invalidated or revoked at any time, for a variety of reaso
 > A "Non-password based" login is one where the user didn't type in a password to get it. For example, using your face with Windows Hello, a FIDO key, or a PIN. 
 >
 > A known issue exists with the Windows Primary Refresh Token. If the PRT is obtained via a password, and then the user logs in via Hello, this does not change the origination of the PRT, and it will be revoked if the user changes their password.
+>
+> Refresh tokens are not invalidated or revoked when used to fetch a new access token and refresh token.  
 
 ## Next steps
 
