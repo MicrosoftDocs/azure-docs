@@ -1,5 +1,6 @@
 ---
-title: 'Credit risk tutorial: Create an experiment - Azure Machine Learning Studio | Microsoft Docs'
+title: 'Tutorial 1: Predict credit risk'
+titleSuffix: Azure Machine Learning Studio
 description: A detailed tutorial showing how to create a predictive analytics solution for credit risk assessment in Azure Machine Learning Studio. This tutorial is part one of a three-part tutorial series.  It shows how to create a workspace, upload data, and create an experiment.
 keywords: credit risk, predictive analytics solution,risk assessment
 author: sdgilley
@@ -10,7 +11,7 @@ ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
 ---
-# Tutorial: Develop predictive solution for credit risk assessment in Azure Machine Learning Studio
+# Tutorial 1: Predict credit risk - Azure Machine Learning Studio
 
 In this tutorial, you take an extended look at the process of developing a predictive analytics solution. You develop a simple model in Machine Learning Studio.  You then deploy the model as an Azure Machine Learning web service.  This deployed model can make predictions using new data. This tutorial is **part one of a three-part tutorial series**.
 
@@ -20,14 +21,14 @@ Credit risk assessment is a complex problem, but this tutorial will simplify it 
 
 In this three-part tutorial, you start with publicly available credit risk data.  You then develop and train a predictive model.  Finally you deploy the model as a web service.
 
-In this part of the tutorial you will: 
+In this part of the tutorial you: 
  
 > [!div class="checklist"]
 > * Create a Machine Learning Studio workspace
 > * Upload existing data
 > * Create an experiment
 
-In [part two of the tutorial](tutorial-part1-credit-risk.md), you'll  train and evaluate the models.
+In [part two of the tutorial](tutorial-part2-credit-risk-train.md), you'll  train and evaluate the models.
 
 In [part three of the tutorial](tutorial-part3-credit-risk-deploy.md), you'll deploy the model as a web service.
 
