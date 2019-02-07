@@ -231,7 +231,7 @@ Follow the steps to use Python2.x:
 
 1. Install Python 2.7 to local computer and add it to system path.
 
-2. Restart VSCode.
+2. Restart Visual Studio Code.
 
 3. Switch to Python 2 by clicking the **Python XXX** at the status bar then choose the target Python.
 
