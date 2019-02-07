@@ -128,7 +128,7 @@ $respObj.Clusters.health_report
 ```
 
 > [!NOTE]  
-> While most examples in this document use `ConvertFrom-Json` to display elements from the response document, the [Update Ambari configuration](#example-update-ambari-configuration) example uses jq. Jq is used in this example to construct a new template from the JSON response document.
+> While most examples in this document use `ConvertFrom-Json` to display elements from the response document, the Update Ambari configuration example uses jq. Jq is used in this example to construct a new template from the JSON response document.
 
 For a complete reference of the REST API, see [Apache Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
