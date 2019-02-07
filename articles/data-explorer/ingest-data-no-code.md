@@ -18,10 +18,11 @@ This tutorial will teach you how to ingest diagnostic and activity log data to a
 
 In this tutorial you'll learn how to:
 > [!div class="checklist"]
-> * Create tables and ingestion mapping in an Azure Data Explorer database. Format the ingested data using an update policy.
-> * Create an Event Hub and connect it to Azure Data Explorer.
-> * Stream data to an [Event Hub](/azure/event-hubs/event-hubs-about) from [Azure Monitor diagnostic logs](/azure/azure-monitor/platform/diagnostic-logs-overview) and [Azure Monitor activity logs](/azure/azure-monitor/platform/activity-logs-overview).
->  Query the ingested data using Azure Data Explorer.
+> * Create tables and ingestion mapping in an Azure Data Explorer database.
+> * Format the ingested data using an update policy.
+> * Create an [Event Hub](/azure/event-hubs/event-hubs-about)  and connect it to Azure Data Explorer.
+> * Stream data to an Event Hub from [Azure Monitor diagnostic logs](/azure/azure-monitor/platform/diagnostic-logs-overview) and [Azure Monitor activity logs](/azure/azure-monitor/platform/activity-logs-overview).
+> * Query the ingested data using Azure Data Explorer.
 
 > [!NOTE]
 > Create all resources in the same Azure location/region. This is a requirement for Azure Monitor diagnostic logs.
@@ -112,7 +113,7 @@ Azure activity logs are subscription level logs containing a collection of recor
 }
 ```
 
-## Azure Data Explorer ingestion pipeline setup
+## Set up ingestion pipeline in Azure Data Explorer 
 
 The Azure Data Explorer pipeline setup contains various steps that include [table creation and data ingestion](/azure/data-explorer/ingest-sample-data#ingest-data). You can also manipulate, map, and update the data.
 
@@ -166,6 +167,8 @@ Since the activity logs structure isn't tabular, you'll need to manipulate the d
 
 #### Diagnostic logs table mapping
 
+Use the following query to map the data to the table:
+
     ```kusto
     .create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[
     {"column":"Timestamp","path":"$.time"},
@@ -180,6 +183,8 @@ Since the activity logs structure isn't tabular, you'll need to manipulate the d
     ```
 
 #### Activity logs table mapping
+
+Use the following query to map the data to the table:
 
     ```kusto
     .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[
@@ -261,8 +266,8 @@ Select a resource from which to export metrics. There are several resource types
     1. Click **Configure**
 
 1. In the **Select event hub** pane configure exporting to the event hub you created:
-    1. **Select event hub namespace** dropdown: *AzureMonitoringData*.
-    1. **Select event hub name** dropdown: *diagnosticlogsdata*.
+    1. **Select event hub namespace** *AzureMonitoringData* from dropdown.
+    1. **Select event hub name** *diagnosticlogsdata* from dropdown.
     1. **Select event hub policy name** from dropdown.
     1. Click **OK**.
 
@@ -369,13 +374,16 @@ you have a pipeline with data flowing. Ingestion via the cluster takes 5 minutes
 
 ### Diagnostic logs table query example
 
+The following query analyzes query duration data from Azure Data Explorer diagnostic log records:
+
     ```kusto
     DiagnosticLogsRecords
     | where Timestamp > ago(15m) and MetricName == 'QueryDuration'
     | summarize avg(Average)
     ```
-
-
+    
+    Query results:
+    
     |   |   |
     | --- | --- |
     |   |  avg_Average |
@@ -384,6 +392,8 @@ you have a pipeline with data flowing. Ingestion via the cluster takes 5 minutes
 
 ### Activity logs table query example
 
+The following query analyzes successful operation data from Azure Data Explorer activity log records:
+
     ```kusto
     ActivityLogsRecords
     | where OperationName == 'MICROSOFT.EVENTHUB/NAMESPACES/AUTHORIZATIONRULES/LISTKEYS/ACTION'
@@ -391,7 +401,7 @@ you have a pipeline with data flowing. Ingestion via the cluster takes 5 minutes
     | summarize avg(DurationMs)
     ```
 
-
+Query results:
     |   |   |
     | --- | --- |
     |   |  avg(DurationMs) |
@@ -399,6 +409,8 @@ you have a pipeline with data flowing. Ingestion via the cluster takes 5 minutes
     | | |
 
 ## Next steps
+
+Learn to write many more queries on the data you extracted from Azure Data Explorer using the following article:
 
 > [!div class="nextstepaction"]
 > [Write Queries for Azure Data Explorer](write-queries.md)
