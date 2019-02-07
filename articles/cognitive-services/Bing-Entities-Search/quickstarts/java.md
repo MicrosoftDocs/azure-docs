@@ -210,7 +210,7 @@ A successful response is returned in JSON, as shown in the following example:
 }
 ```
 
-[Back to top](#HOLTop)
+[Back to top](#main)
 
 ## Next steps
 
