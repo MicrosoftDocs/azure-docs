@@ -49,7 +49,7 @@ In the **Project** pane, navigate to `Assets/AzureSpatialAnchorsPlugin/Examples`
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
-Save the scene by selecting **File** -> **Save Scene**.
+Save the scene by selecting **File** -> **Save**.
 
 ## Export the Android Studio project
 
