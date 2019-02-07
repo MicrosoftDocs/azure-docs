@@ -1,5 +1,3 @@
-# Concept: Create and locate anchors using Azure Spatial Anchors
-
 ## Getting started
 
 Azure Spatial Anchors allow you share anchors in the world between different devices.
