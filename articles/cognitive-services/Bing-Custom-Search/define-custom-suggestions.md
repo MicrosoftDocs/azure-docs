@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Describes how to configure Custom Autosuggest with custom suggestions
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-custom-search

@@ -53,7 +53,7 @@ See the language-specific example:
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-[Skip trigger examples](#trigger---attributes)
+Skip trigger examples
 
 ### Trigger - C# example
 
@@ -89,7 +89,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-[Skip trigger examples](#trigger---attributes)
+Skip trigger examples
 
 ### Trigger - C# script example
 
@@ -127,7 +127,7 @@ Here's the C# script code:
     }
 ```
 
-[Skip trigger examples](#trigger---attributes)
+Skip trigger examples
 
 ### Trigger - JavaScript example
 
@@ -195,7 +195,7 @@ Here's the Java code:
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBTrigger` annotation on parameters whose value would come from Cosmos DB.  This annotation can be used with native Java types, POJOs, or nullable values using Optional<T>.
 
 
-[Skip trigger examples](#trigger---attributes)
+Skip trigger examples
 
 ### Trigger - Python example
 
@@ -1724,7 +1724,7 @@ The following table explains the binding configuration properties that you set i
 
 In C# and F# functions, when the function exits successfully, any changes made to the input document via named input parameters are automatically persisted.
 
-In JavaScript functions, updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the [JavaScript example](#input---javascript-example).
+In JavaScript functions, updates are not made automatically upon function exit. Instead, use `context.bindings.<documentName>In` and `context.bindings.<documentName>Out` to make updates. See the JavaScript example.
 
 ## Output
 

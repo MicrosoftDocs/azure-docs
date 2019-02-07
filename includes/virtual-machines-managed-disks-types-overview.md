@@ -15,7 +15,7 @@ Azure managed disks currently offers four disk types, three of which are general
 
 ## Disk comparison
 
-The following table provides a comparison of standard hard disk drives (HDD), standard solid state drives (SSD), premium SSD, and ultra SSD (preview) for managed disks to help you decide what to use.
+The following table provides a comparison of standard hard disk drives (HDD), standard solid-state drives (SSD), premium SSD, and ultra SSD (preview) for managed disks to help you decide what to use.
 
 |   | Ultra SSD (preview)   | Premium Disk   | Standard SSD   | Standard HDD   |
 |---------|---------|---------|---------|---------|

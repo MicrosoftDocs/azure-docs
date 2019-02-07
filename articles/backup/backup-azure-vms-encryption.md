@@ -30,7 +30,7 @@ This article talks about the steps to back up and restore virtual machines (VMs)
 
 * A Recovery Services vault was created and storage replication was set by following the steps in [Prepare your environment for backup](backup-azure-arm-vms-prepare.md).
 
-* Backup was given [permissions to access a key vault](#provide-permissions-to-backup) containing keys and secrets for encrypted VMs.
+* Backup was given permissions to access a key vault containing keys and secrets for encrypted VMs.
 
 ## Backup-encrypted VM
 Use the following steps to set a backup goal, define a policy, configure items, and trigger a backup.
@@ -70,7 +70,7 @@ If you are a **Member user**, Enable Backup process will seamlessly acquire acce
 
    ![Encrypted VMs message](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
 
-   For a **Guest user**, you must provide permissions to the backup service to access the key vault for backups to work. You can      provide these permissions by following the [steps mentioned in the following section](#provide-permissions-to-backup)
+   For a **Guest user**, you must provide permissions to the backup service to access the key vault for backups to work. You can      provide these permissions by following the steps mentioned in the following section
 
    ![Encrypted VMs message](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
 
