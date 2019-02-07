@@ -49,7 +49,7 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Cache for Redis](#azure-redis-cache-limits)
+* Azure Cache for Redis
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
 * [BizTalk Services](#biztalk-services-limits)
