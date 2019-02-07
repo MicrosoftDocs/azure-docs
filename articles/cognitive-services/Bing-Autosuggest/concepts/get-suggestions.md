@@ -5,6 +5,10 @@ description: Learn how to use the Bing Autosuggest API.
 services: cognitive-services
 author: aahill
 manager: cgronlun
+<<<<<<< HEAD
+=======
+
+>>>>>>> adding overview suggestions
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: overview
