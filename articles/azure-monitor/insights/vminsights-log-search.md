@@ -186,7 +186,7 @@ Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connec
 ### List all known processes on a specified machine
 `ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
-### List all computers running SQL
+### List all computers running SQL Server
 `ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### List all unique product versions of curl in my datacenter
