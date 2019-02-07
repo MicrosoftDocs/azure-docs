@@ -28,7 +28,7 @@ This document walks through the various scenarios where you would want to move y
 Customers move the VMs for the following reasons:-
 
 - If you had already deployed in one region and a new region support was added, which is closer to the end users of your application or service then you'd want to **move your VMs as is, to the new region** to reduce latency. The same approach is taken if you want to consolidate subscriptions or there are governance / organization rules that require you to move. 
-- If your VM was deployed as a single instance VM or as part of availability set and you want to increase the availability SLAsm you can **move your VMs an availability set**. 
+- If your VM was deployed as a single instance VM or as part of availability set and you want to increase the availability SLAs you can **move your VMs into an Availability Zone**. 
 
 ## How to move Azure VMs
 Moving VMs involves the following steps:

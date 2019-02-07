@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to use ranking to display the answers that the Bing Entity Search API returns.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
