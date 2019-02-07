@@ -28,9 +28,7 @@ In this part of the tutorial you:
 > * Upload existing data
 > * Create an experiment
 
-In [part two of the tutorial](tutorial-part2-credit-risk-train.md), you'll  train and evaluate the models.
-
-In [part three of the tutorial](tutorial-part3-credit-risk-deploy.md), you'll deploy the model as a web service.
+You can then use this experiment to [train models in part 2](tutorial-part1-credit-risk.md) and then [deploy them in part 3](tutorial-part3-credit-risk-deploy.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -41,21 +39,17 @@ This tutorial assumes that you've used Machine Learning Studio at least once bef
 
 If you've never used **Azure Machine Learning Studio** before, you might want to start with the quickstart, [Create your first data science experiment in Azure Machine Learning Studio](create-experiment.md). The quickstart takes you through Machine Learning Studio for the first time. It shows you the basics of how to drag-and-drop modules onto your experiment, connect them together, run the experiment, and look at the results. 
 
-Another tool that may be helpful for getting started is a diagram that gives an overview of the capabilities of Machine Learning Studio. You can download and print it from here: [Overview diagram of Azure Machine Learning Studio capabilities](studio-overview-diagram.md).
- 
-If you're new to the field of machine learning in general, there's a video series that might be helpful to you. It's called [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) and it can give you a great introduction to machine learning using everyday language and concepts.
 
 > [!TIP] 
 > You can find a working copy of the experiment that you develop in this tutorial in the [Azure AI Gallery](https://gallery.cortanaintelligence.com). Go to **[tutorial - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/tutorial-Credit-risk-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
 > 
-> This tutorial is based on a simplified version of the sample experiment,
-[Binary Classification: Credit risk prediction](https://go.microsoft.com/fwlink/?LinkID=525270), also available in the [Gallery](http://gallery.cortanaintelligence.com/).
+
 
 ## Create a Machine Learning Studio workspace
 
 To use Machine Learning Studio, you need to have a Microsoft Azure Machine Learning Studio workspace. This workspace contains the tools you need to create, manage, and publish experiments.  
 
-The administrator for your Azure subscription needs to create the workspace and then add you as an owner or contributor. For details, see [Create and share an Azure Machine Learning workspace](create-workspace.md).
+To create a workspace, see [Create and share an Azure Machine Learning workspace](create-workspace.md).
 
 After your workspace is created, open Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). If you have more than one workspace, you can select the workspace in the toolbar in the upper-right corner of the window.
 
