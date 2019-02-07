@@ -29,7 +29,7 @@ The following table describes the limits for the Data Box Edge device.
 
 | Description | Value |
 |---|---|
-|No. of files per device |100 million <br> Limit is ~ 25 million files for every 2 TB of disk space with maximum limit at 100 million |
+|No. of files per device |100 million |
 |No. of shares per device |24 |
 |No. of shares per container |1 |
 |Maximum file size written to a share| 5 TB |
