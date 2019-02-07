@@ -13,14 +13,14 @@ ms.author: victorh
 
 You can use the Azure portal to delegate a DNS subdomain. For example, if you own the contoso.com domain, you can delegate a subdomain called *engineering* to another, separate zone that can be administered separately from the contoso.com zone.
 
+If you prefer, you can delegate a subdomain using [Azure PowerShell](delegate-subdomain-ps.md).
+
 ## Prerequisites
 
 To delegate an Azure DNS subdomain, you must first delegate your public domain to Azure DNS. See [Delegate a domain to Azure DNS](./dns-delegate-domain-azure-dns.md) for instructions on how to configure your name servers for delegation. Once your domain is delegated to your Azure DNS zone, you can delegate your subdomain.
 
 > [!NOTE]
 > Contoso.com is used as an example throughout this article. Substitute your own domain name for contoso.com.
-
-If you prefer, you can delegate a subdomain using [Azure PowerShell](delegate-subdomain-ps.md).
 
 ## Create a zone for your subdomain
 
