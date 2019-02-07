@@ -64,8 +64,8 @@ For more information, see [Terminology](pim-configure.md#terminology).
 
 ### High-level overview of how PIM works
 
-1. PIM is set up so that users are eligible for the privileged roles.
-1. When an eligible user needs to use their privileged role, they activate their role in PIM.
+1. PIM is set up so that users are eligible for privileged roles.
+1. When an eligible user needs to use their privileged role, they activate the role in PIM.
 1. Depending on the PIM settings configured for the role, the user must complete certain steps (such as performing multi-factor authentication, getting approval, or specifying a reason.)
 1. Once the user successfully activates their role, they will get the role for a pre-configured time period.
 1. Administrators can view a history of all PIM activities in the audit log. They can also further secure their tenants and meet compliance using PIM features like access reviews and alerts.

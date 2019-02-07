@@ -100,6 +100,6 @@ PIM supports the following scenarios:
 
 ## Next steps
 
-- [Start using PIM](pim-getting-started.md)
 - [License requirements to use PIM](subscription-requirements.md)
 - [Securing privileged access for hybrid and cloud deployments in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Deploy PIM](pim-deployment-plan.md)
