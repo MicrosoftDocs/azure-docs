@@ -45,9 +45,9 @@ After you're connected to the NAS device, the next step is to copy your data. Be
 To copy data by using the data copy service, you need to create a job:
 
 1. In the local web UI of your Data Box device, go to **Manage** > **Copy data**.
-2. On the **Copy data** page, click **Create**.
+2. On the **Copy data** page, select **Create**.
 
-    ![Click **Create** on the **Copy data** page](media/data-box-deploy-copy-data-via-copy-service/click-create.png)
+    ![Select Create on the Copy data page](media/data-box-deploy-copy-data-via-copy-service/click-create.png)
 
 3. In the **Configure job and start** dialog box, fill out the following fields:
     
@@ -63,11 +63,11 @@ To copy data by using the data copy service, you need to create a job:
     |**Copy files matching pattern**    | You can enter the file-name matching pattern in the following two ways:<ul><li>**Use wildcard expressions:** Only `*` and `?` are supported in wildcard expressions. For example, the expression `*.vhd` matches all the files that have the `.vhd` extension. Similarly, `*.dl?` matches all the files with either the extension `.dl` or that start with `.dl`, such as `.dll`. Likewise, `*foo` matches all the files whose names end with `foo`.<br>You can directly enter the wildcard expression in the field. By default, the value you enter in the field is treated as a wildcard expression.</li><li>**Use regular expressions:** POSIX-based regular expressions are supported. For example, the regular expression `.*\.vhd` will match all the files that have the `.vhd` extension. For regular expressions, provide the `<pattern>` directly as `regex(<pattern>)`. For more information about regular expressions, go to [Regular expression language - a quick reference](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**File optimization**              |When this feature is enabled, files smaller than 1 MB are packed during ingestion. This feature speeds up the data copy for small files. It also saves a significant amount of time when the number of files far exceeds the number of directories.        |
  
-4. Click **Start**. The inputs are validated, and if the validation succeeds, then the job starts. It might take a few minutes for the job to start.
+4. Select **Start**. The inputs are validated, and if the validation succeeds, then the job starts. It might take a few minutes for the job to start.
 
     ![Start a job from the Configure job and start dialog box](media/data-box-deploy-copy-data-via-copy-service/configure-and-start.png)
 
-5. A job with the specified settings is created. You can pause, resume, cancel, or restart a job. Select the check box next to the job name, and then click the appropriate button.
+5. A job with the specified settings is created. You can pause, resume, cancel, or restart a job. Select the check box next to the job name, and then select the appropriate button.
 
     ![Manage a job on the Copy data page](media/data-box-deploy-copy-data-via-copy-service/select-job.png)
     
@@ -103,7 +103,7 @@ To copy data by using the data copy service, you need to create a job:
     - In this release, you can't delete a job.
     
     - You can create unlimited jobs, but you can run only a maximum of 10 jobs in parallel at any one time.
-    - If **File optimization** is on, small files are packed at ingest to improve copy performance. In these cases, you'll see a packed file (it will have a GUID as its file name). Don't delete this file; it will be unpacked during upload.
+    - If **File optimization** is on, small files are packed at ingest to improve copy performance. In these cases, you'll see a packed file (it will have a GUID as its file name). Don't delete this file. It will be unpacked during upload.
 
 6. While the job is in progress, on the **Copy data** page:
 
@@ -117,19 +117,19 @@ To copy data by using the data copy service, you need to create a job:
         - **Canceled**
         - **Completed with errors**
     - In the **Files** column, you can see the number and the total size of the files being copied.
-    - In the **Processed** column, you can see the number and the total size of the files that have been processed.
-    - In the **Job details** column, click **View** to see the job details.
+    - In the **Processed** column, you can see the number and the total size of the files that are processed.
+    - In the **Job details** column, select **View** to see the job details.
     - If any errors occur during the copy process, as shown in the **# Errors** column, go to the **Error log** column and download the error logs for troubleshooting.
 
 Wait for the copy job to finish. Because some errors are logged only on the **Connect and copy** page, make sure that the copy job has finished with no errors before you go to the next step.
 
-![No errors on **Connect and copy** page](media/data-box-deploy-copy-data-via-copy-service/verify-no-errors-on-connect-and-copy.png)
+![No errors on Connect and copy page](media/data-box-deploy-copy-data-via-copy-service/verify-no-errors-on-connect-and-copy.png)
 
-To ensure data integrity, a checksum is computed inline as the data is copied. After the copy is complete, click **View dashboard** to verify the used space and free space on your device.
+To ensure data integrity, a checksum is computed inline as the data is copied. After the copy is complete, select **View dashboard** to verify the used space and free space on your device.
     
 ![Verify free and used space on dashboard](media/data-box-deploy-copy-data-via-copy-service/verify-used-space-dashboard.png)
 
-After the copy job is finished, you can click **Prepare to ship**.
+After the copy job is finished, you can select **Prepare to ship**.
 
 >[!NOTE]
 > **Prepare to ship** can't run while copy jobs are in progress.
