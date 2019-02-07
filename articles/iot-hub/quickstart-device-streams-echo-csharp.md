@@ -130,7 +130,7 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run DeviceConnectionString
+dotnet run "DeviceConnectionString"
 
 # In Windows
 dotnet run DeviceConnectionString
