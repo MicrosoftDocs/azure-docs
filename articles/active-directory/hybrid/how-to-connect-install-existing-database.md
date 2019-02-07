@@ -55,8 +55,8 @@ Important notes to take note of before you proceed:
 ![Welcome](./media/how-to-connect-install-existing-database/db1.png)
 3.	Start a new command prompt or PowerShell session. Navigate to folder <drive>\program files\Microsoft Azure AD Connect. Run command .\AzureADConnect.exe /useexistingdatabase to start the Azure AD Connect wizard in “Use existing database” setup mode.
 
->[!NOTE]
->The switch **/UseExistingDatabase** should only be used when the DB already contains data from a previous AADC installation. For instance, when the Customer is moving from a localDB to a full SQL Server, or when the AADC server was rebuilt and they restored a SQL backup of the ADSync database from a previous installation of AADC. If you have created an empty database and use it for installation then skip this step.
+> [!NOTE]
+> Use the switch **/UseExistingDatabase** only when the database already contains data from an earlier Azure AD Connect installation. For instance, when you are moving from a local database to a full SQL Server database or when the Azure AD Connect server was rebuilt and you restored a SQL backup of the ADSync database from an earlier installation of Azure AD Connect. If you created an empty database and use it for installation, skip this step.
 
 ![PowerShell](./media/how-to-connect-install-existing-database/db2.png)
 4.	You are greeted with the Welcome to Azure AD Connect screen. Once you agree to the license terms and privacy notice, click **Continue**.
