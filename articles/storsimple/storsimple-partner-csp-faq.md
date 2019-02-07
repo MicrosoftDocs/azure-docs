@@ -27,7 +27,7 @@ Questions and answers are arranged into the following categories:
 
  - [StorSimple and Cloud Solutions Provider Program (CSP) model](#storsimple-and-csp-model)
  - [Deploy and manage virtual array as a partner](#deploy-and-manage-storsimple-as-a-partner)
- - [Support for StorSimple partners for CSP](#support-for-storsimple-partners)
+ - Support for StorSimple partners for CSP
 
 ## StorSimple and CSP model
 
