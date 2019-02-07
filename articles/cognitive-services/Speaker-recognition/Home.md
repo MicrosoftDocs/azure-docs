@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use advanced algorithms for speaker verification and speaker identification with the Speaker Recognition API in Cognitive Services.
 services: cognitive-services
 author: dwlin
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speaker-recognition
 ms.topic: overview
