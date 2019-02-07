@@ -19,7 +19,7 @@ This article introduces the core concepts that provide networking to your applic
 - [Services](#services)
 - [Azure virtual networks](#azure-virtual-networks)
 - [Ingress controllers](#ingress-controllers)
-- [Network policies](#network-policies)
+- Network policies
 
 ## Kubernetes basics
 
