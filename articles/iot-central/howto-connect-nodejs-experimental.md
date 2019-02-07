@@ -18,7 +18,7 @@ This article describes how, as a device developer, to connect a generic Node.js 
 
 To complete the steps in this article, you need the following:
 
-1. An Azure IoT Central application. For more information, see the [create an application quickstart](quick-deploy-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+1. An Azure IoT Central application. For more information, see the [create an application quickstart](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 1. A development machine with [Node.js](https://nodejs.org/) version 4.0.0 or later installed. You can run `node --version` in the command line to check your version. Node.js is available for a wide variety of operating systems.
 
 ## Create a Device Template
@@ -125,7 +125,7 @@ The following steps show how to create a client application that implements the 
     ```
 
     > [!NOTE]
-    > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instrustions to [Get the device connection string](concepts-connectivity.md#getting-device-connection-string) and continue with the rest of the tutorial. For more help, you can also find a detailed set of instructions in [Prepare the client code](tutorial-add-device-experimental.md#prepare-the-client-code) in Tutorials > Add a device.
+    > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instrustions to [Get the device connection string](concepts-connectivity-experimental.md#getting-device-connection-string) and continue with the rest of the tutorial. For more help, you can also find a detailed set of instructions in [Prepare the client code](tutorial-add-device-experimental.md#prepare-the-client-code) in Tutorials > Add a device.
 
     Update the placeholder `{your device connection string}` with the device connection string. In this sample, we initialize `targetTemperature` to zero, you can optionally take the current reading from the device or value from the device twin. 
 
