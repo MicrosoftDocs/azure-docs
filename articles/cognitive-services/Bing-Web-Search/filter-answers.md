@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to filter and display search results from the Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 8B837DC2-70F1-41C7-9496-11EDFD1A888D
 ms.service: cognitive-services
 ms.subservice: bing-web-search

@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use the Bing Image Search API to search for .gif images across the web.
 services: cognitive-services
 author: MikeDodaro
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
