@@ -19,6 +19,8 @@ ms.author: bwren
 
 While [logs in Azure Monitor](log-query-overview.md) is built on [Azure Data Explorer](/azure/data-explorer) and uses the [same query language](/azure/kusto/query), the version of the language does have some differences. This article identifies elements that are different between the version of the language used for Data Explorer and the version used for Azure Monitor log queries.
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## Data Explorer elements not supported in Azure Monitor
 The following sections describe elements of the Data Explorer query language that aren't supported by Azure Monitor.
 
