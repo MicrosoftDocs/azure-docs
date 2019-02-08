@@ -201,12 +201,10 @@ When using [Auto-Swap](#Auto-Swap), some apps may require custom warm-up actions
         </applicationInitialization>
     </system.webServer>
 
-You can confgure the website path that App Service pings to warm up your site. To enable this feature, use two evironment variables: `WEBSITE_SWAP_WARMUP_PING_PATH` and `WEBSITE_SWAP_WARMUP_PING_STATUSES`. 
+You can also customize the warm-up behavior with one or more of the following [app settings](https://github.com/MicrosoftDocs/azure-docs-pr/pull/web-sites-configure.md):
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH` should be set to a website path without your domain name. For example, `/home` or `/statuscheck`. This is the path that App Service will ping to warmup your site.
-- `WEBSITE_SWAP_WARMUP_PING_STATUSES` should be a comma-delimited list of acceptable HTTP status codes for the warmup operation. (For example: `200` for a single status, or `200,202` for multiple statuses.) If the returned status code is not in the list, the warmup and swap operations are stopped.
-
-These app settings can be be used seperately. If only `WEBSITE_SWAP_WARMUP_PING_PATH` is set, App Service will ping the given path and accept any response code. If only `WEBSITE_SWAP_WARMUP_PING_STATUSES` is set, App Service will ping the root path, `/`, and accept only the response codes given.
+- `WEBSITE_SWAP_WARMUP_PING_PATH`: The path to ping to warmup your site. Add this app setting by specifying a custom path that begins with a slash as the value. For example, `/statuscheck`. The default value is `/`. 
+- `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Valid HTTP response codes for the warm-up operation. Add this app setting with a comma-separated list of HTTP codes. For example: `200,202` . If the returned status code is not in the list, the warmup and swap operations are stopped. By default, all response codes are valid
 
 ## Monitor swap
 
