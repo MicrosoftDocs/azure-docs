@@ -65,9 +65,9 @@ In this section, you use `scp` to upload data to your HDInsight cluster.
    scp <file-name>.zip <ssh-user-name>@<cluster-name>-ssh.azurehdinsight.net:<file-name.zip>
    ```
 
-   * Replace \<file-name> with the name of the .zip file.
-   * Replace \<ssh-user-name> with the SSH login for the HDInsight cluster.
-   * Replace \<cluster-name> with the name of the HDInsight cluster.
+   * Replace the `<file-name>` placeholder with the name of the .zip file.
+   * Replace the `<ssh-user-name>` placeholder with the SSH login for the HDInsight cluster.
+   * Replace the `<cluster-name>` placeholder with the name of the HDInsight cluster.
 
    If you use a password to authenticate your SSH login, you're prompted for the password. 
 
@@ -93,9 +93,9 @@ In this section, you use `scp` to upload data to your HDInsight cluster.
    hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
    ```
    
-   Replace the /<file-system-name> placeholder with the name that you want to give your file system.
+   Replace the `<file-system-name>` placeholder with the name that you want to give your file system.
 
-   Replace the /<storage-account-name> placeholder with the name of your storage account.
+   Replace the `<storage-account-name>` placeholder with the name of your storage account.
 
 5. Use the following command to create a directory.
 
@@ -123,7 +123,7 @@ As part of the Apache Hive job, you import the data from the .csv file into an A
    nano flightdelays.hql
    ```
 
-2. Modify the following text by replace the \<file-system-name> and \<storage-account-name> placeholders with your file system and storage account name. Then copy and paste the text into the nano console by using pressing the SHIFT key along with the right-mouse click button.
+2. Modify the following text by replace the `<file-system-name>` and `<storage-account-name>` placeholders with your file system and storage account name. Then copy and paste the text into the nano console by using pressing the SHIFT key along with the right-mouse click button.
 
    ```hiveql
    DROP TABLE delays_raw;
@@ -189,27 +189,27 @@ As part of the Apache Hive job, you import the data from the .csv file into an A
    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
    ```
 
-After the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
+5. After the __flightdelays.hql__ script finishes running, use the following command to open an interactive Beeline session:
 
-```bash
-beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
-```
+   ```bash
+   beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
+   ```
 
-When you receive the `jdbc:hive2://localhost:10001/>` prompt, use the following query to retrieve data from the imported flight delay data:
+6. When you receive the `jdbc:hive2://localhost:10001/>` prompt, use the following query to retrieve data from the imported flight delay data:
 
-```hiveql
-INSERT OVERWRITE DIRECTORY 'abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output'
-ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-SELECT regexp_replace(origin_city_name, '''', ''),
-    avg(weather_delay)
-FROM delays
-WHERE weather_delay IS NOT NULL
-GROUP BY origin_city_name;
-```
+   ```hiveql
+   INSERT OVERWRITE DIRECTORY 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output'
+   ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+   SELECT regexp_replace(OriginCityName, '''', ''),
+       avg(WeatherDelay)
+   FROM delays
+   WHERE WeatherDelay IS NOT NULL
+   GROUP BY OriginCityName;
+   ```
 
-This query retrieves a list of cities that experienced weather delays, along with the average delay time, and saves it to `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output`. Later, Sqoop reads the data from this location and exports it to Azure SQL Database.
+   This query retrieves a list of cities that experienced weather delays, along with the average delay time, and saves it to `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. Later, Sqoop reads the data from this location and exports it to Azure SQL Database.
 
-To exit Beeline, enter `!quit` at the prompt.
+7. To exit Beeline, enter `!quit` at the prompt.
 
 ## Create a SQL database table
 
@@ -217,110 +217,112 @@ You need the server name from your SQL database for this operation. Complete the
 
 1. Go to the [Azure portal](https://portal.azure.com).
 
-1. Select **SQL Databases**.
+2. Select **SQL Databases**.
 
-1. Filter on the name of the database that you choose to use. The server name is listed in the **Server name** column.
+3. Filter on the name of the database that you choose to use. The server name is listed in the **Server name** column.
 
-1. Filter on the name of the database that you want to use. The server name is listed in the **Server name** column.
+4. Filter on the name of the database that you want to use. The server name is listed in the **Server name** column.
 
     ![Get Azure SQL server details](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Get Azure SQL server details")
 
     There are many ways to connect to SQL Database and create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
 
-To install FreeTDS, use the following command from an SSH connection to the cluster:
+5. To install FreeTDS, use the following command from an SSH connection to the cluster:
 
-```bash
-sudo apt-get --assume-yes install freetds-dev freetds-bin
-```
+   ```bash
+   sudo apt-get --assume-yes install freetds-dev freetds-bin
+   ```
 
-After the installation completes, use the following command to connect to the SQL Database server.
+ 6. After the installation completes, use the following command to connect to the SQL Database server.
 
-* Replace \<SERVER_NAME> with the SQL Database server name.
-* Replace \<ADMIN_LOGIN> with the admin login for SQL Database.
-* Replace \<DATABASE_NAME> with the database name.
+    ```bash
+    TDSVER=8.0 tsql -H <server-name>.database.windows.net -U <admin-login> -p 1433 -D <database-name>
+    ```
+   * Replace the `<server-name>` placeholder with the SQL Database server name.
 
-```bash
-TDSVER=8.0 tsql -H <SERVER_NAME>.database.windows.net -U <ADMIN_LOGIN> -p 1433 -D <DATABASE_NAME>
-```
+   * Replace the `<admin-login>` placeholder with the admin login for SQL Database.
 
-When you're prompted, enter the password for the SQL Database admin login.
+   * Replace the `<database-name>` placeholder with the database name
 
-You receive output similar to the following text:
+   When you're prompted, enter the password for the SQL Database admin login.
 
-```
-locale is "en_US.UTF-8"
-locale charset is "UTF-8"
-using default charset "UTF-8"
-Default database being set to sqooptest
-1>
-```
+   You receive output similar to the following text:
 
-At the `1>` prompt, enter the following statements:
+   ```
+   locale is "en_US.UTF-8"
+   locale charset is "UTF-8"
+   using default charset "UTF-8"
+   Default database being set to sqooptest
+   1>
+   ```
 
-```hiveql
-CREATE TABLE [dbo].[delays](
-[origin_city_name] [nvarchar](50) NOT NULL,
-[weather_delay] float,
-CONSTRAINT [PK_delays] PRIMARY KEY CLUSTERED   
-([origin_city_name] ASC))
-GO
-```
+7. At the `1>` prompt, enter the following statements:
 
-When the `GO` statement is entered, the previous statements are evaluated.
-The query creates a table named **delays**, which has a clustered index.
+   ```hiveql
+   CREATE TABLE [dbo].[delays](
+   [OriginCityName] [nvarchar](50) NOT NULL,
+   [WeatherDelay] float,
+   CONSTRAINT [PK_delays] PRIMARY KEY CLUSTERED
+   ([OriginCityName] ASC))
+   GO
+   ```
 
-Use the following query to verify that the table is created:
+8. When the `GO` statement is entered, the previous statements are evaluated.
 
-```hiveql
-SELECT * FROM information_schema.tables
-GO
-```
+   The query creates a table named **delays**, which has a clustered index.
 
-The output is similar to the following text:
+9. Use the following query to verify that the table is created:
 
-```
-TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-databaseName       dbo             delays        BASE TABLE
-```
+   ```hiveql
+   SELECT * FROM information_schema.tables
+   GO
+   ```
 
-Enter `exit` at the `1>` prompt to exit the tsql utility.
+   The output is similar to the following text:
+
+   ```
+   TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
+   databaseName       dbo             delays        BASE TABLE
+   ```
+
+10. Enter `exit` at the `1>` prompt to exit the tsql utility.
 
 ## Export and load the data
 
-In the previous sections, you copied the transformed data at the location  `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output`. In this section, you use Sqoop to export the data from `abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/tutorials/flightdelays/output` to the table you created in the Azure SQL database.
+In the previous sections, you copied the transformed data at the location  `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. In this section, you use Sqoop to export the data from `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` to the table you created in the Azure SQL database.
 
-Use the following command to verify that Sqoop can see your SQL database:
+1. Use the following command to verify that Sqoop can see your SQL database:
 
-```bash
-sqoop list-databases --connect jdbc:sqlserver://<SERVER_NAME>.database.windows.net:1433 --username <ADMIN_LOGIN> --password <ADMIN_PASSWORD>
-```
+   ```bash
+   sqoop list-databases --connect jdbc:sqlserver://<SERVER_NAME>.database.windows.net:1433 --username <ADMIN_LOGIN> --password <ADMIN_PASSWORD>
+   ```
 
-The command returns a list of databases, including the database in which you created the **delays** table.
+   The command returns a list of databases, including the database in which you created the **delays** table.
 
-Use the following command to export data from the **hivesampletable** table to the **delays** table:
+2. Use the following command to export data from the **hivesampletable** table to the **delays** table:
 
-```bash
-sqoop export --connect 'jdbc:sqlserver://<SERVER_NAME>.database.windows.net:1433;database=<DATABASE_NAME>' --username <ADMIN_LOGIN> --password <ADMIN_PASSWORD> --table 'delays' --export-dir 'abfs://<FILE_SYSTEM_NAME>@.dfs.core.windows.net/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
-```
+   ```bash
+   sqoop export --connect 'jdbc:sqlserver://<SERVER_NAME>.database.windows.net:1433;database=<DATABASE_NAME>' --username <ADMIN_LOGIN> --password <ADMIN_PASSWORD> --table 'delays' --export-dir 'abfs://<file-system-name>@.dfs.core.windows.net/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
+   ```
 
-Sqoop connects to the database that contains the **delays** table, and exports data from the `/tutorials/flightdelays/output` directory to the **delays** table.
+   Sqoop connects to the database that contains the **delays** table, and exports data from the `/tutorials/flightdelays/output` directory to the **delays** table.
 
-After the `sqoop` command finishes, use the tsql utility to connect to the database:
+3. After the `sqoop` command finishes, use the tsql utility to connect to the database:
 
-```bash
-TDSVER=8.0 tsql -H <SERVER_NAME>.database.windows.net -U <ADMIN_LOGIN> -P <ADMIN_PASSWORD> -p 1433 -D <DATABASE_NAME>
-```
+   ```bash
+   TDSVER=8.0 tsql -H <SERVER_NAME>.database.windows.net -U <ADMIN_LOGIN> -P <ADMIN_PASSWORD> -p 1433 -D <DATABASE_NAME>
+   ```
 
-Use the following statements to verify that the data was exported to the **delays** table:
+4. Use the following statements to verify that the data was exported to the **delays** table:
 
-```sql
-SELECT * FROM delays
-GO
-```
+   ```sql
+   SELECT * FROM delays
+   GO
+   ```
 
-You should see a listing of data in the table. The table includes the city name and the average flight delay time for that city.
+   You should see a listing of data in the table. The table includes the city name and the average flight delay time for that city.
 
-Enter `exit` to exit the tsql utility.
+5. Enter `exit` to exit the tsql utility.
 
 ## Clean up resources
 
