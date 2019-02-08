@@ -294,7 +294,7 @@ Let's start with the samples. A new sample folder named `hello-world/` is create
 </head>
 <body>
     <h1>Hi, Terraform Module</h1>
-    <p>This is a sample webpage to demonstrate Terratest.</p>
+    <p>This is a sample web page to demonstrate Terratest.</p>
 </body>
 </html>
 ```

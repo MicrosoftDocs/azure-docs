@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 02/05/2019
 ms.author: magoedte
 ms.custom: mvc
 ---
@@ -78,7 +78,7 @@ Log Analytics can collect events from the Windows event log and performance coun
 4. You add an event log by typing in the name of the log.  Type **System** and then click the plus sign **+**.  
 5. In the table, check the severities **Error** and **Warning**.   
 6. Click **Save** at the top of the page to save the configuration.
-7. Select **Windows Performance Data** to enable collection of performance counters on a Windows computer. 
+7. Select **Windows Performance Counters** to enable collection of performance counters on a Windows computer. 
 8. When you first configure Windows Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.<br> ![Default Windows performance counters selected](media/quick-collect-windows-computer/windows-perfcounters-default.png).<br> Click **Add the selected performance counters**.  They are added and preset with a ten second collection sample interval.  
 9. Click **Save** at the top of the page to save the configuration.
 

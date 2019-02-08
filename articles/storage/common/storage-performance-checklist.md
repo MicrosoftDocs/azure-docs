@@ -86,7 +86,7 @@ Each of the Azure Storage services has scalability targets for capacity (GB), tr
 * [Queue messages per second](#subheading39)  
 
 #### <a name="sub1bandwidth"></a>Bandwidth Scalability Target for All Services
-At the time of writing, the bandwidth targets in the US for a geo-redundant storage (GRS) account are 10 gigabits per second (Gbps) for ingress (data sent to the storage account) and 20 Gbps for egress (data sent from the storage account). For a locally redundant storage (LRS) account, the limits are higher – 20 Gbps for ingress and 30 Gbps for egress.  International bandwidth limits may be lower and can be found on our [scalability targets page](https://msdn.microsoft.com/library/azure/dn249410.aspx).  For more information on the storage redundancy options, see the links in [Useful Resources](#sub1useful) below.  
+At the time of writing, the bandwidth targets in the US for a geo-redundant storage (GRS) account are 10 gigabits per second (Gbps) for ingress (data sent to the storage account) and 20 Gbps for egress (data sent from the storage account). For a locally redundant storage (LRS) account, the limits are higher – 20 Gbps for ingress and 30 Gbps for egress.  International bandwidth limits may be lower and can be found on our [scalability targets page](https://msdn.microsoft.com/library/azure/dn249410.aspx).  For more information on the storage redundancy options, see the links in Useful Resources below.  
 
 #### What to do when approaching a scalability target
 If you're approaching the limit of storage accounts you can have in a particular subscription/region combination, evaluate your application and usage of storage accounts and determine if any of these conditions apply.

@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
-ms.author: panosper
+ms.author: nitinme
 ---
 
 # Tutorial: Create a custom language model

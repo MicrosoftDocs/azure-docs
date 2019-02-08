@@ -4,6 +4,7 @@ description: An admin role can add users, assign administrative roles, reset use
 services: active-directory
 author: curtand
 manager: mtillman
+search.appverid: MET150
 
 ms.service: active-directory
 ms.workload: identity
@@ -35,6 +36,20 @@ The following administrator roles are available:
   <b>Important</b>: This role grants the ability to manage application credentials. Users assigned this role can add credentials to an application, and use those credentials to impersonate the application’s identity. If the application’s identity has been granted access to Azure Active Directory, such as the ability to create or update User or other objects, then a user assigned to this role could perform those actions while impersonating the application. This ability to impersonate the application’s identity may be an elevation of privilege over what the user can do via their role assignments in Azure AD. It is important to understand that assigning a user to the Application Administrator role gives them the ability to impersonate an application’s identity.
 
 * **[Application Developer](#application-developer)**: Users in this role can create application registrations when the "Users can register applications" setting is set to No. This role also allows members to consent on their own behalf when the "Users can consent to apps accessing company data on their behalf" setting is set to No. Members of this role are added as owners when creating new application registrations or enterprise applications.
+
+* **[Authentication Administrator](#authentication-administrator)**: Users with this role can view the current authentication method information and set or reset non-password credentials. Authentication Administrators can force users to re-register against existing non-password credential (e.g. MFA, FIDO) and revoke ‘remember MFA on the device’, prompting for MFA on the next login of other users who are non-administrators or members of the following roles only:
+  * Authentication Administrator
+  * Directory Readers
+  * Guest Inviter
+  * Message Center Reader
+  * Reports Reader
+  
+  <b>Important</b>: Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
+  * Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Authentication Administrators. Through this path a Authentication Administrator may be able to assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
+  *	Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
+  *	Security Group and Office 365 Group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
+  *	Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
+  *	Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
 * **[Billing Administrator](#billing-administrator)**: Makes purchases, manages subscriptions, manages support tickets, and monitors service health.
 
@@ -271,6 +286,19 @@ Can create application registrations independent of the ‘Users can register ap
 | microsoft.aad.directory/appRoleAssignments/createAsOwner | Create appRoleAssignments in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
 | microsoft.aad.directory/oAuth2PermissionGrants/createAsOwner | Create oAuth2PermissionGrants in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
 | microsoft.aad.directory/servicePrincipals/createAsOwner | Create servicePrincipals in Azure Active Directory. Creator is added as the first owner, and the created object counts against the creator's 250 created objects quota. |
+
+### Authentication Administrator
+Allowed to view, set and reset authentication method information for any non-admin user.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.directory/users/invalidateAllRefreshTokens | Invalidate all user refresh tokens in Azure Active Directory. |
+| microsoft.aad.directory/users/strongAuthentication/update | Update strong authentication properties like MFA credential information. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
 ### Billing Administrator
 Can perform common billing related tasks like updating payment information.
