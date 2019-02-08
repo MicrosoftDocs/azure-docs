@@ -24,7 +24,7 @@
 4. Select **OK** to close the **Settings for New Projects** dialog box.  
 5. Open the `build.gradle` file in the **app** directory, and add this line under `dependencies`. 
 
-    ```text
+    ```gradle
     implementation 'com.google.android.gms:play-services-gcm:16.0.0'
     ```
 5. Select **Sync Now** icon in the tool bar.
