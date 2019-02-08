@@ -41,6 +41,12 @@ Azure Machine Learning service has varying support across different compute targ
 |[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
+### Reusing compute targets
+
+All can be reused for multiple training jobs. For example, once you attach a remote VM to your workspace, you can reuse it for multiple jobs.
+
+The exception is if you use run-based creation with Azure Machine Learning Compute. For more information, see the [Azure Machine Learning Compute](#amlcompute) section.
+
 ## What's a run configuration?
 
 When training, it is common to start on your local computer, and later run that training script on a different compute target. With Azure Machine Learning service, you can run your script on various compute targets without having to change your script. 
@@ -236,7 +242,7 @@ You can access the compute targets that are associated with your workspace in th
 
 * [View  compute targets](#portal-view) attached to your workspace
 * [Create a compute target](#portal-create) in your workspace
-* [Reuse existing compute targets](#portal-reuse)
+* [Attach a compute target](#portal-reuse) that was created outside the workspace
 
 After a target is created and attached to your workspace, you will use it in your run configuration with a `ComputeTarget` object: 
 
@@ -287,9 +293,11 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
 
 
-### <a id="portal-reuse"></a>Reuse existing compute targets
+### <a id="portal-reuse"></a>Attach compute targets
 
-Follow the steps described earlier to view the list of compute targets. Then use these steps to reuse a compute target: 
+To use compute targets created outside the Azure Machine Learning service workspace, you must attach them. Attaching a compute target makes it available to your workspace.
+
+Follow the steps described earlier to view the list of compute targets. Then use the following steps to attach a compute target: 
 
 1. Select the plus sign (+) to add a compute target. 
 1. Enter a name for the compute target. 
