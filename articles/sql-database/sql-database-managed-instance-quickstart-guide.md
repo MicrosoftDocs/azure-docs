@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/07/2019
 ---
 # Getting started with Azure SQL Database managed instance
 
@@ -21,7 +21,7 @@ The [managed instance](sql-database-managed-instance-index.yml) deployment optio
 
 The following quickstarts enable you to quickly create a managed instance, configure a virtual machine or point to site VPN connection for client application, and restore a database to your new managed instance using a `.bak` file:
 
-- [Create a managed instance using the Azure portal](sql-database-managed-instance-get-started.md). In the Azure portal, you configure the necessary parameters (username/password, number of cores, max storage), and automatically create Azure network environment without need to know about networking details and infrastructure requirements. You just make sure that you have a [subscription type](sql-database-managed-instance-resource-limits.md#supported-subscription-types) that is allowed to create a managed instance. If you have your own network that you want to use or you want to customize the network, see how to [configure network environment](#configure-network-environment) for a managed instance.
+- [Create a managed instance using the Azure portal](sql-database-managed-instance-get-started.md). In the Azure portal, you configure the necessary parameters (username/password, number of cores, max storage), and automatically create Azure network environment without need to know about networking details and infrastructure requirements. You just make sure that you have a [subscription type](sql-database-managed-instance-resource-limits.md#supported-subscription-types) that is allowed to create a managed instance. If you have your own network that you want to use or you want to customize the network, see how to configure network environment for a managed instance.
 - A managed instance is created in own VNet with no public endpoint. For client application access, you can either create a VM in the same VNet (different subnet) or create a point-to-site VPN connection to the VNet from your client computer using one of these quickstarts.
   - Create [Azure Virtual Machine in the managed instance VNet](sql-database-managed-instance-configure-vm.md) for client application connectivity, including SQL Server Management Studio.
   - Set up [point-to-site VPN connection to your managed instance](sql-database-managed-instance-configure-p2s.md) from your client computer on which you have SQL Server Management Studio and other client connectivity applications. This is other of two options for connectivity to your managed instance and to its VNet.
@@ -31,14 +31,14 @@ The following quickstarts enable you to quickly create a managed instance, confi
 
 After you create a managed instance and configure access, you can start migrating your databases placed on SQL Server on-premises or Azure VMs. Migration fails if you have some unsupported features in the source database that you want to migrate. To avoid failures and check compatibility, you can install [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) that analyzes your databases on SQL Server and finds any issue that could block migration to a managed instance, such as existence of [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) or multiple log files. If you resolve these issues, your databases are ready to migrate to managed instance. [Database Experimentation Assistant](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) is another useful tool that can record your workload on SQL Server and replay it on a managed instance so you can determine are there going to be any performance issues if you migrate to a managed instance.
 
-Once you are sure that you can migrate your database to a managed instance, you can use the native SQL Server restore capabilities to restore a database into a managed instance from a `.bak` file. For a quickstart, see [Restore from backup to a managed instance](sql-database-managed-instance-get-started-restore.md). In this quickstart, you restore from a `.bak` file stored in Azure blob storage using the `RESTORE` Transact-SQL command. 
+Once you are sure that you can migrate your database to a managed instance, you can use the native SQL Server restore capabilities to restore a database into a managed instance from a `.bak` file. For a quickstart, see [Restore from backup to a managed instance](sql-database-managed-instance-get-started-restore.md). In this quickstart, you restore from a `.bak` file stored in Azure Blob storage using the `RESTORE` Transact-SQL command. 
 
 > [!TIP]
-> To use the `BACKUP` Transact-SQL command to create a backup of your database in Azure blob storage, see [SQL Server backup to URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
+> To use the `BACKUP` Transact-SQL command to create a backup of your database in Azure Blob storage, see [SQL Server backup to URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
 These quickstarts enable you to quickly create, configure, and restore database backup to a managed instance. In some scenarios, you would need to customize or automate deployment of managed instances and the required networking environment. These scenarios will be described below.
 
-## Customizing network environment
+## Customize network environment
 
 Although the VNet/subnet can be automatically configured when the instance is created using the Azure portal, you may want to create the VNet/subnet before you start creating managed instances so that you can configure the parameters of VNet and subnet. The easiest way to create and configure the network environment is to use an [Azure Resource deployment](sql-database-managed-instance-create-vnet-subnet.md) template to create and configure the network and subnet for the managed instance. You just need to press the Azure Resource Manager deploy button and populate the form with parameters. 
 
@@ -56,7 +56,7 @@ If you already have a VNet and subnet where you would like to deploy your manage
 
 ## Migrating to a managed instance with minimal downtime
 
-Articles in these quickstarts enable you to quickly set up a managed instance and move your databases using the native `RESTORE` capability. However, with the native `RESTORE`, you have to wait for the databases to be restored (and copied to Azure blob storage if not already stored there). This causes some downtime of your application especially for larger databases. To move your production database, use the [Data Migration service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) to migrate your database with the minimal downtime. DMS accomplishes this by incrementally pushing the changes made in your source database to the managed instance database being restored. This way, you can quickly switch your application from source to target database with the minimal downtime.
+Articles in these quickstarts enable you to quickly set up a managed instance and move your databases using the native `RESTORE` capability. However, with the native `RESTORE`, you have to wait for the databases to be restored (and copied to Azure Blob storage if not already stored there). This causes some downtime of your application especially for larger databases. To move your production database, use the [Data Migration service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) to migrate your database with the minimal downtime. DMS accomplishes this by incrementally pushing the changes made in your source database to the managed instance database being restored. This way, you can quickly switch your application from source to target database with the minimal downtime.
 
 ## Next steps
 
