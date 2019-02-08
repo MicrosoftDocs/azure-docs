@@ -171,6 +171,8 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 
 - The Compute API version has increased to 2017-12-01.
 
+- Infrastructure backup now requires a certificate with a public key only (.CER) for encryption of backup data. Symmetric encryption key support is deprecated starting in 1901. If infrastructure backup is configured before updating to 1901, the encryption keys will remain in place. You will have at least 2 more updates with backwards compatibility support to update backup settings. For more information, see [Azure Stack infrastructure backup best practices](azure-stack-backup-best-practices.md).
+
 ## Common vulnerabilities and exposures
 
 This update installs the following security updates:  
