@@ -154,11 +154,11 @@ The next step in this tutorial is to create an experiment in Machine Learning St
     ![Rename experiment](./media/tutorial-part1-credit-risk/rename-experiment.png)
 
    
-   > [!TIP]
-   > It's a good practice to fill in **Summary** and **Description** for the experiment in the **Properties** pane. These properties give you the chance to document the experiment so that anyone who looks at it later will understand your goals and methodology.
-   > 
-   > ![Experiment properties](./media/tutorial-part1-credit-risk/experiment-properties.png)
-   > 
+    > [!TIP]
+    > It's a good practice to fill in **Summary** and **Description** for the experiment in the **Properties** pane. These properties give you the chance to document the experiment so that anyone who looks at it later will understand your goals and methodology.
+    > 
+    > ![Experiment properties](./media/tutorial-part1-credit-risk/experiment-properties.png)
+    > 
 
 1. In the module palette to the left of the experiment canvas, expand **Saved Datasets**.
 1. Find the dataset you created under **My Datasets** and drag it onto the canvas. You can also find the dataset by entering the name in the **Search** box above the palette.  
@@ -184,19 +184,19 @@ To use [Edit Metadata][edit-metadata], you first specify which columns to modify
 
 1. Connect the dataset to the [Edit Metadata][edit-metadata]: click the output port of the dataset (the small circle at the bottom of the dataset), drag to the input port of [Edit Metadata][edit-metadata] (the small circle at the top of the module), then release the mouse button. The dataset and module remain connected even if you move either around on the canvas.
    
-   The experiment should now look something like this:  
-   
-   ![Adding Edit Metadata](./media/tutorial-part1-credit-risk/experiment-with-edit-metadata-module.png)
+    The experiment should now look something like this:  
+    
+    ![Adding Edit Metadata](./media/tutorial-part1-credit-risk/experiment-with-edit-metadata-module.png)
+    
+    
+    The red exclamation mark indicates that you haven't set the properties for this module yet.  You'll do that next.
+    
+    > [!TIP]
+    > You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Edit Metadata][edit-metadata] module and type the comment "Add column headings". Click anywhere else on the canvas to close the text box. To display the comment, click the down-arrow on the module.
+    > 
+    > ![Edit Metadata module with comment added](./media/tutorial-part1-credit-risk/edit-metadata-with-comment.png)
+    > 
 
-   
-   The red exclamation mark indicates that you haven't set the properties for this module yet.  You'll do that next.
-   
-   > [!TIP]
-   > You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Edit Metadata][edit-metadata] module and type the comment "Add column headings". Click anywhere else on the canvas to close the text box. To display the comment, click the down-arrow on the module.
-   > 
-   > ![Edit Metadata module with comment added](./media/tutorial-part1-credit-risk/edit-metadata-with-comment.png)
-
-   > 
 1. Select [Edit Metadata][edit-metadata], and in the **Properties** pane to the right of the canvas, click **Launch column selector**.
 
 1. In the **Select columns** dialog, select all the rows in **Available Columns** and click > to move them to **Selected Columns**.
@@ -299,3 +299,8 @@ You are now ready to train and evaluate models for this data.
 
 > [!div class="nextstepaction"]
 > [Tutorial 2 - Train and evaluate models](tutorial-part2-credit-risk-train.md)
+
+<!-- Module References -->
+[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
+[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
+[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
