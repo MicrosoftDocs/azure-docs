@@ -41,7 +41,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: sdk.md
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Spell+Check
 - name: Reference
   items:
   - name: Bing Spell Check API v7

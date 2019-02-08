@@ -29926,6 +29926,11 @@
     {
       "source_path": "articles/cognitive-services/Bing-Spell-Check/bing-spell-check-resource-faq.md",
       "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/using-spell-check",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/sdk.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/sdk-quickstart-spell-check",
       "redirect_document_id": false
     },
     {
