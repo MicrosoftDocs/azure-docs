@@ -30,7 +30,7 @@ The current workaround, should you encounter this formatting problem, is:
 > - Use the following query if you notice you're not seeing the soft-delete enabled property described in this topic: `$vault = Get-AzKeyVault -VaultName myvault; $vault.EnableSoftDelete`.
 
 
-For Key Vault specific refernece information for PowerShell, see [Azure Key Vault PowerShell reference](https://docs.microsoft.com/powershell/module/az.keyvault).
+For Key Vault specific reference information for PowerShell, see [Azure Key Vault PowerShell reference](/powershell/module/az.keyvault).
 
 ## Required permissions
 
@@ -121,7 +121,7 @@ When a key vault is recovered, a new resource is created with the key vault's or
 The following command will delete the 'ContosoFirstKey' key, in a key vault named 'ContosoVault', which has soft-delete enabled:
 
 ```powershell
-Remove-AzureKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey
+Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey
 ```
 
 With your key vault enabled for soft-delete, a deleted key still appears to be deleted, unless you explicitly list deleted keys. Most operations on a key in the deleted state will fail, except for listing, recovering, purging a deleted key. 
@@ -129,7 +129,7 @@ With your key vault enabled for soft-delete, a deleted key still appears to be d
 For example, the following command lists deleted keys in the 'ContosoVault' key vault:
 
 ```powershell
-Get-AzureKeyVaultKey -VaultName ContosoVault -InRemovedState
+Get-AzKeyVaultKey -VaultName ContosoVault -InRemovedState
 ```
 
 ### Transition state 
@@ -145,7 +145,7 @@ Just like key vaults, a deleted key, secret, or certificate, remains in deleted 
 To recover a soft-deleted key:
 
 ```powershell
-Undo-AzureKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey
+Undo-AzKeyVaultKeyRemoval -VaultName ContosoVault -Name ContosoFirstKey
 ```
 
 To permanently delete (also known as purging) a soft-deleted key:
@@ -154,7 +154,7 @@ To permanently delete (also known as purging) a soft-deleted key:
 > Purging a key will permanently delete it, and it will not be recoverable! 
 
 ```powershell
-Remove-AzureKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
+Remove-AzKeyVaultKey -VaultName ContosoVault -Name ContosoFirstKey -InRemovedState
 ```
 
 The **recover** and **purge** actions have their own permissions associated in a key vault access policy. For a user or service principal to be able to execute a **recover** or **purge** action, they must have the respective permission for that key or secret. By default, **purge** isn't added to a key vault's access policy, when the 'all' shortcut is used to grant all permissions. You must specifically grant **purge** permission. 
@@ -176,17 +176,17 @@ Like keys, secrets are managed with their own commands:
 
 - Delete a secret named SQLPassword: 
 ```powershell
-Remove-AzureKeyVaultSecret -VaultName ContosoVault -name SQLPassword
+Remove-AzKeyVaultSecret -VaultName ContosoVault -name SQLPassword
 ```
 
 - List all deleted secrets in a key vault: 
 ```powershell
-Get-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState
+Get-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState
 ```
 
 - Recover a secret in the deleted state: 
 ```powershell
-Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
+Undo-AzKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
 ```
 
 - Purge a secret in deleted state: 
@@ -195,7 +195,7 @@ Undo-AzureKeyVaultSecretRemoval -VaultName ContosoVault -Name SQLPAssword
   > Purging a secret will permanently delete it, and it will not be recoverable!
 
   ```powershell
-  Remove-AzureKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
+  Remove-AzKeyVaultSecret -VaultName ContosoVault -InRemovedState -name SQLPassword
   ```
 
 ## Purging and key vaults

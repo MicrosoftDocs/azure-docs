@@ -102,7 +102,7 @@ Using the same PowerShell session, create a managed storage account in your Key 
 
 ```azurepowershell-interactive
 # Add your storage account to your Key Vault's managed storage accounts
-Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -DisableAutoRegenerateKey
+Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -DisableAutoRegenerateKey
 ```
 
 Upon successful addition of the storage account with no key regeneration, you should see output similar to the following example:
@@ -127,7 +127,7 @@ If you want Key Vault to regenerate your storage account keys periodically, you 
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
-Add-AzureKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
+Add-AzKeyVaultManagedStorageAccount -VaultName $keyVaultName -AccountName $storageAccountName -AccountResourceId $storageAccount.Id -ActiveKeyName $storageAccountKey -RegenerationPeriod $regenPeriod
 ```
 
 Upon successful addition of the storage account with key regeneration, you should see output similar to the following example:
