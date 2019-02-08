@@ -48,12 +48,11 @@ Are there any SQL server jobs?
 
 ## Add a list entity
 
-List entities represent a fixed, closed set (exact text matches) of related words in your system. 
+List entities represent a set of exact text matches of related words in your system. 
 
 For a company's department list, you can have normalized values: `Accounting` and `Human Resources`. Each normalized name has synonyms. For a department, these synonyms can include any department acronyms, numbers, or slang. You don't have to know all the values when you create the entity. You can add more after reviewing real user utterances with synonyms.
 
-1. In the example utterance list, for a specific utterance, select the word or phrase that you want in the new list. Then enter the name of the list in the top textbox, then select **Create new entity**.   
-
+1. In an example utterance on the **Intents** page, select the word or phrase that you want in the new list. When the entity drop-down appears, enter the name for the new list entity in the top textbox, then select **Create new entity**.   
 
 1. In the **What type of entity do you want to create?** pop-up box, name the entity and select **List** as the type. Add synonyms of this list item, then select **Done**. 
 
@@ -65,15 +64,13 @@ For a company's department list, you can have normalized values: `Accounting` an
 
 Composite entities are created from existing **Entities** into a parent entity. 
 
-Assuming the utterance, `Does John Smith work in Seattle?`, a composite utterance can return entity information of the employee name, and the location in a single parent object. 
+Assuming the utterance, `Does John Smith work in Seattle?`, a composite utterance can return entity information of the employee name `John Smith`, and the location `Seattle` in a composite entity. The child entities must already exist in the app and be marked in the example utterance before creating the composite entity.
 
-The employee name, John Smith, is a prebuilt [personName](luis-reference-prebuilt-person.md) entity. The location, Seattle, is a custom simple entity. Once those two entities are created and tagged in an example utterance, those entities can be wrapped in a composite entity. 
-
-1. To wrap the individual entities into a composite, select the **first** labeled entity (left-most) in the utterance for the composite entity. A drop-down list appears showing the choices for this selection.
+1. To wrap the child entities into a composite entity, select the **first** labeled entity (left-most) in the utterance for the composite entity. A drop-down list appears showing the choices for this selection.
 
 1. Select **Wrap in composite entity** from the drop-down list. 
 
-1. Select the last word of the composite entity (right-most). Notice a green line follows the composite entity.
+1. Select the last word of the composite entity (right-most). Notice a green line follows the composite entity. This is the visual indicator for a composite entity and should be under all words in the composite entity from the left-most child entity to the right-most child entity.
 
 1. Enter the composite entity name in the drop-down list.
 
@@ -89,7 +86,7 @@ The employee name, John Smith, is a prebuilt [personName](luis-reference-prebuil
 
 ## Add hierarchical entity
 
-A hierarchical entity is a category of contextually learned and conceptually related entities. In the following example, the entity contains origin and destination locations. 
+A hierarchical entity is a category of contextually learned and conceptually-related entities. In the following example, the entity contains origin and destination locations. 
 
 In the utterance `Move John Smith from Seattle to Cairo`, Seattle is the origin location and Cairo is the destination location. Each location is contextually different and learned from word order and word choice in the utterance.
 
@@ -99,7 +96,7 @@ In the utterance `Move John Smith from Seattle to Cairo`, Seattle is the origin 
 
     ![Screenshot of Intents details page, with ToLocation entity highlighted](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
 
-1. The word in the utterance was labeled with the parent hierarchical entity. You need to assign the word to a child entity. Return to the utterance on the intent detail page. Select the word, then from the drop-down list choose the entity name you created, and follow the menu to the right to choose the correct child entity.
+1. The word in the utterance was labeled with the parent hierarchical entity. You need to assign the word to a child entity. Return to the utterance on the Intent detail page. Select the word, then from the drop-down list choose the entity name you created, and follow the menu to the right to choose the correct child entity.
 
     >[!CAUTION]
     >Child entity names must be unique across all entities in a single app. Two different hierarchical entities may not contain child entities with the same name. 
