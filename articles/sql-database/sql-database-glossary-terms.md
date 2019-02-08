@@ -24,7 +24,7 @@ ms.date: 02/08/2019
 |Server objects|SQL Database server or database server|[Database server](sql-database-servers.md)|
 ||SQL Database managed instance server, managed instance server, or instance server|[Managed instance](sql-database-managed-instance.md)|
 Database objects|Azure SQL database|Any database in Azure SQL Database|
-||Single database|A database created as a standalone database using the single database deployment option|
+||Single database|A database created using the single database deployment option|
 ||Pooled database|A database created within or moved into an elastic pool|
 ||Instance database|A database created within a managed instance|
 ||Basic database|A database created within or moved into the basic service tier of the DTU-based purchasing model|
