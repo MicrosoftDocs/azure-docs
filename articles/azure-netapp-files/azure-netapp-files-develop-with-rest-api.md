@@ -103,7 +103,7 @@ You use a PUT request to create new objects in Azure NetApp Files, as the follow
 
 ### JSON examples
 
-This example shows how to create a NetApp account:
+The following example shows how to create a NetApp account:
 
     { 
         "name": "MYNETAPPACCOUNT", 
@@ -114,7 +114,7 @@ This example shows how to create a NetApp account:
         }
     } 
 
-This example shows how to create a capacity pool: 
+The following example shows how to create a capacity pool: 
 
     {
         "name": "MYNETAPPACCOUNT/POOLNAME",
@@ -127,7 +127,7 @@ This example shows how to create a capacity pool:
         }
     }
 
-This example shows how to create a new volume: 
+The following example shows how to create a new volume: 
 
     {
         "name": "MYNEWVOLUME",
@@ -142,7 +142,7 @@ This example shows how to create a new volume:
             }
     }
 
-This examples shows how to create a snapshot of a volume: 
+The following example shows how to create a snapshot of a volume: 
 
     {
         "name": "apitest2/apiPool01/apiVol01/snap02",
