@@ -3,8 +3,8 @@ title: How to configure an Application Proxy application to use PingAccess| Micr
 description: Learn how to use PingAccess  to extend the benefits of Application Proxy to applications using header-based authentication
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 
 ---
