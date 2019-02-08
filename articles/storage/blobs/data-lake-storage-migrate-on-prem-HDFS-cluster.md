@@ -4,12 +4,12 @@ description: Migrate data from an on-premises Hadoop cluster to Azure Data Lake 
 services: storage
 author: normesta
 ms.service: storage
-ms.date: 01/16/2019
+ms.date: 02/08/2019
 ms.author: normesta
 ms.component: data-lake-storage-gen2
 ---
 
-# Migrate data from an on-premises Hadoop cluster to Azure Data Lake Storage Gen2
+# Use Azure Data Box to migrate data from an on-premises Hadoop cluster to Azure Data Lake Storage Gen2
 
 You can migrate data from an on-premises Hadoop cluster by using a Data Box device and a few scripts. 
 
@@ -31,7 +31,10 @@ You need these things to complete the migration.
 
 * Python version 2.7 or greater installed onto each head or edge node of the cluster.
 
-* An [Azure Data Box device](https://azure.microsoft.com/services/storage/databox/).
+* An [Azure Data Box device](https://azure.microsoft.com/services/storage/databox/). 
+
+    - [Order your Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered).
+    - [Cable and connect your Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) to an on-premises network.
 
 * An Azure Storage account that **doesn't** have hierarchical namespaces enabled on it.
 
@@ -40,15 +43,18 @@ A Hadoop cluster running in Azure (For example: An [HDInsight](https://azure.mic
 
 * The Azure-based Hadoop cluster is configured to use your Azure Data Lake Storage Gen2 account.
 
-If your ready, let's start.
+If you are ready, let's start.
 
-## First, Copy your data to a Data Box device
+## Copy your data to a Data Box device
 
 To copy the data from your on-premises Hadoop cluster to a Data Box device, you'll set a few things up, and then use the [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) tool.
 
-1. Connect the Data Box to an on-premises network.
+You can copy data to your Data Box via NFS or REST.
 
-   See [Need link description](need link).
+### Copy data via NFS
+
+### Copy data via REST
+
 
 2. Add the Domain Name Server (DNS) name to the host configuration file (*/etc/hosts*) of each node in your cluster.
 
@@ -73,9 +79,13 @@ To copy the data from your on-premises Hadoop cluster to a Data Box device, you'
 
 ## Ship the Data Box device to Microsoft
 
-For guidance, see [Need link description](need link).
+Follow these steps to prepare and ship the Data Box device to Microsoft.
 
-We'll load the data into your storage account (the account that **doesn't** have hierarchical namespaces enabled on it). You specified this account when you ordered the Data Box device.  
+1. After the data copy is complete, run [Prepare to ship](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#prepare-to-ship) on your Data Box. After the device preparation is complete, download the BOM files. You will use these BOM or manifest files later to verify the data uploaded to Azure. Shut down the device and remove the cables. 
+2.	Schedule a pickup with UPS to [Ship your Data Box back to Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up). 
+3.	After Microsoft receives your device, it is connected to the network datacenter and data is uploaded to the storage account you specified (with hierarchical namespaces disabled) when you ordered the Data Box. Verify against the BOM files that all your data is uploaded to Azure. You can now move this data to a Data Lake Storage Gen2 storage account.
+
+
 
 ## Move the data onto your Data Lake Storage Gen2 storage account
 
