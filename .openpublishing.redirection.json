@@ -29924,6 +29924,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Spell-Check/bing-spell-check-resource-faq.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/using-spell-check",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Video-Search/UseAndDisplayRequirements.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
       "redirect_document_id": false

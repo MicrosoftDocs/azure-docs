@@ -25,55 +25,57 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 1. Create a new Python file in your favorite IDE or editor, and add the following import statement.
 
    ```python
-   import http.client, urllib.parse, json
+   import requests
+   import json
    ```
 
-2. Create a variable for the text you want to spell check, and it to a dictionary with `text` as a key. Then add variables for your subscription key, host, and path. 
+2. Create variables for the text you want to spell check, your subscription key, and your Bing Spell Check endpoint.
 
     ```python
-    text = 'Hollo, wrld!'
-    data = {'text': text}
-    host = 'api.cognitive.microsoft.com'
-    path = '/bing/v7.0/spellcheck?'
-    params = 'mkt=en-us&mode=proof'
+    api_key = "enter-your-key-here"
+    example_text = "Hollo, wrld" # the text to be spell-checked
+    endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/SpellCheck"
     ```
 
-3. Create a variable for your search parameters. append your market code to `mkt=` and your spell-check mode to `&mode`.
+## Create the parameters for the request
+
+1. Create a new dictionary with `text` as the key, and your text as the value.
 
     ```python
-    params = 'mkt=en-us&mode=proof'
+    data = {'text': example_text}
     ```
 
-4. Add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+2. Add the parameters for your request. Set the `mkt` parameter to your market, and `mode` to `proof`. 
+
+    ```python
+    params = {
+        'mkt':'en-us',
+        'mode':'proof'
+        }
+    ```
+
+3. Add a `Content-Type` header, and your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
     ```python
     headers = {
-    'Ocp-Apim-Subscription-Key': key,
-    'Content-Type': 'application/x-www-form-urlencoded'
-    }
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Ocp-Apim-Subscription-Key': api_key,
+        }
     ```
 
-## send a spell check request and receive the response
+## Send the request and read the response
 
-1. Create an HTTP client to connect to your host path, and use `urllib.parse.urlencode()` to create the body of the request.
+1. Send the POST request using the requests library.
 
     ```python
-        conn = http.client.HTTPSConnection(host)
-        body = urllib.parse.urlencode (data)
+    response = requests.post(endpoint, headers=headers, params=params, data=data)
     ```
 
-2. Send the request with a `POST` command.
+2. Get the JSON response, and print it.
     
     ```python
-    conn.request ("POST", path + params, body, headers)
-    ```
-
-3. Get the API response, and print the JSON.
-
-    ```python
-    response = conn.getresponse ()
-    output = json.dumps(json.loads(response.read()), indent=4)
-    print (output)
+    json_response = response.json()
+    print(json.dumps(json_response, indent=4))
     ```
 
 ## Example JSON response
