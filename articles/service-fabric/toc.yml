@@ -258,6 +258,8 @@
       href: service-fabric-linux-windows-differences.md
     - name: Clusters on Azure
       items:
+      - name: Overview of Azure clusters
+        href: service-fabric-azure-clusters-overview.md
       - name: Node types and VM Scale Sets
         href: service-fabric-cluster-nodetypes.md
       - name: Upgrading clusters in Azure
@@ -268,6 +270,8 @@
         href: service-fabric-patterns-networking.md
     - name: Standalone clusters
       items:
+      - name: Overview of standalone clusters
+        href: service-fabric-standalone-clusters-overview.md
       - name: Upgrading standalone clusters
         href: service-fabric-cluster-upgrade-standalone.md
       - name: Scaling
