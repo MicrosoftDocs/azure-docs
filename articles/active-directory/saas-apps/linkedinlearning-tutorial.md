@@ -114,7 +114,7 @@ To configure Azure AD single sign-on with LinkedIn Learning, perform the followi
 	> [!NOTE]
 	> These values are not real value. You will update these values with the actual Identifier and Reply URL, which is explained later in the **Configure LinkedIn Learning Single Sign-On** section of tutorial.
 
-5. Your LinkedIn Learning application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **nameidentifier** is **user.userprincipalname** but LinkedIn Learning expects this to be mapped with the user's email address. For that you can **Edit** icon and map to the **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
+5. Your LinkedIn Learning application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **nameidentifier** is **user.userprincipalname** but LinkedIn Learning expects this to be mapped with the user's email address. For that you can use **Edit** icon and map to the **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
 	![image](common/edit-attribute.png)
 
