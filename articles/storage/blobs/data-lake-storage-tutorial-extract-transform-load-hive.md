@@ -142,7 +142,7 @@ As part of the Apache Hive job, you import the data from the .csv file into an A
     LOCATION 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/data';
    DROP TABLE delays;
    CREATE TABLE delays
-   LOCATION 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/processed4'
+   LOCATION 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/processed'
    AS
    SELECT FL_DATE AS FlightDate,
        substring(ORIGIN_CITY_NAME, 2) AS OriginCityName,
