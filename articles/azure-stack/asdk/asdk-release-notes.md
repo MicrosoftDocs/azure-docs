@@ -34,9 +34,8 @@ This build includes the following improvements and fixes for Azure Stack:
 
 ### Fixed issues
 
-<<<<<<< HEAD
 For a list of issues fixed in this release, please see [this section](../azure-stack-update-1901.md#fixed-issues).
-=======
+
 <!-- TBD - IS ASDK --> 
 - Fixed an issue in which the public IP address usage meter data showed the same **EventDateTime** value for each record instead of the **TimeDate** stamp that shows when the record was created. You can now use this data to perform accurate accounting of public IP address usage.
 
