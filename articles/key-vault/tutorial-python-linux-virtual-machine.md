@@ -13,7 +13,7 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-#Customer intent: As a developer, I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
+#Customer intent: As a developer, I want to use Azure Key Vault to store secrets for my app so that they are kept secure.
 ---
 
 # Tutorial: Use Azure Key Vault with an Azure virtual machine in Python
