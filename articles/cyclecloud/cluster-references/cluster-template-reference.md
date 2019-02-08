@@ -16,7 +16,7 @@ CycleCloud clusters are defined in declarative and hierarchical text files.
 The top of the hierarchy, and the only required object in the Cluster Template
 file, is the `[cluster]` object.
 
-Many objects correspond to Azure resources. For example, `[[node]]` corresponds to Azure VM, `[[[volume]]]` corresponds to Azure Disk, and `[[[network-interface]]]` corresponds to Network Interface.  
+Many objects correspond to Azure resources. For example, `[[node]]` corresponds to Azure VM, `[[[volume]]]` corresponds to Azure Disk, and `[[[network-interface]]]` corresponds to Network Interface.
 
 All template objects have an object name expressed in the object declaration. The cluster template file is case insensitive throughout.
 
@@ -63,8 +63,7 @@ Azure.ImageVersion | String | Image Version of Marketplace image
 ImageId | String | Resource ID of VM image
 InstallJetpack | Boolean | CycleCloud will install jetpack with OS extension
 AwaitInstallation | Boolean | Once a vm is started, wait for jetpack to report installation details.
-JetpackPlatform | String | Jetpack installer platform to use: centos-7, centos-6, ubuntu-14, ubuntu-16, windows
-ImageOS | String | Either `windows` or `linux` to inform CycleCloud how to structure the OS extension
+JetpackPlatform | String | Jetpack installer selection on Azure CycleCloud < 7.7.0: `centos-7`, `centos-6`, `ubuntu-14`, `ubuntu-16`, `windows`. Has no effect on clusters orchestrated by 7.7.0+
 IsReturnProxy | Boolean | Establish reverse channel proxy to this node. Only one node per cluster may have this setting as true.
 KeyPairLocation | Integer | Location of ssh keypair on the local filesystem
 ReturnPath.Hostname | Hostname | Hostname where node can reach CycleCloud

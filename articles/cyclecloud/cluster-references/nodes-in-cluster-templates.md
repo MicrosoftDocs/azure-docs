@@ -92,8 +92,7 @@ Attribute | Type | Definition
 ------ | ----- | ----------
 InstallJetpack | Boolean | CycleCloud will install jetpack with OS extension.
 AwaitInstallation | Boolean | Once a vm is started, wait for jetpack to report installation details.
-JetpackPlatform | String | Jetpack installer platform to use: centos-7, centos-6, ubuntu-14, ubuntu-16, windows
-ImageOS | String | Either `windows` or `linux` to inform CycleCloud how to structure the OS extension.
+JetpackPlatform | String | Jetpack installer platform to use: `centos-7`, `centos-6`, `ubuntu-14.04`, `ubuntu-16.04`, `windows`. Deprecated in 7.7.0.
 
 ### Alternative Image Sample
 
@@ -115,7 +114,6 @@ Here is a sample template using the three alternate image constructs for the nod
     # Jetpack already installed on image
     InstallJetpack = false
     AwaitInstallation = true
-    ImageOS = linux
 
   [[node marketplace-vm-image]]
     Azure.Publisher = Canonical
@@ -125,9 +123,7 @@ Here is a sample template using the three alternate image constructs for the nod
 
     # Install jetpack at launch time
     InstallJetpack = true
-    JetpackPlatform = ubuntu-16.04
     AwaitInstallation = true
-    ImageOS = linux
 ```
 
 ## Advanced Networking Attributes

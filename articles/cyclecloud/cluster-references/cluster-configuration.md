@@ -53,6 +53,7 @@ CycleCloud supports the parameterized configuration of many system services.
 | mounts | Nested  | For [NFS exporting and mounting](~/storage-nfs-mounts.md) and volume mounting.  |
 | selinux.policy  | String  | Linux only. Add `selinux.policy = permissive` to your configuration to bypass an enforced `selinux` policy for custom images. Already disabled on core CycleCloud images. |
 | install_epel | Boolean | Add the extended packages repo for yum on RedHat variant image.  Default: `true` |
+| ganglia.install | Boolean | Opt-out of ganglia installation by setting `false`. Default: `true` |
 
 ### `[[[configuration cyclecloud.cluster]]]`
 

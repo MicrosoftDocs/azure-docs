@@ -33,7 +33,7 @@ as seen below.
 ```ini
 MaxCoreCount = ${HyperthreadedCoreCount/2}
 SubnetId = ${ifThenElse($Autoscale, $BurstSubnet, $FixedSubnet)}
-ImageOS = ${imageselect == "windows" ? "windows" : "linux"}
+JetpackPlatform = ${imageselect == "windows" ? "windows" : "centos-7"}
 ```
 
 Additional available operators:

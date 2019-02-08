@@ -17,7 +17,8 @@ When using either Marketplace or custom images, additional attributes are needed
 
 * `InstallJetpack` specifies that jetpack should be installed as part of the VM boot process. This should always be `true` for Marketplace images.
 
-* Acceptable values for `jetpackplatform` are: `centos-6`,`centos-7`, `ubuntu-14.04`, `ubuntu-16.04`, and `windows`. This should match the operating system of the Marketplace Image.
+> [!NOTE]
+> For CycleCloud versions prior to 7.7.0, the jetpack package was selected via the `JetpackPlatform` key.  Acceptable values for `JetpackPlatform` are: `centos-6`,`centos-7`, `ubuntu-14.04`, `ubuntu-16.04`, and `windows`. This should match the operating system of the Azure Marketplace image.
 
 ## Use an Azure Marketplace Image in a CycleCloud Node
 
@@ -29,10 +30,13 @@ To specify that a cluster node should use an Azure Marketplace image, include th
   Azure.Offer = CentOS-HPC
   Azure.Sku = 7.4
   Azure.ImageVersion = 7.4.20180301
-  ImageOS = linux
 
+  # Azure CycleCloud < 7.7.0 jetpack selection attributes
   InstallJetpack = true
   JetpackPlatform = centos-7
+
+  # Azure CycleCloud >= 7.7.0 jetpack selection attributes
+  InstallJetpack = true
 ```
 
 The `Azure.*` attributes define the marketplace image to be used. The easiest way to retrieve these attributes is through the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list).
@@ -63,16 +67,11 @@ The `ImageId` attribute is used to specify that a cluster node should use a priv
 
 `/subscriptions/$SUBSCRIPTION-ID/resourceGroups/$RESOURCEGROUPNAME/providers/Microsoft.Compute/images/$CustomImageName`
 
-In addition, the `ImageOS` attribute must be set to either `windows` or `linux`:
-
 ``` ini
 [[node custom]]
 
   ImageId = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/images/MyCustomImage
-  ImageOS = linux
-
   InstallJetpack = true
-  JetpackPlatform = centos-7
 ```
 ## Create a Custom Image
 
