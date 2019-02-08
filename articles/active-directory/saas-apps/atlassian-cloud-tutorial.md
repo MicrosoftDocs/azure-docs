@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/20/2018
+ms.date: 02/08/2018
 ms.author: jeedes
 
 ---
@@ -35,6 +35,7 @@ To configure Azure AD integration with Atlassian Cloud, you need the following i
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
 * Atlassian Cloud single sign-on enabled subscription
+* To enable Security Assertion Markup Language (SAML) single sign-on for Atlassian Cloud products, you need to set up Atlassian Access. Learn more about [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
 ## Scenario description
 
