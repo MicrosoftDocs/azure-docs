@@ -104,7 +104,8 @@ This example shows how to create a NetApp account:
         "type": "Microsoft.NetApp/netAppAccounts", 
         "location": "westus2", 
         "properties": { 
-        "name": "MYNETAPPACCOUNT" 
+            "name": "MYNETAPPACCOUNT" 
+        }
     } 
 
 This example shows how to create a capacity pool: 
@@ -120,7 +121,22 @@ This example shows how to create a capacity pool:
         }
     }
 
-This example shows how to create a new volume:
+This example shows how to create a new volume: 
+
+    {
+        "name": "MYNEWVOLUME",
+        "type": "Microsoft.NetApp/netAppAccounts/capacityPools/volumes",
+        "location": "westus2",
+        "properties": {
+            "serviceLevel": "Premium",
+            "usageThreshold": "322122547200",
+            "creationToken": "MY-FILEPATH",
+            "snapshotId": "",
+            "subnetId": "/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.Network/virtualNetworks/VNETGOESHERE/subnets/MYDELEGATEDSUBNET.sn"
+            }
+    }
+
+This examples shows how to create a snapshot of a volume: 
 
     {
         "name": "apitest2/apiPool01/apiVol01/snap02",
@@ -132,7 +148,8 @@ This example shows how to create a new volume:
         }
     }
 
-Note: You need to specify `fileSystemId` for creating a snapshot.  You can obtain the `fileSystemId` value with a GET request to a volume. 
+> [!NOTE] 
+> You need to specify `fileSystemId` for creating a snapshot.  You can obtain the `fileSystemId` value with a GET request to a volume. 
 
 ## Next Steps
 [See the Azure NetApp Files REST API reference](https://docs.microsoft.com/rest/api/netapp/)
