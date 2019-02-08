@@ -35580,6 +35580,11 @@
       "source_path": "articles/application-insights/app-insights-nodejs.md",
       "redirect_url": "/azure/azure-monitor/app/nodejs",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters",
+      "redirect_document_id": false
     }
   ]
 }
