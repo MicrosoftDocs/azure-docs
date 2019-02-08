@@ -109,11 +109,16 @@ Metric data is used in a variety of ways as described above. Use [metrics analyt
 ![Metrics Analytics](media/data-collection/metrics-explorer.png)
 
 ## Logs
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 Logs contain different kinds of data organized into records with different sets of properties for each type. Logs can contain numeric values like metrics but typically contain text data with detailed descriptions. They further differ from metrics in that they vary in their structure and are often not collected at regular intervals.
 
 A common type of log entry is an event which are collected sporadically. They're created by an application or service and typically include enough information to provide complete context on their own. For example, an event can indicate that a particular resource was created or modified, a new host started in response to increased traffic, or an error was detected in an application.
 
 Logs are especially useful for combining data from a variety of sources, for complex analysis, and for trending over time. Because the format of the data can vary, applications can create custom logs by using the structure that they need. Metrics are even replicated in logs to combine them with other monitoring data for trending and other data analysis.
+
+
 
 ### Sources of log data
 Azure Monitor can collect log data from a variety of sources both within Azure and from on-premises resources. Sources of log data include the following:
