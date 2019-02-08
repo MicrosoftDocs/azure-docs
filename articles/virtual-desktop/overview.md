@@ -63,7 +63,7 @@ The Remote Desktop Services modern infrastructure enables a multi-tenant infrast
 
 Each session host must have a Windows Virtual Desktop host agent installed and registered with Windows Virtual Desktop. You must also install a protocol stack on the session host to support connections from the session host to the Windows Virtual Desktop deployment. This installation is referred to as “reverse-connect” and eliminates the need for inbound ports to be opened to the Remote Desktop tenant environment. (The opposite kind of installation is referred to as “forward-connect” and requires an inbound 3389 port to be open to the Remote Desktop tenant environment.)
 
-Each host pool may have one or more app groups. An app group is a logical grouping of the applications that are installed on the session hosts in the host pool. There are two types of app groups, desktop and RemoteApp. A desktop app group is used to publish the full desktop and provide access to all the apps installed on the session hosts in the host pool. A RemoteApp app group is used to publish one or more RemoteApps that display on the Remote Desktop client as the application window on the local Remote Desktop client desktop.
+Each host pool may have one or more app groups. An app group is a logical grouping of the applications that are installed on the session hosts in the host pool. There are two types of app groups, desktop and RemoteApp. A desktop app group publishes the full desktop and provide access to all the apps installed on the session hosts in the host pool. A RemoteApp app group publishes one or more RemoteApps that display on the Remote Desktop client as the application window on the local Remote Desktop client desktop.
 
 ### End-users
 
