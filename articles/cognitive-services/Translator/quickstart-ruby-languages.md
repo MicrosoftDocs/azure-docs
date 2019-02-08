@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 02/08/2019
 ms.author: erhopf
 ---
 # Quickstart: Get supported languages with the Translator Text REST API (Ruby)
