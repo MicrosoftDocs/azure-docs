@@ -32,7 +32,7 @@ Excel makes it easy to call web services directly without the need to write any 
    
     ![Predict section][02]
 
-Deploy a web service or use an existing Web service. For more information on deploying a web service, see [Walkthrough Step 5: Deploy the Azure Machine Learning Web service](walkthrough-5-publish-web-service.md).
+Deploy a web service or use an existing Web service. For more information on deploying a web service, see [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md).
 
 Get the API key for your web service. Where you perform this action depends on whether you published a Classic Machine Learning web service of a New Machine Learning web service.
 
@@ -60,7 +60,7 @@ Get the API key for your web service. Where you perform this action depends on w
 
 ## Steps to Add a New web service
 
-1. Deploy a web service or use an existing Web service. For more information on deploying a web service, see [Walkthrough Step 5: Deploy the Azure Machine Learning Web service](walkthrough-5-publish-web-service.md).
+1. Deploy a web service or use an existing Web service. For more information on deploying a web service, see [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md).
 2. Click **Consume**.
 3. Look for the **Basic consumption info** section. Copy and save the **Primary Key** and the **Request-Response** URL.
 4. In Excel, go to the **Web Services** section (if you are in the **Predict** section, click the back arrow to go to the list of web services).
