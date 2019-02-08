@@ -57,6 +57,5 @@ The ABFS driver is fully documented in the [Official Hadoop documentation](http:
 
 ## Next steps
 
-- [Setup HDInsight Clusters](./data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 - [Create an Azure Databricks Cluster](./data-lake-storage-quickstart-create-databricks-account.md)
 - [Use the Azure Data Lake Storage Gen2 URI](./data-lake-storage-introduction-abfs-uri.md)
