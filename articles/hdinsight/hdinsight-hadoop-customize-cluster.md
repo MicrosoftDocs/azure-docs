@@ -90,84 +90,84 @@ HDInsight provides several scripts to install the following components on HDInsi
 This following PowerShell script demonstrates how to install Spark on Windows based HDInsight cluster.  
 
     ```powershell  
-    # Provide values for these variables
-    $subscriptionID = "<Azure Subscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
-
-    $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
-    $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
-
-    $resourceGroupName = $namePrefix + "rg"
-    $location = "EAST US 2" # used for creating resource group, storage account, and HDInsight cluster.
-
-    $hdinsightClusterName = $namePrefix + "spark"
-    $httpUserName = "admin"
-    $httpPassword = "<Enter a Password>"
-
-    $defaultStorageAccountName = "$namePrefix" + "store"
-    $defaultBlobContainerName = $hdinsightClusterName
-
-    #############################################################
-    # Connect to Azure
-    #############################################################
-
-    Try{
-        Get-AzureRmSubscription
-    }
-    Catch{
-        Connect-AzureRmAccount
-    }
-    Select-AzureRmSubscription -SubscriptionId $subscriptionID
-
-    #############################################################
-    # Prepare the dependent components
-    #############################################################
-
-    # Create resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-
-    # Create storage account
-    New-AzureRmStorageAccount `
-        -ResourceGroupName $resourceGroupName `
-        -Name $defaultStorageAccountName `
-        -Location $location `
-        -Type Standard_GRS
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
-                                    -ResourceGroupName $resourceGroupName `
-                                    -Name $defaultStorageAccountName)[0].Value
-    $defaultStorageAccountContext = New-AzureStorageContext `
-                                    -StorageAccountName $defaultStorageAccountName `
-                                    -StorageAccountKey $storageAccountKey  
-    New-AzureStorageContainer `
-        -Name $defaultBlobContainerName `
-        -Context $defaultStorageAccountContext
-
-    #############################################################
-    # Create cluster with ApacheSpark
-    #############################################################
-
-    # Specify the configuration options
-    $config = New-AzureRmHDInsightClusterConfig `
-                -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
-                -DefaultStorageAccountKey $defaultStorageAccountKey
-
-
-    # Add a script action to the cluster configuration
-    $config = Add-AzureRmHDInsightScriptAction `
-                -Config $config `
-                -Name "Install Spark" `
-                -NodeType HeadNode `
-                -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1 `
-
-    # Start creating a cluster with Spark installed
-    New-AzureRmHDInsightCluster `
+        # Provide values for these variables
+        $subscriptionID = "<Azure Subscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
+    
+        $nameToken = "<Enter A Name Token>"  # The token is use to create Azure service names.
+        $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
+    
+        $resourceGroupName = $namePrefix + "rg"
+        $location = "EAST US 2" # used for creating resource group, storage account, and HDInsight cluster.
+    
+        $hdinsightClusterName = $namePrefix + "spark"
+        $httpUserName = "admin"
+        $httpPassword = "<Enter a Password>"
+    
+        $defaultStorageAccountName = "$namePrefix" + "store"
+        $defaultBlobContainerName = $hdinsightClusterName
+    
+        #############################################################
+        # Connect to Azure
+        #############################################################
+    
+        Try{
+            Get-AzureRmSubscription
+        }
+        Catch{
+            Connect-AzureRmAccount
+        }
+        Select-AzureRmSubscription -SubscriptionId $subscriptionID
+    
+        #############################################################
+        # Prepare the dependent components
+        #############################################################
+    
+        # Create resource group
+        New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    
+        # Create storage account
+        New-AzureRmStorageAccount `
             -ResourceGroupName $resourceGroupName `
-            -ClusterName $hdinsightClusterName `
+            -Name $defaultStorageAccountName `
             -Location $location `
-            -ClusterSizeInNodes 2 `
-            -ClusterType Hadoop `
-            -OSType Windows `
-            -DefaultStorageContainer $defaultBlobContainerName `
-            -Config $config
+            -Type Standard_GRS
+        $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+                                        -ResourceGroupName $resourceGroupName `
+                                        -Name $defaultStorageAccountName)[0].Value
+        $defaultStorageAccountContext = New-AzureStorageContext `
+                                        -StorageAccountName $defaultStorageAccountName `
+                                        -StorageAccountKey $storageAccountKey  
+        New-AzureStorageContainer `
+            -Name $defaultBlobContainerName `
+            -Context $defaultStorageAccountContext
+    
+        #############################################################
+        # Create cluster with ApacheSpark
+        #############################################################
+    
+        # Specify the configuration options
+        $config = New-AzureRmHDInsightClusterConfig `
+                    -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+                    -DefaultStorageAccountKey $defaultStorageAccountKey
+    
+    
+        # Add a script action to the cluster configuration
+        $config = Add-AzureRmHDInsightScriptAction `
+                    -Config $config `
+                    -Name "Install Spark" `
+                    -NodeType HeadNode `
+                    -Uri https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1 `
+    
+        # Start creating a cluster with Spark installed
+        New-AzureRmHDInsightCluster `
+                -ResourceGroupName $resourceGroupName `
+                -ClusterName $hdinsightClusterName `
+                -Location $location `
+                -ClusterSizeInNodes 2 `
+                -ClusterType Hadoop `
+                -OSType Windows `
+                -DefaultStorageContainer $defaultBlobContainerName `
+                -Config $config
     ```
 
 To install other software, you will need to replace the script file in the script:
