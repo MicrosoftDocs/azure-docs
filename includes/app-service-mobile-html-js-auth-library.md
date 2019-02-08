@@ -13,7 +13,7 @@ For more information, see the tutorial [Add authentication to your app](../artic
 Once you have registered your identity provider, call the `.login()` method with the name of your provider. For
 example, to sign in with Facebook use the following code:
 
-```
+```javascript
 client.login("facebook").done(function (results) {
      alert("You are now signed in as: " + results.userId);
 }, function (err) {
@@ -42,7 +42,7 @@ user data from the identity provider.
 
 This example uses Facebook client SDK for authentication:
 
-```
+```javascript
 client.login(
      "facebook",
      {"access_token": token})
@@ -61,7 +61,7 @@ The authentication information can be retrieved from the `/.auth/me` endpoint us
 library.  Ensure you set the `X-ZUMO-AUTH` header to your authentication token.  The authentication token
 is stored in `client.currentUser.mobileServiceAuthenticationToken`.  For example, to use the fetch API:
 
-```
+```javascript
 var url = client.applicationUrl + '/.auth/me';
 var headers = new Headers();
 headers.append('X-ZUMO-AUTH', client.currentUser.mobileServiceAuthenticationToken);
