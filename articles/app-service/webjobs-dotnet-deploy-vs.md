@@ -25,9 +25,6 @@ ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
 
 This topic explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](overview.md) as an [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure portal](https://portal.azure.com), see [Run Background tasks with WebJobs](webjobs-create.md).
 
-> [!IMPORTANT]
-> While version 3.x of the [WebJobs SDK](webjobs-sdk-how-to.md) supports .NET Core 2.x, the Visual Studio tooling shown in this article is not yet supported for .NET Core projects.
-
 When Visual Studio deploys a WebJobs-enabled Console Application project, it performs two tasks:
 
 * Copies runtime files to the appropriate folder in the web app (*App_Data/jobs/continuous* for continuous WebJobs, *App_Data/jobs/triggered* for scheduled and on-demand WebJobs).
