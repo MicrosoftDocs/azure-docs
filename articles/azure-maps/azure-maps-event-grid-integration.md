@@ -76,7 +76,7 @@ The following example show schema for GeofenceResult
 Applications that handle Azure Maps geofence events should follow a few recommended practices:
 
 * Multiple subscriptions can be configured to route events to the same event handler. It's important not to assume that events are from a particular source. Always check the message topic to ensure that it comes from the source that you expect.
-* Messages can arrive out of order or after a delay. Use the `X-Correlation-id` field to understand if your information about objects is up-to-date.
+* Messages can arrive out of order or after a delay. Use the `X-Correlation-id` field in the response header to understand if your information about objects is up-to-date.
 * When Get and POST Geofence API is called with mode parameter set to `EnterAndExit`, an Enter or Exit event is generated for each geometry in the geofence for which the status has changed from the previous Geofence API call.
 
 ## Next steps
