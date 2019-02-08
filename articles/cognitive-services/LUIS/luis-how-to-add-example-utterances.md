@@ -30,12 +30,12 @@ Certain entity types, such as prebuilt entities and regular expression entities,
 In the following procedure, you create and tag a custom entity within the following utterance on the intent page:
 
 ```text
-This is my resume for the new accounting position.
+Are there any SQL server jobs?
 ```
 
-1. Select `accounting` in the utterance to label it as a simple entity. In the entity drop-down box that appears, you can either select an existing entity or add a new entity. To add a new entity, type its name `Job` in the text box, and then select **Create new entity**.
+1. Select `SQL server` in the utterance to label it as a simple entity. In the entity drop-down box that appears, you can either select an existing entity or add a new entity. To add a new entity, type its name `Job` in the text box, and then select **Create new entity**.
 
-    ![Screenshot of entering entity name](./media/luis-how-to-add-example-utterances/hr-create-simple-2.png)
+    ![Screenshot of entering entity name](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
 
     > [!NOTE]
     > When selecting words to tag as entities:
@@ -141,7 +141,6 @@ You can perform actions on example utterances as a selected group or as an indiv
 You can remove machine-learned entity labels from an utterance on the Intent page. If the entity is not machine-learned, it can't be removed from an utterance. If you need to remove a non-machine-learned entity from the utterance, you need to delete the entity from the entire app. 
 
 To remove a machine-learned entity label from an utterance, select the entity in the utterance. Then select **Remove Label** in the entity drop-down box that appears.
-
 
 ### Add prebuilt entity label
 
