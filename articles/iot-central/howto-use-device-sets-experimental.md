@@ -51,7 +51,7 @@ After you create your device set, you can configure its **Dashboard**. The **Das
 
     ![Design Mode on](media/howto-use-device-sets-experimental/image3.png)
 
-1. For information about adding an image, see [Prepare and upload images to your Azure IoT Central application](howto-prepare-images-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+1. For information about adding an image, see [Prepare and upload images to your Azure IoT Central application](howto-prepare-images-experimental.md).
 
 1. Add a link tile:
     1. Choose **Link** on the right pane.
@@ -84,7 +84,7 @@ After you create your device set, you can configure its **Dashboard**. The **Das
 
 You can add a location map to visualize location of your devices sets in a Map.
 
-In order to add a location map to you device sets dashboard you must have configured location property in your Device template, see [Create a Location Property powered by Azure Maps](howto-set-up-template-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+In order to add a location map to you device sets dashboard you must have configured location property in your Device template, see [Create a Location Property powered by Azure Maps](howto-set-up-template-experimental.md).
 
 1. On your Device Set Dashboard, select Map from the library.
 2. Give a title and choose the location property you have previously configured as part of your Device Property.
@@ -114,11 +114,11 @@ After you create your device set, you can configure the **List**. The **List** s
 
 ## Analytics
 
-The analytics in device sets is the same as the main analytics tab in the left navigation menu. You can learn more about analytics in the article on [how to create analytics](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+The analytics in device sets is the same as the main analytics tab in the left navigation menu. You can learn more about analytics in the article on [how to create analytics](howto-use-device-sets-experimental.md).
 
 ## Next steps
 
 Now that you have learned how to use device sets in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [How to create telemetry rules](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+> [How to create telemetry rules](howto-create-telemetry-rules-experimental.md)

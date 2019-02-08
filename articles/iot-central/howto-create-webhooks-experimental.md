@@ -21,7 +21,7 @@ In this example, you will connect to RequestBin to get notified when rules fire 
 
 1. Open [RequestBin](http://requestbin.net/). 
 1. Create a new RequestBin and copy the **Bin URL**. 
-1. Create a [telemetry rule](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) or an [event rule](howto-create-event-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json). Save the rule and add a new action.
+1. Create a [telemetry rule](howto-create-telemetry-rules-experimental.md) or an [event rule](howto-create-event-rules-experimental.md). Save the rule and add a new action.
     ![Webhook creation screen](media/howto-create-webhooks-experimental/webhookcreate.png)
 1. Choose the webhook action and provide a display name and paste the Bin URL as the Callback URL. 
 1. Save the rule.
@@ -83,4 +83,4 @@ Currently there is no programmatic way of subscribing/unsubscribing from these w
 If you have ideas for how to improve this feature, post your suggestions to our [Uservoice forum](https://feedback.azure.com/forums/911455-azure-iot-central).
 
 ## Next steps
-Now that you have learned how to set up and use webhooks, the suggested next step is to explore [building workflows in Microsoft Flow](howto-add-microsoft-flow-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+Now that you have learned how to set up and use webhooks, the suggested next step is to explore [building workflows in Microsoft Flow](howto-add-microsoft-flow-experimental.md).

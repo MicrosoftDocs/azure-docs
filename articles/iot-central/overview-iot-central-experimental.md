@@ -99,19 +99,19 @@ As an operator, you use the Azure IoT Central application to manage the devices 
 
 A builder can define custom rules and actions that operate over streaming data at the device template level. An operator can enable or disable these rules at the device level to control and automate tasks within the application.
 
-Administrators can manage access to your application with [user roles and permissions](howto-administer.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+Administrators can manage access to your application with [user roles and permissions](howto-administer.md).
 
 ## Next steps
 
 Now that you have an overview of Azure IoT Central, here are suggested next steps:
 
-- Understand the differences between [Azure IoT Central and Azure IoT solution accelerators](overview-iot-options.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
-- Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
-- Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+- Understand the differences between [Azure IoT Central and Azure IoT solution accelerators](overview-iot-options.md).
+- Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
+- Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
 - Follow a sequence of tutorials that show you how to:
-  - [As a builder, to create a device template](tutorial-define-device-type.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-  - [As a builder, add rules to automate your solution](tutorial-configure-rules.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-  - [As a builder, customize the application for your operators](tutorial-customize-operator.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-  - [As an operator, monitor your devices](tutorial-monitor-devices.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-  - [As an operator, add a real device to your solution](tutorial-add-device.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+  - [As a builder, to create a device template](tutorial-define-device-type.md)
+  - [As a builder, add rules to automate your solution](tutorial-configure-rules.md)
+  - [As a builder, customize the application for your operators](tutorial-customize-operator.md)
+  - [As an operator, monitor your devices](tutorial-monitor-devices.md)
+  - [As an operator, add a real device to your solution](tutorial-add-device.md)
   - [As a device developer, create code for your devices](tutorial-add-device.md#prepare-the-client-code)

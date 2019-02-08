@@ -25,7 +25,7 @@ Devices exchange data with your Azure IoT Central application. A device can:
 
 In Azure IoT Central, the data that a device can exchange with your application is specified in a device template. For more information about device templates, see [Metadata management](#metadata-management).
 
-To learn more about how devices connect to your Azure IoT Central application, see [Device connectivity](concepts-connectivity-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+To learn more about how devices connect to your Azure IoT Central application, see [Device connectivity](concepts-connectivity-experimental.md).
 
 ## Cloud gateway
 
@@ -37,7 +37,7 @@ Azure IoT Central uses Azure IoT Hub as a cloud gateway that enables device conn
 
 To learn more about IoT Hub, see [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
 
-To learn more about device connectivity in Azure IoT Central, see [Device connectivity](concepts-connectivity-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+To learn more about device connectivity in Azure IoT Central, see [Device connectivity](concepts-connectivity-experimental.md).
 
 ## Data stores
 
@@ -52,11 +52,11 @@ Azure IoT Central uses a time series store for the measurement data sent from yo
 
 ## Analytics
 
-The analytics service is responsible for generating the custom reporting data that the application displays. An operator can [customize the analytics](howto-create-analytics-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) displayed in the application. The analytics service is built on top of [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) and processes the measurement data sent from your devices.
+The analytics service is responsible for generating the custom reporting data that the application displays. An operator can [customize the analytics](howto-create-analytics-experimental.md) displayed in the application. The analytics service is built on top of [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) and processes the measurement data sent from your devices.
 
 ## Rules and actions
 
-[Rules and actions](howto-create-telemetry-rules-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) work closely together to automate tasks within the application. A builder can define rules based on device telemetry such as the temperature exceeding a defined threshold. Azure IoT Central uses a stream processor to determine when the rule conditions are met. When a rule condition is met, it triggers an action defined by the builder. For example, an action can send an email to notify an engineer that the temperature in a device is too high.
+[Rules and actions](howto-create-telemetry-rules-experimental.md) work closely together to automate tasks within the application. A builder can define rules based on device telemetry such as the temperature exceeding a defined threshold. Azure IoT Central uses a stream processor to determine when the rule conditions are met. When a rule condition is met, it triggers an action defined by the builder. For example, an action can send an email to notify an engineer that the temperature in a device is too high.
 
 ## Metadata management
 
@@ -76,7 +76,7 @@ An application can have one or more simulated and real devices based on each dev
 
 ## Role-based access control (RBAC)
 
-An [administrator can define access rules](howto-administer-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) for an Azure IoT Central application using the predefined roles. An administrator can assign users to roles that determine what areas of the application the user has access to.
+An [administrator can define access rules](howto-administer-experimental.md) for an Azure IoT Central application using the predefined roles. An administrator can assign users to roles that determine what areas of the application the user has access to.
 
 ## Security
 
@@ -93,4 +93,4 @@ The UI shell is a modern, responsive, HTML5 browser-based application.
 
 ## Next steps
 
-Now that you have learned about the architecture of Azure IoT Central, the suggested next step is to learn about [device connectivity](concepts-connectivity-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) in Azure IoT Central.
+Now that you have learned about the architecture of Azure IoT Central, the suggested next step is to learn about [device connectivity](concepts-connectivity-experimental.md) in Azure IoT Central.

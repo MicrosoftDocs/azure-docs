@@ -19,13 +19,12 @@ This article describes how, as an operator, to manage devices in your Azure IoT 
 - Keep your device metadata up-to-date by changing the values stored in the device properties.
 - Control the behavior of your devices by updating a setting on a specific device from the **Settings** page.
 
-[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
 
 ## View your devices
 
 To view an individual device:
 
-1. Choose **Device Explorer** on the left navigation menu. Here you see a list of your [device templates](howto-set-up-template-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+1. Choose **Device Explorer** on the left navigation menu. Here you see a list of your [device templates](howto-set-up-template-experimental.md).
 
 1. Choose a device template in the **Templates** list.
 
@@ -175,6 +174,6 @@ Properties are the device metadata associated with the device, such as city and 
 Now that you've learned how to manage devices in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [How to use device sets](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+> [How to use device sets](howto-use-device-sets-experimental.md)
 
 <!-- Next how-tos in the sequence -->
