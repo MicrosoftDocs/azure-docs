@@ -187,14 +187,6 @@ To use [Edit Metadata][edit-metadata], you first specify which columns to modify
     
     ![Adding Edit Metadata](./media/tutorial-part1-credit-risk/experiment-with-edit-metadata-module.png)
     
-    
-    The red exclamation mark indicates that you haven't set the properties for this module yet.  You'll do that next.
-     
-   > [!TIP]
-   > You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Edit Metadata][edit-metadata] module and type the comment "Add column headings". Click anywhere else on the canvas to close the text box. To display the comment, click the down-arrow on the module.
-   > 
-   > ![Edit Metadata module with comment added](./media/tutorial-part1-credit-risk/edit-metadata-with-comment.png)
-   > 
 
 1. Select [Edit Metadata][edit-metadata], and in the **Properties** pane to the right of the canvas, click **Launch column selector**.
 
@@ -209,15 +201,6 @@ To use [Edit Metadata][edit-metadata], you first specify which columns to modify
 1. Back in the **Properties** pane, look for the **New column names** parameter. In this field, enter a list of names for the 21 columns in the dataset, separated by commas and in column order. You can obtain the columns names from the dataset documentation on the UCI website, or for convenience you can copy and paste the following list:  
    
        Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
-   
-   The Properties pane looks like this:
-   
-   ![Properties for Edit Metadata](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
-
-> [!TIP]
-> If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas). When it finishes running (a green check mark appears on [Edit Metadata][edit-metadata]), click the output port of the [Edit Metadata][edit-metadata] module, and select **Visualize**. You can view the output of any module in the same way to view the progress of the data through the experiment.
-> 
-> 
 
 ### Create training and test datasets
 
