@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 02/07/2019
 ms.author: spelluru
 
 ---
@@ -25,7 +25,9 @@ If you have the **Restrict access** enabled, add users (email addresses) to the 
 
 1. Select **Users** on the left menu.
 2. Select **Add users** on the toolbar. 
-3. On the **Add users** page, enter email addresses of users in separate lines or in a single line separated by semicolons. 
+
+    ![Add users button](../media/how-to-configure-student-usage/add-users-button.png)
+1. On the **Add users** page, enter email addresses of users in separate lines or in a single line separated by semicolons. 
 
     ![Add user email addresses](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. Select **Save**. You see the email addresses of users and their statuses (registered or not) in the list. 

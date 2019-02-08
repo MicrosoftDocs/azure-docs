@@ -2286,7 +2286,7 @@ The attribute's constructor takes the database name and collection name. For inf
     }
 ```
 
-For a complete example, see [Output - C# example](#output---c-example).
+For a complete example, see Output - C# example.
 
 ## Output - configuration
 
