@@ -153,12 +153,11 @@ The next step in this tutorial is to create an experiment in Machine Learning St
 
     ![Rename experiment](./media/tutorial-part1-credit-risk/rename-experiment.png)
 
-   
-    > [!TIP]
-    > It's a good practice to fill in **Summary** and **Description** for the experiment in the **Properties** pane. These properties give you the chance to document the experiment so that anyone who looks at it later will understand your goals and methodology.
-    > 
-    > ![Experiment properties](./media/tutorial-part1-credit-risk/experiment-properties.png)
-    > 
+   > [!TIP]
+   > It's a good practice to fill in **Summary** and **Description** for the experiment in the **Properties** pane. These properties give you the chance to document the experiment so that anyone who looks at it later will understand your goals and methodology.
+   > 
+   > ![Experiment properties](./media/tutorial-part1-credit-risk/experiment-properties.png)
+   > 
 
 1. In the module palette to the left of the experiment canvas, expand **Saved Datasets**.
 1. Find the dataset you created under **My Datasets** and drag it onto the canvas. You can also find the dataset by entering the name in the **Search** box above the palette.  
@@ -190,12 +189,12 @@ To use [Edit Metadata][edit-metadata], you first specify which columns to modify
     
     
     The red exclamation mark indicates that you haven't set the properties for this module yet.  You'll do that next.
-    
-    > [!TIP]
-    > You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Edit Metadata][edit-metadata] module and type the comment "Add column headings". Click anywhere else on the canvas to close the text box. To display the comment, click the down-arrow on the module.
-    > 
-    > ![Edit Metadata module with comment added](./media/tutorial-part1-credit-risk/edit-metadata-with-comment.png)
-    > 
+     
+   > [!TIP]
+   > You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Edit Metadata][edit-metadata] module and type the comment "Add column headings". Click anywhere else on the canvas to close the text box. To display the comment, click the down-arrow on the module.
+   > 
+   > ![Edit Metadata module with comment added](./media/tutorial-part1-credit-risk/edit-metadata-with-comment.png)
+   > 
 
 1. Select [Edit Metadata][edit-metadata], and in the **Properties** pane to the right of the canvas, click **Launch column selector**.
 
