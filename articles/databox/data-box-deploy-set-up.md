@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 02/08/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to set up Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -53,7 +53,7 @@ Perform the following steps to cable your device.
     1. Connect the power cable to the labeled power input location. The other end of the power cable should be connected to a power distribution unit.
     2. Use the RJ-45 CAT 6 cable to connect the MGMT port on one end and a laptop on the other end.            
     3. Use the RJ-45 CAT 6A cable to connect to DATA 3 port on one end. DATA 3 is configured as 10 GbE if you connect via RJ-45 CAT 6A cable and as 1 GbE if you connect via RJ-45 CAT 6 cable.
-    4. Use the 10-GbE SFP+ Twinax copper cables to connect the DATA 1 and DATA 2 ports respectively. 
+    4. Depending on the network interfaces you want to connect for data transfer, use up to two 10-GbE SFP+ Twinax copper or fiber optic cables to connect the DATA 1 and DATA 2 ports respectively. 
     5. The other ends of the cables from the data ports are connected to the host computer via a 10-GbE switch.
 
 4. Locate the power button on the front operating panel of the device. Turn on the device.
