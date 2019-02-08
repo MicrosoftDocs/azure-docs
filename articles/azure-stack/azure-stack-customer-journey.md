@@ -18,7 +18,7 @@ ms.author: jeffgilb
 ms.reviewer: asganesh
 ---
  
-# Azure Stack Customer Journey
+# Azure Stack customer journey
 
 This article describes the end-to-end Azure Stack customer experience from purchasing an integrated system through to a successful on-site deployment by a solution provider. Use this information to ease your journey and to help set expectations for you, an Azure Stack customer.
 
@@ -106,7 +106,7 @@ The following is what you should expect from the onsite engineer during the depl
 > [!NOTE]
 > A deployment procedure by the onsite engineer might take about one business week to complete.
 
-## Post-Deployment phase
+## Post-deployment phase
 Several steps must be performed by the partner before the solution is handed off to the customer in the post-integration phase. In this phase, validation is important to ensure the system is deployed and performing correctly. 
 
 Actions that should be taken by the OEM Partner are:
