@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Pexip My Meeting Video | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Pexip My Meeting Video.
+title: 'Tutorial: Azure Active Directory integration with Pexip | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Pexip.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,13 +17,13 @@ ms.date: 02/07/2019
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Pexip My Meeting Video
+# Tutorial: Azure Active Directory integration with Pexip
 
-In this tutorial, you learn how to integrate Pexip My Meeting Video with Azure Active Directory (Azure AD).
-Integrating Pexip My Meeting Video with Azure AD provides you with the following benefits:
+In this tutorial, you learn how to integrate Pexip with Azure Active Directory (Azure AD).
+Integrating Pexip with Azure AD provides you with the following benefits:
 
-* You can control in Azure AD who has access to Pexip My Meeting Video.
-* You can enable your users to be automatically signed-in to Pexip My Meeting Video (Single Sign-On) with their Azure AD accounts.
+* You can control in Azure AD who has access to Pexip.
+* You can enable your users to be automatically signed-in to Pexip (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -31,22 +31,22 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To configure Azure AD integration with Pexip My Meeting Video, you need the following items:
+To configure Azure AD integration with Pexip, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Pexip My Meeting Video single sign-on enabled subscription
+* Pexip single sign-on enabled subscription
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Pexip My Meeting Video supports **SP** initiated SSO
+* Pexip supports **SP** initiated SSO
 
-## Adding Pexip My Meeting Video from the gallery
+## Adding Pexip from the gallery
 
-To configure the integration of Pexip My Meeting Video into Azure AD, you need to add Pexip My Meeting Video from the gallery to your list of managed SaaS apps.
+To configure the integration of Pexip into Azure AD, you need to add Pexip from the gallery to your list of managed SaaS apps.
 
-**To add Pexip My Meeting Video from the gallery, perform the following steps:**
+**To add Pexip from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
@@ -60,31 +60,31 @@ To configure the integration of Pexip My Meeting Video into Azure AD, you need t
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Pexip My Meeting Video**, select **Pexip My Meeting Video** from result panel then click **Add** button to add the application.
+4. In the search box, type **Pexip**, select **Pexip** from result panel then click **Add** button to add the application.
 
-	 ![Pexip My Meeting Video in the results list](common/search-new-app.png)
+	 ![Pexip in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Pexip My Meeting Video based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Pexip My Meeting Video needs to be established.
+In this section, you configure and test Azure AD single sign-on with Pexip based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Pexip needs to be established.
 
-To configure and test Azure AD single sign-on with Pexip My Meeting Video, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with Pexip, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Pexip My Meeting Video Single Sign-On](#configure-pexip-my-meeting-video-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure Pexip Single Sign-On](#configure-pexip-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Pexip My Meeting Video test user](#create-pexip-my-meeting-video-test-user)** - to have a counterpart of Britta Simon in Pexip My Meeting Video that is linked to the Azure AD representation of user.
+5. **[Create Pexip test user](#create-pexip-test-user)** - to have a counterpart of Britta Simon in Pexip that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
-To configure Azure AD single sign-on with Pexip My Meeting Video, perform the following steps:
+To configure Azure AD single sign-on with Pexip, perform the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Pexip My Meeting Video** application integration page, select **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Pexip** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on link](common/select-sso.png)
 
@@ -98,24 +98,15 @@ To configure Azure AD single sign-on with Pexip My Meeting Video, perform the fo
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![Pexip My Meeting Video Domain and URLs single sign-on information](common/sp-signonurl.png)
+    ![Pexip Domain and URLs single sign-on information](common/sp-signonurl.png)
 
-    In the **Sign-on URL** text box, type any of the URL:
-	| |
-	|--|
-	| `https://my.videxio.com` |
-	| `https://my.pexip.com` |
-	| `https://pexip.com` |
-	| `https://www.pexip.com` |
-	| `https://onpexip.com` |
-	| `https://meet.vmr.vc` |
-	| `https://mpg.vp.vc` |
+    In the **Sign-on URL** text box, type the URL: `https://my.videxio.com`
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-6. On the **Set up Pexip My Meeting Video** section, copy the appropriate URL(s) as per your requirement.
+6. On the **Set up Pexip** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -125,9 +116,9 @@ To configure Azure AD single sign-on with Pexip My Meeting Video, perform the fo
 
 	c. Logout URL
 
-### Configure Pexip My Meeting Video Single Sign-On
+### Configure Pexip Single Sign-On
 
-To configure single sign-on on **Pexip My Meeting Video** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Pexip My Meeting Video support team](https://support.videxio.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Pexip** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Pexip support team](https://support.videxio.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -156,15 +147,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Pexip My Meeting Video.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Pexip.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Pexip My Meeting Video**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Pexip**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Pexip My Meeting Video**.
+2. In the applications list, select **Pexip**.
 
-	![The Pexip My Meeting Video link in the Applications list](common/all-applications.png)
+	![The Pexip link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -180,15 +171,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
-### Create Pexip My Meeting Video test user
+### Create Pexip test user
 
-In this section, you create a user called Britta Simon in Pexip My Meeting Video. Work with [Pexip My Meeting Video support team](https://support.videxio.com) to add the users in the Pexip My Meeting Video platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Pexip. Work with [Pexip support team](https://support.videxio.com) to add the users in the Pexip platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Pexip My Meeting Video tile in the Access Panel, you should be automatically signed in to the Pexip My Meeting Video for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Pexip tile in the Access Panel, you should be automatically signed in to the Pexip for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional Resources
 
