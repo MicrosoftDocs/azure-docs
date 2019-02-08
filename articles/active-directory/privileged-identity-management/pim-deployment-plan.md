@@ -150,7 +150,8 @@ To automate steps 3 and 4, you can utilize the access review function inside PIM
 
 You should set the reviewers to **Members (self)**. This will send out an email to all members in the role to get them to confirm whether they need the access. You should also turn on **Require reason on approval** in the advanced settings so that users can state why they need the role. Based on this information, you will be able to remove users from unnecessary roles and delegate more granular administrator roles in the case of Global Administrators.
 
-**Note:** Access reviews relies on emails to notify people to review their access to the roles. If you have privileged accounts that don’t have emails linked, be sure to populate the secondary email field on those accounts. For more information, see [proxyAddresses attribute in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+> [!NOTE]
+> Access reviews relies on emails to notify people to review their access to the roles. If you have privileged accounts that don’t have emails linked, be sure to populate the secondary email field on those accounts. For more information, see [proxyAddresses attribute in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 #### Azure resource roles
 
@@ -207,7 +208,8 @@ If you are a Global Administrator having trouble deciding which subscriptions/re
 > [!TIP]
 > :heavy_check_mark: **Microsoft recommends** you work with subscription/resource owners of critical services to set up PIM workflow for all roles inside sensitive subscriptions/resources.
 
-**Note:** PIM for Azure resources supports time-bound service accounts. You should treat service accounts exactly the same as how you would treat a regular user account.
+> [!NOTE]
+> PIM for Azure resources supports time-bound service accounts. You should treat service accounts exactly the same as how you would treat a regular user account.
 
 For subscriptions/resources that are not as critical, you won’t need to set up PIM for all roles. However, you should still protect the Owner and User Access Administrator roles with PIM.
 
