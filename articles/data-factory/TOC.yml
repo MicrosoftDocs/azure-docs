@@ -303,6 +303,8 @@
     items:
     - name: Copy data using Copy Activity
       href: copy-activity-overview.md
+    - name: Delete files using Delete Activity
+      href: delete-activity.md
     - name: Copy Data tool
       href: copy-data-tool.md
     - name: Load Data Lake Storage Gen2
