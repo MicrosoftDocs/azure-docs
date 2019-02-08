@@ -93,7 +93,7 @@ To register a new application using the Azure portal, perform the following step
         ![SaaS AD App Registrations](./media/saas-offer-app-registration-2.png)
         For specific examples for web applications or native
         applications, check out the quick start guided setups that are
-        available in the Get Started section of the [Azure AD Developers Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#get-started).
+        available in the Get Started section of the [Azure AD Developers Guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 5.  When finished, click **Create**. Azure AD assigns a unique
     Application ID to your application, and you\'re taken to your
