@@ -17,8 +17,6 @@ You might see a specific error message when you protect your VMware virtual mach
 
 It is recommended to monitor the Process Server (PS) Health on the portal to ensure that replication is progressing for your associated source machines. In the vault, go to Manage > Site Recovery Infrastructure > Configuration Servers. On the Configuration Server blade, click on the Process Server under Associated Servers. Process Server blade opens up with its health statistics. You can track CPU utilization, memory usage, status of PS services required for replication, certificate expiration date and available free space. The status of all the statistics should be green. 
 
-![Screenshot of the Process Server blade](./media/vmware-azure-troubleshoot-replication/ProcessServerHealth.png)
-
 **It is recommended to have memory and CPU usage under 70% and free space above 25%**. Free space refers to the cache disk space in Process Server, which is used to store the replication data from source machines before uploading to Azure. If it reduces to less than 20%, the replication will be throttled for all the associated source machines. Follow the [capacity guidance](./site-recovery-plan-capacity-vmware.md#capacity-considerations) to understand the required configuration to replicate the source machines.
 
 Ensure that following services are running on the PS machine. Start or restart any service that isn't running.
@@ -89,9 +87,8 @@ The following list shows ways you can check the source machine:
 
 The following list shows ways you can check the process server:
 
->     [!NOTES]
->     1. Process Server must have a static IPv4 address. 
->     2. NAT IP configuration on the Process Server is not supported. 
+>   [!NOTE]
+>     Process Server must have a static IPv4 address and should not have NAT IP configured on it.
 
 * **Check connectivity between source machines and Process Server**
 1. In case you are able to telnet from source machine and yet the PS is not reachable from source, check the end-to-end connection with cxprocessserver from the source VM by running cxpsclient tool on source VM:
