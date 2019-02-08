@@ -167,6 +167,12 @@ That's it, you're ready to run your sample app. From the command line (or termin
 gradle build
 ```
 
+When the build completes, run:
+
+```console
+gradle run
+```
+
 ## Sample response
 
 ```json
