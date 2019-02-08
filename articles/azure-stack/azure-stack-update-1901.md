@@ -97,8 +97,6 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
        - COMPONENT: Health controller
        - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
 
-<!-- 3631537 - IS, ASDK -->
-- Fixed an issue when creating a new Windows Virtual Machine (VM) in which the **Settings** blade required that you select a public inbound port in order to proceed. Although the setting was required, it had no effect.
 
 <!-- 3507629 - IS, ASDK --> 
 - Fixed an issue when setting the value of Managed Disks quotas under [compute quota types](azure-stack-quota-types.md#compute-quota-types) to 0, it is equivalent to the default value of 2048 GiB. The zero quota value now is respected.
@@ -119,6 +117,9 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 
 <!-- 3209594, IS ASDK -->
 - Removed the **Effective Security Rules** link from the **Networking Properties** blade as this feature is not supported in Azure Stack. Having the link present gave the impression that this feature was supported but not working. To alleviate confusion, we removed the link.
+
+<!-- 3139614 | IS -->
+- Fixed an issue in which after an update was applied to Azure Stack from an OEM, the **Update available** notification did not appear in the Azure Stack administrator portal.
 
 ## Changes
 
