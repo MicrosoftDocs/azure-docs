@@ -65,7 +65,7 @@ Use a system-managed environment when you want [Conda](https://conda.io/docs/) t
 
 All you need to do is specify each package dependency using the [CondaDependency class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) Then Conda creates a file named **conda_dependencies.yml** in the **aml_config** directory in your workspace with your list of package dependencies and sets up your Python environment when you submit your training experiment. 
 
-The initial set up of a new environment can take several minutes depending on the size of the required dependencies. As long as the list of packages remains unchanged, the set up time happens only once.
+The initial setup of a new environment can take several minutes depending on the size of the required dependencies. As long as the list of packages remains unchanged, the setup time happens only once.
   
 The following code shows an example for a system-managed environment requiring scikit-learn:
     
@@ -73,7 +73,7 @@ The following code shows an example for a system-managed environment requiring s
 
 #### User-managed environment
 
-For a user-managed environments, you're responsible for setting up your environment and installing every package your training script needs on the compute target. If your training environment is already configured (such as on your local machine), you can skip the set up step by setting `user_managed_dependencies` to True. Conda will not check your environment or install anything for you.
+For a user-managed environment, you're responsible for setting up your environment and installing every package your training script needs on the compute target. If your training environment is already configured (such as on your local machine), you can skip the setup step by setting `user_managed_dependencies` to True. Conda will not check your environment or install anything for you.
 
 The following code shows an example of configuring training runs for a user-managed environment:
 
