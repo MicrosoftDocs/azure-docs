@@ -4230,6 +4230,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/functions-bindings-external-table.md",
+      "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-bindings-external-file.md",
+      "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/automation-source-control-integration.md",
       "redirect_url": "/azure/automation/source-control-integration",
       "redirect_document_id": false
@@ -12094,7 +12104,7 @@
     },
     {
       "source_path": "articles/machine-learning/studio/studio-overview-diagram.md",
-      "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio#studio-diagram",
+      "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio",
       "redirect_document_id": false
     },
     {
@@ -19376,7 +19386,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md",
-      "redirect_url": "/azure/virtual-machines/windows/classic/hpcpack-cluster-node-autogrowshrink",
+      "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/hpcpack-cluster-node-autogrowshrink",
       "redirect_document_id": false
     },
     {
