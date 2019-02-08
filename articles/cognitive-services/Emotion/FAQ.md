@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Get answers to frequently asked questions about the Emotion API.
 services: cognitive-services
 author: anrothMSFT
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: emotion-api

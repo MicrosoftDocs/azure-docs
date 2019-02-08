@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn the attributes you can use with the Field of Study entity in the Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: academic-knowledge

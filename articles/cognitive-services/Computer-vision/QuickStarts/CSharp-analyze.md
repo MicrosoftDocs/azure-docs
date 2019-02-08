@@ -4,7 +4,7 @@ titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze a local image using the Computer Vision API with C#.
 services: cognitive-services
 author: PatrickFarley
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: computer-vision

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Glossary of Terms for Custom Vision Service.
 services: cognitive-services
 author: anrothMSFT
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: custom-vision

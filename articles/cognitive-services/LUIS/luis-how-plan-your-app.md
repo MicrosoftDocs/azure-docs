@@ -4,7 +4,7 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Outline relevant app intents and entities, and then create your application plans in Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
 author: diberry
-manager: nitinme
+manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding

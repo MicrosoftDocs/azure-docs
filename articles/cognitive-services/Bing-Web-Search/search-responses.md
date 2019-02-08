@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn about the answer types and responses used by the Bing Web Search API.
 services: cognitive-services
 author: aahill
-manager: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual

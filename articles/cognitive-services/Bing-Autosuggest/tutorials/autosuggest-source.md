@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Source code for tutorial showing how to use the Bing Autosuggest API in a single-page Web application.
 services: cognitive-services
 author: v-jaswel
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Queries for Entities using Project Answer Search
 services: cognitive-services
 author: mikedodaro
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: answer-search

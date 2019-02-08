@@ -3,15 +3,14 @@ title: Profile ASP.NET Core Azure Linux web apps with Application Insights Profi
 description: A conceptual overview and step-by-step tutorial on how to use Application Insights Profiler.
 services: application-insights
 documentationcenter: ''
-author: cweining
+author: mrbullwinkle
 manager: carmonm
-ms.reviewer: mbullwin
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
-ms.author: cweining
+ms.author: mbullwin
 ---
 
 # Profile ASP.NET Core Azure Linux web apps with Application Insights Profiler

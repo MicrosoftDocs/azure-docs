@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Here are answers to the most popular questions about the Face API Service.
 services: cognitive-services
 author: SteveMSFT
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: face-api

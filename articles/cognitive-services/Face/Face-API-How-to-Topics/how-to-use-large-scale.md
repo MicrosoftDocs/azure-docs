@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Use the large-scale feature in the Face API.
 services: cognitive-services
 author: SteveMSFT
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: face-api

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: This Python REST-based quickstart walks you through getting an answer from a knowledge base, programmatically.
 services: cognitive-services
 author: diberry
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: qna-maker

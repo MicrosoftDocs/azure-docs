@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use the CalcHistogram method to calculate the distribution of attribute values for a set of paper entities.
 services: cognitive-services
 author: alch-msft
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: academic-knowledge

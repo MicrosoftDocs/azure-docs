@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Get answers to common questions about Bing Autosuggest API.
 services: cognitive-services
 author: HeidiSteen
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest

@@ -3,7 +3,7 @@ title: Code samples - Content Moderator, .NET
 description: Use Content Moderator in your .NET applications through the SDK.
 services: cognitive-services
 author: sanjeev3
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

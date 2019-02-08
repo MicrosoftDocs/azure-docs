@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: This portal-based tutorial walks you through programmatically creating and publishing a knowledge base, then answering a question from the knowledge base.
 services: cognitive-services
 author: diberry
-manager: nitinme
+manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker

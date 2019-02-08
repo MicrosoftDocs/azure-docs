@@ -4,7 +4,7 @@ titlesuffix: Face - Azure Cognitive Services
 description: How to download, install, and run containers for Face in this walkthrough tutorial.
 services: cognitive-services
 author: diberry
-manager: nitinme
+manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use this article to create a custom Bing instance that can search domains and webpages that you define. 
 services: cognitive-services
 author: aahill
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: bing-custom-search

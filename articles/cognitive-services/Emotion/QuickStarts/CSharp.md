@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Get information and a code sample to help you quickly get started by using the Emotion API with C#.
 services: cognitive-services
 author: anrothMSFT
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: emotion-api

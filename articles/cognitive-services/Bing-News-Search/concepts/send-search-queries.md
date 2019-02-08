@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn about sending search requests to the Bing News Search API.
 services: cognitive-services
 author: aahill
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: bing-news-search

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing News Search REST API using Ruby, and receive a JSON response.
 services: cognitive-services
 author: aahill
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: bing-news-search

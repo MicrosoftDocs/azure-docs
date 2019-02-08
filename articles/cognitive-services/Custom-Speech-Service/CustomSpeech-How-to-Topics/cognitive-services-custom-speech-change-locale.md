@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: nitinme
+ms.author: panosper
 ---
 
 # Supported locales in Custom Speech Service

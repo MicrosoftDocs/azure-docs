@@ -5,7 +5,7 @@ description: Use a pattern to extract data from a well-formatted template uttera
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
-manager: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial

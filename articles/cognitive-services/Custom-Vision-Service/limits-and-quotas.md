@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn about the limits and quotas for the Custom Vision Service.
 services: cognitive-services
 author: anrothMSFT
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: custom-vision

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Get answers to frequently asked questions about Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

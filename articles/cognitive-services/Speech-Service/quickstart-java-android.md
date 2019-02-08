@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in Java on Android by using the Speech Service SDK
 services: cognitive-services
 author: fmegen
-manager: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart

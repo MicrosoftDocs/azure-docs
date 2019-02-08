@@ -511,15 +511,14 @@
       href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Quickstarts
     items:
-    - name: Create a Storage account
+    - name: Create a Data Lake Storage Gen2 capable Storage account
       href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Manage data with Storage Explorer
-      href: ../blobs/data-lake-storage-explorer.md
-    - name: Analyze data with Databricks
+    - name: Create/connect Databricks account
       href: ../blobs/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Create an HDInsight cluster
       href: ../blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-
+    - name: Get started using Azure Storage Explorer
+      href: ../blobs/data-lake-storage-explorer.md
   - name: Tutorials
     items:
     - name: Extract, transform, and load data using Azure Databricks
@@ -530,9 +529,9 @@
       href: ../blobs/data-lake-storage-tutorial-extract-transform-load-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Concepts
     items:
-    - name: Azure Blob File System driver for Hadoop
+    - name: Azure Blob FileSystem driver for Hadoop
       href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure Blob File System URI
+    - name: Introduction to the Azure Blob File System URI
       href: ../blobs/data-lake-storage-introduction-abfs-uri.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Hierarchical Namespace Service
       href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -546,57 +545,53 @@
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Encryption for data at rest with customer keys
           href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Access Control
+        - name: Access Control in Azure Data Lake Storage Gen2
           href: data-lake-storage-access-control.md
-  - name: How to
-    items:
-    - name: Ingest data
-      items: 
-        - name: Use Distcp
-          href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Use Azure Data Factory
-          href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Secure data
-      items:
         - name: Configure firewalls and virtual networks 
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Manage access rights with RBAC
-          href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Set file and directory-level permissions
-          href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
-    - name: Integrate with Azure services
-      items:
-        - name: Use with HDInsight clusters
-          href: ../blobs/data-lake-storage-use-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Use with Hadoop File System CLI
-          href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Use with Azure Databricks
-          href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
-        - name: Use with Azure SQL Data Warehouse 
-          href: ../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase
-    - name: Optimize performance
+        - name: Authentication
+          items:
+            - name: Manage access rights with RBAC
+              href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: How to
+    items:
+    - name: Set permissions using Azure Storage Explorer
+      href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
+    - name: Use Data Lake Storage Gen2 with Azure HDInsight clusters
+      href: ../blobs/data-lake-storage-use-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Use Hadoop File System CLI with Data Lake Storage Gen2
+      href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Upgrade from Data Lake Storage Gen1
+      href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Ingest data
+      items: 
+        - name: Copy data into Data Lake Storage Gen2 using Distcp
+          href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Copy data into Data Lake Storage Gen2 using Azure Data Factory
+          href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Performance
       items: 
         - name: Overview
           href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Optimize Spark on HDInsight
+        - name: Using Spark on HDInsight
           href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Optimize Hive on HDInsight
+        - name: Using Hive on HDInsight
           href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Optimize MapReduce on HDInsight
+        - name: Using MapReduce on HDInsight
           href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Optimize Storm on HDInsight
+        - name: Use Storm on HDInsight
           href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Migrate data
-      items:
-        - name: Upgrade from Data Lake Storage Gen1
-          href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Connect to Azure Databricks
+      href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
+    - name: Connect to Azure SQL Data Warehouse 
+      href: ../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase
   - name: Reference
     items:
     - name: REST
       href: https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2
   - name: Resources
     items:
-    - name: Known issues
+    - name: Data Lake Storage Gen2 known issues
       href: data-lake-storage-known-issues.md
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/?category=storage

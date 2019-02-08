@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn about sending search queries to the Bing Video Search API.
 services: cognitive-services
 author: aahill
-manager: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview

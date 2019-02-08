@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to call the Computer Vision API by using REST in Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
-manager: nitinme
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
