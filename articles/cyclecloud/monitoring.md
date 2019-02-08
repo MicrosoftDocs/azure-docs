@@ -33,6 +33,33 @@ configured to use Ganglia (the default in most cases), automatic monitoring
 will work as long as port 8652 is open between CycleCloud and the cluster's
 master node (the one running the gmetad service).
 
+### Ganglia on CentOS/RHEL
+
+Ganglia on CentOS and RHEL is provided by [EPEL](https://fedoraproject.org/wiki/EPEL).
+Azure CycleCloud configures and installs EPEL, and the Ganglia dependencies, by default.
+
+One may choose to opt out of using EPEL by setting `cyclecloud.install_epel = false` in a cluster
+template. Opting out of EPEL will skip Ganglia monitoring setup. This will not impact the computational
+functionality of your compute cluster, but will forego data that would have been collected for the reports
+view of your cluster.
+
+For informational purposes, here are the "client" dependencies installed on execute cluster nodes,
+and the "server" dependencies installed on master/head cluster nodes.
+
+```bash
+# Ganglia client dependencies from CentOS/RHEL base
+yum -y install apr bash expat glibc pcre python python-libs systemd zlib
+
+# Ganglia client dependencies provided by EPEL
+yum -y install ganglia ganglia-gmond ganglia-gmond-python libconfuse
+
+# Ganglia server dependencies from CentOS/RHEL base
+yum -y install apr bash expat glibc libmemcached pcre rrdtool systemd zlib
+
+# Ganglia server dependencies provided by EPEL
+yum -y install ganglia ganglia-gmetad libconfuse
+```
+
 **[Grid Engine](http://gridscheduler.sourceforge.net/)**
 
 If you are running the Grid Scheduling Edition of CycleCloud, Grid Engine
