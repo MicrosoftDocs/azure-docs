@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/07/2019
+ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: 
 ---
@@ -29,7 +29,7 @@ This step-by-step guide describes how to plan the deployment of Azure AD Privile
 
 ## Step 1. Learn about PIM
 
-Azure AD Privileged Identity Management (PIM) is the best way for you to manage privileged administrative roles across Azure AD, Azure resources, and other Microsoft Online Services. In a world where privileged identities are assigned and forgotten, PIM provides solutions like just-in-time access, request approval workflows, and fully integrated access reviews so you can identify, uncover, and prevent malicious activities of privileged roles in real time. Successful deployment of PIM to manage privileged roles throughout your organization will greatly reduce risk while surfacing valuable insights about the activities of your privileged roles.
+Azure AD Privileged Identity Management (PIM) helps you to manage privileged administrative roles across Azure AD, Azure resources, and other Microsoft Online Services. In a world where privileged identities are assigned and forgotten, PIM provides solutions like just-in-time access, request approval workflows, and fully integrated access reviews so you can identify, uncover, and prevent malicious activities of privileged roles in real time. Deploying PIM to manage your privileged roles throughout your organization will greatly reduce risk while surfacing valuable insights about the activities of your privileged roles.
 
 ### Business value of PIM
 
