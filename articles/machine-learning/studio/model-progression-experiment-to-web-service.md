@@ -101,7 +101,7 @@ If you want to keep your machine learning model, but you would like to retrain i
 
 If you want to make changes to your original predictive experiment, such as selecting a different machine learning algorithm, trying a different training method, etc., then you need to follow the second procedure described above for retraining your model: open the training experiment, click **Save As** to make a copy, and then start down the new path of developing your model, creating the predictive experiment, and deploying the web service. This will create a new Web service unrelated to the original one - you can decide which one, or both, to keep running.
 
-## Next Steps
+## Next steps
 For more details on the process of developing and experiment, see the following articles:
 
 * converting the experiment - [How to prepare your model for deployment in Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md)
