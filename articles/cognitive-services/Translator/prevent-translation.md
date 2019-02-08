@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Prevent translation of content with the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to send search queries for general news, trending topics, and headlines.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-news-search

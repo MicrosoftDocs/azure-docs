@@ -26,7 +26,7 @@ This tutorial shows you how to move Azure VMs to another region using Azure Site
 > * [Discard the resources in the source region](#discard-the-resource-in-the-source-region) 
 
 > [!IMPORTANT]
-> This document guides you to move Azure VMs from one region to another as is, if your requirement is to improve availability by moving VMs in an availability set to zone pinned VMs in a different region, refer to the tutorial here.
+> This document guides you to move Azure VMs from one region to another as is, if your requirement is to improve availability by moving VMs in an availability set to zone pinned VMs in a different region, refer to the tutorial [here](move-azure-VMs-AVset-Azone.md).
 
 ## Verify Prerequisites
 
