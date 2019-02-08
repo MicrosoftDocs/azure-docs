@@ -46,6 +46,7 @@ Many applications benefit from the performance enhancements that come with the a
 Read more about global distribution in the following articles:
 
 * [Global distribution - under the hood](global-dist-under-the-hood.md)
+* [How to configure multi-master in your applications](how-to-multi-master.md)
 * [Configure clients for multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
 * [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Create a custom conflict resolution policy for SQL API accounts](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
