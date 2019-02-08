@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/06/2019
+ms.date: 02/07/2019
 ms.author: rolyon
 ms.custom: 
 ---
@@ -74,7 +74,7 @@ For more information, see [What is Azure AD Privileged Identity Management?](pim
 
 ### Roles that can be managed by PIM
 
-**Azure AD roles** – These roles are all the directory roles inside Azure Active Directory (such as Global Administrator, Exchange Administrator, and Security Administrator). You can read more about the roles and their functionality in [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). For help with determining which roles to assign your administrators, check out our guide for assigning least privileged roles.
+**Azure AD roles** – These roles are all the directory roles inside Azure Active Directory (such as Global Administrator, Exchange Administrator, and Security Administrator). You can read more about the roles and their functionality in [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). For help with determining which roles to assign your administrators, see [least privileged roles by task](../users-groups-roles/roles-delegate-by-task.md).
 
 **Azure resource roles** – These roles are linked to an Azure resource, resource group, subscription, or management group. PIM provides just-in-time access to both built-in roles like Owner, User Access Administrator, and Contributor, as well as [custom roles](../../role-based-access-control/custom-roles.md). For more information about Azure resource roles, see [role-based access control (RBAC)](../../role-based-access-control/overview.md).
 
@@ -125,11 +125,12 @@ It is important to make sure that you have enforced the principle of least privi
 
 For Azure AD roles, it is common for organizations to assign the Global Administrator role to a significant number of administrators when most administrators only need one or two specific administrator roles. Privileged role assignments also tend to be left unmanaged.
 
-Common pitfalls in role delegation:
-
-- The administrator in charge of Exchange is given the Global Administrator role even though they only need the Exchange Administrator role to perform their day to day job.
-- The Global Administrator role is assigned to an Office administrator because the administrator needs both Security and SharePoint administrator roles and it is easier to just delegate one role.
-- The administrator was assigned a Security Administrator role to perform a task long ago, but was never removed.
+> [!NOTE]
+> Common pitfalls in role delegation:
+>
+> - The administrator in charge of Exchange is given the Global Administrator role even though they only need the Exchange Administrator role to perform their day to day job.
+> - The Global Administrator role is assigned to an Office administrator because the administrator needs both Security and SharePoint administrator roles and it is easier to just delegate one role.
+> - The administrator was assigned a Security Administrator role to perform a task long ago, but was never removed.
 
 Follow these steps to enforce the principle of least privilege for your Azure AD roles.
 
