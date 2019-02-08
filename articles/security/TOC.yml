@@ -241,17 +241,6 @@
       href: ./blueprints/ffiec-iaaswa-overview.md
     - name: PaaS web application
       href: ./blueprints/ffiec-paaswa-overview.md
-  - name: GDPR
-    displayName: blueprint, privacy, certifications
-    items:
-    - name: Data analytics
-      href: ./blueprints/gdpr-analytics-overview.md
-    - name: Data warehouse
-      href: ./blueprints/gdpr-datawarehouse-overview.md
-    - name: IaaS web application
-      href: ./blueprints/gdpr-iaaswa-overview.md
-    - name: PaaS web application
-      href: ./blueprints/gdpr-paaswa-overview.md
   - name: HIPAA/HITRUST
     displayName: blueprint, privacy, certifications
     items:
@@ -338,6 +327,8 @@
         href: azure-security-threat-modeling-tool-releases-71509112.md
       - name: Threat Modeling Tool update release 7.1.51023.1 - 11/1/2018
         href: azure-security-threat-modeling-tool-releases-71510231.md
+      - name: Threat Modeling Tool update release 7.1.60126.1 - 1/29/2019
+        href: azure-security-threat-modeling-tool-releases-71601261.md
     - name: Mitigations
       href: azure-security-threat-modeling-tool-mitigations.md
       items:

@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
-ms.component: files
+ms.subservice: files
 ---
 
 # Use Azure Files with Linux

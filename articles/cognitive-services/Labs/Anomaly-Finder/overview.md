@@ -5,7 +5,7 @@ services: cognitive-services
 author: tonyxing
  
 ms.service: cognitive-services 
-ms.component: anomaly-detection 
+ms.subservice: anomaly-detection 
 ms.topic: article
 ms.date: 04/19/2018 
 ms.author: tonyxing

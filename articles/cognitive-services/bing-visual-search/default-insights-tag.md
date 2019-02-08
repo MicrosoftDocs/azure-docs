@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Provides details about the default insights that Bing Visual Search returns about an image.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi

@@ -273,7 +273,7 @@ Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
 
-**Source data churn** | **Maximium Limit**
+**Source data churn** | **Maximum Limit**
 ---|---
 Average data churn per VM| 25 MB/s
 Peak data churn across all disks on a VM | 54 MB/s

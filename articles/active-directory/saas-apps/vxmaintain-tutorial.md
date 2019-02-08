@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with vxMaintain | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and vxMaintain.
 services: active-directory
@@ -8,7 +8,7 @@ manager: daveba
 
 ms.assetid: 841a1066-593c-4603-9abe-f48496d73d10
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

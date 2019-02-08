@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure IoT Hub device streams Node.js quickstart (preview) | Microsoft Docs
 description: In this quickstart, you will run a Node.js service-side applications that communicates with an IoT device via a device stream.
 author: rezasherafat
@@ -35,7 +35,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To run the service-side application in this quickstart you need Node.js v4.x.x or later on your development machine.
 
-You can download Node.js for multiple platforms from [Node.js.org](https://Node.js.org).
+You can download Node.js for multiple platforms from [Node.js.org](https://nodejs.org).
 
 You can verify the current version of Node.js on your development machine using the following command:
 
@@ -43,7 +43,7 @@ You can verify the current version of Node.js on your development machine using 
 node --version
 ```
 
-If you haven't already done so, download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
+If you haven't already done so, download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip and extract the ZIP archive.
 
 
 ## Create an IoT hub

@@ -6,19 +6,19 @@ author: roygara
 
 ms.service: storage
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/07/2019
 ms.author: rogarana
-ms.component: common
+ms.subservice: common
 ---
 
 # Azure Data Lake Storage Gen2 security guide
 
-Azure Data Lake Storage Gen2 Preview, is a set of capabilities built on Azure Storage accounts. As such, any references in this article are meant for an Azure Storage account with hierarchical namespace enabled (Data Lake Storage Gen2 capabilities).
+Azure Data Lake Storage Gen2, is a set of capabilities built on Azure Storage accounts. As such, any references in this article are meant for an Azure Storage account with hierarchical namespace enabled (Data Lake Storage Gen2 capabilities).
 
 - All data written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](storage-service-encryption.md). For more information, see [Announcing Default Encryption for Azure Blobs, Files, Tables, and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) and Role-Based Access Control (RBAC) are supported for Azure Storage for both resource management operations and data operations, as follows:
     - You can assign RBAC roles scoped to the storage account to security principals and use Azure AD to authorize resource management operations such as key management.
-    - Azure AD integration is supported in preview for data operations on Azure Storage. You can assign RBAC roles scoped to a subscription, resource group, storage account, or an individual filesystem to a security principal or a managed identity for Azure resources. For more information, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md).
+    - Azure AD integration is supported in for data operations on Azure Storage. You can assign RBAC roles scoped to a subscription, resource group, storage account, or an individual filesystem to a security principal or a managed identity for Azure resources. For more information, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md).
 - Delegated access to the data objects in Azure Storage can be granted using [Shared Access Signatures](../storage-dotnet-shared-access-signature-part-1.md).
 
 This article provides an overview of each of these security features that can be used with Azure Storage. Links are provided to articles that will give details of each feature so you can easily do further investigation on each topic.
@@ -129,7 +129,7 @@ Data Plane Security refers to the methods used to secure the data objects stored
 
 You have three options for authorizing access to data objects in Azure Storage, including:
 
-- Using Azure AD to authorize access to filesystems and queues (Preview). Azure AD provides advantages over other approaches to authorization, including removing the need to store secrets in your code. For more information, see [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md). 
+- Using Azure AD to authorize access to filesystems and queues. Azure AD provides advantages over other approaches to authorization, including removing the need to store secrets in your code. For more information, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md). 
 - Using your storage account keys to authorize access via Shared Key. Authorizing via Shared Key requires storing your storage account keys in your application, so Microsoft recommends using Azure AD instead where possible. For production applications, or for authorizing access to Azure tables and files, continue using Shared Key while Azure AD integration is in preview.
 - Using Shared Access Signatures to grant controlled permissions to specific data objects for a specific amount of time.
 

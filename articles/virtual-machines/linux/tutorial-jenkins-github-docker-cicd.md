@@ -67,13 +67,13 @@ runcmd:
   - service jenkins restart
 ```
 
-Before you can create a VM, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroupJenkins* in the *eastus* location:
+Before you can create a VM, create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroupJenkins* in the *eastus* location:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Now create a VM with [az vm create](/cli/azure/vm#az_vm_create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to *cloud-init-jenkins.txt* if you saved the file outside of your present working directory.
+Now create a VM with [az vm create](/cli/azure/vm). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to *cloud-init-jenkins.txt* if you saved the file outside of your present working directory.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
@@ -86,7 +86,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 It takes a few minutes for the VM to be created and configured.
 
-To allow web traffic to reach your VM, use [az vm open-port](/cli/azure/vm#az_vm_open_port) to open port *8080* for Jenkins traffic and port *1337* for the Node.js app that is used to run a sample app:
+To allow web traffic to reach your VM, use [az vm open-port](/cli/azure/vm) to open port *8080* for Jenkins traffic and port *1337* for the Node.js app that is used to run a sample app:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
@@ -158,7 +158,7 @@ To test the GitHub integration with Jenkins, commit a change in your fork.
 
 Back in GitHub web UI, select your forked repo, and then select the **index.js** file. Select the pencil icon to edit this file so line 6 reads:
 
-```nodejs
+```javascript
 response.end("Hello World!");
 ```
 

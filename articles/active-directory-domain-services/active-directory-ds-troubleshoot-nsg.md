@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure Active Directory Domain Services: Troubleshooting Network Security Group configuration | Microsoft Docs'
 description: Troubleshooting NSG configuration for Azure AD Domain Services
 services: active-directory-ds
@@ -9,7 +9,7 @@ editor:
 
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

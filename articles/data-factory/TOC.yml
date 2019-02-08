@@ -146,6 +146,8 @@
       href: connector-azure-cosmos-db.md
     - name: Azure Cosmos DB MongDB API
       href: connector-azure-cosmos-db-mongodb-api.md
+    - name: Azure Data Explorer
+      href: connector-azure-data-explorer.md
     - name: Azure Data Lake Storage Gen1
       href: connector-azure-data-lake-store.md
     - name: Azure Data Lake Storage Gen2
@@ -263,7 +265,9 @@
       href: connector-salesforce.md
     - name: Salesforce Marketing Cloud
       href: connector-salesforce-marketing-cloud.md
-    - name: SAP Business Warehouse
+    - name: SAP Business Warehouse Open Hub
+      href: connector-sap-business-warehouse-open-hub.md
+    - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
     - name: SAP Cloud for Customer
       href: connector-sap-cloud-for-customer.md
@@ -299,6 +303,8 @@
     items:
     - name: Copy data using Copy Activity
       href: copy-activity-overview.md
+    - name: Delete files using Delete Activity
+      href: delete-activity.md
     - name: Copy Data tool
       href: copy-data-tool.md
     - name: Load Data Lake Storage Gen2
@@ -453,6 +459,8 @@
       href: how-to-create-schedule-trigger.md
     - name: Create a tumbling window trigger
       href: how-to-create-tumbling-window-trigger.md
+    - name: Create a tumbling window trigger dependency
+      href: tumbling-window-trigger-dependency.md
     - name: Create an event-based trigger
       href: how-to-create-event-trigger.md
 - name: Reference

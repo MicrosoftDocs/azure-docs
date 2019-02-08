@@ -63,7 +63,7 @@ To be able to use Data Lake Storage as default storage, you must grant the servi
 - The folder for all cluster folders.  For example: adl://mydatalakestore/clusters.
 - The folder for the cluster.  For example: adl://mydatalakestore/clusters/cluster1storage.
 
-For more information for creating service principal and grant access, see [Configure Data Lake Storage access](#configure-data-lake-store-access).
+For more information for creating service principal and grant access, see Configure Data Lake Storage access.
 
 ### Extracting a certificate from Azure Keyvault for use in cluster creation
 
@@ -111,12 +111,12 @@ To be able to use a Data Lake Storage as additional storage, you only need to gr
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
-For more information for creating service principal and grant access, see [Configure Data Lake Storage access](#configure-data-lake-store-access).
+For more information for creating service principal and grant access, see Configure Data Lake Storage access.
 
 
 ## Use more than one Data Lake Storage accounts
 
-Adding a Data Lake Storage account as additional and adding more than one Data Lake Storage accounts are accomplished by giving the HDInsight cluster permission on data in one ore more Data Lake Storage accounts. See [Configure Data Lake Storage access](#configure-data-lake-store-access).
+Adding a Data Lake Storage account as additional and adding more than one Data Lake Storage accounts are accomplished by giving the HDInsight cluster permission on data in one ore more Data Lake Storage accounts. See Configure Data Lake Storage access.
 
 ## Configure Data Lake Storage access
 

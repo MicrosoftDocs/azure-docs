@@ -17,9 +17,9 @@ The following steps show you how to set up the PySpark interactive environment i
 
 We use **python/pip** command to build virtual environment in your Home path. If you want to use another version, you need to change default version of **python/pip** command manually. More details see [update-alternatives](https://linux.die.net/man/8/update-alternatives).
 
-1. Install  [Python](https://www.python.org/) and [pip](https://pip.pypa.io/en/stable/installing/).
+1. Install  [Python](https://www.python.org/downloads/) and [pip](https://pip.pypa.io/en/stable/installing/).
    
-   + Install Python from [https://pip.pypa.io/en/stable/installing](https://www.python.org/).
+   + Install Python from [https://www.python.org/downloads/](https://www.python.org/downloads/).
    + Install pip from [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/). (If not installed from the Python installation)
    + Validate Python and pip are installed successfully using the following commands. (Optional)
  

@@ -4,7 +4,7 @@ description: As an Azure AD Administrator, I need to understand which version of
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 

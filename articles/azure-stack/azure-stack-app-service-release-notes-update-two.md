@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
+ms.lastreviewed: 05/18/2018
 
 ---
 # App Service on Azure Stack update 2 release notes

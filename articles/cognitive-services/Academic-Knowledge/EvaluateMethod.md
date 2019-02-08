@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Use the Evaluate method to return a set of academic entities based on a query expression.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch

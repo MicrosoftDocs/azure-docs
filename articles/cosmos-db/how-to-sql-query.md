@@ -8,7 +8,7 @@ ms.date: 11/15/2018
 ms.author: mjbrown
 
 ---
-# SQL query examples to query data from Azure Cosmos DB
+# SQL query examples for Azure Cosmos DB
 
 Azure Cosmos DB supports querying items using SQL (Structured Query Language) as a JSON query language on SQL API accounts. While designing the query language for Azure Cosmos DB, the following two goals are considered:
 
@@ -16,7 +16,7 @@ Azure Cosmos DB supports querying items using SQL (Structured Query Language) as
 
 * Azure Cosmos DB uses JavaScript's programming model as the foundation for the query language. The SQL API is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON items, self-joins, spatial queries, and invocation of user-defined functions (UDFs) written entirely in JavaScript, among other features.
 
-This article walks you through some examples SQL queries by using simple JSON items. To learn about Azure Cosmos DB SQL language syntax, see [SQL syntax reference](sql-api-query-reference.md) article.
+This article walks you through some example SQL queries by using simple JSON items. To learn about Azure Cosmos DB SQL language syntax, see [SQL syntax reference](sql-api-query-reference.md) article.
 
 ## <a id="GettingStarted"></a>Get started with SQL commands
 
@@ -1360,29 +1360,29 @@ The mathematical functions each perform a calculation, based on input values tha
 
 | Usage | Description |
 |----------|--------|
-| [[ABS (num_expr)](#bk_abs) | Returns the absolute (positive) value of the specified numeric expression. |
-| [CEILING (num_expr)](#bk_ceiling) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
-| [FLOOR (num_expr)](#bk_floor) | Returns the largest integer less than or equal to the specified numeric expression. |
-| [EXP (num_expr)](#bk_exp) | Returns the exponent of the specified numeric expression. |
+| [ABS (num_expr) | Returns the absolute (positive) value of the specified numeric expression. |
+| CEILING (num_expr) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
+| FLOOR (num_expr) | Returns the largest integer less than or equal to the specified numeric expression. |
+| EXP (num_expr) | Returns the exponent of the specified numeric expression. |
 | [LOG (num_expr [,base])](#bk_log) | Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base |
-| [LOG10 (num_expr)](#bk_log10) | Returns the base-10 logarithmic value of the specified numeric expression. |
-| [ROUND (num_expr)](#bk_round) | Returns a numeric value, rounded to the closest integer value. |
-| [TRUNC (num_expr)](#bk_trunc) | Returns a numeric value, truncated to the closest integer value. |
-| [SQRT (num_expr)](#bk_sqrt) | Returns the square root of the specified numeric expression. |
-| [SQUARE (num_expr)](#bk_square) | Returns the square of the specified numeric expression. |
+| LOG10 (num_expr) | Returns the base-10 logarithmic value of the specified numeric expression. |
+| ROUND (num_expr) | Returns a numeric value, rounded to the closest integer value. |
+| TRUNC (num_expr) | Returns a numeric value, truncated to the closest integer value. |
+| SQRT (num_expr) | Returns the square root of the specified numeric expression. |
+| SQUARE (num_expr) | Returns the square of the specified numeric expression. |
 | [POWER (num_expr, num_expr)](#bk_power) | Returns the power of the specified numeric expression to the value specified. |
-| [SIGN (num_expr)](#bk_sign) | Returns the sign value (-1, 0, 1) of the specified numeric expression. |
-| [ACOS (num_expr)](#bk_acos) | Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine. |
-| [ASIN (num_expr)](#bk_asin) | Returns the angle, in radians, whose sine is the specified numeric expression. This function is also called arcsine. |
-| [ATAN (num_expr)](#bk_atan) | Returns the angle, in radians, whose tangent is the specified numeric expression. This is also called arctangent. |
-| [ATN2 (num_expr)](#bk_atn2) | Returns the angle, in radians, between the positive x-axis and the ray from the origin to the point (y, x), where x and y are the values of the two specified float expressions. |
-| [COS (num_expr)](#bk_cos) | Returns the trigonometric cosine of the specified angle, in radians, in the specified expression. |
-| [COT (num_expr)](#bk_cot) | Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression. |
-| [DEGREES (num_expr)](#bk_degrees) | Returns the corresponding angle in degrees for an angle specified in radians. |
-| [PI ()](#bk_pi) | Returns the constant value of PI. |
-| [RADIANS (num_expr)](#bk_radians) | Returns radians when a numeric expression, in degrees, is entered. |
-| [SIN (num_expr)](#bk_sin) | Returns the trigonometric sine of the specified angle, in radians, in the specified expression. |
-| [TAN (num_expr)](#bk_tan) | Returns the tangent of the input expression, in the specified expression. |
+| SIGN (num_expr) | Returns the sign value (-1, 0, 1) of the specified numeric expression. |
+| ACOS (num_expr) | Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine. |
+| ASIN (num_expr) | Returns the angle, in radians, whose sine is the specified numeric expression. This function is also called arcsine. |
+| ATAN (num_expr) | Returns the angle, in radians, whose tangent is the specified numeric expression. This is also called arctangent. |
+| ATN2 (num_expr) | Returns the angle, in radians, between the positive x-axis and the ray from the origin to the point (y, x), where x and y are the values of the two specified float expressions. |
+| COS (num_expr) | Returns the trigonometric cosine of the specified angle, in radians, in the specified expression. |
+| COT (num_expr) | Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression. |
+| DEGREES (num_expr) | Returns the corresponding angle in degrees for an angle specified in radians. |
+| PI () | Returns the constant value of PI. |
+| RADIANS (num_expr) | Returns radians when a numeric expression, in degrees, is entered. |
+| SIN (num_expr) | Returns the trigonometric sine of the specified angle, in radians, in the specified expression. |
+| TAN (num_expr) | Returns the tangent of the input expression, in the specified expression. |
 
 For example, you can now run queries as shown in the following example:
 

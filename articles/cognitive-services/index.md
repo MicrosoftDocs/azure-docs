@@ -4,7 +4,7 @@ title: Azure Cognitive Services Documentation
 description: Learn how to build intelligent algorithms into apps, websites, and bots so they see, hear, speak, understand, and interpret your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how to use the APIs.
 services: cognitive-services
 author: nitinme
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
@@ -126,7 +126,7 @@ ms.topic: hub-page
                     <div class="cardText">
                         <h3>Analyze image using Computer Vision</h3>
                         <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk">Using C#</a></p>
-                        <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/java-analyze">Using Java</a></p>
+                        <p><a href="/azure/cognitive-services/bing-visual-search/quickstarts/java">Using Java</a></p>
                         <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/node-analyze">Using Node.js</a></p>
                         <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/python-analyze">Using Python</a></p>
                     </div>

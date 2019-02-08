@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Use the Translator Speech API to translate text in real time.
 services: cognitive-services
 author: v-jerkin
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin

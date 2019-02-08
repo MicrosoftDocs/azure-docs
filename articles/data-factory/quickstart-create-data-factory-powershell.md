@@ -305,7 +305,7 @@ In this step, you set values for the pipeline parameters:  **inputPath** and **o
 
         ```json
         "connectionString": {
-            "value": "DefaultEndpointsProtocol=https;AccountName=mystorageaccountname;AccountKey=mystorageacountkey;EndpointSuffix=core.windows.net",
+            "value": "DefaultEndpointsProtocol=https;AccountName=mystorageaccountname;AccountKey=mystorageaccountkey;EndpointSuffix=core.windows.net",
             "type": "SecureString"
         }
         ```

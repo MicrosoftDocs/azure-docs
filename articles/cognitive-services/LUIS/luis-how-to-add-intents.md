@@ -4,11 +4,11 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Add intents to your LUIS app to identify groups of questions or commands that have the same intentions. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ms.service: cognitive-services
 ---
@@ -19,19 +19,7 @@ Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of que
 
 Intents are managed from top navigation bar's **Build** section, then from the left panel's **Intents**. 
 
-## Create an app
-
-1. Sign in to the [LUIS](https://www.luis.ai) portal.
-
-1. Select **Create new app**. 
-
-1. Name the new app `MyHumanResourcesApp`. Select the **English** culture. The description is optional. 
-
-1. Select **Done**. 
-
 ## Add intent
-
-1. The app opens to the **Intents** list.
 
 1. On the **Intents** page, select **Create new intent**.
 
