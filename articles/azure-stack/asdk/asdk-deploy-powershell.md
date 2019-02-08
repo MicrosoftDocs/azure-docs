@@ -144,7 +144,6 @@ If your environment does not have DHCP enabled, then you must include the follow
 |InfraAzureDirectoryTenantAdminCredential|Optional|Sets the Azure Active Directory user name and password. These Azure credentials must be an Org ID.|
 |InfraAzureEnvironment|Optional|Select the Azure Environment with which you want to register this Azure Stack deployment. Options include Public Azure, Azure - China, Azure - US Government.|
 |DNSForwarder|Optional|A DNS server is created as part of the Azure Stack deployment. To allow computers inside the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server forwards unknown name resolution requests to this server.|
-|PublicVlanId|Optional|Sets the VLAN ID. Only use this parameter if the host must configure VLAN ID to access the physical network (and internet). For example, .\InstallAzureStackPOC.ps1 -Verbose -PublicVLan 305|
 |Rerun|Optional|Use this flag to rerun deployment. All previous input is used. Re-entering data previously provided is not supported because several unique values are generated and used for deployment.|
 
 
