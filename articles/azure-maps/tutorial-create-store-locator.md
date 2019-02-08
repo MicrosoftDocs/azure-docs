@@ -157,7 +157,6 @@ To create the user interface, add code to *index.html*:
         <div id="myMap"></div> 
 
         <button id="myLocationBtn" title="My Location"></button> 
-
     </main>
     ```
 
@@ -655,19 +654,18 @@ At this point, everything is set up in the user interface. Now, we need to add t
                 if (row.length >= numColumns) { 
 
                     features.push(new atlas.data.Feature(new atlas.data.Point([parseFloat(row[header['Longitude']]), parseFloat(row[header['Latitude']])]), { 
-
-                            AddressLine: row[header['AddressLine']], 
-                            City: row[header['City']], 
-                            Municipality: row[header['Municipality']], 
-                            AdminDivision: row[header['AdminDivision']], 
-                            Country: row[header['Country']], 
-                            PostCode: row[header['PostCode']], 
-                            Phone: row[header['Phone']], 
-                            StoreType: row[header['StoreType']], 
-                            IsWiFiHotSpot: (row[header['IsWiFiHotSpot']].toLowerCase() === 'true') ? true : false, 
-                            IsWheelchairAccessible: (row[header['IsWheelchairAccessible']].toLowerCase() === 'true') ? true : false, 
-                            Opens: parseInt(row[header['Opens']]), 
-                            Closes: parseInt(row[header['Closes']]) 
+                        AddressLine: row[header['AddressLine']], 
+                        City: row[header['City']], 
+                        Municipality: row[header['Municipality']], 
+                        AdminDivision: row[header['AdminDivision']], 
+                        Country: row[header['Country']], 
+                        PostCode: row[header['PostCode']], 
+                        Phone: row[header['Phone']], 
+                        StoreType: row[header['StoreType']], 
+                        IsWiFiHotSpot: (row[header['IsWiFiHotSpot']].toLowerCase() === 'true') ? true : false, 
+                        IsWheelchairAccessible: (row[header['IsWheelchairAccessible']].toLowerCase() === 'true') ? true : false, 
+                        Opens: parseInt(row[header['Opens']]), 
+                        Closes: parseInt(row[header['Closes']]) 
                     })); 
                 } 
             } 
@@ -728,30 +726,30 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
             /* 
             Generating HTML for each item that looks like this: 
-                <div class="listItem" onclick="itemSelected('id')"> 
-                    <div class="listItem-title">1 Microsoft Way</div> 
-                    Redmond, WA 98052<br /> 
-                    Open until 9:00 PM<br /> 
-                    0.7 miles away 
-                </div> 
-                */ 
+            <div class="listItem" onclick="itemSelected('id')"> 
+                <div class="listItem-title">1 Microsoft Way</div> 
+                Redmond, WA 98052<br /> 
+                Open until 9:00 PM<br /> 
+                0.7 miles away 
+            </div> 
+            */ 
 
             data.forEach(function (shape) { 
-                    properties = shape.getProperties(); 
-                    html.push('<div class="listItem" onclick="itemSelected(\'', shape.getId(), '\')"><div class="listItem-title">', 
-                    properties['AddressLine'], 
-                    '</div>', 
-                    //Get a formatted addressLine2 value that consists of City, Municipality, AdminDivision, and PostCode. 
-                    getAddressLine2(properties), 
-                    '<br />', 
+                properties = shape.getProperties(); 
+                html.push('<div class="listItem" onclick="itemSelected(\'', shape.getId(), '\')"><div class="listItem-title">', 
+                properties['AddressLine'], 
+                '</div>', 
+                //Get a formatted addressLine2 value that consists of City, Municipality, AdminDivision, and PostCode. 
+                getAddressLine2(properties), 
+                '<br />', 
 
-                    //Convert the closing time to a format that is easier to read. 
-                    getOpenTillTime(properties), 
-                    '<br />', 
+                //Convert the closing time to a format that is easier to read. 
+                getOpenTillTime(properties), 
+                '<br />', 
 
-                    //Route the distance to two decimal places.  
-                    (Math.round(shape.distance * 100) / 100), 
-                    ' miles away</div>'); 
+                //Route the distance to two decimal places.  
+                (Math.round(shape.distance * 100) / 100), 
+                ' miles away</div>'); 
             }); 
 
             listPanel.innerHTML = html.join(''); 
@@ -845,21 +843,21 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
         /* Generating HTML for the pop-up window that looks like this: 
 
-                <div class="storePopup"> 
-                    <div class="popupTitle"> 
-                        3159 Tongass Avenue 
-                        <div class="popupSubTitle">Ketchikan, AK 99901</div> 
-                    </div> 
-                    <div class="popupContent"> 
-                        Open until 22:00 PM<br/> 
-                        <img title="Phone Icon" src="images/PhoneIcon.png"> 
-                        <a href="tel:1-800-XXX-XXXX">1-800-XXX-XXXX</a> 
-                        <br>Amenities: 
-                        <img title="Wi-Fi Hotspot" src="images/WiFiIcon.png"> 
-                        <img title="Wheelchair Accessible" src="images/WheelChair-small.png"> 
-                    </div> 
+            <div class="storePopup"> 
+                <div class="popupTitle"> 
+                    3159 Tongass Avenue 
+                    <div class="popupSubTitle">Ketchikan, AK 99901</div> 
                 </div> 
-            */ 
+                <div class="popupContent"> 
+                    Open until 22:00 PM<br/> 
+                    <img title="Phone Icon" src="images/PhoneIcon.png"> 
+                    <a href="tel:1-800-XXX-XXXX">1-800-XXX-XXXX</a> 
+                    <br>Amenities: 
+                    <img title="Wi-Fi Hotspot" src="images/WiFiIcon.png"> 
+                    <img title="Wheelchair Accessible" src="images/WheelChair-small.png"> 
+                </div> 
+            </div> 
+        */ 
 
         var html = ['<div class="storePopup">']; 
         html.push('<div class="popupTitle">', 
