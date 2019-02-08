@@ -46,7 +46,7 @@ Once a token is acquired from Azure AD, a request can be sent to Azure Maps with
 | Authorization     | Bearer eyJ0e….HNIVN |
 
 > [!Note]
-> x-ms-client-id is the Azure Maps account based GUID displayed on Azure Maps authentication page
+> `x-ms-client-id` is the Azure Maps account based GUID displayed on Azure Maps authentication page
 
 Below is Azure Maps route request example using OAuth token:
 
