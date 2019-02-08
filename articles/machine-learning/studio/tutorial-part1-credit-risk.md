@@ -56,7 +56,7 @@ After your workspace is created, open Machine Learning Studio ([https://studio.a
 ![Select workspace in Studio](./media/tutorial-part1-credit-risk/open-workspace.png)
 
 > [!TIP]
-> If you were made an owner of the workspace, you can share the experiments you're working on by inviting others to the workspace. You can do this in Machine Learning Studio on the **SETTINGS** page. You just need the Microsoft account or organizational account for each user.
+> If you are owner of the workspace, you can share the experiments you're working on by inviting others to the workspace. You can do this in Machine Learning Studio on the **SETTINGS** page. You just need the Microsoft account or organizational account for each user.
 > 
 > On the **SETTINGS** page, click **USERS**, then click **INVITE MORE USERS** at the bottom of the window.
 > 
