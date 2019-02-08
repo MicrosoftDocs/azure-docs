@@ -326,9 +326,9 @@ For an example of how to compare multiple models in a single experiment, see [Co
 
 [publish]: publish-a-machine-learning-web-service.md
 
-Want to learn more? For a more extensive and detailed walkthrough of the process of creating, training, scoring, and deploying a model, see [Develop a predictive solution by using Azure Machine Learning][walkthrough].
+Want to learn more? For a more extensive and detailed walkthrough of the process of creating, training, scoring, and deploying a model, see [Tutorial 1: Predict credit risk ][walkthrough].
 
-[walkthrough]: walkthrough-develop-predictive-solution.md
+[walkthrough]: tutorial-part1-credit-risk.md
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/create-experiment/sign-in-to-studio.png

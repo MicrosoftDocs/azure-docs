@@ -26,7 +26,7 @@ The following links provide general Information about how to deploy a new web se
 
 * For an overview about how to deploy a new web service that's based on Azure Resource Manager, see [Deploy a new web service](publish-a-machine-learning-web-service.md).
 * For a walkthrough about how to deploy a web service, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
-* For a full walkthrough about how to create and deploy a web service, see [Walkthrough Step 1: Create a Machine Learning workspace](walkthrough-1-create-ml-workspace.md).
+* For a full walkthrough about how to create and deploy a web service, start with [ Tutorial 1: Predict credit risk](tutorial-part1-credit-risk.md).
 * For specific examples that deploy a web service, see:
 
   * [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md)
