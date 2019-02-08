@@ -9,7 +9,7 @@ ms.date: 1/30/2019
 ms.author: yizhon
 ---
 
-# Develop for mobile devices using Azure IoT SDKs
+# Develop for Android Things platform using Azure IoT SDKs
 [Azure IoT Hub SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) provide first tier support for popular platforms such as Windows, Linux, OSX, MBED, and mobile platforms like Android and iOS.  As part of our commitment to enable greater choice and flexibility in IoT deployments, the Java SDK also supports [Android Things](https://developer.android.com/things/) platform.  Developers can leverage the benefits of Android Things operating system on the device side, while using [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) as the central message hub that scales to millions of simultaneously connected devices. 
 
 This tutorial outlines the steps to build a device side application on Android Things using the Azure IoT Java SDK.
