@@ -141,7 +141,7 @@ In this section, you'll create a file system and a folder in your storage accoun
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. In this code block, replace the `storage-account-name`, `application-id`, `authentication-id`, and `tenant-id` placeholder values in this code block with the values that you collected when you completed the steps in the [Set aside storage account configuration](#config) and [Create a service principal](#service-principal) sections of this article. Replace the `file-system-name` placeholder with any name that you want to give your file system.
+18. In this code block, replace the `storage-account-name`, `application-id`, `authentication-id`, and `tenant-id` placeholder values in this code block with the values that you collected when you completed the steps in the Set aside storage account configuration and [Create a service principal](#service-principal) sections of this article. Replace the `file-system-name` placeholder with any name that you want to give your file system.
 
 19. Press the **SHIFT + ENTER** keys to run the code in this block. 
 
