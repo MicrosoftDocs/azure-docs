@@ -19,6 +19,11 @@ ms.custom: seodec18
 
 TODO
 
+* Python
+  * The Speech SDK for Python, in beta since version 1.2.0, is now considered stable.
+  * Support for 32-bit Python on Windows has been added.
+  * etc.
+
 ## Speech SDK 1.2.1
 
 This is a JavaScript-only release. No features have been added. The following fixes were made:
