@@ -13254,7 +13254,12 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-elastic-pool-price.md",
-      "redirect_url": "/azure/sql-database/sql-database-faq",
+      "redirect_url": "/azure/sql-database/sql-database-elastic-pool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-faq.md",
+      "redirect_url": "/azure/sql-database/sql-database-technical-overview",
       "redirect_document_id": false
     },
     {
@@ -35560,6 +35565,21 @@
       "source_path": "articles/hdinsight/hdinsight-autoscale-clusters.md",
       "redirect_url": "/azure/hdinsight/hdinsight-scaling-best-practices",
       "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/application-insights/opencensus-go.md",
+      "redirect_url": "/azure/azure-monitor/app/opencensus-go",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/application-insights/opencensus-local-forwarder.md",
+      "redirect_url": "/azure/azure-monitor/app/opencensus-local-forwarder",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/application-insights/app-insights-nodejs.md",
+      "redirect_url": "/azure/azure-monitor/app/nodejs",
+      "redirect_document_id": true
     }
   ]
 }

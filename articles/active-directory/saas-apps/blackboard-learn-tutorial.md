@@ -209,7 +209,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Blackboard Learn test user
 
-In this section, you create a user called Britta Simon in Blackboard Learn. Blackboard Learn application support just in time user provisioning. Make sure that you have configured the claims as described in the section **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**
+In this section, you create a user called Britta Simon in Blackboard Learn. Blackboard Learn application support just in time user provisioning. Make sure that you have configured the claims as described in the section **Configuring Azure AD Single Sign-On**
 
 ### Test single sign-on
 
