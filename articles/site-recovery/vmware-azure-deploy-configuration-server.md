@@ -6,7 +6,7 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 02/05/2018
 ms.author: ramamill
 ---
 
@@ -117,7 +117,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 ## Upgrade the configuration server
 
-To upgrade the configuration server to the latest version, follow these [steps](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). For detailed instructions on how to upgrade all Site Recovery components, click [here](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
+To upgrade the configuration server to the latest version, follow these [steps](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). For detailed instructions on how to upgrade all Site Recovery components, click [here](service-updates-how-to.md).
 
 ## Manage the configuration server
 

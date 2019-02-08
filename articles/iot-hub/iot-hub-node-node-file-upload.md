@@ -64,7 +64,7 @@ In this section, you create the device app to upload a file to IoT hub.
 
 1. Add the following ```require``` statements at the start of the **SimulatedDevice.js** file:
 
-    ```nodejs
+    ```javascript
     'use strict';
     
     var fs = require('fs');
@@ -74,7 +74,7 @@ In this section, you create the device app to upload a file to IoT hub.
 
 1. Add a ```deviceconnectionstring``` variable and use it to create a **Client** instance.  Replace ```{deviceconnectionstring}``` with the name of the device you created in the _Create an IoT Hub_ section:
 
-    ```nodejs
+    ```javascript
     var connectionString = '{deviceconnectionstring}';
     var filename = 'myimage.png';
     ```
@@ -84,14 +84,14 @@ In this section, you create the device app to upload a file to IoT hub.
 
 1. Add the following code to connect the client:
 
-    ```nodejs
+    ```javascript
     var client = clientFromConnectionString(connectionString);
     console.log('Client connected');
     ```
 
 1. Create a callback and use the **uploadToBlob** function to upload the file.
 
-    ```nodejs
+    ```javascript
     fs.stat(filename, function (err, stats) {
         const rr = fs.createReadStream(filename);
     
@@ -131,7 +131,7 @@ You can use the **iothubowner** connection string from your IoT Hub to complete 
 
 1. Add the following ```require``` statements at the start of the **FileUploadNotification.js** file:
 
-    ```nodejs
+    ```javascript
     'use strict';
     
     var Client = require('azure-iothub').Client;
@@ -139,7 +139,7 @@ You can use the **iothubowner** connection string from your IoT Hub to complete 
 
 1. Add a ```iothubconnectionstring``` variable and use it to create a **Client** instance.  Replace ```{iothubconnectionstring}``` with the connection string to the IoT hub you created in the _Create an IoT Hub_ section:
 
-    ```nodejs
+    ```javascript
     var connectionString = '{iothubconnectionstring}';
     ```
 
@@ -148,13 +148,13 @@ You can use the **iothubowner** connection string from your IoT Hub to complete 
 
 1. Add the following code to connect the client:
 
-    ```nodejs
+    ```javascript
     var serviceClient = Client.fromConnectionString(connectionString);
     ```
 
 1. Open the client and use the **getFileNotificationReceiver** function to receive status updates.
 
-    ```nodejs
+    ```javascript
     serviceClient.open(function (err) {
       if (err) {
         console.error('Could not connect: ' + err.message);

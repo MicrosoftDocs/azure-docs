@@ -16,7 +16,7 @@ ms.date: 10/09/2018
 ms.author: elsung
 
 ---
-# Virtual network integration for Azure Data Lake Storage Gen1 - Preview
+# Virtual network integration for Azure Data Lake Storage Gen1
 
 This article introduces virtual network integration for Azure Data Lake Storage Gen1. With virtual network integration, you can configure your accounts to accept traffic only from specific virtual networks and subnets. 
 

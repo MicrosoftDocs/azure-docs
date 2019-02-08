@@ -7,11 +7,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-ms.component: common
+ms.subservice: common
 ---
 
 # Retrieving state information for an Import/Export job
-You can call the [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) operation to retrieve information about both import and export jobs. The information returned includes:
+You can call the [Get Job](/rest/api/storageimportexport/jobs) operation to retrieve information about both import and export jobs. The information returned includes:
 
 -   The current status of the job.
 

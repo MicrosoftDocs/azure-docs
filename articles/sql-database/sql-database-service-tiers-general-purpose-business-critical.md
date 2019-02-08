@@ -3,7 +3,7 @@ title: 'Azure SQL Database - general purpose and business critical | Microsoft D
 description: The article discusses the general purpose and business critical service tier in the vCore purchasing model.  
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
@@ -11,11 +11,12 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 11/30/2018
+ms.date: 02/07/2019
 ---
 # Azure SQL Database service tiers
 
 Azure SQL Database is based on SQL Server Database Engine architecture that is adjusted for the cloud environment in order to ensure 99.99% availability even in the cases of infrastructure failures. There are three architectural models that are used in Azure SQL Database:
+
 - [General Purpose](sql-database-service-tier-general-purpose.md) designed for most of the generic workloads.
 - [Business Critical](sql-database-service-tier-business-critical.md) designed for low latency workloads with one readable replica.
 - [Hyperscale](sql-database-service-tier-hyperscale.md) designed for very large databases (up to 100TB) with multiple readable replicas.
@@ -34,8 +35,8 @@ Consider the following:
 - When you configure the required single database size (size of MDF), 30% of additional storage is automatically added to support LDF
 - Storage size in Managed Instance must be specified in multiples of 32 GB.
 - You can select any single database size between 10 GB and the supported maximum
-  - For Standard storage, increase or decrease size in 10-GB increments
-  - For Premium storage, increase or decrease size in 250-GB increments
+  - For storage in the standard or general purpose service tiers, increase or decrease size in 10-GB increments
+  - For storage in the premium or buxiness critical service tiers, increase or decrease size in 250-GB increments
 - In the General Purpose service tier, `tempdb` uses an attached SSD and this storage cost is included in the vCore price.
 - In the Business Critical service tier, `tempdb` shares the attached SSD with the MDF and LDF files and the tempDB storage cost is included in the vCore price.
 

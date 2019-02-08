@@ -29,10 +29,11 @@ any reliable data stream. Here are some example tasks you can automate:
 
 Compared to the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md), 
 the SFTP connector can read or write files up to 50 MB in size unless you use 
-[chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
-For files up to 1 GB in size, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). 
+[message chunking in actions](../logic-apps/logic-apps-handle-large-messages.md). 
+Currently, you can't use chunking for triggers. For files up to 1 GB in size, 
+use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md). 
 For files larger than 1 GB, you can use the SFTP-SSH connector plus 
-[chunking for large messages](../logic-apps/logic-apps-handle-large-messages.md). 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md). 
 
 You can use triggers that monitor events on your SFTP server 
 and make output available to other actions. You can use 
@@ -158,7 +159,20 @@ immediately return that file. The trigger returns the file only when polling the
 server again. Sometimes, this behavior might cause a delay that is up to twice 
 the trigger's polling interval. 
 
+When requesting file content, triggers don't get files 
+larger than 50 MB. To get files larger than 50 MB, 
+follow this pattern: 
+
+* Use a trigger that returns file properties, 
+such as **When a file is added or modified (properties only)**.
+
+* Follow the trigger with an action that reads the complete file, 
+such as **Get file content using path**, and have the action use 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
+
 ## Examples
+
+<a name="file-add-modified"></a>
 
 ### SFTP trigger: When a file is added or modified
 
@@ -175,12 +189,36 @@ You can then use an SFTP action such as **Get file content**
 so you get the order's contents for further processing 
 and store that order in an orders database.
 
+When requesting file content, triggers don't get files 
+larger than 50 MB. To get files larger than 50 MB, 
+follow this pattern: 
+
+* Use a trigger that returns file properties, 
+such as **When a file is added or modified (properties only)**.
+
+* Follow the trigger with an action that reads the complete file, 
+such as **Get file content using path**, and have the action use 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
+
+<a name="get-content"></a>
+
 ### SFTP action: Get content
 
 This action gets the content from a file on an SFTP server. 
 So for example, you can add the trigger from the previous 
 example and a condition that the file's content must meet. 
 If the condition is true, the action that gets the content can run. 
+
+When requesting file content, triggers don't get files 
+larger than 50 MB. To get files larger than 50 MB, 
+follow this pattern: 
+
+* Use a trigger that returns file properties, 
+such as **When a file is added or modified (properties only)**.
+
+* Follow the trigger with an action that reads the complete file, 
+such as **Get file content using path**, and have the action use 
+[message chunking](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## Connector reference
 

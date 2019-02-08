@@ -27,23 +27,25 @@ It's important to note that there are two different ways to export a template:
 
 This article shows both approaches.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Deploy a solution
 
 To illustrate both approaches for exporting a template, let's start by deploying a solution to your subscription. If you already have a resource group in your subscription that you want to export, you don't have to deploy this solution. However, the rest of this article refers to the template for this solution. The example script deploys a storage account.
 
 ```powershell
-New-AzureRmResourceGroup -Name ExampleGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
+New-AzResourceGroup -Name ExampleGroup -Location "South Central US"
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup `
   -DeploymentName NewStorage
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```  
 
 ## Save template from deployment history
 
-You can retrieve a template from your deployment history by using the [Save-​Azure​Rm​Resource​Group​Deployment​Template](/powershell/module/azurerm.resources/save-azurermresourcegroupdeploymenttemplate) command. The following example saves the template that you previously deploy:
+You can retrieve a template from your deployment history by using the [Save-​Azure​Rm​Resource​Group​Deployment​Template](/powershell/module/az.resources/save-azresourcegroupdeploymenttemplate) command. The following example saves the template that you previously deploy:
 
 ```powershell
-Save-AzureRmResourceGroupDeploymentTemplate -ResourceGroupName ExampleGroup -DeploymentName NewStorage
+Save-AzResourceGroupDeploymentTemplate -ResourceGroupName ExampleGroup -DeploymentName NewStorage
 ```
 
 It returns the location of the template.
@@ -58,10 +60,10 @@ Open the file, and notice that it's the exact template you used for deployment. 
 
 ## Export resource group as template
 
-Instead of retrieving a template from the deployment history, you can retrieve a template that represents the current state of a resource group by using the [Export-​Azure​Rm​Resource​Group](/powershell/module/azurerm.resources/export-azurermresourcegroup) command. You use this command when you have made many changes to your resource group and no existing template represents all the changes. It is intended as a snapshot of the resource group, which you can use to redeploy to the same resource group. To use the exported template for other solutions, you must significantly modify it.
+Instead of retrieving a template from the deployment history, you can retrieve a template that represents the current state of a resource group by using the [Export-​Azure​Rm​Resource​Group](/powershell/module/az.resources/export-azresourcegroup) command. You use this command when you have made many changes to your resource group and no existing template represents all the changes. It is intended as a snapshot of the resource group, which you can use to redeploy to the same resource group. To use the exported template for other solutions, you must significantly modify it.
 
 ```powershell
-Export-AzureRmResourceGroup -ResourceGroupName ExampleGroup
+Export-AzResourceGroup -ResourceGroupName ExampleGroup
 ```
 
 It returns the location of the template.
@@ -107,7 +109,7 @@ Open the file, and notice that it's different than the template in GitHub. It ha
 You can redeploy this template, but it requires guessing a unique name for the storage account. The name of your parameter is slightly different.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup `
   -TemplateFile C:\Users\exampleuser\ExampleGroup.json `
   -storageAccounts_nf3mvst4nqb36standardsa_name tfnewstorage0501
 ```

@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Concepts related to detecting adult and racy content in images using the Computer Vision APi.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley

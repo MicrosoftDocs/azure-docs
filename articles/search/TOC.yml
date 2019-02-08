@@ -13,9 +13,9 @@
     href: search-create-service-portal.md
   - name: Portal
     items:
-    - name: Import, index, and query using tools
+    - name: Load and query an index
       href: search-get-started-portal.md
-    - name: Try cognitive search
+    - name: Enrich with AI (cognitive search)
       href: cognitive-search-quickstart-blob.md
   - name: .NET
     items:
@@ -51,6 +51,10 @@
   items:
   - name: Azure code samples
     href: https://azure.microsoft.com/resources/samples/?service=search
+- name: Training
+  items:
+  - name: Knowledge mining bootcamp
+    href: https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/
 - name: Concepts
   items:
   - name: Full text search
@@ -145,6 +149,10 @@
       href: https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index
     - name: Synonyms
       href: search-synonyms.md
+    - name: Model relational data
+      href: search-example-adventureworks-modeling.md
+    - name: Model multi-level facets
+      href: search-example-adventureworks-multilevel-faceting.md
   - name: Load and refresh data
     items:
     - name: Data import overview
@@ -207,15 +215,15 @@
         href: search-filters-facets.md
       - name: Filter expression syntax
         href: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
-    - name: Performance & optimization
-      href: search-performance-optimization.md
   - name: Administration & analytics
     items:
     - name: Administration (portal)
       href: search-manage.md
     - name: PowerShell (Azure Search)
       href: search-manage-powershell.md
-    - name: Monitor usage & statistics
+    - name: Performance & optimizations
+      href: search-performance-optimization.md
+    - name: Monitor activity and logging
       href: search-monitor-usage.md
     - name: Search traffic analytics
       href: search-traffic-analytics.md
@@ -264,6 +272,10 @@
       href: cognitive-search-skill-shaper.md
     - name: Deprecated Skills
       href: cognitive-search-skill-deprecated.md
+  - name: Custom skills (Preview)
+    items:
+    - name: Custom Web API
+      href: cognitive-search-custom-skill-web-api.md
 - name: Resources
   items:
   - name: Azure Community Support

@@ -4,9 +4,9 @@ titlesuffix: Azure Cognitive Services
 description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
@@ -44,7 +44,7 @@ The Batch Transcription API supports the following formats:
 > [!NOTE]
 > The Batch Transcription API requires an S0 key (paying tier). It does not work with a free (f0) key.
 
-For stereo audio streams, the Batch transcription API splits the left and right channel during the transcription. The two JSON files with the result are each created from a single channel. The timestamps per utterance enable the developer to create an ordered final transcript. The following JSON sample shows the output of a channel, includuing properties for setting up the profanity filter and the punctuation model.
+For stereo audio streams, the Batch transcription API splits the left and right channel during the transcription. The two JSON files with the result are each created from a single channel. The timestamps per utterance enable the developer to create an ordered final transcript. The following JSON shows a sample request, includuing properties for setting up the profanity filter, the punctuation model and word level timestamps
 
 ```json
 {
@@ -55,7 +55,8 @@ For stereo audio streams, the Batch transcription API splits the left and right 
   "description": "An optional description of the transcription.",
   "properties": {
     "ProfanityFilterMode": "Masked",
-    "PunctuationMode": "DictatedAndAutomatic"
+    "PunctuationMode": "DictatedAndAutomatic",
+    "AddWordLevelTimestamps" : "True"
   },
 ```
 
@@ -203,7 +204,7 @@ Currently, the only storage supported is Azure Blob storage.
 You can find the sample in this article on [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> An audio transcription ordinarily requires a time span equal to the duration of the audio file, plus a two- to three-minute overhead.
+> WE do not provide a time SLA for audio trascriptions through batch. However, once the transcription job is actioned (in Running state), is typially processed faster than real time.
 
 ## Next steps
 

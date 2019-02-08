@@ -5,9 +5,9 @@ description: Learn how to recognize entities using the Text Analytics REST API.
 services: cognitive-services
 author: ashmaka
 
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka

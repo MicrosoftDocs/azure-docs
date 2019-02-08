@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ---
+
 # Troubleshoot errors with runbooks
 
 ## Authentication errors when working with Azure Automation runbooks
@@ -26,13 +27,13 @@ Unknown_user_type: Unknown User Type
 
 #### Cause
 
-This error occurs if the credential asset name isn't valid or if the username and password that you used to set up the Automation credential asset aren't valid.
+This error occurs if the credential asset name isn't valid. This error may also occur if the username and password that you used to set up the Automation credential asset aren't valid.
 
 #### Resolution
 
 To determine what's wrong, take the following steps:  
 
-1. Make sure that you don’t have any special characters, including the **@** character in the Automation credential asset name that you're using to connect to Azure.  
+1. Make sure that you don’t have any special characters. These characters include the **@** character in the Automation credential asset name that you're using to connect to Azure.  
 2. Check that you can use the username and password that stored in the Azure Automation credential in your local PowerShell ISE editor. You can do check the username and password are correct by running the following cmdlets in the PowerShell ISE:  
 
    ```powershell
@@ -81,15 +82,19 @@ The subscription named <subscription name> cannot be found.
 
 #### Error
 
-This error occurs if the subscription name isn't valid or if the Azure Active Directory user who is trying to get the subscription details isn't configured as an admin of the subscription.
+This error may occur if:
+
+* The subscription name isn't valid
+
+* The Azure Active Directory user who is trying to get the subscription details isn't configured as an admin of the subscription.
 
 #### Resolution
 
-To determine if you've properly authenticated to Azure and have access to the subscription you're trying to select, take the following steps:  
+Take the following steps to determine if you've authenticated to Azure and have access to the subscription you're trying to select:  
 
-1. Test your script outside of Azure Automation to make sure it works stand-alone.
+1. To make sure it works stand-alone, test your script outside of Azure Automation.
 2. Make sure that you run the `Add-AzureAccount` cmdlet before running the `Select-AzureSubscription` cmdlet. 
-3. Add `Disable-AzureRmContextAutosave –Scope Process` to the beginning of your runbook. This ensures that any credentials apply only to the execution of the current runbook.
+3. Add `Disable-AzureRmContextAutosave –Scope Process` to the beginning of your runbook. This cmdlet ensures that any credentials apply only to the execution of the current runbook.
 4. If you still see this error message, modify your code by adding the **AzureRmContext** parameter following the `Add-AzureAccount` cmdlet and then execute the code.
 
    ```powershell
@@ -181,7 +186,7 @@ This error can be caused by using outdated Azure modules.
 
 This error can be resolved by updating your Azure modules to the latest version.
 
-In your Automation Account, click **Modules**, and click **Update Azure modules**. The update takes roughly 15 minutes, once complete re-run the runbook that was failing. To learn more about updating your modules, see [Update Azure modules in Azure Automation](../automation-update-azure-modules.md).
+In your Automation Account, click **Modules**, and click **Update Azure modules**. The update takes roughly 15 minutes, once complete rerun the runbook that was failing. To learn more about updating your modules, see [Update Azure modules in Azure Automation](../automation-update-azure-modules.md).
 
 ### <a name="runbook-auth-failure"></a>Scenario: Runbooks fail when dealing with multiple subscriptions
 
@@ -234,7 +239,7 @@ The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, fun
 
 #### Cause
 
-This error can be caused by the following reasons:
+This error can happen based on one the following reasons:
 
 1. The module containing the cmdlet isn't imported into the automation account
 2. The module containing the cmdlet is imported but is out of date
@@ -259,7 +264,7 @@ The job was tried three times but it failed
 
 #### Cause
 
-This error can be caused by the following reasons:
+This error occurs due to one of the following issues:
 
 1. Memory Limit. The documented limits on how much memory is allocated to a Sandbox is found at [Automation service limits](../../azure-subscription-service-limits.md#automation-limits). A job may fail it if it's using more than 400 MB of memory.
 
@@ -267,15 +272,19 @@ This error can be caused by the following reasons:
 
 3. Module Incompatible. This error can occur if module dependencies aren't correct and if they aren't, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
 
+4. Your runbook attempted to call a an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
+
 #### Resolution
 
 Any of the following solutions fix the problem:
 
-* Suggested methods to work within the memory limit are to split the workload between multiple runbooks, not process as much data in memory, not to write unnecessary output from your runbooks, or consider how many checkpoints you write into your PowerShell Workflow runbooks. You can use the clear method, such as `$myVar.clear()` to clear out the variable and use `[GC]::Collect()` to run garbage collection immediately, this will reduce the memory footprint of your runbook during runtime.
+* Suggested methods to work within the memory limit are to split the workload between multiple runbooks, not process as much data in memory, not to write unnecessary output from your runbooks, or consider how many checkpoints you write into your PowerShell Workflow runbooks. You can use the clear method, such as `$myVar.clear()` to clear out the variable and use `[GC]::Collect()` to run garbage collection immediately. These actions reduce the memory footprint of your runbook during runtime.
 
 * Update your Azure modules by following the steps [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).  
 
 * Another solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers aren't limited by the memory and network limits that Azure sandboxes are.
+
+* If you need to call a process (such as .exe or subprocess.call) in a runbook, you'll need to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook fails because of deserialized object
 
@@ -301,6 +310,34 @@ Any of the following three solutions fix this problem:
 2. Pass the name or value that you need from the complex object instead of passing the entire object.
 3. Use a PowerShell runbook instead of a PowerShell Workflow runbook.
 
+### <a name="runbook-fails"></a>Scenario: My Runbook fails but works when ran locally
+
+#### Issue
+
+Your script fails when ran as a runbook but it works when ran locally.
+
+#### Cause
+
+Your script may fail when running as a runbook for one of the following reasons:
+
+1. Authentication issues
+2. Required modules are not imported or out of date.
+3. Your script may be prompting for user interaction.
+4. Some modules make assumptions about libraries that are present on Windows computers. These libraries may not be present on a sandbox.
+5. Some modules rely on a .NET version that is different from the one available on the sandbox.
+
+#### Resolution
+
+Any of the following solutions may fix this problem:
+
+1. Verify you are properly [authenticating to Azure](../manage-runas-account.md).
+2. Ensure your [Azure modules are imported and up to date](../automation-update-azure-modules.md).
+3. Verify that none of your cmdlets are prompting for information. This behavior is not supported in runbooks.
+4. Check whether anything that is part of your module has a dependency on something that isn't included in the module.
+5. Azure sandboxes use .NET Framework 4.7.2, if a module uses a higher version it won't work. In this case, you should use a [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md)
+
+If none of these solutions solve your problemReview the [job logs](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) for specific details in to why your runbook may have failed.
+
 ### <a name="quota-exceeded"></a>Scenario: Runbook job failed because the allocated quota exceeded
 
 #### Issue
@@ -313,7 +350,7 @@ The quota for the monthly total job run time has been reached for this subscript
 
 #### Cause
 
-This error occurs when the job execution exceeds the 500-minute free quota for your account. This quota applies to all types of job execution tasks such as testing a job, starting a job from the portal, executing a job by using webhooks and scheduling a job to execute by using either the Azure portal or in your datacenter. To learn more about pricing for Automation, see [Automation pricing](https://azure.microsoft.com/pricing/details/automation/).
+This error occurs when the job execution exceeds the 500-minute free quota for your account. This quota applies to all types of job execution tasks. Some of these tasks may be testing a job, starting a job from the portal, executing a job by using webhooks, or scheduling a job to execute by using either the Azure portal or in your datacenter. To learn more about pricing for Automation, see [Automation pricing](https://azure.microsoft.com/pricing/details/automation/).
 
 #### Resolution
 
@@ -321,7 +358,7 @@ If you want to use more than 500 minutes of processing per month, you need to ch
 
 1. Sign in to your Azure subscription  
 2. Select the Automation account you wish to upgrade  
-3. Click on **Settings** > **Pricing**.
+3. Click **Settings** > **Pricing**.
 4. Click **Enable** on page bottom to upgrade your account to the **Basic** tier.
 
 ### <a name="cmdlet-not-recognized"></a>Scenario: Cmdlet not recognized when executing a runbook
@@ -336,7 +373,7 @@ Your runbook job fails with the error:
 
 #### Cause
 
-This error is caused when the PowerShell engine can't find the cmdlet you're using in your runbook. This could be because the module containing the cmdlet is missing from the account, there's a name conflict with a runbook name, or the cmdlet also exists in another module and Automation can't resolve the name.
+This error is caused when the PowerShell engine can't find the cmdlet you're using in your runbook. This error could be because the module containing the cmdlet is missing from the account, there's a name conflict with a runbook name, or the cmdlet also exists in another module and Automation can't resolve the name.
 
 #### Resolution
 
@@ -344,7 +381,7 @@ Any of the following solutions fix the problem:
 
 * Check that you've entered the cmdlet name correctly.  
 * Make sure the cmdlet exists in your Automation account and that there are no conflicts. To verify if the cmdlet is present, open a runbook in edit mode and search for the cmdlet you want to find in the library or run `Get-Command <CommandName>`. Once you've validated that the cmdlet is available to the account, and that there are no name conflicts with other cmdlets or runbooks, add it to the canvas and make sure that you're using a valid parameter set in your runbook.  
-* If you do have a name conflict and the cmdlet is available in two different modules, you can resolve this by using the fully qualified name for the cmdlet. For example, you can use **ModuleName\CmdletName**.  
+* If you do have a name conflict and the cmdlet is available in two different modules, you can resolve this issue by using the fully qualified name for the cmdlet. For example, you can use **ModuleName\CmdletName**.  
 * If you're executing the runbook on-premises in a hybrid worker group, then make sure that the module and cmdlet is installed on the machine that hosts the hybrid worker.
 
 ### <a name="long-running-runbook"></a>Scenario: A long running runbook fails to complete
@@ -357,7 +394,7 @@ Your runbook shows in a **Stopped** state after running for 3 hours. You may als
 The job was evicted and subsequently reached a Stopped state. The job cannot continue running
 ```
 
-This behavior is by design in Azure sandboxes because of the "Fair Share" monitoring of processes within Azure Automation, which automatically stops a runbook if it executes longer than three hours. The status of a runbook that goes past the fair-share time limit differs by runbook type. PowerShell and Python runbooks are set to a **Stopped** status. PowerShell Workflow runbooks are set to **Failed**.
+This behavior is by design in Azure sandboxes because of the "Fair Share" monitoring of processes within Azure Automation. If it executes longer than three hours, Fair Share automatically stops a runbook. The status of a runbook that goes past the fair-share time limit differs by runbook type. PowerShell and Python runbooks are set to a **Stopped** status. PowerShell Workflow runbooks are set to **Failed**.
 
 #### Cause
 
@@ -367,21 +404,21 @@ The runbook ran over the 3 hour limit allowed by fair share in an Azure Sandbox.
 
 One recommended solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
-Hybrid Workers aren't limited by the [fair share](../automation-runbook-execution.md#fair-share) 3 hour runbook limit that Azure sandboxes are. While Hybrid Runbook Workers aren't limited by the 3 hour fair share limit, runbooks ran on Hybrid Runbook Workers should still be developed to support restart behaviors if there are unexpected local infrastructure issues.
+Hybrid Workers aren't limited by the [fair share](../automation-runbook-execution.md#fair-share) 3 hour runbook limit that Azure sandboxes are. Runbooks ran on Hybrid Runbook Workers should be developed to support restart behaviors if there are unexpected local infrastructure issues.
 
-Another option is to optimize the runbook by creating [child runbooks](../automation-child-runbooks.md). If your runbook loops through the same function on a number of resources, such as a database operation on several databases, you can move that function to a child runbook. Each of these child runbooks executes in parallel in separate processes. This behavior decreases the total amount of time for the parent runbook to complete.
+Another option is to optimize the runbook by creating [child runbooks](../automation-child-runbooks.md). If your runbook loops through the same function on several resources, such as a database operation on several databases, you can move that function to a child runbook. Each of these child runbooks executes in parallel in separate processes. This behavior decreases the total amount of time for the parent runbook to complete.
 
 The PowerShell cmdlets that enable the child runbook scenario are:
 
 [Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) - This cmdlet allows you to start a runbook and pass parameters to the runbook
 
-[Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) - This cmdlet allows you to check the job status for each child if there are operations that need to be performed after the child runbook completes.
+[Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) - If there are operations that need to be performed after the child runbook completes, this cmdlet allows you to check the job status for each child.
 
-### <a name="expired webhook"></a>Scenario: Status: 400 Bad Request when invoking a webhook
+### <a name="expired webhook"></a>Scenario: Status: 400 Bad Request when calling a webhook
 
 #### Issue
 
-When you try invoke a webhook for an Azure Automation runbook, you receive the following error.
+When you try invoke a webhook for an Azure Automation runbook, you receive the following error:
 
 ```error
 400 Bad Request : This webhook has expired or is disabled
@@ -389,11 +426,11 @@ When you try invoke a webhook for an Azure Automation runbook, you receive the f
 
 #### Cause
 
-The webhook that you are trying to invoke is either disabled or is expired.
+The webhook that you're trying to call is either disabled or is expired.
 
 #### Resolution
 
-If the webhook is disabled, you can re-enable the webhook through the Azure portal. when a webhook is expired, the webhook needs to be deleted and recreated. You can only [renew a webhook](../automation-webhooks.md#renew-webhook) if it has not already expired.
+If the webhook is disabled, you can re-enable the webhook through the Azure portal. when a webhook is expired, the webhook needs to be deleted and recreated. You can only [renew a webhook](../automation-webhooks.md#renew-webhook) if it hasn't already expired.
 
 ### <a name="429"></a>Scenario: 429: The request rate is currently too large. Please try again
 
@@ -415,32 +452,6 @@ There are two ways to resolve this error:
 
 * Edit the runbook, and reduce the number of job streams that it emits​.
 * Reduce the number of streams to be retrieved when running the cmdlet. To follow this behavior, you can specify the `-Stream Output` parameter to the `Get-AzureRmAutomationJobOutput` cmdlet to retrieve only output streams. ​
-
-## Common errors when importing modules
-
-### <a name="module-fails-to-import"></a>Scenario: Module fails to import or cmdlets can't be executed after importing
-
-#### Issue
-
-A module fails to import or imports successfully, but no cmdlets are extracted.
-
-#### Cause
-
-Some common reasons that a module might not successfully import to Azure Automation are:
-
-* The structure doesn't match the structure that Automation needs it to be in.
-* The module is dependent on another module that hasn't been deployed to your Automation account.
-* The module is missing its dependencies in the folder.
-* The `New-AzureRmAutomationModule` cmdlet is being used to upload the module, and you haven't given the full storage path or haven't loaded the module by using a publicly accessible URL.
-
-#### Resolution
-
-Any of the following solutions fix the problem:
-
-* Make sure that the module follows the following format:
-  ModuleName.Zip **->** ModuleName or Version Number **->** (ModuleName.psm1, ModuleName.psd1)
-* Open the .psd1 file and see if the module has any dependencies. If it does, upload these modules to the Automation account.
-* Make sure that any referenced .dlls are present in the module folder.
 
 ## Next steps
 
