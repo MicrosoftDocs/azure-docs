@@ -693,7 +693,7 @@ including reading and setting HTTP message headers and defining a message body f
 You call a custom API by calling one of the [InvokeApiAsync] methods on the client. For example, the following
 line of code sends a POST request to the **completeAll** API on the backend:
 
-```
+```javascript
 var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Net.Http.HttpMethod.Post, null);
 ```
 
