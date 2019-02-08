@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/06/2019
+ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -16,9 +16,6 @@ manager: carmonm
 To update the Azure modules in your Automation Account it's recommended you now use the [Update Azure modules runbook](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), which is now open source. Additionally, you can still use the helper runbook [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) or use the **Update Azure Modules** button in the portal to update your Azure modules. To learn more about using the open-source runbook, see [Update Azure Modules with open source runbook](#open-source).
 
 The most common Azure PowerShell modules are provided by default in each Automation account. The Azure team updates the Azure modules regularly. In your Automation account, you're provided a way to update the modules in the account when new versions are available from the portal.
-
-> [!NOTE]
-> The new [Azure PowerShell Az module](/powershell/azure/new-azureps-module-az?view=azurermps-6.13.0) are not supported in Azure Automation.
 
 Because modules are updated regularly by the product group, changes can occur with the included cmdlets. This action may negatively impact your runbooks depending on the type of change, such as renaming a parameter or deprecating a cmdlet entirely.
 
