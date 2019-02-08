@@ -106,45 +106,45 @@ For this example, the following commands are used to build the route table, add 
 
 1. First the base routing table must be created. This snippet shows the creation of the table for the Backend subnet. In the script, a corresponding table is also created for the Frontend subnet.
 
-```powershell
-New-AzureRouteTable -Name $BERouteTableName `
-    -Location $DeploymentLocation `
-    -Label "Route table for $BESubnet subnet"
-```
+   ```powershell
+   New-AzureRouteTable -Name $BERouteTableName `
+       -Location $DeploymentLocation `
+       -Label "Route table for $BESubnet subnet"
+   ```
 
 2. Once the route table is created, specific user defined routes can be added. In this snipped, all traffic (0.0.0.0/0) will be routed through the virtual appliance (a variable, $VMIP[0], is used to pass in the IP address assigned when the virtual appliance was created earlier in the script). In the script, a corresponding rule is also created in the Frontend table.
 
-```powershell
-Get-AzureRouteTable $BERouteTableName | `
-    Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
-    -NextHopType VirtualAppliance `
-    -NextHopIpAddress $VMIP[0]
-```
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "All traffic to FW" -AddressPrefix 0.0.0.0/0 `
+       -NextHopType VirtualAppliance `
+       -NextHopIpAddress $VMIP[0]
+   ```
 
 3. The above route entry will override the default "0.0.0.0/0" route, but the default 10.0.0.0/16 rule still existing which would allow traffic within the VNet to route directly to the destination and not to the Network Virtual Appliance. To correct this behavior the follow rule must be added.
 
-```powershell
-Get-AzureRouteTable $BERouteTableName | `
-    Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
-    -NextHopType VirtualAppliance `
-    -NextHopIpAddress $VMIP[0]
-```
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "Internal traffic to FW" -AddressPrefix $VNetPrefix `
+       -NextHopType VirtualAppliance `
+       -NextHopIpAddress $VMIP[0]
+   ```
 
 4. At this point there is a choice to be made. With the above two routes all traffic will route to the firewall for assessment, even traffic within a single subnet. This may be desired, however to allow traffic within a subnet to route locally without involvement from the firewall a third, very specific rule can be added. This route states that any address destine for the local subnet can just route there directly (NextHopType = VNETLocal).
 
-```powershell
-Get-AzureRouteTable $BERouteTableName | `
-    Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
-        -NextHopType VNETLocal
-```
+   ```powershell
+   Get-AzureRouteTable $BERouteTableName | `
+       Set-AzureRoute -RouteName "Allow Intra-Subnet Traffic" -AddressPrefix $BEPrefix `
+           -NextHopType VNETLocal
+   ```
 
 5. Finally, with the routing table created and populated with a user defined routes, the table must now be bound to a subnet. In the script, the front end route table is also bound to the Frontend subnet. Here is the binding script for the back end subnet.
 
-```powershell
-Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
-    -SubnetName $BESubnet `
-    -RouteTableName $BERouteTableName
-```
+   ```powershell
+   Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
+       -SubnetName $BESubnet `
+       -RouteTableName $BERouteTableName
+   ```
 
 ## IP Forwarding
 A companion feature to UDR, is IP Forwarding. This is a setting on a Virtual Appliance that allows it to receive traffic not specifically addressed to the appliance and then forward that traffic to its ultimate destination.
@@ -156,14 +156,14 @@ As an example, if traffic from AppVM01 makes a request to the DNS01 server, UDR 
 > 
 > 
 
-Setting up IP Forwarding is a single command and can be done at VM creation time. For the flow of this example the code snippet is towards the end of the script and grouped with the UDR commands:
+Setting up IP Forwarding is a single command and can be done at VM creation time. For the flow of this example, the code snippet is towards the end of the script and grouped with the UDR commands:
 
 1. Call the VM instance that is your virtual appliance, the firewall in this case, and enable IP Forwarding (Note; any item in red beginning with a dollar sign (e.g.: $VMName[0]) is a user defined variable from the script in the reference section of this document. The zero in brackets, [0], represents the first VM in the array of VMs, for the example script to work without modification, the first VM (VM 0) must be the firewall):
 
-```powershell
-Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
-    Set-AzureIPForwarding -Enable
-```
+    ```powershell
+    Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
+        Set-AzureIPForwarding -Enable
+    ```
 
 ## Network Security Groups (NSG)
 In this example, a NSG group is built and then loaded with a single rule. This group is then bound only to the Frontend and Backend subnets (not the SecNet). Declaratively the following rule is being built:
