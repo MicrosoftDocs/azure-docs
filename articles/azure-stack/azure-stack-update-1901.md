@@ -118,6 +118,9 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 <!-- 3209594, IS ASDK -->
 - Removed the **Effective Security Rules** link from the **Networking Properties** blade as this feature is not supported in Azure Stack. Having the link present gave the impression that this feature was supported but not working. To alleviate confusion, we removed the link.
 
+<!-- 3139614 | IS -->
+- Fixed an issue in which after an update was applied to Azure Stack from an OEM, the **Update available** notification did not appear in the Azure Stack administrator portal.
+
 ## Changes
 
 <!-- 3083238 IS -->
