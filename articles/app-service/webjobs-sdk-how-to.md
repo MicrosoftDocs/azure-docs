@@ -39,9 +39,11 @@ The host is a runtime container for functions.  It listens for triggers and call
 
 This is a key difference between using the WebJobs SDK directly and using it indirectly by using Azure Functions. In Azure Functions, the service controls the host, and you can't customize it by writing code. Azure Functions lets you customize host behavior through settings in the *host.json* file. Those settings are strings, not code, which limits the kinds of customizations you can do.
 
-### Host connection strings (version 2.x)
+### Host connection strings 
 
-Version 2.x of the WebJobs SDK looks for Storage and Service Bus connection strings in  *local.settings.json* when you run locally, or in the WebJob's environment when you run in Azure. If you want to use your own names for these connection strings, or store them elsewhere, you can set them in code, as shown here:
+The WebJobs SDK looks for Azure Storage and Azure Service Bus connection strings in the *local.settings.json* file when you run locally, or in the WebJob's environment when you run in Azure. By default, a Storage connection string setting named `AzureWebJobsStorage` is required.  
+
+Version 2.x of the SDK lets you use your own names for these connection strings, or store them elsewhere. You can set them in code, as shown here:
 
 ```cs
 static void Main(string[] args)
@@ -60,6 +62,8 @@ static void Main(string[] args)
     host.RunAndBlock();
 }
 ```
+
+Because it uses the default .NET Core configuration APIs, there is no API in version 3.x to change the connection string names.
 
 ### Host development settings
 
