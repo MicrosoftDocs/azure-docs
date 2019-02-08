@@ -23,7 +23,7 @@ This article describes how to enable alerting when processor and memory utilizat
 ## Create alert on cluster CPU or memory utilization
 To alert when CPU or memory utilization is high for a cluster, you create a metric measurement alert rule that is based off of log queries provided. The queries compare a datetime to the present using the `now` operator and goes back one hour. All dates stored by Azure Monitor for containers are in UTC format.  
 
-Before starting, if you are not familiar with Alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](./platform/alerts-overview.md). To learn more about alerts using log queries, see [Log alerts in Azure Monitor](./platform/alerts-unified-log.md)
+Before starting, if you are not familiar with Alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md). To learn more about alerts using log queries, see [Log alerts in Azure Monitor](../platform/alerts-unified-log.md)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Monitor** from the left-hand pane in the Azure portal. Under the **Insights** section, select **Containers**.    
