@@ -67,9 +67,10 @@ Beeline is a Hive client that is included on the head nodes of your HDInsight cl
         ```bash
         beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
         ```
-    * When connecting to an Enterprise Security Package (ESP) cluster joined to Azure Active Directory (AAD), you must also specify the domain name and the name of a domain user account with permissions to access the cluster:
+    * When connecting to an Enterprise Security Package (ESP) cluster joined to Azure Active Directory (AAD), you must also specify the domain name `<AAD-Domain>` and the name of a domain user account with permissions to access the cluster `<username>`:
         
         ```bash
+        kinit <username>
         beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
         ```
 
