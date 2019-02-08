@@ -6,7 +6,7 @@ author: jamesbak
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/07/2019
 ms.author: jamesbak
 #Customer intent: As an analytics user, I want to perform an ETL operation so that I can work with my data in my preferred environment.
 ---
@@ -233,10 +233,10 @@ You need the server name from your SQL database for this operation. Complete the
    sudo apt-get --assume-yes install freetds-dev freetds-bin
    ```
 
- 6. After the installation completes, use the following command to connect to the SQL Database server.
+6. After the installation completes, use the following command to connect to the SQL Database server.
 
-    ```bash
-    TDSVER=8.0 tsql -H <server-name>.database.windows.net -U <admin-login> -p 1433 -D <database-name>
+   ```bash
+   TDSVER=8.0 tsql -H <server-name>.database.windows.net -U <admin-login> -p 1433 -D <database-name>
     ```
    * Replace the `<server-name>` placeholder with the SQL Database server name.
 
