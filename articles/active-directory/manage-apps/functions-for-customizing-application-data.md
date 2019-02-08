@@ -318,7 +318,8 @@ NormalizeDiacritics([givenName])
 * **INPUT** (givenName): "Zoë"
 * **OUTPUT**:  "Zoe"
 
-### Split a string into a multi-valued arrayYou need to take a comma-delimited list of strings, and split them into an array that can be plugged into a multi-value attribute like Salesforce's PermissionSets attribute. In this example, a list of permission sets has been populated in extensionAttribute5 in Azure AD.
+### Split a string into a multi-valued array
+You need to take a comma-delimited list of strings, and split them into an array that can be plugged into a multi-value attribute like Salesforce's PermissionSets attribute. In this example, a list of permission sets has been populated in extensionAttribute5 in Azure AD.
 
 **Expression:** <br>
 Split([extensionAttribute5], ",")
