@@ -26,4 +26,4 @@ ms.custom: "include file"
 | Runbook | 10 Runbook actions in an Action Group | call support |
 | SMS | 10 SMS actions in an Action Group. Also see the [rate limiting information](../articles/azure-monitor/platform/alerts-rate-limiting.md). | call support |
 | Voice | 10 Voice actions in an Action Group. Also see the [rate limiting information](../articles/azure-monitor/platform/alerts-rate-limiting.md). | call support |
-| Webhook | 10 Webhook actions in an Action Group. Other limits available at [action specific information](../articles/azure-monitor/platform/action-groups#action-specific-information).  | call support |
+| Webhook | 10 Webhook actions in an Action Group. Other limits available at [action specific information](../articles/azure-monitor/platform/action-groups.md#action-specific-information).  | call support |
