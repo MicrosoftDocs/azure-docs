@@ -116,7 +116,7 @@ Run the following PowerShell script to install these modules on your development
     Install-Module -Name AzureRm.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2.4.0 -Force
+    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
     ```
@@ -128,7 +128,7 @@ Run the following PowerShell script to install these modules on your development
     Install-Module -Name AzureRm.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2.4.0 -Force
+    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 
     Install-Module -Name AzureStack -RequiredVersion 1.5.0
     ```
@@ -217,6 +217,7 @@ Installation has four steps:
     $Path = "<Path that is used to save the packages>"
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
+    ```
 
 ### Enable additional storage features
 
