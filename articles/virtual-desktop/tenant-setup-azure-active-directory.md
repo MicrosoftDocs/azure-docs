@@ -40,7 +40,7 @@ As global administrator of your Azure Active Directory, you must grant permissio
 
 Cloud Solution Provider organizations granting Azure Active Directory consent on behalf of the Cloud Solution Provider customer they're managing must use a Global Administrator account sourced from the customer’s Azure Active Directory, not from the Cloud Solution Provider organization itself.
 
-To grant permissions, follow this procedure, in this order:
+To grant permissions:
 
 1. Open a browser and connect to the [Remote Desktop Web page URL](https://rdweb.wvd.microsoft.com).
 2. For **Consent Option** > **Server App**, enter the Azure AD tenant name or ID, then select **Submit**.
