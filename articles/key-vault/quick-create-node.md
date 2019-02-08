@@ -193,13 +193,7 @@ git push azure master
 
 After this, when you browse to https://<app_name>.azurewebsites.net, you can see the secret value. Make sure that you replaced the name <YourKeyVaultName> with your vault name.
 
-## Clean up resources
-
-Delete the resource group, virtual machine, and all related resources when you no longer need them. To do so, select the resource group for the VM and select **Delete**.
-
 ## Next steps
 
-* [Azure Key Vault home page](https://azure.microsoft.com/services/key-vault/)
-* [Azure Key Vault documentation](https://docs.microsoft.com/azure/key-vault/)
-* [Azure SDK for Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
-* [Azure REST API reference](https://docs.microsoft.com/rest/api/keyvault/)
+> [!div class="nextstepaction"]
+> [Azure SDK for Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
