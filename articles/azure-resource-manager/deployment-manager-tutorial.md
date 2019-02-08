@@ -333,7 +333,7 @@ Azure PowerShell can be used to deploy the templates.
         -Name $rolloutName
     ```
 
-    The Deployment Manager PowerShell cmdlets must be installed before you can run this cmdlet. See [Prerequisites](#prerequisite).
+    The Deployment Manager PowerShell cmdlets must be installed before you can run this cmdlet. See Prerequisites.
 
     The following sample shows the running status:
     

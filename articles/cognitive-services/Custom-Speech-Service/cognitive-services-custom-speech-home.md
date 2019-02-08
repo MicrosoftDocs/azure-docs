@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/07/2017
-ms.author: panosper
+ms.author: nitinme
 ---
 
 # What is Custom Speech Service?

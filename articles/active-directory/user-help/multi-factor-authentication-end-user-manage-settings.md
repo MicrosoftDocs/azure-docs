@@ -70,7 +70,7 @@ Depending on your organization settings, you may have a checkbox that says "Don'
 2. The next time you sign in on any device, you'll be prompted to perform two-step verification.
 
 ## How do I clean up Microsoft Authenticator from my old device and move to a new one?
-When you uninstall the app from your device or reset the device, it does not remove the activation on the back end. For more information, see [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
+When you uninstall the app from your device or reset the device, it does not remove the activation on the back end. For more information, see [Microsoft Authenticator](user-help-auth-app-download-install.md).
 
 ## Next steps
 * Get troubleshooting tips and help on [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md)

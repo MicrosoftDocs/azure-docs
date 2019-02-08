@@ -185,7 +185,7 @@ The docker push commands take a couple of minutes to complete.
 
 ## List images in registry
 
-To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list) command. Update the command with the ACR instance name.
+To return a list of images that have been pushed to your Azure Container registry, use the [az acr repository list](/cli/azure/acr/repository) command. Update the command with the ACR instance name.
 
 ```bash
 az acr repository list --name <acrName> --output table
