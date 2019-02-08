@@ -28,7 +28,7 @@ In this part of the tutorial you:
 > * Upload existing data
 > * Create an experiment
 
-You can then use this experiment to [train models in part 2](tutorial-part2-train-credit-risk.md) and then [deploy them in part 3](tutorial-part3-credit-risk-deploy.md).
+You can then use this experiment to [train models in part 2](tutorial-part2-credit-risk-train.md) and then [deploy them in part 3](tutorial-part3-credit-risk-deploy.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -37,7 +37,7 @@ You can then use this experiment to [train models in part 2](tutorial-part2-trai
 
 This tutorial assumes that you've used Machine Learning Studio at least once before, and that you have some understanding of machine learning concepts. But it doesn't assume you're an expert in either.
 
-If you've never used **Azure Machine Learning Studio** before, you might want to start with the quickstart, [Create your first data science experiment in Azure Machine Learning Studio](create-experiment.md). The quickstart takes you through Machine Learning Studio for the first time. It shows you the basics of how to drag-and-drop modules onto your experiment, connect them together, run the experiment, and look at the results. 
+If you've never used **Azure Machine Learning Studio** before, you might want to start with the quickstart, [Create your first data science experiment in Azure Machine Learning Studio](create-experiment.md). The quickstart takes you through Machine Learning Studio for the first time. It shows you the basics of how to drag-and-drop modules onto your experiment, connect them together, run the experiment, and look at the results.
 
 
 > [!TIP] 
@@ -298,4 +298,4 @@ In this tutorial you completed these steps:
 You are now ready to train and evaluate models for this data.
 
 > [!div class="nextstepaction"]
-> [Tutorial 2 - Train and evaluate models](tutorial-part1-credit-risk.md)
+> [Tutorial 2 - Train and evaluate models](tutorial-part2-credit-risk-train.md)
