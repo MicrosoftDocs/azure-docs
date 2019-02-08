@@ -115,8 +115,8 @@
       href: algorithm-choice.md
     - name: Algorithm cheat sheet
       href: algorithm-cheat-sheet.md        
-    - name: Machine learning basic algorithms
-      displayName: infographic
+    - name: Algorithm examples
+      displayName: infographic, studio basics
       href: basics-infographic-with-algorithm-examples.md
   - name: Deploy models
     items:

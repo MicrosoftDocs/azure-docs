@@ -35,7 +35,7 @@ You can use SQL database auditing to:
 - **Analyze** reports. You can find suspicious events, unusual activity, and trends.
 
 > [!IMPORTANT]
-> Audit logs are written to **Append Blobs** in an Azure blob storage on your Azure subscription.
+> Audit logs are written to **Append Blobs** in Azure Blob storage on your Azure subscription.
 >
 > - **Premium storage** is currently **not supported** by Append Blobs.
 > - **Storage in VNet** is currently **not supported**.
@@ -246,7 +246,7 @@ Extended policy with WHERE clause support for additional filtering:
 
 You can manage Azure SQL database auditing using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) templates, as shown in these examples:
 
-- [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Azure blob storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Azure Blob storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 

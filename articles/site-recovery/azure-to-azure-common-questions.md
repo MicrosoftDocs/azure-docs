@@ -28,6 +28,10 @@ This article provides answers to common questions about deploying disaster recov
 
 ### How is Site Recovery priced?
 Review [Azure Site Recovery pricing](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) details.
+### How does the free tier for Azure Site Recovery work?
+Every instance that is protected with Azure Site Recovery is free for the first 31 days of protection. From the 32nd day onwards, protection for the instance is charged at the rates above.
+###During the first 31 days, will I incur any other Azure charges?
+Yes, even though Azure Site Recovery is free during the first 31 days of a protected instance, you might incur charges for Azure Storage, storage transactions and data transfer. A recovered virtual machine might also incur Azure compute charges. Get complete details on pricing [here](https://azure.microsoft.com/pricing/details/site-recovery)
 
 ### What are the best practices for configuring Site Recovery on Azure VMs?
 1. [Understand Azure-to-Azure architecture](azure-to-azure-architecture.md)

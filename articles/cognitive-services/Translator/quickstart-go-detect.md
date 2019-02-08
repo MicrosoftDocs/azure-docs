@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you identify the language of the source text using the Translator Text API with Go.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
