@@ -36,12 +36,12 @@ In the **Application Settings** page, you can change the name and URL of your ap
 > If you change your URL, your old URL can be taken by another Azure IoT Central customer. If that happens, it is no longer available for you to use. When you change your URL, the old URL no longer works, and you need to notify your users about the new URL to use.
 
 ### Prepare and upload image
-To change the application image, see [Prepare and upload images to your Azure IoT Central application](howto-prepare-images-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+To change the application image, see [Prepare and upload images to your Azure IoT Central application](howto-prepare-images-experimental.md).
 
 ### Copy an application
 You can create a copy of any application, minus any device instances, device data history, and user data. The copy will be a Pay-As-You-Go application that you'll be charged for. You can't create a Trial application in this way.
 
-Click the **Copy** button. In the dialog box, enter the details for the new Pay-As-You-Go application. Then click the **Copy** button to confirm that you want to proceed. Learn more about the fields in this form in [Create an application](quick-deploy-iot-central-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) quickstart.
+Click the **Copy** button. In the dialog box, enter the details for the new Pay-As-You-Go application. Then click the **Copy** button to confirm that you want to proceed. Learn more about the fields in this form in [Create an application](quick-deploy-iot-central-experimental.md) quickstart.
 
 ![Application settings page](media/howto-administer-experimental/appCopy2.png)
 
@@ -168,4 +168,4 @@ To learn more, take a look at these packages on GitHub.
 Now that you've learned how to administer your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Set up the device template](howto-set-up-template-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+> [Set up the device template](howto-set-up-template-experimental.md)

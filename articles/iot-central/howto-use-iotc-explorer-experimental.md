@@ -115,4 +115,4 @@ iotc-explorer get-twin <your-device-id> --raw
 ```
 
 ## Next steps
-Now that you have learned how to use the IoT Central Explorer, the suggested next step is to explore [managing devices IoT Central](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+Now that you have learned how to use the IoT Central Explorer, the suggested next step is to explore [managing devices IoT Central](howto-manage-devices-experimental.md).

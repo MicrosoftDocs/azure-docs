@@ -93,6 +93,6 @@ In order to view the status of each device in the job, click on the job name. He
 
 Now that you have learned how to create jobs in your Azure IoT Central application, here are some next steps:
 
-- [Use device sets](howto-use-device-sets-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-- [Manage your devices](howto-manage-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-- [Version your device template](howto-version-devicetemplate.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+- [Use device sets](howto-use-device-sets-experimental.md)
+- [Manage your devices](howto-manage-devices-experimental.md)
+- [Version your device template](howto-version-devicetemplate.md)
