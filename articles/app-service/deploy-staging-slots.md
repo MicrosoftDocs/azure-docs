@@ -159,7 +159,7 @@ To swap with preview, follow these steps.
 
 4. When you're finished, close the dialog by clicking **Close**.
 
-To automate a multi-phase swap, see [Automate with PowerShell](#automate-with-azure-powershell).
+To automate a multi-phase swap, see Automate with PowerShell.
 
 <a name="Rollback"></a>
 
