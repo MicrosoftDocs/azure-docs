@@ -1,6 +1,6 @@
 ---
 title: Manage Azure resources by using the Azure portal | Microsoft Docs
-description: Use Azure portal and Azure Resource Manage to manage your resources. 
+description: Use the Azure portal and Azure Resource Manage to manage your resources. 
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian

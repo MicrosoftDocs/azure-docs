@@ -28,7 +28,7 @@ A resource group is a container that holds related resources for an Azure soluti
 
 The resource group stores metadata about the resources. Therefore, when you specify a location for the resource group, you are specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
 
-## Add resource groups
+## Create resource groups
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Resource groups**
@@ -77,6 +77,8 @@ You can move the resources in the group to another resource group. For more info
 ## Move to another subscription
 
 You can move the resources in the resource group to another subscription. For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
+
+## Lock resource groups
 
 ## Tag resource groups
 
