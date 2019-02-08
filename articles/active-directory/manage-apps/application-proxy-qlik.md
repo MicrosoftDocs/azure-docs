@@ -3,14 +3,14 @@ title: Azure AD App Proxy and Qlik Sense| Microsoft Docs
 description:  Turn on Application Proxy in the Azure  portal, and install the Connectors for the reverse proxy.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 

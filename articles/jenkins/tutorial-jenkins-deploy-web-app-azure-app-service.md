@@ -54,7 +54,7 @@ and Maven tools installed on an Azure Linux VM
   [Create Jenkins server on an Azure Linux VM](/azure/jenkins/install-jenkins-solution-template)
 
 * A [GitHub](https://github.com) account so you can get a 
-working copy ([fork](#fork)) for the sample Java web app. 
+working copy (fork) for the sample Java web app. 
 
 * [Azure CLI](/cli/azure/install-azure-cli), 
 which you can run from either your local command line 

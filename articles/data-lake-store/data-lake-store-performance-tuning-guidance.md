@@ -45,7 +45,7 @@ Once you have addressed the source hardware and network connectivity bottlenecks
 
 | Tool               | Settings		| More Details                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| Powershell       | PerFileThreadCount, ConcurrentFileCount |	[Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell)	|
+| Powershell       | PerFileThreadCount, ConcurrentFileCount |	[Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell)	|
 | AdlCopy    | Azure Data Lake Analytics units	|	[Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
 | DistCp            | -m (mapper)	| [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies	| [Link](../data-factory/copy-activity-performance.md)                          |
