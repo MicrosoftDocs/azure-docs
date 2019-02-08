@@ -12,7 +12,7 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 02/12/2019
 ms.author: anwestg
 
 ---
@@ -21,14 +21,15 @@ ms.author: anwestg
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!IMPORTANT]  
-> Apply the 1809 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.4.
+> Apply the 1901 update to your Azure Stack integrated system or deploy the latest Azure Stack development kit before deploying Azure App Service 1.5.
 >
 >
 
 By following the instructions in this article, you can upgrade the [App Service resource provider](azure-stack-app-service-overview.md) deployed in an Azure Stack environment that is connected to the Internet.
 
 > [!IMPORTANT]  
-> Prior to running the upgrade, make sure that you have already completed the [deployment of the Azure App Service on Azure Stack Resource Provider](azure-stack-app-service-deploy.md)
+> Prior to running the upgrade, make sure that you have already completed the [deployment of the Azure App Service on Azure Stack Resource Provider](azure-stack-app-service-deploy.md) and that you have read the [release notes](azure-stack-app-service-release-notes-update-five.md) which accompany the 1.5 release.
+
 
 ## Run the App Service resource provider installer
 
