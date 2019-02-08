@@ -84,7 +84,7 @@ The following administrator roles are available:
   > [!NOTE]
   > To deploy Exchange ActiveSync conditional access policy in Azure, the user must also be a Global Administrator.
   
-* **[Customer Lockbox access approver](customer-lockbox-access-approver)**: Manages [Customer Lockbox requests](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests?view=o365-worldwide) in your organization. They receive email notifications for Customer Lockbox requests and can approve/deny requests from the Microsoft 365 admin center. They can also can turn on or off the Customer Lockbox feature. Only global admins can reset the passwords of people assigned to this role.
+* **[Customer Lockbox access approver](#customer-lockbox-access-approver)**: Manages [Customer Lockbox requests](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests?view=o365-worldwide) in your organization. They receive email notifications for Customer Lockbox requests and can approve/deny requests from the Microsoft 365 admin center. They can also can turn on or off the Customer Lockbox feature. Only global admins can reset the passwords of people assigned to this role.
 
 * **[Device Administrators](#device-administrators)**: This role is available for assignment only as an additional local administrator in [Device settings](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory. 
 
