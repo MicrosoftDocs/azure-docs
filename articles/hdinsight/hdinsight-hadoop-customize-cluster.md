@@ -89,7 +89,7 @@ HDInsight provides several scripts to install the following components on HDInsi
 ## Call scripts using Azure PowerShell
 This following PowerShell script demonstrates how to install Spark on Windows based HDInsight cluster.  
 
-    ```powershell
+    ```powershell  
     # Provide values for these variables
     $subscriptionID = "<Azure Subscription ID>" # After "Connect-AzureRmAccount", use "Get-AzureRmSubscription" to list IDs.
 
@@ -181,12 +181,14 @@ The following sample demonstrates how to install Apache Spark on Windows based H
 
 1. Create a C# console application in Visual Studio.
 2. From the Nuget Package Manager Console, run the following command.
-    ```powershell
+
+    ```powershell  
         Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
     ```
-3. Use the following using statements in the Program.cs file:
+
+1. Use the following using statements in the Program.cs file:
 
     ```csharp
         using System;
