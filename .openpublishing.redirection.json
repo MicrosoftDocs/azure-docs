@@ -13572,6 +13572,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-service-tiers.md",
+      "redirect_url": "/azure/sql-database/sql-database-purchase-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-security.md",
       "redirect_url": "/azure/sql-database/sql-database-security-overview",
       "redirect_document_id": false

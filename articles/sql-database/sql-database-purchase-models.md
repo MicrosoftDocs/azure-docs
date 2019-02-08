@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 02/08/2019
 ---
 # Azure SQL Database purchasing models
 
@@ -32,7 +32,7 @@ The following table and chart compare and contrast these two purchasing models.
 
 |**Purchasing model**|**Description**|**Best for**|
 |---|---|---|
-|DTU-based model|This model is based on a bundled measure of compute, storage, and IO resources. Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs?](sql-database-service-tiers.md#dtu-based-purchasing-model).|Best for customers who want simple, pre-configured resource options.|
+|DTU-based model|This model is based on a bundled measure of compute, storage, and IO resources. Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs?](sql-database-purchase-models.md#dtu-based-purchasing-model).|Best for customers who want simple, pre-configured resource options.|
 |vCore-based model|This model allows you to independently choose compute and storage resources. The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings.|Best for customers who value flexibility, control, and transparency.|
 ||||  
 
@@ -102,21 +102,15 @@ If you are looking to migrate an existing on-premises or SQL Server virtual mach
 
 Pools are suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by a low utilization average with relatively infrequent utilization spikes. SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. For more information, see [when should an elastic pool be used?](sql-database-elastic-pool.md)
 
-## Service tier frequently asked questions (FAQ)
+## Purchase model frequently asked questions (FAQ)
 
 ### Do I need to take my application offline to convert from a DTU-based database to a vCore-based service tier
 
 The new service tiers offer a simple online conversion method that is similar to the existing process of upgrading databases from Standard to Premium service tier and vice versa. This conversion can be initiated using the Azure portal, PowerShell, Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](sql-database-elastic-pool.md).
 
-### Can I convert a database from a vCore-based service tier to a DTU-based one
+### Can I convert a database from a service tier using the vCore-based purchase to a service tier using the DTU-based purchasing model
 
 Yes, you can easily convert your database to any supported performance objective using Azure portal, PowerShell, Azure CLI, T-SQL, or the REST API. See [manage single databases](sql-database-single-database-scale.md) and [manage elastic pools](sql-database-elastic-pool.md).
-
-### Can I upgrade or downgrade between the General Purpose and Business Critical service tiers
-
-Yes, with some restrictions. Your destination SKU must meet the maximum database or elastic pool size you configured for your existing deployment. If you are using [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/), the Business Critical SKU is only available to  customers with Enterprise Edition licenses. Only customers who migrated from on-premises to the general purpose service tier using Azure Hybrid Benefit for SQL Server with Enterprise Edition licenses can upgrade to the business critical service tier. For details see [What are the specific rights of the Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/)?
-
-This conversion does not result in downtime and can be initiated using Azure portal, PowerShell, Azure CLI, T-SQL, or the REST API. See [manage single databases](sql-database-single-database-scale.md) and [manage elastic pools](sql-database-elastic-pool.md).
 
 ## Next steps
 
