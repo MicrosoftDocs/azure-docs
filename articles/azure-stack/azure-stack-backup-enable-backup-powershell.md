@@ -50,7 +50,7 @@ In the same PowerShell session, edit the following PowerShell script by adding t
 | $encryptioncertpath | The encryption certificate path specifies the file path to the .CER file with public key used for data encryption. |
 |     |     |
 
-	```powershell
+```powershell
 	# Example username:
  	$username = "domain\backupadmin"
  
@@ -75,7 +75,7 @@ In the same PowerShell session, edit the following PowerShell script by adding t
 
 	# Set the backup settings with the name, password, share, and CER certificate file.
  	Set-AzsBackupConfiguration -BackupShare $sharepath -Username $username -Password $password -EncryptionCertPath "c:\temp\cert.cer"
-	```
+```
    
 ##  Confirm backup settings
 

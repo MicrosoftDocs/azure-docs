@@ -36,15 +36,19 @@ Administrators and users are responsible for backing up and restoring IaaS and P
 1. Open the [Azure Stack administration portal](azure-stack-manage-portals.md).
 2. Select **All services**, and then under the **ADMINISTRATION** category select **Infrastructure backup**. Choose **Configuration** in the **Infrastructure backup** blade.
 3. Type the path to the **Backup storage location**. Use a Universal Naming Convention (UNC) string for the path to a file share hosted on a separate device. A UNC string specifies the location of resources such as shared files or devices. For the service, you can use an IP address. To ensure availability of the backup data after a disaster, the  device should be in a separate location.
-  > [!Note]  
-  > If your environment supports name resolution from the Azure Stack infrastructure network to your enterprise environment, you can use an FQDN rather than the IP.
+
+    > [!Note]  
+    > If your environment supports name resolution from the Azure Stack infrastructure network to your enterprise environment, you can use an FQDN rather than the IP.
+
 4. Type the **Username** using the domain and username with sufficient access to read and write files. For example, `Contoso\backupshareuser`.
 5. Type the **Password** for the user.
 6. Type the password again to **Confirm Password**.
 7. The **frequency in hours** determines how often backups are created. The default value is 12. Scheduler supports a maximum of 12 and a minimum of 4. 
 8. The **retention period in days** determines how many days of backups are preserved on the external location. The default value is 7. Scheduler supports a maximum of 14 and a minimum of 2. Backups older than the retention period are automatically deleted from the external location.
-  > [!Note]  
-  > If you want to archive backups older than the retention period, make sure to backup the files before the scheduler deletes the backups. If you reduce the backup retention period (e.g. from 7 days to 5 days), the scheduler will delete all backups older than the new retention period. Make sure you are ok with the backups getting deleted before you update this value. 
+
+    > [!Note]  
+    > If you want to archive backups older than the retention period, make sure to backup the files before the scheduler deletes the backups. If you reduce the backup retention period (e.g. from 7 days to 5 days), the scheduler will delete all backups older than the new retention period. Make sure you are ok with the backups getting deleted before you update this value. 
+
 9. In Encryption Settings provide a certificate in the Certificate .cer file box. Backup files are encrypted using this public key in the certificate. You should provide a certificate that only contains the public key portion when you configure backup settings. Once you set this certificate for the first time or rotate the certificate in the future, you can only view the thumbprint of the certificate. You cannot download or view the uploaded certificate file. To create the certificate file, run the following PowerShell command to create a self-signed certificate with the public and private keys and export a certificate with only the public key portion.
 
 	```powershell
@@ -59,10 +63,8 @@ Administrators and users are responsible for backing up and restoring IaaS and P
 		    -FilePath c:\certs\AzSIBCCert.cer 
 	```
 
-> [!Note]  
-> **1901 and above**
-> Azure Stack accepts a certificate to encrypt infrastructure backup data. Make sure to store the certificate with the public and private key in a secure location. For security reasons, it is not recommended that you use the certificate with the public and private keys to configure backup settings.
-For more information on how to manage the lifecycle of this certificate, see [Infrastructure Backup Service best practices](azure-stack-backup-best-practices.md).
+    > [!Note]  
+    > **1901 and above**: Azure Stack accepts a certificate to encrypt infrastructure backup data. Make sure to store the certificate with the public and private key in a secure location. For security reasons, it is not recommended that you use the certificate with the public and private keys to configure backup settings. For more information on how to manage the lifecycle of this certificate, see [Infrastructure Backup Service best practices](azure-stack-backup-best-practices.md).
 
 10. Select **OK** to save your backup controller settings.
 
