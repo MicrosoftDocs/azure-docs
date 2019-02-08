@@ -8759,37 +8759,42 @@
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1802.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1803.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1804.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1805.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-stack/azure-stack-update-1807.md",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/azure-stack/azure-stack-update-1710.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1711.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1712.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
       "redirect_document_id": false
     },
     {
@@ -13254,7 +13259,12 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-elastic-pool-price.md",
-      "redirect_url": "/azure/sql-database/sql-database-faq",
+      "redirect_url": "/azure/sql-database/sql-database-elastic-pool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-faq.md",
+      "redirect_url": "/azure/sql-database/sql-database-technical-overview",
       "redirect_document_id": false
     },
     {
@@ -35575,6 +35585,11 @@
       "source_path": "articles/application-insights/app-insights-nodejs.md",
       "redirect_url": "/azure/azure-monitor/app/nodejs",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters",
+      "redirect_document_id": false
     }
   ]
 }

@@ -18,7 +18,7 @@ ms.date: 02/07/2019
 Azure SQL Database enables you to easily purchase fully managed PaaS database engine that fits your performance and cost needs. Depending on the deployment model of Azure SQL Database, you can select the purchasing model that fits your needs:
 
 - [vCore-based purchasing model](sql-database-service-tiers-vcore.md) (recommended) that enables you to choose the exact amount of storage capacity and compute that you need for your workload.
-- [DTU-based purchasing model](sql-database-service-tiers-dtu.md) where you can choose bundled compute&storage packages balanced for common workloads.
+- [DTU-based purchasing model](sql-database-service-tiers-dtu.md) where you can choose bundled compute and storage packages balanced for common workloads.
 
 Different purchasing models are available in Azure SQL Database deployment models:
 
@@ -33,10 +33,20 @@ The following table and chart compare and contrast these two purchasing models.
 |**Purchasing model**|**Description**|**Best for**|
 |---|---|---|
 |DTU-based model|This model is based on a bundled measure of compute, storage, and IO resources. Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs?](sql-database-service-tiers.md#dtu-based-purchasing-model).|Best for customers who want simple, pre-configured resource options.|
-|vCore-based model|This model allows you to independently choose compute and storage resources. It also allows you to use Azure Hybrid Benefit for SQL Server to gain cost savings.|Best for customers who value flexibility, control, and transparency.|
+|vCore-based model|This model allows you to independently choose compute and storage resources. The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings.|Best for customers who value flexibility, control, and transparency.|
 ||||  
 
 ![pricing model](./media/sql-database-service-tiers/pricing-model.png)
+
+## Compute costs
+
+The compute cost reflects the total compute capacity that is provisioned for the application. In the business critical service tier, we automatically allocate at least 3 replicas. To reflect this additional allocation of compute resources, the price in the vCore-based purchasing model is approximately 2.7x higher in the business critical service tier than in the general purpose service tier. For the same reason, the higher storage price per GB in the the business critical service tier reflects the high IO and low latency of the SSD storage. At the same time, the cost of backup storage is not different between these two service tiers because in both cases we use a class of standard storage.
+
+## Storage costs
+
+Different types of storage are billed differently. For data storage, you are charged for the provisioned storage based upon the maximum database or pool size you select. The cost does not change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance and is allocated dynamically. Increasing your backup retention period increases the backup storage that’s consumed by your instance. There’s no additional charge for backup storage for up to 100 percent of your total provisioned server storage. Additional consumption of backup storage is charged in GB per month. For example, if you have the database storage size of 100 GBs, you’ll get 100 GBs of backup at no additional cost. But if the backup is 110 GBs, you pay for the additional 10 GBs.
+
+For backup storage of a single database, you are charged on a prorated basis for the storage that was allocated to the database backups minus the size of the database. For backup storage of an elastic pool, you are charged on a prorated basis for the storage that was allocated to the database backups of all the databases in the pool minus the maximum data size of the elastic pool. Any increase in the database size or elastic pool, or increase in the transaction rate, requires more storage and thus increases your backup storage bill.  When you increase the maximum data size, this new amount is deducted from the billed backup storage size.
 
 ## vCore-based purchasing model
 
@@ -91,6 +101,22 @@ If you are looking to migrate an existing on-premises or SQL Server virtual mach
 ### Workloads that benefit from an elastic pool of resources
 
 Pools are suited for a large number of databases with specific utilization patterns. For a given database, this pattern is characterized by a low utilization average with relatively infrequent utilization spikes. SQL Database automatically evaluates the historical resource usage of databases in an existing SQL Database server and recommends the appropriate pool configuration in the Azure portal. For more information, see [when should an elastic pool be used?](sql-database-elastic-pool.md)
+
+## Service tier frequently asked questions (FAQ)
+
+### Do I need to take my application offline to convert from a DTU-based database to a vCore-based service tier
+
+The new service tiers offer a simple online conversion method that is similar to the existing process of upgrading databases from Standard to Premium service tier and vice versa. This conversion can be initiated using the Azure portal, PowerShell, Azure CLI, T-SQL, or the REST API. See [Manage single databases](sql-database-single-database-scale.md) and [Manage elastic pools](sql-database-elastic-pool.md).
+
+### Can I convert a database from a vCore-based service tier to a DTU-based one
+
+Yes, you can easily convert your database to any supported performance objective using Azure portal, PowerShell, Azure CLI, T-SQL, or the REST API. See [manage single databases](sql-database-single-database-scale.md) and [manage elastic pools](sql-database-elastic-pool.md).
+
+### Can I upgrade or downgrade between the General Purpose and Business Critical service tiers
+
+Yes, with some restrictions. Your destination SKU must meet the maximum database or elastic pool size you configured for your existing deployment. If you are using [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/), the Business Critical SKU is only available to  customers with Enterprise Edition licenses. Only customers who migrated from on-premises to the general purpose service tier using Azure Hybrid Benefit for SQL Server with Enterprise Edition licenses can upgrade to the business critical service tier. For details see [What are the specific rights of the Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/)?
+
+This conversion does not result in downtime and can be initiated using Azure portal, PowerShell, Azure CLI, T-SQL, or the REST API. See [manage single databases](sql-database-single-database-scale.md) and [manage elastic pools](sql-database-elastic-pool.md).
 
 ## Next steps
 
