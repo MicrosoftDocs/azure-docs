@@ -29,6 +29,8 @@ Moving a resource only moves it to a new resource group. The move operation can'
 > * To change a pay-as-you-go account, see [Change your Azure Pay-As-You-Go subscription to a different offer](../billing/billing-how-to-switch-azure-offer.md).
 > * If you can't convert the subscription, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## When to call Azure support
 
 You can move most resources through the self-service operations shown in this article. Use the self-service operations to:
@@ -233,7 +235,7 @@ When moving resources from one resource group to another resource group within t
 * Only one storage account (classic) can be moved at a time.
 * Storage account (classic) can't be moved in the same operation with a virtual machine or a cloud service.
 
-To move classic resources to a new resource group within the same subscription, use the standard move operations through the [portal](#use-portal), [Azure PowerShell](#use-powershell), [Azure CLI](#use-azure-cli), or [REST API](#use-rest-api). You use the same operations as you use for moving Resource Manager resources.
+To move classic resources to a new resource group within the same subscription, use the standard move operations through the [portal](#use-portal), Azure PowerShell, Azure CLI, or REST API. You use the same operations as you use for moving Resource Manager resources.
 
 #### New subscription
 

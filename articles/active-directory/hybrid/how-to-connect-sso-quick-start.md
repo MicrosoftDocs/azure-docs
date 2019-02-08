@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2019
 ms.subservice: hybrid
 ms.author: billmath
@@ -159,14 +159,6 @@ There are two ways to modify users' Intranet zone settings:
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
  
     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
-
-6. Browse to **User Configuration** > **Administrative Templates** > **Windows Components** > **Internet Explorer** > **Internet Control Panel** > **Security Page** > **Intranet Zone**. Then select **Allow updates to status bar via script**.
-
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso11.png)
-
-7. Enable the policy setting, and then select **OK**.
-
-    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### Browser considerations
 

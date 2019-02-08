@@ -5,7 +5,7 @@ description: 'Step 1 of the Develop a predictive solution walkthrough: Learn how
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: garyericson
 ms.author: garye

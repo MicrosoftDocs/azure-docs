@@ -21,7 +21,7 @@
         href: create-sql-api-python.md
       - name: Xamarin
         href: create-sql-api-xamarin-dotnet.md
-    - name: MongoDB
+    - name: Azure Cosmos DB's API for MongoDB
       items:
       - name: .NET
         href: create-mongodb-dotnet.md
@@ -253,15 +253,7 @@
       - name: How-to guides
         items:
         - name: Tune query performance
-          href: sql-api-query-metrics.md
-        - name : Server-side programming
-          items:
-          - name: Write stored procedures, triggers, & UDFs
-            href: how-to-write-stored-procedures-triggers-udfs.md
-          - name: Write stored procedures & triggers with JavaScript query API
-            href: how-to-write-javascript-query-api.md
-          - name: Use stored procedures, triggers, & UDFs
-            href: how-to-use-stored-procedures-triggers-udfs.md  
+          href: sql-api-query-metrics.md 
         - name: Data types
           items:
           - name: DateTime
@@ -337,7 +329,7 @@
           - name: Node.js and React app
             href: tutorial-develop-mongodb-react.md
         - name: 2 - Migrate data
-          href: mongodb-migrate.md
+          href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
         - name: 3 - Query data
           href: tutorial-query-mongodb.md
         - name: 4 - Distribute data globally
@@ -496,6 +488,14 @@
         items:
         - name: Manage indexing
           href: how-to-manage-indexing-policy.md
+    - name : Server-side programming
+      items:
+      - name: Write stored procedures, triggers, & UDFs
+        href: how-to-write-stored-procedures-triggers-udfs.md
+      - name: Write stored procedures & triggers with JavaScript query API
+        href: how-to-write-javascript-query-api.md
+      - name: Use stored procedures, triggers, & UDFs
+        href: how-to-use-stored-procedures-triggers-udfs.md 
     - name: Security
       items:
       - name: Configure IP firewall

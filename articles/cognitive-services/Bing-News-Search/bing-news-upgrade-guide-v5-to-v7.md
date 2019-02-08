@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Identifies the parts of your application that you need to update to use version 7.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-news-search
@@ -72,7 +72,7 @@ Blocked|InvalidRequest.Blocked
 
 ### Query parameters
 
-- Added Products as a possible value that you may set the [category](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) query parameter to. See [Categories By Markets](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#categories-by-market).
+- Added Products as a possible value that you may set the [category](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) query parameter to. See [Categories By Markets](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference).
 
 - Added the [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#sortby) query parameter, which returns trending topics sorted by date with the most recent first.
 

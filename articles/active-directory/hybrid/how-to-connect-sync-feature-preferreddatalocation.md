@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
@@ -233,7 +233,7 @@ Re-enable the built-in sync scheduler:
 ## Step 8: Verify the result
 It is now time to verify the configuration and enable it for your users.
 
-1. Add the geo to the selected attribute on a user. The list of available geos can be found in [this table](#enable-synchronization-of-preferreddatalocation).  
+1. Add the geo to the selected attribute on a user. The list of available geos can be found in this table.  
 ![Screenshot of AD attribute added to a user](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-adattribute.png)
 2. Wait for the attribute to be synchronized to Azure AD.
 3. Using Exchange Online PowerShell, verify that the mailbox region has been set correctly.  

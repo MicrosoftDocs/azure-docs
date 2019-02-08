@@ -51,7 +51,7 @@ Azure AD Application Proxy offers unique benefits when compared to similar produ
 - Extending Azure AD to on-premises resources
    - Cloud-scale security and protection
    - Features like conditional access and Multi-Factor Authentication are easy to enable
-- No componenet in the demilitarized zone
+- No components in the demilitarized zone
 - No inbound connections required
 - One access panel that your users can go to for all their applications, including O365, Azure AD integrated SaaS apps, and your on-premises web apps. 
 

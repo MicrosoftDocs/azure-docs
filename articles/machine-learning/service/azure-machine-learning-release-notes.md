@@ -47,6 +47,7 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 	- Box Plot
 	- Scatter Plot
 	- Bubble Plot
++ The portal now dynamically generates reports for experiments. When a user submits a run to an experiment, a report will automatically be generated with logged metrics and graphs to allow comparison across different runs. 
 
 ## 2019-01-14
 

@@ -5,7 +5,7 @@ description: Learn how to programmatically retrain a model and update the web se
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs

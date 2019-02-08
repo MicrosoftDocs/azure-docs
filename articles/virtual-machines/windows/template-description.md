@@ -165,6 +165,7 @@ Use these opportunities for getting the latest API versions:
 - PowerShell - [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
 - Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
+
 ## Parameters and variables
 
 [Parameters](../../resource-group-authoring-templates.md) make it easy for you to specify values for the template when you run it. This parameters section is used in the example:
