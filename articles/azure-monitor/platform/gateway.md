@@ -255,7 +255,7 @@ To follow the steps in this section, you need to know the Azure region where the
 1. Select the appropriate Azure Automation account.
 1. View its region under **Location**.
 
-![Screenshot of the Automation account location in the Azure portal](./media/gateway/location.png)
+   ![Screenshot of the Automation account location in the Azure portal](./media/gateway/location.png)
 
 Use the following tables to identify the URL for each location.
 
