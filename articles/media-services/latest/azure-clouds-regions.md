@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 02/07/2019
 ms.author: juliako
 ---
 
@@ -37,7 +37,7 @@ Azure Media Services v3 is available via Azure Resource Manager manifest in glob
 * [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
 
-## Region code name 
+### Region code name 
 
 When you need to supply the **location** parameter, you need to provide the region code name as the **location** value. To get the code name of the region that your account is in and that your call should be routed to, you can run the following line in [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
@@ -59,6 +59,14 @@ For example, for the Azure region West US 2 (displayed below), you will use "wes
       "subscriptionId": null
     }
 ```
+
+## Endpoints  
+
+| Endpoint|Global Azure | Azure Government|Azure Germany|Azure China 21Vianet|
+| --- | --- | --- | --- | --- |
+| Azure Resource Manager |  `https://management.azure.com/` | `https://management.usgovcloudapi.net/` | `https://management.cloudapi.de/` | `https://management.chinacloudapi.cn/` |
+| Authentication | `https://login.microsoftonline.com/` | `https://login.microsoftonline.us/` | `https://login.microsoftonline.de/` | `https://login.chinacloudapi.cn/` |
+| Token audience | `https://management.core.windows.net/` | `https://management.core.usgovcloudapi.net/` | `https://management.core.cloudapi.de/`| `https://management.core.chinacloudapi.cn/` |
 
 ## Next steps
 
