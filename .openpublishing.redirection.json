@@ -4230,6 +4230,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/functions-bindings-external-table.md",
+      "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-bindings-external-file.md",
+      "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/automation-source-control-integration.md",
       "redirect_url": "/azure/automation/source-control-integration",
       "redirect_document_id": false
@@ -35585,6 +35595,11 @@
       "source_path": "articles/application-insights/app-insights-nodejs.md",
       "redirect_url": "/azure/azure-monitor/app/nodejs",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters",
+      "redirect_document_id": false
     }
   ]
 }
