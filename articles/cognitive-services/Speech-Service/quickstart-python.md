@@ -21,9 +21,9 @@ This article shows how to use the Speech service through the Speech SDK for Pyth
 ## Prerequisites
 
 * An Azure subscription key for the Speech service. [Get one for free](get-started.md).
-* [Python 3.5 or later](https://www.python.org/downloads/), 64-bit.
+* [Python 3.5 or later](https://www.python.org/downloads/).
 * The Python Speech SDK package is available for these operating systems: 
-    * Windows: x64.
+    * Windows: x64 and x86.
     * Mac: macOS X version 10.12 or later.
     * Linux: Ubuntu 16.04 or 18.04 on x64.
 * On Ubuntu, run these commands to install the required packages:

@@ -89,7 +89,7 @@ sections:
         - href: quickstart-cpp-windows
         - href: quickstart-csharp-dotnetcore-windows
         - href:
-        - href:
+        - href: quickstart-python
         - href:
         - href: quickstart-js-node
         - href:
