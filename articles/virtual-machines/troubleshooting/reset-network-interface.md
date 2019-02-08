@@ -57,14 +57,14 @@ This article shows how to reset the network interface for Azure Windows VM to re
     $IP = "NEWIP"
 
     #Log in to the subscription​ 
-    Add-AzureRMAccount
-    Select-AzureRMSubscription -SubscriptionId $SubscriptionId 
+    Add-AzAccount
+    Select-AzSubscription -SubscriptionId $SubscriptionId 
     
     #Check whether the new IP address is available in the virtual network.
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
 
     #Add/Change static IP. This process will not change MAC address
-    Get-AzureRMVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzureRMVM
+    Get-AzVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
     ```
 3. Try to RDP to your machine.	If successful, you can change the Private IP address back to the original if you would like. Otherwise, you can keep it.
 

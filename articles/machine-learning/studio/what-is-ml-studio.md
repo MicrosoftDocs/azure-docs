@@ -31,11 +31,6 @@ To develop a predictive analysis model, you typically use data from one or more 
 
 There is no programming required, just visually connecting datasets and modules to construct your predictive analysis model.
 
-<a id="studio-diagram"></a>
-
-> [!TIP]
-> You can download and print a diagram that gives an overview of the capabilities of Machine Learning Studio: [Microsoft Azure Machine Learning Studio Capabilities Overview (PDF)](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf).
-
 ![Azure Machine Learning studio diagram: Create experiments, read data for many sources, write scored data, write models.][ml-studio-overview]
 
 ## Get started with Machine Learning Studio
