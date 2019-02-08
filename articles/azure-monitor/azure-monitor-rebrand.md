@@ -21,12 +21,12 @@ Significant changes have been made to Azure Monitor recently, with different ser
 After the consolidation of different services under Azure Monitor, we're taking the next step by modifying terminology in our documentation to better describe the Azure Monitor service and its different components. 
 
 ### Log Analytics
-Azure Monitor log data is still stored in a Log Analytics workspace and is still collected and analyzed by the same Log Analytics service, but we are changing the term _Log Analytics_ in many places to _Azure Monitor logs_. This better reflects its role in Azure Monitor and provides better consistency between [logs and metrics](platform/data-collection.md).
+Azure Monitor log data is still stored in a Log Analytics workspace and is still collected and analyzed by the same Log Analytics service, but we are changing the term _Log Analytics_ in many places to _Azure Monitor logs_. This better reflects its role in Azure Monitor and provides better consistency [metrics in Azure Monitor](platform/data-collection.md).
 
-The term _log analytics_ now primarily applies to the page in the Azure portal used to write and run queries and analyze log data. It's the functional equivalent of metrics explorer which is the page in the Azure portal used to analyze metric data.
+The term _log analytics_ now primarily applies to the page in the Azure portal used to write and run queries and analyze log data. It's the functional equivalent of [metrics explorer](platform/metrics-charts.md) which is the page in the Azure portal used to analyze metric data.
 
 ### Log Analytics workspaces
-Workspaces that hold log data in Azure Monitor are still referred to as Log Analytics workspaces. The **Log Analytics** page in the Azure portal has been renamed to **Log Analytics workspaces** and is where you create new workspaces and configure data sources. Monitor your logs with other monitoring data in **Azure Monitor** and configure them in **Log Analytics workspaces**.
+[Workspaces](platform/manage-access.md) that hold log data in Azure Monitor are still referred to as Log Analytics workspaces. The **Log Analytics** page in the Azure portal has been renamed to **Log Analytics workspaces** and is where you [create new workspaces](learn/quick-create-workspace.md) and configure data sources. Analyze your logs and other monitoring data in **Azure Monitor** and configure your workspace in **Log Analytics workspaces**.
 
 ### Log query language
 Azure Monitor uses Data Explorer query language for log queries. Before Azure Data Explorer was released, this language was referred to as Kusto or the Azure Monitor query language. We're now referring to it with the same name as Data Explorer to reinforce that they use the same language. There are minor differences with the Azure Monitor flavor of the language as detailed in [Azure Monitor log query language differences](log-query/data-explorer-difference.md).
