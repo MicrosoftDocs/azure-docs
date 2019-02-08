@@ -4,7 +4,7 @@ description: Learn how to install and use the Azure Terraform extension in Visua
 services: terraform
 ms.service: terraform
 keywords: terraform, azure, devops, visual studio code, extension
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial

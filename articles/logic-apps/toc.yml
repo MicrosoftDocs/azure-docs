@@ -29,7 +29,7 @@
     href: logic-apps-serverless-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
-  - name: Access to Azure Virtual Networks (VNETs)
+  - name: Access to Azure Virtual Networks
     href: connect-virtual-network-vnet-isolated-environment-overview.md
 - name: How-to guides
   items:
@@ -210,6 +210,8 @@
         href: logic-apps-enterprise-integration-metadata.md
       - name: MailChimp
         href: ../connectors/connectors-create-api-mailchimp.md
+      - name: Microsoft Graph Security
+        href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
       - name: Microsoft Translator
         href: ../connectors/connectors-create-api-microsofttranslator.md
       - name: MQ
@@ -317,10 +319,10 @@
   - name: Architecture patterns
     href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
     items:
-    - name: Simple enterprise integration
+    - name: Basic enterprise integration
       href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
     - name: Enterprise integration with queues and events
-      href: logic-apps-architectures-enterprise-integration-with-queues-events.md
+      href: /azure/architecture/reference-architectures/enterprise-integration/queues-events
   - name: Connectors - Full details
     href: https://docs.microsoft.com/connectors/
   - name: Limits and config
@@ -331,6 +333,8 @@
     href: /powershell/module/azurerm.logicapp
   - name: REST API
     href: /rest/api/logic/
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.logic/allversions
   - name: Workflow Definition Language schema
     href: logic-apps-workflow-definition-language.md
     items: 

@@ -158,7 +158,7 @@ Contoso admins provision two Web apps (one in each region) using Azure App Servi
 
 **Need more help?**
 
-- Learn about [Azure App Service Web apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview).
+- Learn about [Azure App Service Web apps](https://docs.microsoft.com/azure/app-service/overview).
 - Learn about [Azure App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro).
 
 
@@ -249,7 +249,7 @@ Contoso admins migrate the database using backup and restore, with MySQL tools. 
 
      ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench9.png)
 
-11. Tney can verify the server name and login from **Overview** in the MySQL instance in the Azure portal.
+11. They can verify the server name and login from **Overview** in the MySQL instance in the Azure portal.
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench10.png)
 

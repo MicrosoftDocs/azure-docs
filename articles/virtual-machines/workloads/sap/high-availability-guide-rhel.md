@@ -156,11 +156,11 @@ You first need to create the virtual machines for this cluster. Afterwards, you 
    Set max update domain
 1. Create Virtual Machine 1  
    Use at least RHEL 7, in this example the Red Hat Enterprise Linux 7.4 image
-   <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Select Availability Set created earlier  
 1. Create Virtual Machine 2  
    Use at least RHEL 7, in this example the Red Hat Enterprise Linux 7.4 image
-   <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Select Availability Set created earlier  
 1. Add at least one data disk to both virtual machines  
    The data disks are used for the /usr/sap/`<SAPSID`> directory
@@ -715,7 +715,7 @@ Follow these steps to install an SAP application server.
    
    [root@nw1-cl-0 ~]# pcs resource clear rsc_sap_NW1_ASCS00
    
-   # Remove failed actions for the ERS that occured as part of the migration
+   # Remove failed actions for the ERS that occurred as part of the migration
    [root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
    </code></pre>
 

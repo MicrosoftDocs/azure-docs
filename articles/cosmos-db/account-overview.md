@@ -1,9 +1,9 @@
 ---
 title: Working with Azure Cosmos DB accounts 
 description: This article describes how create and use Azure Cosmos DB accounts
-author: dharmas
-
+author: dharmas-cosmos
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
@@ -11,7 +11,7 @@ ms.reviewer: sngun
 
 ---
 
-# Working with Azure Cosmos account
+# Work with Azure Cosmos account
 
 Azure Cosmos DB is a fully managed platform-as-a-service (PaaS). To begin using Azure Cosmos DB, you should initially create an Azure Cosmos account in your Azure subscription. Your Azure Cosmos account contains a unique DNS name and you can manage an account by using Azure portal, Azure CLI or by using different language-specific SDKs. For more information, see [how to manage your Azure Cosmos account](how-to-manage-database-account.md).
 
@@ -35,7 +35,7 @@ You can now proceed to learn how to manage your Azure Cosmos account or see othe
 * [Global distribution](distribute-data-globally.md)
 * [Consistency levels](consistency-levels.md)
 * [Working with Azure Cosmos containers and items](databases-containers-items.md)
-* [VNET service endpoint for your Azure Cosmos account](firewall-support.md)
-* [IP-firewall for your Azure Cosmos account](vnet-service-endpoint.md)
+* [VNET service endpoint for your Azure Cosmos account](vnet-service-endpoint.md)
+* [IP-firewall for your Azure Cosmos account](firewall-support.md)
 * [How-to add and remove Azure regions to your Azure Cosmos account](how-to-manage-database-account.md)
 * [Azure Cosmos DB SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

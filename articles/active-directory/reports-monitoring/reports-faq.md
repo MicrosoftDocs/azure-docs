@@ -4,7 +4,7 @@ description: Frequently asked quesitons around Azure Active Directory reports.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
@@ -91,7 +91,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: Which APIs do I use to get information about Office 365 Activity logs?**
 
-**A:** Use the [Office 365 Management APIs](https://msdn.microsoft.com/office-365/office-365-managment-apis-overview) to access the Office 365 Activity logs through an API.
+**A:** Use the [Office 365 Management APIs](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview) to access the Office 365 Activity logs through an API.
 
 ---
 

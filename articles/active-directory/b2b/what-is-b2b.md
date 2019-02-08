@@ -4,13 +4,13 @@ description: Azure Active Directory B2B collaboration supports guest user access
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: overview
 ms.date: 09/14/2018
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: mal
 
 ---
@@ -71,7 +71,7 @@ You can delegate guest user management to application owners so that they can ad
 
 Bring your external partners on board in ways customized to your organization’s needs.
 - Use the [B2B collaboration invitation APIs](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) to customize your onboarding experiences, including creating self-service sign-up portals. 
-- Use the sample code we provide for a self-service portal [on Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
+- Use the sample code we provide for a self-service portal [on GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
 ![sign-up portal](media/what-is-b2b/sign-up-portal.png)
 

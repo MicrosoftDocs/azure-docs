@@ -3,9 +3,9 @@ title: Back up Azure virtual machines at scale
 description: Simultaneously back up multiple virtual machines to Azure
 services: backup
 keywords: virtual machine backup; virtual machine back up; back up vm; backup vm; backup Azure vm; backup and disaster recovery
-author: markgalioto
-ms.author: markgal
-ms.date: 2/14/2018
+author: rayne-wiselman
+ms.author: raynew
+ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc

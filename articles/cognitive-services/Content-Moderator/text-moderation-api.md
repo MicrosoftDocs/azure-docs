@@ -3,20 +3,21 @@ title: Text Moderation - Content Moderator
 description: Use text moderation for possible unwanted text, PII, and custom lists of terms.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/30/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
-# Text moderation
+# Learn text moderation concepts
 
 Use Content Moderator’s machine-assisted text moderation and [human review](Review-Tool-User-Guide/human-in-the-loop.md) capabilities to moderate text content.
 
-You either block, approve or review the content based on your policies and thresholds. Use it to augment human moderation of environments where partners, employees and consumers generate text content. These include chat rooms, discussion boards, chatbots, eCommerce catalogs, and documents. 
+You either block, approve or review the content based on your policies and thresholds. Use it to augment human moderation of environments where partners, employees and consumers generate text content. These include chat rooms, discussion boards, chatbots, e-commerce catalogs, and documents. 
 
 The service response includes the following information:
 

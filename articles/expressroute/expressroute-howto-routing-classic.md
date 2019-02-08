@@ -1,13 +1,14 @@
 ﻿---
-title: 'How to configure routing (peering) for an ExpressRoute circuit: Azure: classic | Microsoft Docs'
+title: 'Configure peering for a circuit - ExpressRoute: Azure: classic | Microsoft Docs'
 description: This article walks you through the steps for creating and provisioning the private, public and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
 services: expressroute
 author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/27/2018
-ms.author: cherylmc;ganesr
+ms.date: 12/11/2018
+ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 # Create and modify peering for an ExpressRoute circuit (classic)
@@ -21,7 +22,7 @@ ms.author: cherylmc;ganesr
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md)
 > 
 
-This article walks you through the steps to create and manage routing configuration for an ExpressRoute circuit using PowerShell and the classic deployment model. The steps below will also show you how to check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. You can configure one, two, or all three peerings (Azure private, Azure public, and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. 
+This article walks you through the steps to create and manage peering/routing configuration for an ExpressRoute circuit using PowerShell and the classic deployment model. The steps below will also show you how to check the status, update, or delete and deprovision peerings for an ExpressRoute circuit. You can configure one, two, or all three peerings (Azure private, Azure public, and Microsoft) for an ExpressRoute circuit. You can configure peerings in any order you choose. However, you must make sure that you complete the configuration of each peering one at a time. 
 
 These instructions only apply to circuits created with service providers that offer Layer 2 connectivity services. If you are using a service provider that offers managed Layer 3 services (typically an IPVPN, like MPLS), your connectivity provider will configure and manage routing for you.
 

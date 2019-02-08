@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Release notes - what has changed in the most recent releases
 services: cognitive-services
 author: wsturman
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
@@ -16,6 +16,12 @@ ms.author: gracez
 # Release notes of Cognitive Services Speech Devices SDK
 
 The following sections list changes in the most recent releases.
+
+## Cognitive Services Speech Devices SDK 1.1.0: 2018-Nov release 
+
+* Updated the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) component to version 1.1.0. For more information, see its [release notes](https://aka.ms/csspeech/whatsnew). 
+* Far Field Speech recognition accuracy has been improved with our enhanced audio processing algorithm.
+* Sample application added Chinese speech recognition support.
 
 ## Cognitive Services Speech Devices SDK 1.0.1: 2018-Oct release 
 

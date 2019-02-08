@@ -1,26 +1,23 @@
 ---
-title: Load Balancer TCP Reset on Idle | Microsoft Docs
+title: Load Balancer TCP Reset on Idle in Azure
+titlesuffix: Azure Load Balancer
 description: Load Balancer with bidirectional TCP RST packets on idle timeout
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/08/2018
+ms.date: 01/29/2019
 ms.author: kumud
 ---
 
 # Load Balancer with TCP Reset on Idle (Public Preview)
 
-You can use [Standard Load Balancer](load-balancer-standard-overview.md) to create a more predictable application behavior for your scenarios with bidirectional TCP Resets (TCP RST packet) for each configurable idle timeout.  Load Balancer's default behavior is to silently drop flows when the idle timeout of a flow is reached.
+You can use [Standard Load Balancer](load-balancer-standard-overview.md) to create a more predictable application behavior for your scenarios by enabling TCP Reset on Idle for a given rule. Load Balancer's default behavior is to silently drop flows when the idle timeout of a flow is reached.  Enabling this feature will cause Load Balancer to send bidirectional TCP Resets (TCP RST packet) on idle timeout.  This will inform your application endpoints that the connection has timed out and is no longer usable.  Endpoints can immediately establish a new connection if needed.
 
 ![Load Balancer TCP reset](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
@@ -67,21 +64,10 @@ Using API version 2018-07-01, you can enable sending of bidirectional TCP Resets
 
 ## <a name="regions"></a> Region availability
 
-This parameter is currently effective in the following regions.  In regions not listed here, the parameter has no effect.
-
-| Region |
-|---|
-| Asia Southeast |
-| Europe West |
-| US East 2 |
-| US North |
-| US West |
-
-This table will be updated as the preview is expanded to other regions.  
+Available in all regions.
 
 ## Limitations
 
-- Limited [region availability](#regions).
 - Portal cannot be used to configure or view TCP Reset.  Use templates, REST API, Az CLI 2.0, or PowerShell instead.
 
 ## Next steps

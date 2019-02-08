@@ -16,10 +16,15 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
+
+ROBOTS: NOINDEX
+
 #Customer intent: As a data scientist or AI researcher, I want to train a sample AI model to evaluate using a GPU cluster in Azure for training my AI or machine learning models.
 ---
 
 # Quickstart: Train a deep learning model with Batch AI
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 This quickstart shows how to train a sample deep learning model on a GPU-enabled virtual machine managed by Batch AI. Batch AI is a managed service for data scientists and AI researchers to train AI and machine learning models at scale on clusters of Azure virtual machines. 
 

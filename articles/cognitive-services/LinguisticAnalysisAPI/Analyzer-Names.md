@@ -4,9 +4,9 @@ titlesuffix: Azure Cognitive Services
 description: Learn how the Linguistic Analysis API Analyzer naming structure allows for both flexibility and precision.
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun

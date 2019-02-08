@@ -17,19 +17,18 @@ ms.date: 09/13/2018
 ms.author: pbutlerm
 ---
 
-Troubleshooting common authentication errors
-------------------------------------------
+# Troubleshooting common authentication errors
 
 This article provides assistance with common authentication errors when using the Cloud Partner Portal APIs.
 
-### Unauthorized error
+## Unauthorized error
 
 If you consistently get `401 unauthorized` errors, verify that you have a valid access token.  If you have not already done so, create a basic Azure Active Directory (Azure AD) application and a service principal as described in [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Then, use the application or a simple HTTP POST request to verify your access.  You will include the Tenant ID, Application ID, Object ID, and the secret key to obtain the access token as shown in the following image:
 
 ![Troubleshooting the 401 error](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-401-error.jpg)
 
 
-### Forbidden error
+## Forbidden error
 
 If you get a `403 forbidden` error, make sure that the correct service
 principal has been added to your publisher account in the Cloud Partner Portal.

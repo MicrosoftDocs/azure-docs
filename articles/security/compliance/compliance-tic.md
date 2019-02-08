@@ -45,7 +45,7 @@ There are several ways to meet the TIC Appendix H (Cloud Considerations) require
 
 To enable the connection from the **Department or Agency (D/A)** to Azure or Office 365, without routing traffic through the D/A TIC, the D/A must use an encrypted tunnel or a dedicated connection to the cloud service provider (CSP). The CSP services can ensure connectivity to the D/A cloud assets isn't offered to the public internet for direct agency personnel access.
 
-Office 365 is compliant with TIC 2.0 Appendix H by using either ExpressRoute with [Microsoft Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) enabled or an internet connection that encrypts all traffic by using TLS 1.2. D/A end users on the D/A network can connect via their agency network and TIC infrastructure through the internet. All remote internet access to Office 365 is blocked and routes through the agency. The D/A can also connect to Office 365 over an ExpressRoute connection with Microsoft Peering (a type of public peering) enabled.  
+Office 365 is compliant with TIC 2.0 Appendix H by using either ExpressRoute with [Microsoft Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings) enabled or an internet connection that encrypts all traffic by using TLS 1.2. D/A end users on the D/A network can connect via their agency network and TIC infrastructure through the internet. All remote internet access to Office 365 is blocked and routes through the agency. The D/A can also connect to Office 365 over an ExpressRoute connection with Microsoft Peering (a type of public peering) enabled.  
 
 For Azure only, the second option (VPN) and third option (ExpressRoute) can meet these requirements when they're used in conjunction with services that limit access to the internet.
 
@@ -153,7 +153,7 @@ Services that support deployment of dedicated instances into a virtual network o
 |Azure Active Directory                | GA               |
 |Azure Batch                           | GA               |
 |App Service Environment               | GA               |
-|Azure Redis Cache                     | GA               |
+|Azure Cache for Redis                     | GA               |
 |Azure HDInsight                       | GA               |
 |Virtual machine scale set             | GA               |
 |Azure Cloud Services                  | GA               |
@@ -260,7 +260,7 @@ You can easily configure access for Microsoft Azure, Office 365, and Dynamics 36
 | Database | Azure Database for PostgreSQL | | | Yes |
 | Database | Azure SQL Data Warehouse | | | Yes |
 | Database | Azure Cosmos DB | | | Yes |
-| Database | Azure Redis Cache | | Yes | |
+| Database | Azure Cache for Redis | | Yes | |
 | Storage | Azure Blob storage | Yes | | |
 | Storage | Azure Files | Yes | | |
 | Storage | Azure Queue storage | Yes | | |

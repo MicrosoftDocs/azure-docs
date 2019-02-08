@@ -3,14 +3,12 @@ title: High availability concepts in Azure Database for MariaDB
 description: This topic provides information of high availability when using Azure Database for MariaDB
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/03/2018
 ---
 # High availability concepts in Azure Database for MariaDB
-The Azure Database for MariaDB service provides a guaranteed high level of availability. The financially backed service level agreement (SLA) is 99.99% upon general availability. The SLA is not applicable to public preview. There is virtually no application down time when using this service.
+The Azure Database for MariaDB service provides a guaranteed high level of availability. The financially backed service level agreement (SLA) is 99.99% upon general availability. There is virtually no application down time when using this service.
 
 ## High availability
 The high availability (HA) model is based on built-in fail-over mechanisms when a node-level interruption occurs. A node-level interruption could occur because of a hardware failure or in response to a service deployment.

@@ -36,8 +36,6 @@ Stream Analytics also supports input known as *reference data*. Reference data i
 
 For more information about reference data inputs, see [Using reference data for lookups in Stream Analytics](stream-analytics-use-reference-data.md)
 
-This article is a step in the [Stream Analytics learning path](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/).
-
 ## Next steps
 > [!div class="nextstepaction"]
 > [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)

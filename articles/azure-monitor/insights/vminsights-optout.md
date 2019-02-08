@@ -1,15 +1,13 @@
 ---
-title: How to Disable Monitoring with Azure Monitor for VMs (Preview) | Microsoft Docs
+title: How to Disable Monitoring with Azure Monitor for VMs (preview) | Microsoft Docs
 description: This article describes how you can discontinue monitoring of your virtual machines with Azure Monitor for VMs.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: 
-
 ms.assetid: 
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -17,7 +15,7 @@ ms.date: 11/05/2018
 ms.author: magoedte
 ---
 
-# How to disable monitoring of your virtual machines with Azure Monitor for VMs (Preview)
+# How to disable monitoring of your virtual machines with Azure Monitor for VMs (preview)
 
 If after you enable monitoring of your virtual machines you decide you no longer want to monitor them with Azure Monitor for VMs, you can disable monitoring. This article shows how to accomplish this for a single or multiple VMs.  
 
@@ -28,7 +26,7 @@ Azure Monitor for VMs relies on the following components to deliver its experien
 * A Log Analytics workspace, which stores monitoring data collected from VMs and other sources.
 * Collection of performance counters configured in the workspace, which updates monitoring configuration on all VMs connected to the workspace.
 * Two monitoring solutions configured in the workspace - **InfrastructureInsights** and **ServiceMap**, which update monitoring configuration on all VMs connected to the workspace.
-* Two Azure virtual machine extensions, the **MicrosoftMonitoringAgent** and the **DepenendencyAgent**, which collect and send data to the workspace.
+* Two Azure virtual machine extensions, the **MicrosoftMonitoringAgent** and the **DependencyAgent**, which collect and send data to the workspace.
 
 Consider the following when preparing to disable monitoring of your virtual machines with Azure Monitor for VMs:
 
@@ -40,7 +38,7 @@ Consider the following when preparing to disable monitoring of your virtual mach
 
 ## Complete removal of Azure Monitor for VMs
 
-The following steps describe how to completely remove Azure Monitor for VMs if you still require the Log Analytics workspace. You are going to remove the **InfastructureInsights** and **ServiceMap** solutions from the workspace.  
+The following steps describe how to completely remove Azure Monitor for VMs if you still require the Log Analytics workspace. You are going to remove the **InfrastructureInsights** and **ServiceMap** solutions from the workspace.  
 
 >[!NOTE]
 >If you were using the Service Map monitoring solution previous to enabling Azure Monitor for VMs and you still rely on it, do not remove that solution as described in step 6 below.  
@@ -53,7 +51,7 @@ The following steps describe how to completely remove Azure Monitor for VMs if y
 5. In the list of solutions, select **InfrastructureInsights(workspace name)**, and then on the **Overview** page for the solution, click **Delete**.  When prompted to confirm, click **Yes**.  
 6. From the list of solutions, select **ServiceMap(workspace name)**, and then on the **Overview** page for the solution, click **Delete**.  When prompted to confirm, click **Yes**.  
 
-If before onboarding Azure Monitor for VMs, you were not [collecting the performance counters enabled](vminsights-onboard.md?toc=/azure/azure-monitor/toc.json#performance-counters-enabled) for the Windows or Linux-based VMs in your workspace, you need to disable those rules by following the steps described [here](../../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json#configuring-performance-counters) for Windows and for Linux.
+If before onboarding Azure Monitor for VMs, you were not [collecting the performance counters enabled](vminsights-onboard.md?toc=/azure/azure-monitor/toc.json#performance-counters-enabled) for the Windows or Linux-based VMs in your workspace, you need to disable those rules by following the steps described [here](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json#configuring-performance-counters) for Windows and for Linux.
 
 ## Disable monitoring for an Azure VM and retain workspace  
 

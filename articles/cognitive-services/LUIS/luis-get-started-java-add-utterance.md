@@ -1,14 +1,15 @@
 ---
-title: Java Quickstart - change model and train LUIS app
-titleSuffix: Azure Cognitive Services
-description: In this Java quickstart, add example utterances to a Home Automation app and train the app. Example utterances are conversational user text mapped to an intent. By providing example utterances for intents, you teach LUIS what kinds of user-supplied text belongs to which intent.
+title: Change, train app, Java
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: In this Java quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the LUIS service, I want to programmatically add an example utterance to an intent and train the model using Java.
 ---
@@ -67,14 +68,14 @@ ms.author: diberry
 
 Compile AddUtterance with the dependencies
 
-```CMD
+```console
 > javac -classpath gson-2.8.2.jar AddUtterances.java
 ```
 
 ## Run code
 Calling `AddUtterance` with no arguments adds the LUIS utterances to the app, without training it.
 
-```CMD
+```console
 > java -classpath .;gson-2.8.2.jar AddUtterances
 ```
 

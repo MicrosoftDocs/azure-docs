@@ -35,8 +35,6 @@
         href: azure-stack-solution-hybrid-identity.md
       - name: Configure hybrid cloud connectivity
         href: azure-stack-solution-hybrid-connectivity.md
-      - name: Create an edge machine learning solution
-        href: azure-stack-solution-machine-learning.md
       - name: Create a staged data analytics solution
         href: azure-stack-solution-staged-data-analytics.md
       - name: Create cross-cloud scaling solutions with Azure
@@ -99,6 +97,16 @@
         href: azure-stack-network-overview.md
       - name: Networking considerations
         href: azure-stack-network-differences.md
+      - name: VPN gateways
+        items:
+        - name: Connect using VPN
+          href: azure-stack-connect-vpn.md
+        - name: About VPN gateway
+          href: azure-stack-vpn-gateway-about-vpn-gateways.md
+        - name: Configure IPSec/IKE connection policies
+          href: azure-stack-vpn-s2s.md
+        - name: VPN gateway settings
+          href: azure-stack-vpn-gateway-settings.md
       - name: iDNS for Azure Stack
         href: azure-stack-understanding-dns.md
       - name: DNS in Azure Stack
@@ -106,17 +114,19 @@
     - name: Key Vault
       items:
       - name: Overview
-        href: azure-stack-kv-intro.md
+        href: azure-stack-key-vault-intro.md
       - name: Manage with the Portal
-        href: azure-stack-kv-manage-portal.md
+        href: azure-stack-key-vault-manage-portal.md
       - name: Manage with PowerShell
-        href: azure-stack-kv-manage-powershell.md
+        href: azure-stack-key-vault-manage-powershell.md
       - name: Create a VM with a secret
-        href: azure-stack-kv-deploy-vm-with-secret.md
+        href: azure-stack-key-vault-deploy-vm-with-secret.md
       - name: Create a VM with a certificate
-        href: azure-stack-kv-push-secret-into-vm.md
+        href: azure-stack-key-vault-push-secret-into-vm.md
+      - name: Store credentials in Key Vault
+        href: azure-stack-key-vault-store-credentials.md
       - name: KeyVault sample app
-        href: azure-stack-kv-sample-app.md
+        href: azure-stack-key-vault-sample-app.md
     - name: Azure Monitor
       href: azure-stack-metrics-azure-data.md
       items: 
@@ -130,12 +140,17 @@
         href: azure-stack-ethereum.md
       - name: Deploy a Service Fabric cluster
         href: azure-stack-solution-template-service-fabric-cluster.md
-      - name: Add Kubernetes cluster
+      - name: Deploy a Kubernetes cluster
+        href: azure-stack-solution-template-kubernetes-deploy.md
         items:
-        - name: Deploy a Kubernetes cluster
-          href: azure-stack-solution-template-kubernetes-deploy.md
+        - name: Deploy Kubernetes using Azure AD
+          href: azure-stack-solution-template-kubernetes-azuread.md
+        - name: Deploy Kubernetes using AD FS
+          href: azure-stack-solution-template-kubernetes-adfs.md
         - name: Troubleshoot Kubernetes cluster
           href: azure-stack-solution-template-kubernetes-trouble.md
+      - name: Deploy Cognitive Services
+        href: azure-stack-solution-template-cognitive-services.md
   - name: Build apps
     items:
     - name: Develop for Azure Stack
@@ -145,7 +160,7 @@
       - name: Install Azure Stack PowerShell
         href: ../azure-stack-powershell-install.md
         maintainContext: true
-      - name: Configure PowerShell
+      - name: Connect with PowerShell
         href: azure-stack-powershell-configure-user.md
       - name: Download Azure Stack tools
         href: ../azure-stack-powershell-download.md
@@ -163,7 +178,7 @@
           href: azure-stack-version-profiles-powershell.md
         - name: Azure CLI
           href: azure-stack-version-profiles-azurecli2.md
-        - name: GO
+        - name: Go
           href: azure-stack-version-profiles-go.md
         - name: Ruby
           href: azure-stack-version-profiles-ruby.md
@@ -181,7 +196,7 @@
         href: azure-stack-develop-templates.md
       - name: Check templates
         href: azure-stack-validate-templates.md
-      - name: Deploy with the Portal
+      - name: Deploy with the portal
         href: azure-stack-deploy-template-portal.md
       - name: Deploy with PowerShell
         href: azure-stack-deploy-template-powershell.md

@@ -3,10 +3,10 @@ title: Source Control integration in Azure Automation
 description: This article describes source control integration with GitHub in Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/26/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -44,7 +44,7 @@ On the **Source Control Summary** page, fill out the information and click **Sav
 |Property  |Description  |
 |---------|---------|
 |Source control name     | A friendly name for the source control        |
-|Source control type     | The type of source control source. Available options are:</br> Github</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
+|Source control type     | The type of source control source. Available options are:</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |Repository     | The name of the repository or project. This value is pulled from the source control repository. Example: $/ContosoFinanceTFVCExample         |
 |Branch     | The branch to pull the source files from. Branch targeting is not available for the TFVC source control type.          |
 |Folder path     | The folder that contains the runbooks to sync. Example: /Runbooks         |
@@ -54,9 +54,12 @@ On the **Source Control Summary** page, fill out the information and click **Sav
 
 ![Source control summary](./media/source-control-integration/source-control-summary.png)
 
+> [!NOTE]
+> Ensure you are logged in with the correct account when configuring source control. If there is a doubt, open a new tab in your browser and log out from visualstudio.com or github.com and try connecting source control again.
+
 ## Syncing
 
-Configuring autosync when configuring source control integration, the initial sync starts automatically. If auto sync was not set, select the source from the table on the **Source control (Preview)** page. Click **Start Sync** to start the sync process.  
+Configuring autosync when configuring source control integration, the initial sync starts automatically. If auto sync was not set, select the source from the table on the **Source control (Preview)** page. Click **Start Sync** to start the sync process.
 
 You can view the status of the current sync job or previous ones by clicking the **Sync jobs** tab. On the **Source Control** drop-down, select a source control.
 
@@ -135,3 +138,4 @@ Select the source control you want to remove. On the **Source Control Summary** 
 ## Next steps
 
 To learn more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
+

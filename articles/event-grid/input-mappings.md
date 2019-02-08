@@ -2,13 +2,13 @@
 title: Map custom field to Azure Event Grid schema
 description: Describes how to convert your custom schema to the Azure Event Grid schema.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/07/2018
-ms.author: tomfitz
+ms.date: 01/07/2019
+ms.author: spelluru
 ---
 
 # Map custom fields to Event Grid schema
@@ -99,7 +99,7 @@ The next example uses the input schema of the event:
 az eventgrid event-subscription create \
   --source-resource-id $topicid \
   --name eventsub2 \
-  --event-delivery-schema inputeventschema \
+  --event-delivery-schema custominputschema \
   --endpoint <endpoint_URL>
 ```
 

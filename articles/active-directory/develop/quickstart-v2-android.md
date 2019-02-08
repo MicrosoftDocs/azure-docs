@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -120,7 +120,7 @@ Read the following sections for more info about this quickstart.
 
 ### MSAL
 
-MSAL ([com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)) is the library used to sign in users and request tokens used to access an API protected by Microsoft Azure Active Directory (Azure AD). You can use Gradle to install it by adding the following in **Gradle Scripts** > **build.gradle (Module: app)** under **Dependencies**:
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is the library used to sign in users and request tokens used to access an API protected by Microsoft Azure Active Directory (Azure AD). You can use Gradle to install it by adding the following in **Gradle Scripts** > **build.gradle (Module: app)** under **Dependencies**:
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'

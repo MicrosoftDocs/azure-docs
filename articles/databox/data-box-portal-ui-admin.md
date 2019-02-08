@@ -7,18 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 08/28/2018
+ms.date: 01/09/2019
 ms.author: alkohli
 ---
-# Use Azure portal to administer your Data Box Disk (Preview)
+# Use Azure portal to administer your Data Box Disk
 
 The tutorials in this article apply to the Microsoft Azure Data Box Disk during Preview. This article describes some of the complex workflows and management tasks that can be performed on the Data Box Disk. 
 
 You can manage the Data Box Disk via the Azure portal. This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage disks, and track the status of the order as it proceeds to the terminal stage.
-
-> [!IMPORTANT]
-> Data Box Disk is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
-
 
 ## Cancel an order
 

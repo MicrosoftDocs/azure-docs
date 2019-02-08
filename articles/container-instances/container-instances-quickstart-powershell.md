@@ -1,6 +1,6 @@
 ﻿---
-title: Quickstart - Run an application in Azure Container Instances
-description: In this quickstart, you use Azure PowerShell to deploy an application running in a Docker container to Azure Container Instances
+title: Quickstart - Run an application in Azure Container Instances - PowerShell
+description: In this quickstart, you use Azure PowerShell to deploy a Docker container application to Azure Container Instances with Azure PowerShell
 services: container-instances
 author: dlepow
 
@@ -8,10 +8,10 @@ ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
+ms.custom: "seodec18, mvc"
 ---
 
-# Quickstart: Run an application in Azure Container Instances
+# Quickstart: Run a container application in Azure Container Instances with Azure PowerShell
 
 Use Azure Container Instances to run Docker containers in Azure with simplicity and speed. You don't need to deploy virtual machines or use a full container orchestration platform like Kubernetes. In this quickstart, you use the Azure portal to create a Windows container in Azure and make its application available with a fully qualified domain name (FQDN). A few seconds after you execute a single deployment command, you can browse to the running application:
 
@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.5 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.5 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -35,7 +35,9 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## Create a container
 
-Now that you have a resource group, you can run a container in Azure. To create a container instance with Azure PowerShell, provide a resource group name, container instance name, and Docker container image to the [New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet. You can expose your containers to the internet by specifying one or more ports to open, a DNS name label, or both. In this quickstart, you deploy a container with a DNS name label that hosts Internet Information Services (IIS) running in Nano Server.
+Now that you have a resource group, you can run a container in Azure. To create a container instance with Azure PowerShell, provide a resource group name, container instance name, and Docker container image to the [New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet. In this quickstart, you use the `microsoft/iis:nanoserver` Windows image from the public Docker Hub registry. This image packages Internet Information Services (IIS) to run in Nano Server.
+
+You can expose your containers to the internet by specifying one or more ports to open, a DNS name label, or both. In this quickstart, you deploy a container with a DNS name label so that IIS is publicly reachable.
 
 Execute the following command to start a container instance. The `-DnsNameLabel` value must be unique within the Azure region you create the instance. If you receive a "DNS name label not available" error message, try a different DNS name label.
 

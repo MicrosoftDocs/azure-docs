@@ -13,11 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 1/09/2019
 ms.author: jeffgilb
-ms.reviewer: quying
-
+ms.reviewer: jiahan
+ms.lastreviewed: 1/09/2019
 ---
+
 # SQL resource provider 1.1.30.0 release notes
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
@@ -64,6 +65,23 @@ This version of the Azure Stack SQL resource provider includes the following imp
 
     **Workaround**: Always use different logins for different databases under the same subscription.
 
+- **TLS 1.2 support requirement**. If you try to deploy or update the SQL resource provider from a computer where TLS 1.2 is not enabled, the operation might fail. Run the following PowerShell command on the computer being used to deploy or update the resource provider to verify that TLS 1.2 is returned as supported:
+
+  ```powershell
+  [System.Net.ServicePointManager]::SecurityProtocol
+  ```
+
+  If **Tls12** is not included in the output of the command, TLS 1.2 is not enabled on the computer.
+
+    **Workaround**: Run the following PowerShell command to enable TLS 1.2 and then start the resource provider deployment or update script from the same PowerShell session:
+
+    ```powershell
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+    ```
+- **SQL resource provider fails to add SQL Server Always On listener**. When using the listener IP address of the SQL Server Always On Listener, the SQL resource provider VM cannot resolve the listener’s host name.
+
+    **Workaround**: Ensure that DNS works correctly to resolve the listener IP to listener host name.
+    
 ### Known issues for Cloud Admins operating Azure Stack
 Refer to the documentation in the [Azure Stack Release Notes](azure-stack-servicing-policy.md).
 

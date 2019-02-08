@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
 
 ---
@@ -21,14 +21,13 @@ ms.author: juliako
 ## Overview
 An encoding job is associated with an input asset (or assets) on which you want to perform some encoding tasks. For example, encode an MP4 file to H.264 MP4 adaptive bitrate sets; create a thumbnail; create overlays. Upon completion of a task, an output asset is produced.  The output asset contains video, audio, thumbnails, etc. The output asset also contains a file with metadata about the output asset. The name of the metadata XML file has the following format: &lt;source_file_name&gt;_manifest.xml (for example, BigBuckBunny_manifest.xml).  
 
+Media Services does not pre-emptively scan input Assets to generate metadata. Input metadata is generated only as an artifact when an input Asset is processed in a Job. Hence this artifact is written to the output Asset. Different tools are used to generate metadata for input Assets and output Assets. Therefore, the input metadata has a slightly different schema than the output metadata.
+
 If you want to examine the metadata file, you can create a **SAS** locator and download the file to your local computer.  
 
 This article discusses the elements and types of the XML schema on which the output metada (&lt;source_file_name&gt;_manifest.xml) is based. For information about the file that contains metadata about the input asset, see [Input Metadata](media-services-input-metadata-schema.md).  
 
-> [!NOTE]
-> You can find the complete schema code and XML example at the end of this article.  
->
->
+You can find the complete schema code and XML example at the end of this article.  
 
 ## <a name="AssetFiles "></a> AssetFiles root element
 Collection of AssetFile entries for the encoding job.  

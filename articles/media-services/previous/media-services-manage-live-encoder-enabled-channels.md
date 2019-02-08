@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/29/2018
 ms.author: juliako;anilmur
 
 ---
@@ -211,18 +211,17 @@ Specifies the preset to be used by the live encoder within this Channel. Current
 
 Note that if you need custom presets, you should contact  amslived@microsoft.com.
 
-**Default720p** will encode the video into the following 7 layers.
+**Default720p** will encode the video into the following 6 layers.
 
 #### Output Video Stream
 | BitRate | Width | Height | MaxFPS | Profile | Output Stream Name |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |High |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Main |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Main |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Main |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Main |Video_384x216_550kbps |
-| 350 |340 |192 |30 |Baseline |Video_340x192_350kbps |
-| 200 |340 |192 |30 |Baseline |Video_340x192_200kbps |
+| 2200 |960 |540 |30 |High |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |High |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |High |Video_512x288_850kbps |
+| 550 |384 |216 |30 |High |Video_384x216_550kbps |
+| 200 |340 |192 |30 |High |Video_340x192_200kbps |
 
 #### Output Audio Stream
 

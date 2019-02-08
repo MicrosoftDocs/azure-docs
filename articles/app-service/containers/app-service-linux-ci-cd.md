@@ -1,6 +1,6 @@
 ---
-title: Continuous deployment from a Docker container registry with Web App for Containers - Azure | Microsoft Docs
-description: How to set up continuous deployment from a Docker container registry in Web App for Containers.
+title: Continuous deployment with Web App for Containers - Azure App Service | Microsoft Docs
+description: How to set up continuous deployment in Web App for Containers.
 keywords: azure app service, linux, docker, acr,oss
 services: app-service
 documentationcenter: ''
@@ -15,7 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2018
-ms.author: msangapu;yili
+ms.author: yili
+ms.custom: seodec18
 
 ---
 # Continuous deployment with Web App for Containers

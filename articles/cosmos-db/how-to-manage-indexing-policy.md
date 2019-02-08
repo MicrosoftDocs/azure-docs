@@ -2,7 +2,6 @@
 title: Learn how to manage database accounts in Azure Cosmos DB
 description: Learn how to manage database accounts in Azure Cosmos DB
 author: markjbrown
-
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/10/2018

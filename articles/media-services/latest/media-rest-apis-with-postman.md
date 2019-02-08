@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 12/18/2018
 ms.author: juliako
 
 ---
@@ -53,7 +53,7 @@ This section configures the Postman.
     > [!Note]
     > Update access variables with values you got from the **Access the Media Services API** section above.
 
-7. Double-click on the selected file and enter values that you got by following the [accessing API](#access-the-media-services-api) steps.
+7. Double-click on the selected file and enter values that you got by following the accessing API steps.
 8. Close the dialog.
 9. Select the **Azure Media Service v3 Environment** environment from the dropdown.
 
@@ -81,7 +81,7 @@ Before you start manipulating AMS v3 resources you need to get and set Azure AD 
     https://login.microsoftonline.com/:tenantId/oauth2/token
     ```
 
-4. The response comes back with the token and sets the "AccessToken" environment variable to the token value. To see the code that sets "AccessToken" , click on the **Tests** tab. 
+4. The response comes back with the token and sets the "AccessToken" environment variable to the token value.  
 
     ![Get AAD token](./media/develop-with-postman/postman-get-aad-auth-token.png)
 

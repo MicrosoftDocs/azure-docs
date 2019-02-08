@@ -1,5 +1,5 @@
 # [Data Lake Storage Gen1 Documentation](index.md)
-# [Switch to Data Lake Storage Gen2 (preview) documentation](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
+# [Switch to Data Lake Storage Gen2 documentation](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
 
 # Overview
 ## [Overview of Data Lake Storage Gen1](data-lake-store-overview.md)
@@ -28,7 +28,7 @@
 ### [Access control](data-lake-store-access-control.md)
 ### [Securing stored data](data-lake-store-secure-data.md)
 ### [Encryption](data-lake-store-encryption.md)
-### [Virtual network integration (preview)](data-lake-store-network-security.md)
+### [Virtual network integration](data-lake-store-network-security.md)
 
 ## Authenticate with Data Lake Storage Gen1
 ### [Authentication options](data-lakes-store-authentication-using-azure-active-directory.md)
@@ -92,6 +92,7 @@
 ## [Python (Account Mgmt.)](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)
 ## [Python (Filesystem Mgmt.)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
+## [Resource Manager template](/azure/templates/microsoft.datalakestore/allversions)
 ## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)
 
 # Resources

@@ -1,5 +1,5 @@
 ---
-title: Controlling Azure App Service traffic with Azure Traffic Manager
+title: Control traffic with Traffic Manager - Azure App Service
 description: This article provides summary information for  Azure Traffic Manager as it relates to Azure App Service.
 services: app-service\web
 documentationcenter: ''
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Controlling Azure App Service traffic with Azure Traffic Manager
@@ -47,7 +48,7 @@ When using Azure Traffic Manager with Azure, keep in mind the following points:
 * You can only specify one App Service endpoint per region in a profile. When you select an app as an endpoint for one region, the remaining apps in that region become unavailable for selection for that profile.
 * The App Service endpoints that you specify in an Azure Traffic Manager profile appears under the **Domain Names** section on the Configure page for the app in the profile, but is not configurable there.
 * After you add an app to a profile, the **Site URL** on the Dashboard of the app's portal page displays the custom domain URL of the app if you have set one up. Otherwise, it displays the Traffic Manager profile URL (for example, `contoso.trafficmanager.net`). Both the direct domain name of the app and the Traffic Manager URL are visible on the app's Configure page under the **Domain Names** section.
-* Your custom domain names work as expected, but in addition to adding them to your apps, you must also configure your DNS map to point to the Traffic Manager URL. For information on how to set up a custom domain for an App Service app,  see [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md).
+* Your custom domain names work as expected, but in addition to adding them to your apps, you must also configure your DNS map to point to the Traffic Manager URL. For information on how to set up a custom domain for an App Service app,  see [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md).
 * You can only add apps that are in standard or premium mode to an Azure Traffic Manager profile.
 
 ## Next Steps

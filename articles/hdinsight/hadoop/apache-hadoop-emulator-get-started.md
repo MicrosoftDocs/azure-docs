@@ -23,7 +23,7 @@ Learn how to install the Apache Hadoop sandbox from Hortonworks on a virtual mac
 
 
 ## Download and install the virtual machine
-1. Browse to the [Hortonworks downloads](http://hortonworks.com/downloads/#sandbox).
+1. Browse to the [Hortonworks downloads](https://hortonworks.com/downloads/#sandbox).
 
 2. Click **DOWNLOAD FOR VIRTUALBOX** to download the latest Hortonworks Sandbox on a VM. You are prompted to register with Hortonworks before the download begins. It takes one to two hours to download depending on your network speed.
    
@@ -74,6 +74,6 @@ To download an older HDP version sandbox, expand the archive:
 
 ## Next steps
 * [Learn how to use Visual Studio with the Hortonworks Sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
-* [Learning the ropes of the Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Hadoop tutorial - Getting started with HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [Learning the ropes of the Hortonworks Sandbox](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Hadoop tutorial - Getting started with HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 

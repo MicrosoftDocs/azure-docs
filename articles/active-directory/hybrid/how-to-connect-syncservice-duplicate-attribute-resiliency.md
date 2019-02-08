@@ -4,7 +4,7 @@ description: New behavior of how to handle objects with UPN or ProxyAddress conf
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
@@ -12,9 +12,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
 ---
@@ -78,7 +78,7 @@ Then, use the following cmdlets and operators to view errors in different ways:
 2. [By Property Type](#by-property-type)
 3. [By Conflicting Value](#by-conflicting-value)
 4. [Using a String Search](#using-a-string-search)
-5. [Sorted](#sorted)
+5. Sorted
 6. [In a Limited Quantity or All](#in-a-limited-quantity-or-all)
 
 #### See all

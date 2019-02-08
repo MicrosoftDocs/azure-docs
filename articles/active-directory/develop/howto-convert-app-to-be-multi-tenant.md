@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -34,7 +34,7 @@ There are four simple steps to convert your application into an Azure AD multi-t
 1. [Update your application registration to be multi-tenant](#update-registration-to-be-multi-tenant)
 2. [Update your code to send requests to the /common endpoint](#update-your-code-to-send-requests-to-common)
 3. [Update your code to handle multiple issuer values](#update-your-code-to-handle-multiple-issuer-values)
-4. [Understand user and admin consent and make appropriate code changes](#understanding-user-and-admin-consent)
+4. Understand user and admin consent and make appropriate code changes
 
 Let’s look at each step in detail. You can also jump straight to [this list of multi-tenant samples][AAD-Samples-MT].
 
@@ -229,5 +229,5 @@ In this article, you learned how to build an application that can sign in a user
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
-[OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
-[OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
+[OpenIDConnect]: https://openid.net/specs/openid-connect-core-1_0.html
+[OpenIDConnect-ID-Token]: https://openid.net/specs/openid-connect-core-1_0.html#IDToken

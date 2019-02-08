@@ -11,6 +11,7 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: kivenkat
+ms.lastreviewed: 10/22/2018
 
 ---
 
@@ -94,7 +95,7 @@ After you create a virtual machine scale set, users can update images in the sca
 
     If you download an image with a newer version (which changes the available version), the scale set cannot scale up. This is by design, as the image version specified in the scale set template must be available.  
 
-For more information, see [operating system disks and images](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+For more information, see [operating system disks and images](./user/azure-stack-compute-overview.md#operating-system-disks-and-images).  
 
 ## Scale a virtual machine scale set
 

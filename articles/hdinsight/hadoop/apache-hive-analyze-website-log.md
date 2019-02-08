@@ -15,7 +15,7 @@ ROBOTS: NOINDEX
 # Use Apache Hive with Windows-based HDInsight to analyze logs from websites
 Learn how to use HiveQL with HDInsight to analyze logs from a website. Website log analysis can be used to segment your audience based on similar activities, categorize site visitors by demographics, and to find out the content they view, the websites they come from, and so on.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The steps in this document only work with Windows-based HDInsight clusters. HDInsight is only available on Windows for versions lower than HDInsight 3.4. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 In this sample, you use an HDInsight cluster to analyze website log files to get insight into the frequency of visits to the website from external websites in a day. You also generate a summary of website errors that the users experience. You learn how to:
@@ -28,7 +28,7 @@ In this sample, you use an HDInsight cluster to analyze website log files to get
 ![HDI.Samples.Website.Log.Analysis](./media/apache-hive-analyze-website-log/hdinsight-weblogs-sample.png)
 
 ## Prerequisites
-* You must have provisioned a Hadoop cluster on Azure HDInsight. For instructions, see [Provision HDInsight Clusters](../hdinsight-hadoop-provision-linux-clusters.md).
+* You must have provisioned an Apache Hadoop cluster on Azure HDInsight. For instructions, see [Provision HDInsight Clusters](../hdinsight-hadoop-provision-linux-clusters.md).
 * You must have Microsoft Excel 2013 or Excel 2010 installed.
 * You must have [Microsoft Hive ODBC Driver](https://www.microsoft.com/download/details.aspx?id=40886) to import data from Hive into Excel.
 

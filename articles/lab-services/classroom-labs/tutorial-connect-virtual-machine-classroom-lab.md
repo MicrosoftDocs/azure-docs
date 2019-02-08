@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 01/17/2019
 ms.author: spelluru
 
 ---
@@ -28,10 +28,10 @@ In this tutorial, you do the following actions:
 
 ## Use the registration link
 
-1. Navigate to the **registration URL** that you received from the professor/educator. 
-2. Sign in to the service using your school account to complete the registration. 
-3. Once registered, confirm that you see the virtual machine for the lab you have access to. 
-2. Wait until the virtual machine is ready, and then **start** the VM. This process takes some time.  
+1. Navigate to the **registration URL** that you received from the professor/educator. You don't need to use the registration URL after you complete the registration. Instead, use the URL: [https://labs.azure.com](https://labs.azure.com). 
+1. Sign in to the service using your school account to complete the registration. 
+2. Once registered, confirm that you see the virtual machine for the lab you have access to. 
+3. Wait until the virtual machine is ready, and then **start** the VM. This process takes some time.  
 
     ![Start the VM](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
 
