@@ -41,9 +41,7 @@ Azure Machine Learning service has varying support across different compute targ
 |[Azure Data Lake Analytics](how-to-create-your-first-pipeline.md#adla)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
-### Reuse compute targets
-
-All compute targets can be reused for multiple training jobs. For example, once you attach a remote VM to your workspace, you can reuse it for multiple jobs.
+**All compute targets can be reused for multiple training jobs**. For example, once you attach a remote VM to your workspace, you can reuse it for multiple jobs.
 
 > [!NOTE]
 > Azure Machine Learning Compute can created as a persistent resource or created dynamically when you request a run. Run-based creation removes the compute target after the training run is complete, so you cannot reuse compute targets created this way.
