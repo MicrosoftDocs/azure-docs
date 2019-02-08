@@ -11,18 +11,30 @@ ms.author: adjohnso
 ---
 # Custom Images in a CycleCloud Cluster
 
-An Azure CycleCloud installation uses recommended OS images for clusters, but the use of Azure Marketplace images or custom images in nodes and nodearrays is also supported.
+An Azure CycleCloud installation uses recommended OS images for clusters, but the use of Azure Marketplace images, Gallery images (in preview) or custom images in nodes and nodearrays is also supported. Custom Images are useful for pre-installed applications in a cluster, or to fulfill business or security requirements.
 
-When using either Marketplace or custom images, additional attributes are needed to specify the version of the jetpack daemon that gets installed on the VMs at boot:
+## Specify a Custom Image or Marketplace Image via the new cluster UI wizard
 
-* `InstallJetpack` specifies that jetpack should be installed as part of the VM boot process. This should always be `true` for Marketplace images.
+Custom and marketplace images are also supported in the new cluster UI. Instead of selecting a built-in image, check the "Custom Image" box and specify the full Resource ID or URN for the image:
 
 > [!NOTE]
 > For CycleCloud versions prior to 7.7.0, the jetpack package was selected via the `JetpackPlatform` key.  Acceptable values for `JetpackPlatform` are: `centos-6`,`centos-7`, `ubuntu-14.04`, `ubuntu-16.04`, and `windows`. This should match the operating system of the Azure Marketplace image.
 
-## Use an Azure Marketplace Image in a CycleCloud Node
+## Use a Custom Image in a CycleCloud template
 
-To specify that a cluster node should use an Azure Marketplace image, include the following attributes on a node definition to identify the image:
+
+The `ImageName` attribute is used to specify that a cluster node should use a private Custom Azure image or a Marketplace image. This ID can be found for custom images in the Azure portal as the Resource ID for the image, and generally takes the form:
+
+`/subscriptions/$SUBSCRIPTION-ID/resourceGroups/$RESOURCEGROUPNAME/providers/Microsoft.Compute/images/$CustomImageName`
+
+``` ini
+[[node custom]]
+
+  ImageName = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/images/MyCustomImage
+```
+
+> [!NOTE]
+> For CycleCloud versions prior to 7.7.0, `InstallJetpack` must be set to true and custom images need to be specified using their Publisher/Offer/Sku/Version explicitly:
 
 ``` ini
 [[node marketplace]]
@@ -37,11 +49,20 @@ To specify that a cluster node should use an Azure Marketplace image, include th
 
   # Azure CycleCloud >= 7.7.0 jetpack selection attributes
   InstallJetpack = true
+
 ```
 
-The `Azure.*` attributes define the marketplace image to be used. The easiest way to retrieve these attributes is through the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list).
 
-As an alternative to a specific version, most publishers support referencing the latest image with a label: `Azure.ImageVersion = latest`.
+
+The URN or Resource ID defines the marketplace image to be used. The easiest way to retrieve URN or ID is through the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list).
+
+You can also specify a Marketplace or Gallery image by using the URN:
+
+``` ini
+[[node marketplace]]
+
+ ImageName = publisher:offer:sku:version
+```
 
 ### Use an Azure Marketplace Image with a Pricing Plan
 
@@ -59,7 +80,7 @@ or
       $> az vm image accept-terms --publisher PUBLISHER --offer OFFER --plan SKU
 ```
 
-## Use a Custom Image in a CycleCloud Node
+## Use a Custom Image in a CycleCloud Node on CycleCloud be
 
 Custom Images are useful for pre-installed applications in a cluster, or to fulfill business or security requirements.
 
