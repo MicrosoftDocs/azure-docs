@@ -4231,12 +4231,12 @@
     },
     {
       "source_path": "articles/azure-functions/functions-bindings-external-table.md",
-      "redirect_url": "/azure/azure-functions/functions-triggers-bindings",
+      "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-functions/functions-bindings-external-file.md",
-      "redirect_url": "/azure/azure-functions/functions-triggers-bindings",
+      "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
       "redirect_document_id": false
     },
     {
