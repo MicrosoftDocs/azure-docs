@@ -245,11 +245,11 @@ You can use the Task Execution View for Hive on Tez jobs to get structured and v
 ![Screenshot of the Data Lake Visual Studio Tools Task Execution View window](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.task.execution.view.png "Task Execution View")
 
 ## Run Hive batch jobs
-Testing a Hive script against an HDInsight cluster (with the exception of the Interactive Query cluster) can be time-consuming. The process might take several minutes or more. Data Lake Tools for Visual Studio can validate Hive script locally without connecting to a live cluster. For more information about running interactive queries, see [Run interactive Hive queries](#run-interactive-hive-queries).
+Testing a Hive script against an HDInsight cluster (with the exception of the Interactive Query cluster) can be time-consuming. The process might take several minutes or more. Data Lake Tools for Visual Studio can validate Hive script locally without connecting to a live cluster. For more information about running interactive queries, see Run interactive Hive queries.
 
 You can use Data Lake Tools for Visual Studio to see what’s inside the Hive job by collecting and surfacing the Yarn logs of specific Hive jobs.
 
-To learn more about how to run Hive batch jobs, see [Run interactive Hive queries](#run-interactive-hive-queries). The information in that section applies to running Hive batch jobs that have longer run times.
+To learn more about how to run Hive batch jobs, see Run interactive Hive queries. The information in that section applies to running Hive batch jobs that have longer run times.
 
 ## Run Apache Pig scripts
 You can use Data Lake Tools for Visual Studio to create and submit Pig scripts to HDInsight clusters. First, create a Pig project from a template. Then, submit the script to HDInsight clusters.

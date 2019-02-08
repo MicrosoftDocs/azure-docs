@@ -1417,7 +1417,7 @@ This section contains an example for each of these approaches:
 See the language-specific example:
 
 * [C# script (.csx)](#app-identity-refresh---c-script-example)
-* [JavaScript](#app-identity-refresh---javascript-example)
+* JavaScript
 
 ### App identity refresh - C# script example
 
