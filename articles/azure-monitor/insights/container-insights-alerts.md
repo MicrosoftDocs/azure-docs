@@ -18,10 +18,10 @@ ms.author: magoedte
 # How to be proactively alerted of Azure Monitor for containers performance problems
 Azure Monitor for containers monitors the performance of container workloads deployed to either Azure Container Instances or managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). 
 
-This article describes how to enable alerting when processor and memory utilization on nodes of the cluster or when individual containers and pods exceeds our recommended baseline threshold.
+This article describes how to enable alerting when processor and memory utilization on nodes of the cluster or when individual containers and pods exceed our recommended baseline threshold.
 
 ## Create alert on cluster CPU or memory utilization
-To alert when CPU or memory utilization is exceeded for a cluster, you create a metric measurement alert rule that is based off of four log queries provided. The queries compare a datetime to the present using the `now` operator and goes back one hour. Note that all dates stored by Azure Monitor for containers are in UTC format.  
+To alert when CPU or memory utilization is high for a cluster, you create a metric measurement alert rule that is based off of log queries provided. The queries compare a datetime to the present using the `now` operator and goes back one hour. All dates stored by Azure Monitor for containers are in UTC format.  
 
 Before starting, if you are not familiar with Alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](./platform/alerts-overview.md). To learn more about alerts using log queries, see [Log alerts in Azure Monitor](./platform/alerts-unified-log.md)
 
