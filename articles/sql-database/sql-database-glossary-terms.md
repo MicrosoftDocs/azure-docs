@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 02/05/2019
+ms.date: 02/08/2019
 ---
 # Azure SQL Database glossary of terms
 
@@ -22,7 +22,7 @@ ms.date: 02/05/2019
 ||Elastic pool|[Elastic pool](sql-database-elastic-pool.md)|
 ||Managed instance|[Managed instance](sql-database-managed-instance.md)|
 |Server objects|SQL Database server or database server|[Database server](sql-database-servers.md)|
-||SQL Database managed instance or managed instance|[Managed instance](sql-database-managed-instance.md)|
+||SQL Database managed instance server, managed instance server, or instance server|[Managed instance](sql-database-managed-instance.md)|
 Database objects|Azure SQL database|Any database in Azure SQL Database|
 ||Single database|A database created as a standalone database using the single database deployment option|
 ||Pooled database|A database created within or moved into an elastic pool|
