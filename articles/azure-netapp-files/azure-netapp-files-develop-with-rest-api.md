@@ -157,6 +157,6 @@ The following example shows how to create a snapshot of a volume:
 > [!NOTE] 
 > You need to specify `fileSystemId` for creating a snapshot.  You can obtain the `fileSystemId` value with a GET request to a volume. 
 
-## Next Steps
+## Next steps
 
 [See the Azure NetApp Files REST API reference](https://docs.microsoft.com/rest/api/netapp/)
