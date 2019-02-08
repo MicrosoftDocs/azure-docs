@@ -12104,7 +12104,7 @@
     },
     {
       "source_path": "articles/machine-learning/studio/studio-overview-diagram.md",
-      "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio#studio-diagram",
+      "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio",
       "redirect_document_id": false
     },
     {

@@ -97,8 +97,6 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
        - COMPONENT: Health controller
        - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
 
-<!-- 3631537 - IS, ASDK -->
-- Fixed an issue when creating a new Windows Virtual Machine (VM) in which the **Settings** blade required that you select a public inbound port in order to proceed. Although the setting was required, it had no effect.
 
 <!-- 3507629 - IS, ASDK --> 
 - Fixed an issue when setting the value of Managed Disks quotas under [compute quota types](azure-stack-quota-types.md#compute-quota-types) to 0, it is equivalent to the default value of 2048 GiB. The zero quota value now is respected.
