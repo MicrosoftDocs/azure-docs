@@ -69,7 +69,7 @@ You enable Local Cache on a per-web-app basis by using this app setting:
 ### Configure Local Cache by using Azure Resource Manager
 <a name="Configure-Local-Cache-ARM"></a>
 
-```
+```json
 
 ...
 
@@ -81,7 +81,7 @@ You enable Local Cache on a per-web-app basis by using this app setting:
         "[resourceId('Microsoft.Web/sites/', variables('siteName'))]"
     ],
 
-"properties": {
+    "properties": {
         "WEBSITE_LOCAL_CACHE_OPTION": "Always",
         "WEBSITE_LOCAL_CACHE_SIZEINMB": "300"
     }

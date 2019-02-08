@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn about the Bing Entity Search API endpoint and send requests to it.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-entity-search

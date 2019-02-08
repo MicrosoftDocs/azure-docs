@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to improve the quality of your classifier.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision

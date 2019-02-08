@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: A step-by-step guide how to register a new app with Azure Custom Decision Service.
 services: cognitive-services
 author: slivkins
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-decision-service
