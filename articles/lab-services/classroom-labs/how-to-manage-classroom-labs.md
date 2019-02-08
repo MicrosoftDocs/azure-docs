@@ -28,7 +28,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 2. Select **Sign in**. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts. 
 3. In the **New Lab** window, do the following actions: 
     1. Specify a **name** for your lab. 
-    2. Specify **number of users** allowed into the lab. 
+    2. Specify the maximum **number of virtual machines** in the lab. You can increase or decrease the number of virtual machines in the lab later. 
     6. Select **Save**.
 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
@@ -68,7 +68,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
         > [!WARNING]
         > Once you publish, you can't unpublish. 
-    2. To publish later, select **Save for later**. You can publish the template VM after the wizard completes. For details on how to configure and publish after the wizard completes, see For details on how to configure and publish after the wizard completes, see [Publish the template](#publish-the-template) section in the [How to manage classroom labs](how-to-manage-classroom-labs.md) article.
+    2. To publish later, select **Save for later**. You can publish the template VM after the wizard completes. For details on how to configure and publish after the wizard completes, see For details on how to configure and publish after the wizard completes, see Publish the template section in the [How to manage classroom labs](how-to-manage-classroom-labs.md) article.
 
         ![Publish template](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. You see the **progress of publishing** the template. This process can take up to an hour. 

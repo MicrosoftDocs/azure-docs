@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Set up an application to analyze and classify product images with specified labels (using Azure Computer Vision and Custom Vision), and tag objectionable images to be further reviewed (using Azure Content Moderator).
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: pafarley

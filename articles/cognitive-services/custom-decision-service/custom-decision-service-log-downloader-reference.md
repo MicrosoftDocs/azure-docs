@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Download log files that are produced by Azure Custom Decision Service.
 services: cognitive-services
 author: marco-rossi29
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi

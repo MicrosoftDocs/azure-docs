@@ -16,6 +16,7 @@ ms.topic: get-started-article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
+ms.lastreviewed: 10/19/2018
 
 ---
 

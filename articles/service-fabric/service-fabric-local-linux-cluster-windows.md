@@ -48,7 +48,7 @@ To set up a local Docker container and have a service fabric cluster running on 
 
 2. In a new directory create a file called `Dockerfile` to build your Service Fabric Image:
 
-    ```dockerfile
+    ```Dockerfile
     FROM microsoft/service-fabric-onebox
     WORKDIR /home/ClusterDeployer
     RUN ./setup.sh

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with ChronicX® | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ChronicX®.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: f3f19be6-6ee8-413c-919c-4884ffe685ca
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -83,7 +83,7 @@ To configure and test Azure AD single sign-on with ChronicX®, you need to compl
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a ChronicX® test user](#create-a-chronicx®-test-user)** - to have a counterpart of Britta Simon in ChronicX® that is linked to the Azure AD representation of user.
+1. **Create a ChronicX® test user** - to have a counterpart of Britta Simon in ChronicX® that is linked to the Azure AD representation of user.
 1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 

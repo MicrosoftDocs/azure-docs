@@ -28,7 +28,7 @@ Azure Migrate is an assessment service that helps you discover your on-premises 
 
 ### What's the difference between using Azure Migrate for assessments and the Map Toolkit?
 
-[Azure Migrate](migrate-overview.md) provides migration assessment specifically to assist with migration readiness and evaluation of on-premises workloads into Azure. [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826) has other functionality. For example, migration planning for newer versions of Windows client and server operating systems, software usage tracking etc. For those scenarios, continue to use the MAP Toolkit.
+[Azure Migrate](migrate-overview.md) provides migration assessment specifically to assist with migration readiness and evaluation of on-premises workloads into Azure. [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826) has other functionalities such as migration planning for newer versions of Windows client and server operating systems and software usage tracking. For those scenarios, continue to use the MAP Toolkit.
 
 
 ### How is Azure Migrate different from Azure Site Recovery Deployment Planner?
@@ -43,14 +43,14 @@ Azure Migrate is a migration planning tool and Azure Site Recovery Deployment Pl
 
 ### Which Azure geographies are supported by Azure Migrate?
 
-Azure Migrate currently supports Europe, United States and Azure Government as the project geographies. Even though you can only create migration projects in these geographies, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project geography is only used to store the discovered metadata.
+Azure Migrate currently supports Europe, United States, and Azure Government as the project geographies. Even though you can only create migration projects in these geographies, you can still assess your machines for [multiple target locations](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). The project geography is only used to store the discovered metadata.
 
 **Geography** | **Metadata storage location**
 --- | ---
 Azure Government | US Gov Virginia
 Asia | Southeast Asia
 Europe | North Europe or West Europe
-Unites States | East US of West Central US
+Unites States | East US or West Central US
 
 ### How does the on-premises site connect to Azure Migrate?
 
@@ -103,7 +103,7 @@ The agent-based discovery is an option available on top of the appliance-based d
 
 ### Would there be any performance impact on the analyzed ESXi host environment?
 
-In the case of the [one time discovery approach](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods), in order to collect the performance data, the statistics level on the vCenter server would have to be set to 3. Setting it to this level would collect a large quantity of troubleshooting data, which would be stored in the vCenter Server database. It could thus result in some performance issues on the vCenter Server. There would be negligible impact on the ESXi host.
+In the case of the [one time discovery approach](https://docs.microsoft.com/azure/migrate/concepts-collector), in order to collect the performance data, the statistics level on the vCenter server would have to be set to 3. Setting it to this level would collect a large quantity of troubleshooting data, which would be stored in the vCenter Server database. It could thus result in some performance issues on the vCenter Server. There would be negligible impact on the ESXi host.
 
 We have introduced continuous profiling of performance data(which is in preview). With continuous profiling, there is no longer a need to change the vCenter Server statistics level to run a performance-based assessment. The collector appliance will now profile the on-premises machines to measure the performance data of the virtual machines. This would have almost zero performance impact on the ESXi hosts as well as on the vCenter Server.
 
@@ -193,8 +193,8 @@ No, the dependency visualization cannot be exported. However, since Azure Migrat
 
 ### How can I automate the installation of Microsoft Monitoring Agent (MMA) and dependency agent?
 
-[Here](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) is a script that you can use for installation of dependency agent. For
-MMA, [here](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) is a script available on TechNet that you can leverage.
+[Here](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) is a script that you can use for installation of dependency agent. [Here](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) are instructions on how you can install MMA using command line or automated methods. For
+MMA, you can also leverage a script available [here](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) on Technet.
 
 In addition to scripts, you can also leverage deployment tools like System Center Configuration Manager (SCCM), [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) etc. to deploy the agents.
 
@@ -209,10 +209,10 @@ The list of Windows operating systems supported by dependency agent is [here](ht
 The list of Linux operating systems supported by dependency agent is [here](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### Can I visualize dependencies in Azure Migrate for more than one hour duration?
-No, Azure Migrate lets you visualize dependencies for up to one hour duration. Azure Migrate allows you to go back to a particular date in the history for up to last one month, but the maximum duration for which you can visualize the dependencies is up to 1 hour. For example, you can use the time duration functionality in the dependency map, to view dependencies for yesterday, but can only view it for a one hour window.
+No, Azure Migrate lets you visualize dependencies for up to one hour duration. Azure Migrate allows you to go back to a particular date in the history for up to last one month, but the maximum duration for which you can visualize the dependencies is up to 1 hour. For example, you can use the time duration functionality in the dependency map, to view dependencies for yesterday, but can only view it for a one hour window. However, you can use Log Analytics to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) over a longer duration.
 
 ### Is dependency visualization supported for groups with more than 10 VMs?
-You can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) that have up to 10 VMs, if you have a group with more than 10 VMs, we recommend you to split the group in to smaller groups and visualize the dependencies.
+You can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) that have up to 10 VMs. If you have a group with more than 10 VMs, we recommend you to split the group in to smaller groups and visualize the dependencies.
 
 
 ## Next steps

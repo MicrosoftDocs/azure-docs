@@ -85,6 +85,7 @@
       displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, Databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: Access data in training
+      displayName: blob
       href: how-to-access-data.md
     - name: Create estimators in training
       href: how-to-train-ml-models.md
@@ -121,9 +122,10 @@
   - name: Consume web services
     items:  
     - name: Consume in real-time
-      displayName: create client consume
+      displayName: create client consume request response synchronous
       href: how-to-consume-web-service.md
     - name: Run batch predictions
+      displayName: score scoring asynchronous consume pipeline
       href: how-to-run-batch-predictions.md
   - name: Monitor web services
     items:  

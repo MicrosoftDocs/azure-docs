@@ -9,7 +9,7 @@ ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 
 ms.workload: identity
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
@@ -117,4 +117,4 @@ Make sure you typed your password correctly. If you're sure you entered your pas
 
 - [Manage your two-step verification settings](multi-factor-authentication-end-user-manage-settings.md)
 
-- Try out the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) to verify your sign-ins with app notifications, instead of receiving texts or calls.
+- Try out the [Microsoft Authenticator app](user-help-auth-app-download-install.md) to verify your sign-ins with app notifications, instead of receiving texts or calls.

@@ -11,7 +11,7 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
-ms.date: 06/13/2018
+ms.date: 09/25/2018
 ---
 # Configure multi-factor authentication for SQL Server Management Studio and Azure AD
 

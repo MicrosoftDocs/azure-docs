@@ -4,12 +4,12 @@ titlesuffix: Azure Cognitive Services
 description: This article is an overview of Text to Speech voice customization, which enables you to create a recognizable, one-of-a-kind brand voice.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 01/28/2019
 ms.author: panosper
 ---
 # Creating custom voice fonts

@@ -4,10 +4,10 @@ titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you use a domain model to identify landmarks in  an image using the Computer Vision API with PHP.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley

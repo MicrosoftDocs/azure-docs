@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/23/2019
+ms.date: 01/24/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -20,11 +20,12 @@ Use data copy service:
 - In the network-attached storage (NAS) environments where the intermediate hosts may not be available.
 - With small files that take weeks for ingestion and upload of data. This service significantly improves the ingestion and upload time.
 
-In this tutorial, you learn how to:
+In this tutorial, you learn about:
 
 > [!div class="checklist"]
+> * Prerequisites
 > * Copy data to Data Box
-> * Prepare to ship Data Box.
+
 
 ## Prerequisites
 
@@ -134,18 +135,14 @@ Once the copy job is finished, you can go to **Prepare to ship**.
 >[!NOTE]
 > Prepare to ship can't run while copy jobs are in progress.
 
-## Prepare to ship
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
-
-
 ## Next steps
 
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
+> * Prerequisites
 > * Copy data to Data Box
-> * Prepare to ship Data Box
+
 
 Advance to the next tutorial to learn how to ship your Data Box back to Microsoft.
 

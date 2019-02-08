@@ -2,13 +2,12 @@
 title: Log Analytics data model for Azure Backup
 description: This article talks about Log Analytics data model details for Azure Backup data.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
 ---
 # Log Analytics data model for Azure Backup data
 Use the Log Analytics data model to create reports. With the data model, you can create custom queries and dashboards, or customize Azure Backup data, however you like.

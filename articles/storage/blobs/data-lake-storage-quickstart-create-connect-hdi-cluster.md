@@ -3,7 +3,7 @@ title: Cluster setup for Hadoop, Spark, Kafka, HBase, or R Server - Azure HDInsi
 description: Set up Hadoop, Kafka, Spark, HBase, R Server, or Storm clusters for HDInsight from a browser, the Azure CLI, Azure PowerShell, REST, or SDK.
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 01/15/2019
@@ -11,7 +11,7 @@ ms.author: jamesbak
 ---
 # Quickstart: Set up clusters in HDInsight
 
-In this quickstart you learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, R Server, or Storm. You also learn to customize clusters, join them to a domain, and attach them to a storage account with [Azure Data Lake Storage Gen2 preview](data-lake-storage-introduction.md) enabled.
+In this quickstart you learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Query, HBase, R Server, or Storm. You also learn to customize clusters, join them to a domain, and attach them to a storage account with [Azure Data Lake Storage Gen2](data-lake-storage-introduction.md) enabled.
 
 A Hadoop cluster consists of several virtual machines (nodes) that are used for distributed processing of tasks. Azure HDInsight handles implementation details of installation and configuration of individual nodes, so you only have to provide general configuration information.
 
@@ -183,11 +183,11 @@ For more information, see [Sizes for virtual machines](../../virtual-machines/wi
 
 Custom cluster setup builds on the Quick create settings, and adds the following options:
 
-- [HDInsight applications](#hdinsight-applications)
-- [Cluster size](#cluster-size)
+- HDInsight applications
+- Cluster size
 - Advanced settings
-  - [Script actions](#customize-clusters-using-script-action)
-  - [Virtual network](#use-virtual-network)
+  - Script actions
+  - Virtual network
 
 ## Install HDInsight applications on clusters
 

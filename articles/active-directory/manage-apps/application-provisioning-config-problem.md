@@ -8,7 +8,7 @@ manager: daveba
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -38,7 +38,7 @@ Once the service is configured, most insights into the operation of the service 
 Below is a list of the general problem areas that you can drill into if you have an idea of where to start.
 
 * [Provisioning service does not appear to start](#provisioning-service-does-not-appear-to-start)
-* [Can’t save configuration due to app credentials not working](#can’t-save-configuration-due-to-app-credentials-not-working)
+* Can’t save configuration due to app credentials not working
 * [Audit logs say users are “skipped” and not provisioned, even though they are assigned](#audit-logs-say-users-are-skipped-and-not-provisioned-even-though-they-are-assigned)
 
 ## Provisioning service does not appear to start
@@ -52,7 +52,7 @@ If you set the **Provisioning Status** to be **On** in the **Azure Active Direct
 
 ## Can’t save configuration due to app credentials not working
 
-In order for provisioning to work, Azure AD requires valid credentials that allow it to connect to a user management API provided by that app. If these credentials do not work, or you don’t know wat they are, review the tutorial for setting up this app, described previously.
+In order for provisioning to work, Azure AD requires valid credentials that allow it to connect to a user management API provided by that app. If these credentials don’t work, or you don’t know what they are, review the tutorial for setting up this app, described previously.
 
 ## Audit logs say users are skipped and not provisioned even though they are assigned
 

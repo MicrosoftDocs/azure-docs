@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you find the lengths of sentences in text using the Translator Text API with Ruby.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: erhopf

@@ -8,7 +8,7 @@ manager: daveba
 editor: 
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: 
 ms.topic: overview
 ms.custom: mvc
@@ -99,6 +99,9 @@ The following diagram shows how managed service identities work with Azure virtu
 ## How can I use managed identities for Azure resources?
 
 To learn how to use managed identities to access different Azure resources, try these tutorials.
+
+> [!NOTE]
+> Check out the [Implementing Managed Identities for Microsoft Azure Resources](https://www.pluralsight.com/courses/microsoft-azure-resources-managed-identities-implementing) course for more information about managed identities, including detailed video walkthroughs of several supported scenarios.
 
 Learn how to use a managed identity with a Windows VM:
 

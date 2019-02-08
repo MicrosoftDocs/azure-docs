@@ -6,7 +6,7 @@ author: mialdrid
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 01/25/2019
 ms.author: mialdrid
 ms.custom: seodec18
 
@@ -67,7 +67,7 @@ ExpressRoute Direct supports both QinQ and Dot1Q VLAN tagging.
 
 ## Workflow
 
-![workflow](./media/expressroute-erdirect-about/workflow1.png)
+[ ![workflow](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
 ## SLA
 

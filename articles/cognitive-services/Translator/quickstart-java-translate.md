@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to translate a text string from English to Italian and German using Java and the Translator Text REST API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf

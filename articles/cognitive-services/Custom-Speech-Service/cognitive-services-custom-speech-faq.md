@@ -5,10 +5,10 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 11/21/2016
-ms.author: panosper
+ms.author: nitinme
 ---
 
 # Custom Speech Service Frequently Asked Questions

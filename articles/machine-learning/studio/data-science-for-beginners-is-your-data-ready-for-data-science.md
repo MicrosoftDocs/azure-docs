@@ -1,11 +1,11 @@
 ---
 title: Data evaluation
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: Four criteria your data needs to meet to be ready for data science. This video has concrete examples to help with basic data evaluation.
-services: machine-learning
-ms.service: machine-learning
-ms.component: studio
-ms.topic: article
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
 
 author: garyericson
 ms.author: garye

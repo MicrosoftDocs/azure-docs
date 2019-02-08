@@ -6,7 +6,7 @@ documentationcenter: ''
 author: barbkess
 manager: daveba
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -30,7 +30,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
   1. Attributes, which must be enclosed in square brackets. For example: [attributeName]
   2. String constants, which must be enclosed in double quotes. For example: "United States"
   3. Other Functions. For example: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* For string constants, if you need a backslash ( \ ) or quotation mark ( " ) in the string, it must be escaped with the backslash ( \ ) symbol. For example: "Company name: \"Contoso\""
+* For string constants, if you need a backslash ( \ ) or quotation mark ( " ) in the string, it must be escaped with the backslash ( \ ) symbol. For example: "Company name: \\"Contoso\\""
 
 ## List of Functions
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
@@ -47,7 +47,7 @@ Takes a source string value and appends the suffix to the end of it.
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Required |String |Usually name of the attribute from the source object |
+| **source** |Required |String |Usually name of the attribute from the source object. |
 | **suffix** |Required |String |The string that you want to append to the end of the source value. |
 
 - - -
@@ -74,7 +74,7 @@ Join(separator, source1, source2, …)
 **Description:**<br> 
 Join() is similar to Append(), except that it can combine multiple **source** string values into a single string, and each value will be separated by a **separator** string.
 
-If one of the source values is a multi-value attribute, then every value in that attribute will be joined together, separated the separator value.
+If one of the source values is a multi-value attribute, then every value in that attribute will be joined together, separated by the separator value.
 
 **Parameters:**<br> 
 
@@ -111,7 +111,7 @@ Requires one string argument. Returns the string, but with any diacritical chara
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Required |String | Usually a first name or last name attribute |
+| **source** |Required |String | Usually a first name or last name attribute. |
 
 - - -
 ### Not
@@ -125,7 +125,7 @@ Flips the boolean value of the **source**. If **source** value is "*True*", retu
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Required |Boolean String |Expected **source** values are "True" or "False".. |
+| **source** |Required |Boolean String |Expected **source** values are "True" or "False". |
 
 - - -
 ### Replace
@@ -137,7 +137,7 @@ Replaces values within a string. It works differently depending on the parameter
 
 * When **oldValue** and **replacementValue** are provided:
   
-  * Replaces all occurrences of oldValue in the source  with replacementValue
+  * Replaces all occurrences of **oldValue** in the **source** with *replacementValue**
 * When **oldValue** and **template** are provided:
   
   * Replaces all occurrences of the **oldValue** in the **template** with the **source** value
@@ -178,7 +178,7 @@ Requires a minimum of two arguments, which are unique value generation rules def
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |At least 2 are required, no upper bound |String | List of unique value generation rules to evaluate |
+| **uniqueValueRule1  … uniqueValueRuleN** |At least 2 are required, no upper bound |String | List of unique value generation rules to evaluate. |
 
 
 - - -
@@ -238,7 +238,7 @@ Takes a *source* string value and converts it to lower case using the culture ru
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Required |String |Usually name of the attribute from the source object |
+| **source** |Required |String |Usually name of the attribute from the source object. |
 | **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
 
 - - -
@@ -253,7 +253,7 @@ Takes a *source* string value and converts it to upper case using the culture ru
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Required |String |Usually name of the attribute from the source object |
+| **source** |Required |String |Usually name of the attribute from the source object. |
 | **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
 
 ## Examples

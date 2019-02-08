@@ -1,13 +1,13 @@
-﻿---
+---
 title: "Tutorial: Perform image operations - Python"
 titlesuffix: Azure Cognitive Services
 description: Learn how to use the Computer Vision API with Python by using Jupyter notebooks. Visualize your results using popular libraries.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: kefre
