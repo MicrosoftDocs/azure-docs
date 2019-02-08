@@ -19,13 +19,13 @@ When upgrading Microsoft Azure Site Recovery Provider (DRA), the Unified Setup u
 
 Upgrade is not supported as a higher version of the software is already installed.
 
-To upgrade use the following steps:
+To upgrade, use the following steps:
 
 1. Download the Microsoft Azure Site Recovery Unified Setup:
    1. In the "Links to currently supported update rollups" section of the [Service updates in Azure Site Recovery](service-updates-how-to.md##links-to-currently-supported-update-rollups) article, select the provider to which you are upgrading.
    2. On the rollup page, locate the **Update information** section and download the Update Rollup for Microsoft Azure Site Recovery Unified Setup.
 
-2. Open a command prompt and navigate to the folder to which you downloaded Unified Setup file and the extract the setup files from the download using the following command, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;folder path for the extracted files&gt;.
+2. Open a command prompt and navigate to the folder to which you downloaded Unified Setup file. Extract the setup files from the download using the following command, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:&lt;folder path for the extracted files&gt;.
 	
 	Example command:
 
@@ -38,9 +38,9 @@ To upgrade use the following steps:
 
 1. Return to the folder to which you downloaded the Unified Setup and run MicrosoftAzureSiteRecoveryUnifiedSetup.exe to finish the upgrade. 
 
-## Upgrade failure due the thirdparty folder being renamed
+## Upgrade failure due to the thirdparty folder being renamed
 
-For the upgrade to succeed the thirdparty folder must not be renamed.
+For the upgrade to succeed, the thirdparty folder must not be renamed.
 
 To resolve the issue.
 
