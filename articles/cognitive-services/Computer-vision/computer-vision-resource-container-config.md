@@ -107,7 +107,7 @@ The following Docker examples are for the recognize text container.
 
 ### Basic example 
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
@@ -117,7 +117,7 @@ The following Docker examples are for the recognize text container.
 
 ### Logging example with command-line arguments
 
-  ```Docker
+  ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
   Eula=accept \
@@ -128,7 +128,7 @@ The following Docker examples are for the recognize text container.
 
 ### Logging example with environment variable
 
-  ```Docker
+  ```
   SET Logging:Console:LogLevel=Information
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
   containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
