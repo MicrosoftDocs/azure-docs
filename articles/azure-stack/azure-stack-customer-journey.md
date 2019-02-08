@@ -117,7 +117,7 @@ Actions that should be taken by the OEM Partner are:
 
 -   [Marketplace Syndication](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
 
--   Backup Switch Configuration and HLH Configuration files.
+-   Backup Switch Configuration and HLH Configuration files
 
 -   Remove DVM
 
