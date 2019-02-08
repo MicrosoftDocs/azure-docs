@@ -62,11 +62,39 @@ For example, for the Azure region West US 2 (displayed below), you will use "wes
 
 ## Endpoints  
 
-| Endpoint|Global Azure | Azure Government|Azure Germany|Azure China 21Vianet|
-| --- | --- | --- | --- | --- |
-| Azure Resource Manager |  `https://management.azure.com/` | `https://management.usgovcloudapi.net/` | `https://management.cloudapi.de/` | `https://management.chinacloudapi.cn/` |
-| Authentication | `https://login.microsoftonline.com/` | `https://login.microsoftonline.us/` | `https://login.microsoftonline.de/` | `https://login.chinacloudapi.cn/` |
-| Token audience | `https://management.core.windows.net/` | `https://management.core.usgovcloudapi.net/` | `https://management.core.cloudapi.de/`| `https://management.core.chinacloudapi.cn/` |
+The following endpoints are important to know when connecting to Media Services accounts from different national Azure clouds.
+
+### Global Azure
+
+|Endpoints ||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.azure.com/` |
+| Authentication | `https://login.microsoftonline.com/` | 
+| Token audience | `https://management.core.windows.net/` |
+
+### Azure Government
+
+|Endpoints||
+| --- | --- | 
+| Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
+| Authentication | `https://login.microsoftonline.us/` | 
+| Token audience | `https://management.core.usgovcloudapi.net/` |
+
+### Azure Germany
+
+| Endpoints ||
+| --- | --- |  
+| Azure Resource Manager | `https://management.cloudapi.de/` |
+| Authentication | `https://login.microsoftonline.de/` |
+| Token audience | `https://management.core.cloudapi.de/`|
+
+### Azure China 21Vianet
+
+|Endpoints||
+| --- | --- | 
+| Azure Resource Manager | `https://management.chinacloudapi.cn/` |
+| Authentication | `https://login.chinacloudapi.cn/` |
+| Token audience |  `https://management.core.chinacloudapi.cn/` |
 
 ## Next steps
 

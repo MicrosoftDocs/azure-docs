@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2019
+ms.date: 02/08/2019
 ms.author: magoedte
 ---
 
@@ -39,7 +39,7 @@ For information about configuring Azure Monitor for VMs, see [Enable Azure Monit
 >
 >There is no regression of any functionality delivered today with the Health feature of Azure Monitor for VMs.
 
->As a result of this change, there will be some disruption for a short period of time with the service and the health history. The two experiences in Health diagnostics are affected - state change history will be reset and previous state changes for health criteria will not be available for review in the State Change column of the Health diagnostics page. If you are interested in the historical data of any mission critical VM, then you can take a screenshot of the health criteria data and the corresponding state changes for your reference. 
+>As a result of this change, two experiences in Health diagnostics are affected - state change history will be reset and previous state changes for health criteria will not be available for review in the State Change column of the Health diagnostics page. If you are interested in the historical data of any mission critical VM, then you can take a screenshot of the health criteria data and the corresponding state changes for your reference. 
 
 ## Monitoring configuration details
 This section outlines the default health criteria defined to monitor Azure Windows and Linux virtual machines. All health criteria are pre-configured to alert when the unhealthy condition is met. 
