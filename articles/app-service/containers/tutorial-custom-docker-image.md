@@ -250,7 +250,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 
 ### Test the web app
 
-Verify that the web app works by browsing to it (`http://<app_name>azurewebsites.net`). 
+Verify that the web app works by browsing to it (`http://<app_name>.azurewebsites.net`). 
 
 ![Test web app port configuration](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png)
 
