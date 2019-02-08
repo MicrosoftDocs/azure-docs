@@ -18,7 +18,7 @@ ms.reviewer: marcozo
 
 To use Custom Decision Service for your application, register it on the portal. This article explains how.
 
-1. Go to the [front page](https://ds.microsoft.com/) of Custom Decision Service. On the ribbon, click **My Portal**, as highlighted in the image:
+1. Go to the [front page](https://portal.ds.microsoft.com/) of Custom Decision Service. On the ribbon, click **My Portal**, as highlighted in the image:
 
     ![My Portal](./media/portal.png)
 
