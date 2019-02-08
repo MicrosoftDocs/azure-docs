@@ -2330,6 +2330,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-libraries.md",
+      "redirect_url": "/azure/sql-database/sql-database-connect-query#libraries",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/sql-database/sql-database-quickstart-guide.md",
       "redirect_url": "/azure/sql-database/sql-database-single-database-quickstart-guide",
       "redirect_document_id": false
@@ -4222,6 +4227,16 @@
     {
       "source_path": "articles/azure-functions/functions-how-to-use-sendgrid.md",
       "redirect_url": "/azure/azure-functions/functions-bindings-sendgrid",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-bindings-external-table.md",
+      "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-bindings-external-file.md",
+      "redirect_url": "/azure/azure-functions/functions-triggers-bindings#supported-bindings",
       "redirect_document_id": false
     },
     {
@@ -8754,37 +8769,42 @@
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1802.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1803.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1804.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1805.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-stack/azure-stack-update-1807.md",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/azure-stack/azure-stack-update-1710.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1711.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1712.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1811",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1901",
       "redirect_document_id": false
     },
     {
@@ -12083,6 +12103,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/studio-overview-diagram.md",
+      "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-text-analytics-module-tutorial.md",
       "redirect_url": "/azure/machine-learning/studio/text-analytics-module-tutorial",
       "redirect_document_id": false
@@ -13244,7 +13269,12 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-elastic-pool-price.md",
-      "redirect_url": "/azure/sql-database/sql-database-faq",
+      "redirect_url": "/azure/sql-database/sql-database-elastic-pool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-faq.md",
+      "redirect_url": "/azure/sql-database/sql-database-technical-overview",
       "redirect_document_id": false
     },
     {
@@ -35549,6 +35579,26 @@
     {
       "source_path": "articles/hdinsight/hdinsight-autoscale-clusters.md",
       "redirect_url": "/azure/hdinsight/hdinsight-scaling-best-practices",
+      "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/application-insights/opencensus-go.md",
+      "redirect_url": "/azure/azure-monitor/app/opencensus-go",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/application-insights/opencensus-local-forwarder.md",
+      "redirect_url": "/azure/azure-monitor/app/opencensus-local-forwarder",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/application-insights/app-insights-nodejs.md",
+      "redirect_url": "/azure/azure-monitor/app/nodejs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters",
       "redirect_document_id": false
     }
   ]

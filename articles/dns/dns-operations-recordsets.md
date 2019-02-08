@@ -48,7 +48,7 @@ If your new record has the same name and type as an existing record, you need to
 
 You create record sets by using the `New-AzDnsRecordSet` cmdlet. When creating a record set, you need to specify the record set name, the zone, the time to live (TTL), the record type, and the records to be created.
 
-The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type 'A', you need to specify the IP address using the parameter `-IPv4Address`. Other parameters are used for other record types. See [Additional record type examples](#additional-record-type-examples) for details.
+The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type 'A', you need to specify the IP address using the parameter `-IPv4Address`. Other parameters are used for other record types. See Additional record type examples for details.
 
 The following example creates a record set with the relative name 'www' in the DNS Zone 'contoso.com'. The fully-qualified name of the record set is 'www.contoso.com'. The record type is 'A', and the TTL is 3600 seconds. The record set contains a single record, with IP address '1.2.3.4'.
 

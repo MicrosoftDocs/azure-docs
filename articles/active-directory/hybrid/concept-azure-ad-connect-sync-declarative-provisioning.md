@@ -33,7 +33,7 @@ The pipeline has several different modules. Each one is responsible for one conc
 * Source, The source object
 * [Scope](#scope), Finds all sync rules that are in scope
 * [Join](#join), Determines relationship between connector space and metaverse
-* [Transform](#transform), Calculates how attributes should be transformed and flow
+* Transform, Calculates how attributes should be transformed and flow
 * [Precedence](#precedence), Resolves conflicting attribute contributions
 * Target, The target object
 

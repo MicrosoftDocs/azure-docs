@@ -240,12 +240,12 @@ We recommend you use our SDKs and use the [SDK API](../../azure-monitor/app/api-
 ## Can I monitor an intranet web server?
 
 Yes, but you will need to allow traffic to our services by either firewall exceptions or proxy redirects.
-- QuickPulse `rt.services.visualstudio.com:443` 
+- QuickPulse `https://rt.services.visualstudio.com:443` 
 - ApplicationIdProvider `https://dc.services.visualstudio.com:443` 
 - TelemetryChannel `https://dc.services.visualstudio.com:443` 
 
 
-Review our list of services and IP addresses [here](../../azure-monitor/app/ip-addresses.md).
+Review our full list of services and IP addresses [here](../../azure-monitor/app/ip-addresses.md).
 
 ### Firewall exception
 

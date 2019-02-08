@@ -11,7 +11,7 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/07/2019
 ---
 # Azure SQL Database data discovery & classification
 
@@ -137,7 +137,8 @@ You can also use REST APIs to programmatically manage classifications. The publi
 - [Create Or Update](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate)  - Creates or updates the sensitivity label of a given column
 - [Delete](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - Deletes the sensitivity label of a given column
 - [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get)  - Gets the sensitivity label of a given column
-- [List By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) - Gets the sensitivity labels of a given database
+- [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - Gets the current sensitivity labels of a given database
+- [List Recommended By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - Gets the current sensitivity labels of a given database
 
 ## <a id="subheading-5"></a>Next steps
 

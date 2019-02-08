@@ -2,19 +2,15 @@
 title: Service Health overview | Microsoft Docs
 description: Personalized information about how your Azure apps are affected by current and future Azure service problems and maintenance. 
 services: Resource health
-documentationcenter: ''
-author: rboucher
-manager: ''
-editor: ''
-
-ms.assetid: 
+author: stephbaron
+ms.author: stbaron
+services: service-health
+documentationcenter: service-health
 ms.service: service-health
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.author: robb
+
 
 ---
 # Service Health
