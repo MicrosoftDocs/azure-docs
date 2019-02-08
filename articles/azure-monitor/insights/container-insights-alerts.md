@@ -103,9 +103,9 @@ Before starting, if you are not familiar with Alerts in Azure Monitor, see [Over
 
 8. Configure the alert with the following information:
 
-    a. From the **Based on** drop-down list, select **Metric measurement**. A metric measurement will create an alert for each object in the query with a value that exceeds our specified threshold. 
-    b. For the **Condition**, select **Greater than** and enter **75** for **Threshold**. 
-    c. Under **Trigger Alert Based On** section, select **Consecutive breaches** and from the drop-down list select **Greater than** enter a value of **2**.
+    a. From the **Based on** drop-down list, select **Metric measurement**. A metric measurement will create an alert for each object in the query with a value that exceeds our specified threshold.  
+    b. For the **Condition**, select **Greater than** and enter **75** for **Threshold**.  
+    c. Under **Trigger Alert Based On** section, select **Consecutive breaches** and from the drop-down list select **Greater than** enter a value of **2**.  
     d. Under **Evaluation based on** section, modify the **Period** value to 60 minutes. The rule will run every two minutes and return records that were created within the last hour from the current time. Setting the time period to a wider window accounts for the potential of data latency, and ensures the query returns data to avoid a false negative where the alert never fires. 
 
 9. Click **Done** to complete the alert rule.
