@@ -45,7 +45,7 @@ To deploy the same architecture by using Azure Availability Zones, you need to m
 Consider the following when you use Availability Zones:
 
 - There are no guarantees regarding the distances between various Availability Zones within an Azure region.
-- Availability Zones are not an ideal DR solution. Natural disasters can cause widespread damage in world regions, including heavy damage to power infrastructures. The distances between various zones might be not large enough to constitute a proper DR solution.
+- Availability Zones are not an ideal DR solution. Natural disasters can cause widespread damage in world regions, including heavy damage to power infrastructures. The distances between various zones might not be large enough to constitute a proper DR solution.
 - The network latency across Availability Zones is not the same in all Azure regions. In some cases, you can deploy and run the SAP application layer across different zones because the network latency from one zone to the active DBMS VM is acceptable. But in some Azure regions, the latency between the active DBMS VM and the SAP application instance, when deployed in different zones, is not acceptable for SAP business processes. In these cases, the deployment architecture needs to be different, with an active/active architecture for the application or an active/passive architecture where cross-zone latency is too high.
 - When deciding where to use Availability Zones, base your decision on the network latency between the zones. Network latency plays an important role in two areas:
 	- Latency between the two DBMS instances that need to have synchronous replication. The higher the network latency, the more likely it will affect the scalability of your workload.
@@ -112,7 +112,7 @@ The following considerations apply for this configuration:
     Currently, the solution that uses Microsoft Scale-Out File Server, as documented in [Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share), is not supported across zones.
 - The third zone is used to host the SBD device in case you build a [SUSE Linux Pacemaker cluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) or additional application instances.
 - To achieve run time consistency for critical business processes, you can try to direct certain batch jobs and users to application instances that are in-zone with the active DBMS instance by using SAP batch server groups, logon groups, or RFC groups. However, in the case of a zonal failover, you would need to manually move these groups to instances running on VMs that are in-zone with the active DB VM.  
-- You might want to deploy dormant dialog instances in each of the zones. This is to enable an immediate to return to the former resource capacity if a zone used by part of your application instances is out of service.
+- You might want to deploy dormant dialog instances in each of the zones. This is to enable an immediate return to the former resource capacity if a zone used by part of your application instances is out of service.
 
 
 ## Active/Passive deployment
