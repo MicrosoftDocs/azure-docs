@@ -26,6 +26,8 @@
     href: zoom-levels-and-tile-grid.md
   - name: Choose the right pricing tier
     href: choose-pricing-tier.md
+  - name: Authentication with Azure Maps
+    href: azure-maps-authentication.md
   - name: Coverage
     items:
     - name: Geocoding coverage
