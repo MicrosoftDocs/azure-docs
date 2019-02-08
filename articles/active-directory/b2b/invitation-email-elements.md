@@ -68,9 +68,9 @@ The footer contains the Microsoft company brand and lets the recipient know if t
   ![when recipient doesn't need to redeem invitation](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
 ## How the language is determined
-The language presented to the guest user in the invitation email is determined by the following settings. These settings are listed in order of precedence. If a setting isn’t configured, the next setting on the list determines the language. 
+The language presented to the guest user in the invitation email is determined by the following settings. These settings are listed in order of precedence. If a setting isn’t configured, the next setting in the list determines the language. 
 - The **messageLanguage** property of the [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) object if the Create invitation API is used
--	The **-PreferredLanguage** parameter specified in the guest user’s [AzureADUser](https://docs.microsoft.com/powershell/module/azuread/new-azureaduser?view=azureadps-2.0) object
+-	The **preferredLanguage** property specified in the guest's [user object](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)
 -	The **Notification language** set in the properties of the guest user’s home tenant (for Azure AD tenants only)
 -	The **Notification language** set in the properties of the resource tenant
 
