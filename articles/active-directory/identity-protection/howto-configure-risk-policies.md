@@ -76,7 +76,7 @@ However, for security reasons, this setting only works for users that have alrea
 
 If you want to require MFA for risky sign-ins, you should:
 
-1. Enable the [multi-factor authentication registration policy](#multi-factor-authentication-registration-policy) for the affected users.
+1. Enable the multi-factor authentication registration policy for the affected users.
 
 2. Require the affected users to login in a non-risky session to perform an MFA registration.
 

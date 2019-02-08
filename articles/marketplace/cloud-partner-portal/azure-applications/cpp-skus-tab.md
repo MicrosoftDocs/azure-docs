@@ -86,7 +86,7 @@ Configure the following SKU settings:
   >[!NOTE]
   >Save your pricing changes to enable export/import of pricing data.
 
-- **Simplified Currency Pricing** - Enter the price for the SKU, in USD per month. This must be the same as Old Pricing. For more information, see [Simplified Currency Pricing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer#simplified-currency-pricing).
+- **Simplified Currency Pricing** - Enter the price for the SKU, in USD per month. This must be the same as Old Pricing. For more information, see [Simplified Currency Pricing](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer).
 
 ### Package Details for Solution Template
 
