@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Copy data to your Microsoft Azure Data Box via the data copy service | Microsoft Docs'
-description: In this tutorial, you learn how to copy data to your Azure Data Box via the data copy service
+title: 'Tutorial: Copy data to your Microsoft Azure Data Box device via the data copy service | Microsoft Docs'
+description: In this tutorial, you learn how to copy data to your Azure Data Box device via the data copy service
 services: databox
 author: alkohli
 
@@ -47,7 +47,7 @@ To copy data by using the data copy service, you need to create a job:
 1. In the local web UI of your Data Box device, go to **Manage** > **Copy data**.
 2. On the **Copy data** page, select **Create**.
 
-    ![Select Create on the Copy data page](media/data-box-deploy-copy-data-via-copy-service/click-create.png)
+    ![Select Create on the "Copy data" page](media/data-box-deploy-copy-data-via-copy-service/click-create.png)
 
 3. In the **Configure job and start** dialog box, fill out the following fields:
     
@@ -65,23 +65,23 @@ To copy data by using the data copy service, you need to create a job:
  
 4. Select **Start**. The inputs are validated, and if the validation succeeds, then the job starts. It might take a few minutes for the job to start.
 
-    ![Start a job from the Configure job and start dialog box](media/data-box-deploy-copy-data-via-copy-service/configure-and-start.png)
+    ![Start a job from the "Configure job and start" dialog box](media/data-box-deploy-copy-data-via-copy-service/configure-and-start.png)
 
 5. A job with the specified settings is created. You can pause, resume, cancel, or restart a job. Select the check box next to the job name, and then select the appropriate button.
 
-    ![Manage a job on the Copy data page](media/data-box-deploy-copy-data-via-copy-service/select-job.png)
+    ![Manage a job on the "Copy data" page](media/data-box-deploy-copy-data-via-copy-service/select-job.png)
     
     - You can pause a job if it's affecting the NAS device's resources during peak hours:
 
-        ![Pause a job on the Copy data page](media/data-box-deploy-copy-data-via-copy-service/pause-job.png)
+        ![Pause a job on the "Copy data" page](media/data-box-deploy-copy-data-via-copy-service/pause-job.png)
 
         You can resume the job later during off-peak hours:
 
-        ![Resume a job on the Copy data page](media/data-box-deploy-copy-data-via-copy-service/resume-job.png)
+        ![Resume a job on the "Copy data" page](media/data-box-deploy-copy-data-via-copy-service/resume-job.png)
 
     - You can cancel a job at any time:
 
-        ![Cancel a job on the Copy data page](media/data-box-deploy-copy-data-via-copy-service/cancel-job.png)
+        ![Cancel a job on the "Copy data" page](media/data-box-deploy-copy-data-via-copy-service/cancel-job.png)
         
         When you cancel a job, a confirmation is required:
 
@@ -123,7 +123,7 @@ To copy data by using the data copy service, you need to create a job:
 
 Wait for the copy job to finish. Because some errors are logged only on the **Connect and copy** page, make sure that the copy job has finished with no errors before you go to the next step.
 
-![No errors on Connect and copy page](media/data-box-deploy-copy-data-via-copy-service/verify-no-errors-on-connect-and-copy.png)
+![No errors on "Connect and copy" page](media/data-box-deploy-copy-data-via-copy-service/verify-no-errors-on-connect-and-copy.png)
 
 To ensure data integrity, a checksum is computed inline as the data is copied. After the copy is complete, select **View dashboard** to verify the used space and free space on your device.
     
