@@ -76,17 +76,12 @@ HDInsight provides several scripts to install the following components on HDInsi
 
     ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "Use Script Action to customize a cluster")
 
-    <table border='1'>
-        <tr><th>Property</th><th>Value</th></tr>
-        <tr><td>Name</td>
-            <td>Specify a name for the script action.</td></tr>
-        <tr><td>Script URI</td>
-            <td>Specify the URI to the script that is invoked to customize the cluster. s</td></tr>
-        <tr><td>Head/Worker</td>
-            <td>Specify the nodes (**Head** or **Worker**) on which the customization script is run.</b>.
-        <tr><td>Parameters</td>
-            <td>Specify the parameters, if required by the script.</td></tr>
-    </table>
+      |Property|Value|  
+      |---|---|
+      |Name|Specify a name for the script action.|
+      |Script URI|Specify the URI to the script that is invoked to customize the clusters.|
+      |Head/Worker|Specify the nodes (**Head** or **Worker**) on which the customization script is run.|
+      |Parameters|Specify the parameters, if required by the script.|
 
     Press ENTER to add more than one script action to install multiple components on the cluster.
 3. Click **Select** to save the script action configuration and continue with cluster creation.
