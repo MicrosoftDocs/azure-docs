@@ -681,8 +681,6 @@
     href: /learn/browse/?products=azure-sql-database
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: FAQ
-    href: sql-database-faq.md
   - name: Public data sets
     href: sql-database-public-data-sets.md  
   - name: Troubleshoot connectivity
