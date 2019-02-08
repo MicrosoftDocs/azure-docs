@@ -17,9 +17,11 @@ ms.date: 02/06/2019
 ms.author: b-juche
 ---
 # Develop for Azure NetApp Files with REST API 
+
 The REST API for the Azure NetApp Files service defines HTTP operations against resources such as the NetApp account, the capacity pool, the volumes, and snapshots. This article helps you get started with using the Azure NetApp Files REST API.
 
 ## Access the Azure NetApp Files REST API  
+
 1. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven't done so already.
 2. Create a service principal in your Azure Active Directory (Azure AD):
     1. Verify that you have [sufficient permissions](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
@@ -60,13 +62,15 @@ The REST API for the Azure NetApp Files service defines HTTP operations against 
         curl -X GET -H "Authorization: Bearer [TOKEN]" -H "Content-Type: application/json" https://management.azure.com/subscriptions/[SUBSCRIPTION_ID]/providers/Microsoft.Web/sites?api-version=2016-08-01
 
 ## Examples using the API  
+
 This article uses the following URL for the baseline of requests. This URL points to the root of the Azure NetApp Files namespace. 
 
 `https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts?api-version=2017-08-15`
 
 You should replace the `subID` and `resourceGroups` values in the following examples with your own values. 
-        
+
 ### GET request examples
+
 You use a GET request to query objects of Azure NetApp Files in a subscription, as the following examples show: 
 
         #get NetApp accounts 
@@ -82,6 +86,7 @@ You use a GET request to query objects of Azure NetApp Files in a subscription, 
         curl -X GET -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/VOLUMEGOESHERE/snapshots?api-version=2017-08-15
 
 ### PUT request examples
+
 You use a PUT request to create new objects in Azure NetApp Files, as the following examples show. The body of the PUT request can include the JSON formatted data for the changes, or it can specify a file to read from. 
 
         #create a NetApp account  
@@ -97,6 +102,7 @@ You use a PUT request to create new objects in Azure NetApp Files, as the follow
         curl -X PUT -H "Authorization: Bearer TOKENGOESHERE" -H "Content-Type: application/json" https://management.azure.com/subscriptions/SUBIDGOESHERE/resourceGroups/RESOURCEGROUPGOESHERE/providers/Microsoft.NetApp/netAppAccounts/NETAPPACCOUNTGOESHERE/capacityPools/CAPACITYPOOLGOESHERE/volumes/MYNEWVOLUME/Snapshots/SNAPNAME?api-version=2017-08-15
 
 ### JSON examples
+
 This example shows how to create a NetApp account:
 
     { 
@@ -152,4 +158,5 @@ This examples shows how to create a snapshot of a volume:
 > You need to specify `fileSystemId` for creating a snapshot.  You can obtain the `fileSystemId` value with a GET request to a volume. 
 
 ## Next Steps
+
 [See the Azure NetApp Files REST API reference](https://docs.microsoft.com/rest/api/netapp/)
