@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 2/7/2019
+ms.date: 2/11/2019
 ms.author: wgries
 ms.subservice: files
 ---
@@ -20,7 +20,7 @@ The following versions are supported for the Azure File Sync agent:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V5 Release - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | February 7, 2019 | Supported (recommended version) |
+| V5 Release - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | February 11, 2019 | Supported (recommended version) |
 | January 2019 update rollup - [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | January 14, 2019 | Supported |
 | December 2018 update rollup - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | December 10, 2018 | Supported |
 | December 2018 update rollup | 4.1.0.0 | December 4, 2018 | Supported |
@@ -34,7 +34,7 @@ The following versions are supported for the Azure File Sync agent:
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## Agent version 5.0.2.0
-The following release notes are for version 5.0.2.0 of the Azure File Sync agent (released February 7, 2019).
+The following release notes are for version 5.0.2.0 of the Azure File Sync agent (released February 11, 2019).
 
 ### Improvements and issues that are fixed
 
@@ -69,6 +69,7 @@ For more information on how to install and configure the Azure File Sync agent w
 - The agent is supported only on Windows Server 2019, Windows Server 2016, and Windows Server 2012 R2.
 - The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory.
 - The Storage Sync Agent (FileSyncSvc) service does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
+- FIPS mode is not supported and must be disabled. 
 
 ### Interoperability
 - Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md).
@@ -151,6 +152,7 @@ For more information on how to install and configure the Azure File Sync agent w
 - The agent is supported only on Windows Server 2019, Windows Server 2016, and Windows Server 2012 R2.
 - The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory.
 - The Storage Sync Agent (FileSyncSvc) service does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
+- FIPS mode is not supported and must be disabled. 
 - A stop error 0x3B or stop error 0x1E may occur when a VSS snapshot is created.
 
 ### Interoperability
@@ -226,6 +228,7 @@ For more information on how to install and configure the Azure File Sync agent w
 - The agent is supported only on Windows Server 2016 and Windows Server 2012 R2.
 - The agent requires at least 2 GB of physical memory.
 - The Storage Sync Agent (FileSyncSvc) service does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
+- FIPS mode is not supported and must be disabled. 
 
 ### Interoperability
 - Antivirus, backup, and other applications that access tiered files can cause undesirable recall unless they respect the offline attribute and skip reading the content of those files. For more information, see [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md).
