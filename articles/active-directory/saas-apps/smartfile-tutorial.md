@@ -101,7 +101,7 @@ To configure Azure AD single sign-on with SmartFile, perform the following steps
     ![SmartFile Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<SUNDOMAIN>.smartfile.com/ftp/login`
+    `https://<SUBDOMAIN>.smartfile.com/ftp/login`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `<SUBDOMAIN>.smartfile.com`
