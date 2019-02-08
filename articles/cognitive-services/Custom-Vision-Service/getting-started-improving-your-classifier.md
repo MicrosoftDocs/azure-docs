@@ -65,7 +65,7 @@ To correct this problem, include a variety of images to ensure that your classif
 
     ![Image of angle samples](./media/getting-started-improving-your-classifier/angle.png)
 
-* __Style:__ Provide images of different styles of the same class (for example, different varieties of the same fruit). However, if you have objects of drastically different styles (such as Mickey Mouse versus a real-life mouse), we recommend you label them as separate classes to better represent their distinct features.
+* __Style:__ Provide images of different styles of the same class (for example, different varieties of the same fruit). However, if you have objects of drastically different styles (such as Mickey Mouse vs. a real-life mouse), we recommend you label them as separate classes to better represent their distinct features.
 
     ![Image of style samples](./media/getting-started-improving-your-classifier/style.png)
 
@@ -87,11 +87,11 @@ When you use or test the image classifier by submitting images to the prediction
 
 ## Visually inspect predictions
 
-To inspect image predictions, select the __Training Images__ tab and then select __Iteration History__. Images that are outlined with a red box were predicted incorrectly.
+To inspect image predictions, go to the __Training Images__ tab, select your previous training iteration in the **Iteration** drop-down menu, and check one or more tags under the **Tags** section. The view should now display a red box around each of the images for which the model failed to correctly predict the given tag.
 
 ![Image of the iteration history](./media/getting-started-improving-your-classifier/iteration.png)
 
-Sometimes a visual inspection can identify patterns that you can then correct by adding more training data or modifying existing training data. For example, a classifier for apples versus limes may incorrectly label all green apples as limes. You can then correct this problem by adding and providing training data that contains tagged images of green apples.
+Sometimes a visual inspection can identify patterns that you can then correct by adding more training data or modifying existing training data. For example, a classifier for apples vs. limes may incorrectly label all green apples as limes. You can then correct this problem by adding and providing training data that contains tagged images of green apples.
 
 ## Next steps
 
