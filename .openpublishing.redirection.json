@@ -12094,7 +12094,7 @@
     },
     {
       "source_path": "articles/machine-learning/studio/studio-overview-diagram.md",
-      "redirect_url": "https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf",
+      "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio",
       "redirect_document_id": false
     },
     {
