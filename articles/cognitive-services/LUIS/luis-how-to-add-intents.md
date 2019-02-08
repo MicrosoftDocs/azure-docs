@@ -49,17 +49,7 @@ In the top navigation, select **Train**. The prediction discrepancy is now gone.
 
 Once an utterance is added to an intent, you can select text from within the utterance to create a custom entity. A custom entity is a way to tag text for extraction, along with the correct intent. 
 
-1. Select the word, `Seattle`, in the utterance. Square brackets are drawn around the text and a drop-down menu appears. 
-
-    ![Screenshot of Intents details page, creating custom entity](./media/luis-how-to-add-intents/create-custom-entity.png) 
-
-    This example selects a single word to mark as an entity. You can mark single works and phrases as entities.
-
-1. In the top text-box of the menu, enter `Location`, then select **Create new entity**. 
-
-    ![Screenshot of Intents details page, creating custom entity name](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
-
-1. In the **What type of entity do you want to create?** pop-up window for entity creation, validate that the **entity name** is _Location_, and the **entity type** is _Simple_. Select **Done**.
+See [Add entity to utterance](luis-how-to-add-example-utterances.md) to learn more.
 
 ## Entity prediction discrepancy errors 
 
