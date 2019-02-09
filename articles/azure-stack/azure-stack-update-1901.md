@@ -94,7 +94,7 @@ This update includes the following new features and improvements for Azure Stack
    * **Azs.Storage.Admin Module**  
          Bug fix - New Storage Quota uses defaults if none provided.
 
-To review the reference for the updated modules, see [Azure Stack Module Reference](https://docs.microsoft.com/en-us/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0).
+To review the reference for the updated modules, see [Azure Stack Module Reference](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0).
 
 ## Fixed issues
 
