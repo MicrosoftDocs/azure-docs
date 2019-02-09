@@ -1,6 +1,6 @@
 ---
 title: Transactional replication with Azure SQL Database | Microsoft Docs"
-description: Learn about using SQL Server transactional replication with standalone, pooled, and instance databases in Azure SQL Database. 
+description: Learn about using SQL Server transactional replication with single, pooled, and instance databases in Azure SQL Database. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,9 +11,9 @@ author: MashaMSFT
 ms.author:  mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/08/2019
 ---
-# Transactional replication with standalone, pooled, and instance databases in Azure SQL Database
+# Transactional replication with single, pooled, and instance databases in Azure SQL Database
 
 Transactional replication is a feature of Azure SQL Database and SQL Server that enables you to replicate data from a table in Azure SQL Database or a SQL Server to the tables placed on remote databases. This feature allows you to synchronize multiple tables in different databases.
 
@@ -31,22 +31,21 @@ The key components in transactional replication are shown in the following pictu
 
 ![replication with SQL Database](media/replication-to-sql-database/replication-to-sql-database.png)
 
-
 The **Publisher** is an instance or server that publishes changes made on some tables (articles) by sending the updates to the Distributor. Publishing to any Azure SQL database from an on-premises SQL Server is supported by the following versions of SQL Server:
 
-   - SQL Server 2019 (preview)
-   - SQL Server 2016 to SQL 2017
-   - SQL Server 2014 SP1 CU3 or greater (12.00.4427)
-   - SQL Server 2014 RTM CU10 (12.00.2556)
-   - SQL Server 2012 SP3 or greater (11.0.6020)
-   - SQL Server 2012 SP2 CU8 (11.0.5634.0)
-   - For other versions of SQL Server that do not support publishing to objects in Azure, it is possible to utilize the [republishing data](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) method to move data to newer versions of SQL Server. 
+- SQL Server 2019 (preview)
+- SQL Server 2016 to SQL 2017
+- SQL Server 2014 SP1 CU3 or greater (12.00.4427)
+- SQL Server 2014 RTM CU10 (12.00.2556)
+- SQL Server 2012 SP3 or greater (11.0.6020)
+- SQL Server 2012 SP2 CU8 (11.0.5634.0)
+- For other versions of SQL Server that do not support publishing to objects in Azure, it is possible to utilize the [republishing data](https://docs.microsoft.com/sql/relational-databases/replication/republish-data) method to move data to newer versions of SQL Server. 
 
 The **Distributor** is an instance or server that collects changes in the articles from a Publisher and distributes them to the Subscribers. The Distributor can be either Azure SQL Database Managed Instance or SQL Server (any version as long it is equal to or higher than the Publisher version). 
 
-The **Subscriber** is an instance or server that is receiving the changes made on the Publisher. Subscribers can be either standalone, pooled, and instance databases in Azure SQL Database or SQL Server databases. A Subscriber on a standalone or polled database must be configured as push-subscriber. 
+The **Subscriber** is an instance or server that is receiving the changes made on the Publisher. Subscribers can be either single, pooled, and instance databases in Azure SQL Database or SQL Server databases. A Subscriber on a single or pooled database must be configured as push-subscriber. 
 
-| Role | Standalone and pooled databases | Instance databases |
+| Role | Single and pooled databases | Instance databases |
 | :----| :------------- | :--------------- |
 | **Publisher** | No | Yes | 
 | **Distributor** | No | Yes|
@@ -57,7 +56,7 @@ The **Subscriber** is an instance or server that is receiving the changes made o
 There are different [types of replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
 
 
-| Replication | Standalone and pooled databases | Instance  databases|
+| Replication | Single and pooled databases | Instance  databases|
 | :----| :------------- | :--------------- |
 | [**Transactional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Yes (only as subscriber) | Yes | 
 | [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Yes (only as subscriber) | Yes|
@@ -101,11 +100,11 @@ Publisher and distributor are configured on two Managed Instances. In this confi
 - Both Managed Instances are in the same location.
 - Managed Instances that are hosting published and distributor databases cannot be [geo-replicated using auto failover-groups](sql-database-auto-failover-group.md).
 
-### Publisher and distributor on-premises with a subscriber on a standalone, pooled, and instance database 
+### Publisher and distributor on-premises with a subscriber on a single, pooled, and instance database 
 
 ![Azure SQL DB as subscriber](media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
  
-In this configuration, an Azure SQL Database (standalone, pooled, and instance database) is a subscriber. This configuration supports migration from on-premises to Azure. If a subscriber is on a standalone or pooled database, it must be in push mode.  
+In this configuration, an Azure SQL Database (single, pooled, and instance database) is a subscriber. This configuration supports migration from on-premises to Azure. If a subscriber is on a single or pooled database, it must be in push mode.  
 
 ## Next steps
 
