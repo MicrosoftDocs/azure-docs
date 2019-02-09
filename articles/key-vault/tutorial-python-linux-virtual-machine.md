@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Use Azure Key Vault with an Azure virtual machine in Python | Microsoft Docs
-description: In this tutorial, you configure a Python application to read a secret from a key vault
+title: Tutorial - How to use an Azure virtual machine and a Python application to store secrets in Azure Key Vault | Microsoft Docs
+description: In this tutorial, you learn how to configure a Python application to read a secret from Azure Key Vault.
 services: key-vault
 documentationcenter: 
 author: prashanthyv
@@ -16,32 +16,31 @@ ms.custom: mvc
 #Customer intent: As a developer, I want to use Azure Key Vault to store secrets for my app so that they are kept secure.
 ---
 
-# Tutorial: Use Azure Key Vault with an Azure virtual machine in Python
+# Tutorial: Use a Linux VM and a Python app to store secrets in Azure Key Vault
 
 Azure Key Vault helps you protect secrets such as the API keys and database connection strings needed to access your applications, services, and IT resources.
 
-In this tutorial, you follow the steps to get an Azure web application to read information from Azure Key Vault by using managed identities for Azure resources. You learn how to:
+In this tutorial, you set up an Azure web application to read information from Azure Key Vault by using managed identities for Azure resources. You learn how to:
 
 > [!div class="checklist"]
-> * Create a key vault.
-> * Store a secret in the key vault.
-> * Create an Azure virtual machine.
-> * Enable a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the virtual machine.
-> * Grant the required permissions for the console application to read data from the key vault.
-> * Retrieve a secret from the key vault.
+> * Create a key vault
+> * Store a secret in Key Vault
+> * Create an Azure Linux Virtual Machine
+> * Enable a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the virtual machine
+> * Grant the required permissions for the console application to read data from Key Vault
+> * Retrieve a secret from Key Vault
 
-Before you go any further, please read the [basic concepts about Key Vault](key-vault-whatis.md#basic-concepts). 
+Before you go any further, please read the [basic concepts about Key Vault](key-vault-whatis.md#basic-concepts).
 
 ## Prerequisites
-For all platforms, you need:
 
-* Git ([download](https://git-scm.com/downloads)).
+* Git [Download git](https://git-scm.com/downloads)).
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.4 or later. It's available for Windows, Mac, and Linux.
+* Azure CLI. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install of upgrade the CLI, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Understand Managed Service Identity
 
-This tutorial makes use of Managed Service Identity (MSI).
+\***
 
 Azure Key Vault can store credentials securely so they aren’t in your code. To retrieve them, you need to authenticate to Key Vault. To authenticate to Key Vault, you need a credential. That's a classic bootstrap problem. Through Azure and Azure Active Directory (Azure AD), MSI provides a “bootstrap identity” that makes it simpler to get things started.
 
