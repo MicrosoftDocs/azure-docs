@@ -1,5 +1,5 @@
 ---
-title: Concept - Create and locate anchors using Azure Spatial Anchors | Microsoft Docs
+title: Create and locate anchors using Azure Spatial Anchors | Microsoft Docs
 description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors.
 author: ramonarguelles
 manager: vicenterivera
@@ -12,7 +12,7 @@ ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want and in-depth explanation of how to create and locate anchors using Azure Spatial Anchors.
 ---
-# Concept: Create and locate anchors using Azure Spatial Anchors
+# Create and locate anchors using Azure Spatial Anchors
 
 Azure Spatial Anchors allow you share anchors in the world between different devices.
 
