@@ -15,8 +15,8 @@ An Azure Cosmos database is a unit of management for a set of containers. A data
 
 With Azure Cosmos DB, you can configure throughput at two granularities:
  
-- Azure Cosmos containers.
-- Azure Cosmos databases.
+- Azure Cosmos containers
+- Azure Cosmos databases
 
 ## Set throughput on a container  
 
