@@ -1,6 +1,7 @@
 - name: Spatial Anchors Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: About Spatial Anchors
     href: overview.md
@@ -28,6 +29,7 @@
   items:
   - name: Share anchors
     href: tutorials/tutorial-share-anchors-across-devices.md
+    expanded: true
     items:
     - name: Using Cosmos DB
       href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
