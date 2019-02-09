@@ -80,9 +80,9 @@
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
   - name: Security in Azure SQL Database
     items:
-    - name: Single database security
+    - name: Single and pooled database security
       href: sql-database-security-tutorial.md
-    - name: Managed instance security with Azure AD logins
+    - name: Managed instance security
       href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
@@ -103,7 +103,7 @@
   - name: Purchasing models
     items: 
     - name: Overview 
-      href: sql-database-service-tiers.md
+      href: sql-database-purchase-models.md
     - name: vCore-based model
       href: sql-database-service-tiers-vcore.md
     - name: DTU model
@@ -358,7 +358,7 @@
       href: replication-to-sql-database.md
     - name: Configure threat detection
       href: sql-database-threat-detection.md
-    - name: Configure backup retention using Azure blob storage
+    - name: Configure backup retention using Azure Blob storage
       href: sql-database-long-term-backup-retention-configure.md
     - name: Configure Elastic Database jobs
       href: elastic-jobs-overview.md
@@ -681,8 +681,6 @@
     href: /learn/browse/?products=azure-sql-database
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: FAQ
-    href: sql-database-faq.md
   - name: Public data sets
     href: sql-database-public-data-sets.md  
   - name: Troubleshoot connectivity

@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Move a knowledge base created with QnA Maker into a new knowledge base.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article

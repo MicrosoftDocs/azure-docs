@@ -159,7 +159,7 @@ To swap with preview, follow these steps.
 
 4. When you're finished, close the dialog by clicking **Close**.
 
-To automate a multi-phase swap, see [Automate with PowerShell](#automate-with-azure-powershell).
+To automate a multi-phase swap, see Automate with PowerShell.
 
 <a name="Rollback"></a>
 
@@ -304,7 +304,7 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 
 - - -
 ### Delete slot
-```
+```powershell
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
