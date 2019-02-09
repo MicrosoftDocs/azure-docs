@@ -131,7 +131,7 @@ Run the following PowerShell script to install these modules on your development
     ```
 
 > [!Note]  
-> To upgrade Azure PowerShell from the **2017-03-09-profile **to **2018-03-01-hybrid**, please see the [Migration guide](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
+> To upgrade Azure PowerShell from the **2017-03-09-profile** to **2018-03-01-hybrid**, please see the [Migration guide](https://github.com/azure/azure-powershell/blob/AzureRM/documentation/migration-guides/Stack/migration-guide.2.3.0.md).
 
 ### Enable additional storage features
 
