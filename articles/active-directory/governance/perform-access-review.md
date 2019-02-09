@@ -11,14 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 01/18/2019
+ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ---
 
 # Start an access review with Azure AD Access Reviews
 
-Azure Active Directory (Azure AD) simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services with a feature called access reviews. Perhaps you received an email from Microsoft that asks you to review access for members of a group or users with access to an application. This article describes how to perform an access review.
+Azure Active Directory (Azure AD) simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services with a feature called access reviews. Perhaps you received an email from Microsoft that asks you to review access for members of a group or users with access to an application.
+
+This article describes how to perform an access review.
 
 ## Open the access review
 
@@ -30,7 +32,7 @@ The first step to perform an access review is to find and open the access review
 
 1. Click the **Start review >** link to open the access review.
 
-If you don't have the email, you can open your access reviews by following these steps:
+If you don't have the email, you can open your access reviews by following these steps.
 
 1. Sign in to the [Azure AD access panel](https://myapps.microsoft.com).
 
@@ -52,7 +54,7 @@ Once you have opened the access review, you see the names of users who need to b
 
 1. Review the list of users to decide whether to approve or deny access.
 
-    If the request was to review your own access, you might see only your name.
+    If the request was to review your own access, see [Review your own access](review-your-access.md).
 
     ![Perform access review](./media/perform-access-review/perform-access-review.png)
 
