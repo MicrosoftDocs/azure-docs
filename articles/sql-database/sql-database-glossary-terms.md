@@ -33,7 +33,7 @@ Database objects|Azure SQL database|Any database in Azure SQL Database|
 ||General purpose database|A database created within or moved into the general purpose service tier of the vCore-based purchasing model|
 ||Hyperscale database|A database created within or moved into the hyperscale service tier of the vCore-based purchasing model|
 ||Business critical database|A database created within or moved into the business critical service tier of the vCore-based purchasing model|
-|[Purchase models and resources](sql-database-service-tiers.md)|DTU-based purchasing model|[DTU-based purchasing model](sql-database-service-tiers-dtu.md)|
+|[Purchase models and resources](sql-database-purchase-models.md)|DTU-based purchasing model|[DTU-based purchasing model](sql-database-service-tiers-dtu.md)|
 ||vCore-based purchasing model|[vCore-based purchasing model](sql-database-service-tiers-vcore.md)|
 ||vCore|A core provided to the guest OS by the hypervisor.|
 ||Service tier|A level of service within a purchasing model|

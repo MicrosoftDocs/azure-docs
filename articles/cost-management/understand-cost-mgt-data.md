@@ -23,14 +23,13 @@ The following information shows the currently supported [Microsoft Azure offers]
 | Category  | **Offer name** | **Offer number** |
 | --- | --- | --- |
 | **Azure Germany** | [Azure Germany Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-de-0003p/) | MS-AZR-DE-0003P |
-|**Azure Government**|Azure Government Enterprise|MS-AZR-USGOV-0017P|
-| **Enterprise Agreement (EA)**| Enterprise Dev/Test | MS-AZR-0148P |
+| **Azure Government** | Azure Government Enterprise | MS-AZR-USGOV-0017P |
+| **Enterprise Agreement (EA)** | Enterprise Dev/Test | MS-AZR-0148P |
 | **Enterprise Agreement (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade/) | MS-AZR-0017P |
 | **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/) | MS-AZR-0062P |
 | **Pay-As-You-Go** | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
 | **Pay-As-You-Go** | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
 | **Pay-As-You-Go** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
-| **Pay-As-You-Go** | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
 | **Pay-As-You-Go** | [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
 | **Pay-As-You-Go** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
 | **Pay-As-You-Go** | [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) | MS-AZR-0170P |
@@ -49,6 +48,7 @@ The following table shows unsupported offers.
 | **Cloud Solution Provider (CSP)** | Azure Government CSP | MS-AZR-USGOV-0145P |
 | **Cloud Solution Provider (CSP)** | Azure Germany in CSP for Microsoft Cloud Germany | MS-AZR-DE-0145P |
 | **Pay-As-You-Go** | Azure for Students Starter | MS-AZR-0144P |
+| **Pay-As-You-Go** | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
 | **Support Plans** | Standard support | MS-AZR-0041P |
 | **Support Plans** | Professional Direct support | MS-AZR-0042P |
 | **Support Plans** | Developer support | MS-AZR-0043P |
@@ -64,17 +64,6 @@ If you don't see data for a subscription and you want to determine if your subsc
 ## Costs included in Cost Management
 
 The following tables show data that's included or isn't in Cost Management.
-
-**Account types**
-
-| **Included** | **Not included** |
-| --- | --- |
-| Enterprise Agreement (EA) | Cloud Solution Provider (CSP) - For more information, see the [Partner Center overview](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview). |
-| Pay-as-you-go (PAYG) |   |
-| Dev/test |   |
-| Free and trial |   |
-| Partner Network |   |
-| Azure in Open | &nbsp;  |
 
 **Cost and usage data**
 
