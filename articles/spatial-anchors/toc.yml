@@ -37,7 +37,7 @@
   expanded: true
   items:
   - name: Create and locate anchors
-    href: concepts/create-locate-anchors-overview.md
+    href: create-locate-anchors-overview.md
     expanded: true
     items:
     - name: In Unity

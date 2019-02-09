@@ -22,19 +22,19 @@ It has been tuned to work well with your choice of development environment.
 To learn more, continue by choosing your development environment:
 
 > [!div class="nextstepaction"]
-> [C# on Unity (for HoloLens, iOS and Android)](create-locate-anchors-unity.md)
+> [C# on Unity (for HoloLens, iOS and Android)](concepts/create-locate-anchors-unity.md)
 
 > [!div class="nextstepaction"]
-> [Objective-C on iOS](create-locate-anchors-objc.md)
+> [Objective-C on iOS](concepts/create-locate-anchors-objc.md)
 
 > [!div class="nextstepaction"]
-> [Swift on iOS](create-locate-anchors-swift.md)
+> [Swift on iOS](concepts/create-locate-anchors-swift.md)
 
 > [!div class="nextstepaction"]
-> [Java on Android](create-locate-anchors-java.md)
+> [Java on Android](concepts/create-locate-anchors-java.md)
 
 > [!div class="nextstepaction"]
-> [C++/NDK on Android](create-locate-anchors-cpp-ndk.md)
+> [C++/NDK on Android](concepts/create-locate-anchors-cpp-ndk.md)
 
 > [!div class="nextstepaction"]
-> [C++/WinRT on HoloLens](create-locate-anchors-cpp-winrt.md)
+> [C++/WinRT on HoloLens](concepts/create-locate-anchors-cpp-winrt.md)
