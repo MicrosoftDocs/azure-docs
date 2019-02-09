@@ -46,8 +46,10 @@
   items:
   - name: Manage Maps accounts
     items:
-    - name: Manage accounts and keys
+    - name: Manage accounts
       href: how-to-manage-account-keys.md
+    - name: Manage authentication
+      href: how-to-manage-authentication.md
     - name: Manage pricing tier
       href: how-to-manage-pricing-tier.md
     - name: View usage metrics

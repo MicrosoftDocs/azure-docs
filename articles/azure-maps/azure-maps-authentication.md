@@ -24,7 +24,7 @@ To view your keys, see [Authentication Details](https://aka.ms/amauthdetails).
 
 Azure Maps now offers [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) integration for authentication of requests for Azure Maps services.  Azure AD provides identify-based authentication including [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) to grant user or application level access to Azure Maps resources. The purpose of this article is to help you understand the concepts and components of Azure Maps Azure AD integration.
 
-## Authentication of OAuth access tokens
+## Authentication with OAuth access tokens
 
 Azure Maps accepts **OAuth 2.0** access tokens for Azure AD tenants associated with Azure subscription that contains an Azure Maps account.  Azure Maps accepts tokens for:
 
@@ -32,13 +32,18 @@ Azure Maps accepts **OAuth 2.0** access tokens for Azure AD tenants associated w
 * 3rd party applications using permissions delegated by users
 * Managed identities for Azure resources
 
-Azure Maps generates a `unique identifier (client ID)` for each Azure Maps account.  When client ID is combined with additional parameters, tokens can be requested from Azure AD by specifying the value https://login.microsoftonline.com .
+Azure Maps generates a `unique identifier (client ID)` for each Azure Maps account.  When client ID is combined with additional parameters, tokens can be requested from Azure AD by specifying the value below:
 
-For additional information on requesting tokens from Azure AD, see Authentication Basics in Azure Active Directory.
+```
+https://login.microsoftonline.com .
+```
+For more information on how to request access tokens for Azure Maps, see How To Acquire Azure Maps access tokens
+
+For general information on requesting tokens from Azure AD, see [Authentication Basics in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
 ## Requesting Azure Map resources with OAuth tokens
 
-Once a token is acquired from Azure AD, a request can be sent to Azure Maps with the following two request headers set:
+Once a token is acquired from Azure AD, a request can be sent to Azure Maps with the following two required request headers set:
 
 | Request Header    |    Value    |
 |:------------------|:------------|
