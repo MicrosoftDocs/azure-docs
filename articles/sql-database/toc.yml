@@ -103,7 +103,7 @@
   - name: Purchasing models
     items: 
     - name: Overview 
-      href: sql-database-service-tiers.md
+      href: sql-database-purchase-models.md
     - name: vCore-based model
       href: sql-database-service-tiers-vcore.md
     - name: DTU model
