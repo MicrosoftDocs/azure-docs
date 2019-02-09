@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics custom blob output partitioning (Preview)
+title: Azure Stream Analytics custom blob output partitioning
 description: This article describes the custom DateTime path patterns and the custom field or attributes features for blob storage output from Azure Stream Analytics jobs.
 services: stream-analytics
 author: mamccrea
@@ -7,11 +7,11 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/07/2019
 ms.custom: seodec18
 ---
 
-# Azure Stream Analytics custom blob output partitioning (Preview)
+# Azure Stream Analytics custom blob output partitioning
 
 Azure Stream Analytics supports custom blob output partitioning with custom fields or attributes and custom DateTime path patterns. 
 
@@ -62,8 +62,6 @@ Notice that each record in the blob has a **client_id** column matching the fold
 ## Custom DateTime path patterns
 
 Custom DateTime path patterns allow you to specify an output format that aligns with Hive Streaming conventions, giving Azure Stream Analytics the ability to send data to Azure HDInsight and Azure Databricks for downstream processing. Custom DateTime path patterns are easily implemented using the `datetime` keyword in the Path Prefix field of your blob output, along with the format specifier. For example, `{datetime:yyyy}`.
-
-Use this link for [Azure Portal](https://portal.azure.com/?Microsoft_Azure_StreamAnalytics_bloboutputcustomdatetimeformats=true) to toggle the feature flag that enables the custom DateTime path patterns for blob storage output preview. This feature will be soon enabled in the main portal.
 
 ### Supported tokens
 

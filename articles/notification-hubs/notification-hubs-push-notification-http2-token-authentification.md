@@ -114,7 +114,7 @@ You can configure your hub to use token based authentication using our [latest c
 
 Here’s a code sample illustrating the correct usage:
 
-```text
+```csharp
 NamespaceManager nm = NamespaceManager.CreateFromConnectionString(_endpoint);
 string token = "YOUR TOKEN HERE";
 string keyId = "YOUR KEY ID HERE";
