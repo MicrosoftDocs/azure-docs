@@ -16,10 +16,10 @@ ms.reviewer: arvindh
 # End-user experiences for applications in Azure Active Directory
 Azure Active Directory (Azure AD) provides several customizable ways to deploy applications to end users in your organization:
 
-* Azure AD access panel
-* Office 365 application launcher
-* Direct sign-on to federated apps
-* Deep links to federated, password-based, or existing apps
+* Azure AD access panel.
+* Office 365 application launcher.
+* Direct sign-on to federated apps.
+* Deep links to federated, password-based, or existing apps.
 
 Which method(s) you choose to deploy in your organization is your discretion.
 
@@ -40,16 +40,14 @@ For organizations that have deployed Office 365, applications assigned to users 
 For more information about the Office 365 application launcher, see [Have your app appear in the Office 365 app launcher](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher).
 
 ## Direct sign-on to federated apps
-Most federated applications that support SAML 2.0, WS-Federation, or OpenID connect also support the ability for users to start at the application, and then get signed in through Azure AD either by automatic redirection or by clicking on a link to sign in. This is known as service provider -initiated sign-on, and most federated applications in the Azure AD application gallery support this (see the documentation linked from the app’s single sign-on configuration wizard in the Azure portal for details).
+Most federated applications that support SAML 2.0, WS-Federation, or OpenID connect also support the ability for users to start at the application, and then get signed in through Azure AD either by automatic redirection or by clicking on a link to sign in. This is known as service provider-initiated sign-on, and most federated applications in the Azure AD application gallery support this (see the documentation linked from the app’s single sign-on configuration wizard in the Azure portal for details).
 
 ![](./media/what-is-single-sign-on/workdaymobile.png)
 
 ## Direct sign-on links
 Azure AD also supports direct single sign-on links to individual applications that support password-based single sign-on, linked single sign-on, and any form of federated single sign-on.
 
-These links are specifically crafted URLs that send a user through the Azure AD sign-in process for a specific application without requiring the user launch them from the Azure AD access panel or Office 365. These Single Sign-On URLs can be found under the Dashboard tab of any pre-integrated application in the Active Directory section of the Azure portal, as shown in the screenshot below.
-
-![](./media/what-is-single-sign-on/deeplink.png)
+These links are specifically crafted URLs that send a user through the Azure AD sign-in process for a specific application without requiring the user launch them from the Azure AD access panel or Office 365. These Single Sign-On URLs can be found under the Properties tab of any pre-integrated application in the Active Directory section of the Azure portal.
 
 These links can be copied and pasted anywhere you want to provide a sign-in link to the selected application. This could be in an email, or in any custom web-based portal that you have set up for user application access. Here's an example of an Azure AD direct single sign-on URL for Twitter:
 
