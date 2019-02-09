@@ -29,7 +29,7 @@ Azure Maps now offers [Azure Active Directory (Azure AD)](https://docs.microsoft
 Azure Maps accepts **OAuth 2.0** access tokens for Azure AD tenants associated with Azure subscription that contains an Azure Maps account.  Azure Maps accepts tokens for:
 
 * Azure AD Users 
-* 3rd party applications using permissions delegated by users
+* Third party applications using permissions delegated by users
 * Managed identities for Azure resources
 
 Azure Maps generates a `unique identifier (client ID)` for each Azure Maps account.  When client ID is combined with additional parameters, tokens can be requested from Azure AD by specifying the value below:
@@ -66,7 +66,7 @@ To view your client ID, see [Authentication Details](https://aka.ms/amauthdetail
 
 ## Control access with Role-Based Access Control (RBAC)
 
-A key feature of Azure AD is controlling access to secured resources via RBAC.  Once your Azure Maps account is created and you register Azure Maps Azure AD application within your Azure AD tenant, you are now be able to configure RBAC for a user, application, or Azure resource within Azure Map account portal page. 
+A key feature of Azure AD is controlling access to secured resources via RBAC. Once your Azure Maps account is created and you register Azure Maps Azure AD application within your Azure AD tenant, you are now able to configure RBAC for a user, application, or Azure resource within Azure Map account portal page. 
 
 Azure Maps currently supports read access control for individual Azure AD users, applications, or Azure services via Managed identities for Azure Resources.
 
@@ -76,6 +76,6 @@ To view your RBAC settings, see [How To configure RBAC for Azure Maps](https://a
 
 [Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) provide Azure services (Azure App service, Azure Functions, Virtual Machines, etc.) with an automatically managed identity that can be authorized for access to Azure Maps services.  
 
-To learn more about authenticating an application with Azure AD , see our tutorial [Authenticating Servers and Applications with Azure AD and Azure Maps](https://aka.ms/amaadserv).
+To learn more about authenticating an application with Azure AD, see our tutorial [Authenticating Servers and Applications with Azure AD and Azure Maps](https://aka.ms/amaadserv).
 
-To learn more about authenticating the Azure Maps Map Control and Azure AD, see [Azure AD and Azure Maps Map Control](https://aka.ms/amaadmc).
+To learn more about authenticating the Azure Maps, Map Control and Azure AD, see [Azure AD and Azure Maps Map Control](https://aka.ms/amaadmc).
