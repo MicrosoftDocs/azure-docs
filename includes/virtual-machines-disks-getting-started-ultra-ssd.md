@@ -18,7 +18,7 @@ Currently, Ultra SSds are in preview and you must [enroll](https://aka.ms/UltraS
 
 Once approved, run one of the following commands to determine which zone in East US 2 to deploy your Ultra SSD to:
 
-PowerShell: `Get-AzureRmComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
+PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
 CLI: `az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS’]”`
 

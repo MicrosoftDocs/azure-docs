@@ -13,7 +13,7 @@ ms.author: mihansen
 
 ## Storage location
 
-**Are the data behind the FHIR&reg; APIs stored in Azure?** Yes, the data are stored in managed databases in Azure. The Azure API for FHIR does not provide direct access to the underlying data store.
+**Is the data behind the FHIR&reg; APIs stored in Azure?** Yes, the data is stored in managed databases in Azure. The Azure API for FHIR does not provide direct access to the underlying data store.
 
 ## Identity providers
 
