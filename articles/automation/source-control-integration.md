@@ -3,7 +3,7 @@ title: Source Control integration in Azure Automation
 description: This article describes source control integration with GitHub in Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/15/2019
@@ -138,3 +138,4 @@ Select the source control you want to remove. On the **Source Control Summary** 
 ## Next steps
 
 To learn more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
+

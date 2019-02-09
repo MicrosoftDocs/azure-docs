@@ -3,7 +3,7 @@ title: Data scenarios involving Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Understand the different scenarios and tools using which data can ingested, processed, downloaded, and visualized in Data Lake Storage Gen2 (previously known as Azure Data Lake Store)
 services: storage
 author: normesta
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
@@ -77,6 +77,8 @@ For uploading datasets that range in several terabytes, using the methods descri
 Once the data is available in Data Lake Storage Gen2 you can run analysis on that data using the supported big data applications. Currently, you can use Azure HDInsight and Azure Databricks to run data analysis jobs on the data stored in Data Lake Storage Gen2.
 
 ![Analyze data in Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/analyze-data.png "Analyze data in Data Lake Storage Gen2")
+
+For an example, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2).
 
 
 ## Download data from Data Lake Storage Gen2

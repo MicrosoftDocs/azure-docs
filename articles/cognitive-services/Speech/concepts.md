@@ -6,7 +6,7 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
@@ -88,7 +88,7 @@ Microsoft speech recognition service  provides two ways for developers to add Sp
 There are three modes of recognition: `interactive`, `conversation`, and `dictation`. The recognition mode adjusts speech recognition based on how the users are likely to speak. Choose the appropriate recognition mode for your application.
 
 > [!NOTE]
-> Recognition modes might have different behaviors in the [REST protocol](#rest-speech-recognition-api) than they do in the [WebSocket protocol](#webSocket-speech-recognition-api). For example, the REST API does not support continuous recognition, even in conversation or dictation mode.
+> Recognition modes might have different behaviors in the REST protocol than they do in the WebSocket protocol. For example, the REST API does not support continuous recognition, even in conversation or dictation mode.
 > [!NOTE]
 > These modes are applicable when you directly use the REST or WebSocket protocol. The [client libraries](GetStarted/GetStartedClientLibraries.md) use different parameters to specify recognition mode. For more information, see the client library of your choice.
 

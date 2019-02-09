@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
+ms.subservice: common
 ---
 # Creating an import job for the Azure Import/Export service
 
@@ -55,14 +55,14 @@ Before creating an import job, you need to obtain a shipping location name and a
 
  Follow the steps below to obtain the shipping location:
 
--   Identify the name of the location of your storage account. This value can be found under the **Location** field on the storage account's **Dashboard** in the Azure portal or queried for by using the service management API operation [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Identify the name of the location of your storage account. This value can be found under the **Location** field on the storage account's **Dashboard** in the Azure portal or queried for by using the service management API operation [Get Storage Account Properties](/rest/api/storagerp/storageaccounts).
 
 -   Retrieve the location that is available to process this storage account by calling the `Get Location` operation.
 
 -   If the `AlternateLocations` property of the location contains the location itself, then it is okay to use this location. Otherwise, call the `Get Location` operation again with one of the alternate locations. The original location might be temporarily closed for maintenance.
 
 ## Creating the import job
-To create the import job, call the [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation. You will need to provide the following information:
+To create the import job, call the [Put Job](/rest/api/storageimportexport/jobs) operation. You will need to provide the following information:
 
 -   A name for the job.
 

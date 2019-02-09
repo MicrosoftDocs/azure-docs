@@ -11,7 +11,7 @@ metadata:
   manager: cgronlun
   layout: LandingPage
   ms.service: cognitive-services
-  ms.component: speech-service
+  ms.subservice: speech-service
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -234,4 +234,4 @@ sections:
         <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
       html: |
-        <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>
+        <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>

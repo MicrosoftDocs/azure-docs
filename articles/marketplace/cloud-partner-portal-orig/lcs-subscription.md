@@ -1,6 +1,6 @@
 ---
 title: LCS Subscription | Microsoft Docs
-description: Introduction to a tuutorial for creating a subscription.
+description: Introduction to a tutorial for creating a subscription.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
 author: pbutlerm

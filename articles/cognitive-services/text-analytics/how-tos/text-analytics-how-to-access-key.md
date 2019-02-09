@@ -5,9 +5,9 @@ description: Get an access key for Text Analytics operations to submit raw text 
 services: cognitive-services
 author: HeidiSteen
 
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: heidist

@@ -7,7 +7,7 @@ ms.author: gwallace
 ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 manager: carmonm
 ---
 
@@ -34,7 +34,7 @@ On the **Troubleshoot Update Agent** page, select **Run checks** to start the tr
 
 ![Troubleshoot Update Agent page](../media/update-agent-issues/troubleshoot-page.png)
 
-Results are shown on the page when they're ready. The [checks sections](#prerequisiste-checks) show what's included in each check.
+Results are shown on the page when they're ready. The checks sections show what's included in each check.
 
 ![Troubleshoot Update Agent checks](../media/update-agent-issues/update-agent-checks.png)
 
@@ -196,3 +196,4 @@ CheckResultMessageArguments : {}
 ## Next steps
 
 To troubleshoot more issues with your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Workers](hybrid-runbook-worker.md).
+

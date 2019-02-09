@@ -7,7 +7,7 @@ manager: jeconnoc
 ms.service: app-service
 ms.workload: web
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 2/04/2019
 ms.author: msangapu
 ms.custom: seodec18
 ---
@@ -44,7 +44,7 @@ To upload a local directory to the storage account, you use the [`az storage blo
 az storage blob upload-batch -d <full_path_to_local_directory> --account-name <storage_account_name> --account-key "<access_key>" -s <source_location_name>
 ```
 
-## Link storage to your web app
+## Link storage to your web app (preview)
 
 > [!CAUTION]
 > Linking an existing directory in a web app to a storage account will delete the directory contents. If you are migrating files for an existing app, make a backup of your app and its content before you begin.

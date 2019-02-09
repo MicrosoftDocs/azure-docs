@@ -20,7 +20,7 @@ The following table lists quotas and limits specific to [Azure Event Hubs](https
 | Number of partitions per event hub |Entity |- |32 |
 | Number of consumer groups per event hub |Entity |- |20 |
 | Number of AMQP connections per namespace |Namespace |Subsequent requests for additional connections will be rejected and an exception is received by the calling code. |5,000 |
-| Maximum size of Event Hubs event|Entity |- |256 KB |
+| Maximum size of Event Hubs event|Entity |- |1 MB |
 | Maximum size of an event hub name |Entity |- |50 characters |
 | Number of non-epoch receivers per consumer group |Entity |- |5 |
 | Maximum retention period of event data |Entity |- |1-7 days |

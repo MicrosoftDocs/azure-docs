@@ -4,11 +4,11 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to migrate from V2 to V3 of the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 02/01/2019
 ms.author: v-jansko
 ---
 
@@ -104,7 +104,7 @@ Global
 
 Microsoft Translator V3 uses neural machine translation by default. As such, it cannot be used with the Microsoft Translator Hub. The Translator Hub only supports legacy statistical machine translation. Customization for neural translation is now available using the Custom Translator. [Learn more about customizing neural machine translation](custom-translator/overview.md)
 
-Neural translation with the V3 text API does not support the use of standard categories (SMT, speech, text, generalnn).
+Neural translation with the V3 text API does not support the use of standard categories (SMT, speech, tech, generalnn).
 
 | |Endpoint|	GDPR Processor Compliance|	Use Translator Hub|	Use Custom Translator (Preview)|
 |:-----|:-----|:-----|:-----|:-----|

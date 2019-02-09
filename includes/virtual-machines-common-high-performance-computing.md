@@ -90,7 +90,7 @@ Learn how to:
 
 * [Install and set up CycleCloud with a Resource Manager template](https://docs.microsoft.com/azure/cyclecloud/quickstart-install-cyclecloud)
 
-* [Set up CycleCloud manually](https://docs.microsoft.com/azure/cyclecloud/quickstart-installation)
+* [Set up CycleCloud manually](https://docs.microsoft.com/azure/cyclecloud/installation)
 
 ## Azure Batch
 

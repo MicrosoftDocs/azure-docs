@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Use the Translator Speech API Languages method.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: translator-speech 
+ms.subservice: translator-speech 
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko

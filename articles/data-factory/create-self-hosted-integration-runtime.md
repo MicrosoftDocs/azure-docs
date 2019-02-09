@@ -140,6 +140,10 @@ Here are the requirements for the TLS/SSL certificate that is used for securing 
 - The certificate supports any key size supported by Windows Server 2012 R2 for SSL certificates.
 - Certificates that use CNG keys are not supported.  
 
+> [!NOTE]
+> This certificate is used to encrypt ports on self-hosted IR node, used for **node-to-node communication** (for state synchronization) and while **using PowerShell cmdlet for linked service credential setting** from within local network. We suggest using this certificate if your private network environment is not secure or if you would like to secure the communication between nodes within your private network as well. 
+> Data movement in transit from self-hosted IR to other data stores always happens using encrypted channel, irrespective of this certificate set or not. 
+
 ## Sharing the self-hosted integration runtime with multiple data factories
 
 You can reuse an existing self-hosted integration runtime infrastructure that you already set up in a data factory. This enables you to create a *linked self-hosted integration runtime* in a different data factory by referencing an existing self-hosted IR (shared).

@@ -1,13 +1,13 @@
 ---
 title: 'Common questions - VMware to Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
 description: This article summarizes common questions when you set up disaster recovery of on-premises VMware VMs to Azure using Azure Site Recovery
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 12/31/2018
+ms.date: 2/7/2019
 ms.topic: conceptual
-ms.author: raynew
+ms.author: mayg
 ---
 # Common questions - VMware to Azure replication
 
@@ -37,7 +37,26 @@ You need an LRS or GRS storage account. We recommend GRS so that data is resilie
 ### Does my Azure account need permissions to create VMs?
 If you're a subscription administrator, you have the replication permissions you need. If you're not, you need permissions to create an Azure VM in the resource group and virtual network you specify when you configure Site Recovery, and permissions to write to the selected storage account. [Learn more](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
+### Can I use Guest OS server license on Azure?
+Yes, Microsoft Software Assurance customers can use Azure Hybrid Benefit to save on licensing costs for **Windows Server machines** that are migrated to Azure, or to use Azure for disaster recovery.
 
+## Azure Site Recovery components upgrade
+
+### My Mobility agent/Configuration Server/Process server version is very old and my upgrade has failed. How should I upgrade to latest version?
+
+Azure Site Recovery follows N-4 support model. Refer to our [support statement](https://aka.ms/asr_support_statement) to understand the details on how to upgrade from very old versions.
+
+### Where can I find the release notes/update rollups of Azure Site Recovery?
+
+Refer to the [document](https://aka.ms/asr_update_rollups) for release notes information. You can find installation links of respective components in each update roll-up.
+
+### How should I upgrade Site Recovery components for on-premises VMware or Physical site to Azure?
+
+Refer to our guidance provided [here](https://aka.ms/asr_vmware_upgrades) to upgrade your components.
+
+## Is reboot of source machine mandatory for each upgrade?
+
+Though recommended, it is not mandatory for each upgrade. Refer [here](https://aka.ms/asr_vmware_upgrades) for clear guidelines.
 
 ## On-premises
 
@@ -83,6 +102,9 @@ For replication, a VMware VM must be running a supported operating system. In ad
 
 ### How often can I replicate to Azure?
 Replication is continuous when replicating VMware VMs to Azure.
+
+### Can I retain the IP address on failover?
+Yes, you can retain the IP address on failover. Ensure that you mention the target IP address on 'Compute and Network' blade before failover. Also, ensure to shut down the machines at the time of failover to avoid IP conflicts at the time of failback.
 
 ### Can I extend replication?
 Extended or chained replication isn't supported. Request this feature in [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
@@ -136,7 +158,7 @@ No. To do this, you need to set up a configuration server in each region.
 While possible, the Azure VM running the configuration server would need to communicate with your on-premises VMware infrastructure and VMs. This can add latencies and impact ongoing replication.
 
 ### How do I update the configuration server?
-[Learn about](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) updating the configuration server. You can find the latest update information in the [Azure updates page](https://azure.microsoft.com/updates/?product=site-recovery). You can also directly download the latest version of the configuration server from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+[Learn about](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) updating the configuration server. You can find the latest update information in the [Azure updates page](https://azure.microsoft.com/updates/?product=site-recovery). You can also directly download the latest version of the configuration server from [Microsoft Download Center](https://aka.ms/asrconfigurationserver). If your version is older than 4 versions from current version, refer to our [support statement](https://aka.ms/asr_support_statement) for upgrade guidance.
 
 ### Should I backup the deployed configuration server?
 We recommend taking regular scheduled backups of the configuration server. For successful failback, the virtual machine being failed back must exist in the configuration server database, and the configuration server must be running and in a connected state. You can learn more about common configuration server management tasks [here](vmware-azure-manage-configuration-server.md).
@@ -228,7 +250,7 @@ Yes, if you failed over to Azure, you can fail back to a different location if t
 When you fail back from Azure, data from Azure is copied back to your on-premises VM and private access is required.
 
 ### Can I resize the Azure VM after failover?
-No, you cannot change the size of the target VM after the failover.
+No, you cannot change the size or type of the target VM after the failover.
 
 
 ## Automation and scripting

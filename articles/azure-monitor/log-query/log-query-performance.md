@@ -36,7 +36,7 @@ search in (exceptions) "The server was not found"
 search in (exceptions, customEvents) "timeout"
 ```
 
-Use [union](/kusto/query/unionoperator) to query several tables like the following:
+Use [union](/azure/kusto/query/unionoperator) to query several tables like the following:
 
 ``` Kusto
 union requests, traces | ...

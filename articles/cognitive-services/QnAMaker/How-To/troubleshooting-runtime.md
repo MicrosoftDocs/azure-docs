@@ -4,9 +4,9 @@ titlesuffix: Azure Cognitive Services
 description: QnAMaker comprises of components hosted in the user's Azure account. Debugging may require users to manipulate their QnAMaker Azure resources or provide QnAMaker support team with additional information about their setup.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
@@ -49,4 +49,4 @@ QnAMaker service hostname is useful for debugging purposes when you contact QnAM
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use QnAMaker API](./upgrade-qnamaker-service.md)
+> [Improve knowledge base questions with Active Learning](./improve-knowledge-base.md)

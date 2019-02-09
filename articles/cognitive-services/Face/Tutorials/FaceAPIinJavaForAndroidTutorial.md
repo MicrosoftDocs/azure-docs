@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: In this tutorial, you will create a simple Android app that uses the Face API to detect and frame faces in an image. 
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 11/12/2018
 ms.author: pafarley

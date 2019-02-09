@@ -3,12 +3,12 @@ title: Change, train app, Go
 description: In this Go language quickstart, add example utterances to a Home Automation app and train the app. 
 titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the LUIS service, I want to programmatically add an example utterance to an intent and train the model using Go.  
 ---

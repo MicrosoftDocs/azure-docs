@@ -226,7 +226,7 @@ The restore request progresses in the following order:
     ```
     
 3. **Success**, **Failure**, or **Timeout**: A requested restore can be completed in any of the following states. Each state has the following significance and response details:
-    - **Success**: A _Success_ restore state indicates a regained  partition state. The partition reports _RestoreEpoch_ and _RestordLSN_ states along with the time in UTC.
+    - **Success**: A _Success_ restore state indicates a regained  partition state. The partition reports _RestoredEpoch_ and _RestoredLSN_ states along with the time in UTC.
 
         ```
         RestoreState  : Success

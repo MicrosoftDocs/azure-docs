@@ -31,7 +31,7 @@ By using Network Watcher, alerting, and functions from within the Azure ecosyste
 
 ## Prerequisites
 
-* The latest version of [Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* The latest version of [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 * An existing instance of Network Watcher. If you don't already have one, [create an instance of Network Watcher](network-watcher-create.md).
 * An existing virtual machine in the same region as Network Watcher with the [Windows extension](../virtual-machines/windows/extensions-nwa.md) or [Linux virtual machine extension](../virtual-machines/linux/extensions-nwa.md).
 

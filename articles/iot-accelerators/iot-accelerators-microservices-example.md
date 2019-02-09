@@ -120,13 +120,13 @@ You now need to update your local docker-compose.yml to pull your new docker ima
 2. Open docker-compose.yml in any text editor or IDE that you like.
 3. Locate the following code:
 
-    ```docker
+    ```yml
     image: azureiotpcs/iothub-manager-dotnet:testing
     ```
 
     and change it to look like the image below and save it.
 
-    ```cmd/sh
+    ```yml
     image: [docker ID]/iothub-manager-dotnet:testing
     ```
 
