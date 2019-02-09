@@ -94,7 +94,7 @@ This article describes how to create a new access review for group members or ap
 
 Once you have specified the settings for an access review, click **Start**.
 
-By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access](perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review your own access](perform-access-review.md).
+By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [start an access review](perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review your own access](review-your-access.md).
 
 If some of the reviewers are guests, guests are notified via email only if they've already accepted their invitation.
 
@@ -114,5 +114,6 @@ You can also create access reviews using APIs. What you do to manage access revi
 
 ## Next steps
 
-- [Start an access review with Azure AD Access Reviews](perform-access-review.md)
+- [Start an access review](perform-access-review.md)
+- [Review your own access](review-your-access.md)
 - [Complete an access review of members of a group or users' access to an application in Azure AD](complete-access-review.md)

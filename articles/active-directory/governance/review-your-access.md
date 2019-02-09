@@ -18,9 +18,9 @@ ms.reviewer: mwahl
 
 # Review your own access with Azure AD Access Reviews
 
-Azure Active Directory (Azure AD) simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services with a feature called access reviews. Perhaps you received an email from Microsoft that asks you to review access for members of a group or users with access to an application.
+Azure Active Directory (Azure AD) simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services with a feature called access reviews. Perhaps you received an email from Microsoft that asks you to review your access.
 
-This article describes how to review your own access.
+This article describes how to review your own access to a group or an application.
 
 ## Open the access review
 
@@ -34,9 +34,9 @@ The first step to perform an access review is to find and open the access review
 
 If you don't have the email, you can open your access reviews by following these steps.
 
-1. Sign in to the [Azure AD access panel](https://myapps.microsoft.com).
+1. Sign in to the MyApps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
-    ![Azure AD access panel](./media/review-your-access/myapps-access-panel.png)
+    ![MyApps portal](./media/review-your-access/myapps-access-panel.png)
 
 1. In the upper-right corner of the page, click the user symbol, which displays your name and default organization. If more than one organization is listed, select the organization that requested an access review.
 
@@ -65,6 +65,8 @@ Once you have opened the access review, you can see your access.
     ![Perform access review](./media/review-your-access/perform-access-review-submit.png)
 
 1. Click **Submit**.
+
+    Your selection is submitted and you returned to the MyApps portal.
 
 ## Next steps
 
