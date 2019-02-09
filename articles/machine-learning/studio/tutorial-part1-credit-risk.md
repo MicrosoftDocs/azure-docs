@@ -182,11 +182,18 @@ To use [Edit Metadata][edit-metadata], you first specify which columns to modify
 1. Click and drag the [Edit Metadata][edit-metadata] module onto the canvas and drop it below the dataset you added earlier.
 
 1. Connect the dataset to the [Edit Metadata][edit-metadata]: click the output port of the dataset (the small circle at the bottom of the dataset), drag to the input port of [Edit Metadata][edit-metadata] (the small circle at the top of the module), then release the mouse button. The dataset and module remain connected even if you move either around on the canvas.
-   
+ 
     The experiment should now look something like this:  
-    
+
     ![Adding Edit Metadata](./media/tutorial-part1-credit-risk/experiment-with-edit-metadata-module.png)
-    
+
+    The red exclamation mark indicates that you haven't set the properties for this module yet. You'll do that next.
+
+    > [!TIP]
+    > You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Edit Metadata][edit-metadata] module and type the comment "Add column headings". Click anywhere else on the canvas to close the text box. To display the comment, click the down-arrow on the module.
+    > 
+    > ![Edit Metadata module with comment added](./media/tutorial-part1-credit-risk/edit-metadata-with-comment.png)
+    > 
 
 1. Select [Edit Metadata][edit-metadata], and in the **Properties** pane to the right of the canvas, click **Launch column selector**.
 
