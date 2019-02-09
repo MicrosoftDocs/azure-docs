@@ -191,6 +191,8 @@
           href: automation-variables.md
         - name: Update Azure PowerShell modules
           href: automation-update-azure-modules.md
+        - name: Az modules in runbooks
+          href: az-modules.md
     - name: Scenarios
       items:
         - name: Runbook gallery
