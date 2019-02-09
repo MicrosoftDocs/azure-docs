@@ -4,7 +4,7 @@ description: Azure Blueprints is a service in Azure, that you use to create, def
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
@@ -158,6 +158,13 @@ role](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
 > The service principal for Azure Blueprint requires the **Owner** role on the assigned subscription in order to enable deployment. If using the portal, this role is automatically granted and revoked for the deployment. If using the REST API, this role must be manually granted, but is still automatically revoked after the deployment completes.
+
+## Video overview
+
+The following overview of Azure Blueprints is from Azure Fridays. For video download,
+visit [Azure Fridays - An overview of Azure Blueprints](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints) on Channel 9.
+
+> [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
 
 ## Next steps
 
