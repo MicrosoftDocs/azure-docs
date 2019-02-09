@@ -24,7 +24,7 @@ ms.date: 02/08/2019
 |Server objects|SQL Database server or database server|[Database server](sql-database-servers.md)|
 ||SQL Database managed instance server, managed instance server, or instance server|[Managed instance](sql-database-managed-instance.md)|
 Database objects|Azure SQL database|Any database in Azure SQL Database|
-||Single database|A database created as a standalone database using the single database deployment option|
+||Single database|A database created using the single database deployment option|
 ||Pooled database|A database created within or moved into an elastic pool|
 ||Instance database|A database created within a managed instance|
 ||Basic database|A database created within or moved into the basic service tier of the DTU-based purchasing model|
@@ -33,7 +33,7 @@ Database objects|Azure SQL database|Any database in Azure SQL Database|
 ||General purpose database|A database created within or moved into the general purpose service tier of the vCore-based purchasing model|
 ||Hyperscale database|A database created within or moved into the hyperscale service tier of the vCore-based purchasing model|
 ||Business critical database|A database created within or moved into the business critical service tier of the vCore-based purchasing model|
-|[Purchase models and resources](sql-database-service-tiers.md)|DTU-based purchasing model|[DTU-based purchasing model](sql-database-service-tiers-dtu.md)|
+|[Purchase models and resources](sql-database-purchase-models.md)|DTU-based purchasing model|[DTU-based purchasing model](sql-database-service-tiers-dtu.md)|
 ||vCore-based purchasing model|[vCore-based purchasing model](sql-database-service-tiers-vcore.md)|
 ||vCore|A core provided to the guest OS by the hypervisor.|
 ||Service tier|A level of service within a purchasing model|

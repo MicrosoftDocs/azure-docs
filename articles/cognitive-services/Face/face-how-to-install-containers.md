@@ -63,7 +63,7 @@ Container images for Face API are available.
 
 ### Docker pull for the Face container
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/face:latest
 ```
 
