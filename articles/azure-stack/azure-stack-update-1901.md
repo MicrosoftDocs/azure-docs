@@ -97,8 +97,6 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
        - COMPONENT: Health controller
        - DESCRIPTION: The health controller Fault Scanner is unavailable. This may affect health reports and metrics.
 
-<!-- 3631537 - IS, ASDK -->
-- Fixed an issue when creating a new Windows Virtual Machine (VM) in which the **Settings** blade required that you select a public inbound port in order to proceed. Although the setting was required, it had no effect.
 
 <!-- 3507629 - IS, ASDK --> 
 - Fixed an issue when setting the value of Managed Disks quotas under [compute quota types](azure-stack-quota-types.md#compute-quota-types) to 0, it is equivalent to the default value of 2048 GiB. The zero quota value now is respected.
@@ -119,6 +117,9 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 
 <!-- 3209594, IS ASDK -->
 - Removed the **Effective Security Rules** link from the **Networking Properties** blade as this feature is not supported in Azure Stack. Having the link present gave the impression that this feature was supported but not working. To alleviate confusion, we removed the link.
+
+<!-- 3139614 | IS -->
+- Fixed an issue in which after an update was applied to Azure Stack from an OEM, the **Update available** notification did not appear in the Azure Stack administrator portal.
 
 ## Changes
 
@@ -169,6 +170,8 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 - There is a new consideration for accurately planning Azure Stack capacity. We have set limits on the total number of VMs that can be deployed within Azure Stack, to ensure all of our internal services fulfill the scale at which customers run. The limit is 60 VMs per host, with a maximum of 700 for the entire stamp (if the 60 per host limit is reached). For more information, see the [new release of the capacity planner](http://aka.ms/azstackcapacityplanner).
 
 - The Compute API version has increased to 2017-12-01.
+
+- Infrastructure backup now requires a certificate with a public key only (.CER) for encryption of backup data. Symmetric encryption key support is deprecated starting in 1901. If infrastructure backup is configured before updating to 1901, the encryption keys will remain in place. You will have at least 2 more updates with backwards compatibility support to update backup settings. For more information, see [Azure Stack infrastructure backup best practices](azure-stack-backup-best-practices.md).
 
 ## Common vulnerabilities and exposures
 

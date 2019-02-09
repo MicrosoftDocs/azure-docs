@@ -88,7 +88,7 @@ cd MyFunctionProj
 
 Take a look at the _Dockerfile_ in the root folder of the project. This file describes the environment that is required to run the function app on Linux. The following example is a Dockerfile that creates a container that runs a function app on the JavaScript (Node.js) worker runtime: 
 
-```docker
+```Dockerfile
 FROM mcr.microsoft.com/azure-functions/node:2.0
 
 ENV AzureWebJobsScriptRoot=/home/site/wwwroot
