@@ -161,7 +161,7 @@ role](../../role-based-access-control/custom-roles.md).
 
 ## Video Overview
 
-The following overview of Azure Bluerpints is from Azure Fridays. For video download,
+The following overview of Azure Blueprints is from Azure Fridays. For video download,
 visit [Azure Fridays - An overview of Azure Blueprints](https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints) on Channel 9.
 
 > [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
