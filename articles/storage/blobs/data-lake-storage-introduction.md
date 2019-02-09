@@ -76,7 +76,7 @@ Several open source platforms support Data Lake Storage Gen2. Those platforms ap
 | [Hadoop](https://hadoop.apache.org/) | 2.7+ | [Apache Hadoop releases archive](https://hadoop.apache.org/release.html) |
 | [Cloudera](https://www.cloudera.com/) | 6.1+ | [Cloudera Enterprise 6.x release notes](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 4.2+ | [Databricks Runtime versions](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[Hortonworks](https://hortonworks.com/)| 2.6+ | [Hortonworks documentation](https://docs.hortonworks.com/) |
+|[Hortonworks](https://hortonworks.com/)| 3.1.x+ | [Hortonworks documentation](https://docs.hortonworks.com/) |
 
 ## Next steps
 
