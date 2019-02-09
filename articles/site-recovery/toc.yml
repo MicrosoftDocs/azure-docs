@@ -59,8 +59,12 @@
       href: migrate-tutorial-aws-azure.md
   - name: Move Azure VMs
     items:
+    - name: Overview
+      href: azure-to-azure-move-overview.md
     - name: Move Azure VMs to another region
       href: azure-to-azure-tutorial-migrate.md 
+    - name: Move Azure VMs to Availability Zones
+      href: move-Azure-VMs-AVset-Azone.md
 - name: Concepts
   items:
   - name: Common questions about Site Recovery
@@ -153,6 +157,8 @@
         href: azure-to-azure-how-to-enable-replication.md
       - name: Enable Azure to Azure replication for encrypted VMs
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
+      - name: Enable Azure to Azure replication for S2D VMs
+        href: azure-to-azure-how-to-enable-replication-s2d-vms.md
       - name: Reprotect Azure VMs after failover 
         href: azure-to-azure-how-to-reprotect.md
       - name: Set up disaster recovery for Azure VMs after migration to Azure
@@ -417,6 +423,8 @@
       href: site-recovery-failover-to-azure-troubleshoot.md
     - name: Troubleshoot reprotection and failback of VMware VMs 
       href: vmware-azure-troubleshoot-failback-reprotect.md
+    - name: Troubleshoot Microsoft Azure Site Recovery Provider upgrade failures
+      href: vmware-azure-troubleshoot-upgrade-failures.md  
   - name: Hyper-V
     items:
     - name: Troubleshoot Hyper-V replication

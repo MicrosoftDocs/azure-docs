@@ -12,13 +12,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/04/2019
 ms.author: tomfitz
 
 ---
 # Outputs section in Azure Resource Manager templates
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 In the Outputs section, you specify values that are returned from deployment. For example, you could return the URI to access a deployed resource.
 
@@ -80,6 +78,7 @@ The following example shows the structure of an output definition:
 | type |Yes |Type of the output value. Output values support the same types as template input parameters. |
 | value |Yes |Template language expression that is evaluated and returned as output value. |
 
+For information about adding comments, see [Comments in templates](resource-group-authoring-templates.md#comments).
 
 ## Example templates
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning Studio
 description: Once a machine learning service is deployed from Azure Machine Learning Studio, the RESTFul Web service can be consumed either as real-time request-response service or as a batch execution service.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio
 ms.topic: article
 
 author: ericlicoding
@@ -66,7 +66,7 @@ To retrieve the API key for a Classic Machine Learning Web service:
 You can connect to a Machine Learning Web service using any programming language that supports HTTP request and response. You can view examples in C#, Python, and R from a Machine Learning Web service help page.
 
 **Machine Learning API help**
-Machine Learning API help is created when you deploy a Web service. See [Azure Machine Learning Walkthrough- Deploy Web Service](walkthrough-5-publish-web-service.md).
+Machine Learning API help is created when you deploy a Web service. See [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md).
 The Machine Learning API help contains details about a prediction Web service.
 
 1. Click the Web service with which you are working.

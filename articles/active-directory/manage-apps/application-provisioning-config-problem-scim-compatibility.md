@@ -4,7 +4,7 @@ description: How to solve common protocol compatibility issues faced when adding
 services: active-directory
 documentationcenter: ''
 author: asmalser
-manager: daveba
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory

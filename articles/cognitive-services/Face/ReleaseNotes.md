@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Release notes for the Face API Service include a history of release changes for various versions.
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
@@ -19,7 +19,7 @@ This article pertains to Face API Service version 1.0.
 
 ### Release changes in January 2019
 
-* Added Snapshot feature to support data migration across subscriptions: [Snapshot](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/face/snapshot).
+* Added Snapshot feature to support data migration across subscriptions: [Snapshot](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot).
 
 ### Release changes in October 2018
 

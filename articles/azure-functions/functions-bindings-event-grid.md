@@ -99,7 +99,7 @@ namespace Company.Function
 }
 ```
 
-For more information, see [Packages](#packages), [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
+For more information, see Packages, [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
 
 ### C# script example
 
@@ -151,7 +151,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-For more information, see [Packages](#packages), [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
+For more information, see Packages, [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
 
 ### JavaScript example
 

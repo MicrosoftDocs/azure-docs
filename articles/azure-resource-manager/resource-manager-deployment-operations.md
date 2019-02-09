@@ -24,7 +24,10 @@ You can view the operations for a deployment through the Azure portal. You may b
 
 You can troubleshoot your deployment by looking at either the audit logs, or the deployment operations. This article shows both methods. For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Portal
+
 To see the deployment operations, use the following steps:
 
 1. For the resource group involved in the deployment, notice the status of the last deployment. You can select this status to get more details.
@@ -155,7 +158,7 @@ To see the deployment operations, use the following steps:
 
 ## REST
 
-1. Get information about a deployment with the [Get information about a template deployment](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get) operation.
+1. Get information about a deployment with the [Get information about a template deployment](https://docs.microsoft.com/rest/api/resources/deployments) operation.
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -178,7 +181,7 @@ To see the deployment operations, use the following steps:
   }
   ```
 
-2. Get information about deployments with [List all template deployment operations](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
+2. Get information about deployments with [List all template deployment operations](https://docs.microsoft.com/rest/api/resources/deployments). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

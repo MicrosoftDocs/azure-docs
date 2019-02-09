@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started with using the Text Analytics API.
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics

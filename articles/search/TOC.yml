@@ -13,7 +13,7 @@
     href: search-create-service-portal.md
   - name: Portal
     items:
-    - name: Portal-based import, index, and query walkthrough
+    - name: Load and query an index
       href: search-get-started-portal.md
     - name: Enrich with AI (cognitive search)
       href: cognitive-search-quickstart-blob.md
@@ -215,14 +215,14 @@
         href: search-filters-facets.md
       - name: Filter expression syntax
         href: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
-    - name: Performance & optimization
-      href: search-performance-optimization.md
   - name: Administration & analytics
     items:
     - name: Administration (portal)
       href: search-manage.md
     - name: PowerShell (Azure Search)
       href: search-manage-powershell.md
+    - name: Performance & optimizations
+      href: search-performance-optimization.md
     - name: Monitor activity and logging
       href: search-monitor-usage.md
     - name: Search traffic analytics
@@ -272,6 +272,10 @@
       href: cognitive-search-skill-shaper.md
     - name: Deprecated Skills
       href: cognitive-search-skill-deprecated.md
+  - name: Custom skills (Preview)
+    items:
+    - name: Custom Web API
+      href: cognitive-search-custom-skill-web-api.md
 - name: Resources
   items:
   - name: Azure Community Support

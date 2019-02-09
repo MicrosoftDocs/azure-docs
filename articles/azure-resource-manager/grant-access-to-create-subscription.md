@@ -38,6 +38,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   }
 }
 ```
+
 When the Owner role is successfully assigned at the enrollment account scope, Azure responds with information of the role assignment:
 
 ```json
