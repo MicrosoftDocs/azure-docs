@@ -238,11 +238,11 @@ To do this, you use the [Split Data][split] module.
 
 1. Double-click the [Split Data][split] module and enter the comment, "Training/testing data split 50%". 
 
-you can use the outputs of the [Split Data][split] module however you like, but let's choose to use the left output as training data and the right output as testing data.  
+You can use the outputs of the [Split Data][split] module however you like, but let's choose to use the left output as training data and the right output as testing data.  
 
 As mentioned in the [previous step](tutorial-part1-credit-risk.md#upload), the cost of misclassifying a high credit risk as low is five times higher than the cost of misclassifying a low credit risk as high. To account for this, you generate a new dataset that reflects this cost function. In the new dataset, each high risk example is replicated five times, while each low risk example is not replicated.   
 
-you can do this replication using R code:  
+You can do this replication using R code:  
 
 1. Find and drag the [Execute R Script][execute-r-script] module onto the experiment canvas. 
 
