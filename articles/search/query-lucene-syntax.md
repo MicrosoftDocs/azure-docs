@@ -54,7 +54,7 @@ POST /indexes/hotels/docs/search?api-version=2015-02-28
 For additional examples, see [Lucene query syntax examples for building queries in Azure Search](search-query-lucene-examples.md). For details about specifying the full contingent of query parameters, see [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 > [!NOTE]  
->  Azure Search also supports [Simple Query Syntax](how-to-simple-query-syntax-in-azure-search.md), a simple and robust query language that can be used for straightforward keyword search.  
+>  Azure Search also supports [Simple Query Syntax](query-simple-syntax.md), a simple and robust query language that can be used for straightforward keyword search.  
 
 
 ##  <a name="bkmk_fields"></a> Field-scoped queries  
@@ -82,7 +82,7 @@ For additional examples, see [Lucene query syntax examples for building queries 
 ##  <a name="bkmk_termboost"></a> Term boosting  
  Term boosting refers to ranking a document higher if it contains the boosted term, relative to documents that do not contain the term. This differs from scoring profiles in that scoring profiles boost certain fields, rather than specific terms.  
 
-The following example helps illustrate the differences. Suppose that there's a scoring profile that boosts matches in a certain field, say *genre* in the  [musicstoreindex example](how-to-add-scoring-profiles-to-a-search-index.md#bkmk_ex). Term boosting could be used to further boost certain search terms higher than others. For example, `rock^2 electronic` will boost documents that contain the search terms in the genre field higher than other searchable fields in the index. Further, documents that contain the search term *rock* will be ranked higher than the other search term *electronic* as a result of the term boost value (2).  
+The following example helps illustrate the differences. Suppose that there's a scoring profile that boosts matches in a certain field, say *genre* in the  [musicstoreindex example](index-add-scoring-profiles.md#bkmk_ex). Term boosting could be used to further boost certain search terms higher than others. For example, `rock^2 electronic` will boost documents that contain the search terms in the genre field higher than other searchable fields in the index. Further, documents that contain the search term *rock* will be ranked higher than the other search term *electronic* as a result of the term boost value (2).  
 
  To boost a term use the caret, "^", symbol with a boost factor (a number) at the end of the term you are searching. You can also boost phrases. The higher the boost factor, the more relevant the term will be relative to other search terms. By default, the boost factor is 1. Although the boost factor must be positive, it can be less than 1 (for example, 0.20).  
 
@@ -132,7 +132,7 @@ The example above is the tilde (~), but the same principle applies to every oper
 Field grouping is similar but scopes the grouping to a single field. For example, `hotelAmenities:(gym+(wifi||pool))` searches the field "hotelAmenities" for "gym" and "wifi", or "gym" and "pool".  
 
 ### SearchMode parameter considerations  
- The impact of `searchMode` on queries, as described in [Simple query syntax in Azure Search](how-to-simple-query-syntax-in-azure-search.md), applies equally to the Lucene query syntax. Namely, `searchMode` in conjunction with NOT operators can result in query outcomes that might seem unusual if you aren't clear on the implications of how you set the parameter. If you retain the default, `searchMode=any`, and use a NOT operator, the operation is computed as an OR action, such that "New York" NOT "Seattle" returns all cities that are not Seattle.  
+ The impact of `searchMode` on queries, as described in [Simple query syntax in Azure Search](query-simple-syntax.md), applies equally to the Lucene query syntax. Namely, `searchMode` in conjunction with NOT operators can result in query outcomes that might seem unusual if you aren't clear on the implications of how you set the parameter. If you retain the default, `searchMode=any`, and use a NOT operator, the operation is computed as an OR action, such that "New York" NOT "Seattle" returns all cities that are not Seattle.  
 
 ##  <a name="bkmk_boolean"></a> Boolean operators  
  Always specify text boolean operators (AND, OR, NOT) in all caps.  
@@ -163,5 +163,5 @@ Using `searchMode=all` increases the precision of queries by including fewer res
 ## See also  
 
 + [Search Documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
-+ [OData expression syntax for filters and sorting](how-to-odata-expression-syntax-for-azure-search.md)   
-+ [Simple query syntax in Azure Search](how-to-simple-query-syntax-in-azure-search.md)   
++ [OData expression syntax for filters and sorting](query-odata-filter-orderby-syntax.md)   
++ [Simple query syntax in Azure Search](query-simple-syntax.md)   

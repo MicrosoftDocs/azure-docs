@@ -24,7 +24,7 @@ translation.priority.mt:
 Azure Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Azure Search, the simple query syntax excludes the fuzzy/slop options.  
 
 > [!NOTE]  
->  Azure Search provides an alternative [Lucene Query Syntax](how-to-lucene-query-syntax-in-azure-search.md) for more complex queries. To learn more about query parsing architecture and benefits of each syntax, see [How full text search works in Azure Search](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
+>  Azure Search provides an alternative [Lucene Query Syntax](query-lucene-syntax.md) for more complex queries. To learn more about query parsing architecture and benefits of each syntax, see [How full text search works in Azure Search](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
 
 ## How to invoke simple parsing
 
@@ -79,10 +79,10 @@ The precedence operator encloses the string in parentheses. For example, `motel+
 - The suffix operator `*` needs to be escaped only if it's the last character before whitespace, not if it's in the middle of a term. For example, `wi*fi` is treated as a single token.
 
 > [!NOTE]  
->  Although escaping keeps tokens together, text analysis may split them up, depending on the analysis mode. See [Language support &#40;Azure Search Service REST API&#41;](how-to-language-support.md) for details.  
+>  Although escaping keeps tokens together, text analysis may split them up, depending on the analysis mode. See [Language support &#40;Azure Search Service REST API&#41;](index-add-language-analyzers.md) for details.  
 
 ## See also  
 
 + [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
-+ [Lucene query syntax](how-to-lucene-query-syntax-in-azure-search.md)
-+ [OData expression syntax](how-to-odata-expression-syntax-for-azure-search.md) 
++ [Lucene query syntax](query-lucene-syntax.md)
++ [OData expression syntax](query-odata-filter-orderby-syntax.md) 

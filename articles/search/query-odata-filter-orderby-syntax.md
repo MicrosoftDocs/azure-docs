@@ -22,7 +22,7 @@ translation.priority.mt:
 ---
 # OData expression syntax for filters and order-by clauses in Azure Search
 
-Azure Search supports a subset of the OData expression syntax for **$filter** and **$orderby** expressions. Filter expressions are evaluated during query parsing, constraining search to specific fields or adding match criteria used during index scans. Order-by expressions are applied as a post-processing step over a result set. Both filters and order-by expressions are included in a query request, adhering to an OData syntax independent of the [simple](how-to-simple-query-syntax-in-azure-search.md) or [full](how-to-lucene-query-syntax-in-azure-search.md) query syntax used in a **search** parameter. This article provides the reference documentation for OData expressions used in filters and sort expressions.
+Azure Search supports a subset of the OData expression syntax for **$filter** and **$orderby** expressions. Filter expressions are evaluated during query parsing, constraining search to specific fields or adding match criteria used during index scans. Order-by expressions are applied as a post-processing step over a result set. Both filters and order-by expressions are included in a query request, adhering to an OData syntax independent of the [simple](query-simple-syntax.md) or [full](query-lucene-syntax.md) query syntax used in a **search** parameter. This article provides the reference documentation for OData expressions used in filters and sort expressions.
 
 ## Filter syntax
 
@@ -94,7 +94,7 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
     where: 
   
-    - `search`: the search query (in either [simple](how-to-simple-query-syntax-in-azure-search.md) or [full](how-to-lucene-query-syntax-in-azure-search.md) query syntax). 
+    - `search`: the search query (in either [simple](query-simple-syntax.md) or [full](query-lucene-syntax.md) query syntax). 
     - `queryType`: "simple" or "full", defaults to "simple". Specifies what query language was used in the `search` parameter.
     - `searchFields`: comma-separated list of searchable fields to search in, defaults to all searchable fields in the index.    
     - `searchMode`: "any" or "all", defaults to "any". Indicates whether any or all of the search terms must be matched in order to count the document as a match.
@@ -243,7 +243,7 @@ Note, documents that matched only the second clause of the disjunction will be r
 $filter=search.ismatchscoring('"ocean view"', 'description,hotelName') or rating eq 5
 ```
 
-Find documents where the terms "hotel" and "airport" are within 5 words from each other in the description of the hotel, and where smoking is not allowed. This query uses the [full Lucene query language](how-to-lucene-query-syntax-in-azure-search.md).
+Find documents where the terms "hotel" and "airport" are within 5 words from each other in the description of the hotel, and where smoking is not allowed. This query uses the [full Lucene query language](query-lucene-syntax.md).
 
 ```
 $filter=search.ismatch('"hotel airport"~5', 'description', 'full', 'any') and not smokingAllowed 
@@ -303,5 +303,5 @@ $orderby=search.score() desc,rating desc,geo.distance(location, geography'POINT(
 + [Faceted navigation in Azure Search](search-faceted-navigation.md) 
 + [Filters in Azure Search](search-filters.md) 
 + [Search Documents &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 
-+ [Lucene query syntax](how-to-lucene-query-syntax-in-azure-search.md)
-+ [Simple query syntax in Azure Search](how-to-simple-query-syntax-in-azure-search.md)   
++ [Lucene query syntax](query-lucene-syntax.md)
++ [Simple query syntax in Azure Search](query-simple-syntax.md)   

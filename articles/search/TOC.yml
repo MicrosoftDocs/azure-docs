@@ -116,11 +116,11 @@
       - name: Add text analyzers
         href: search-analyzers.md
       - name: Add language analyzers
-        href: how-to-language-support.md
+        href: index-add-language-analyzers.md
       - name: Add custom analyzers
-        href: how-to-custom-analyzers-in-azure-search.md
+        href: index-add-custom-analyzers.md
     - name: Add autosuggest
-      href: how-to-suggesters.md
+      href: index-add-suggesters.md
     - name: Add faceted navigation
       href: search-faceted-navigation.md
     - name: Add synonyms
@@ -198,9 +198,9 @@
     - name: Query syntax
       items:
       - name: Simple query syntax
-        href: how-to-simple-query-syntax-in-azure-search.md
+        href: query-simple-syntax.md
       - name: Lucene query syntax
-        href: how-to-lucene-query-syntax-in-azure-search.md
+        href: query-lucene-syntax.md
     - name: Paging results
       href: search-pagination-page-layout.md
   - name: Filtering and sorting data
@@ -210,11 +210,11 @@
     - name: Facet filters
       href: search-filters-facets.md
     - name: Filter and OrderBy expression syntax
-      href: how-to-odata-expression-syntax-for-azure-search.md
+      href: query-odata-filter-orderby-syntax.md
   - name: Relevance tuning
     items:
     - name: Add scoring profiles
-      href: how-to-add-scoring-profiles-to-a-search-index.md
+      href: index-add-scoring-profiles.md
   - name: Administration
     items:
     - name: Portal administration

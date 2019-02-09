@@ -46,7 +46,7 @@ The [*fields collection*](#fields-collection) is typically the largest part of a
   "suggesters": [  
     {  
       "name": "name of suggester",  
-      "searchMode": "analyzingInfixMatching" (other modes may be added in the future),  
+      "searchMode": "analyzingInfixMatching",  
       "sourceFields": ["field1", "field2", ...]  
     }  
   ],  
@@ -128,7 +128,7 @@ You can find more detailed information about Azure Search's [supported data type
 You can find more detailed information about Azure Search's [index attributes here](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
 ## Suggesters
-A suggester is a section of the schema that defines which fields in an index are used to support auto-complete or type-ahead queries in searches. Typically partial search strings are sent to the Suggestions (Azure Search Service REST API) while the user is typing a search query, and the API returns a set of suggested phrases. A suggester that you define in the index determines which fields are used to build the type-ahead search terms. For more information, see [Add suggesters](how-to-suggesters.md) for configuration details.
+A suggester is a section of the schema that defines which fields in an index are used to support auto-complete or type-ahead queries in searches. Typically partial search strings are sent to the Suggestions (Azure Search Service REST API) while the user is typing a search query, and the API returns a set of suggested phrases. A suggester that you define in the index determines which fields are used to build the type-ahead search terms. For more information, see [Add suggesters](index-add-suggesters.md) for configuration details.
 
 ## Scoring profiles
 
@@ -136,11 +136,11 @@ A scoring profile is a section of the schema that defines custom scoring behavio
 
 A default scoring profile operates behind the scenes to compute a search score for every item in a result set. You can use the internal, unnamed scoring profile. Alternatively, set defaultScoringProfile to use a custom profile as the default, invoked whenever a custom profile is not specified on the query string.
 
-For more information, see [Add scoring profiles](how-to-add-scoring-profiles-to-a-search-index.md).
+For more information, see [Add scoring profiles](index-add-scoring-profiles.md).
 
 ## Analyzers
 
-The analyzers element sets the name of the language analyzer to use for the field. For the allowed set of values, see [Language analyzers in Azure Search](how-to-language-support.md). This option can be used only with searchable fields and it can't be set together with either **searchAnalyzer** or **indexAnalyzer**. Once the analyzer is chosen, it cannot be changed for the field.
+The analyzers element sets the name of the language analyzer to use for the field. For the allowed set of values, see [Language analyzers in Azure Search](index-add-language-analyzers.md). This option can be used only with searchable fields and it can't be set together with either **searchAnalyzer** or **indexAnalyzer**. Once the analyzer is chosen, it cannot be changed for the field.
 
 ## CORS
 
