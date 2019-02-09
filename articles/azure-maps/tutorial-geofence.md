@@ -257,4 +257,4 @@ In this tutorial you learned, how to set up geofence by uploading it in the Azur
 
 > [!div class="checklist"]
 * See [Handle content types in Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type), to learn how to use Logic Apps to parse JSON to build a more complex logic.
-* To know more about event handlers in Event Grid, see [supported Events Handlers in Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/event-handlers).
+* To know more about event handlers in Event Grid, see [supported Events Handlers in Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers).
