@@ -60,30 +60,31 @@ After you create an action group, it's visible in the **Action groups** section 
 * Delete the action group.
 
 ## Action specific information
-See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#monitor-limits. ) for numeric limits on each of the items below.  
+> ![NOTE]
+> See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#monitor-limits. ) for numeric limits on each of the items below.  
 
-**Azure app Push** - You can have a [limited number](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#monitor-limits) of Azure app actions in an Action Group. At this time, the Azure app action only supports ServiceHealth alerts. Any other alert time will be ignored. See [configure alerts whenever a service health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+**Azure app Push** - You can have a limited number of Azure app actions in an Action Group. At this time, the Azure app action only supports ServiceHealth alerts. Any other alert time will be ignored. See [configure alerts whenever a service health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 **Email** - Emails will be sent from the following email addresses. Ensure that your email filtering is configured appropriately
    - azure-noreply@microsoft.com
    - azureemail-noreply@microsoft.com
    - alerts-noreply@mail.windowsazure.com
 
-You may have a [limited number](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#monitor-limits) of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article
+You may have a limited number of email actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article
 
-**ITSM** - You may have a [limited number](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#monitor-limits) of ITSM actions in an Action Group. ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../../azure-monitor/platform/itsmc-overview.md).
+**ITSM** - You may have a limited number limited number of ITSM actions in an Action Group. ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../../azure-monitor/platform/itsmc-overview.md).
 
-**Logic App** - You may have a [limited number](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#monitor-limits) of Logic App actions in an Action Group.
+**Logic App** - You may have a limited number of Logic App actions in an Action Group.
 
 **Function App** - The function keys for Function Apps configured as actions are read through the Functions API, which currently requires v2 function apps to configure the app setting “AzureWebJobsSecretStorageType” to “files”. For more information, see [Changes to Key Management in Functions V2]( https://aka.ms/funcsecrets).
 
-**Runbook** - You may have a [limited number](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#monitor-limits) of Runbook actions in an Action Group. Refer to the [Azure subscription service limits](../../azure-subscription-service-limits.md) for limits on Runbook payloads.
+**Runbook** - You may have a limited number of Runbook actions in an Action Group. Refer to the [Azure subscription service limits](../../azure-subscription-service-limits.md) for limits on Runbook payloads.
 
-**SMS** - You may have a [limited number](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#monitor-limits) of SMS actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article. Also see the [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md) article.
+**SMS** - You may have a limited number of SMS actions in an Action Group. Also see the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) and [SMS alert behavior](../../azure-monitor/platform/alerts-sms-behavior.md) for additional important information. 
 
-**Voice** - You may have a [limited number](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#monitor-limits) of Voice actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
+**Voice** - You may have a limited number of Voice actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
 
-**Webhook** - You may have a [limited number](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#monitor-limits) of Webhook actions in an Action Group. Webhooks are retried using the following rules. The webhook call is retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The timeout period for a response is 10 seconds and the first retry happens after those 10 seconds. The second retry happens after 100 seconds. After two failures the endpoint will not be called for 30 minutes from any action group.
+**Webhook** - You may have a limited number of Webhook actions in an Action Group. Webhooks are retried using the following rules. The webhook call is retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The timeout period for a response is 10 seconds and the first retry happens after those 10 seconds. The second retry happens after 100 seconds. After two failures the endpoint will not be called for 30 minutes from any action group.
 
 Source IP address ranges
  - 13.72.19.232
