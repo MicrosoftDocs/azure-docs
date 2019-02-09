@@ -4,7 +4,7 @@ description: This article describes how you can use Azure Media Services (AMS) t
 services: media-services
 documentationcenter: ''
 author: Mingfeiy
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 2a9a408a-a995-49e1-8d8f-ac5b51e17d40
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 02/08/2019
 ms.author: Mingfeiy;willzhan;Juliako
 
 ---
-# Using castLabs to deliver Widevine licenses to Azure Media Services
+# Using castLabs to deliver Widevine licenses to Azure Media Services (legacy)
 > [!div class="op_single_selector"]
 > * [Axinom](media-services-axinom-integration.md)
 > * [castLabs](media-services-castlabs-integration.md)
