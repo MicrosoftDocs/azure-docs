@@ -17,84 +17,59 @@ In this tutorial, learn how to:
 
 > [!div class="checklist"]
 > * Grant Azure Active Directory permisions to the Windows Virtual Desktop service.
+> * Assign the TenantCreator application role to a user in your Azure Active Directory.
 > * Create a Windows Virtual Desktop tenant.
-> * Confirm your Windows Virtual Desktop tenant.
 
-You need the Windows Virtual Desktop PowerShell module to follow the instructions in this article. Install the Windows Virtual Desktop PowerShell module from the PowerShell Gallery by running this cmdlet:
+You will need the following things to set up your Windows Virtual Desktop tenant:
 
-```powershell
-PS C:\> Install-Module WindowsVirtualDesktop
-```
+* The [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) containing the users that will make connections to Windows Virtual Desktop.
+* A Global Administrator account within the Azure Active Directory.
+   * This requirement also applies to Cloud Solution Provider (CSP) organizations creating a Windows Virtual Desktop tenant for their customers. If you are a CSP organization, you must be able to login as a Global Administrator of the customer's Azure Active Directory.
 
-You also need the following things to set up your Windows Virtual Desktop tenant:
+## Grant Azure Active Directory permissions to the Windows Virtual Desktop service
 
-* The Windows Virtual Desktop PowerShell module installed to your computer.
-* An [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) account.
-* An Azure subscription tied to the Azure Active Directory account.
-* An Azure Active Directory user account with Global Administrator permissions. This will allow Windows Virtual Desktop to query your Azure Active Directory.
-* Access to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/).
+If you have already granted permissions to Windows Virtual Desktop for this Azure Active Directory, skip this section.
 
-## Grant Azure Active Directory permissions to Windows Virtual Desktop
+Granting permissions to the Windows Virtual Desktop service allows the service to query your Azure Active Directory for administrative and end-user tasks. To grant permissions:
 
-As global administrator of your Azure Active Directory, you must grant permissions to the service to query your Azure Active Directory and create a Windows Virtual Desktop tenant.
-
-Cloud Solution Provider organizations granting Azure Active Directory consent on behalf of the Cloud Solution Provider customer they're managing must use a Global Administrator account sourced from the customer’s Azure Active Directory, not from the Cloud Solution Provider organization itself.
-
-To grant permissions:
-
-1. Open a browser and connect to the [Remote Desktop Web page URL](https://rdweb.wvd.microsoft.com).
-2. For **Consent Option** > **Server App**, enter the Azure AD tenant name or ID, then select **Submit**.
-        For Cloud Solution Provider customers, the ID is the customer's Microsoft ID from the Partner Portal. For Enterprise Azure subscriptions, the ID is located under **Azure Active Directory** > **Properties** > **Directory ID**.
-3. Sign in to the Windows Virtual Desktop consent page with an administrative account within the customer’s Azure AD tenant. For example, admin@tenantname.onmicrosoft.com.  
+1. Open a browser and connect to the [Windows Virtual Desktop consent page](https://rdweb.wvd.microsoft.com).
+2. For **Consent Option** > **Server App**, enter the Azure Active Directory tenant name or Directory ID, then select **Submit**.
+        For Cloud Solution Provider customers, the ID is the customer's Microsoft ID from the Partner Portal. For Enterprise customers, the ID is located under **Azure Active Directory** > **Properties** > **Directory ID**.
+3. Sign in to the Windows Virtual Desktop consent page with the Global Adminstrator account. For example, admin@contoso.com.  
 4. Select **Accept**.
 5. Wait for one minute.
-6. Navigate back to the [Remote Desktop Web page URL](https://rdweb.wvd.microsoft.com).
-7. Select **Consent Option** > **Client App**, enter the Azure AD tenant name or ID, then select **Submit**.
-8. Sign in to the Windows Virtual Desktop consent page with an administrative account within the customer’s Azure AD tenant. For example, admin@tenantname.onmicrosoft.com.
+6. Navigate back to the [Windows Virtual Desktop consent page](https://rdweb.wvd.microsoft.com).
+7. Select **Consent Option** > **Client App**, enter the same Azure AD tenant name or Directory ID, then select **Submit**.
+8. Sign in to the Windows Virtual Desktop consent page with the Global Administrator account. For example, admin@contoso.com.
 9. Select **Accept**.
+
+## Assign the TenantCreator application role to a user in your Azure Active Directory
+
+Assigning an Azure Active Directory user the TenantCreator application role allows that user to create a Windows Virtual Desktop tenant that is associated with the Azure Active Directory. To grant the TenantCreator application role:
+
+1. Open a browser and connect to the [Azure Active Directory portal](https://aad.portal.azure.com) using the Global Administrator account.
+2. Select **Enterprise applications**, search for **Windows Virtual Desktop** and select the application.
+3. Select **Users and groups**, then select **Add user**.
+4. Search for the Global Administrator account, then click **Select**, and click **Assign**.
 
 ## Create a Windows Virtual Desktop tenant
 
-Now that the Windows Virtual Desktop service has permissions to query your Azure Active Directory, you can create a tenant.
+Now that the Windows Virtual Desktop service has permissions to query the Azure Active Directory and the Global Administrator account has been assigned the TenantCreator application role, you can create a Windows Virtual Desktop tenant.
 
-1. In the Azure Marketplace, select **New**.
-2. Search for **Windows Virtual Desktop**.
-3. Select **Windows Virtual Desktop – Create a tenant**.
-4. Enter a name for your Windows Virtual Desktop and configure its settings. The following table shows examples of configuration types.
-    
-    |Setting|Example value|Description|
-    |---|---|---|
-    |Name|Your company name|Choose an appropriate value for your Windows Virtual Desktop tenant.|
-    |Resource Group|yourcompanynameWVDTenant|This resource group is only used for tenant creation.|
-    |Location|East US 2|Choose a location where your assets are located to run Azure Automation. If the region does not support Azure Automation, then the Azure Automation account is created in East US 2.|
-    
-5. Once you've configured your settings, select **Create** > **Purchase**.
+Download the Windows Virtual Desktop module and import the module to use in your session.
 
-## Confirm your Windows Virtual Desktop tenant
-
-After you've created your Windows Virtual Desktop tenant, you can run the following cmdlets to confirm it's set up the way you want.
-
-1. Run the following cmdlet in PowerShell to install the Windows Virtual Desktop PowerShell module from the PowerShell Gallery:
-    ```powershell
-    Install-Module Rds
-    ```
-2. Run the following cmdlet to check if your PowerShell instance is using TLS 1.2:
-    ```powershell
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    ```
-3. Run the following cmdlet to sign in to Windows Virtual Desktop:
-    ```powershell
-    Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
-    ```
-4. Optionally, you can run the following cmdlet to set the context of the administrative session to a specific tenant group if you've recieved one.
-    ```powershell
-    Set-RdsContext -TenantGroupName “Custom Tenant Group”
-    ```
-        This situation tends to apply to Cloud Solution Provider organizations.
-5. Run the following cmdlet to check which Windows Virtual Desktop tenants your user can access.
-    ```powershell
-    Get-RdsTenant
-    ```
+Sign in to Windows Virtual Desktop with the Global Administrator account
+```powershell
+Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
+```
+Create a new Windows Virtual Desktop tenant associated with the Azure Active Directory
+```powershell
+New-RdsTenant -Name <TenantName> -AadTenantId <DirectoryID>
+```
+For example, the Global Admin of the Contoso organization would run the following command
+```powershell
+New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444
+```
 
 ## Next steps
 
