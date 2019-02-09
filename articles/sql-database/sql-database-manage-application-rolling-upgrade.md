@@ -13,20 +13,20 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/29/2019
 ---
-# Managing rolling upgrades of cloud applications by using SQL Database active geo-replication
+# Manage rolling upgrades of cloud applications by using SQL Database active geo-replication
 
-Learn how to use [active geo-replication](sql-database-auto-failover-group.md) in Azure SQL Database to enable rolling upgrades of your cloud application. Because upgrades are disruptive operations, they should be part of your business-continuity planning and design. In this article, we look at two different methods of orchestrating the upgrade process and discuss the benefits and tradeoffs of each option. For the purposes of this article, we refer to an application that consists of a website connected to a single database as its data tier. Our goal is to upgrade version 1 of the application to version 2 without any significant impact on the user experience.
+Learn how to use [active geo-replication](sql-database-auto-failover-group.md) in Azure SQL Database to enable rolling upgrades of your cloud application. Because upgrades are disruptive operations, they should be part of your business-continuity planning and design. In this article, we look at two different methods of orchestrating the upgrade process and discuss the benefits and tradeoffs of each option. For the purposes of this article, we refer to an application that consists of a website that's connected to a single database as its data tier. Our goal is to upgrade version 1 (V1) of the application to version 2 (V2) without any significant impact on the user experience.
 
 When evaluating upgrade options, consider these factors:
 
 * Impact on application availability during upgrades, such as how long application function might be limited or degraded.
-* Ability to roll back if upgrade fails.
+* Ability to roll back if the upgrade fails.
 * Vulnerability of the application if an unrelated, catastrophic failure occurs during the upgrade.
-* Total dollar cost. This includes additional redundancy and incremental costs of the temporary components used by the upgrade process.
+* Total dollar cost. This factor includes additional redundancy and incremental costs of the temporary components used by the upgrade process.
 
-## Upgrading applications that rely on database backups for disaster recovery
+## Upgrade applications that rely on database backups for disaster recovery
 
-If your application relies on automatic database backups and uses geo-restore for disaster recovery, it is deployed to a single Azure region. To minimize user disruption, create a staging environment in that region with all the application components involved in the upgrade. The first diagram illustrates the operational environment before the upgrade process. The endpoint `contoso.azurewebsites.net` represents a production environment of the web app. To be able to roll back the upgrade, you must create a staging environment with a fully synchronized copy of the database. Follow these steps to create a staging environment for the upgrade:
+If your application relies on automatic database backups and uses geo-restore for disaster recovery, it's deployed to a single Azure region. To minimize user disruption, create a staging environment in that region with all the application components involved in the upgrade. The first diagram illustrates the operational environment before the upgrade process. The endpoint `contoso.azurewebsites.net` represents a production environment of the web app. To be able to roll back the upgrade, you must create a staging environment with a fully synchronized copy of the database. Follow these steps to create a staging environment for the upgrade:
 
 1. Create a secondary database in the same Azure region. Monitor the secondary to see if the seeding process is complete (1).
 2. Create a new environment for your web app and call it 'Staging'. It will be registered in Azure DNS with the URL `contoso-staging.azurewebsites.net` (2).
@@ -39,7 +39,7 @@ If your application relies on automatic database backups and uses geo-restore fo
 When the preparation steps are complete, the application is ready for the actual upgrade. The next diagram illustrates the steps involved in the upgrade process:
 
 1. Set the primary database to read-only mode (3). This mode guarantees that the production environment of the web app (V1) remains read-only during the upgrade, thus preventing data divergence between the V1 and V2 database instances.
-2. Disconnect the secondary database by using the planned termination mode (4). This creates a fully synchronized, independent copy of the primary database. This database will be upgraded.
+2. Disconnect the secondary database by using the planned termination mode (4). This action creates a fully synchronized, independent copy of the primary database. This database will be upgraded.
 3. Turn the primary database to read-write mode and run the upgrade script (5).
 
 ![SQL Database geo-replication configuration for cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option1-2.png)
@@ -53,7 +53,7 @@ If the upgrade finishes successfully, you're now ready to switch users to the up
 
 If the upgrade process is unsuccessful (for example, due to an error in the upgrade script), consider the staging environment to be compromised. To roll back the application to the pre-upgrade state, revert the application in the production environment to full access. The next diagram shows the reversion steps:
 
-1. Set the database copy to read-write mode (8). This restores the full V1 functionality of the production copy.
+1. Set the database copy to read-write mode (8). This action restores the full V1 functionality of the production copy.
 2. Perform the root-cause analysis and decommission the staging environment (9).
 
 At this point, the application is fully functional, and you can repeat the upgrade steps.
@@ -67,9 +67,9 @@ The key advantage of this option is that you can upgrade an application in a sin
 
 The main tradeoff is that, if a catastrophic failure occurs during the upgrade, the recovery to the pre-upgrade state involves redeploying the application in a different region and restoring the database from backup by using geo-restore. This process results in significant downtime.
 
-## Upgrading applications that rely on database geo-replication for disaster recovery
+## Upgrade applications that rely on database geo-replication for disaster recovery
 
-If your application uses active geo-replication or auto-failover groups for business continuity, it is deployed to at least two different regions. There's an active, primary database in a primary region and a read-only, secondary database in a backup region. Along with the factors mentioned at the beginning of this article, the upgrade process must also guarantee that:
+If your application uses active geo-replication or auto-failover groups for business continuity, it's deployed to at least two different regions. There's an active, primary database in a primary region and a read-only, secondary database in a backup region. Along with the factors mentioned at the beginning of this article, the upgrade process must also guarantee that:
 
 * The application remains protected from catastrophic failures at all times during the upgrade process.
 * The geo-redundant components of the application are upgraded in parallel with the active components.
@@ -86,7 +86,7 @@ To make it possible to roll back the upgrade, you must create a staging environm
 
 1. Deploy a staging environment of the web app in the primary region (6).
 2. Create a secondary database in the primary Azure region (7). Configure the staging environment of the web app to connect to it. 
-3. Create another geo-redundant, secondary database in the backup region by replicating the secondary database in the primary region. (This is called *chained geo-replication*.) (8).
+3. Create another geo-redundant, secondary database in the backup region by replicating the secondary database in the primary region. (This method is called *chained geo-replication*.) (8).
 4. Deploy a staging environment of the web app instance in the backup region (9) and configure it to connect the geo-redundant secondary database created at (8).
 
 > [!NOTE]
@@ -97,7 +97,7 @@ To make it possible to roll back the upgrade, you must create a staging environm
 When the preparation steps are complete, the staging environment is ready for the upgrade. The next diagram illustrates these upgrade steps:
 
 1. Set the primary database in the production environment to read-only mode (10). This mode guarantees that the production database (V1) won't change during the upgrade, thus preventing the data divergence between the V1 and V2 database instances.
-2. Disconnect the secondary database in the same region by using the planned termination mode (11). This creates an independent but fully synchronized copy of the production database. This database will be upgraded.
+2. Disconnect the secondary database in the same region by using the planned termination mode (11). This action creates an independent but fully synchronized copy of the production database. This database will be upgraded.
 3. Run the upgrade script against `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net`, and the staging primary database (12). The database changes will be replicated automatically to the staging secondary.
 
 ![SQL Database geo-replication configuration for cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)
@@ -111,7 +111,7 @@ If the upgrade finishes successfully, you're now ready to switch users to the V2
 
 If the upgrade process is unsuccessful (for example, due to an error in the upgrade script), consider the staging environment to be in an inconsistent state. To roll back the application to the pre-upgrade state, revert to using V1 of the application in the production environment. The required steps are shown on the next diagram:
 
-1. Set the primary database copy in the production environment to read-write mode (17). This restores full V1 functionality in the production environment.
+1. Set the primary database copy in the production environment to read-write mode (17). This action restores full V1 functionality in the production environment.
 2. Perform the root-cause analysis and repair or remove the staging environment (18 and 19).
 
 At this point, the application is fully functional, and you can repeat the upgrade steps.
