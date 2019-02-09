@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing Entity Search REST API using Java, and receive a JSON response.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
@@ -210,7 +210,7 @@ A successful response is returned in JSON, as shown in the following example:
 }
 ```
 
-[Back to top](#HOLTop)
+[Back to top](#main)
 
 ## Next steps
 

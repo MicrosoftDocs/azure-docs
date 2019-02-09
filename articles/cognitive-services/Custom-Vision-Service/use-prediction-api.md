@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to use the API to programmatically test images with your Custom Vision Service classifier.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision

@@ -240,7 +240,7 @@ You can create a scheduled WebJob by using Cron expressions:
 
 1. Create a settings.job file.
 2. In this JSON file, include a schedule property by using a Cron expression: 
-    ```
+    ```json
     { "schedule": "{second}
     {minute} {hour} {day}
     {month} {day of the week}" }
@@ -266,7 +266,7 @@ As the message indicates, this fraud verification process might take up to 24 ho
 
 If your App Service certificate continues to show this message after 24 hours, please run the following PowerShell script. The script contacts the [certificate provider](https://www.godaddy.com/) directly to resolve the issue.
 
-```
+```powershell
 Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <subId>
 $actionProperties = @{
@@ -308,10 +308,10 @@ If none of these conditions apply and the problem persists, submit a support req
 
 To turn on compression both for static and dynamic content types, add the following code to the application-level web.config file:
 
-```
+```xml
 <system.webServer>
-<urlCompression doStaticCompression="true" doDynamicCompression="true" />
-< /system.webServer>
+    <urlCompression doStaticCompression="true" doDynamicCompression="true" />
+</system.webServer>
 ```
 
 You also can specify the specific dynamic and static MIME types that you want to compress. For more information, see our response to a forum question in [httpCompression settings on a simple Azure website](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview).

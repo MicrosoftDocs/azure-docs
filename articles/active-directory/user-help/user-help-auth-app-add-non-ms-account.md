@@ -51,7 +51,7 @@ Add your Google account by turning on two-factor verification and then adding th
 4. Use your device's camera to scan the QR code from the **Set up Authenticator** page on your PC.
 
     >[!Note]
-    >If your camera isn't working properly, you can [enter the QR code and URL manually](#add-an-account-to-the-app-manually).
+    >If your camera isn't working properly, you can enter the QR code and URL manually.
 
 5. Review the **Accounts** page of the Microsoft Authenticator app on your device, to make sure your account information is right and that there's an associated six-digit verification code.
 
@@ -90,7 +90,7 @@ Add your Facebook account by turning on two-factor verification and then adding 
 3. Use your device's camera to scan the QR code from the **Two factor authentication** page on your PC.
 
     >[!Note]
-    >If your camera isn't working properly, you can [enter the QR code and URL manually](#add-an-account-to-the-app-manually).
+    >If your camera isn't working properly, you can enter the QR code and URL manually.
 
 4. Review the **Accounts** page of the Microsoft Authenticator app on your device, to make sure your account information is right and that there's an associated six-digit verification code.
 
@@ -161,7 +161,7 @@ Add your Amazon account by turning on two-factor verification and then adding th
 6. Use your device's camera to scan the QR code from the **Choose how you'll receive codes** page on your PC.
 
     >[!Note]
-    >If your camera isn't working properly, you can [enter the QR code and URL manually](#add-an-account-to-the-app-manually).
+    >If your camera isn't working properly, you can enter the QR code and URL manually.
 
 5. Review the **Accounts** page of the Microsoft Authenticator app on your device, to make sure your account information is right and that there's an associated six-digit verification code.
 
