@@ -15,6 +15,7 @@
     href: quickstarts/get-started-ios.md
   - name: Create Unity app
     href: unity-overview.md
+    expanded: true
     items:
     - name: HoloLens
       href: quickstarts/get-started-unity-hololens.md
@@ -35,6 +36,7 @@
   items:
   - name: Create and locate anchors
     href: concepts/create-locate-anchors-overview.md
+    expanded: true
     items:
     - name: In Unity
       href: concepts/create-locate-anchors-unity.md

@@ -1,18 +1,18 @@
 ---
-title: Concept - Create and locate anchors using Azure Spatial Anchors in C++/WinRT | Microsoft Docs
+title: Create and locate anchors using Azure Spatial Anchors in C++/WinRT | Microsoft Docs
 description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in C++/WinRT.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
 
 ms.author: ramonarguelles
-ms.date: 2/7/2019
-ms.topic: concept
+ms.date: 02/07/2019
+ms.topic: conceptual
 ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want and in-depth explanation of how to create and locate anchors using Azure Spatial Anchors in C++/WinRT.
 ---
-# Concept: Create and locate anchors using Azure Spatial Anchors in C++/WinRT
+# Create and locate anchors using Azure Spatial Anchors in C++/WinRT
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 

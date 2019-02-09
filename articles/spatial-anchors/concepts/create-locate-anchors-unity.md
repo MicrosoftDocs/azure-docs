@@ -1,18 +1,18 @@
 ---
-title: Concept - Create and locate anchors using Azure Spatial Anchors in Unity | Microsoft Docs
+title: Create and locate anchors using Azure Spatial Anchors in Unity | Microsoft Docs
 description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in Unity.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
 
 ms.author: ramonarguelles
-ms.date: 1/31/2019
-ms.topic: concept
+ms.date: 01/31/2019
+ms.topic: conceptual
 ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want and in-depth explanation of how to create and locate anchors using Azure Spatial Anchors in Unity.
 ---
-# Concept: Create and locate anchors using Azure Spatial Anchors in Unity
+# Create and locate anchors using Azure Spatial Anchors in Unity
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
