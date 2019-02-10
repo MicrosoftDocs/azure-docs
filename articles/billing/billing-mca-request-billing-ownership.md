@@ -23,13 +23,13 @@ You might want to take ownership of Azure subscriptions if the existing billing 
 
 You can send a request to take ownership of Azure subscriptions from existing owners in other billing accounts. Taking ownership transfers billing ownership of their subscriptions to your invoice section. After ownership is transferred, your invoice section is responsible for all charges for the subscriptions.
 
-To request the billing ownership, you must be an Owner, Contributor, or Azure subscription creator on the invoice section. To lean more, see [Invoice section roles and tasks](billing-understand-mca-roles.md#invoice-sections-roles-and-tasks)
+To request the billing ownership, you must be an Owner or Contributor on the invoice section. To lean more, see [Invoice section roles and tasks](billing-understand-mca-roles.md#invoice-sections-roles-and-tasks).
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have a Microsoft Customer Agreement](#check-your-access-to-a-billing-account-for-microsoft-customer-agreement).
 
 ## Request billing ownership in the Azure portal
 
-1. Sign in to Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search on **Cost Management + Billing**.
 
@@ -57,7 +57,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 ## Check status of your transfer request in the Azure portal
 
-1. Sign in to Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search on **Cost Management + Billing**.
 
@@ -149,6 +149,11 @@ You can cancel the transfer request until the request is approved or declined. T
 
 ## Check your access to a billing account for Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+
+## Next steps
+
+- The billing ownership of the Azure subscriptions is transferred to your invoice section. Keep track of the charges for these subscriptions in the [Azure portal](https://portal.azure.com).
+- Provide others access to the invoice section to give them permission to view charges for these subscriptions. For more information, see [Invoice section roles and tasks](billing-understand-mca-roles.md#invoice-sections-roles-and-tasks).
 
 ## Need help? Contact support
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

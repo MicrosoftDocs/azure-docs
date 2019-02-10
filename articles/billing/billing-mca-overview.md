@@ -85,6 +85,13 @@ Users with access to an invoice section create Azure subscriptions and purchase 
 ## Check your access to a Billing account for Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
+## Next steps
+
+See the following articles to learn about your billing account:
+
+- [Organize your costs with invoice sections](billing-mca-section-invoice.md)
+- [Create an additional subscription](billing-creation-subscription.md)
+
 ## Need help? Contact support
 
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
