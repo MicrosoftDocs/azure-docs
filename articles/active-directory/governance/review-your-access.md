@@ -1,6 +1,6 @@
 ---
-title: Review your own access of groups or applications in Azure AD | Microsoft Docs
-description: Learn how to review your own access of groups or applications in Azure AD Access Reviews.
+title: Review your own access to groups or applications in Azure AD Access Reviews | Microsoft Docs
+description: Learn how to review your own access to groups or applications in Azure AD Access Reviews.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/09/2019
+ms.date: 02/10/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ---
 
-# Review your own access of groups or applications in Azure AD
+# Review your own access to groups or applications in Azure AD Access Reviews
 
-Azure Active Directory (Azure AD) simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services with a feature called access reviews. Perhaps you received an email from Microsoft that asks you to review your access.
+Azure Active Directory (Azure AD) simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services with a feature called Azure AD Access Reviews. Perhaps you received an email from Microsoft that asks you to review your access.
 
 This article describes how to review your own access to a group or an application.
 
@@ -54,7 +54,7 @@ Once you have opened the access review, you can see your access.
 
 1. Review your access and decide whether you still need access.
 
-    If the request was to review access for others, see [Start an access review](perform-access-review.md).
+    If the request is to review access for others, the page will look different. For more information, see [Start an access review](perform-access-review.md).
 
     ![Perform access review](./media/review-your-access/perform-access-review.png)
 
@@ -67,6 +67,8 @@ Once you have opened the access review, you can see your access.
 1. Click **Submit**.
 
     Your selection is submitted and you returned to the MyApps portal.
+
+    If you want to change your answer, re-open the access reviews page and update your response. You can do this step until the access review is finished. If you indicated that you no longer need access, you aren't removed immediately. You are removed when the review is finished or when an administrator stops the review.
 
 ## Next steps
 
