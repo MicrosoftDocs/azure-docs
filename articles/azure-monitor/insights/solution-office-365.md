@@ -1,6 +1,6 @@
 ---
 title: Office 365 management solution in Azure | Microsoft Docs
-description: This article provides details on configuration and use of the Office 365 solution in Azure.  It includes detailed description of the Office 365 records created in Log Analytics.
+description: This article provides details on configuration and use of the Office 365 solution in Azure.  It includes detailed description of the Office 365 records created in Azure Monitor.
 services: operations-management-suite
 documentationcenter: ''
 author: bwren
@@ -17,13 +17,13 @@ ms.author: bwren
 
 ![Office 365 logo](media/solution-office-365/icon.png)
 
-The Office 365 management solution allows you to monitor your Office 365 environment in Log Analytics.
+The Office 365 management solution allows you to monitor your Office 365 environment in Azure Monitor.
 
 - Monitor user activities on your Office 365 accounts to analyze usage patterns as well as identify behavioral trends. For example, you can extract specific usage scenarios, such as files that are shared outside your organization or the most popular SharePoint sites.
 - Monitor administrator activities to track configuration changes or high privilege operations.
 - Detect and investigate unwanted user behavior, which can be customized for your organizational needs.
 - Demonstrate audit and compliance. For example, you can monitor file access operations on confidential files, which can help you with the audit and compliance process.
-- Perform operational troubleshooting by using [log searches](../log-query/log-query-overview.md) on top of Office 365 activity data of your organization.
+- Perform operational troubleshooting by using [log queries](../log-query/log-query-overview.md) on top of Office 365 activity data of your organization.
 
 ## Prerequisites
 The following is required prior to this solution being installed and configured.
@@ -369,7 +369,7 @@ At line:12 char:18
 ```
 
 ## Uninstall
-You can remove the Office 365 management solution using the process in [Remove a management solution](solutions.md#remove-a-monitoring-solution). This will not stop data being collected from Office 365 into Log Analytics though. Follow the procedure below to unsubscribe from Office 365 and stop collecting data.
+You can remove the Office 365 management solution using the process in [Remove a management solution](solutions.md#remove-a-monitoring-solution). This will not stop data being collected from Office 365 into Azure Monitor though. Follow the procedure below to unsubscribe from Office 365 and stop collecting data.
 
 1. Save the following script as *office365_unsubscribe.ps1*.
 
@@ -473,9 +473,12 @@ You can remove the Office 365 management solution using the process in [Remove a
 The Office 365 solution doesn't retrieve data from any of the [Log Analytics agents](../platform/agent-data-sources.md).  It retrieves data directly from Office 365.
 
 ### Collection frequency
-It may take a few hours for data to initially be collected. Once it starts collecting, Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Log Analytics each time a record is created. This record is available in Log Analytics within a few minutes after being received.
+It may take a few hours for data to initially be collected. Once it starts collecting, Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Azure Monitor each time a record is created. This record is available in Azure Monitor within a few minutes after being received.
 
 ## Using the solution
+
+[!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
+
 When you add the Office 365 solution to your Log Analytics workspace, the **Office 365** tile will be added to your dashboard. This tile displays a count and graphical representation of the number of computers in your environment and their update compliance.<br><br>
 ![Office 365 Summary Tile](media/solution-office-365/tile.png)  
 
@@ -495,9 +498,9 @@ The dashboard includes the columns in the following table. Each column lists the
 
 
 
-## Log Analytics records
+## Azure Monitor log records
 
-All records created in the Log Analytics workspace by the Office 365 solution have a **Type** of **OfficeActivity**.  The **OfficeWorkload** property determines which Office 365 service the record refers to - Exchange, AzureActiveDirectory, SharePoint, or OneDrive.  The **RecordType** property specifies the type of operation.  The properties will vary for each operation type and are shown in the tables below.
+All records created in the Log Analytics workspace in Azure Monitor by the Office 365 solution have a **Type** of **OfficeActivity**.  The **OfficeWorkload** property determines which Office 365 service the record refers to - Exchange, AzureActiveDirectory, SharePoint, or OneDrive.  The **RecordType** property specifies the type of operation.  The properties will vary for each operation type and are shown in the tables below.
 
 ### Common properties
 The following properties are common to all Office 365 records.
@@ -702,6 +705,6 @@ The following table provides sample log searches for update records collected by
 
 
 ## Next steps
-* Use Log Searches in [Log Analytics](../log-query/log-query-overview.md) to view detailed update data.
+* Use [log queries in Azure Monitor](../log-query/log-query-overview.md) to view detailed update data.
 * [Create your own dashboards](../learn/tutorial-logs-dashboards.md) to display your favorite Office 365 search queries.
 * [Create alerts](../platform/alerts-overview.md) to be proactively notified of important Office 365 activities.  
