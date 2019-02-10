@@ -655,7 +655,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 | MongoRequests |	Mongo Requests|	Count |	Count|	Number of Mongo Requests Made	| DatabaseName, CollectionName, Region, CommandName, ErrorCode|	All	|Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate|	Used to monitor Mongo request errors, usages per command type. |
 
 
-### Request Units
+### Request Unit metrics
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
 |---|---|---|---|---|---| ---| ---| ---|
@@ -673,13 +673,13 @@ Azure Monitor provides several ways to interact with metrics, including charting
 | DocumentQuota|	Document Quota|	Bytes|	Total|	Total storage quota reported at 5 minutes granularity per region. Applicable for f|	DatabaseName, CollectionName, Region|	5M	|Storage Capacity|	Used to monitor total quota at collection and region, minimum granularity should be 5 minutes.|
 | DocumentCount|	Document Count|	Count	|Total	|Totaldocument count reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M	|Document Count|Used to monitor document count at collection and region, minimum granularity should be 5 minutes.|
 
-### Latency
+### Latency metrics
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
 |---|---|---|---|---|---| ---| ---| ---|
 | ReplicationLatency	| Replication Latency|	MilliSeconds| 	Minimum,Maximum,Average	| P99 Replication Latency across source and target regions for geo-enabled account|	SourceRegion, TargetRegion|	All	| | Used to monitor P99 replication latency between any two regions for a geo-replicated account. |
 
-### Availability
+### Availability metrics
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
 |---|---|---|---|---|---| ---| ---| ---|
