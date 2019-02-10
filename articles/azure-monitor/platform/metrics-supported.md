@@ -651,7 +651,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
 |---|---|---|---|---|---| ---| ---| ---|
 | TotalRequests |	Total Requests|	Count	| Count	| Number of requests made|	DatabaseName, CollectionName, Region, StatusCode|	All |	TotalRequests, Http 2xx, Http 3xx, Http 400, Http 401, Internal Server error, Service Unavailable, Throttled Requests, Average Requests per Second |	Used to monitor requests per status code, collection at a minute granularity. To get average requests per second, use Count aggregation at minute and divide by 60. |
-| MetadataRequests |	Metadata Requests	|Count|	Count	Count of metadata requests. Cosmos DB maintains system metadata collection for each account, that allows you to enumerate collections, databases, etc, and their configurations, free of charge.	| DatabaseName, CollectionName, Region, StatusCode|	All|  |Used to monitor throttles due to metadata requests.|
+| MetadataRequests |	Metadata Requests	|Count|	Count	| Count of metadata requests. Cosmos DB maintains system metadata collection for each account, that allows you to enumerate collections, databases, etc, and their configurations, free of charge.	| DatabaseName, CollectionName, Region, StatusCode|	All|  |Used to monitor throttles due to metadata requests.|
 | MongoRequests |	Mongo Requests|	Count |	Count|	Number of Mongo Requests Made	| DatabaseName, CollectionName, Region, CommandName, ErrorCode|	All	|Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate|	Used to monitor Mongo request errors, usages per command type. |
 
 
@@ -683,7 +683,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
 |---|---|---|---|---|---| ---| ---| ---|
-| ServiceAvailability	| Service Availability|	Percent	|Minimum,Maximum|	Account requests availability at one hour granularity	| 	1H	| Service Availability	| This is the percent of total passed requests. A request is considered to be failed due to system error if the status code is 410, 500 or 503 Used to monitor availability of the account at hour granularity. |
+| ServiceAvailability	| Service Availability|	Percent	|Minimum,Maximum|	Account requests availability at one hour granularity|	| 	1H	| Service Availability	| This is the percent of total passed requests. A request is considered to be failed due to system error if the status code is 410, 500 or 503 Used to monitor availability of the account at hour granularity. |
 
 ## Microsoft.EventGrid/topics
 
