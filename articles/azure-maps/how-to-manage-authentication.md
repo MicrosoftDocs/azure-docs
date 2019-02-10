@@ -46,7 +46,7 @@ Once an Azure Map account is created, a link between your Azure AD tenant and th
 
 4. Follow step a or b, depending on authentication implementation.
 
-    1. If the application is intending to use user token authentication with our Azure Maps, Map Control SDK (Web), you must enable the `oauthEnableImplicitFlow` by setting it to true in the Manifest section of your app registration detail page. 
+    1. If the application is intending to use user token authentication with our Azure Maps Web SDK,, you must enable the `oauthEnableImplicitFlow` by setting it to true in the Manifest section of your app registration detail page. 
     
        ![App manifest](./media/how-to-manage-authentication/app-manifest.png)
 
