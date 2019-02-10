@@ -3,7 +3,7 @@ title: Authentication with Azure Maps | Microsoft Docs
 description: Authentication for using Azure Maps services.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/08/2019
+ms.date: 02/09/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -11,7 +11,11 @@ manager: timlt
 ms.custom: mvc
 ---
 
-# Shared Key Authentication
+# Authentication with Azure Maps
+
+Azure Maps supports two ways to authenticate requests. Shared Key or Azure Active Directory (Azure AD) offer distinct methods to authorize each request sent to Azure Maps. The purpose of this article is to explain both authentication methods to help guide your authentication implementation.
+
+## Shared Key Authentication
 
 Shared Key authentication relies on passing Azure Maps account generated keys with each request to Azure Maps.  Two keys are generated when your Azure Maps account is created.  Each request to Azure Maps services requires the subscription key to be added as a parameter to the URL.
 
@@ -20,7 +24,7 @@ Shared Key authentication relies on passing Azure Maps account generated keys wi
 
 To view your keys, see [Authentication Details](https://aka.ms/amauthdetails).
 
-# Authentication with Azure Active Directory (Preview)
+## Authentication with Azure Active Directory (Preview)
 
 Azure Maps now offers [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) integration for authentication of requests for Azure Maps services.  Azure AD provides identify-based authentication including [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) to grant user or application level access to Azure Maps resources. The purpose of this article is to help you understand the concepts and components of Azure Maps Azure AD integration.
 
@@ -70,12 +74,16 @@ A key feature of Azure AD is controlling access to secured resources via RBAC. O
 
 Azure Maps currently supports read access control for individual Azure AD users, applications, or Azure services via Managed identities for Azure Resources.
 
+![concept](./media/azure-maps-authentication/concept.png)
+
 To view your RBAC settings, see [How To configure RBAC for Azure Maps](https://aka.ms/amrbac).
 
 ## Managed identities for Azure Resources and Azure Maps
 
 [Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) provide Azure services (Azure App service, Azure Functions, Virtual Machines, etc.) with an automatically managed identity that can be authorized for access to Azure Maps services.  
 
-To learn more about authenticating an application with Azure AD and Azure Maps, see [How To Manage Authentication](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+## Next steps
 
-To learn more about authenticating the Azure Maps, Map Control and Azure AD, see [Azure AD and Azure Maps Map Control](https://aka.ms/amaadmc).
+* To learn more about authenticating an application with Azure AD and Azure Maps, see [How To Manage Authentication](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+
+* To learn more about authenticating the Azure Maps, Map Control and Azure AD, see [Azure AD and Azure Maps Map Control](https://aka.ms/amaadmc).
