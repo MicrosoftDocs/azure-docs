@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/09/2019
 ms.author: juliako
 
 ---
-# Customizing Media Encoder Standard presets
+# Customizing Media Encoder Standard presets (legacy)
 
 ## Overview
 
