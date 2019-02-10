@@ -29,7 +29,7 @@ This guide discusses two options to rotate the TDE protector on the server.
 
 ## Prerequisites
 
-- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Data Warehouse. See [Transparent Data Encryption with Azure Keyvault integration - BYOK Support](transparent-data-encryption-byok-azure-sql.md).
+- This how-to guide assumes that you are already using a key from Azure Key Vault as the TDE protector for an Azure SQL Database or Data Warehouse. See [Transparent Data Encryption with Azure Key Vault integration - BYOK Support](transparent-data-encryption-byok-azure-sql.md).
 - You must have Azure PowerShell version 3.7.0 or newer installed and running. 
 - [Recommended but optional] Create the key material for the TDE protector in a hardware security module (HSM) or local key store first, and import the key material to Azure Key Vault. Follow the [instructions for using a hardware security module (HSM) and Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started) to learn more.
 
