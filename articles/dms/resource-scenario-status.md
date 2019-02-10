@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 02/11/2019
 ---
 
 # Status of migration scenarios supported by the Azure Database Migration Service
@@ -45,7 +45,7 @@ The following table shows Azure Database Migration Service support for offline m
 | **Azure Cosmos DB**  | MongoDB | ✔ |
 | **Azure DB for MySQL**  | MySQL |  |
 |   | RDS MySQL  |  |
-| **Azure DB for PostgresSQL**  | PostgreSQL |  |
+| **Azure DB for PostgreSQL**  | PostgreSQL |  |
 |  | RDS PostgreSQL  |  |
 
 ### Online (continuous sync) migration support
@@ -64,7 +64,7 @@ The following table shows Azure Database Migration Service support for online mi
 | **Azure Cosmos DB**  | MongoDB  | ✔ |
 | **Azure DB for MySQL**  | MySQL | ✔ |
 |   | RDS MySQL  | ✔ |
-| **Azure DB for PostgresSQL**  | PostgreSQL | ✔ |
+| **Azure DB for PostgreSQL**  | PostgreSQL | ✔ |
 |  | RDS PostgreSQL  | ✔ |
 
 ## Next steps

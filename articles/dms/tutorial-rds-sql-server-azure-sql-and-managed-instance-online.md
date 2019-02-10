@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 02/11/2019
 ---
 
 # Tutorial: Migrate RDS SQL Server to Azure SQL Database online using DMS
@@ -217,7 +217,7 @@ After the service is created, locate it within the Azure portal, open it, and th
 
     ![Select tables](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-configure-setting-activity4.png)
 
-4.	Select **Save**, after setting the following detail for the **Advanced online migration settings**.
+4.	Select **Save**, after setting the following **Advanced online migration settings**.
     
     | Setting | Description |
     | ------------- | ------------- |
