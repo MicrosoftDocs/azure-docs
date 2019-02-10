@@ -1,5 +1,5 @@
 ---
-title: Start an access review of groups or applications in Azure AD | Microsoft Docs
+title: Start an access review of groups or applications in Azure AD Access Reviews | Microsoft Docs
 description: Learn how to start an access review of group members or application access in Azure AD Access Reviews.
 services: active-directory
 author: rolyon
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/09/2019
+ms.date: 02/10/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ---
 
-# Start an access review of groups or applications in Azure AD
+# Start an access review of groups or applications in Azure AD Access Reviews
 
-Azure Active Directory (Azure AD) simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services with a feature called access reviews. Perhaps you received an email from Microsoft that asks you to review access.
+Azure Active Directory (Azure AD) simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services with a feature called Azure AD Access Reviews. Perhaps you received an email from Microsoft that asks you to review access.
 
 This article describes how to perform an access review for members of a group or users with access to an application.
 
@@ -54,11 +54,18 @@ Once you have opened the access review, you see the names of users who need to b
 
 1. Review the list of users to decide whether to approve or deny access.
 
-    If the request was to review your own access, see [Review your own access](review-your-access.md).
+    If the request is to review your own access, the page will look different. For more information, see [Review your own access](review-your-access.md).
 
     ![Perform access review](./media/perform-access-review/perform-access-review.png)
 
-1. Click row to open the window to specify the action to take.
+    There are two ways that you can approve or deny access:
+
+    - You can approve and deny each request.
+    - You can accept the recommendations.
+
+    Accepting the recommendations is the easiest and quickest way.
+
+1. To approve or deny each request, click row to open the window to specify the action to take.
 
 1. Click **Approve** or **Deny**. (If you don't know the user, you can indicate that too.)
 
@@ -71,6 +78,14 @@ Once you have opened the access review, you see the names of users who need to b
     If you want to change your answer and approve a previously denied user or deny a previously approved user, select the row and update the response. You can do this step until the access review is finished.
 
     If a user is denied access, they aren't removed immediately. They are removed when the review is finished or when an administrator stops the review.
+
+1. If instead you want to just accept the recommended approvals and denies, click **Accept recommendations** in the blue bar at the bottom of the page.
+
+    You see a summary of the recommended approvals and denies. The recommendations are based on your sign-in.
+
+    ![Accept recommendations](./media/perform-access-review/accept-recommendations.png)
+
+1. Click **Ok** to accept the recommended approvals and denies.
 
 ## Next steps
 
