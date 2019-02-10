@@ -37,7 +37,7 @@ Azure Maps generates a `unique identifier (client ID)` for each Azure Maps accou
 ```
 https://login.microsoftonline.com .
 ```
-For more information on how to request access tokens for Azure Maps, see How To Acquire Azure Maps access tokens
+For more information on how to configure Azure AD and request tokens for Azure Maps, see [How To Manage Authentication](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 For general information on requesting tokens from Azure AD, see [Authentication Basics in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
@@ -76,6 +76,6 @@ To view your RBAC settings, see [How To configure RBAC for Azure Maps](https://a
 
 [Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) provide Azure services (Azure App service, Azure Functions, Virtual Machines, etc.) with an automatically managed identity that can be authorized for access to Azure Maps services.  
 
-To learn more about authenticating an application with Azure AD, see our tutorial [Authenticating Servers and Applications with Azure AD and Azure Maps](https://aka.ms/amaadserv).
+To learn more about authenticating an application with Azure AD and Azure Maps, see [How To Manage Authentication](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 To learn more about authenticating the Azure Maps, Map Control and Azure AD, see [Azure AD and Azure Maps Map Control](https://aka.ms/amaadmc).
