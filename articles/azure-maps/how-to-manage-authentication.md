@@ -44,7 +44,7 @@ Once an Azure Map account is created, a link between your Azure AD tenant and th
 
     ![Select app api permissions](./media/how-to-manage-authentication/select-app-permissions.png)
 
-4. Follow one of the following steps, depending on authentication implementation.
+4. Follow step a or b, depending on authentication implementation.
 
     1. If the application is intending to use user token authentication with our Azure Maps, Map Control SDK (Web), you must enable the `oauthEnableImplicitFlow` by setting it to true in the Manifest section of your app registration detail page. 
     
@@ -64,6 +64,7 @@ Once an Azure Maps account has been associated with your Azure AD tenant, access
     ![Grant RBAC](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
 2. On the Role Assignment pop out window, select Azure Maps Date Reader (Preview) **Role**, **Assign access to**: Azure AD user, group, or service principal, **Select** User or Application from dropdown, and **Save**.
+
     ![Add role assignment](./media/how-to-manage-authentication/add-role-assignment.png)
 
 ## View available Azure Maps RBAC roles
