@@ -1,6 +1,6 @@
 ---
-title: Retrieve Azure AD access review results| Microsoft Docs
-description: How to retrieve the results of Azure Active Directory access reviews.
+title: Retrieve access review results for groups or applications using Azure AD | Microsoft Docs
+description: Learn how to retrieve access review results for group members or application access using Azure AD Access Reviews.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -17,7 +17,7 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ---
 
-# Retrieve access review results
+# Retrieve access review results for groups or applications using Azure AD
 
 Administrators can use Azure Active Directory (Azure AD) to [create an access review](create-access-review.md) for group members or users assigned to an application.  A user who is in the **Global Administrator**, **User Account Administrator**, **Security Administrator** or **Security Reader** role can also read the results of an access review.  To assign users to one of these roles, a Privileged Role Administrator can use Azure AD PIM to make a user eligible to activate the role, or a Global Administrator can permanently [assign a user to the role](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
@@ -49,7 +49,7 @@ By default, a deleted user will remain deleted in Azure AD for 30 days, during w
 - [Manage user access with Azure AD access reviews](manage-user-access-with-access-reviews.md)
 - [Manage guest access with Azure AD access reviews](manage-guest-access-with-access-reviews.md)
 - [Manage programs and controls for Azure AD access reviews](manage-programs-controls.md)
-- [Create an access review for members of a group or access to an application](create-access-review.md)
+- [Create an access review of groups or applications](create-access-review.md)
 - [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 

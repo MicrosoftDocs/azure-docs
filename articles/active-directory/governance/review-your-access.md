@@ -1,6 +1,6 @@
 ---
-title: Review your own access with Azure AD Access Reviews | Microsoft Docs
-description: Learn how to review your own access by using Azure Active Directory Access Reviews.
+title: Review your own access of groups or applications using Azure AD | Microsoft Docs
+description: Learn how to review your own access of groups or applications using Azure AD Access Reviews.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -16,7 +16,7 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ---
 
-# Review your own access with Azure AD Access Reviews
+# Review your own access of groups or applications using Azure AD
 
 Azure Active Directory (Azure AD) simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services with a feature called access reviews. Perhaps you received an email from Microsoft that asks you to review your access.
 
@@ -70,4 +70,4 @@ Once you have opened the access review, you can see your access.
 
 ## Next steps
 
-- [Complete an access review of members of a group or users' access to an application in Azure AD](complete-access-review.md)
+- [Complete an access review of groups or applications](complete-access-review.md)

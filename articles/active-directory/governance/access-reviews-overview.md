@@ -100,7 +100,7 @@ To enable access reviews, follow these steps.
 
 ## Next steps
 
-- [Create an access review for members of a group or access to an application](create-access-review.md)
+- [Create an access review of groups or applications](create-access-review.md)
 - [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)
-- [Perform an access review with Azure AD Access Reviews](perform-access-review.md)
-- [Complete an access review of members of a group or users' access to an application in Azure AD](complete-access-review.md)
+- [Start an access review of groups or applications](perform-access-review.md)
+- [Complete an access review of groups or applications](complete-access-review.md)

@@ -43,7 +43,7 @@ You can have one or more users as reviewers in an access review.
 
 4. Create the access review. For more information, see [Create an access review](create-access-review.md).
 
-5. When the access review starts, ask the reviewers to give input. By default, they each receive an email from Azure AD with a link to the access panel, where they [perform their access review](perform-access-review.md).
+5. When the access review starts, ask the reviewers to give input. By default, they each receive an email from Azure AD with a link to the access panel, where they [start an access review](perform-access-review.md).
 
 6. If the reviewers haven't given input, you can ask Azure AD to send them a reminder. By default, Azure AD automatically sends a reminder halfway to the end date to reviewers who haven't yet responded.
 
@@ -52,7 +52,7 @@ You can have one or more users as reviewers in an access review.
 
 ## Next steps
 
-[Create an access review for members of a group or access to an application](create-access-review.md)
+[Create an access review of groups or applications](create-access-review.md)
 
 
 

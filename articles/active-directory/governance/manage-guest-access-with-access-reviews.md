@@ -57,7 +57,7 @@ You can use access reviews to ensure that users who were invited and added to a 
 
 1. To start an access review for the group, select the review to include guest user members only and that members review themselves. For more information, see [Create an access review](create-access-review.md).
 
-2. Ask each guest to review their own membership. By default, each guest who accepted an invitation receives an email from Azure AD with a link to the access review. Azure AD has instructions for guests on how to [review their access](perform-access-review.md).
+2. Ask each guest to review their own membership. By default, each guest who accepted an invitation receives an email from Azure AD with a link to the access review. Azure AD has instructions for guests on how to [start an access review](perform-access-review.md).
 
 3. After the reviewers give input, stop the access review and apply the changes. For more information, see [Complete an access review](complete-access-review.md).
 
@@ -71,7 +71,7 @@ You can ask a sponsor, such as the owner of a group, to review a guest's need fo
 
 1. To start an access review for the group, select the review to include guest user members only. Then specify one or more reviewers. For more information, see [Create an access review](create-access-review.md).
 
-2. Ask the reviewers to give input. By default, they each receive an email from Azure AD with a link to the access panel, where they [perform their access review](perform-access-review.md).
+2. Ask the reviewers to give input. By default, they each receive an email from Azure AD with a link to the access panel, where they [start an access review](perform-access-review.md).
 
 3. After the reviewers give input, stop the access review and apply the changes. For more information, see [Complete an access review](complete-access-review.md).
 
@@ -82,7 +82,7 @@ You can use access reviews to ensure that users who were invited for a particula
 1. To start an access review for the application, select the review to include guests only and that users review their own access. For more information, see
  [Create an access review](create-access-review.md).
 
-2. Ask each guest to review their own access to the application. By default, each guest who accepted an invitation receives an email from Azure AD. That email has a link to the access review in your organization's access panel. Azure AD has instructions for guests on how to [review their access](perform-access-review.md).
+2. Ask each guest to review their own access to the application. By default, each guest who accepted an invitation receives an email from Azure AD. That email has a link to the access review in your organization's access panel. Azure AD has instructions for guests on how to [start an access review](perform-access-review.md).
 
 3. After the reviewers give input, stop the access review and apply the changes. For more information, see [Complete an access review](complete-access-review.md).
 
@@ -94,7 +94,7 @@ You can ask a sponsor, such as the owner of an application, to review guest's ne
 
 1. To start an access review for the application, select the review to include guests only. Then specify one or more users as reviewers. For more information, see [Create an access review](create-access-review.md).
 
-2. Ask the reviewers to give input. By default, they each receive an email from Azure AD with a link to the access panel, where they [perform their access review](perform-access-review.md).
+2. Ask the reviewers to give input. By default, they each receive an email from Azure AD with a link to the access panel, where they [start an access review](perform-access-review.md).
 
 3. After the reviewers give input, stop the access review and apply the changes. For more information, see [Complete an access review](complete-access-review.md).
 
@@ -109,7 +109,7 @@ In some organizations, guests might not be aware of their group memberships.
 
 2. To start an access review for that group, select the reviewers to be the members themselves. For more information, see [Create an access review](create-access-review.md).
 
-3. Ask each guest to review their own membership. By default, each guest who accepted an invitation receives an email from Azure AD with a link to the access review in your organization's access panel. Azure AD has instructions for guests on how to [review their access](perform-access-review.md).  Those guests who didn't accept their invite will appear in the review results as "Not Notified".
+3. Ask each guest to review their own membership. By default, each guest who accepted an invitation receives an email from Azure AD with a link to the access review in your organization's access panel. Azure AD has instructions for guests on how to [start an access review](perform-access-review.md).  Those guests who didn't accept their invite will appear in the review results as "Not Notified".
 
 4. After the reviewers give input, stop the access review. For more information, see [Complete an access review](complete-access-review.md).
 
@@ -117,7 +117,7 @@ In some organizations, guests might not be aware of their group memberships.
 
 ## Next steps
 
-[Create an access review for members of a group or access to an application](create-access-review.md)
+[Create an access review of groups or applications](create-access-review.md)
 
 
 

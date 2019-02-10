@@ -32,5 +32,5 @@ If you no longer need a program and it doesn't have any controls linked to it, y
 
 ## Next steps
 
-- [Create an access review for members of a group or access to an application](create-access-review.md)
-- [Retrieve the results of an access review](retrieve-access-review.md)
+- [Create an access review of groups or applications](create-access-review.md)
+- [Retrieve access review results for groups or applications](retrieve-access-review.md)

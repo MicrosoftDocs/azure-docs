@@ -152,5 +152,5 @@ As an IT administrator, you know that managing exclusion groups to your policies
 
 ## Next steps
 
-- [Create an access review of group members or application access with Azure AD](create-access-review.md)
+- [Create an access review of groups or applications](create-access-review.md)
 - [What is conditional access in Azure Active Directory?](../conditional-access/overview.md)
