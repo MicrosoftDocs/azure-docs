@@ -115,8 +115,8 @@ az provider register --name Microsoft.Compute
 **PowerShell**: 
 
 ```powershell
-Register-AzureRmProviderFeature -FeatureName GalleryPreview -ProviderNamespace Microsoft.Compute
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Register-AzProviderFeature -FeatureName GalleryPreview -ProviderNamespace Microsoft.Compute
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
 **Q.** How can I list all the Shared Image Gallery resources across subscriptions? 
