@@ -1,5 +1,5 @@
 ---
-title: Create an access review of groups or applications in Azure AD | Microsoft Docs
+title: Create an access review of groups or applications in Azure AD Access Reviews | Microsoft Docs
 description: Learn how to create an access review of group members or application access in Azure AD Access Reviews. 
 services: active-directory
 author: rolyon
@@ -16,7 +16,7 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ---
 
-# Create an access review of groups or applications in Azure AD
+# Create an access review of groups or applications in Azure AD Access Reviews
 
 Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create access reviews for group members or application access. If you need to routinely review access, you can also create recurring access reviews. For more information about these scenarios, see [Manage user access](manage-user-access-with-access-reviews.md) and [Manage guest access](manage-guest-access-with-access-reviews.md).
 
@@ -115,5 +115,5 @@ You can also create access reviews using APIs. What you do to manage access revi
 ## Next steps
 
 - [Start an access review of groups or applications](perform-access-review.md)
-- [Review your own access of groups or applications](review-your-access.md)
+- [Review your own access to groups or applications](review-your-access.md)
 - [Complete an access review of groups or applications](complete-access-review.md)

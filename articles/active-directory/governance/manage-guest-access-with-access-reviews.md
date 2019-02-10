@@ -1,6 +1,6 @@
 ---
-title: Manage guest access with Azure AD access reviews | Microsoft Docs
-description: Manage guest users as members of a group or assigned to an application with Azure Active Directory access reviews
+title: Manage guest access with Azure AD Access Reviews | Microsoft Docs
+description: Manage guest users as members of a group or assigned to an application with Azure Active Directory Access Reviews
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -17,7 +17,7 @@ ms.author: rolyon
 ms.reviewer: mwahl
 ---
 
-# Manage guest access with Azure AD access reviews
+# Manage guest access with Azure AD Access Reviews
 
 
 With Azure Active Directory (Azure AD), you can easily enable collaboration across organizational boundaries by using the [Azure AD B2B feature](../b2b/what-is-b2b.md). Guest users from other tenants can be [invited by administrators](../b2b/add-users-administrator.md) or by [other users](../b2b/what-is-b2b.md). This capability also applies to social identities such as Microsoft accounts.
