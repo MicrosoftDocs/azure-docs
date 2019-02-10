@@ -79,7 +79,7 @@ To see information for a particular resource provider:
 To see all resource providers in Azure, and the registration status for your subscription, use:
 
 ```azurepowershell-interactive
-Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
 Which returns results similar to:
@@ -97,7 +97,7 @@ Microsoft.CognitiveServices      Registered
 Registering a resource provider configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers. To register a resource provider, you must have permission to perform the `/register/action` operation for the resource provider. This operation is included in the Contributor and Owner roles.
 
 ```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
 Which returns results similar to:
@@ -131,7 +131,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 To see the resource types for a resource provider, use:
 
 ```azurepowershell-interactive
-(Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
+(Get-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
 Which returns:
@@ -148,7 +148,7 @@ The API version corresponds to a version of REST API operations that are release
 To get the available API versions for a resource type, use:
 
 ```azurepowershell-interactive
-((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
+((Get-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
 Which returns:
@@ -166,7 +166,7 @@ Resource Manager is supported in all regions, but the resources you deploy might
 To get the supported locations for a resource type, use.
 
 ```azurepowershell-interactive
-((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
+((Get-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
 Which returns:
