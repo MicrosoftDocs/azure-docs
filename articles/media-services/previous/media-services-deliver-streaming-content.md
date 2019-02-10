@@ -17,6 +17,7 @@ ms.date: 02/09/2019
 ms.author: juliako
 
 ---
+ 
 # Publish Media Services content using .NET (legacy)
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-deliver-streaming-content.md)
