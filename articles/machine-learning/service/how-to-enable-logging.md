@@ -1,7 +1,7 @@
 ---
 title: Enable logging in Azure Machine Learning service
 titleSuffix: Azure Machine Learning service
-description: Learn how to perform single-node and distributed training of traditional machine learning and deep learning models using Azure Machine Learning services Estimator class
+description: Learn how to enable logging in Azure Machine Learning service using both the default Python logging package, as well as using SDK-specific functionality.
 ms.author: trbye
 author: trevorbye
 services: machine-learning
