@@ -212,5 +212,5 @@ Please note that all the support packages referenced in your Android project mus
 
 <!-- URLs. -->
 [Install Xamarin]: https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/
-[Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Mobile app SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/

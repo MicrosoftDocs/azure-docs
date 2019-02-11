@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/28/2019
 ms.author: juliako
 ---
 
@@ -25,6 +25,8 @@ You must have one **Primary** storage account and you can have any number of **S
 > Blob only accounts are not allowed as **Primary**. 
 
 We recommend that you use GPv2, so you can take advantage of choosing between hot and cool storage tiers. To learn more about storage accounts, see [Azure Storage account overview](../../storage/common/storage-account-overview.md). 
+
+The Media Services account and all associated storage accounts must be in the same Azure subscription. It is recommended to use storage accounts in the same location as the Media Services account.
 
 ## Assets in a storage account
 

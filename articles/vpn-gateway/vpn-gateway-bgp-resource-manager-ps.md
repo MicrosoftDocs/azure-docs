@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Configure BGP on Azure VPN Gateways: Resource Manager: PowerShell | Microsoft Docs'
 description: This article walks you through configuring BGP with Azure VPN Gateways using Azure Resource Manager and PowerShell.
 services: vpn-gateway
@@ -31,7 +31,7 @@ See [Overview of BGP with Azure VPN Gateways](vpn-gateway-bgp-overview.md) for m
 This article walks you through the steps to do the following tasks:
 
 * [Part 1 - Enable BGP on your Azure VPN gateway](#enablebgp)
-* [Part 2 - Establish a cross-premises connection with BGP](#crossprembgp)
+* Part 2 - Establish a cross-premises connection with BGP
 * [Part 3 - Establish a VNet-to-VNet connection with BGP](#v2vbgp)
 
 Each part of the instructions forms a basic building block for enabling BGP in your network connectivity. If you complete all three parts, you build the topology as shown in the following diagram:
@@ -163,7 +163,7 @@ $BGPPeerIP5 = "10.52.255.254"
 A couple of things to note regarding the local network gateway parameters:
 
 * The local network gateway can be in the same or different location and resource group as the VPN gateway. This example shows them in different resource groups in different locations.
-* The minimum prefix you need to declare for the local network gateway is the host address of your BGP Peer IP address on your VPN device. In this case, it's a /32 prefix of "10.52.255.254/32".
+* The prefix you need to declare for the local network gateway is the host address of your BGP Peer IP address on your VPN device. In this case, it's a /32 prefix of "10.52.255.254/32".
 * As a reminder, you must use different BGP ASNs between your on-premises networks and Azure VNet. If they are the same, you need to change your VNet ASN if your on-premises VPN device already uses the ASN to peer with other BGP neighbors.
 
 Before you continue, make sure you are still connected to Subscription 1.

@@ -3,10 +3,10 @@ title: Release Notes - Custom Vision Service
 titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
@@ -14,12 +14,24 @@ ms.author: anroth
 
 # Custom Vision Service Release Notes
 
+## January 22, 2019
+- Support added for new Azure regions: West US 2, East US, East US 2, West Europe, North Europe, Southeast Asia, Australia East, Central India, UK South, Japan East, and North Central US. Support continues for South Central US. 
+
+## December 12, 2018
+- Support export for Object Detection models (introduced Object Detection Compact Domain).
+- Fixed a number of accessibility issues for improved screen reader and keyboard navigation support. 
+- UX updates for image viewer and improved object detection tagging experience for faster tagging.  
+- Updated base model for Object Detection Domain for better quality object detection. 
+- Bugfixes.
+
+## November 6, 2018
+- Added support for Logo Domain in Object Detection.
+
 ## October 9, 2018
 - Object Detection enters paid preview. You can now create Object Detection projects with an Azure resource.
 - Added "Move to Azure" feature to website, to make it easier to upgrade a Limited Trial project to link to an Azure. resource linked project (F0 or S0.) You can find this on the Settings page for your product.  
 - Added export to ONNX 1.2, to support Windows 2018 October Update version of Windows ML.
 Bugfixes, including for ONNX export with special characters. 
-
 
 ## August 14, 2018
 - Added "Get Started" widget to customvision.ai site to guide users through project training. 

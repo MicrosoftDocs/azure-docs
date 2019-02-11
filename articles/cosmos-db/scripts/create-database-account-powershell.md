@@ -1,20 +1,15 @@
 ---
-title: Azure PowerShell Script-Create an Azure Cosmos DB SQL API account | Microsoft Docs
+title: Azure PowerShell Script - Create an Azure Cosmos DB SQL API account
 description: Azure PowerShell Script Sample - Create an Azure Cosmos DB SQL API account
-services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
 
 ms.service: cosmos-db
-ms.custom: mvc
+author: markjbrown
+ms.author: mjbrown
+ms.subservice: cosmosdb-sql
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 ms.date: 05/10/2017
-ms.author: sngun
+ms.reviewer: sngun
 ---
 
 # Azure Cosmos DB: Create a SQL API account using PowerShell

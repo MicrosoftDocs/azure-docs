@@ -29,6 +29,8 @@ Combining API Management provisioned in an internal VNET with the Application Ga
 * Use a single API Management resource and have a subset of APIs defined in API Management available for external consumers.
 * Provide a turn-key way to switch access to API Management from the public Internet on and off.
 
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
+
 ## Prerequisites
 
 To follow the steps described in this article, you must have:
@@ -76,7 +78,7 @@ In the first setup example all your APIs are managed only from within your Virtu
 In this guide we will also expose the **developer portal** to external audiences through the Application Gateway. It requires additional steps to create developer portal's listener, probe, settings and rules. All details are provided in respective steps.
 
 > [!WARNING]
-> In the described setup of the developer portal being accessed through Application Gateway, you may experience problems with the AAD and third party authentication.
+> If you use Azure AD or third party authentication, please enable [cookie-based session affinity](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) feature in Application Gateway.
 
 ## Create a resource group for Resource Manager
 

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
+ms.lastreviewed: 11/05/2018
 
 ---
 # Infrastructure Backup Service best practices
@@ -42,7 +43,7 @@ The encryption key is used to encrypt backup data that gets exported to external
 
 The key must be stored in a secure location (for example, public Azure Key Vault secret). This key must be used during redeployment of Azure Stack. 
 
-![Stored the key a secure location.](media\azure-stack-backup\azure-stack-backup-encryption2.png)
+![Stored the key a secure location.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
 ## Operational best practices
 

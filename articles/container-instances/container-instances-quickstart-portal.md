@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Run an application in Azure Container Instances
-description: In this quickstart, you use the Azure portal to deploy an application running in a Docker container to Azure Container Instances
+title: Quickstart - Run an application in Azure Container Instances - Portal
+description: In this quickstart, you use the Azure portal to deploy a Docker container application to run in an isolated container in Azure Container Instances
 services: container-instances
 author: dlepow
 
@@ -8,10 +8,10 @@ ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
+ms.custom: "seodec18, mvc"
 ---
 
-# Quickstart: Run an application in Azure Container Instances
+# Quickstart: Run a container application in Azure Container Instances in the Azure portal
 
 Use Azure Container Instances to run Docker containers in Azure with simplicity and speed. You don't need to deploy virtual machines or use a full container orchestration platform like Kubernetes. In this quickstart, you use the Azure portal to create a container in Azure and make its application available with a fully qualified domain name (FQDN). After configuring a few settings and deploying the container, you can browse to the running application:
 
@@ -37,7 +37,7 @@ Enter the following values in the **Container name**, **Container image**, and *
 
 ![Configuring basic settings for a new container instance in the Azure portal][aci-portal-03]
 
-You can create both Windows and Linux containers in Azure Container Instances. For this quickstart, leave the default setting of **Linux** to deploy the Linux-based `microsoft/aci-helloworld` image.
+For this quickstart, leave the default setting of **Public** to deploy the `microsoft/aci-helloworld` image from the public Docker Hub registry. This image packages a small web app written in Node.js that serves a static HTML page.
 
 Under **Configuration**, specify a **DNS name label** for your container. The name must be unique within the Azure region you create the container instance. Your container will be publicly reachable at `<dns-name-label>.<region>.azurecontainer.io`.
 

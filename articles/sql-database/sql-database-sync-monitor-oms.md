@@ -11,13 +11,16 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 12/20/2018
 ---
 # Monitor SQL Data Sync with Log Analytics 
 
 To check the SQL Data Sync activity log and detect errors and warnings, you previously had to check SQL Data Sync manually in the Azure portal, or use PowerShell or the REST API. Follow the steps in this article to configure a custom solution that improves the Data Sync monitoring experience. You can customize this solution to fit your scenario.
 
 For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md).
+
+> [!IMPORTANT]
+> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
 
 ## Monitoring Dashboard for all your Sync Groups 
 
@@ -91,7 +94,7 @@ For more info about creating a runbook, see [My first PowerShell runbook](https:
 
     2.  Sync Group information.
 
-    3.  Log Analytics information. Find this information in Azure Portal | Settings | Connected Sources. For more information about sending data to Log Analytics, see [Send data to Log Analytics with the HTTP Data Collector API (preview)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Log Analytics information. Find this information in Azure Portal | Settings | Connected Sources. For more information about sending data to Log Analytics, see [Send data to Log Analytics with the HTTP Data Collector API (preview)](../azure-monitor/platform/data-collector-api.md).
 
 11. Run the runbook in the Test pane. Check to make sure it was successful.
 

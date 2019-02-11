@@ -1,18 +1,19 @@
 ---
-title: Manage versions in LUIS apps
-titleSuffix: Azure Cognitive Services
+title: Manage versions
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Versions allow you to build and publish different models. A good practice is to clone the current active model to a different version of the app before making changes to the model.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ---
 
-# Manage versions
+# Use versions to edit and test without impacting staging or production apps
 
 Versions allow you to build and publish different models. A good practice is to clone the current active model to a different [version](luis-concept-version.md) of the app before making changes to the model. 
 
@@ -20,7 +21,7 @@ To work with versions, open your app by selecting its name on **My Apps** page, 
 
 The list of versions show which versions are published, where they are published, and which version is currently active. 
 
-[![](./media/luis-how-to-manage-versions/versions-import.png "Manage section, versions page")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
+[![Manage section, versions page](./media/luis-how-to-manage-versions/versions-import.png "Manage section, versions page")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## Clone a version
 
@@ -39,7 +40,7 @@ The list of versions show which versions are published, where they are published
 
 Select a version from the list, then select **Make Active** from the toolbar. 
 
-[![](./media/luis-how-to-manage-versions/versions-other.png "Manage section, versions page")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+[![Manage section, versions page, make a version action](./media/luis-how-to-manage-versions/versions-other.png "Manage section, versions page, make a version action")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## Import version
 
@@ -47,7 +48,7 @@ Select a version from the list, then select **Make Active** from the toolbar.
 
 2. In the **Import new version** pop-up window, enter the new ten character version name. You only need to set a version ID if the version in the JSON file already exists in the app.
 
-    ![Manage section, versions page](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
+    ![Manage section, versions page, importing new version](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     Once you import a version, the new version becomes the active version.
 

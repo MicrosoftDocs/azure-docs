@@ -5,6 +5,7 @@ services: traffic-manager
 documentationcenter: ''
 author: kumudd
 ms.service: traffic-manager
+manager: twooley
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na

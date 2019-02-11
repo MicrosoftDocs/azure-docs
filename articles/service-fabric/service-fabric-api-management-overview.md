@@ -24,7 +24,13 @@ Cloud applications typically need a front-end gateway to provide a single point 
 
 This article is an introduction to using Azure API Management as a gateway to your Service Fabric applications. API Management integrates directly with Service Fabric, allowing you to publish APIs with a rich set of routing rules to your back-end Service Fabric services. 
 
+## Availability
+
+> [!IMPORTANT]
+> This feature is available in the **Premium** and **Developer** tiers of API Management due to the required virtual network support.
+
 ## Architecture
+
 A common Service Fabric architecture uses a single-page web application that makes HTTP calls to back-end services that expose HTTP APIs. The [Service Fabric getting-started sample application](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started) shows an example of this architecture.
 
 In this scenario, a stateless web service serves as the gateway into the Service Fabric application. This approach requires you to write a web service that can proxy HTTP requests to back-end services, as shown in the following diagram:

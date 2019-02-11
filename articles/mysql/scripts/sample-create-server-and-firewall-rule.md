@@ -1,13 +1,10 @@
 ---
 title: Azure CLI script - Create an Azure Database for MySQL
 description: This sample CLI script creates an Azure Database for MySQL server and configures a server-level firewall rule.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
+ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
 ms.date: 02/28/2018
@@ -22,7 +19,7 @@ If you choose to run the CLI locally, this article requires Azure CLI version 2.
 
 ## Sample script
 In this sample script, edit the highlighted lines to update the admin username and password to your own.
-[!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/create-mysql-server-and-firewall-rule.sh?highlight=18-19 "Create an Azure Database for MySQL, and server-level firewall rule.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/mysql/create-mysql-server-and-firewall-rule/create-mysql-server-and-firewall-rule.sh?highlight=15-16 "Create an Azure Database for MySQL, and server-level firewall rule.")]
 
 ## Clean up deployment
 Use the following command to remove the resource group and all resources associated with it after the script has been run. 
@@ -34,7 +31,7 @@ This script uses the commands outlined in the following table:
 | **Command** | **Notes** |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az mysql server create](/cli/azure/mysql/server#az-msql-server-create) | Creates a MySQL server that hosts the databases. |
+| [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | Creates a MySQL server that hosts the databases. |
 | [az mysql server firewall create](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create) | Creates a firewall rule to allow access to the server and databases under it from the entered IP address range. |
 | [az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |
 

@@ -1,3 +1,10 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tamram
+---
 Now that you've learned the basics of Azure Table storage, follow these links to learn about more complex storage tasks.
 
 * View the Table Service reference documentation in the [Azure Storage Client Library for .NET](https://go.microsoft.com/fwlink/?LinkID=390731) reference for complete details about available APIs.

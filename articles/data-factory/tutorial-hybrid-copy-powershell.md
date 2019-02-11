@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
@@ -116,7 +116,7 @@ Install the latest version of Azure PowerShell if you don't already have it on y
 
 1. To install Azure PowerShell, run the MSI file. 
 
-For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
 
 #### Log in to PowerShell
 

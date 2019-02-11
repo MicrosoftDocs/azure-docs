@@ -1,15 +1,15 @@
 ---
-title: "Tutorial: Create, publish, answer from knowledge base in QnA Maker portal"
+title: Create, publish, answer in QnA Maker
 titleSuffix: Azure Cognitive Services 
 description: This portal-based tutorial walks you through programmatically creating and publishing a knowledge base, then answering a question from the knowledge base.
 services: cognitive-services
 author: diberry
-manager: cgronlun
-
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
-ms.date: 10/29/2018
+ms.date: 12/17/2018
 ms.author: diberry
 #Customer intent: As an model designer, new to the QnA Maker service, I want to understand all the process requirements to create a knowledge base and generate an answer from that knowledge base. 
 ---
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 * Use Curl to query the knowledge base
 
 > [!NOTE] 
-> The programmatic version of this tutorial is available with a complete solution from the [**Azure-Samples/cognitive-services-qnamaker-csharp** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
+> The programmatic version of this tutorial is available with a complete solution from the [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
 
 ## Prerequisites
 
@@ -79,9 +79,9 @@ This tutorial requires an existing [QnA Maker service](../How-To/set-up-qnamaker
 
 1. Select the last page of questions and answers from the bottom of the table. The page shows questions and answers from the Chit-chat personality. 
 
-1. From the toolbar above the list of questions and answers, select the gear. This shows the filters for each question and answer. The Chit-chat questions have the **editorial: chit-chat** filter already set. This filter is returned to the client application along with the selected answer. The client application, such as a chat bot, can use this filter to determine additional processing or interactions with the user.
+1. From the toolbar above the list of questions and answers, select the metadata icon. This shows the metadata tags for each question and answer. The Chit-chat questions have the **editorial: chit-chat** metadata already set. This metadata is returned to the client application along with the selected answer. The client application, such as a chat bot, can use this filtered metadata to determine additional processing or interactions with the user.
 
-    ![View filters](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![View Metadata tags](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
 
 1. Select **Save and train** in the top menu bar.
 
@@ -93,7 +93,7 @@ Select the **Publish** button from the top menu. Once you are on the publish pag
 
 After the KB is published, the endpoint is displayed
 
-![Publish](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
+![Publish page's endpoint settings](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
 ## Use curl to query for an FAQ answer
 
@@ -167,7 +167,7 @@ After the KB is published, the endpoint is displayed
    
     ```
 
-    Because the question of `Thank you` exactly matched a Chit-chat question, QnA Maker is completely confident with the score of 100. QnA Maker also returned all the related questions as well as the metadata property containing the Chit-chat filter information.  
+    Because the question of `Thank you` exactly matched a Chit-chat question, QnA Maker is completely confident with the score of 100. QnA Maker also returned all the related questions as well as the metadata property containing the Chit-chat metadata tag information.  
 
 ## Use curl to query for the default answer
 

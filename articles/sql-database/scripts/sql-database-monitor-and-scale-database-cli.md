@@ -7,11 +7,11 @@ ms.subservice: performance
 ms.custom: 
 ms.devlang: azurecli
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: 
+author: juliemsft
+ms.author: jrasnick
+ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/02/2018
+ms.date: 01/25/2019
 ---
 # Use CLI to monitor and scale a single SQL database
 
@@ -45,8 +45,8 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Creates a logical server that hosts a database. |
-| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-show-usage) | Shows the size usage information for a database. |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Creates a SQL Database server that hosts single databases and elastic pools. |
+| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db) | Shows the size usage information for a single or pooled database. |
 | [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | Updates database properties (such as the service tier or compute size) or moves a database into, out of, or between elastic pools. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
 |||

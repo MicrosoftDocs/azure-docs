@@ -4,7 +4,7 @@ description: Provides information about upgrades for the Azure Migrate Collector
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/29/2018
 ms.author: hamusa
 services: azure-migrate
 ---
@@ -15,12 +15,18 @@ This article summarizes upgrade information for the Collector appliance in [Azur
 
 The Azure Migrate Collector is a lightweight appliance that's used to discover an on-premises vCenter environment, for the purposes of assessment before migration to Azure. [Learn more](concepts-collector.md).
 
+## Continuous discovery: Upgrade versions
 
-## One-time discovery: Upgrade versions
+No upgrade for the continuous discovery appliance is available yet.
+
+## One-time discovery (deprecated now): Previous upgrade versions
+
+> [!NOTE]
+> The one-time discovery appliance is now deprecated as this method relied on vCenter Server's statistics settings for performance data point availability and collected average performance counters which resulted in under-sizing of VMs for migration to Azure.
 
 ### Version 1.0.9.16 (Released on 10/29/2018)
 
-Contains fixes for PowerCLI issues faced while setting up the appliance. 
+Contains fixes for PowerCLI issues faced while setting up the appliance.
 
 Hash values for upgrade [package 1.0.9.16](https://aka.ms/migrate/col/upgrade_9_16)
 
@@ -50,29 +56,6 @@ MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
 SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
 SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
-### Version 1.0.9.11
-
-Hash values for upgrade [package 1.0.9.11](https://aka.ms/migrate/col/upgrade_9_11)
-
-**Algorithm** | **Hash value**
---- | ---
-MD5 | 0e36129ac5383b204720df7a56b95a60
-SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
-SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
-
-### Version 1.0.9.7
-
-Hash values for upgrade [package 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7)
-
-**Algorithm** | **Hash value**
---- | ---
-MD5 | 01ccd6bc0281f63f2a672952a2a25363
-SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
-SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
-
-## Continuous discovery: Upgrade versions
-
-No upgrade for the continuous discovery appliance is available yet.
 
 ## Run an upgrade
 

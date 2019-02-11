@@ -7,12 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/23/2019
 ms.author: alkohli
 ---
 # Azure Data Box system requirements
 
-This article describes the important system requirements for your Microsoft Azure Data Box and for the clients connecting to the Data Box. We recommend that you review the information carefully before you deploy your Data Box, and then refer back to it as necessary during the deployment and subsequent operation.
+This article describes the important system requirements for your Microsoft Azure Data Box and for the clients connecting to the Data Box. We recommend you review the information carefully before you deploy your Data Box, and then refer back to it as necessary during the deployment and subsequent operation.
 
 The system requirements include:
 
@@ -43,13 +43,21 @@ Here is a list of the supported operating systems for the data copy operation vi
 
 ### Supported storage accounts
 
-Here is a list of the supported storage types for the Data Box device.
+Here is a list of the supported storage accounts and the storage types for the Data Box device. For a complete list of all different types of storage accounts and their full capabilities, see [Types of storage accounts](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 
-| **Storage account** | **Notes** |
-| --- | --- |
-| Classic | Standard |
-| General purpose  |Standard; both V1 and V2 are supported. |
-| Blob |Both hot and cool are supported. |
+| **Storage account / Supported storage types** | **Block blob** |**Page blob*** |**Azure Files** |**Notes**|
+| --- | --- | -- | -- | -- |
+| Classic Standard | Y | Y | Y |
+| General-purpose v1 Standard  | Y | Y | Y | Both hot and cool are supported.|
+| General-purpose v1 Premium  |  | Y| | |
+| General-purpose v2 Standard  | Y | Y | Y | Both hot and cool are supported.|
+| General-purpose v2 Premium  |  |Y | | |
+| Blob storage Standard |Y | | |Both hot and cool are supported. |
+
+\* *- Data uploaded to page blobs must be 512 bytes aligned such as vhds.*
+
+>[!NOTE]
+> Azure Data Lake Storage Gen 2 accounts are not supported.
 
 
 ### Supported storage types
@@ -77,7 +85,7 @@ Here is a list of web browsers supported for the local web UI.
 
 ## Networking requirements
 
-Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection is not available, a 1 GbE data link can be used to copy data but the copy speeds are impacted.
+Your datacenter needs to have high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection is not available, a 1-GbE data link can be used to copy data but the copy speeds are impacted.
 
 ## Next step
 

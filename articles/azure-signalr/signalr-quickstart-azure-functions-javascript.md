@@ -1,26 +1,16 @@
 ---
-title: Azure SignalR Service Serverless Quickstart - JavaScript | Microsoft Docs
+title: Azure SignalR Service Serverless Quickstart - JavaScript
 description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room.
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: 
-
-ms.assetid: 
 ms.service: signalr
 ms.devlang: javascript
 ms.topic: quickstart
-ms.tgt_pltfrm: Node.js
-ms.workload: tbd
 ms.date: 09/23/2018
 ms.author: zhshang
 ---
-
 # Quickstart: Create a chat room with Azure Functions and SignalR Service using JavaScript
 
 Azure SignalR Service lets you easily add real-time functionality to your application. Azure Functions is a serverless platform that lets you run your code without managing any infrastructure. In this quickstart, learn how to use SignalR Service and Functions to build a serverless, real-time chat application.
-
 
 ## Prerequisites
 
@@ -34,16 +24,13 @@ In order to install extensions, Azure Functions Core Tools currently require the
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
 ## Log in to Azure
 
 Sign in to the Azure portal at <https://portal.azure.com/> with your Azure account.
 
-
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
-
 
 ## Configure and run the Azure Function app
 
@@ -82,9 +69,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
     ![Create SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-run-application.png)
 
-
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
-
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

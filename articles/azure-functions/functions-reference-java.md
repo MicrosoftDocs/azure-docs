@@ -100,7 +100,9 @@ here is the generated corresponding `function.json` by the [azure-functions-mave
 
 ## JDK runtime availability and support 
 
-Download and use the [Azul Zulu for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDKs from [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) for local development of Java function apps. JDKs are available for Windows, Linux, and macOS. [Azure support](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
+Download and use the [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDKs from [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) for local development of Java function apps. Azure Functions uses the Azul Java 8 JDK runtime when you deploy your function apps to the cloud.
+
+[Azure support](https://azure.microsoft.com/en-us/support/) for issues with the JDKs and Function apps is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
 
 ## Third-party libraries 
 
@@ -265,7 +267,7 @@ Above function is invoked on an HttpRequest and writes multiple values to the Az
 
 ## Metadata
 
-Few triggers send [trigger metadata](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties) along with input data. You can use annotation `@BindingName` to bind to trigger metadata
+Few triggers send [trigger metadata](/azure/azure-functions/functions-triggers-bindings) along with input data. You can use annotation `@BindingName` to bind to trigger metadata
 
 
 ```Java
@@ -294,7 +296,7 @@ In the example above, the `queryValue` is bound to query string parameter `name`
         @QueueOutput(name = "output", queueName = "test-output-java-metadata", connection = "AzureWebJobsStorage") OutputBinding<TestData> output,
         final ExecutionContext context
     ) {
-        context.getLogger().info("Java Queue trigger function processed a message: " + message + " whith metadaId:" + metadataId );
+        context.getLogger().info("Java Queue trigger function processed a message: " + message + " with metadaId:" + metadataId );
         TestData testData = new TestData();
         testData.id = metadataId;
         output.setValue(testData);
@@ -356,11 +358,11 @@ You must have enabled file system logging in the Azure Portal or Azure CLI befor
 
 ## Environment variables
 
-In Functions, [app settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings), such as service connection strings, are exposed as environment variables during execution. You can access these settings using, `System.getenv("AzureWebJobsStorage")`
+In Functions, [app settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings), such as service connection strings, are exposed as environment variables during execution. You can access these settings using, `System.getenv("AzureWebJobsStorage")`
 
 Example:
 
-Add [AppSetting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings) with name testAppSetting and value testAppSettingValue
+Add [AppSetting](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) with name testAppSetting and value testAppSettingValue
 
 ```java
 

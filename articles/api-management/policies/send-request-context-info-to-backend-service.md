@@ -1,6 +1,6 @@
 ---
-title: Azure API managment policy sample - Send request context information to the backend service | Microsoft Docs
-description: Azure API managment policy sample - Demonstrates how to send request context information to the backend service.
+title: Azure API management policy sample - Send request context information to the backend service | Microsoft Docs
+description: Azure API management policy sample - Demonstrates how to send request context information to the backend service.
 services: api-management
 documentationcenter: ''
 author: vladvino

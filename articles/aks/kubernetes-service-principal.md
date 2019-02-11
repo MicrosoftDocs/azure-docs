@@ -110,6 +110,10 @@ You may need to access existing Disk resources in another resource group. Assign
   - *Microsoft.Compute/disks/write*
 - Or, assign the [Storage Account Contributor][rbac-storage-contributor] built-in role on the resource group
 
+### Azure Container Instances
+
+If you use Virtual Kubelet to integrate with AKS and choose to run Azure Container Instances (ACI) in resource group separate to the AKS cluster, the AKS service principal must be granted *Contributor* permissions on the ACI resource group.
+
 ## Additional considerations
 
 When using AKS and Azure AD service principals, keep the following considerations in mind.

@@ -63,6 +63,12 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <subscription ID>
 ```
 
+The template deploys these resource types:
+
+* [Microsoft.DataLakeStore/accounts](/azure/templates/microsoft.datalakestore/accounts)
+* [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+* [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/clusters)
+
 ## Upload sample data to Data Lake Storage Gen1
 The Resource Manager template creates a new Data Lake Storage Gen1 account and associates it with the HDInsight cluster. You must now upload some sample data to Data Lake Storage Gen1. You'll need this data later in the tutorial to run jobs from an HDInsight cluster that access data in the Data Lake Storage Gen1 account. For instructions on how to upload data, see [Upload a file to your Data Lake Storage Gen1 account](data-lake-store-get-started-portal.md#uploaddata). If you are looking for some sample data to upload, you can get the **Ambulance Data** folder from the [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData).
 

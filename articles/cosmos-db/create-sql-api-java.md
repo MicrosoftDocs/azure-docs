@@ -1,23 +1,20 @@
 ---
-title: Create an Azure Cosmos DB document database with Java | Microsoft Docs | Microsoft Docs'
+title: Create an Azure Cosmos DB document database with Java'
 description: Presents a Java code sample you can use to connect to and query the Azure Cosmos DB SQL API
-services: cosmos-db
 author: SnehaGunda
-manager: kfile
-
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
-ms.custom: quick start connect, mvc, devcenter
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 10/24/2018
-ms.author: moderakh
+ms.author: sngun
 
 ---
 # Create and manage resources of an Azure Cosmos DB SQL API account using a Java application
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
+> * [.NET (Preview)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -35,7 +32,7 @@ In addition:
 * [Java Development Kit (JDK) 1.8+](https://aka.ms/azure-jdks)
     * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
-* [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a [Maven](http://maven.apache.org/) binary archive
+* [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a [Maven](https://maven.apache.org/) binary archive
     * On Ubuntu, you can run `apt-get install maven` to install Maven.
 * [Git](https://www.git-scm.com/)
     * On Ubuntu, you can run `sudo apt-get install git` to install Git.
@@ -74,7 +71,7 @@ Now let's switch to working with code. Let's clone a SQL API app from GitHub, se
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Run the app
 ](#run-the-app). 
 
-* `AsyncDocumentClient` initialization. The [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client) provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service.
+* `AsyncDocumentClient` initialization. The [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) provides client-side logical representation for the Azure Cosmos DB database service. This client is used to configure and execute requests against the service.
 
     ```java
     client = new AsyncDocumentClient.Builder()
@@ -85,7 +82,7 @@ This step is optional. If you're interested in learning how the database resourc
              .build();
     ```
 
-* [Database](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._database) creation.
+* [Database](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.database) creation.
 
     ```java
     Database databaseDefinition = new Database();
@@ -96,7 +93,7 @@ This step is optional. If you're interested in learning how the database resourc
             .await();
     ```
 
-* [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._document_collection) creation.
+* [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.documentcollection) creation.
 
     ```java
     DocumentCollection collectionDefinition = new DocumentCollection();
@@ -109,7 +106,7 @@ This step is optional. If you're interested in learning how the database resourc
             .await();
     ```
 
-* Document creation by using the [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._document) method.
+* Document creation by using the [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.document) method.
 
     ```java
     // Any Java object within your code
@@ -126,7 +123,7 @@ This step is optional. If you're interested in learning how the database resourc
 
     ```
 
-* SQL queries over JSON are performed using the [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments?view=azure-java-stable) method.
+* SQL queries over JSON are performed using the [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.querydocuments?view=azure-java-stable) method.
 
     ```java
     FeedOptions queryOptions = new FeedOptions();

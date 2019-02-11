@@ -3,16 +3,16 @@ title: Deploy Azure Access Panel Extension for IE using a GPO | Microsoft Docs
 description: How to use group policy to deploy the Internet Explorer add-on for the My Apps portal.
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/08/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 
@@ -49,7 +49,7 @@ First, you must place the installer package on a network location that can be ac
 1. Log on to the server that hosts your Active Directory Domain Services (AD DS) installation.
 2. In the Server Manager, go to **Tools** > **Group Policy Management**.
    
-    ![Go to Tools > Group Policy Managment](./media/deploy-access-panel-browser-extension/tools-gpm.png)
+    ![Go to Tools > Group Policy Management](./media/deploy-access-panel-browser-extension/tools-gpm.png)
 3. In the left pane of the **Group Policy Management** window, view your Organizational Unit (OU) hierarchy and determine at which scope you would like to apply the group policy. For instance, you may decide to pick a small OU to deploy to a few users for testing, or you may pick a top-level OU to deploy to your entire organization.
    
    > [!NOTE]

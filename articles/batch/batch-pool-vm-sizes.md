@@ -1,9 +1,9 @@
 ---
-title: Choose VM sizes for Azure Batch pools | Microsoft Docs
+title: Choose VM sizes for pools - Azure Batch | Microsoft Docs
 description: How to choose from the available VM sizes for compute nodes in Azure Batch pools
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
@@ -13,8 +13,9 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
-ms.author: danlep
+ms.date: 01/07/2019
+ms.author: lahugh
+ms.custom: seodec18
 
 ---
 # Choose a VM size for compute nodes in an Azure Batch pool
@@ -37,6 +38,16 @@ Batch pools in the Virtual Machine configuration support all VM sizes ([Linux](.
 | Basic A-series | Basic_A0 (A0) |
 | A-series | Standard_A0 |
 | B-series | All |
+| DC-series | All | 
+| Extreme memory optimized | All |
+| Hb-series<sup>1</sup> | All | 
+| Hc-series<sup>1</sup> | All |
+| Lsv2-series | All |
+| NDv2-series<sup>1</sup> | All |
+| NVv2-series<sup>1</sup> | All |
+| SAP HANA | All |
+
+<sup>1</sup> Not currently supported, but will be supported in the future.
 
 The following VM sizes are supported only for low-priority nodes:
 

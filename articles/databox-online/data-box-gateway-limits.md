@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 01/15/2019
 ms.author: alkohli
 ---
 
@@ -22,7 +22,7 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box Ga
 
 ## Data Box Gateway service limits
 
-- In this release, service is available only in certain regions in US, EU, and Asia Pacific. For more information, go to [region availability](#data-box-gateway-overview#region-availability). The storage account should be physically closest to the region where the device deployed (can be different from service geo).
+- In this release, service is available only in certain regions in US, EU, and Asia Pacific. For more information, go to region availability. The storage account should be physically closest to the region where the device deployed (can be different from service geo).
 - Moving a Data Box Gateway resource to a different subscription or resource group is not supported. For more details, go to [Move resources to new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## Data Box Gateway device limits
@@ -53,9 +53,9 @@ For the latest information on Azure storage service limits and best practices fo
 Following caveats apply to data as it moves into Azure.
 
 - We suggest that more than one device should not write to the same container.
-- If you have an existing Azure object (such as a blob or a file) in the cloud with the same name as the object that is being copied, device will overwrite the file in the cloud. 
+- If you have an existing Azure object (such as a blob or a file) in the cloud with the same name as the object that is being copied, device will overwrite the file in the cloud.
 - An empty directory hierarchy (without any files) created under share folders is not uploaded to the blob containers.
-
+- If you are copying files larger than the device size, it's recommended to use *Robocopy* or *rsync* to ensure there are no failures.
 
 ## Azure storage account size and object size limits
 

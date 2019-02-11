@@ -107,6 +107,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![ProMaster (by Inlogik) Domain and URLs single sign-on information](./media/promaster-tutorial/tutorial_promaster_url1.png)
 
     a. In the **Identifier** textbox, use one of the following URL pattern:
+
 	| |
 	| - |-|
 	|  `https://secure.inlogik.com/<COMPANYNAME>`|
@@ -114,6 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| |
 
 	b. In the **Reply URL** textbox, use one of the following URL pattern:
+
 	| |
 	| - |-|
 	| `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
@@ -125,6 +127,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![ProMaster (by Inlogik) Domain and URLs single sign-on information](./media/promaster-tutorial/tutorial_promaster_url2.png)
 
     In the **Sign-on URL** textbox, use one of the following URL pattern:
+
 	| |
 	| - |-|
 	| `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `|

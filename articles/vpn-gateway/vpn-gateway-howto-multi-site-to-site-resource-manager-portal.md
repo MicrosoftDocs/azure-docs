@@ -90,4 +90,4 @@ Verify the following items:
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See the virtual machines [learning path](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) for more information.
+Once your connection is complete, you can add virtual machines to your virtual networks. See the [virtual machines learning path](/learn/paths/deploy-a-website-with-azure-virtual-machines/) for more information.

@@ -5,7 +5,7 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 06/20/2018
+ms.date: 1/10/2019
 ms.author: jingwang
 ms.custom: include file
 ---
@@ -18,10 +18,10 @@ Data factory is a multi-tenant service that has the following default limits in 
 | -------- | ------------- | ------------- |
 | Data factories in an Azure subscription |	50 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Total number of entities (Pipeline, Datasets, Triggers, Linked Services, Integration runtimes) within a data factory | 5000 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Total CPU cores for Azure-SSIS Integration Runtime(s) under one subscription | 128 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Concurrent pipeline runs per pipeline | 100 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Concurrent pipeline runs per data factory | 10,000  | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Total CPU cores for Azure-SSIS Integration Runtime(s) under one subscription | 256 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Concurrent pipeline runs per data factory (shared among all pipelines in the factory) | 10,000  | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Max activities per pipeline (includes inner activities for containers) | 40 | 40 |
+| Max number of Linked Integration Runtime that can be created against a single Self-hosted Integration Runtime | 20 | [Contact support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Max parameters per pipeline | 50 | 50 |
 | ForEach items | 100,000 | 100,000 |
 | ForEach parallelism | 20 | 50 |

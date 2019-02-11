@@ -4,7 +4,7 @@ description: Learn how to set up replication and failover to Azure for disaster 
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
 

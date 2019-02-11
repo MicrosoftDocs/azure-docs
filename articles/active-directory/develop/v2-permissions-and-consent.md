@@ -9,14 +9,14 @@ editor: ''
 
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 02/07/2019
 ms.author: celested
-ms.reviewer: hirsin, jesakowi, justhu
+ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
 
 ---
@@ -48,7 +48,7 @@ The same is true for any third-party resources that have integrated with the Mic
 
 By defining these types of permissions, the resource has fine-grained control over its data and how API functionality is exposed. A third-party app can request these permissions from users and administrators, who must approve the request before the app can access data or act on a user's behalf. By chunking the resource's functionality into smaller permission sets, third-party apps can be built to request only the specific permissions that they need to perform their function. Users and administrators can know exactly what data the app has access to, and they can be more confident that it is not behaving with malicious intent. Developers should always abide by the concept of least privilege, asking for only the permissions they need for their applications to function.
 
-In OAuth, these types of permissions are called *scopes*. They also often simply referred to as *permissions*. A permission is represented in the Microsoft identity platform as a string value. Continuing with the Microsoft Graph example, the string value for each permission is:
+In OAuth 2.0, these types of permissions are called *scopes*. They also often simply referred to as *permissions*. A permission is represented in the Microsoft identity platform as a string value. Continuing with the Microsoft Graph example, the string value for each permission is:
 
 * Read a user's calendar by using `Calendars.Read`
 * Write to a user's calendar by using `Calendars.ReadWrite`
@@ -60,20 +60,20 @@ An app most commonly requests these permissions by specifying the scopes in requ
 
 Microsoft identity platform supports two types of permissions: **delegated permissions** and **application permissions**.
 
-- **Delegated permissions** are used by apps that have a signed-in user present. For these apps either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to the target resource. Some delegated permissions can be consented to by non-administrative users, but some higher-privileged permissions require [administrator consent](v2-permissions-and-consent.md#admin-restricted-scopes).  
+* **Delegated permissions** are used by apps that have a signed-in user present. For these apps, either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to the target resource. Some delegated permissions can be consented to by non-administrative users, but some higher-privileged permissions require [administrator consent](v2-permissions-and-consent.md#admin-restricted-scopes). To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-- **Application permissions** are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons.  Application permissions can only be [consented by an administrator](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). 
+* **Application permissions** are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons.  Application permissions can only be [consented by an administrator](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
 _Effective permissions_ are the permissions that your app will have when making requests to the target resource. It is important to understand the difference between the delegated and application permissions that your app is granted and its effective permissions when making calls to the target resource.
 
-- For delegated permissions, the _effective permissions_ of your app will be the least privileged intersection of the delegated permissions the app has been granted (via consent) and the privileges of the currently signed-in user. Your app can never have more privileges than the signed-in user. Within organizations, the privileges of the signed-in user may be determined by policy or by membership in one or more administrator roles. For more information about administrator roles, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+- For delegated permissions, the _effective permissions_ of your app will be the least privileged intersection of the delegated permissions the app has been granted (via consent) and the privileges of the currently signed-in user. Your app can never have more privileges than the signed-in user. Within organizations, the privileges of the signed-in user may be determined by policy or by membership in one or more administrator roles. To learn which administrator roles can consent to delegated permissions, see [Administrator role permissions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
   For example, assume your app has been granted the _User.ReadWrite.All_ delegated permission. This permission nominally grants your app permission to read and update the profile of every user in an organization. If the signed-in user is a global administrator, your app will be able to update the profile of every user in the organization. However, if the signed-in user is not in an administrator role, your app will be able to update only the profile of the signed-in user. It will not be able to update the profiles of other users in the organization because the user that it has permission to act on behalf of does not have those privileges.
   
 - For application permissions, the _effective permissions_ of your app will be the full level of privileges implied by the permission. For example, an app that has the _User.ReadWrite.All_ application permission can update the profile of every user in the organization. 
 
 ## OpenID Connect scopes
 
-The v2.0 implementation of OpenID Connect has a few well-defined scopes that do not apply to a specific resource: `openid`, `email`, `profile`, and `offline_access`.
+The v2.0 implementation of OpenID Connect has a few well-defined scopes that do not apply to a specific resource: `openid`, `email`, `profile`, and `offline_access`. The `address` and `phone` OpenID Connect scopes are not supported.
 
 ### openid
 
@@ -89,7 +89,7 @@ The `profile` scope can be used with the `openid` scope and any others. It gives
 
 ### offline_access
 
-The [`offline_access` scope](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) gives your app access to resources on behalf of the user for an extended time. On the work account consent page, this scope appears as the "Access your data anytime" permission. On the personal Microsoft account consent page, it appears as the "Access your info anytime" permission. When a user approves the `offline_access` scope, your app can receive refresh tokens from the v2.0 token endpoint. Refresh tokens are long-lived. Your app can get new access tokens as older ones expire.
+The [`offline_access` scope](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) gives your app access to resources on behalf of the user for an extended time. On the work account consent page, this scope appears as the "Access your data anytime" permission. On the personal Microsoft account consent page, it appears as the "Access your info anytime" permission. When a user approves the `offline_access` scope, your app can receive refresh tokens from the v2.0 token endpoint. Refresh tokens are long-lived. Your app can get new access tokens as older ones expire.
 
 If your app does not request the `offline_access` scope, it won't receive refresh tokens. This means that when you redeem an authorization code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md), you'll receive only an access token from the `/token` endpoint. The access token is valid for a short time. The access token usually expires in one hour. At that point, your app needs to redirect the user back to the `/authorize` endpoint to get a new authorization code. During this redirect, depending on the type of app, the user might need to enter their credentials again or consent again to permissions.
 
@@ -141,7 +141,7 @@ If your app requires access to admin-restricted scopes for organizations, you sh
 
 If the application is requesting high privilege delegated permissions and an administrator grants these permissions via the admin consent endpoint, consent is granted for all users in the tenant.
 
-If the application is requesting application permissions and an administrator grants these permissions via the admin consent endpoint, this grant is not done on behalf of any specific user. Instead, the client application is granted permissions *directly*. These types of permissions are generally only used by daemon servies and other non-interactive applications that run in the background.
+If the application is requesting application permissions and an administrator grants these permissions via the admin consent endpoint, this grant is not done on behalf of any specific user. Instead, the client application is granted permissions *directly*. These types of permissions are generally only used by daemon services and other non-interactive applications that run in the background.
 
 ## Using the admin consent endpoint
 
@@ -189,8 +189,8 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 | Parameter | Condition | Description |
 | --- | --- | --- |
-| `tenant` | Required | The directory tenant that you want to request permission from. Can be provided in GUID or friendly name format OR generically referenced with "common" as seen in the example. |
-| `client_id` | Required | The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) assigned to your app. |
+| `tenant` | Required | The directory tenant that you want to request permission from. Can be provided in GUID or friendly name format OR generically referenced with `common` as seen in the example. |
+| `client_id` | Required | The application (client) ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) or [new App registrations (preview) portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) has assigned to your app. |
 | `redirect_uri` | Required |The redirect URI where you want the response to be sent for your app to handle. It must exactly match one of the redirect URIs that you registered in the app registration portal. |
 | `state` | Recommended | A value included in the request that will also be returned in the token response. It can be a string of any content you want. Use the state to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
 
@@ -208,7 +208,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | --- | --- | --- |
 | `tenant` | The directory tenant that granted your application the permissions it requested, in GUID format. |
 | `state` | A value included in the request that also will be returned in the token response. It can be a string of any content you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on. |
-| `admin_consent` | Will be set to **true**. |
+| `admin_consent` | Will be set to `True`. |
 
 #### Error response
 
@@ -220,8 +220,8 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | Parameter | Description |
 | --- | --- | --- |
-| `error` |An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
-| `error_description` |A specific error message that can help a developer identify the root cause of an error. |
+| `error` | An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
+| `error_description` | A specific error message that can help a developer identify the root cause of an error. |
 
 After you've received a successful response from the admin consent endpoint, your app has gained the permissions it requested. Next, you can request a token for the resource you want.
 
@@ -248,6 +248,53 @@ You can use the resulting access token in HTTP requests to the resource. It reli
 
 For more information about the OAuth 2.0 protocol and how to get access tokens, see the [v2.0 endpoint protocol reference](active-directory-v2-protocols.md).
 
-## Troubleshooting
+## The /.default scope
 
-If you or your application's users are seeing unexpected errors during the consent process, please reference this article for troubleshooting steps: [Unexpected error when performing consent to an application](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+You can use the `/.default` scope to help migrate your apps from the v1.0 endpoint to the v2.0 endpoint. This is a built-in scope for every application that refers to the static list of permissions configured on the application registration. A `scope` value of `https://graph.microsoft.com/.default` is functionally the same as the v1.0 endpoints `resource=https://graph.microsoft.com` - namely, it requests a token with the scopes on Microsoft Graph that the application has registered for in the Azure portal.
+
+The /.default scope can be used in any OAuth 2.0 flow, but is particularly neccesary in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow
+.md) and [client credentials flow](v2-oauth2-client-creds-grant-flow.md).  
+
+> [!NOTE]
+> Clients cannot combine static (`/.default`) and dynamic consent in a single request. Thus, `scope=https://graph.microsoft.com/.default+mail.read` will result in an error due to the combination of scope types.
+
+### /.default and consent
+
+The `/.default` scope triggers the v1.0 endpoint behavior for `prompt=consent` as well. It requests consent for all permissions registered by the application, regardless of the resource. If included as part of the request, the `/.default` scope returns a token that contains the scopes for the resource specifically requested.
+
+### /.default when the user has already given consent
+
+Because `/.default` is functionally identical to the `resource`-centric v1.0 endpoint's behavior, it brings with it the consent behavior of the v1.0 endpoint as well. Namely, `/.default` only triggers a consent prompt if no permission has been granted between the client and the resource by the user. If any such consent exists, then a token will be returned containing all scopes granted by the user for that resource. However, if no permission has been granted, or the `prompt=consent` parameter has been provided, a consent prompt will be shown for all scopes registered by the client application. 
+
+#### Example 1: The user, or tenant admin, has granted permissions
+
+The user (or a tenant administrator) has granted the client the Microsoft Graph permissions `mail.read` and `user.read`. If the client makes a request for `scope=https://graph.microsoft.com/.default`, then no consent prompt will be shown regardless of the contents of the client applications registered permissions for Microsoft Graph. A token would be returned containing the scopes `mail.read` and `user.read`.
+
+#### Example 2: The user hasn't granted permissions between the client and the resource
+
+No consent for the user exists between the client and Microsoft Graph. The client has registered for the `user.read` and `contacts.read` permissions, as well as the Azure Key Vault scope `https://vault.azure.net/user_impersonation`. When the client requests a token for `scope=https://graph.microsoft.com/.default`, the user will see a consent screen for the `user.read`, `contacts.read`, and the Key Vault `user_impersonation` scopes. The token returned will have just the `user.read` and `contacts.read` scopes in it.
+
+#### Example 3: The user has consented and the client requests additional scopes
+
+The user has already consented to `mail.read` for the client. The client has registered for the `contacts.read` scope in its registration. When the client makes a request for a token using `scope=https://graph.microsoft.com/.default` and requests consent through `prompt=consent`, then the user will see a consent screen for only and all the permissions registered by the application. `contacts.read` will be present in the consent screen, but `mail.read` will not. The token returned will be for Microsoft Graph and will contain `mail.read` and `contacts.read`.
+
+### Using the /.default scope with the client
+
+A special case of the `/.default` scope exists where a client requests its own `/.default` scope. The following example demonstrates this scenario.
+
+```
+// Line breaks are for legibility only.
+
+GET https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
+response_type=token            //code or a hybrid flow is also possible here
+&client_id=9ada6f8a-6d83-41bc-b169-a306c21527a5
+&scope=9ada6f8a-6d83-41bc-b169-a306c21527a5/.default
+&redirect_uri=https%3A%2F%2Flocalhost
+&state=1234
+```
+
+This produces a consent screen for all registered permissions (if applicable based on the above descriptions of consent and `/.default`), then returns an id_token, rather than an access token.  This behavior exists for certain legacy clients moving from ADAL to MSAL, and should not be used by new clients targeting the v2.0 endpoint.  
+
+## Troubleshooting permissions and consent
+
+If you or your application's users are seeing unexpected errors during the consent process, see this article for troubleshooting steps: [Unexpected error when performing consent to an application](../manage-apps/application-sign-in-unexpected-user-consent-error.md).

@@ -1,5 +1,5 @@
 ---
-title: "Azure App Service IP Restrictions | Microsoft Docs" 
+title: "Restrict client IPs - Azure App Service | Microsoft Docs" 
 description: "How to use IP restrictions with Azure App Service" 
 author: ccompy
 manager: stefsch
@@ -13,15 +13,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 7/30/2018
+ms.date: 07/30/2018
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 # Azure App Service Static IP Restrictions #
 
 IP Restrictions allow you to define a priority ordered allow/deny list of IP addresses that are allowed to access your app. The allow list can include IPv4 and IPv6 addresses. When there are one or more entries, there is then an implicit deny all that exists at the end of the list. 
 
-The IP Restrictions capability works with all App Service hosted work loads, which include; web apps, api apps, linux apps, linux container apps, and Functions. 
+The IP Restrictions capability works with all App Service hosted work loads, which include; web apps, API apps, Linux apps, Linux container apps, and Functions. 
 
 When a request is made to your app, the FROM IP address is evaluated against the IP Restrictions list. If the address is not allowed access based on the rules in the list, the service replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
 

@@ -1,15 +1,14 @@
 ---
-title: 'Quickstart: Recognize speech in C++ on Linux by using the Speech Service SDK'
+title: 'Quickstart: Recognize speech, C++ (Linux) - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in C++ on Linux by using the Speech Service SDK
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
-
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/18/2018
 ms.author: wolfma
 ---
 
@@ -17,7 +16,7 @@ ms.author: wolfma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you create a C++ console application for Ubuntu Linux 16.04. You use the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK for Linux](https://aka.ms/csspeech/linuxbinary) and your Linux distribution's C++ compiler (for example, `g++`).
+In this article, you create a C++ console application for Ubuntu Linux 16.04 or 18.04. You use the Cognitive Services [Speech SDK](speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK for Linux](https://aka.ms/csspeech/linuxbinary) and your Linux distribution's C++ compiler (for example, `g++`).
 
 ## Prerequisites
 
@@ -27,9 +26,9 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `1.1.0`.
+The current version of the Cognitive Services Speech SDK is `1.2.0`.
 
-The Speech SDK for Linux can be used to build both 64-bit and 32-bit applications. The required libraries and header files can be downloaded as a tarfile from https://aka.ms/csspeech/linuxbinary.
+The Speech SDK for Linux can be used to build both 64-bit and 32-bit applications. The required libraries and header files can be downloaded as a tar file from https://aka.ms/csspeech/linuxbinary.
 
 Download and install the SDK as follows:
 
@@ -125,16 +124,12 @@ Download and install the SDK as follows:
    We recognized: What's the weather like?
    ```
 
-[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/cpp-linux` folder.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Recognize intents from speech by using the Speech SDK for C++](how-to-recognize-intents-from-speech-cpp.md)
+> [Explore C++ samples on GitHub](https://aka.ms/csspeech/samples)
 
 ## See also
 
-- [Translate speech](how-to-translate-speech-csharp.md)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)

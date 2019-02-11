@@ -2,7 +2,6 @@
 title: Working with index paths in Azure Cosmos DB
 description: Overview of index paths in Azure Cosmos DB
 author: rimman
-
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/5/2018

@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
-ms.author: cwatson
+ms.author: banders
 
 ---
 # Understand Azure reservation usage for your Pay-As-You-Go subscription
@@ -101,8 +101,8 @@ To learn more about Azure Reservations, see the following articles:
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 

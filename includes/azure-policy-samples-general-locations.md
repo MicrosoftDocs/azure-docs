@@ -14,4 +14,4 @@ ms.custom: include file
 
 |  |  |
 |---------|---------|
-| [Allowed locations](../articles/governance/policy/samples/allowed-locs.md) | Requires that all resources are deployed to the approved locations. You specify an array of approved locations.  |
+| [Allowed locations](../articles/governance/policy/samples/allowed-locations.md) | Requires that all resources are deployed to the approved locations. You specify an array of approved locations.  |

@@ -1,14 +1,15 @@
 ---
-title: Prebuilt domains for Language Understanding (LUIS) 
+title: Prebuilt domains for Language Understa
 titleSuffix: Azure Cognitive Services
 description: LUIS includes a set of prebuilt domains for quickly adding common, conversational user scenarios. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+ms.custom: seodec18
+manager: nitinme
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 01/24/2019
 ms.author: diberry
 ---
 
@@ -44,7 +45,7 @@ Test the new intent at the endpoint by added a value for the **q** parameter: `S
 
 LUIS returns the correct intent and meeting subject:
 
-```JSON
+```json
 {
   "query": "Schedule a meeting with John Smith in Seattle next week",
   "topScoringIntent": {

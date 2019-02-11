@@ -1,5 +1,5 @@
 ---
-title: Azure Traffic Manager - FAQs | Microsoft Docs
+title: Azure Traffic Manager - FAQs
 description: This article provides answers to frequently asked questions about Traffic Manager
 services: traffic-manager
 documentationcenter: ''
@@ -131,7 +131,7 @@ Yes, only API version 2017-03-01 and newer supports the Geographic routing type.
 ## Traffic Manager Subnet traffic routing method
 
 ### What are some use cases where subnet routing is useful?
-Subnet routing allows you to differentiate the experience you deliver for specific sets of users identified by the source IP of their DNS requests IP address. An example would be showing different content if users are connecting to a website fro your corporate HQ. Another would be restricting users from certain ISPs to only access endpoints that support only IPv4 connections if those ISPs have sub-par performance when IPv6 is used.
+Subnet routing allows you to differentiate the experience you deliver for specific sets of users identified by the source IP of their DNS requests IP address. An example would be showing different content if users are connecting to a website from your corporate HQ. Another would be restricting users from certain ISPs to only access endpoints that support only IPv4 connections if those ISPs have sub-par performance when IPv6 is used.
 Another reason to use Subnet routing method is in conjunction with other profiles in a nested profile set. For example, if you want to use Geographic routing method for geo-fencing your users, but for a specific ISP you want to do a different routing method, you can have a profile withy Subnet routing method as the parent profile and override that ISP to use a specific child profile and have the standard Geographic profile for everyone else.
 
 ### How does Traffic Manager know the IP address of the end user?
@@ -282,7 +282,7 @@ Yes. Cloud Service 'staging' slots can be configured in Traffic Manager as Exter
 
 ### Does Traffic Manager support IPv6 endpoints?
 
-Traffic Manager does not currently provide IPv6-addressible name servers. However, Traffic Manager can still be used by IPv6 clients connecting to IPv6 endpoints. A client does not make DNS requests directly to Traffic Manager. Instead, the client uses a recursive DNS service. An IPv6-only client sends requests to the recursive DNS service via IPv6. Then the recursive service should be able to contact the Traffic Manager name servers using IPv4.
+Traffic Manager does not currently provide IPv6-addressable name servers. However, Traffic Manager can still be used by IPv6 clients connecting to IPv6 endpoints. A client does not make DNS requests directly to Traffic Manager. Instead, the client uses a recursive DNS service. An IPv6-only client sends requests to the recursive DNS service via IPv6. Then the recursive service should be able to contact the Traffic Manager name servers using IPv4.
 
 Traffic Manager responds with the DNS name or IP address of the endpoint. To support an IPv6 endpoint, there are two options. You can add the endpoint as a DNS name that has an associated AAAA record and Traffic Manager will health check that endpoint and return it as a CNAME record type in the query response. You can also add that endpoint directly using the IPv6 address and Traffic Manager will return a AAAA type record in the query response. 
 

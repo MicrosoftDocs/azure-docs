@@ -1,5 +1,5 @@
 ---
-title: Explore REST APIs in Fiddler or Postman (Azure Search REST) | Microsoft Docs
+title: Explore REST APIs in Postman or Fiddler web HTTP test tools - Azure Search
 description: How to use Fiddler or Postman to issue HTTP requests and REST API calls to Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -9,11 +9,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 04/20/2018
 ms.author: heidist
+ms.custom: seodec2018
 ---
 
-# Explore Azure Search REST APIs using Fiddler or Postman
+# Explore Azure Search REST APIs using Postman or Fiddler
 
-One of the easiest ways to explore the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice) is using Fiddler or Postman to formulate HTTP requests and inspect the responses. With the right tools and these instructions, you can send requests and view responses before writing any code.
+One of the easiest ways to explore the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice) is using Postman or Fiddler to formulate HTTP requests and inspect the responses. With the right tools and these instructions, you can send requests and view responses before writing any code.
 
 > [!div class="checklist"]
 > * Download a web api test tool
@@ -30,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 The following tools are widely used in web development, but if you are familiar with another tool, the instructions in this article should still apply.
 
 + [Postman desktop app](https://www.getpostman.com/)
-+ [Telerik Fiddler](http://www.telerik.com/fiddler)
++ [Telerik Fiddler](https://www.telerik.com/fiddler)
 
 ## Get the api-key and endpoint
 
@@ -60,7 +61,7 @@ Request header composition includes two elements, content type and the api-key d
 
 ### Fiddler
 
-Formulate a request that looks like the following screen shot. Choose **PUT** as the verb. Fiddler adds `User-Agent=Fiddler`. You can paste the two additional request headers on new lines below it. Include the content type and api-key for your service, using the admin access key for your service.
+Formulate a request that looks like the following screenshot. Choose **PUT** as the verb. Fiddler adds `User-Agent=Fiddler`. You can paste the two additional request headers on new lines below it. Include the content type and api-key for your service, using the admin access key for your service.
 
 ![Fiddler request header][1]
 
@@ -69,7 +70,7 @@ Formulate a request that looks like the following screen shot. Choose **PUT** as
 
 ### Postman
 
-Formulate a request that looks like the following screen shot. Choose **PUT** as the verb. 
+Formulate a request that looks like the following screenshot. Choose **PUT** as the verb. 
 
 ![Postman request header][6]
 
@@ -105,13 +106,13 @@ If you get HTTP 504, verify the URL specifies HTTPS. If you see HTTP 400 or 404,
 
 ### Fiddler
 
-Copy the index definition to the request body, similar to the following screen shot, and then click **Execute** on the top right to send the completed request.
+Copy the index definition to the request body, similar to the following screenshot, and then click **Execute** on the top right to send the completed request.
 
 ![Fiddler request body][7]
 
 ### Postman
 
-Copy the index definition to the request body, similar to the following screen shot, and then click **Send** on the top right to send the completed request.
+Copy the index definition to the request body, similar to the following screenshot, and then click **Send** on the top right to send the completed request.
 
 ![Postman request body][8]
 
@@ -195,13 +196,13 @@ If you get a 207, at least one document failed to upload. If you get a 404, you 
 
 ### Fiddler
 
-Change the verb to **POST**. Change the URL to include `/docs/index`. Copy the documents into the request body, similar to the following screen shot, and then execute the request.
+Change the verb to **POST**. Change the URL to include `/docs/index`. Copy the documents into the request body, similar to the following screenshot, and then execute the request.
 
 ![Fiddler request payload][9]
 
 ### Postman
 
-Change the verb to **POST**. Change the URL to include `/docs/index`. Copy the documents into the request body, similar to the following screen shot, and then execute the request.
+Change the verb to **POST**. Change the URL to include `/docs/index`. Copy the documents into the request body, similar to the following screenshot, and then execute the request.
 
 ![Postman request payload][10]
 
@@ -212,7 +213,7 @@ Now that an index and documents are loaded, you can issue queries against them. 
 + Change the endpoint to include query parameters, including search strings. A query URL might look like `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
 + Keep the request headers as-is
 
-This query searches on the term "motel" and returns a count of the documents in the search results. The request and response should look similar to the following screen shot for Postman after you click **Send**. The status code should be 200.
+This query searches on the term "motel" and returns a count of the documents in the search results. The request and response should look similar to the following screenshot for Postman after you click **Send**. The status code should be 200.
 
  ![Postman query response][11]
 

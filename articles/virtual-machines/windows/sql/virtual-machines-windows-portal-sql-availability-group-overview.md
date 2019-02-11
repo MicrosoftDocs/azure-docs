@@ -31,6 +31,8 @@ The diagram illustrates the parts of a complete SQL Server Availability Group in
 
 The key difference for an Availability Group in Azure Virtual Machines is that the Azure virtual machines, require a [load balancer](../../../load-balancer/load-balancer-overview.md). The load balancer holds the IP addresses for the availability group listener. If you have more than one availability group each group requires a listener. One load balancer can support multiple listeners.
 
+Additionally, on a Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters. 
+
 When you are ready to build a SQL Server availability group on Azure Virtual Machines, refer to these tutorials.
 
 ## Automatically create an availability group from a template

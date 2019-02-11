@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Reservations | Microsoft Docs
-description: Learn how you can change subscription scope and manage access for Azure Reservations. 
+description: Learn how you can change subscription scope and manage access for Azure Reservations.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -11,8 +11,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
-ms.author: cwatson
+ms.date: 01/30/2019
+ms.author: banders
 ---
 # Manage Reservations for Azure resources
 
@@ -30,11 +30,11 @@ To update the scope of a reservation:
 2. Select **All services** > **Reservations**.
 3. Select the reservation.
 4. Select **Settings** > **Configuration**.
-5. Change the scope. 
+5. Change the scope.
 
 If you change from shared to single scope, you can only select subscriptions where you are the owner. Only subscriptions within the same billing context as the reservation, can be selected.
 
-The scope only applies to Pay-As-You-Go offer MS-AZR-0003P, Enterprise offer MS-AZR-0017P, or CSP subscription types. For enterprise agreements, dev/test subscriptions are not eligible to get the reservation discount.
+The scope only applies to Pay-As-You-Go offer MS-AZR-0003P or MS-AZR-0023P, Enterprise offer MS-AZR-0017P or MS-AZR-0148P, or CSP subscription types.
 
 ## Add or change users who can manage a reservation
 
@@ -47,8 +47,8 @@ To delegate access management for a reservation:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services** > **Reservation** to list reservations that you have access to.
 3. Select the reservation that you want to delegate access to other users.
-4. Select **Access Control (IAM)**.
-5. Select **Add** > **Role** > **Owner**. Or, if you want to give limited access, select a different role.
+4. Select **Access control (IAM)**.
+5. Select **Add role assignment** > **Role** > **Owner**. Or, if you want to give limited access, select a different role.
 6. Type the email address of the user you want to add as owner.
 7. Select the user, and then select **Save**.
 
@@ -125,6 +125,6 @@ To learn more about Azure Reservations, see the following articles:
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)
 
-## Need help? Contact support
+## Need help? Contact us.
 
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
