@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/06/2019
+ms.date: 02/11/2019
 ---
 
 # Enable logging in Azure Machine Learning service
