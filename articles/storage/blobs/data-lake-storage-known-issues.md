@@ -6,7 +6,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 02/07/2018
 ms.author: normesta
 
 ---
@@ -18,7 +18,7 @@ This article contains known issues and temporary limitations with Azure Data Lak
 
 Blob Storage APIs and Azure Data Lake Gen2 APIs aren't interoperable with each other.
 
-If you have custom tools, applications, or scripts that use Blob APIs, and you want to use them to work with all of the content that you upload to your account, then don't enable hierarchical namespaces on your Blob storage account until Blob APIs become interoperable with Azure Data Lake Gen2 APIs. Using a storage account without the hierarchical namespace means you then don't have access to Data Lake Storage Gen2 specific features, such as directory and filesystem access control lists.
+If you have tools, applications, services, or scripts that use Blob APIs, and you want to use them to work with all of the content that you upload to your account, then don't enable a hierarchical namespace on your Blob storage account until Blob APIs become interoperable with Azure Data Lake Gen2 APIs. Using a storage account without a hierarchical namespace means you then don't have access to Data Lake Storage Gen2 specific features, such as directory and filesystem access control lists.
 
 ## Blob storage APIs
 
@@ -36,15 +36,15 @@ If you used these APIs to load data before they were disabled, and you have a pr
 
 * Even if you are not actively impacted in production, tell us whether you need this data to be copied to another storage account for some reason, and if so, why?
 
-Under these circumstances, we can restore access to the Blob API for a limited period of time so that you can copy this data into a storage account that doesn't have hierarchical namespaces enabled.
+Under these circumstances, we can restore access to the Blob API for a limited period of time so that you can copy this data into a storage account that doesn't have the hierarchical namespace feature enabled.
 
-Unmanaged Virtual Machine (VM) disks depend upon the disabled Blob Storage APIs, so if you want to enable hierarchical namespaces on a storage account, consider placing unmanaged VM disks into a storage account that doesn't have hierarchical namespaces enabled.
+Unmanaged Virtual Machine (VM) disks depend upon the disabled Blob Storage APIs, so if you want to enable a hierarchical namespace on a storage account, consider placing unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
 
 ## Azure Storage Explorer
 
 To view or manage Data Lake Storage Gen2 accounts by using Azure Storage Explorer, you must have at least version `1.6.0` of the tool which is available as a [free download](https://azure.microsoft.com/features/storage-explorer/).
 
-Note that the version of Storage Explorer that is embedded into the Azure Portal does not currently support viewing or managing Data Lake Storage Gen2 accounts with hierarchical namespaces enabled.
+Note that the version of Storage Explorer that is embedded into the Azure Portal does not currently support viewing or managing Data Lake Storage Gen2 accounts with the hierarchical namespace feature enabled.
 
 ## Blob viewing tool
 
@@ -70,17 +70,17 @@ Instead, use the latest preview version of AzCopy ( [AzCopy v10](https://docs.mi
 
 Soft delete and snapshots aren't available for Azure Data Lake Storage Gen2 accounts.
 
-All versioning features including [snapshots](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) and [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) aren't yet available for Storage accounts that have hierarchical namespaces enabled.
+All versioning features including [snapshots](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) and [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) aren't yet available for Storage accounts that have the hierarchical namespace feature enabled.
 
 ## Object level storage tiers
 
-Object level storage tiers (Hot, Cold, and Archive) aren't yet available for Azure Data Lake Storage Gen 2 accounts, but they are available to Storage accounts that don't have hierarchical namespaces enabled.
+Object level storage tiers (Hot, Cold, and Archive) aren't yet available for Azure Data Lake Storage Gen 2 accounts, but they are available to Storage accounts that don't have the hierarchical namespace feature enabled.
 
-## Azure Blob Storage lifecycle management (Preview) policies
+## Azure Blob Storage lifecycle management policies
 
-Azure Blob Storage lifecycle management (Preview) policies aren't yet available for Azure Data Lake Storage Gen2 accounts.
+Azure Blob Storage lifecycle management policies aren't yet available for Azure Data Lake Storage Gen2 accounts.
 
-These policies are available to Storage accounts that don't have hierarchical namespaces enabled.
+These policies are available to Storage accounts that don't have the hierarchical namespace feature enabled.
 
 ## Diagnostic logs
 
