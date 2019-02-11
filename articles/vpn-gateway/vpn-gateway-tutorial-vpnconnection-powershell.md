@@ -12,7 +12,7 @@ ms.custom: mvc
 #Customer intent: I want to create an S2S VPN connection so that I can connect my VNet and on-premises network.
 ---
 
-# Create and Manage S2S VPN connections with the Azure PowerShell module
+# Tutorial: Create and manage S2S VPN connections using PowerShell
 
 Azure S2S VPN connections provide secure, cross-premises connectivity between customer premises and Azure. This tutorial walks through IPsec S2S VPN connection life cycles such as creating and managing a S2S VPN connection. You learn how to:
 
@@ -213,6 +213,14 @@ Delete the local network gateway if you no longer need it. You cannot delete a l
 
 ```azurepowershell-interactive
 Remove-AzVirtualNetworkGatewayConnection -Name $LNG2 -ResourceGroupName $RG1
+```
+
+## Clean up resources
+
+If this configuration is part of a prototype, test, or proof-of-concept deployment, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, the VPN gateway, and all related resources.
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name $RG1
 ```
 
 ## Next steps

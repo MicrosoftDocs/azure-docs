@@ -12,7 +12,7 @@ ms.custom: mvc
 #Customer intent: I want to create a VPN gateway for my virtual network so that I can connect to my VNet and communicate with resources remotely.
 ---
 
-# Create and Manage VPN gateway with the Azure PowerShell module
+# Tutorial: Create and manage a VPN gateway using PowerShell
 
 Azure VPN gateways provide cross-premises connectivity between customer premises and Azure. This tutorial covers basic Azure VPN gateway deployment items such as creating and managing a VPN gateway. You learn how to:
 
@@ -141,15 +141,11 @@ $myGwIp = Get-AzPublicIpAddress -Name $GwIP1 -ResourceGroup $RG1
 $myGwIp.IpAddress
 ```
 
-## Delete VPN gateway
-
-A complete configuration of cross-premises and VNet-to-VNet connectivity requires multiple resource types in addition to VPN gateway. Delete the connections associated with the VPN gateway before deleting the gateway itself. Once the gateway is deleted, you can then delete the public IP address(es) for the gateway. See [Delete a VPN gateway](vpn-gateway-delete-vnet-gateway-powershell.md) for the detailed steps.
-
 ## Clean up resources
 
 If you advancing to the [next tutorial](vpn-gateway-tutorial-vpnconnection-powershell.md), however, you will want to keep these resources because they are the prerequisite.
 
-If the gateway is part of a prototype, test, or proof-of-concept deployment, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, the VPN gateway, and all related resources.
+If the gateway is part of a prototype, test, or proof-of-concept deployment, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, the VPN gateway, and all related resources.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $RG1
