@@ -20,7 +20,7 @@ Here's what we'll cover in this tutorial:
 
 > [!div class="checklist"]
 > * Prerequisites
-> * Set up a WPF project in Visual Studio
+> * Create a WPF project in Visual Studio
 > * Add assemblies and NuGet packages to your project
 > * Use the Translator Text API to translate text and detect the source language
 > * Use the Bing Spell Check API to validate your input and improve translation accuracy
@@ -30,16 +30,28 @@ Here's what we'll cover in this tutorial:
 
 Before we continue, you'll need the following:
 
-* An Azure Cognitive Services subscription key. [Get one for free]().
+* An Azure Cognitive Services subscription key. [Get a Cognitive Services key](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-subscription).
 * A Windows machine
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) - Community or Enterprise
 
-Both the Text Analytics and Bing Spell Check services offer free trials, which you can sign up for on [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). You may also create a subscription for either service via the Azure dashboard. Text Analytics has a free tier.
+> [!NOTE]
+> We recommend creating the subscription in the West US region for this tutorial. Otherwise, you'll need to remember to change endpoints and regions in the code as you work through this exercise.  
 
-Source code for this tutorial is available below. Your subscription keys must be copied into the source code as the variables `TEXT_TRANSLATION_API_SUBSCRIPTION_KEY`, and so on, in `MainWindow.xaml.cs`.
+## Create a WPF app in Visual Studio
 
-> [!IMPORTANT]
-> The Text Analytics service is available in multiple regions. The URI in this tutorial source code is in the `westus` region, which is the region used for free trials. If you have a subscription in another region, update this URI accordingly.
+The first thing we need to do is set up our project in Visual Studio.
+
+1. Open Visual Studio. Then select **File > New > Project**.
+2. In the left panel, locate and select **Visual C#**. Then, select **WPF App (.NET Framework)** in the center panel.
+   ![Create a WPF app in Visual Studio](media/translator-text-csharp-new-project.png)
+3. Name your project, set the framework version to **.NET Framework 4.5.2 or later**, then click **OK**.
+   ![Configure your Visual Studio project](media/translator-text-csharp-new-project.png)
+4. Your project has been created. You'll notice that there are two tabs open: `MainWindow.xaml` and `MainWindow.xaml.cs`. Throughout this tutorial, we'll be adding code to these two files. The first for the application front-end; the latter for our calls to Translator Text and Bing Spell Check.
+   ![Review your environment](media/translator-text-csharp-new-project.png)
+
+In the next section we're going to add assemblies and a NuGet package to our project for additional functionality, like JSON parsing.
+
+## Add assemblies and NuGet packages to your project
 
 ## Source code
 
