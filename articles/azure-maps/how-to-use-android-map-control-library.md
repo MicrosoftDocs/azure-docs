@@ -50,24 +50,29 @@ Learn more about setting up an AVD in the [Android Studio documentation](https:/
 
 Before you move forward towards building your application, follow the steps below to install Azure Maps Android SDK. 
 
-1. Add the following to your **build.gradle** file.
+1. Add the following to the **allprojects**,repositories block in your **build.gradle** file.
 
     ```
-    repositories {
-        maven {
+    maven {
             url "https://atlas.microsoft.com/sdk/android"
         }
-    }
     ```
 
-2. Update you **app/build.gradle** and add the following to it:
+2. Update your **app/build.gradle** and add the following to it:
 
-    ```
-    dependencies {
-        implementation "com.microsoft.azure.maps:mapcontrol:0.1r"
-    }
-    
-    ```
+    1. Add the following to the Android block:
+
+        ```
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+        ```
+    a. Update your dependencies block and add the following to it:
+
+        ```
+        implementation "com.microsoft.azure.maps:mapcontrol:0.1"
+        ```
 
 3. Set up permissions by adding the following to your `AndroidManifest.xml'
 
@@ -200,7 +205,7 @@ import com.microsoft.azure.maps.demo.R;
 import com.microsoft.azure.maps.mapcontrol.MapControl;
 import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
 import com.microsoft.azure.maps.mapcontrol.source.DataSource;
-import static com.microsoft.azure.maps.mapcontrol.options.IconOption.iconImage;
+import static com.microsoft.azure.maps.mapcontrol.options.SymbolLayerOptions.iconImage;
 public class MainActivity extends Activity {
 
     MapControl mapControl;
