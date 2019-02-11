@@ -38,6 +38,12 @@
   items:
   - name: Upgrade from v5 to v7
     href: bing-spell-check-upgrade-guide-v5-to-v7.md
+- name: Concepts
+  items:
+  - name: Sending requests to the Bing Spell Check API
+    href: concepts/sending-requsts.md
+  - name: Using the Bing Spell Check API
+    href: concepts/using-spell-check.md
 - name: Samples
   items:
   - name: Code samples

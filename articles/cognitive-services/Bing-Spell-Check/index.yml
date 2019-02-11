@@ -13,11 +13,32 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/09/2018
+  ms.date: 02/09/2019
   ms.author: aahi
 abstract:
   description: The Bing Spell Check API lets you perform contextual grammar and spell checking. Bing has developed a web-based spell-checker that leverages machine learning and statistical machine translation to dynamically train a constantly evolving and highly contextual algorithm. The spell-checker is based on a massive body of web searches and documents. Learn how to analyze content in different ways with our quickstarts, tutorials, and samples.
 sections:
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/bing-spell-check/overview
+          html: <p>Learn about the Bing Spell Check API.</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is the Bing Spell Check API?
+        - href: /azure/cognitive-services/bing-spell-check/concepts/sending-requests
+          html: <p>Learn how to send spell check requests to the Bing Spell Check API.</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Spell check requests
+        - href: /azure/cognitive-services/bing-spell-check/concepts/using-spell-check
+          html: <p>Learn about using the API's different spell-check modes.</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Image Search response
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph

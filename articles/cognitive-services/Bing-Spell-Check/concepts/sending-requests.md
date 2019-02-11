@@ -18,19 +18,12 @@ ms.author: aahi
 To check a text string for spelling and grammar errors, you'd send a GET request to the following endpoint:  
   
 ```
-https://api.cognitive.microsoft.com/bing/v5.0/spellcheck
-```
-
-> [!NOTE]
-> V7 Preview endpoint:
-> 
-> ```
-> https://api.cognitive.microsoft.com/bing/v7.0/spellcheck
-> ```  
+https://api.cognitive.microsoft.com/bing/v7.0/spellcheck
+```  
   
 The request must use the HTTPS protocol.
 
-We recommend that all requests originate from a server. Distributing the key as part of a client application provides more opportunity for a malicious third-party to access it. Also, making calls from a server provides a single upgrade point for future versions of the API.
+We recommend that all requests originate from a server. Distributing the key as part of a client application provides more opportunity for a malicious third-party to access it. A server also provides a single upgrade point for future versions of the API.
 
 The request must specify the [text](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#text) query parameter, which contains the text string to proof. Although optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters such as `mode`, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference#query-parameters). All query parameter values must be URL encoded.  
   
@@ -47,19 +40,6 @@ For a list of all request and response headers, see [Headers](https://docs.micro
 
 The following shows a request that includes all the suggested query parameters and headers. If it's your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination. 
   
-```  
-GET https://api.cognitive.microsoft.com/bing/v5.0/spellcheck?text=when+its+your+turn+turn,+john,+come+runing&mkt=en-us HTTP/1.1  
-Ocp-Apim-Subscription-Key: 123456789ABCDE  
-User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)  
-X-Search-ClientIP: 999.999.999.999  
-X-Search-Location: lat:47.60357;long:-122.3295;re:100  
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
-Host: api.cognitive.microsoft.com  
-```  
-
-> [!NOTE]
-> V7 Preview request:
-
 > ```  
 > GET https://api.cognitive.microsoft.com/bing/v7.0/spellcheck?text=when+its+your+turn+turn,+john,+come+runing&mkt=en-us HTTP/1.1
 > Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -71,7 +51,7 @@ Host: api.cognitive.microsoft.com
 
 The following shows the response to the previous request. The example also shows the Bing-specific response headers.
 
-```
+```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
 X-MSEdge-ClientID: 1C3352B306E669780D58D607B96869
 BingAPIs-Market: en-US
@@ -116,3 +96,8 @@ BingAPIs-Market: en-US
     }]  
 }  
 ```  
+
+# Next steps
+
+- [What is the Bing Spell Check API?](../overview.md)
+- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
