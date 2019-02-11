@@ -104,11 +104,11 @@
       href: /azure/architecture/building-blocks/extending-templates/update-resource
   - name: Deploy templates
     items:
-    - name: Deploy by using the Azure portal
+    - name: Deploy - portal
       href: resource-group-template-deploy-portal.md
-    - name: Deploy by using Azure CLI
+    - name: Deploy - CLI
       href: resource-group-template-deploy-cli.md
-    - name: Deploy by using Azure PowerShell
+    - name: Deploy - PowerShell
       href: resource-group-template-deploy.md
     - name: Deploy by using REST API
       href: resource-group-template-deploy-rest.md
@@ -133,12 +133,18 @@
       maintainContext: true
   - name: Manage resources
     items:
-    - name: Manage by using the Azure portal
-      href: resource-group-portal.md
-    - name: Manage by using Azure PowerShell
-      href: powershell-azure-resource-manager.md
-    - name: Manage by using Azure CLI
-      href: cli-azure-resource-manager.md
+    - name: Manage resource groups - portal
+      href: manage-resource-group-portal.md
+    - name: Manage resource groups - CLI
+      href: manage-resource-group-cli.md
+    - name: Manage resource groups - PowerShell
+      href: manage-resource-group-powershell.md
+    - name: Manage resources - portal
+      href: manage-resources-portal.md
+    - name: Manage resources - CLI
+      href: manage-resources-cli.md
+    - name: Manage resources - PowerShell
+      href: manage-resources-powershell.md
     - name: Move resources
       href: resource-group-move-resources.md
       items:

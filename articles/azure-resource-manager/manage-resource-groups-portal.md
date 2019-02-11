@@ -10,7 +10,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 02/11/2019
 ms.author: jgao
 
 ---
@@ -18,9 +18,12 @@ ms.author: jgao
 
 Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resource groups.
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
-
 For managing Azure resources, see [Manage Azure resources by using the Azure portal](./manage-resources-portal.md).
+
+Other articles about managing resource groups:
+
+- [Manage Azure resource groups by using Azure CLI](./manage-resources-cli.md)
+- [Manage Azure resource groups by using Azure PowerShell](./manage-resources-powershell.md)
 
 ## What is a resource group
 
@@ -46,7 +49,7 @@ The resource group stores metadata about the resources. Therefore, when you spec
 6. Select **Create**. It takes a few seconds to create a resource group.
 7. Select **Refresh** from the top menu to refresh the resource group list, and then select the newly created resource group to open it. Or select **Notification**(the bell icon) from the top, and then select **Go to resource group** to open the newly created resource group
 
-    ![go to resource group](./media/manage-resource-groups-portal/manage-resource-group-add-group-go-to-resource-group.png)
+    ![go to resource group](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)
 
 ## List resource groups
 
@@ -58,6 +61,9 @@ The resource group stores metadata about the resources. Therefore, when you spec
 3. To customize the information displayed for the resource groups, select **Edit columns**. The following screenshot shows the addition columns you could add to the display:
 
 ## Delete resource groups
+
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Resource groups**

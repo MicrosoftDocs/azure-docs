@@ -18,10 +18,13 @@ ms.author: jgao
 
 Learn how to use Azure CLI with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resource groups.
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
-
 For managing Azure resources, see [Manage Azure resources by using Azure CLI](./manage-resources-cli.md).
 
+Other articles about managing resource groups:
+
+- [Manage Azure resource groups by using the Azure portal](./manage-resources-portal.md)
+- [Manage Azure resource groups by using Azure PowerShell](./manage-resources-powershell.md)
+ 
 ## What is a resource group
 
 A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. Generally, add resources that share the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.
@@ -40,10 +43,6 @@ read location &&
 az group create --name $resourceGroupName --location $location
 ```
 
-## Set resource groups
-
-See [Tag resource groups](#tag-resource-groups).
-
 ## List resource groups
 
 The following CLI script lists the resource groups under your subscription.
@@ -61,6 +60,8 @@ az group show --name $resourceGroupName
 ```
 
 ## Delete resource groups
+
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 The following CLI script deletes a resource group:
 
@@ -110,7 +111,7 @@ For more information, see [Lock resources with Azure Resource Manager](resource-
 
 ## Tag resource groups
 
-You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](./resource-group-using-tags.md#cli).
+You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](./resource-group-using-tags.md#azure-cli).
 
 ## Export resource groups to templates
 

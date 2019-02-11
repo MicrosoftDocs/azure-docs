@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 02/11/2019
 ms.author: jgao
 
 ---
@@ -19,9 +19,13 @@ ms.author: jgao
 
 Learn how to use Azure PowerShell with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resources.
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
-
 For managing resource groups, see [Manage Azure resource groups by using Azure PowerShell](./manage-resource-groups-powershell.md).
+
+Other articles about managing resources:
+
+- [Manage Azure resources by using the Azure portal](./manage-resources-portal.md)
+- [Manage Azure resources by using Azure CLI](./manage-resources-cli.md)
+
 
 ## Deploy resources to an existing resource group
 
@@ -68,6 +72,8 @@ You can create a resource group and deploy resources to the group. For more info
 Typically, you deploy all the resources in your template to a single resource group. However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. For more information, see [Deploy Azure resources to multiple subscriptions or resource groups](./resource-manager-cross-resource-group-deployment.md).
 
 ## Delete resources
+
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 The following script shows how to delete a storage account.
 
