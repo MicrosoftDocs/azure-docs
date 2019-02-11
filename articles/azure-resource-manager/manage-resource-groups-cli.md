@@ -1,6 +1,6 @@
 ---
-title: Manage Azure Resource Manager groups by using Azure PowerShell | Microsoft Docs
-description: Use Azure PowerShell to manage your Azure Resource Manager groups.
+title: Manage Azure Resource Manager groups by using Azure CLI | Microsoft Docs
+description: Use Azure CLI to manage your Azure Resource Manager groups.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -10,17 +10,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 02/11/2019
 ms.author: jgao
-
 ---
-# Manage Azure Resource Manager resource groups by using Azure Powershell
 
-Learn how to use Azure PowerShell with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resource groups.
+# Manage Azure Resource Manager resource groups by using Azure CLI
+
+Learn how to use Azure CLI with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resource groups.
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
-For managing Azure resources, see [Manage Azure resources by using Azure PowerShell](./manage-resources-powershell.md).
+For managing Azure resources, see [Manage Azure resources by using Azure CLI](./manage-resources-cli.md).
 
 ## What is a resource group
 
@@ -30,15 +30,14 @@ The resource group stores metadata about the resources. Therefore, when you spec
 
 ## Create resource groups
 
-The following PowerShell script creates a resource group, and then shows the resource group.
+The following CLI script creates a resource group, and then shows the resource group.
 
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-
-Get-AzResourceGroup -Name $resourceGroupName
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. centralus):" &&
+read location &&
+az group create --name $resourceGroupName --location $location
 ```
 
 ## Set resource groups
@@ -47,33 +46,33 @@ See [Tag resource groups](#tag-resource-groups).
 
 ## List resource groups
 
-The following PowerShell script lists the resource groups under your subscription.
+The following CLI script lists the resource groups under your subscription.
 
-```azurepowershell-interactive
-Get-AzResourceGroup
+```azurecli-interactive
+az group list
 ```
 
 To get one resource group:
 
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-Get-AzResourceGroup -Name $resourceGroupName
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group show --name $resourceGroupName
 ```
 
 ## Delete resource groups
 
-The following PowerShell script deletes a resource group:
+The following CLI script deletes a resource group:
 
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-Remove-AzResourceGroup -Name $resourceGroupName
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName
 ```
 
 ## Deploy resources to an existing resource group
 
-See [Deploy resources to an existing resource group](./manage-resources-powershell.md#deploy-resources-to-an-existing-resource-group).
+See [Deploy resources to an existing resource group](./manage-resources-cli.md#deploy-resources-to-an-existing-resource-group).
 
 ## Deploy a resource group and resources
 
@@ -93,25 +92,25 @@ Locking prevents other users in your organization from accidentally deleting or 
 
 The following script locks a resource group so the resource group can't be deleted.
 
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName $resourceGroupName 
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az lock create --name LockGroup --lock-type CanNotDelete --resource-group $resourceGroupName  
 ```
 
 The following script gets all locks for a resource group:
 
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-Get-AzResourceLock -ResourceGroupName $resourceGroupName 
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az lock list --resource-group $resourceGroupName  
 ```
 
 For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
 ## Tag resource groups
 
-You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](./resource-group-using-tags.md#powershell).
+You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](./resource-group-using-tags.md#cli).
 
 ## Export resource groups to templates
 
@@ -120,13 +119,13 @@ After setting up your resource group, you may want to view the Resource Manager 
 1. You can easily automate future deployments of the solution because the template contains all the complete infrastructure.
 2. You can become familiar with template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
 
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-
-Export-AzResourceGroup -ResourceGroupName $resourceGroupName
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group export --name $resourceGroupName  
 ```
 
-For more information, see [Export resource group as template](./resource-manager-export-template-powershell.md#export-resource-group-as-template)
+For more information, see [Export resource group as template](./resource-manager-export-template-cli.md#export-resource-group-as-template).
 
 ## Next steps
 
