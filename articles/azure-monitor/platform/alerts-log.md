@@ -100,8 +100,7 @@ Detailed next is step-by-step guide to using log alerts using the Azure portal i
 
     Within a few minutes, the alert is active and triggers as previously described.
 
-Users can also finalized their analytics query in [Logs Analytics page in Azure portal](../../azure-monitor/log-query/portals.md#log-analytics-page
-) and then push it to create an alert via '+ New alert rule' button - then following instructions from Step 6 onwards in the above tutorial.
+Users can also finalized their analytics query in [log analytics](../log-query/portals.md) and then push it to create an alert via 'Set Alert' button - then following instructions from Step 6 onwards in the above tutorial.
 
  ![Log Analytics - Set Alert](media/alerts-log/AlertsAnalyticsCreate.png)
 
@@ -311,12 +310,12 @@ The sample json above can be saved as (say) sampleScheduledQueryRule.json for th
 > Log alerts for Log Analytics can also be managed using legacy [Log Analytics Alert API](../../azure-monitor/platform/api-alerts.md) and legacy templates of [Log Analytics saved searches and alerts](../../azure-monitor/insights/solutions-resources-searches-alerts.md) as well. For more information on using the new ScheduledQueryRules API detailed here by default, see [Switch to new API for Log Analytics Alerts](alerts-log-api-switch.md).
 
 
-Log alerts do not have dedicated PowerShell or CLI commands currently; but as illustrated below can be used via Azure Resource Manager PowerShell cmdlet for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the [Resource Template section](#azure-resource-template-for-application-insights) :
+Log alerts do not have dedicated PowerShell or CLI commands currently; but as illustrated below can be used via Azure Resource Manager PowerShell cmdlet for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the Resource Template section :
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
 
-Illustrated below usage via Azure Resource Manager command in Azure CLI for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the [Resource Template section](#azure-resource-template-for-application-insights) :
+Illustrated below usage via Azure Resource Manager command in Azure CLI for sample Resource Template shown earlier (sampleScheduledQueryRule.json) in the Resource Template section :
 
 ```azurecli
 az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json

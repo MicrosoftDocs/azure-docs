@@ -11,11 +11,11 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/08/2019
 ---
-# Azure SQL Database threat detection for standalone or pooled databases
+# Azure SQL Database threat detection for single or pooled databases
 
-[Threat detection](sql-database-threat-detection-overview.md) for standalone and pooled databases detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Threat detection can identify **Potential SQL injection**, **Access from unusual location or data center**, **Access from unfamiliar principal or potentially harmful application**, and **Brute force SQL credentials** - see more details in [threat detection alerts](sql-database-threat-detection-overview.md#threat-detection-alerts).
+[Threat detection](sql-database-threat-detection-overview.md) for single and pooled databases detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Threat detection can identify **Potential SQL injection**, **Access from unusual location or data center**, **Access from unfamiliar principal or potentially harmful application**, and **Brute force SQL credentials** - see more details in [threat detection alerts](sql-database-threat-detection-overview.md#threat-detection-alerts).
 
 You can receive notifications about the detected threats via [email notifications](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) or [Azure portal](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
 

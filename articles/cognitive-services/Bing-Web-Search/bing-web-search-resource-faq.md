@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Get answers to common questions about using the Bing Web Search API.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: troubleshooting

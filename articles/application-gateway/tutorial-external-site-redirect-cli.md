@@ -102,7 +102,7 @@ az network application-gateway redirect-config create \
 
 ### Add a listener and routing rule
 
-A listener is required to enable the application gateway to appropriately route traffic. Create the listener using [az network application-gateway http-listener create](/cli/azure/network/application-gateway) with the frontend port created with [az network application-gateway frontend-port create](/cli/azure/network/application-gateway). A rule is required for the listener to know where to send incoming traffic. Create a basic rule named *redirectRule* using [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create) with the redirection configuration.
+A listener is required to enable the application gateway to appropriately route traffic. Create the listener using [az network application-gateway http-listener create](/cli/azure/network/application-gateway) with the frontend port created with [az network application-gateway frontend-port create](/cli/azure/network/application-gateway). A rule is required for the listener to know where to send incoming traffic. Create a basic rule named *redirectRule* using [az network application-gateway rule create](/cli/azure/network/application-gateway) with the redirection configuration.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \

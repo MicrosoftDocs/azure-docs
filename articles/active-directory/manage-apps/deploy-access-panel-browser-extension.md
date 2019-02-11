@@ -3,8 +3,8 @@ title: Deploy Azure Access Panel Extension for IE using a GPO | Microsoft Docs
 description: How to use group policy to deploy the Internet Explorer add-on for the My Apps portal.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/08/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 

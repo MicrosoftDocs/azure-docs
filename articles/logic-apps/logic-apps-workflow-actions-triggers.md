@@ -861,7 +861,7 @@ Actions have these high-level elements, though some are optional:
 
 | Value | Type | Description | 
 |-------|------|-------------|
-| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](#retry-policies). | 
+| <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see Retry policies. | 
 | <*runtime-config-options*> | JSON Object | For some actions, you can change the action's behavior at run time by setting `runtimeConfiguration` properties. For more information, see [Runtime configuration settings](#runtime-config-options). | 
 | <*operation-option*> | String | For some actions, you can change the default behavior by setting the `operationOptions` property. For more information, see [Operation options](#operation-options). | 
 |||| 
@@ -2906,7 +2906,7 @@ Here are the kinds of authentication you can set up:
 > that your logic app workflow definition handles. 
 > Use secured parameters and encode data as necessary. 
 > For more information about using and securing parameters, 
-> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
+> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 <a name="basic-authentication"></a>
 
@@ -2952,7 +2952,7 @@ information about using and securing parameters, see
 > that your logic app workflow definition handles. 
 > Use secured parameters and encode data as necessary. 
 > For more information about securing parameters, 
-> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
+> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 <a name="client-certificate-authentication"></a>
 
@@ -3001,7 +3001,7 @@ For more information about using and securing parameters, see
 > that your logic app workflow definition handles. 
 > Use secured parameters and encode data as necessary. 
 > For more information about securing parameters, 
-> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
+> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
@@ -3054,7 +3054,7 @@ For more information about using and securing parameters, see
 > that your logic app workflow definition handles. 
 > Use secured parameters and encode data as necessary. 
 > For more information about securing parameters, 
-> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters)
+> see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
 
 ## Next steps
 

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Analyze text and link named entities to relevant entries in a knowledge base by using the Entity Linking API.
 services: cognitive-services
 author: DavidLiCIG
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: entity-linking-intelligence
