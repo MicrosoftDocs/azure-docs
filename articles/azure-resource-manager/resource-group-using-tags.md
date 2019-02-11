@@ -272,4 +272,4 @@ For REST API operations, see [Azure Billing REST API Reference](/rest/api/billin
 
 * Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
 * You can apply restrictions and conventions across your subscription by using customized policies. A policy that you define might require that all resources have a value for a particular tag. For more information, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md)
-* For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](resource-group-portal.md).  
+* For an introduction to using the portal, see [Using the Azure portal to manage your Azure resources](manage-resources-portal.md).  

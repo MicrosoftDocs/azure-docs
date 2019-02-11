@@ -38,7 +38,7 @@ Each App Service plan tier supports a different number of deployment slots. To f
 ## Add slot
 The app must be running in the **Standard**, **Premium**, or **Isolated** tier in order for you to enable multiple deployment slots.
 
-1. In the [Azure portal](https://portal.azure.com/), open your app's [resource page](../azure-resource-manager/resource-group-portal.md#manage-resources).
+1. In the [Azure portal](https://portal.azure.com/), open your app's [resource page](../azure-resource-manager/manage-resources-portal.md#manage-resources).
 
 2. In the left navigation, choose the **Deployment slots (Preview)** option, then click **Add Slot**.
    

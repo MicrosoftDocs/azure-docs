@@ -134,11 +134,11 @@
   - name: Manage resources
     items:
     - name: Manage resource groups - portal
-      href: manage-resource-group-portal.md
+      href: manage-resource-groups-portal.md
     - name: Manage resource groups - CLI
-      href: manage-resource-group-cli.md
+      href: manage-resource-groups-cli.md
     - name: Manage resource groups - PowerShell
-      href: manage-resource-group-powershell.md
+      href: manage-resource-groups-powershell.md
     - name: Manage resources - portal
       href: manage-resources-portal.md
     - name: Manage resources - CLI

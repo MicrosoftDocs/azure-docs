@@ -165,7 +165,7 @@ Now you have learned how to use Sqoop. To learn more, see:
 The PowerShell sample performs the following steps:
 
 1. Connect to Azure.
-2. Create an Azure resource group. For more information, see [Using Azure PowerShell with Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md)
+2. Create an Azure resource group. For more information, see [Using Azure PowerShell with Azure Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md)
 3. Create an Azure SQL Database server, an Azure SQL database, and two tables. 
    
     If you use SQL Server instead, use the following statements to create the tables:

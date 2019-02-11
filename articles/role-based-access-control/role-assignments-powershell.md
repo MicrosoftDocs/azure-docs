@@ -314,4 +314,4 @@ PS C:\> Remove-AzureRmRoleAssignment -SignInName alain@example.com -RoleDefiniti
 
 - [Tutorial: Grant access for a group using RBAC and Azure PowerShell](tutorial-role-assignments-group-powershell.md)
 - [Tutorial: Create a custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Manage resources with Azure PowerShell](../azure-resource-manager/powershell-azure-resource-manager.md)
+- [Manage resources with Azure PowerShell](../azure-resource-manager/manage-resources-powershell.md)

@@ -2490,6 +2490,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/resource-group-portal.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-portal.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-resource-manager/powershell-azure-resource-manager.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-resource-manager/cli-azure-resource-manager.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-cli.md",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/azure-resource-manager/create-resource-group-in-template.md",
       "redirect_url": "/azure/azure-resource-manager/deploy-to-subscription",
       "redirect_document_id": false
@@ -3201,12 +3216,12 @@
     },
     {
       "source_path": "articles/xplat-cli-azure-resource-manager.md",
-      "redirect_url": "/azure/azure-resource-manager/cli-azure-resource-manager",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-cli",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-resource-manager/xplat-cli-azure-resource-manager.md",
-      "redirect_url": "/azure/azure-resource-manager/cli-azure-resource-manager",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-cli",
       "redirect_document_id": false
     },
     {

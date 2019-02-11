@@ -16,7 +16,7 @@ ms.author: tomfitz
 ---
 # Deploy resources with Resource Manager templates and Azure portal
 
-This article shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources through portal](resource-group-portal.md).
+This article shows how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources by using the Azure portal](manage-resources-portal.md).
 
 ## Create resource group
 
