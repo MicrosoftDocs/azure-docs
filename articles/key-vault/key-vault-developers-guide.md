@@ -54,7 +54,7 @@ For more information on managed identities for Azure resources, see [the managed
 Before working with keys, secrets or certificates in your key vault, you'll create and manage your key vault through CLI, PowerShell, Resource Manager Templates or REST, as described in the following articles:
 
 - [Create and manage Key Vaults with CLI](key-vault-manage-with-cli2.md)
-- [Create and manage Key Vaults with PowerShell](key-vault-get-started.md)
+- [Create and manage Key Vaults with PowerShell](key-vault-overview.md)
 - [Create a key vault and add a secret via an Azure Resource Manager template](../azure-resource-manager/resource-manager-template-keyvault.md)
 - [Create and manage Key Vaults with REST](/rest/api/keyvault/)
 

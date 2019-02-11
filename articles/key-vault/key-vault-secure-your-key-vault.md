@@ -252,7 +252,7 @@ We highly recommend that you further secure access to your key vault by [configu
 
 [Configure Key Vault firewalls and virtual networks](key-vault-network-security.md)
 
-For a getting started tutorial for an administrator, see [Get Started with Azure Key Vault](key-vault-get-started.md).
+For a getting started tutorial for an administrator, see [Get Started with Azure Key Vault](key-vault-overview.md).
 
 For more information about usage logging for Key Vault, see [Azure Key Vault logging](key-vault-logging.md).
 

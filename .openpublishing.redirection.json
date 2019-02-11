@@ -27529,6 +27529,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/key-vault/key-vault-get-started.md",
+      "redirect_url": "/azure/key-vault/key-vault-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/key-vault-use-from-web-application.md",
+      "redirect_url": "/azure/key-vault/tutorial-net-create-vault-azure-web-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/key-vault/key-vault-manage-with-cli.md",
       "redirect_url": "/azure/key-vault/key-vault-manage-with-cli2",
       "redirect_document_id": false

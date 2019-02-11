@@ -87,7 +87,7 @@ Key Vault provides the option to store your keys in hardware security modules (H
 Learn more:
 
 * [What is Azure Key Vault?](../key-vault/key-vault-whatis.md)
-* [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md)
+* [Get started with Azure Key Vault](../key-vault/key-vault-overview.md)
 * [Azure Key Vault blog](https://blogs.technet.microsoft.com/kv/)
 
 ## Virtual machine disk encryption
