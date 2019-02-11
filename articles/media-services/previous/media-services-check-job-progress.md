@@ -17,6 +17,7 @@ ms.date: 02/08/2019
 ms.author: juliako
 
 ---
+
 # Monitor Job Progress using .NET 
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-check-job-progress.md)
