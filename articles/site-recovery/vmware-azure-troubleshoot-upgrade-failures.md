@@ -60,5 +60,5 @@ To resolve the issue.
 	CX_THIRDPARTY_SETUP.EXE /VERYSILENT /SUPPRESSMSGBOXES /NORESTART
 
 5. Use task manager to monitor the progress of the installation. When the process for CX_THIRDPARTY_SETUP.EXE is no longer visible in task manager, proceed to the next step.
-6. Verify that that C:\thirdparty exists and that the folder contains the RRD libraries.
+6. Verify that C:\thirdparty exists and that the folder contains the RRD libraries.
 1. Return to the folder to which you downloaded the Unified Setup and run MicrosoftAzureSiteRecoveryUnifiedSetup.exe to finish the upgrade. 

@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Publish Azure Media Services content using REST (legacy)
+# Publish Azure Media Services content using REST 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-deliver-streaming-content.md)
 > * [REST](media-services-rest-deliver-streaming-content.md)

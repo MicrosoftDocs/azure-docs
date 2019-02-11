@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 02/10/2019
 ms.author: juliako
 ---
 
@@ -22,7 +22,6 @@ This topic shows you the search options that enable you to find exact moments wi
 	In the following example, we searched for all videos created by Channel9 with Scott Hanselman.
 
 	![Search](./media/video-indexer-search/video-indexer-search01.png)
-	
 3. Search the summarized insights of the video.
 
 	You can then search within a video by clicking **Play** on the video. Then, you can search within the video by selecting the **Search** tab. For example, we searched for all the places where the "identity protection" text is used. 
@@ -30,8 +29,6 @@ This topic shows you the search options that enable you to find exact moments wi
 	![Search](./media/video-indexer-search/video-indexer-search02.png)
 
 	If you click one of the results, the player brings you to that moment in the video. You can achieve the player/insights view and synchronization in your application. For more information, see [Embed Video Indexer widgets into your application](video-indexer-embed-widgets.md). 
-
-	
 4. Search the detailed breakdown of the video.
 
 	If you want to create your own breakdown based on the video that you found, press the **Edit** button. This page shows you the full breakdown of a video. You can search within the breakdown to only show the lines you are interested in. For more information, see [View and edit Video Indexer insights](video-indexer-view-edit.md).

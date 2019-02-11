@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: milanga;juliako;
 
 ---
-# Use Azure Media Video Thumbnails to Create a Video Summarization (legacy)
+# Use Azure Media Video Thumbnails to Create a Video Summarization  
 ## Overview
 The **Azure Media Video Thumbnails** media processor (MP) enables you to create a summary of a video that is useful to customers who just want to preview a summary of a long video. For example, customers might want to see a short "summary video" when they hover over a thumbnail. By tweaking the parameters of **Azure Media Video Thumbnails** through a configuration preset, you can use the MP's powerful shot detection and concatenation technology to algorithmically generate a descriptive subclip.  
 

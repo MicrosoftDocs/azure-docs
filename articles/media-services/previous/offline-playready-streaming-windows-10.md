@@ -18,7 +18,7 @@ ms.author: willzhan
 
 ---
 
-# Offline PlayReady Streaming for Windows 10 (legacy)
+# Offline PlayReady Streaming for Windows 10  
 
 Azure Media Services support offline download/playback with DRM protection. This article covers offline support of Azure Media Services for Windows 10/PlayReady clients. You can read about the offline mode support for iOS/FairPlay and Android/Widevine devices in the following articles:
 
