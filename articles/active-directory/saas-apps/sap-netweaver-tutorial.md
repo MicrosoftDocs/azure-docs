@@ -177,8 +177,7 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 	> We have seen few customers reporting an error of incorrect Reply URL configured for their instance. If you receive any such error, you can use following PowerShell script as a work around to set the correct Reply URL for your instance.:
 	```
 	Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
-	```
-	> [!NOTE]
+	``` 
 	> ServicePrincipal Object ID is to be set by yourself first or you can pass that also here.
 
 12. SAP NetWeaver application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
