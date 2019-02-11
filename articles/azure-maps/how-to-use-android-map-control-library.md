@@ -190,85 +190,85 @@ It will take a few seconds for android studio to build the application. After th
 
 In order to add a marker on to your map, Add `mapView.getMapAsync()` function to the `MainActivity.java`. The final `MainActivity.java` should look like the following:
 
-    ```java
-    package com.microsoft.azure.maps.demo.ui;
-    import android.app.Activity;
-    import android.os.Bundle;
-    import com.mapbox.geojson.Feature;
-    import com.mapbox.geojson.Point;
-    import com.microsoft.azure.maps.demo.R;
-    import com.microsoft.azure.maps.mapcontrol.MapControl;
-    import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
-    import com.microsoft.azure.maps.mapcontrol.source.DataSource;
-    import static com.microsoft.azure.maps.mapcontrol.options.IconOption.iconImage;
-    public class MainActivity extends Activity {
+```java
+package com.microsoft.azure.maps.demo.ui;
+import android.app.Activity;
+import android.os.Bundle;
+import com.mapbox.geojson.Feature;
+import com.mapbox.geojson.Point;
+import com.microsoft.azure.maps.demo.R;
+import com.microsoft.azure.maps.mapcontrol.MapControl;
+import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
+import com.microsoft.azure.maps.mapcontrol.source.DataSource;
+import static com.microsoft.azure.maps.mapcontrol.options.IconOption.iconImage;
+public class MainActivity extends Activity {
 
-        MapControl mapControl;
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_maps);
+    MapControl mapControl;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_maps);
 
-            mapControl = findViewById(R.id.mapcontrol);
+        mapControl = findViewById(R.id.mapcontrol);
 
-            mapControl.onCreate(savedInstanceState);
+        mapControl.onCreate(savedInstanceState);
 
-            mapControl.getMapAsync(map -> {
-                DataSource dataSource = new DataSource();
-                dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
+        mapControl.getMapAsync(map -> {
+            DataSource dataSource = new DataSource();
+            dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
 
-                SymbolLayer symbolLayer = new SymbolLayer(dataSource);
-                symbolLayer.setOptions(iconImage("my-icon"));
+            SymbolLayer symbolLayer = new SymbolLayer(dataSource);
+            symbolLayer.setOptions(iconImage("my-icon"));
 
-                map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
-                map.sources.add(dataSource);
-                map.layers.add(symbolLayer);
-            });
-        }
-
-        @Override
-        public void onStart() {
-            super.onStart();
-            mapControl.onStart();
-        }
-
-        @Override
-        public void onResume() {
-            super.onResume();
-            mapControl.onResume();
-        }
-
-        @Override
-        public void onPause() {
-            super.onPause();
-            mapControl.onPause();
-        }
-
-        @Override
-        public void onStop() {
-            super.onStop();
-            mapControl.onStop();
-        }
-
-        @Override
-        public void onLowMemory() {
-            super.onLowMemory();
-            mapControl.onLowMemory();
-        }
-
-        @Override
-        protected void onDestroy() {
-            super.onDestroy();
-            mapControl.onDestroy();
-        }
-
-        @Override
-        protected void onSaveInstanceState(Bundle outState) {
-            super.onSaveInstanceState(outState);
-            mapControl.onSaveInstanceState(outState);
-        }
+            map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
+            map.sources.add(dataSource);
+            map.layers.add(symbolLayer);
+        });
     }
-    ```
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mapControl.onStart();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mapControl.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mapControl.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mapControl.onStop();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapControl.onLowMemory();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mapControl.onDestroy();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mapControl.onSaveInstanceState(outState);
+    }
+}
+```
 
 Re-run your application and you should see a marker on the map like the one below.
 
