@@ -90,7 +90,7 @@ Users with access to an invoice section create Azure subscriptions and purchase 
 See the following articles to learn about your billing account:
 
 - [Create sections on your invoice to organize your costs](billing-mca-section-invoice.md)
-- [Create an additional subscription](billing-mca-creation-subscription.md)
+- [Create an additional subscription](billing-mca-create-subscription.md)
 - [Give others permission to create Azure subscriptions](billing-mca-create-subscription.md#give-others-permission-to-create-azure-subscriptions)
 
 ## Need help? Contact support
