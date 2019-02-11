@@ -23,7 +23,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 ## Create an invoice section in the Azure portal
 
-To create an invoice section, you need to be an **Owner** or a **Contributor** on a billing profile. For more information, see [Invoice sections tasks](billing-understand-mca-roles.md#manage-invoice-sections-tasks).
+To create an invoice section, you need to be an **Owner** or a **Contributor** on a billing profile. For more information, see [Invoice sections tasks](billing-understand-mca-roles.md#manage-invoice-section-tasks).
 
 1. Sign in to the [Azure portal](http://portal.azure.com).
 

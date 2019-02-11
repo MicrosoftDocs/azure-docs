@@ -78,7 +78,7 @@ You enable Azure plans when you create a billing profile. All invoice sections i
 
 Use invoice section to organize your costs. An invoice section is automatically created for each billing profile in your billing account. You can create new invoice sections to group charges on your invoice. For example, you may need a single invoice for your organization but want to group charges by each department, team, or project. For this scenario, you have a single billing profile where you create an invoice section for each department, team, or project.
 
-Roles on the invoice section have permissions to create Azure subscriptions, make purchases and manage costs for the invoice section. Assign these roles to users who set up Azure environment for teams in our organization like engineering leads and technical architects. For more information, see [Invoice section tasks](billing-understand-mca-roles.md#invoice-sections-tasks).
+Roles on the invoice section have permissions to create Azure subscriptions, make purchases and manage costs for the invoice section. Assign these roles to users who set up Azure environment for teams in our organization like engineering leads and technical architects. For more information, see [Invoice section tasks](billing-understand-mca-roles.md#invoice-section-tasks).
 
 Users with access to an invoice section create Azure subscriptions and purchase other products like Azure Reservations for the section. Charges for these subscriptions and products show up on the invoice section.
 
