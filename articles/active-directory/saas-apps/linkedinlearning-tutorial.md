@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/08/2018
+ms.date: 02/11/2018
 ms.author: jeedes
 
 ---
@@ -114,11 +114,11 @@ To configure Azure AD single sign-on with LinkedIn Learning, perform the followi
 	> [!NOTE]
 	> These values are not real value. You will update these values with the actual Identifier and Reply URL, which is explained later in the **Configure LinkedIn Learning Single Sign-On** section of tutorial.
 
-5. Your LinkedIn Learning application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **nameidentifier** is **user.userprincipalname** but LinkedIn Learning expects this to be mapped with the user's email address. For that you can **Edit** icon and map to the **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
+5. Your LinkedIn Learning application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. LinkedIn Learning application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
 	![image](common/edit-attribute.png)
 
-6. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to configure SAML token attribute as shown in the below table:
+6. In addition to above, LinkedIn Learning application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
     
 	| Name | Source Attribute |
 	| ---------------| --------------- |
@@ -127,7 +127,7 @@ To configure Azure AD single sign-on with LinkedIn Learning, perform the followi
 	| firstname  | user.givenname  |
 	| lastname  | user.surname  |
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog and please note that the below screenshot shows the default claims as an example.
+	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
 	![image](common/new-save-attribute.png)
 
