@@ -9,61 +9,58 @@ ms.topic: how-to
 ms.date: 02/20/2019
 ms.author: helohr
 ---
-# Create a User Profile Disk share for a host pool (Preview)
+# Set up user profiles for a host pool (Preview)
+
+The Windows Virtual Desktop service offers FSLogix containers as the recommended user profile solution. The user profile disk (UPD) solution is not recommended and will be deprecated in future versions of Windows Virtual Desktop.
 
 This section will tell you how to set up a User Profile Disk share for a host pool.
 
-You need the Windows Virtual Desktop PowerShell module to follow the instructions in this article. Install the Windows Virtual Desktop PowerShell module from the PowerShell Gallery by running this cmdlet:
+## Create a new virtual machine that will act as a file share
 
-```powershell
-PS C:\> Install-Module WindowsVirtualDesktop
-```
+When creating the virtual machine, be sure to place it on either the same virtual network as the host pool virtual machines or on a virtual network that has connectivity to the host pool virtual machines. You can create a virtual machine in multiple ways:
 
-## Create a new VM that will act as a file share
+- [Create a virtual machine from an Azure Gallery image](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
+- [Create a virtual machine from a managed image](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
+- [Create a virtual machine from an unmanaged image](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-To create a new VM that will act as a file share:
+After creating the virtual machine, join it to the domain by doing the following things:
 
-1. Create a new security group in Azure Active Directory.
-2. Create a new resource group that will host the VM.
-3. Select **Virtual Machines** in the left-hand navigation pane.
-4. On the **Virtual machine** blade, select **+Add**. Choose any VM with "Windows Server" in its name, then select **Create**.
-5. On the Create virtual machine flow under the Basic blade, enter the required information.
-    - Name: the VM name.
-    - Admin username: choose an admin name you will remember.
-    - Admin password: choose a password that meets Azure VM password complexity standards.
-    - Resource group: use the resource group you created in step 1
-6. Complete the VM setup by following the rest of the instructions. The VM will take some time to deploy.
+1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
+2. On the virtual machine, launch **Control Panel** and select **System**.
+3. Select **Computer name**, select **Change settings**, and then select **Change…**
+4. Select **Domain** and then enter the Active Directory domain on the virtual network.
+5. Authenticate with a domain account that has privileges to domain-join machines.
 
-## Prepare the VM to act as a file share for User Profile Disks
+## Prepare the virtual machine to act as a file share for user profiles
 
-To prepare the VM to act as a file share for User Profile Disks:
+The following are generalized steps on how to prepare a virtual machine to act as a file share for user profiles:
+1. Join the session host virtual machines to an [Active Directory security group](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). This security group will be used to authenticate the session hosts virtual machines to the file share virtual machine you just created.
+2. [Connect to the file share virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
+3. On the file share virtual machine, create a folder on the **C:\\** that will be used as the profile share.
+4. Right-click the new folder, select **Properties**, select **Sharing**, then select **Advanced sharing...**.
+5. Select **Share this folder**, select **Permissions...**, then select **Add...**.
+6. Search for the security group to which you added the session host virtual machines, then make sure that group has **Full Control**.
+7. After adding the security group, right-click the folder, select **Properties**, select **Sharing**, then copy down the **Network Path** to use for later.
 
-1. Join the VMs to the domain.
-2. Add the VMs to the security group you created in Create a new VM that will act as a file share.
-3. Select the User Profile Disk VM and select Connect at the top of the VM blade.
-4. Add the VM to the security group you created in Create a new VM that will act as a file share. Once you add session host VMs to the group, they won’t be counted as part of the security group until you restart them.
-5. Connect to the VM you created.
-6. Copy SetupUVHD.ps1 to the User Profile Disk VM.
-7. Run PowerShell as a local admin.
-8. Navigate to the folder youwhere copied SetupUVHD.ps1 towas copied and run the following cmdlet with these parameters:
-    - *PathOfShare*: the full path to drive and folder where the User Profile Disk will be stored.
-    - *NameOfShare*: the name of the folder where the User Profile Disk will be stored.
-    - *SizeInGB*: the User Profile Disk’s file size.
-    - *DomainName\SecurityGroupFromStep1*: the name of the security group where all session host VMs are added.
-    
-    ```powershell
-    .\SetupUVHD.ps1 -UvhdSharePath "<PathOfShare> " -ShareName "NameOfShare" -MaxGB <SizeInGB> -DomainGroupForSessionHosts "<DomainName>\<SecurityGroupFromStep1">
-    ```
+For best practices on permissions, see the [following FSLogix documentation](https://support.fslogix.com/index.php/forum-main/faqs/84-best-practices#120).
 
-9. After running the cmdlet, “Setup Completed Successfully” should appear in the PowerShell window.
 
-## Enable this file share to be used by the host pool
+## Configure the FSLogix profile container
 
-To enable this file share to be used by the host pool:
+To configure the virtual machines with the FSLogix software, do the following on each machine registered to the host pool:
+1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
+2. Launch an internet browser and navigate to the following [link](https://support.fslogix.com/index.php/downloads/download/download/1fa77ff8107fda8df939321ca0bbb56190be43ddf3b0d4bdd4fb94900c1e9453) to download the FSLogix agent.
+3. Install the FSLogix agent.
+4. Navigate to **C:\Program Files\FSLogix\Apps** to confirm the agent was installed.
+5. From the start menu, run **RedEdit** as an administrator. Navigate to **Computer\HKEY_LOCAL_MACHINE\software\FSLogix\Profiles**
+6. Create the following values:
 
-1. Open PowerShell as an admin (this requires setting the context to the Windows Virtual Desktop service).
-2. Run the following cmdlet to set context to the RDS tenant deployment.
-    
-    ```powershell
-    Set-RdsHostPool <tenantname> <hostpoolname> -DiskPath <\\FileServer\PathOfShare> -EnableUserProfileDisk
-    ```
+| Name                | Type               | Data/Value                        |
+|---------------------|--------------------|-----------------------------------|
+| Enabled             | DWORD              | 1                                 |
+| VHDLocations        | Multi-String Value | "**Network path** for file share" |
+| VolumeType          | String             | VHDX                              |
+| SizeInMBs           | DWORD              | "integer for size of profile"     |
+| IsDynamic           | DWORD              | 1                                 |
+| LockedRetryCount    | DWORD              | 1                                 |
+| LockedRetryInterval | DWORD              | 0                                 |
