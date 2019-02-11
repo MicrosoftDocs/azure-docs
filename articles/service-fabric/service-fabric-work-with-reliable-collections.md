@@ -99,7 +99,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 
    // The user exists in the dictionary, update one of their properties.
    if (user.HasValue)
-  {
+   {
       // The line below updates the property’s value in memory only; the
       // new value is NOT serialized, logged, & sent to secondary replicas.
       user.Value.LastLogin = DateTime.UtcNow; // Corruption!
