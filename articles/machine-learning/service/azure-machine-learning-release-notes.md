@@ -21,6 +21,8 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 ## 2019-02-11
 
+### Azure Machine Learning SDK for Python v1.0.15
+
 ### Azure Machine Learning Data Prep SDK v1.0.12
 
 + **New features**
