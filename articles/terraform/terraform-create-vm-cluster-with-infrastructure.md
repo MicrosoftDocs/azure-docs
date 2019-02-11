@@ -27,7 +27,7 @@ In this tutorial, you:
 ## 1. Set up Azure authentication
 
 > [!NOTE]
-> If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables), or run this tutorial in the [Azure Cloud Shell](terraform-cloud-shell.md), skip this section.
+> If you [use Terraform environment variables](/azure/virtual-machines/linux/terraform-install-configure), or run this tutorial in the [Azure Cloud Shell](terraform-cloud-shell.md), skip this section.
 
 In this section, you generate an Azure service principal, and two Terraform configuration files containing the credentials from the security principal.
 

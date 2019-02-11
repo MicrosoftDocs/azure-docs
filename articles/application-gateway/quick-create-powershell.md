@@ -3,15 +3,9 @@ title: Quickstart - Direct web traffic with Azure Application Gateway - Azure Po
 description: Learn how use Azure PowerShell to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-
 ms.service: application-gateway
-ms.devlang: azurepowershell
 ms.topic: quickstart
-ms.workload: infrastructure-services
-ms.date: 12/26/2018
+ms.date: 1/11/2019
 ms.author: victorh
 ms.custom: mvc
 ---
@@ -26,9 +20,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Run Azure PowerShell locally
 
-If you choose to install and use Azure PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. 
+If you choose to install and use Azure PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later.
 
-1. To find the version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+1. To find the version, run `Get-Module -ListAvailable AzureRM`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). 
 2. To create a connection with Azure, run `Login-AzureRmAccount`.
 
 ## Create a resource group
@@ -39,19 +33,19 @@ In Azure, you allocate related resources to a resource group. Create a resource 
 New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
-## Create network resources 
+## Create network resources
 
-Create a virtual network so that the application gateway can communicate with other resources. Two subnets are created in this example: one for the application gateway and the other for the backend servers. 
+Create a virtual network so that the application gateway can communicate with other resources. Two subnets are created in this example: one for the application gateway and the other for the backend servers. The application gateway subnet can contain only application gateways. No other resources are allowed.
 
 1. Create the subnet configurations by calling [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig).
 2. Create the virtual network with the subnet configurations by calling [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork).
 3. Create the public IP address by calling [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress).
 
 ```azurepowershell-interactive
-$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
   -Name myAGSubnet `
   -AddressPrefix 10.0.1.0/24
-$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
   -Name myBackendSubnet `
   -AddressPrefix 10.0.2.0/24
 New-AzureRmVirtualNetwork `
@@ -59,7 +53,7 @@ New-AzureRmVirtualNetwork `
   -Location eastus `
   -Name myVNet `
   -AddressPrefix 10.0.0.0/16 `
-  -Subnet $backendSubnetConfig, $agSubnetConfig
+  -Subnet $agSubnetConfig, $backendSubnetConfig
 New-AzureRmPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
@@ -79,7 +73,8 @@ In this example, you create two virtual machines for Azure to use as backend ser
 When you run the following code sample to create the virtual machines, Azure prompts you for credentials. Enter *azureuser* for the user name and *Azure123456!* for the password:
     
 ```azurepowershell-interactive
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
+$vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
+$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name myBackendSubnet
 $cred = Get-Credential
 for ($i=1; $i -le 2; $i++)
 {
@@ -87,7 +82,7 @@ for ($i=1; $i -le 2; $i++)
     -Name myNic$i `
     -ResourceGroupName myResourceGroupAG `
     -Location EastUS `
-    -SubnetId $vnet.Subnets[1].Id
+    -SubnetId $subnet.Id
   $vm = New-AzureRmVMConfig `
     -VMName myVM$i `
     -VMSize Standard_DS2_v2
@@ -130,9 +125,9 @@ for ($i=1; $i -le 2; $i++)
 3. Use [New-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport) to assign port 80 to access the application gateway.
 
 ```azurepowershell-interactive
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
-$pip = Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress 
-$subnet=$vnet.Subnets[0]
+$vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
+$subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name myAGSubnet
+$pip    = Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress 
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
   -Name myAGIPConfig `
   -Subnet $subnet

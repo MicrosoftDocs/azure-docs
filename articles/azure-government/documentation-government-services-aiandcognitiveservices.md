@@ -84,19 +84,6 @@ Variations in Azure Government:
 
 For more information, see [global Azure documentation](../cognitive-services/luis/what-is-luis.md) for Language Understanding.
 
-### Speech (currently in Public Preview)
-
-#### Translator Speech (Speech Translation)
-
-Variations in Azure Government:
-
-- Endpoint: https://docs.microsoft.com/azure/cognitive-services/translator-speech/
-- Auth Token Service: https://virginia.api.cognitive.microsoft.us/sts/v1.0/issueToken
-- Provisioning and management are available through PowerShell and CLI only (no Azure portal support)
-- Available SKUs: S1, S2, S3, S4
-
-For more information, see the [global Azure documentation](../cognitive-services/speech/home.md) for Translator Speech. 
-
 ### Data Considerations
 
 Data considerations for Cognitive Services are not yet available. 

@@ -2,12 +2,12 @@
 title: Azure Event Grid delivery and retry
 description: Describes how Azure Event Grid delivers events and how it handles undelivered messages.
 services: event-grid
-author: tfitzmac
+author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/10/2018
-ms.author: tomfitz
+ms.date: 01/01/2019
+ms.author: spelluru
 ---
 
 # Event Grid message delivery and retry

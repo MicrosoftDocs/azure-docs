@@ -89,7 +89,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     ![Function localhost response in the browser](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
 
-1. To stop debugging, press Shift + F1.
+1. To stop debugging, press Shift + F5.
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 

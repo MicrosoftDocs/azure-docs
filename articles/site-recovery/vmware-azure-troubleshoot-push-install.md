@@ -6,7 +6,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 12/12/2018
+ms.date: 02/07/2019
 
 
 
@@ -15,11 +15,17 @@ ms.date: 12/12/2018
 
 Installation of Mobility service is a key step during Enable Replication. The success of this step depends solely on meeting prerequisites and working with supported configurations. The most common failures you face during Mobility service installation are due to:
 
-* Credential/Privilege errors
-* Login failures
-* Connectivity errors
-* Unsupported Operating systems
-* VSS installation failures
+* [Credential/Privilege errors](#credentials-check-errorid-95107--95108)
+* [Login failures](#login-failures-errorid-95519-95520-95521-95522)
+* [Connectivity errors](#connectivity-failure-errorid-95117--97118)
+* [File and printer sharing errors](#file-and-printer-sharing-services-check-errorid-95105--95106)
+* [WMI failures](#windows-management-instrumentation-wmi-configuration-check-error-code-95103)
+* [Unsupported Operating systems](#unsupported-operating-systems)
+* [Unsupported Boot configurations](#unsupported-boot-disk-configurations-errorid-95309-95310-95311)
+* [VSS installation failures](#vss-installation-failures)
+* [Device name in GRUB configuration instead of device UUID](#enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320)
+* [LVM volume](#lvm-support-from-920-version)
+* [Reboot warnings](#install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266)
 
 When you enable replication, Azure Site Recovery tries to push install mobility service agent on your virtual machine. As part of this, Configuration server tries to connect with the virtual machine and copy the Agent. To enable successful installation, follow the step by step troubleshooting guidance given below.
 
@@ -53,12 +59,14 @@ When domain trust relationship establishment between the primary domain and work
 
 If you wish to modify the credentials of chosen user account, follow the instructions given [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## Login Failure (ErrorID: 95519)
+## Login Failures (ErrorID: 95519, 95520, 95521, 95522)
+
+### Credentials of the user account have been disabled (ErrorID: 95519)
 
 The user account chosen during Enable Replication has been disabled. To enable the user account, refer to the article [here](https://aka.ms/enable_login_user) or run the following command by replacing text *username* with the actual user name.
 `net user 'username' /active:yes`
 
-## Login Failure (ErrorID: 95520)
+### Credentials locked out due to multiple failed login attempts (ErrorID: 95520)
 
 Multiple failed retry efforts to access a machine will lock the user account. The failure can be due to:
 
@@ -67,11 +75,11 @@ Multiple failed retry efforts to access a machine will lock the user account. Th
 
 So, modify the credentials chosen by following the instructions given [here](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation) and retry the operation after sometime.
 
-## Login Failure (ErrorID: 95521)
+### Logon servers are not available on the source machine (ErrorID: 95521)
 
 This error occurs when the logon servers are not available on source machine. Unavailability of logon servers will lead to failure of login request and thus mobility agent cannot be installed. For successful Login, ensure that Logon servers are available on the source machine and start the Logon service. For detailed instructions, click [here](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available).
 
-## Login Failure (ErrorID: 95522)
+### Logon service isn't running on the source machine (ErrorID: 95522)
 
 The login service isn't running on your source machine and caused failure of login request. So, mobility agent cannot be installed. To resolve, ensure that Logon service is running on the source machine for successful Login. To start the logon service, run the command "net start Logon" from command prompt or start "NetLogon" service from task manager.
 
@@ -136,19 +144,65 @@ Other WMI troubleshooting articles could be found at the following articles.
 Another most common reason for failure could be due to unsupported operating system. Ensure you are on the supported Operating System/Kernel version for successful installation of Mobility service. Avoid the usage of private patch.
 To view the list of operating systems and kernel versions supported by Azure Site Recovery, refer to our [support matrix document](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-## Boot and system partitions / volumes are not the same disk (ErrorID: 95309)
+## Unsupported boot disk configurations (ErrorID: 95309, 95310, 95311)
+
+### Boot and system partitions / volumes are not the same disk (ErrorID: 95309)
 
 Before 9.20 version, boot and system partitions/ volumes on different disks was an unsupported configuration. 
 From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), this configuration is supported. Use latest version for this support.
+
+### The boot disk is not available (ErrorID: 95310)
+
+A virtual machine without a boot disk cannot be protected. This is to ensure smooth recovery of virtual machine during failover operation. Absence of boot disk results in failure to boot the machine after failover. Ensure that the virtual machine contains boot disk and retry the operation. Also, note that multiple boot disks on the same machine is not supported.
+
+### Multiple Boot disks present on the source machine (ErrorID: 95311)
+
+A virtual machine with multiple boot disks is not a [supported configuration](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 
 ## System partition on multiple disks (ErrorID: 95313)
 
 Before 9.20 version, root partition or volume laid on multiple disks was an unsupported configuration. 
 From [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), this configuration is supported. Use latest version for this support.
 
-## GRUB UUID failure (ErrorID: 95320)
+## Enable protection failed as device name mentioned in the GRUB configuration instead of UUID (ErrorID: 95320)
 
-If source machine's GRUB is using device name instead of UUID, then mobility agent installation fails. Reach out to system admin to make the changes to GRUB file.
+**Possible Cause:** </br>
+The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the value for the parameters **root** and **resume** as the actual device names instead of UUID. Site Recovery mandates UUID approach as devices name may change across reboot of the VM as VM may not come-up with the same name on failover resulting in issues. For example: </br>
+
+
+- The following line is from the GRUB file **/boot/grub2/grub.cfg**. <br>
+*linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
+
+
+- The following line is from the GRUB file **/boot/grub/menu.lst**
+*kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+
+If you observe the bold string above, GRUB has actual device names for the parameters "root" and "resume" instead of UUID.
+ 
+**How to Fix:**<br>
+The device names should be replaced with the corresponding UUID.<br>
+
+
+1. Find the UUID of the device by executing the command "blkid <device name>". For example:<br>
+```
+blkid /dev/sda1
+/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
+blkid /dev/sda2 
+/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
+```
+
+2. Now replace the device name with its UUID in the format like "root=UUID=<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br>
+*kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+3. Restart the protection again
+
+## Install Mobility Service completed with warning to reboot (ErrorID: 95265 & 95266)
+
+Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded; which can happen only at the time of system reboot.
+
+**Please note** that this is a warning and existing replication will work even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. So, after an update without reboot, apart from filter driver, **benefits of other enhancements and fixes in mobility service gets realized**. So,though recommended, it is not mandatory to reboot after every upgrade. For information on when a reboot is mandatory, click [here](https://aka.ms/v2a_asr_reboot).
+
+> [!TIP]
+>For best practices on scheduling upgrades during your maintenance window, refer [here](https://aka.ms/v2a_asr_upgrade_practice).
 
 ## LVM support from 9.20 version
 

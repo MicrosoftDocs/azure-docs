@@ -6,15 +6,12 @@ documentationcenter: ''
 author: linda33wj
 manager: craigg
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-
 ---
 # Copy data from a REST endpoint by using Azure Data Factory
 

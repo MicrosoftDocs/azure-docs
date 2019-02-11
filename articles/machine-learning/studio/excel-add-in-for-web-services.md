@@ -1,18 +1,15 @@
 ---
-title: Excel add-in for web services - Azure Machine Learning Studio | Microsoft Docs
+title: Excel add-in for web services
+titleSuffix: Azure Machine Learning Studio
 description: How to use Azure Machine Learning Web services directly in Excel without writing any code.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: seodec18
-ms.author: amlstudiodocs
-ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
 ms.service: machine-learning
-ms.component: studio
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 02/01/2018
 ---
 # Excel Add-in for Azure Machine Learning Studio web services
@@ -22,8 +19,8 @@ Excel makes it easy to call web services directly without the need to write any 
 
 1. Open the [sample Excel file](https://aka.ms/amlexcel-sample-2), which contains the Excel add-in and data about passengers on the Titanic. 
  
-> [!NOTE]
-> You will see the list of the Web Services related to the file and at the bottom a checkbox for "Auto-predict". If you enable auto-predict the predictions of **all** your services will be updated every time there is a change on the inputs. If unchecked you will have to click on "Predict All" for refresh. For enabling auto-predict at a service level go to step 6.
+    > [!NOTE]
+    > You will see the list of the Web Services related to the file and at the bottom a checkbox for "Auto-predict". If you enable auto-predict the predictions of **all** your services will be updated every time there is a change on the inputs. If unchecked you will have to click on "Predict All" for refresh. For enabling auto-predict at a service level go to step 6.
 
 2. Choose the web service by clicking it - "Titanic Survivor Predictor (Excel Add-in Sample) [Score]" in this example.
    
@@ -35,7 +32,7 @@ Excel makes it easy to call web services directly without the need to write any 
    
     ![Predict section][02]
 
-Deploy a web service or use an existing Web service. For more information on deploying a web service, see [Walkthrough Step 5: Deploy the Azure Machine Learning Web service](walkthrough-5-publish-web-service.md).
+Deploy a web service or use an existing Web service. For more information on deploying a web service, see [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md).
 
 Get the API key for your web service. Where you perform this action depends on whether you published a Classic Machine Learning web service of a New Machine Learning web service.
 
@@ -63,7 +60,7 @@ Get the API key for your web service. Where you perform this action depends on w
 
 ## Steps to Add a New web service
 
-1. Deploy a web service or use an existing Web service. For more information on deploying a web service, see [Walkthrough Step 5: Deploy the Azure Machine Learning Web service](walkthrough-5-publish-web-service.md).
+1. Deploy a web service or use an existing Web service. For more information on deploying a web service, see [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md).
 2. Click **Consume**.
 3. Look for the **Basic consumption info** section. Copy and save the **Primary Key** and the **Request-Response** URL.
 4. In Excel, go to the **Web Services** section (if you are in the **Predict** section, click the back arrow to go to the list of web services).

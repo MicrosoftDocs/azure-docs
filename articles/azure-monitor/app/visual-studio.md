@@ -17,7 +17,7 @@ ms.reviewer: mbullwin
 ms.author: daviste
 ---
 # Debug your applications with Azure Application Insights in Visual Studio
-In Visual Studio (2015 and later), you can analyze performance and diagnose issues in your ASP.NET web app both in debugging and in production, using telemetry from [Azure Application Insights](../../application-insights/app-insights-overview.md).
+In Visual Studio (2015 and later), you can analyze performance and diagnose issues in your ASP.NET web app both in debugging and in production, using telemetry from [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 If you created your ASP.NET web app using Visual Studio 2017 or later, it already has the Application Insights SDK. Otherwise, if you haven't done so already, [add Application Insights to your app](../../azure-monitor/app/asp-net.md).
 

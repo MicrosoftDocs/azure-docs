@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/11/2016
+ms.date: 02/08/2019
 ms.author: mbullwin
 
 ---
@@ -20,7 +20,7 @@ Problems with [Application Insights Analytics](analytics.md)? Start here. Analyt
 
 ## Limits
 * At present, query results are limited to just over a week of past data.
-* Browsers we test on: latest editions of Chrome, Edge, and Internet Explorer.
+* Browsers we test on: latest editions of Chrome, Microsoft Edge, and Internet Explorer.
 
 ## Known incompatible browser extensions
 * Ghostery
@@ -30,9 +30,9 @@ Disable the extension or use a different browser.
 ## <a name="e-a"></a> "Unexpected error"
 ![Unexpected error screen](media/analytics-troubleshooting/010.png)
 
-Internal error occurred during portal runtime � unhandled exception.
+Internal error occurred during portal runtime unhandled exception.
 
-* Clean the browser's cache. 
+* Clean the browser's cache.
 
 ## <a name="e-b"></a>403 ... please try to reload
 ![403 ... please try to reload](media/analytics-troubleshooting/020.png)
@@ -50,7 +50,7 @@ An authentication related error occurred (during authentication or during access
 2. Did you use a favorite, bookmark or saved link to open the Analytics portal? Are you signed in with different credentials than you used when you saved the link?
 3. Try using an in-private/incognito browser window (after closing all such windows). You'll have to provide your credentials. 
 4. Open another (ordinary) browser window and go to [Azure](https://portal.azure.com). Sign out. Then open your link and sign in with the correct credentials.
-5. Edge and Internet Explorer users can also get this error when trusted zone settings are not supported.
+5. Microsoft Edge and Internet Explorer users can also get this error when trusted zone settings are not supported.
    
     Verify both [Analytics portal](https://portal.azure.com) and [Azure Active Directory portal](https://portal.azure.com) are in the same security zone:
    
@@ -67,7 +67,7 @@ An authentication related error occurred (during authentication or during access
 ## <a name="e-d"></a>404 ... Resource not found
 ![404 ... resource not found](media/analytics-troubleshooting/040.png)
 
-Application resource was deleted from Application Insights and isn�t available anymore. This can happen if you saved the URL to the Analytics page.
+Application resource was deleted from Application Insights and isn't available anymore. This can happen if you saved the URL to the Analytics page.
 
 ## <a name="e-e"></a>403 ... No authorization
 ![403 ... not authorized](media/analytics-troubleshooting/050.png)

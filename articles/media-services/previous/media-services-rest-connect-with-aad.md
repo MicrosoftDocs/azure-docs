@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 02/10/2019
 ms.author: willzhan;juliako;johndeu
 
 ---
 
-# Use Azure AD authentication to access the Azure Media Services API with REST
+# Use Azure AD authentication to access the Media Services API with REST
 
 When you're using Azure AD authentication with Azure Media Services, you can authenticate in one of two ways:
 
@@ -47,7 +47,7 @@ In this tutorial, you learn how to:
 - Review the [Accessing Azure Media Services API with Azure AD authentication overview](media-services-use-aad-auth-to-access-ams-api.md) article.
 - Install the [Postman](https://www.getpostman.com/) REST client to execute the REST APIs shown in this article. 
 
-    In this tutorial, we are uring **Postman** but any REST tool would be suitable. Other alternatives are: **Visual Studio Code** with the REST plugin or **Telerik Fiddler**. 
+    In this tutorial, we are using **Postman** but any REST tool would be suitable. Other alternatives are: **Visual Studio Code** with the REST plugin or **Telerik Fiddler**. 
 
 ## Get the authentication information from the Azure portal
 

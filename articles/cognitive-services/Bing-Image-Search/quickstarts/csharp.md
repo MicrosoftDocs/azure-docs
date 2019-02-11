@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send image search requests to the Bing Image Search REST API using C#, and receive JSON responses.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
@@ -95,12 +95,12 @@ namespace BingSearchApisQuickstart
 
 In the `BingImageSearch` method, perform the following steps.
 
-1. Construct the URI for the search request. Note that the search term `toSearch` must be formatted before being appended to the string.
+1. Construct the URI for the search request. Note that the search term `SearchTerm` must be formatted before being appended to the string.
 
     ```csharp
-    static SearchResult BingImageSearch(string toSearch){
+    static SearchResult BingImageSearch(string SearchTerm){
 
-        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
+        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(SearchTerm);
     //...
     ```
 
@@ -150,7 +150,6 @@ In the `BingImageSearch` method, perform the following steps.
     Console.WriteLine("URL for the first image result: " + firstJsonObj["webSearchUrl"]+"\n");
     ```  
 
-3. Make sure to remove your subscription key from the application's code.
 
 ## JSON response
 

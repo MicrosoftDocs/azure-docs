@@ -14,7 +14,7 @@ ms.author: luisca
 ms.custom: seodec2018
 ---
 
-#	 Deprecated Cognitive Search Skills
+# Deprecated Cognitive Search Skills
 
 This document describes cognitive skills that are considered deprecated. Use the following guide for the contents:
 

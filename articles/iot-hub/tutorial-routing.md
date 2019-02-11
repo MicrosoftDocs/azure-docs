@@ -625,4 +625,4 @@ In this tutorial, you learned how to use message routing to route IoT Hub messag
 Advance to the next tutorial to learn how to manage the state of an IoT device. 
 
 > [!div class="nextstepaction"]
-[Configure your devices from a back-end service](tutorial-device-twins.md)
+[Set up and use metrics and diagnostics with an IoT Hub](tutorial-use-metrics-and-diags.md)

@@ -4,7 +4,7 @@ description: This topic gives an overview of what is involved in delivering your
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 02/10/2019
 ms.author: juliako
 
 ---
@@ -57,7 +57,7 @@ To provide your user with a URL that can be used to stream or download your cont
 * OnDemandOrigin locators. These are used to stream media (for example, MPEG-DASH, HLS, or Smooth Streaming) or progressively download files.
 * Shared access signature (SAS) URL locators. These are used to download media files to your local computer.
 
-An *access policy* is used to define the permissions (such as read, write, and list) and duration for which a client has access for a particular asset. Note that the list permission (AccessPermissions.List) should not be used in creating an OrDemandOrigin locator.
+An *access policy* is used to define the permissions (such as read, write, and list) and duration for which a client has access for a particular asset. Note that the list permission (AccessPermissions.List) should not be used in creating an OnDemandOrigin locator.
 
 Locators have expiration dates. The Azure portal sets an expiration date 100 years in the future for locators.
 

@@ -31,4 +31,4 @@ On the Preview blade, you can select from the following options for when you see
 
 ## Next steps
 
-- [Create a resource](../../application-insights/app-insights-create-new-resource.md)
+- [Create a resource](../../azure-monitor/app/create-new-resource.md )

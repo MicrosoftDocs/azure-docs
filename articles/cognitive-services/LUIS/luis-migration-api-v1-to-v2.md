@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: The version 1 endpoint and authoring APIs are deprecated. Use this guide to understand how to migrate to version 2 endpoint  and authoring APIs. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
@@ -107,7 +107,7 @@ The subscription endpoint key APIs are deprecated, returning 410 GONE.
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [endpoint keys](luis-how-to-azure-subscription.md) are generated in the Azure portal. You assign the key to a LUIS app on the **[Publish](luis-how-to-manage-keys.md)** page. You do not need to know the actual key value. LUIS uses the subscription name to make the assignment. 
+Azure [endpoint keys](luis-how-to-azure-subscription.md) are generated in the Azure portal. You assign the key to a LUIS app on the **[Publish](luis-how-to-azure-subscription.md)** page. You do not need to know the actual key value. LUIS uses the subscription name to make the assignment. 
 
 ## New versioning route
 The v2 model is now contained in a [version](luis-how-to-manage-versions.md). A version name is 10 characters in the route. The default version is "0.1".

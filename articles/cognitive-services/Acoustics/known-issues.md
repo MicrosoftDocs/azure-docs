@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: You might encounter the following known issues when using the Designer Preview for Project Acoustics.
 services: cognitive-services
 author: kylestorck
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kylestorck

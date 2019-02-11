@@ -30,7 +30,7 @@ ms.author: mbullwin
 
 *I [installed Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md) on my web server to monitor existing apps. I don't see any results.*
 
-* See [Troubleshooting Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights). 
+* See [Troubleshooting Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot). 
 
 ## <a name="q01"></a>No 'Add Application Insights' option in Visual Studio
 *When I right-click an existing project in Solution Explorer, I don't see any Application Insights options.*
@@ -54,7 +54,7 @@ Fix:
 * Check that you provided sign-in credentials for the right Azure account. 
 * In your browser, check that you have access to the [Azure portal](https://portal.azure.com). Open Settings and see if there is any restriction.
 * [Add Application Insights to your existing project](../../azure-monitor/app/asp-net.md): In Solution Explorer, right click your project and choose "Add Application Insights."
-* If it still isn't working, follow the [manual procedure](../../application-insights/app-insights-windows-services.md) to add a resource in the portal and then add the SDK to your project. 
+* If it still isn't working, follow the [manual procedure](../../azure-monitor/app/windows-services.md) to add a resource in the portal and then add the SDK to your project. 
 
 ## <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
 Looks like something went wrong while you were installing Application Insights or maybe a logging adapter.
@@ -151,7 +151,7 @@ The data comes from scripts in the web pages.
 See [dependency telemetry](../../azure-monitor/app/asp-net-dependencies.md) and [exception telemetry](asp-net-exceptions.md).
 
 ## No performance data
-Performance data (CPU, IO rate, and so on) is available for [Java web services](../../azure-monitor/app/java-collectd.md), [Windows desktop apps](../../azure-monitor/app/windows-desktop.md), [IIS web apps and services if you install status monitor](../../azure-monitor/app/monitor-performance-live-website-now.md), and [Azure Cloud Services](../../application-insights/app-insights-overview.md). you'll find it under Settings, Servers.
+Performance data (CPU, IO rate, and so on) is available for [Java web services](../../azure-monitor/app/java-collectd.md), [Windows desktop apps](../../azure-monitor/app/windows-desktop.md), [IIS web apps and services if you install status monitor](../../azure-monitor/app/monitor-performance-live-website-now.md), and [Azure Cloud Services](../../azure-monitor/app/app-insights-overview.md). you'll find it under Settings, Servers.
 
 ## No (server) data since I published the app to my server
 * Check that you actually copied all the Microsoft. ApplicationInsights DLLs to the server, together with Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
@@ -182,6 +182,52 @@ The city, region, and country dimensions are derived from IP addresses and aren'
 
 ## Exception "method not found" on running in Azure Cloud Services
 Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Services roles. [Install 4.6 on each role](../../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.
+
+## Troubleshooting Logs
+
+Follow these instructions to capture troubleshooting logs for your framework.
+
+### .Net Framework
+
+1. Install the [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) package from NuGet. The version you install must match the current installed version of `Microsoft.ApplicationInsighs`
+
+2. Modify your applicationinsights.config file to include the following:
+
+   ```xml
+   <TelemetryModules>
+      <Add Type="Microsoft.ApplicationInsights.Extensibility.HostingStartup.FileDiagnosticsTelemetryModule, Microsoft.AspNet.ApplicationInsights.HostingStartup">
+        <Severity>Verbose</Severity>
+        <LogFileName>mylog.txt</LogFileName>
+        <LogFilePath>C:\\SDKLOGS</LogFilePath>
+      </Add>
+   </TelemetryModules>
+   ```
+   Your application must have Write permissions to the configured location
+ 
+ 3. Restart process so that these new settings are picked up by SDK
+ 
+ 4. Revert these changes when you are finished.
+  
+### .Net Core
+
+1. Install the [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) package from NuGet. The version you install must match the current installed version of `Microsoft.ApplicationInsighs`
+
+2. Modify `ConfigureServices` method in your `Startup.cs` class.:
+
+    ```csharp
+    services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();
+    services.ConfigureTelemetryModule<FileDiagnosticsTelemetryModule>( (module, options) => {
+        module.LogFilePath = "C:\\SDKLOGS";
+        module.LogFileName = "mylog.txt";
+        module.Severity = "Verbose";
+    } );
+    ```
+   Your application must have Write permissions to the configured location
+ 
+ 3. Restart process so that these new settings are picked up by SDK
+ 
+ 4. Revert these changes when you are finished.
+  
 
 ## Still not working...
 * [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

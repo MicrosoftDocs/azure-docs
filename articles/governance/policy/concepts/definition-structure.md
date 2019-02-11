@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/12/2018
+ms.date: 02/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -44,7 +44,8 @@ For example, the following JSON shows a policy that limits where resources are d
                     "description": "The list of locations that can be specified when deploying resources",
                     "strongType": "location",
                     "displayName": "Allowed locations"
-                }
+                },
+                "defaultValue": "westus2"
             }
         },
         "displayName": "Allowed locations",
@@ -66,6 +67,8 @@ For example, the following JSON shows a policy that limits where resources are d
 
 All Azure Policy samples are at [Policy samples](../samples/index.md).
 
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+
 ## Mode
 
 The **mode** determines which resource types will be evaluated for a policy. The supported modes
@@ -80,7 +83,7 @@ parameter manually. If the policy definition doesn't include a **mode** value, i
 in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to support
 backwards compatibility.
 
-`indexed` should be used when creating policies that enforce tags or locations. While note
+`indexed` should be used when creating policies that enforce tags or locations. While not
 required, it prevents resources that don't support tags and locations from showing up as
 non-compliant in the compliance results. The exception is **resource groups**. Policies that
 enforce location or tags on a resource group should set **mode** to `all` and specifically target
@@ -96,12 +99,27 @@ Parameters work the same way when building policies. By including parameters in 
 definition, you can reuse that policy for different scenarios by using different values.
 
 > [!NOTE]
-> The parameters definition for a policy or initiative definition can only be configured during the
-> initial creation of the policy or initiative. The parameters definition can't be changed later.
-> This prevents existing assignments of the policy or initiative from indirectly being made invalid.
+> Parameters may be added to an existing and assigned definition. The new parameter must include the
+> **defaultValue** property. This prevents existing assignments of the policy or initiative from
+> indirectly being made invalid.
 
-As an example, you could define a policy to limit the locations where resources can be deployed.
-You'd declare the following parameters when you create your policy:
+### Parameter properties
+
+A parameter has the following properties that are used in the policy definition:
+
+- **name**: The name of your parameter. Used by the `parameters` deployment function within the policy rule. For more information, see [using a parameter value](#using-a-parameter-value).
+- `type`: Determines if the parameter is a **string** or an **array**.
+- `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly information:
+  - `description`: The explanation of what the parameter is used for. Can be used to provide examples of acceptable values.
+  - `displayName`: The friendly name shown in the portal for the parameter.
+  - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides a context aware list. For more information, see [strongType](#strongtype).
+- `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned.
+- `allowedValues`: (Optional) Provides the list of values that the parameter accepts during assignment.
+
+As an example, you could define a policy definition to limit the locations where resources can be
+deployed. A parameter for that policy definition could be **allowedLocations**. This parameter
+would be used by each assignment of the policy definition to limit the accepted values. The use of
+**strongType** provides an enhanced experience when completing the assignment through the portal:
 
 ```json
 "parameters": {
@@ -111,23 +129,18 @@ You'd declare the following parameters when you create your policy:
             "description": "The list of allowed locations for resources.",
             "displayName": "Allowed locations",
             "strongType": "location"
-        }
+        },
+        "defaultValue": "westus2",
+        "allowedValues": [
+            "eastus2",
+            "westus2",
+            "westus"
+        ]
     }
 }
 ```
 
-The type of a parameter can be either string or array. The metadata property is used for tools like
-the Azure portal to display user-friendly information.
-
-Within the metadata property, you can use **strongType** to provide a multi-select list of options
-within the Azure portal. Allowed values for **strongType** currently include:
-
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+### Using a parameter value
 
 In the policy rule, you reference parameters with the following `parameters` deployment value
 function syntax:
@@ -138,6 +151,21 @@ function syntax:
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+This sample references the **allowedLocations** parameter that was demonstrated in [parameter
+properties](#parameter-properties).
+
+### strongType
+
+Within the `metadata` property, you can use **strongType** to provide a multi-select list of
+options within the Azure portal. Allowed values for **strongType** currently include:
+
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 ## Definition location
 
@@ -154,7 +182,8 @@ If the definition location is a:
 ## Display name and description
 
 You use **displayName** and **description** to identify the policy definition and provide context
-for when it's used.
+for when it's used. **displayName** has a maximum length of _128_ characters and **description**
+a maximum length of _512_ characters.
 
 ## Policy rule
 
@@ -246,7 +275,7 @@ The following fields are supported:
 - `location`
   - Use **global** for resources that are location agnostic. For an example, see [Samples - Allowed locations](../samples/allowed-locations.md).
 - `identity.type`
-  - Returns the type of [Managed Identity](../../../active-directory/managed-identities-azure-resources/overview.md) enabled on the resource.
+  - Returns the type of [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) enabled on the resource.
 - `tags`
 - `tags.<tagName>`
   - Where **\<tagName\>** is the name of the tag to validate the condition for.
@@ -371,13 +400,13 @@ Policy, use one of the following methods:
 - Azure PowerShell
 
   ```azurepowershell-interactive
-  # Login first with Connect-AzureRmAccount if not using Cloud Shell
+  # Login first with Connect-AzAccount if not using Cloud Shell
 
-  # Use Get-AzureRmPolicyAlias to list available providers
-  Get-AzureRmPolicyAlias -ListAvailable
+  # Use Get-AzPolicyAlias to list available providers
+  Get-AzPolicyAlias -ListAvailable
 
-  # Use Get-AzureRmPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
-  Get-AzureRmPolicyAlias -NamespaceMatch 'automation'
+  # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
+  Get-AzPolicyAlias -NamespaceMatch 'automation'
   ```
 
 - Azure CLI

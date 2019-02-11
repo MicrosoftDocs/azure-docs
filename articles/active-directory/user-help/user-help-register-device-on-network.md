@@ -3,11 +3,11 @@ title: Register your personal device on your organization's network - Azure Acti
 description: Learn how to register your personal device on your organization's network so you can access your organization's protected resources.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/04/2019

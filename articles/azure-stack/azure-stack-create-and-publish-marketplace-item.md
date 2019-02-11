@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
+ms.lastreviewed: 01/08/2019
 
 ---
 # Create and publish a Marketplace item
@@ -128,7 +129,7 @@ ms.reviewer: avishwan
 | --- | --- | --- | --- | --- |
 | Name |X |String |[A-Za-z0-9]+ | |
 | Publisher |X |String |[A-Za-z0-9]+ | |
-| Version |X |String |[SemVer v2](http://semver.org/) | |
+| Version |X |String |[SemVer v2](https://semver.org/) | |
 
 ### Metadata
 

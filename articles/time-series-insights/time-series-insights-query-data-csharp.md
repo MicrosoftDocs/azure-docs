@@ -107,7 +107,7 @@ namespace TimeSeriesInsightsQuerySample
                 toAvailabilityTimestamp);
             Console.WriteLine();
 
-            // Assume data for the whole availablility range is requested.
+            // Assume data for the whole availability range is requested.
             DateTime from = fromAvailabilityTimestamp;
             DateTime to = toAvailabilityTimestamp;
 
@@ -452,4 +452,4 @@ namespace TimeSeriesInsightsQuerySample
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Query API reference](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+> [Query API reference](/rest/api/time-series-insights/ga-query-api).

@@ -7,7 +7,7 @@ author: swatig007
 ms.reviewer: sgilley 
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18

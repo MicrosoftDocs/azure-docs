@@ -1,22 +1,22 @@
 ---
 title: Azure Monitor metrics explorer
-description: Learn about new features in Azure Monitor Metrics Explorer
+description: Learn about new features in Azure Monitor metrics explorer
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/20/2018
-ms.author: vitaly.gorbenko
-ms.component: metrics
+ms.date: 01/22/2019
+ms.author: vitalyg
+ms.subservice: metrics
 ---
 
-# Azure Monitor Metrics Explorer
+# Azure Monitor metrics explorer
 
-Azure Monitor Metrics Explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Metrics Explorer is an essential starting point for investigating various performance and availability issues with your applications and infrastructure hosted in Azure or monitored by Azure Monitor services.
+Azure Monitor metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Metrics explorer is an essential starting point for investigating various performance and availability issues with your applications and infrastructure hosted in Azure or monitored by Azure Monitor services.
 
 ## Metrics in Azure
 
-Metrics in Microsoft Azure are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Custom metrics are stored in the Application Insights resources together with other application specific metrics.
+[Metrics in Azure Monitor](data-collection.md#metrics) are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Custom metrics are stored in the Application Insights resources together with other application specific metrics.
 
 ## Create a new chart
 
@@ -47,7 +47,7 @@ Metrics in Microsoft Azure are the series of measured values and counts that are
 7. By clicking on **Add metric** and repeating steps 3-6, you can add more metrics on the same chart.
 
    > [!NOTE]
-   > You typically don’t want to have metrics with different units of measure (i.e. “milliseconds” and “kilobytes”) or with significantly different scale on one chart. Instead, consider using multiple charts. Click on the Add Chart button to create multiple charts in Metrics Explorer.
+   > You typically don’t want to have metrics with different units of measure (i.e. “milliseconds” and “kilobytes”) or with significantly different scale on one chart. Instead, consider using multiple charts. Click on the Add Chart button to create multiple charts in metrics explorer.
 
 ## Apply filters to charts
 
@@ -107,7 +107,7 @@ You will be taken to the alert rule creation pane with the underlying metric dim
 
 ![Create alert rule](./media/metrics-charts/016.png)
 
-Checkout this [article](alerts-metric.md) to learn more about setting up metric alerts.
+Check out this [article](alerts-metric.md) to learn more about setting up metric alerts.
 
 ## Lock boundaries of chart y-axis
 
@@ -134,6 +134,17 @@ After configuring your chart, click on the **Chart Actions** menu in the right t
 
 ![metric image](./media/metrics-charts/00013.png)
 
+## Troubleshooting
+
+*I don't see any data on my chart.*
+
+* Filters apply to all the charts on the pane. Make sure that, while you're focusing on one chart, you didn't set a filter that excludes all the data on another.
+
+* If you want to set different filters on different charts, create them in different blades, save them as separate favorites. If you want, you can pin them to the dashboard so that you can see them alongside each other.
+
+* If you segment a chart by a property that is not defined on the metric, then there will be nothing on the chart. Try clearing the segmentation (splitting), or choose a different property.
+
 ## Next steps
 
   Read [Creating custom KPI dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) to learn about the best practices for creating actionable dashboards with metrics.
+

@@ -1,5 +1,5 @@
 ---
-title: How to Query Logs from Azure Monitor for VMs (Preview) | Microsoft Docs
+title: How to Query Logs from Azure Monitor for VMs (preview) | Microsoft Docs
 description: Azure Monitor for VMs solution forwards metrics and log data to Log Analytics and this article describes the records and includes sample queries.
 services: azure-monitor
 documentationcenter: ''
@@ -11,11 +11,11 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 02/06/2019
 ms.author: magoedte
 ---
 
-# How to query logs from Azure Monitor for VMs (Preview)
+# How to query logs from Azure Monitor for VMs (preview)
 Azure Monitor for VMs collects performance and connection metrics, computer and process inventory data, and health state information and forwards it to the Log Analytics data store in Azure Monitor.  This data is available for [search](../../azure-monitor/log-query/log-query-overview.md) in Log Analytics. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
 ## Map records
@@ -162,6 +162,12 @@ Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connec
 ### List all known machines
 `ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
+### When was the VM last rebooted
+`let Today = now(); ServiceMapComputer_CL | extend DaysSinceBoot = Today - BootTime_t | summarize by Computer, DaysSinceBoot, BootTime_t | sort by BootTime_t asc`
+
+### Summary of Azure VMs by image, location, and SKU
+`ServiceMapComputer_CL | where AzureLocation_s != "" | summarize by ComputerName_s, AzureImageOffering_s, AzureLocation_s, AzureImageSku_s`
+
 ### List the physical memory capacity of all managed computers.
 `ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
@@ -180,7 +186,7 @@ Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connec
 ### List all known processes on a specified machine
 `ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
-### List all computers running SQL
+### List all computers running SQL Server
 `ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### List all unique product versions of curl in my datacenter
@@ -188,6 +194,18 @@ Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connec
 
 ### Create a computer group of all computers running CentOS
 `ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
+
+### Bytes sent and received trends
+`VMConnection | summarize sum(BytesSent), sum(BytesReceived) by bin(TimeGenerated,1hr), Computer | order by Computer desc | render timechart`
+
+### Which Azure VMs are transmitting the most bytes
+`VMConnection | join kind=fullouter(ServiceMapComputer_CL) on $left.Computer == $right.ComputerName_s | summarize count(BytesSent) by Computer, AzureVMSize_s | sort by count_BytesSent desc`
+
+### Link status trends
+`VMConnection | where TimeGenerated >= ago(24hr) | where Computer == "acme-demo" | summarize  dcount(LinksEstablished), dcount(LinksLive), dcount(LinksFailed), dcount(LinksTerminated) by bin(TimeGenerated, 1h) | render timechart`
+
+### Connection failures trend
+`VMConnection | where Computer == "acme-demo" | extend bythehour = datetime_part("hour", TimeGenerated) | project bythehour, LinksFailed | summarize failCount = count() by bythehour | sort by bythehour asc | render timechart`
 
 ### Summarize the outbound connections from a group of machines
 ```

@@ -16,7 +16,7 @@ ms.author: mbullwin
 ---
 # Smart Detection - Performance Anomalies
 
-[Application Insights](../../application-insights/app-insights-overview.md) automatically analyzes the performance of your web application, and can warn you about potential problems. You might be reading this because you received one of our smart detection notifications.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) automatically analyzes the performance of your web application, and can warn you about potential problems. You might be reading this because you received one of our smart detection notifications.
 
 This feature requires no special setup, other than configuring your app for Application Insights (on [ASP.NET](../../azure-monitor/app/asp-net.md), [Java](../../azure-monitor/app/java-get-started.md), or [Node.js](../../azure-monitor/app/nodejs.md), and in [web page code](../../azure-monitor/app/javascript.md)). It is active when your app generates enough telemetry.
 
@@ -74,7 +74,7 @@ Emails about Smart Detections performance anomalies are limited to one email per
 
   * Not yet, but you can:
     * [Set up alerts](../../azure-monitor/app/alerts.md) that tell you when a metric crosses a threshold.
-    * [Export telemetry](../../azure-monitor/app/export-telemetry.md) to a [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) or [to PowerBI](../../application-insights/app-insights-export-power-bi.md), where you can analyze it yourself.
+    * [Export telemetry](../../azure-monitor/app/export-telemetry.md) to a [database](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) or [to PowerBI](../../azure-monitor/app/export-power-bi.md ), where you can analyze it yourself.
 * *How often is the analysis performed?*
 
   * We run the analysis daily on the telemetry from the previous day (full day in UTC timezone).

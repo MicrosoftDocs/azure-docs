@@ -100,7 +100,7 @@ var isIE = msie > 0 || msie11 > 0;
 var isEdge = msedge > 0;
 
 //If you support IE, our recommendation is that you sign-in using Redirect APIs
-//If you as a developer are testing using Edge InPrivate mode, please add "isEdge" to the if check
+//If you as a developer are testing using Microsoft Edge InPrivate mode, please add "isEdge" to the if check
 if (!isIE) {
     if (myMSALObj.getUser()) {// avoid duplicate code execution on page load in case of iframe and popup window.
         showWelcomeMessage();

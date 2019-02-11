@@ -146,6 +146,8 @@
       href: connector-azure-cosmos-db.md
     - name: Azure Cosmos DB MongDB API
       href: connector-azure-cosmos-db-mongodb-api.md
+    - name: Azure Data Explorer
+      href: connector-azure-data-explorer.md
     - name: Azure Data Lake Storage Gen1
       href: connector-azure-data-lake-store.md
     - name: Azure Data Lake Storage Gen2
@@ -263,7 +265,9 @@
       href: connector-salesforce.md
     - name: Salesforce Marketing Cloud
       href: connector-salesforce-marketing-cloud.md
-    - name: SAP Business Warehouse
+    - name: SAP Business Warehouse Open Hub
+      href: connector-sap-business-warehouse-open-hub.md
+    - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
     - name: SAP Cloud for Customer
       href: connector-sap-cloud-for-customer.md
@@ -299,6 +303,8 @@
     items:
     - name: Copy data using Copy Activity
       href: copy-activity-overview.md
+    - name: Delete files using Delete Activity
+      href: delete-activity.md
     - name: Copy Data tool
       href: copy-data-tool.md
     - name: Load Data Lake Storage Gen2
@@ -411,6 +417,8 @@
       href: monitor-integration-runtime.md#azure-ssis-integration-runtime
     - name: Reconfigure Azure-SSIS integration runtime
       href: manage-azure-ssis-integration-runtime.md
+    - name: Copy or clone a data factory
+      href: copy-clone-data-factory.md
   - name: Create integration runtime
     items:
     - name: Azure integration runtime
@@ -451,8 +459,22 @@
       href: how-to-create-schedule-trigger.md
     - name: Create a tumbling window trigger
       href: how-to-create-tumbling-window-trigger.md
+    - name: Create a tumbling window trigger dependency
+      href: tumbling-window-trigger-dependency.md
     - name: Create an event-based trigger
       href: how-to-create-event-trigger.md
+  - name: Templates
+    items:
+    - name: Overview of templates
+      href: solution-templates-introduction.md
+    - name: Copy files from multiple containers
+      href: solution-template-copy-files-multiple-containers.md
+    - name: Bulk copy with control table
+      href: solution-template-bulk-copy-with-control-table.md
+    - name: Delta copy with control table
+      href: solution-template-delta-copy-with-control-table.md
+    - name: Transform data with Databricks
+      href: solution-template-databricks-notebook.md
 - name: Reference
   items:
   - name: .NET
@@ -461,6 +483,8 @@
     href: /powershell/module/azurerm.datafactoryv2/
   - name: REST API
     href: /rest/api/datafactory
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.datafactory/allversions
   - name: Python
     href: /python/api/overview/azure/datafactory?view=azure-python
 - name: Resources

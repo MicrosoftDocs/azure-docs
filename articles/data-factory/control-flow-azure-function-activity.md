@@ -6,13 +6,11 @@ documentationcenter: ''
 author: douglaslMS
 manager: craigg
 editor: 
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 01/09/2019
 ms.author: douglasl
 ---
 
@@ -20,9 +18,13 @@ ms.author: douglasl
 
 The Azure Function activity allows you to run [Azure Functions](../azure-functions/functions-overview.md) in a Data Factory pipeline. To run an Azure Function, you need to create a linked service connection and an activity that specifies the Azure Function that you plan to execute.
 
+For an eight-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Run-Azure-Functions-from-Azure-Data-Factory-pipelines/player]
+
 ## Azure Function linked service
 
-The return type of the Azure function has to be a valid JObject. Anything else fails and raises the generic user error *Error calling endpoint*.
+The return type of the Azure function has to be a valid `JObject`. (Keep in mind that [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) is *not* a `JObject`.) Any return type other than `JObject` fails and raises the generic user error *Error calling endpoint*.
 
 | **Property** | **Description** | **Required** |
 | --- | --- | --- |

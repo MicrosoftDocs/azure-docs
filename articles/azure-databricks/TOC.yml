@@ -46,6 +46,8 @@
   items:
   - name: REST API
     href: /rest/api/databricks
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.databricks/workspaces
 - name: Resources
   items:
   - name: Common questions

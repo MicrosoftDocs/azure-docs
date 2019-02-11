@@ -1,20 +1,15 @@
 ---
-title: Interpret model results in Machine Learning Studio - Azure | Microsoft Docs
+title: Interpret model results in Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: How to choose the optimal parameter set for an algorithm using and visualizing score model outputs.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
 ---
 # Interpret model results in Azure Machine Learning Studio
@@ -74,7 +69,7 @@ There are six columns in the results table. The left four columns are the four f
 
 **Web service publication**
 
-After the prediction results have been understood and judged sound, the experiment can be published as a web service so that you can deploy it in various applications and call it to obtain class predictions on any new iris flower. To learn how to change a training experiment into a scoring experiment and publish it as a web service, see [Publish the Azure Machine Learning web service](walkthrough-5-publish-web-service.md). This procedure provides you with a scoring experiment as shown in Figure 3.
+After the prediction results have been understood and judged sound, the experiment can be published as a web service so that you can deploy it in various applications and call it to obtain class predictions on any new iris flower. To learn how to change a training experiment into a scoring experiment and publish it as a web service, see [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md). This procedure provides you with a scoring experiment as shown in Figure 3.
 
 ![Screenshot of scoring experiment](./media/interpret-model-results/3.png)
 

@@ -25,6 +25,8 @@
       href: data-box-gateway-system-requirements.md
     - name: Understand limits
       href: data-box-gateway-limits.md
+    - name: View usecases
+      href: data-box-gateway-use-cases.md
   - name: How to
     items:
     - name: Manage
@@ -65,6 +67,8 @@
     items:
     - name: Review requirements
       href: data-box-edge-system-requirements.md
+    - name: Understand limits
+      href: data-box-edge-limits.md
   - name: How to
     items:
     - name: Develop C# module

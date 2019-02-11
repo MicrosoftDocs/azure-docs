@@ -6,7 +6,7 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 12/12/2018
 ms.author: mausher
 ms.reviewer: twounder
@@ -48,6 +48,9 @@ For more information on Query Store  in Azure SQL Data Warehouse, see the articl
 Azure SQL Data Warehouse Gen2 now supports lower compute tiers. Customers can experience Azure SQL Data Warehouse’s leading performance, flexibility, and security features starting with 100 cDWU ([Data Warehouse Units](https://docs.microsoft.com/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu)) and scale to 30,000 cDWU in minutes. Starting mid-December 2018, customers can benefit from Gen2 performance and flexibility with lower compute tiers in [regions](https://docs.microsoft.com/azure/sql-data-warehouse/gen2-lower-tier-regions), with the rest of the regions available during 2019.
 
 By dropping the entry point for next-generation data warehousing, Microsoft opens the doors to value-driven customers who want to evaluate all the benefits of a secure, high-performance data warehouse without guessing which trial environment is best for them. Customers may start as low as 100 cDWU, down from the current 500 cDWU entry point. SQL Data Warehouse Gen2 continues to support pause and resume operations and goes beyond just the flexibility in compute. Gen2 also supports unlimited column-store storage capacity along with 2.5 times more memory per query, up to 128 concurrent queries and [adaptive caching](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/) features. These features on average bring five times more performance compared to the same Data Warehouse Unit on Gen1 at the same price. Geo-redundant backups are standard for Gen2 with built-in guaranteed data protection. Azure SQL Data Warehouse Gen2 is ready to scale when you are.
+
+## Columnstore Background Merge
+By default, Azure SQL Data Warehouse (Azure SQL DW) stores data in columnar format, with micro-partitions called [rowgroups](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression). Sometimes, due to memory constrains at index build or data load time, the rowgroups may be compressed with less than the optimal size of one  million rows. Rowgroups may also become fragmented due to deletes. Small or fragmented rowgroups result in higher memory consumption, as well as inefficient query execution. With this release of Azure SQL DW, the columnstore background maintenance task merges small compressed rowgroups to create larger rowgroups to better utilize memory and speed up query execution.
 
 ## Next steps
 Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a SQL Data Warehouse][create a SQL Data Warehouse]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you learn new terminology. Or look at some of these other SQL Data Warehouse Resources.  

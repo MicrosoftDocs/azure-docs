@@ -4,7 +4,7 @@
   items:
   - name: What is Azure Monitor?
     href: overview.md
-  - name: Branding changes
+  - name: Terminology changes
     href: azure-monitor-rebrand.md
 - name: Quickstarts
   expanded: true
@@ -22,7 +22,7 @@
     - name: Mobile application
       href: learn/mobile-center-quickstart.md
     - name: Web application
-      href: ../application-insights/app-insights-website-monitoring.md?toc=/azure/azure-monitor/toc.json
+      href: app/website-monitoring.md 
   - name: Virtual machines
     items:
     - name: Collect - Azure VMs
@@ -33,9 +33,9 @@
       href: learn/quick-collect-windows-computer.md
 - name: Tutorials
   items:
-  - name: Analyze data in Log Analytics
+  - name: Analyze data in log analytics
     href: learn/tutorial-viewdata.md
-  - name: Visualize data in Log Analytics
+  - name: Visualize data in log analytics
     href: learn/tutorial-logs-dashboards.md
   - name: Archive platform metric and log data 
     href: learn/tutorial-archive-data.md
@@ -46,11 +46,11 @@
   - name: Find application run-time exceptions
     href: learn/tutorial-runtime-exceptions.md
   - name: Find application performance issues
-    href: ../application-insights/app-insights-tutorial-performance.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-performance.md
   - name: Alert on application health
     href: learn/tutorial-alert.md
   - name: Understand application users
-    href: ../application-insights/app-insights-tutorial-users.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-users.md
   - name: Create custom dashboards
     href: learn/tutorial-app-dashboards.md
 - name: Samples
@@ -60,9 +60,15 @@
 - name: Concepts
   items:
   - name: Azure management
-    href: azure-management.md?toc=/azure/azure-monitor/toc.json
+    href: azure-management.md
   - name: Continuous monitoring
     href: continuous-monitoring.md
+  - name: Analyze log data
+    items: 
+    - name: Log queries
+      href: log-query/log-query-overview.md
+    - name: Log query portals
+      href: log-query/portals.md
   - name: Monitoring data
     items: 
     - name: Metrics and logs
@@ -92,7 +98,7 @@
     - name: Application Insights
       items:
       - name: Overview
-        href: ../application-insights/app-insights-overview.md?toc=/azure/azure-monitor/toc.json
+        href: app/app-insights-overview.md
       - name: DevOps
         href: app/detect-triage-diagnose.md
       - name: Distributed tracing
@@ -105,18 +111,6 @@
       href: insights/vminsights-overview.md
     - name: Monitoring solutions
       href: insights/solutions-inventory.md
-  - name: Analyze data
-    items: 
-    - name: Log Analytics
-      href: log-query/log-query-overview.md
-    - name: Log query portals
-      href: log-query/portals.md
-    - name: OMS portal transition
-      items:
-        - name: Overview
-          href: platform/oms-portal-transition.md
-        - name: Common questions
-          href: platform/oms-portal-faq.md
   - name: Respond to incidents
     items:
     - name: Alerts 
@@ -134,9 +128,15 @@
     - name: Activity log alerts
       href: platform/activity-log-alerts.md  
   - name: Visualize data
-    href: visualizations.md?toc=/azure/azure-monitor/toc.json
+    href: visualizations.md
   - name: Partner integrations
     href: platform/partners.md
+  - name: OMS portal transition
+    items:
+    - name: Overview
+      href: platform/oms-portal-transition.md
+    - name: Common questions
+      href: platform/oms-portal-faq.md
   - name: FAQ
     items:
     - name: Log Analytics
@@ -160,7 +160,7 @@
     - name: Monitor applications
       items:
       - name: Deep diagnostics for web apps and services
-        href: ../application-insights/app-insights-devops.md?toc=/azure/azure-monitor/toc.json
+        href: app/devops.md
       - name: Monitor performance in web applications
         href: app/web-monitor-performance.md
       - name: Separate development, test, and production
@@ -194,12 +194,12 @@
         - name: Windows agents
           href: platform/agent-windows.md
         - name: VM Extension for Windows
-          href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machines/windows/extensions-oms.md
         - name: VM Extension for Linux
-          href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+          href: ../virtual-machines/linux/extensions-oms.md
         - name: Operations Manager
           href: platform/om-agents.md
-        - name: OMS Gateway
+        - name: Log Analytics gateway
           href: platform/gateway.md
         - name: Agent management
           href: platform/agent-manage.md
@@ -262,7 +262,7 @@
       - name: Azure apps
         items:
         - name: Azure app service
-          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
+          href: app/azure-web-apps.md
         - name: Azure Cloud Services
           href: app/cloudservices.md
         - name: Add continuous monitoring
@@ -270,23 +270,23 @@
         - name: Profiler
           items:
           - name: Overview
-            href: ../application-insights/app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-overview.md 
           - name: Enable Profiler for an App Service
             href: app/profiler.md
           - name: Enable the Profiler for a Cloud Service
-            href: ../application-insights/app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-cloudservice.md 
           - name: Enable Profiler for a Service Fabric Application
-            href: ../application-insights/app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-servicefabric.md 
           - name: Enable Profiler for an Azure VM
-            href: ../application-insights/app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-vm.md
           - name: Profiler Settings
-            href: ../application-insights/app-insights-profiler-settings.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-settings.md 
           - name: Track Requests for Profiling
-            href: ../application-insights/app-insights-profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-trackrequests.md 
           - name: Profiler Troubleshooting
-            href: ../application-insights/app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json
+            href: app/profiler-troubleshooting.md 
         - name: Diagnostics
-          href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: ../application-insights/app-insights-azure-diagnostics.md
         - name: Previews
           href: app/previews.md
       - name: ASP.NET apps
@@ -296,7 +296,7 @@
         - name: Status Monitor
           href: app/monitor-performance-live-website-now.md
         - name: Windows services
-          href: ../application-insights/app-insights-windows-services.md?toc=/azure/azure-monitor/toc.json
+          href: app/windows-services.md
         - name: Windows desktop
           href: app/windows-desktop.md
         - name: ASP.NET Core
@@ -341,7 +341,9 @@
         - name: Filter telemetry
           href: app/java-filter-telemetry.md
         - name: Micrometer Metrics
-          href: ../application-insights/micrometer-java.md?toc=/azure/azure-monitor/toc.json  
+          href: app/micrometer-java.md
+        - name: Configure a Spring Boot Initializer app
+          href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
       - name: Node.js apps
         items:
         - name: Node.js
@@ -351,7 +353,7 @@
         - name: JavaScript
           href: app/javascript.md
       - name: Monitor Azure Functions
-        href: ../azure-functions/functions-monitoring.md?toc=/azure/application-insights/toc.json 
+        href: ../azure-functions/functions-monitoring.md
       - name: Distributed tracing
         items:
         - name: Local forwarder
@@ -388,13 +390,13 @@
         - name: Manage smart detection rules
           href: app/proactive-arm-config.md
       - name: Create a resource
-        href: ../application-insights/app-insights-create-new-resource.md?toc=/azure/azure-monitor/toc.json
+        href: app/create-new-resource.md 
       - name: Troubleshoot
         items:
         - name: No data for .NET
           href: app/asp-net-troubleshoot-no-data.md
         - name: Snapshot debugger
-          href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
+          href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md
         - name: Analytics
           href: app/analytics-troubleshooting.md
         - name: Java
@@ -601,7 +603,7 @@
       - name: Key Vault Analytics
         href: insights/azure-key-vault.md
       - name: Service Fabric Analytics
-        href: ../service-fabric/service-fabric-diagnostics-oms-agent.md?toc=/azure/azure-monitor/toc.json
+        href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
     - name: Monitor other resources
       items:
       - name: Assess AD Health
@@ -633,26 +635,24 @@
         href: platform/view-designer-parts.md
       - name: Filters
         href: platform/view-designer-filters.md
-    - name: Dashboards
-      items:
-      - name: Logs
-        href: platform/dashboards.md
-      - name: Applications
-        href: app/app-insights-dashboards.md
     - name: Power BI
       items:
       - name: Export log data
         href: platform/powerbi.md
       - name: Export application data
-        href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
+        href: app/export-power-bi.md 
+    - name: Dashboards
+      href: app/app-insights-dashboards.md
     - name: Send data to Grafana
       href: platform/grafana-plugin.md
   - name: Analyze data
     items:
     - name: Create metrics charts in Metrics Explorer
       href: platform/metrics-charts.md
+    - name: Metric Explorer chart samples
+      href: platform/metric-chart-samples.md
     - name: View events in activity log
-      href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
+      href: ../azure-resource-manager/resource-group-audit.md
     - name: View service notifications
       href: platform/service-notifications.md
     - name: Query log data
@@ -661,6 +661,8 @@
         href: log-query/query-language.md
       - name: Language differences
         href: log-query/data-explorer-difference.md
+      - name: Transition from log search
+        href: log-query/log-search-transition.md
       - name: Get started
         items:
         - name: Get started with Analytics portal
@@ -701,6 +703,10 @@
         items:
         - name: Examples
           href: log-query/examples.md
+        - name: Write efficient queries
+          href: log-query/log-query-performance.md
+        - name: Smart analytics
+          href: log-query/smart-analytics.md
         - name: Cross-resource searches
           href: log-query/cross-workspace-query.md
         - name: app expression
@@ -711,6 +717,8 @@
         items:
         - name: Application data
           href: app/analytics.md
+        - name: Unify application data resources
+          href: log-query/unify-app-resource-data.md
         - name: Standard properties
           href: platform/log-standard-properties.md
         - name: Parse text data
@@ -733,7 +741,7 @@
           href: platform/alerts-metric.md
         - name: Create, view and manage classic metric alerts in Azure Monitor
           href: platform/alerts-classic-portal.md
-        - name: Alerts with dynamic thresholds
+        - name: Metric Alerts with Dynamic Thresholds
           href: platform/alerts-dynamic-thresholds.md
         - name: Configure metric alerts on logs
           href: platform/alerts-metric-logs.md
@@ -747,6 +755,8 @@
         items:  
         - name: Configure alerts on analytics query
           href: platform/alerts-log.md
+        - name: Log alert queries
+          href: platform/alerts-log-query.md
         - name: Webhook actions for log alerts
           href: platform/alerts-log-webhook.md
         - name: Troubleshooting log alerts
@@ -808,7 +818,7 @@
       - name: Autoscale VM scale sets using Resource Manager templates
         href: platform/autoscale-virtual-machine-scale-sets.md
       - name: Automatically scale machines in a VM scale set
-        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json?toc=/azure/azure-monitor/toc.json
+        href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
       - name: Configure webhooks and email notifications on autoscale
         href: platform/autoscale-webhook-email.md
     - name: Service notifications
@@ -906,7 +916,7 @@
     - name: Telemetry correlation
       href: app/correlation.md
     - name: NuGet packages
-      href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
+      href: app/nuget.md 
     - name: Platform support
       href: app/platforms.md
   - name: Application Insights data model
@@ -930,7 +940,7 @@
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure Functions
-    href: ../application-insights/azure-functions-supported-features.md?toc=/azure/azure-monitor/toc.json
+    href: app/azure-functions-supported-features.md 
   - name: Azure PowerShell
     items:
     - name: Monitor
@@ -943,6 +953,12 @@
       href: /rest/api/monitor/
     - name: Logs
       href: /rest/api/loganalytics 
+  - name: Resource Manager template
+    items:
+    - name: Monitor
+      href: /azure/templates/microsoft.insights/allversions
+    - name: Logs
+      href: /azure/templates/microsoft.operationalinsights/allversions
   - name: Metrics
     items:
     - name: Supported metrics
@@ -952,7 +968,7 @@
   - name: Schemas
     items:
     - name: Diagnostic logs services, categories, and schemas
-      href: platform/tutorial-dashboards.md
+      href: platform/diagnostic-logs-schema.md
     - name: Activity log event schema
       href: platform/activity-log-schema.md
     - name: Azure Diagnostics extension schema
@@ -974,6 +990,8 @@
       href: platform/alerts-extend.md
     - name: Copy alerts from OMS portal to Azure portal 
       href: platform/alerts-extend-tool.md
+    - name: Switch log alert API preference
+      href: platform/alerts-log-api-switch.md
 - name: Resources
   items:
   - name: Azure Roadmap

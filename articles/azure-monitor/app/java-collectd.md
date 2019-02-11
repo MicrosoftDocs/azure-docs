@@ -16,14 +16,14 @@ ms.author: mbullwin
 # collectd: Linux performance metrics in Application Insights
 
 
-To explore Linux system performance metrics in [Application Insights](../../application-insights/app-insights-overview.md), install [collectd](https://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
+To explore Linux system performance metrics in [Application Insights](../../azure-monitor/app/app-insights-overview.md), install [collectd](https://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
 
 Typically you'll use collectd if you have already [instrumented your Java web service with Application Insights][java]. It gives you more data to help you to enhance your app's performance or diagnose problems. 
 
 ![Sample charts](./media/java-collectd/sample.png)
 
 ## Get your instrumentation key
-In the [Microsoft Azure portal](https://portal.azure.com), open the [Application Insights](../../application-insights/app-insights-overview.md) resource where you want the data to appear. (Or [create a new resource](../../application-insights/app-insights-create-new-resource.md).)
+In the [Microsoft Azure portal](https://portal.azure.com), open the [Application Insights](../../azure-monitor/app/app-insights-overview.md) resource where you want the data to appear. (Or [create a new resource](../../azure-monitor/app/create-new-resource.md ).)
 
 Take a copy of the instrumentation key, which identifies the resource.
 

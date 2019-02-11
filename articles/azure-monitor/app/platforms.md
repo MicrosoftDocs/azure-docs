@@ -15,7 +15,7 @@ ms.reviewer: olegan
 ms.author: mbullwin
 ---
 # Developer analytics: languages, platforms, and integrations
-These items are implementations of [Application Insights](../../application-insights/app-insights-overview.md) that we've heard about, including some by third parties.
+These items are implementations of [Application Insights](../../azure-monitor/app/app-insights-overview.md) that we've heard about, including some by third parties.
 
 ## Languages - officially supported by Application Insights team
 * [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
@@ -62,9 +62,9 @@ These items are implementations of [Application Insights](../../application-insi
 * [Semantic Logging (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 * [Cloud-based load testing](https://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
-* [Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 * [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
 * [Logrus](https://github.com/jjcollinge/logrus-appinsights)
+* [Azure Monitor](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 
 ## Content Management Systems
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)
@@ -77,7 +77,7 @@ These items are implementations of [Application Insights](../../application-insi
 ## Export and Data Analysis
 * [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
-* [Stream Analytics](../../application-insights/app-insights-export-power-bi.md)
+* [Stream Analytics](../../azure-monitor/app/export-power-bi.md )
 
 ## <a name="projects"></a> Build your own SDK
 If there isn't yet an SDK for your language or platform, perhaps you'd like to build one? Take a look at the code of the existing SDKs listed in the [Application Insights SDK project on GitHub](https://github.com/Microsoft/AppInsights-Home).

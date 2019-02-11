@@ -10,7 +10,7 @@ ms.reviewer: sngun
 
 ---
 
-# Working with Azure Cosmos databases, containers and items
+# Work with databases, containers, and items
 
 After you create an [Azure Cosmos DB account](account-overview.md) under your Azure subscription, you can manage data in your account by creating databases, containers, and items. This article describes each of these entities: databases, containers, and items. The following image shows the hierarchy of different entities in an Azure Cosmos account:
 
@@ -41,7 +41,7 @@ You can interact with an Azure Cosmos database using the following Azure Cosmos 
 
 ## Azure Cosmos containers
 
-An Azure Cosmos container is the unit of scalability for both provisioned throughput and storage of items. A container is horizontally partitioned and then replicated across multiple regions. The items that you add to the container and the throughput that you provision on it are both automatically distributed across a set of logical partitions based on the partition key. To learn more about partitioning and partition key, see [logical partitions](partition-data.md) article. 
+An Azure Cosmos container is the unit of scalability for both provisioned throughput and storage of items. A container is horizontally partitioned and then replicated across multiple regions. The items that you add to the container and the throughput that you provision on it are automatically distributed across a set of logical partitions based on the partition key. To learn more about partitioning and partition key, see [logical partitions](partition-data.md) article. 
 
 When creating an Azure Cosmos container, you configure throughput in one of the following modes:
 

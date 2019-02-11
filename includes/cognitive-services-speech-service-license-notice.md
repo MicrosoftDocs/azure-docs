@@ -7,4 +7,4 @@ ms.author: wolfma
 ---
 
 > [!IMPORTANT]
-> By downloading any of the Cognitive Services Speech SDK components on this page, you acknowledge its license. See [Speech SDK license agreement](https://aka.ms/csspeech/license201809).
+> By downloading any of the Speech SDK for Azure Cognitive Services components on this page, you acknowledge its license. See the [Microsoft Software License Terms for the Speech SDK](https://aka.ms/csspeech/license201809).

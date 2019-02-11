@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to transliterate (convert) text from one script to another using Java and the Translator Text REST API. In this sample, Japanese is transliterated to use the Latin alphabet.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: erhopf
@@ -165,6 +165,12 @@ That's it, you're ready to run your sample app. From the command line (or termin
 
 ```console
 gradle build
+```
+
+When the build completes, run:
+
+```console
+gradle run
 ```
 
 ## Sample response

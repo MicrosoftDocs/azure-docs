@@ -65,12 +65,12 @@ When no longer needed, you can remove the resource group and all related resourc
 1. In the Azure portal, select **All services**.
 2. Input `resource groups` in the search box and click on the result.
 
-    ![Resource gruops navigation](./media/get-started-create-service-instance/00-DeleteResource-01.png)
+    ![Resource groups navigation](./media/get-started-create-service-instance/00-DeleteResource-01.png)
 
 3. Find your resource group and click on it.
 4. Click **Delete resource group**.
 
-    ![Resource gruops navigation](./media/get-started-create-service-instance/00-DeleteResource-02.png)
+    ![Resource groups navigation](./media/get-started-create-service-instance/00-DeleteResource-02.png)
 
 5. Confirm the deletion by inputting the name of your resource group.
 6. Click **Delete**.

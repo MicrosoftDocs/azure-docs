@@ -1,20 +1,11 @@
 ---
 title: Configure Azure resource health alerts using Resource Manager templates | Microsoft Docs
 description: Create alerts programmatically that notify you when your Azure resources become unavailable.
-author: shawntabrizi
-manager: scotthit
-editor: ''
-services: service-health
-documentationcenter: service-health
-
-ms.assetid:
+author: stephbaron
+ms.author: stbaron
+ms.topic: conceptual
 ms.service: service-health
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
 ms.date: 9/4/2018
-ms.author: shtabriz
 
 ---
 
@@ -28,7 +19,7 @@ Azure Resource Health keeps you informed about the current and historical health
 
 To follow the instructions on this page, you'll need to set up a few things in advance:
 
-1. You need to install the [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (`AzureRm`)
+1. You need to install the [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (`AzureRm`)
 2. You need to [create or reuse an Action Group](../azure-monitor/platform/action-groups.md) configured to notify you
 
 ## Instructions
