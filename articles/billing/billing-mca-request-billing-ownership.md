@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
+ms.date: 01/31/2019
 ms.author: banders
 
 ---
@@ -21,11 +21,11 @@ ms.author: banders
 
 You might want to take ownership of Azure subscriptions if the existing billing owner is leaving your organization, or you want to pay for the subscriptions through your billing account.
 
-You can send a request to take ownership of Azure subscriptions from existing owners in other billing accounts. Taking ownership transfers billing ownership of their subscriptions to your invoice section. After ownership is transferred, your invoice section is responsible for all charges for the subscriptions.
+You can send a request to take ownership of Azure subscriptions from existing owners in other billing accounts. Taking ownership transfers billing ownership of subscriptions to your invoice section. After ownership is transferred, your invoice section is responsible for all charges for the subscriptions.
 
-To request the billing ownership, you must be an Owner or Contributor on the invoice section. To lean more, see [Invoice section roles and tasks](billing-understand-mca-roles.md#invoice-sections-roles-and-tasks).
+To request the billing ownership, you must be an **Owner** or **Contributor** on the invoice section. To learn more, see [Invoice section tasks](billing-understand-mca-roles.md#invoice-sections-tasks).
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have a Microsoft Customer Agreement](#check-your-access-to-a-billing-account-for-microsoft-customer-agreement).
+This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-your-access-to-a-billing-account-for-microsoft-customer-agreement).
 
 ## Request billing ownership in the Azure portal
 
@@ -33,7 +33,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 2. Search on **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/billing-mca-request-billing-ownership/portal-cm-billing-search.png)
+   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-mca-request-billing-ownership/billing-search-costmanagement+billing.png)
 
 3. Go to the invoice section. Depending on your access, you may need to select a billing account or billing profile. From the billing account or profile, select **Invoice sections** and then an invoice section.
    <!-- Todo - Add a screenshot -->
@@ -51,17 +51,17 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 8. The user gets an email with instructions to review your transfer request.
    ![Screenshot that shows review transfer request email](./media/billing-mca-request-billing-ownership/mca-review-transfer-request-email.png)
 
-9. To approve the transfer request, the user selects the link in email and follows the instructions.
+9. To approve the transfer request, the user selects the link in the email and follows the instructions.
 
     ![Screenshot that shows review transfer request email](./media/billing-mca-request-billing-ownership/mca-review-transfer-request.png)
 
-## Check status of your transfer request in the Azure portal
+## Check the status of your transfer request in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search on **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/billing-mca-request-billing-ownership/portal-cm-billing-search.png)
+   ![Screenshot that shows Azure portal search for cost management + billing](./media/billing-mca-request-billing-ownership/billing-search-costmanagement+billing.png)
 
 3. Go to the invoice section. Depending on your access, you may need to select a billing account or billing profile. From the billing account or profile, select **Invoice sections** and then an invoice section.
    <!-- Todo - Add a screenshot -->
@@ -70,7 +70,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 5. The Transfer requests page displays the following information:
 
-    ![Screenshot that shows adding a new transfer request](./media/billing-mca-request-billing-ownership/mca-view-transfer-requests.png)
+    ![Screenshot that shows list of transfer requests](./media/billing-mca-request-billing-ownership/mca-view-transfer-requests.png)
 
    |Column|Definition|
    |---------|---------|
@@ -84,9 +84,9 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
    |Status|Definition|
    |---------|---------|
    |In progress|The user hasn't accepted the transfer request|
-   |Processing|The user approved the transfer request. Billing for products that the user selected is getting transferred to your invoice section|
-   |Completed| The billing for products that the user selected is transferred to your invoice section|
-   |Finished with errors|The request completed but billing for some products that user selected couldn't be transferred|
+   |Processing|The user approved the transfer request. Billing for subscriptions that the user selected is getting transferred to your invoice section|
+   |Completed| The billing for subscriptions that the user selected is transferred to your invoice section|
+   |Finished with errors|The request completed but billing for some subscriptions that the user selected couldn't be transferred|
    |Expired|The user didn't accept the request on time and it expired|
    |Canceled|Someone with access to the transfer request canceled the request|
    |Declined|The user declined the transfer request|
@@ -103,7 +103,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
    |Recipient's email address|The email address of the user that you sent the request to transfer billing ownership|
    |Transfer link sent to recipient|The url that was sent to the user to review the transfer request|
 
-## Helpful information
+## Useful information
 
 The following section provides helpful information about transferring subscriptions.
 
@@ -125,7 +125,7 @@ Azure Marketplace products transfer along with their respective subscriptions.
 
 ### Azure reservations transfer
 
-The user that you send the transfer request can select Azure reservations to transfer. When the transfer is completed, reservation benefits can be applied to any subscription in the billing profile of your invoice section.
+The user that you send the transfer request can select Azure reservations to transfer. When the transfer is completed, reservation discount can be applied to subscriptions in the billing profile of your invoice section.
 
 ### Access to Azure services
 
@@ -147,13 +147,13 @@ Subscription of any types or offers, except CSP offers can be transferred.
 
 You can cancel the transfer request until the request is approved or declined. To cancel the transfer request, [go to the transfer details page](#check-status-of-your-transfer-request-in-the-Azure-portal) and select cancel from the bottom of the page.
 
-## Check your access to a billing account for Microsoft Customer Agreement
+## Check your access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## Next steps
 
 - The billing ownership of the Azure subscriptions is transferred to your invoice section. Keep track of the charges for these subscriptions in the [Azure portal](https://portal.azure.com).
-- Provide others access to the invoice section to give them permission to view charges for these subscriptions. For more information, see [Invoice section roles and tasks](billing-understand-mca-roles.md#invoice-sections-roles-and-tasks).
+- Give others permissions to view and manage billing for these subscriptions. For more information, see [Invoice section roles and tasks](billing-understand-mca-roles.md#invoice-section-tasks)
 
 ## Need help? Contact support
 If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

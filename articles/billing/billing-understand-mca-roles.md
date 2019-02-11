@@ -19,7 +19,7 @@ ms.author: cwatson
 
 To help manage your billing account for a Microsoft Customer Agreement, use the roles described in the following sections. These roles are in addition to the built-in roles Azure has to control access to resources. For more information, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have a Microsoft Customer Agreement](#check-your-access-to-a-billing-account-for-microsoft-customer-agreement).
+This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-your-access-to-a-billing-account-for-microsoft-customer-agreement).
 
 ## Billing role definitions
 
@@ -131,7 +131,7 @@ The following tables show what role you need to complete tasks in the context of
 |---|---|---|---|---|---|---|---|
 |View all Azure subscriptions for the billing profile|✔|✔|✔|✔|✔|✔|✔|
 
-## Invoice sections roles and tasks
+## Invoice section tasks
 
 The following tables show what role you need to complete tasks in the context of invoice sections. <!--- TODO - add definition of invoice sections -->
 
@@ -160,7 +160,7 @@ The following tables show what role you need to complete tasks in the context of
 |View all Azure subscriptions for invoice section|✔|✔|✔|✘|✔|✔|✔|
 |Change invoice section for the subscriptions|✔|✔|✘|✘|✘|✘|✘|
 
-## Subscription roles and tasks
+## Subscription tasks
 
 The following table shows what role you need to complete tasks in the context of a subscription.
 
@@ -168,7 +168,7 @@ The following table shows what role you need to complete tasks in the context of
 |---|---|---|---|---|
 |Create Azure subscriptions|✔|✔|✘|✔|✘|✘|✘|
 
-## Check your access to a billing account for Microsoft Customer Agreement
+## Check your access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## Next steps
