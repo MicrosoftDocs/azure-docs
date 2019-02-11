@@ -4,7 +4,7 @@ description: Learn how to configure an authorization policy for a content key.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: ee82a3fa-c34b-48f2-a108-8ba321f1691e
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 02/09/2019
 ms.author: juliako
 
 ---
-# Configure a content key authorization policy
+# Configure a content key authorization policy (legacy)
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## Overview
