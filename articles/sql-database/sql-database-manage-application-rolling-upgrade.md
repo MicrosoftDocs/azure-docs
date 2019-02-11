@@ -19,7 +19,7 @@ Learn how to use [active geo-replication](sql-database-auto-failover-group.md) i
 
 When evaluating upgrade options, consider these factors:
 
-* Impact on application availability during upgrades, such as how long application function might be limited or degraded.
+* Impact on application availability during upgrades, such as how long application functions might be limited or degraded.
 * Ability to roll back if the upgrade fails.
 * Vulnerability of the application if an unrelated, catastrophic failure occurs during the upgrade.
 * Total dollar cost. This factor includes additional redundancy and incremental costs of the temporary components used by the upgrade process.
