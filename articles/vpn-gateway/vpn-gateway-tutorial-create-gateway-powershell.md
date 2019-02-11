@@ -143,9 +143,13 @@ $myGwIp.IpAddress
 
 ## Delete VPN gateway
 
-A complete configuration of cross-premises and VNet-to-VNet connectivity requires multipel resource types in addition to VPN gateway. Delete the connections associated with the VPN gateway before deleting the gateway itself. Once the gateway is deleted, you can then delete the public IP address(es) for the gateway. See [Delete a VPN gateway](vpn-gateway-delete-vnet-gateway-powershell.md) for the detailed steps.
+A complete configuration of cross-premises and VNet-to-VNet connectivity requires multiple resource types in addition to VPN gateway. Delete the connections associated with the VPN gateway before deleting the gateway itself. Once the gateway is deleted, you can then delete the public IP address(es) for the gateway. See [Delete a VPN gateway](vpn-gateway-delete-vnet-gateway-powershell.md) for the detailed steps.
 
-If the gateway is part of a protype or proof-of-conceopt deployment, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, the VPN gateway, and all related resources.
+## Clean up resources
+
+If you advancing to the [next tutorial](vpn-gateway-tutorial-vpnconnection-powershell.md), however, you will want to keep these resources because they are the prerequisite.
+
+If the gateway is part of a prototype, test, or proof-of-concept deployment, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, the VPN gateway, and all related resources.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $RG1
