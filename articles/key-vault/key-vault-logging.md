@@ -312,10 +312,10 @@ You can use the Azure Key Vault solution in Log Analytics to review Azure Key Va
 
 ## <a id="next"></a>Next steps
 
-For a tutorial that uses Azure Key Vault in a web application, see [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md).
+For a tutorial that uses Azure Key Vault in a .NET web application, see [Use Azure Key Vault from a Web Application](tutorial-net-create-vault-azure-web-app).
 
 For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).
 
-For a list of Azure PowerShell 1.0 cmdlets for Azure Key Vault, see [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault).
+For a list of Azure PowerShell 1.0 cmdlets for Azure Key Vault, see [Azure Key Vault Cmdlets](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
 
 For a tutorial on key rotation and log auditing with Azure Key Vault, see [How to setup Key Vault with end to end key rotation and auditing](key-vault-key-rotation-log-monitoring.md).
