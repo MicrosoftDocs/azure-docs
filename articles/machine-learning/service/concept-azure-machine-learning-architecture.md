@@ -226,3 +226,4 @@ To get started with Azure Machine Learning service, see:
 * [What is Azure Machine Learning service?](overview-what-is-azure-ml.md)
 * [Quickstart: Create a workspace with Python](quickstart-get-started.md)
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md)
+* [Create a workspace with a resource manager template](how-to-create-workspace-template.md)
