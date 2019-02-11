@@ -40,15 +40,13 @@ Before you go any further, please read the [basic concepts about Key Vault](key-
 
 ## Understand Managed Service Identity
 
-\***
+Azure Key Vault can store credentials securely so they aren’t in your code. To retrieve them, you need to authenticate to Azure Key Vault. To authenticate to Key Vault, you need a credential! It's a classic bootstrap problem. Through Azure and Azure Active Directory (Azure AD), Managed Service Identity (MSI) provides a bootstrap identity that makes it simpler to get things started.
 
-Azure Key Vault can store credentials securely so they aren’t in your code. To retrieve them, you need to authenticate to Key Vault. To authenticate to Key Vault, you need a credential. That's a classic bootstrap problem. Through Azure and Azure Active Directory (Azure AD), MSI provides a “bootstrap identity” that makes it simpler to get things started.
-
-When you enable MSI for an Azure service such as Virtual Machines, App Service, or Functions, Azure creates a service principal for the instance of the service in Azure AD. Azure injects the credentials for the service principal into the instance of the service.
+When you enable MSI for an Azure service like Virtual Machines, App Service, or Functions, Azure creates a service principal for the instance of the service in Azure AD. It injects the credentials for the service principal into the instance of the service.
 
 ![MSI](media/MSI.png)
 
-Next, your code calls a local metadata service that's available on the Azure resource to get an access token. Your code uses the access token that it gets from the local MSI endpoint to authenticate to an Azure Key Vault service.
+Next, your code calls a local metadata service available on the Azure resource to get an access token. Your code uses the access token that it gets from the local MSI endpoint to authenticate to an Azure Key Vault service.
 
 ## Log in to Azure
 
@@ -60,21 +58,20 @@ az login
 
 ## Create a resource group
 
-Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group by using the `az group create` command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Select a resource group name and fill in the placeholder.
-The following example creates a resource group in the West US location:
+Create a resource in the West US location. Pick a name for your resource group and replace `YourResourceGroupName` in the following example:
 
 ```azurecli
 # To list locations: az account list-locations --output table
 az group create --name "<YourResourceGroupName>" --location "West US"
 ```
 
-The resource group that you just created is used throughout this article.
+You use this resource group throughout the tutorial.
 
 ## Create a key vault
 
-Next you create a key vault in the resource group that you created in the previous step. Provide the following information:
+Next, you create a key vault in the resource group that you created in the previous step. Provide the following information:
 
 * Key vault name: The name must be a string of 3-24 characters and must contain only 0-9, a-z, A-Z, and hyphens (-).
 * Resource group name.
