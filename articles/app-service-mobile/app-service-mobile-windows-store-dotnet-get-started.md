@@ -1,5 +1,5 @@
 ---
-title: Create a Universal Windows Platform (UWP) that uses on Mobile Apps | Microsoft Docs
+title: Create a Universal Windows Platform (UWP) that uses Azure Mobile Apps | Microsoft Docs
 description: Follow this tutorial to get started with using Azure mobile app backends for Universal Windows Platform (UWP) app development in C#, Visual Basic, or JavaScript.
 services: app-service\mobile
 documentationcenter: windows
@@ -16,7 +16,7 @@ ms.topic: hero-article
 ms.date: 08/17/2018
 ms.author: crdun
 ---
-# Create a Windows app
+# Create a Windows app with an Azure backend
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
