@@ -79,7 +79,8 @@ Ubuntu	| 18.04
 
 For all Windows nodes running in Azure,
 [WMF 5.1](https://docs.microsoft.com/en-us/powershell/wmf/5.1/install-configure)
-will be installed during onboarding.
+will be installed during onboarding.  For nodes running Windows Server 2012 and Windows 7,
+[WinRM will be enabled](https://docs.microsoft.com/en-us/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
 For all Linux nodes running in Azure,
 [PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux)
