@@ -24,7 +24,7 @@ In this tutorial, you do the following actions:
 
 > [!div class="checklist"]
 > * Create a classroom lab
-> * Configure the classroom lab
+> * Add users to the lab
 > * Send registration link to students
 
 ## Prerequisites
@@ -72,7 +72,7 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
     5. Enter a **description** for the template
 9. Select **Next** on the template page. 
 10. On **Publish the template** page, do the following actions. 
-    1. To publish the template immediately, select the checkbox for *I understand I can't modify the template after publishing. This process can only be done once and can take up to an hour*, and select **Publish**.  
+    1. To publish the template immediately, and select **Publish**.  
 
         > [!WARNING]
         > Once you publish, you can't unpublish. 
