@@ -392,6 +392,8 @@ Creates a namespace of type **EventHub**, with one event hub, and also enables C
 
 ## PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Deploy your template to enable Event Hubs Capture into Azure Storage:
  
 ```powershell

@@ -31,6 +31,8 @@ To complete this tutorial, you need an Azure subscription. If you don't have one
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 - Install [Visual Studio](https://www.visualstudio.com/). 
