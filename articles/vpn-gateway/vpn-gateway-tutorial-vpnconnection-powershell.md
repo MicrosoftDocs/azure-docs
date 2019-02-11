@@ -38,8 +38,6 @@ The following diagram shows the topology for this tutorial:
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
-
 ## Requirements
 
 Complete the first tutorial: "[Create VPN gateway with Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md)" to create the following resources:
