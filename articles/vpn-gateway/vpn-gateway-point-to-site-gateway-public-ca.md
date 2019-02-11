@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 02/11/2019
 ms.author: cherylmc
 
 ---
@@ -26,7 +26,7 @@ Only older gateways are affected by this change. If your gateway certificate nee
 >* 06:00 UTC on 1 Mar
 >* 18:00 UTC on 1 Mar
 >
->**All remaining gateways will transition on March 09, 2019 starting at 18:00 UTC**.
+>**All remaining gateways will transition on March 12, 2019 starting at 18:00 UTC**.
 >
 
 ## 1. Verify your certificate
