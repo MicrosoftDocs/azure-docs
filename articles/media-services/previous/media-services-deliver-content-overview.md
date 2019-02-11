@@ -4,7 +4,7 @@ description: This topic gives an overview of what is involved in delivering your
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 02/10/2019
 ms.author: juliako
 
 ---

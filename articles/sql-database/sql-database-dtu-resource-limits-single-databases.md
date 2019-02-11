@@ -3,7 +3,7 @@ title: Azure SQL Database DTU-based resource limits single databases| Microsoft 
 description: This page describes some common DTU-based resource limits for single databases in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: 
 ms.devlang:
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 02/08/2019
 ---
 # Resource limits for single databases using the DTU-based purchasing model
 
 This article provides the detailed resource limits for Azure SQL Database single databases using the DTU-based purchasing model.
 
-For DTU-based purchasing model resource limits for elastic pools, see [DTU-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md). For vCore-based resource limits, see [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md). For more information regarding the different purchasing models, see [Purchasing models and service tiers](sql-database-service-tiers.md).
+For DTU-based purchasing model resource limits for elastic pools, see [DTU-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md). For vCore-based resource limits, see [vCore-based resource limits - single databases](sql-database-vcore-resource-limits-single-databases.md) and [vCore-based resource limits - elastic pools](sql-database-vcore-resource-limits-elastic-pools.md). For more information regarding the different purchasing models, see [Purchasing models and service tiers](sql-database-purchase-models.md).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
