@@ -16,57 +16,66 @@ Creating a tenant in Windows Virtual Desktop is the first step towards building 
 In this tutorial, learn how to:
 
 > [!div class="checklist"]
-> * Grant Azure Active Directory permisions to the Windows Virtual Desktop service.
+> * Grant Azure Active Directory permissions to the Windows Virtual Desktop service.
 > * Assign the TenantCreator application role to a user in your Azure Active Directory.
 > * Create a Windows Virtual Desktop tenant.
 
-You will need the following things to set up your Windows Virtual Desktop tenant:
+Here's what you need to set up your Windows Virtual Desktop tenant:
 
-* The [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) containing the users that will make connections to Windows Virtual Desktop.
-* A Global Administrator account within the Azure Active Directory.
-   * This requirement also applies to Cloud Solution Provider (CSP) organizations creating a Windows Virtual Desktop tenant for their customers. If you are a CSP organization, you must be able to login as a Global Administrator of the customer's Azure Active Directory.
+* The [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for Windows Virtual Desktop users.
+* A global administrator account within the Azure Active Directory.
+   * This also applies to Cloud Solution Provider (CSP) organizations creating a Windows Virtual Desktop tenant for their customers. If you are a CSP organization, you must be able to sign in as global administrator of the customer's Azure Active Directory.
 
 ## Grant Azure Active Directory permissions to the Windows Virtual Desktop service
 
 If you have already granted permissions to Windows Virtual Desktop for this Azure Active Directory, skip this section.
 
-Granting permissions to the Windows Virtual Desktop service allows the service to query your Azure Active Directory for administrative and end-user tasks. To grant permissions:
+Granting permissions to the Windows Virtual Desktop service lets it query your Azure Active Directory for administrative and end-user tasks.
+
+To grant the service permissions:
 
 1. Open a browser and connect to the [Windows Virtual Desktop consent page](https://rdweb.wvd.microsoft.com).
 2. For **Consent Option** > **Server App**, enter the Azure Active Directory tenant name or Directory ID, then select **Submit**.
         For Cloud Solution Provider customers, the ID is the customer's Microsoft ID from the Partner Portal. For Enterprise customers, the ID is located under **Azure Active Directory** > **Properties** > **Directory ID**.
-3. Sign in to the Windows Virtual Desktop consent page with the Global Adminstrator account. For example, admin@contoso.com.  
+3. Sign in to the Windows Virtual Desktop consent page with your global administrator account. For example, if you were with the Contoso organization, your account would be admin@contoso.com.  
 4. Select **Accept**.
 5. Wait for one minute.
 6. Navigate back to the [Windows Virtual Desktop consent page](https://rdweb.wvd.microsoft.com).
-7. Select **Consent Option** > **Client App**, enter the same Azure AD tenant name or Directory ID, then select **Submit**.
-8. Sign in to the Windows Virtual Desktop consent page with the Global Administrator account. For example, admin@contoso.com.
+7. Go to **Consent Option** > **Client App**, enter the same Azure AD tenant name or Directory ID, then select **Submit**.
+8. Sign in to the Windows Virtual Desktop consent page as global administrator like you did back in step 3.
 9. Select **Accept**.
 
 ## Assign the TenantCreator application role to a user in your Azure Active Directory
 
-Assigning an Azure Active Directory user the TenantCreator application role allows that user to create a Windows Virtual Desktop tenant that is associated with the Azure Active Directory. To grant the TenantCreator application role:
+Assigning an Azure Active Directory user the TenantCreator application role allows that user to create a Windows Virtual Desktop tenant associated with the Azure Active Directory. You'll need to assign the TenantCreator role to your global administrator account.
 
-1. Open a browser and connect to the [Azure Active Directory portal](https://aad.portal.azure.com) using the Global Administrator account.
+To assign the TenantCreator application role to your global administrator account:
+
+1. Open a browser and connect to the [Azure Active Directory portal](https://aad.portal.azure.com) with your global administrator account.
 2. Select **Enterprise applications**, search for **Windows Virtual Desktop** and select the application.
 3. Select **Users and groups**, then select **Add user**.
-4. Search for the Global Administrator account, then click **Select**, and click **Assign**.
+4. Search for the global administrator account, then select **Select**, and then select **Assign**.
 
 ## Create a Windows Virtual Desktop tenant
 
-Now that the Windows Virtual Desktop service has permissions to query the Azure Active Directory and the Global Administrator account has been assigned the TenantCreator application role, you can create a Windows Virtual Desktop tenant.
+Now that you've granted the Windows Virtual Desktop service permissions to query the Azure Active Directory and assigned the TenantCreator role to your global administrator account, you can create a Windows Virtual Desktop tenant.
 
-Download the Windows Virtual Desktop module and import the module to use in your PowerShell session.
+First, download the Windows Virtual Desktop module and import the module to use in your PowerShell session, if you haven't already.
 
-Sign in to Windows Virtual Desktop with the Global Administrator account
+Sign in to Windows Virtual Desktop as a global administrator with this cmdlet:
+
 ```powershell
 Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
 ```
-Create a new Windows Virtual Desktop tenant associated with the Azure Active Directory
+
+After that, create a new Windows Virtual Desktop tenant associated with the Azure Active Directory:
+
 ```powershell
 New-RdsTenant -Name <TenantName> -AadTenantId <DirectoryID>
 ```
-For example, the Global Admin of the Contoso organization would run the following command
+
+The bracketed values should be replaced with values relevant to your organization and tenant. For example, let's say you're the global admin of the Contoso organization. The cmdlet you'd run would look like this:
+
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444
 ```
