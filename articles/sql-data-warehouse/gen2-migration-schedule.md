@@ -63,12 +63,8 @@ The upgrade process will involve a brief drop in connectivity (approx. 5 min) as
 
 You can also expedite the data file upgrade process by running [Alter Index rebuild][Alter Index rebuild] on all primary columnstore tables manually using a larger SLO and resource class after the restart
 
->
 > [!NOTE]
 > Alter Index rebuild is an offline operation and the tables will not be available until the rebuild completes.
->
->
->
 
 **If you have any automation scripts that changes the compute scale of your data warehouse, you will need to [modify the "RequestedServiceObjectiveName"][before you begin] to append a lower case "c".  ex. DW300c**
 
@@ -92,7 +88,7 @@ To expedite the data migration background process, you can immediately force dat
 
 If you encounter any issues with your data warehouse, create a [support request](https://review.docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) and reference “Gen2 upgrade” as the possible cause.
 
-For more information, see [Upgrade to Gen2](upgrade-to-latest-generation).
+For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
 ## Migration frequently asked questions
 
