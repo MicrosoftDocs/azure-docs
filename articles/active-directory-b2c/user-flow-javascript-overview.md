@@ -20,17 +20,17 @@ Azure AD B2C provides a set of packaged content containing HTML, CSS, and JavaSc
 > [!NOTE]
 > This article discusses JavaScript for user flows, but you can also use JavaScript and select page contract versions when you’re using [custom policies](page-contract.md).
 
-## Enabling JavaScript
+## Enable JavaScript
 
 In the user flow properties, you can enable JavaScript, which also enforces the use of a page contract. Then you can set the page contract version as described in the next section.
 
 ![Enable JavaScript setting](media/user-flow-javascript-overview/javascript-settings.PNG)
 
-## Specifying a page contract version
+## Specify a page contract version
 
 Whether or not you enable JavaScript in your user flow's properties, you can specify a page contract version for your user flow pages. Open the user flow and select **Page Layouts**. Under **Layout Name**, select a user flow page and choose the **Page Contract Version**.
 
 ![Enable JavaScript setting](media/user-flow-javascript-overview/page-contract-version.PNG)
 
-## Next Steps
+## Next steps
 See the [JavaScript samples for use in Azure Active Directory B2C](javascript-samples.md).
