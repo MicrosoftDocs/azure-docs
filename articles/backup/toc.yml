@@ -212,7 +212,7 @@
     - name: Delete a Recovery Services vault
       href: backup-azure-delete-vault.md
     - name: Move a Recovery Services vault
-      href: backup-azure-move-recovery-service-vault.md
+      href: backup-azure-move-recovery-services-vault.md
   - name: Troubleshoot
     items:
     - name: Azure VM
