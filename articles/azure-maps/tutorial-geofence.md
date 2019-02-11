@@ -3,7 +3,11 @@ title: Create a geofence using Azure Maps | Microsoft Docs
 description: Setup a geofence by using Azure Maps.
 author: walsehgal
 ms.author: v-musehg
+<<<<<<< HEAD
 ms.date: 02/07/2019
+=======
+ms.date: 02/08/2019
+>>>>>>> 5776e06a7e009934a082c2f74c1cab8caee85788
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -33,9 +37,15 @@ In this tutorial you will learn, how to:
 
 To complete the steps in this tutorial, you first need to see [manage account and keys](how-to-manage-account-keys.md) to create and manage your account subscription with S1 pricing tier.
 
+<<<<<<< HEAD
 ## Upload Geofences:
 
 To upload the geofence for the construction site using the Map Data Upload API, we will use the postman application. For the sake of this tutorial, we assume there is an overall construction site area, which is a hard parameter that the construction equipment should not violate. Violations of this fence are a serious offense and are reported to the Operations Manager. An optimized set of additional fences can be used that track different construction areas within the overall construction area as per schedule. We can assume that the main geofence has a subsite1, which has a set expiration time and will expire after that. You can create more nested geofences as per your requirements. For example, subsite1 could be where work is taking place during week 1 to 4 of the schedule and subsite 2 is where work takes place during week 5 to 7. All such fences can be loaded as a single dataset at the beginning of the project and used to track rules based on time and space. See [Geofence GeoJSON data](https://docs.microsoft.com/en-us/azure/azure-maps/geofence-geojson) for more information on geofence data format. You can see the [data - Upload API documentation](https://docs.microsoft.com/rest/api/maps/mapdata/upload) for more information on uploading map data to the Azure Maps service.
+=======
+## Upload geofences
+
+To upload the geofence for the construction site using the Map Data Upload API, we will use the postman application. For the sake of this tutorial, we assume there is an overall construction site area, which is a hard parameter that the construction equipment should not violate. Violations of this fence are a serious offense and are reported to the Operations Manager. An optimized set of additional fences can be used that track different construction areas within the overall construction area as per schedule. We can assume that the main geofence has a subsite1, which has a set expiration time and will expire after that. You can create more nested geofences as per your requirements. For example, subsite1 could be where work is taking place during week 1 to 4 of the schedule and subsite 2 is where work takes place during week 5 to 7. All such fences can be loaded as a single dataset at the beginning of the project and used to track rules based on time and space. See [Geofence GeoJSON data](https://docs.microsoft.com/azure/azure-maps/geofence-geojson) for more information on geofence data format. You can see the [data - Upload API documentation](https://docs.microsoft.com/rest/api/maps/mapdata/uploadpreview) for more information on uploading map data to the Azure Maps service.
+>>>>>>> 5776e06a7e009934a082c2f74c1cab8caee85788
 
 Open the Postman app and follow the following steps to upload the construction site geofence using the Azure Maps Map-Data Upload API.
 
@@ -195,7 +205,11 @@ You can use the Geofence API to check whether a **device** (equipment is part of
 > [!Note]
 > The above scenario and behavior is based on the same **device id** so that it reflects the five different locations as in the figure below.
 
+<<<<<<< HEAD
 ![Geofence Map](./media/tutorial-geofence/Geofence.png)
+=======
+![Geofence Map](./media/tutorial-geofence/geofence.png)
+>>>>>>> 5776e06a7e009934a082c2f74c1cab8caee85788
 
 In the Postman app, open a new tab in the same collection you created above. Select GET HTTP method on the builder tab:
 
@@ -257,4 +271,8 @@ In this tutorial you learned, how to set up geofence by uploading it in the Azur
 
 > [!div class="checklist"]
 * See [Handle content types in Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type), to learn how to use Logic Apps to parse JSON to build a more complex logic.
+<<<<<<< HEAD
 * To know more about event handlers in Event Grid, see [supported Events Handlers in Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/event-handlers).
+=======
+* To know more about event handlers in Event Grid, see [supported Events Handlers in Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers).
+>>>>>>> 5776e06a7e009934a082c2f74c1cab8caee85788

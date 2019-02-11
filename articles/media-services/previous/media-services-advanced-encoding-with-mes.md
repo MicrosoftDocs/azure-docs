@@ -13,12 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 02/08/2019
 ms.author: juliako
 
 ---
 
-# Perform advanced encoding by customizing MES presets 
+# Perform advanced encoding by customizing MES presets (legacy)
 
 ## Overview
 
