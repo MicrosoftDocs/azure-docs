@@ -89,9 +89,9 @@ The `profile` scope can be used with the `openid` scope and any others. It gives
 
 ### offline_access
 
-The [`offline_access` scope](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) gives your app access to resources on behalf of the user for an extended time. On the work account consent page, this scope appears as the "Access your data anytime" permission. On the personal Microsoft account consent page, it appears as the "Access your info anytime" permission. When a user approves the `offline_access` scope, your app can receive refresh tokens from the v2.0 token endpoint. Refresh tokens are long-lived. Your app can get new access tokens as older ones expire.
+The [`offline_access` scope](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) gives your app access to resources on behalf of the user for an extended time. On the consent page, this scope appears as the "Maintain access to data you have given it access to" permission. When a user approves the `offline_access` scope, your app can receive refresh tokens from the v2.0 token endpoint. Refresh tokens are long-lived. Your app can get new access tokens as older ones expire.
 
-If your app does not request the `offline_access` scope, it won't receive refresh tokens. This means that when you redeem an authorization code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md), you'll receive only an access token from the `/token` endpoint. The access token is valid for a short time. The access token usually expires in one hour. At that point, your app needs to redirect the user back to the `/authorize` endpoint to get a new authorization code. During this redirect, depending on the type of app, the user might need to enter their credentials again or consent again to permissions.
+If your app does not explicitly request the `offline_access` scope, it won't receive refresh tokens. This means that when you redeem an authorization code in the [OAuth 2.0 authorization code flow](active-directory-v2-protocols.md), you'll receive only an access token from the `/token` endpoint. The access token is valid for a short time. The access token usually expires in one hour. At that point, your app needs to redirect the user back to the `/authorize` endpoint to get a new authorization code. During this redirect, depending on the type of app, the user might need to enter their credentials again or consent again to permissions.  Note that while the `offline_access` scope is automatically requested by the server, your client must still request it in order to receive the refresh tokens. 
 
 For more information about how to get and use refresh tokens, see the [v2.0 protocol reference](active-directory-v2-protocols.md).
 
@@ -114,6 +114,9 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 The `scope` parameter is a space-separated list of delegated permissions that the app is requesting. Each permission is indicated by appending the permission value to the resource's identifier (the Application ID URI). In the request example, the app needs permission to read the user's calendar and send mail as the user.
 
 After the user enters their credentials, the v2.0 endpoint checks for a matching record of *user consent*. If the user has not consented to any of the requested permissions in the past, nor has an administrator consented to these permissions on behalf of the entire organization, the v2.0 endpoint asks the user to grant the requested permissions.
+
+> [!NOTE]
+> At this time, the `offline_access` ("Maintain access to data you have given it access to") and `user.read` ("Sign you in and read your profile") permissions are automatically included in the initial consent to an application.  These permissions are generally required for proper app functionality - `offline_access` gives the app access to refresh tokens, critical for native and web apps, while `user.read` gives access to the `sub` claim, allowing the client or app to correctly identify the user over time and access rudimentary user information.  
 
 ![Work account consent](./media/v2-permissions-and-consent/work_account_consent.png)
 
