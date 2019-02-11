@@ -230,18 +230,14 @@ For each of the error statistics, smaller is better. A smaller value indicates t
 
 ## Clean up resources
 
-If you don't plan to use the experiment you created, follow theses steps to delete it. However, you won't incur additional costs if you do choose to save this experiment.
-
-1. Select **Experiments** to view all your saved experiments
-1. Check the box next to your experiment
-1. Select **Delete** at the bottom of your browser
+[!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 
 ## Next steps
 
 In this quickstart, you created a simple experiment using a sample dataset. To explore the process of creating and deploying a model in more depth, continue to the predictive solution tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Develop a predictive solution in Studio](walkthrough-develop-predictive-solution.md)
+> [Tutorial: Develop a predictive solution in Studio](tutorial-part1-credit-risk.md)
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/create-experiment/sign-in-to-studio.png
