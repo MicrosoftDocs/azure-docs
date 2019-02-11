@@ -171,7 +171,7 @@ Use the Azure Data Science Virtual Machine (DSVM)  as the Azure VM of choice for
                                                     username='<username>',
                                                     password="<password>")
 
- # If you use SSH instead of a password, use this code:
+ # If you authenticate with SSH keys instead, use this code:
  #                                                  ssh_port=22,
  #                                                  username='<username>',
  #                                                  password=None,
