@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.service: key-vault
 author: bryanla
 ms.author: bryanla
-manager: mbaldwin
+manager: barbkess
 ms.date: 11/28/2018
 ---
 # Azure Key Vault managed storage account - PowerShell

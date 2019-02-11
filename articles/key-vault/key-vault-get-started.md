@@ -4,7 +4,7 @@ description: Use this tutorial to help you get started with Azure Key Vault to c
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: 36721e1d-38b8-4a15-ba6f-14ed5be4de79

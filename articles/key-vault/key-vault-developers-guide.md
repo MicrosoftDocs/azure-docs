@@ -3,7 +3,7 @@ title: Azure Key Vault Developer's Guide
 description: Developers can use Azure Key Vault to manage cryptographic keys within the Microsoft Azure environment.
 services: key-vault
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.workload: identity

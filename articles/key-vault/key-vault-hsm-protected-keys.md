@@ -4,7 +4,7 @@ description: Use this article to help you plan for, generate, and then transfer 
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: 51abafa1-812b-460f-a129-d714fdc391da
