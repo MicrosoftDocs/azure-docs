@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: jiahan
+ms.lastreviewed: 12/10/2018
 ---
 
 # MySQL resource provider 1.1.30.0  release notes

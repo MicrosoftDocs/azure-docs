@@ -21,6 +21,8 @@ ms.author: cynthn
 # Change the availability set for a Windows VM
 The following steps describe how to change the availability set of a VM using Azure PowerShell. A VM can only be added to an availability set when it is created. To change the availability set, you need to delete and then recreate the virtual machine. 
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## Change the availability set 
 
 The following script provides an example of gathering the required information, deleting the original VM and then recreating it in a new availability set.
@@ -32,17 +34,17 @@ The following script provides an example of gathering the required information, 
     $newAvailSetName = "myAvailabilitySet"
 
 # Get the details of the VM to be moved to the Availability Set
-    $originalVM = Get-AzureRmVM `
+    $originalVM = Get-AzVM `
 	   -ResourceGroupName $resourceGroup `
 	   -Name $vmName
 
 # Create new availability set if it does not exist
-    $availSet = Get-AzureRmAvailabilitySet `
+    $availSet = Get-AzAvailabilitySet `
 	   -ResourceGroupName $resourceGroup `
 	   -Name $newAvailSetName `
 	   -ErrorAction Ignore
     if (-Not $availSet) {
-    $availSet = New-AzureRmAvailabilitySet `
+    $availSet = New-AzAvailabilitySet `
 	   -Location $originalVM.Location `
 	   -Name $newAvailSetName `
 	   -ResourceGroupName $resourceGroup `
@@ -52,15 +54,15 @@ The following script provides an example of gathering the required information, 
     }
     
 # Remove the original VM
-    Remove-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName    
+    Remove-AzVM -ResourceGroupName $resourceGroup -Name $vmName    
 
 # Create the basic configuration for the replacement VM
-    $newVM = New-AzureRmVMConfig `
+    $newVM = New-AzVMConfig `
 	   -VMName $originalVM.Name `
 	   -VMSize $originalVM.HardwareProfile.VmSize `
 	   -AvailabilitySetId $availSet.Id
   
-    Set-AzureRmVMOSDisk `
+    Set-AzVMOSDisk `
 	   -VM $newVM -CreateOption Attach `
 	   -ManagedDiskId $originalVM.StorageProfile.OsDisk.ManagedDisk.Id `
 	   -Name $originalVM.StorageProfile.OsDisk.Name `
@@ -68,7 +70,7 @@ The following script provides an example of gathering the required information, 
 
 # Add Data Disks
     foreach ($disk in $originalVM.StorageProfile.DataDisks) { 
-    Add-AzureRmVMDataDisk -VM $newVM `
+    Add-AzVMDataDisk -VM $newVM `
 	   -Name $disk.Name `
 	   -ManagedDiskId $disk.ManagedDisk.Id `
 	   -Caching $disk.Caching `
@@ -79,13 +81,13 @@ The following script provides an example of gathering the required information, 
     
 # Add NIC(s)
     foreach ($nic in $originalVM.NetworkProfile.NetworkInterfaces) {
-        Add-AzureRmVMNetworkInterface `
+        Add-AzVMNetworkInterface `
 		   -VM $newVM `
 		   -Id $nic.Id
     }
 
 # Recreate the VM
-    New-AzureRmVM `
+    New-AzVM `
 	   -ResourceGroupName $resourceGroup `
 	   -Location $originalVM.Location `
 	   -VM $newVM `

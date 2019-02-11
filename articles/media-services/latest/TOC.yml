@@ -28,39 +28,37 @@
     href: cli-samples.md        
 - name: Concepts
   items:
-  - name: Migrate from v2 to v3
-    href: migrate-from-v2-to-v3.md  
-  - name: Entities
-    href: entities-overview.md
+  - name: Ingest
     items:
-    - name: Account Filters and Asset Filters 
-      href: filters-dynamic-manifest-overview.md      
     - name: Assets
-      href: assets-concept.md        
-    - name: Content Key Policies
-      href: content-key-policy-concept.md 
-    - name: Live Events and Live Outputs
-      href: live-events-outputs-concept.md    
+      href: assets-concept.md    
+  - name: Encode 
+    href: encoding-concept.md
+    items:
+    - name: Transforms and Jobs
+      href: transforms-jobs-concept.md   
+    - name: Media Encoder standard formats
+      href: media-encoder-standard-formats.md
+    - name: Autogen adaptive bitrate ladder
+      href: autogen-bitrate-ladder.md      
+  - name: Analyze 
+    href: analyzing-video-audio-files-concept.md
+    items:
+    - name: Transforms and Jobs
+      href: transforms-jobs-concept.md   
+  - name: Stream
+    items:
     - name: Streaming Endpoints
       href: streaming-endpoint-concept.md
     - name: Streaming Locators
       href: streaming-locators-concept.md
     - name: Streaming Policies
       href: streaming-policy-concept.md
-    - name: Transforms and Jobs
-      href: transforms-jobs-concept.md   
-  - name: Encoding content
-    href: encoding-concept.md
-    items:
-    - name: Media Encoder standard formats
-      href: media-encoder-standard-formats.md
-    - name: Autogen adaptive bitrate ladder
-      href: autogen-bitrate-ladder.md      
-  - name: Analyzing content
-    href: analyzing-video-audio-files-concept.md
-  - name: Streaming live events
+  - name: Stream live
     href: live-streaming-overview.md
     items:
+    - name: Live Events and Live Outputs
+      href: live-events-outputs-concept.md    
     - name: Recommended live encoders
       href: recommended-on-premises-live-encoders.md
     - name: Using a cloud DVR
@@ -71,24 +69,37 @@
       href: live-event-states-billing.md
     - name: Latency
       href: live-event-latency.md
-  - name: Monitoring
+  - name: Deliver
+    items:
+    - name: Filters and dynamic manifest
+      href: filters-dynamic-manifest-overview.md     
+  - name: Monitor
     items:
     - name: Event Grid
       href: reacting-to-media-services-events.md      
-  - name: Protecting content
+  - name: Protect
     href: content-protection-overview.md  
     items:
+    - name: Content Key Policies
+      href: content-key-policy-concept.md 
+    - name: Streaming Policies
+      href: streaming-policy-concept.md
+    - name: Streaming Locators
+      href: streaming-locators-concept.md      
     - name: Multi-DRM system with access control
       href: design-multi-drm-system-with-access-control.md
-  - name: Playing back
+  - name: Playback
     href: use-azure-media-player.md
   - name: Accounts
     items:
     - name: Quotas and limitations
       href: limits-quotas-constraints.md   
     - name: Storage accounts
-      href: storage-account-concept.md       
-    
+      href: storage-account-concept.md    
+  - name: Filter, order, page entities
+    href: entities-overview.md 
+  - name: Migrate from v2 to v3
+    href: migrate-from-v2-to-v3.md      
 - name: How-to guides
   items:
   - name: Get started
@@ -146,7 +157,7 @@
   - name: OpenAPI Specification (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
   - name: REST
-    href: https://aka.ms/ams-v3-rest-ref
+    href: https://aka.ms/ams-v3-rest-ref 
   - name: Azure CLI
     href: https://aka.ms/ams-v3-cli-ref    
   - name: SDKs
@@ -179,8 +190,6 @@
     href: https://azure.microsoft.com/roadmap/?category=web-mobile
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/media-services/
-  - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=media-services
   - name: OpenAPI Specification (Swagger)
@@ -199,6 +208,8 @@
       href: https://aka.ms/ams-v3-nodejs-sdk   
     - name: Ruby
       href: https://aka.ms/ams-v3-ruby-sdk
+  - name: AMSE
+    href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: Release notes
     href: release-notes.md
   - name: FAQ

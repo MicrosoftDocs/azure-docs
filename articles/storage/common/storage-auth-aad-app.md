@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/21/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 
 # Authenticate with Azure Active Directory from an application for access to blobs and queues (Preview)

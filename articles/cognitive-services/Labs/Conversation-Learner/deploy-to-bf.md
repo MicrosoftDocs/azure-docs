@@ -113,6 +113,7 @@ Below are step-by-step instructions for deploying a Conversation Learner Bot to 
         CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
         CONVERSATION_LEARNER_MODEL_ID      | Application Id GUID, obtained from the Conversation Learner UI under the "settings" for the model>
         LUIS_AUTHORING_KEY      		 | LUIS authoring key for this model
+        LUIS_SUBSCRIPTION_KEY            | Not required, but recommended for published bots to avoid using your Authoring quota.
     
     4. Click on "Save" near the top of the page
     5. Open "Build" nav item on the left

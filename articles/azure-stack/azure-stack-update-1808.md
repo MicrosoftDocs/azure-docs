@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
+ms.lastreviewed: 01/24/2019
 
 ---
 
@@ -126,9 +127,9 @@ This update also contains the mitigation for the speculative execution side chan
 
 ### Prerequisites
 
-- Install the Azure Stack [1807 Update](azure-stack-update-1807.md) before you apply the Azure Stack 1808 update. 
+- Install the Azure Stack 1807 update before you apply the Azure Stack 1808 update. 
 
-- Install the latest available [update or hotfix for version 1807](azure-stack-update-1807.md#post-update-steps).  
+- Install the latest available update or hotfix for version 1807.  
   > [!TIP]  
   > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 

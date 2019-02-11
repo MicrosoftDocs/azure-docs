@@ -3,12 +3,12 @@ title: Improve knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 
 author: diberry
-manager: cgronlun
+manager: nitinme
 displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 01/29/2019
 ms.author: diberry
 ---
 
@@ -35,6 +35,10 @@ Active learning is triggered based on the scores of top few answers returned by 
 
 All the suggestions are clustered together by similarity and top suggestions for alternate questions are displayed based on the frequency of the particular queries by end users. Active learning gives the best possible suggestions in cases where the endpoints are getting a reasonable quantity and variety of usage queries.
 
+## Upgrade version to use active learning
+
+Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) to use this feature. 
+
 ## Best practices
 
 For best practices when using active learning, see [Best practices](../Concepts/best-practices.md#active-learning).
@@ -47,9 +51,9 @@ The algorithm to determine proximity is not a simple calculation. The ranges in 
 
 ## Turn on active learning
 
-Active learning is off by default. Turned it on to see suggested questions. 
+Active learning is off by default. Turn it on to see suggested questions. 
 
-1. To turn active learning on, go to your **Service Settings** in the QnA Maker portal, in the top-right corner.  
+1. To turn active learning on, Click on your **Name**, go to [**Service Settings**](https://www.qnamaker.ai/UserSettings) in the QnA Maker portal, in the top-right corner.  
 
     ![On the service settings page, toggle on Active learning](../media/improve-knowledge-base/Endpoint-Keys.png)
 
@@ -147,7 +151,9 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
+Learn more about how to use active learning with an [Azure Bot C# example](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+
 ## Next steps
  
 > [!div class="nextstepaction"]
-> [Use QnAMaker API](./upgrade-qnamaker-service.md)
+> [Use QnA Maker API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

@@ -10,12 +10,12 @@ ms.author: vinagara
 ms.subservice: alerts
 ---
 # Log alerts in Azure Monitor
-This article provides details of Log alerts are one of the types of alerts supported within the [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) and allow users to use Azure's analytics platform as basis for alerting.
+This article provides details of Log alerts are one of the types of alerts supported within the [Azure Alerts](../platform/alerts-overview.md) and allow users to use Azure's analytics platform as basis for alerting.
 
-Log Alert consists of Log Search rules created for [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events). To learn more about its usage, see [creating log alerts in Azure](../../azure-monitor/platform/alerts-log.md)
+Log Alert consists of log query rules created for [Azure Monitor](../learn/tutorial-viewdata.md) or [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events). To learn more about its usage, see [creating log alerts in Azure](../platform/alerts-log.md)
 
 > [!NOTE]
-> Popular log data from [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) is now also available on the metric platform in Azure Monitor. For details view, [Metric Alert for Logs](../../azure-monitor/platform/alerts-metric-logs.md)
+> Popular log data from [Azure Monitor](../learn/tutorial-viewdata.md) is now also available on the metric platform in Azure Monitor. For details view, [Metric Alert for Logs](../platform/alerts-metric-logs.md)
 
 
 ## Log search alert rule - definition and types
@@ -35,7 +35,7 @@ Log search rules are defined by the following details:
 
 - **Threshold**.  The results of the log search are evaluated to determine whether an alert should be created.  The threshold is different for the different types of log search alert rules.
 
-Log search rules be it for [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) or [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostics-events), can be of two types. Each of these types is described in detail in the sections that follow.
+Log query rules be it for [Azure Monitor](../learn/tutorial-viewdata.md) or [Application Insights](../app/cloudservices.md#view-azure-diagnostics-events), can be of two types. Each of these types is described in detail in the sections that follow.
 
 - **[Number of results](#number-of-results-alert-rules)**. Single alert created when the number records returned by the log search exceed a specified number.
 - **[Metric measurement](#metric-measurement-alert-rules)**.  Alert created for each object in the results of the log search with values that exceed specified threshold.
@@ -68,8 +68,10 @@ Then alert would run the query every 5 minutes, with 30 minutes of data - to loo
 
 ### Metric measurement alert rules
 
-- **Metric measurement** alert rules create an alert for each object in a query with a value that exceeds a specified threshold.  They have the following distinct differences from **Number of results** alert rules.
+**Metric measurement** alert rules create an alert for each object in a query with a value that exceeds a specified threshold.  They have the following distinct differences from **Number of results** alert rules.
+
 - **Aggregate function**: Determines the calculation that is performed and potentially a numeric field to aggregate.  For example, **count()** returns the number of records in the query, **avg(CounterValue)** returns the average of the CounterValue field over the interval. Aggregate function in query must be named/called: AggregatedValue and provide a numeric value. 
+
 - **Group Field**: A record with an aggregated value is created for each instance of this field, and an alert can be generated for each.  For example, if you wanted to generate an alert for each computer, you would use **by Computer**. In case there are multiple group field specified in alert query, user can specify which field to be used to sort results by using the **Aggregate On** (metricColumn) parameter
 
     > [!NOTE]
@@ -106,11 +108,11 @@ Log search alert rule works on the logic predicated by user as per configuration
 
 Now assume we have a log alert rule called *Contoso-Log-Alert*, as per configuration in the [example provided for Number of Results type log alert](#example-of-number-of-records-type-log-alert). 
 - At 1:05 PM when Contoso-Log-Alert was executed by Azure alerts, the log search result yielded 0 records; below the threshold and hence not firing the alert. 
-- At the next iteration at 1:10 PM when Contoso-Log-Alert was executed by Azure alerts, log search result provided 5 records; exceeding the threshold and firing the alert, soon after by triggering the [action group](../../azure-monitor/platform/action-groups.md) associated. 
-- At 1:15 PM when Contoso-Log-Alert was executed by Azure alerts, log search result provided 2 records; exceeding the threshold and firing the alert, soon after by triggering the [action group](../../azure-monitor/platform/action-groups.md) associated.
+- At the next iteration at 1:10 PM when Contoso-Log-Alert was executed by Azure alerts, log search result provided 5 records; exceeding the threshold and firing the alert, soon after by triggering the [action group](../platform/action-groups.md) associated. 
+- At 1:15 PM when Contoso-Log-Alert was executed by Azure alerts, log search result provided 2 records; exceeding the threshold and firing the alert, soon after by triggering the [action group](../platform/action-groups.md) associated.
 - Now at the next iteration at 1:20 PM when Contoso-Log-Alert was executed by Azure alert, log search result provided again 0 records; below the threshold and hence not firing the alert.
 
-But in the above listed case, at 1:15 PM - Azure alerts can't determine that the underlying issues seen at 1:10 persist and if there is net new failures; as query provided by user may be taking into account earlier records - Azure alerts can be sure. Hence to err on the side of caution, when Contoso-Log-Alert is executed at 1:15 PM, configured [action group](../../azure-monitor/platform/action-groups.md) is fired again. Now at 1:20 PM when no records are seen - Azure alerts can't be certain that the cause of the records has been solved; hence Contoso-Log-Alert will not changed to Resolved in Azure Alert dashboard and/or notifications sent out stating resolution of alert.
+But in the above listed case, at 1:15 PM - Azure alerts can't determine that the underlying issues seen at 1:10 persist and if there is net new failures; as query provided by user may be taking into account earlier records - Azure alerts can be sure. Hence to err on the side of caution, when Contoso-Log-Alert is executed at 1:15 PM, configured [action group](../platform/action-groups.md) is fired again. Now at 1:20 PM when no records are seen - Azure alerts can't be certain that the cause of the records has been solved; hence Contoso-Log-Alert will not changed to Resolved in Azure Alert dashboard and/or notifications sent out stating resolution of alert.
 
 
 ## Pricing and Billing of Log Alerts
@@ -125,9 +127,8 @@ Pricing applicable for Log Alerts is stated at the [Azure Monitor Pricing](https
     > If invalid characters such as `<, >, %, &, \, ?, /` are present, they will be replaced with `_` in the bill. To delete scheduleQueryRules resources created for billing of alert rules using [legacy Log Analytics API](api-alerts.md) - user needs to delete the original schedule and alert action using [legacy Log Analytics API](api-alerts.md)
 
 ## Next steps
-* Learn about [creating in log alerts in Azure](../../azure-monitor/platform/alerts-log.md).
+* Learn about [creating in log alerts in Azure](../platform/alerts-log.md).
 * Understand [webhooks in log alerts in Azure](alerts-log-webhook.md).
-* Learn about [Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
-* Learn more about [Application Insights](../../azure-monitor/app/analytics.md).
-* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).    
-
+* Learn about [Azure Alerts](../platform/alerts-overview.md).
+* Learn more about [Application Insights](../app/analytics.md).
+* Learn more about [Azure Monitor log queries](../log-query/log-query-overview.md).    

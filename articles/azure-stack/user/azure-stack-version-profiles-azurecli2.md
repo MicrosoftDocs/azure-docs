@@ -14,6 +14,7 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: sijuman
+ms.lastreviewed: 01/24/2019
 
 ---
 # Use API version profiles with Azure CLI in Azure Stack

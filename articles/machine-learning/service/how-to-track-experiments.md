@@ -7,7 +7,7 @@ author: heatherbshapiro
 ms.author: hshapiro
 
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/04/2018
@@ -238,6 +238,12 @@ if r.get_status() not in ['Complete', 'Failed']:
     r.cancel()
 ```
 Please note that currently only ScriptRun and PipelineRun types support cancel operation.
+
+Additionally, you can cancel a run through the CLI using the following command:
+```shell
+az ml run cancel -r <run_id> -p <project_path>
+```
+
 
 ## View run details
 

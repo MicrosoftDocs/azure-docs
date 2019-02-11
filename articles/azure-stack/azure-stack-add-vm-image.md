@@ -15,6 +15,7 @@ ms.topic: get-started-article
 ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
+ms.lastreviewed: 06/08/2018
 
 ---
 # Make a virtual machine image available in Azure Stack
