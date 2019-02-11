@@ -34,7 +34,7 @@ Microsoft also seamlessly moves and manages the keys as needed for geo-replicati
 > [!IMPORTANT]
 > All newly created SQL databases are encrypted by default by using service-managed transparent data encryption. Azure SQL Managed Instance databases, existing SQL databases created before May 2017 and SQL databases created through restore, geo-replication, and database copy are not encrypted by default.
 
-## Azure Key Vault Integration - Bring Your Own Key
+## Customer-managed transparent data encryption - Bring Your Own Key
 
 [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-azure-sql.md) allows to encrypt the Database Encryption Key (DEK) with a customer-managed asymmetric key called TDE Protector.  The TDE Protector is stored in a customer-owned and managed [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azure’s cloud-based external key management system. The TDE DEK, which is stored on the boot page of a database, is encrypted and decrypted by the TDE Protector, which is stored in Azure Key Vault and never leaves the key vault.  SQL Database needs to be granted permissions to the customer-owned key vault to decrypt and encrypt the DEK. If permissions of the logical SQL server to the key vault are revoked, a database will be inaccessible and all data is encrypted. For Azure SQL Database, the TDE protector is set at the logical SQL server level and is inherited by all databases associated with that server. For Azure SQL Managed Instance, the TDE protector is set at the instance level and it is inherited by all *encrypted* databases on that instance. The term *server* refers both to server and instance throughout this document, unless stated differently.
 
