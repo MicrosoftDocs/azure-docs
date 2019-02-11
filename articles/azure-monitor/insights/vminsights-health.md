@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/31/2019
+ms.date: 02/08/2019
 ms.author: magoedte
 ---
 
@@ -39,7 +39,7 @@ For information about configuring Azure Monitor for VMs, see [Enable Azure Monit
 >
 >There is no regression of any functionality delivered today with the Health feature of Azure Monitor for VMs.
 
->As a result of this change, there will be some disruption for a short period of time with the service and the health history. The two experiences in Health diagnostics are affected - state change history will be reset and previous state changes for health criteria will not be available for review in the State Change column of the Health diagnostics page. If you are interested in the historical data of any mission critical VM, then you can take a screenshot of the health criteria data and the corresponding state changes for your reference. 
+>As a result of this change, two experiences in Health diagnostics are affected - state change history will be reset and previous state changes for health criteria will not be available for review in the State Change column of the Health diagnostics page. If you are interested in the historical data of any mission critical VM, then you can take a screenshot of the health criteria data and the corresponding state changes for your reference. 
 
 ## Monitoring configuration details
 This section outlines the default health criteria defined to monitor Azure Windows and Linux virtual machines. All health criteria are pre-configured to alert when the unhealthy condition is met. 
@@ -101,7 +101,7 @@ To view the health of an Azure VM, select **Insights (preview)** from the left-h
 
 ![Azure Monitor for VMs health overview of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
 
-On the **Health** tab, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of VM Health alerts raised by an unhealthy component. Refer to [Alerts](#alerting-and-alert-management) section for more details about the alerting experience.  
+On the **Health** tab, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of VM Health alerts raised by an unhealthy component. Refer to Alerts section for more details about the alerting experience.  
 
 The health states defined for a VM are described in the following table: 
 
@@ -137,13 +137,6 @@ Here you can quickly identify the top critical issues detected by the health cri
 The **VM distribution by operating system** list shows VMs listed by Windows edition or Linux distribution, along with their version. In each operating system category, the VMs are broken down further based on the health of the VM. 
 
 ![VM Insights virtual machine distribution perspective](./media/vminsights-health/vminsights-vmdistribution-by-os.png)
-
-The health states defined for a VM are: 
-
-* **Healthy** – no issues detected for the VM and it is functioning as required.  
-* **Critical** – one or more critical issues are detected, which need to be addressed in order to restore normal functionality as expected. 
-* **Warning** -  one or more issues are detected, which need to be addressed or the health condition could become critical.  
-* **Unknown** – if the service was not able to make a connection with the VM, the status changes to an unknown state.  
 
 You can click on any column item - **VM count**, **Critical**, **Warning**, **Healthy** or **Unknown** to drill-down into the **Virtual Machines** page see a list of filtered results matching the column selected. For example, if we want to review all VMs running **Red Hat Enterprise Linux release 7.5**, click on the **VM count** value for that OS and it will open the following page, listing the virtual machines matching that filter and their currently known health state.  
 

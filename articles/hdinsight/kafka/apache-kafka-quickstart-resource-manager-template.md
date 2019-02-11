@@ -14,7 +14,7 @@ ms.date: 04/16/2018
 
 [Apache Kafka](https://kafka.apache.org/) is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue. 
 
-In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apache.org) cluster using an Azure Resource Manager template. You also learn how to use included utilities to send and receive messages using Kafka.
+In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apache.org) cluster using an Azure Resource Manager template. You also learn how to use included utilities to send and receive messages using Kafka. Similar templates can be viewed at [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular). The template reference can be found [here](https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions).
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 

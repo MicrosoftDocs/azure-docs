@@ -8,7 +8,7 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 01/21/2019
+ms.date: 02/10/2019
 ms.author: juliako
 ---
 
@@ -19,7 +19,7 @@ This article shows how you can embed Video Indexer widgets into your application
 > [!NOTE]
 > Starting with Feb 1, 2018, version 1 of the **Cognitive Insights** widget will be deprecated. The embed URL version will default to `version=2`.
 
-Starting with version 2, the widget base URL includes the accout's region. For example, an account in the West US region generates: `https://wus2.videoindexer.ai/embed/insights/...`.
+Starting with version 2, the widget base URL includes the account's region. For example, an account in the West US region generates: `https://wus2.videoindexer.ai/embed/insights/...`.
 
 ## Widget types
 

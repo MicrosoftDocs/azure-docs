@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
@@ -24,7 +24,7 @@ ms.lastreviewed: 01/16/2019
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes on Azure Stack is in preview.
+> Kubernetes on Azure Stack is in preview. Azure Stack disconnected scenario is not currently supported by the preview.
 
 You can follow the steps in this article to deploy and set up the resources for Kubernetes. Use these steps when Active Directory Federated Services (AD FS) is your identity management service.
 
@@ -57,7 +57,7 @@ You need to work with your Azure Stack administrator to set up your service prin
         RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
     ```
 
-2. Assign your new service principal a role as a contributor to your subscription. For instructions, see [Assign a role](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal).
+2. Assign your new service principal a role as a contributor to your subscription. For instructions, see [Assign a role](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals).
 
 3. Create a key vault to store your certificate for deployment.
 
@@ -91,7 +91,7 @@ You need to work with your Azure Stack administrator to set up your service prin
         New-AzureRmResourceGroup -Name $resource_group_name -Location $resource_group_location -Force
         
         # Note, Do not omit -EnabledForTemplateDeployment flag
-        New-AzureRmKeyVault -VaultName $key_vault_name -ResourceGroupName $resource_group_name -Location local -EnabledForTemplateDeployment
+        New-AzureRmKeyVault -VaultName $key_vault_name -ResourceGroupName $resource_group_name -Location $resource_group_location -EnabledForTemplateDeployment
         
         # Obtain the security identifier(SID) of the active directory user
         $adUser = Get-ADUser -Filter "Name -eq '$username'" -Credential $mycreds

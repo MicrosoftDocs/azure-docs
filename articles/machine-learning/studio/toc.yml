@@ -6,12 +6,8 @@
   - name: Machine Learning Studio
     displayName: overview
     href: what-is-ml-studio.md
-  - name: ML Studio capabilities
-    displayName: overview
-    href: studio-overview-diagram.md
-  - name: ML Studio basics (infographic)
-    displayName: algorithm, algorithms
-    href: basics-infographic-with-algorithm-examples.md
+  - name: Compare our ML products
+    href: ../service/overview-more-machine-learning.md       
   - name: Frequently asked questions
     displayName: FAQ
     href: faq.md
@@ -20,24 +16,14 @@
   - name: Create your first experiment
     displayName: quickstart
     href: create-experiment.md
-  - name: Example walkthrough
+  - name: Create a predictive solution
     items:
-    - name: Create a predictive solution
-      href: walkthrough-develop-predictive-solution.md
-    - name: 1 - Create a workspace
-      href: walkthrough-1-create-ml-workspace.md
-    - name: 2 - Upload data
-      href: walkthrough-2-upload-data.md
-    - name: 3 - Create experiment
-      href: walkthrough-3-create-new-experiment.md
-    - name: 4 - Train and evaluate
-      href: walkthrough-4-train-and-evaluate-models.md
-    - name: 5 - Deploy web service
-      displayName: publish
-      href: walkthrough-5-publish-web-service.md
-    - name: 6 - Access web service
-      displayName: consume
-      href: walkthrough-6-access-web-service.md
+    - name: 1 - Create experiment
+      href: tutorial-part1-credit-risk.md  
+    - name: 2 - Train and evaluate
+      href: tutorial-part2-credit-risk-train.md
+    - name: 3 - Deploy web service
+      href: tutorial-part3-credit-risk-deploy.md
 - name: Samples
   items:
   - name: Available datasets
@@ -75,15 +61,9 @@
       href: deploy-with-resource-manager-template.md
   - name: Import training data
     items:
-    - name: Overview
+    - name: Import data
       href: import-data.md
-    - name: From a local file
-      href: import-data-from-local-file.md
-    - name: From online sources
-      href: import-data-from-online-sources.md
-    - name: From an experiment
-      href: import-data-from-an-experiment.md
-    - name: Use on-prem SQL
+    - name: Use data from on-premises SQL
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
   - name: Create and train models
@@ -98,10 +78,6 @@
     - name: Try experiments in AI Gallery
       displayName: gallery
       href: sample-experiments.md
-    - name: Choose algorithms
-      href: algorithm-choice.md
-    - name: Algorithm cheat sheet
-      href: algorithm-cheat-sheet.md
     - name: Evaluate and interpret results
       items:
       - name: Evaluate performance
@@ -123,6 +99,15 @@
         href: custom-r-modules.md
       - name: Execute Python scripts
         href: execute-python-scripts.md
+  - name: Select an algorithm
+    items:
+    - name: Choose algorithms
+      href: algorithm-choice.md
+    - name: Algorithm cheat sheet
+      href: algorithm-cheat-sheet.md        
+    - name: Algorithm examples
+      displayName: infographic, studio basics
+      href: basics-infographic-with-algorithm-examples.md
   - name: Deploy models
     items:
     - name: Deploy a web service
@@ -195,8 +180,8 @@
     href: ai-gallery-control-personal-data-dsr.md 
 - name: Reference
   items:
-  - name: Algorithm & Module reference
-    href: https://msdn.microsoft.com/library/azure/dn905974.aspx
+  - name: Algorithm & module reference
+    href: /azure/machine-learning/studio-module-reference/machine-learning-studio-algorithm-and-module-help
   - name: Azure PowerShell modules
     href: powershell-module.md
   - name: Web service error codes
@@ -215,9 +200,5 @@
     href: https://azure.microsoft.com/regions/services/    
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/machine-learning/
-  - name: R developer's guide 
-    href: ../r-developers-guide.md
   - name: Custom neural networks (Net#)
     href: azure-ml-netsharp-reference-guide.md
-  - name: Compare our ML products
-    href: ../service/overview-more-machine-learning.md       

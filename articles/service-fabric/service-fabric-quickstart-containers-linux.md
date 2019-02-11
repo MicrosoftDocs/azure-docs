@@ -114,7 +114,7 @@ Mozilla Firefox is the default browser in Ubuntu 16.04. To import the certificat
     ./install.sh
     ```
 
-3. Open a web browser and navigate to the Service Fabric Explorer endpoint for your cluster. The endpoint has the following format:  **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**; for example, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>(For party clusters, you can find the Service Fabric Explorer endpoint for your cluster on the **Welcome** page.)
+3. Open a web browser and navigate to the Service Fabric Explorer endpoint for your cluster. The endpoint has the following format:  **https://\<my-azure-service-fabric-cluster-url>:19080/Explorer**; for example, `https://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer`. </br>
 
 4. Expand the **Applications** node to see that there is now an entry for the Voting application type and the instance you created.
 

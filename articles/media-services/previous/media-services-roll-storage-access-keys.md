@@ -4,7 +4,7 @@ description: This articles give you guidance on how to update Media Services aft
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: a892ebb0-0ea0-4fc8-b715-60347cc5c95b
@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 02/08/2019
 ms.author: milanga;cenkdin;juliako
 
 ---
-# Update Media Services after rolling storage access keys
+# Update Media Services after rolling storage access keys 
 
 When you create a new Azure Media Services (AMS) account, you are also asked to select an Azure Storage account that is used to store your media content. You can add more than one storage accounts to your Media Services account. This article shows how to rotate storage keys. It also shows how to add storage accounts to a media account. 
 
