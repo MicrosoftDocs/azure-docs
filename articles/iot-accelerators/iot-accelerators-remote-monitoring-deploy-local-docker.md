@@ -63,7 +63,7 @@ docker-compose up
 ```
 
 > [!NOTE] 
-> Make sure you [share a local drive](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115) with docker before running `docker-compose up`.
+> Make sure you [share a local drive](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115) with Docker before you run `docker-compose up`.
 
 The first time you run this command, Docker downloads the microservice images from Docker hub to build the containers locally. On following runs, Docker runs the containers immediately.
 
