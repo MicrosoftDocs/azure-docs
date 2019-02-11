@@ -330,7 +330,7 @@
   - name: Usage metering
     href: logic-apps-pricing.md
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.logicapp
+    href: /powershell/module/az.logicapp
   - name: REST API
     href: /rest/api/logic/
   - name: Resource Manager template
