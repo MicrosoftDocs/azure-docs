@@ -38,28 +38,33 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 * **Azure CLI**: If you haven't installed the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-* **An SSH client**: For more information, see [Connect to HDInsight (Hadoop) by using SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+* **A Secure Shell (SSH) client**: For more information, see [Connect to HDInsight (Hadoop) by using SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 > [!IMPORTANT]
 > The steps in this article require an HDInsight cluster that uses Linux. Linux is the only operating system that's used on Azure HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-### Download the flight data
+## Download the flight data
 
 This tutorial uses flight data from the Bureau of Transportation Statistics to demonstrate how to perform an ETL operation. You must download this data to complete the tutorial.
 
 1. Go to [Research and Innovative Technology Administration, Bureau of Transportation Statistics](https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time).
 
-2. Select the **Prezipped File** check box to select all data fields.
+1. On the page, select the following values:
 
-3. Select the **Download** button and save the results to your computer. 
+   | Name | Value |
+   | --- | --- |
+   | **Filter Period** |January |
+   | **Fields** |FlightDate, OriginCityName, WeatherDelay |
 
-4. Unzip the contents of the zipped file and make a note of the file name and the path of the file. You need this information in a later step.
+1. Clear all other fields.
+
+1. Select **Download**. You get a .zip file with the data fields that you selected.
 
 ## Extract and upload the data
 
-In this section, you use `scp` to upload data to your HDInsight cluster.
+In this section, you'll upload data to your HDInsight cluster. 
 
-1. Open a command prompt and use the following command to upload the .zip file to the HDInsight cluster head node:
+1. Open a command prompt and use the following Secure Copy (Scp) command to upload the .zip file to the HDInsight cluster head node:
 
    ```bash
    scp <file-name>.zip <ssh-user-name>@<cluster-name>-ssh.azurehdinsight.net:<file-name.zip>
@@ -69,7 +74,7 @@ In this section, you use `scp` to upload data to your HDInsight cluster.
    * Replace the `<ssh-user-name>` placeholder with the SSH login for the HDInsight cluster.
    * Replace the `<cluster-name>` placeholder with the name of the HDInsight cluster.
 
-   If you use a password to authenticate your SSH login, you're prompted for the password. 
+   If you use a password to authenticate your SSH login, you're prompted for the password.
 
    If you use a public key, you might need to use the `-i` parameter and specify the path to the matching private key. For example, `scp -i ~/.ssh/id_rsa <file_name>.zip <user-name>@<cluster-name>-ssh.azurehdinsight.net:`.
 
@@ -92,7 +97,7 @@ In this section, you use `scp` to upload data to your HDInsight cluster.
    ```bash
    hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
    ```
-   
+
    Replace the `<file-system-name>` placeholder with the name that you want to give your file system.
 
    Replace the `<storage-account-name>` placeholder with the name of your storage account.
@@ -128,28 +133,9 @@ As part of the Apache Hive job, you import the data from the .csv file into an A
    ```hiveql
    DROP TABLE delays_raw;
     CREATE EXTERNAL TABLE delays_raw (
-       YEAR string,
        FL_DATE string,
-       UNIQUE_CARRIER string,
-       CARRIER string,
-       FL_NUM string,
-       ORIGIN_AIRPORT_ID string,
-       ORIGIN string,
        ORIGIN_CITY_NAME string,
-       ORIGIN_CITY_NAME_TEMP string,
-       ORIGIN_STATE_ABR string,
-       DEST_AIRPORT_ID string,
-       DEST string,
-       DEST_CITY_NAME string,
-       DEST_CITY_NAME_TEMP string,
-       DEST_STATE_ABR string,
-       DEP_DELAY_NEW float,
-       ARR_DELAY_NEW float,
-       CARRIER_DELAY float,
-       WEATHER_DELAY float,
-       NAS_DELAY float,
-       SECURITY_DELAY float,
-      LATE_AIRCRAFT_DELAY float)
+       WEATHER_DELAY float)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
     LINES TERMINATED BY '\n'
     STORED AS TEXTFILE
@@ -158,26 +144,9 @@ As part of the Apache Hive job, you import the data from the .csv file into an A
    CREATE TABLE delays
    LOCATION 'abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/processed'
    AS
-   SELECT YEAR AS Year,
-       FL_DATE AS FlightDate,
-       substring(UNIQUE_CARRIER, 2, length(UNIQUE_CARRIER) -1) AS Reporting_Airline,
-       substring(CARRIER, 2, length(CARRIER) -1) AS  IATA_CODE_Reporting_Airline,
-       substring(FL_NUM, 2, length(FL_NUM) -1) AS  Flight_Number_Reporting_Airline,
-       ORIGIN_AIRPORT_ID AS OriginAirportID,
-       substring(ORIGIN, 2, length(ORIGIN) -1) AS Origin,
+   SELECT FL_DATE AS FlightDate,
        substring(ORIGIN_CITY_NAME, 2) AS OriginCityName,
-       substring(ORIGIN_STATE_ABR, 2, length(ORIGIN_STATE_ABR) -1)  AS OriginStateName,
-       DEST_AIRPORT_ID AS DestAirportID,
-       substring(DEST, 2, length(DEST) -1) AS Dest,
-       substring(DEST_CITY_NAME,2) AS DestCityName,
-       substring(DEST_STATE_ABR, 2, length(DEST_STATE_ABR) -1) AS DestState,
-       DEP_DELAY_NEW AS DepDelay,
-       ARR_DELAY_NEW AS ArrDelay,
-       CARRIER_DELAY AS CarrierDelay,
        WEATHER_DELAY AS WeatherDelay
-       NAS_DELAY AS NASDelay,
-       SECURITY_DELAY AS SecurityDelay,
-       LATE_AIRCRAFT_DELAY AS LateAircraftDelay
    FROM delays_raw;
    ```
 

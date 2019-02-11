@@ -80,9 +80,9 @@
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
   - name: Security in Azure SQL Database
     items:
-    - name: Single database security
+    - name: Single and pooled database security
       href: sql-database-security-tutorial.md
-    - name: Managed instance security with Azure AD logins
+    - name: Managed instance security
       href: sql-database-managed-instance-aad-security-tutorial.md
   - name: Implement a geo-distributed database
     href: sql-database-implement-geo-distributed-database.md 
@@ -103,10 +103,10 @@
   - name: Purchasing models
     items: 
     - name: Overview 
-      href: sql-database-service-tiers.md
+      href: sql-database-purchase-models.md
     - name: vCore-based model
       href: sql-database-service-tiers-vcore.md
-    - name: DTU model
+    - name: DTU service tiers
       href: sql-database-service-tiers-dtu.md
     - name: Prepay for reserved capacity
       href: sql-database-reserved-capacity.md
