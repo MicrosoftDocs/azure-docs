@@ -58,7 +58,7 @@ These steps show you how to add a new Certificate Authority to your IoT hub thro
  
 9. Upload the resulting signature from step 8 above to your IoT hub in the portal. In the **Certificate Details** blade on the Azure portal, navigate to the **Verification Certificate .pem or .cer file**, and select the signature, for example, *VerifyCert4.cer* created by the sample PowerShell command using the _File Explorer_ icon besides it.
 
-10. Once the certificate is successfuly uploaded, click **Verify**. The **STATUS** of your certificate changes to **_Verified_** in the **Certificates** blade. Click **Refresh** if it does not update automatically.
+10. Once the certificate is successfully uploaded, click **Verify**. The **STATUS** of your certificate changes to **_Verified_** in the **Certificates** blade. Click **Refresh** if it does not update automatically.
 
    ![Upload certificate verification](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
@@ -67,9 +67,9 @@ These steps show you how to add a new Certificate Authority to your IoT hub thro
 
 ## Create an X.509 device for your IoT hub
 
-1. In the Azure portal, navigate to your IoT hub's **Device Explorer**.
+1. In the Azure portal, navigate to your IoT hub's **Explorers > IoT devices** page.
 
-2. Click **Add** to add a new device. 
+2. Click **+ Add** to add a new device.
 
 3. Give a friendly display name for the **Device ID**, and select **_X.509 CA Signed_** as the **Authentication Type**. Click **Save**.
 
@@ -136,7 +136,7 @@ Next, we will show you how to create a C# application to simulate the X.509 devi
     ```CSharp
     try
     {
-        var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "123");
+        var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "1234");
         var auth = new DeviceAuthenticationWithX509Certificate("<device-id>", cert);
         var deviceClient = DeviceClient.Create("<your-iot-hub-name>.azure-devices.net", auth, TransportType.Amqp_Tcp_Only);
 

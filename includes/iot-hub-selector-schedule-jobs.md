@@ -1,3 +1,10 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: dobett
+---
 > [!div class="op_single_selector"]
 > * [Device: Node.js Service: Node.js](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md)
 > * [Device: C# Service: C#](../articles/iot-hub/iot-hub-csharp-csharp-schedule-jobs.md)

@@ -3,14 +3,14 @@ title: What is the MyApps portal in Azure Active Directory? | Microsoft Docs
 description: Learn how to use variations of the MyApps portal (web browser, Android app, iPhone and iPad app) to access SaaS apps.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/11/18
+ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
 ---
@@ -38,9 +38,9 @@ By using the MyApps portal, you can edit some of your profile settings and do th
 
 ## Access the MyApps portal
 
-You can access the MyApps portal by going to `http://myapps.microsoft.com`.
+You can access the MyApps portal by going to `https://myapps.microsoft.com`.
 
-If you have custom branding configured for your sign-in page, you can load the branding by appending your organization’s domain to the URL (for example, `http://myapps.microsoft.com/<your domain>.com`).
+If you have custom branding configured for your sign-in page, you can load the branding by appending your organization’s domain to the URL (for example, `https://myapps.microsoft.com/<your domain>.com`).
 
 You can use any active or verified domain name that has been configured in your Azure portal, as shown here:
 ![Wingtip Toys domain name][2]  
@@ -63,7 +63,7 @@ The installer is architecture-specific. If you click the download link, you only
 
 
 The MyApps portal extension is currently available for:
-- **Edge**: on Windows 10 Anniversary Edition or later. 
+- **Microsoft Edge**: on Windows 10 Anniversary Edition or later. 
 - **Chrome**: on Windows 7 or later, and on MacOS X or later.
 - **Firefox 26.0 or later**: on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
 - **Internet Explorer 11**: on Windows 7 or later (limited support).
@@ -77,11 +77,11 @@ To sign in to password-based single sign-on, you must use the extension. After t
 - You can use internal company URLs while remote through [Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
-> Additional features are available only for Edge, Chrome, and Firefox.
+> Additional features are available only for Microsoft Edge, Chrome, and Firefox.
 >
 You can download the extension directly from the following sites:
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 If you are using a My Apps URL other than `https://myapps.microsoft.com`, configure your default URL by doing the following:
@@ -107,16 +107,6 @@ The Azure Active Directory team publishes the My Apps mobile app. When you insta
 
 > [!NOTE]
 > You can sign in to applications that support federation with Azure AD (including Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365, and more than 70 others) on virtually any web browser, on any device, without needing a plug-in or mobile app. To be used on a mobile device, the other [MyApps portal experiences](https://myapps.microsoft.com/) also do not require the My Apps mobile app.
->
->
-
-### My Apps for Android
-
-My Apps for Android is supported on any Android device that is running Android version 4.1 or later.  
-
-It is available at the [Google Play store](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
-
-![My Apps for Android][3]   
 
 ### My Apps for iPhone and iPad
 
@@ -127,13 +117,13 @@ It is available at the [Apple App Store](https://itunes.apple.com/us/app/my-apps
 ![My Apps for iOS][4]    
 
 
-## Managed browser for My Apps
+## Intune Managed Browser for My Apps
 
-My Apps is also integrated with the Intune Managed Browser. The Intune Managed Browser for iOS and Android devices plays a key role in helping ensure that data on mobile devices stays secure. The browser lets you safely view and navigate webpages that might contain company information, and it helps provide a secure web-browsing experience.  
+My Apps is also integrated with the Intune Managed Browser. The Intune Managed Browser for iOS and Android devices helps you to more safely view and navigate webpages that might contain company information, helping to provide a more secure web-browsing experience.  
 
-You get quick access to My Apps on your Managed Browser home page and in your bookmarks, so fewer clicks are required to reach any application you want to access.
+You can get to My Apps from both the Managed Browser home page and from your bookmarks, which means there are fewer clicks needed to reach your apps.
 
-Intune Managed Browser is available at the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) and [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en).
+Intune Managed Browser is available at the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) and [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
 ![Managed browser for My Apps][5]    
 
@@ -145,7 +135,7 @@ If you are an Azure administrator and you are signed in to the Azure portal by u
 To test in a *different* user account, do the following:
 
 1. At the upper right of the Azure portal or the MyApps portal, select **Sign Out**. 
-2. Go to the [MyApps portal](http://myapps.microsoft.com).
+2. Go to the [MyApps portal](https://myapps.microsoft.com).
 3. On the sign-in page, type the username and password for the account in your directory that you want to test.
 
 
@@ -208,17 +198,16 @@ For example, if an application is configured to authenticate users by using AD F
 
 ## Next steps
 
-- To view a list of all topics that are related to application management, see the [article index for application management in Azure Active Directory](../active-directory-apps-index.md).
+- To learn about application management, see [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md).
  
 - To learn how to integrate a SaaS app with Azure AD, see the [list of tutorials on how to integrate SaaS apps](../saas-apps/tutorial-list.md).
  
 - To learn more about managing apps with Azure AD, see the [introduction to single sign-on and managing app access with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
  
-- To learn more about user provisioning, see [automate user provisioning and deprovisioning to SaaS applications](../active-directory-saas-app-provisioning.md).
+- To learn more about user provisioning, see [automate user provisioning and deprovisioning to SaaS applications](../manage-apps/user-provisioning.md).
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/01.png
 [2]: ./media/active-directory-saas-access-panel-introduction/02.png
-[3]: ./media/active-directory-saas-access-panel-introduction/03.png
 [4]: ./media/active-directory-saas-access-panel-introduction/04.png
 [5]: ./media/active-directory-saas-access-panel-introduction/05.png

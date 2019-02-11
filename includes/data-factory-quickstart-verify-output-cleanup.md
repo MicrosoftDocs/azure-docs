@@ -1,3 +1,10 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+---
 ## Verify the output
 The pipeline automatically creates the output folder in the adftutorial blob container. Then, it copies the emp.txt file from the input folder to the output folder. 
 
@@ -16,6 +23,8 @@ Deleting a resource group deletes all resources including data factories in it. 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
+
+Note: dropping a resource group may take some time. Please be patient with the process
 
 If you want to delete just the data factory, not the entire resource group, run the following command: 
 

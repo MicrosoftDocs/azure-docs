@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
@@ -70,7 +70,7 @@ Use service principal authentication by specifying the following properties:
                 "value": "<service principal key>",
                 "type": "SecureString"
             },
-            "tenant": "<tenant ID>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
             "subscriptionId": "<optional, subscription id of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
         },

@@ -32,7 +32,7 @@ The network configuration file may contain the following elements. The title of 
 > 
 > 
 
-[Dns Element](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Dns Element](https://go.microsoft.com/fwlink/?LinkId=248093)
 
     <Dns>
       <DnsServers>
@@ -47,7 +47,7 @@ The network configuration file may contain the following elements. The title of 
 > 
 > 
 
-[Virtual Network Sites Element](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Virtual Network Sites Element](https://go.microsoft.com/fwlink/?LinkId=248093)
 
     <DnsServersRef>
       <DnsServerRef name="ID1" />
@@ -61,7 +61,7 @@ The network configuration file may contain the following elements. The title of 
 > 
 
 ## Next steps
-* Understand the [Azure Virtual Network Configuration Schema](http://go.microsoft.com/fwlink/?LinkId=248093).
+* Understand the [Azure Virtual Network Configuration Schema](https://go.microsoft.com/fwlink/?LinkId=248093).
 * Understand the [Azure Service Configuration Schema](https://msdn.microsoft.com/library/windowsazure/ee758710).
 * [Configure a virtual network using Network configuration files](virtual-networks-using-network-configuration-file.md).
 

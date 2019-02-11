@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect to any HTTP endpoint with Azure Logic Apps | Microsoft Docs
 description: Automate tasks and workflows that communicate with any HTTP endpoint by using Azure Logic Apps
 services: logic-apps
@@ -112,7 +112,7 @@ see [Trigger and action types reference](../logic-apps/logic-apps-workflow-actio
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

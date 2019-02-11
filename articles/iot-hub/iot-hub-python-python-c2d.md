@@ -112,7 +112,7 @@ In this section, you create a Python console app to simulate the device and rece
                 print ( iothub_client_error )
     ```
 
-1. Add the following code to initialize the client and wait to recieve the cloud-to-device message:
+1. Add the following code to initialize the client and wait to receive the cloud-to-device message:
    
     ```python
     def iothub_client_init():
@@ -284,9 +284,9 @@ You are now ready to run the applications.
    
     ![Run the app to send the cloud-to-device command][img-send-command]
    
-1. Note the message recieved by the device.
+1. Note the message received by the device.
 
-    ![Message received][img-message-recieved]
+    ![Message received][img-message-received]
 
 
 ## Next steps
@@ -299,7 +299,7 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-python-python-c2d/simulated-device.png
 [img-send-command]:  media/iot-hub-python-python-c2d/send-command.png
-[img-message-recieved]: media/iot-hub-python-python-c2d/message-recieved.png
+[img-message-received]: media/iot-hub-python-python-c2d/message-received.png
 
 <!-- Links -->
 [lnk-python-download]: https://www.python.org/downloads/
@@ -312,6 +312,5 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 [Azure IoT Developer Center]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure portal]: https://portal.azure.com
 [Azure IoT Remote Monitoring solution accelerator]: https://azure.microsoft.com/documentation/suites/iot-suite/

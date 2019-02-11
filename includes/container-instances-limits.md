@@ -1,3 +1,10 @@
+---
+author: dlepow
+ms.service: container-instances
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+---
 | Resource | Default Limit |
 | --- | :--- |
 | Container groups per [subscription](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |

@@ -1,15 +1,14 @@
 ---
-title: Configure Azure Load Balancer distribution mode | Microsoft Docs
+title: Configure Azure Load Balancer distribution mode
+titlesuffix: Azure Load Balancer
 description: How to configure the distribution mode for Azure Load Balancer to support source IP affinity.
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-
-ms.assetid: 7df27a4d-67a8-47d6-b73e-32c0c6206e6e
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
@@ -44,7 +43,15 @@ Another use case scenario is media upload. The data upload happens through UDP, 
 
 ## Configure source IP affinity settings
 
-For virtual machines, use Azure PowerShell to change the timeout settings. Add an Azure endpoint to a virtual machine and configure the load balancer distribution mode:
+For virtual machines deployed with Resource Manager, use PowerShell to change the load balancer distribution settings on an existing load balancing rule. This updates the distribution mode: 
+
+```powershell 
+$lb = Get-AzureRmLoadBalancer -Name MyLb -ResourceGroupName MyLbRg 
+$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp' 
+Set-AzureRmLoadBalancer -LoadBalancer $lb 
+```
+
+For classic virtual machines, use Azure PowerShell to change the distribution settings. Add an Azure endpoint to a virtual machine and configure the load balancer distribution mode:
 
 ```powershell
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM

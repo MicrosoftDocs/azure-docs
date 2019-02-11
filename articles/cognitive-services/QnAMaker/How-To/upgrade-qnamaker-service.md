@@ -1,22 +1,26 @@
 ---
-title: Upgrade your QnA Maker service - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: How to upgrade your QnA Maker service
+title: Upgrade your QnA Maker service - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: You can choose to upgrade individual components of the QnA Maker stack after the initial creation.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: nitinme
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
+ms.date: 01/24/2019
+ms.author: tulasim
 ---
 
 # Upgrade your QnA Maker service
 You can choose to upgrade individual components of the QnA Maker stack after the initial creation. See the details of the dependent components and SKU selection [here](https://aka.ms/qnamaker-docs-capacity).
 
 ## Upgrade QnA Maker Management SKU
+
+When you need to have more questions and answers in your knowledge base, beyond your current tier, upgrade your QnA Maker service pricing tier. 
+
 To upgrade the QnA Maker management SKU:
+
 1. Go to your QnA Maker resource in the Azure portal, and select **Pricing tier**.
 
     ![QnA Maker resource](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource.png)
@@ -26,6 +30,9 @@ To upgrade the QnA Maker management SKU:
     ![QnA Maker pricing](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
 ## Upgrade App service
+
+ When your knowledge base needs to serve more requests from your client app, upgrade your app service pricing tier.
+
 You can [scale up](https://docs.microsoft.com/azure/app-service/web-sites-scale) or scale down the App service.
 
 1. Go to the App service resource in the Azure portal, and select **scale up** or **scale down** options as required.
@@ -33,6 +40,9 @@ You can [scale up](https://docs.microsoft.com/azure/app-service/web-sites-scale)
     ![QnA Maker app service scale](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
 ## Upgrade Azure Search service
+
+When you plan to have many knowledge bases, upgrade your Azure Search service pricing tier. 
+
 Currently it is not possible to perform an in place upgrade of the Azure search SKU. However, you can create a new Azure search resource with the desired SKU, restore the data to the new resource, and then link it to the QnA Maker stack.
 
 1. Create a new Azure search resource in the Azure portal, and choose the desired SKU.

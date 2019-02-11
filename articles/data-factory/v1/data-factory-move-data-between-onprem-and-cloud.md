@@ -11,7 +11,7 @@ ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
@@ -44,7 +44,7 @@ In this walkthrough you do the following steps:
 ## Prerequisites for the tutorial
 Before you begin this walkthrough, you must have the following prerequisites:
 
-* **Azure subscription**.  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) article for details.
+* **Azure subscription**.  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article for details.
 * **Azure Storage Account**. You use the blob storage as a **destination/sink** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-quickstart-create-account.md) article for steps to create one.
 * **SQL Server**. You use an on-premises SQL Server database as a **source** data store in this tutorial. 
 
@@ -62,7 +62,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
    > [!IMPORTANT]
    > The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialOnPremDF” is not available**, change the name of the data factory (for example, yournameADFTutorialOnPremDF) and try creating again. Use this name in place of ADFTutorialOnPremDF while performing remaining steps in this tutorial.
    >
-   > The name of the data factory may be registered as a **DNS** name in the future and hence become publically visible.
+   > The name of the data factory may be registered as a **DNS** name in the future and hence become publicly visible.
    >
    >
 4. Select the **Azure subscription** where you want the data factory to be created.
@@ -170,7 +170,7 @@ In this step, you create two linked services: **AzureStorageLinkedService** and 
       4. In the **Setting Credentials** dialog box, specify authentication type, user name, and password, and click **OK**. If the connection is successful, the encrypted credentials are stored in the JSON and the dialog box closes.
       5. Close the empty browser tab that launched the dialog box if it is not automatically closed and get back to the tab with the Azure portal.
 
-         On the gateway machine, these credentials are **encrypted** by using a certificate that the Data Factory service owns. If you want to use the certificate that is associated with the Data Management Gateway instead, see [Set credentials securely](#set-credentials-and-security).    
+         On the gateway machine, these credentials are **encrypted** by using a certificate that the Data Factory service owns. If you want to use the certificate that is associated with the Data Management Gateway instead, see Set credentials securely.    
    3. Click **Deploy** on the command bar to deploy the SQL Server linked service. You should see the linked service in the tree view.
 
       ![SQL Server linked service in the tree view](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    

@@ -1,13 +1,9 @@
 ---
-title: 'Quickstart: Graph API with Python - Azure Cosmos DB | Microsoft Docs'
-description: This quickstart shows how to use the Azure Cosmos DB Graph API to create a console application with the Azure portal and Python
-services: cosmos-db
+title: 'Quickstart: Gremlin API with Python - Azure Cosmos DB'
+description: This quickstart shows how to use the Azure Cosmos DB Gremlin API to create a console application with the Azure portal and Python
 author: luisbosquez
-manager: kfile
-
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-graph
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
@@ -16,7 +12,16 @@ ms.author: lbosq
 ---
 # Azure Cosmos DB: Create a graph database using Python and the Azure portal
 
-This quickstart shows how to use Python and the Azure Cosmos DB [Graph API](graph-introduction.md) to build a console app by cloning an example from GitHub. This quickstart also walks you through the creation of an Azure Cosmos DB account by using the web-based Azure portal.   
+> [!div class="op_single_selector"]
+> * [Gremlin console](create-graph-gremlin-console.md)
+> * [.NET](create-graph-dotnet.md)
+> * [Java](create-graph-java.md)
+> * [Node.js](create-graph-nodejs.md)
+> * [Python](create-graph-python.md)
+> * [PHP](create-graph-php.md)
+>  
+
+This quickstart shows how to use Python and the Azure Cosmos DB [Gremlin API](graph-introduction.md) to build a console app by cloning an example from GitHub. This quickstart also walks you through the creation of an Azure Cosmos DB account by using the web-based Azure portal.   
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can quickly create and query document, table, key-value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.  
 
@@ -30,7 +35,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 In addition:
 * [Python](https://www.python.org/downloads/) version v3.5 or newer
 * [pip package manager](https://pip.pypa.io/en/stable/installing/)
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [Python Driver for Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python)
 
 ## Create a database account
@@ -45,7 +50,7 @@ Before you can create a graph database, you need to create a Gremlin (Graph) dat
 
 ## Clone the sample application
 
-Now let's switch to working with code. Let's clone a Graph API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically.  
+Now let's switch to working with code. Let's clone a Gremlin API app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically.  
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -89,7 +94,7 @@ This step is optional. If you're interested in learning how the database resourc
 
 Now go back to the Azure portal to get your connection information and copy it into the app. These settings enable your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), click **Keys**. 
+1. In the [Azure portal](https://portal.azure.com/), click **Keys**. 
 
     Copy the first portion of the URI value.
 

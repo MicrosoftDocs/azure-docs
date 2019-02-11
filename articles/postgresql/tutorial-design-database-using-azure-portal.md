@@ -1,11 +1,8 @@
 ---
 title: 'Tutorial: Design an Azure Database for PostgreSQL using Azure portal'
 description: This tutorial shows how to Design your first Azure Database for PostgreSQL using the Azure portal.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
@@ -79,7 +76,7 @@ The Azure Database for PostgreSQL service uses a firewall at the server-level. B
 
 2.	In the server page, select **Connection security**. 
 
-3.	Click in the text box under **Rule Name,** and add a new firewall rule to whitelist the IP range for connectivity. For this tutorial, let's allow all IPs by typing in **Rule Name = AllowAllIps**, **Start IP = 0.0.0.0** and **End IP = 255.255.255.255** and then click **Save**. You can set a specific firewall rule that covers a smaller IP range to be able to connect from your network.
+3.	Click in the text box under **Rule Name,** and add a new firewall rule to whitelist the IP range for connectivity. Enter your IP range. Click **Save**.
 
    ![Azure Database for PostgreSQL - Create Firewall Rule](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 

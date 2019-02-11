@@ -1,17 +1,13 @@
 ---
-title: Import data for use with the Azure Cosmos DB Table API | Microsoft Docs
-description: Learn how import data to use with the Azure Cosmos DB Table API.
-services: cosmos-db
+title: Migrate existing data to Table API account in Azure Cosmos DB 
+description: Learn how migrate or import on-premise or cloud data to Azure Table API account in Azure Cosmos DB.
 author: SnehaGunda
-manager: kfile
-
 ms.service: cosmos-db
-ms.component: cosmosdb-table
-ms.devlang: na
+ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 11/28/2017
+ms.date: 12/07/2017
 ms.author: sngun
-
+ms.custom: seodec18
 ---
 
 # Migrate your data to Azure Cosmos DB Table API account
@@ -27,7 +23,9 @@ This tutorial covers the following tasks:
 
 ## Prerequisites
 
-* Increase throughput: The duration of your data migration depends on the amount of throughput you set up for an individual container or a set of containers. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the Azure portal, see Performance levels and pricing tiers in Azure Cosmos DB.
+* **Increase throughput:** The duration of your data migration depends on the amount of throughput you set up for an individual container or a set of containers. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the Azure portal, see Performance levels and pricing tiers in Azure Cosmos DB.
+
+* **Create Azure Cosmos DB resources:** Before you start the migrating data, pre-create all your tables from the Azure portal. If you are migrating to an Azure Cosmos DB account that has database level throughput, make sure to provide a partition key when creating the Azure Cosmos DB tables.
 
 ## Data Migration tool
 

@@ -1,15 +1,16 @@
 ---
-title: 'Set up the source environment (physical servers to Azure) | Microsoft Docs'
-description: This article describes how to set up your on-premises environment to start replicating physical servers running Windows or Linux into Azure.
+title: Set up the configuration server for disaster recovery of physical servers to Azure using Azure Site Recovery | Microsoft Docs'
+description: This article describes how to set up the on-premises configuration server for disaster recovery of on-premises physical servers to Azure.
 services: site-recovery
-author: rayne-wiselman
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/21/2018
-ms.author: raynew
+ms.topic: conceptual
+ms.date: 11/27/2018
+ms.author: ramamill
 ---
 
-# Set up the source environment (physical server to Azure)
+# Set up the configuration server for disaster recovery of physical servers to Azure
 
 This article describes how to set up your on-premises environment to start replicating physical servers running Windows or Linux into Azure.
 

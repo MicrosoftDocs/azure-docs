@@ -3,7 +3,7 @@ title: Azure Service Fabric resource governance for containers and services | Mi
 description: Azure Service Fabric allows you to specify resource limits for services running inside or outside containers.
 services: service-fabric
 documentationcenter: .net
-author: masnider
+author: TylerMSFT
 manager: timlt
 editor: ''
 
@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: subramar
+ms.author: twhitney, subramar
 ---
 
-# Resource governance 
+# Resource governance
 
 When you're running multiple services on the same node or cluster, it's possible that one service might consume more resources, starving other services in the process. This problem is referred to as the "noisy neighbor" problem. Azure Service Fabric enables the developer to specify reservations and limits per service to guarantee resources and limit resource usage.
 
 > Before you proceed with this article, we recommend that you get familiar with the [Service Fabric application model](service-fabric-application-model.md) and the [Service Fabric hosting model](service-fabric-hosting-model.md).
 >
 
-## Resource governance metrics 
+## Resource governance metrics
 
 Resource governance is supported in Service Fabric in accordance with the [service package](service-fabric-application-model.md). The resources that are assigned to the service package can be further divided between code packages. The resource limits that are specified also mean the reservation of the resources. Service Fabric supports specifying CPU and memory per service package, with two built-in [metrics](service-fabric-cluster-resource-manager-metrics.md):
 
@@ -33,6 +33,7 @@ Resource governance is supported in Service Fabric in accordance with the [servi
 * *Memory* (metric name `servicefabric:/_MemoryInMB`): Memory is expressed in megabytes, and it maps to physical memory that is available on the machine.
 
 For these two metrics, [Cluster Resource Manager](service-fabric-cluster-resource-manager-cluster-description.md) tracks total cluster capacity, the load on each node in the cluster, and the remaining resources in the cluster. These two metrics are equivalent to any other user or custom metric. All existing features can be used with them:
+
 * The cluster can be [balanced](service-fabric-cluster-resource-manager-balancing.md) according to these two metrics (default behavior).
 * The cluster can be [defragmented](service-fabric-cluster-resource-manager-defragmentation-metrics.md) according to these two metrics.
 * When [describing a cluster](service-fabric-cluster-resource-manager-cluster-description.md), buffered capacity can be set for these two metrics.
@@ -57,11 +58,11 @@ However, there are two situations in which other processes might contend for CPU
 
 ## Cluster setup for enabling resource governance
 
-When a node starts and joins the cluster, Service Fabric detects the available amount of memory and the available number of cores, and then sets the node capacities for those two resources. 
+When a node starts and joins the cluster, Service Fabric detects the available amount of memory and the available number of cores, and then sets the node capacities for those two resources.
 
-To leave buffer space for the operating system, and for other processes might be running on the node, Service Fabric uses only 80% of the available resources on the node. This percentage is configurable, and can be changed in the cluster manifest. 
+To leave buffer space for the operating system, and for other processes might be running on the node, Service Fabric uses only 80% of the available resources on the node. This percentage is configurable, and can be changed in the cluster manifest.
 
-Here is an example of how to instruct Service Fabric to use 50% of available CPU and 70% of available memory: 
+Here is an example of how to instruct Service Fabric to use 50% of available CPU and 70% of available memory:
 
 ```xml
 <Section Name="PlacementAndLoadBalancing">
@@ -71,7 +72,7 @@ Here is an example of how to instruct Service Fabric to use 50% of available CPU
 </Section>
 ```
 
-If you need full manual setup of node capacities, you can use the regular mechanism for describing the nodes in the cluster. Here is an example of how to set up the node with four cores and 2 GB of memory: 
+If you need full manual setup of node capacities, you can use the regular mechanism for describing the nodes in the cluster. Here is an example of how to set up the node with four cores and 2 GB of memory:
 
 ```xml
     <NodeType Name="MyNodeType">
@@ -83,6 +84,7 @@ If you need full manual setup of node capacities, you can use the regular mechan
 ```
 
 When auto-detection of available resources is enabled, and node capacities are manually defined in the cluster manifest, Service Fabric checks that the node has enough resources to support the capacity that the user has defined:
+
 * If node capacities that are defined in the manifest are less than or equal to the available resources on the node, then Service Fabric uses the capacities that are specified in the manifest.
 
 * If node capacities that are defined in the manifest are greater than available resources, Service Fabric uses the available resources as node capacities.
@@ -95,17 +97,16 @@ Auto-detection of available resources can be turned off if it is not required. T
 </Section>
 ```
 
-For optimal performance, the following setting should also be turned on in the cluster manifest: 
+For optimal performance, the following setting should also be turned on in the cluster manifest:
 
 ```xml
 <Section Name="PlacementAndLoadBalancing">
-    <Parameter Name="PreventTransientOvercommit" Value="true" /> 
+    <Parameter Name="PreventTransientOvercommit" Value="true" />
     <Parameter Name="AllowConstraintCheckFixesDuringApplicationUpgrade" Value="true" />
 </Section>
 ```
 
-
-## Specify resource governance 
+## Specify resource governance
 
 Resource governance limits are specified in the application manifest (ServiceManifestImport section) as shown in the following example:
 
@@ -127,8 +128,8 @@ Resource governance limits are specified in the application manifest (ServiceMan
     </Policies>
   </ServiceManifestImport>
 ```
-  
-In this example, the service package called **ServicePackageA** gets one core on the nodes where it is placed. This service package contains two code packages (**CodeA1** and **CodeA2**), and both specify the `CpuShares` parameter. The proportion of CpuShares 512:256  divides the core across the two code packages. 
+
+In this example, the service package called **ServicePackageA** gets one core on the nodes where it is placed. This service package contains two code packages (**CodeA1** and **CodeA2**), and both specify the `CpuShares` parameter. The proportion of CpuShares 512:256  divides the core across the two code packages.
 
 Thus, in this example, CodeA1 gets two-thirds of a core, and CodeA2 gets one-third of a core (and a soft-guarantee reservation of the same). If CpuShares are not specified for code packages, Service Fabric divides the cores equally among them.
 
@@ -160,7 +161,7 @@ When specifying resource governance it is possible to use [application parameter
   </ServiceManifestImport>
 ```
 
-In this example, default parameter values are set for the production environment, where each Service Package would get 4 cores and 2 GB of memory. It is possible to change default values with application parameter files. In this example, one parameter file can be used for testing the application locally, where it would get less resources than in production: 
+In this example, default parameter values are set for the production environment, where each Service Package would get 4 cores and 2 GB of memory. It is possible to change default values with application parameter files. In this example, one parameter file can be used for testing the application locally, where it would get less resources than in production:
 
 ```xml
 <!-- ApplicationParameters\Local.xml -->
@@ -176,14 +177,14 @@ In this example, default parameter values are set for the production environment
 </Application>
 ```
 
-> [!IMPORTANT] 
-> Specifying resource governance with application parameters is available starting with Service Fabric version 6.1.<br> 
+> [!IMPORTANT]
+> Specifying resource governance with application parameters is available starting with Service Fabric version 6.1.<br>
 >
-> When application parameters are used to specify resource governance, Service Fabric cannot be downgraded to a version prior to version 6.1. 
-
+> When application parameters are used to specify resource governance, Service Fabric cannot be downgraded to a version prior to version 6.1.
 
 ## Other resources for containers
-Besides CPU and memory, it's possible to specify other resource limits for containers. These limits are specified at the code-package level and are applied when the container is started. Unlike with CPU and memory, Cluster Resource Manager isn't aware of these resources, and won't do any capacity checks or load balancing for them. 
+
+Besides CPU and memory, it's possible to specify other resource limits for containers. These limits are specified at the code-package level and are applied when the container is started. Unlike with CPU and memory, Cluster Resource Manager isn't aware of these resources, and won't do any capacity checks or load balancing for them.
 
 * *MemorySwapInMB*: The amount of swap memory that a container can use.
 * *MemoryReservationInMB*: The soft limit for memory governance that is enforced only when memory contention is detected on the node.
@@ -205,5 +206,6 @@ These resources can be combined with CPU and memory. Here is an example of how t
 ```
 
 ## Next steps
+
 * To learn more about Cluster Resource Manager, read [Introducing the Service Fabric cluster resource manager](service-fabric-cluster-resource-manager-introduction.md).
 * To learn more about the application model, service packages, and code packages--and how replicas map to them--read [Model an application in Service Fabric](service-fabric-application-model.md).

@@ -1,17 +1,19 @@
 ---
-title: Project Answer Search Entity query - Microsoft Cognitive Services | Microsoft Docs
+title: "Quickstart: Project Answer Search Entity query"
+titlesuffix: Azure Cognitive Services
 description: Queries for Entities using Project Answer Search
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: nitinme
+
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.subservice: answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 
-# Query for Entities
+# Quickstart: Query for Entities
 
 If the query requests information about a person, place or thing, the response can contain an `entities` answer.  Queries always return webpages, [facts](fact-queries.md) and/or [entities](entity-queries.md) are query dependent.
 
@@ -28,7 +30,7 @@ The data that the entity includes depends on the entity's type. Although entitie
 -	Attraction 
  
 To determine the type of entity that the response contains, use the `entityTypeHints` field as shown in the query for Bill Gates.
-````
+```
         },
         "description": "Bill Gates is an American business man and philanthropist, co-founder of Microsoft",
         "entityPresentationInfo": {
@@ -39,13 +41,13 @@ To determine the type of entity that the response contains, use the `entityTypeH
         },
         "bingId": "6d7d66a7-2cb8-0ae9-637c-f81fd749dc9a"
       }
-````
+```
 The following is a query for Space Needle:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle&mkt=en-us
-````
+```
 The response includes the `entities` answer. Note the `entityScenario` and `entityTypeHints` fields. 
-````
+```
   "entities": {
     "value": [
       {
@@ -103,21 +105,21 @@ The response includes the `entities` answer. Note the `entityScenario` and `enti
       }
     ]
   },
-````
+```
 
 A query can return a list if it is relevant.
 
 **Query:**
 The following query finds a list of endangered species:
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species
 
-````
+```
 
 **Response:**
 The response includes a list formatted for display as tabular values:
-````
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -214,7 +216,7 @@ The response includes a list formatted for display as tabular values:
     ]
   },
 
-````
+```
 
 
 ## Next steps

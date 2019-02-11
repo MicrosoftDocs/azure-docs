@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
@@ -212,7 +212,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
     ![Pipeline tab](./media/tutorial-copy-data-portal/pipeline-tab-2.png)        
 
-### Confugure mapping
+### Configure mapping
 
 Go to the **Mapping** tab at the bottom of the **Properties** window, and select **Import Schemas**. Notice that the first and second columns in the source file are mapped to **FirstName** and **LastName** in the SQL database.
 
@@ -224,7 +224,7 @@ To validate the pipeline, select **Validate** from the tool bar.
 You can see the JSON code associated with the pipeline by clicking **Code** on the upper-right.
 
 ## Debug and publish the pipeline
-You can debug a pipeline before you publish artifacts (linked services, datasets, and pipeline) to Data Factory or your own Visual Studio Team Services Git repository. 
+You can debug a pipeline before you publish artifacts (linked services, datasets, and pipeline) to Data Factory or your own Azure Repos Git repository. 
 
 1. To debug the pipeline, select **Debug** on the toolbar. You see the status of the pipeline run in the **Output** tab at the bottom of the window. 
 

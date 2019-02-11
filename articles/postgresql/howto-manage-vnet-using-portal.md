@@ -1,14 +1,11 @@
 ---
-title: Create and manage Azure Database for PostgreSQL VNet service endpoints and rules using the Azure portal | Microsoft Docs
+title: Create and manage Azure Database for PostgreSQL VNet service endpoints and rules using the Azure portal
 description: Create and manage Azure Database for PostgreSQL VNet service endpoints and rules using the Azure portal
-services: postgresql
 author: mbolz
 ms.author: mbolz
-manager: kfile
-editor: jasonwhowell
-ms.service: postgresql-database
-ms.topic: article
-ms.date: 08/15/2018
+ms.service: postgresql
+ms.topic: conceptual
+ms.date: 10/23/2018
 ---
 # Create and manage Azure Database for PostgreSQL VNet service endpoints and VNet rules by using the Azure portal
 Virtual Network (VNet) services endpoints and rules extend the private address space of a Virtual Network to your Azure Database for PostgreSQL server. For an overview of Azure Database for PostgreSQL VNet service endpoints, including limitations, see [Azure Database for PostgreSQL Server VNet service endpoints](concepts-data-access-and-security-vnet.md). VNet service endpoints are available in all supported regions for Azure Database for PostgreSQL.
@@ -25,6 +22,16 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 2. Enter a VNet rule name, select the subscription, Virtual network and Subnet name and then click **Enable**. This automatically enables VNet service endpoints on the subnet using the **Microsoft.SQL** service tag.
 
    ![Azure portal - configure VNet](./media/howto-manage-vnet-using-portal/2-configure-vnet.png)
+
+    The account must have the necessary permissions to create a virtual network and service endpoint.
+
+    Service endpoints can be configured on virtual networks independently, by a user with write access to the virtual network.
+    
+    To secure Azure service resources to a VNet, the user must have permission to "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/" for the subnets being added. This permission is included in the built-in service administrator roles, by default and can be modified by creating custom roles.
+    
+    Learn more about [built-in roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) and assigning specific permissions to [custom roles](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
+    
+    VNets and Azure service resources can be in the same or different subscriptions. If the VNet and Azure service resources are in different subscriptions, the resources should be under the same Active Directory (AD) tenant.
 
    > [!IMPORTANT]
    > It is highly recommended to read this article about service endpoint configurations and considerations before configuring service endpoints. **Virtual Network service endpoint:** A [Virtual Network service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) is a subnet whose property values include one or more formal Azure service type names. VNet services endpoints use the service type name **Microsoft.Sql**, which refers to the Azure service named SQL Database. This service tag also applies to the Azure SQL Database, Azure Database for PostgreSQL and MySQL services. It is important to note when applying the **Microsoft.Sql** service tag to a VNet service endpoint it configures service endpoint traffic for all Azure Database services, including Azure SQL Database, Azure Database for PostgreSQL and Azure Database for MySQL servers on the subnet. 

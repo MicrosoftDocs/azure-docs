@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
+ms.subservice: disks
 
 ---
 # Use the portal to attach a data disk to a Linux VM 
@@ -92,7 +93,12 @@ The output is similar to the following example:
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-Here, *sdc* is the disk that we want. Partition the disk with `fdisk`, make it a primary disk on partition 1, and accept the other defaults. The following example starts the `fdisk` process on */dev/sdc*:
+Here, *sdc* is the disk that we want. 
+
+### Partition a new disk
+If you are using an existing disk that contains data, skip to mounting the disk. If you are attaching a new disk, you need to partition the disk.
+
+Partition the disk with `fdisk`. If the disk size is 2 tebibytes (TiB) or larger then you must use GPT partitioning, you can use `parted` to perform GPT partitioning. If disk size is under 2TiB, then you can use either MBR or GPT partitioning. Make it a primary disk on partition 1, and accept the other defaults. The following example starts the `fdisk` process on */dev/sdc*:
 
 ```bash
 sudo fdisk /dev/sdc
@@ -172,8 +178,8 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
-
-Now, create a directory to mount the file system using `mkdir`. The following example creates a directory at */datadrive*:
+### Mount the disk
+Create a directory to mount the file system using `mkdir`. The following example creates a directory at */datadrive*:
 
 ```bash
 sudo mkdir /datadrive

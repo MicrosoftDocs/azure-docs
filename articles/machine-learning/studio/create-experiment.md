@@ -1,26 +1,19 @@
 ---
-title: A simple experiment in Machine Learning Studio | Microsoft Docs
+title: Simple experiment
+titleSuffix: Azure Machine Learning Studio
 description: This machine learning tutorial walks you through an easy data science experiment. We'll predict the price of a car using a regression algorithm.
-keywords: experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques,data science experiment
 services: machine-learning
-documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
-
-ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 03/20/2017
+ms.subservice: studio
+ms.topic: tutorial
 
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 03/20/2017
 ---
 
-# Machine learning tutorial: Create your first data science experiment in Azure Machine Learning Studio
+# Tutorial: Create your first data science experiment in Azure Machine Learning Studio
 
 If you've never used **Azure Machine Learning Studio** before, this tutorial is for you.
 
@@ -39,9 +32,7 @@ In this tutorial, we'll walk through how to use Studio for the first time to cre
 - [Machine learning algorithm cheat sheet](algorithm-cheat-sheet.md) and [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md) - This downloadable poster and accompanying article discuss the Studio algorithms in depth.
 - [Machine Learning Studio: Algorithm and Module Help](https://msdn.microsoft.com/library/azure/dn905974.aspx) - This is the complete reference for all Studio modules, including machine learning algorithms,
 
-<!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## How does Machine Learning Studio help?
 
@@ -335,9 +326,9 @@ For an example of how to compare multiple models in a single experiment, see [Co
 
 [publish]: publish-a-machine-learning-web-service.md
 
-Want to learn more? For a more extensive and detailed walkthrough of the process of creating, training, scoring, and deploying a model, see [Develop a predictive solution by using Azure Machine Learning][walkthrough].
+Want to learn more? For a more extensive and detailed walkthrough of the process of creating, training, scoring, and deploying a model, see [Tutorial 1: Predict credit risk ][walkthrough].
 
-[walkthrough]: walkthrough-develop-predictive-solution.md
+[walkthrough]: tutorial-part1-credit-risk.md
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/create-experiment/sign-in-to-studio.png

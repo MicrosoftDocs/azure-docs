@@ -3,8 +3,8 @@ title: Dynamic site acceleration via Azure CDN
 description: Azure CDN supports dynamic site acceleration (DSA) optimization for files with dynamic content.
 services: cdn
 documentationcenter: ''
-author: dksimpson    
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: rli; v-deasim
+ms.author: magattus
 ---
 # Dynamic site acceleration via Azure CDN
 

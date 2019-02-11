@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 10/26/2018
 ms.author: dobett
 ---
 
@@ -48,23 +48,27 @@ The solution also has an OPC UA client integrated into a web application that ca
 
 The simulated stations and the simulated manufacturing execution systems (MES) make up a factory production line. The simulated devices and the OPC Publisher Module are based on the [OPC UA .NET Standard][lnk-OPC-UA-NET-Standard] published by the OPC Foundation.
 
-The OPC Proxy and OPC Publisher are implemented as modules based on [Azure IoT Edge][lnk-Azure-IoT-Gateway]. Each simulated production line has a designated gateway attached.
+The OPC Proxy and OPC Publisher are implemented as modules based on [Azure IoT Edge][lnk-Azure-IoT-Gateway]. Each simulated production line has a gateway attached.
 
 All simulation components run in Docker containers  hosted in an Azure Linux VM. The simulation is configured to run eight simulated production lines by default.
 
 ## Simulated production line
 
-A production line manufactures parts. It is composed of different stations: an assembly station, a test station, and a packaging station.
+A production line manufactures parts. It's composed of different stations: an assembly station, a test station, and a packaging station.
 
-The simulation runs and updates the data that is exposed through the OPC UA nodes. All simulated production line stations are orchestrated by the MES through OPC UA.
+The simulation runs and updates the data that is made available through the OPC UA nodes. All simulated production line stations are orchestrated by the MES through OPC UA.
 
 ## Simulated manufacturing execution system
 
-The MES monitors each station in the production line through OPC UA to detect station status changes. It calls OPC UA methods to control the stations and passes a product from one station to the next until it is complete.
+The MES monitors each station in the production line through OPC UA to detect station status changes. It calls OPC UA methods to control the stations and passes a product from one station to the next until it's complete.
 
 ## Gateway OPC publisher module
 
-OPC Publisher Module connects to the station OPC UA servers and subscribes to the OPC nodes to be published. The module converts the node data into JSON format, encrypts it, and sends it to IoT Hub as OPC UA Pub/Sub messages.
+OPC Publisher Module connects to the station OPC UA servers and subscribes to the OPC nodes to be published. The module:
+
+1. Converts the node data into JSON format.
+1. Encrypts the JSON.
+1. Sends the JSON to IoT Hub as OPC UA Pub/Sub messages.
 
 The OPC Publisher module only requires an outbound https port (443) and can work with existing enterprise infrastructure.
 
@@ -72,7 +76,7 @@ The OPC Publisher module only requires an outbound https port (443) and can work
 
 The Gateway OPC UA Proxy Module tunnels binary OPC UA command and control messages and only requires an outbound https port (443). It can work with existing enterprise infrastructure, including Web Proxies.
 
-It uses IoT Hub Device methods to transfer packetized TCP/IP data at the application layer and thus ensures endpoint trust, data encryption, and integrity using SSL/TLS.
+It uses IoT Hub Device methods to transfer packetized TCP/IP data at the application layer to ensure endpoint trust, data encryption, and integrity using SSL/TLS.
 
 The OPC UA binary protocol relayed through the proxy itself uses UA authentication and encryption.
 
@@ -88,13 +92,13 @@ IoT Hub provides an event source to Azure TSI. TSI stores data for 30 days based
 * Source timestamp
 * OPC UA DisplayName
 
-Currently, TSI does not allow customers to customize how long they wish to keep the data for.
+Currently, TSI doesn't allow customers to customize how long they wish to keep the data for.
 
-TSI queries against node data using a **SearchSpan** (**Time.From**, **Time.To**) and aggregates by **OPC UA ApplicationUri** or **OPC UA NodeId** or **OPC UA DisplayName**.
+TSI queries against node data using a time-based **SearchSpan** and aggregates by **OPC UA ApplicationUri** or **OPC UA NodeId** or **OPC UA DisplayName**.
 
-To retrieve the data for the OEE and KPI gauges, and the time series charts, data is aggregated by count of events, Sum, Avg, Min, and Max.
+To retrieve the data for the OEE and KPI gauges and the time series charts, the solution aggregates data by the count of events, **Sum**, **Avg**, **Min**, and **Max**.
 
-The time series are built using a different process. OEE and KPIs are calculated from station base data and bubbled up for the topology (production lines, factories, enterprise) in the application.
+The time series are built using a different process. The solution calculates OEE and KPI values from station base data and bubbles the values up for the production lines, factories, and enterprise.
 
 Additionally, time series for OEE and KPI topology is calculated in the app, whenever a displayed timespan is ready. For example, the day view is updated every full hour.
 
@@ -111,7 +115,7 @@ The IoT Hub in the solution also:
 The solution uses Azure blob storage as disk storage for the VM and to store deployment data.
 
 ## Web app
-The web app deployed as part of the solution accelerator comprises of an integrated OPC UA client, alerts processing and telemetry visualization.
+The web app deployed as part of the solution accelerator includes an integrated OPC UA client, alerts processing, and telemetry visualization.
 
 ## Telemetry data flow
 
@@ -156,7 +160,7 @@ The web app deployed as part of the solution accelerator comprises of an integra
     - This step is internal to the datacenter.
 
 11. Web browser connects to the Connected Factory WebApp.
-    - Renders the Connected Factory dashboard.
+    - Displays the Connected Factory dashboard.
     - Connects over HTTPS.
     - Access to the Connected Factory App requires authentication of the user via Azure Active Directory.
     - Any WebApi calls into Connected Factory app are secured by Anti-Forgery-Tokens.
@@ -177,9 +181,9 @@ The web app deployed as part of the solution accelerator comprises of an integra
 
 2. OPC Proxy (server component) registers itself with IoT Hub.
     - Reads all it's known devices from IoT Hub.
-    - Uses MQTT over TLS over Socket or Secure Websocket.
+    - Uses MQTT over TLS over Socket or Secure WebSocket.
 
-3. Web browser connects to the Connected Factory WebApp and renders the Connected Factory dashboard.
+3. Web browser connects to the Connected Factory WebApp and displays the Connected Factory dashboard.
     - Uses HTTPS.
     - A user selects an OPC UA server to connect to.
 
@@ -207,7 +211,7 @@ The web app deployed as part of the solution accelerator comprises of an integra
     - This data is delivered to the OPC UA stack in the Connected Factory app.
 
 11. Connected Factory WebApp returns OPC Browser UX enriched with the OPC UA-specific information it received from the OPC UA server to the Web Browser to render it.
-    - While browsing through the OPC address-space and applying functions to nodes in the OPC address-space, the OPC Browser UX client part uses AJAX calls over HTTPS secured with Anti-Forgery Tokens to get data from the Connected Factory WebApp.
+    - While a user browses through the OPC address-space and applies functions to nodes in the OPC address-space, the OPC Browser UX client uses AJAX calls over HTTPS secured with Anti-Forgery Tokens to get data from the Connected Factory WebApp.
     - If necessary, the client uses the communication explained in steps 4 through to 10 to exchange information with the OPC UA server.
 
 > [!NOTE]

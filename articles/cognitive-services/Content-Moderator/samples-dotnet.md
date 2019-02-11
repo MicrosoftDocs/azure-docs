@@ -1,16 +1,18 @@
 ---
-title: Azure Content Moderator code samples | Microsoft Docs
-description: Use Content Moderator in your applications
+title: Code samples - Content Moderator, .NET
+description: Use Content Moderator in your .NET applications through the SDK.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: content-moderator
-ms.topic: article
-ms.date: 01/10/2018
+ms.subservice: content-moderator
+ms.topic: sample
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
-# .NET SDK samples
+# Content Moderator .NET SDK samples
 
 The following list includes links to the code samples built using the Azure Content Moderator SDK for .NET.
 

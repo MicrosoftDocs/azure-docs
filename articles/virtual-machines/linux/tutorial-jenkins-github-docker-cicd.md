@@ -35,7 +35,7 @@ To automate the build and test phase of application development, you can use a c
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create Jenkins instance
 In a previous tutorial on [How to customize a Linux virtual machine on first boot](tutorial-automate-vm-deployment.md), you learned how to automate VM customization with cloud-init. This tutorial uses a cloud-init file to install Jenkins and Docker on a VM. Jenkins is a popular open-source automation server that integrates seamlessly with Azure to enable continuous integration (CI) and continuous delivery (CD). For more tutorials on how to use Jenkins, see the [Jenkins in Azure hub](https://docs.microsoft.com/azure/jenkins/).
@@ -67,13 +67,13 @@ runcmd:
   - service jenkins restart
 ```
 
-Before you can create a VM, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroupJenkins* in the *eastus* location:
+Before you can create a VM, create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroupJenkins* in the *eastus* location:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupJenkins --location eastus
 ```
 
-Now create a VM with [az vm create](/cli/azure/vm#az_vm_create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to *cloud-init-jenkins.txt* if you saved the file outside of your present working directory.
+Now create a VM with [az vm create](/cli/azure/vm). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to *cloud-init-jenkins.txt* if you saved the file outside of your present working directory.
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupJenkins \
@@ -86,7 +86,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 It takes a few minutes for the VM to be created and configured.
 
-To allow web traffic to reach your VM, use [az vm open-port](/cli/azure/vm#az_vm_open_port) to open port *8080* for Jenkins traffic and port *1337* for the Node.js app that is used to run a sample app:
+To allow web traffic to reach your VM, use [az vm open-port](/cli/azure/vm) to open port *8080* for Jenkins traffic and port *1337* for the Node.js app that is used to run a sample app:
 
 ```azurecli-interactive 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
@@ -158,7 +158,7 @@ To test the GitHub integration with Jenkins, commit a change in your fork.
 
 Back in GitHub web UI, select your forked repo, and then select the **index.js** file. Select the pencil icon to edit this file so line 6 reads:
 
-```nodejs
+```javascript
 response.end("Hello World!");
 ```
 
@@ -239,7 +239,7 @@ In this tutorial, you configured GitHub to run a Jenkins build job on each code 
 > * Create a Docker image for your app
 > * Verify GitHub commits build new Docker image and updates running app
 
-Advance to the next tutorial to learn more about how to integrate Jenkins with Visual Studio Team Services.
+Advance to the next tutorial to learn more about how to integrate Jenkins with Azure DevOps Services.
 
 > [!div class="nextstepaction"]
-> [Deploy apps with Jenkins and Team Services](tutorial-build-deploy-jenkins.md)
+> [Deploy apps with Jenkins and Azure DevOps Services](tutorial-build-deploy-jenkins.md)

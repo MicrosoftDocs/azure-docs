@@ -1,12 +1,13 @@
 ---
-title: Return N-Best Translations with the Microsoft Translator Text API | Microsoft Docs
+title: Return N-Best Translations - Translator Text API
+titlesuffix: Azure Cognitive Services
 description: Return N-Best translations using the Microsoft Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
-ms.topic: article
+ms.subservice: translator-text
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ---

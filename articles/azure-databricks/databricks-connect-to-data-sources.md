@@ -1,20 +1,14 @@
 ---
-title: 'Connect to different data sources from Azure Databricks | Microsoft Docs'
+title: 'Connect to different data sources from Azure Databricks '
 description: Learn how to connect to different data sources from Azure Databricks.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2018
-ms.author: nitinme
-
+ms.author: mamccrea
 ---
 
 # Connect to data sources from Azure Databricks

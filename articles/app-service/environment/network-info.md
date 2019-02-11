@@ -1,5 +1,5 @@
 ---
-title: Networking considerations with an Azure App Service environment
+title: Networking considerations with App Service Environment - Azure
 description: Explains the ASE network traffic and how to set NSGs and UDRs with your ASE
 services: app-service
 documentationcenter: na
@@ -12,8 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/29/2018
 ms.author: ccompy
+ms.custom: seodec18
 ---
 # Networking considerations for an App Service Environment #
 
@@ -47,7 +48,7 @@ The normal app access ports are:
 |----------|---------|-------------|
 |  HTTP/HTTPS  | User configurable |  80, 443 |
 |  FTP/FTPS    | User configurable |  21, 990, 10001-10020 |
-|  Visual Studio remote debugging  |  User configurable |  4016, 4018, 4020, 4022 |
+|  Visual Studio remote debugging  |  User configurable |  4020, 4022, 4024 |
 
 This is true if you're on an External ASE or on an ILB ASE. If you're on an External ASE, you hit those ports on the public VIP. If you're on an ILB ASE, you hit those ports on the ILB. If you lock down port 443, there can be an effect on some features exposed in the portal. For more information, see [Portal dependencies](#portaldep).
 
@@ -58,9 +59,11 @@ The size of the subnet used to host an ASE cannot be altered after the ASE is de
    > [!NOTE]
    > Nothing else can be in the subnet but the ASE. Be sure to choose an address space that allows for future growth. You can't change this setting later. We recommend a size of `/24` with 256 addresses.
 
-When you scale up or down, new roles of the appropriate size are added and then your workloads are migrated from the current size to the target size. Only after your apps are migrated are the original VMs removed. This means that if you had an ASE with 100 ASP instances there would be a period where you need double the number of VMs.  It is for this reason that we recommend the use of a '/24' to accomodate any changes you might require.  
+When you scale up or down, new roles of the appropriate size are added and then your workloads are migrated from the current size to the target size. Only after your apps are migrated are the original VMs removed. This means that if you had an ASE with 100 ASP instances there would be a period where you need double the number of VMs.  It is for this reason that we recommend the use of a '/24' to accommodate any changes you might require.  
 
 ## ASE dependencies ##
+
+### ASE inbound dependencies ###
 
 The ASE inbound access dependencies are:
 
@@ -79,26 +82,23 @@ For the communication between the Azure load balancer and the ASE subnet the min
 
 If you are using app assigned IP addresses you need to allow traffic from the IPs assigned to your apps to the ASE subnet.
 
-For outbound access, an ASE depends on multiple external systems. Those system dependencies are defined with DNS names and don't map to a fixed set of IP addresses. Thus, the ASE requires outbound access from the ASE subnet to all external IPs across a variety of ports. An ASE has the following outbound dependencies:
+The TCP traffic that comes in on ports 454 and 455 must go back out from the same VIP or you will have an asymmetric routing problem. 
 
-| Use | From | To |
-|-----|------|----|
-| Azure Storage | ASE subnet | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 is only needed for ASEv1.) |
-| Azure SQL Database | ASE subnet | database.windows.net: 1433 |
-| Azure management | ASE subnet | management.core.windows.net, management.azure.com, admin.core.windows.net: 443 |
-| SSL certificate verification |  ASE subnet            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443 |
-| Azure Active Directory        | ASE subnet            |  login.windows.net: 443 |
-| App Service management        | ASE subnet            |  gr-prod-<regionspecific>.cloudapp.net, az-prod.metrics.nsatc.net: 443 |
-| Azure DNS                     | ASE subnet            |  Internet: 53 |
-| ASE internal communication    | ASE subnet: All ports |  ASE subnet: All ports |
+### ASE outbound dependencies ###
 
-If the ASE loses access to these dependencies, it stops working. When that happens long enough, the ASE is suspended.
+For outbound access, an ASE depends on multiple external systems. Many of those system dependencies are defined with DNS names and don't map to a fixed set of IP addresses. Thus, the ASE requires outbound access from the ASE subnet to all external IPs across a variety of ports. 
+
+The complete list of outbound dependencies are listed in the document that describes [Locking down App Service Environment outbound traffic](./firewall-integration.md). If the ASE loses access to its dependencies, it stops working. When that happens long enough, the ASE is suspended. 
 
 ### Customer DNS ###
 
 If the VNet is configured with a customer-defined DNS server, the tenant workloads use it. The ASE still needs to communicate with Azure DNS for management purposes. 
 
 If the VNet is configured with a customer DNS on the other side of a VPN, the DNS server must be reachable from the subnet that contains the ASE.
+
+To test resolution from your web app you can use the console command *nameresolver*. Go to the debug window in your scm site for your app or go to the app in the portal and select console. From the shell prompt you can issue the command *nameresolver* along with the address you wish to look up. The result you get back is the same as what your app would get while making the same lookup. If you use nslookup you will do a lookup using Azure DNS instead.
+
+If you change the DNS setting of the VNet that your ASE is in, you will need to reboot your ASE. To avoid rebooting your ASE, it is highly recommended that you configure your DNS settings for your VNet before you create your ASE.  
 
 <a name="portaldep"></a>
 
@@ -126,7 +126,7 @@ If your ILB ASE is the domain name *contoso.net* and your app name is *testapp*,
 
 ## Functions and Web jobs ##
 
-Both Functions and Web jobs depend on the SCM site but are supported for use in the portal, even if your apps are in an ILB ASE, so long as your browser can reach the SCM site.  If you are using a self-signed certificate with your ILB ASE, you will need to enable your browser to trust that certificate.  For IE and Edge that means the certificate has to be in the computer trust store.  If you are using Chrome then that means you accepted the certificate in the browser earlier by presumably hitting the scm site directly.  The best solution is to use a commercial certificate that is in the browser chain of trust.  
+Both Functions and Web jobs depend on the SCM site but are supported for use in the portal, even if your apps are in an ILB ASE, so long as your browser can reach the SCM site.  If you are using a self-signed certificate with your ILB ASE, you will need to enable your browser to trust that certificate.  For IE and Microsoft Edge that means the certificate has to be in the computer trust store.  If you are using Chrome then that means you accepted the certificate in the browser earlier by presumably hitting the scm site directly.  The best solution is to use a commercial certificate that is in the browser chain of trust.  
 
 ## ASE IP addresses ##
 
@@ -146,7 +146,7 @@ All these IP addresses are easily visible in an ASEv2 in the Azure portal from t
 
 ### App-assigned IP addresses ###
 
-With an External ASE, you can assign IP addresses to individual apps. You can't do that with an ILB ASE. For more information on how to configure your app to have its own IP address, see [Bind an existing custom SSL certificate to Azure web apps](../app-service-web-tutorial-custom-ssl.md).
+With an External ASE, you can assign IP addresses to individual apps. You can't do that with an ILB ASE. For more information on how to configure your app to have its own IP address, see [Bind an existing custom SSL certificate to Azure App Service](../app-service-web-tutorial-custom-ssl.md).
 
 When an app has its own IP-based SSL address, the ASE reserves two ports to map to that IP address. One port is for HTTP traffic, and the other port is for HTTPS. Those ports are listed in the ASE UI in the IP addresses section. Traffic must be able to reach those ports from the VIP or the apps are inaccessible. This requirement is important to remember when you configure Network Security Groups (NSGs).
 
@@ -201,9 +201,6 @@ To create the same routes manually, follow these steps:
 
 Service Endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. You can read more about Service Endpoints in the [Virtual Network Service Endpoints][serviceendpoints] documentation. 
 
-   > [!NOTE]
-   > Service endpoints with SQL does not work with ASE in the US Government regions. This information is only valid in the Azure public regions.
-
 When you enable Service Endpoints on a resource, there are routes created with higher priority than all other routes. If you use Service Endpoints with a forced tunneled ASE, the Azure SQL and Azure Storage management traffic isn't forced tunneled. 
 
 When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Azure SQL instances connected to from that subnet must have Service Endpoints enabled. if you want to access multiple Azure SQL instances from the same subnet, you can't enable Service Endpoints on one Azure SQL instance and not on another. Azure Storage does not behave the same as Azure SQL. When you enable Service Endpoints with Azure Storage, you lock access to that resource from your subnet but can still access other Azure Storage accounts even if they do not have Service Endpoints enabled.  
@@ -233,10 +230,10 @@ When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Az
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md

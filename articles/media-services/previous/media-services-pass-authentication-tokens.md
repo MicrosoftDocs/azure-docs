@@ -14,7 +14,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 02/10/2019
 ms.author: dwgeo
 
 ---
@@ -50,7 +50,7 @@ This option is used for PlayReady license acquisition only, through the CustomDa
     Put your authentication token in the Token element.
 
 - Through an alternate HTTP Live Streaming (HLS) playlist. 
-If you need to configure token authentication for AES + HLS playback on iOS/Safari, there isn't a way you can directly send in the token. For more information on how to alternate the playlist to enable this scenario, see this [blog post](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+If you need to configure token authentication for AES + HLS playback on iOS/Safari, there isn't a way you can directly send in the token. For more information on how to alternate the playlist to enable this scenario, see this [blog post](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## Next steps
 

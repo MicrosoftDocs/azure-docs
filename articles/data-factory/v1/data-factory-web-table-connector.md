@@ -11,7 +11,7 @@ ms.assetid: f54a26a4-baa4-4255-9791-5a8f935898e2
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
@@ -236,7 +236,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1).
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **WebSource** and **sink** type is set to **BlobSink**.
 
-See [WebSource type properties](#copy-activity-type-properties) for the list of properties supported by the WebSource.
+See WebSource type properties for the list of properties supported by the WebSource.
 
 ```json
 {  

@@ -30,8 +30,8 @@ If you do not use the downloaded quickstart server project, you will need the pu
 
 This tutorial requires the  setup:
 
-* An active Google account. You can sign up for a Google account at [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
-* [Google Cloud Messaging Client Component](http://components.xamarin.com/view/GCMClient/).
+* An active Google account. You can sign up for a Google account at [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
+* [Google Cloud Messaging Client Component](https://components.xamarin.com/view/GCMClient/).
 
 ## <a name="configure-hub"></a>Configure a Notification Hub
 
@@ -75,5 +75,5 @@ You can test the app by using a virtual device in the emulator. There are additi
 
 <!-- URLs. -->
 [Xamarin.Android quick start]: app-service-mobile-xamarin-android-get-started.md
-[Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
-[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
+[Google Cloud Messaging Client Component]: https://components.xamarin.com/view/GCMClient/
+[Azure Mobile Services Component]: https://components.xamarin.com/view/azure-mobile-services/

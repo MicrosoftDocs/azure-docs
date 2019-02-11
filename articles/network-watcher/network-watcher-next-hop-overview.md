@@ -28,12 +28,14 @@ The next hops that might be returned by the next hop capability are as follows:
 * Internet
 * VirtualAppliance
 * VirtualNetworkGateway
-* VnetLocal
-* VnetPeering
+* VirtualNetwork
+* VirtualNetworkPeering
+* VirtualNetworkServiceEndpoint 
+* MicrosoftEdge
 * None
 
 To learn more about each next hop type, see [Routing overview](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## Next steps
 
-To learn how to use next hop to diagnose VM network routing problems, see [Diagnose VM network routing problems](diagnose-vm-network-routing-problem.md).
+To learn how to use next hop to diagnose VM network routing problems, see Diagnose VM network routing problems using the [Azure portal](diagnose-vm-network-routing-problem.md), [PowerShell](diagnose-vm-network-routing-problem-powershell.md), or the [Azure CLI](diagnose-vm-network-routing-problem-cli.md).

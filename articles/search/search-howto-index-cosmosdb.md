@@ -1,16 +1,17 @@
 ---
-title: Indexing an Azure Cosmos DB data source for Azure Search | Microsoft Docs
-description: This article shows you how to create an Azure Search indexer with an Azure Cosmos DB data source.
-author: chaosrealm
-manager: jlembicz
+title: Index an Azure Cosmos DB data source - Azure Search 
+description: Crawl an Azure Cosmos DB data source and ingest data in a full text searchable index in Azure Search. Indexers automate data ingestion for selected data sources like Azure Cosmos DB.
+
+ms.date: 10/17/2018
+author: mgottein 
+manager: cgronlun
+ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 05/29/2018
-ms.author: eugenesh
 robot: noindex
-
+ms.custom: seodec2018
 ---
 # Connecting Cosmos DB with Azure Search using indexers
 
@@ -32,7 +33,7 @@ In the following video, Azure Cosmos DB Program Manager Andrew Liu demonstrates 
 <a name="supportedAPIs"></a>
 ## Supported API types
 
-Although Azure Cosmos DB supports a variety of data models and APIs, Azure Search indexer production support extends to the SQL API only. Support for MongoDB API is currently in public preview.  
+Although Azure Cosmos DB supports a variety of data models and APIs, Azure Search indexer production support extends to the SQL API only. Support for the Azure Cosmos DB's API for MongoDB is currently in public preview.  
 
 Support for additional APIs is forthcoming. To help us prioritize which ones to support first, please cast your vote on the User Voice web site:
 
@@ -43,6 +44,8 @@ Support for additional APIs is forthcoming. To help us prioritize which ones to 
 ## Prerequisites
 
 In addition to a Cosmos DB account, you need to have a [Azure Search service](search-create-service-portal.md). 
+
+In your Cosmos DB account you can choose whether you want the collection to automatically index all documents. By default, all documents are automatically indexed, but you can turn off automatic indexing. When indexing is turned off, documents can be accessed only through their self-links or by queries by using the document ID. Azure Search requires Cosmos DB automatic indexing to be turned on in the collection that will be indexed by Azure Search. 
 
 <a name="Concepts"></a>
 ## Azure Search indexer concepts
@@ -94,7 +97,8 @@ The body of the request contains the data source definition, which should includ
   
   * **connectionString**: Required. Specify the connection info to your Azure Cosmos DB database in the following format: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`
   For MongoDB collections, add **ApiKind=MongoDb** to the connection string: 
-`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb` 
+`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
+  Avoid port numbers in the endpoint url. If you include the port number, Azure Search will be unable to index your Azure Cosmos DB database.
 * **container**:
   
   * **name**: Required. Specify the id of the database collection to be indexed.

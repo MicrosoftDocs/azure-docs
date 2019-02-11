@@ -103,7 +103,7 @@ Instance usage billing
  ]</code><br>
 </td>
 <td>
-<p><b>Not billed&#42;</b></p>
+<p><b>Billed&#42;</b></p>
 </td>
 </tr>
 <tr>
@@ -146,7 +146,7 @@ Instance usage billing
 </table>
 
 
-&#42;Some Azure resources, such as Disks and Networking, incur charges regardless of the instance's state. 
+&#42;Some Azure resources, such as Disks and Networking, incur charges. Software licenses on the instance do not incur charges.
 
 ## Provisioning states
 
@@ -282,7 +282,7 @@ Once the operation is complete, the VM will transition into one of the following
 
 The instance view API provides VM running-state information. For more information, see the [Virtual Machines - Instance View](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) API documentation.
 
-Azure Resources explorer provides a simple UI for viewing the VM running state: [Resource Explorer] (https://resources.azure.com/).
+Azure Resources explorer provides a simple UI for viewing the VM running state: [Resource Explorer](https://resources.azure.com/).
 
 Provisioning states are visible on VM properties and instance view. Power states are available in instance view of VM. 
 

@@ -2,12 +2,12 @@
 title: Content trust in Azure Container Registry
 description: Learn how enable content trust for your Azure container registry, and push and pull signed images.
 services: container-registry
-author: mmacy
+author: dlepow
 
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 08/20/2018
-ms.author: marsma
+ms.author: danlep
 ---
 # Content trust in Azure Container Registry
 
@@ -72,7 +72,7 @@ Details for granting the `AcrImageSigner` role in the Azure portal and the Azure
 
 ### Azure portal
 
-Navigate to your registry in the Azure portal, then select **Access Control (IAM)** > **Add**. Under **Add permissions**, select `AcrImageSigner` under **Role**, then **Select** one or more users or service principals, then **Save**.
+Navigate to your registry in the Azure portal, then select **Access control (IAM)** > **Add role assignment**. Under **Add role assignment**, select `AcrImageSigner` under **Role**, then **Select** one or more users or service principals, then **Save**.
 
 In this example, two entities have been assigned the `AcrImageSigner` role: a service principal named "service-principal," and a user named "Azure User."
 

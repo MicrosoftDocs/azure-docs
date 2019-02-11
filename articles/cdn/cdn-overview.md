@@ -3,8 +3,8 @@ title: What is a content delivery network (CDN)? - Azure | Microsoft Docs
 description: Learn what Azure Content Delivery Network (CDN) is and how to use it to deliver high-bandwidth content.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 05/09/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
 
 ---

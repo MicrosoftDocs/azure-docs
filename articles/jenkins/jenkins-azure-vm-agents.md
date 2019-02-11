@@ -3,7 +3,7 @@ title: Scale Jenkins deployments with Azure VM agents.
 description: Add additional capacity to your Jenkins pipelines using Azure virtual machines with the Jenkins Azure VM Agent plug-in.
 ms.service: jenkins
 keywords: jenkins, azure, devops, virtual machine, agents
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial

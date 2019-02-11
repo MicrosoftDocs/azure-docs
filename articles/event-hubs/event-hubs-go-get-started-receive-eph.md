@@ -1,6 +1,6 @@
 ---
-title: Receive events from Azure Event Hubs using Go | Microsoft Docs
-description: Get started receiving events from Event Hubs using Go
+title: Receive events using Go - Azure Event Hubs | Microsoft Docs
+description: This article provides a walkthrough for creating a Go application that receives events from Azure Event Hubs. 
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
@@ -8,7 +8,8 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/23/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
@@ -78,8 +79,7 @@ import (
 
 ## Create service principal
 
-Create a new service principal by following the instructions in [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Save the provided credentials in your environment with the following names. Both the Azure SDK for Go and the Event Hubs package are
-preconfigured to look for these variable names.
+Create a new service principal by following the instructions in [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Save the provided credentials in your environment with the following names: Both Azure SDK for Go and Event Hubs package are preconfigured to look for these variable names.
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -196,13 +196,7 @@ if err != nil {
 This tutorial uses a single instance of **EventProcessorHost**. To increase throughput and reliability, you should run multiple instances of **EventProcessorHost** on different systems. The Leaser system ensures that only one receiver is associated with, and receives messages from, a specified partition at a specified time.
 
 ## Next steps
-
-Visit these pages to learn more about Event Hubs:
-
-* [Send events with Go](event-hubs-go-get-started-send.md)
-* [Event Hubs overview](event-hubs-about.md)
-* [Create an Event Hub](event-hubs-create.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+In this quickstart, you created a Go application that received messages from an event hub. To learn how to send events to an event hub using Go, see [Send events from event hub - Go](event-hubs-go-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

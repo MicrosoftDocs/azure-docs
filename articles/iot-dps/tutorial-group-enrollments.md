@@ -21,7 +21,7 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 ## Prepare the environment 
 
-1. Make sure you have [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine.
+1. Make sure you have [Java SE Development Kit 8](https://aka.ms/azure-jdks) installed on your machine.
 
 1. Download and install [Maven](https://maven.apache.org/install.html).
 
@@ -44,20 +44,20 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
             - Select the **_RootCA.pem_** file you just created.
             - Once complete, click the **Save** button.
 
-        ![Add certificate](./media/tutorial-group-enrollments/add-certificate.png)
+           ![Add certificate](./media/tutorial-group-enrollments/add-certificate.png)
 
         1. Select the newly created certificate:
             - Click **Generate Verification Code**. Copy the code generated.
             - Run the verification step. Enter the _verification code_ or right-click to paste in your running PowerShell window.  Press **Enter**.
             - Select the newly created **_verifyCert4.pem_** file in the Azure portal. Click **Verify**.
 
-            ![Validate certificate](./media/tutorial-group-enrollments/validate-certificate.png)
+              ![Validate certificate](./media/tutorial-group-enrollments/validate-certificate.png)
 
     1. Finish by running the steps to create your device certificates and clean-up resources.
 
-    > [!NOTE]
-    > When creating device certificates be sure to use only lower-case alphanumerics and hyphens in your device name.
-    >
+       > [!NOTE]
+       > When creating device certificates be sure to use only lower-case alphanumerics and hyphens in your device name.
+       >
 
 
 ## Create a device enrollment entry

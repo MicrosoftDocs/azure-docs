@@ -1,33 +1,31 @@
 ---
-title: Run Sqoop jobs by using PowerShell and Azure HDInsight 
-description: Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between a Hadoop cluster and an Azure SQL database.
+title: Run Apache Sqoop jobs by using PowerShell and Azure HDInsight 
+description: Learn how to use Azure PowerShell from a workstation to run Apache Sqoop import and export between an Apache Hadoop cluster and an Azure SQL database.
 ms.reviewer: jasonh
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Run Sqoop jobs by using Azure PowerShell for Hadoop in HDInsight
+# Run Apache Sqoop jobs by using Azure PowerShell for Apache Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Learn how to use Azure PowerShell to run Sqoop jobs in Azure HDInsight to import and export between an HDInsight cluster and an Azure SQL database or SQL Server database.
+Learn how to use Azure PowerShell to run Apache Sqoop jobs in Azure HDInsight to import and export between an HDInsight cluster and an Azure SQL database or SQL Server database.
 
-> [!NOTE]
+> [!NOTE]  
 > Although you can use the procedures in this article with either a Windows-based or Linux-based HDInsight cluster, they work only from a Windows client. To choose other methods, use the tab selector at the top of this article. 
-> 
-> 
 
-### Prerequisites
+## Prerequisites 
 Before you begin this tutorial, you must have the following items:
 
 * A workstation with Azure PowerShell.
-* A Hadoop cluster in HDInsight. For more information, see [Create cluster and SQL database](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* An Apache Hadoop cluster in HDInsight. For more information, see [Create cluster and SQL database](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
-## Run Sqoop by using PowerShell
+## Run Apache Sqoop by using PowerShell
 The following PowerShell script pre-processes the source file and then exports it to an Azure SQL database:
 
     $resourceGroupName = "<AzureResourceGroupName>"
@@ -162,8 +160,8 @@ Linux-based HDInsight presents the following limitations:
 ## Next steps
 Now you have learned how to use Sqoop. To learn more, see:
 
-* [Use Oozie with HDInsight](../hdinsight-use-oozie.md): Use Sqoop action in an Oozie workflow.
-* [Analyze flight delay data by using HDInsight](../hdinsight-analyze-flight-delay-data.md): Use Hive to analyze flight delay data, and then use Sqoop to export data to an Azure SQL database.
+* [Use Apache Oozie with HDInsight](../hdinsight-use-oozie.md): Use Sqoop action in an Oozie workflow.
+* [Analyze flight delay data by using HDInsight](../hdinsight-analyze-flight-delay-data.md): Use Apache Hive to analyze flight delay data, and then use Sqoop to export data to an Azure SQL database.
 * [Upload data to HDInsight](../hdinsight-upload-data.md): Find other methods for uploading data to HDInsight or Azure Blob storage.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

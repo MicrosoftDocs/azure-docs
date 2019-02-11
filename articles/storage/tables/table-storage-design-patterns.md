@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
+ms.subservice: tables
 ---
 # Table design patterns
 This article describes some patterns appropriate for use with Table service solutions. Also, you will see how you can practically address some of the issues and trade-offs discussed in other Table storage design articles. The following diagram summarizes the relationships between the different patterns:  
@@ -44,7 +44,7 @@ If you query for a range of employee entities, you can specify a range sorted in
 * To find all the employees in the Sales department with an email address starting with the letter 'a' use:
   $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-  Note that the filter syntax used in the examples above is from the Table service REST API, for more information see [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  Note that the filter syntax used in the examples above is from the Table service REST API, for more information see [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 ### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
@@ -69,7 +69,7 @@ The following patterns and guidance may also be relevant when implementing this 
 
 * [Inter-partition secondary index pattern](#inter-partition-secondary-index-pattern)
 * [Compound key pattern](#compound-key-pattern)
-* [Entity Group Transactions](#entity-group-transactions)
+* Entity Group Transactions
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)
 
 ## Inter-partition secondary index pattern
@@ -102,7 +102,7 @@ If you query for a range of employee entities, you can specify a range sorted in
 * To find all the employees in the Sales department with an email address that starts with 'a' sorted in email address order use:
   $filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-Note that the filter syntax used in the examples above is from the Table service REST API, for more information see [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Note that the filter syntax used in the examples above is from the Table service REST API, for more information see [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 ### Issues and considerations
 Consider the following points when deciding how to implement this pattern:  
@@ -126,7 +126,7 @@ The following patterns and guidance may also be relevant when implementing this 
 * [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern)  
 * [Intra-partition secondary index pattern](#intra-partition-secondary-index-pattern)  
 * [Compound key pattern](#compound-key-pattern)  
-* [Entity Group Transactions](#entity-group-transactions)  
+* Entity Group Transactions  
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)  
 
 ## Eventually consistent transactions pattern
@@ -170,7 +170,7 @@ Use this pattern when you want to guarantee eventual consistency between entitie
 ### Related patterns and guidance
 The following patterns and guidance may also be relevant when implementing this pattern:  
 
-* [Entity Group Transactions](#entity-group-transactions)  
+* Entity Group Transactions  
 * [Merge or replace](#merge-or-replace)  
 
 > [!NOTE]
@@ -210,7 +210,7 @@ The **EmployeeIDs** property contains a list of employee ids for employees with 
 The following steps outline the process you should follow when you are adding a new employee if you are using the second option. In this example, we are adding an employee with Id 000152 and a last name Jones in the Sales department:  
 
 1. Retrieve the index entity with a **PartitionKey** value "Sales" and the **RowKey** value "Jones." Save the ETag of this entity to use in step 2.  
-2. Create an entity group transaction (that is, a batch operation) that inserts the new employee entity (**PartitionKey** value "Sales" and **RowKey** value "000152"), and updates the index entity (**PartitionKey** value "Sales" and **RowKey** value "Jones") by adding the new employee ID to the list in the EmployeeIDs field. For more information about entity group transactions, see [Entity Group Transactions](#entity-group-transactions).  
+2. Create an entity group transaction (that is, a batch operation) that inserts the new employee entity (**PartitionKey** value "Sales" and **RowKey** value "000152"), and updates the index entity (**PartitionKey** value "Sales" and **RowKey** value "Jones") by adding the new employee ID to the list in the EmployeeIDs field. For more information about entity group transactions, see Entity Group Transactions.  
 3. If the entity group transaction fails because of an optimistic concurrency error (someone else has just modified the index entity), then you need to start over at step 1 again.  
 
 You can use a similar approach to deleting an employee if you are using the second option. Changing an employee's last name is slightly more complex because you will need to execute an entity group transaction that updates three entities: the employee entity, the index entity for the old last name, and the index entity for the new last name. You must retrieve each entity before making any changes in order to retrieve the ETag values that you can then use to perform the updates using optimistic concurrency.  
@@ -249,7 +249,7 @@ The following patterns and guidance may also be relevant when implementing this 
 
 * [Compound key pattern](#compound-key-pattern)  
 * [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern)  
-* [Entity Group Transactions](#entity-group-transactions)  
+* Entity Group Transactions  
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)  
 
 ## Denormalization pattern
@@ -280,7 +280,7 @@ Use this pattern when you frequently need to look up related information. This p
 The following patterns and guidance may also be relevant when implementing this pattern:  
 
 * [Compound key pattern](#compound-key-pattern)  
-* [Entity Group Transactions](#entity-group-transactions)  
+* Entity Group Transactions  
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)
 
 ## Compound key pattern
@@ -323,7 +323,7 @@ Use this pattern when you need to store one or more related entities that you qu
 ### Related patterns and guidance
 The following patterns and guidance may also be relevant when implementing this pattern:  
 
-* [Entity Group Transactions](#entity-group-transactions)  
+* Entity Group Transactions  
 * [Working with heterogeneous entity types](#working-with-heterogeneous-entity-types)  
 * [Eventually consistent transactions pattern](#eventually-consistent-transactions-pattern)  
 
@@ -392,7 +392,7 @@ Use this pattern when you have a high volume of entities that you must delete at
 ### Related patterns and guidance
 The following patterns and guidance may also be relevant when implementing this pattern:  
 
-* [Entity Group Transactions](#entity-group-transactions)
+* Entity Group Transactions
 * [Modifying entities](#modifying-entities)  
 
 ## Data series pattern
@@ -452,7 +452,7 @@ Use this pattern when  need to store entities whose size or number of properties
 ### Related patterns and guidance
 The following patterns and guidance may also be relevant when implementing this pattern:  
 
-* [Entity Group Transactions](#entity-group-transactions)
+* Entity Group Transactions
 * [Merge or replace](#merge-or-replace)
 
 ## Large entities pattern
@@ -554,7 +554,7 @@ Consider the following points when deciding how to store log data:
 This section discusses some of the considerations to bear in mind when you implement the patterns described in the previous sections. Most of this section uses examples written in C# that use the Storage Client Library (version 4.3.0 at the time of writing).  
 
 ## Retrieving entities
-As discussed in the section [Design for querying](#design-for-querying), the most efficient query is a point query. However, in some scenarios you may need to retrieve multiple entities. This section describes some common approaches to retrieving entities using the Storage Client Library.  
+As discussed in the section Design for querying, the most efficient query is a point query. However, in some scenarios you may need to retrieve multiple entities. This section describes some common approaches to retrieving entities using the Storage Client Library.  
 
 ### Executing a point query using the Storage Client Library
 The easiest way to execute a point query is to use the **Retrieve** table operation as shown in the following C# code snippet that retrieves an entity with a **PartitionKey** of value "Sales" and a **RowKey** of value "212":  
@@ -615,7 +615,7 @@ An optimal query returns an individual entity based on a **PartitionKey** value 
 
 You should always fully test the performance of your application in such scenarios.  
 
-A query against the table service may return a maximum of 1,000 entities at one time and may execute for a maximum of five seconds. If the result set contains more than 1,000 entities, if the query did not complete within five seconds, or if the query crosses the partition boundary, the Table service returns a continuation token to enable the client application to request the next set of entities. For more information about how continuation tokens work, see [Query Timeout and Pagination](http://msdn.microsoft.com/library/azure/dd135718.aspx).  
+A query against the table service may return a maximum of 1,000 entities at one time and may execute for a maximum of five seconds. If the result set contains more than 1,000 entities, if the query did not complete within five seconds, or if the query crosses the partition boundary, the Table service returns a continuation token to enable the client application to request the next set of entities. For more information about how continuation tokens work, see [Query Timeout and Pagination](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
 
 If you are using the Storage Client Library, it can automatically handle continuation tokens for you as it returns entities from the Table service. The following C# code sample using the Storage Client Library automatically handles continuation tokens if the table service returns them in a response:  
 

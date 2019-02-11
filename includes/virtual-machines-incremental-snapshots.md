@@ -1,3 +1,15 @@
+---
+title: "include file"
+description: "include file"
+services: storage
+author: roygara
+ms.service: storage
+ms.topic: "include"
+ms.date: 09/15/2018
+ms.author: rogarana
+ms.custom: "include file"
+---
+
 # Back up Azure unmanaged VM disks with incremental snapshots
 ## Overview
 Azure Storage provides the capability to take snapshots of blobs. Snapshots capture the blob state at that point in time. In this article, we describe a scenario in which you can maintain backups of virtual machine disks using snapshots. You can use this methodology when you choose not to use Azure Backup and Recovery Service, and wish to create a custom backup strategy for your virtual machine disks.
@@ -49,7 +61,7 @@ When you have a custom backup strategy using snapshots, copying the snapshots fr
 You can implement incremental snapshot copy by doing the following,
 
 * Take a snapshot of the base blob using [Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
-* Copy the snapshot to the target backup storage account using [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). This is the backup page blob. Take a snapshot of the backup page blob and store it in the backup account.
+* Copy the snapshot to the target backup storage account in same or any other Azure region using [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). This is the backup page blob. Take a snapshot of the backup page blob and store it in the backup account.
 * Take another snapshot of the base blob using Snapshot Blob.
 * Get the difference between the first and second snapshots of the base blob using [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Use the new parameter **prevsnapshot**, to specify the DateTime value of the snapshot you want to get the difference with. When this parameter is present, the REST response includes only the pages that were changed between target snapshot and previous snapshot including clear pages.
 * Use [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) to apply these changes to the backup page blob.
@@ -62,7 +74,7 @@ In this section, we describe a scenario that involves a custom backup strategy f
 
 Consider a DS-series Azure VM with a premium storage P30 disk attached. The P30 disk called *mypremiumdisk* is stored in a premium storage account called *mypremiumaccount*. A standard storage account called *mybackupstdaccount* is used for storing the backup of *mypremiumdisk*. We would like to keep a snapshot of *mypremiumdisk* every 12 hours.
 
-To learn about creating storage account and disks, refer to [About Azure storage accounts](../articles/storage/storage-create-storage-account.md).
+To learn about creating a storage account, see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
 To learn about backing up Azure VMs, refer to [Plan Azure VM backups](../articles/backup/backup-azure-vms-introduction.md).
 

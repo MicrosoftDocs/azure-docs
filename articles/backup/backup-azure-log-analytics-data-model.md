@@ -2,13 +2,12 @@
 title: Log Analytics data model for Azure Backup
 description: This article talks about Log Analytics data model details for Azure Backup data.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
 ---
 # Log Analytics data model for Azure Backup data
 Use the Log Analytics data model to create reports. With the data model, you can create custom queries and dashboards, or customize Azure Backup data, however you like.
@@ -24,7 +23,7 @@ This table provides details about alert related fields.
 | AlertUniqueId_s |Text |Unique identifier of the generated alert |
 | AlertType_s |Text |Type of alert, for example, Backup |
 | AlertStatus_s |Text |Status of the alert, for example, Active |
-| AlertOccurenceDateTime_s |Date/Time |Date and time when alert was created |
+| AlertOccurrenceDateTime_s |Date/Time |Date and time when alert was created |
 | AlertSeverity_s |Text |Severity of the alert, for example, Critical |
 | EventName_s |Text |Name of the event. Always AzureBackupCentralReport |
 | BackupItemUniqueId_s |Text |Unique identifier of the backup item associated with the alert |
@@ -275,4 +274,4 @@ This table provides details about vault-related fields.
 | ResourceType |Text |Resource type for which data is collected. For example, Vaults |
 
 ## Next steps
-Once you review the data model for creating Azure Backup reports, you can start [creating dashboard](../log-analytics/log-analytics-dashboards.md) in Log Analytics.
+Once you review the data model for creating Azure Backup reports, you can start [creating dashboard](../azure-monitor/learn/tutorial-logs-dashboards.md) in Log Analytics.

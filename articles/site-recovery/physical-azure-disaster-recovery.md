@@ -6,8 +6,8 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: raynew
+ms.date: 12/31/2018
+ms.author: raynew 
 
 ---
 # Set up disaster recovery to Azure for on-premises physical servers
@@ -22,8 +22,6 @@ This tutorial shows you how to set up disaster recovery of on-premises physical 
 > * Set up the source and target replication environments
 > * Create a replication policy
 > * Enable replication for a server
-
-[review the architecture](concepts-hyper-v-to-azure-architecture.md) for this disaster recovery scenario.
 
 ## Prerequisites
 
@@ -46,7 +44,7 @@ Before you begin, note that:
 
 ### Set up an Azure account
 
-Get a Microsoft [Azure account](http://azure.microsoft.com/).
+Get a Microsoft [Azure account](https://azure.microsoft.com/).
 
 - You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 - Learn about [Site Recovery pricing](site-recovery-faq.md#pricing), and get [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).

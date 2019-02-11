@@ -1,20 +1,29 @@
 ---
-title: Release notes for the Face API Service | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
+title: Release notes - Face API Service
+titleSuffix: Azure Cognitive Services
 description: Release notes for the Face API Service include a history of release changes for various versions.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: face-api
-ms.topic: article
+ms.subservice: face-api
+ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
 ---
 
 # Face API Release Notes
 
-This article pertains to Microsoft Face API Service version 1.0.
+This article pertains to Face API Service version 1.0.
+
+### Release changes in January 2019
+
+* Added Snapshot feature to support data migration across subscriptions: [Snapshot](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot).
+
+### Release changes in October 2018
+
+* Refined description for `status`, `createdDateTime`, `lastActionDateTime`, and `lastSuccessfulTrainingDateTime` in [PersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247), [LargePersonGroup - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae32c6ac60f11b48b5aa5), and [LargeFaceList - Get Training Status](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a1582f8d2de3616c086f2cf).
 
 ### Release changes in May 2018
 

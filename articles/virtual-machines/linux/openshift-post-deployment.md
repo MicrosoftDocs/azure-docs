@@ -3,8 +3,8 @@ title: OpenShift on Azure post-deployment tasks | Microsoft Docs
 description: Additional tasks for after an OpenShift cluster has been deployed. 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: haroldw
-manager: najoshi
+author: haroldwongms
+manager: joraio
 editor: 
 tags: azure-resource-manager
 
@@ -20,11 +20,12 @@ ms.author: haroldw
 
 # Post-deployment tasks
 
-After you deploy an OpenShift cluster, you can configure additional items. This article covers the following:
+After you deploy an OpenShift cluster, you can configure additional items. This article covers:
 
 - How to configure single sign-on by using Azure Active Directory (Azure AD)
 - How to configure Log Analytics to monitor OpenShift
 - How to configure metrics and logging
+- How to install Open Service Broker for Azure (OSBA)
 
 ## Configure single sign-on by using Azure Active Directory
 
@@ -35,15 +36,15 @@ To use Azure Active Directory for authentication, first you need to create an Az
 These steps use the Azure CLI to create the app registration, and the GUI (portal) to set the permissions. To create the app registration, you need the following five pieces of information:
 
 - Display name: App registration name (for example, OCPAzureAD)
-- Home page: OpenShift console URL (for example, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- Identifier URI: OpenShift console URL (for example, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
-- Reply URL: Master public URL and the app registration name (for example, https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
+- Home page: OpenShift console URL (for example, https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- Identifier URI: OpenShift console URL (for example, https://masterdns343khhde.westus.cloudapp.azure.com/console)
+- Reply URL: Master public URL and the app registration name (for example, https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - Password: Secure password (use a strong password)
 
 The following example creates an app registration by using the preceding information:
 
 ```azurecli
-az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/hwocpadint --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com:8443/console --password {Strong Password}
+az ad app create --display-name OCPAzureAD --homepage https://masterdns343khhde.westus.cloudapp.azure.com/console --reply-urls https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/hwocpadint --identifier-uris https://masterdns343khhde.westus.cloudapp.azure.com/console --password {Strong Password}
 ```
 
 If the command is successful, you get a JSON output similar to:
@@ -54,14 +55,14 @@ If the command is successful, you get a JSON output similar to:
   "appPermissions": null,
   "availableToOtherTenants": false,
   "displayName": "OCPAzureAD",
-  "homepage": "https://masterdns343khhde.westus.cloudapp.azure.com:8443/console",
+  "homepage": "https://masterdns343khhde.westus.cloudapp.azure.com/console",
   "identifierUris": [
-    "https://masterdns343khhde.westus.cloudapp.azure.com:8443/console"
+    "https://masterdns343khhde.westus.cloudapp.azure.com/console"
   ],
   "objectId": "62cd74c9-42bb-4b9f-b2b5-b6ee88991c80",
   "objectType": "Application",
   "replyUrls": [
-    "https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD"
+    "https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD"
   ]
 }
 ```
@@ -102,7 +103,7 @@ In the yaml file, find the following lines:
 
 ```yaml
 oauthConfig:
-  assetPublicURL: https://masterdns343khhde.westus.cloudapp.azure.com:8443/console/
+  assetPublicURL: https://masterdns343khhde.westus.cloudapp.azure.com/console/
   grantConfig:
     method: auto
   identityProviders:
@@ -142,16 +143,9 @@ Insert the following lines immediately after the preceding lines:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-Find the tenant ID by using the following CLI command: ```az account show```
+Make sure the text aligns correctly under identityProviders. Find the tenant ID by using the following CLI command: ```az account show```
 
 Restart the OpenShift master services on all master nodes:
-
-**OpenShift Origin**
-
-```bash
-sudo systemctl restart origin-master-api
-sudo systemctl restart origin-master-controllers
-```
 
 **OpenShift Container Platform (OCP) with multiple masters**
 
@@ -166,135 +160,47 @@ sudo systemctl restart atomic-openshift-master-controllers
 sudo systemctl restart atomic-openshift-master
 ```
 
+**OKD with multiple masters**
+
+```bash
+sudo systemctl restart origin-master-api
+sudo systemctl restart origin-master-controllers
+```
+
+**OKD with a single master**
+
+```bash
+sudo systemctl restart origin-master
+```
+
 In the OpenShift console, you now see two options for authentication: htpasswd_auth and [App Registration].
 
 ## Monitor OpenShift with Log Analytics
 
-To monitor OpenShift with Log Analytics, you can use one of two options: OMS Agent installation on VM host, or OMS Container. This article provides instructions for deploying the OMS Container.
+There are three ways to add the Log Analytics agent to OpenShift.
+- Install the Log Analytics agent for Linux directly on each OpenShift node
+- Enable Log Analytics VM Extension on each OpenShift node
+- Install the Log Analytics agent as a OpenShift daemon-set
 
-## Create an OpenShift project for Log Analytics and set user access
-
-```bash
-oadm new-project omslogging --node-selector='zone=default'
-oc project omslogging
-oc create serviceaccount omsagent
-oadm policy add-cluster-role-to-user cluster-reader system:serviceaccount:omslogging:omsagent
-oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent
-```
-
-## Create a daemon set yaml file
-
-Create a file named ocp-omsagent.yml:
-
-```yaml
-apiVersion: extensions/v1beta1
-kind: DaemonSet
-metadata:
-  name: oms
-spec:
-  selector:
-    matchLabels:
-      name: omsagent
-  template:
-    metadata:
-      labels:
-        name: omsagent
-        agentVersion: 1.4.0-45
-        dockerProviderVersion: 10.0.0-25
-    spec:
-      nodeSelector:
-        zone: default
-      serviceAccount: omsagent
-      containers:
-      - image: "microsoft/oms"
-        imagePullPolicy: Always
-        name: omsagent
-        securityContext:
-          privileged: true
-        ports:
-        - containerPort: 25225
-          protocol: TCP
-        - containerPort: 25224
-          protocol: UDP
-        volumeMounts:
-        - mountPath: /var/run/docker.sock
-          name: docker-sock
-        - mountPath: /etc/omsagent-secret
-          name: omsagent-secret
-          readOnly: true
-        livenessProbe:
-          exec:
-            command:
-              - /bin/bash
-              - -c
-              - ps -ef | grep omsagent | grep -v "grep"
-          initialDelaySeconds: 60
-          periodSeconds: 60
-      volumes:
-      - name: docker-sock
-        hostPath:
-          path: /var/run/docker.sock
-      - name: omsagent-secret
-        secret:
-         secretName: omsagent-secret
-````
-
-## Create a secret yaml file
-
-To create the secret yaml file, you need two pieces of information: Log Analytics Workspace ID and Log Analytics Workspace Shared Key. 
-
-A sample ocp-secret.yml file follows: 
-
-```yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: omsagent-secret
-data:
-  WSID: wsid_data
-  KEY: key_data
-```
-
-Replace wsid_data with the Base64 encoded Log Analytics Workspace ID. Then replace key_data with the Base64-encoded Log Analytics Workspace Shared Key.
-
-```bash
-wsid_data='11111111-abcd-1111-abcd-111111111111'
-key_data='My Strong Password'
-echo $wsid_data | base64 | tr -d '\n'
-echo $key_data | base64 | tr -d '\n'
-```
-
-## Create the secret and daemon set
-
-Deploy the secret file:
-
-```bash
-oc create -f ocp-secret.yml
-```
-
-Deploy the OMS Agent daemon set:
-
-```bash
-oc create -f ocp-omsagent.yml
-```
+The full instructions are located here: https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.
 
 ## Configure metrics and logging
 
-The Azure Resource Manager template for OpenShift Container Platform provides input parameters for enabling metrics and logging. The OpenShift Container Platform Marketplace offer and the OpenShift Origin Resource Manager template do not.
+Based on the branch, the Azure Resource Manager templates for OpenShift Container Platform and OKD may provide input parameters for enabling metrics and logging as part of the installation.
 
-If you used the OCP Resource Manager template and metrics and logging weren't enabled at installation time, or if you used the OCP Marketplace offer, you can be easily enable these after the fact. If you're using the OpenShift Origin Resource Manager template, some pre-work is required.
+The OpenShift Container Platform Marketplace offer also provides an option to enable metrics and logging during cluster installation.
 
-### OpenShift Origin template pre-work
+If metrics / logging wasn't enabled during the installation of the cluster, they can easily be enabled after the fact.
 
-1. SSH to the first master node by using port 2200.
+### Ansible inventory pre-work
 
-   Example:
+Verify the ansible inventory file (/etc/ansible/hosts) has the appropriate variables for metrics / logging. The inventory file can be found on different hosts based on the template used.
 
-   ```bash
-   ssh -p 2200 clusteradmin@masterdnsixpdkehd3h.eastus.cloudapp.azure.com 
-   ```
+For the OpenShift Container template and Marketplace offer, the inventory file is located on Bastion host. For the OKD template, the inventory file is located on either the master-0 host or the bastion host based on the branch in use.
 
-2. Edit the /etc/ansible/hosts file and add the following lines after the Identity Provider Section (# Enable HTPasswdPasswordIdentityProvider):
+1. Edit the /etc/ansible/hosts file and add the following lines after the Identity Provider Section (# Enable HTPasswdPasswordIdentityProvider). If these lines are already present, don't add them again.
+
+   OpenShift / OKD versions 3.9 and earlier
 
    ```yaml
    # Setup metrics
@@ -316,35 +222,130 @@ If you used the OCP Resource Manager template and metrics and logging weren't en
    openshift_master_logging_public_url=https://kibana.$ROUTING
    ```
 
+   OpenShift / OKD versions 3.10 and later
+
+   ```yaml
+   # Setup metrics
+   openshift_metrics_install_metrics=false
+   openshift_metrics_start_cluster=true
+   openshift_metrics_hawkular_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_metrics_cassandra_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_metrics_heapster_nodeselector={"node-role.kubernetes.io/infra":"true"}
+
+   # Setup logging
+   openshift_logging_install_logging=false
+   openshift_logging_fluentd_nodeselector={"logging":"true"}
+   openshift_logging_es_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_logging_kibana_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_logging_curator_nodeselector={"node-role.kubernetes.io/infra":"true"}
+   openshift_logging_master_public_url=https://kibana.$ROUTING
+   ```
+
 3. Replace $ROUTING with the string used for the openshift_master_default_subdomain option in the same /etc/ansible/hosts file.
 
 ### Azure Cloud Provider in use
 
-On the first master node (Origin) or bastion node (OCP), SSH by using the credentials provided during deployment. Issue the following command:
+SSH to the bastion node or first master node (based on template and branch in use) using the credentials provided during deployment. Issue the following command:
+
+**OpenShift Container Platform 3.7 and earlier**
 
 ```bash
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
 -e openshift_metrics_install_metrics=True \
 -e openshift_metrics_cassandra_storage_type=dynamic
 
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
 -e openshift_logging_install_logging=True \
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
 
-### Azure Cloud Provider not in use
-
-On the first master node (Origin) or bastion node (OCP), SSH by using the credentials provided during deployment. Issue the following command:
+**OpenShift Container Platform 3.9 and later**
 
 ```bash
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
--e openshift_metrics_install_metrics=True 
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
+-e openshift_metrics_install_metrics=True \
+-e openshift_metrics_cassandra_storage_type=dynamic
 
-ansible-playbook $HOME/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
--e openshift_logging_install_logging=True 
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True \
+-e openshift_logging_es_pvc_dynamic=true
 ```
+
+**OKD 3.7 and earlier**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True \
+-e openshift_metrics_cassandra_storage_type=dynamic
+
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+-e openshift_logging_install_logging=True \
+-e openshift_hosted_logging_storage_kind=dynamic
+```
+
+**OKD 3.9 and later**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True \
+-e openshift_metrics_cassandra_storage_type=dynamic
+
+ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True \
+-e openshift_logging_es_pvc_dynamic=true
+```
+
+### Azure Cloud Provider not in use
+
+SSH to the bastion node or first master node (based on template and branch in use) using the credentials provided during deployment. Issue the following command:
+
+
+**OpenShift Container Platform 3.7 and earlier**
+
+```bash
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True
+
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+-e openshift_logging_install_logging=True
+```
+
+**OpenShift Container Platform 3.9 and later**
+
+```bash
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
+-e openshift_metrics_install_metrics=True
+
+ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True
+```
+
+**OKD 3.7 and earlier**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True
+
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-logging.yml \
+-e openshift_logging_install_logging=True
+```
+
+**OKD 3.9 and later**
+
+```bash
+ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
+-e openshift_metrics_install_metrics=True
+ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
+-e openshift_logging_install_logging=True
+```
+
+## Install Open Service Broker for Azure (OSBA)
+
+Open Service Broker for Azure, or OSBA, lets you provision Azure Cloud Services directly from OpenShift. OSBA in an Open Service Broker API implementation for Azure. The Open Service Broker API is a spec that defines a common language for cloud providers that cloud native applications can use to manage cloud services without lock-in.
+
+To install OSBA on OpenShift, follow the instructions located here: https://github.com/Azure/open-service-broker-azure#openshift-project-template. 
 
 ## Next steps
 
-- [Getting started with OpenShift Container Platform](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)
-- [Getting started with OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
+- [Getting started with OpenShift Container Platform](https://docs.openshift.com/container-platform)
+- [Getting started with OKD](https://docs.okd.io/latest)

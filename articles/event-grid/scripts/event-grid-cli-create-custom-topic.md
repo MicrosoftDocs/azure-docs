@@ -4,14 +4,13 @@ description: Azure CLI Script Sample - Create custom topic
 services: event-grid
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 
 ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2018
+ms.date: 11/02/2018
 ms.author: tomfitz
 ---
 

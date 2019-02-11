@@ -1,6 +1,6 @@
 ---
-title: How to add a reference data set to your Azure Time Series Insights environment
-description: This article describes how to add a reference data set to augment data in your Azure Time Series Insights environment. 
+title: 'How to add a reference data set to your Azure Time Series Insights environment | Microsoft Docs'
+description: This article describes how to add a reference data set to augment data in your Azure Time Series Insights environment.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -10,6 +10,7 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
+ms.custom: seodec18
 ---
 
 # Create a reference data set for your Time Series Insights environment using the Azure portal
@@ -19,6 +20,12 @@ This article describes how to add a reference data set to your Azure Time Series
 A Reference Data Set is a collection of items that augment the events from your event source. Time Series Insights ingress engine joins each event from your event source with the corresponding data row in your reference data set. This augmented event is then available for query. This join is based on the Primary Key column(s) defined in your reference data set.
 
 Reference data is not joined retroactively. This means that only current and future ingress data is matched and joined to the reference date set, once it has been configured and uploaded.
+
+## Video: 
+
+### In this video, we cover Time Series Insight’s reference data model.</br>
+
+> [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
 ## Add a reference data set
 
@@ -88,4 +95,4 @@ Reference data is not joined retroactively. This means that only current and fut
 
 ## Next steps
 * [Manage reference data](time-series-insights-manage-reference-data-csharp.md) programmatically.
-* For the complete API reference, see [Reference Data API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api) document.
+* For the complete API reference, see [Reference Data API](/rest/api/time-series-insights/ga-reference-data-api) document.

@@ -1,14 +1,17 @@
 ---
-title: Moderate content by using human reviews in Azure Content Moderator | Microsoft Docs
-description: Learn how to create human reviews in the Content Moderator API console.
+title: Moderate content using human reviews with the API console - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Use the Review API's review operations to create image or text reviews for human moderation.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: content-moderator
-ms.topic: article
-ms.date: 08/05/2017
+ms.subservice: content-moderator
+ms.topic: conceptual
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
 # Create reviews from the API console

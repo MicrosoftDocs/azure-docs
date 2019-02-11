@@ -3,7 +3,7 @@ title: Azure VM extensions and features for Linux | Microsoft Docs
 description: Learn what extensions are available for Azure virtual machines, grouped by what they provide or improve.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -50,7 +50,7 @@ In order to provide the best possible experience, there are minimum versions of 
 
 #### Supported OSes
 
-The Linux agent runs on multiple OSes, however the extensions framework has a limit for the OSes that extensions. For more information, see [this article] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+The Linux agent runs on multiple OSes, however the extensions framework has a limit for the OSes that extensions. For more information, see [this article](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ).
 
 Some extensions are not supported across all OSes and may emit *Error Code 51, 'Unsupported OS'*. Check the individual extension documentation for supportability.
@@ -60,9 +60,9 @@ Some extensions are not supported across all OSes and may emit *Error Code 51, '
 Extension packages are downloaded from the Azure Storage extension repository, and extension status uploads are posted to Azure Storage. If you use [supported](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) version of the agents, you do not need to allow access to Azure Storage in the VM region, as can use the agent to redirect the communication to the Azure fabric controller for agent communications. If you are on a non-supported version of the agent, you need to allow outbound access to Azure storage in that region from the VM.
 
 > [!IMPORTANT]
-> If you have blocked access to *168.63.129.1* using the guest firewall, then extensions fail irrespective of the above.
+> If you have blocked access to *168.63.129.16* using the guest firewall, then extensions fail irrespective of the above.
 
-Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Agents can only be used to download extension packages and reporting status. For example, if an extension install needs to download a script from GitHub (Custom Script) or needs access to Azure Storage (Azure Backup), then additional firewall/Network Security Group ports need to be opened. Different extensions have different requirements, since they are applications in their own right. For extensions that require access to Azure Storage, you can allow access using Azure NSG Service Tags for [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 To redirect agent traffic requests, the Linux Agent has proxy server support. However, this proxy server support does not apply extensions. You must configure each individual extension to work with a proxy.
 
@@ -80,7 +80,7 @@ Azure VM extensions run on existing VMs, which is useful when you need to make c
 
 The following methods can be used to run an extension against an existing VM.
 
-### Azure CLI 2.0
+### Azure CLI
 
 Azure VM extensions can be run against an existing VM with the [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) command. The following example runs the Custom Script extension against a VM named *myVM* in a resource group named *myResourceGroup*:
 
@@ -256,7 +256,7 @@ In the preceding example output, the parent or 'package deployed version' is *WA
 
 The 'Goal state agent' is the auto update version.
 
-It is highly recommended that you always have auto update for the agent, [AutoUpdate.Enabled=y](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent). Not having this enabled means you need to keep manually updating the agent, and not get bug and security fixes.
+It is highly recommended that you always have auto update for the agent, [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Not having this enabled means you need to keep manually updating the agent, and not get bug and security fixes.
 
 #### Extension updates
 
@@ -405,7 +405,7 @@ You can also remove an extension in the Azure portal as follows:
 | Custom Script extension for Linux |Run scripts against an Azure virtual machine |[Custom Script extension for Linux](custom-script-linux.md) |
 | VM Access extension |Regain access to an Azure virtual machine |[VM Access extension](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure Diagnostics extension |Manage Azure Diagnostics |[Azure Diagnostics extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Azure VM Access extension |Manage users and credentials |[VM Access extension for Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Azure VM Access extension |Manage users and credentials |[VM Access extension for Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## Next steps
 

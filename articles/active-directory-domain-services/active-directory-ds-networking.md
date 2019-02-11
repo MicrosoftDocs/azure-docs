@@ -3,19 +3,19 @@ title: 'Azure AD Domain Services: Networking guidelines | Microsoft Docs'
 description: Networking considerations for Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
-manager: mtillman
+author: eringreenlee
+manager: daveba
 editor: curtand
 
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/01/2017
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Networking considerations for Azure AD Domain Services
@@ -98,7 +98,7 @@ The following table illustrates a sample NSG you can configure for a virtual net
 
 Additionally, the NSG also illustrates how to lock down secure LDAP access over the internet. Skip this rule if you have not enabled secure LDAP access to your managed domain over the internet. The NSG contains a set of rules that allow inbound LDAPS access over TCP port 636 only from a specified set of IP addresses. The NSG rule to allow LDAPS access over the internet from specified IP addresses has a higher priority than the DenyAll NSG rule.
 
-![Sample NSG to secure LDAPS access over the internet](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![Sample NSG to secure LDAPS access over the internet](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 **More information** - [Create a Network Security Group](../virtual-network/manage-network-security-group.md).
 

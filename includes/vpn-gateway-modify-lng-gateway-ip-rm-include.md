@@ -28,32 +28,32 @@ If the VPN device that you want to connect to has changed its public IP address,
 
 1. Remove the connection. You can find the name of your connection by using the 'Get-AzureRmVirtualNetworkGatewayConnection' cmdlet.
 
-  ```azurepowershell-interactive
-  Remove-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 `
-  -ResourceGroupName TestRG1
-  ```
+   ```azurepowershell-interactive
+   Remove-AzureRmVirtualNetworkGatewayConnection -Name VNet1toSite1 `
+   -ResourceGroupName TestRG1
+   ```
 2. Modify the 'GatewayIpAddress' value. You can also modify the address prefixes at the same time. Be sure to use the existing name of your local network gateway to overwrite the current settings. If you don't, you create a new local network gateway, instead of overwriting the existing one.
 
-  ```azurepowershell-interactive
-  New-AzureRmLocalNetworkGateway -Name Site1 `
-  -Location "East US" -AddressPrefix @('10.101.0.0/24','10.101.1.0/24') `
-  -GatewayIpAddress "104.40.81.124" -ResourceGroupName TestRG1
-  ```
+   ```azurepowershell-interactive
+   New-AzureRmLocalNetworkGateway -Name Site1 `
+   -Location "East US" -AddressPrefix @('10.101.0.0/24','10.101.1.0/24') `
+   -GatewayIpAddress "104.40.81.124" -ResourceGroupName TestRG1
+   ```
 3. Create the connection. In this example, we configure an IPsec connection type. When you recreate your connection, use the connection type that is specified for your configuration. For additional connection types, see the [PowerShell cmdlet](https://msdn.microsoft.com/library/mt603611.aspx) page.  To obtain the VirtualNetworkGateway name, you can run the 'Get-AzureRmVirtualNetworkGateway' cmdlet.
    
     Set the variables.
 
-  ```azurepowershell-interactive
-  $local = Get-AzureRMLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
-  $vnetgw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
-  ```
+   ```azurepowershell-interactive
+   $local = Get-AzureRMLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
+   $vnetgw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
+   ```
    
     Create the connection.
 
-  ```azurepowershell-interactive 
-  New-AzureRmVirtualNetworkGatewayConnection -Name VNet1Site1 -ResourceGroupName TestRG1 `
-  -Location "East US" `
-  -VirtualNetworkGateway1 $vnetgw `
-  -LocalNetworkGateway2 $local `
-  -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-  ```
+   ```azurepowershell-interactive 
+   New-AzureRmVirtualNetworkGatewayConnection -Name VNet1Site1 -ResourceGroupName TestRG1 `
+   -Location "East US" `
+   -VirtualNetworkGateway1 $vnetgw `
+   -LocalNetworkGateway2 $local `
+   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+   ```

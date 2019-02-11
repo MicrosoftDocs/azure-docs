@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 02/07/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -18,17 +18,21 @@ Data sources and connectors shown in Get Data or Import Wizard in Visual Studio 
 
 |Datasource  |In-memory  |DirectQuery  |
 |---------|---------|---------|
-|Azure SQL Database     |   Yes      |    Yes      |
+|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   Yes      |    Yes      |
 |Azure SQL Data Warehouse     |   Yes      |   Yes       |
-|Azure Blob Storage*     |   Yes       |    No      |
-|Azure Table Storage*    |   Yes       |    No      |
-|Azure Cosmos DB*     |  Yes        |  No        |
-|Azure Data Lake Store*     |   Yes       |    No      |
-|Azure HDInsight HDFS*     |     Yes     |   No       |
-|Azure HDInsight Spark*     |   Yes       |   No       |
+|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   Yes       |    No      |
+|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   Yes       |    No      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Yes        |  No        |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Yes       |    No      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Yes     |   No       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Yes       |   No       |
 ||||
 
-\* Tabular 1400 models only.
+<a name="tab1400a">1</a> - Tabular 1400 and higher models only.   
+<a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance is supported. Because a managed instance runs within Azure VNet with a private IP address, an On-premises Data Gateway is required.   
+<a name="databricks">3</a> - Azure Databricks using the Spark connector is currently not supported.   
+<a name="gen2">4</a> - ADLS Gen2 is currently not supported.
+
 
 **Provider**   
 In-memory and DirectQuery models connecting to Azure data sources use .NET Framework Data Provider for SQL Server.
@@ -52,31 +56,31 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 |Datasource  |  
 |---------|---------|
 |Access Database     |  
-|Active Directory*     |  
+|Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
 |Analytics Platform System     |  
-|Dynamics CRM*     |  
+|Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
 |Excel workbook     |  
-|Exchange*     |  
-|Folder*     |
-|IBM Informix* (Beta) |
-|JSON document*     |  
-|Lines from binary*     | 
+|Exchange<sup>[1](#tab1400b)</sup>     |  
+|Folder<sup>[1](#tab1400b)</sup>     |
+|IBM Informix<sup>[1](#tab1400b)</sup> (Beta) |
+|JSON document<sup>[1](#tab1400b)</sup>     |  
+|Lines from binary<sup>[1](#tab1400b)</sup>     | 
 |MySQL Database     | 
-|OData Feed*     |  
+|OData Feed<sup>[1](#tab1400b)</sup>     |  
 |ODBC query     | 
 |OLE DB     |   
-|Postgre SQL Database*    | 
-|Salesforce Objects* |  
-|Salesforce Reports* |
-|SAP HANA*    |  
-|SAP Business Warehouse*    |  
-|SharePoint*     |   
+|Postgre SQL Database<sup>[1](#tab1400b)</sup>    | 
+|Salesforce Objects<sup>[1](#tab1400b)</sup> |  
+|Salesforce Reports<sup>[1](#tab1400b)</sup> |
+|SAP HANA<sup>[1](#tab1400b)</sup>    |  
+|SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
+|SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Sybase Database     |  
-|XML table*    |  
+|XML table<sup>[1](#tab1400b)</sup>    |  
 |||
  
-\* Tabular 1400 models only.
+<a name="tab1400b">1</a> Tabular 1400 and higher models only.
 
 ## Specifying a different provider
 

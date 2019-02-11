@@ -3,7 +3,7 @@ title: Use Azure Policy to restrict VM extension installation | Microsoft Docs
 description: Use Azure Policy to restrict VM extension deployments.
 services: virtual-machines-linux 
 documentationcenter: ''
-author: zroiy 
+author: roiyz-msft 
 manager: jeconnoc
 editor: ''
 
@@ -21,7 +21,7 @@ ms.author: roiyz;cynthn
 
 If you want to prevent the use or installation of certain extensions on your Linux VMs, you can create an Azure policy using the CLI to restrict extensions for VMs within a resource group. 
 
-This tutorial uses the CLI within the Azure Cloud Shell, which is constantly updated to the latest version. If you want to run the Azure CLI locally, you need to install version 2.0.26 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+This tutorial uses the CLI within the Azure Cloud Shell, which is constantly updated to the latest version. If you want to run the Azure CLI locally, you need to install version 2.0.26 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## Create a rules file
 
@@ -95,7 +95,7 @@ When you are done, hit the **Esc** key and then type **:wq** to save and close t
 
 ## Create the policy
 
-A policy definition is an object used to store the configuration that you would like to use. The policy definition uses the rules and parameters files to define the policy. Create the policy definition using [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest#az_role_assignment_create).
+A policy definition is an object used to store the configuration that you would like to use. The policy definition uses the rules and parameters files to define the policy. Create the policy definition using [az policy definition create](/cli/azure/role/assignment?view=azure-cli-latest).
 
 In this example, the rules and parameters are the files you created and stored as .json files in your cloud shell.
 
@@ -112,9 +112,9 @@ az policy definition create \
 
 ## Assign the policy
 
-This example assigns the policy to a resource group using [az policy assignment create](/cli/azure/policy/assignment#az_policy_assignment_create). Any VM created in the **myResourceGroup** resource group will not be able to install the Linux VM Access or the Custom Script extensions for Linux. The resource group must exist before you can assign the policy.
+This example assigns the policy to a resource group using [az policy assignment create](/cli/azure/policy/assignment). Any VM created in the **myResourceGroup** resource group will not be able to install the Linux VM Access or the Custom Script extensions for Linux. The resource group must exist before you can assign the policy.
 
-Use [az account list](/cli/azure/account?view=azure-cli-latest#az_account_list) to get your subscription ID to use in place of the one in the example.
+Use [az account list](/cli/azure/account?view=azure-cli-latest) to get your subscription ID to use in place of the one in the example.
 
 
 ```azurecli-interactive

@@ -1,13 +1,10 @@
 ---
 title: Configure Data-in Replication to replicate data into Azure Database for MySQL.
 description: This article describes how to set up Data-in Replication for Azure Database for MySQL.
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2018
 ---
 
@@ -153,6 +150,9 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    - master_log_pos: binary log position from running `show master status`
    - master_ssl_ca: CA certificate’s context. If not using SSL, pass in empty string.
        - It is recommended to pass this parameter in as a variable. See the following examples for more information.
+
+> [!NOTE]
+> If the master server is hosted in an Azure VM, set "Allow access to Azure services" to "ON" to allow the master and replica servers to communicate with each other. This setting can be changed from the **Connection security** options. Refer to [manage firewall rules using portal](howto-manage-firewall-using-portal.md) for more information.
 
    **Examples**
 

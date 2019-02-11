@@ -113,7 +113,7 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
 #### Currently not supported
 
-* Views and stored procedures 
+* Views 
 * Any table with composite keys
 * Nested object types in tables
  
@@ -125,7 +125,7 @@ View any triggers and actions defined in the swagger, and also see any limits in
 
 The [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) is a great place to ask questions, answer questions, and see what other Logic Apps users are doing. 
 
-You can help improve Logic Apps and connectors by voting and submitting your ideas at [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
+You can help improve Logic Apps and connectors by voting and submitting your ideas at [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 
 
 ## Next steps

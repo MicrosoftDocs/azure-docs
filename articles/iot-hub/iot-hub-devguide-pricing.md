@@ -12,7 +12,7 @@ ms.author: dobett
 
 # Azure IoT Hub pricing information
 
-[Azure IoT Hub pricing][lnk-pricing] provides the general information on different SKUs and pricing for IoT Hub. This article contains additional details on how the various IoT Hub functionalities are metered as messages by IoT Hub.
+[Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub) provides the general information on different SKUs and pricing for IoT Hub. This article contains additional details on how the various IoT Hub functionalities are metered as messages by IoT Hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -30,9 +30,10 @@ ms.author: dobett
 | Device and module twin queries | Queries are charged as messages depending on the result size in 512-byte chunks. |
 | Jobs operations <br/> (create, update, list, delete) | Not charged. |
 | Jobs per-device operations | Jobs operations (such as twin updates, and methods) are charged as normal. For example, a job resulting in 1000 method calls with 1-KB requests and empty-body responses is charged 1000 messages. |
+| Keep-alive messages | When using AMQP or MQTT protocols, messages exchanged to establish the connection and messages exchanged in the negotiation are not charged. |
 
 > [!NOTE]
-> All sizes are computed considering the payload size in bytes (protocol framing is ignored). For messages, which have properties and body, the size is computed in a protocol-agnostic way. For more information, see [IoT Hub messaging developer's guide][lnk-message-size].
+> All sizes are computed considering the payload size in bytes (protocol framing is ignored). For messages, which have properties and body, the size is computed in a protocol-agnostic way. For more information, see [IoT Hub message format](iot-hub-devguide-messages-construct.md).
 
 ## Example #1
 
@@ -59,7 +60,3 @@ This calculation gives a total of 612 messages per day.
 The solution back end consumes 28 messages (14 KB / 0.5 KB) to read the device twin, plus one message to update it, for a total of 29 messages.
 
 In total, the device and the solution back end consume 641 messages per day.
-
-
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[lnk-message-size]: iot-hub-devguide-messages-construct.md

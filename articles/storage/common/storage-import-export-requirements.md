@@ -5,9 +5,9 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 12/07/2018
 ms.author: alkohli
-ms.component: common
+ms.subservice: common
 ---
 # Azure Import/Export system requirements
 
@@ -23,15 +23,25 @@ To prepare the hard drives using the WAImportExport tool, the following **64-bit
 |Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
+## Other required software for Windows client
+
+|Platform |Version |
+|---------|---------|
+|.NET Framework    | 4.5.1       |
+| BitLocker        |  _          |
+
 
 ## Supported storage accounts
 
-Azure Import/Export service supports the following [Azure storage accounts](storage-account-options.md).
-- General Purpose v1 storage accounts (both Classic or Azure Resource Manager deployments)
-- Blob Storage accounts
-- General Purpose v2 storage accounts
+Azure Import/Export service supports the following types of storage accounts:
 
-Each job may be used to transfer data to or from only one storage account. In other words, a single import/export job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
+- General Purpose v2 storage accounts (recommended for most scenarios)
+- Blob Storage accounts
+- General Purpose v1 storage accounts (both Classic or Azure Resource Manager deployments), 
+
+For more information about storage accounts, see [Azure storage accounts overview](storage-account-overview.md).
+
+Each job may be used to transfer data to or from only one storage account. In other words, a single import/export job cannot span across multiple storage accounts. For information on creating a new storage account, see [How to Create a Storage Account](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
 > The Azure Import Export service does not support storage accounts where the [Virtual Network Service Endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) feature has been enabled. 

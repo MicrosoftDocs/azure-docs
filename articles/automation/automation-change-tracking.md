@@ -3,10 +3,10 @@ title: Track changes with Azure Automation
 description: The Change Tracking solution helps you identify software and Windows Service changes that occur in your environment.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/31/2018
+ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
@@ -27,27 +27,36 @@ The following versions of the Windows operating system are officially supported 
 
 The following Linux distributions are officially supported. However, the Linux agent might also run on other distributions not listed. Unless otherwise noted, all minor releases are supported for each major version listed.  
 
-* Amazon Linux 2012.09 to 2015.09 (x86/x64)
-* CentOS Linux 5, 6, and 7 (x86/x64)  
-* Oracle Linux 5, 6, and 7 (x86/x64)
-* Red Hat Enterprise Linux Server 5, 6 and 7 (x86/x64)
-* Debian GNU/Linux 6, 7, and 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 11 and 12 (x86/x64)
+### 64-bit
 
-## Enable Change Tracking and Inventory
+* CentOS 6 and 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 and 7
+* Red Hat Enterprise Linux Server 6 and 7
+* Debian GNU/Linux 8 and 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS, and 18.04 LTS
+* SUSE Linux Enterprise Server 12
 
-To begin tracking changes, you need to enable the Change Tracking and Inventory solution for your Automation Account.
+### 32-bit
 
-1. In the Azure portal, navigate to your Automation Account
-2. Select **Change Tracking** under **CONFIGURATION**.
-3. Select an existing Log analytics workspace or **Create New Workspace** and click **Enable**.
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 and 9
+* Ubuntu Linux 14.04 LTS and 16.04 LTS
 
-This enables the solution for your automation account. The solution can take up to 15 minutes to enable. The blue banner notifies you when the solution is enabled. Navigate back to the **Change Tracking** page to manage the solution.
+## <a name="onboard"></a>Enable Change Tracking and Inventory
+
+To begin tracking changes, you need to enable the Change Tracking and Inventory solution. There are many ways to onboard machines to Change Tracking and Inventory. The following are the recommended and supported ways to onboard the solution.
+
+* [From a virtual machine](automation-onboard-solutions-from-vm.md)
+* [From browsing multiple machines](automation-onboard-solutions-from-browse.md)
+* [From your Automation account](automation-onboard-solutions-from-automation-account.md)
+* [With an Azure Automation runbook](automation-onboard-solutions.md)
 
 ## Configuring Change Tracking and Inventory
 
-To learn how to onboard computers to the solution visit: [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md). Once you have a machine onboarding with the Change Tracking and Inventory solution you can configure the items to track. When you enable a new file or registry key to track, it is enabled for both Change Tracking and Inventory.
+To learn how to onboard computers to the solution visit: [Onboarding Automation solutions](automation-onboard-solutions-from-automation-account.md). Once you have a machine onboarding with the Change Tracking and Inventory solution, you can configure the items to track. When you enable a new file or registry key to track, it is enabled for both Change Tracking and Inventory.
 
 For tracking changes in files on both Windows and Linux, MD5 hashes of the files are used. Theses hashes are then used to detect if a change has been made since the last inventory.
 
@@ -68,7 +77,7 @@ Use the following steps to configure file tracking on Linux computers:
 |Path Type     | Type of item to be tracked, possible values are File and Directory.        |
 |Recursion     | Determines if recursion is used when looking for the item to be tracked.        |
 |Use Sudo     | This setting determines if sudo is used when checking for the item.         |
-|Links     | This setting determines how symbolic links dealt with when traversing directories.<br> **Ignore** - Ignores symbolic links and does not include the files/directories referenced.<br>**Follow** - Follows the symbolic links during recursion and also includes the files/directories referenced.<br>**Manage** - Follows the symbolic links and allows altering of returned content.     |
+|Links     | This setting determines how symbolic links dealt with when traversing directories.<br> **Ignore** - Ignores symbolic links and doesn't include the files/directories referenced.<br>**Follow** - Follows the symbolic links during recursion and also includes the files/directories referenced.<br>**Manage** - Follows the symbolic links and allows altering of returned content.     |
 |Upload file content for all settings| Turns on or off file content upload on tracked changes. Available options: **True** or **False**.|
 
 > [!NOTE]
@@ -93,16 +102,16 @@ Use the following steps to configure files tracking on Windows computers:
 
 ## Wildcard, recursion, and environment settings
 
-Recursion allows you to specify wildcards to simplify tracking across directories, and environment variables to allow you to track files across environments with multiple or dynamic drive names. The following is a list of common information you should know when configuring recursion:
+Recursion allows you to specify wildcards to simplify tracking across directories, and environment variables to allow you to track files across environments with multiple or dynamic drive names. The following list shows common information you should know when configuring recursion:
 
 * Wildcards are required for tracking multiple files
-* If using wildcards, they can only be used in the last segment of a path. (such as C:\folder\\**file** or /etc/*.conf)
+* If using wildcards, they can only be used in the last segment of a path. (such as `c:\folder\*file*` or `/etc/*.conf`)
 * If an environment variable has an invalid path, validation will succeed but that path will fail when inventory runs.
 * Avoid general paths such as `c:\*.*` when setting the path, as this would result in too many folders being traversed.
 
 ## Configure File Content tracking
 
-You can view the contents before and after a change of a file with File Content Change Tracking. This is available for Windows and Linux files, for each change to the file, the contents of the file is stored in a storage account, and shows the file before and after the change, inline or side by side. To learn more, see [View the contents of a tracked file](change-tracking-file-contents.md).
+You can view the contents before and after a change of a file with File Content Change Tracking. This is available for Windows and Linux files, for each change to the file, the contents of the file is stored in a storage account, and shows the file before and after the change, inline, or side by side. To learn more, see [View the contents of a tracked file](change-tracking-file-contents.md).
 
 ![view changes in a file](./media/change-tracking-file-contents/view-file-changes.png)
 
@@ -117,13 +126,13 @@ Use the following steps to configure registry key tracking on Windows computers:
 |Property  |Description  |
 |---------|---------|
 |Enabled     | Determines if the setting is applied.        |
-|Item Name     | Friendly name of the file to be tracked.        |
-|Group     | A group name for logically grouping files.        |
-|Windows Registry Key   | The path to check for the file. For example: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Item Name     | Friendly name of the registry key to be tracked.        |
+|Group     | A group name for logically grouping registry keys.        |
+|Windows Registry Key   | The path to check for the registry key. For example: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## Limitations
 
-The Change Tracking solution does not currently support the following items:
+The Change Tracking solution doesn't currently support the following items:
 
 * Recursion for Windows registry tracking
 * Network file systems
@@ -139,7 +148,7 @@ Other limitations:
 
 The Change Tracking solution is currently experiencing the following issues:
 
-* Hotfix updates are not collected for Windows 10 Creators Update and Windows Server 2016 Core RS3 machines.
+* Hotfix updates are not collected on Windows Server 2016 Core RS3 machines.
 
 ## Change Tracking data collection details
 
@@ -155,13 +164,24 @@ The following table shows the data collection frequency for the types of changes
 | Windows software | 30 minutes |
 | Linux software | 5 minutes |
 
+The following table shows the tracked item limits per machine for Change Tracking.
+
+| **Resource** | **Limit**| **Notes** |
+|---|---|---|
+|File|500||
+|Registry|250||
+|Windows software|250|Doesn't include software updates|
+|Linux packages|1250||
+|Services|250||
+|Daemon|250||
+
 ### Windows service tracking
 
-The default collection frequency for Windows services is 30 minutes. To configure the frequency go to **Change Tracking**. Under **Edit Settings** on the **Windows Services** tab, there is a slider that allows you to change the collection frequency for Windows services from as quickly as 10 seconds to as long as 30 minutes. Move the slider bar to the frequency you want and it automatically saves it.
+The default collection frequency for Windows services is 30 minutes. To configure the frequency, go to **Change Tracking**. Under **Edit Settings** on the **Windows Services** tab, there's a slider that allows you to change the collection frequency for Windows services from as quickly as 10 seconds to as long as 30 minutes. Move the slider bar to the frequency you want and it automatically saves it.
 
 ![Windows services slider](./media/automation-change-tracking/windowservices.png)
 
-The agent only tracks changes, this optimizes the performance of the agent. By setting too high of a threshold changes may be missed if the service reverted to their original state. Setting the frequency to a smaller value allows you to catch changes that may be missed otherwise.
+The agent only tracks changes, this optimizes the performance of the agent. Setting a high threshold may miss changes if the service reverted to their original state. Setting the frequency to a smaller value allows you to catch changes that may be missed otherwise.
 
 > [!NOTE]
 > While the agent can track changes down to a 10 second interval, the data still takes a few minutes to be displayed in the portal. Changes during the time to display in the portal are still tracked and logged.
@@ -208,6 +228,17 @@ The purpose of monitoring changes to registry keys is to pinpoint extensibility 
 > |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitors the list of packages able to receive event notifications from Winlogon, the interactive logon support model for the Windows operating system.|
 
+## Network requirements
+
+The following addresses are required specifically for Change Tracking. Communication to these addresses is done over port 443.
+
+|Azure Public  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
+
 ## Use Change Tracking
 
 After the solution is enabled, you can view the summary of changes for your monitored computers by selecting **Change Tracking** under **CONFIGURATION MANAGEMENT** in your Automation account.
@@ -233,6 +264,41 @@ The following table provides sample log searches for change records collected by
 |ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"<br>&#124; where SvcState == "Stopped"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Shows the most recent inventory records for Windows Services that were set to Auto but were reported as being Stopped<br>Results are limited to the most recent record for that SoftwareName and Computer      |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Removed"<br>&#124; order by TimeGenerated desc|Shows the change records for removed software|
 
+## Alert on changes
+
+A key capability of Change Tracking and Inventory is the ability to alert on the configuration state and any changes to the configuration state of your hybrid environment.  
+
+In the following example, the screenshot shows that the file `C:\windows\system32\drivers\etc\hosts` has been modified on a machine. This file is important because the Hosts file is used by Windows to resolve hostnames to IP addresses and takes precedence over even DNS, which could result in connectivity issues or the redirection of traffic to malicious or otherwise dangerous websites.
+
+![A chart showing the hosts file change](./media/automation-change-tracking/changes.png)
+
+To analyze this change further, go to Log search from clicking **Log Analytics**. Once in Log search, search for content changes to the Hosts file with the query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. This query looks for changes that included a change of file content for files whose fully qualified path contains the word “hosts”. You can also ask for a specific file by changing the path portion to its fully qualified form (such as `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
+
+After the query returns the desired results, click the **New alert rule** button in the Log search experience to open the alert creation page. You could also navigate to this experience through **Azure Monitor** in the Azure portal. In the alert creation experience, check our query again and modify the alert logic. In this case, you want the alert to be triggered if there's even one change detected across all the machines in the environment.
+
+![An image showing the change query for tracking changes to the hosts file](./media/automation-change-tracking/change-query.png)
+
+After the condition logic is set, assign action groups to perform actions in response to the alert being triggered. In this case, I have set up emails to be sent and an ITSM ticket to be created.  Many other useful actions can also be taken such as triggering an Azure Function, Automation runbook, webhook, or Logic App.
+
+![An image configuring an action group to alert on the change](./media/automation-change-tracking/action-groups.png)
+
+After all the parameters and logic are set, we can apply the alert to the environment.
+
+### Alert suggestions
+
+While alerting on changes to the Hosts file is one good application of alerts for Change Tracking or Inventory data, there are many more scenarios for alerting, including the cases defined along with their example queries in the section below.
+
+|Query  |Description  |
+|---------|---------|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|Useful for tracking changes to system critical files|
+|ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|Useful for tracking modifications to key configuration files|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "WindowsServices" and SvcName contains "w3svc" and SvcState == "Stopped"|Useful for tracking changes to system critical services|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState != "Running"|Useful for tracking changes to system critical services|
+|ConfigurationChange <br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Added"|Useful for environments that need locked down software configurations|
+|ConfigurationData <br>&#124; where SoftwareName contains "Monitoring Agent" and CurrentVersion != "8.0.11081.0"|Useful for seeing which machines have an outdated or non-compliant software version installed. It reports the last reported configuration state, not changes.|
+|ConfigurationChange <br>&#124; where RegistryKey == "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Useful for tracking changes to crucial anti-virus keys|
+|ConfigurationChange <br>&#124; where RegistryKey contains "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Useful for tracking changes to firewall settings|
+
 ## Next steps
 
 Visit the tutorial on Change Tracking to learn more about using the solution:
@@ -241,3 +307,4 @@ Visit the tutorial on Change Tracking to learn more about using the solution:
 > [Troubleshoot changes in your environment](automation-tutorial-troubleshoot-changes.md)
 
 * Use [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
+

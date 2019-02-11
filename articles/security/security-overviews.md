@@ -10,11 +10,11 @@ editor: TomSh
 ms.assetid:
 ms.service: security
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/16/2018
-ms.author:
+ms.author: tomsh
 
 ---
 # Azure Security technical overviews
@@ -22,7 +22,7 @@ ms.author:
 
 * [Azure database security overview](azure-database-security-overview.md)
 * [Azure encryption overview](security-azure-encryption-overview.md)
-* [Azure identity management security overview](security-azure-encryption-overview.md)
+* [Azure identity management security overview](security-identity-management-overview.md)
 * [Azure network security overview](security-network-overview.md)
 * [Azure operational security overview](azure-operational-security-overview.md)
 * [Azure security management and monitoring overview](security-management-and-monitoring-overview.md)

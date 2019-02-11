@@ -1,15 +1,15 @@
 ---
-title: Bing analytics for Bing Web Search APIs | Microsoft Docs
-titleSuffix: Cognitive Services
+title: Bing analytics - Bing Video Search
+titleSuffix: Azure Cognitive Services
 description: Describes how to get analytics for Bing Videos Search API. 
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: bing-video-search
-ms.topic: article
-ms.date: 04/05/2018
+ms.subservice: bing-video-search
+ms.topic: conceptual
+ms.date: 01/31/2019
 ms.author: scottwhi
 ---
 

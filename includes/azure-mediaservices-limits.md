@@ -1,3 +1,10 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: jroth
+---
 >[!NOTE]
 >For resources that are not fixed, you may ask for the quotas to be raised, by opening a support ticket. Do **not** create additional Azure Media Services accounts in an attempt to obtain higher limits.
 
@@ -26,7 +33,7 @@
 
 As of April 1, 2017, any Job record in your account older than 90 days will be automatically deleted, along with its associated Task records, even if the total number of records is below the maximum quota. If you need to archive the job/task information, you can use the code described [here](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup> When making a request to list Job entities, a maximum of 1,000 jobs is returned per request. If you need to keep track of all submitted Jobs, you can use top/skip as described in [OData system query options](http://msdn.microsoft.com/library/gg309461.aspx).
+<sup>3</sup> When making a request to list Job entities, a maximum of 1,000 jobs is returned per request. If you need to keep track of all submitted Jobs, you can use top/skip as described in [OData system query options](https://msdn.microsoft.com/library/gg309461.aspx).
 
 <sup>4</sup> Locators are not designed for managing per-user access control. To give different access rights to individual users, use Digital Rights Management (DRM) solutions. For more information, see [this](../articles/media-services/previous/media-services-content-protection-overview.md) section.
 

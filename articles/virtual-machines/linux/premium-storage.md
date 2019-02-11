@@ -8,14 +8,14 @@ ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
-ms.component: disks
+ms.subservice: disks
 ---
 
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]
 
 ### Design and implement with Premium Storage
 * [Design for performance with Premium Storage](premium-storage-performance.md)
-* [Blob storage operations with Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969)
+* [Blob storage operations with Premium Storage](https://go.microsoft.com/fwlink/?LinkId=521969)
 
 ### Operational guidance
 * [Migrate to Azure Premium Storage](../../storage/common/storage-migration-to-premium-storage.md)

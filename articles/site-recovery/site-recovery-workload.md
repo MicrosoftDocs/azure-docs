@@ -1,17 +1,17 @@
 ---
 title: What workloads can you protect with Azure Site Recovery? | Microsoft Docs
 description: Describes the workloads that can be protected using disaster recovery with the Azure Site Recovery service. 
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 07/22/2018
+ms.date: 12/31/2018
 ms.author: raynew
 
 ---
 # What workloads can you protect with Azure Site Recovery?
 
-This article describes workloads and applications you can replicate with the [Azure Site Recovery](site-recovery-overview.md) service.
+This article describes workloads and applications you can protect for disaster recovery with the [Azure Site Recovery](site-recovery-overview.md) service.
 
 
 
@@ -43,7 +43,7 @@ Site Recovery can replicate any app running on a supported machine. In addition,
 | Active Directory, DNS |Y |Y |Y |Y |Y|
 | Web apps (IIS, SQL) |Y |Y |Y |Y |Y|
 | System Center Operations Manager |Y |Y |Y |Y |Y|
-| Sharepoint |Y |Y |Y |Y |Y|
+| SharePoint |Y |Y |Y |Y |Y|
 | SAP<br/><br/>Replicate SAP site to Azure for non-cluster |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft) |Y (tested by Microsoft)|
 | Exchange (non-DAG) |Y |Y |Y |Y |Y|
 | Remote Desktop/VDI |Y |Y |Y |Y |Y|

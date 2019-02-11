@@ -2,19 +2,11 @@
 title: 'About Azure Point-to-Site routing | Microsoft Docs'
 description: This article helps you understand how Point-to-Site VPN routing behaves.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: ''
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/16/2018
+ms.date: 01/28/2019
 ms.author: anzaman
 
 ---
@@ -144,7 +136,7 @@ Clients using Windows, or another supported OS, can access all VNets that are co
 
 In this example, the Point-to-Site VPN gateway connection is for VNet1. VNet1 is not connected/ peered with any other virtual network, but is connected to an on-premises site through a Site-to-Site VPN connection that is not running BGP.
 
-Windows clients can access VNet1 and the branch office (Site1), but the routes to Site1 must be manually added to the client. Non-Windows clients can access VNet1, as well as the on-premises Site1.
+Windows and non-Windows clients can only access VNet1.
 
 ![routing with a VNet and a branch office](./media/vpn-gateway-about-point-to-site-routing/5.jpg "routing with a VNet and a branch office")
 
@@ -158,7 +150,7 @@ Windows clients can access VNet1 and the branch office (Site1), but the routes t
 
 * Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
-* Routes added to Non-Windows clients: 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
+* Routes added to Non-Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
 ### Access
 

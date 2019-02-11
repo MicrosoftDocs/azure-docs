@@ -4,16 +4,11 @@ description: Azure CLI Samples - Azure Functions
 services: functions
 documentationcenter: functions
 author: syntaxc4
-manager: cfowler
-editor: ggailey777
-tags: azure-service-management
+manager: jeconnoc
 
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
-ms.service: functions
-ms.devlang: na
+ms.service: azure-functions
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: functions
 ms.date: 01/09/2018
 ms.author: glenga
 ms.custom: mvc
@@ -25,7 +20,7 @@ The following table includes links to bash scripts for Azure Functions that use 
 
 | | |
 |-|-|
-|**Create app**||
+|<a name="create"></a>**Create app**||
 | [Create a function app for serverless execution](scripts/functions-cli-create-serverless.md) | Creates a function app in a Consumption plan.  |
 | [Create a function app in an App Service plan](scripts/functions-cli-create-app-service-plan.md) | Create a function app in a dedicated App Service plan. |
 | | |
@@ -35,7 +30,7 @@ The following table includes links to bash scripts for Azure Functions that use 
 | | |
 |**Continuous deployment**||
 | [Deploy from GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Create a function app that deploys from a GitHub repository.  |
-| [Deploy from VSTS](scripts/functions-cli-create-function-app-vsts-continuous.md) | Create a function app that deploys from a Visual Studio Team Services (VSTS) repository.  |
+| [Deploy from Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Create a function app that deploys from a Azure DevOps repository.  |
 | | |
 |**Configure app**||
 | [Map a custom domain to a function app](scripts/functions-cli-configure-custom-domain.md) | Define a custom domain for your functions.  |

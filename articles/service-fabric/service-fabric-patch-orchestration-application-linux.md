@@ -144,7 +144,7 @@ The behavior of the patch orchestration app can be configured to meet your needs
 
 1. Prepare the cluster by finishing all the prerequisite steps.
 2. Deploy the patch orchestration app like any other Service Fabric app. You can deploy the app by using PowerShell or Azure Service Fabric CLI. Follow the steps in [Deploy and remove applications using PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) or [Deploy application using Azure Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/scripts/cli-deploy-application)
-3. To configure the application at the time of deployment, pass the `ApplicationParamater` to the `New-ServiceFabricApplication` cmdlet or the scripts provided. For your convenience, powershell (Deploy.ps1) and bash (Deploy.sh) scripts are provided along with the application. To use the script:
+3. To configure the application at the time of deployment, pass the `ApplicationParameter` to the `New-ServiceFabricApplication` cmdlet or the scripts provided. For your convenience, powershell (Deploy.ps1) and bash (Deploy.sh) scripts are provided along with the application. To use the script:
 
     - Connect to a Service Fabric cluster.
     - Execute the Deploy script. Optionally pass the application parameter to the script. for example: .\Deploy.ps1 -ApplicationParameter @{ UpdateFrequency = "Daily, 11:00:00"} OR ./Deploy.sh "{\"UpdateFrequency\":\"Daily, 11:00:00\"}" 

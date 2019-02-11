@@ -3,19 +3,19 @@ title: 'Azure Active Directory Domain Services: Troubleshooting Guide | Microsof
 description: Troubleshooting guide for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
-manager: mtillman
+author: eringreenlee
+manager: daveba
 editor: curtand
 
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Azure AD Domain Services - Troubleshooting guide

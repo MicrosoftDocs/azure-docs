@@ -155,7 +155,7 @@ Follow the steps below to configure DHCP on the host virtual machine for dynamic
   
 4. Define an IP Range for your DCHP Server (for example, 192.168.0.100 to 192.168.0.200).
   
-5. Click **Next** until the Default Gateway page. Enter the IP Address you created earlier (for example, 192.168.0.1) as the Default Gateway.
+5. Click **Next** until the Default Gateway page. Enter the IP Address you created earlier (for example, 192.168.0.1) as the Default Gateway, then click **Add**.
   
 6. Click **Next** until the wizard completes, leaving all default values, then click **Finish**.
     
@@ -178,3 +178,7 @@ In this example you will use an address in the 192.168.0.0/24 range.
 
 In the guest virtual machine, open your browser and navigate to a web page.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
+
+## Set up intranet connectivity for the guest virtual machine
+
+For instructions on how to enable transparent connectivity between Guest VMs and Azure VMs, please reference [this document](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization-azure-virtual-network).

@@ -29,8 +29,8 @@ Automatic device configurations work by updating a set of device twins with desi
 ## CLI prerequisites
 
 * An [IoT hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription. 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI 2.0 version must be 2.0.24 or above. Use `az –-version` to validate. This version supports az extension commands and introduces the Knack command framework. 
-* The [IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az –-version` to validate. This version supports az extension commands and introduces the Knack command framework. 
+* The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## Implement device twins to configure devices
 
@@ -51,7 +51,7 @@ Before you can create a configuration, you must specify which devices you want t
 
 ## Define the target content and metrics
 
-The target content and metric queries are specified as JSON documents that describe the device twin desired properties to be set and reported properties to be measured.  To create an automatic device configuration using Azure CLI 2.0, save the target content and metrics locally as .txt files. You use the file paths in a later next section when you run the command to apply the configuration to your device. 
+The target content and metric queries are specified as JSON documents that describe the device twin desired properties to be set and reported properties to be measured.  To create an automatic device configuration using Azure CLI, save the target content and metrics locally as .txt files. You will use the file paths in a later next section when you run the command to apply the configuration to your device. 
 
 Here's a basic target content sample:
 

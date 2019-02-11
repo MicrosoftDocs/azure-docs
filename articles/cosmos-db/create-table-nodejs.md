@@ -1,13 +1,9 @@
 ---
-title: 'Quickstart: Table API with Node.js - Azure Cosmos DB | Microsoft Docs'
+title: 'Quickstart: Table API with Node.js - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and Node.js
-services: cosmos-db
 author: SnehaGunda
-manager: kfile
-
 ms.service: cosmos-db
-ms.component: cosmosdb-table
-ms.custom: quick start connect, mvc
+ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 04/10/2018
@@ -15,6 +11,13 @@ ms.author: sngun
 
 ---
 # Quickstart: Build a Table API app with Node.js and Azure Cosmos DB
+
+> [!div class="op_single_selector"]
+> * [.NET](create-table-dotnet.md)
+> * [Java](create-table-java.md)
+> * [Node.js](create-table-nodejs.md)
+> * [Python](create-table-python.md)
+> 
 
 This quickstart shows how to use Node.js and the Azure Cosmos DB [Table API](table-introduction.md) to build an app by cloning an example from GitHub. This quickstart also shows you how to create an Azure Cosmos DB account and how to use Data Explorer to create tables and entities in the web-based Azure portal.
 
@@ -28,7 +31,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 In addition:
 
 * [Node.js](https://nodejs.org/en/) version v0.10.29 or higher
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 ## Create a database account
 
@@ -48,7 +51,7 @@ In addition:
 
 ## Clone the sample application
 
-Now let's clone a Table app from github, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
+Now let's clone a Table app from GitHub, set the connection string, and run it. You'll see how easy it is to work with data programmatically. 
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -72,7 +75,7 @@ Now let's clone a Table app from github, set the connection string, and run it. 
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
 
-1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
+1. In the [Azure portal](https://portal.azure.com/), click **Connection String**. 
 
     ![View and copy the required connection string information from the in the Connection String pane](./media/create-table-nodejs/connection-string.png)
 

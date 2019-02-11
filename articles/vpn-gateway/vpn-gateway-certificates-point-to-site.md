@@ -4,32 +4,16 @@ description: Create a self-signed root certificate, export the public key, and g
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 27b99f7c-50dc-4f88-8a6e-d60080819a43
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/12/2018
+ms.topic: conceptual
+ms.date: 12/03/2018
 ms.author: cherylmc
 
 ---
 # Generate and export certificates for Point-to-Site using PowerShell
 
-Point-to-Site connections use certificates to authenticate. This article shows you how to create a self-signed root certificate and generate client certificates using PowerShell on Windows 10 or Windows Server 2016. If you are looking for Point-to-Site configuration steps, such as how to upload root certificates, select one of the 'Configure Point-to-Site' articles from the following list:
-
-> [!div class="op_single_selector"]
-> * [Create self-signed certificates - PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [Create self-signed certificates - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md)
-> * [Configure Point-to-Site - Resource Manager - Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [Configure Point-to-Site - Resource Manager - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Configure Point-to-Site - Classic - Azure portal](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-> 
-> 
+Point-to-Site connections use certificates to authenticate. This article shows you how to create a self-signed root certificate and generate client certificates using PowerShell on Windows 10 or Windows Server 2016. If you are looking for different certificate instructions, see [Certificates - Linux](vpn-gateway-certificates-point-to-site-linux.md) or [Certificates - MakeCert](vpn-gateway-certificates-point-to-site-makecert.md).
 
 You must perform the steps in this article on a computer running Windows 10 or Windows Server 2016. The PowerShell cmdlets that you use to generate certificates are part of the operating system and do not work on other versions of Windows. The Windows 10 or Windows Server 2016 computer is only needed to generate the certificates. Once the certificates are generated, you can upload them, or install them on any supported client operating system. 
 
@@ -39,7 +23,7 @@ If you do not have access to a Windows 10 or Windows Server 2016 computer, you c
 
 Use the New-SelfSignedCertificate cmdlet to create a self-signed root certificate. For additional parameter information, see [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
 
-1. From a computer running Windows 10 or Windows Server 2016, open a Windows PowerShell console with elevated privileges.
+1. From a computer running Windows 10 or Windows Server 2016, open a Windows PowerShell console with elevated privileges. These examples do not work in the Azure Cloud Shell "Try It". You must run these examples locally.
 2. Use the following example to create the self-signed root certificate. The following example creates a self-signed root certificate named 'P2SRootCert' that is automatically installed in 'Certificates-Current User\Personal\Certificates'. You can view the certificate by opening *certmgr.msc*, or *Manage User Certificates*.
 
   ```powershell
@@ -116,7 +100,7 @@ If you are creating additional client certificates, or are not using the same Po
 
 ### Export the self-signed root certificate and private key to store it (optional)
 
-You may want to export the self-signed root certificate and store it safely as backup. If need be, you can later install it on another computer and generate more client certifiates. To export the self-signed root certificate as a .pfx, select the root certificate and use the same steps as described in [Export a client certificate](#clientexport).
+You may want to export the self-signed root certificate and store it safely as backup. If need be, you can later install it on another computer and generate more client certificates. To export the self-signed root certificate as a .pfx, select the root certificate and use the same steps as described in [Export a client certificate](#clientexport).
 
 ## <a name="clientexport"></a>4. Export the client certificate
 

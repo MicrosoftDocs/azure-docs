@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Kubernetes cluster - Operations Management
+title: (DEPRECATED) Monitor Azure Kubernetes cluster - Operations Management
 description: Monitoring Kubernetes cluster in Azure Container Service using Log Analytics
 services: container-service
 author: bburns
@@ -12,9 +12,12 @@ ms.author: bburns
 ms.custom: mvc
 ---
 
-# Monitor an Azure Container Service cluster with Log Analytics
+# (DEPRECATED) Monitor an Azure Container Service cluster with Log Analytics
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> For the updated version this article that uses Azure Kubernetes Service, see [Azure Monitor for containers](../../azure-monitor/insights/container-insights-overview.md).
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 ## Prerequisites
 This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).
@@ -67,7 +70,7 @@ excess container on a host.
 
 For more information about Container Solution, please refer to the
 [Container Solution Log
-Analytics](../../log-analytics/log-analytics-containers.md).
+Analytics](../../azure-monitor/insights/containers.md).
 
 ## Installing Log Analytics on Kubernetes
 
@@ -75,8 +78,7 @@ Analytics](../../log-analytics/log-analytics-containers.md).
 For the Log Analytics agent to talk to the service it needs to be configured with a workspace ID and
 a workspace key. To get the workspace ID and key you need to create an account at <https://mms.microsoft.com>.
 Please follow the steps to create an account. Once you are done creating
-the account, you need to obtain your ID and key by clicking
-**Settings**, then **Connected Sources**, and then **Linux Servers**, as shown below.
+the account, you can obtain your ID and key by clicking on the **Log Analytics** blade, then the name of your workspace. Then, under **Advanced Settings**, **Connected Sources**, and then **Linux Servers**, you will find the information you need, as shown below.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
