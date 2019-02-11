@@ -33,13 +33,13 @@ In this tutorial, you learn how to:
 
 Before you begin, the builder should complete at least the first builder tutorial to create the Azure IoT Central application:
 
-* [Define a new device type](tutorial-define-device-type-experimental.md) (Required)
-* [Configure rules and actions for your device](tutorial-configure-rules-experimental.md) (Optional)
-* [Customize the operator's views](tutorial-customize-operator-experimental.md) (Optional)
+* [Define a new device type](tutorial-define-device-type.md) (Required)
+* [Configure rules and actions for your device](tutorial-configure-rules.md) (Optional)
+* [Customize the operator's views](tutorial-customize-operator.md) (Optional)
 
 ## Add a real device
 
-To add a real device to your application, you use the **Connected Air Conditioner** device template you created in the [Define a new device type](tutorial-define-device-type-experimental.md) tutorial.
+To add a real device to your application, you use the **Connected Air Conditioner** device template you created in the [Define a new device type](tutorial-define-device-type.md) tutorial.
 
 1. To add a new device as an operator choose **Device Explorer** in the left navigation menu:
 
@@ -83,7 +83,7 @@ The example code in this article is written in [Node.js](https://nodejs.org/) an
 * Respond to an operator who uses the **Set Temperature** setting.
 * Handle the Echo command from your Azure IoT Central application.
 
-The "How to" articles referenced in the [Next Steps](#next-steps) section provide more complete samples and show the use of other programming languages. For more information about how devices connect to Azure IoT Central, see the [Device connectivity](concepts-connectivity-experimental.md) article.
+The "How to" articles referenced in the [Next Steps](#next-steps) section provide more complete samples and show the use of other programming languages. For more information about how devices connect to Azure IoT Central, see the [Device connectivity](concepts-connectivity.md) article.
 
 The following steps show how to prepare the [Node.js](https://nodejs.org/) sample:
 
@@ -355,15 +355,15 @@ Now that you have connected a real device to your Azure IoT Central application,
 
 As an operator, you can learn how to:
 
-* [Manage your devices](howto-manage-devices-experimental.md)
-* [Use device sets](howto-use-device-sets-experimental.md)
-* [Create custom analytics](howto-use-device-sets-experimental.md)
+* [Manage your devices](howto-manage-devices.md)
+* [Use device sets](howto-use-device-sets.md)
+* [Create custom analytics](howto-use-device-sets.md)
 
 As a device developer, you can learn how to:
 
-* [Prepare and connect a DevKit](howto-connect-devkit-experimental.md)
+* [Prepare and connect a DevKit](howto-connect-devkit.md)
 * [Prepare and connect a Raspberry Pi](howto-connect-raspberry-pi-python.md)
-* [Connect a generic Node.js client to your Azure IoT Central application](howto-connect-nodejs-experimental.md)
+* [Connect a generic Node.js client to your Azure IoT Central application](howto-connect-nodejs.md)
 * [Customize your code][lnk-nodejs-device-ref]
 
 

@@ -18,7 +18,7 @@ This article describes how, as a builder, you can customize your Azure IoT Centr
 
 To complete the steps in this article, you need the following:
 
-1. An Azure IoT Central application. For more information, see the [create an application quickstart](quick-deploy-iot-central-experimental.md).
+1. An Azure IoT Central application. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 1. A tool for scaling and resizing images files.
 
 ## Choose where to use custom images
@@ -114,4 +114,4 @@ Under Configure Image, click on the Image tile to upload your prepared image fro
 Now that you have learned how to prepare and upload images to your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Manage devices in your Azure IoT Central application](howto-manage-devices-experimental.md)
+> [Manage devices in your Azure IoT Central application](howto-manage-devices.md)

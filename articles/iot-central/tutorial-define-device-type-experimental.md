@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure IoT Central application. If you completed the [Create an Azure IoT Central application](quick-deploy-iot-central-experimental.md) quickstart, you can reuse the application you created in the quickstart. Otherwise, complete the following steps to create an empty Azure IoT Central application:
+To complete this tutorial, you need an Azure IoT Central application. If you completed the [Create an Azure IoT Central application](quick-deploy-iot-central.md) quickstart, you can reuse the application you created in the quickstart. Otherwise, complete the following steps to create an empty Azure IoT Central application:
 
 1. Navigate to the Azure IoT Central [Application Manager](https://aka.ms/iotcentral) page.
 
@@ -57,7 +57,7 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
     
     * Choose **Trial**. You don't need an Azure subscription to create a Trial application.
     
-       For more information about directories and subscriptions, see the [create an application quickstart](quick-deploy-iot-central-experimental.md).
+       For more information about directories and subscriptions, see the [create an application quickstart](quick-deploy-iot-central.md).
     
     * Choose **Custom Application**.
     
@@ -67,7 +67,7 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 
     ![Azure IoT Central Create Application page](./media/tutorial-define-device-type-experimental/iotcentralcreate.png)
 
-    For more information, see the [create an application quickstart](quick-deploy-iot-central-experimental.md).
+    For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 
 ## Create a new custom device template
 
@@ -112,7 +112,7 @@ The following steps show you how to create a new **Connected Air Conditioner** d
 
     ![Connected air conditioner measurements](./media/tutorial-define-device-type-experimental/airconmeasurementsnew.png)
 
-6. Each type of telemetry you define for a device template includes [configuration options](howto-set-up-template-experimental.md) such as:
+6. Each type of telemetry you define for a device template includes [configuration options](howto-set-up-template.md) such as:
 
     * Display options.
 
@@ -151,7 +151,7 @@ Use events to define point-in-time data that the device sends when there's an ev
 
     ![Connected air conditioner measurements](./media/tutorial-define-device-type-experimental/eventnew.png)
 
-2. Each type of Event you define for a device template includes [configuration options](howto-set-up-template-experimental.md) such as:
+2. Each type of Event you define for a device template includes [configuration options](howto-set-up-template.md) such as:
 
    * Display Name.
 
@@ -187,7 +187,7 @@ You can use state to define and visualize the state of the device or its compone
 
     ![Connected air conditioner state measurements](./media/tutorial-define-device-type-experimental/statenew.png)
 
-2. Each type of state you define for a device template includes [configuration options](howto-set-up-template-experimental.md) such as:
+2. Each type of state you define for a device template includes [configuration options](howto-set-up-template.md) such as:
 
    * Display Name.
 
@@ -230,7 +230,7 @@ Settings, properties, and commands are different values defined in a device temp
 
     * You use _device properties_ to enable a device to send property values to your application. These properties can only be changed by the device. For an operator, device properties are read-only. In this scenario of a connected air conditioner, the firmware version and device serial number are device properties reported by the device.
     
-    For more information, see [Properties](howto-set-up-template-experimental.md#properties) in the how-to guide on setting up a device template.
+    For more information, see [Properties](howto-set-up-template.md#properties) in the how-to guide on setting up a device template.
 
 * You use _commands_ to remotely manage your device from your application. You can directly run commands on the device from the cloud to control the devices. For example, an operator can run commands such as reboot, to instantly reboot the device.
 
@@ -445,5 +445,5 @@ In this tutorial, you learned how to:
 
 Now that you've defined a device template in your Azure IoT Central application, here are the suggested next steps:
 
-* [Configure rules and actions for your device](tutorial-configure-rules-experimental.md)
-* [Customize the operator's views](tutorial-customize-operator-experimental.md)
+* [Configure rules and actions for your device](tutorial-configure-rules.md)
+* [Customize the operator's views](tutorial-customize-operator.md)

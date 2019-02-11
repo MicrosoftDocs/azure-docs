@@ -25,7 +25,7 @@ Use Microsoft Flow to automate workflows across the many applications and servic
 
 This section shows you how to trigger a mobile notification in the Flow mobile app when a rule is triggered in IoT Central.
 
-1. Start by [creating a rule in IoT Central](howto-create-telemetry-rules-experimental.md). After you save the rule conditions, click the **Microsoft Flow action** as a new action. A new tab or window should open in your browser, taking you into Microsoft Flow.
+1. Start by [creating a rule in IoT Central](howto-create-telemetry-rules.md). After you save the rule conditions, click the **Microsoft Flow action** as a new action. A new tab or window should open in your browser, taking you into Microsoft Flow.
 
     ![Create a new Microsoft Flow action](media/howto-add-microsoft-flow-experimental/createflowaction.png)
 
@@ -124,5 +124,5 @@ If you are having trouble creating a connection to the Azure IoT Central connect
     ```
     
 ## Next steps
-Now that you have learned how to use Microsoft Flow to build workflows, the suggested next step is to [manage devices](howto-manage-devices-experimental.md).
+Now that you have learned how to use Microsoft Flow to build workflows, the suggested next step is to [manage devices](howto-manage-devices.md).
 
