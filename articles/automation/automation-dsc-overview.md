@@ -47,9 +47,38 @@ data to the built-in pull server. You can configure Azure Automation State Confi
 this data to your Log Analytics workspace. To learn how to send State Configuration status data to
 your Log Analytics workspace, see [Forward Azure Automation State Configuration reporting data to Log Analytics](automation-dsc-diagnostics.md).
 
-## <a name="network-planning"></a>Configure your network
+## Prerequisites
 
-The following port and URLs are required for State Configuration (DSC) to communicate with Automation:
+Please consider the following requirements when using Azure Automation State Configuration (DSC).
+
+### Operating System Requirements
+
+For nodes running Windows, the following versions are supported.
+
+- Windows Server 2019
+- Windows Server 2016
+- Windows Server 2012R2
+- Windows Server 2012
+- Windows Server 2008 R2 SP1
+- Windows 10
+- Windows 8.1
+- Windows 7
+
+For nodes running Linux, the following distros/versions are supported.
+
+The DSC Linux extension supports all the Linux distributions
+[endorsed on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros)
+except:
+
+Distribution | Version
+-|-
+Debian	| all versions
+Ubuntu	| 18.04
+
+### <a name="network-planning"></a>Configure private networks
+
+If your nodes are located within a private network,
+the following port and URLs are required for State Configuration (DSC) to communicate with Automation:
 
 * Port: Only TCP 443 is required for outbound internet access.
 * Global URL: *.azure-automation.net
