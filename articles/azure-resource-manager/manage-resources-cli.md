@@ -26,7 +26,6 @@ Other articles about managing resources:
 - [Manage Azure resources by using the Azure portal](./manage-resources-portal.md)
 - [Manage Azure resources by using Azure CLI](./manage-resources-cli.md)
 
-
 ## Deploy resources to an existing resource group
 
 You can deploy Azure resources directly by using Azure PowerShell, or deploy a Resource Manager template to create Azure resources.
