@@ -163,11 +163,11 @@ To configure the list of statically requested permissions for an application:
 2. Locate the **Microsoft Graph Permissions** section, and then add the permissions that your app requires.
 3. **Save** the app registration.
 
-### Recommended: Sign the user in to your app
+### Recommended: Sign the user into your app
 
 Typically, when you build an application that uses the admin consent endpoint, the app needs a page or view in which the admin can approve the app's permissions. This page can be part of the app's sign-up flow, part of the app's settings, or it can be a dedicated "connect" flow. In many cases, it makes sense for the app to show this "connect" view only after a user has signed in with a work or school Microsoft account.
 
-When you sign the user in to your app, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users. To sign the user in, follow our [v2.0 protocol tutorials](active-directory-v2-protocols.md).
+When you sign the user into your app, you can identify the organization to which the admin belongs before asking them to approve the necessary permissions. Although not strictly necessary, it can help you create a more intuitive experience for your organizational users. To sign the user in, follow our [v2.0 protocol tutorials](active-directory-v2-protocols.md).
 
 ### Request the permissions from a directory admin
 
@@ -255,7 +255,7 @@ For more information about the OAuth 2.0 protocol and how to get access tokens, 
 
 You can use the `/.default` scope to help migrate your apps from the v1.0 endpoint to the v2.0 endpoint. This is a built-in scope for every application that refers to the static list of permissions configured on the application registration. A `scope` value of `https://graph.microsoft.com/.default` is functionally the same as the v1.0 endpoints `resource=https://graph.microsoft.com` - namely, it requests a token with the scopes on Microsoft Graph that the application has registered for in the Azure portal.
 
-The /.default scope can be used in any OAuth 2.0 flow, but is particularly neccesary in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow
+The /.default scope can be used in any OAuth 2.0 flow, but is particularly necessary in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow
 .md) and [client credentials flow](v2-oauth2-client-creds-grant-flow.md).  
 
 > [!NOTE]

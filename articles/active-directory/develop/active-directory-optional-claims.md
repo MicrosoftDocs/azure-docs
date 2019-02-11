@@ -94,7 +94,7 @@ These claims are always included in v1.0 tokens, but not included in v2.0 tokens
 
 ### Additional properties of optional claims
 
-Some optional claims can be configured to change the way the claim is returned. These additional properties are mostly used to help migration of on-premises applications with different data expectations (for example, `include_externally_authenticated_upn_without_hash` helps with clients that cannot handle hashmarks (`#`) in the UPN)
+Some optional claims can be configured to change the way the claim is returned. These additional properties are mostly used to help migration of on-premises applications with different data expectations (for example, `include_externally_authenticated_upn_without_hash` helps with clients that cannot handle hash marks (`#`) in the UPN)
 
 **Table 4: Values for configuring optional claims**
 
@@ -102,7 +102,7 @@ Some optional claims can be configured to change the way the claim is returned. 
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Can be used for both SAML and JWT responses, and for v1.0 and v2.0 tokens. |
 |                | `include_externally_authenticated_upn`  | Includes the guest UPN as stored in the resource tenant. For example, `foo_hometenant.com#EXT#@resourcetenant.com` |             
-|                | `include_externally_authenticated_upn_without_hash` | Same as above, except that the hashmarks (`#`) are replaced with underscores (`_`) , for example `foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | Same as above, except that the hash marks (`#`) are replaced with underscores (`_`) , for example `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### Additional properties example
 
