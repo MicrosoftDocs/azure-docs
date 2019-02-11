@@ -1,3 +1,10 @@
+---
+author: rothja
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: jroth
+---
 1. While connected to the virtual machine with remote desktop, search for **Configuration Manager**:
 
     ![Open SSCM](./media/virtual-machines-sql-server-connection-tcp-protocol/sql-server-configuration-manager.png)
@@ -14,4 +21,4 @@
 
 1. Close SQL Server Configuration Manager.
 
-For more information about enabling protocols for the SQL Server Database Engine, see [Enable or Disable a Server Network Protocol](http://msdn.microsoft.com/library/ms191294.aspx).
+For more information about enabling protocols for the SQL Server Database Engine, see [Enable or Disable a Server Network Protocol](https://msdn.microsoft.com/library/ms191294.aspx).

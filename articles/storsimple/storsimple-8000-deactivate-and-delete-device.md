@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2017
+ms.date: 07/23/2018
 ms.author: alkohli
 
 ---
@@ -106,7 +106,7 @@ Deactivation results in the following actions:
 
 * The StorSimple Cloud Appliance is removed from the service.
 * The virtual machine for the StorSimple Cloud Appliance is deleted.
-* The OS disk and data disks created for the StorSimple Cloud Appliance are removed.
+* The OS disk and data disks created for the StorSimple Cloud Appliance are retained. If you are not using these entities, you should delete them manually.
 * The hosted service and Virtual Network that were created during provisioning are retained. If you are not using these entities, you should delete them manually.
 * Cloud snapshots created by the StorSimple Cloud Appliance are retained.
 

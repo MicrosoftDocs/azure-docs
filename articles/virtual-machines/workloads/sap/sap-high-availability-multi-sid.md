@@ -4,7 +4,7 @@ description: Guide to high-availability SAP NetWeaver multi-SID configuration on
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -205,7 +205,7 @@ foreach ($Port in $Ports) {
 
 $ILB | Set-AzureRmLoadBalancer
 
-Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
+Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
 
 ```
 After the script has run, the results are displayed in the Azure portal, as shown in the following screenshot:

@@ -1,18 +1,21 @@
 ---
-title: The 86 categories of taxonomy for the Computer Vision API | Microsoft Docs
-description: Get the 86 categories of taxonomy for the Computer Vision API in Microsoft Cognitive Services.
+title: Taxonomy of image categories - Computer Vision
+titlesuffix: Azure Cognitive Services
+description: Get the 86 categories of taxonomy for the Computer Vision API in Azure Cognitive Services.
 services: cognitive-services
-author: JuliaNik
-manager: ytkuo
+author: KellyDF
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: computer-vision
-ms.topic: article
+ms.subservice: computer-vision
+ms.topic: reference
 ms.date: 12/19/2016
-ms.author: juliakuz
+ms.author: kefre
+ms.custom: seodec18
 ---
 
-##86-Categories Taxonomy
+# 86-Categories Taxonomy
+
 abstract_
 
 abstract_net

@@ -1,3 +1,5 @@
+# [SQL Server Stretch Database Documentation](index.md)
+
 # Overview
 ## [What is Stretch Database?](/sql/sql-server/stretch-database/stretch-database)
 ## [Limitations and blocking issues](/sql/sql-server/stretch-database/limitations-for-stretch-database)
@@ -20,7 +22,7 @@
 ### [Disable Stretch Database](/sql/sql-server/stretch-database/disable-stretch-database-and-bring-back-remote-data)
 
 # Reference
-## [Code samples](https://azure.microsoft.com/en-us/resources/samples/?service=sql-server-database)
+## [Code samples](https://azure.microsoft.com/resources/samples/?service=sql-server-database)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

@@ -3,22 +3,25 @@ title: Data Factory Functions and System Variables | Microsoft Docs
 description: Provides a list of Azure Data Factory functions and system variables
 documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 services: data-factory
 
 ms.assetid: b6b3c2ae-b0e8-4e28-90d8-daf20421660d
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/16/2017
+
+ms.topic: conceptual
+ms.date: 01/10/2018
 ms.author: shlo
 
 robots: noindex
 ---
 # Azure Data Factory - Functions and System Variables
+> [!NOTE]
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [System variables in Data Factory](../control-flow-system-variables.md).
+
 This article provides information about functions and variables supported by Azure Data Factory.
 
 ## Data Factory system variables
@@ -148,7 +151,7 @@ In the following example, the DateTime parameter for the Stored Procedure Activi
             {
                 "type": "SqlServerStoredProcedure",
                 "typeProperties": {
-                    "storedProcedureName": "sp_sample",
+                    "storedProcedureName": "usp_sample",
                     "storedProcedureParameters": {
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                     }

@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
@@ -50,14 +50,14 @@ In traditional N tier applications, there's always a [Load Balancer](https://en.
 
 Network balancers or message routers tried to ensure that the web/worker tier remained roughly balanced. Strategies for balancing the data tier were different and depended on the data storage mechanism. Balancing the data tier relied on data sharding, caching, managed views, stored procedures, and other store-specific mechanisms.
 
-While some of these strategies are interesting, the Service Fabric Cluster Resource Manager is not anything like a network load balancer or a cache. A Network Load Balancer balances frontends by spreading traffic across frontends. The Service Fabric Cluster Resource Manager has a different strategy. Fundamentally, Service Fabric moves *services* to where they make the most sense, expecting traffic or load to follow. For example, it might move services to nodes that are currently cold because the services that are there are not doing much work. The nodes may be cold since the services that were present were deleted or moved elsewhere. As another example, the Cluster Resource Manager could also move a service away from a machine. Perhaps the machine is about to be upgraded, or is overloaded due to a spike in consumption by the services running on it. Alernatively, the service's resource requirements may have increased. As a result there aren't sufficient resources on this machine to continue running it. 
+While some of these strategies are interesting, the Service Fabric Cluster Resource Manager is not anything like a network load balancer or a cache. A Network Load Balancer balances frontends by spreading traffic across frontends. The Service Fabric Cluster Resource Manager has a different strategy. Fundamentally, Service Fabric moves *services* to where they make the most sense, expecting traffic or load to follow. For example, it might move services to nodes that are currently cold because the services that are there are not doing much work. The nodes may be cold since the services that were present were deleted or moved elsewhere. As another example, the Cluster Resource Manager could also move a service away from a machine. Perhaps the machine is about to be upgraded, or is overloaded due to a spike in consumption by the services running on it. Alternatively, the service's resource requirements may have increased. As a result there aren't sufficient resources on this machine to continue running it. 
 
 Because the Cluster Resource Manager is responsible for moving services around, it contains a different feature set compared to what you would find in a network load balancer. This is because network load balancers deliver network traffic to where services already are, even if that location is not ideal for running the service itself. The Service Fabric Cluster Resource Manager employs fundamentally different strategies for ensuring that the resources in the cluster are efficiently utilized.
 
 ## Next steps
 - For information on the architecture and information flow within the Cluster Resource Manager, check out [this article ](service-fabric-cluster-resource-manager-architecture.md)
 - The Cluster Resource Manager has many options for describing the cluster. To find out more about metrics, check out this article on [describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md)
-- For more information on configuring services, [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)(service-fabric-cluster-resource-manager-configure-services.md)
+- For more information on configuring services, [Learn about configuring Services](service-fabric-cluster-resource-manager-configure-services.md)
 - Metrics are how the Service Fabric Cluster Resource Manger manages consumption and capacity in the cluster. To learn more about metrics and how to configure them check out [this article](service-fabric-cluster-resource-manager-metrics.md)
 - The Cluster Resource Manager works with Service Fabric's management capabilities. To find out more about that integration, read [this article](service-fabric-cluster-resource-manager-management-integration.md)
 - To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)

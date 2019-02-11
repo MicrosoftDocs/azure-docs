@@ -1,24 +1,26 @@
 ---
-title: Provision a Deep Learning Data Science Virtual Machine on Azure  | Microsoft Docs
+title: Create a Deep Learning Data Science Virtual Machine
+titleSuffix: Azure
 description: Configure and create a Deep Learning Data Science Virtual Machine on Azure for analytics and machine learning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
+ms.custom: seodec18
 
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
-ms.topic: article
-ms.date: 09/10/2017
-ms.author: gokuma;bradsev
+ms.topic: conceptual
+ms.date: 03/16/2018
+ms.author: gokuma
 
 ---
 # Provision a Deep Learning Virtual Machine on Azure 
 
-The Deep Learning Virtual Machine (DLVM) is a specially configured variant of the popular [Data Science Virtual Machine](http://aka.ms/dsvm) (DSVM) to make it easier to use GPU-based VM instances for rapidly training deep learning models. It is supported with either Windows 2016, or the Ubuntu DSVM as the base. The DLVM shares the same core VM images and hence all the rich toolset that is available on DSVM. 
+The Deep Learning Virtual Machine (DLVM) is a specially configured variant of the popular [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) to make it easier to use GPU-based VM instances for rapidly training deep learning models. It is supported with either Windows 2016, or the Ubuntu DSVM as the base. The DLVM shares the same core VM images and hence all the rich toolset that is available on DSVM. 
 
 The DLVM contains several tools for AI including GPU editions of popular deep learning frameworks like Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2, Chainer; tools to acquire and pre-process image, textual data, tools for data science modeling and development activities such as Microsoft R Server Developer Edition, Anaconda Python, Jupyter notebooks for Python and R, IDEs for Python and R, SQL databases and many other data science and ML tools. 
 
@@ -41,9 +43,9 @@ Here are the steps to create an instance of the Deep Learning Virtual Machine:
       6. **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data or is closest to your physical location for fastest network access. 
       
 > [!NOTE]
-> Since DLVM is provisioned on Azure NC-Series GPU VM instances, you must choose one of the locations in Azure that has GPUs. Currently the locations that have GPU VMs are: **East US, North Central US, South Central US, West US 2, North Europe, West Europe**. For the latest list, check the [Azure Products by Region Page](https://azure.microsoft.com/en-us/regions/services/) and look for **NC-Series** under **Compute**. 
+> The DLVM supports all NC and ND series GPU VM instances. When provisioning the DLVM, you must choose one of the locations in Azure that has GPUs. Check the [Azure Products by Region Page](https://azure.microsoft.com/regions/services/) page for the available locations and look for **NC-Series**, **NCv2-Series**, **NCv3-Series**, or **ND-Series** under **Compute**. 
 
-   2. **Settings**: Select one of the NC-Series GPU virtual machine size that meets your functional requirement and cost constraints. Create a storage account for your VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   2. **Settings**: Select one of the NC series (NC, NCv2, NCv3) or ND series GPU virtual machine sizes that meets your functional requirement and cost constraints. Create a storage account for your VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
    3. **Summary**: Verify that all information you entered is correct.
    5. **Buy**: Click **Buy** to start the provisioning. A link is provided to the terms of the transaction. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. 

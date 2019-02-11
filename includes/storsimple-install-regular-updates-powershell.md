@@ -1,4 +1,10 @@
-<!--author=SharS last changed: 11/18/16-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 #### To install regular updates via Windows PowerShell for StorSimple
 1. Open the device serial console and select option 1, **Log in with full access**. Type the password. The default password is *Password1*. 

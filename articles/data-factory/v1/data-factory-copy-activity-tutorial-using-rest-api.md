@@ -3,18 +3,18 @@ title: 'Tutorial: Use REST API to create an Azure Data Factory pipeline | Micros
 description: In this tutorial, you use REST API to create an Azure Data Factory pipeline with a Copy Activity to copy data from an Azure blob storage an Azure SQL database. 
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: linda33wj
+manager: 
+editor: 
 
 ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 07/10/2017
-ms.author: spelluru
+
+ms.topic: tutorial
+ms.date: 01/22/2018
+ms.author: jingwang
 
 robots: noindex
 ---
@@ -31,6 +31,9 @@ robots: noindex
 > 
 > 
 
+> [!NOTE]
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy activity tutorial](../quickstart-create-data-factory-rest-api.md). 
+
 In this article, you learn how to use REST API to create a data factory with a pipeline that copies data from an Azure blob storage to an Azure SQL database. If you are new to Azure Data Factory, read through the [Introduction to Azure Data Factory](data-factory-introduction.md) article before doing this tutorial.   
 
 In this tutorial, you create a pipeline with one activity in it: Copy Activity. The copy activity copies data from a supported data store to a supported sink data store. For a list of data stores supported as sources and sinks, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. For more information about the Copy Activity, see [Data Movement Activities](data-factory-data-movement-activities.md).
@@ -45,7 +48,7 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 ## Prerequisites
 * Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **prerequisite** steps.
 * Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the Curl tool with REST commands to create a data factory. 
-* Follow instructions from [this article](../../azure-resource-manager/resource-group-create-service-principal-portal.md) to: 
+* Follow instructions from [this article](../../active-directory/develop/howto-create-service-principal-portal.md) to: 
   1. Create a Web application named **ADFCopyTutorialApp** in Azure Active Directory.
   2. Get **client ID** and **secret key**. 
   3. Get **tenant ID**. 
@@ -56,7 +59,7 @@ A pipeline can have more than one activity. And, you can chain two activities (r
   1. Run the following command and enter the user name and password that you use to sign in to the Azure portal:
     
 	```PowerShell 
-	Login-AzureRmAccount
+	Connect-AzureRmAccount
 	```   
   2. Run the following command to view all the subscriptions for this account:
 
@@ -96,7 +99,7 @@ Create following JSON files in the folder where curl.exe is located.
 
 ### azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-account-manage.md#access-keys).
 
 ```JSON
 {
@@ -112,7 +115,7 @@ Create following JSON files in the folder where curl.exe is located.
 
 For details about JSON properties, see [Azure Storage linked service](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 
-### azuersqllinkedservice.json
+### azuresqllinkedservice.json
 > [!IMPORTANT]
 > Replace **servername**, **databasename**, **username**, and **password** with name of your Azure SQL server, name of SQL database, user account, and password for the account.  
 > 

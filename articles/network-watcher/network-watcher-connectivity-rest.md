@@ -1,10 +1,10 @@
 ---
-title: Check connectivity with Azure Network Watcher - Azure portal | Microsoft Docs
-description: This page explains how to check connectivity with Network Watcher in the Azure portal
+title: Troubleshoot connections with Azure Network Watcher - Azure REST API | Microsoft Docs
+description: Learn how to use the connection troubleshoot capability of Azure Network Watcher using the Azure REST API.
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 
 ms.service: network-watcher
@@ -16,55 +16,25 @@ ms.date: 08/02/2017
 ms.author: jdial
 ---
 
-# Check connectivity with Azure Network Watcher using the Azure portal
+# Troubleshoot connections with Azure Network Watcher using the Azure REST API
 
 > [!div class="op_single_selector"]
 > - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
+> - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
-Learn how to use connectivity to verify if a direct TCP connection from a virtual machine to a given endpoint can be established.
+Learn how to use connection troubleshoot to verify whether a direct TCP connection from a virtual machine to a given endpoint can be established.
 
 ## Before you begin
 
 This article assumes you have the following resources:
 
-* An instance of Network Watcher in the region you want to check connectivity.
-
-* Virtual machines to check connectivity with.
-
-ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient).
-
-This scenario assumes you have already followed the steps in [Create a Network Watcher](network-watcher-create.md) to create a Network Watcher.
-
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
+* An instance of Network Watcher in the region you want to troubleshoot a connection.
+* Virtual machines to troubleshoot connections with.
 
 > [!IMPORTANT]
-> Connectivity check requires a virtual machine extension `AzureNetworkWatcherExtension`. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md).
-
-## Register the preview capability
-
-Connectivity check is currently in public preview, to use this feature it needs to be registered. To do this, run the following PowerShell sample:
-
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-To verify the registration was successful, run the following Powershell sample:
-
-```powershell
-Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
-```
-
-If the feature was properly registered, the output should match the following:
-
-```
-FeatureName                             ProviderName      RegistrationState
------------                             ------------      -----------------
-AllowNetworkWatcherConnectivityCheck    Microsoft.Network Registered
-```
+> Connection troubleshoot requires that the VM you troubleshoot from has the `AzureNetworkWatcherExtension` VM extension installed. For installing the extension on a Windows VM visit [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and for Linux VM visit [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). The extension is not required on the destination endpoint.
 
 ## Log in with ARMClient
 
@@ -493,11 +463,9 @@ The following example is the response from running the previous API call. As the
 
 ## Next steps
 
-Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md)
+Learn how to automate packet captures with Virtual machine alerts by viewing [Create an alert triggered packet capture](network-watcher-alert-triggered-packet-capture.md).
 
-Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](network-watcher-check-ip-flow-verify-portal.md)
-
-<!-- Image references -->
+Find if certain traffic is allowed in or out of your VM by visiting [Check IP flow verify](diagnose-vm-network-traffic-filtering-problem.md).
 
 
 

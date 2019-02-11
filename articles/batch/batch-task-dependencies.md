@@ -3,18 +3,18 @@ title: Use task dependencies to run tasks based on the completion of other tasks
 description: Create tasks that depend on the completion of other tasks for processing MapReduce style and similar big data workloads in Azure Batch.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
+author: laurenhughes
+manager: jeconnoc
 editor: ''
 
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -64,7 +64,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 This code snippet creates a dependent task with task ID "Flowers". The "Flowers" task depends on tasks "Rain" and "Sun". Task "Flowers" will be scheduled to run on a compute node only after tasks "Rain" and "Sun" have completed successfully.
 
 > [!NOTE]
-> A task is considered to be completed successfully when it is in the **completed** state and its **exit code** is `0`. In Batch .NET, this means a [CloudTask][net_cloudtask].[State][net_taskstate] property value of `Completed` and the CloudTask's [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] property value is `0`.
+> By default, a task is considered to be completed successfully when it is in the **completed** state and its **exit code** is `0`. In Batch .NET, this means a [CloudTask][net_cloudtask].[State][net_taskstate] property value of `Completed` and the CloudTask's [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] property value is `0`. For how to change this, see the [Dependency actions](#dependency-actions) section.
 > 
 > 
 
@@ -113,11 +113,13 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 ``` 
 
 ### Task ID range
-In a dependency on a range of parent tasks, a task depends on the the completion of tasks whose IDs lie within a range.
+In a dependency on a range of parent tasks, a task depends on the completion of tasks whose IDs lie within a range.
 To create the dependency, provide the first and last task IDs in the range to the [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] static method when you populate the [DependsOn][net_dependson] property of [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
-> When you use task ID ranges for your dependencies, the task IDs in the range *must* be string representations of integer values.
+> When you use task ID ranges for your dependencies, only tasks with IDs representing integer values will be selected by the range. So the range `1..10` will select tasks `3` and `7`, but not `5flamingoes`. 
+> 
+> Leading zeroes are not significant when evaluating range dependencies, so tasks with string identifiers `4`, `04` and `004` will all be *within* the range and they will all be treated as task `4`, so the first one to complete will satisfy the dependency.
 > 
 > Every task in the range must satisfy the dependency, either by completing successfully or by completing with a failure that’s mapped to a dependency action set to **Satisfy**. See the [Dependency actions](#dependency-actions) section for details.
 >
@@ -221,7 +223,7 @@ See [Installing applications and staging data on Batch compute nodes][forum_post
 [net_exitcode]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.taskexecutioninformation.exitcode.aspx
 [net_exitconditions]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.exitconditions
 [net_exitoptions]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.exitoptions
-[net_dependencyaction]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.exitoptions#Microsoft_Azure_Batch_ExitOptions_DependencyAction
+[net_dependencyaction]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.exitoptions
 [net_msdn]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [net_onid]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onid.aspx
 [net_onids]: https://msdn.microsoft.com/library/microsoft.azure.batch.taskdependencies.onids.aspx

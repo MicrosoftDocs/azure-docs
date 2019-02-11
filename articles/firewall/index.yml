@@ -1,0 +1,47 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Firewall Documentation
+metadata:
+  title: Azure Firewall Documentation - Tutorials, API Reference
+  meta.description: Learn how to create Azure Firewalls. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.
+  services: firewall
+  author: vhorne
+  ms.service: firewall
+  ms.topic: landing-page
+  ms.date: 9/24/2018
+  ms.author: victorh
+abstract:
+  description: Learn how to deploy Azure Firewall, a cloud-based network security service. Tutorials, API references, and other documentation show you how to set up application-level and network-level policies to protect your Azure virtual network resources.
+sections:
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to deploy Azure Firewall
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/firewall/tutorial-firewall-deploy-portal">Deploy and configure Azure Firewall using the Azure portal</a>
+    - html: <a href="/azure/firewall/tutorial-hybrid-ps">Deploy in a hybrid network</a>
+    - html: <a href="/azure/firewall/tutorial-firewall-dnat">Filter inbound traffic with DNAT</a>
+    - html: <a href="/azure/firewall/tutorial-diagnostics">Monitor Azure Firewall logs</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Script samples for common tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/firewall/sample-powershell">Azure PowerShell</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/module/az.network/new-azfirewall">Azure PowerShell</a></p><p><a href="/cli/azure/ext/azure-firewall/network/firewall">Azure CLI</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/firewall/">Compute REST API Reference</a></p>

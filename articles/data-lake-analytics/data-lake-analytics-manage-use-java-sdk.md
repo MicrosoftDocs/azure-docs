@@ -1,30 +1,25 @@
 ---
-title: Manage Azure Data Lake Analytics using Azure Java SDK | Microsoft Docs
-description: Use Azure Data Lake Analytics Java SDK to develop applications
+title: Manage Azure Data Lake Analytics using Azure Java SDK
+description: This article describes how to use the Azure Java SDK to write apps that manage Data Lake Analytics jobs, data sources, & users.
 services: data-lake-analytics
-documentationcenter: ''
-author: matt1883
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/18/2017
+author: saveenr
 ms.author: saveenr
 
+ms.reviewer: jasonwhowell
+ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
+ms.topic: conceptual
+ms.date: 06/18/2017
 ---
-# Manage  Azure Data Lake Analytics using Java SDK
+# Manage Azure Data Lake Analytics using a Java app
+[!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-In this tutorial, you develop a Java console application that performs common operations for Azure Data Lake.
+This article describes how to manage Azure Data Lake Analytics accounts, data sources, users, and jobs using an app written using the Azure Java SDK. 
 
 ## Prerequisites
 * **Java Development Kit (JDK) 8** (using Java version 1.8).
 * **IntelliJ** or another suitable Java development environment. The instructions in this document use IntelliJ.
-* Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**. For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md). The Reply URI and Key is available from the portal once you have the application created and key generated.
+* Create an Azure Active Directory (AAD) application and retrieve its **Client ID**, **Tenant ID**, and **Key**. For more information about AAD applications and instructions on how to get a client ID, see [Create Active Directory application and service principal using portal](../active-directory/develop/howto-create-service-principal-portal.md). The Reply URI and Key is available from the portal once you have the application created and key generated.
 
 ## Authenticating using Azure Active Directory
 
@@ -376,6 +371,6 @@ public static String GetJobStatus(UUID jobId) throws IOException, CloudException
 
 ## Next steps
 
-* To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](http://go.microsoft.com/fwlink/?LinkId=691348).
+* To learn U-SQL, see [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md), and [U-SQL language reference](https://go.microsoft.com/fwlink/?LinkId=691348).
 * For management tasks, see [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md).
 * To get an overview of Data Lake Analytics, see [Azure Data Lake Analytics overview](data-lake-analytics-overview.md).

@@ -3,20 +3,19 @@ title: Azure Virtual Machines high availability for SAP NetWeaver | Microsoft Do
 description: High-availability guide for SAP NetWeaver on Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: timlt
+author: msjuergent
+manager: patfilot
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 
-ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 12/07/2016
-ms.author: goraco
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 01/24/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -184,7 +183,6 @@ ms.custom: H1Hack27Feb2017
 [planning-guide-11]:planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058
 [planning-guide-11.4.1]:planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77
 [planning-guide-11.5]:planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f
-[planning-guide-2.1]:planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803
 [planning-guide-2.2]:planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10
 [planning-guide-3.1]:planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a
 [planning-guide-3.2.1]:planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358
@@ -361,10 +359,10 @@ ms.custom: H1Hack27Feb2017
 
 [sap-ha-guide-figure-6003]:media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../../../azure-resource-manager/resource-group-overview.md
-[resource-groups-networking]:../../../virtual-network/resource-groups-networking.md
+[resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
@@ -378,7 +376,7 @@ ms.custom: H1Hack27Feb2017
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../../storage/common/storage-premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -416,14 +414,14 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
-[virtual-network-deploy-multinic-arm-cli]:../../../virtual-network/virtual-network-deploy-multinic-arm-cli.md
-[virtual-network-deploy-multinic-arm-ps]:../../../virtual-network/virtual-network-deploy-multinic-arm-ps.md
-[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
+[virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
+[virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
+[virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
-[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
+[virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/manage-virtual-network.md#create-a-virtual-network
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
-[virtual-networks-multiple-nics]:../../../virtual-network/virtual-networks-multiple-nics.md
-[virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
+[virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
+[virtual-networks-nsg]:../../../virtual-network/security-overview.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
 [virtual-networks-udr-overview]:../../../virtual-network/virtual-networks-udr-overview.md
@@ -501,7 +499,7 @@ In Azure Resource Manager, you don't need an Azure resource group to use Azure L
 
 In Azure Resource Manager, you can install multiple SAP system identifier (SID) ASCS/SCS instances in one cluster. Multi-SID instances are possible because of support for multiple IP addresses for each Azure internal load balancer.
 
-To use the Azure classic deployment model, follow the procedures described in [SAP NetWeaver in Azure: Clustering SAP ASCS/SCS instances by using Windows Server Failover Clustering in Azure with SIOS DataKeeper](http://go.microsoft.com/fwlink/?LinkId=613056).
+To use the Azure classic deployment model, follow the procedures described in [SAP NetWeaver in Azure: Clustering SAP ASCS/SCS instances by using Windows Server Failover Clustering in Azure with SIOS DataKeeper](https://go.microsoft.com/fwlink/?LinkId=613056).
 
 > [!IMPORTANT]
 > We strongly recommend that you use the Azure Resource Manager deployment model for your SAP installations. It offers many benefits that are not available in the classic deployment model. Learn more about Azure [deployment models][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
@@ -520,7 +518,6 @@ You can choose from four quorum modes when you use Windows Server Failover Clust
 * **Node and Disk Majority**. Each node and a designated disk (a disk witness) in the cluster storage can vote when they are available and in communication. The cluster functions only with a majority of the votes, that is, with more than half the votes. This mode makes sense in a cluster environment with an even number of nodes. If half the nodes and the disk are online, the cluster remains in a healthy state.
 * **Node and File Share Majority**. Each node plus a designated file share (a file share witness) that the administrator creates can vote, regardless of whether the nodes and file share are available and in communication. The cluster functions only with a majority of the votes, that is, with more than half the votes. This mode makes sense in a cluster environment with an even number of nodes. It's similar to the Node and Disk Majority mode, but it uses a witness file share instead of a witness disk. This mode is easy to implement, but if the file share itself is not highly available, it might become a single point of failure.
 * **No Majority: Disk Only**. The cluster has a quorum if one node is available and in communication with a specific disk in the cluster storage. Only the nodes that also are in communication with that disk can join the cluster. We recommend that you do not use this mode.
- 
 
 ## <a name="fdfee875-6e66-483a-a343-14bbaee33275"></a> Windows Server Failover Clustering on-premises
 Figure 1 shows a cluster of two nodes. If the network connection between the nodes fails and both nodes stay up and running, a quorum disk or file share determines which node will continue to provide the cluster's applications and services. The node that has access to the quorum disk or file share is the node that ensures that services continue.
@@ -800,8 +797,7 @@ To set up the ASCS/SCS multi-SID template, in the [ASCS/SCS multi-SID template][
   -  **System Availability**. Select **HA**.
   -  **Admin Username and Admin Password**. Create a new user that can be used to sign in to the machine.
   -  **New Or Existing Subnet**. Set whether a new virtual network and subnet should be created, or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select **existing**.
-  -  **Subnet Id**. Set the ID of the subnet to which the virtual machines should be connected. Select the subnet of your virtual private network (VPN) or ExpressRoute virtual network to connect the virtual machine to your on-premises network. The ID usually looks like this:
-
+  -  **Subnet Id**. If you want to deploy the VM into an existing VNet where you have a subnet defined the VM should be assigned to, name the ID of that specific subnet. The ID usually looks like this:
    /subscriptions/<*subscription id*>/resourceGroups/<*resource group name*>/providers/Microsoft.Network/virtualNetworks/<*virtual network name*>/subnets/<*subnet name*>
 
 The template deploys one Azure Load Balancer instance, which supports multiple SAP systems.
@@ -871,7 +867,7 @@ To set the required DNS IP addresses, do the following steps.
 2.  Select your settings based on the type of network you have. For more information, see the following resources:
     * [Corporate network connectivity (cross-premises)][planning-guide-2.2]: Add the IP addresses of the on-premises DNS servers.  
     You can extend on-premises DNS servers to the virtual machines that are running in Azure. In that scenario, you can add the IP addresses of the Azure virtual machines on which you run the DNS service.
-    * [Cloud-only deployment][planning-guide-2.1]: Deploy an additional virtual machine in the same Virtual Network instance that serves as a DNS server. Add the IP addresses of the Azure virtual machines that you've set up to run DNS service.
+    * For deployments isolated in Azure: Deploy an additional virtual machine in the same Virtual Network instance that serves as a DNS server. Add the IP addresses of the Azure virtual machines that you've set up to run DNS service.
 
     ![Figure 12: Configure DNS servers for Azure Virtual Network][sap-ha-guide-figure-3001]
 
@@ -1051,7 +1047,7 @@ To add registry entries on both cluster nodes of the SAP ASCS/SCS instance, firs
 | Variable name |`KeepAliveTime` |
 | Variable type |REG_DWORD (Decimal) |
 | Value |120000 |
-| Link to documentation |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
+| Link to documentation |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Table 3:** Change the first TCP/IP parameter_
 
@@ -1062,7 +1058,7 @@ Then, add this Windows registry entries on both Windows cluster nodes for SAP AS
 | Variable name |`KeepAliveInterval` |
 | Variable type |REG_DWORD (Decimal) |
 | Value |120000 |
-| Link to documentation |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
+| Link to documentation |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Table 4:** Change the second TCP/IP parameter_
 
@@ -1383,7 +1379,7 @@ After you install SIOS DataKeeper on both nodes, you need to start the configura
 
 ## <a name="a06f0b49-8a7a-42bf-8b0d-c12026c5746b"></a> Install the SAP NetWeaver system
 
-We won’t describe the DBMS setup because setups vary depending on the DBMS system you use. However, we assume that high-availability concerns with the DBMS are addressed with the functionalities the different DBMS vendors support for Azure. For example, Always On or database mirroring for SQL Server, and Oracle Data Guard for Oracle databases. In the scenario we use in this article, we didn't add more protection to the DBMS.
+We won't describe the DBMS setup because setups vary depending on the DBMS system you use. However, we assume that high-availability concerns with the DBMS are addressed with the functionalities the different DBMS vendors support for Azure. For example, Always On or database mirroring for SQL Server, and Oracle Data Guard for Oracle databases. In the scenario we use in this article, we didn't add more protection to the DBMS.
 
 There are no special considerations when different DBMS services interact with this kind of clustered SAP ASCS/SCS configuration in Azure.
 
@@ -1469,7 +1465,7 @@ To modify the SAP profile of the ASCS/SCS instance:
 
 #### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> Add a probe port
 
-Use the internal load balancer's probe functionality to make the entire cluster configuration work with Azure Load Balancer. The Azure internal load balancer usually distributes the incoming workload equally between participating virtual machines. However, this won't work in some cluster configurations because only one instance is active. The other instance is passive and can’t accept any of the workload. A probe functionality helps when the Azure internal load balancer assigns work only to an active instance. With the probe functionality, the internal load balancer can detect which instances are active, and then target only the instance with the workload.
+Use the internal load balancer's probe functionality to make the entire cluster configuration work with Azure Load Balancer. The Azure internal load balancer usually distributes the incoming workload equally between participating virtual machines. However, this won't work in some cluster configurations because only one instance is active. The other instance is passive and can't accept any of the workload. A probe functionality helps when the Azure internal load balancer assigns work only to an active instance. With the probe functionality, the internal load balancer can detect which instances are active, and then target only the instance with the workload.
 
 To add a probe port:
 

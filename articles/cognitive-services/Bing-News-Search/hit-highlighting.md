@@ -1,15 +1,15 @@
 ---
-title: Use decoration markers to highlight text | Microsoft Docs
+title: Use decoration markers to highlight text - Bing News Search
+titlesuffix: Azure Cognitive Services
 description: Shows how to enable text decorations in search responses.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: nitinme
 
-ms.assetid: 809746D4-3AEC-4860-92ED-E44B4B3F8EE5
 ms.service: cognitive-services
-ms.technology: bing-entities-search
-ms.topic: article
-ms.date: 07/06/2017
+ms.subservice: bing-news-search
+ms.topic: conceptual
+ms.date: 01/10/2019
 ms.author: scottwhi
 ---
 

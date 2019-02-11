@@ -1,3 +1,10 @@
+---
+author: nitinme
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: nitinme
+---
 Bing supports hit highlighting which marks query terms (or other terms that Bing finds relevant) in the display strings of some of the answers. For example, a webpage's `name`, `displayUrl`, and `snippet` fields may mark the query terms.
 
 By default, Bing doesn't include highlighting markers in display strings. To include the markers, include the `textDecorations` query parameter in your request and set it to **true**. Bing marks the query terms using the E000 and E001 Unicode characters to mark the beginning and end of the term. For example, if the query term is Sailing Dinghy and either term exists in the field, the term is enclosed in hit highlighting characters as shown in the following example:  
@@ -35,7 +42,7 @@ If `textDecorations` is **true**, Bing may include the following markers in disp
 |U+E018|\<sup>|Marks the beginning of superscript content
 |U+E019|\</sup>|Marks the end of superscript content
 
-The following example shows a `Computation` answer that contains subscript markers for a log(2) query term. The `expression` field contains the markers only if `textDecoration is **true**.
+The following example shows a `Computation` answer that contains subscript markers for a log(2) query term. The `expression` field contains the markers only if `textDecoration` is **true**.
 
 ![computation markers](./media/cognitive-services-bing-hit-highlighting/bing-markers-computation.PNG) 
 

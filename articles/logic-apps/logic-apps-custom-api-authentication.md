@@ -1,23 +1,17 @@
 ---
 title: Add authentication to custom APIs - Azure Logic Apps | Microsoft Docs
-description: Set up authentication for calls to your custom APIs from logic apps
-author: ecfan
-manager: anneta
-editor: 
+description: Set up authentication for calling custom APIs from Azure Logic Apps
 services: logic-apps
-documentationcenter: 
-
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.author: LADocs; estfan
 ---
 
-# Secure calls to your custom APIs from logic apps
+# Secure calls to custom APIs from Azure Logic Apps
 
 To secure calls to your APIs, you can set up Azure Active Directory (Azure AD) 
 authentication through the Azure portal so you don't have to update your code. 
@@ -28,7 +22,7 @@ Or, you can require and enforce authentication through your API's code.
 You can secure calls to your custom API in these ways:
 
 * [No code changes](#no-code): Protect your API with 
-[Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) 
+[Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) 
 through the Azure portal, so you don't have to update your code or redeploy your API.
 
   > [!NOTE]
@@ -61,8 +55,7 @@ Your logic app uses this Azure AD application identity to authenticate against A
 You only have to set up this identity one time for your directory. 
 For example, you can choose to use the same identity for all your logic apps, 
 even though you can create unique identities for each logic app. 
-You can set up these identities in the Azure portal,
-[Azure classic portal](#app-identity-logic-classic), or use [PowerShell](#powershell).
+You can set up these identities in the Azure portal or use [PowerShell](#powershell).
 
 **Create the application identity for your logic app in the Azure portal**
 
@@ -93,8 +86,8 @@ for **Sign-on URL**, and choose **Create**.
 
    ![Provide name and sign-on URL for application identity](./media/logic-apps-custom-api-authentication/logic-app-identity-azure-portal.png)
 
-   The application identity that you created for your logic app 
-   now appears in the app registrations list.
+   The application identity that you created for your 
+   logic app now appears in the app registrations list.
 
    ![Application identity for your logic app](./media/logic-apps-custom-api-authentication/logic-app-identity-created.png)
 
@@ -104,7 +97,8 @@ for your logic app in Part 3.
 
    ![Copy and save application ID for logic app](./media/logic-apps-custom-api-authentication/logic-app-application-id.png)
 
-6. If your application identity settings aren't visible, choose **Settings** or **All settings**.
+6. If your application identity settings aren't visible, 
+choose **Settings** or **All settings**.
 
 7. Under **API Access**, choose **Keys**. Under **Description**, 
 provide a name for your key. Under **Expires**, select a duration for your key.
@@ -123,40 +117,6 @@ when you leave the **Keys** page.
 
    ![Copy and save key for later](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
 
-<a name="app-identity-logic-classic"></a>
-
-**Create the application identity for your logic app in the Azure classic portal**
-
-1. In the Azure classic portal, choose 
-[**Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2. Select the same directory that you use for your web app or API app.
-
-3. On the **Applications** tab, choose **Add** at the bottom of the page.
-
-4. Give your application identity a name, and choose **Next** (right arrow).
-
-5. Under **App properties**, provide a unique string formatted as a domain 
-for **Sign-on URL** and **App ID URI**, and choose **Complete** (checkmark).
-
-6. On the **Configure** tab, copy and save the **Client ID** 
-for your logic app to use in Part 3.
-
-7. Under **Keys**, open the **Select duration** list. Select a duration for your key.
-
-   The key that you're creating acts as the application identity's 
-   "secret" or password for your logic app.
-
-8. At the bottom of the page, choose **Save**. You might have to wait a few seconds.
-
-9. Under **Keys**, make sure to copy and save the key that now appears. 
-
-   When you configure your logic app in Part 3, 
-   you specify this key as the "secret" or password.
-
-For more information, learn how to 
-[configure your App Service application to use Azure Active Directory login](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
-
 <a name="powershell"></a>
 
 **Create the application identity for your logic app in PowerShell**
@@ -164,17 +124,17 @@ For more information, learn how to
 You can perform this task through Azure Resource Manager with PowerShell. 
 In PowerShell, run these commands:
 
-1. `Switch-AzureMode AzureResourceManager`
+1. `Add-AzureRmAccount`
 
-2. `Add-AzureAccount`
+2. `$SecurePassword = Read-Host -AsSecureString` (Enter a password and hit enter)
 
-3. `New-AzureADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password "identity-password"`
+3. `New-AzureRmADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
 4. Make sure to copy the **Tenant ID** (GUID for your Azure AD tenant), 
 the **Application ID**, and the password that you used.
 
 For more information, learn how to 
-[create a service principal with PowerShell to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+[create a service principal with PowerShell to access resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 #### Part 2: Create an Azure AD application identity for your web app or API app
 
@@ -204,7 +164,7 @@ Give your application identity a name, and choose **OK**.
 
 Now you must find the client ID and tenant ID for the application identity 
 that's associated with your web app or API app. You use these IDs in Part 3. 
-So continue with these steps for the Azure portal or [Azure classic portal](#find-id-classic).
+So continue with these steps for the Azure portal.
 
 **Find application identity's client ID and tenant ID for your web app or API app in the Azure portal**
 
@@ -228,35 +188,6 @@ You can also use this GUID in your web app or API app's deployment template, if 
 
 5. Without saving your changes, close the **Azure Active Directory Settings** page.
 
-<a name="find-id-classic"></a>
-
-**Find application identity's client ID and tenant ID for your web app or API app in the Azure classic portal**
-
-1. In the Azure classic portal, choose 
-[**Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2.	Select the directory that you use for your web app or API app.
-
-3. In the **Search** box, find and select the application identity for your web app or API app.
-
-4. On the **Configure** tab, copy the **Client ID**, and save that GUID for use in Part 3.
-
-5. After you get the client ID, at the bottom of the **Configure** tab, choose **View endpoints**.
-
-6. Copy the URL for **Federation Metadata Document**, and browse to that URL.
-
-7. In the metadata document that opens, find the root **EntityDescriptor ID** element, 
-which has an **entityID** attribute in this form: `https://sts.windows.net/{GUID}` 
-
-   The GUID in this attribute is your specific tenant's GUID (tenant ID).
-
-8. Copy the tenant ID and save that ID for use in Part 3, 
-and also to use in your web app or API app's deployment template, if necessary.
-
-For more information, see these topics:
-
-* [Authentication and authorization in Azure App Service](../app-service/app-service-authentication-overview.md)
-
 <a name="authen-deploy"></a>
 
 **Turn on authentication when you deploy with an Azure Resource Manager template**
@@ -272,7 +203,7 @@ in your app's deployment template and also for Part 3.
 
 > [!NOTE]
 > When you create the Azure AD application identity for your web app or API app, 
-> you must use the Azure portal or Azure classic portal, rather than PowerShell. 
+> you must use the Azure portal, not PowerShell. 
 > The PowerShell commandlet doesn't set up the required permissions to sign users into a website.
 
 After you get the client ID and tenant ID, include these IDs 
@@ -400,7 +331,7 @@ Check the caller's identity, and reject requests that don't match.
 
 <!-- Going further, to implement this authentication entirely in your own code, 
 and not use the Azure portal, learn how to 
-[authenticate with on-premises Active Directory in your Azure app](../app-service/app-service-authentication-overview.md).
+[authenticate with on-premises Active Directory in your Azure app](../app-service/overview-authentication-authorization.md).
 
 To create an application identity for your logic app and use that identity to call your API, 
 you must follow the previous steps. -->

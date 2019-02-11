@@ -61,7 +61,7 @@ Your device must synchronize time in order to authenticate with your cloud stora
 
  Select your time zone from the drop-down list. You can specify up to two Network Time Protocol (NTP) servers:
 
- - **Primary NTP server** -  The configuration is required and is specified when you use Windows PowerShell for StorSimple to configure your device. You can specify the default Windows Server **time.windows.com** as your NTP server. You can view the primary NTP server configuration through the Azure portal, but you must use the Windows PowerShell interface to change it. Use the `Set-HcsNTPClientServerAddress` cmdlet to modify the Primary NTP server of your device. For more information, go to synxtax for [Set-HcsNTPClientServerAddress] (https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
+ - **Primary NTP server** -  The configuration is required and is specified when you use Windows PowerShell for StorSimple to configure your device. You can specify the default Windows Server **time.windows.com** as your NTP server. You can view the primary NTP server configuration through the Azure portal, but you must use the Windows PowerShell interface to change it. Use the `Set-HcsNTPClientServerAddress` cmdlet to modify the Primary NTP server of your device. For more information, go to syntax for [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
 
 - **Secondary NTP server** - The configuration is optional. You can use the portal to configure a secondary NTP server.
 
@@ -81,7 +81,7 @@ A DNS server is used when your device attempts to communicate with your cloud st
 
 For high availability, you are required to configure both the primary and the secondary DNS servers during the initial device deployment.
 
-**Primary DNS server** - You use the Windows PowerShell for StorSimple to first specify the Primary DNS server during the initial setup. You can reconfigure the primary DNS server only via the Windows PowerShell interface. Use the `Set-HcsDNSClientServerAddress` cmdlet to modify the primary DNS server of your device. For more information, go to synxtax for [Set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
+**Primary DNS server** - You use the Windows PowerShell for StorSimple to first specify the Primary DNS server during the initial setup. You can reconfigure the primary DNS server only via the Windows PowerShell interface. Use the `Set-HcsDNSClientServerAddress` cmdlet to modify the primary DNS server of your device. For more information, go to syntax for [Set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
 
 **Secondary DNS server** - To modify the secondary DNS server, use the `Set-HcsDNSClientServerAddress` cmdlet in the Windows PowerShell interface of the device or **Network settings** blade of your StorSimple device in the Azure portal.
 
@@ -91,7 +91,7 @@ To modify the secondary DNS server in Azure portal, perform the following steps.
 
 2. In the **Settings** blade, go to **Device settings > Network**. This opens up the **Network settings** blade. Click **DNS settings** tile. Modify the secondary DNS server IP address.
 
-    ![Modify secondary DNS server IP adderss](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
+    ![Modify secondary DNS server IP address](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
 
 4. From the command bar, click **Save** and when prompted for confirmation, click **OK**.
 

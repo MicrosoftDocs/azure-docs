@@ -4,21 +4,24 @@ description: Set up a data gateway to move data between on-premises and the clou
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: monicar
+manager: craigg
+
 
 ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/27/2017
+
+ms.topic: conceptual
+ms.date: 01/10/2018
 ms.author: abnarain
 
 robots: noindex
 ---
 # Move data between on-premises sources and the cloud with Data Management Gateway
+> [!NOTE]
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy data between on-premises and cloud using Data Factory](../tutorial-hybrid-copy-powershell.md).
+
 This article provides an overview of data integration between on-premises data stores and cloud data stores using Data Factory. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article and other data factory core concepts articles: [datasets](data-factory-create-datasets.md) and [pipelines](data-factory-create-pipelines.md).
 
 ## Data Management Gateway
@@ -41,15 +44,15 @@ In this walkthrough you do the following steps:
 ## Prerequisites for the tutorial
 Before you begin this walkthrough, you must have the following prerequisites:
 
-* **Azure subscription**.  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) article for details.
-* **Azure Storage Account**. You use the blob storage as a **destination/sink** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
+* **Azure subscription**.  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article for details.
+* **Azure Storage Account**. You use the blob storage as a **destination/sink** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-quickstart-create-account.md) article for steps to create one.
 * **SQL Server**. You use an on-premises SQL Server database as a **source** data store in this tutorial. 
 
 ## Create data factory
 In this step, you use the Azure portal to create an Azure Data Factory instance named **ADFTutorialOnPremDF**.
 
 1. Log in to the [Azure portal](https://portal.azure.com).
-2. Click **+ NEW**, click **Intelligence + analytics**, and click **Data Factory**.
+2. Click **Create a resource**, click **Intelligence + analytics**, and click **Data Factory**.
 
    ![New->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
 3. In the **New data factory** page, enter **ADFTutorialOnPremDF** for the Name.
@@ -59,7 +62,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
    > [!IMPORTANT]
    > The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialOnPremDF” is not available**, change the name of the data factory (for example, yournameADFTutorialOnPremDF) and try creating again. Use this name in place of ADFTutorialOnPremDF while performing remaining steps in this tutorial.
    >
-   > The name of the data factory may be registered as a **DNS** name in the future and hence become publically visible.
+   > The name of the data factory may be registered as a **DNS** name in the future and hence become publicly visible.
    >
    >
 4. Select the **Azure subscription** where you want the data factory to be created.
@@ -67,7 +70,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
 6. Click **Create** on the **New data factory** page.
 
    > [!IMPORTANT]
-   > To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
+   > To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
    >
    >
 7. After creation is complete, you see the **Data Factory** page as shown in the following image:
@@ -167,7 +170,7 @@ In this step, you create two linked services: **AzureStorageLinkedService** and 
       4. In the **Setting Credentials** dialog box, specify authentication type, user name, and password, and click **OK**. If the connection is successful, the encrypted credentials are stored in the JSON and the dialog box closes.
       5. Close the empty browser tab that launched the dialog box if it is not automatically closed and get back to the tab with the Azure portal.
 
-         On the gateway machine, these credentials are **encrypted** by using a certificate that the Data Factory service owns. If you want to use the certificate that is associated with the Data Management Gateway instead, see [Set credentials securely](#set-credentials-and-security).    
+         On the gateway machine, these credentials are **encrypted** by using a certificate that the Data Factory service owns. If you want to use the certificate that is associated with the Data Management Gateway instead, see Set credentials securely.    
    3. Click **Deploy** on the command bar to deploy the SQL Server linked service. You should see the linked service in the tree view.
 
       ![SQL Server linked service in the tree view](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    

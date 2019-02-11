@@ -1,30 +1,26 @@
 ---
-title: Analyzers in Azure Search | Microsoft Docs
+title: Analyzers for linguistic and text processing - Azure Search
 description: Assign analyzers to searchable text fields in an index to replace default standard Lucene with custom, predefined or language-specific alternatives.
 services: search
-manager: jhubbard
-author: HeidiSteen
-documentationcenter: ''
-
 ms.service: search
-ms.devlang: NA
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: heidist
+manager: cgronlun
+author: HeidiSteen
+ms.custom: seodec2018
 ---
 
-# Analyzers in Azure Search
+# Analyzers for text processing in Azure Search
 
-An *analyzer* is a component of [full text search](search-lucene-query-architecture.md) responsible for text processing in query strings and indexed documents. During indexing, an analyzer transforms text into *tokens*, which are written as *tokenized terms* into the index. During search, an analyzer performs the same transformations on *query terms*, providing the basis for matching terms in the index.
-
-The following transformations are typical during analysis:
+An *analyzer* is a component of [full text search](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. The following transformations are typical during analysis:
 
 + Non-essential words (stopwords) and punctuation are removed.
 + Phrases and hyphenated words are broken down into component parts.
 + Upper-case words are lower-cased.
 + Words are reduced to root forms so that a match can be found regardless of tense.
+
+Linguistic analyzers convert a text input into primitive or root forms that are efficient for information storage and retrieval. Conversion occurs during indexing, when the index is built, and then again during search when the index is read. You are more likely to get the search results you expect if you use the same text analyzer for both operations.
 
 Azure Search uses the [Standard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) as the default. You can override the default on a field-by-field basis. This article describes the range of choices and offers best practices for custom analysis. It also provides example configurations for key scenarios.
 
@@ -50,12 +46,12 @@ You can customize a predefined analyzer, such as **Pattern** or **Stop**, to use
 
 3. Adding an analyzer to a field definition incurs a write operation on the index. If you add an **analyzer** to an existing index, note the following steps:
  
- | Scenario | Steps |
- |----------|-------|
- | Add a new field | If the field doesn't exist yet in the schema, there is no field revision to make. Text analysis occurs whenever you add or update documents that provide content for the new field. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) for this task.|
- | Add an analyzer to an existing indexed field. | The inverted index for that field must be recreated from the ground up and document contents for those fields must be reindexed. <br/> <br/>For indexes under active development, [delete](https://docs.microsoft.com/rest/api/searchservice/delete-index) and [create](https://docs.microsoft.com/rest/api/searchservice/create-index) the index to pick up the new field definition. <br/> <br/>For indexes in production, you should create a new field to provide the revised definition and start using it. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to incorporate the new field. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields. |
+ | Scenario | Impact | Steps |
+ |----------|--------|-------|
+ | Add a new field | minimal | If the field doesn't exist yet in the schema, there is no field revision to make because the field does not yet have a physical presence in your index. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) for this task.|
+ | Add an analyzer to an existing indexed field. | rebuild | The inverted index for that field must be recreated from the ground up and the content for those fields must be reindexed. <br/> <br/>For indexes under active development, [delete](https://docs.microsoft.com/rest/api/searchservice/delete-index) and [create](https://docs.microsoft.com/rest/api/searchservice/create-index) the index to pick up the new field definition. <br/> <br/>For indexes in production, you should create a new field to provide the revised definition and start using it. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to incorporate the new field. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields. |
 
-## Best practices
+## Tips and best practices
 
 This section offers advice on how to work with analyzers.
 
@@ -69,12 +65,13 @@ A general rule is to use the same analyzer for both indexing and querying, unles
 
 Overriding the standard analyzer requires an index rebuild. If possible, decide on which analyzers to use during active development, before rolling an index into production.
 
-### Compare analyzers side by side
+### Inspect tokenized terms
 
-We recommend using the [Analyze API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). The response consists of tokens, as generated by a specific analyzer for text you provide. 
+If a search fails to return expected results, the most likely scenario is token discrepancies between term inputs on the query, and tokenized terms in the index. If the tokens aren't the same, matches fail to materialize. To inspect tokenizer output, we recommend using the [Analyze API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) as an investigation tool. The response consists of tokens, as generated by a specific analyzer.
 
-> [!Tip]
-> The [Search Analyzer Demo](http://alice.unearth.ai/) shows a side-by-side comparison of the standard Lucene analyzer, Lucene's English language analyzer, and Microsoft's English natural language processor. For each search input you provide, results from each analyzer are displayed in adjacent panes.
+### Compare English analyzers
+
+The [Search Analyzer Demo](https://alice.unearth.ai/) is a third-party demo app showing a side-by-side comparison of the standard Lucene analyzer, Lucene's English language analyzer, and Microsoft's English natural language processor. The index is fixed; it contains text from a popular story. For each search input you provide, results from each analyzer are displayed in adjacent panes, giving you a sense of how each analyzer processes the same string. 
 
 ## Examples
 
@@ -90,7 +87,7 @@ Walking through this example:
 * Analyzers are a property of the field class for a searchable field.
 * A custom analyzer is part of an index definition. It might be lightly customized (for example, customizing a single option in one filter) or customized in multiple places.
 * In this case, the custom analyzer is "my_analyzer", which in turn uses a customized standard tokenizer "my_standard_tokenizer" and two token filters: lowercase and customized asciifolding filter "my_asciifolding".
-* It also defines a custom  "map_dash" char filter to replace all dashes with underscores before tokenization (the standard tokenizer breaks on dash but not on underscore).
+* It also defines 2 custom char filters "map_dash" and "remove_whitespace". The first one replaces all dashes with underscores while the second one removes all spaces. Spaces need to be UTF-8 encoded in the mapping rules. The char filters are applied before tokenization and will affect the resulting tokens (the standard tokenizer breaks on dash and spaces but not on underscore).
 
 ~~~~
   {
@@ -114,7 +111,8 @@ Walking through this example:
            "name":"my_analyzer",
            "@odata.type":"#Microsoft.Azure.Search.CustomAnalyzer",
            "charFilters":[
-              "map_dash"
+              "map_dash",
+              "remove_whitespace"
            ],
            "tokenizer":"my_standard_tokenizer",
            "tokenFilters":[
@@ -128,12 +126,17 @@ Walking through this example:
            "name":"map_dash",
            "@odata.type":"#Microsoft.Azure.Search.MappingCharFilter",
            "mappings":["-=>_"]
+        },
+        {
+           "name":"remove_whitespace",
+           "@odata.type":"#Microsoft.Azure.Search.MappingCharFilter",
+           "mappings":["\\u0020=>"]
         }
      ],
      "tokenizers":[
         {
            "name":"my_standard_tokenizer",
-           "@odata.type":"#Microsoft.Azure.Search.StandardTokenizer",
+           "@odata.type":"#Microsoft.Azure.Search.StandardTokenizerV2",
            "maxTokenLength":20
         }
      ],
@@ -242,13 +245,13 @@ Fields containing strings in different languages can use a language analyzer, wh
 
 + Review our comprehensive explanation of [how full text search works in Azure Search](search-lucene-query-architecture.md). This article uses examples to explain behaviors that might seem counter-intuitive on the surface.
 
-+ Try additional query syntax from the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) example section or from [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in the portal.
++ Try additional query syntax from the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) example section or from [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in the portal.
 
 + Learn how to apply [language-specific lexical analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Configure custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) for either minimal processing or specialized processing on individual fields.
 
-+ [Compare standard and English analyzers](http://alice.unearth.ai/) in adjacent panes on this demo web site. 
++ [Compare standard and English analyzers](https://alice.unearth.ai/) in adjacent panes on this demo web site. 
 
 ## See also
 

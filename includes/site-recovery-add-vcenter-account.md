@@ -1,3 +1,10 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+---
 1. On your configuration server, launch CSPSConfigtool.exe. It is available as a shortcut on the desktop and located in the *install location*\home\svsystems\bin folder.
 2. Click **Manage Accounts** > **Add Account**.
 

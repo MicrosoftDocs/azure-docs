@@ -1,40 +1,39 @@
 ---
-title: 'Connect to Azure Database for MySQL using Java | Microsoft Docs'
+title: 'Connect to Azure Database for MySQL using Java'
 description: This quickstart provides a Java code sample you can use to connect and query data from a Azure Database for MySQL database.
-services: mysql
 author: jasonwhowell
 ms.author: jasonh
-manager: jhubbard
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 09/20/2017
+ms.date: 02/28/2018
 ---
 
 # Azure Database for MySQL: Use Java to connect and query data
-This quickstart demonstrates how to connect to an Azure Database for MySQL by using a Java application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with developing using Java and that you are new to working with Azure Database for MySQL.
+This quickstart demonstrates how to connect to an Azure Database for MySQL by using a Java application and the JDBC driver [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/). It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes that you are familiar with developing using Java and that you are new to working with Azure Database for MySQL.
+
+There are numerous other examples and sample code at the [MySQL Connector examples page](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
 
 ## Prerequisites
-This quickstart uses the resources created in either of these guides as a starting point:
-- [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
+1. This quickstart uses the resources created in either of these guides as a starting point:
+   - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
+   - [Create an Azure Database for MySQL server using Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
-You also need to:
-- Download the JDBC driver [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
-- Include the JDBC jar file (for example mysql-connector-java-5.1.42-bin.jar) into your application classpath. If you have trouble with this, please consult your environment's documentation for class path specifics, such as [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) or [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
-- Ensure your Azure Database for MySQL connection security is configured with the firewall opened and SSL settings adjusted for your application to connect successfully.
+2. Ensure your Azure Database for MySQL connection security is configured with the firewall opened and SSL settings adjusted for your application to connect successfully.
+
+3. Obtain the MySQL Connector/J connector using one of the following approaches:
+   - Use the Maven package [mysql-connector-java](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) to include the [mysql dependency](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) in the POM file for your project.
+   - Download the JDBC driver [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) and include the JDBC jar file (for example mysql-connector-java-5.1.42-bin.jar) into your application classpath. If you have trouble with classpaths, consult your environment's documentation for class path specifics, such as [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) or [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
 ## Get connection information
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. In the left pane, click **All resources**, and then search for the server you have created (for example, **myserver4demo**).
+2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
 3. Click the server name.
-4. Select the server's **Properties** page, and then make a note of the **Server name** and **Server admin login name**.
- ![Azure Database for MySQL server name](./media/connect-java/1_server-properties-name-login.png)
-5. If you forget your server login information, navigate to the **Overview** page to view the Server admin login name, and if necessary reset the password.
+4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
+ ![Azure Database for MySQL server name](./media/connect-java/1_server-overview-name-login.png)
 
 ## Connect, create table, and insert data
 Use the following code to connect and load the data using the function with an **INSERT** SQL statement. The [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) method is used to connect to MySQL. Methods [createStatement()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-statements.html) and execute() are used to drop and create the table. The prepareStatement object is used to build the insert commands, with setString() and setInt() to bind the parameter values. Method executeUpdate() runs the command for each set of parameters to insert the values. 
@@ -50,9 +49,9 @@ public class CreateTableInsertRows {
 	public static void main (String[] args)  throws Exception
 	{
 		// Initialize connection variables.	
-		String host = "myserver4demo.mysql.database.azure.com";
+		String host = "mydemoserver.mysql.database.azure.com";
 		String database = "quickstartdb";
-		String user = "myadmin@myserver4demo";
+		String user = "myadmin@mydemoserver";
 		String password = "<server_admin_password>";
 
 		// check that the driver is installed
@@ -152,9 +151,9 @@ public class ReadTable {
 	public static void main (String[] args)  throws Exception
 	{
 		// Initialize connection variables.
-		String host = "myserver4demo.mysql.database.azure.com";
+		String host = "mydemoserver.mysql.database.azure.com";
 		String database = "quickstartdb";
-		String user = "myadmin@myserver4demo";
+		String user = "myadmin@mydemoserver";
 		String password = "<server_admin_password>";
 
 		// check that the driver is installed
@@ -226,7 +225,7 @@ public class ReadTable {
 ```
 
 ## Update data
-Use the following code to change the data with an **UPDATE** SQL statement. The [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) method is used to connect to MySQL. The methods [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) and executeUpdate() are used to prepare and run the update statement. 
+Use the following code to change the data with an **UPDATE** SQL statement. The [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) method is used to connect to MySQL. The methods [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) and executeUpdate() are used to prepare and run the update statement. 
 
 Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
 
@@ -238,9 +237,9 @@ public class UpdateTable {
 	public static void main (String[] args)  throws Exception
 	{
 		// Initialize connection variables.	
-		String host = "myserver4demo.mysql.database.azure.com";
+		String host = "mydemoserver.mysql.database.azure.com";
 		String database = "quickstartdb";
-		String user = "myadmin@myserver4demo";
+		String user = "myadmin@mydemoserver";
 		String password = "<server_admin_password>";
 
 		// check that the driver is installed
@@ -307,7 +306,7 @@ public class UpdateTable {
 ```
 
 ## Delete data
-Use the following code to remove data with a **DELETE** SQL statement. The [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) method is used to connect to MySQL.  The methods [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) and executeUpdate() are used to prepare and run the update statement. 
+Use the following code to remove data with a **DELETE** SQL statement. The [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) method is used to connect to MySQL.  The methods [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) and executeUpdate() are used to prepare and run the update statement. 
 
 Replace the host, database, user, and password parameters with the values that you specified when you created your own server and database.
 
@@ -319,9 +318,9 @@ public class DeleteTable {
 	public static void main (String[] args)  throws Exception
 	{
 		// Initialize connection variables.
-		String host = "myserver4demo.mysql.database.azure.com";
+		String host = "mydemoserver.mysql.database.azure.com";
 		String database = "quickstartdb";
-		String user = "myadmin@myserver4demo";
+		String user = "myadmin@mydemoserver";
 		String password = "<server_admin_password>";
 		
 		// check that the driver is installed
@@ -388,5 +387,7 @@ public class DeleteTable {
 ```
 
 ## Next steps
+There are numerous other examples and sample code at the [MySQL Connector/J examples page](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
+
 > [!div class="nextstepaction"]
 > [Migrate your MySQL database to Azure Database for MySQL using dump and restore](concepts-migrate-dump-restore.md)

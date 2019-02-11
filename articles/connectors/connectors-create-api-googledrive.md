@@ -1,31 +1,28 @@
 ---
-title: Add the Google Drive connector in logic apps | Microsoft Docs
-description: Overview of the Google Drive connector with REST API parameters
-services: ''
-suite: ''
-documentationcenter: ''
-author: MandiOhlinger
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: b2bcebc5-02d2-435b-b0da-ef53bc51c4b6
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+# required metadata
+title: Connect to Google Drive - Azure Logic Apps | Microsoft Docs
+description: Create and manage files with Google Drive REST APIs and Azure Logic Apps
+author: ecfan
+manager: jeconnoc
+ms.author: estfan
 ms.date: 11/07/2016
-ms.author: mandia; ladocs
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
+
 # Get started with the Google Drive connector
 Connect to Google Drive to create files, get rows, and more. With Google Drive, you can: 
 
 * Build your business flow based on the data you get from your search. 
 * Use actions to search images, search the news, and more. These actions get a response, and then make the output available for other actions. For example, you can search for a video, and then use Twitter to post that video to a Twitter feed.
 
-You can get started by creating a logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+You can get started by creating a logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create the connection to Google Drive
 When you add this connector to your logic apps, you must authorize logic apps to connect to your Google Drive.

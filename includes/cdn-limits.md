@@ -1,7 +1,14 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: jroth
+---
 
 | Resource | Default limit | Maximum limit | 
 | --- | --- | --- |
-| CDN profiles |8 |25 |
+| CDN profiles |25 |25 |
 | CDN endpoints per profile |10 |25 |
 | Custom domains per endpoint |10 |25 |
 

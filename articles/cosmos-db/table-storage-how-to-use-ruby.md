@@ -1,71 +1,74 @@
 ---
-title: How to use Azure Table Storage from Ruby | Microsoft Docs
-description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
-services: cosmos-db
-documentationcenter: ruby
-author: mimig1
-manager: jhubbard
-editor: ''
-
-ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
+title: How to use Azure Table Storage and the Azure Cosmos DB Table API with Ruby
+description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 ms.service: cosmos-db
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.subservice: cosmosdb-table
 ms.devlang: ruby
-ms.topic: article
-ms.date: 12/08/2016
-ms.author: mimig
-
+ms.topic: sample
+ms.date: 04/05/2018
+author: wmengmsft
+ms.author: wmeng
+ms.reviewer: sngun
 ---
-# How to use Azure Table Storage from Ruby
+# How to use Azure Table Storage and the Azure Cosmos DB Table API with Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-langsoon-tip-include](../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## Overview
-This guide shows you how to perform common scenarios using the Azure Table service. The samples are written using the Ruby API. The scenarios covered include **creating and deleting a table, inserting and querying entities in a table**.
+This guide shows you how to perform common scenarios using Azure Table service and the Azure Cosmos DB Table API. The samples are written in Ruby and use the [Azure Storage Table Client Library for Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). The scenarios covered include **creating and deleting a table, and inserting and querying entities in a table**.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## Create an Azure service account
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+### Create an Azure storage account
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-## Create a Ruby application
-For instructions how to create a Ruby application, see [Ruby on Rails Web application on an Azure VM](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
+### Create an Azure Cosmos DB account
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## Configure your application to access Storage
-To use Azure Storage, you need to download and use the Ruby azure package which includes a set of convenience libraries that communicate with the Storage REST services.
+## Add access to Storage or Azure Cosmos DB
+To use Azure Storage or Azure Cosmos DB, you must download and use the Ruby Azure package that includes a set of convenience libraries that communicate with the Table REST services.
 
 ### Use RubyGems to obtain the package
 1. Use a command-line interface such as **PowerShell** (Windows), **Terminal** (Mac), or **Bash** (Unix).
-2. Type **gem install azure** in the command window to install the gem and dependencies.
+2. Type **gem install azure-storage-table** in the command window to install the gem and dependencies.
 
 ### Import the package
 Use your favorite text editor, add the following to the top of the Ruby file where you intend to use Storage:
 
 ```ruby
-require "azure"
+require "azure/storage/table"
 ```
 
-## Set up an Azure Storage connection
-The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS\_KEY** for information required to connect to your Azure Storage account. If these environment variables are not set, you must specify the account information before using **Azure::TableService** with the following code:
+## Add an Azure Storage connection
+The Azure Storage module reads the environment variables **AZURE_STORAGE_ACCOUNT** and **AZURE_STORAGE_ACCESS_KEY** for information required to connect to your Azure Storage account. If these environment variables are not set, you must specify the account information before using **Azure::Storage::Table::TableService** with the following code:
 
 ```ruby
-Azure.config.storage_account_name = "<your azure storage account>"
-Azure.config.storage_access_key = "<your azure storage access key>"
+Azure.config.storage_account_name = "<your Azure Storage account>"
+Azure.config.storage_access_key = "<your Azure Storage access key>"
 ```
 
 To obtain these values from a classic or Resource Manager storage account in the Azure portal:
 
 1. Log in to the [Azure portal](https://portal.azure.com).
-2. Navigate to the storage account you want to use.
+2. Navigate to the Storage account you want to use.
 3. In the Settings blade on the right, click **Access Keys**.
 4. In the Access keys blade that appears, you'll see the access key 1 and access key 2. You can use either of these.
 5. Click the copy icon to copy the key to the clipboard.
 
-## Create a table
-The **Azure::TableService** object lets you work with tables and entities. To create a table, use the **create\_table()** method. The following example creates a table or prints the error if there is any.
+## Add an Azure Cosmos DB connection
+To connect to Azure Cosmos DB, copy your primary connection string from the Azure portal, and create a **Client** object using your copied connection string. You can pass the **Client** object when you create a **TableService** object:
 
 ```ruby
-azure_table_service = Azure::TableService.new
+common_client = Azure::Storage::Common::Client.create(storage_account_name:'myaccount', storage_access_key:'mykey', storage_table_host:'mycosmosdb_endpoint')
+table_client = Azure::Storage::Table::TableService.new(client: common_client)
+```
+
+## Create a table
+The **Azure::Storage::Table::TableService** object lets you work with tables and entities. To create a table, use the **create_table()** method. The following example creates a table or prints the error if there is any.
+
+```ruby
+azure_table_service = Azure::Storage::Table::TableService.new
 begin
     azure_table_service.create_table("testtable")
 rescue
@@ -85,12 +88,12 @@ azure_table_service.insert_entity("testtable", entity)
 ## Update an entity
 There are multiple methods available to update an existing entity:
 
-* **update\_entity():** Update an existing entity by replacing it.
-* **merge\_entity():** Updates an existing entity by merging new property values into the existing entity.
-* **insert\_or\_merge\_entity():** Updates an existing entity by replacing it. If no entity exists, a new one will be inserted:
-* **insert\_or\_replace\_entity():** Updates an existing entity by merging new property values into the existing entity. If no entity exists, a new one will be inserted.
+* **update_entity():** Update an existing entity by replacing it.
+* **merge_entity():** Updates an existing entity by merging new property values into the existing entity.
+* **insert_or_merge_entity():** Updates an existing entity by replacing it. If no entity exists, a new one will be inserted:
+* **insert_or_replace_entity():** Updates an existing entity by merging new property values into the existing entity. If no entity exists, a new one will be inserted.
 
-The following example demonstrates updating an entity using **update\_entity()**:
+The following example demonstrates updating an entity using **update_entity()**:
 
 ```ruby
 entity = { "content" => "test entity with updated content",
@@ -98,10 +101,10 @@ entity = { "content" => "test entity with updated content",
 azure_table_service.update_entity("testtable", entity)
 ```
 
-With **update\_entity()** and **merge\_entity()**, if the entity that you are updating doesn't exist then the update operation will fail. Therefore if you wish to store an entity regardless of whether it already exists, you should instead use **insert\_or\_replace\_entity()** or **insert\_or\_merge\_entity()**.
+With **update_entity()** and **merge_entity()**, if the entity that you are updating doesn't exist then the update operation will fail. Therefore, if you want to store an entity regardless of whether it already exists, you should instead use **insert_or_replace_entity()** or **insert_or_merge_entity()**.
 
 ## Work with groups of entities
-Sometimes it makes sense to submit multiple operations together in a batch to ensure atomic processing by the server. To accomplish that, you first create a **Batch** object and then use the **execute\_batch()** method on **TableService**. The following example demonstrates submitting two entities with RowKey 2 and 3 in a batch. Notice that it only works for entities with the same PartitionKey.
+Sometimes it makes sense to submit multiple operations together in a batch to ensure atomic processing by the server. To accomplish that, you first create a **Batch** object and then use the **execute_batch()** method on **TableService**. The following example demonstrates submitting two entities with RowKey 2 and 3 in a batch. Notice that it only works for entities with the same PartitionKey.
 
 ```ruby
 azure_table_service = Azure::TableService.new
@@ -114,7 +117,7 @@ results = azure_table_service.execute_batch(batch)
 ```
 
 ## Query for an entity
-To query an entity in a table, use the **get\_entity()** method, by passing the table name, **PartitionKey** and **RowKey**.
+To query an entity in a table, use the **get_entity()** method, by passing the table name, **PartitionKey** and **RowKey**.
 
 ```ruby
 result = azure_table_service.get_entity("testtable", "test-partition-key",
@@ -122,7 +125,7 @@ result = azure_table_service.get_entity("testtable", "test-partition-key",
 ```
 
 ## Query a set of entities
-To query a set of entities in a table, create a query hash object and use the **query\_entities()** method. The following example demonstrates getting all the entities with the same **PartitionKey**:
+To query a set of entities in a table, create a query hash object and use the **query_entities()** method. The following example demonstrates getting all the entities with the same **PartitionKey**:
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'" }
@@ -130,12 +133,12 @@ result, token = azure_table_service.query_entities("testtable", query)
 ```
 
 > [!NOTE]
-> If the result set is too large for a single query to return, a continuation token will be returned which you can use to retrieve subsequent pages.
+> If the result set is too large for a single query to return, a continuation token is returned that you can use to retrieve subsequent pages.
 >
 >
 
 ## Query a subset of entity properties
-A query to a table can retrieve just a few properties from an entity. This technique, called "projection", reduces bandwidth and can improve query performance, especially for large entities. Use the select clause and pass the names of the properties you would like to bring over to the client.
+A query to a table can retrieve just a few properties from an entity. This technique, called "projection," reduces bandwidth and can improve query performance, especially for large entities. Use the select clause and pass the names of the properties you would like to bring over to the client.
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'",
@@ -144,14 +147,14 @@ result, token = azure_table_service.query_entities("testtable", query)
 ```
 
 ## Delete an entity
-To delete an entity, use the **delete\_entity()** method. You need to pass in the name of the table which contains the entity, the PartitionKey and RowKey of the entity.
+To delete an entity, use the **delete_entity()** method. Pass in the name of the table that contains the entity, the PartitionKey, and the RowKey of the entity.
 
 ```ruby
 azure_table_service.delete_entity("testtable", "test-partition-key", "1")
 ```
 
 ## Delete a table
-To delete a table, use the **delete\_table()** method and pass in the name of the table you want to delete.
+To delete a table, use the **delete_table()** method and pass in the name of the table you want to delete.
 
 ```ruby
 azure_table_service.delete_table("testtable")
@@ -160,5 +163,6 @@ azure_table_service.delete_table("testtable")
 ## Next steps
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
-* [Azure SDK for Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) repository on GitHub
+* [Ruby Developer Center](https://azure.microsoft.com/develop/ruby/)
+* [Microsoft Azure Storage Table Client Library for Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table) 
 
