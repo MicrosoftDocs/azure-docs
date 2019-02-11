@@ -9,9 +9,9 @@ ms.devlang:
 ms.topic: conceptual
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: carlrab
+ms.reviewer: 
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/11/2019
 ---
 # Quickstart: Import a BACPAC file to a new Azure SQL Database
 
@@ -31,7 +31,7 @@ To import a database in the Azure portal, open the page for the SQL Database ser
 
    ![Database import](./media/sql-database-import/import.png)
 
-Select the storage account, container, and BACPAC file you want to import. Specify the new database size (usually the same as origin) and provide the destination SQL Server credentials. 
+Select the storage account, container, and BACPAC file you want to import. Specify the new database size (usually the same as origin) and provide the destination SQL Server credentials. For a list of possible values for a new Azure SQL database, see [Create Database](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
 
 ### Monitor import's progress
 
