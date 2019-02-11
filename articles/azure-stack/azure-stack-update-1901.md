@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
-
+ms.lastreviewed: 02/09/2019
 ---
 
 # Azure Stack 1901 update
@@ -65,6 +65,36 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 This update includes the following new features and improvements for Azure Stack:
 
 - Managed images on Azure Stack enable you to create a managed image object on a generalized VM (both unmanaged and managed) that can only create managed disk VMs going forward. For more information, see [Azure Stack Managed Disks](user/azure-stack-managed-disk-considerations.md#managed-images).
+
+- **AzureRm 2.4.0**
+   * **AzureRm.Profile**  
+         Bug fix - `Import-AzureRmContext` to deserialize the saved token correctly.  
+   * **AzureRm.Resources**  
+         Bug fix - `Get-AzureRmResource` to query case insensitively by resource type.  
+   * **Azure.Storage**  
+         AzureRm rollup module now includes the already published version 4.5.0 supporting the **api-version 2017-07-29**.  
+   * **AzureRm.Storage**  
+         AzureRm rollup module now includes the already published version 5.0.4 supporting the **api-version 2017-10-01**.  
+   * **AzureRm.Compute**  
+         Added simple parameter sets in `New-AzureRMVM` and `NewAzureRMVMSS`, `-ImageName` parameter supports specifying user images.  
+   * **AzureRm.Insights**  
+         AzureRm rollup module now includes the already published version 5.1.5 supporting the **api-version 2018-01-01** for metrics, metric definitions resource types.
+
+- **AzureStack 1.7.0**
+   This a breaking change release. For details on the breaking changes, refer to https://aka.ms/azspshmigration170
+   * **Azs.Backup.Admin Module**  
+         Breaking change: Backup changes to cert-based encryption mode. Support for symmetric keys is deprecated.  
+   * **Azs.Fabric.Admin Module**  
+         `Get-AzsInfrastructureVolume` has been deprecated. Use the new cmdlet `Get-AzsVolume`.  
+         `Get-AzsStorageSystem` has been deprecated.  Use the new  new cmdlet `Get-AzsStorageSubSystem`.  
+         `Get-AzsStoragePool` has been deprecated. The `StorageSubSystem` object contains the capacity property.  
+   * **Azs.Compute.Admin Module**  
+         Bug fix - `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: Calling `ConvertTo-PlatformImageObject` only in the success path.  
+         BugFix - `Add-AzsVmExtension`, `Get-AzsVmExtension`: Calling ConvertTo-VmExtensionObject only in the success path.  
+   * **Azs.Storage.Admin Module**  
+         Bug fix - New Storage Quota uses defaults if none provided.
+
+To review the reference for the updated modules, see [Azure Stack Module Reference](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0).
 
 ## Fixed issues
 
@@ -118,6 +148,9 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 <!-- 3209594, IS ASDK -->
 - Removed the **Effective Security Rules** link from the **Networking Properties** blade as this feature is not supported in Azure Stack. Having the link present gave the impression that this feature was supported but not working. To alleviate confusion, we removed the link.
 
+<!-- 3139614 | IS -->
+- Fixed an issue in which after an update was applied to Azure Stack from an OEM, the **Update available** notification did not appear in the Azure Stack administrator portal.
+
 ## Changes
 
 <!-- 3083238 IS -->
@@ -167,6 +200,8 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 - There is a new consideration for accurately planning Azure Stack capacity. We have set limits on the total number of VMs that can be deployed within Azure Stack, to ensure all of our internal services fulfill the scale at which customers run. The limit is 60 VMs per host, with a maximum of 700 for the entire stamp (if the 60 per host limit is reached). For more information, see the [new release of the capacity planner](http://aka.ms/azstackcapacityplanner).
 
 - The Compute API version has increased to 2017-12-01.
+
+- Infrastructure backup now requires a certificate with a public key only (.CER) for encryption of backup data. Symmetric encryption key support is deprecated starting in 1901. If infrastructure backup is configured before updating to 1901, the encryption keys will remain in place. You will have at least 2 more updates with backwards compatibility support to update backup settings. For more information, see [Azure Stack infrastructure backup best practices](azure-stack-backup-best-practices.md).
 
 ## Common vulnerabilities and exposures
 
