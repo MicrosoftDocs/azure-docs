@@ -147,6 +147,8 @@
   - name: Export and delete data
     displayName: gdpr    
     href: how-to-export-delete-data.md
+  - name: Use a resource manager template
+    href: how-to-create-workspace-template.md
 - name: Reference
   items:    
   - name: Machine learning SDK
