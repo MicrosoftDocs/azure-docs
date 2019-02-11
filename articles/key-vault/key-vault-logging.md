@@ -312,7 +312,7 @@ You can use the Azure Key Vault solution in Log Analytics to review Azure Key Va
 
 ## <a id="next"></a>Next steps
 
-For a tutorial that uses Azure Key Vault in a .NET web application, see [Use Azure Key Vault from a Web Application](tutorial-net-create-vault-azure-web-app).
+For a tutorial that uses Azure Key Vault in a .NET web application, see [Use Azure Key Vault from a Web Application](tutorial-net-create-vault-azure-web-app.md).
 
 For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).
 

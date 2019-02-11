@@ -334,6 +334,6 @@ Other commands that you might find useful for managing Azure Key Vault:
 
 - For overview information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)
 - To see how your key vault is being used, see [Azure Key Vault Logging](key-vault-logging.md).
-- For a follow-up tutorial that uses Azure Key Vault in a web application, see [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md).
+- For a follow-up tutorial that uses Azure Key Vault in a .NET web application, see [Use Azure Key Vault with an Azure web app in .NET](tutorial-net-create-vault-azure-web-app.md).
 - For programming references, see [the Azure Key Vault developer's guide](key-vault-developers-guide.md).
 - For a list of the latest Azure PowerShell cmdlets for Azure Key Vault, see [Azure Key Vault Cmdlets](/powershell/module/azurerm.keyvault/#key_vault).
