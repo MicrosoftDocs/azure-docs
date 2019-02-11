@@ -78,7 +78,7 @@ Ubuntu	| 18.04
 ### DSC requirements
 
 For all Windows nodes running in Azure,
-[WMF 5.1]https://docs.microsoft.com/en-us/powershell/wmf/5.1/install-configure
+[WMF 5.1](https://docs.microsoft.com/en-us/powershell/wmf/5.1/install-configure)
 will be installed during onboarding.
 
 For all Linux nodes running in Azure,
