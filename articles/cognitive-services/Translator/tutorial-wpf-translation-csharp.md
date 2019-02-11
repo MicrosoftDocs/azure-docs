@@ -1,39 +1,38 @@
 ---
-title: "Tutorial: Create a WPF application in C# - Translator Text API"
+title: "Tutorial: Create a translation app with WPF, C#  - Translator Text API"
 titleSuffix: Azure Cognitive Services
-description: In this tutorial, you'll learn how to use the Translator Text API to translate text, get a localized list of supported languages, and more, by building a WPF application using C#.
+description: In this tutorial, you'll create a WPF application that uses Cognitive Service APIs for text translation, language detection, and spell checking with a single subscription key. Keep in mind that WPF applications are Windows only.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 02/13/2019
 ms.author: erhopf
 ---
 
-# Tutorial: Write a WPF application for Translator Text using C&#35;
+# Tutorial: Create a translation app with WPF
 
-In this tutorial, you'll build an interactive text translation tool using the Translator Text API (V3), a part of Microsoft Cognitive Services in Azure. You'll learn how to:
+In this tutorial, you'll build a WPF application that uses Azure Cognitive Services for text translation, language detection, and spell checking with a single subscription key. Specifically, your application will call APIs from Translator Text and [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/)).
+
+Here's what we'll cover in this tutorial:
 
 > [!div class="checklist"]
-> * Get a list of languages supported by the service
-> * Perform a translation of user-entered text from one language to another
-
-This application also features integration with two other Microsoft Cognitive Services.
-
-|||
-|-|-|
-|[Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/)|Used to optionally automatically detect the source language of the text to be translated|
-|[Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/)|For English source text, used to correct misspellings so translation is more accurate
-
-![[The tutorial program running]](media/translator-text-csharp-session.png)
+> * Prerequisites
+> * Set up a WPF project in Visual Studio
+> * Add assemblies and NuGet packages to your project
+> * Use the Translator Text API to translate text and detect the source language
+> * Use the Bing Spell Check API to validate your input and improve translation accuracy
+> * Configure your application front-end with XAML
 
 ## Prerequisites
 
-You'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
+Before we continue, you'll need the following:
 
-You also need subscription keys for the three Azure services used in the program. You can get a key for the Translator Text service from the Azure dashboard. A free pricing tier is available that allows you to translate up to two million characters per month at no charge.
+* An Azure Cognitive Services subscription key. [Get one for free]().
+* A Windows machine
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/) - Community or Enterprise
 
 Both the Text Analytics and Bing Spell Check services offer free trials, which you can sign up for on [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). You may also create a subscription for either service via the Azure dashboard. Text Analytics has a free tier.
 
