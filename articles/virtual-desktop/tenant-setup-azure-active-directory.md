@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Tutorial: Create a tenant in Windows Virtual Desktop (Preview)
 
-Creating a tenant in Windows Virtual Desktop is the first step towards building out your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool is made up of multiple identical session hosts, virtual machines running Windows 10 Enterprise multi-session with an installed and registered Windows Virtual Desktop host agent. With a tenant, you can build out host pools, assign users, and make connections through the service.
+Creating a tenant in Windows Virtual Desktop is the first step towards building out your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool is made up of multiple identical session hosts, running as virtual machines in Azure  and registered to Windows Virtual Desktop. With a tenant, you can build out host pools, assign users, and make connections through the service.
 
 In this tutorial, learn how to:
 
@@ -56,7 +56,7 @@ Assigning an Azure Active Directory user the TenantCreator application role allo
 
 Now that the Windows Virtual Desktop service has permissions to query the Azure Active Directory and the Global Administrator account has been assigned the TenantCreator application role, you can create a Windows Virtual Desktop tenant.
 
-Download the Windows Virtual Desktop module and import the module to use in your session.
+Download the Windows Virtual Desktop module and import the module to use in your PowerShell session.
 
 Sign in to Windows Virtual Desktop with the Global Administrator account
 ```powershell
