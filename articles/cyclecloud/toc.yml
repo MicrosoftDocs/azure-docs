@@ -80,6 +80,8 @@
     href: installation.md
   - name: Prepare Your Azure Subscription for CycleCloud
     href: configuration.md
+  - name: Use Managed Identities with CycleCloud
+    href: managed-identities.md
   - name: Install Azure CycleCloud CLI
     href: install-cyclecloud-cli.md
   - name: Run CycleCloud in an Azure Container Instance
