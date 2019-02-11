@@ -25,7 +25,7 @@ In this article, you learn more about managed identities in Azure Container Inst
 Adapt the examples to enable and use identities in Azure Container Instances to access other Azure services. These examples are interactive. However, in practice your container images would run code to access Azure services.
 
 > [!NOTE]
-> Currently you cannot use a [managed identity](container-instances-managed-identity.md) in a container group deployed to a virtual network.
+> Currently you cannot use a managed identity in a container group deployed to a virtual network.
 
 ## Why use a managed identity?
 
