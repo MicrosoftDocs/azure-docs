@@ -186,6 +186,9 @@ In this section, we provide you with the JSON definitions that you can use to cr
 For more information, see [Move data from Azure Storage blob to Azure Data Lake Storage Gen1 using Azure Data Factory](../data-factory/connector-azure-data-lake-store.md).
 
 ## Reconstruct the data files in Azure Data Lake Storage Gen1
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 We started with a file that was 319 GB, and broke it down into files of smaller size so that it could be transferred by using the Azure Import/Export service. Now that the data is in Azure Data Lake Storage Gen1, we can reconstruct the file to its original size. You can use the following Azure PowerShell cmdlets to do so.
 
 ```

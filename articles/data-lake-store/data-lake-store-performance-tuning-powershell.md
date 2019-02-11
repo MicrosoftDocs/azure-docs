@@ -18,6 +18,8 @@ ms.author: stewu
 
 This article lists the properties that can be tuned to get a better performance while using PowerShell to work with Azure Data Lake Storage Gen1:
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Performance-related properties
 
 | Property            | Default | Description |

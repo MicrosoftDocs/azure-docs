@@ -35,6 +35,8 @@ To configure HDInsight to work with Data Lake Storage Gen1 by using PowerShell, 
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Before you begin this tutorial, make sure that you meet the following requirements:
 
 * **An Azure subscription**: Go to [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
