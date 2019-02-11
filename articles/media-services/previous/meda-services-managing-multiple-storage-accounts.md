@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Managing Media Services assets across multiple storage accounts
+# Managing Media Services assets across multiple storage accounts  
 
 You can attach multiple storage accounts to a single Media Services account. Ability to attach multiple storage accounts to a Media Services account provides the following benefits:
 
