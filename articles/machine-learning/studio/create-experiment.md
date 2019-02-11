@@ -1,5 +1,5 @@
 ---
-title: Create a data science experiment
+title: 'Quickstart: Create a data science experiment'
 titleSuffix: Azure Machine Learning Studio
 description: This machine learning quickstart walks you through an easy data science experiment. We'll predict the price of a car using a regression algorithm.
 services: machine-learning
