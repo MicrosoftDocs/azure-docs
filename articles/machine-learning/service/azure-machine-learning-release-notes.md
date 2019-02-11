@@ -23,6 +23,16 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 ### Azure Machine Learning SDK for Python v1.0.15
 
+### Azure Machine Learning Data Prep SDK v1.0.12
+
++ **New features**
+  + Data Prep now supports reading from an Azure SQL database using Datastore.
+ 
++ **Changes**
+  + Significantly improved the memory performance of certain operations on large data.
+  + `read_pandas_dataframe()` now requires `temp_folder` to be specified.
+  + The `name` property on `ColumnProfile` has been deprecated - use `column_name` instead.
+
 ## 2019-01-28
 
 ### Azure Machine Learning SDK for Python v1.0.10
