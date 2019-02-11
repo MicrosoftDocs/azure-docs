@@ -2,19 +2,11 @@
 title: Create and Manage Azure S2S VPN connections using PowerShell | Microsoft Docs
 description: Tutorial - Create and Manage S2S VPN connections with the Azure PowerShell module
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
-ms.date: 05/08/2018
+ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
 #Customer intent: I want to create an S2S VPN connection so that I can connect my VNet and on-premises network.
@@ -45,7 +37,7 @@ Complete the first tutorial: "[Create VPN gateway with Azure PowerShell](vpn-gat
 1. Resource group (TestRG1), virtual network (VNet1), and GatewaySubnet
 2. VPN gateway (VNet1GW)
 
-The virtual network parameter values are listed below. Note the additional values for the local network gateway to represent your on-premises network. Change the values based on your environment and network setup.
+The virtual network parameter values are listed below. Note the additional values for the local network gateway to represent your on-premises network. Change the values below based on your environment and network setup, then copy and paste to set the variables for this tutorial. If your Cloud Shell session times out, or you need to use a different PowerShell window, copy and paste the variables to your new session and continue the tutorial.
 
 ```azurepowershell-interactive
 # Virtual network

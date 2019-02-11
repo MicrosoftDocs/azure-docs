@@ -2,19 +2,11 @@
 title: Create and Manage Azure VPN gateway using PowerShell | Microsoft Docs
 description: Tutorial - Create and Manage VPN gateway with the Azure PowerShell module
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
-ms.date: 05/14/2018
+ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
 #Customer intent: I want to create a VPN gateway for my virtual network so that I can connect to my VNet and communicate with resources remotely.
@@ -41,7 +33,7 @@ The following diagram shows the virtual network and the VPN gateway created as p
 
 ## Common network parameter values
 
-Change the values below based on your environment and network setup.
+Change the values below based on your environment and network setup, then copy and paste to set the variables for this tutorial. If your Cloud Shell session times out, or you need to use a different PowerShell window, copy and paste the variables to your new session and continue the tutorial.
 
 ```azurepowershell-interactive
 $RG1         = "TestRG1"
