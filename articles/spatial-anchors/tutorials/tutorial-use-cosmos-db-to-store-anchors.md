@@ -57,19 +57,7 @@ Locate the `StorageConnectionString` property, and set the value to be the `Conn
 
 ## Next steps
 
-In this tutorial, you've used Azure Cosmos DB to share anchor identifiers across devices. To learn more about the Azure Spatial Anchors library, continue to our concept guide on how to create and locate anchors.
+In this tutorial, you've used Azure Cosmos DB to share anchor identifiers across devices. To learn more about the Azure Spatial Anchors library, continue to our guide on how to create and locate anchors.
 
 > [!div class="nextstepaction"]
-> [Concept: Create and locate anchors using Azure Spatial Anchors in Unity](../concepts/create-locate-anchors-unity.md)
-
-> [!div class="nextstepaction"]
-> [Concept: Create and locate anchors using Azure Spatial Anchors in Objective-C](../concepts/create-locate-anchors-objc.md)
-
-> [!div class="nextstepaction"]
-> [Concept: Create and locate anchors using Azure Spatial Anchors in Swift](../concepts/create-locate-anchors-swift.md)
-
-> [!div class="nextstepaction"]
-> [Concept: Create and locate anchors using Azure Spatial Anchors in Java](../concepts/create-locate-anchors-java.md)
-
-> [!div class="nextstepaction"]
-> [Concept: Create and locate anchors using Azure Spatial Anchors in C++](../concepts/create-locate-anchors-cpp.md)
+> [Create and locate anchors using Azure Spatial Anchors](../create-locate-anchors-overview.md)

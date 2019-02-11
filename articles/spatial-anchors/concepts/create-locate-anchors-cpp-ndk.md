@@ -1,18 +1,18 @@
 ---
-title: Concept - Create and locate anchors using Azure Spatial Anchors in C++ | Microsoft Docs
-description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in C++.
+title: Create and locate anchors using Azure Spatial Anchors in C++/NDK | Microsoft Docs
+description: In-depth explanation of how to create and locate anchors using Azure Spatial Anchors in C++/NDK.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
 
 ms.author: ramonarguelles
-ms.date: 1/31/2019
-ms.topic: concept
+ms.date: 01/31/2019
+ms.topic: conceptual
 ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want and in-depth explanation of how to create and locate anchors using Azure Spatial Anchors in C++.
+#Customer intent: As a Mixed Reality developer, I want and in-depth explanation of how to create and locate anchors using Azure Spatial Anchors in C++/NDK.
 ---
-# Concept: Create and locate anchors using Azure Spatial Anchors in C++
+# Create and locate anchors using Azure Spatial Anchors in C++/NDK
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
@@ -101,10 +101,11 @@ ms.service: azure-spatial-anchors
 ```cpp
     auto sessionUpdatedToken = cloudSession_->SessionUpdated([this](auto&&, auto&& args) {
         auto status = args->Status();
+        if (status->UserFeedback() == SessionUserFeedback::None) return;
         std::ostringstream str;
         str << std::fixed << std::setw(2) << std::setprecision(0)
-            << "Feedback: " << FeedbackToString(status.UserFeedback()) << " -"
-            << " Recommend Create=" << (status->RecommendedForCreateProgress() * 100) << "%";
+            << R"(Feedback: )" << FeedbackToString(status.UserFeedback()) << R"( -)"
+            << R"( Recommend Create=)" << (status->RecommendedForCreateProgress() * 100) << R"(%)";
         feedback_ = str.str();
     });
 ```
@@ -154,7 +155,7 @@ ms.service: azure-spatial-anchors
             feedback_ = str.str();
             return;
         }
-        str << "Created a cloud anchor with ID=" << cloudAnchor->Identifier();
+        str << R"(Created a cloud anchor with ID=)" << cloudAnchor->Identifier();
         feedback_ = str.str();
     });
 ```
@@ -192,7 +193,7 @@ ms.service: azure-spatial-anchors
 ```cpp
     std::shared_ptr<SpatialServices::CloudSpatialAnchor> anchor = /* locate your anchor */;
     auto properties = anchor->AppProperties();
-    properties->Lookup(R"(last-user-access)") = R"(just now)";
+    properties->Insert(R"(last-user-access)", R"(just now)");
     cloudSession_->UpdateAnchorPropertiesAsync(anchor, [this](Status status) {
         if (status != Status::OK) {
             std::ostringstream str;
@@ -242,7 +243,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
 
 ```cpp
-    auto anchorLocatedToken = cloudSession_->AnchorLocated([this](auto &&, auto &&args) {
+    auto anchorLocatedToken = cloudSession_->AnchorLocated([this](auto&&, auto&& args) {
         switch (args->Status()) {
             case LocateAnchorStatus::Located: {
                 std::shared_ptr<SpatialServices::CloudSpatialAnchor> foundAnchor = args->Anchor();
