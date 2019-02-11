@@ -19,7 +19,7 @@ ms.reviewer: bagovind
 
 # Azure classic subscription administrators
 
-Microsoft recommends that you manage access to resources using role-based access control (RBAC). However, if you are are still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
+Microsoft recommends that you manage access to resources using role-based access control (RBAC). However, if you are still using the classic deployment model, you'll need to use a classic subscription administrator role: Service Administrator and Co-Administrator. For more information, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
 
 This article describes how to add or change the Co-Administrator and Service Administrator roles, and how to view the Account Administrator.
 
@@ -50,7 +50,7 @@ This article describes how to add or change the Co-Administrator and Service Adm
 
 ### Adding a guest user as a Co-Administrator
 
-Guest users that have been assigned the Co-Administrator role might see some differences as compared to member users with the Co-Administrator role. Consider the following scenario:
+[Guest users](../active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) that have been assigned the Co-Administrator role might see some differences as compared to member users with the Co-Administrator role. Consider the following scenario:
 
 - User A with an Azure AD Work or School account is a Service Administrator for an Azure subscription.
 - User B has a Microsoft account.
