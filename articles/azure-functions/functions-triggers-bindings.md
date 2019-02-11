@@ -698,4 +698,3 @@ For more information on a specific binding, see the following articles:
 - [Twilio](functions-bindings-twilio.md)
 - [Notification Hubs](functions-bindings-notification-hubs.md)
 - [Mobile Apps](functions-bindings-mobile-apps.md)
-- [External file](functions-bindings-external-file.md)

@@ -3,8 +3,8 @@ title: How to choose which application type to use when adding an application | 
 description: Understand the supported types of applications you can integrate with Azure AD and their related configuration options
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: barbkess
+ms.author: celested
 
 ---
 
@@ -92,7 +92,7 @@ Following are the supported **single sign-on** modes for Azure AD applications.
 
 ## Single sign-on modes for custom-developed applications
 
-Applications you have custom developed through the [Custom-developed application](#_Custom-Developed_Applications) experience also support additional single sign-on modes not previously listed, which include:
+Applications you have custom developed through the Custom-developed application experience also support additional single sign-on modes not previously listed, which include:
 
 -   [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) based sign-on
 

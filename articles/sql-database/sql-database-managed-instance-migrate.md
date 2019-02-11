@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/08/2019
 ---
 # SQL Server instance migration to Azure SQL Database managed instance
 
@@ -41,7 +41,7 @@ If there are some reported blocking issues that are not removed with the managed
 - If you require direct access to the operating system or file system, for instance to install third party or custom agents on the same virtual machine with SQL Server.
 - If you have strict dependency on features that are still not supported, such as FileStream / FileTable, PolyBase, and cross-instance transactions.
 - If absolutely you need to stay at a specific version of SQL Server (2012, for instance).
-- If your compute requirements are much lower that managed instance offers in public preview (one vCore, for instance) and database consolidation is not acceptable option.
+- If your compute requirements are much lower that managed instance offers (one vCore, for instance) and database consolidation is not acceptable option.
 
 ## Deploy to an optimally-sized managed instance
 

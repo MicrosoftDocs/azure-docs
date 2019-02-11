@@ -32,7 +32,7 @@ Learn how to create a Java-based user-defined function (UDF) that works with Apa
 * A text editor or Java IDE
 
     > [!IMPORTANT]
-    > If you create the Python files on a Windows client, you must use an editor that uses LF as a line ending. If you are not sure whether your editor uses LF or CRLF, see the [Troubleshooting](#troubleshooting) section for steps on removing the CR character.
+    > If you create the Python files on a Windows client, you must use an editor that uses LF as a line ending. If you are not sure whether your editor uses LF or CRLF, see the Troubleshooting section for steps on removing the CR character.
 
 ## Create an example Java UDF 
 
