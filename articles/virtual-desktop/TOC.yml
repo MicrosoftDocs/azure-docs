@@ -12,10 +12,10 @@
     href: create-host-pools-azure-marketplace.md
   - name: 3. Manage app groups
     href: manage-app-groups.md
-  - name: 4. Manage user storage
-    href: manage-user-storage.md
-  - name: 5. Create service principals and role assignments with PowerShell
+  - name: 4. Create service principals and role assignments with PowerShell
     href: create-service-principal-role-powershell.md
+  - name: 5. Connect to Windows Virtual Desktop
+    href: connect.md
 - name: How-to
   items:
   - name: Connect to a Remote Desktop environment
