@@ -4,7 +4,7 @@ description: Migrate data from an on-premises Hadoop cluster to Azure Data Lake 
 services: storage
 author: normesta
 ms.service: storage
-ms.date: 02/08/2019
+ms.date: 02/11/2019
 ms.author: normesta
 ms.component: data-lake-storage-gen2
 ---
@@ -53,10 +53,93 @@ You can copy data to your Data Box via NFS or REST.
 
 ### Copy data via NFS
 
+Before you begin, make sure that your Linux client is running a [Supported NFS version](). 
+
+1. Create the directory where you will mount the Data Box NFS share.
+
+    `mkdir /mnt/databox`
+
+2. Mount the Data Box NFS share to the directory you created.
+
+    `sudo mount -t nfs server_name:/nfsshare /mnt/databox`
+
+3. You may need to give full access permission to the current user. Type:
+
+    `chmod 777 /mnt/databox`
+
+4. Create a folder in the mounted share of the Data Box. You will copy data to this folder.
+
+    `mkdir /mnt/databox/hdfsdata`
+
+5. Use the [Distcp](https://mapr.com/docs/52/ReferenceGuide/hadoop-distcp.html) command to copy from Hadoop HDFS to the Data Box NFS share. 
+
+    `hadoop distcp -strategy dynamic -m 4 -update /source_hdfs_dir file:///mnt/databox/hdfsdata`
+
+    - `m` or `map` is the maximum number of simultaneous copies. More maps do not necessarily improve throughput. Plan this number carefully to not affect the production cluster. Start with half the number of cluster nodes. For example, if the cluster has 8 nodes, use `m` as 4.
+    - `strategy dynamic` allows faster data-nodes to copy more bytes than slower nodes. 
+
+6. Wait for the copy jobs to finish. After the data copy is complete, proceed to [Ship the Data Box to Microsoft](#ship-data-box-to-microsoft).
+
+
 ### Copy data via REST
 
+1. Before you copy the data via REST, you need to connect to the REST. Follow the instructions in 
 
-2. Add the Domain Name Server (DNS) name to the host configuration file (*/etc/hosts*) of each node in your cluster.
+    - [Connect to REST over http]().
+    - [Connect to REST over https]().
+    
+2. You also need to configure and enable Data Box storage in the Hadoop configuration. First, verify the Hadoop version. 
+
+    ```    
+    # hadoop version
+    ```
+        
+3. Verify that the following files are in your Hadoop installation:
+    
+    ```
+    # ls -l $hadoop_install_dir/share/hadoop/tools/lib/ | grep azure
+    -rw-r--r-- 1 user group   662947 Aug 17  2016 azure-storage-2.0.0.jar
+    -rw-r--r-- 1 user group   157546 Aug 17  2016 hadoop-azure-2.7.3.jar
+    ```
+
+4. Modify the file `hadoop-env.sh` and add those two files to Hadoop classpath at the end of the file
+
+    ```
+    # vi $hadoop_install_dir/etc/hadoop/hadoop-env.sh
+    export HADOOP_CLASSPATH=$HADOOP_HOME/share/hadoop/tools/lib/hadoop-azure-2.7.3.jar:$HADOOP_HOME/share/hadoop/tools/lib/azure-storage-2.0.0.jar       
+    ```
+5. Modify the file `core-site.xml` and add the following name-value pairs to point to the Data Box Object Storage (REST):
+
+    ```
+    # vi $hadoop_install_dir/etc/Hadoop/core-site.xml
+
+    <property>
+    <name>fs.AbstractFileSystem.wasb.Impl</name>
+    <value>org.apache.hadoop.fs.azure.Wasb</value>
+    </property>
+
+    <property>
+    <name>fs.azure.account.key.[Data_Box_Blob_Service_Endpoint]</name> 
+    <value>my_blob_account_key</value>
+    </property>
+    ```
+    You get the Data Box blob service endpoint from the **Connect and copy** page of the local web UI when you connect via REST. An example string for blob service endpoint (exclude `https://`) is: `mydataboxstorageaccount.blob.HCS-V6V3FS8OM9K.microsoftdatabox.com`.
+
+6. Create a folder that maps to a blob container in the destination storage account. Follow the instructions in [Create a container](/azure/databox/data-box-deploy-copy-data-via-rest.md#create-a-container).
+
+7. Copy data from the Hadoop HDFS to Data Box object storage location.
+
+    ```
+    # hadoop distcp -strategy dynamic -m 4 -update /[source_directory] wasb://[container_name]@[data_box_endpoint]/[destination_folder]
+    ```
+    The following example shows the command to copy data to Data Box object storage.
+    
+    ```
+    # hadoop distcp -strategy dynamic -m 4 -update /data/testfiles wasb://hdfscontainer@utsac1.blob.HCS-V6V3FS8OM9K.microsoftdatabox.com/testfiles
+    ```
+    
+    
+Add the Domain Name Server (DNS) name to the host configuration file (*/etc/hosts*) of each node in your cluster.
 
 3. Identify files and directories that you don't want to copy to the Data Box device (For example: files that contain information about system state).
 
@@ -77,15 +160,13 @@ You can copy data to your Data Box via NFS or REST.
 
    This job copies data and metadata from your on-premises Hadoop Distributed File System (HDFS) store to the Data Box device.
 
-## Ship the Data Box device to Microsoft
+## Ship the Data Box to Microsoft
 
 Follow these steps to prepare and ship the Data Box device to Microsoft.
 
 1. After the data copy is complete, run [Prepare to ship](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#prepare-to-ship) on your Data Box. After the device preparation is complete, download the BOM files. You will use these BOM or manifest files later to verify the data uploaded to Azure. Shut down the device and remove the cables. 
 2.	Schedule a pickup with UPS to [Ship your Data Box back to Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up). 
 3.	After Microsoft receives your device, it is connected to the network datacenter and data is uploaded to the storage account you specified (with hierarchical namespaces disabled) when you ordered the Data Box. Verify against the BOM files that all your data is uploaded to Azure. You can now move this data to a Data Lake Storage Gen2 storage account.
-
-
 
 ## Move the data onto your Data Lake Storage Gen2 storage account
 
