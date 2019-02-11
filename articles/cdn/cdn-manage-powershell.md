@@ -21,6 +21,9 @@ ms.author: magattus
 PowerShell provides one of the most flexible methods to manage your Azure CDN profiles and endpoints.  You can use PowerShell interactively or by writing scripts to automate management tasks.  This tutorial demonstrates several of the most common tasks you can accomplish with PowerShell to manage your Azure CDN profiles and endpoints.
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To use PowerShell to manage your Azure CDN profiles and endpoints, you must have the Azure PowerShell module installed.  To learn how to install Azure PowerShell and connect to Azure using the `Connect-AzAccount` cmdlet, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 > [!IMPORTANT]
@@ -32,30 +35,30 @@ To use PowerShell to manage your Azure CDN profiles and endpoints, you must have
 You can list all the Azure CDN cmdlets using the `Get-Command` cmdlet.
 
 ```text
-PS C:\> Get-Command -Module AzureRM.Cdn
+PS C:\> Get-Command -Module Az.Cdn
 
 CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Cmdlet          Get-AzCdnCustomDomain                         2.0.0      AzureRm.Cdn
-Cmdlet          Get-AzCdnEndpoint                             2.0.0      AzureRm.Cdn
-Cmdlet          Get-AzCdnEndpointNameAvailability             2.0.0      AzureRm.Cdn
-Cmdlet          Get-AzCdnOrigin                               2.0.0      AzureRm.Cdn
-Cmdlet          Get-AzCdnProfile                              2.0.0      AzureRm.Cdn
-Cmdlet          Get-AzCdnProfileSsoUrl                        2.0.0      AzureRm.Cdn
-Cmdlet          New-AzCdnCustomDomain                         2.0.0      AzureRm.Cdn
-Cmdlet          New-AzCdnEndpoint                             2.0.0      AzureRm.Cdn
-Cmdlet          New-AzCdnProfile                              2.0.0      AzureRm.Cdn
-Cmdlet          Publish-AzCdnEndpointContent                  2.0.0      AzureRm.Cdn
-Cmdlet          Remove-AzCdnCustomDomain                      2.0.0      AzureRm.Cdn
-Cmdlet          Remove-AzCdnEndpoint                          2.0.0      AzureRm.Cdn
-Cmdlet          Remove-AzCdnProfile                           2.0.0      AzureRm.Cdn
-Cmdlet          Set-AzCdnEndpoint                             2.0.0      AzureRm.Cdn
-Cmdlet          Set-AzCdnOrigin                               2.0.0      AzureRm.Cdn
-Cmdlet          Set-AzCdnProfile                              2.0.0      AzureRm.Cdn
-Cmdlet          Start-AzCdnEndpoint                           2.0.0      AzureRm.Cdn
-Cmdlet          Stop-AzCdnEndpoint                            2.0.0      AzureRm.Cdn
-Cmdlet          Test-AzCdnCustomDomain                        2.0.0      AzureRm.Cdn
-Cmdlet          Unpublish-AzCdnEndpointContent                2.0.0      AzureRm.Cdn
+Cmdlet          Get-AzCdnCustomDomain                         2.0.0      Az.Cdn
+Cmdlet          Get-AzCdnEndpoint                             2.0.0      Az.Cdn
+Cmdlet          Get-AzCdnEndpointNameAvailability             2.0.0      Az.Cdn
+Cmdlet          Get-AzCdnOrigin                               2.0.0      Az.Cdn
+Cmdlet          Get-AzCdnProfile                              2.0.0      Az.Cdn
+Cmdlet          Get-AzCdnProfileSsoUrl                        2.0.0      Az.Cdn
+Cmdlet          New-AzCdnCustomDomain                         2.0.0      Az.Cdn
+Cmdlet          New-AzCdnEndpoint                             2.0.0      Az.Cdn
+Cmdlet          New-AzCdnProfile                              2.0.0      Az.Cdn
+Cmdlet          Publish-AzCdnEndpointContent                  2.0.0      Az.Cdn
+Cmdlet          Remove-AzCdnCustomDomain                      2.0.0      Az.Cdn
+Cmdlet          Remove-AzCdnEndpoint                          2.0.0      Az.Cdn
+Cmdlet          Remove-AzCdnProfile                           2.0.0      Az.Cdn
+Cmdlet          Set-AzCdnEndpoint                             2.0.0      Az.Cdn
+Cmdlet          Set-AzCdnOrigin                               2.0.0      Az.Cdn
+Cmdlet          Set-AzCdnProfile                              2.0.0      Az.Cdn
+Cmdlet          Start-AzCdnEndpoint                           2.0.0      Az.Cdn
+Cmdlet          Stop-AzCdnEndpoint                            2.0.0      Az.Cdn
+Cmdlet          Test-AzCdnCustomDomain                        2.0.0      Az.Cdn
+Cmdlet          Unpublish-AzCdnEndpointContent                2.0.0      Az.Cdn
 ```
 
 ## Getting help

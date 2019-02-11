@@ -138,6 +138,8 @@ For more information about log data delays, see [Log data delays](#log-data-dela
 
 The following example shows how to enable diagnostic logs via the Azure PowerShell Cmdlets.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ### Enabling diagnostic logs in a storage account
 
 1. Log in and select a subscription:

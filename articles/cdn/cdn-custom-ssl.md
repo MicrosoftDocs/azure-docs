@@ -43,6 +43,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
+
 Before you can complete the steps in this tutorial, you must first create a CDN profile and at least one CDN endpoint. For more information, see [Quickstart: Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
 
 In addition, you must associate an Azure CDN custom domain on your CDN endpoint. For more information, see [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
@@ -100,7 +102,7 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 
 Register Azure CDN as an app in your Azure Active Directory via PowerShell.
 
-1. If needed, install [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) in PowerShell on your local machine.
+1. If needed, install [Azure PowerShell](/powershell/azure/install-az-ps) on your local machine.
 
 2. In PowerShell, run the following command:
 
