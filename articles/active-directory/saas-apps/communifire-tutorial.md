@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 02/11/2019
 ms.author: jeedes
 
 ---
@@ -130,7 +130,7 @@ To configure Azure AD single sign-on with Communifire, perform the following ste
 	
 	b. Click **Save**
 
-	![Communifire Signing option](./media/communifire-tutorial/tutorial_communifire_signingoption.png)
+	![Communifire Signing option](./media/communifire-tutorial/tutorial_communifire_signing-option.png)
  
 8. On the **Set up Communifire** section, copy the appropriate URL(s) as per your requirement.
 
