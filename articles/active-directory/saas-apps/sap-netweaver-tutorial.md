@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 02/11/2019
 ms.author: jeedes
 
 ---
@@ -174,7 +174,7 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
     `https://<your company instance of SAP NetWeaver>`
 
 	> [!NOTE]
-	> In case of any error while configuring **Reply URL**, please use the following Powershell script:
+	> We have seen few customers reporting an error of incorrect Reply URL configured for their instance. If you receive any such error, you can use following PowerShell script as a work around to set the correct Reply URL for your instance.:
 	```
 	Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls "<Your Correct Reply URL(s)>"
 	```
@@ -378,4 +378,3 @@ In this section, you create a user called Britta Simon in SAP NetWeaver. Please 
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
