@@ -136,7 +136,7 @@ If you choose to stop protecting a virtual machine, you are asked if you want to
 
 There is a cost associated with leaving the recovery points in storage. However, the benefit of leaving the recovery points is you can restore the virtual machine later, if desired. For information about the cost of leaving the recovery points, see the  [pricing details](https://azure.microsoft.com/pricing/details/backup/). If you choose to delete all recovery points, you cannot restore the virtual machine.
 
-Whenever you Stop Backup with retain data, recovery points will expire as per the retention policy but Azure Backup will always keep one last recovery point till you explicitly delete backup data. Similarly if you delete a data source without performing Stop Backup, new backups will start failing and old recovery points will expire as per retention policy but one last recovery point will always be retained till you perform Stop Backup with delete data.
+The recovery point will be preserved forever until the Backup Item is reprotected with a retention policy or StopProtection with Delete data. In case of reprotection the new policy which is getting associated will determine the retention of Recovery Points. Similarly if you delete a data source without performing Stop Backup, new backups will start failing and old recovery points will expire as per retention policy but one last recovery point will always be retained till you perform Stop Backup with delete data.
 
 To stop protection for a virtual machine:
 
