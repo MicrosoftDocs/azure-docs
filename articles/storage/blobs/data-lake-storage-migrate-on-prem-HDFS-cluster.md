@@ -138,28 +138,6 @@ Before you begin, make sure that your Linux client is running a [Supported NFS v
     # hadoop distcp -strategy dynamic -m 4 -update /data/testfiles wasb://hdfscontainer@utsac1.blob.HCS-V6V3FS8OM9K.microsoftdatabox.com/testfiles
     ```
     
-    
-Add the Domain Name Server (DNS) name to the host configuration file (*/etc/hosts*) of each node in your cluster.
-
-3. Identify files and directories that you don't want to copy to the Data Box device (For example: files that contain information about system state).
-
-   To do this, open a text editor such as Notepad, and then add a regular expression for each path that you want to exclude. Here's an example:
-
-   ```
-   .*ranger/audit.*
-   .*/hbase/data/WALs.*
-   ```
-
-4. Save this information to a file that has the extension `.lst` (For example: `exclusions.lst`).
-
-5. On your on-premises Hadoop cluster, run this DistCp job. `distcp` job.
-
-   ```bash
-   sudo -u hdfs hadoop distcp -Dfs.azure.account.key.{databox_dns}={databox_key} -filter ./exclusions.lst /[source directory] wasb://{container}@{databox_dns}/[path]
-   ```
-
-   This job copies data and metadata from your on-premises Hadoop Distributed File System (HDFS) store to the Data Box device.
-
 ## Ship the Data Box to Microsoft
 
 Follow these steps to prepare and ship the Data Box device to Microsoft.
