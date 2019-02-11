@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/08/2019
+ms.date: 02/11/2019
 ms.author: jeedes
 
 ---
@@ -111,7 +111,7 @@ To configure Azure AD single sign-on with GitHub, perform the following steps:
 	> [!NOTE]
 	> Please note that these are not the real values. You have to update these values with the actual Sign on URL and Identifier. Here we suggest you to use the unique value of string in the Identifier. Go to GitHub Admin section to retrieve these values.
 
-5. Your GitHub application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **nameidentifier** is **user.userprincipalname** but GitHub expects this to be mapped with the user's email address. For that you can use **Edit** icon and map to the **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
+5. Your GitHub application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. GitHub application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
 	![image](common/edit-attribute.png)
 
