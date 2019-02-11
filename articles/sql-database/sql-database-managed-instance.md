@@ -101,7 +101,7 @@ Business Critical service tier is built for applications with high IO requiremen
 The following list outlines the key characteristics of the Business Critical service tier:
 
 - Designed for business applications with highest performance and HA requirements
-- Comes with super-fast local SSD storage (up to 1 TB on Gen 4 and up to 4 TB on Gen 5)
+- Comes with super-fast local SSD storage (up to 1 TB on Gen4 and up to 4 TB on Gen5)
 - Built-in [high availability](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) based on [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) and [Azure Service Fabric](../service-fabric/service-fabric-overview.md).
 - Built-in additional [read-only database replica](sql-database-read-scale-out.md) that can be used for reporting and other read-only workloads
 - [In-Memory OLTP](sql-database-in-memory.md) that can be used for workload with high-performance requirements  

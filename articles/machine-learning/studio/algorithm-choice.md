@@ -458,8 +458,6 @@ several languages.
 
 * For a complete alphabetical list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list) in Machine Learning Studio Algorithm and Module Help.
 
-* You can download and print a diagram that gives an overview of the capabilities of Machine Learning Studio: [Microsoft Azure Machine Learning Studio Capabilities Overview (PDF)](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf).
-
 <!-- Media -->
 
 [1]: ./media/algorithm-choice/image1.png

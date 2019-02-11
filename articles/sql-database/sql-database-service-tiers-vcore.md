@@ -11,19 +11,19 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ---
 # vCore service tiers, Azure Hybrid Benefit, and migration
 
 The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. It also enables you to choose generation of hardware:
 
-- Gen 4 - Up to 24 logical CPUs based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors, vCore = 1 PP (physical core), 7 GB per core, attached SSD
-- Gen 5 - Up to 80 logical CPUs based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, vCore=1 LP (hyper-thread), 5.1 GB per core, fast eNVM SSD
+- Gen4 - Up to 24 logical CPUs based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors, vCore = 1 PP (physical core), 7 GB per core, attached SSD
+- Gen5 - Up to 80 logical CPUs based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, vCore=1 LP (hyper-thread), 5.1 GB per core, fast eNVM SSD
 
-vCore model also allows you to use [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings.
+Gen4 hardware offers substantially more memory per vCore. However, Gen5 hardware allows you to scale up compute resources much higher.
 
 > [!NOTE]
-> For information about DTU-based service tiers, see [DTU-based service tiers](sql-database-service-tiers-dtu.md). For information about differentiating DTU-based service tiers and vCore-based service tiers, see [Azure SQL Database purchasing models](sql-database-service-tiers.md).
+> For information about DTU-based service tiers, see [DTU-based service tiers](sql-database-service-tiers-dtu.md). For information about differentiating DTU-based service tiers and vCore-based service tiers, see [Azure SQL Database purchasing models](sql-database-purchase-models.md).
 
 ## Service tier characteristics
 
@@ -52,8 +52,6 @@ The following table helps you understand the differences between the three tiers
 
 > [!IMPORTANT]
 > If you need less than one vCore of compute capacity, use the DTU-based purchasing model.
-
-See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
 
 ## Azure Hybrid Benefit
 
