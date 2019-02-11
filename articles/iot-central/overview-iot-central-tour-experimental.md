@@ -56,7 +56,7 @@ You can choose between a light theme or a dark theme for the UI:
 
 ![Home page](media/overview-iot-central-tour-experimental/homepage.png)
 
-The home page is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the home page for other users of the application by adding tiles. To learn more, see the [Customize the Azure IoT Central operator's view](tutorial-customize-operator-experimental.md) tutorial.
+The home page is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the home page for other users of the application by adding tiles. To learn more, see the [Customize the Azure IoT Central operator's view](tutorial-customize-operator.md) tutorial.
 
 ## Device explorer
 
@@ -64,45 +64,45 @@ The home page is the first page you see when you sign in to your Azure IoT Centr
 
 The explorer page shows the _devices_ in your Azure IoT Central application grouped by _device template_.
 
-* A device template defines a type of device that can connect to your application. To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type-experimental.md).
-* A device represents either a real or simulated device in your application. To learn more, see the [Add a new device to your Azure IoT Central application](tutorial-add-device-experimental.md).
+* A device template defines a type of device that can connect to your application. To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md).
+* A device represents either a real or simulated device in your application. To learn more, see the [Add a new device to your Azure IoT Central application](tutorial-add-device.md).
 
 ## Device sets
 
 ![Device Sets page](media/overview-iot-central-tour-experimental/devicesets.png)
 
-The _device sets_ page shows device sets created by the builder. A device set is a collection of related devices. A builder defines a query to identify the devices that are included in a device set. You use device sets when you customize the analytics in your application. To learn more, see the [Use device sets in your Azure IoT Central application](howto-use-device-sets-experimental.md) article.
+The _device sets_ page shows device sets created by the builder. A device set is a collection of related devices. A builder defines a query to identify the devices that are included in a device set. You use device sets when you customize the analytics in your application. To learn more, see the [Use device sets in your Azure IoT Central application](howto-use-device-sets.md) article.
 
 ## Analytics
 
 ![Analytics page](media/overview-iot-central-tour-experimental/analytics.png)
 
-The analytics page shows charts that help you understand how the devices connected to your application are behaving. An operator uses this page to monitor and investigate issues with connected devices. The builder can define the charts shown on this page. To learn more, see the [Create custom analytics for your Azure IoT Central application](howto-use-device-sets-experimental.md) article.
+The analytics page shows charts that help you understand how the devices connected to your application are behaving. An operator uses this page to monitor and investigate issues with connected devices. The builder can define the charts shown on this page. To learn more, see the [Create custom analytics for your Azure IoT Central application](howto-use-device-sets.md) article.
 
 ## Jobs
 
 ![Jobs page](media/overview-iot-central-tour-experimental/jobs.png)
 
-The jobs page allows you to perform bulk device management operations onto your devices. The builder uses this page to update device properties, settings, and commands. To learn more, see the [Run a job](howto-run-a-job-experimental.md) article.
+The jobs page allows you to perform bulk device management operations onto your devices. The builder uses this page to update device properties, settings, and commands. To learn more, see the [Run a job](howto-run-a-job.md) article.
 
 ## Device Templates
 
 ![Device Templates page](media/overview-iot-central-tour-experimental/templates.png)
 
-The device templates page is where a builder creates and manages the device templates in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type-experimental.md) tutorial.
+The device templates page is where a builder creates and manages the device templates in the application. To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type.md) tutorial.
 
 ## Continuous Data Export
 
 ![Continuous Data Export page](media/overview-iot-central-tour-experimental/export.png)
 
-The continuous data export page is where an administrator defines how to export data, such as telemetry, from the application. Other services can store the exported data or use it for analysis. To learn more, see the [Export your data in Azure IoT Central](howto-export-data-experimental.md) article.
+The continuous data export page is where an administrator defines how to export data, such as telemetry, from the application. Other services can store the exported data or use it for analysis. To learn more, see the [Export your data in Azure IoT Central](howto-export-data.md) article.
 
 ## Administration
 
 ![Administration page](media/overview-iot-central-tour-experimental/administration.png)
 
-The administration page contains links to the tools an administrator uses such as defining users and roles in the application. To learn more, see the [Administer your Azure IoT Central application](howto-administer-experimental.md) article.
+The administration page contains links to the tools an administrator uses such as defining users and roles in the application. To learn more, see the [Administer your Azure IoT Central application](howto-administer.md) article.
 
 ## Next steps
 
-Now that you have an overview of Azure IoT Central and are familiar with the layout of the UI, the suggested next step is to complete the [Create an Azure IoT Central application](quick-deploy-iot-central-experimental.md) quickstart.
+Now that you have an overview of Azure IoT Central and are familiar with the layout of the UI, the suggested next step is to complete the [Create an Azure IoT Central application](quick-deploy-iot-central.md) quickstart.
