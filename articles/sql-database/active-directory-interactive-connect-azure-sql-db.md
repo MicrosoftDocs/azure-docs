@@ -64,7 +64,7 @@ To register and set necessary permissions for your application:
 
     ![App registration](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
-    Once the app registration is created, the **Application ID** value is generated and displayed.
+    After the app registration is created, the **Application ID** value is generated and displayed.
 
     ![App ID displayed](media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
