@@ -1,6 +1,41 @@
 {
     "redirections": [
         {
+          "source_path": "articles/machine-learning/studio/walkthrough-develop-predictive-solution.md",
+          "redirect_url": "/azure/machine-learning/studio/tutorial-part1-credit-risk",
+          "redirect_document_id": true
+        },
+        {
+          "source_path": "articles/machine-learning/studio/walkthrough-1-create-ml-workspace.md",
+          "redirect_url": "/azure/machine-learning/studio/tutorial-part1-credit-risk",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/machine-learning/studio/walkthrough-2-upload-data.md",
+          "redirect_url": "/azure/machine-learning/studio/tutorial-part1-credit-risk",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/machine-learning/studio/walkthrough-3-create-new-experiment.md",
+          "redirect_url": "/azure/machine-learning/studio/tutorial-part1-credit-risk",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/machine-learning/studio/walkthrough-4-train-and-evaluate-models.md",
+          "redirect_url": "/azure/machine-learning/studio/tutorial-part2-credit-risk-train",
+          "redirect_document_id": true
+        },
+        {
+          "source_path": "articles/machine-learning/studio/walkthrough-5-publish-web-service.md",
+          "redirect_url": "/azure/machine-learning/studio/tutorial-part3-credit-risk-deploy",
+          "redirect_document_id": true
+        },
+        {
+          "source_path": "articles/machine-learning/studio/walkthrough-6-access-web-service.md",
+          "redirect_url": "/azure/machine-learning/studio/tutorial-part3-credit-risk-deploy",
+          "redirect_document_id": false
+        },
+        {
             "source_path": "articles/machine-learning/service/how-to-migrate.md",
             "redirect_url": "/azure/machine-learning/service/overview-what-happened-to-workbench",
             "redirect_document_id": false
@@ -522,6 +557,76 @@
     {
       "source_path": "articles/cognitive-services/bing-visual-search/sdk.md",
       "redirect_url": "/azure/cognitive-services/bing-visual-search/visual-search-sdk-c-sharp",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-home.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-faq.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-get-started.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-glossary.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-meters.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-change-locale.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-custom-pronunciation.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-language-model.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-migrate-tiers.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-transcription-guidelines.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
       "redirect_document_id": true
     },
     {
@@ -13569,6 +13674,11 @@
     {
       "source_path": "articles/sql-database/sql-database-benchmark-overview.md",
       "redirect_url": "/azure/sql-database/sql-database-service-tiers-dtu",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-service-tiers.md",
+      "redirect_url": "/azure/sql-database/sql-database-purchase-models",
       "redirect_document_id": false
     },
     {
@@ -35245,11 +35355,6 @@
       "source_path": "articles/storage/common/storage-moving-data.md",
       "redirect_url": "/azure/storage/common/storage-choose-data-transfer-solution",
       "redirect_document_id": true
-    },
-    {
-        "source_path": "articles/backup/backup-azure-move-recovery-services-vault.md",
-        "redirect_url": "/azure/backup/backup-azure-recovery-services-vault-overview",
-        "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/linux/classic/agents-and-extensions-classic.md",
