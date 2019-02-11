@@ -220,5 +220,5 @@ Listing deleted key vault objects also shows when they're scheduled to be purged
 ## Other resources
 
 - For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](key-vault-ovw-soft-delete.md).
-- For a general overview of Azure Key Vault usage, see [Get started with Azure Key Vault](key-vault-overview.md).
+- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](key-vault-overview.md).
 

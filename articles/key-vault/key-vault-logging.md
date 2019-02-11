@@ -34,7 +34,7 @@ You can access your logging information at most, 10 minutes after the key vault 
 Use this tutorial to help you get started with Azure Key Vault logging, to create your storage account, enable logging, and interpret the logging information collected.  
 
 > [!NOTE]
-> This tutorial does not include instructions for how to create key vaults, keys, or secrets. For this information, see [Get started with Azure Key Vault](key-vault-overview.md). Or, for Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli2.md).
+> This tutorial does not include instructions for how to create key vaults, keys, or secrets. For this information, see [What is Azure Key Vault?](key-vault-overview.md). Or, for Cross-Platform Command-Line Interface instructions, see [this equivalent tutorial](key-vault-manage-with-cli2.md).
 >
 > This article provides Azure PowerShell instructions for updating the diagnostic logging. However, the same can be enabled by using Azure Monitor in the Azure portal in the **Diagnostic logs** section. 
 >
