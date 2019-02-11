@@ -182,11 +182,18 @@ To use [Edit Metadata][edit-metadata], you first specify which columns to modify
 1. Click and drag the [Edit Metadata][edit-metadata] module onto the canvas and drop it below the dataset you added earlier.
 
 1. Connect the dataset to the [Edit Metadata][edit-metadata]: click the output port of the dataset (the small circle at the bottom of the dataset), drag to the input port of [Edit Metadata][edit-metadata] (the small circle at the top of the module), then release the mouse button. The dataset and module remain connected even if you move either around on the canvas.
-   
+ 
     The experiment should now look something like this:  
-    
+
     ![Adding Edit Metadata](./media/tutorial-part1-credit-risk/experiment-with-edit-metadata-module.png)
-    
+
+    The red exclamation mark indicates that you haven't set the properties for this module yet. You'll do that next.
+
+    > [!TIP]
+    > You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. In this case, double-click the [Edit Metadata][edit-metadata] module and type the comment "Add column headings". Click anywhere else on the canvas to close the text box. To display the comment, click the down-arrow on the module.
+    > 
+    > ![Edit Metadata module with comment added](./media/tutorial-part1-credit-risk/edit-metadata-with-comment.png)
+    > 
 
 1. Select [Edit Metadata][edit-metadata], and in the **Properties** pane to the right of the canvas, click **Launch column selector**.
 
@@ -199,8 +206,19 @@ To use [Edit Metadata][edit-metadata], you first specify which columns to modify
 1. Click the **OK** check mark.
 
 1. Back in the **Properties** pane, look for the **New column names** parameter. In this field, enter a list of names for the 21 columns in the dataset, separated by commas and in column order. You can obtain the columns names from the dataset documentation on the UCI website, or for convenience you can copy and paste the following list:  
-   
-       Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+
+  ```   
+  Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+  ```
+
+  The Properties pane looks like this:
+
+  ![Properties for Edit Metadata](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
+
+  > [!TIP]
+  > If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas). When it finishes running (a green check mark appears on [Edit Metadata][edit-metadata]), click the output port of the [Edit Metadata][edit-metadata] module, and select **Visualize**. You can view the output of any module in the same way to view the progress of the data through the experiment.
+  > 
+  > 
 
 ### Create training and test datasets
 
@@ -220,11 +238,11 @@ To do this, you use the [Split Data][split] module.
 
 1. Double-click the [Split Data][split] module and enter the comment, "Training/testing data split 50%". 
 
-you can use the outputs of the [Split Data][split] module however you like, but let's choose to use the left output as training data and the right output as testing data.  
+You can use the outputs of the [Split Data][split] module however you like, but let's choose to use the left output as training data and the right output as testing data.  
 
 As mentioned in the [previous step](tutorial-part1-credit-risk.md#upload), the cost of misclassifying a high credit risk as low is five times higher than the cost of misclassifying a low credit risk as high. To account for this, you generate a new dataset that reflects this cost function. In the new dataset, each high risk example is replicated five times, while each low risk example is not replicated.   
 
-you can do this replication using R code:  
+You can do this replication using R code:  
 
 1. Find and drag the [Execute R Script][execute-r-script] module onto the experiment canvas. 
 
