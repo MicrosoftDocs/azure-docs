@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: xpouyat
 
 ---
-# Licensing Microsoft® Smooth Streaming Client Porting Kit (legacy)
+# Licensing Microsoft® Smooth Streaming Client Porting Kit 
 ## Overview
 Microsoft Smooth Streaming Client Porting Kit (**SSPK** for short) is a Smooth Streaming client implementation that is optimized to help embedded device manufacturers, cable and mobile operators, content service providers, handset manufacturers, independent software vendors (ISVs), and solution providers to create products and services for streaming adaptive content in Smooth Streaming format. SSPK is a device and platform-independent implementation of Smooth Streaming client that can be ported by the licensee to any device and platform. 
 
