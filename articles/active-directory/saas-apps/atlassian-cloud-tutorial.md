@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/09/2018
+ms.date: 02/11/2018
 ms.author: jeedes
 
 ---
@@ -125,29 +125,15 @@ To configure Azure AD single sign-on with Atlassian Cloud, perform the following
     > [!NOTE]
 	> The preceding Sign on URL value is not real. Update the value with the actual Sign on URL. Contact [Atlassian Cloud Client support team](https://support.atlassian.com/) to get this value.
 
-6. Your Atlassian Cloud application expects to find the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML Token Attributes configuration.
-
-	By default, the **User Identifier** value is mapped to user.userprincipalname. Change this value to map to user.mail. You can also choose any other appropriate value according to your organization's setup but, in most of the cases, email should work. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+6. Your Atlassian Cloud application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Atlassian Cloud application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
 	![image](common/edit-attribute.png)
 
-7. In the **User Claims** section on the **User Attributes** dialog, perform the following steps:
-
-	a. Click **Edit icon** to open the **Manage user claims** dialog.
-
-	![image](./media/atlassian-cloud-tutorial/tutorial_usermail.png)
-
-	![image](./media/atlassian-cloud-tutorial/tutorial_usermailedit.png)
-
-	b. From the **Source attribute** list, select **user.mail**.
-
-	c. Click **Save**.
-
-8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-9. On the **Set up Atlassian Cloud** section, copy the appropriate URL(s) as per your requirement.
+8. On the **Set up Atlassian Cloud** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
