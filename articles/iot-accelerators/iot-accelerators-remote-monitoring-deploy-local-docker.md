@@ -50,7 +50,7 @@ The command shows all the environment variables set by the **start.cmd** script.
 
 Make sure that Docker is running on your local machine.
 > [!NOTE]
-> Docker must be running [Linux containers](https://docs.docker.com/docker-for-windows/) if it is running on Windows)
+> Docker must be running [Linux containers](https://docs.docker.com/docker-for-windows/) if it is running on Windows.
 
 The microservices running in the local Docker containers need to access the Azure cloud services. You can test the internet connectivity of your Docker environment using the following command to ping an internet address from inside a container:
 
