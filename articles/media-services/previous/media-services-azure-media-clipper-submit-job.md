@@ -22,7 +22,7 @@ ms.service: media-services
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
 
-# Submit clipping jobs from Azure Media Clipper (legacy)
+# Submit clipping jobs from Azure Media Clipper 
 
 Azure Media Clipper requires a **submitSubclipCallback** method to be implemented for handling clipping job submission. This function is for implementing an HTTP POST of the Clipper output to a web service. This web service is where you can submit the encoding job. The output of the Clipper is either a Media Encoder Standard encoding preset for rendered jobs or the REST API payload for dynamic manifest filter calls. This pass-through model is necessary because media services account credentials are not secure in the client's browser.
 

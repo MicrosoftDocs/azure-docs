@@ -22,7 +22,7 @@ ms.service: media-services
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
 
-# Configure Azure Media Clipper keyboard shortcuts (legacy)
+# Configure Azure Media Clipper keyboard shortcuts 
 
 Azure Media Clipper supports customizing the default keyboard shortcuts by providing an optional `keymap` JSON parameter.
 

@@ -35357,11 +35357,6 @@
       "redirect_document_id": true
     },
     {
-        "source_path": "articles/backup/backup-azure-move-recovery-services-vault.md",
-        "redirect_url": "/azure/backup/backup-azure-recovery-services-vault-overview",
-        "redirect_document_id": true
-    },
-    {
       "source_path": "articles/virtual-machines/linux/classic/agents-and-extensions-classic.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/classic/agents-and-extensions-classic",
       "redirect_document_id": false

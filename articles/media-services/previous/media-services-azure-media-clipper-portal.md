@@ -22,7 +22,7 @@ ms.service: media-services
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
 
-# Create clips with Azure Media Clipper in the portal (legacy)
+# Create clips with Azure Media Clipper in the portal  
 
 You can use Azure Media Clipper in the portal to create clips from assets in your media services accounts. To get started, navigate to your media services account in the portal. Next, select the **Subclip** tab.
 

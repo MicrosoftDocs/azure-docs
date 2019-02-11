@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Use Azure Media Analytics to convert text content in video files into digital text (legacy)
+# Use Azure Media Analytics to convert text content in video files into digital text  
 ## Overview
 If you need to extract text content from your video files and generate an editable, searchable digital text, you should use Azure Media Analytics OCR (optical character recognition). This Azure Media Processor detects text content in your video files and generates text files for your use. OCR enables you to automate the extraction of meaningful metadata from the video signal of your media.
 

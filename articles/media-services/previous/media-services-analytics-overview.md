@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: milanga;juliako;johndeu
 
 ---
-# Media Analytics on the Media Services platform (legacy)
+# Media Analytics on the Media Services platform 
 
 ## Overview
 More organizations are using video as the preferred medium to train their employees, engage their customers, and document business functions. Cloud computing provides a way to store, stream, and access these large media files. But as a company's library of video content grows, it needs an equally effective means of extracting insights from the content. 
