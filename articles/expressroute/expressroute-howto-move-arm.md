@@ -61,19 +61,19 @@ Sign in to the Resource Manager environment and create a new resource group.
 1. Sign in to your Azure Resource Manager environment.
 
   ```powershell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 
 2. Select the appropriate Azure subscription.
 
   ```powershell
-  Get-AzureRmSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzureRmSubscription
+  Get-AzSubscription -SubscriptionName "<Enter Subscription Name here>" | Select-AzSubscription
   ```
 
 3. Modify the snippet below to create a new resource group if you don't already have a resource group.
 
   ```powershell
-  New-AzureRmResourceGroup -Name "DemoRG" -Location "West US"
+  New-AzResourceGroup -Name "DemoRG" -Location "West US"
   ```
 
 ### Step 3: Move the ExpressRoute circuit to the Resource Manager deployment model
@@ -83,10 +83,10 @@ You are now ready to move your ExpressRoute circuit from the classic deployment 
 To move your circuit, modify and run the following snippet:
 
 ```powershell
-Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
+Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-In classic mode, an ExpressRoute circuit does not have the concept of being tied to a region. However, in Resource Manager, every resource needs to be mapped to an Azure region. The region specified in the Move-AzureRmExpressRouteCircuit cmdlet can technically be any region. For organizational purposes, you may want to choose a region that closely represents your peering location.
+In classic mode, an ExpressRoute circuit does not have the concept of being tied to a region. However, in Resource Manager, every resource needs to be mapped to an Azure region. The region specified in the Move-AzExpressRouteCircuit cmdlet can technically be any region. For organizational purposes, you may want to choose a region that closely represents your peering location.
 
 > [!NOTE]
 > After the move has finished, the new name that is listed in the previous cmdlet will be used to address the resource. The circuit will essentially be renamed.
@@ -101,7 +101,7 @@ After moving your classic ExpressRoute circuit to the Resource Manager deploymen
 1. Get the circuit details.
 
   ```powershell
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
+  $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
   ```
 
 2. Set "Allow Classic Operations" to TRUE.
@@ -113,7 +113,7 @@ After moving your classic ExpressRoute circuit to the Resource Manager deploymen
 3. Update the circuit. After this operation has finished successfully, you will be able to view the circuit in the classic deployment model.
 
   ```powershell
-  Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+  Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
 4. Run the following cmdlet to get the details of the ExpressRoute circuit. You must be able to see the service key listed.
@@ -134,7 +134,7 @@ Run the following cmdlets to disable access to the classic deployment model.
 1. Get details of the ExpressRoute circuit.
 
   ```powershell
-  $ckt = Get-AzureRmExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
+  $ckt = Get-AzExpressRouteCircuit -Name "DemoCkt" -ResourceGroupName "DemoRG"
   ```
 
 2. Set "Allow Classic Operations" to FALSE.
@@ -146,7 +146,7 @@ Run the following cmdlets to disable access to the classic deployment model.
 3. Update the circuit. After this operation has finished successfully, you will not be able to view the circuit in the classic deployment model.
 
   ```powershell
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
   ```
 
 ## Next steps

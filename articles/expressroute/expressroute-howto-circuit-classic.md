@@ -45,17 +45,17 @@ To sign in to your Azure account, use the following example:
 1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
   ```powershell
-  Connect-AzureRmAccount
+  Connect-AzAccount
   ```
 2. Check the subscriptions for the account.
 
   ```powershell
-  Get-AzureRmSubscription
+  Get-AzSubscription
   ```
 3. If you have more than one subscription, select the subscription that you want to use.
 
   ```powershell
-  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
 
 4. Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
