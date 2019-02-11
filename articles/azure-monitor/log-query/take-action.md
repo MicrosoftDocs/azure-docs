@@ -17,7 +17,11 @@ ms.author: magoedte
 
 # Take Action with an Automation Runbook from a Log Analytics log search result
 
-From a log search result in Azure Log Analytics, you can now select **Take action** to run an Automation runbook. The runbook can be used to remediate the issue or take some other action such as collect troubleshooting information, send an email, or create a service request. 
+> [!NOTE]
+> Starting a runbook from search results is a feature of the classic Log Search portal that will be deprecated on February 15, 2019. You can configure an action group that can start a runbook in addition to other actions from an [alert rule](../platform/alerts-log.md) in Azure Monitor.
+
+From a log search result in Azure Log Analytics, you can now select **Take action** to run an Automation runbook.  The runbook can be used to remediate the issue or take some other action such as collect troubleshooting information, send an email, or create a service request. 
+
 
 ## Components and features used
 * [Azure Automation account](../../automation/automation-quickstart-create-account.md)
