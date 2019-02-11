@@ -31,6 +31,10 @@ access resources, such as virtual machines (VMs), servers, systems, and services
 
 This article shows how to complete these tasks:
 
+* Set up ports on your Azure virtual network so traffic 
+can travel through your integration service environment 
+(ISE) across subnets in your virtual network.
+
 * Set up permissions on your Azure virtual network so the 
 private Logic Apps instance can access your virtual network.
 
@@ -46,7 +50,7 @@ For more information about integration service environments, see
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
   > [!IMPORTANT]
   > Logic apps, built-in actions, and connectors that run in your ISE use 
@@ -56,8 +60,9 @@ For more information about integration service environments, see
 * An [Azure virtual network](../virtual-network/virtual-networks-overview.md). 
 If you don't have a virtual network, learn how to 
 [create an Azure virtual network](../virtual-network/quick-create-portal.md). 
-Also, [make sure these virtual network ports are available](#ports) 
-so your ISE works correctly and stays accessible.
+You also need subnets in your virtual network for deploying your ISE. You can 
+create these subnets in advance, or wait until you create your ISE where you 
+can create subnets at the same time. Also, [make sure your virtual network makes these ports available](#ports) so your ISE works correctly and stays accessible.
 
 * To give your logic apps direct access to your Azure virtual network, 
 [set up your network's Role-Based Access Control (RBAC) permissions](#vnet-access) 
@@ -65,13 +70,51 @@ so the Logic Apps service has the permissions for accessing your virtual network
 
 * To use one or more custom DNS servers for deploying your Azure virtual network, 
 [set up those servers following this guidance](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 
-before deploying your (ISE) to your virtual network. 
+before deploying your ISE to your virtual network. 
 Otherwise, each time you change your DNS server, 
 you also have to restart your ISE, which is a 
 capability that's available with ISE public preview.
 
 * Basic knowledge about 
 [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+<a name="ports"></a>
+
+## Set up network ports
+
+To work correctly and stay accessible, your integration 
+service environment (ISE) needs to have specific ports 
+available on your virtual network. Otherwise, if any of 
+these ports are unavailable, you might lose access to your 
+ISE, which might stop working. When you use an ISE in a 
+virtual network, a common setup problem is having one 
+or more blocked ports. For connections between your ISE 
+and the destination system, the connector you use might 
+also have its own port requirements. For example, if you 
+communicate with an FTP system by using the FTP connector, 
+make sure the port you use on that FTP system, 
+such as port 21 for sending commands, is available.
+
+To control the inbound and outbound traffic across the 
+virtual network's subnets where you deploy your ISE, 
+you can set up [network security groups](../virtual-network/security-overview.md) 
+for those subnets by learning [how to filter network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). 
+These tables describe the ports in your virtual network 
+that your ISE uses and where those ports get used.
+
+| Purpose | Source /<br>Destination ports | Source / <br>Destination | Direction |
+|---------|-------------------------------|--------------------------|-----------|
+| Azure Logic Apps communication (in & out) | * / <br>80, 443 | INTERNET / <br>VIRTUAL_NETWORK | Inbound & Outbound |
+| Azure Active Directory | * / <br>80, 443 | VIRTUAL_NETWORK / <br>AzureActiveDirectory | Outbound |
+| Azure Storage dependency | * / <br>80, 443 | VIRTUAL_NETWORK / <br>Storage | Outbound |
+| Connection management | * / <br>443 | VIRTUAL_NETWORK /<br>INTERNET | Outbound |
+| Publish Diagnostic Logs & Metrics | * / <br>443 | VIRTUAL_NETWORK / <br>AzureMonitor | Outbound |
+| Logic Apps Designer - dynamic properties <br>Your logic app's run history <br>Connector deployment <br>Request trigger endpoint | * / <br>454 | INTERNET / <br>VIRTUAL_NETWORK | Inbound |
+| App Service Management dependency | * / <br>454 & 455 | AppServiceManagement / <br>VIRTUAL_NETWORK | Inbound |
+| API Management - management endpoint | * / <br>3443 | APIManagement / <br>VIRTUAL_NETWORK | Inbound |
+| Dependency from Log to Event Hub policy and monitoring agent | * / <br>5672 | VIRTUAL_NETWORK / <br>EventHub | Outbound |
+| Access Azure Cache for Redis Instances between RoleInstances | * / <br>6381-6383 | VIRTUAL_NETWORK / <br>VIRTUAL_NETWORK | Inbound & Outbound |
+|||||
 
 <a name="vnet-access"></a>
 
@@ -118,42 +161,6 @@ to the Azure Logic Apps service as described.
 
 For more information, see 
 [Permissions for virtual network access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
-
-<a name="ports"></a>
-
-## Set up network ports
-
-To work correctly and stay available, your integration 
-service environment (ISE) needs to have specific ports 
-accessible on your virtual network. Otherwise, if any of 
-these ports are unavailable, your ISE might stop working 
-and lose access. When using an ISE in a virtual network, 
-having one or more blocked ports is a common setup problem. 
-For connections between your ISE and the destination system, 
-the connector you use might also have its own port requirements. 
-For example, if you communicate with an FTP system by using 
-the FTP connector, make sure whichever port you use on that 
-FTP system, such as port 21 for sending commands, is accessible.
-
-To control the inbound and outbound traffic across the virtual 
-network's subnets where you deploy your ISE, use your network's 
-[Network Security Group](../virtual-network/security-overview.md). 
-These tables describe the ports in your virtual network that 
-your ISE uses and where those ports get used.
-
-| Purpose | Source /<br>Destination ports | Source / <br>Destination | Direction |
-|---------|-------------------------------|--------------------------|-----------|
-| Azure Logic Apps communication (in & out) | * / <br>80, 443 | INTERNET / <br>VIRTUAL_NETWORK | Inbound & Outbound |
-| Azure Active Directory | * / <br>80, 443 | VIRTUAL_NETWORK / <br>AzureActiveDirectory | Outbound |
-| Azure Storage dependency | * / <br>80, 443 | VIRTUAL_NETWORK / <br>Storage | Outbound |
-| Connection management | * / <br>443 | VIRTUAL_NETWORK /<br>INTERNET | Outbound |
-| Publish Diagnostic Logs & Metrics | * / <br>443 | VIRTUAL_NETWORK / <br>AzureMonitor | Outbound |
-| Logic Apps Designer - dynamic properties <br>Your logic app's run history <br>Connector deployment <br>Request trigger endpoint | * / <br>454 | INTERNET / <br>VIRTUAL_NETWORK | Inbound |
-| App Service Management dependency | * / <br>454 & 455 | AppServiceManagement / <br>VIRTUAL_NETWORK | Inbound |
-| API Management - management endpoint | * / <br>3443 | APIManagement / <br>VIRTUAL_NETWORK | Inbound |
-| Dependency from Log to Event Hub policy and monitoring agent | * / <br>5672 | VIRTUAL_NETWORK / <br>EventHub | Outbound |
-| Access Azure Cache for Redis Instances between RoleInstances | * / <br>6381-6383 | VIRTUAL_NETWORK / <br>VIRTUAL_NETWORK | Inbound & Outbound |
-|||||
 
 <a name="create-environment"></a>
 
