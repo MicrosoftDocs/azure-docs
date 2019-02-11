@@ -130,9 +130,11 @@ To enable the repair manager service:
 
 3. Update your cluster manifest with these changes, using the updated cluster manifest [create a new cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-for-windows-server) or [upgrade the cluster configuration](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-upgrade-windows-server). Once the cluster is running with updated cluster manifest, you can now see the repair manager system service running in your cluster, which is called `fabric:/System/RepairManagerService`, under system services section in the Service Fabric explorer.
 
-### Disable automatic Windows Update on all nodes
+### Configure updates to an administrator location on all nodes
 
-Automatic Windows updates might lead to availability loss because multiple cluster nodes can restart at the same time. The patch orchestration app, by default, tries to disable the automatic Windows Update on each cluster node. However, if the settings are managed by an administrator or group policy, we recommend setting the Windows Update policy to “Notify before Download” explicitly.
+All Windows 10 operating systems connected to the Internet will, by default, pull updates from the Microsoft Update infrastructure if not otherwise configured through administrative controls; this includes cluster nodes. If systems are not configured to appropriate controls, cluster nodes can have availability loss failures from multiple cluster nodes restarting simultaneously. The patch orchestration app, by default, will attempt to manage the behavior by disabling access to the Microsoft Update infrastructure. Depending on Group Policies set, this behavior may be overridden. Microsoft recommends configuring the additional policy of “Notify Before Download” explicitly.
+
+An alternative is to enhance the Update Stack for Azure and provide the cluster update orchestration services native to that environment.
 
 ## Download the app package
 
