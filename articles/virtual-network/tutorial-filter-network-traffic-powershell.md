@@ -43,8 +43,7 @@ A network security group contains security rules. Security rules specify a sourc
 
 ### Create application security groups
 
-First create a resource group for all the resources created in this article with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group in the *eastus* location: 
-
+First create a resource group for all the resources created in this article with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group in the *eastus* location:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
@@ -98,7 +97,7 @@ In this article, RDP (port 3389) is exposed to the internet for the *myAsgMgmtSe
 
 ### Create a network security group
 
-Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). The following example creates a network security group named *myNsg*: 
+Create a network security group with [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup). The following example creates a network security group named *myNsg*:
 
 ```powershell-interactive
 $nsg = New-AzNetworkSecurityGroup `
@@ -140,6 +139,7 @@ $virtualNetwork = Get-AzVirtualNetwork `
  -Name myVirtualNetwork `
  -Resourcegroupname myResourceGroup
 ```
+
 Create a public IP address for each VM with [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress):
 
 ```powershell-interactive
@@ -180,9 +180,9 @@ $mgmtNic = New-AzNetworkInterface `
   -PublicIpAddressId $publicIpMgmt.Id
 ```
 
-Create two VMs in the virtual network so you can validate traffic filtering in a later step. 
+Create two VMs in the virtual network so you can validate traffic filtering in a later step.
 
-Create a VM configuration with [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig), then create the VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM that will serve as a web server. The `-AsJob` option creates the VM in the background, so you can continue to the next step: 
+Create a VM configuration with [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig), then create the VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM that will serve as a web server. The `-AsJob` option creates the VM in the background, so you can continue to the next step:
 
 ```azurepowershell-interactive
 # Create user object
@@ -255,8 +255,8 @@ mstsc /v:<publicIpAddress>
 
 Open the downloaded RDP file. If prompted, select **Connect**.
 
-Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection. 
-   
+Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
+
 The connection succeeds, because port 3389 is allowed inbound from the internet to the *myAsgMgmtServers* application security group that the network interface attached to the *myVmMgmt* VM is in.
 
 Use the following command to create a remote desktop connection to the *myVmWeb* VM, from the *myVmMgmt* VM, with the following command, from PowerShell:
