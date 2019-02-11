@@ -84,7 +84,7 @@ This section shows the experience for both end users and admins.
 
 ### End-user experience
 
-An example user is on the Contoso network, but is trying to access the Fabrikam instance of a shared SaaS application like Outlook online. If Fabricam is a non-permitted tenant for the Contoso instance, the user sees the following page:
+An example user is on the Contoso network, but is trying to access the Fabrikam instance of a shared SaaS application like Outlook online. If Fabrikam is a non-permitted tenant for the Contoso instance, the user sees the following page:
 
 ![Access denied page for users in non-permitted tenants](./media/tenant-restrictions/end-user-denied.png)
 

@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/08/2018
+ms.date: 02/10/2019
 ms.author: juliako
 
 ---

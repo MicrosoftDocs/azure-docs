@@ -66,6 +66,36 @@ This update includes the following new features and improvements for Azure Stack
 
 - Managed images on Azure Stack enable you to create a managed image object on a generalized VM (both unmanaged and managed) that can only create managed disk VMs going forward. For more information, see [Azure Stack Managed Disks](user/azure-stack-managed-disk-considerations.md#managed-images).
 
+- **AzureRm 2.4.0**
+   * **AzureRm.Profile**  
+         Bug fix - `Import-AzureRmContext` to deserialize the saved token correctly.  
+   * **AzureRm.Resources**  
+         Bug fix - `Get-AzureRmResource` to query case insensitively by resource type.  
+   * **Azure.Storage**  
+         AzureRm rollup module now includes the already published version 4.5.0 supporting the **api-version 2017-07-29**.  
+   * **AzureRm.Storage**  
+         AzureRm rollup module now includes the already published version 5.0.4 supporting the **api-version 2017-10-01**.  
+   * **AzureRm.Compute**  
+         Added simple parameter sets in `New-AzureRMVM` and `NewAzureRMVMSS`, `-ImageName` parameter supports specifying user images.  
+   * **AzureRm.Insights**  
+         AzureRm rollup module now includes the already published version 5.1.5 supporting the **api-version 2018-01-01** for metrics, metric definitions resource types.
+
+- **AzureStack 1.7.0**
+   This a breaking change release. For details on the breaking changes, refer to https://aka.ms/azspshmigration170
+   * **Azs.Backup.Admin Module**  
+         Breaking change: Backup changes to cert-based encryption mode. Support for symmetric keys is deprecated.  
+   * **Azs.Fabric.Admin Module**  
+         `Get-AzsInfrastructureVolume` has been deprecated. Use the new cmdlet `Get-AzsVolume`.  
+         `Get-AzsStorageSystem` has been deprecated.  Use the new  new cmdlet `Get-AzsStorageSubSystem`.  
+         `Get-AzsStoragePool` has been deprecated. The `StorageSubSystem` object contains the capacity property.  
+   * **Azs.Compute.Admin Module**  
+         Bug fix - `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: Calling `ConvertTo-PlatformImageObject` only in the success path.  
+         BugFix - `Add-AzsVmExtension`, `Get-AzsVmExtension`: Calling ConvertTo-VmExtensionObject only in the success path.  
+   * **Azs.Storage.Admin Module**  
+         Bug fix - New Storage Quota uses defaults if none provided.
+
+To review the reference for the updated modules, see [Azure Stack Module Reference](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0).
+
 ## Fixed issues
 
 - Fixed an issue in which the portal showed an option to create policy-based VPN gateways, which are not supported in Azure Stack. This option has been removed from the portal.

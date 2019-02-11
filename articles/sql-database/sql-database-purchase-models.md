@@ -40,7 +40,7 @@ The following table and chart compare and contrast these two purchasing models.
 
 ## Compute costs
 
-The compute cost reflects the total compute capacity that is provisioned for the application. In the business critical service tier, we automatically allocate at least 3 replicas. To reflect this additional allocation of compute resources, the price in the vCore-based purchasing model is approximately 2.7x higher in the business critical service tier than in the general purpose service tier. For the same reason, the higher storage price per GB in the the business critical service tier reflects the high IO and low latency of the SSD storage. At the same time, the cost of backup storage is not different between these two service tiers because in both cases we use a class of standard storage.
+The compute cost reflects the total compute capacity that is provisioned for the application. In the business critical service tier, we automatically allocate at least 3 replicas. To reflect this additional allocation of compute resources, the price in the vCore-based purchasing model is approximately 2.7x higher in the business critical service tier than in the general purpose service tier. For the same reason, the higher storage price per GB in the business critical service tier reflects the high IO and low latency of the SSD storage. At the same time, the cost of backup storage is not different between these two service tiers because in both cases we use a class of standard storage.
 
 ## Storage costs
 
@@ -59,7 +59,7 @@ The vCore-based purchasing model enables you to independently choose compute and
 - Backup storage (RA-GRS)
 
 > [!IMPORTANT]
-> Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For moreinformation about managed instance charges, see [managed instances](sql-database-managed-instance.md).
+> Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For more information about managed instance charges, see [managed instances](sql-database-managed-instance.md).
 > **Region limitations:** For the current list of supported regions, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). If you want to create a Managed Instance in the region that is currently not supported, you can [send support request via Azure portal](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 

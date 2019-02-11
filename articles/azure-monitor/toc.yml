@@ -4,7 +4,7 @@
   items:
   - name: What is Azure Monitor?
     href: overview.md
-  - name: Branding changes
+  - name: Terminology changes
     href: azure-monitor-rebrand.md
 - name: Quickstarts
   expanded: true
@@ -33,9 +33,9 @@
       href: learn/quick-collect-windows-computer.md
 - name: Tutorials
   items:
-  - name: Analyze data in Log Analytics
+  - name: Analyze data in log analytics
     href: learn/tutorial-viewdata.md
-  - name: Visualize data in Log Analytics
+  - name: Visualize data in log analytics
     href: learn/tutorial-logs-dashboards.md
   - name: Archive platform metric and log data 
     href: learn/tutorial-archive-data.md
@@ -63,6 +63,12 @@
     href: azure-management.md
   - name: Continuous monitoring
     href: continuous-monitoring.md
+  - name: Analyze log data
+    items: 
+    - name: Log queries
+      href: log-query/log-query-overview.md
+    - name: Log query portals
+      href: log-query/portals.md
   - name: Monitoring data
     items: 
     - name: Metrics and logs
@@ -105,18 +111,6 @@
       href: insights/vminsights-overview.md
     - name: Monitoring solutions
       href: insights/solutions-inventory.md
-  - name: Analyze data
-    items: 
-    - name: Log Analytics
-      href: log-query/log-query-overview.md
-    - name: Log query portals
-      href: log-query/portals.md
-    - name: OMS portal transition
-      items:
-        - name: Overview
-          href: platform/oms-portal-transition.md
-        - name: Common questions
-          href: platform/oms-portal-faq.md
   - name: Respond to incidents
     items:
     - name: Alerts 
@@ -137,6 +131,12 @@
     href: visualizations.md
   - name: Partner integrations
     href: platform/partners.md
+  - name: OMS portal transition
+    items:
+    - name: Overview
+      href: platform/oms-portal-transition.md
+    - name: Common questions
+      href: platform/oms-portal-faq.md
   - name: FAQ
     items:
     - name: Log Analytics
