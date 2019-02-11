@@ -1,25 +1,21 @@
----
-title: Copy data in bulk using Azure Data Factory | Microsoft Docs
-description: Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk. 
+﻿---
+title: 'Copy data in bulk using Azure Data Factory | Microsoft Docs'
+description: 'Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.'
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 09/26/2017
+
+ms.topic: tutorial
+ms.date: 01/22/2018
 ms.author: jingwang
-
 ---
-
 # Copy multiple tables in bulk by using Azure Data Factory
-Azure Data Factory is a cloud-based data integration service that allows you to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Azure Data Factory, you can create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores, process/transform the data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning, and publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. 
-
 This tutorial demonstrates **copying a number of tables from Azure SQL Database to Azure SQL Data Warehouse**. You can apply the same pattern in other copy scenarios as well. For example, copying tables from SQL Server/Oracle to Azure SQL Database/Data Warehouse/Azure Blob, copying different paths from Blob to Azure SQL Database tables.
 
 At a high level, this tutorial involves following steps:
@@ -46,7 +42,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
-* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 * **Azure Storage account**. The Azure Storage account is used as staging blob storage in the bulk copy operation. 
 * **Azure SQL Database**. This database contains the source data. 
 * **Azure SQL Data Warehouse**. This data warehouse holds the data copied over from the SQL Database. 
@@ -59,7 +55,7 @@ Create an Azure SQL Database with Adventure Works LT sample data following [Crea
 
 **Prepare the sink Azure SQL Data Warehouse**:
 
-1. If you don't have an Azure SQL Data Warehouse, see the [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md#create-a-sql-data-warehouse) article for steps to create one.
+1. If you don't have an Azure SQL Data Warehouse, see the [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) article for steps to create one.
 
 2. Create corresponding table schemas in SQL Data Warehouse. You can use [Migration Utility](https://www.microsoft.com/download/details.aspx?id=49100) to **migrate schema** from Azure SQL Database to Azure SQL Data Warehouse. You use Azure Data Factory to migrate/copy data in a later step.
 
@@ -67,7 +63,7 @@ Create an Azure SQL Database with Adventure Works LT sample data following [Crea
 
 For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL server. Ensure that **Allow access to Azure services** setting is turned **ON** for your Azure SQL server. This setting allows the Data Factory service to read data from your Azure SQL Database and write data to your Azure SQL Data Warehouse. To verify and turn on this setting, do the following steps:
 
-1. Click **More services** hub on the left and click **SQL servers**.
+1. Click **All services** on the left and click **SQL servers**.
 2. Select your server, and click **Firewall** under **SETTINGS**.
 3. In the **Firewall settings** page, click **ON** for **Allow access to Azure services**.
 
@@ -78,7 +74,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
     Run the following command, and enter the user name and password that you use to sign in to the Azure portal:
         
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
     Run the following command to view all the subscriptions for this account:
 
@@ -90,7 +86,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
     ```powershell
     Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
     ```
-2. Run the **Set-AzureRmDataFactoryV2** cmdlet to create a data factory. Replace place-holders with your own values before executing the command.
+2. Run the **Set-AzureRmDataFactoryV2** cmdlet to create a data factory. Replace place-holders with your own values before executing the command. 
 
     ```powershell
 	$resourceGroupName = "<your resource group to create the factory>"
@@ -107,7 +103,7 @@ For both SQL Database and SQL Data Warehouse, allow Azure services to access SQL
         ```
 
     * To create Data Factory instances, you must be a Contributor or Administrator of the Azure subscription.
-    * Currently, Data Factory allows you to create data factory only in the East US region. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+    * For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
 ## Create linked services
 

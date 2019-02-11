@@ -1,30 +1,30 @@
 ---
-title: Use Azure Machine Learning Web Service Parameters | Microsoft Docs
+title: Web service parameters - Azure Machine Learning Studio | Microsoft Docs
 description: How to use Azure Machine Learning Web Service Parameters to modify the behavior of your model when the web service is accessed.
 services: machine-learning
 documentationcenter: ''
-author: raymondlaghaeian
-manager: jhubbard
-editor: cgronlun
+author: ericlicoding
+ms.custom: seodec18
+ms.author: amlstudiodocs
 
+editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.author: raymondl;garye
-
 ---
-# Use Azure Machine Learning Web Service Parameters
+# Use Azure Machine Learning Studio web service parameters
 An Azure Machine Learning web service is created by publishing an experiment that contains modules with configurable parameters. In some cases, you may want to change the module behavior while the web service is running. *Web Service Parameters* allow you to do this task. 
 
 A common example is setting up the [Import Data][reader] module so that the user of the published web service can specify a different data source when the web service is accessed. Or configuring the [Export Data][writer] module so that a different destination can be specified. Some other examples include changing the number of bits for the [Feature Hashing][feature-hashing] module or the number of desired features for the [Filter-Based Feature Selection][filter-based-feature-selection] module. 
 
 You can set Web Service Parameters and associate them with one or more module parameters in your experiment, and you can specify whether they are required or optional. The user of the web service can then provide values for these parameters when they call the web service. 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## How to set and use Web Service Parameters
 You define a Web Service Parameter by clicking the icon next to the parameter for a module and selecting "Set as web service parameter". This creates a new Web Service Parameter and connects it to that module parameter. Then, when the web service is accessed, the user can specify a value for the Web Service Parameter and it is applied to the module parameter.
@@ -49,7 +49,7 @@ As an example, let's assume we have an experiment with an [Export Data][writer] 
    * Under **Please specify data destination**, select "Azure Blob Storage".
    * Under **Please specify authentication type**, select "Account".
    * Enter the account information for the Azure blob storage. 
-     <p />
+
 3. Click the icon to the right of the **Path to blob beginning with container parameter**. It looks like this:
    
    ![Web Service Parameter icon][icon]

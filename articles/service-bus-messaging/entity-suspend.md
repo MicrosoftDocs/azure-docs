@@ -3,23 +3,23 @@ title: Azure Service Bus suspend messaging entities | Microsoft Docs
 description: Suspend and reactivate Azure Service Bus message entities.
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
-ms.author: sethm
+ms.date: 01/23/2019
+ms.author: aschhab
 
 ---
 
 # Suspend and reactivate messaging entities (disable)
 
-Queues, topics, and subscriptions can be temporarily suspended. Suspension puts the entity into a disabled state, in which all messages are maintained in storage. However, messages cannot be removed or added, and the respective protocol operations yield errors.
+Queues, topics, and subscriptions can be temporarily suspended. Suspension puts the entity into a disabled state in which all messages are maintained in storage. However, messages cannot be removed or added, and the respective protocol operations yield errors.
 
 Suspending an entity is typically done for urgent administrative reasons. One scenario is having deployed a faulty receiver that takes messages off the queue, fails processing, and yet incorrectly completes the messages and removes them. If that behavior is diagnosed, the queue can be disabled for receives until corrected code is deployed and further data loss caused by the faulty code can be prevented.
 
@@ -29,7 +29,7 @@ In the portal, the **Properties** section for the respective entity enables chan
 
 ![][1]
 
-The portal only permits completely disabling queues. You can also disable the send and receive operations separately using the Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API in the .NET Framework SDK, or with an Azure Resource Manager template through Azure CLI or Azure PowerShell.
+The portal only permits completely disabling queues. You can also disable the send and receive operations separately using the Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) APIs in the .NET Framework SDK, or with an Azure Resource Manager template through Azure CLI or Azure PowerShell.
 
 ## Suspension states
 
@@ -56,7 +56,6 @@ Set-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName m
 
 To learn more about Service Bus messaging, see the following topics:
 
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)

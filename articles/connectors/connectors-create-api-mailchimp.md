@@ -1,27 +1,25 @@
 ---
-title: MailChimp connector in Azure Logic Apps| Microsoft Docs
-description: Create Logic apps with Azure App service. MailChimp is a SaaS service that allows businesses to manage and automate email marketing activities, including sending marketing emails, automated messages and targeted campaigns.
-services: logic-apps
-documentationcenter: .net,nodejs,java
-author: MandiOhlinger
-manager: anneta
-editor: ''
-tags: connectors
-
-ms.assetid: 36559de2-94f0-4355-b492-2926dfc56486
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+# required metadata
+title: Connect to MailChimp - Azure Logic Apps | Microsoft Docs
+description: Create and manage marketing emails with MailChimp REST APIs and Azure Logic Apps 
+author: ecfan
+manager: jeconnoc
+ms.author: estfan
 ms.date: 08/18/2016
-ms.author: mandia; ladocs
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
 
+# optional metadata
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
 ---
-# Get started with the MailChimp connector
-MailChimp is a SaaS service that allows businesses to manage and automate email marketing activities, including sending marketing emails, automated messages and targeted campaigns.
 
-You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/logic-apps-create-a-logic-app.md).
+# Get started with the MailChimp connector
+MailChimp is a SaaS service that allows businesses to manage and automate email marketing activities, including sending marketing emails, automated messages, and targeted campaigns.
+
+You can get started by creating a Logic app now, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Create a connection to MailChimp
 To create Logic apps with MailChimp, you must first create a **connection** then provide the details for the following properties:

@@ -1,24 +1,29 @@
 ---
-title: API Reference the Face API Service | Microsoft Docs
-description: API reference provides information about the following the Person Management, Person Group Management, Face List Management, and Face Algorithms APIs.
+title: API Reference - Face API
+titleSuffix: Azure Cognitive Services
+description: API reference provides information about the Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms APIs.
 services: cognitive-services
-author: v-royhar
-manager: yutkuo
+author: SteveMSFT
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: face
-ms.topic: article
-ms.date: 01/18/2017
-ms.author: anroth
+ms.subservice: face-api
+ms.topic: reference
+ms.date: 03/01/2018
+ms.author: sbowles
 ---
 
 # API Reference
 
+The Azure Face API is a cloud-based API that provides algorithms for face detection and recognition. The Face APIs comprise the following categories:
 
-The Microsoft Face API is a cloud-based API that provides the most advanced algorithms for face detection and recognition. The reference document can be found in [Microsoft Cognitive Services (formerly Project Oxford) Dev Portal](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+- [Face Algorithm APIs](https://docs.microsoft.com/rest/api/cognitiveservices/face/face): Covers core functions such as [Detection](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/detectwithstream), [Find Similar](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar), [Verification](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/verifyfacetoface), [Identification](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify), and [Group](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/group).
+- [FaceList Management APIs](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist): Used to manage a FaceList for [Find Similar](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar).
+- [LargePersonGroup Person Management APIs](https://docs.microsoft.com/rest/api/cognitiveservices/face/largepersongroupperson): Used to manage LargePersonGroup Person Faces for [Identification](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [LargePersonGroup Management APIs](https://docs.microsoft.com/rest/api/cognitiveservices/face/largepersongroup): Used to manage a LargePersonGroup dataset for [Identification](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [LargeFaceList Management APIs](https://docs.microsoft.com/rest/api/cognitiveservices/face/largefacelist): Used to manage a LargeFaceList for [Find Similar](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar).
+- [PersonGroup Person Management APIs](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroupperson): Used to manage PersonGroup Person Faces for [Identification](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [PersonGroup Management APIs](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup): Used to manage a PersonGroup dataset for [Identification](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [Snapshot Management APIs](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot): Used to manage a Snapshot for data migration across subscriptions.
 
-Face APIs cover the following categories:
-- [Person Management APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c): Used to manage person faces for [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-- [Person Group Management APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244): Used to manage a person dataset for [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
-- [Face List Management APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b): Used to manage a face list for [Find Similar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).
-- [Face Algorithm APIs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236): Covers core functions such as [Detection](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [Verification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a), and [Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+<!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->

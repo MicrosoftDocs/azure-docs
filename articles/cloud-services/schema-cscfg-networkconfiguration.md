@@ -2,7 +2,7 @@
 title: "Azure Cloud Services NetworkConfiguration Schema | Microsoft Docs"
 ms.custom: ""
 ms.date: "12/07/2016"
-ms.prod: "azure"
+services: cloud-services
 ms.reviewer: ""
 ms.service: "cloud-services"
 ms.suite: ""
@@ -10,8 +10,8 @@ ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: c1b94a9e-46e8-4a18-ac99-343c94b1d4bd
 caps.latest.revision: 28
-author: "thraka"
-ms.author: "adegeo"
+author: "jpconnock"
+ms.author: "jeconnoc"
 manager: "timlt"
 ---
 

@@ -2,34 +2,28 @@
 title: Set and retrieve object properties and metadata in Azure Storage | Microsoft Docs
 description: Store custom metadata on objects in Azure Storage, and set and retrieve system properties.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
 
-ms.assetid: 036f9006-273e-400b-844b-3329045e9e1f
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 07/16/2018
 ms.author: tamram
 ---
+
 # Set and retrieve properties and metadata
 
 Objects in Azure Storage support system properties and user-defined metadata, in addition to the data they contain. This article discusses managing system properties and user-defined metadata with the [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
-* **System properties**: System properties exist on each storage resource. Some of them can be read or set, while others are read-only. Under the covers, some system properties correspond to certain standard HTTP headers. The Azure storage client library maintains these for you.
+* **System properties**: System properties exist on each storage resource. Some of them can be read or set, while others are read-only. Under the covers, some system properties correspond to certain standard HTTP headers. Azure Storage client libraries maintain these properties for you.
 
-* **User-defined metadata**: User-defined metadata is metadata that you specify on a given resource in the form of a name-value pair. You can use metadata to store additional values with a storage resource. These additional metadata values are for your own purposes only, and do not affect how the resource behaves.
+* **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for an Azure Storage resource. You can use metadata to store additional values with a resource. Metadata values are for your own purposes only, and do not affect how the resource behaves.
 
-Retrieving property and metadata values for a storage resource is a two-step process. Before you can read these values, you must explicitly fetch them by calling the **FetchAttributesAsync** method.
+Retrieving property and metadata values for a storage resource is a two-step process. Before you can read these values, you must explicitly fetch them by calling the **FetchAttributes** or **FetchAttributesAsync** method. The exception is if you are calling the **Exists** or **ExistsAsync** method on a resource. When you call one of these methods, Azure Storage calls the appropriate **FetchAttributes** method under the covers as part of the call to the **Exists** method.
 
 > [!IMPORTANT]
-> Property and metadata values for a storage resource are not populated unless you call one of the **FetchAttributesAsync** methods.
+> If you find that property or metadata values for a storage resource have not been populated, then check that your code calls the **FetchAttributes** or **FetchAttributesAsync** method.
 >
-> You will receive a `400 Bad Request` if any name/value pairs contain non-ASCII characters. Metadata name/value pairs are valid HTTP headers, and so must adhere to all restrictions governing HTTP headers. It is therefore recommended that you use URL encoding or Base64 encoding for names and values containing non-ASCII characters.
+> Metadata name/value pairs may contain only ASCII characters. Metadata name/value pairs are valid HTTP headers, and so must adhere to all restrictions governing HTTP headers. It's recommended that you use URL encoding or Base64 encoding for names and values containing non-ASCII characters.
 >
 
 ## Setting and retrieving properties
@@ -62,7 +56,7 @@ Console.WriteLine();
 ```
 
 ## Setting and retrieving metadata
-You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, add name-value pairs to the **Metadata** collection on the resource, then call the **SetMetadata** method to save the values to the service.
+You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, add name-value pairs to the **Metadata** collection on the resource, then call the **SetMetadata** or **SetMetadataAsync** method to save the values to the service.
 
 > [!NOTE]
 > The name of your metadata must conform to the naming conventions for C# identifiers.
@@ -83,7 +77,7 @@ public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
 }
 ```
 
-To retrieve metadata, call the **FetchAttributes** method on your blob or container to populate the **Metadata** collection, then read the values, as shown in the example below.
+To retrieve metadata, call the **FetchAttributes** or **FetchAttributesAsync** method on your blob or container to populate the **Metadata** collection, then read the values, as shown in the example below.
 
 ```csharp
 public static async Task ListContainerMetadataAsync(CloudBlobContainer container)

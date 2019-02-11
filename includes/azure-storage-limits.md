@@ -1,44 +1,43 @@
-| Resource | Default Limit |
+---
+ title: include file
+ description: include file
+ services: storage
+ author: tamram
+ ms.service: storage
+ ms.topic: include
+ ms.date: 01/11/2018
+ ms.author: tamram
+ ms.custom: include file
+---
+
+The following table describes default limits for Azure Storage. The *ingress* limit refers to all data (requests) being sent to a storage account. The *egress* limit refers to all data (responses) being received from a storage account.
+
+| Resource | Default limit |
 | --- | --- |
-| Number of storage accounts per subscription |200<sup>1</sup> |
-| Max storage account capacity |500 TB<sup>2</sup> |
-| Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account |No limit |
-| Max size of a single blob container, table, or queue |Same as max storage account capacity |
-| Max number of blocks in a block blob or append blob |50,000 |
-| Max size of a block in a block blob |100 MB |
-| Max size of a block blob |50,000 X 100 MB (approx. 4.75 TB) |
-| Max size of a block in an append blob |4 MB |
-| Max size of an append blob |50,000 X 4 MB (approx. 195 GB) |
-| Max size of a page blob |8 TB |
-| Max size of a table entity |1 MB |
-| Max number of properties in a table entity |252 |
-| Max size of a message in a queue |64 KB |
-| Max size of a file share |5 TB |
-| Max size of a file in a file share |1 TB |
-| Max number of files in a file share |Only limit is the 5 TB total capacity of the file share |
-| Max IOPS per share |1000 |
+| Number of storage accounts per region per subscription, including both standard and premium accounts | 250 |
+| Max storage account capacity | 2 PB for US and Europe, 500 TB for all other regions including UK |
+| Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account | No limit |
+| Maximum request rate<sup>1</sup> per storage account | 20,000 requests per second |
+| Max ingress<sup>1</sup> per storage account (US Regions) | 10 Gbps if RA-GRS/GRS enabled, 20 Gbps for LRS/ZRS<sup>2</sup> |
+| Max ingress<sup>1</sup> per storage account (Non-US regions) | 5 Gbps if RA-GRS/GRS enabled, 10 Gbps for LRS/ZRS<sup>2</sup> |
+| Max egress for general-purpose v2 and Blob storage accounts (all regions) | 50 Gbps |
+| Max egress for general-purpose v1 storage accounts (US regions) | 20 Gbps if RA-GRS/GRS enabled, 30 Gbps for LRS/ZRS <sup>2</sup> |
+| Max egress for general-purpose v1 storage accounts (Non-US regions) | 10 Gbps if RA-GRS/GRS enabled, 15 Gbps for LRS/ZRS <sup>2</sup> |
 
-| Max number of stored access policies per container, file share, table, or queue |5 |
-| Maximum request rate per storage account |Blobs: 20,000 requests per second<sup>2</sup> for blobs of any valid size<sup>3</sup> <br />Files: 20,000 requests per second <sup>2</sup> for files of any valid size<sup>3</sup> <br />Queues: 20,000 messages per second (assuming 1 KB message size)<br />Tables: 20,000 transactions per second (assuming 1 KB entity size) |
-| Target throughput for single blob |Up to 60 MB per second, or up to 500 requests per second |
-| Target throughput for single queue (1 KB messages) |Up to 2000 messages per second |
-| Target throughput for single table partition (1 KB entities) |Up to 2000 entities per second |
-| Target throughput for single file share |Up to 60 MB per second |
-| Max ingress<sup>3</sup> per storage account (US Regions) |10 Gbps if GRS/ZRS<sup>4</sup> enabled, 20 Gbps for LRS<sup>2</sup> |
-| Max egress<sup>3</sup> per storage account (US Regions) |20 Gbps if RA-GRS/GRS/ZRS<sup>4</sup> enabled, 30 Gbps for LRS<sup>2</sup> |
-| Max ingress<sup>3</sup> per storage account (Non-US regions) |5 Gbps if GRS/ZRS<sup>4</sup> enabled, 10 Gbps for LRS<sup>2</sup> |
-| Max egress<sup>3</sup> per storage account (Non-US regions) |10 Gbps if RA-GRS/GRS/ZRS<sup>4</sup> enabled, 15 Gbps for LRS<sup>2</sup> |
+<sup>1</sup> Azure standard storage accounts support higher limits for ingress by request. To request an increase in account limits for ingress, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
-<sup>1</sup>Includes both Standard and Premium storage accounts. If you require more than 200 storage accounts, make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review your business case and may approve up to 250 storage accounts. 
-
-<sup>2</sup> To get your standard storage accounts to grow past the advertised limits in capacity, ingress/egress and request rate, please make a request through [Azure Support](https://azure.microsoft.com/support/faq/). The Azure Storage team will review the request and may approve higher limits on a case by case basis.
-
-<sup>3</sup> Capped only by the account's ingress/egress limits. *Ingress* refers to all data (requests) being sent to a storage account. *Egress* refers to all data (responses) being received from a storage account.  
-
-<sup>4</sup>Azure Storage replication options include:
+<sup>2</sup> [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy) options include:
 * **RA-GRS**: Read-access geo-redundant storage. If RA-GRS is enabled, egress targets for the secondary location are identical to those for the primary location.
-* **GRS**:  Geo-redundant storage. 
-* **ZRS**: Zone-redundant storage. Available only for block blobs. 
+* **GRS**: Geo-redundant storage. 
+* **ZRS**: Zone-redundant storage.
 * **LRS**: Locally redundant storage. 
 
+> [!NOTE]
+> Microsoft recommends using a general-purpose v2 storage account for most scenarios. You can easily upgrade a general-purpose v1 or Blob storage account to a general-purpose v2 account with no downtime and without the need to copy data.
+>
+> For more information on Azure Storage accounts, see [Storage Account Overview](../articles/storage/common/storage-account-overview.md). 
+
+If the needs of your application exceed the scalability targets of a single storage account, you can build your application to use multiple storage accounts. You can then partition your data objects across those storage accounts. See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for information on volume pricing.
+
+All storage accounts run on a flat network topology and support the scalability and performance targets outlined in this article, regardless of when they were created. For more information on the Azure Storage flat network architecture and on scalability, see [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 

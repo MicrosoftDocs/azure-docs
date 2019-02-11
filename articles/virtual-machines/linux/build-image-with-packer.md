@@ -3,8 +3,8 @@ title: How to create Linux Azure VM Images with Packer | Microsoft Docs
 description: Learn how to use Packer to create images of Linux virtual machines in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/18/2017
-ms.author: iainfou
+ms.date: 05/03/2018
+ms.author: cynthn
 ---
 
 # How to use Packer to create Linux virtual machine images in Azure
@@ -25,7 +25,7 @@ Each virtual machine (VM) in Azure is created from an image that defines the Lin
 ## Create Azure resource group
 During the build process, Packer creates temporary Azure resources as it builds the source VM. To capture that source VM for use as an image, you must define a resource group. The output from the Packer build process is stored in this resource group.
 
-Create a resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli
 az group create -n myResourceGroup -l eastus
@@ -35,7 +35,7 @@ az group create -n myResourceGroup -l eastus
 ## Create Azure credentials
 Packer authenticates with Azure using a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like Packer. You control and define the permissions as to what operations the service principal can perform in Azure.
 
-Create a service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) and output the credentials that Packer needs:
+Create a service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp) and output the credentials that Packer needs:
 
 ```azurecli
 az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
@@ -51,7 +51,7 @@ An example of the output from the preceding commands is as follows:
 }
 ```
 
-To authenticate to Azure, you also need to obtain your Azure subscription ID with [az account show](/cli/azure/account#show):
+To authenticate to Azure, you also need to obtain your Azure subscription ID with [az account show](/cli/azure/account):
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -193,9 +193,11 @@ ManagedImageName: myPackerImage
 ManagedImageLocation: eastus
 ```
 
+It takes a few minutes for Packer to build the VM, run the provisioners, and clean up the deployment.
+
 
 ## Create VM from Azure Image
-You can now create a VM from your Image with [az vm create](/cli/azure/vm#create). Specify the Image you created with the `--image` parameter. The following example creates a VM named *myVM* from *myPackerImage* and generates SSH keys if they do not already exist:
+You can now create a VM from your Image with [az vm create](/cli/azure/vm). Specify the Image you created with the `--image` parameter. The following example creates a VM named *myVM* from *myPackerImage* and generates SSH keys if they do not already exist:
 
 ```azurecli
 az vm create \
@@ -206,9 +208,11 @@ az vm create \
     --generate-ssh-keys
 ```
 
+If you wish to create VMs in a different resource group or region than your Packer image, specify the image ID rather than image name. You can obtain the image ID with [az image show](/cli/azure/image#az-image-show).
+
 It takes a few minutes to create the VM. Once the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the NGINX site via a web browser.
 
-To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](/cli/azure/vm#open-port):
+To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](/cli/azure/vm):
 
 ```azurecli
 az vm open-port \

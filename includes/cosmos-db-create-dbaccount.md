@@ -1,31 +1,35 @@
-1. In a new window, sign in to the [Azure portal](https://portal.azure.com/).
-2. In the left pane, click **New**, click **Databases**, and then under **Azure Cosmos DB**, click **Create**.
+---
+ title: include file
+ description: include file
+ services: cosmos-db
+ author: SnehaGunda
+ ms.service: cosmos-db
+ ms.topic: include
+ ms.date: 04/13/2018
+ ms.author: sngun
+ ms.custom: include file
+---
+
+1. In a new browser window, sign in to the [Azure portal](https://portal.azure.com/).
+2. Select **Create a resource** > **Databases** > **Azure Cosmos DB**.
    
    ![The Azure portal Databases pane](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
-3. On the **New account** blade, specify the configuration that you want for this Azure Cosmos DB account. 
-
-    With Azure Cosmos DB, you can choose one of four programming models: Gremlin (graph), MongoDB, SQL (DocumentDB), and Table (key-value), each which currently require a separate account.
-    
-    In this quick-start article we program against the DocumentDB API, so choose **SQL (DocumentDB)** as you fill out the form. If you have graph data for a social media app, or key/value (table) data, or data migrated from a MongoDB app, realize that Azure Cosmos DB can provide a highly available, globally distributed database service platform for all your mission-critical applications.
-
-    Complete the fields on the **New account** blade, using the information in the following screenshot as a guide- your values may be different than the values in the screenshot.
+3. On the **Create Azure Cosmos DB Account** page, enter the basic settings for the new Azure Cosmos DB account. 
  
-    ![The new account blade for Azure Cosmos DB](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
-
-    Setting|Suggested value|Description
+    Setting|Value|Description
     ---|---|---
-    ID|*Unique value*|A unique name that identifies this Azure Cosmos DB account. Because *documents.azure.com* is appended to the ID that you provide to create your URI, use a unique but identifiable ID. The ID can contain only lowercase letters, numbers, and the hyphen (-) character, and it must contain 3 to 50 characters.
-    API|SQL (DocumentDB)|We program against the [DocumentDB API](../articles/cosmos-db/documentdb-introduction.md) later in this article.|
-    Subscription|*Your subscription*|The Azure subscription that you want to use for this Azure Cosmos DB account. 
-    Resource Group|*The same value as ID*|The new resource-group name for your account. For simplicity, you can use the same name as your ID. 
-    Location|*The region closest to your users*|The geographic location in which to host your Azure Cosmos DB account. Choose the location that's closest to your users to give them the fastest access to the data.
-4. Click **Create** to create the account.
-5. On the top toolbar, click the **Notifications** icon ![The notification icon](./media/cosmos-db-create-dbaccount/notification-icon.png) to monitor the deployment process.
+    Subscription|Your subscription|Select the Azure subscription that you want to use for this Azure Cosmos DB account. 
+    Resource Group|Create new<br><br>Then enter the same unique name as provided in ID|Select **Create new**. Then enter a new resource-group name for your account. For simplicity, use the same name as your ID. 
+    Account Name|Enter a unique name|Enter a unique name to identify your Azure Cosmos DB account. Because *documents.azure.com* is appended to the ID that you provide to create your URI, use a unique ID.<br><br>The ID can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3 and 31 characters in length. 
+    API|Core(SQL)|The API determines the type of account to create. Azure Cosmos DB provides five APIs: Core(SQL) for document databases, Gremlin for graph databases, MongoDB for document databases, Azure Table, and Cassandra. Currently, you must create a separate account for each API. <br><br>Select **Core(SQL)** because in this article you create a document database and query by using SQL syntax. <br><br>[Learn more about the SQL API](../articles/cosmos-db/documentdb-introduction.md).|
+    Location|Select the region closest to your users|Select a geographic location to host your Azure Cosmos DB account. Use the location that's closest to your users to give them the fastest access to the data.
 
-    ![The Azure portal Notifications pane](./media/cosmos-db-create-dbaccount-graph/azure-documentdb-nosql-notification.png)
+    Select **Review+Create**. You can skip the **Network** and **Tags** section. 
 
-6.  When the Notifications window indicates the deployment succeeded, close the notification window and open the new account from the **All Resources** tile on the Dashboard. 
+    ![The new account page for Azure Cosmos DB](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account.png)
 
-    ![The Azure Cosmos DB account on the All Resources tile](./media/cosmos-db-create-dbaccount/all-resources.png)
- 
+4. The account creation takes a few minutes. Wait for the portal to display the **Congratulations! Your Azure Cosmos DB account was created** page.
+
+    ![The Azure portal Notifications pane](./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created.png)
+

@@ -3,7 +3,7 @@ title: Auto scale a cloud service in the portal | Microsoft Docs
 description: Learn how to use the portal to configure auto scale rules for a cloud service web role or worker role in Azure.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -14,18 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: adegeo
+ms.author: jeconnoc
 ---
 
 # How to configure auto scaling for a Cloud Service in the portal
-> [!div class="op_single_selector"]
-> * [Azure portal](cloud-services-how-to-scale-portal.md)
-> * [Azure classic portal](cloud-services-how-to-scale.md)
 
 Conditions can be set for a cloud service worker role that trigger a scale in or out operation. The conditions for the role can be based on the CPU, disk, or network load of the role. You can also set a condition based on a message queue or the metric of some other Azure resource associated with your subscription.
 
 > [!NOTE]
-> This article focuses on Cloud Service web and worker roles. When you create a virtual machine (classic) directly, it is hosted in a cloud service. You can scale a standard virtual machine by associating it with an [availability set](../virtual-machines/windows/classic/configure-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) and manually turn them on or off.
+> This article focuses on Cloud Service web and worker roles. When you create a virtual machine (classic) directly, it is hosted in a cloud service. You can scale a standard virtual machine by associating it with an [availability set](../virtual-machines/windows/classic/configure-availability-classic.md) and manually turn them on or off.
 
 ## Considerations
 You should consider the following information before you configure scaling for your application:
@@ -39,6 +36,8 @@ You should consider the following information before you configure scaling for y
 * You can also scale other resources associated with your subscription.
 
 * To enable high availability of your application, you should ensure that it is deployed with two or more role instances. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
+
+* Auto Scale only happens when all the roles are in **Ready** state.  
 
 
 ## Where scale is located

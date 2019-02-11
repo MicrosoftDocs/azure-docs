@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+---
 In this step, you test the availability group listener by using a client application that's running on the same network.
 
 Client connectivity has the following requirements:

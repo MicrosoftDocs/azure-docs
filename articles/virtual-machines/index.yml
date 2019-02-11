@@ -1,0 +1,119 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Virtual Machines Documentation
+metadata:
+  document_id: na
+  title: Azure Linux Virtual Machine Documentation - Tutorials, API Reference | Microsoft Docs
+  meta.description: Learn how to create, deploy, and manage Windows or Linux virtual machines. Tutorials, API references, and other documentation.
+  services: virtual-machines
+  author: czeumault
+  manager: carolz
+  ms.service: virtual-machines
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/23/2017
+  ms.author: carolz
+abstract:
+  description: Learn how to create Azure virtual machines. Tutorials, API references, and other documentation show you how to create and deploy Windows and Linux virtual machines and VM templates.
+sections:
+- title: 
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title:  Get started with Windows Virtual Machines
+      href: /azure/virtual-machines/windows
+      image: 
+        src: media/index/virtual-machines.svg
+        href: /azure/virtual-machines/windows
+    - title:  Get started with Linux Virtual Machines
+      href: /azure/virtual-machines/linux
+      image: 
+        src: media/index/get-started.svg
+        href: /azure/virtual-machines/linux
+- title: 5-Minute Linux quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to deploy an NGINX web-server within a Virtual Machine running Ubuntu:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI
+      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - image: 
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/portal.svg
+      text: Azure portal
+      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - image: 
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+- title: 5-Minute Windows quickstarts
+  items: 
+  - type: paragraph
+    text: 'Learn how to deploy an IIS web-server within a virtual machine running Windows Server 2016:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/azure/virtual-machines/windows/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=/azure/virtual-machines/windows/toc.json
+    - image: 
+        src: https://docs.microsoft.com/azure/virtual-machines/windows/media/index/portal.svg
+      text: Azure portal
+      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=/azure/virtual-machines/windows/toc.json
+    - image: 
+        src: https://docs.microsoft.com/azure/virtual-machines/windows/media/index/cli.svg
+      text: Azure CLI
+      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=/azure/virtual-machines/windows/toc.json
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Introduction to Azure compute
+      href: /learn/modules/intro-to-azure-compute/
+      image: 
+        src: /learn/achievements/intro-to-azure-compute.svg
+        href: /learn/modules/intro-to-azure-compute/
+    - title: Introduction to Azure Virtual Machines
+      href: /learn/modules/intro-to-azure-virtual-machines/
+      image: 
+        src: /learn/achievements/intro-to-azure-virtual-machines.svg
+        href: /learn/modules/intro-to-azure-virtual-machines/
+    - title:  Add and size disks in Azure Virtual Machines
+      href: /learn/modules/add-and-size-disks-in-azure-virtual-machines/
+      image: 
+        src: /learn/achievements/add-and-size-disks-in-azure-virtual-machines.svg
+        href: /learn/modules/add-and-size-disks-in-azure-virtual-machines/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-virtual-machines">More interactive learning...</a>
+- title: Free Pluralsight Video Training
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure Administrator
+      href: https://go.microsoft.com/fwlink/?linkid=2012827
+      image: 
+        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
+        href: https://go.microsoft.com/fwlink/?linkid=2012827
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure/vm">Azure CLI</a></p><p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node​.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/compute">REST API Reference</a></p>

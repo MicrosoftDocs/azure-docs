@@ -94,7 +94,7 @@ Here's an example that uses [cmdlet names)] to [task]. It includes commands that
 
 <!--To link to an ACOM page outside the /documentation/ subdomain (such as a pricing page, SLA page or anything else that is not a documentation article), use an absolute URL, but omit the locale:
 
-    [link text](http://azure.microsoft.com/pricing/details/virtual-machines/)-->
+    [link text](https://azure.microsoft.com/pricing/details/virtual-machines/)-->
 
 <!--use this for URLs outside of ACOM. Be sure to locale, and if you're linking to the Azure library on MSDN, include the '/azure/' part of the URL-->
 [Virtual machines documentation](https://msdn.microsoft.com/library/azure/jj156003.aspx)

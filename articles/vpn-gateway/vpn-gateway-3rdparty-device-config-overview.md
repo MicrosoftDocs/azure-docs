@@ -1,4 +1,4 @@
----
+﻿---
 title: Partner VPN device configurations for connecting to Azure VPN gateways | Microsoft Docs
 description: This article provides an overview of partner VPN device configurations for connecting to Azure VPN gateways.
 services: vpn-gateway
@@ -53,7 +53,7 @@ This section provides a sample script to get you started. For detailed instructi
 ```powershell
 # Declare your variables
 
-$Sub1          = "Replace_With_Your_Subcription_Name"
+$Sub1          = "Replace_With_Your_Subscription_Name"
 $RG1           = "TestRG1"
 $Location1     = "East US 2"
 $VNetName1     = "TestVNet1"
@@ -81,7 +81,7 @@ $BGPPeerIP5    = "10.52.255.254"
 
 # Connect to your subscription and create a new resource group
 
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 

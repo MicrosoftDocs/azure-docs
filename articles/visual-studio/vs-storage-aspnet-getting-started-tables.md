@@ -2,20 +2,16 @@
 title: Get started with Azure table storage and Visual Studio Connected Services (ASP.NET) | Microsoft Docs
 description: How to get started using Azure table storage in an ASP.NET project in Visual Studio after connecting to a storage account using Visual Studio Connected Services
 services: storage
-documentationcenter: ''
-author: kraigb
-manager: ghogen
-editor: ''
-
+author: ghogen
+manager: douge
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
-ms.service: storage
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
+ms.prod: visual-studio-dev15
+ms.technology: vs-azure
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.topic: conceptual
 ms.date: 12/21/2016
-ms.author: kraigb
-
+ms.author: ghogen
 ---
 # Get started with Azure table storage and Visual Studio Connected Services (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -26,10 +22,10 @@ Azure Table storage enables you to store large amounts of structured data. The s
 
 This tutorial shows how to write ASP.NET code for some common scenarios using Azure table storage entities. These scenarios include creating a table, and adding, querying, and deleting table entities. 
 
-##Prerequisites
+## Prerequisites
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Azure storage account](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -171,7 +167,7 @@ The following steps illustrate how to create a table:
   
 	![Create table](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
-	As mentioned previously, the **CloudTable.CreateIfNotExists** method returns **true** only when the table doesn't exist and is created. Therefore, if you run the app when the table exists, the method returns **false**. To run the app multiple times, you must delete the table before running the app again. Deleting the table can be done via the **CloudTable.Delete** method. You can also delete the table using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+	As mentioned previously, the **CloudTable.CreateIfNotExists** method returns **true** only when the table doesn't exist and is created. Therefore, if you run the app when the table exists, the method returns **false**. To run the app multiple times, you must delete the table before running the app again. Deleting the table can be done via the **CloudTable.Delete** method. You can also delete the table using the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## Add an entity to a table
 

@@ -1,6 +1,6 @@
 ---
-title: Bind an existing custom SSL certificate to Azure Web Apps | Microsoft Docs
-description: Learn to to bind a custom SSL certificate to your web app, mobile app backend, or API app in Azure App Service.
+title: Bind existing custom SSL certificate - Azure App Service | Microsoft Docs
+description: Learn how to bind a custom SSL certificate to your web app, mobile app backend, or API app in Azure App Service.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -13,13 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/23/2017
+ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
----
-# Bind an existing custom SSL certificate to Azure Web Apps
+ms.custom: seodec18
 
-Azure Web Apps provides a highly scalable, self-patching web hosting service. This tutorial shows you how to bind a custom SSL certificate that you purchased from a trusted certificate authority to [Azure Web Apps](app-service-web-overview.md). When you're finished, you'll be able to access your web app at the HTTPS endpoint of your custom DNS domain.
+---
+# Tutorial: Bind an existing custom SSL certificate to Azure App Service
+
+Azure App Service provides a highly scalable, self-patching web hosting service. This tutorial shows you how to bind a custom SSL certificate that you purchased from a trusted certificate authority to [Azure App Service](overview.md). When you're finished, you'll be able to access your app at the HTTPS endpoint of your custom DNS domain.
 
 ![Web app with custom SSL certificate](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
@@ -27,19 +29,21 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Upgrade your app's pricing tier
-> * Bind your custom SSL certificate to App Service
-> * Enforce HTTPS for your app
-> * Automate SSL certificate binding with scripts
+> * Bind your custom certificate to App Service
+> * Renew certificates
+> * Enforce HTTPS
+> * Enforce TLS 1.1/1.2
+> * Automate TLS management with scripts
 
 > [!NOTE]
-> If you need to get a custom SSL certificate, you can get one in the Azure portal directly and bind it to your web app. Follow the [App Service Certificates tutorial](web-sites-purchase-ssl-web-site.md).
+> If you need to get a custom SSL certificate, you can get one in the Azure portal directly and bind it to your app. Follow the [App Service Certificates tutorial](web-sites-purchase-ssl-web-site.md).
 
 ## Prerequisites
 
 To complete this tutorial:
 
 - [Create an App Service app](/azure/app-service/)
-- [Map a custom DNS name to your web app](app-service-web-tutorial-custom-domain.md)
+- [Map a custom DNS name to your App Service app](app-service-web-tutorial-custom-domain.md)
 - Acquire an SSL certificate from a trusted certificate authority
 - Have the private key you used to sign the SSL certificate request
 
@@ -57,51 +61,13 @@ To use a certificate in App Service, the certificate must meet all the following
 > [!NOTE]
 > **Elliptic Curve Cryptography (ECC) certificates** can work with App Service but are not covered by this article. Work with your certificate authority on the exact steps to create ECC certificates.
 
-## Prepare your web app
-
-To bind a custom SSL certificate to your web app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, or **Premium** tier. In this step, you make sure that your web app is in the supported pricing tier.
-
-### Log in to Azure
-
-Open the [Azure portal](https://portal.azure.com).
-
-### Navigate to your web app
-
-From the left menu, click **App Services**, and then click the name of your web app.
-
-![Select web app](./media/app-service-web-tutorial-custom-ssl/select-app.png)
-
-You have landed in the management page of your web app.  
-
-### Check the pricing tier
-
-In the left-hand navigation of your web app page, scroll to the **Settings** section and select **Scale up (App Service plan)**.
-
-![Scale-up menu](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
-
-Check to make sure that your web app is not in the **Free** or **Shared** tier. Your web app's current tier is highlighted by a dark blue box.
-
-![Check pricing tier](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
-
-Custom SSL is not supported in the **Free** or **Shared** tier. If you need to scale up, follow the steps in the next section. Otherwise, close the **Choose your pricing tier** page and skip to [Upload and bind your SSL certificate](#upload).
-
-### Scale up your App Service plan
-
-Select one of the **Basic**, **Standard**, or **Premium** tiers.
-
-Click **Select**.
-
-![Choose pricing tier](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
-
-When you see the following notification, the scale operation is complete.
-
-![Scale up notification](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 <a name="upload"></a>
 
 ## Bind your SSL certificate
 
-You are ready to upload your SSL certificate to your web app.
+You are ready to upload your SSL certificate to your app.
 
 ### Merge intermediate certificates
 
@@ -135,7 +101,7 @@ Export your merged SSL certificate with the private key that your certificate re
 
 If you generated your certificate request using OpenSSL, then you have created a private key file. To export your certificate to PFX, run the following command. Replace the placeholders _&lt;private-key-file>_ and _&lt;merged-certificate-file>_ with the paths to your private key and your merged certificate file.
 
-```
+```bash
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
 ```
 
@@ -145,17 +111,17 @@ If you used IIS or _Certreq.exe_ to generate your certificate request, install t
 
 ### Upload your SSL certificate
 
-To upload your SSL certificate, click **SSL certificates** in the left navigation of your web app.
+To upload your SSL certificate, click **SSL settings** in the left navigation of your app.
 
-Click **Upload Certificate**.
+Click **Upload Certificate**. 
 
 In **PFX Certificate File**, select your PFX file. In **Certificate password**, type the password that you created when you exported the PFX file.
 
 Click **Upload**.
 
-![Upload certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
+![Upload certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
-When App Service finishes uploading your certificate, it appears in the **SSL certificates** page.
+When App Service finishes uploading your certificate, it appears in the **SSL settings** page.
 
 ![Certificate uploaded](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
 
@@ -170,9 +136,9 @@ In the **Add SSL Binding** page, use the dropdowns to select the domain name to 
 >
 >
 
-In **SSL Type**, select whether to use **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** or IP-based SSL.
+In **SSL Type**, select whether to use **[Server Name Indication (SNI)](https://en.wikipedia.org/wiki/Server_Name_Indication)** or IP-based SSL.
 
-- **SNI-based SSL** - Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](http://wikipedia.org/wiki/Server_Name_Indication)).
+- **SNI-based SSL** - Multiple SNI-based SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (find more comprehensive browser support information at [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)).
 - **IP-based SSL** - Only one IP-based SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. To secure multiple domains, you must secure them all using the same SSL certificate. This is the traditional option for SSL binding.
 
 Click **Add Binding**.
@@ -185,98 +151,72 @@ When App Service finishes uploading your certificate, it appears in the **SSL bi
 
 ## Remap A record for IP SSL
 
-If you don't use IP-based SSL in your web app, skip to [Test HTTPS for your custom domain](#test).
+If you don't use IP-based SSL in your app, skip to [Test HTTPS for your custom domain](#test).
 
-By default, your web app uses a shared public IP address. When you bind a certificate with IP-based SSL, App Service creates a new, dedicated IP address for your web app.
+By default, your app uses a shared public IP address. When you bind a certificate with IP-based SSL, App Service creates a new, dedicated IP address for your app.
 
-If you have mapped an A record to your web app, update your domain registry with this new, dedicated IP address.
+If you have mapped an A record to your app, update your domain registry with this new, dedicated IP address.
 
-Your web app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](app-service-web-tutorial-custom-domain.md#map-an-a-record) to this new IP address.
+Your app's **Custom domain** page is updated with the new, dedicated IP address. [Copy this IP address](app-service-web-tutorial-custom-domain.md#info), then [remap the A record](app-service-web-tutorial-custom-domain.md#map-an-a-record) to this new IP address.
 
 <a name="test"></a>
 
 ## Test HTTPS
 
 All that's left to do now is to make sure that HTTPS works for your custom domain. In various browsers, browse
-to `https://<your.custom.domain>` to see that it serves up your web app.
+to `https://<your.custom.domain>` to see that it serves up your app.
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-custom-ssl/app-with-custom-ssl.png)
 
 > [!NOTE]
-> If your web app gives you certificate validation errors, you're probably using a self-signed certificate.
+> If your app gives you certificate validation errors, you're probably using a self-signed certificate.
 >
 > If that's not the case, you may have left out intermediate certificates when you export your certificate to the PFX file.
 
 <a name="bkmk_enforce"></a>
 
+## Renew certificates
+
+Your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, follow these steps in order:
+
+1. Upload the new certificate.
+2. Bind the new certificate to the custom domain you want without deleting the old one. This action replaces the binding instead of removing the old one.
+3. Delete the old certificate. 
+
 ## Enforce HTTPS
 
-App Service does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, define a rewrite rule in the _web.config_ file for your web app. App Service uses this file, regardless of the language framework of your web app.
+By default, anyone can still access your app using HTTP. You can redirect all HTTP requests to the HTTPS port.
 
-> [!NOTE]
-> There is language-specific redirection of requests. ASP.NET MVC can use the [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filter instead of the rewrite rule in _web.config_.
+In your app page, in the left navigation, select **SSL settings**. Then, in **HTTPS Only**, select **On**.
 
-If you're a .NET developer, you should be relatively familiar with this file. It is in the root of your solution.
+![Enforce HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-Alternatively, if you develop with PHP, Node.js, Python, or Java, there is a chance we generated this file on your behalf in App Service.
+When the operation is complete, navigate to any of the HTTP URLs that point to your app. For example:
 
-Connect to your web app's FTP endpoint by following the instructions at [Deploy your app to Azure App Service using FTP/S](app-service-deploy-ftp.md).
+- `http://<app_name>.azurewebsites.net`
+- `http://contoso.com`
+- `http://www.contoso.com`
 
-This file should be located in _/home/site/wwwroot_. If not, create a _web.config_ file in this folder with the following XML:
+## Enforce TLS versions
 
-```xml   
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <rewrite>
-      <rules>
-        <!-- BEGIN rule ELEMENT FOR HTTPS REDIRECT -->
-        <rule name="Force HTTPS" enabled="true">
-          <match url="(.*)" ignoreCase="false" />
-          <conditions>
-            <add input="{HTTPS}" pattern="off" />
-          </conditions>
-          <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
-        </rule>
-        <!-- END rule ELEMENT FOR HTTPS REDIRECT -->
-      </rules>
-    </rewrite>
-  </system.webServer>
-</configuration>
-```
+Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 by default, which is the recommended TLS level by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). To enforce different TLS versions, follow these steps:
 
-For an existing _web.config_ file, copy the entire `<rule>` element into your _web.config_'s `configuration/system.webServer/rewrite/rules` element. If there are other `<rule>` elements in your _web.config_, place the copied `<rule>` element before the other `<rule>` elements.
+In your app page, in the left navigation, select **SSL settings**. Then, in **TLS version**, select the minimum TLS version you want. This setting controls the inbound calls only. 
 
-This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user makes an HTTP request to your web app. For example, it redirects from `http://contoso.com` to `https://contoso.com`.
+![Enforce TLS 1.1 or 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
-For more information on the IIS URL Rewrite module, see the [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite) documentation.
-
-## Enforce HTTPS for Web Apps on Linux
-
-App Service on Linux does *not* enforce HTTPS, so anyone can still access your web app using HTTP. To enforce HTTPS for your web app, define a rewrite rule in the _.htaccess_ file for your web app. 
-
-Connect to your web app's FTP endpoint by following the instructions at [Deploy your app to Azure App Service using FTP/S](app-service-deploy-ftp.md).
-
-In _/home/site/wwwroot_, create an _.htaccess_ file with the following code:
-
-```
-RewriteEngine On
-RewriteCond %{HTTP:X-ARR-SSL} ^$
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-```
-
-This rule returns an HTTP 301 (permanent redirect) to the HTTPS protocol whenever the user makes an HTTP request to your web app. For example, it redirects from `http://contoso.com` to `https://contoso.com`.
+When the operation is complete, your app rejects all connections with lower TLS versions.
 
 ## Automate with scripts
 
-You can automate SSL bindings for your web app with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
+You can automate SSL bindings for your app with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).
 
 ### Azure CLI
 
 The following command uploads an exported PFX file and gets the thumbprint.
 
 ```bash
-thumbprint=$(az appservice web config ssl upload \
+thumbprint=$(az webapp config ssl upload \
     --name <app_name> \
     --resource-group <resource_group_name> \
     --certificate-file <path_to_PFX_file> \
@@ -288,11 +228,20 @@ thumbprint=$(az appservice web config ssl upload \
 The following command adds an SNI-based SSL binding, using the thumbprint from the previous command.
 
 ```bash
-az appservice web config ssl bind \
+az webapp config ssl bind \
     --name <app_name> \
     --resource-group <resource_group_name>
     --certificate-thumbprint $thumbprint \
     --ssl-type SNI \
+```
+
+The following command enforces minimum TLS version of 1.2.
+
+```bash
+az webapp config set \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --min-tls-version 1.2
 ```
 
 ### Azure PowerShell
@@ -308,6 +257,12 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
+## Public certificates (optional)
+If your app needs to access remote resources as a client, and the remote resource requires certificate authentication, you can upload [public certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) to your app. Public certificates are not required for SSL bindings of your app.
+
+For more details on loading and using a public certificate in your app, see [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md). You can use public certificates with apps in App Service Environments too. If you need to store the certificate in the LocalMachine certificate store, you need to use a app on App Service Environment. For more information, see [How to configure public certificates to your App Service app](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+
+![Upload Public Certificate](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## Next steps
 
@@ -315,11 +270,15 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Upgrade your app's pricing tier
-> * Bind your custom SSL certificate to App Service
-> * Enforce HTTPS for your app
-> * Automate SSL certificate binding with scripts
+> * Bind your custom certificate to App Service
+> * Renew certificates
+> * Enforce HTTPS
+> * Enforce TLS 1.1/1.2
+> * Automate TLS management with scripts
 
 Advance to the next tutorial to learn how to use Azure Content Delivery Network.
 
 > [!div class="nextstepaction"]
-> [Add a Content Delivery Network (CDN) to an Azure App Service](app-service-web-tutorial-content-delivery-network.md)
+> [Add a Content Delivery Network (CDN) to an Azure App Service](../cdn/cdn-add-to-web-app.md)
+
+For more information, see [Use an SSL certificate in your application code in Azure App Service](app-service-web-ssl-cert-load.md).

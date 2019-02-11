@@ -3,8 +3,8 @@ title: Example Azure Infrastructure Walkthrough | Microsoft Docs
 description: Learn about the key design and implementation guidelines for deploying an example infrastructure in Azure.
 documentationcenter: ''
 services: virtual-machines-linux
-author: iainfoulds
-manager: timlt
+author: cynthn
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -14,15 +14,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2017
-ms.author: iainfou
+ms.date: 12/15/2017
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
 ---
 # Example Azure infrastructure walkthrough for Linux VMs
-
-[!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
-
 This article walks through building out an example application infrastructure. We detail designing an infrastructure for a simple on-line store that brings together all the guidelines and decisions around naming conventions, availability sets, virtual networks and load balancers, and actually deploying your virtual machines (VMs).
 
 ## Example workload

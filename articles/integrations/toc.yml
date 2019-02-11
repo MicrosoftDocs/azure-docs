@@ -1,0 +1,15 @@
+- name: Developer Tool Integrations
+  href: index.yml
+  items: 
+  - name: IntelliJ
+    href: /java/azure/intellij/azure-toolkit-for-intellij
+  - name: Maven
+    href: /java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin
+  - name: Eclipse
+    href: /java/azure/eclipse/azure-toolkit-for-eclipse
+  - name: Ansible
+    href: /azure/ansible/
+  - name: Jenkins
+    href: /azure/jenkins/
+  - name: Terraform
+    href: /azure/terraform/

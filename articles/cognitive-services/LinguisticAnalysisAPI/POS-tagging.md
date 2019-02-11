@@ -1,24 +1,27 @@
 ---
-title: Part-of-Speech Tagging in the Linguistic Analysis API | Microsoft Docs
-description: Learn how Part-of-Speech Tagging in Microsoft Cognitive Services identifies the category or part of speech of each word of text.
+title: Part-of-Speech Tagging - Linguistic Analysis API
+description: Learn how Part-of-Speech Tagging in the Linguistic Analysis API identifies the category or part of speech of each word of text.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
-
+manager: nitinme
 ms.service: cognitive-services
-ms.technology: linguistic-analysis-api
-ms.topic: article
+ms.subservice: linguistic-analysis
+ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
+ROBOTS: NOINDEX
 ---
 
 # Part-of-Speech Tagging
+
+> [!IMPORTANT]
+> The Linguistic Analysis preview was decommissioned on August 9, 2018. We recommend using [Azure Machine Learning text analytics modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) for text processing and analysis.
 
 ## Background and Motivation
 
 Once a text has been separated into sentences and tokens, the next step of analysis is to identify the category or part-of-speech of each word.
 These include categories like *noun* (generally representing people, places, things, ideas, etc.) and *verb* (generally representing actions, changes of state, etc.
-For some words, the part-of-speech is unambiguous (for instance, *quagmire* is really only a noun), but for many others, it's hard to tell.
+For some words, the part-of-speech is unambiguous (for instance, *quagmire* is only a noun), but for many others, it's hard to tell.
 *Table* could be a place where you sit (or 2-D layout of numbers), but you can also "table a discussion".
 
 ## List of Part-of-Speech Tags
@@ -42,10 +45,10 @@ For some words, the part-of-speech is unambiguous (for instance, *quagmire* is r
 | IN | preposition or subordinating conjunction| in inside if upon whether |
 | JJ | adjective or numeral, ordinal | ninth pretty execrable multimodal |
 | JJR | adjective, comparative | better faster cheaper |
-| JJS | adjective, superlative | best fastest cheapest | 
+| JJS | adjective, superlative | best fastest cheapest |
 | LS | list item marker | (a) (b) 1 2 A B A. B. |
 | MD | modal auxiliary | can may shall will could might should ought |
-| NN | noun, common, singular or mass | potato money shoe |
+| NN | noun, common, singular, or mass | potato money shoe |
 | NNP | noun, proper, singular | Kennedy Roosevelt Chicago Weehauken |
 | NNPS | noun, proper, plural | Springfields Bushes |
 | NNS | noun, common, plural | pieces mice fields |
@@ -73,4 +76,4 @@ For some words, the part-of-speech is unambiguous (for instance, *quagmire* is r
 
 ## Specification
 
-As for tokenization, we rely on the specification from the [Penn Treebank](https://www.cis.upenn.edu/~treebank/).
+As for tokenization, we rely on the specification from the [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42).

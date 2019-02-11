@@ -1,22 +1,16 @@
 ---
-title: Overview of Azure IoT Hub Device Provisioning Service (preview) | Microsoft Docs
+title: Overview of Azure IoT Hub Device Provisioning Service | Microsoft Docs
 description: Describes device provisioning in Azure with the Device Provisioning Service and IoT Hub
-services: iot-dps
-keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
-ms.topic: article
+ms.date: 12/05/2017
+ms.topic: overview
 ms.service: iot-dps
-
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-
+services: iot-dps
+manager: briz
 ---
 
-# Provisioning devices with Azure IoT Hub Device Provisioning Service (preview)
+# Provisioning devices with Azure IoT Hub Device Provisioning Service
 Microsoft Azure provides a rich set of integrated public cloud services for all your IoT solution needs. The IoT Hub Device Provisioning Service is a helper service for IoT Hub that enables zero-touch, just-in-time provisioning to the right IoT hub without requiring human intervention, enabling customers to provision millions of devices in a secure and scalable manner.
 
 ## When to use Device Provisioning Service
@@ -27,16 +21,16 @@ There are many provisioning scenarios in which the Device Provisioning Service i
 * Connecting devices to their owner’s IoT solution based on sales transaction data (multitenancy)
 * Connecting devices to a particular IoT solution depending on use-case (solution isolation)
 * Connecting a device to the IoT hub with the lowest latency (geo-sharding)
-* Re-provisioning based on a change in the device
+* Reprovisioning based on a change in the device
 * Rolling the keys used by the device to connect to IoT Hub (when not using X.509 certificates to connect)
 
 ## Behind the scenes
-All the scenarios listed in the previous section can be done using the provisioning service for zero-touch provisioning with the same flow. Many of the manual steps traditionally involved in provisioning are automated with the Device Provisioning Service to reduce the time to deploy IoT devices and lower the risk of manual error. The following is a description of what's going on behind the scenes to get a device provisioned. The first step is manual, all following steps are automated.
+All the scenarios listed in the previous section can be done using the provisioning service for zero-touch provisioning with the same flow. Many of the manual steps traditionally involved in provisioning are automated with the Device Provisioning Service to reduce the time to deploy IoT devices and lower the risk of manual error. The following section describes what goes on behind the scenes to get a device provisioned. The first step is manual, all of the following steps are automated.
 
 ![Basic provisioning flow](./media/about-iot-dps/dps-provisioning-flow.png)
 
 1. Device manufacturer adds the device registration information to the enrollment list in the Azure portal.
-2. Device contacts the provisioning service endpoint set at the factory. The device passes the provisioning service its identifying information to prove its identity.
+2. Device contacts the provisioning service endpoint set at the factory. The device passes the identifying information to the provisioning service to prove its identity.
 3. The provisioning service validates the identity of the device by validating the registration ID and key against the enrollment list entry using either a nonce challenge ([Trusted Platform Module](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)) or standard X.509 verification (X.509).
 4. The provisioning service registers the device with an IoT hub and populates the device's [desired twin state](../iot-hub/iot-hub-devguide-device-twins.md).
 5. The IoT hub returns device ID information to the provisioning service.
@@ -45,7 +39,7 @@ All the scenarios listed in the previous section can be done using the provision
 8. The device gets the desired state from its device twin in IoT hub.
 
 ## Provisioning process
-There are two distinct steps in the deployment process of a device in which the Device Provisioning Service takes a part which can be done independently:
+There are two distinct steps in the deployment process of a device in which the Device Provisioning Service takes a part that can be done independently:
 
 * The **manufacturing step** in which the device is created and prepared at the factory, and
 * The **cloud setup step** in which the Device Provisioning Service is configured for automated provisioning.
@@ -55,14 +49,14 @@ Both these steps fit in seamlessly with existing manufacturing and deployment pr
 ### Manufacturing step
 This step is all about what happens on the manufacturing line. The roles involved in this step include silicon designer, silicon manufacturer, integrator and/or the end manufacturer of the device. This step is concerned with creating the hardware itself.
 
-The Device Provisioning Service does not introduce a new step in the manufacturing process; rather, it ties into the existing step that installs the initial software and (ideally) the HSM on the device. Instead of creating a device ID in this step, the device is simply programmed with the provisioning service information so it calls the provisioning service to get its connection info/IoT solution assignment when it is switched on.
+The Device Provisioning Service does not introduce a new step in the manufacturing process; rather, it ties into the existing step that installs the initial software and (ideally) the HSM on the device. Instead of creating a device ID in this step, the device is programmed with the provisioning service information, enabling it to call the provisioning service to get its connection info/IoT solution assignment when it is switched on.
 
-Also in this step, the manufacturer supplies the device deployer/operator with identifying key information. This could be as simple as confirming that all devices have an X.509 certificate generated from a root CA provided by the device deployer/operator, to extracting the public portion of a TPM endorsement key from each TPM device. These services are offered by many silicon manufacturers today.
+Also in this step, the manufacturer supplies the device deployer/operator with identifying key information. Supplying that information could be as simple as confirming that all devices have an X.509 certificate generated from a signing certificate provided by the device deployer/operator, or as complicated as extracting the public portion of a TPM endorsement key from each TPM device. These services are offered by many silicon manufacturers today.
 
 ### Cloud setup step
 This step is about configuring the cloud for proper automatic provisioning. Generally there are two types of users involved in the cloud setup step: someone who knows how devices need to be initially set up (a device operator), and someone else who knows how devices are to be split among the IoT hubs (a solution operator).
 
-There is a one-time initial setup of the provisioning that must occur, and this task is generally handled by the solution operator. Once the provisioning service is configured, it does not have to be modified unless the use case changes.
+There is a one-time initial setup of the provisioning that must occur, which is usually handled by the solution operator. Once the provisioning service is configured, it does not have to be modified unless the use case changes.
 
 After the service has been configured for automatic provisioning, it must be prepared to enroll devices. This step is done by the device operator, who knows the desired configuration of the device(s) and is in charge of making sure the provisioning service can properly attest to the device's identity when it comes looking for its IoT hub. The device operator takes the identifying key information from the manufacturer and adds it to the enrollment list. There can be subsequent updates to the enrollment list as new entries are added or existing entries are updated with the latest information about the devices.
 
@@ -72,29 +66,39 @@ After the service has been configured for automatic provisioning, it must be pre
 1. The first part is establishing the initial connection between the device and the IoT solution by registering the device.
 2. The second part is applying the proper configuration to the device based on the specific requirements of the solution it was registered to.
 
-Only once both those two steps have been completed can we say that the device has been fully provisioned. Some cloud services only provide the first step of the provisioning process, registering devices to the IoT solution endpoint, but do not provide the initial configuration. The Device Provisioning Service automates both steps to provide a seamless provisioning experience for the device.
+Once both of those two steps have been completed, we can say that the device has been fully provisioned. Some cloud services only provide the first step of the provisioning process, registering devices to the IoT solution endpoint, but do not provide the initial configuration. The Device Provisioning Service automates both steps to provide a seamless provisioning experience for the device.
 
 ## Features of the Device Provisioning Service
-The Device Provisioning Service has many features which make it ideal for provisioning devices.
+The Device Provisioning Service has many features, making it ideal for provisioning devices.
 
 * **Secure attestation** support for both X.509 and TPM-based identities.
 * **Enrollment list** containing the complete record of devices/groups of devices that may at some point register. The enrollment list contains information about the desired configuration of the device once it registers, and it can be updated at any time.
 * **Multiple allocation policies** to control how the Device Provisioning Service assigns devices to IoT hubs in support of your scenarios.
-* **Monitoring and diagnostics logs** to make sure everything is working properly.
-* **Multi-hub support** which allows the Device Provisioning Service to assign devices to more than one IoT hub. The Device Provisioning Service can talk to hubs across multiple Azure subscriptions.
+* **Monitoring and diagnostics logging** to make sure everything is working properly.
+* **Multi-hub support** allows the Device Provisioning Service to assign devices to more than one IoT hub. The Device Provisioning Service can talk to hubs across multiple Azure subscriptions.
+* **Cross-region support** allows the Device Provisioning Service to assign devices to IoT hubs in other regions.
 
 You can learn more about the concepts and features involved in device provisioning in [device concepts](concepts-device.md), [service concepts](concepts-service.md), and [security concepts](concepts-security.md).
 
 ## Cross-platform support
-The Device Provisioning Service, like all Azure IoT services, works cross-platform with a variety of operating systems. The public preview supports a limited set of languages/protocols supported, though many more will be available when the Device Provisioning Service is generally available. For the public preview, the Device Provisioning Service only supports HTTPS connections for both device and service operations. The device SDK is in C, and the service SDK is in C#.
+The Device Provisioning Service, like all Azure IoT services, works cross-platform with a variety of operating systems. Azure offers open-source SDKs in a variety of [languages](https://github.com/Azure/azure-iot-sdks) to facilitate connecting devices and managing the service. The Device Provisioning Service supports the following protocols for connecting devices:
+
+* HTTPS
+* AMQP
+* AMQP over web sockets
+* MQTT
+* MQTT over web sockets
+
+The Device Provisioning Service only supports HTTPS connections for service operations.
 
 ## Regions
-The Device Provisioning Service is available in East US, West Europe, and Southeast Asia for the public preview. We maintain an updated list of existing and newly announced regions for all services.
+The Device Provisioning Service is available in many regions. The updated list of existing and newly announced regions for all services is at [Azure Regions](https://azure.microsoft.com/regions/). You can check availability of the Device Provisioning Service on the [Azure Status](https://azure.microsoft.com/status/) page.
 
-* [Azure Regions](https://azure.microsoft.com/regions/)
+> [!NOTE]
+> The Device Provisioning Service is global and not bound to a location. However, you must specify a region in which the metadata associated with your Device Provisioning Service profile will reside.
 
 ## Availability
-We maintain best-effort availability of the service during the public preview. There is no Service Level Agreement during public preview. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
+There is a 99.9% Service Level Agreement for the Device Provisioning Service, and you can [read the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
 
 ## Quotas
 Each Azure subscription has default quota limits in place that could impact the scope of your IoT solution. The current limit on a per-subscription basis is 10 Device Provisioning Services per subscription.
@@ -104,7 +108,7 @@ For more details on quota limits:
 * [Azure Subscription Service Limits](../azure-subscription-service-limits.md)
 
 ## Related Azure components
-The Device Provisioning Service automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](https://docs.microsoft.com/en-us/azure/iot-hub/).
+The Device Provisioning Service automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](https://docs.microsoft.com/azure/iot-hub/).
 
 ## Next steps
 You now have an overview of provisioning IoT devices in Azure. The next step is to try out an end-to-end IoT scenario.

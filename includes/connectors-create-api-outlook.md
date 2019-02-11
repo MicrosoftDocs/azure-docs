@@ -1,20 +1,26 @@
-## Connect to Outlook.com
-### Prerequisites
-* An Outlook.com account
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+---
+1. In the search box, enter "outlook.com" as your filter. 
+For this example, select this trigger: **When a new email arrives**
 
-Before you can use your Outlook.com account in a Logic app, you must authorize the Logic app to connect to your Outlook.com account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+   ![Find Outlook.com triggers or actions](./media/connectors-create-api-outlook/select-outlook.png)
 
-Here are the steps to authorize your Logic app to connect to your Outlook.com account:
+1. After you select the trigger (or action), 
+you're prompted to sign in to your Outlook.com account, 
+if you already didn't sign in. Choose **Sign in**.
 
-1. All Logic apps need to be started by a trigger so after you create your Logic app, the designer opens and displays a list of triggers that you can use to start your Logic app:
-   
-   ![](./media/connectors-create-api-outlook/office365-outlook-0.png)
-2. Enter "outlook" in the search box. Notice the list is filtered to list all the triggers with "Outlook" in the name:
-   ![](./media/connectors-create-api-outlook/office365-outlook-0-5.png)
-3. Select **Office 365 Outlook - On new email**.   
-   If you haven't created any connections to Outlook before, you'll get prompted to provide your Outlook.com credentials. These credentials will be used to authorize your Logic app to connect to, and access your Outlook.com account's data: 
-   ![](./media/connectors-create-api-outlook/office365-outlook-1.png)
-4. Provide your credentials for Outlook and sign in:
-   ![](./media/connectors-create-api-outlook/office365-outlook-2.png)  
-   That's it. You've now created a connection to Outlook. This connection will be available for use in any other Logic app that you create.
+   ![Sign in to your Outlook.com account](./media/connectors-create-api-outlook/sign-in-outlook.png)  
 
+3. Select your Outlook.com account credentials.
+
+   ![Select sign-in account](./media/connectors-create-api-outlook/outlook-sign-in.png)  
+
+   Your credentials are used for connecting and 
+   accessing your Outlook.com account's data.
+   You can reuse this connection with any other 
+   logic app in your Azure subscription. 

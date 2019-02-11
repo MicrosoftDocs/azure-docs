@@ -3,22 +3,25 @@ title: Create data pipelines by using Azure .NET SDK | Microsoft Docs
 description: Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK.
 services: data-factory
 documentationcenter: ''
-author: spelluru
-manager: jhubbard
-editor: monicar
+author: sharonlo101
+manager: craigg
+
 
 ms.assetid: b0a357be-3040-4789-831e-0d0a32a0bda5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/10/2017
-ms.author: spelluru
+
+ms.topic: conceptual
+ms.date: 01/22/2018
+ms.author: shlo
 
 robots: noindex
 ---
 # Create, monitor, and manage Azure data factories using Azure Data Factory .NET SDK
+> [!NOTE]
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy activity tutorial](../quickstart-create-data-factory-dot-net.md). 
+
 ## Overview
 You can create, monitor, and manage Azure data factories programmatically using Data Factory .NET SDK. This article contains a walkthrough that you can follow to create a sample .NET console application that creates and monitors a data factory. 
 
@@ -27,7 +30,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
 ## Prerequisites
 * Visual Studio 2012 or 2013 or 2015
-* Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/).
+* Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
 
 ### Create an application in Azure Active Directory
@@ -37,7 +40,7 @@ Create an Azure Active Directory application, create a service principal for the
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
 
 	```PowerShell
-	Login-AzureRmAccount
+	Connect-AzureRmAccount
 	```
 3. Run the following command to view all the subscriptions for this account.
 
@@ -419,7 +422,7 @@ The Copy Activity performs the data movement in Azure Data Factory. The activity
 	Console.WriteLine("\nPress any key to exit.");
 	Console.ReadKey();
 	```
-14. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to log in to Azure portal.
+14. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that lets you provide **user name** and **password** that you use to log in to Azure portal.
 
     ```csharp
     public static async Task<string> GetAuthorizationHeader()

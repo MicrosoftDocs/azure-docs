@@ -1,21 +1,15 @@
 ---
-title: Azure Search performance and optimization considerations | Microsoft Docs
-description: Tune Azure Search performance and configure optimum scale
-services: search
-documentationcenter: ''
+title: Azure Search performance and optimization considerations- Azure Search
+description: Learn techniques and best practices for tuning Azure Search performance and configuring optimum scale.
 author: LiamCavanagh
-manager: pablocas
-editor: ''
-
-ms.assetid: 4d3cd864-29d2-4921-be0d-a3f1a819de46
+manager: jlembicz
+services: search
 ms.service: search
 ms.devlang: rest-api
-ms.workload: search
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: liamca
-
+ms.custom: seodec2018
 ---
 # Azure Search performance and optimization considerations
 A great search experience is a key to success for many mobile and web applications. From real estate, to used car marketplaces to online catalogs, fast search and relevant results will affect the customer experience. This document is intended to help you discover best practices for how to get the most out of Azure Search, especially for advanced scenarios with sophisticated requirements for scalability, multi-language support, or custom ranking.  In addition, this document outlines internals and covers approaches that work effectively in real-world customer apps.

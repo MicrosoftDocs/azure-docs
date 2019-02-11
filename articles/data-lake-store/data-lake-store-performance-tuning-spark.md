@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Store Spark Performance Tuning Guidelines | Microsoft Docs
-description: Azure Data Lake Store Spark Performance Tuning Guidelines
+title: Azure Data Lake Storage Gen1 Spark Performance Tuning Guidelines | Microsoft Docs
+description: Azure Data Lake Storage Gen1 Spark Performance Tuning Guidelines
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -11,27 +11,25 @@ ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
 
 ---
-# Performance tuning guidance for Spark on HDInsight and Azure Data Lake Store
+# Performance tuning guidance for Spark on HDInsight and Azure Data Lake Storage Gen1
 
 When tuning performance on Spark, you need to consider the number of apps that will be running on your cluster.  By default, you can run 4 apps concurrently on your HDI cluster (Note: the default setting is subject to change).  You may decide to use fewer apps so you can override the default settings and use more of the cluster for those apps.  
 
 ## Prerequisites
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
-* **Azure HDInsight cluster** with access to a Data Lake Store account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
-* **Running Spark cluster on Azure Data Lake Store**.  For more information, see [Use HDInsight Spark cluster to analyze data in Data Lake Store](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
-* **Performance tuning guidelines on ADLS**.  For general performance concepts, see [Data Lake Store Performance Tuning Guidance](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance) 
+* **An Azure Data Lake Storage Gen1 account**. For instructions on how to create one, see [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Azure HDInsight cluster** with access to a Data Lake Storage Gen1 account. See [Create an HDInsight cluster with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
+* **Running Spark cluster on Data Lake Storage Gen1**.  For more information, see [Use HDInsight Spark cluster to analyze data in Data Lake Storage Gen1](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-use-with-data-lake-store)
+* **Performance tuning guidelines on Data Lake Storage Gen1**.  For general performance concepts, see [Data Lake Storage Gen1 Performance Tuning Guidance](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance) 
 
 ## Parameters
 
-When running Spark jobs, here are the most important settings that can be tuned to increase performance on ADLS:
+When running Spark jobs, here are the most important settings that can be tuned to increase performance on Data Lake Storage Gen1:
 
 * **Num-executors** - The number of concurrent tasks that can be executed.
 
@@ -48,11 +46,11 @@ This is the amount of memory that is being allocated to each executor.  The memo
 **Executor-cores**
 This sets the amount of cores used per executor, which determines the number of parallel threads that can be run per executor.  For example, if executor-cores = 2, then each executor can run 2 parallel tasks in the executor.  The executor-cores needed will be dependent on the job.  I/O heavy jobs do not require a large amount of memory per task so each executor can handle more parallel tasks.
 
-By default, two virtual YARN cores are defined for each physical core when running Spark on HDInsight.  This number provides a good balance of concurrecy and amount of context switching from multiple threads.  
+By default, two virtual YARN cores are defined for each physical core when running Spark on HDInsight.  This number provides a good balance of concurrency and amount of context switching from multiple threads.  
 
 ## Guidance
 
-While running Spark analytic workloads to work with data in Data Lake Store, we recommend that you use the most recent HDInsight version to get the best performance with Data Lake Store. When your job is more I/O intensive, then certain parameters can be configured to improve performance.  Azure Data Lake Store is a highly scalable storage platform that can handle high throughput.  If the job mainly consists of read or writes, then increasing concurrency for I/O to and from Azure Data Lake Store could increase performance.
+While running Spark analytic workloads to work with data in Data Lake Storage Gen1, we recommend that you use the most recent HDInsight version to get the best performance with Data Lake Storage Gen1. When your job is more I/O intensive, then certain parameters can be configured to improve performance.  Data Lake Storage Gen1 is a highly scalable storage platform that can handle high throughput.  If the job mainly consists of read or writes, then increasing concurrency for I/O to and from Data Lake Storage Gen1 could increase performance.
 
 There are a few general ways to increase concurrency for I/O intensive jobs.
 
@@ -66,7 +64,7 @@ There are a few general ways to increase concurrency for I/O intensive jobs.
 Increasing the number of executor-cores will give you more parallelism so you can experiment with different executor-cores.  For jobs that have more complex operations, you should reduce the number of cores per executor.  If executor-cores is set higher than 4, then garbage collection may become inefficient and degrade performance.
 
 **Step 4: Determine amount of YARN memory in cluster** – This information is available in Ambari.  Navigate to YARN and view the Configs tab.  The YARN memory is displayed in this window.  
-Note: while you are in the window, you can also see the default YARN container size.  The YARN container size is the same as memory per executor paramter.
+Note while you are in the window, you can also see the default YARN container size.  The YARN container size is the same as memory per executor parameter.
 
 	Total YARN memory = nodes * YARN memory per node
 **Step 5: Calculate num-executors**

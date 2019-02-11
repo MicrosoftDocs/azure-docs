@@ -2,17 +2,17 @@
 title: "Azure Batch pool delete complete event | Microsoft Docs"
 description: Reference for Batch pool delete complete event.
 services: batch
-author: tamram
-manager: timlt
+author: laurenhughes
+manager: jeconnoc
 
 ms.assetid: 
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: tamram
+ms.author: lahugh
 ---
 
 # Pool delete complete event

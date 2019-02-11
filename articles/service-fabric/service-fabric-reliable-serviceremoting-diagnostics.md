@@ -10,7 +10,7 @@ editor: suchiagicha
 ms.assetid: 1c229923-670a-4634-ad59-468ff781ad18
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
@@ -96,5 +96,5 @@ When a client invokes a method via a service proxy object, it results in a reque
 | Service Fabric Service |Average milliseconds for response serialization |Time taken (in milliseconds) to serialize the service response message at the service before the response is sent to the client |
 
 ## Next steps
-* [Sample code](https://github.com/Azure/servicefabric-samples)
+* [Sample code](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric&sort=0)
 * [EventSource providers in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

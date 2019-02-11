@@ -1,4 +1,10 @@
-<!--author=alkohli last changed: 09/28/17-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 #### To complete the minimum StorSimple device setup
 

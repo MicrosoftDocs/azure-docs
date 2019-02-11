@@ -10,10 +10,10 @@ editor: msfussell
 ms.assetid: 7d1052ec-2c9f-443d-8b99-b75c97266e6c
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/9/2017
+ms.date: 11/01/2017
 ms.author: vturecek
 
 ---
@@ -61,7 +61,7 @@ As shown in the following diagram, the DNS service, running in the Service Fabri
 For more details on how to use the DNS service see [DNS service in Azure Service Fabric](service-fabric-dnsservice.md) article.
 
 ### Reverse proxy service
-The reverse proxy addresses services in the cluster that exposes HTTP endpoints including HTTPS. The reverse proxy greatly simplifies calling other services and their methods by having a specific URI format and handles the resolve, connect, retry steps required for one service to communicate with another using the Naming Serivce. In other words, it hides the Naming Service from you when calling other services by making this as simple as calling a URL.
+The reverse proxy addresses services in the cluster that exposes HTTP endpoints including HTTPS. The reverse proxy greatly simplifies calling other services and their methods by having a specific URI format and handles the resolve, connect, retry steps required for one service to communicate with another using the Naming Service. In other words, it hides the Naming Service from you when calling other services by making this as simple as calling a URL.
 
 ![service endpoints][10]
 

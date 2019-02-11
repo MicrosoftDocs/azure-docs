@@ -1,6 +1,6 @@
 - name: Knowledge Exploration Service Documentation
-  href: ../index.md
 - name: Overview
+  expanded: true
   items: 
   - name: Learn about the Knowledge Exploration Service 
     href: Overview.md

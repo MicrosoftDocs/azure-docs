@@ -20,13 +20,15 @@ ms.author: apimpm
 
 API Management provides the capability to secure access to APIs (i.e., client to API Management) using client certificates. Currently, you can check the thumbprint of a client certificate against a desired value. You can also check the thumbprint against existing certificates uploaded to API Management.  
 
-For information about securing access to the back-end service of an API using client certificates (i.e., API Management to back-end), see [How to secure back-end services using client certificate authentication](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+For information about securing access to the back-end service of an API using client certificates (i.e., API Management to back-end), see [How to secure back-end services using client certificate authentication](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Checking the expiration date
 
 Below policies can be configured to check if the certificate is expired:
 
-```
+```xml
 <choose>
     <when condition="@(context.Request.Certificate == null || context.Request.Certificate.NotAfter < DateTime.Now)" >
         <return-response>
@@ -40,9 +42,9 @@ Below policies can be configured to check if the certificate is expired:
 
 Below policies can be configured to check the issuer and subject of a client certificate:
 
-```
+```xml
 <choose>
-    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Issuer != "trusted-issuer" || context.Request.Certificate.SubjectName != "expected-subject-name")" >
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Issuer != 'trusted-issuer' || context.Request.Certificate.SubjectName != 'expected-subject-name')" >
         <return-response>
             <set-status code="403" reason="Invalid client certificate" />
         </return-response>
@@ -54,9 +56,9 @@ Below policies can be configured to check the issuer and subject of a client cer
 
 Below policies can be configured to check the thumbprint of a client certificate:
 
-```
+```xml
 <choose>
-    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Thumbprint != "desired-thumbprint")" >
+    <when condition="@(context.Request.Certificate == null || context.Request.Certificate.Thumbprint != 'desired-thumbprint')" >
         <return-response>
             <set-status code="403" reason="Invalid client certificate" />
         </return-response>
@@ -68,7 +70,7 @@ Below policies can be configured to check the thumbprint of a client certificate
 
 The following example shows how to check the thumbprint of a client certificate against certificates uploaded to API Management: 
 
-```
+```xml
 <choose>
     <when condition="@(context.Request.Certificate == null || !context.Deployment.Certificates.Any(c => c.Value.Thumbprint == context.Request.Certificate.Thumbprint))" >
         <return-response>
@@ -81,6 +83,6 @@ The following example shows how to check the thumbprint of a client certificate 
 
 ## Next step
 
-*  [How to secure back-end services using client certificate authentication](https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates)
+*  [How to secure back-end services using client certificate authentication](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates)
 *  [How to upload certificates](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates#a-namestep1-aupload-a-client-certificate)
 

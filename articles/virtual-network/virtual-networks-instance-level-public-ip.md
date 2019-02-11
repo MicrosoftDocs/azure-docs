@@ -3,8 +3,8 @@ title: Azure Instance level Public IP (Classic) addresses | Microsoft Docs
 description: Understand instance level public IP (ILPIP) addresses and how to manage them using PowerShell.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genlin
+manager: cshepard
 editor: tysonn
 
 ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/10/2016
-ms.author: jdial
+ms.date: 08/03/2018
+ms.author: genli
 
 ---
 # Instance level public IP (Classic) overview
@@ -27,10 +27,13 @@ An instance level public IP (ILPIP) is a public IP address that you can assign d
 
 As shown in Figure 1, the cloud service is accessed using a VIP, while the individual VMs are normally accessed using VIP:&lt;port number&gt;. By assigning an ILPIP to a specific VM, that VM can be accessed directly using that IP address.
 
-When you create a cloud service in Azure, corresponding DNS A records are created automatically to allow access to the service through a fully qualified domain name (FQDN), instead of using the actual VIP. The same process happens for an ILPIP, allowing access to the VM or role instance by FQDN instead of the ILPIP. For instance, if you create a cloud service named *contosoadservice*, and you configure a web role named *contosoweb* with two instances, Azure registers the following A records for the instances:
+When you create a cloud service in Azure, corresponding DNS A records are created automatically to allow access to the service through a fully qualified domain name (FQDN), instead of using the actual VIP. The same process happens for an ILPIP, allowing access to the VM or role instance by FQDN instead of the ILPIP. For instance, if you create a cloud service named *contosoadservice*, and you configure a web role named *contosoweb* with two instances, and in .cscfg `domainNameLabel` is set to *WebPublicIP*, Azure registers the following A records for the instances:
 
-* contosoweb\_IN_0.contosoadservice.cloudapp.net
-* contosoweb\_IN_1.contosoadservice.cloudapp.net 
+
+* WebPublicIP.0.contosoadservice.cloudapp.net
+* WebPublicIP.1.contosoadservice.cloudapp.net
+* ...
+
 
 > [!NOTE]
 > You can assign only one ILPIP for each VM or role instance. You can use up to 5 ILPIPs per subscription. ILPIPs are not supported for multi-NIC VMs.
@@ -40,7 +43,7 @@ When you create a cloud service in Azure, corresponding DNS A records are create
 ## Why would I request an ILPIP?
 If you want to be able to connect to your VM or role instance by an IP address assigned directly to it, rather than using the cloud service VIP:&lt;port number&gt;, request an ILPIP for your VM or your role instance.
 
-* **Active FTP** - By assigning an ILPIP to a VM, it can receive traffic on any port. Endpoints are not required for the VM to receive traffic.  See (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP Protocol Overview] for details on the FTP protocol.
+* **Active FTP** - By assigning an ILPIP to a VM, it can receive traffic on any port. Endpoints are not required for the VM to receive traffic.  See [FTP Protocol Overview](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) for details on the FTP protocol.
 * **Outbound IP** - Outbound traffic originating from the VM is mapped to the ILPIP as the source and the ILPIP uniquely identifies the VM to external entities.
 
 > [!NOTE]
@@ -56,10 +59,26 @@ The following PowerShell script creates a cloud service named *FTPService*, retr
 ```powershell
 New-AzureService -ServiceName FTPService -Location "Central US"
 
-$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"} `
+$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
+
+#Set "current" storage account for the subscription. It will be used as the location of new VM disk
+
+Set-AzureSubscription -SubscriptionName <SubName> -CurrentStorageAccountName <StorageAccountName>
+
+#Create a new VM configuration object
+
 New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
 | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
 | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
+
+```
+If you want to specify another storage account as the location of new VM disk, you can use **MediaLocation** parameter:
+
+```powershell
+	New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
+	 -MediaLocation https://management.core.windows.net/<SubscriptionID>/services/storageservices/<StorageAccountName> `
+	| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
+	| Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
 ```
 
 ### How to retrieve ILPIP information for a VM
@@ -132,7 +151,7 @@ To add an ILPIP to a Cloud Services role instance, complete the following steps:
 	    <AddressAssignments>
 	      <InstanceAddress roleName="WebRole1">
 		<PublicIPs>
-		  <PublicIP name="MyPublicIP" domainNameLabel="MyPublicIP" />
+		  <PublicIP name="MyPublicIP" domainNameLabel="WebPublicIP" />
 	        </PublicIPs>
 	      </InstanceAddress>
 	    </AddressAssignments>
@@ -140,6 +159,24 @@ To add an ILPIP to a Cloud Services role instance, complete the following steps:
 	</ServiceConfiguration>
 	```
 3. Upload the .cscfg file for the cloud service by completing the steps in the [How to Configure Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) article.
+
+### How to retrieve ILPIP information for a Cloud Service
+To view the ILPIP information per role instance, run the following PowerShell command and observe the values for *PublicIPAddress*, *PublicIPName*, *PublicIPDomainNameLabel* and *PublicIPFqdns*:
+
+```powershell
+Add-AzureAccount
+
+$roles = Get-AzureRole -ServiceName <Cloud Service Name> -Slot Production -RoleName WebRole1 -InstanceDetails
+
+$roles[0].PublicIPAddress
+$roles[1].PublicIPAddress
+```
+
+You may also use `nslookup` to query the sub-domain's A record:
+
+```batch
+nslookup WebPublicIP.0.<Cloud Service Name>.cloudapp.net
+``` 
 
 ## Next steps
 * Understand how [IP addressing](virtual-network-ip-addresses-overview-classic.md) works in the classic deployment model.

@@ -2,21 +2,13 @@
 title: Toggle between view and edit mode for reports in Power BI Workspace Collections | Microsoft Docs
 description: Learn how to toggle between view and edit mode for your reports within Power BI Workspace Collections.
 services: power-bi-embedded
-documentationcenter: ''
-author: guyinacube
-manager: erikre
-editor: ''
-tags: ''
-
+author: markingmyname
 ROBOTS: NOINDEX
-ms.assetid: 
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
+ms.author: maghan
 ---
 # Toggle between view and edit mode for reports in Power BI Workspace Collections
 
@@ -117,7 +109,7 @@ report.switchMode("edit");
 [Get started with sample](get-started-sample.md)  
 [Embed a report](embed-report.md)  
 [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md)  
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [PowerBI-CSharp Git Repo](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git Repo](https://github.com/Microsoft/PowerBI-Node)  

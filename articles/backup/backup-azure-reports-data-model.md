@@ -2,21 +2,12 @@
 title: Data model for Azure Backup
 description: This article talks about Power BI data model details for Azure Backup reports.
 services: backup
-documentationcenter: ''
-author: JPallavi
-manager: vijayts
-editor: ''
-
-ms.assetid: 0767c330-690d-474d-85a6-aa8ddc410bb2
+author: adigan
+manager: shivamg
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 06/26/2017
-ms.author: pajosh
-ms.custom: H1Hack27Feb2017
-
+ms.author: adigan
 ---
 # Data model for Azure Backup reports
 This article describes the Power BI data model used for creating Azure Backup reports. Using this data model, you can filter existing reports based on relevant fields and more importantly, create your own reports by using tables and fields in the model. 
@@ -35,7 +26,7 @@ This table provides basic fields and aggregations over various alert related fie
 | #AlertsCreatedInPeriod |Whole Number |Number of alerts created in selected time period |
 | %ActiveAlertsCreatedInPeriod |Percentage |Percentage of active alerts in selected time period |
 | %CriticalAlertsCreatedInPeriod |Percentage |Percentage of critical alerts in selected time period |
-| AlertOccurenceDate |Date |Date when alert was created |
+| AlertOccurrenceDate |Date |Date when alert was created |
 | AlertSeverity |Text |Severity of the alert for example, Critical |
 | AlertStatus |Text |Status of the alert for example, Active |
 | AlertType |Text |Type of the generated alert for example, Backup |

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Government DoD Overview | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: azure-government
@@ -19,7 +19,7 @@ ms.author: stemi
 ---
 # Department of Defense (DoD) in Azure Government
 ## Overview
-Azure Government is used by Department of Defense (DoD) entities to deploy a broad range of workloads and solutions, including those workloads covered by<a href="http://iasecontent.disa.mil/cloud/SRG/index.html"> The DoD Cloud Computing Security Requirements Guide, Version 1, Release 2</a> at Impact Level 4 (L4), and Impact Level 5 (L5).
+Azure Government is used by Department of Defense (DoD) entities to deploy a broad range of workloads and solutions, including those workloads covered by<a href="https://iasecontent.disa.mil/cloud/SRG/index.html"> The DoD Cloud Computing Security Requirements Guide, Version 1, Release 2</a> at Impact Level 4 (L4), and Impact Level 5 (L5).
 
 Azure Government is the first and only hyperscale commercial cloud service to be awarded an Information Impact Level 5 DoD Provisional Authorization by the Defense Information Systems Agency. In addition, Azure Government regions dedicated to US Department of Defense customer workloads are now generally available.
 
@@ -109,9 +109,9 @@ Azure is an evergreen service where new services and capabilities are being adde
 
 <a href="https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA"> Microsoft Trust Center - DoD web page </a>
 
-<a href="http://iasecontent.disa.mil/cloud/SRG/index.html"> The DoD Cloud Computing Security Requirements Guide, Version 1, Release 2 </a>
+<a href="https://iasecontent.disa.mil/cloud/SRG/index.html"> The DoD Cloud Computing Security Requirements Guide, Version 1, Release 2 </a>
 
-<a href="https://azure.microsoft.com/en-us/offers/azure-government/"> Azure Government Reseller Channels
+<a href="https://azure.microsoft.com/offers/azure-government/"> Azure Government Reseller Channels
 
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
 

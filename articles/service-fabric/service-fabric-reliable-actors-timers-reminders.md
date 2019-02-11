@@ -10,10 +10,10 @@ editor: amanbha
 ms.assetid: 00c48716-569e-4a64-bd6c-25234c85ff4f
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 11/02/2017
 ms.author: vturecek
 
 ---
@@ -130,7 +130,7 @@ The Actors runtime saves changes made to the actor's State Manager when the call
 All timers are stopped when the actor is deactivated as part of garbage collection. No timer callbacks are invoked after that. Also, the Actors runtime does not retain any information about the timers that were running before deactivation. It is up to the actor to register any timers that it needs when it is reactivated in the future. For more information, see the section on [actor garbage collection](service-fabric-reliable-actors-lifecycle.md).
 
 ## Actor reminders
-Reminders are a mechanism to trigger persistent callbacks on an actor at specified times. Their functionality is similar to timers. But unlike timers, reminders are triggered under all circumstances until the actor explicitly unregisters them or the actor is explicitly deleted. Specifically, reminders are triggered across actor deactivations and failovers because the Actors runtime persists information about the actor's reminders.
+Reminders are a mechanism to trigger persistent callbacks on an actor at specified times. Their functionality is similar to timers. But unlike timers, reminders are triggered under all circumstances until the actor explicitly unregisters them or the actor is explicitly deleted. Specifically, reminders are triggered across actor deactivations and failovers because the Actors runtime persists information about the actor's reminders using actor state provider. Please note that the reliability of reminders is tied to the state reliability guarantees provided by the actor state provider. This means that for actors whose state persistence is set to None, the reminders will not fire after a failover. 
 
 To register a reminder, an actor calls the `RegisterReminderAsync` method provided on the base class, as shown in the following example:
 
@@ -143,8 +143,8 @@ protected override async Task OnActivateAsync()
     IActorReminder reminderRegistration = await this.RegisterReminderAsync(
         reminderName,
         BitConverter.GetBytes(amountInDollars),
-        TimeSpan.FromDays(3),
-        TimeSpan.FromDays(1));
+        TimeSpan.FromDays(3),    //The amount of time to delay before firing the reminder
+        TimeSpan.FromDays(1));    //The time interval between firing of reminders
 }
 ```
 
