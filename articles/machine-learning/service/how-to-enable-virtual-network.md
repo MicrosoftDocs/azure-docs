@@ -1,7 +1,7 @@
 ---
 title: Run experiments and inference in a virtual network
 titleSuffix: Azure Machine Learning service
-description: Run machine learning experiments and inference securing inside Azure Virtual Network. Learn how to create compute targets for model training and how to inference within Azure Virtual Network. Learn about requirements for secured virtual networks, such as require inbound and outbound ports.
+description: Run machine learning experiments and inference securing inside an Azure virtual network. Learn how to create compute targets for model training and how to inference within a virtual network. Learn about requirements for secured virtual networks, such as require inbound and outbound ports.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,11 +13,11 @@ author: aashishb
 ms.date: 01/08/2019
 ---
 
-# Securely run experiments and inferencing inside Azure Virtual Network
+# Securely run experiments and inferencing inside an Azure virtual network
 
-In this article, you learn how to run your experiments and inferencing inside a virtual network. A virtual network acts as a security boundary, isolating your Azure resources from the public internet. You can also join Azure Virtual Network to your on-premises network. It allows you to securely train your models and access your deployed models for inferencing.
+In this article, you learn how to run your experiments and inferencing inside a virtual network. A virtual network acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure virtual network to your on-premises network. It allows you to securely train your models and access your deployed models for inferencing.
 
-The Azure Machine Learning service relies on other Azure services for compute resources. Compute resources (compute targets) are used to train and deploy models. These compute targets can be created inside a virtual network. For example, you can use the Microsoft Data Science Virtual Machine (DVSM) to train a model and then deploy the model to Azure Kubernetes Service (AKS). For more information about virtual networks, see the [Virtual Network overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+The Azure Machine Learning service relies on other Azure services for compute resources. Compute resources (compute targets) are used to train and deploy models. These compute targets can be created inside a virtual network. For example, you can use the Microsoft Data Science Virtual Machine to train a model and then deploy the model to Azure Kubernetes Service (AKS). For more information about virtual networks, see the [Azure Virtual Network overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 ## Storage account for your workspace
 
@@ -25,9 +25,9 @@ When you create an Azure Machine Learning service workspace, it requires an Azur
 
 If you aren't sure if you've modified these settings or not, see __Change the default network access rule__ in [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security). Use the steps to allow access from all networks.
 
-## Use Azure Machine Learning Compute
+## Use Machine Learning Compute
 
-To use Machine Learning Compute in a virtual network, use the following information about network requirements:
+To use Azure Machine Learning Compute in a virtual network, use the following information about network requirements:
 
 - The virtual network must be in the same subscription and region as the Azure Machine Learning service workspace.
 
@@ -97,7 +97,7 @@ You can also create a Machine Learning Compute cluster by using the Azure Machin
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
 
-# The Azure Virtual Network name, subnet, and resource group
+# The Azure virtual network name, subnet, and resource group
 vnet_name = 'mynetwork'
 subnet_name = 'default'
 vnet_resourcegroup_name = 'mygroup'
@@ -136,10 +136,10 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
 > [!IMPORTANT]
 > The Azure Machine Learning service only supports virtual machines that are running Ubuntu.
 
-1. Create a VM or HDInsight cluster by using Azure portal or Azure CLI, and put it in Azure Virtual Network. For more information, see the following documents:
-    * [Create and manage Azure Virtual Networks for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+1. Create a VM or HDInsight cluster by using the Azure portal or Azure CLI, and put it in an Azure virtual network. For more information, see the following documents:
+    * [Create and manage Azure virtual networks for Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 
-    * [Extend HDInsight using Azure Virtual Networks](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network) 
+    * [Extend HDInsight using an Azure virtual network](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network) 
 
 1. To allow the Azure Machine Learning service to communicate with the SSH port on the VM or cluster, you must configure a source entry for the NSG. The SSH port is usually port 22. To allow traffic from this source, use the following information:
 
@@ -170,7 +170,7 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
 > 
 > Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 >
-> Azure Kubernetes Service and the Azure Virtual Network should be in the same region.
+> Azure Kubernetes Service and the Azure virtual network should be in the same region.
 
 To add Azure Kubernetes Service in a virtual network to your workspace, follow these steps in the Azure portal:
 
@@ -190,18 +190,18 @@ To add Azure Kubernetes Service in a virtual network to your workspace, follow t
 
     - __Subnet__: Select the subnet.
 
-    - __Kubernetes Service address range__: Select the Kubernetes Service address range. This address range uses a CIDR notation IP range to define the IP addresses available for the cluster. It must not overlap with any subnet IP ranges. For example: 10.0.0.0/16.
+    - __Kubernetes Service address range__: Select the Kubernetes service address range. This address range uses a CIDR notation IP range to define the IP addresses available for the cluster. It must not overlap with any subnet IP ranges. For example: 10.0.0.0/16.
 
-    - __Kubernetes DNS service IP address__: Select the Kubernetes DNS service IP address. This IP address is assigned to the Kubernetes DNS service. It must be within the Kubernetes Service address range. For example: 10.0.0.10.
+    - __Kubernetes DNS service IP address__: Select the Kubernetes DNS service IP address. This IP address is assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range. For example: 10.0.0.10.
 
-    - __Docker bridge address__: Select the Docker bridge address. This IP address is assigned to Docker Bridge. It must not be in any subnet IP ranges, or the Kubernetes Service address range. For example: 172.17.0.1/16.
+    - __Docker bridge address__: Select the Docker bridge address. This IP address is assigned to Docker Bridge. It must not be in any subnet IP ranges, or the Kubernetes service address range. For example: 172.17.0.1/16.
 
-   ![Azure Machine Learning service: Machine Learning Compute Virtual Network Settings](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
+   ![Azure Machine Learning service: Machine Learning Compute virtual network settings](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
     > [!TIP]
     > If you already have an AKS cluster in a virtual network, you can attach it to the workspace. For more information, see [How to deploy to AKS](how-to-deploy-to-aks.md).
 
-You can also use the **Azure Machine Learning SDK** to add Azure Kubernetes Service in a virtual network. The following code creates a new Azure Kubernetes Service in the `default` subnet of a virtual network named `mynetwork`:
+You can also use the **Azure Machine Learning SDK** to add Azure Kubernetes Service in a virtual network. The following code creates a new Azure Kubernetes Service instance in the `default` subnet of a virtual network named `mynetwork`:
 
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
