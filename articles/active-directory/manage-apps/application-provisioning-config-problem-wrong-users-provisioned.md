@@ -3,8 +3,8 @@ title: Wrong set of users are being provisioned to an Azure AD Gallery applicati
 description: Learn how to find out why a different set of users are being provisioned to an application than those you expected
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 
 ---

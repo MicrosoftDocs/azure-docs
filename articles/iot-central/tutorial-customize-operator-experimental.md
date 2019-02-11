@@ -129,7 +129,7 @@ When a builder or operator signs in to an Azure IoT Central application, they se
 
     ![Add image to home page](media/tutorial-customize-operator-experimental/addimage.png)
 
-    To learn more, see [How to prepare and upload images to your Azure IoT Central application](howto-prepare-images.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
+    To learn more, see [How to prepare and upload images to your Azure IoT Central application](howto-prepare-images-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ## Preview the default home page as an operator
 
@@ -154,5 +154,5 @@ In this tutorial, you learned how to customize the operator's view of the applic
 
 Now that you have learned how to customize the operator's view of the application, the suggested next steps are:
 
-* [Monitor your devices (as an operator)](tutorial-monitor-devices.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
-* [Add a new device to your application (as an operator and device developer)](tutorial-add-device.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [Monitor your devices (as an operator)](tutorial-monitor-devices-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+* [Add a new device to your application (as an operator and device developer)](tutorial-add-device-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)

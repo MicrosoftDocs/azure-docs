@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using PowerShell to manage Traffic Manager in Azure
 description: Using PowerShell for Traffic Manager with Azure Resource Manager
 services: traffic-manager
@@ -61,7 +61,7 @@ The following table describes the parameters:
 | MonitorPort |Specifies the TCP port used to monitor endpoint health. |
 | MonitorPath |Specifies the path relative to the endpoint domain name used to probe for endpoint health. |
 
-The cmdlet creates a Traffic Manager profile in Azure and returns a corresponding profile object to PowerShell. At this point, the profile does not contain any endpoints. For more information about adding endpoints to a Traffic Manager profile, see [Adding Traffic Manager Endpoints](#adding-traffic-manager-endpoints).
+The cmdlet creates a Traffic Manager profile in Azure and returns a corresponding profile object to PowerShell. At this point, the profile does not contain any endpoints. For more information about adding endpoints to a Traffic Manager profile, see Adding Traffic Manager Endpoints.
 
 ## Get a Traffic Manager Profile
 

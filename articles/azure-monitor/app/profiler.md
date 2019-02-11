@@ -3,15 +3,15 @@ title: Profile live Azure App Service apps with Application Insights | Microsoft
 description: Profile live apps on Azure App Service with Application Insights Profiler.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: cweining
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: cawa
+ms.reviewer: mbullwin
 ms.date: 08/06/2018
-ms.author: mbullwin
+ms.author: cweining
 ---
 # Profile live Azure App Service apps with Application Insights
 

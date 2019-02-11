@@ -122,7 +122,7 @@ A: Not at this time.
 A: No, only a single domain controller must be added. If you have multiple domain controllers in your Log Analytics workspace, data from all of them is sent to Log Analytics.
 
 **Q: I don't want to add any domain controllers to my Log Analytics workspace. Can I still use the AD Replication Status solution?**
-A: Yes. You can set the value of a registry key to enable it. See [To enable a non-domain controller to send AD data to Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+A: Yes. You can set the value of a registry key to enable it. See To enable a non-domain controller to send AD data to Log Analytics.
 
 **Q: What is the name of the process that does the data collection?**
 A: AdvisorAssessment.exe
@@ -144,7 +144,7 @@ In order to collect data, the AD Replication Status solution pack requires at le
 
 If you need assistance connecting one of your domain controllers, you can view documentation at [Connect Windows computers to Log Analytics](../../azure-monitor/platform/om-agents.md). Alternatively, if your domain controller is already connected to an existing System Center Operations Manager environment, you can view documentation at [Connect System Center Operations Manager to Log Analytics](../../azure-monitor/platform/om-agents.md).
 
-If you don't want to connect any of your domain controllers directly to Log Analytics or to System Center Operations Manager, see [To enable a non-domain controller to send AD data to Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
+If you don't want to connect any of your domain controllers directly to Log Analytics or to System Center Operations Manager, see To enable a non-domain controller to send AD data to Log Analytics.
 
 ## Next steps
 * Use [Log searches in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) to view detailed Active Directory Replication status data.
