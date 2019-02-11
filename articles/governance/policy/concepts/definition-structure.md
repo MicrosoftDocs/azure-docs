@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/04/2019
+ms.date: 02/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -103,8 +103,23 @@ definition, you can reuse that policy for different scenarios by using different
 > **defaultValue** property. This prevents existing assignments of the policy or initiative from
 > indirectly being made invalid.
 
-As an example, you could define a policy to limit the locations where resources can be deployed.
-You'd declare the following parameters when you create your policy:
+### Parameter properties
+
+A parameter has the following properties that are used in the policy definition:
+
+- **name**: The name of your parameter. Used by the `parameters` deployment function within the policy rule. For more information, see [using a parameter value](#using-a-parameter-value).
+- `type`: Determines if the parameter is a **string** or an **array**.
+- `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly information:
+  - `description`: The explanation of what the parameter is used for. Can be used to provide examples of acceptable values.
+  - `displayName`: The friendly name shown in the portal for the parameter.
+  - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides a context aware list. For more information, see [strongType](#strongtype).
+- `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned.
+- `allowedValues`: (Optional) Provides the list of values that the parameter accepts during assignment.
+
+As an example, you could define a policy definition to limit the locations where resources can be
+deployed. A parameter for that policy definition could be **allowedLocations**. This parameter
+would be used by each assignment of the policy definition to limit the accepted values. The use of
+**strongType** provides an enhanced experience when completing the assignment through the portal:
 
 ```json
 "parameters": {
@@ -115,23 +130,17 @@ You'd declare the following parameters when you create your policy:
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2"
+        "defaultValue": "westus2",
+        "allowedValues": [
+            "eastus2",
+            "westus2",
+            "westus"
+        ]
     }
 }
 ```
 
-The type of a parameter can be either string or array. The metadata property is used for tools like
-the Azure portal to display user-friendly information.
-
-Within the metadata property, you can use **strongType** to provide a multi-select list of options
-within the Azure portal. Allowed values for **strongType** currently include:
-
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+### Using a parameter value
 
 In the policy rule, you reference parameters with the following `parameters` deployment value
 function syntax:
@@ -142,6 +151,21 @@ function syntax:
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+This sample references the **allowedLocations** parameter that was demonstrated in [parameter
+properties](#parameter-properties).
+
+### strongType
+
+Within the `metadata` property, you can use **strongType** to provide a multi-select list of
+options within the Azure portal. Allowed values for **strongType** currently include:
+
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 ## Definition location
 
