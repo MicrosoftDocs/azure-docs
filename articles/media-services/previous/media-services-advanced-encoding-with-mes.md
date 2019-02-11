@@ -18,7 +18,7 @@ ms.author: juliako
 
 ---
 
-# Perform advanced encoding by customizing MES presets (legacy)
+# Perform advanced encoding by customizing MES presets 
 
 ## Overview
 

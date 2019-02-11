@@ -26,12 +26,16 @@ Access control policy can be used to grant several applications access to a key 
 2. Add all of the applications' associated service principals to the security group.
 3. Grant the security group access to your Key Vault.
 
+## Prerequisites
+
 Here are the prerequisites:
 * [Install Azure PowerShell](/powershell/azure/overview).
 * [Install the Azure Active Directory V2 PowerShell module](https://www.powershellgallery.com/packages/AzureAD).
 * Permissions to create/edit groups in the Azure Active Directory tenant. If you don't have permissions, you may need to contact your Azure Active Directory administrator. See [About Azure Key Vault keys, secrets and certificates](about-keys-secrets-and-certificates.md) for details on Key Vault access policy permissions.
 
-Now run the following commands in PowerShell:
+## Granting Key Vault access to applications
+
+Run the following commands in PowerShell:
 
 ```powershell
 # Connect to Azure AD 

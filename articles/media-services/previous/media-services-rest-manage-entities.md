@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Managing Media Services entities with REST (legacy)
+# Managing Media Services entities with REST  
 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-manage-entities.md)
