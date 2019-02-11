@@ -41,7 +41,7 @@
 - name: Concepts
   items:
   - name: Sending requests to the Bing Spell Check API
-    href: concepts/sending-requsts.md
+    href: concepts/sending-requests.md
   - name: Using the Bing Spell Check API
     href: concepts/using-spell-check.md
 - name: Samples

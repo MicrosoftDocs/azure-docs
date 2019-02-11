@@ -120,7 +120,7 @@ However, when you call the Bing Spell Check API from JavaScript, your browser's 
 
 To resolve this issue, you can make the Bing Spell Check API request through a CORS proxy. The response from such a proxy has a `Access-Control-Expose-Headers` header that whitelists response headers and makes them available to JavaScript.
 
-It's easy to install a CORS proxy to allow the [tutorial app](tutorials/spellcheck.md) to access the optional client headers. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then enter the following command at a command prompt.
+It's easy to install a CORS proxy to allow the [tutorial app](../tutorials/spellcheck.md) to access the optional client headers. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then enter the following command at a command prompt.
 
     npm install -g cors-proxy-server
 
@@ -136,7 +136,7 @@ Leave the command window open while you use the tutorial app; closing the window
 
 ## Throttling requests
 
-[!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
+[!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]
 
 # Next Steps
 
