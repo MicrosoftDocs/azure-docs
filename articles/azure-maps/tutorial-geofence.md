@@ -3,7 +3,7 @@ title: Create a geofence using Azure Maps | Microsoft Docs
 description: Setup a geofence by using Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/11/2019
+ms.date: 02/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -255,6 +255,5 @@ Following are five HTTP GET Geofencing API requests, with different correspondin
 
 In this tutorial you learned, how to set up geofence by uploading it in the Azure Maps, Data service using the Data Upload API. You also learned how to use Azure Maps Events Grid to subscribe to and handle geofence events. 
 
-> [!div class="checklist"]
 * See [Handle content types in Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type), to learn how to use Logic Apps to parse JSON to build a more complex logic.
 * To know more about event handlers in Event Grid, see [supported Events Handlers in Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers).

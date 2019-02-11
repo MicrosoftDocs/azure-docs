@@ -62,6 +62,8 @@
     items:
     - name: Search for an address
       href: how-to-search-for-address.md
+    - name: Render custom data on static map
+      href: how-to-render-custom-data.md
   - name: Create JavaScript maps
     items:
     - name: Use the map control
@@ -102,6 +104,10 @@
       href: map-events.md
     - name: Accessible map applications
       href: map-accessibility.md
+  - name: Create Android maps
+    items:
+    - name: How to use Android map control
+      href: how-to-use-android-map-control-library.md
 - name: Reference
   items:
   - name: API and parameter extensions

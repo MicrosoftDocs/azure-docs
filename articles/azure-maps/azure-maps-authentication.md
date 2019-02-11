@@ -3,7 +3,7 @@ title: Authentication with Azure Maps | Microsoft Docs
 description: Authentication for using Azure Maps services.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/09/2019
+ms.date: 02/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
