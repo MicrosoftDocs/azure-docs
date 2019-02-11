@@ -29,7 +29,7 @@ In this quickstart, you create an event hub using an Azure Resource Manager temp
 ## Prerequisites
 To complete this quickstart, you need an Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-If you want to use **Azure PowerShell** to deploy the Resource Manager template, [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
+If you want to use **Azure PowerShell** to deploy the Resource Manager template, [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-5.7.0).
 
 If you want to use **Azure CLI** to deploy the Resource Manager template, [Install  Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -114,12 +114,12 @@ Create a JSON file named MyEventHub-Parameters.json that contains parameters for
 2. Run the following command to sign in to Azure:
 
    ```azurepowershell
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 3. If you have Issue the following commands to set the current subscription context:
 
    ```azurepowershell
-   Select-AzureRmSubscription -SubscriptionName "<YourSubscriptionName>" 
+   Select-AzSubscription -SubscriptionName "<YourSubscriptionName>" 
    ```
 
 ### Provision resources
@@ -132,10 +132,10 @@ To deploy/provision the resources using Azure PowerShell, switch to the C:\Event
 $resourceGroupName = "<Specify a name for the Azure resource group>"
 
 # Create an Azure resource group
-New-AzureRmResourceGroup $resourceGroupName -location 'East US'
+New-AzResourceGroup $resourceGroupName -location 'East US'
 
 # Deploy the Resource Manager template. Specify the names of deployment itself, resource group, JSON file for the template, JSON file for parameters
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyEventHub.json -TemplateParameterFile MyEventHub-Parameters.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyEventHub.json -TemplateParameterFile MyEventHub-Parameters.json
 ```
 
 ## Use Azure CLI to deploy the template
