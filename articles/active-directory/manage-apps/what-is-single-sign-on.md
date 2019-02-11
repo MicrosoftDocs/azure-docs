@@ -23,7 +23,7 @@ Single sign-on (SSO) adds security and convenience when users sign-on to applica
 
 ## Choosing a single sign-on method
 
-There are several ways to configure an application for single sign-on. Choosing a single sign on method depends on how the application is configured for authentication. 
+There are several ways to configure an application for single sign-on. Choosing a single sign-on method depends on how the application is configured for authentication. 
 
 - Cloud applications can use OpenID Connect, OAuth, SAML, password-based, linked, or disabled methods for single sign-on. 
 - On-premises applications can use password-based, Integrated Windows Authentication, header-based, linked, or disabled methods for single sign-on. The on-premises choices work when applications are configured for Application Proxy.
@@ -80,10 +80,10 @@ Choose password-based single sign-on when:
 
 Password-based single sign-on is supported for any cloud-based application that has an HTML-based sign-in page. The user can use any of the following browsers:
 
-- Internet Explorer 11 on Windows 7 or later.
-- Microsoft Edge on Windows 10 Anniversary Edition or later.
-- Chrome on Windows 7 or later, and on MacOS X or later.
-- Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
+- Internet Explorer 11 on Windows 7 or later
+- Microsoft Edge on Windows 10 Anniversary Edition or later
+- Chrome on Windows 7 or later, and on MacOS X or later
+- Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 
 To configure a cloud application for password-based single sign-on, see [Configure the application for password single sign-on](application-sign-in-problem-password-sso-gallery.md#configure-the-application-for-password-single-sign-on).
 
