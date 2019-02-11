@@ -240,7 +240,8 @@ If you don't plan to use the experiment you created, follow theses steps to dele
 
 In this quickstart, you created a simple experiment using a sample dataset. To explore the process of creating and deploying a model in more depth, continue to the predictive solution tutorial.
 
-[!div class="nextstepaction"] [Tutorial: Develop a predictive solution in Studio](walkthrough-develop-predictive-solution.md)
+> [!div class="nextstepaction"]
+> [Tutorial: Develop a predictive solution in Studio](walkthrough-develop-predictive-solution.md)
 
 <!-- Images -->
 [sign-in-to-studio]: ./media/create-experiment/sign-in-to-studio.png
