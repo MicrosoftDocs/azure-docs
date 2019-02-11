@@ -4,7 +4,7 @@ description: Learn the best practices for working with Reliable Collections.
 services: service-fabric
 documentationcenter: .net
 author: tylermsft
-manager: timlt
+manager: jeanpaul.connock
 editor: ''
 
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
@@ -13,35 +13,35 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/19/2017
+ms.date: 02/12/2019
 ms.author: twhitney
-
 ---
+
 # Working with Reliable Collections
 Service Fabric offers a stateful programming model available to .NET developers via Reliable Collections. Specifically, Service Fabric provides reliable dictionary and reliable queue classes. When you use these classes, your state is partitioned (for scalability), replicated (for availability), and transacted within a partition (for ACID semantics). Let’s look at a typical usage of a reliable dictionary object and see what its actually doing.
 
 ```csharp
-
-///retry:
-
-try {
+try
+{
    // Create a new Transaction object for this partition
-   using (ITransaction tx = base.StateManager.CreateTransaction()) {
+   using (ITransaction tx = base.StateManager.CreateTransaction())
+   {
       // AddAsync takes key's write lock; if >4 secs, TimeoutException
       // Key & value put in temp dictionary (read your own writes),
-      // serialized, redo/undo record is logged & sent to
-      // secondary replicas
+      // serialized, redo/undo record is logged & sent to secondary replicas
       await m_dic.AddAsync(tx, key, value, cancellationToken);
 
       // CommitAsync sends Commit record to log & secondary replicas
       // After quorum responds, all locks released
       await tx.CommitAsync();
    }
-   // If CommitAsync not called, Dispose sends Abort
+   // If CommitAsync isn't called, Dispose sends Abort
    // record to log & all locks released
 }
-catch (TimeoutException) {
-   await Task.Delay(100, cancellationToken); goto retry;
+catch (TimeoutException)
+{
+   // choose how to handle the situation where you couldn't get a lock on the file because it was 
+   // already in use. You might await Task.Delay(100, cancellationToken); and retry the operation
 }
 ```
 
@@ -61,7 +61,8 @@ If CommitAsync is not called (usually due to an exception being thrown), then th
 Now that you understand how the reliable collections work internally, let’s take a look at some common misuses of them. See the code below:
 
 ```csharp
-using (ITransaction tx = StateManager.CreateTransaction()) {
+using (ITransaction tx = StateManager.CreateTransaction())
+{
    // AddAsync serializes the name/user, logs the bytes,
    // & sends the bytes to the secondary replicas.
    await m_dic.AddAsync(tx, name, user);
@@ -80,8 +81,8 @@ I cannot stress enough how easy it is to make the kind of mistake shown above. A
 
 
 ```csharp
-
-using (ITransaction tx = StateManager.CreateTransaction()) {
+using (ITransaction tx = StateManager.CreateTransaction())
+{
    user.LastLogin = DateTime.UtcNow;  // Do this BEFORE calling AddAsync
    await m_dic.AddAsync(tx, name, user);
    await tx.CommitAsync();
@@ -91,14 +92,14 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 Here is another example showing a common mistake:
 
 ```csharp
-
-using (ITransaction tx = StateManager.CreateTransaction()) {
+using (ITransaction tx = StateManager.CreateTransaction())
+{
    // Use the user’s name to look up their data
-   ConditionalValue<User> user =
-      await m_dic.TryGetValueAsync(tx, name);
+   ConditionalValue<User> user = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
-   if (user.HasValue) {
+   if (user.HasValue)
+  {
       // The line below updates the property’s value in memory only; the
       // new value is NOT serialized, logged, & sent to secondary replicas.
       user.Value.LastLogin = DateTime.UtcNow; // Corruption!
@@ -114,14 +115,14 @@ The correct way to update a value in a reliable collection, is to get a referenc
 The code below shows the correct way to update a value in a reliable collection:
 
 ```csharp
-
-using (ITransaction tx = StateManager.CreateTransaction()) {
+using (ITransaction tx = StateManager.CreateTransaction())
+{
    // Use the user’s name to look up their data
-   ConditionalValue<User> currentUser =
-      await m_dic.TryGetValueAsync(tx, name);
+   ConditionalValue<User> currentUser = await m_dic.TryGetValueAsync(tx, name);
 
    // The user exists in the dictionary, update one of their properties.
-   if (currentUser.HasValue) {
+   if (currentUser.HasValue)
+   {
       // Create new user object with the same state as the current user object.
       // NOTE: This must be a deep copy; not a shallow copy. Specifically, only
       // immutable state can be shared by currentUser & updatedUser object graphs.
@@ -132,7 +133,6 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 
       // Update the key’s value to the updateUser info
       await m_dic.SetValue(tx, name, updatedUser);
-
       await tx.CommitAsync();
    }
 }
@@ -144,19 +144,21 @@ Ideally, we’d like the compiler to report errors when you accidentally produce
 The UserInfo type below demonstrates how to define an immutable type taking advantage of aforementioned recommendations.
 
 ```csharp
-
 [DataContract]
 // If you don’t seal, you must ensure that any derived classes are also immutable
-public sealed class UserInfo {
+public sealed class UserInfo
+{
    private static readonly IEnumerable<ItemId> NoBids = ImmutableList<ItemId>.Empty;
 
-   public UserInfo(String email, IEnumerable<ItemId> itemsBidding = null) {
+   public UserInfo(String email, IEnumerable<ItemId> itemsBidding = null) 
+   {
       Email = email;
       ItemsBidding = (itemsBidding == null) ? NoBids : itemsBidding.ToImmutableList();
    }
 
    [OnDeserialized]
-   private void OnDeserialized(StreamingContext context) {
+   private void OnDeserialized(StreamingContext context)
+   {
       // Convert the deserialized collection to an immutable collection
       ItemsBidding = ItemsBidding.ToImmutableList();
    }
@@ -171,7 +173,8 @@ public sealed class UserInfo {
 
    // Since each UserInfo object is immutable, we add a new ItemId to the ItemsBidding
    // collection by creating a new immutable UserInfo object with the added ItemId.
-   public UserInfo AddItemBidding(ItemId itemId) {
+   public UserInfo AddItemBidding(ItemId itemId)
+   {
       return new UserInfo(Email, ((ImmutableList<ItemId>)ItemsBidding).Add(itemId));
    }
 }
@@ -180,13 +183,13 @@ public sealed class UserInfo {
 The ItemId type is also an immutable type as shown here:
 
 ```csharp
-
 [DataContract]
-public struct ItemId {
-
+public struct ItemId
+{
    [DataMember] public readonly String Seller;
    [DataMember] public readonly String ItemName;
-   public ItemId(String seller, String itemName) {
+   public ItemId(String seller, String itemName)
+   {
       Seller = seller;
       ItemName = itemName;
    }
@@ -206,10 +209,10 @@ Furthermore, service code is upgraded one upgrade domain at a time. So, during a
 Alternatively, you can perform what is typically referred to as a 2-phase upgrade. With a 2-phase upgrade, you upgrade your service from V1 to V2: V2 contains the code that knows how to deal with the new schema change but this code doesn’t execute. When the V2 code reads V1 data, it operates on it and writes V1 data. Then, after the upgrade is complete across all upgrade domains, you can somehow signal to the running V2 instances that the upgrade is complete. (One way to signal this is to roll out a configuration upgrade; this is what makes this a 2-phase upgrade.) Now, the V2 instances can read V1 data, convert it to V2 data, operate on it, and write it out as V2 data. When other instances read V2 data, they do not need to convert it, they just operate on it, and write out V2 data.
 
 ## Next Steps
-To learn about creating forward compatible data contracts, see [Forward-Compatible Data Contracts](https://msdn.microsoft.com/library/ms731083.aspx).
+To learn about creating forward compatible data contracts, see [Forward-Compatible Data Contracts](https://msdn.microsoft.com/library/ms731083.aspx)
 
-To learn best practices on versioning data contracts, see [Data Contract Versioning](https://msdn.microsoft.com/library/ms731138.aspx).
+To learn best practices on versioning data contracts, see [Data Contract Versioning](https://msdn.microsoft.com/library/ms731138.aspx)
 
-To learn how to implement version tolerant data contracts, see [Version-Tolerant Serialization Callbacks](https://msdn.microsoft.com/library/ms733734.aspx).
+To learn how to implement version tolerant data contracts, see [Version-Tolerant Serialization Callbacks](https://msdn.microsoft.com/library/ms733734.aspx)
 
-To learn how to provide a data structure that can interoperate across multiple versions, see [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx).
+To learn how to provide a data structure that can interoperate across multiple versions, see [IExtensibleDataObject](https://msdn.microsoft.com/library/system.runtime.serialization.iextensibledataobject.aspx)
