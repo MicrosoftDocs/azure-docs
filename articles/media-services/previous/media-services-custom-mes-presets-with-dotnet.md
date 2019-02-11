@@ -17,7 +17,7 @@ ms.date: 02/09/2019
 ms.author: juliako
 
 ---
-# Customizing Media Encoder Standard presets (legacy)
+# Customizing Media Encoder Standard presets 
 
 ## Overview
 
