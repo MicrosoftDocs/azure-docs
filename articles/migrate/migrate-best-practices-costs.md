@@ -152,7 +152,7 @@ An integrated Microsoft on-premises/Azure product portfolio generates competitiv
 
 - [Take a look at](https://azure.microsoft.com/pricing/hybrid-benefit/) the Hybrid Benefit Savings Calculator.
 - [Learn more](https://azure.microsoft.com/pricing/hybrid-benefit/) about Hybrid Benefit for Windows Server.
-- [Review](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) pricing guidance for SQL Server Azure VMs.
+- [Review](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) pricing guidance for SQL Server Azure VMs.
 
 
 ## Best practice: Use reserved VM instances
@@ -172,7 +172,7 @@ Using Azure Reserved VM instances, you prepay for a one or three-year term VM in
 **Learn more:**
 - [Learn about](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) Azure Reservations.
 - [Read](https://azure.microsoft.com/pricing/reserved-vm-instances/#faq) the reserved instances FAQ.
-- [Get pricing guidance](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance#bring-your-own-license-byol) for SQL Server Azure VMs.
+- [Get pricing guidance](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) for SQL Server Azure VMs.
 
 
 ## Best practice: Aggregate cloud spend across subscriptions

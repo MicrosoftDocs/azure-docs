@@ -24,6 +24,10 @@
       href: java-tutorial.md
     - name: Object detection
       href: java-tutorial-od.md
+- name: Tutorials
+  items:
+  - name: Logo detector for mobile
+    href: logo-detector-mobile.md
 - name: How-to guides
   items:
   - name: Build a classifier

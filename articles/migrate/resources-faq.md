@@ -50,7 +50,7 @@ Azure Migrate currently supports Europe, United States, and Azure Government as 
 Azure Government | US Gov Virginia
 Asia | Southeast Asia
 Europe | North Europe or West Europe
-Unites States | East US of West Central US
+Unites States | East US or West Central US
 
 ### How does the on-premises site connect to Azure Migrate?
 
@@ -103,7 +103,7 @@ The agent-based discovery is an option available on top of the appliance-based d
 
 ### Would there be any performance impact on the analyzed ESXi host environment?
 
-In the case of the [one time discovery approach](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods), in order to collect the performance data, the statistics level on the vCenter server would have to be set to 3. Setting it to this level would collect a large quantity of troubleshooting data, which would be stored in the vCenter Server database. It could thus result in some performance issues on the vCenter Server. There would be negligible impact on the ESXi host.
+In the case of the [one time discovery approach](https://docs.microsoft.com/azure/migrate/concepts-collector), in order to collect the performance data, the statistics level on the vCenter server would have to be set to 3. Setting it to this level would collect a large quantity of troubleshooting data, which would be stored in the vCenter Server database. It could thus result in some performance issues on the vCenter Server. There would be negligible impact on the ESXi host.
 
 We have introduced continuous profiling of performance data(which is in preview). With continuous profiling, there is no longer a need to change the vCenter Server statistics level to run a performance-based assessment. The collector appliance will now profile the on-premises machines to measure the performance data of the virtual machines. This would have almost zero performance impact on the ESXi hosts as well as on the vCenter Server.
 

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn about the Bing Spell Check modes, settings, and other information relating to the API.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-spell-check

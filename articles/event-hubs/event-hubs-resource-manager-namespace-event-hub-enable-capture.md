@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/16/2018
+ms.date: 02/06/2019
 ms.author: shvija
 
 ---
@@ -314,6 +314,7 @@ Creates a namespace of type **EventHub**, with one event hub, and also enables C
             "partitionCount": "[parameters('partitionCount')]",
             "captureDescription": {
               "enabled": "true",
+              "skipEmptyArchives": false,
               "encoding": "[parameters('captureEncodingFormat')]",
               "intervalInSeconds": "[parameters('captureTime')]",
               "sizeLimitInBytes": "[parameters('captureSize')]",
@@ -361,6 +362,7 @@ Creates a namespace of type **EventHub**, with one event hub, and also enables C
                         "path": "[parameters('eventHubName')]",
                         "captureDescription": {
                             "enabled": "true",
+                            "skipEmptyArchives": false,
                             "encoding": "[parameters('archiveEncodingFormat')]",
                             "intervalInSeconds": "[parameters('captureTime')]",
                             "sizeLimitInBytes": "[parameters('captureSize')]",
@@ -380,6 +382,9 @@ Creates a namespace of type **EventHub**, with one event hub, and also enables C
         }
     ]
 ```
+
+> [!NOTE]
+> You can enable or disable emitting empty files when no events occur during the Capture window by using the **skipEmptyArchives** property. 
 
 ## Commands to run deployment
 

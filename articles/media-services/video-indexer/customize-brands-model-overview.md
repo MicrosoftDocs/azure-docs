@@ -8,7 +8,7 @@ manager: johndeu
 
 ms.service: media-services
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 02/10/2019
 ms.author: anzaman
 ---
 
@@ -26,7 +26,7 @@ In the [Microsoft Build 2017 Day 2](https://www.videoindexer.ai/media/ed6ede78ad
 
 Talking about windows in the context of construction will not detect the word "Windows" as a brand, and same for Box, Apple, Fox, etc., based on advanced Machine Learning algorithms that know how to disambiguate from context. Brand Detection works for all our supported languages. Click here for [full Microsoft Build 2017 Day 2 keynote video and index](http://www.videoindexer.ai/media/ed6ede78ad/).
 
-To bring your own brands, check out [Next steps](#next-stpes).
+To bring your own brands, check out Next steps.
 
 ## Next steps
 

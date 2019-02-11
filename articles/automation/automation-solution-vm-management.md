@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 1/30/2019
+ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -130,7 +130,7 @@ In an environment that includes two or more components on multiple VMs supportin
 
 #### Target the start and stop action by VM list
 
-1. Add a **sequencestart** and a **sequencestop** tag with a positive integer value to VMs you plan to add to the **VMList** variable. 
+1. Add a **sequencestart** and a **sequencestop** tag with a positive integer value to VMs you plan to add to the **VMList** parameter.
 1. Run the **SequencedStartStop_Parent** runbook with the ACTION parameter set to **start**, add a comma-separated list of VMs in the *VMList* parameter, and then set the WHATIF parameter to **True**. Preview your changes.
 1. Configure the **External_ExcludeVMNames** parameter with a comma-separated list of VMs (VM1, VM2, VM3).
 1. This scenario does not honor the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupnames** variables. For this scenario, you need to create your own Automation schedule. For details, see [Scheduling a runbook in Azure Automation](../automation/automation-schedules.md).
@@ -203,7 +203,7 @@ The following table lists the variables created in your Automation account. Only
 |External_AutoStop_TimeAggregationOperator | The time aggregation operator, which is applied to the selected window size to evaluate the condition. Acceptable values are **Average**, **Minimum**, **Maximum**, **Total**, and **Last**.|
 |External_AutoStop_TimeWindow | The window size during which Azure analyzes selected metrics for triggering an alert. This parameter accepts input in timespan format. Possible values are from 5 minutes to 6 hours.|
 |External_EnableClassicVMs| Specifies whether Classic VMs are targeted by the solution. The default value is True. This should be set to False for CSP subscriptions.|
-|External_ExcludeVMNames | Enter VM names to be excluded, separating names by using a comma with no spaces.|
+|External_ExcludeVMNames | Enter VM names to be excluded, separating names by using a comma with no spaces. This is limited to 140 VMs. If you add more than 140 VMs are added VMs meant to be excluded may be started or shutdown inadvertently|
 |External_Start_ResourceGroupNames | Specifies one or more resource groups, separating values by using a comma, targeted for start actions.|
 |External_Stop_ResourceGroupNames | Specifies one or more resource groups, separating values by using a comma, targeted for stop actions.|
 |Internal_AutomationAccountName | Specifies the name of the Automation account.|
@@ -313,13 +313,29 @@ The following is an example email that is sent when the solution shuts down virt
 
 ![Automation Update Management solution page](media/automation-solution-vm-management/email.png)
 
+## <a name="add-exclude-vms"></a>Add/Exclude VMs
+
+The solution provides the ability to add VMs to be targeted by the solution or specifically exclude machines from the solution.
+
+### Add a VM
+
+There are a couple options that you can use to make sure that a VM is included in the Start/Stop solution when it runs.
+
+* Each of the parent [runbooks](#runbooks) of the solution have a **VMList** parameter. You can pass a comma separated list of VM names to this parameter when scheduling the appropriate parent runbook for your situation and these VMs will be included when the solution runs.
+
+* To select multiple VMs, set the **External_Start_ResourceGroupNames** and **External_Stop_ResourceGroupNames** with the resource group names that contain the VMs you want to start or stop. You can also set this value to `*`, to have the solution run against all resource groups in the subscription.
+
+### Exclude a VM
+
+To exclude a VM from the solution, you can add it to the **External_ExcludeVMNames** variable. This variable is a comma separated list of specific VMs to exclude from the Start/Stop solution. This list is limited to 140 VMs. If you add more than 140 VMs to this comma separated list, VMs that are set to be excluded may be inadvertently started or stopped.
+
 ## Modify the startup and shutdown schedules
 
-Managing the startup and shutdown schedules in this solution follows the same steps as outlined in [Scheduling a runbook in Azure Automation](automation-schedules.md).
+Managing the startup and shutdown schedules in this solution follows the same steps as outlined in [Scheduling a runbook in Azure Automation](automation-schedules.md). There needs to be a separate schedule to start and to stop VMs.
 
-Configuring the solution to just stop VMs at a certain time is supported. To do this, you need to:
+Configuring the solution to just stop VMs at a certain time is supported. In this scenario you just create a **Stop** schedule and no corresponding **Start** scheduled. To do this, you need to:
 
-1. Ensure you have added the resource groups for the VMs to shut down in the **External_Start_ResourceGroupNames** variable.
+1. Ensure you have added the resource groups for the VMs to shut down in the **External_Stop_ResourceGroupNames** variable.
 2. Create your own schedule for the time you want to shut down the VMs.
 3. Navigate to the **ScheduledStartStop_Parent** runbook and click **Schedule**. This allows you to select the schedule you created in the preceding step.
 4. Select **Parameters and run settings** and set the ACTION parameter to "Stop".
