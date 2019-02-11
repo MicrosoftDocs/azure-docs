@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: How to create reviews using Azure Content Moderator SDK for .NET.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

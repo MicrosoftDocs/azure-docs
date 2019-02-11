@@ -56,7 +56,7 @@ These steps are shown in the Azure App Service repository as [an example](https:
     > be accessed via the Kudu / SCM Site, which is authenticated using the publishing
     > credentials.
 
-    ```docker
+    ```Dockerfile
     # ------------------------
     # SSH Server support
     # ------------------------
@@ -72,13 +72,13 @@ These steps are shown in the Azure App Service repository as [an example](https:
     > * `Ciphers` must include at least one of the following: `aes128-cbc,3des-cbc,aes256-cbc`.
     > * `MACs` must include at least one of the following: `hmac-sha1,hmac-sha1-96`.
 
-    ```docker
+    ```Dockerfile
     COPY sshd_config /etc/ssh/
     ```
 
 3. Include port 2222 in the [`EXPOSE` instruction](https://docs.docker.com/engine/reference/builder/#expose) for the Dockerfile. Although the root password is known, port 2222 cannot be accessed from the internet. It is an internal only port accessible only by containers within the bridge network of a private virtual network.
 
-    ```docker
+    ```Dockerfile
     EXPOSE 2222 80
     ```
 
@@ -91,7 +91,7 @@ These steps are shown in the Azure App Service repository as [an example](https:
 
 The Dockerfile uses the [`ENTRYPOINT` instruction](https://docs.docker.com/engine/reference/builder/#entrypoint) to run the script.
 
-    ```docker
+    ```Dockerfile
     COPY init_container.sh /opt/startup
     ...
     RUN chmod 755 /opt/startup/init_container.sh

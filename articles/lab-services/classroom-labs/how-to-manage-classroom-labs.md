@@ -1,6 +1,6 @@
 ---
 title: Manage classroom labs in Azure Lab Services | Microsoft Docs
-description: Learn how to create and configure a classroom lab, view all the classroom labs, shre the registration link with a lab user, or delete a lab. 
+description: Learn how to create and configure a classroom lab, view all the classroom labs, share the registration link with a lab user, or delete a lab. 
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/07/2019
 ms.author: spelluru
 
 ---
@@ -103,7 +103,12 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 3. On the **Delete lab** dialog box, select **Delete**. 
 
     ![Delete dialog box](../media/how-to-manage-classroom-labs/delete-lab-dialog-box.png)
- 
+
+## Switch to another classroom lab
+To switch to another classroom lab from the current, select the drop-down list of labs in the lab account at the top.
+
+![Select the lab from drop-down list at the top](../media/how-to-manage-classroom-labs/switch-lab.png)
+
 
 ## Next steps
 See the following articles:

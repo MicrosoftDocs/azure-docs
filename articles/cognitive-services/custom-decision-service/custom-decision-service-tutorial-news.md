@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: A tutorial for article personalization for contextual decision-making.
 services: cognitive-services
 author: slivkins
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-decision-service
@@ -47,7 +47,7 @@ For more information on the feed format, see the [API reference](custom-decision
 
 ## Register a new app
 
-1. Sign in with your [Microsoft account](https://account.microsoft.com/account). On the ribbon, click **My Portal**.
+1. Sign in with your [Microsoft account](https://portal.ds.microsoft.com/). On the ribbon, click **My Portal**.
 
 2. To register a new application, click the **New App** button.
 

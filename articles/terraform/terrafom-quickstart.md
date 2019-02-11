@@ -82,7 +82,7 @@ terraform apply plan.out
 
 Once done, you can see that the resource group has been created and an Azure Cosmos DB instance placed in the resource group.
 
-## Update Configuration
+## Update configuration
 
 Update the configuration to include an Azure Container Instance. The container runs an application that reads and writes data to the Cosmos DB.
 

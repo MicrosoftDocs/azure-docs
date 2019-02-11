@@ -49,7 +49,7 @@ There are three kinds of accounts in Machine Learning Studio. The kind of accoun
 	- You can export personal and customer data through the UI, REST APIs, or PowerShell package
 	- You can delete your data in the Azure portal.
 
-## Delete workspace data in Studio 
+## <a name="delete"></a>Delete workspace data in Studio 
 
 ### Delete individual assets
 
