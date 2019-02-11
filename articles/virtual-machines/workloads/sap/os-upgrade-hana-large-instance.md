@@ -27,7 +27,7 @@ At the time of the HLI unit provisioning, the Microsoft operations team install 
 
 Before you do major changes to the operating system (for example, Upgrade SP1 to SP2), you must contact Microsoft Operations team by opening a support ticket to consult.
 
-Please insert on your ticket:
+Please include on your ticket:
 
 * Your HLI subscription ID.
 * Your server name.
