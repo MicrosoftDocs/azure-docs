@@ -19,7 +19,7 @@ ms.author: twhitney, subramar
 
 # Import a certificate file into a container running on Service Fabric
 
-You can secure your container services by specifying a certificate. Service Fabric provides a mechanism for services inside a container to access a certificate that is installed on the nodes in a Windows or Linux cluster (version 5.7 or higher). The certificate must be installed in a certificate store under LocalMachine on all nodes of the cluster. The private key corresponding to the certificate must be available and exportable. The certificate information is provided in the application manifest under the `ContainerHostPolicies` tag as the following snippet shows:
+You can secure your container services by specifying a certificate. Service Fabric provides a mechanism for services inside a container to access a certificate that is installed on the nodes in a Windows or Linux cluster (version 5.7 or higher). The certificate must be installed in a certificate store under LocalMachine on all nodes of the cluster. The private key corresponding to the certificate must be available, accessible and - on Windows - exportable. The certificate information is provided in the application manifest under the `ContainerHostPolicies` tag as the following snippet shows:
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
