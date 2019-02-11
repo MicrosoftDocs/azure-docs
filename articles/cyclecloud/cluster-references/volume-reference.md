@@ -45,12 +45,15 @@ Attribute | Type | Definition
 ------ | ----- | ----------
 Size | String | (Required) Size of disk in GB
 VolumeId | String | Resource id for existing Azure Disk.
-SSD | Boolean | If true use premium disk sku otherwise use standard disk. Default is false.  Planned obsolescence in favor of `Azure.StorageSkuTier` or `Azure.StorageSkuName`
+SSD | Boolean | If true, use premium disk sku. Otherwise, use standard disk. Default is false.  
 Azure.Lun | Integer | Override the auto-assigned LUN ID.
 Mount | String | Name of mount construct, described in `configuration` object
 Azure.Caching | String | None, readonly, readwrite. Default is none.
 Persistent | Boolean | If false, disk will be deleted with vm is deleted. Default is false.
 Disabled | Boolean | If true, this volume will be ignored. Default is false.
+Azure.SourceUri | String | URI of blob to import into managed disk.
+Azure.StorageAccountId | String | Azure resource ID of storage account containing SourceUri blob. Required if blob is in a different subscription.
+Azure.SourceResourceId | String | Azure resource ID of source snapshot or managed disk.
 
 ### Boot Volume
 
@@ -61,5 +64,5 @@ of the OS boot volume.
   [[node scheduler]]
     [[[volume boot]]]
       Size = 100
-      Azure.StorageSkuName = PremiumLRS
+      SSD = true
 ```
