@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/06/2019
+ms.date: 02/11/2019
 ms.author: jeedes
 
 ---
@@ -110,11 +110,11 @@ To configure Azure AD single sign-on with etouches, perform the following steps:
 	> These values are not real. You update the value with the actual Sign on URL and Identifier, which is explained later in the tutorial.
 	> 
 
-5. etouches application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set-up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+5. Your etouches application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click on **Edit** icon to add the attributes.
 
 	![image](common/edit-attribute.png)
 
-6. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps: 
+6. In addition to above, etouches application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
 	| Name | Source Attribute|
 	| ------------------- | -------------------- |
