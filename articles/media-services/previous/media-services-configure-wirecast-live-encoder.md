@@ -17,7 +17,7 @@ ms.date: 02/09/2019
 ms.author: juliako;cenkdin;anilmur
 
 ---
-# Use the Wirecast encoder to send a single bitrate live stream (legacy)
+# Use the Wirecast encoder to send a single bitrate live stream 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
