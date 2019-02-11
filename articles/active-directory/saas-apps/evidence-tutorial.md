@@ -119,7 +119,7 @@ To configure Azure AD single sign-on with Evidence.com, perform the following st
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
@@ -131,7 +131,7 @@ To configure Azure AD single sign-on with Evidence.com, perform the following st
 
 3. Select **SAML Based Single Sign On**
 
-4. Copy the **Azure Ad Identifier**, **Login URL** and **Logout URL** values shown in the Azure portal and to the corresponding fields in Evidence.com.
+4. Copy the **Azure AD Identifier**, **Login URL** and **Logout URL** values shown in the Azure portal and to the corresponding fields in Evidence.com.
 
 5. Open your downloaded Certificate(Base64) file in notepad, copy the content of it into your clipboard, and then paste it to the **Security Certificate** box. 
 
