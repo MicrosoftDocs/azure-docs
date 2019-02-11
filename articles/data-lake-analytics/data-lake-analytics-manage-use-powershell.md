@@ -19,6 +19,8 @@ This article describes how to manage Azure Data Lake Analytics accounts, data so
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To use PowerShell with Data Lake Analytics, collect the following pieces of information: 
 
 * **Subscription ID**: The ID of the Azure subscription that contains your Data Lake Analytics account.
@@ -477,7 +479,7 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 
 ## Working with Azure
 
-### Get details of AzureRm errors
+### Get error details
 
 ```powershell
 Resolve-AzError -Last

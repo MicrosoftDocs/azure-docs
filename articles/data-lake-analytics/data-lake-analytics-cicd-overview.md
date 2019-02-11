@@ -15,6 +15,8 @@ ms.date: 09/14/2018
 
 In this article, you learn how to set up a continuous integration and deployment (CI/CD) pipeline for U-SQL jobs and U-SQL databases.  
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Use CI/CD for U-SQL jobs
 
 Azure Data Lake Tools for Visual Studio provides the U-SQL project type that helps you organize U-SQL scripts. Using the U-SQL project to manage your U-SQL code makes further CI/CD scenarios easy.
