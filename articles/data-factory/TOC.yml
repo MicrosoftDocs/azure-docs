@@ -53,6 +53,27 @@
     href: concepts-pipeline-execution-triggers.md 
   - name: Integration runtime
     href: concepts-integration-runtime.md
+  - name: Mapping Data Flows
+    - name: Mapping Data Flow concepts
+      href: concepts-adf-data-flow-overview.md
+    - name: Debug Mode
+      href: concepts-adf-data-flow-debug-mode.md
+    - name: Schema Drift
+      href: concepts-adf-data-flow-schema-drift.md
+    - name: Inspect Pane
+      href: concepts-adf-data-flow-inspect-pane.md
+    - name: Column Patterns
+      href: concepts-adf-data-flow-column-pattern.md
+    - name: Data Flow Monitoring
+      href: concepts-adf-data-flow-monitoring.md     
+    - name: Move Nodes
+      href: concepts-adf-data-flow-move-nodes.md
+    - name: Optimize Tab
+      href: concepts-adf-data-flow-optimize-tab.md
+    - name: Expression Builder
+      href: concepts-adf-data-flow-expression-builder.md
+    - name: Reference Nodes
+      href: concepts-adf-data-flow-reference-node.md
 - name: How-to guides
   items:
   - name: Move data
