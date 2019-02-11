@@ -23,8 +23,6 @@ ms.custom: mvc
 
 This script creates an Azure Virtual Machine, installs the Log Analytics agent, and enrolls the system with a Log Analytics workspace. Once the script has run, the virtual machine will be visible in Azure Monitor. Also, you need to update the Log Analytics workspace ID and workspace key.
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]

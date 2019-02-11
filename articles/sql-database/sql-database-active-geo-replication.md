@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 02/08/2019
 ---
 # Create readable secondary databases using active geo-replication
 
@@ -124,7 +124,7 @@ Due to the high latency of wide area networks, continuous copy uses an asynchron
 
 As discussed previously, active geo-replication can also be managed programmatically using Azure PowerShell and the REST API. The following tables describe the set of commands available. Active geo-replication includes a set of Azure Resource Manager APIs for management, including the [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) and [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview). These APIs require the use of resource groups and support role-based security (RBAC). For more information on how to implement access roles, see [Azure Role-Based Access Control](../role-based-access-control/overview.md).
 
-### T-SQL: Manage failover of standalone and pooled databases
+### T-SQL: Manage failover of single and pooled databases
 
 > [!IMPORTANT]
 > These Transact-SQL commands only apply to active geo-replication and do not apply to failover groups. As such, they also do not apply to Managed Instances, as they only support failover groups.
@@ -140,7 +140,7 @@ As discussed previously, active geo-replication can also be managed programmatic
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |causes the application to wait until all committed transactions are replicated and acknowledged by the active secondary database. |
 |  | |
 
-### PowerShell: Manage failover of standalone and pooled databases
+### PowerShell: Manage failover of single and pooled databases
 
 | Cmdlet | Description |
 | --- | --- |
@@ -154,7 +154,7 @@ As discussed previously, active geo-replication can also be managed programmatic
 > [!IMPORTANT]
 > For sample scripts, see [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) and [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
-### REST API: Manage failover of standalone and pooled databases
+### REST API: Manage failover of single and pooled databases
 
 | API | Description |
 | --- | --- |

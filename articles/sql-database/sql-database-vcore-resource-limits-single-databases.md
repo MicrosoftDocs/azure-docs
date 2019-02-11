@@ -3,7 +3,7 @@ title: Azure SQL Database vCore-based resource limits - single database | Micros
 description: This page describes some common vCore-based resource limits for a single database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 02/08/2019
 ---
 # Azure SQL Database vCore-based purchasing model limits for a single database
 
