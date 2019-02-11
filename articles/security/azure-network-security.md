@@ -5,7 +5,7 @@ description: Learn about cloud-based computing services that include a wide sele
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 

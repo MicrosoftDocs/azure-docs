@@ -4,7 +4,7 @@ description: Learn about gaining tenant-wide visibility in Azure Security Center
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
