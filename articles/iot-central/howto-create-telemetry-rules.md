@@ -3,7 +3,7 @@ title: Create and manage telemetry rules in your Azure IoT Central application |
 description: Azure IoT Central telemetry rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 11/02/2018
+ms.date: 02/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -26,14 +26,14 @@ To create a telemetry rule, the device template must have at least one telemetry
 
 1. Under the selected template, click on an existing device. 
 
-    >[!TIP] 
+    >[!TIP]
     >If the template doesn't have any devices then add a new device first.
 
 1. If you haven’t created any rules yet, you will see the following screen:
 
     ![No rules yet](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
-1. On the **Rules** tab, click **Edit Template** and then **+ New Rule** to see the types of rules you can create.
+1. On the **Rules** tab, click **+ New Rule** to see the types of rules you can create.
 
 1. Click **Telemetry** to create a rule to monitor device telemetry.
 
@@ -44,9 +44,8 @@ To create a telemetry rule, the device template must have at least one telemetry
 1. To immediately enable the rule for all the devices created for this template, toggle **Enable rule for all devices for this template**.
 
    ![Rule Detail](media/howto-create-telemetry-rules/Rule_Detail.png)
-    
+
     The rule automatically applies to all the devices under the device template.
-    
 
 ### Configure the rule conditions
 
@@ -64,8 +63,6 @@ Condition defines the criteria that is monitored by the rule.
 
     >[!NOTE]
     >More than one telemetry measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each conditon gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
-    
-    
 
 ### Configure actions
 
@@ -83,8 +80,6 @@ This section shows you how to set up actions to take when the rule is fired. Act
    ![Configure Action](media/howto-create-telemetry-rules/Configure_Action.png)
 
 1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring telemetry being sent to your application. When the condition specified in the rule is met, the rule triggers the configured email action.
-
-1. Choose **Done** to exit the **Edit Template** mode.
 
 You can add other actions to the rule such as Microsoft Flow and webhooks. You can add up to 5 actions per rule.
 

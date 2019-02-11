@@ -3,7 +3,7 @@ title: Create webhooks on rules in Azure IoT Central | Microsoft Docs
 description: Create webhooks in Azure IoT Central to automatically notify other applications when rules fire.
 author: viv-liu
 ms.author: viviali
-ms.date: 09/17/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -22,7 +22,7 @@ In this example, you will connect to RequestBin to get notified when rules fire 
 1. Open [RequestBin](http://requestbin.net/). 
 1. Create a new RequestBin and copy the **Bin URL**. 
 1. Create a [telemetry rule](howto-create-telemetry-rules.md) or an [event rule](howto-create-event-rules.md). Save the rule and add a new action.
-![Webhook creation screen](media/howto-create-webhooks/webhookcreate.PNG)
+    ![Webhook creation screen](media/howto-create-webhooks/webhookcreate.png)
 1. Choose the webhook action and provide a display name and paste the Bin URL as the Callback URL. 
 1. Save the rule.
 
