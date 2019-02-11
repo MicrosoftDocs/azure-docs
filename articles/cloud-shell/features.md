@@ -56,7 +56,7 @@ Cloud Shell includes pre-configured authentication for open-source tools such as
 |Category   |Name   |
 |---|---|
 |Linux tools            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
-|Azure tools            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) and [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
+|Azure tools            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) and [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#writing-your-first-azcopy-command)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
 |Text editors           |vim<br> nano<br> emacs       |
 |Source control         |git                    |
 |Build tools            |make<br> maven<br> npm<br> pip         |
