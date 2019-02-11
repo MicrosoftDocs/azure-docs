@@ -35,6 +35,8 @@ but don't require any keys.
 * Private certificates or [*self-signed certificates*](https://en.wikipedia.org/wiki/Self-signed_certificate), 
 which you create and issue yourself but also require private keys. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Upload a public certificate
 
 To use a *public certificate* in logic apps that have B2B capabilities, 

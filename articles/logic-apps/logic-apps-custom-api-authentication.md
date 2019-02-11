@@ -121,6 +121,8 @@ when you leave the **Keys** page.
 
 **Create the application identity for your logic app in PowerShell**
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 You can perform this task through Azure Resource Manager with PowerShell. 
 In PowerShell, run these commands:
 
