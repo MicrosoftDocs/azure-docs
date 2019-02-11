@@ -12,10 +12,7 @@
 
 ## Benefits of managed disks
 
-Let's look at some of the benefits you gain by using managed disks. The following Channel 9 video is a good introduction: [Better Azure VM resiliency with managed disks](https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency).
-<br/>
-<br/>
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Managed-Disks-for-Azure-Resiliency/player]
+Let's go over some of the benefits you gain by using managed disks.
 
 ### Highly durable and available
 
