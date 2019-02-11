@@ -49,6 +49,8 @@ set PCS
 The command shows all the environment variables set by the **start.cmd** script.
 
 Make sure that Docker is running on your local machine.
+> [!NOTE]
+> Docker must be running [Linux containers](https://docs.docker.com/docker-for-windows/) if it is running on Windows.
 
 The microservices running in the local Docker containers need to access the Azure cloud services. You can test the internet connectivity of your Docker environment using the following command to ping an internet address from inside a container:
 
@@ -61,6 +63,9 @@ To run the solution accelerator, navigate to the **services\\scripts\\local** fo
 ```cmd/sh
 docker-compose up
 ```
+
+> [!NOTE] 
+> Make sure you [share a local drive](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/issues/115) with Docker before you run `docker-compose up`.
 
 The first time you run this command, Docker downloads the microservice images from Docker hub to build the containers locally. On following runs, Docker runs the containers immediately.
 

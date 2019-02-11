@@ -40,7 +40,7 @@ This tutorial covers the following tasks:
 
 2. Select **Create a resource** > **Databases** > **Azure Cosmos DB**. 
 
-3. In the **New account** pane, enter the settings for the new Azure Cosmos account. 
+3. In the **New account** pane, enter the settings for the new Azure Cosmos account. 
 
    |Setting   |Suggested value  |Description  |
    |---------|---------|---------|

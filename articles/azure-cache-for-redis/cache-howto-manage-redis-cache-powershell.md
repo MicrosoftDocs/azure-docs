@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Azure Cache for Redis with Azure PowerShell | Microsoft Docs
 description: Learn how to perform administrative tasks for Azure Cache for Redis using Azure PowerShell.
 services: azure-cache-for-redis
@@ -258,10 +258,10 @@ The `databases` setting can be configured only during cache creation. The follow
 
     New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
 
-For more information on the `databases` property, see [Default Azure Cache for Redis server configuration](cache-configure.md#default-redis-server-configuration). For more information on creating a cache using the [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache?view=azurermps-6.6.0) cmdlet, see the previous [To create an Azure Cache for Redis](#to-create-a-redis-cache) section.
+For more information on the `databases` property, see [Default Azure Cache for Redis server configuration](cache-configure.md#default-redis-server-configuration). For more information on creating a cache using the [New-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/new-azrediscache) cmdlet, see the previous To create an Azure Cache for Redis section.
 
 ## To update an Azure Cache for Redis
-Azure Cache for Redis instances are updated using the [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/Set-azRedisCache?view=azurermps-6.6.0) cmdlet.
+Azure Cache for Redis instances are updated using the [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/Set-azRedisCache) cmdlet.
 
 To see a list of available parameters and their descriptions for `Set-AzRedisCache`, run the following command.
 

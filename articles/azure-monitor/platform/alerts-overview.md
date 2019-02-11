@@ -15,10 +15,12 @@ ms.subservice: alerts
 This article describes what alerts are, their benefits, and how to get started using them.  
 
 
+
+
 ## What are alerts in Microsoft Azure?
 Alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. 
 
-This article discusses the unified alert experience in Azure Monitor, which now includes Log Analytics and Application Insights. The [previous alert experience](alerts-classic.overview.md) and alert types are called **classic alerts**. You can view this older experience and older alert type by clicking on **View classic alerts** at the top of the alert page. 
+This article discusses the unified alert experience in Azure Monitor, which now includes alerts that were managed by Log Analytics and Application Insights. The [previous alert experience](alerts-classic.overview.md) and alert types are called **classic alerts**. You can view this older experience and older alert type by clicking on **View classic alerts** at the top of the alert page. 
 
 ## Overview
 
@@ -169,7 +171,7 @@ The Alert detail page includes the following sections.
 
 The Azure Monitor metrics and activity log alerting capability before June 2018 is called "Alerts (classic)". 
 
-For more information, see [Alerts classic](./../../azure-monitor/platform/alerts-classic.overview.md)
+For more information, see [Classic alerts](./../../azure-monitor/platform/alerts-classic.overview.md)
 
 
 ## Next steps

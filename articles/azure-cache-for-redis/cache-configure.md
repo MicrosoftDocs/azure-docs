@@ -53,7 +53,7 @@ You can view and configure the following settings using the **Resource Menu**.
 	* [Properties](#properties)
 	* [Locks](#locks)
 	* [Automation script](#automation-script)
-* [Administration](#administration)
+* Administration
 	* [Import data](#importexport)
 	* [Export data](#importexport)
 	* [Reboot](#reboot)
@@ -61,7 +61,7 @@ You can view and configure the following settings using the **Resource Menu**.
 	* [Redis metrics](#redis-metrics)
 	* [Alert rules](#alert-rules)
 	* [Diagnostics](#diagnostics)
-* [Support & troubleshooting settings](#support-amp-troubleshooting-settings)
+* Support & troubleshooting settings
 	* [Resource health](#resource-health)
 	* [New support request](#new-support-request)
 

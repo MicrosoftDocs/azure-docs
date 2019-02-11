@@ -3,7 +3,7 @@ title: Azure SQL Database server resource limits | Microsoft Docs
 description: This article provides an overview of the Azure SQL Database server resource limits for single databases and elastic pools. It also provides information regarding what happens when those resource limits are hit or exceeded.
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: single-database
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake
 manager: craigg
-ms.date: 11/13/2018
+ms.date: 02/07/2019
 ---
 # SQL Database resource limits for Azure SQL Database server
 
@@ -70,7 +70,6 @@ When encountering high session or worker utilization, mitigation options include
 
 ## Next steps
 
-- See [SQL Database FAQ](sql-database-faq.md) for answers to frequently asked questions.
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
-- For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-service-tiers.md#dtu-based-purchasing-model).
+- For information about DTUs and eDTUs, see [DTUs and eDTUs](sql-database-purchase-models.md#dtu-based-purchasing-model).
 - For information about tempdb size limits, see [TempDB in Azure SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).

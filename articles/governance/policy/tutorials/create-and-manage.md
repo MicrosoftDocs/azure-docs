@@ -4,7 +4,7 @@ description: Use Azure Policy to enforce standards, meet regulatory compliance a
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
@@ -337,9 +337,9 @@ in the following format:
 ## Create and assign an initiative definition
 
 With an initiative definition, you can group several policy definitions to achieve one overarching
-goal. You create an initiative definition to validate that resources within the scope of the
-definition stay compliant with the policy definitions that make up the initiative definition. For
-more information about initiative definitions, see [Azure Policy overview](../overview.md).
+goal. An initiative evaluates resources within scope of the assignment for compliance to the
+included policies. For more information about initiative definitions, see [Azure Policy
+overview](../overview.md).
 
 ### Create an initiative definition
 
