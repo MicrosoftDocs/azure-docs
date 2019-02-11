@@ -100,8 +100,7 @@ Detailed next is step-by-step guide to using log alerts using the Azure portal i
 
     Within a few minutes, the alert is active and triggers as previously described.
 
-Users can also finalized their analytics query in [Logs Analytics page in Azure portal](../../azure-monitor/log-query/portals.md#log-analytics-page
-) and then push it to create an alert via '+ New alert rule' button - then following instructions from Step 6 onwards in the above tutorial.
+Users can also finalized their analytics query in [log analytics](../log-query/portals.md) and then push it to create an alert via 'Set Alert' button - then following instructions from Step 6 onwards in the above tutorial.
 
  ![Log Analytics - Set Alert](media/alerts-log/AlertsAnalyticsCreate.png)
 

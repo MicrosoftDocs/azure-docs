@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 02/09/2019
 ms.author: juliako
 
 ---
-# Use Azure Webhooks to monitor Media Services job notifications with .NET
+# Use Azure Webhooks to monitor Media Services job notifications with .NET 
+
 When you run jobs, you often require a way to track job progress. You can monitor Media Services job notifications by using Azure Webhooks or [Azure Queue storage](media-services-dotnet-check-job-progress-with-queues.md). This article shows how to work with webhooks.
 
 This article shows how to
