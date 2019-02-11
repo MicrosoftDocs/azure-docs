@@ -75,6 +75,16 @@ Distribution | Version
 Debian	| all versions
 Ubuntu	| 18.04
 
+### DSC requirements
+
+For all Windows nodes running in Azure,
+[WMF 5.1]https://docs.microsoft.com/en-us/powershell/wmf/5.1/install-configure
+will be installed during onboarding.
+
+For all Linux nodes running in Azure,
+[PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux)
+will be installed during onboarding.
+
 ### <a name="network-planning"></a>Configure private networks
 
 If your nodes are located within a private network,
