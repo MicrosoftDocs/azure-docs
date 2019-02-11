@@ -11,9 +11,10 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/08/2019
 ---
 # Manage file space in Azure SQL Database
+
 This article describes different types of storage space in Azure SQL Database, and steps that can be taken when the file space allocated for databases and elastic pools needs to be explicitly managed.
 
 ## Overview
@@ -27,11 +28,14 @@ Monitoring file space usage and shrinking data files may be necessary in the fol
 - Allow changing a single database or elastic pool to a different service tier or performance tier with a lower max size.
 
 ### Monitoring file space usage
+
 Most storage space metrics displayed in the Azure portal and the following APIs only measure the size of used data pages:
+
 - Azure Resource Manager based metrics APIs including PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 
 However, the following APIs also measure the size of space allocated for databases and elastic pools:
+
 - T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
@@ -56,13 +60,14 @@ Understanding the following storage space quantities are important for managing 
 
 The following diagram illustrates the relationship between the different types of storage space for a database.
 
-![storage space types and relationships](./media/sql-database-file-space-management/storage-types.png) 
+![storage space types and relationships](./media/sql-database-file-space-management/storage-types.png)
 
 ## Query a database for storage space information
 
 The following queries can be used to determine storage space quantities for a database.  
 
 ### Database data space used
+
 Modify the following query to return the amount of database data space used.  Units of the query result are in MB.
 
 ```sql
@@ -75,6 +80,7 @@ ORDER BY end_time DESC
 ```
 
 ### Database data space allocated and unused allocated space
+
 Use the following query to return the amount of database data space allocated and the amount of unused space allocated.  Units of the query result are in MB.
 
 ```sql
@@ -88,6 +94,7 @@ HAVING type_desc = 'ROWS'
 ```
  
 ### Database data max size
+
 Modify the following query to return the database data max size.  Units of the query result are in bytes.
 
 ```sql
