@@ -44,7 +44,7 @@ For pricing information for each redundancy option, see [Azure Storage Pricing](
 For information about Azure Storage guarantees for durability and availability, see the [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> Premium Storage supports only locally redundant storage (LRS). For information about Premium Storage, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../../virtual-machines/windows/premium-storage.md).
+> Premium Storage supports only locally redundant storage (LRS).
 
 ## Changing replication strategy
 We allow you to change your storage account's replication strategy by using the [Azure portal](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), or one of the many [Azure client libraries](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Changing the replication type of your storage account does not result in down time.

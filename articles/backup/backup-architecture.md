@@ -170,8 +170,8 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 
 Read more:
 
-- Learn more about disk storage for [Windows](../virtual-machines/windows/about-disks-and-vhds.md) and [Linux](../virtual-machines/linux/about-disks-and-vhds.md) VMs.
-- Learn about [standard](../virtual-machines/windows/standard-storage.md) and [premium](../virtual-machines/windows/premium-storage.md) storage.
+- Learn more about disk storage for [Windows](../virtual-machines/windows/managed-disks-overview.md) and [Linux](../virtual-machines/linux/managed-disks-overview.md) VMs.
+- Learn about the available [disk-types](../virtual-machines/windows/disks-types.md) such as standard and premium.
 
 
 ### Backing up and restoring Azure VMs with premium storage 
@@ -179,9 +179,9 @@ Read more:
 You can back up Azure VMs using premium storage with Azure Backup:
 
 - While backing up VMs with premium storage, the Backup service creates a temporary staging location, named "AzureBackup-", in the storage account. The size of the staging location is equal to the size of the recovery point snapshot.
-- Make sure that the premium storage account has adequate free space to accommodate the temporary staging location. [Learn more](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Don't modify the staging location.
+- Make sure that the premium storage account has adequate free space to accommodate the temporary staging location. [Learn more](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits). Don't modify the staging location.
 - After the backup job finishes, the staging location is deleted.
-- The price of storage used for the staging location is consistent with [premium storage pricing](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
+- The price of storage used for the staging location is consistent with [premium storage pricing](../virtual-machines/windows/disks-types.md#billing).
 
 When you restore Azure VMs using premium storage, you can restore them to premium or standard storage. Typically you would restore to premium, but it might be cost effective to restore to standard if you only need a subset of files from the VM.
 
