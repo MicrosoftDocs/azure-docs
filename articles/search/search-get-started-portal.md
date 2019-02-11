@@ -78,7 +78,7 @@ We'll skip this step for now, and move directly on to **Customize target index**
 
 ### Step 3 - Configure index
 
-Typically, index creation is a code-based exercise, completed prior to loading data. However, as this tutorial indicates, the wizard can generate a basic index for any data source it can crawl. Minimally, an index requires a name and a fields collection; one of the fields should be marked as the document key to uniquely identify each document. Additionally, you can specify language analyzers or suggesters if you want auto-complete or suggested queries.
+Typically, index creation is a code-based exercise, completed prior to loading data. However, as this tutorial indicates, the wizard can generate a basic index for any data source it can crawl. Minimally, an index requires a name and a fields collection; one of the fields should be marked as the document key to uniquely identify each document. Additionally, you can specify language analyzers or suggesters if you want autocomplete or suggested queries.
 
 Fields have data types and attributes. The check boxes across the top are *index attributes* controlling how the field is used.
 
