@@ -92,7 +92,7 @@ Azure Functions requires a general storage account. In addition to the Blob stor
 
 You must have a function app to host the execution of your function. The function app provides an environment for serverless execution of your function code. Create a function app by using the [az functionapp create](/cli/azure/functionapp) command. 
 
-In the following command, substitute your own unique function app name where you see the `<name of the function app>` placeholder. The function app name is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. 
+In the following command, provide your own unique function app name. The function app name is used as the default DNS domain for the function app, and so the name needs to be unique across all apps in Azure. 
 
 1. Specify a name for the function app that's to be created. 
 
@@ -102,7 +102,7 @@ In the following command, substitute your own unique function app name where you
 2. Create the Azure function. 
 
     ```azurecli-interactive
-    az functionapp create --name $functionapp --storage-account  $functionstorage \
+    az functionapp create --name $functionapp --storage-account $functionstorage \
     --resource-group $resourceGroupName --consumption-plan-location southeastasia
     ```
 
@@ -133,7 +133,8 @@ storageConnectionString=$(az storage account show-connection-string --resource-g
 --name $blobStorageAccount --query connectionString --output tsv)
 
 az functionapp config appsettings set --name $functionapp --resource-group $resourceGroupName \
---settings AzureWebJobsStorage=$storageConnectionString FUNCTIONS_EXTENSION_VERSION=~2
+--settings AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString \
+THUMBNAIL_WIDTH=100 FUNCTIONS_EXTENSION_VERSION=~2
 ```
 
 # [Node.js V10 SDK](#tab/nodejsv10)
@@ -164,7 +165,7 @@ You can now deploy a function code project to this function app.
 
 # [\.NET](#tab/dotnet)
 
-The sample C# script (.csx) resize is available on [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) command. 
+The sample C# resize function is available on [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Deploy this code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) command. 
 
 ```azurecli-interactive
 az functionapp deployment source config --name $functionapp --resource-group $resourceGroupName --branch master --manual-integration --repo-url https://github.com/Azure-Samples/function-image-upload-resize
