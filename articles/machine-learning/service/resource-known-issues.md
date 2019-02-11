@@ -7,32 +7,32 @@ author: j-martens
 ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: article
-ms.date: 12/04/2018 
+ms.date: 12/04/2018
 ms.custom: seodec18
 
 ---
 # Known issues and troubleshooting Azure Machine Learning service
- 
-This article helps you find and correct errors or failures encountered when using the Azure Machine Learning service. 
+
+This article helps you find and correct errors or failures encountered when using the Azure Machine Learning service.
 
 ## SDK installation issues
 
-**Error message: Cannot uninstall 'PyYAML'** 
+**Error message: Cannot uninstall 'PyYAML'**
 
 Azure Machine Learning SDK for Python: PyYAML is a distutils installed project. Therefore, we cannot accurately determine which files belong to it in the event of a partial uninstall. To continue installing the SDK while ignoring this error, use:
-```Python 
+```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
 ## Trouble creating Azure Machine Learning Compute
 
-There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create Azure Machine Learning Compute in that workspace. You can either raise a support request against the service or create a new workspace through the Portal or the SDK to unblock yourself immediately. 
+There is a rare chance that some users who created their Azure Machine Learning workspace from the Azure portal before the GA release might not be able to create Azure Machine Learning Compute in that workspace. You can either raise a support request against the service or create a new workspace through the Portal or the SDK to unblock yourself immediately.
 
 ## Image building failure
 
-Image building failure when deploying web service. Workaround is to add "pynacl==1.2.1" as a pip dependency to Conda file for image configuration.  
+Image building failure when deploying web service. Workaround is to add "pynacl==1.2.1" as a pip dependency to Conda file for image configuration.
 
 ## Deployment failure
 
@@ -44,10 +44,10 @@ You will not be able to deploy models on FPGAs until you have requested and been
 ## Databricks
 
 Databricks and Azure Machine Learning issues.
- 
+
 1. AML SDK install failure on Databricks when more packages are installed.
 
-   Some packages, such as `psutil`, can cause conflicts. To avoid installation errors,  install packages by freezing lib version. This issue is related to Databricks and not related to Azure ML SDK - you may face it with other libs too. Example:
+   Some packages, such as `psutil`, can cause conflicts. To avoid installation errors,  install packages by freezing lib version. This issue is related to Databricks and not the Azure Machine Learning service SDK - you may face it with other libs too. Example:
    ```python
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
    ```
@@ -62,7 +62,7 @@ Databricks and Azure Machine Learning issues.
 If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, the workaround is to go directly to the [Azure portal](https://portal.azure.com) and search for the workspace name.
 
 ## Diagnostic logs
-Sometimes it can be helpful if you can provide diagnostic information when asking for help. 
+Sometimes it can be helpful if you can provide diagnostic information when asking for help.
 Here is where the log files live:
 
 ## Resource quotas

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
+ms.lastreviewed: 11/05/2018
 
 ---
 # Azure connected deployment planning decisions for Azure Stack integrated systems

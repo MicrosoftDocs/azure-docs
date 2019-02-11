@@ -23,8 +23,6 @@ To complete this tutorial, you need:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) configured for your computer's public IP address.
-
 - Golang and related software for your operating system installed:
 
     - **MacOS**: Install Homebrew and Golang. See [Step 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/).

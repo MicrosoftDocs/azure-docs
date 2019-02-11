@@ -159,7 +159,7 @@ quit
 
 
 ## Next steps
-For details about MySQL, see the [MySQL Documentation](http://dev.mysql.com/doc/index-topic.html).
+For details about MySQL, see the [MySQL Documentation](http://dev.mysql.com/doc).
 
 
 

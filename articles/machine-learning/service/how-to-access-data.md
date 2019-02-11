@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn how to use datastores to access data storage during training with Azure Machine Learning service
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao

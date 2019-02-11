@@ -4,7 +4,7 @@ description: On-premises Azure AD password protection FAQ
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: article
 ms.date: 10/30/2018
 

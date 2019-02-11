@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 1/25/2019
 ms.author: raiye
 
 ---
@@ -39,6 +39,9 @@ Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
 
+###### **January 24, 2019**
+Family 6 Guest OS (Windows Server 2019) has released.
+
 ###### **January 7, 2019**
 The December Guest OS has released.
 
@@ -61,6 +64,21 @@ The July Guest OS has released.
 The June Guest OS has released.
 
 ## Releases
+
+## Family 6 releases
+**Windows Server 2019**
+
+.NET Framework installed: 3.5, 4.7.2
+
+> [!NOTE]
+> The Windows Azure SDK for .NET - 3.0 can be downloaded [here][Windows Azure SDK].
+>
+
+| Configuration string | Release date | Disable date |
+| --- | --- | --- |
+| WA-GUEST-OS-6.2_201812-01 |January 24, 2019 |Post 6.4 |
+| WA-GUEST-OS-6.1_201811-01 |January 24, 2019 |Post 6.3 |
+
 ## Family 5 releases
 **Windows Server 2016**
 
@@ -133,6 +151,7 @@ Even though the [retirement policy for the Azure SDK][retire policy sdk] indicat
 
 | Guest OS family | Compatible SDK versions |
 | --- | --- |
+| 6 |Version 2.9.6+ |
 | 5 |Version 2.9.5.1+ |
 | 4 |Version 2.1+ |
 | 3 |Version 1.8+ |
@@ -201,3 +220,4 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
+[Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917

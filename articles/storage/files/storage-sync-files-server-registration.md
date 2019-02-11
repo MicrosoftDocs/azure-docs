@@ -187,5 +187,6 @@ When Azure File Sync is hosted in a virtual machine running on a Windows Server 
 
 ## See also
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
-- [Deploy Azure File Sync](storage-sync-files-deployment-guide.md) 
+- [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Monitor Azure File Sync](storage-sync-files-monitoring.md)
 - [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md)

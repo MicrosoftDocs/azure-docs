@@ -263,7 +263,9 @@
       href: connector-salesforce.md
     - name: Salesforce Marketing Cloud
       href: connector-salesforce-marketing-cloud.md
-    - name: SAP Business Warehouse
+    - name: SAP Business Warehouse Open Hub
+      href: connector-sap-business-warehouse-open-hub.md
+    - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
     - name: SAP Cloud for Customer
       href: connector-sap-cloud-for-customer.md

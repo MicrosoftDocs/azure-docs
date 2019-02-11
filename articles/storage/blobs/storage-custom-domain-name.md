@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Configure a custom domain name for your Azure storage account

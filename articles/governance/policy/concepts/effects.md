@@ -4,7 +4,7 @@ description: Azure Policy definition have various effects that determine how com
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -294,6 +294,11 @@ related resources to match and the template deployment to execute.
   - For example, could be used to validate that the parent resource (in the **if** condition) is in the same resource location as the matching related resource.
 - **roleDefinitionIds** [required]
   - This property must include an array of strings that match role-based access control role ID accessible by the subscription. For more information, see [remediation - configure policy definition](../how-to/remediate-resources.md#configure-policy-definition).
+- **DeploymentScope** (optional)
+  - Allowed values are _Subscription_ and _ResourceGroup_.
+  - Sets the type of deployment that should be performed. _Subscription_ indicates a [deployment at subscription level](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ indicates a deployment to a resource group.
+  - A _location_ property must be specified in the _Deployment_ when using subscription level deployments.
+  - Default is _ResourceGroup_.
 - **Deployment** [required]
   - This property should include the full template deployment as it would be passed to the `Microsoft.Resources/deployments` PUT API. For more information, see the [Deployments REST API](/rest/api/resources/deployments).
 

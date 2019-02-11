@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: alfredop
+ms.lastreviewed: 01/09/2019
 
 ---
 # Delegate offers in Azure Stack

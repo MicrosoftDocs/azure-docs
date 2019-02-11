@@ -139,3 +139,4 @@ Setting up domain restricting firewall rules can be a measure to improve securit
 ## Next steps
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
 - [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Monitor Azure File Sync](storage-sync-files-monitoring.md)

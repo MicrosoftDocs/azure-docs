@@ -4,7 +4,7 @@ description: Configure Azure AD self-service password reset policy options
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 01/08/2019
 

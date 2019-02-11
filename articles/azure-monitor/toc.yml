@@ -633,18 +633,14 @@
         href: platform/view-designer-parts.md
       - name: Filters
         href: platform/view-designer-filters.md
-    - name: Dashboards
-      items:
-      - name: Logs
-        href: platform/dashboards.md
-      - name: Applications
-        href: app/app-insights-dashboards.md
     - name: Power BI
       items:
       - name: Export log data
         href: platform/powerbi.md
       - name: Export application data
         href: app/export-power-bi.md 
+    - name: Dashboards
+      href: app/app-insights-dashboards.md
     - name: Send data to Grafana
       href: platform/grafana-plugin.md
   - name: Analyze data
@@ -968,7 +964,7 @@
   - name: Schemas
     items:
     - name: Diagnostic logs services, categories, and schemas
-      href: platform/tutorial-dashboards.md
+      href: platform/diagnostic-logs-schema.md
     - name: Activity log event schema
       href: platform/activity-log-schema.md
     - name: Azure Diagnostics extension schema
@@ -990,6 +986,8 @@
       href: platform/alerts-extend.md
     - name: Copy alerts from OMS portal to Azure portal 
       href: platform/alerts-extend-tool.md
+    - name: Switch log alert API preference
+      href: platform/alerts-log-api-switch.md
 - name: Resources
   items:
   - name: Azure Roadmap

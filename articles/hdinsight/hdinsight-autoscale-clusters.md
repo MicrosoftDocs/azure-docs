@@ -17,7 +17,7 @@ Azure HDInsight’s cluster Autoscale feature automatically scales the number of
 
 ## Getting Started
 
-### Create cluster with Azure portal
+### Create a cluster with the Azure portal
 
 > [!Note]
 > Autoscale is currently only supported for Azure HDInsight Hive, MapReduce and Spark clusters version 3.6.
@@ -43,7 +43,7 @@ Your subscription has a capacity quota for each region. The total number of core
 > [!Note]  
 > If you exceed the total core quota limit, You will receive an error message saying ‘the maximum node exceeded the available cores in this region, please choose another region or contact the support to increase the quota.’
 
-### Create cluster with an Resource Manager template
+### Create a cluster with a Resource Manager template
 
 Complete HDInsight cluster creation steps using Resource Manager templates can be found at [Create Apache Hadoop clusters in HDInsight by using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  When you create an HDInsight cluster with an Azure Resource Manager template, you need to add the following settings in the “computeProfile” “workernode” section and edit it accordingly:
 
@@ -69,7 +69,7 @@ Complete HDInsight cluster creation steps using Resource Manager templates can b
 }
 ```
 
-### Enable and Disabling Autoscale for a running cluster
+### Enable and disable Autoscale for a running cluster
 
 Enabling Autoscale for a running cluster is not supported during private preview. It must be enabled during cluster creation.
 
@@ -77,7 +77,7 @@ Disabling Autoscale or modifying Autoscale settings for a running cluster is not
 
 ## Monitoring
 
-You can view the cluster scale up and down history as part of the cluster metrics. You can list all scale actions over the past day, week, or longer period of time.
+You can view the cluster scale up and scale down history as part of the cluster metrics. You can also list all scaling actions over the past day, week, or longer period of time.
 
 ## How it works
 

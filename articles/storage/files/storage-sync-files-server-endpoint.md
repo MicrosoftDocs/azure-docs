@@ -65,3 +65,4 @@ To remove the server endpoint:
 ## Next steps
 - [Register/unregister a server with Azure File Sync](storage-sync-files-server-registration.md)
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
+- [Monitor Azure File Sync](storage-sync-files-monitoring.md)

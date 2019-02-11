@@ -4,7 +4,7 @@ description: In this tutorial, you will enable password reset at the Windows 10 
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 12/05/2018
 
@@ -26,12 +26,12 @@ In this tutorial, you enable users to reset their passwords from the Windows 10 
 
 ## Prerequisites
 
-* Windows 10 April 2018 Update, or newer client that is:
-   * [Azure AD joined machine](../device-management-azure-portal.md)
+* You must running at least Windows 10, version April 2018 Update, and the devices must be either:
+   * [Azure AD-joined](../device-management-azure-portal.md)
    or
-   * [Hybrid Azure AD joined machine](../device-management-hybrid-azuread-joined-devices-setup.md), with network connectivity to a domain controller.
-* Azure AD self-service password reset must be enabled.
-* If your Windows 10 machines are behind a proxy server or firewall, HTTPS traffic (443) to `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com` should be allowed.
+   * [Hybrid Azure AD-joined](../device-management-hybrid-azuread-joined-devices-setup.md), with network connectivity to a domain controller.
+* You must enable Azure AD self-service password reset.
+* If your Windows 10 devices are behind a proxy server or a firewall, you must add the URLs, `passwordreset.microsoftonline.com` and `ajax.aspnet.cdn.com` to your HTTPS traffic (port 443) Allowed URLs list.
 
 ## Configure Reset password link using Intune
 

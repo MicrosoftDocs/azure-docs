@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/28/2019
 ms.author: jingwang
 
 ---
@@ -152,7 +152,7 @@ Click to see the list of activities in this pipeline run. In the **Actions** col
 
 ![Monitor activity runs](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Click the "**Details**" link under **Actions** to see copy activity's execution details and performance characteristics. It shows you information including volume/rows/files of data copied from source to sink, throughput, steps it goes through with corresponding duration and used configurations for your copy scenario.
+Click the "**Details**" link under **Actions** to see copy activity's execution details and performance characteristics. It shows you information including volume/rows/files of data copied from source to sink, throughput, steps it goes through with corresponding duration and used configurations for your copy scenario. For some scenarios, you will also see a "**Performance tuning tips**" section on top which tells you the bottleneck identified and guides you on how to boost copy throughput for such copy case, see example [here](#performance-and-tuning).
 
 **Example: copy from Amazon S3 to Azure Data Lake Store**
 ![Monitor activity run details](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -229,6 +229,11 @@ By default, copy activity stops copying data and returns failure when it encount
 ## Performance and tuning
 
 See the [Copy Activity performance and tuning guide](copy-activity-performance.md), which describes key factors that affect the performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing and discusses various ways to optimize the performance of Copy Activity.
+
+For some scenarios, when you execute a copy activity in ADF, you will also see a "**Performance tuning tips**" section on top of the [copy activity monitoring page](#monitor-visually), which tells you the bottleneck identified and guides you on how to boost copy throughput for such copy case.
+
+**Example: copy into Azure SQL DB with performance tuning tips**
+![Copy monitoring with performance tuning tips](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## Incremental copy 
 Data Factory supports scenarios for incrementally copying delta data from a source data store to a destination data store. See [Tutorial: incrementally copy data](tutorial-incremental-copy-overview.md). 

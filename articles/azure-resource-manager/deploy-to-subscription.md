@@ -31,7 +31,7 @@ For the schema, use `https://schema.management.azure.com/schemas/2018-05-01/subs
 
 For the Azure CLI deployment command, use [az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create).
 
-For the PowerShell deployment command, use [New-AzureRmDeployment](/powershell/module/azurerm.resources/new-azurermdeployment).
+For the PowerShell deployment command, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment).
 
 ## Name and location
 
@@ -90,7 +90,7 @@ az deployment create \
 To deploy this template with PowerShell, use:
 
 ```azurepowershell-interactive
-New-AzureRmDeployment `
+New-AzDeployment `
   -Name demoEmptyRG `
   -Location southcentralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
@@ -148,7 +148,7 @@ az deployment create \
 To deploy this template with PowerShell, use:
 
 ```azurepowershell-interactive
-New-AzureRmDeployment `
+New-AzDeployment `
   -Name demoCopyRG `
   -Location southcentralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
@@ -239,7 +239,7 @@ az deployment create \
 To deploy this template with PowerShell, use:
 
 ```azurepowershell-interactive
-New-AzureRmDeployment `
+New-AzDeployment `
   -Name demoRGStorage `
   -Location southcentralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
@@ -300,9 +300,9 @@ az deployment create \
 To deploy this template with PowerShell, use:
 
 ```azurepowershell-interactive
-$definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit resource location matches resource group location' }
+$definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit resource location matches resource group location' }
 
-New-AzureRmDeployment `
+New-AzDeployment `
   -Name policyassign `
   -Location southcentralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
@@ -326,12 +326,12 @@ az deployment create \
 To deploy this template with PowerShell, use:
 
 ```azurepowershell-interactive
-$definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Allowed locations' }
+$definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Allowed locations' }
 
 $locations = @("westus", "westus2")
 $policyParams =@{listOfAllowedLocations = @{ value = $locations}}
 
-New-AzureRmDeployment `
+New-AzDeployment `
   -Name policyassign `
   -Location southcentralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
@@ -397,7 +397,7 @@ az deployment create \
 To deploy this template with PowerShell, use:
 
 ```azurepowershell-interactive
-New-AzureRmDeployment `
+New-AzDeployment `
   -Name definePolicy `
   -Location southcentralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
@@ -453,11 +453,11 @@ az deployment create \
 To deploy this template with PowerShell, use:
 
 ```azurepowershell-interactive
-$role = Get-AzureRmRoleDefinition -Name Contributor
+$role = Get-AzRoleDefinition -Name Contributor
 
-$adgroup = Get-AzureRmADGroup -DisplayName demogroup
+$adgroup = Get-AzADGroup -DisplayName demogroup
 
-New-AzureRmDeployment `
+New-AzDeployment `
   -Name demoRole `
   -Location southcentralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
@@ -540,11 +540,11 @@ az deployment create \
 To deploy this template with PowerShell, use:
 
 ```azurepowershell-interactive
-$role = Get-AzureRmRoleDefinition -Name Contributor
+$role = Get-AzRoleDefinition -Name Contributor
 
-$adgroup = Get-AzureRmADGroup -DisplayName demogroup
+$adgroup = Get-AzADGroup -DisplayName demogroup
 
-New-AzureRmDeployment `
+New-AzDeployment `
   -Name demoRole `
   -Location southcentralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json `

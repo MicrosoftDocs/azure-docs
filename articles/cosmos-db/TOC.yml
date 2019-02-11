@@ -272,6 +272,16 @@
             href: bulk-executor-dot-net.md
           - name: Bulk executor - Java library
             href: bulk-executor-java.md
+        - name: Java development
+          items:
+          - name: Use the Spring Boot Starter
+            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db 
+          - name: Use the Spring Data Apache Cassandra API
+            href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db 
+          - name: Use the Spring Data Gremlin Starter
+            href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db 
+          - name: Use the Spring Data MongoDB API
+            href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
       - name: Reference
         items:
         - name: .NET

@@ -358,8 +358,6 @@
       items:
       - name: Unmanaged VM to Managed Disks
         href: convert-unmanaged-to-managed-disks.md
-      - name: Single Classic VM to Resource Manager
-        href: migrate-single-classic-to-resource-manager.md
   - name: Manage networking
     href: ps-common-network-ref.md
     items:

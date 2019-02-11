@@ -42,7 +42,7 @@ The following table shows Azure Database Migration Service support for offline m
 |   | Oracle  | ✔  |
 | **Azure SQL VM**  | SQL Server | ✔ |
 |   | Oracle  |   |
-| **Cosmos DB**  | MongoDB | ✔ |
+| **Azure Cosmos DB**  | MongoDB | ✔ |
 | **Azure DB for MySQL**  | MySQL |  |
 |   | RDS MySQL  |  |
 | **Azure DB for PostgresSQL**  | PostgreSQL |  |
@@ -61,7 +61,7 @@ The following table shows Azure Database Migration Service support for online mi
 |   | Oracle  | ✔  |
 | **Azure SQL VM**  | SQL Server  |   |
 |   | Oracle  | ✔  |
-| **Cosmos DB**  | MongoDB  | ✔ |
+| **Azure Cosmos DB**  | MongoDB  | ✔ |
 | **Azure DB for MySQL**  | MySQL | ✔ |
 |   | RDS MySQL  | ✔ |
 | **Azure DB for PostgresSQL**  | PostgreSQL | ✔ |

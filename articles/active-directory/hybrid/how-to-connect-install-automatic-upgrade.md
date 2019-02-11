@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
 ---

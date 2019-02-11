@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: anwestg
+ms.lastreviewed: 01/11/2019
 
 ---
 # Add an App Service resource provider to Azure Stack

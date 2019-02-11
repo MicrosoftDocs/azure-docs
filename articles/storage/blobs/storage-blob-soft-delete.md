@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Soft delete for Azure Storage blobs

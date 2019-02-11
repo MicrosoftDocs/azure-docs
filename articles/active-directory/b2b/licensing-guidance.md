@@ -4,7 +4,7 @@ description: Azure Active Directory B2B collaboration does not require paid Azur
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 10/04/2018
 
