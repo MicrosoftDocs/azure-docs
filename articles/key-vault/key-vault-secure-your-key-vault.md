@@ -16,10 +16,11 @@ ms.date: 01/07/2019
 ms.author: ambapat
 # Customer intent: As a key vault administrator, I want to set access policies and configure the key vault, so that I can ensure it's secure and auditors can properly monitor all activities for this key vault.
 ---
-
 # Secure access to a key vault
 
 Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. Because this data is sensitive and business critical, you need to secure access to your key vaults by allowing only authorized applications and users. This article provides an overview of the Key Vault access model. It explains authentication and authorization, and describes how to secure access to your key vaults.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Access model overview
 
@@ -147,24 +148,24 @@ The PowerShell snippets in this section are built with the following assumptions
 The subscription admin assigns the `key vault Contributor` and `User Access Administrator` roles to the security team. These roles allow the security team to manage access to other resources and key vaults, both of which in the **ContosoAppRG** resource group.
 
 ```PowerShell
-New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
-New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
+New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
+New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
 The security team creates a key vault and sets up logging and access permissions. For details about Key Vault access policy permissions, see [About Azure Key Vault keys, secrets, and certificates](about-keys-secrets-and-certificates.md).
 
 ```PowerShell
 # Create a key vault and enable logging
-$sa = Get-AzureRmStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
-$kv = New-AzureRmKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment
-Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories AuditEvent
+$sa = Get-AzStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
+$kv = New-AzKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment
+Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 
 # Set up data plane permissions for the Contoso Security Team role
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -PermissionsToKeys backup,create,delete,get,import,list,restore -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge
+Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -PermissionsToKeys backup,create,delete,get,import,list,restore -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge
 
 # Set up management plane permissions for the Contoso App DevOps role
 # Create the new role from an existing role
-$devopsrole = Get-AzureRmRoleDefinition -Name "Virtual Machine Contributor"
+$devopsrole = Get-AzRoleDefinition -Name "Virtual Machine Contributor"
 $devopsrole.Id = $null
 $devopsrole.Name = "Contoso App DevOps"
 $devopsrole.Description = "Can deploy VMs that need secrets from a key vault"
@@ -172,13 +173,13 @@ $devopsrole.AssignableScopes = @("/subscriptions/<SUBSCRIPTION-GUID>")
 
 # Add permissions for the Contoso App DevOps role so members can deploy VMs with secrets deployed from key vaults
 $devopsrole.Actions.Add("Microsoft.KeyVault/vaults/deploy/action")
-New-AzureRmRoleDefinition -Role $devopsrole
+New-AzRoleDefinition -Role $devopsrole
 
 # Assign the new role to the Contoso App DevOps security group
-New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App DevOps')[0].Id -RoleDefinitionName "Contoso App DevOps" -ResourceGroupName ContosoAppRG
+New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso App Devops')[0].Id -RoleDefinitionName "Contoso App Devops" -ResourceGroupName ContosoAppRG
 
 # Set up data plane permissions for the Contoso App Auditors role
-Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionsToKeys list -PermissionsToSecrets list
+Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionsToKeys list -PermissionsToSecrets list
 ```
 
 Our defined custom roles are assignable only to the subscription where the **ContosoAppRG** resource group is created. To use a custom role for other projects in other subscriptions, add other subscriptions to the scope for the role.
@@ -216,11 +217,11 @@ We recommend that you set up additional secure access to your key vault by [conf
 
 * [Key Vault REST APIs](https://msdn.microsoft.com/library/azure/dn903609.aspx)
 
-* [Key access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl) 
-
-* [Secret access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl) 
-
-* [Set](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) and [remove](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy) Key Vault access policies with Azure PowerShell.
+* [Key access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
+  
+* [Secret access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
+  
+* [Set](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) and [Remove](/powershell/module/az.keyvault/Remove-azKeyVaultAccessPolicy) Key Vault access policy by using PowerShell.
   
 ## Next steps
 

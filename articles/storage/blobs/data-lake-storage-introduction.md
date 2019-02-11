@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen2 Introduction
-description: Provides an overview of Azure Data Lake Storage Gen2
+description: Provides an overview of Azure Data Lake Storage Gen2 
 services: storage
 author: jamesbak
 
@@ -84,5 +84,4 @@ The following articles describe some of the main concepts of Data Lake Storage G
 
 -   [Hierarchical namespace](data-lake-storage-namespace.md)
 -   [Create a storage account](data-lake-storage-quickstart-create-account.md)
--   [Create an HDInsight cluster with Data Lake Storage Gen2](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 -   [Use a Data Lake Storage Gen2 account in Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md)

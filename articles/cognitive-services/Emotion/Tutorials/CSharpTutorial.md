@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Explore a basic Windows app to recognize the emotions expressed by faces in an image.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: emotion-api

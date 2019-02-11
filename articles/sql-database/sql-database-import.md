@@ -15,14 +15,14 @@ ms.date: 01/25/2019
 ---
 # Quickstart: Import a BACPAC file to a new Azure SQL Database
 
-You can migrate a SQL Server database to an Azure SQL database using a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file (a zip file with a `.bacpac` extension that has a database's metadata and data). You can import a BACPAC file from Azure blob storage (standard storage only) or from local storage in an on-premises location. To maximize import speed, you can specify a higher service tier and compute size (such as P6). You can then scale down after the import is successful. The imported database's compatibility level is based on the source database's compatibility level.
+You can migrate a SQL Server database to an Azure SQL database using a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file (a zip file with a `.bacpac` extension that has a database's metadata and data). You can import a BACPAC file from Azure Blob storage (standard storage only) or from local storage in an on-premises location. To maximize import speed, you can specify a higher service tier and compute size (such as P6). You can then scale down after the import is successful. The imported database's compatibility level is based on the source database's compatibility level.
 
 > [!IMPORTANT]
 > After importing your database, you can choose to operate the database at its current compatibility level (level 100 for the AdventureWorks2008R2 database) or at a higher level. For more information on the implications and options for operating a database at a specific compatibility level, see [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). See also [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) for information about additional database-level settings related to compatibility levels.
 
 ## Import from a BACPAC file in the Azure portal
 
-This section shows how, in the [Azure portal](https://portal.azure.com), to create an Azure SQL database from a BACPAC file stored in Azure blob storage. The portal *only* supports importing a BACPAC file from Azure blob storage.
+This section shows how, in the [Azure portal](https://portal.azure.com), to create an Azure SQL database from a BACPAC file stored in Azure Blob storage. The portal *only* supports importing a BACPAC file from Azure Blob storage.
 
 > [!NOTE]
 > [Azure SQL Database Managed Instance](sql-database-managed-instance.md) supports importing from a BACPAC file using the other methods in this article but does not currently support migrating in the Azure portal.
