@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -37,7 +37,7 @@ Typically, Bing Web Search returns a subset of the answers. For example, if the 
 
 ## Webpages answer
 
-The [webPages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) answer contains a list of links to webpages that Bing Web Search determined were relevant to the query. Each [web page](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) in the list includes the page's name, url, display URL, short description of the content and the date Bing found the content.
+The [webPages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) answer contains a list of links to webpages that Bing Web Search determined were relevant to the query. Each [web page](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) in the list will include: the page's name, url, display URL, a short description of the content, and the date Bing found the content.
 
 ```json
 {
@@ -86,7 +86,7 @@ The [images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-a
 }, ...
 ```
 
-Depending on the user's device, you'd typically display a subset of the thumbnails with an option for the user to view the remaining images.
+Depending on the user's device, you'd typically display a subset of the thumbnails, with an option for the user to [page through](paging-webpages.md) the remaining images.
 
 <!-- Remove until this can be replaced with a sanitized version.
 ![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
@@ -309,7 +309,7 @@ A mathematical expression may contain the following functions:
 
 |Symbol|Description|
 |------------|-----------------|
-|Sqrt|Square root|
+|Sort|Square root|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|Trigonometric functions (with arguments in radians)|
 |ArcSin[x], ArcCos[x], ArcTan[x]<br />ArcCsc[x], ArcSec[x], ArcCot[x]|Inverse trigonometric functions (giving results in radians)|
 |Exp[x], E^x|Exponential function|

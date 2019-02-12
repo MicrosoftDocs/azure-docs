@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 1/23/2019
+ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -43,9 +43,9 @@ To run this application, follow these steps.
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## Construct and perform a HTTP request
+## Construct and perform an HTTP request
 
-1. Use the variables from the last step to prepare a HTTP request to the Image Search API.
+1. Use the variables from the last step to prepare an HTTP request to the Image Search API.
 
     ```php
     $headers = "Ocp-Apim-Subscription-Key: $key\r\n";
@@ -53,7 +53,7 @@ To run this application, follow these steps.
                             'header' => $headers,
                             'method' => 'GET' ));
     ```
-2. Perform the web request and get the JSON response.
+2. Send the web request and get the JSON response.
 
     ```php
     $context = stream_context_create($options);
