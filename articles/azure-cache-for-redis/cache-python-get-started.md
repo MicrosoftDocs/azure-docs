@@ -3,7 +3,7 @@ title: Quickstart to create a Python app that uses Azure Cache for Redis | Micro
 description: In this quickstart, you learn how to create an Python App that uses Azure Cache for Redis
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: v-lincan
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.topic: quickstart
 ms.date: 05/11/2018
-ms.author: wesmc
+ms.author: yegu
 ms.custom: mvc
 #Customer intent: As a Python developer, new to Azure Cache for Redis, I want to create a new Python app that uses Azure Cache for Redis.
 ---

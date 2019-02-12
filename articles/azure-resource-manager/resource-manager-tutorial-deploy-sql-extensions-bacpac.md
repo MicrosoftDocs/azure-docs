@@ -134,6 +134,8 @@ Add two additional resources to the template.
 
 ## Deploy the template
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Refer to the [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) section for the deployment procedure. Use the following PowerShell deployment script instead:
 
 ```azurepowershell

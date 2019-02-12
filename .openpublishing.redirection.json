@@ -562,72 +562,72 @@
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-home.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-faq.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-get-started.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-glossary.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-meters.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-change-locale.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-custom-pronunciation.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-language-model.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-migrate-tiers.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-transcription-guidelines.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/how-to-deploy-to-aks.md",
@@ -27531,6 +27531,16 @@
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-with-redgate.md",
       "redirect_url": "/azure/sql-data-warehouse/design-elt-data-loading",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/key-vault-get-started.md",
+      "redirect_url": "/azure/key-vault/key-vault-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/key-vault-use-from-web-application.md",
+      "redirect_url": "/azure/key-vault/tutorial-net-create-vault-azure-web-app",
       "redirect_document_id": false
     },
     {

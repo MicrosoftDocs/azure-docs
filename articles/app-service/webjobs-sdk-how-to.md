@@ -33,7 +33,7 @@ This article provides guidance on how to write code for [the Azure WebJobs SDK](
 
 This article assumes you have read and completed the tasks in [Get started with the WebJobs SDK](webjobs-sdk-get-started.md).
 
-## WebHobs host
+## WebJobs host
 
 The host is a runtime container for functions.  It listens for triggers and calls functions. In version 3.x, the host is an implementation of `IHost`, and in version 2.x you use the `JobHost` object. You create a host instance in your code and write code to customize its behavior.
 

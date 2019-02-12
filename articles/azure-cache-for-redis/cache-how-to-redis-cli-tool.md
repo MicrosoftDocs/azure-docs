@@ -3,7 +3,7 @@ title: How to use redis-cli with Azure Cache for Redis | Microsoft Docs
 description: Learn how to use redis-cli with Azure Cache for Redis.
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
-ms.author: wesmc
+ms.author: yegu
 
 ---
 
