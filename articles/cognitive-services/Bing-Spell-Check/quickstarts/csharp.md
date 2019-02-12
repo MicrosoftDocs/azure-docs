@@ -21,7 +21,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 * The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
 * If you're using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
 
-[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements)]
 
 ## Create and initialize a project
 
@@ -175,9 +175,7 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Spell Check tutorial](../tutorials/spellcheck.md)
-
-## See also
+> [Create a single page web-app](../tutorials/spellcheck.md)
 
 - [What is the Bing Spell Check API?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

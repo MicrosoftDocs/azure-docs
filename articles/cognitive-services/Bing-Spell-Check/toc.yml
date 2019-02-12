@@ -12,7 +12,7 @@
   - name: REST API 
     expanded: true
     items:
-    - name: UsingC#
+    - name: Using C#
       href: quickstarts/csharp.md
     - name: Using Java
       href: quickstarts/java.md

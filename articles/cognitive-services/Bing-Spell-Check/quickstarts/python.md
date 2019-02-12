@@ -20,6 +20,8 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 
 * Python [3.x](https://www.python.org)
 
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements)]
+
 ## Initialize the application
 
 1. Create a new Python file in your favorite IDE or editor, and add the following import statement.
@@ -123,9 +125,7 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Spell Check tutorial](../tutorials/spellcheck.md)
-
-## See also
+> [Create a single page web-app](../tutorials/spellcheck.md)
 
 - [What is the Bing Spell Check API?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

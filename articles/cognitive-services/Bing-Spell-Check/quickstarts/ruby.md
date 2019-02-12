@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 02/12/2019
 ms.author: aahi
 ---
 # Quickstart: Check spelling with the Bing Spell Check REST API and Ruby
@@ -19,6 +19,8 @@ Use this quickstart to make your first call to the Bing Spell Check REST API usi
 ## Prerequisites
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) or later.
+
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements)]
 
 ## Create and initialize the application
 
@@ -119,9 +121,7 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Spell Check tutorial](../tutorials/spellcheck.md)
+> [Create a single page web-app](../tutorials/spellcheck.md)
 
-## See also
-
-- [What is the Bing Spell Check API](../overview.md)
+- [What is the Bing Spell Check API?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

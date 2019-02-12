@@ -21,6 +21,8 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 
 * [Node.js 6](https://nodejs.org/en/download/) or later.
 
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements)]
+
 ## Create and initialize a project
 
 1. Create a new JavaScript file in your favorite IDE or editor. Set the strictness, and require https. Then create variables for your API endpoint's host, path, and your subscription key.
@@ -134,9 +136,7 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Spell Check tutorial](../tutorials/spellcheck.md)
-
-## See also
+> [Create a single page web-app](../tutorials/spellcheck.md)
 
 - [What is the Bing Spell Check API?](../overview.md)
 - [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
