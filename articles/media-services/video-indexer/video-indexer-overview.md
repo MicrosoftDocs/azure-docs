@@ -8,14 +8,31 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 02/11/2019
 ms.author: juliako
 ---
 
 # What is Video Indexer?
 
-Azure Video Indexer is a cloud application built on Azure Media Analytics, Azure Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer models described below:
+Azure Video Indexer is a cloud application built on Azure Media Analytics, Azure Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models described below:
  
+## Video
+
+- **Face detection**: Detects and groups faces appearing in the video.
+- **Account-based face identification**: Video Indexer trains a model for a specific account. It then recognizes faces in the video based on the model trained specifically for videos in that account.
+- **Thumbnail extraction for faces ("best face")**:	Automatically identifies the best captured face in each group of faces (based on quality, size, and frontal position) and extract it as an image asset.
+- **Visual text recognition (OCR)**: Extracts text that is visually displayed in the video.
+- **Visual content moderation**: Detects adult and/or racy visuals.
+- **Keywords extraction**: Extracts keywords from speech and  visual text.
+- **Labels identification**: Identifies visual objects and actions displayed.
+- **Brands extraction**: Extracts brands from  speech and visual text.
+- **Shot detection**: Determines when a scene changes in the video.
+- **Black frame detection**: Identifies black frames presented in the video.
+- **Keyframe extraction**: Detects stable keyframes in a video.
+- **Celebrity identification**: Video Indexer automatically identifies over 1 million celebrities – such as world leaders, actors and actresses, athletes, researchers, business and tech leaders across the globe. The data about these celebrities can also be found on various famous websites, for example, IMDB and Wikipedia.
+
+## Audio and video
+
 - **Automatic language detection**:	Automatically identifies the dominant spoken language. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian, and Portuguese (Brazilian). Will fallback to English when the language can't be detected.
 - **Audio transcription**: Converts speech to text in 12 languages and allows extensions. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Arabic, Russian, Portuguese (Brazilian), Hindi, and Korean.
 - **Closed captioning**: Creates closed captioning in three formats: VTT, TTML, SRT.
@@ -24,20 +41,8 @@ Azure Video Indexer is a cloud application built on Azure Media Analytics, Azure
 - **Transcript customization (CRIS)**: Trains and executes extended custom speech to text models to create industry-specific transcripts.
 - **Speaker enumeration**:	Maps and understands which speaker spoke which words and when.
 - **Speaker statistics**: Provides statistics for speakers speech ratios.
-- **Visual text recognition (OCR)**: Extracts text that is visually displayed in the video.
-- **Keyframe extraction**: Detects stable keyframes in a video.
 - **Sentiment analysis**: Identifies positive, negative, and neutral sentiments from speech and visual text.
-- **Visual content moderation**: Detects adult and/or racy visuals.
-- **Keywords extraction**: Extracts keywords from speech and  visual text.
-- **Labels identification**: Identifies visual objects and actions displayed.
-- **Brands extraction**: Extracts brands from  speech and visual text.
-- **Face detection**: Detects and groups faces appearing in the video.
-- **Thumbnail extraction for faces ("best face")**:	Automatically identifies the best captured face in each group of faces (based on quality, size, and frontal position) and extract it as an image asset.
-- **Celebrity identification**: Video Indexer automatically identifies over 1 million celebrities – such as world leaders, actors and actresses, athletes, researchers, business and tech leaders across the globe. The data about these celebrities can also be found on various famous websites, for example, IMDB and Wikipedia.
-- **Account-based face identification**: Video Indexer trains a model for a specific account. It then recognizes faces in the video based on the model trained specifically for videos in that account.
 - **Textual content moderation**: Detects explicit text in the audio transcript.
-- **Shot detection**: Determines when a scene changes in the video.
-- **Black frame detection**: Identifies black frames presented in the video.
 - **Audio effects**: Identifies audio effects such as hand claps, speech, and silence.
 - **Topic inference**: Makes inference of main topics from transcripts. The 1st-level [IPTC](https://iptc.org/standards/media-topics/) taxonomy is included.
 - **Emotion detection**: Identifies emotions based on speech and audio cues. The emotion could be: joy, sadness, anger, or fear.
