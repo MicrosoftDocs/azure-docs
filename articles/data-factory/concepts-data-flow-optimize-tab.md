@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 --- 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
-
 # Azure Data Factory Data Flow Transformation Optimize Tab
+
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Each Data Flow transformation has an "Optimize" tab. The optimize tab contains optional settings to configure partitioning schemes for data flows.
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 --- 
 
+# Azure Data Factory Mapping Data Flow Reference Node
+
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 ![Reference Node](media/data-flow/referencenode.png "reference node")
-
-# Azure Data Factory Mapping Data Flow Reference Node
 
 A reference node is automatically added to the canvas to signify that the node it is attached to references another existing node on the canvas. Think of a reference node as a pointer or a reference to another data flow transformation.
 

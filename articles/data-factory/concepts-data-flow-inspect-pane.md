@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 --- 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
-
 # Azure Data Factory Mapping Data Flow Transformation Inspect Tab
+
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 ![Inspect Pane](media/data-flow/agg3.png "Inspect Pane")
 

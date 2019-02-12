@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 --- 
 
+#Data Factory Data Flow Move Nodes
+
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 ![Aggregate Transformation options](media/data-flow/agghead.png "aggregator header")
-
-#Data Factory Data Flow Move Nodes
 
 The Azure Data Factory Data Flow design surface is a "construction" surface where you build data flows top-down, left-to-right. There is a toolbox attached to each transform with a plus (+) symbol. Concentrate on your business logic instead of connecting nodes via edges in a free-form DAG environment.
 

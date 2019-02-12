@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 --- 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
-
 # Azure Data Factory Mapping Data Flow Concepts
+
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Several Azure Data Factory Data Flow transformations support the idea of "Columns Patterns" so that you can create template columns based on patterns instead of hard-coded column names. You can use this feature within the Expression Builder to define patterns to match columns for transformation instead of requiring xact, specific field names. Patterns are useful when incoming source fields change often, particularly in the case of changing columns in text files or NoSQL databases. This is sometimes referred to as "Schema Drift".
 

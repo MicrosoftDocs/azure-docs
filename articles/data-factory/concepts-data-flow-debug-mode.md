@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 --- 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
-
 # Azure Data Factory Mapping Data Flow Debug Mode
+
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Azure Data Factory Mapping Data Flow has a debug mode, which can be switched on with the Debug button at the top of the design surface. When designing data flows, setting debug mode on will allow you to interactively watch the data shape transform while you build and debug your data flows.
 

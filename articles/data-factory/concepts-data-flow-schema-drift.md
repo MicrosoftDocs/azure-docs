@@ -9,9 +9,9 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 --- 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
-
 # Azure Data Factory Mapping Data Flow Schema Drift
+
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 The concept of Schema Drift is the case where your sources often change metadata. Fields, columns, types, etc. can be added, removed or changed on the fly. Without handling for Schema Drift, your Data Flow becomes vulnerable to changes in upstream data source changes. When incoming columns and fields change, typical ETL patterns fail because they tend to be tied to those source names.
 
