@@ -47,10 +47,10 @@ Another use case scenario is media upload. The data upload happens through UDP, 
 
 For virtual machines deployed with Resource Manager, use PowerShell to change the load balancer distribution settings on an existing load balancing rule. This updates the distribution mode: 
 
-```powershell 
-$lb = Get-AzLoadBalancer -Name MyLb -ResourceGroupName MyLbRg 
-$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp' 
-Set-AzLoadBalancer -LoadBalancer $lb 
+```powershell
+$lb = Get-AzLoadBalancer -Name MyLb -ResourceGroupName MyLbRg
+$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
+Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
 For classic virtual machines, use Azure PowerShell to change the distribution settings. Add an Azure endpoint to a virtual machine and configure the load balancer distribution mode:

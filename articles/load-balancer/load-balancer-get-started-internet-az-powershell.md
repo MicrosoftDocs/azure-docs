@@ -48,7 +48,7 @@ Create a Public IP Standard using the following command:
 
 ```powershell
 $publicIp = New-AzPublicIpAddress -ResourceGroupName myResourceGroup -Name 'myPublicIP' `
-  -Location westeurope -AllocationMethod Static -Sku Standard 
+  -Location westeurope -AllocationMethod Static -Sku Standard
 ```
 
 ## Create a front-end IP configuration for the website
@@ -94,6 +94,3 @@ $lb = New-AzLoadBalancer -ResourceGroupName myResourceGroup -Name 'MyLoadBalance
 
 ## Next steps
 - Learn more about [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
-
-
-

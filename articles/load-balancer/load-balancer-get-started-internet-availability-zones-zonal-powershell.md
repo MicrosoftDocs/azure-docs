@@ -94,6 +94,3 @@ $lb = New-AzLoadBalancer -ResourceGroupName myResourceGroupZLB -Name 'MyLoadBala
 
 ## Next steps
 - Learn more about [Standard Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
-
-
-

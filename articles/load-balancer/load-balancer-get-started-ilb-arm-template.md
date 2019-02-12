@@ -42,7 +42,7 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 3. Edit the file and save it.
 4. Run the **New-AzResourceGroupDeployment** cmdlet to create a resource group using the template.
 
-    ```azurecli
+    ```powershell
     New-AzResourceGroupDeployment -Name TestRG -Location westus `
         -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
         -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'

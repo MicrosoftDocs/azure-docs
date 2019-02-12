@@ -24,8 +24,6 @@ ms.author: kumud
 > * [Template](load-balancer-ipv6-internet-template.md)
 
 
-
-
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -97,7 +95,7 @@ Make sure you have the latest production version of the Azure Resource Manager m
     $vnet = New-AzvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. Create Azure Public IP address (PIP) resources for the front-end IP address pool.
+2. Create Azure Public IP address (PIP) resources for the front-end IP address pool. Be sure to change the value for `-DomainNameLabel` before running the following commands. The value must be unique within the Azure region.
 
     ```powershell
     $publicIPv4 = New-AzPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4

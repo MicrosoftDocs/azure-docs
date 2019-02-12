@@ -193,7 +193,7 @@ The settings should be as follows:
     Name                 : lb-nic1-be
     ResourceGroupName    : NRP-RG
     Location             : westus
-    Id                   : /subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
+    Id                   : /subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
     Etag                 : W/"d448256a-e1df-413a-9103-a137e07276d1"
     ProvisioningState    : Succeeded
     Tags                 :
@@ -203,25 +203,25 @@ The settings should be as follows:
                            "PrivateIpAddress": "10.0.2.6",
                            "PrivateIpAllocationMethod": "Static",
                            "Subnet": {
-                             "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
+                             "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
                            },
                            "PublicIpAddress": {
                              "Id": null
                            },
                            "LoadBalancerBackendAddressPools": [
                              {
-                               "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
+                               "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
                              }
                            ],
                            "LoadBalancerInboundNatRules": [
                              {
-                               "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
+                               "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
                              }
                            ],
                            "ProvisioningState": "Succeeded",
                            "Name": "ipconfig1",
                            "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
-                           "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
+                           "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
                          }
                        ]
     DnsSettings          : {
@@ -293,7 +293,7 @@ After the interface is added to the back-end pool, network traffic is load-balan
 Assign the load balancer object (from the previous example) to the **$slb** variable by using the `Get-AzLoadBalancer` command:
 
 ```powershell
-$slb = Get-AzLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+$slb = Get-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 ### Step 2: Add a NAT rule
@@ -317,7 +317,7 @@ $slb | Set-AzLoadBalancer
 Delete the **NRP-LB** load balancer in the **NRP-RG** resource group by using the `Remove-AzLoadBalancer` command:
 
 ```powershell
-Remove-AzLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]

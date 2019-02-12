@@ -33,8 +33,6 @@ The illustration shows the following configuration of the deployment example des
 
 ![High Availability Ports example deployment](./media/load-balancer-configure-ha-ports/haports.png)
 
-
-
 ## Configure High Availability Ports
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -48,7 +46,6 @@ The configuration essentially involves setting the front-end port and the back-e
 To configure High Availability Ports by using the Azure portal, select the **HA Ports** check box. When selected, the related port and protocol configuration is automatically populated. 
 
 ![High Availability Ports configuration via the Azure portal](./media/load-balancer-configure-ha-ports/haports-portal.png)
-
 
 ### Configure a High Availability Ports load-balancing rule via the Resource Manager template
 
