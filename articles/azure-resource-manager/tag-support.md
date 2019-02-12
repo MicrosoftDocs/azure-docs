@@ -1124,7 +1124,7 @@ This article describes whether a resource type supports [tags](resource-group-us
 | servers/tdeCertificates | No | 
 
 > [!NOTE]
-> The Master database doesn't support tags, but other databases support tags.
+> The Master database doesn't support tags, but other databases, including Data Warehouse databases, support tags.
 
 
 ## Microsoft.SqlVirtualMachine
