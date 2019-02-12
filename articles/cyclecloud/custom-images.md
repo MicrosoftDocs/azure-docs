@@ -13,12 +13,11 @@ ms.author: adjohnso
 
 An Azure CycleCloud installation uses recommended OS images for clusters, but the use of Azure Marketplace images, Gallery images (in preview) or custom images in nodes and nodearrays is also supported. Custom Images are useful for pre-installed applications in a cluster, or to fulfill business or security requirements.
 
-## Specify a Custom Image or Marketplace Image via the new cluster UI wizard
+## Specify a Custom Image or Marketplace Image via the new cluster UI wizard in 7.7+
 
 Custom and marketplace images are also supported in the new cluster UI. Instead of selecting a built-in image, check the "Custom Image" box and specify the full Resource ID or URN for the image:
 
-> [!NOTE]
-> For CycleCloud versions prior to 7.7.0, the jetpack package was selected via the `JetpackPlatform` key.  Acceptable values for `JetpackPlatform` are: `centos-6`,`centos-7`, `ubuntu-14.04`, `ubuntu-16.04`, and `windows`. This should match the operating system of the Azure Marketplace image.
+![Custom Images](~/images/custom-image.png)
 
 ## Use a Custom Image in a CycleCloud template
 
@@ -34,7 +33,7 @@ The `ImageName` attribute is used to specify that a cluster node should use a pr
 ```
 
 > [!NOTE]
-> For CycleCloud versions prior to 7.7.0, `InstallJetpack` must be set to true and marketplace images need to be specified using their Publisher/Offer/Sku/Version explicitly:
+> For CycleCloud versions prior to 7.7.0, `InstallJetpack` must be set to true and custom images need to be specified using their Publisher/Offer/Sku/Version explicitly. They also need to specify `JetpackPlatform` so the correct jetpack packages is installed. Acceptable values for `JetpackPlatform` are: `centos-6`,`centos-7`, `ubuntu-14.04`, `ubuntu-16.04`, and `windows`. This should match the operating system of the Azure Marketplace image:
 
 ``` ini
 [[node marketplace]]
@@ -80,7 +79,7 @@ or
       $> az vm image accept-terms --publisher PUBLISHER --offer OFFER --plan SKU
 ```
 
-## Use a Custom Image in a CycleCloud Node on CycleCloud prior to 7.7
+## Use a Custom Image in a CycleCloud Node on CycleCloud be
 
 Custom Images are useful for pre-installed applications in a cluster, or to fulfill business or security requirements.
 
