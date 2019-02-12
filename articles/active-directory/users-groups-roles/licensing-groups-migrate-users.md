@@ -19,6 +19,7 @@
 
   ms.custom: "seohack1;it-pro"
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to add licensed users to a group for licensing in Azure Active Directory

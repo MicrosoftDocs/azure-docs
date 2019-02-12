@@ -16,6 +16,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Add B2B collaboration guest users without an invitation

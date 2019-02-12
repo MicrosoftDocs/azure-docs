@@ -14,6 +14,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 
+ms.collection: M365-identity-device-management
 ---
 
 # Add Google as an identity provider for B2B guest users

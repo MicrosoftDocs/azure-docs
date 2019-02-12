@@ -18,6 +18,7 @@ ms.date: 02/07/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory v2.0 and OAuth 2.0 On-Behalf-Of flow

@@ -14,6 +14,7 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: celested
 ms.reviewer: asmalser
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Reporting on automatic user account provisioning

@@ -16,6 +16,7 @@
   ms.author: curtand
   ms.reviewer: sumitp
 
+ms.collection: M365-identity-device-management
 ---
 
 # PowerShell examples for group-based licensing in Azure AD

@@ -14,6 +14,7 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
 
+ms.collection: M365-identity-device-management
 ---
 # Writing Expressions for Attribute Mappings in Azure Active Directory
 When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. 

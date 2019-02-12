@@ -18,6 +18,7 @@
 
   ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 # Assign licenses to users by group membership in Azure Active Directory

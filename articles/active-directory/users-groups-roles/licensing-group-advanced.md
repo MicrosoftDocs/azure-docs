@@ -18,6 +18,7 @@
 
   ms.custom: 
 
+ms.collection: M365-identity-device-management
 ---
 
 # Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory

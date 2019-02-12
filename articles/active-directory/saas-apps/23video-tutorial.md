@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with 23 Video
 

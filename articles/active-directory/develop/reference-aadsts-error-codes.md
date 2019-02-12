@@ -17,6 +17,7 @@ ms.date: 01/23/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Authentication and authorization error codes
