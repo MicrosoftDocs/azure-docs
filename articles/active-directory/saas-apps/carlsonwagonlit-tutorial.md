@@ -106,11 +106,11 @@ To configure Azure AD single sign-on with Carlson Wagonlit Travel, perform the f
 	> [!NOTE]
 	> This value is not real. Update the value with the actual Identifier. Contact [Carlson Wagonlit Travel Client support team](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+5. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
-6. On the **Set up Carlson Wagonlit Travel** section, copy the appropriate URL(s) as per your requirement.
+6. On the **Set-up Carlson Wagonlit Travel** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -132,7 +132,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The "Users and groups" and "All users" links](common/users.png)
 
-2. Select **New user** at the top of the screen.
+2. Select **New user**, at the top of the screen.
 
     ![New user Button](common/new-user.png)
 
@@ -140,9 +140,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -169,11 +169,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     ![The Add Assignment pane](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog, select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
 6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+7. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create Carlson Wagonlit Travel test user
 
