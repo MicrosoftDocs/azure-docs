@@ -79,7 +79,7 @@ or
       $> az vm image accept-terms --publisher PUBLISHER --offer OFFER --plan SKU
 ```
 
-## Use a Custom Image in a CycleCloud Node on CycleCloud be
+## Use a Custom Image in a CycleCloud Node on CycleCloud prior to 7.7
 
 Custom Images are useful for pre-installed applications in a cluster, or to fulfill business or security requirements.
 
