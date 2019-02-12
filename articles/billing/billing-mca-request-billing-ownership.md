@@ -25,7 +25,7 @@ You can send a request to take ownership of Azure subscriptions from existing ow
 
 To request the billing ownership, you must be an **Owner** or **Contributor** on the invoice section. To learn more, see [Invoice section tasks](billing-understand-mca-roles.md#invoice-section-tasks).
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-your-access-to-a-billing-account-for-microsoft-customer-agreement).
+This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-your-access-to-a-microsoft-customer-agreement).
 
 ## Request billing ownership in the Azure portal
 

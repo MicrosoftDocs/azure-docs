@@ -21,11 +21,11 @@ ms.author: banders
 
 You can create additional subscriptions for your billing account in Azure. You may want an additional subscription to create separate environments for development and testing, security or to isolate data for compliance reasons.
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-your-access-to-a-billing-account-for-microsoft-customer-agreement). If you want to create subscriptions for other billing accounts, see [Create an additional subscription in the Azure portal](billing-create-subscription.md).
+This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-your-access-to-a-microsoft-customer-agreement). If you want to create subscriptions for other billing accounts, see [Create an additional subscription in the Azure portal](billing-create-subscription.md).
 
 To create a subscription, you must be an **Owner**, **Contributor**, or **Azure Subscription Creator** on an invoice section. For more information, see [Subscription tasks].(billing-understand-mca-roles.md#subscription-tasks). To provide others permission to create Azure subscriptions for your billing account, see [Give others permission to create Azure subscriptions](#give-others-permission-to-create-azure-subscriptions).
 
-## Create an Azure subscription in the Azure portal
+## Create a subscription in the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -71,7 +71,7 @@ To create a subscription, you must be an **Owner**, **Contributor**, or **Azure 
 
 8. Select **Save**.
 
-## Check your access to a billing account for Microsoft Customer Agreement
+## Check your access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## Next steps
