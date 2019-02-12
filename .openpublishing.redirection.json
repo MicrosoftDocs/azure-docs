@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+          "source_path": "articles/machine-learning/studio/retrain-a-classic-web-service.md",
+          "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
+          "redirect_document_id": true
+        },
+        {
           "source_path": "articles/machine-learning/studio/walkthrough-develop-predictive-solution.md",
           "redirect_url": "/azure/machine-learning/studio/tutorial-part1-credit-risk",
           "redirect_document_id": true
@@ -12164,7 +12169,7 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-retrain-a-classic-web-service.md",
-      "redirect_url": "/azure/machine-learning/studio/retrain-a-classic-web-service",
+      "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
       "redirect_document_id": false
     },
     {
