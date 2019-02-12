@@ -67,7 +67,10 @@ Before you start writing code to build the application, you can build the framew
      * ```touch app.js```
      * ```touch config.js```
 
-4. Install the @azure/cosmos module via npm. Use the following command:
+4. Create and initialize a `package.json` file. Use the following command:
+   * ```npm init -y```
+
+5. Install the @azure/cosmos module via npm. Use the following command:
    * ```npm install @azure/cosmos --save```
 
 ## <a id="Config"></a>Set your app's configurations
@@ -884,9 +887,9 @@ To run the getting started solution that contains all the code in this article, 
 * An [Azure Cosmos DB account][create-account]. 
 * The [Getting Started](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started) solution available on GitHub. 
 
-Install the **@azure/cosmos** module via npm. Use the following command: 
+Install the project's dependencies via npm. Use the following command: 
 
-* ```npm install @azure/cosmos --save``` 
+* ```npm install``` 
 
 Next, in the ```config.js``` file, update the config.endpoint and config.primaryKey values as described in [Step 3: Set your app's configurations](#Config).  
 
