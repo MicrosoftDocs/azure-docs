@@ -15,7 +15,7 @@ manager: craigg
 ---
 # Connect to Azure SQL Database with Active Directory MFA
 
-This article provides a C# program that connects to your Microsoft Azure SQL Database. The program uses interactive mode authentication, which supports [Azure Active Directory (Azure AD) multi-factor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+This article provides a C# program that connects to your  Azure SQL Database. The program uses interactive mode authentication, which supports [Azure Active Directory (Azure AD) multi-factor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
 For more information about MFA support for SQL tools, see [Azure Active Directory support in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
 
@@ -25,7 +25,7 @@ Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](h
 
 * A dialog box that displays an Azure AD user name and asks for the user's password.
 
-   If the user's domain is federated with Azure AD, then this dialog box doesn't appear as no password is needed.
+   If the user's domain is federated with Azure AD, then this dialog box doesn't appear, as no password is needed.
 
    If the Azure AD policy imposes MFA on the user, then the next two dialog boxes are displayed.
 
@@ -126,9 +126,9 @@ For the C# program to successfully run, you need to assign proper values to stat
 | RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **App registrations** > **Search by name** > *[Your-App-regis]* > **Settings** > **RedirectURIs**<br /><br />For this article, any valid value is fine for RedirectUri, as it isn't used here. |
 | &nbsp; | &nbsp; | &nbsp; |
 
-## Verify with SQL Server Management Studio (SSMS)
+## Verify with SQL Server Management Studio
 
-Before you run the C# program, it's a good idea to check that your setup and configurations are correct in SSMS. Any C# program failure can then be narrowed to source code.
+Before you run the C# program, it's a good idea to check that your setup and configurations are correct in SQL Server Management Studio (SSMS). Any C# program failure can then be narrowed to source code.
 
 ### Verify SQL Database firewall IP addresses
 
@@ -241,11 +241,11 @@ namespace ADInteractive5
                 Console.ResetColor();
             }
         }
-    } // EOClass Program .
+    } // EOClass Program.
 
     /// <summary>
     /// SqlAuthenticationProvider - Is a public class that defines 3 different Azure AD
-    /// authentication methods.  The methods are supported in the new .NET 4.7.2 .
+    /// authentication methods.  The methods are supported in the new .NET 4.7.2.
     ///  . 
     /// 1. Interactive,  2. Integrated,  3. Password
     ///  . 
@@ -312,7 +312,7 @@ namespace ADInteractive5
                 || authenticationMethod == SC.SqlAuthenticationMethod.ActiveDirectoryInteractive
                 || authenticationMethod == SC.SqlAuthenticationMethod.ActiveDirectoryPassword;
         }
-    } // EOClass ActiveDirectoryAuthProvider .
+    } // EOClass ActiveDirectoryAuthProvider.
 } // EONamespace.  End of entire program source code.
 
 ```
