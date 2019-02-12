@@ -17,7 +17,7 @@ ms.author: spelluru
 
 ---
 # Add an artifact repository to your lab in DevTest Labs
-DevTest Labs allows you to specify an artifact to be added to a VM at the time of creating the VM or after the VM is created. This artifact could be a tool or an application that you want to install on the VM. For more information, see [add an artifact to a VM](devtest-lab-add-vm-with-artifacts.md). Artifacts are defined in a JSON file loaded from a GitHub or VSTS Git repository. The [public artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), maintained by DevTest Labs, provides many common tools for both Windows and Linux. You can create your own artifact repository with specific tools that aren't available in the public artifact repository. For instructions how to add an artifact repository source using the Azure portal, see [Add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).
+DevTest Labs allows you to specify an artifact to be added to a VM at the time of creating the VM or after the VM is created. This artifact could be a tool or an application that you want to install on the VM. For more information, see [add an artifact to a VM](devtest-lab-add-vm.md). Artifacts are defined in a JSON file loaded from a GitHub or VSTS Git repository. The [public artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), maintained by DevTest Labs, provides many common tools for both Windows and Linux. You can create your own artifact repository with specific tools that aren't available in the public artifact repository. For instructions how to add an artifact repository source using the Azure portal, see [Add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).
 
 This article provides information on how to automate the task of adding a custom artifact repository by using Azure Resource Management templates and Azure PowerShell. With these scripts, you can automate the creation of team DevTest Labs instances or automate the addition of a new artifact source to several DevTest Labs instances easily.
 
@@ -171,7 +171,7 @@ There are a few ways to deploy the template to Azure and have the resource creat
 
 - [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 - [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-- [Deploy resources with Resource Manager templates and Azure portal](../azure-resource-manager/resource-group-template-deploy-portal)
+- [Deploy resources with Resource Manager templates and Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [Deploy resources with Resource Manager templates and Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 Let’s go ahead and see how to deploy the template in PowerShell. Cmdlets used to deploy the template are context-specific, so current tenant and current subscription are used. Use [Set-AzureRMContext](/powershell/module/azurerm.profile/set-azurermcontext?view=azurermps-6.13.0) before deploying the template, if needed, to change context.
