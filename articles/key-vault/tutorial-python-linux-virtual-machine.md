@@ -160,7 +160,7 @@ Sign in to the virtual machine by using a terminal.
 ssh azureuser@<PublicIpAddress>
 ```
 
-## Install python library on the VM
+## Install Python library on the VM
 
 Download and install the [requests](https://pypi.org/project/requests/2.7.0/) python library to make HTTP GET calls.
 
