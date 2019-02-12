@@ -21,10 +21,10 @@ In this quickstart, you'll use [.NET Core](https://www.microsoft.com/net/) and C
 
 For this tutorial, you need:
 
-- An Azure SQL database. You can use one of these quickstarts to create a database:
+- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
   || Single database | Managed instance |
-  | --- | --- |
+  |:--- |:--- |:---|
   | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |

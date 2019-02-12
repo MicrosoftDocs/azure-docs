@@ -20,10 +20,10 @@ This article demonstrates how to use [Java](/sql/connect/jdbc/microsoft-jdbc-dri
 
 To complete this sample, make sure you have the following prerequisites:
 
-- An Azure SQL database. You can use one of these quickstarts to create a database:
+- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
   || Single database | Managed instance |
-  | --- | --- |
+  |:--- |:--- |:---|
   | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
@@ -44,7 +44,7 @@ To complete this sample, make sure you have the following prerequisites:
 
   - **Windows**, install Java, then install Maven. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
 
-## Get SQL server connection
+## Get SQL server connection information
 
 Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
 
