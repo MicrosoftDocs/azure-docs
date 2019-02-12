@@ -16,6 +16,7 @@ ms.workload: identity
 ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev 
+ms.collection: M365-identity-device-management
 ---
 
 # Call Microsoft Graph API from a Universal Windows Platform application (XAML)

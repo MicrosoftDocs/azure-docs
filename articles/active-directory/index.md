@@ -10,6 +10,7 @@ ms.service: active-directory
 ms.topic: landing-page
 ms.date: 01/24/2019
 ms.author: barbkess
+ms.collection: M365-identity-device-management
 ---
 
 <div id="main" class="v2">

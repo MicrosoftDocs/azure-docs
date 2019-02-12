@@ -18,6 +18,7 @@ ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 
 # How To: Configure the multi-factor authentication registration policy
