@@ -118,7 +118,7 @@ To avoid any costs associated with following the quickstart procedure, a Clean u
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-> [Next steps button](tutorial-facilities-app.md)
+> [Next steps button](signalr-quickstart-dotnet-core.md)
 
 <!--- Required:
 Quickstarts should always have a Next steps H2 that points to the next logical quickstart in a series, or, if there are no other quickstarts, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
