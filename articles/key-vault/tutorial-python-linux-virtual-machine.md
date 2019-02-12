@@ -34,7 +34,7 @@ Before you go any further, please read the [basic concepts about Key Vault](key-
 
 ## Prerequisites
 
-* Git [Download git](https://git-scm.com/downloads)).
+* Git [Download git](https://git-scm.com/downloads).
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * Azure CLI. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install of upgrade the CLI, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -58,9 +58,9 @@ az login
 
 ## Create a resource group
 
-Create a resource group by using the `az group create` command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource in the West US location. Pick a name for your resource group and replace `YourResourceGroupName` in the following example:
+Create a resource group by using the `az group create` command in the West US location with the following code. Replace `YourResourceGroupName` with a name of your choice.
 
 ```azurecli
 # To list locations: az account list-locations --output table
@@ -133,7 +133,7 @@ Create a system-assigned identity to the virtual machine by running the followin
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-The output of the command is as follows. Note the value of **systemAssignedIdentity**. 
+The output of the command is as follows.
 
 ```azurecli
 {
@@ -170,25 +170,25 @@ Create a python file called **Sample.py**.
 
 Open Sample.py and edit it to contain the following code:
 
-      ```python
-      # importing the requests library
-       import requests
+```python
+# importing the requests library
+  import requests
   
-      # Step 1: Fetch an access token from an MSI-enabled Azure resource      
-       # Note that the resource here is https://vault.azure.net for the public cloud, and api-version is 2018-02-01
-       MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
-       r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"})
+# Step 1: Fetch an access token from an MSI-enabled Azure resource      
+  # Note that the resource here is https://vault.azure.net for the public cloud, and api-version is 2018-02-01
+  MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
+  r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"})
 
-      # Extracting data in JSON format 
-       # This request gets an access token from Azure Active Directory by using the local MSI endpoint
-       data = r.json()
+# Extracting data in JSON format 
+  # This request gets an access token from Azure Active Directory by using the local MSI endpoint
+  data = r.json()
 
-      # Step 2: Pass the access token received from the previous HTTP GET call to the key vault
-       KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
-       kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
+# Step 2: Pass the access token received from the previous HTTP GET call to the key vault
+  KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
+  kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
 
-      print(kvSecret.json()["value"])
-      ```
+print(kvSecret.json()["value"])
+```
 
 The preceding code performs a two-step process:
 
