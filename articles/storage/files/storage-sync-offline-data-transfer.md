@@ -5,7 +5,7 @@ services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/12/2019
 ms.author: fauhse
 ms.component: files
 ---
