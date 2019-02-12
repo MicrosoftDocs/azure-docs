@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a translation app with WPF, C#  - Translator Text API"
 titleSuffix: Azure Cognitive Services
-description: In this tutorial, you'll create a WPF application that uses Cognitive Service APIs for text translation, language detection, and spell checking with a single subscription key. Keep in mind that WPF applications are Windows only.
+description: In this tutorial, you'll create a Windows Presentation Foundation (WPF) application that uses Cognitive Service APIs for text translation, language detection, and spell checking with a single subscription key. This exercise will show you how to use features from the Translator Text API and Bing Spell Check API.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -34,7 +34,7 @@ Here's what we'll cover in this tutorial:
 > * Create a WPF project in Visual Studio
 > * Add assemblies and NuGet packages to your project
 > * Create your application front-end with XAML
-> * Use the Translator Text API to translate text and detect the source language
+> * Use the Translator Text API to get languages, translate text, and detect the source language
 > * Use the Bing Spell Check API to validate your input and improve translation accuracy
 
 ## Prerequisites
@@ -91,87 +91,87 @@ Our application will use NewtonSoft.Json to deserialize JSON objects. Follow the
 4. Select the package and click **Install**.
 5. When the installation is complete, close the tab.
 
-## Create your WPF front-end with XAML
+## Create your application front-end with XAML
 
+In order to use your application, you're going to need a front-end. Using XAML, we'll create a form that allows users to select input and translation languages, enter text to translate, and displays the translation output.
 
+Let's take a look at what we're building.
+![WPF XAML front-end](media/translator-text-csharp-xaml.png)
 
+The application includes these components:
 
-
-### MainWindow.xaml
-
-This file defines the user interface for the application, a WPF form. If you want to design your own version of the form, you don't need this XAML.
-
-```xml
-<Window x:Class="MSTranslatorTextDemo.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MSTranslatorTextDemo"
-        mc:Ignorable="d"
-        Title="Microsoft Translator" Height="400" Width="700" BorderThickness="0">
-    <Grid>
-        <Label x:Name="label" Content="Microsoft Translator" HorizontalAlignment="Left" Margin="39,6,0,0" VerticalAlignment="Top" Height="49" FontSize="26.667"/>
-        <TextBox x:Name="TextToTranslate" HorizontalAlignment="Left" Height="23" Margin="42,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600" FontSize="14" TabIndex="3"/>
-        <Label x:Name="EnterTextLabel" Content="Text to translate:" HorizontalAlignment="Left" Margin="40,129,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <Label x:Name="toLabel" Content="Translate to:" HorizontalAlignment="Left" Margin="304,58,0,0" VerticalAlignment="Top" FontSize="14"/>
-
-        <Button x:Name="TranslateButton" Content="Translate" HorizontalAlignment="Left" Margin="39,206,0,0" VerticalAlignment="Top" Width="114" Height="31" Click="TranslateButton_Click" FontSize="14" TabIndex="4" IsDefault="True"/>
-        <ComboBox x:Name="ToLanguageComboBox"
-                HorizontalAlignment="Left"
-                Margin="306,88,0,0"
-                VerticalAlignment="Top"
-                Width="175" FontSize="14" TabIndex="2">
-
-        </ComboBox>
-        <Label x:Name="fromLabel" Content="Translate from:" HorizontalAlignment="Left" Margin="40,58,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <ComboBox x:Name="FromLanguageComboBox"
-            HorizontalAlignment="Left"
-            Margin="42,88,0,0"
-            VerticalAlignment="Top"
-            Width="175" FontSize="14" TabIndex="1"/>
-        <Label x:Name="TranslatedTextLabel" Content="Translation appears here" HorizontalAlignment="Left" Margin="39,255,0,0" VerticalAlignment="Top" Width="620" FontSize="14" Height="85" BorderThickness="0"/>
-    </Grid>
-</Window>
-```
-
-
-
-## The translation app
-
-The translator application's user interface is built using Windows Presentation Foundation (WPF). Create a new WPF project in Visual Studio by following these steps.
-
-* From the **File** menu, choose **New > Project**.
-* In the New Project window, open **Installed > Templates > Visual C#**. A list of the available project templates appears in the center of the dialog.
-* Make sure **.NET Framework 4.5.2** is chosen in the drop-down menu above the project template list.
-* Click **WPF App (.NET Framework)** in the project template list.
-* Using the fields at the bottom of the dialog, name the new project and the solution that contains it.
-* Click **OK** to create the new project and the solution.
-
-![[Creating a new WPF app in Visual Studio]](media/translator-text-csharp-new-project.png)
-
-Add references to the following .NET framework assemblies to your project.
-
-* System.Runtime.Serialization
-* System.Web
-* System.Web.Extensions
-
-Also, install the NuGet package `Newtonsoft.Json` into your project.
-
-Now find the `MainWindow.xaml` file in the Solution Explorer and open it. It's blank initially. Here's what the finished user interface should look like, annotated with the names of the controls in blue. Use the same names for the controls in your user interface, since they also appear in the code.
-
-![[Annotated view of main window in Visual Studio designer]](media/translator-text-csharp-xaml.png)
+| Name | Type | Description |
+|------|------|-------------|
+| `FromLanguageComboBox` | ComboBox | Displays a list of the languages supported by Microsoft Translator for text translation. The user selects the language they are translating from. |
+| `ToLanguageComboBox` | ComboBox | Displays the same list of languages as `FromComboBox`, but is used to select the language the user is translating to. |
+| `TextToTranslate` | TextBox | Allows the user to enter text to be translated. |
+| `TranslateButton` | Button | Use this button to perform a translation. |
+| `TranslatedTextLabel` | Label | Displays the translation. |
+| `DetectedLanguageLabel` | Label | Displays the detected language of the text to be transdlated (`TextToTranslate`). |
 
 > [!NOTE]
-> The source code for this tutorial includes the XAML source for this form. You may paste it to your project instead of building the form in Visual Studio.
+> We're creating this form using the XAML source code, however, you can create the form with the editor in Visual Studio.
 
-* `FromLanguageComboBox` *(ComboBox)* - Displays a list of the languages supported by Microsoft Translator for text translation. The user selects the language they are translating from.
-* `ToLanguageComboBox` *(ComboBox)* - Displays the same list of languages as `FromComboBox`, but is used to select the language the user is translating to.
-* `TextToTranslate` *(TextBox)* - The user enters the text to be translated here.
-* `TranslateButton` *(Button)* - The user clicks this button (or presses Enter) to translate the text.
-* `TranslatedTextLabel` *(Label)* - The translation for the user's text appears here.
+1. In Visual Studio, select the tab for `MainWindow.xaml`.
+2. Copy this code into your project and **Save**.
+   ```xaml
+   <Window x:Class="MSTranslatorTextDemo.MainWindow"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           xmlns:local="clr-namespace:MSTranslatorTextDemo"
+           mc:Ignorable="d"
+           Title="Microsoft Translator" Height="400" Width="700" BorderThickness="0">
+       <Grid>
+           <Label x:Name="label" Content="Microsoft Translator" HorizontalAlignment="Left" Margin="39,6,0,0" VerticalAlignment="Top" Height="49" FontSize="26.667"/>
+           <TextBox x:Name="TextToTranslate" HorizontalAlignment="Left" Height="23" Margin="42,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="600" FontSize="14" TabIndex="3"/>
+           <Label x:Name="EnterTextLabel" Content="Text to translate:" HorizontalAlignment="Left" Margin="40,129,0,0" VerticalAlignment="Top" FontSize="14"/>
+           <Label x:Name="toLabel" Content="Translate to:" HorizontalAlignment="Left" Margin="304,58,0,0" VerticalAlignment="Top" FontSize="14"/>
 
-If you're making your own version of this form, it isn't necessary to make it *exactly* like the one used here. But make sure the language drop-downs are wide enough to avoid cutting off a language name.
+           <Button x:Name="TranslateButton" Content="Translate" HorizontalAlignment="Left" Margin="39,206,0,0" VerticalAlignment="Top" Width="114" Height="31" Click="TranslateButton_Click" FontSize="14" TabIndex="4" IsDefault="True"/>
+           <ComboBox x:Name="ToLanguageComboBox"
+                   HorizontalAlignment="Left"
+                   Margin="306,88,0,0"
+                   VerticalAlignment="Top"
+                   Width="175" FontSize="14" TabIndex="2">
+
+           </ComboBox>
+           <Label x:Name="fromLabel" Content="Translate from:" HorizontalAlignment="Left" Margin="40,58,0,0" VerticalAlignment="Top" FontSize="14"/>
+           <ComboBox x:Name="FromLanguageComboBox"
+               HorizontalAlignment="Left"
+               Margin="42,88,0,0"
+               VerticalAlignment="Top"
+               Width="175" FontSize="14" TabIndex="1"/>
+           <Label x:Name="TranslatedTextLabel" Content="Translation is displayed here." HorizontalAlignment="Left" Margin="39,255,0,0" VerticalAlignment="Top" Width="620" FontSize="14" Height="85" BorderThickness="0"/>
+           <Label x:Name="DetectedLanguageLabel" Content="Autodetected language is displayed here." HorizontalAlignment="Left" Margin="39,288,0,0" VerticalAlignment="Top" Width="620" FontSize="14" Height="84" BorderThickness="0"/>
+       </Grid>
+   </Window>
+   ```
+3. You should now see a preview of the application front-end in Visual Studio. It should look similar to the image above.
+
+That's it. You're form is ready. Now let's write some code to call Text Translation and Bing Spell Check.
+
+> [!NOTE]
+> Feel free to tweak this form or create your own.
+
+## Setup MainWindow
+
+`MainWindow.xaml.cs` contains the code that controls our application. In our application we'll need code to populate our drop-down menus, and to call a handful of API exposed by Translator Text and Bing Spell Check.
+
+* When the program starts and `MainWindow` is instantiated, the `Languages` method of the Translator Text API is called to retrieve and populate our language selection drop-downs. This happens once at the beginning of each session.
+* When the **Translate** button is clicked, the user's language selection and text are retrieved, spell check is performed on the input, and the translation and detected language are displayed for the user.
+  * The `Translate` method of the Translator Text API is called to translate text from `TextToTranslate`. This call also includes the `to` and `from` languages selected using the drop-down menus.
+  * The `Detect` method of the Translator Text API is called to determine the text langauge of `TextToTranslate`.
+  * Bing Spell Check is used to validate `TextToTranslate` and adjust misspellings.
+
+
+
+### Use Translator Text
+
+### Use Bing Spell Check
+
+
 
 ## The MainWindow class
 
