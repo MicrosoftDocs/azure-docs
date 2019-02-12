@@ -17,6 +17,7 @@
   ms.reviewer: sumitp
   ms.custom: "it-pro;seo-update-azuread-jan"
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to safely migrate users between product licenses by using group-based licensing

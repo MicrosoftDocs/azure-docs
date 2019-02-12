@@ -15,6 +15,7 @@ ms.date: 07/30/2018
 ms.author: celested
 ms.reviewer: asmalser
 
+ms.collection: M365-identity-device-management
 ---
 # Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory
 

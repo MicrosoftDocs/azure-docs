@@ -11,6 +11,7 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: celested
 ms.reviewer: japere
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory

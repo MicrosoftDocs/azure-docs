@@ -16,6 +16,7 @@
   ms.author: curtand
   ms.reviewer: sumitp
   ms.custom: "it-pro;seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
 ---
 
 # Product names and service plan identifiers for licensing

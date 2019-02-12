@@ -21,6 +21,7 @@ ms.reviewer: spunukol
 
 #Customer intent: As a IT admin, I want to understand how I can get rid of stale devices, so that I can I can cleanup my device registration data.
 
+ms.collection: M365-identity-device-management
 ---
 
 # How To: Manage stale devices in Azure AD

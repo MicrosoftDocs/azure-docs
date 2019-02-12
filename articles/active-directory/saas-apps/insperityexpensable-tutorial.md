@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Insperity ExpensAble
 

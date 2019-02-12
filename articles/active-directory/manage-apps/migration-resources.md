@@ -12,6 +12,7 @@ ms.date: 09/19/2018
 ms.author: celested
 ms.reviewer: baselden
 
+ms.collection: M365-identity-device-management
 ---
 
 # Resources for migrating applications to Azure Active Directory

@@ -18,6 +18,7 @@ ms.date: 12/14/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 
 # Interpret the Azure AD audit logs schema in Azure Monitor (preview)

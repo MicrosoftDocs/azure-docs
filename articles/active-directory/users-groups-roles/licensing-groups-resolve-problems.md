@@ -18,6 +18,7 @@
 
   ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 # Identify and resolve license assignment problems for a group in Azure Active Directory
