@@ -128,12 +128,11 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
 ## Next steps
 
-- [Upgrade steps](upgrade-to-latest-generation)
+- [Upgrade steps](upgrade-to-latest-generation.md)
 - [Maintenance windows](maintenance-scheduling.md)
 - [Resource health monitor](https://docs.microsoft.com/azure/service-health/resource-health-overview)
 - [Review Before you begin a migration](upgrade-to-latest-generation.md#before-you-begin)
-- [Upgrade in-place](upgrade-to-latest-generation)
-- [Upgrade from restore point](upgrade-to-latest-generation.md)
+- [Upgrade in-place and upgrade from a restore point](upgrade-to-latest-generation.md)
 - [Create a user-defined restore point](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
 - [Learn How to restore to Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
 - [Open a SQL Data Warehouse support request](https://go.microsoft.com/fwlink/?linkid=857950)
