@@ -23,7 +23,8 @@ In the Machine Learning Web Services portal you can:
 * Create, delete, or update billing plans (New only).
 * Add and delete endpoints (Classic only)
 
-
+>[!NOTE]
+>You also can manage Classic web services in [Machine Learning Studio](http://studio.azureml.net) on the **Web services** tab.
 
 ## Permissions to manage New Resources Manager based web services
 

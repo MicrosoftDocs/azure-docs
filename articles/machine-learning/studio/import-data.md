@@ -73,6 +73,29 @@ Any module that accepts formats other than data table will convert the data to d
 If necessary, you can convert data table format back into CSV, TSV, ARFF, or SVMLight format using other conversion modules.
 Look in the **Data Format Conversions** section of the module palette for modules that perform these functions.
 
+## Data capacities
+
+Modules in Machine Learning Studio support datasets of up to 10 GB of dense numerical data for common use cases. If a module takes more than one input, the 10 GB value is the total of all input sizes. You can sample larger datasets by using queries from Hive or Azure SQL Database, or you can use Learning by Counts preprocessing before you import the data.  
+
+The following types of data can expand to larger datasets during feature normalization and are limited to less than 10 GB:
+
+* Sparse
+* Categorical
+* Strings
+* Binary data
+
+The following modules are limited to datasets less than 10 GB:
+
+* Recommender modules
+* Synthetic Minority Oversampling Technique (SMOTE) module
+* Scripting modules: R, Python, SQL
+* Modules where the output data size can be larger than input data size, such as Join or Feature Hashing
+* Cross-validation, Tune Model Hyperparameters, Ordinal Regression, and One-vs-All Multiclass, when the number of iterations is very large
+
+For datasets that are larger than a couple GBs, upload the data to Azure Storage or Azure SQL Database, or use Azure HDInsight, rather than uploading directly from a local file.
+
+You can find information about image data in the [Import Images](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/import-images#bkmk_Notes) module reference.
+
 ## Import from a local file
 
 You can upload a data file from your hard drive to use as training data in Studio. When you import a data file, you create a dataset module ready for use in experiments in your workspace.

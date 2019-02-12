@@ -13,13 +13,20 @@ ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ---
 # Deploy an Azure Machine Learning Studio web service
-Azure Machine Learning enables you to build, test, and deploy predictive analytic solutions.
+Azure Machine Learning enables you to build and test a predictive analytic solution. Then you can deploy the solution as a web service.
 
-From a high-level point-of-view, this is done in three steps:
+Machine Learning web services provide an interface between an application and a Machine Learning workflow scoring model. An external application can use Azure Machine Learning to communicate with a Machine Learning workflow scoring model in real time. A call to a Machine Learning web service returns prediction results to an external application. To make a call to a web service, you pass an API key that was created when you deployed the web service. A Machine Learning web service is based on REST, a popular architecture choice for web programming projects.
 
-* **[Create a training experiment]** - Azure Machine Learning Studio is a collaborative visual development environment that you use to train and test a predictive analytics model using training data that you supply.
+Azure Machine Learning has two types of web services:
+
+* Request-Response Service (RRS): A low latency, highly scalable service that scores a single data record.
+* Batch Execution Service (BES): An asynchronous service that scores a batch of data records.
+
+From a high-level point-of-view, you deploy your model in three steps:
+
+* **[Create a training experiment]** - In Studio, you can train and test a predictive analytics model using training data that you supply, using a large set of built-in machine learning algorithms.
 * **[Convert it to a predictive experiment]** - Once your model has been trained with existing data and you're ready to use it to score new data, you prepare and streamline your experiment for predictions.
-* **[Deploy it as a web service]** - You can deploy your predictive experiment as a [new] or [classic] Azure web service. Users can send data to your model and receive your model's predictions.
+* **[Deploy it as a web service]** - You can deploy your predictive experiment as a *Classic* or *New* (Resource Manager-based) Azure web service. Users can send data to your model and receive your model's predictions.
 
 
 
@@ -168,10 +175,17 @@ Because you've deployed this experiment before, you are asked if you want to ove
 
 > [!NOTE]
 > If you made configuration changes in the original web service, for example, entering a new display name or description, you will need to enter those values again.
-> 
-> 
 
 One option for updating your web service is to retrain the model programmatically. For more information, see [Retrain Machine Learning models programmatically](retrain-models-programmatically.md).
+
+## Next steps
+
+* For more technical details on how deployment works, see [How a Machine Learning Studio model progresses from an experiment to an operationalized Web service](model-progression-experiment-to-web-service.md).
+
+* For details on how to get your model ready to deploy, see [How to prepare your model for deployment in Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md).
+
+* There are several ways to consume the REST API and access the web service. See [How to consume an Azure Machine Learning Studio web service](consume-web-services.md).
+
 
 <!-- internal links -->
 [Create a training experiment]: #create-a-training-experiment

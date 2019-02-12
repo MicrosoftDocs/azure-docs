@@ -15,116 +15,23 @@ ms.date: 06/02/2017
 # Azure Machine Learning Studio FAQ: capabilities and limitations
 Here are some frequently asked questions (FAQs) and corresponding answers about Azure Machine Learning, a cloud service for developing predictive models and operationalizing solutions through web services. 
 
-## General questions
-**What is Machine Learning Studio?**
-
-Machine Learning Studio is a drag-and-drop canvas environment that you access by using a web browser. Machine Learning Studio hosts a pallet of modules in a visual composition interface that helps you build an end-to-end, data-science workflow in the form of an experiment.
-
-For more information about Machine Learning Studio, see [What is Machine Learning Studio?](what-is-ml-studio.md)
-
-**What is the Machine Learning API service?**
-
-The Machine Learning API service enables you to deploy predictive models, like those that are built into Machine Learning Studio, as scalable, fault-tolerant, web services. The web services that the Machine Learning API service creates are REST APIs that provide an interface for communication between external applications and your predictive analytics models.
-
-For more information, see [How to consume an Azure Machine Learning Web service](consume-web-services.md).
-
-**Where are my Classic web services listed? Where are my New (Azure Resource Manager-based) web services listed?**
-
-Web services created using the Classic deployment model and web services created using the New Azure Resource Manager deployment model are listed in the [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/) portal.
-
-Classic web services are also listed in [Machine Learning Studio](http://studio.azureml.net) on the **Web services** tab.
-
 ## Azure Machine Learning questions
-**What are Azure Machine Learning web services?**
-
-Machine Learning web services provide an interface between an application and a Machine Learning workflow scoring model. An external application can use Azure Machine Learning to communicate with a Machine Learning workflow scoring model in real time. A call to a Machine Learning web service returns prediction results to an external application. To make a call to a web service, you pass an API key that was created when you deployed the web service. A Machine Learning web service is based on REST, a popular architecture choice for web programming projects.
-
-Azure Machine Learning has two types of web services:
-
-* Request-Response Service (RRS): A low latency, highly scalable service that provides an interface to the stateless models created and deployed by using Machine Learning Studio.
-* Batch Execution Service (BES): An asynchronous service that scores a batch for data records.
-
-There are several ways to consume the REST API and access the web service. For example, you can write an application in C#, R, or Python by using the sample code that's generated for you when you deployed the web service.
-
-The sample code is available on:
-- The Consume page for the web service in the Azure Machine Learning Web Services portal
-- The API Help Page in the web service dashboard in Machine Learning Studio
-
-You can also use the sample Microsoft Excel workbook that's created for you and is available in the web service dashboard in Machine Learning Studio.
-
-**What are the main updates to Azure Machine Learning?**
-
-For the latest updates, see [What's new in Azure Machine Learning](../../active-directory/fundamentals/whats-new.md).
 
 ## Import and export data for Machine Learning
-**What data sources does Machine Learning support?**
 
-You can download data to a Machine Learning Studio experiment in three ways:
-
-- Upload a local file as a dataset
-- Use a module to import data from cloud data services
-- Import a dataset saved from another experiment
-
-To learn more about supported file formats, see [Import training data into Machine Learning Studio](import-data.md).
-
-### <a id="ModuleLimit"></a>How large can the data set be for my modules?
-Modules in Machine Learning Studio support datasets of up to 10 GB of dense numerical data for common use cases. If a module takes more than one input, the 10 GB value is the total of all input sizes. You can also sample larger datasets by using queries from Hive or Azure SQL Database, or you can use Learning by Counts preprocessing before ingestion.  
-
-The following types of data can expand to larger datasets during feature normalization and are limited to less than 10 GB:
-
-* Sparse
-* Categorical
-* Strings
-* Binary data
-
-The following modules are limited to datasets less than 10 GB:
-
-* Recommender modules
-* Synthetic Minority Oversampling Technique (SMOTE) module
-* Scripting modules: R, Python, SQL
-* Modules where the output data size can be larger than input data size, such as Join or Feature Hashing
-* Cross-validation, Tune Model Hyperparameters, Ordinal Regression, and One-vs-All Multiclass, when the number of iterations is very large
-
-### <a id="UploadLimit"></a>What are the limits for data upload?
-For datasets that are larger than a couple GBs, upload data to Azure Storage or Azure SQL Database, or use Azure HDInsight rather than directly uploading from a local file.
-
-**Can I read data from Amazon S3?**
-
-If you have a small amount of data and want to expose it via an HTTP URL, then you can use the [Import Data][import-data] module. For larger amounts of data, transfer it to Azure Storage first, and then use the [Import Data][import-data] module to bring it into your experiment.
-<!--
-
-<SEE CLOUD DS PROCESS>
--->
-
-**Is there a built-in image input capability?**
-
-You can learn about image input capability in the [Import Images][image-reader] reference.
-
-## Modules
-**The algorithm, data source, data format, or data transformation operation that I am looking for isn't in Azure Machine Learning Studio. What are my options?**
-
-You can go to the [user feedback forum](https://go.microsoft.com/fwlink/?LinkId=404231) to see feature requests that we are tracking. Add your vote to a request if a capability that you're looking for has already been requested. If the capability that you're looking for doesn't exist, create a new request. You can view the status of your request in this forum, too. We track this list closely and update the status of feature availability frequently. In addition, you can use the built-in support for R and Python to create custom transformations when needed.
-
-**Can I bring my existing code into Machine Learning Studio?**
-
-Yes, you can bring your existing R or Python code into Machine Learning Studio, run it in the same experiment with Azure Machine Learning learners, and deploy the solution as a web service via Azure Machine Learning. For more information, see [Extend your experiment with R](extend-your-experiment-with-r.md) and [Execute Python machine learning scripts in Azure Machine Learning Studio](execute-python-scripts.md).
-
-**Is it possible to use something like [PMML](http://en.wikipedia.org/wiki/Predictive_Model_Markup_Language) to define a model?**
-
-No, Predictive Model Markup Language (PMML) is not supported. You can use custom R and Python code to define a module.
 
 **How many modules can I execute in parallel in my experiment?**  
 
 You can execute up to four modules in parallel in an experiment.
 
-## Data processing
-**Is there an ability to visualize data (beyond R visualizations) interactively within the experiment?**
-
-Click the output of a module to visualize the data and get statistics.
 
 **When previewing results or data in a browser, the number of rows and columns is limited. Why?**
 
 Because large amounts of data might be sent to a browser, data size is limited to prevent slowing down Machine Learning Studio. To visualize all the data/results, it's better to download the data and use Excel or another tool.
+
+
+[[STOPPED HERE]]
+
 
 ## Algorithms
 **What existing algorithms are supported in Machine Learning Studio?**
