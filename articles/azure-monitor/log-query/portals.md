@@ -58,7 +58,7 @@ Your browser requires access to the following addresses to access Log Analytics.
 
 
 ## Log search (classic)
-Log Search is the legacy experience in the Azure portal for querying and analyzing log data in Azure Monitor. It will will be retired soon but is currently still available. Open Log Search from **Logs (Classic)** in the Log Analytics menu.
+Log Search is the legacy experience in the Azure portal for querying and analyzing log data in Azure Monitor. It will be retired soon but is currently still available. Open Log Search from **Logs (Classic)** in the Log Analytics menu.
 
 
 
