@@ -23,7 +23,7 @@ In this tutorial, you'll learn how to:
 > [!div class="checklist"]
 > * Create a WPF project in Visual Studio
 > * Add assemblies and NuGet packages to your project
-> * Create your application front-end with XAML
+> * Create your application's UI with XAML
 > * Use the Translator Text API to get languages, translate text, and detect the source language
 > * Use the Bing Spell Check API to validate your input and improve translation accuracy
 
@@ -57,7 +57,7 @@ The first thing we need to do is set up our project in Visual Studio.
 2. In the left panel, locate and select **Visual C#**. Then, select **WPF App (.NET Framework)** in the center panel.
    ![Create a WPF app in Visual Studio](media/create-wpf-project-visual-studio.png)
 3. Name your project, set the framework version to **.NET Framework 4.5.2 or later**, then click **OK**.
-4. Your project has been created. You'll notice that there are two tabs open: `MainWindow.xaml` and `MainWindow.xaml.cs`. Throughout this tutorial, we'll be adding code to these two files. The first for the application front-end; the latter for our calls to Translator Text and Bing Spell Check.
+4. Your project has been created. You'll notice that there are two tabs open: `MainWindow.xaml` and `MainWindow.xaml.cs`. Throughout this tutorial, we'll be adding code to these two files. The first for the application's user interface; the latter for our calls to Translator Text and Bing Spell Check.
    ![Review your environment](media/blank-wpf-project.png)
 
 In the next section we're going to add assemblies and a NuGet package to our project for additional functionality, like JSON parsing.
@@ -94,10 +94,10 @@ Our application will use NewtonSoft.Json to deserialize JSON objects. Follow the
 
 ## Create a WPF form using XAML
 
-In order to use your application, you're going to need a front-end. Using XAML, we'll create a form that allows users to select input and translation languages, enter text to translate, and displays the translation output.
+In order to use your application, you're going to need a user interface. Using XAML, we'll create a form that allows users to select input and translation languages, enter text to translate, and displays the translation output.
 
 Let's take a look at what we're building.
-![WPF XAML front-end](media/translator-text-csharp-xaml.png)
+![WPF XAML user interface](media/translator-text-csharp-xaml.png)
 
 The application includes these components:
 
@@ -149,9 +149,9 @@ The application includes these components:
        </Grid>
    </Window>
    ```
-3. You should now see a preview of the application front-end in Visual Studio. It should look similar to the image above.
+3. You should now see a preview of the application's user interface in Visual Studio. It should look similar to the image above.
 
-That's it. You're form is ready. Now let's write some code to call Text Translation and Bing Spell Check.
+That's it, your form is ready. Now let's write some code to call Text Translation and Bing Spell Check.
 
 > [!NOTE]
 > Feel free to tweak this form or create your own.
@@ -243,7 +243,7 @@ Then, within the `MainWindow` constructor, we've added error handling with `Hand
 
 If there are keys that are at least the right length, the `InitializeComponent()` call gets the user interface rolling by locating, loading, and instantiating the XAML description of the main application window.
 
-Last, we've added code to call methods to retrieve languages for translation and to populate the drop-down menus for our application front-end. Don't worry, we'll get to the code behind these calls soon.
+Last, we've added code to call methods to retrieve languages for translation and to populate the drop-down menus for our application's user interface. Don't worry, we'll get to the code behind these calls soon.
 
 ## Get supported languages
 
@@ -308,7 +308,7 @@ Picking up where we left off in the last section, let's add a method to get supp
 
 The `GetLanguagesForTranslate()` method creates an HTTP GET request, and uses the `scope=translation` query string parameter is used to limit the scope of the request to supported languages for translation. The `Accept-Language` header with the value `en` is added so that the supported languages are returned in English.
 
-The JSON response is parsed and converted to a Dictionary. Then the language codes are added to the `languageCodes` member variable. The key/value pairs that contain the language codes and the friendly language names are looped through and added to the `languageCodesAndTitles` member variable. The drop-down menus in the form display the friendly names, but the codes are needed to request the translation.
+The JSON response is parsed and converted to a dictionary. Then the language codes are added to the `languageCodes` member variable. The key/value pairs that contain the language codes and the friendly language names are looped through and added to the `languageCodesAndTitles` member variable. The drop-down menus in the form display the friendly names, but the codes are needed to request the translation.
 
 ## Populate the language menus
 
@@ -346,53 +346,59 @@ Now that `MainWindow` has been initialized and the user interface created, this 
 
 ## Detect language of source text
 
-< Description and instructions to be added.>
+Now we're going to create method to detect the language of the source text (text entered into our text area) using the Translator Text API. The value returned by this request will be used in our translation request later.
 
-```csharp
-// ***** DETECT LANGUAGE OF TEXT TO BE TRANSLATED
-private string DetectLanguage(string text)
-{
-    string detectUri = string.Format(TEXT_TRANSLATION_API_ENDPOINT ,"detect");
+1. In Visual Studio, open the tab for `MainWindow.xaml.cs`.
+2. Add this code to your project below the `PopulateLanguageMenus()` method:
+   ```csharp
+   // ***** DETECT LANGUAGE OF TEXT TO BE TRANSLATED
+   private string DetectLanguage(string text)
+   {
+       string detectUri = string.Format(TEXT_TRANSLATION_API_ENDPOINT ,"detect");
 
-    // create request to Text Analytics API
-    HttpWebRequest detectLanguageWebRequest = (HttpWebRequest)WebRequest.Create(detectUri);
-    detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
-    detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Region", "westus");
-    detectLanguageWebRequest.ContentType = "application/json; charset=utf-8";
-    detectLanguageWebRequest.Method = "POST";
+       // create request to Text Analytics API
+       HttpWebRequest detectLanguageWebRequest = (HttpWebRequest)WebRequest.Create(detectUri);
+       detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
+       detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Region", "westus");
+       detectLanguageWebRequest.ContentType = "application/json; charset=utf-8";
+       detectLanguageWebRequest.Method = "POST";
 
-    // create and send body of request
-    var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
-    string jsonText = serializer.Serialize(text);
+       // create and send body of request
+       var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+       string jsonText = serializer.Serialize(text);
 
-    string body = "[{ \"Text\": " + jsonText + " }]";
-    byte[] data = Encoding.UTF8.GetBytes(body);
+       string body = "[{ \"Text\": " + jsonText + " }]";
+       byte[] data = Encoding.UTF8.GetBytes(body);
 
-    detectLanguageWebRequest.ContentLength = data.Length;
+       detectLanguageWebRequest.ContentLength = data.Length;
 
-    using (var requestStream = detectLanguageWebRequest.GetRequestStream())
-        requestStream.Write(data, 0, data.Length);
+       using (var requestStream = detectLanguageWebRequest.GetRequestStream())
+           requestStream.Write(data, 0, data.Length);
 
-    HttpWebResponse response = (HttpWebResponse)detectLanguageWebRequest.GetResponse();
+       HttpWebResponse response = (HttpWebResponse)detectLanguageWebRequest.GetResponse();
 
-    // read and parse JSON response
-    var responseStream = response.GetResponseStream();
-    var jsonString = new StreamReader(responseStream, Encoding.GetEncoding("utf-8")).ReadToEnd();
-    dynamic jsonResponse = serializer.DeserializeObject(jsonString);
+       // read and parse JSON response
+       var responseStream = response.GetResponseStream();
+       var jsonString = new StreamReader(responseStream, Encoding.GetEncoding("utf-8")).ReadToEnd();
+       dynamic jsonResponse = serializer.DeserializeObject(jsonString);
 
-    // fish out the detected language code
-    var languageInfo = jsonResponse[0];
-    if (languageInfo["score"] > (decimal)0.5)
-    {
-        DetectedLanguageLabel.Content = languageInfo["language"];
-        return languageInfo["language"];
-    }
-    else
-        return "Unable to confidently detect input language.";
-}
-// NOTE:
-// In the following sections, we'll add code below this.
-```
+       // fish out the detected language code
+       var languageInfo = jsonResponse[0];
+       if (languageInfo["score"] > (decimal)0.5)
+       {
+           DetectedLanguageLabel.Content = languageInfo["language"];
+           return languageInfo["language"];
+       }
+       else
+           return "Unable to confidently detect input language.";
+   }
+   // NOTE:
+   // In the following sections, we'll add code below this.
+   ```
+
+This method create an HTTP POST request to the Detect resource. It takes a single argument, `text`, which is passed along as the body of the request. Later, we when we create our translation request, the text entered into our UI will be passed to this method for language detection.
+
+Additionally, this method evaluates the confidence score of the response. If the score is greater than `0.5`, then the detected language is displayed in our user interface. 
 
 ## Spell check the source text
 
