@@ -18,7 +18,7 @@ Azure SQL Data Warehouse recently introduced [Gen2 support for lower compute tie
 - **Self-upgrade to Gen2:** If you prefer to control when to upgrade, you can perform the upgrade yourself. If your region is not yet supported, you can migrate your DW to a region that is supported and then perform the upgrade yourself.
 
 ## Automated Schedule and Region Availability Table
-The following table summarizes by region when the Lower Gen2 compute tier will be available and when auotmatic upgrades start. The dates are subject to change. Check back to see when your region becomes available.
+The following table summarizes by region when the Lower Gen2 compute tier will be available and when automatic upgrades start. The dates are subject to change. Check back to see when your region becomes available.
 
 \* indicates a specific schedule for the region is currently unavailable.
 
@@ -62,12 +62,10 @@ Starting March 16, 2019, we will begin scheduling automated upgrades for your Ge
 
 The upgrade process will involve a brief drop in connectivity (approx. 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use however, you may experience a degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
 
-You can also expedite the data file upgrade process by running [Alter Index rebuild][Alter Index rebuild] on all primary columnstore tables manually using a larger SLO and resource class after the restart
+You can also expedite the data file upgrade process by running [Alter Index rebuild](sql-data-warehouse-tables-index.md) on all primary columnstore tables manually using a larger SLO and resource class after the restart
 
 > [!NOTE]
 > Alter Index rebuild is an offline operation and the tables will not be available until the rebuild completes.
-
-**If you have any automation scripts that changes the compute scale of your data warehouse, you will need to [modify the "RequestedServiceObjectiveName"][before you begin] to append a lower case "c".  ex. DW300c**
 
 ## Self-upgrade to Gen2
 
@@ -75,14 +73,14 @@ Optionally, if you want to upgrade now, you can choose to self-upgrade by follow
 
 There are two options when conducting a self-upgrade.  You can either choose to upgrade your current data warehouse in-place or you can choose to restore a Gen1 data warehouse into a Gen2 instance.
 
-- **[Upgrade in-place][Upgrade in-place]** - This option will upgrade your existing Gen1 data warehouse to Gen2. The upgrade process will involve a brief drop in connectivity (approx. 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. If for any reason you need to restore back to Gen1 from a Gen2 instance, open a [support request][support request].
-- **[Upgrade from restore point][Upgrade from restore point]** - Create a user-defined restore point on your current Gen1 data warehouse and then restore directly to a Gen2 instance. The existing Gen1 data warehouse will stay in place. Once the restore has been completed, your Gen2 data warehouse will be fully available for use.  Once you have run all testing and validation processes on the restored Gen2 instance, the original Gen1 instance can be deleted.
-    - Step 1 : From the Azure portal, [create a user-defined restore point][create a user-defined restore point].
-    - Step 2 : When restoring from a user-defined restore point, [set the "performance Level" to Gen2][restore to gen2].
+- [Upgrade in-place](upgrade-to-latest-generation.md) - This option will upgrade your existing Gen1 data warehouse to Gen2. The upgrade process will involve a brief drop in connectivity (approx. 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. If for any reason you need to restore back to Gen1 from a Gen2 instance, open a [support request](https://review.docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket).
+- [Upgrade from restore point](sql-data-warehouse-restore.md) - Create a user-defined restore point on your current Gen1 data warehouse and then restore directly to a Gen2 instance. The existing Gen1 data warehouse will stay in place. Once the restore has been completed, your Gen2 data warehouse will be fully available for use.  Once you have run all testing and validation processes on the restored Gen2 instance, the original Gen1 instance can be deleted.
+    - Step 1 : From the Azure portal, [create a user-defined restore point](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore#create-a-user-defined-restore-point-using-the-azure-portal).
+    - Step 2 : When restoring from a user-defined restore point, set the "performance Level" to your prefered Gen2 tier.
 
 You may experience a period of degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
 
-To expedite the data migration background process, you can immediately force data movement by running [Alter Index rebuild][Alter Index rebuild] on all primary columnstore tables you'd be querying at a larger SLO and resource class.
+To expedite the data migration background process, you can immediately force data movement by running [Alter Index rebuild](sql-data-warehouse-tables-index.md) on all primary columnstore tables you'd be querying at a larger SLO and resource class.
 
 > [!NOTE]
 > Alter Index rebuild is an offline operation and the tables will not be available until the rebuild completes.
@@ -97,7 +95,7 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 - A: Yes.
 
 **Q: How will the upgrades affect my automation scripts?**
-- A: Any automation scripts that references a Service Level Objective should be changed to correspond to the Gen2 equivalent.  See details [here](https://review.docs.microsoft.com/en-us/azure/sql-data-warehouse/upgrade-to-latest-generation?branch=pr-en-us-65326#sign-in-to-the-azure-portal)
+- A: Any automation scripts that references a Service Level Objective should be changed to correspond to the Gen2 equivalent.  See details [here](https://review.docs.microsoft.com/en-us/azure/sql-data-warehouse/upgrade-to-latest-generation?branch=pr-en-us-65326#sign-in-to-the-azure-portal).
 
 **Q: How long does a self upgrade normally take?**
 - A: You can upgrade in place or upgrade from a restore point.  Upgrading in place will cause your data warehouse to pause and resume.  A background process will continue while the data warehouse is online.  If you are upgrading through a restore, this will take longer as it will have to go through the full restore process.
