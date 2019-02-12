@@ -59,17 +59,6 @@ You can control client access to your Service Fabric cluster either with certifi
 
 If you attempt to connect to a secure cluster, then depending on the cluster's configuration you will be required to present a client certificate or log in using AAD.
 
-## Video tutorial
-
-To learn how to use Service Fabric Explorer, watch the following Microsoft Virtual Academy video:
-
-> [!NOTE]
-> This video shows Service Fabric Explorer hosted in a Service Fabric cluster, not the desktop version.
->
->
-
-[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
-
 ## Understand the Service Fabric Explorer layout
 You can navigate through Service Fabric Explorer by using the tree on the left. At the root of the tree, the cluster dashboard provides an overview of your cluster, including a summary of application and node health.
 
