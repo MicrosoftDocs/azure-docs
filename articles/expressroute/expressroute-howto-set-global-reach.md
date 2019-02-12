@@ -20,6 +20,7 @@ This article helps you configure ExpressRoute Global Reach using PowerShell. For
 > This public preview is provided without a service-level agreement and should not be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Before you start configuration, confirm the following:
 

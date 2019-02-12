@@ -27,6 +27,9 @@ This article helps you create an ExpressRoute circuit using PowerShell cmdlets a
 Before you begin, review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
 ### Working with Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit

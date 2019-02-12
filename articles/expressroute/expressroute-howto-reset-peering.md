@@ -9,9 +9,7 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
 ms.custom: seodec18
-
 ---
-
 
 # Reset ExpressRoute circuit peerings
 
@@ -22,6 +20,8 @@ There are a couple scenarios where you may find it helpful resetting your Expres
 * Enable Bidirectional Forwarding Detection (BFD) on Azure Private Peering of your ExpressRoute circuit. BFD is enabled by default if your ExpressRoute circuit is created after August 1, 2018. If your circuit was created before that, BFD wasn't enabled. You can enable BFD by disabling the peering and reenabling it. It should be noted that BFD is supported on Azure Private Peering only.
 
 ### Working with Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 

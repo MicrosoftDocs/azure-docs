@@ -21,6 +21,8 @@ This article helps you configure secure encrypted connectivity between your on-p
 >
 >
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="architecture"></a>Architecture
 
 
@@ -86,7 +88,7 @@ This example uses a Cisco IOS-XE command. In the example, a virtual routing and 
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-The following partial output shows that 68 prefixes were received from the neighbor *.243.229.34 with the ASN 12076 (MSEE):
+The following partial output shows that 68 prefixes were received from the neighbor \*.243.229.34 with the ASN 12076 (MSEE):
 
 ```
 ...

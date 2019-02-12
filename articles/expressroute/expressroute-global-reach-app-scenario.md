@@ -18,6 +18,8 @@ ms.author: rambala
 
 To learn more about ExpressRoute Global Reach, see [ExpressRoute Global Reach][Global Reach]. In this article, let's walk through an application scenario, compare the ExpressRoute Global Reach solution to a few other solutions, configure Global Reach for the example scenario, and verify the connections. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ##Application scenario
 
 Fabrikam Inc. has a large physical presence and Azure deployment in East US. Fabrikam has back-end connectivity between its on-premises and Azure deployments via ExpressRoute. Contoso Ltd. has a presence and Azure deployment in West US. Contoso has back-end connectivity between its on-premises and Azure deployments via ExpressRoute.  

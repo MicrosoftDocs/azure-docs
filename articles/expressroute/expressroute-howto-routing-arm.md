@@ -42,6 +42,8 @@ You can configure one, two, or all three peerings (Azure private, Azure public a
 
 ### Working with Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="msft"></a>Microsoft peering
@@ -168,20 +170,19 @@ This section helps you create, get, update, and delete the Azure private peering
   You must install the latest PowerShell installer from [PowerShell Gallery](http://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
 
   ```azurepowershell-interactive
-  Install-Module AzureRM
-  Install-Az
+  Install-Module Az
   ```
 
-  Import all of the AzureRM.* modules within the known semantic version range.
+  Import all of the Az.\* modules within the known semantic version range.
 
   ```azurepowershell-interactive
-  Import-Az
+  Import-Module Az
   ```
 
   You can also just import a select module within the known semantic version range.
 
   ```azurepowershell-interactive
-  Import-Module AzureRM.Network 
+  Import-Module Az.Network 
   ```
 
   Sign in to your account.
@@ -304,21 +305,19 @@ This section helps you create, get, update, and delete the Azure public peering 
   You must install the latest PowerShell installer from [PowerShell Gallery](http://www.powershellgallery.com/) and import the Azure Resource Manager modules into the PowerShell session in order to start using the ExpressRoute cmdlets. You will need to run PowerShell as an Administrator.
 
   ```azurepowershell-interactive
-  Install-Module AzureRM
+  Install-Module Az
+  ```
 
-  Install-Az
-```
-
-  Import all of the AzureRM.* modules within the known semantic version range.
+  Import all of the Az.\* modules within the known semantic version range.
 
   ```azurepowershell-interactive
-  Import-Az
+  Import-Module Az
   ```
 
   You can also just import a select module within the known semantic version range.
 
   ```azurepowershell-interactive
-  Import-Module AzureRM.Network
+  Import-Module Az.Network
 ```
 
   Sign in to your account.

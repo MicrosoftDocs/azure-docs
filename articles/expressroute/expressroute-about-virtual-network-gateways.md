@@ -14,6 +14,8 @@ ms.custom: seodec18
 # About virtual network gateways for ExpressRoute
 A virtual network gateway is used to send network traffic between Azure virtual networks and on-premises locations. You can use a virtual network gateway for either ExpressRoute traffic, or VPN traffic. This article focuses on ExpressRoute virtual network gateways and contains information about SKUs, estimated performance by SKU, and gateway types.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Gateway types
 
 When you create a virtual network gateway, you need to specify several settings. One of the required settings, '-GatewayType', specifies whether the gateway is used for ExpressRoute, or VPN traffic. The two gateway types are:
@@ -58,7 +60,7 @@ For additional technical resources and specific syntax requirements when using R
 
 | **Classic** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network#networking) |
+| [PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#networking) |
 | [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## Next steps

@@ -71,6 +71,9 @@ Before you begin configuration, make sure you meet the following criteria:
 
 
 ### Working with Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ### Log in to your Azure account
