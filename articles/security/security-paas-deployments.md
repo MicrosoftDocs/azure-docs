@@ -4,7 +4,7 @@ description: " Understand the security advantages of PaaS versus other cloud ser
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: techlake
 
 ms.assetid:

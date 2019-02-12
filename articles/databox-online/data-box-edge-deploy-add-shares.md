@@ -130,14 +130,14 @@ On your Linux client connected to your Data Box Edge device, do the following pr
 
 1. After the NFS client is installed, mount the NFS share that you created on your Data Box Edge device by using the following command:
 
-   `sudo mount <device IP>:/<NFS share on device> /home/username/<Folder on local Linux computer>`
+   `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
     > [!IMPORTANT]
     > Before you mount the share, make sure that the directories that will act as mountpoints on your local computer are already created. These directories should not contain any files or subfolders.
 
     The following example shows how to connect via NFS to a share on your Data Box Edge device. The device IP is `10.10.10.60`. The share `mylinuxshare2` is mounted on the ubuntuVM. The share mount point is `/home/databoxubuntuhost/edge`.
 
-    `sudo mount -t nfs 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
+    `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
 
 > [!NOTE] 
 > The following caveats are applicable to the preview release:

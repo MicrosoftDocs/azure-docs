@@ -17,6 +17,7 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to enable native client apps to interact with proxy applications

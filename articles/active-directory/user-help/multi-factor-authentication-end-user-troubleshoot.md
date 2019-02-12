@@ -13,6 +13,7 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
+ms.collection: M365-identity-device-management
 ---
 
 # Get help with two-step verification

@@ -5,7 +5,7 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/12/2018
 ms.author: ramamill
 ---
 
@@ -157,6 +157,63 @@ Upgrade the server as follows:
 
 7. Click **Finish** to close the installer.
 8. To upgrade rest of the Site Recovery components, refer to our [upgrade guidance](https://aka.ms/asr_vmware_upgrades).
+
+## Upgrade configuration server/process server from the command line
+
+Run the installation file as follows:
+
+  ```
+  UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
+  ```
+
+### Sample usage
+  ```
+  MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
+  cd C:\Temp\Extracted
+  UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "CS" /InstallLocation "D:\" /MySQLCredsFilePath "C:\Temp\MySQLCredentialsfile.txt" /VaultCredsFilePath "C:\Temp\MyVault.vaultcredentials" /EnvType "VMWare"
+  ```
+
+
+### Parameters
+
+|Parameter Name| Type | Description| Values|
+|-|-|-|-|
+| /ServerMode|Required|Specifies whether both the configuration and process servers should be installed, or the process server only|CS<br>PS|
+|/InstallLocation|Required|The folder in which the components are installed| Any folder on the computer|
+|/MySQLCredsFilePath|Required|The file path in which the MySQL server credentials are stored|The file should be the format specified below|
+|/VaultCredsFilePath|Required|The path of the vault credentials file|Valid file path|
+|/EnvType|Required|Type of environment that you want to protect |VMware<br>NonVMware|
+|/PSIP|Required|IP address of the NIC to be used for replication data transfer| Any valid IP Address|
+|/CSIP|Required|The IP address of the NIC on which the configuration server is listening on| Any valid IP Address|
+|/PassphraseFilePath|Required|The full path to location of the passphrase file|Valid file path|
+|/BypassProxy|Optional|Specifies that the configuration server connects to Azure without a proxy|To do get this value from Venu|
+|/ProxySettingsFilePath|Optional|Proxy settings (The default proxy requires authentication, or a custom proxy)|The file should be in the format specified below|
+|DataTransferSecurePort|Optional|Port number on the PSIP to be used for replication data| Valid Port Number (default value is 9433)|
+|/SkipSpaceCheck|Optional|Skip space check for cache disk| |
+|/AcceptThirdpartyEULA|Required|Flag implies acceptance of third-party EULA| |
+|/ShowThirdpartyEULA|Optional|Displays third-party EULA. If provided as input all other parameters are ignored| |
+
+
+
+### Create file input for MYSQLCredsFilePath
+
+The MySQLCredsFilePath parameter takes a file as input. Create the file using the following format and pass it as input MySQLCredsFilePath parameter.
+```ini
+[MySQLCredentials]
+MySQLRootPassword = "Password>"
+MySQLUserPassword = "Password"
+```
+### Create file input for ProxySettingsFilePath
+ProxySettingsFilePath parameter takes a file as input. Create the file using the following format and pass it as input ProxySettingsFilePath parameter.
+
+```ini
+[ProxySettings]
+ProxyAuthentication = "Yes/No"
+Proxy IP = "IP Address"
+ProxyPort = "Port"
+ProxyUserName="UserName"
+ProxyPassword="Password"
+```
 
 ## Delete or unregister a configuration server
 

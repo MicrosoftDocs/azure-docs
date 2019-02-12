@@ -19,6 +19,7 @@ ms.author: celested
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to build a .NET MVC web API that integrates with Azure AD for authentication and authorization.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Build a .NET web API that integrates with Azure AD for authentication and authorization
