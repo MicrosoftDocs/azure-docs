@@ -61,7 +61,7 @@ Internal infrastructure VIPs aren't listed because they’re not required for pu
 Azure Stack supports only transparent proxy servers. In a deployment where a transparent proxy uplinks to a traditional proxy server, you must allow the following ports and URLs for outbound communication:
 
 > [!Note]  
-> Azure Stack does not support using Express Route to reach the Azure services listed in the following table.
+> Azure Stack does not support using ExpressRoute to reach the Azure services listed in the following table.
 
 |Purpose|Destination URL|Protocol|Ports|Source Network|
 |---------|---------|---------|---------|---------|
