@@ -13119,22 +13119,22 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md",
-      "redirect_url": "/azure/sql-database/sql-database-cloud-migrate",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-migrate",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-cloud-migrate-compatible-using-transactional-replication.md",
-      "redirect_url": "/azure/sql-database/sql-database-cloud-migrate",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-migrate",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-cloud-migrate-determine-compatibility-sqlpackage.md",
-      "redirect_url": "/azure/sql-database/sql-database-cloud-migrate",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-migrate",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-cloud-migrate-determine-compatibility-ssms.md",
-      "redirect_url": "/azure/sql-database/sql-database-cloud-migrate",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-migrate",
       "redirect_document_id": false
     },
     {
@@ -13144,17 +13144,22 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md",
-      "redirect_url": "/azure/sql-database/sql-database-cloud-migrate",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-migrate",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-cloud-migrate-fix-compatibility-issues-ssms.md",
-      "redirect_url": "/azure/sql-database/sql-database-cloud-migrate",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-migrate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-cloud-migrate.md",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-migrate",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-cloud-migrate-fix-compatibility-issues.md",
-      "redirect_url": "/azure/sql-database/sql-database-cloud-migrate",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-migrate",
       "redirect_document_id": false
     },
     {
@@ -17356,12 +17361,12 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-reporting-api-audit-reference.md",
-      "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit",
+      "redirect_url": "https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-reporting-api-sign-in-activity-reference.md",
-      "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin",
+      "redirect_url": "https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta",
       "redirect_document_id": false
     },
     {
