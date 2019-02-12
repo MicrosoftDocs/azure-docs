@@ -71,7 +71,7 @@ Our project requires a handful of .NET Framework assemblies and NewtonSoft.Json,
 
 Our application will use NewtonSoft.Json to deserialize JSON objects. Follow these instructions to install the package.
 
-1. Locate your project in Visual Studio's Solution Explorer and right click on your project. Select **Manage NuGet Packages...***.
+1. Locate your project in Visual Studio's Solution Explorer and right click on your project. Select **Manage NuGet Packages...**.
 2. Locate and select the **Browse** tab.
 3. Type **NewtonSoft.Json** into the search bar.
    ![Locate and install NewtonSoft.Json](media/add-nuget-packages.png)
