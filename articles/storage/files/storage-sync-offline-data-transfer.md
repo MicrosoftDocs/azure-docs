@@ -45,7 +45,7 @@ Before you begin, review the following information:
 ## Offline data transfer process
 This section describes the process of setting up Azure File Sync in a way compatible with bulk migration tools such as Azure Data Box.
 
-![Visualizing process steps that are also explained in detail in a following paragraph](media/storage-sync-files-offline-data-transfer/DataBoxIntegration_1_600.png)
+![Visualizing process steps that are also explained in detail in a following paragraph](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
 | Step | Detail |
 |---|---------------------------------------------------------------------------------------|
@@ -55,12 +55,12 @@ This section describes the process of setting up Azure File Sync in a way compat
 | ![Process step 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Create a sync group](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) in a storage sync service and reference the empty share as a cloud endpoint. Repeat this step for every Data Box file share. Review the [Deploy Azure File Sync](storage-sync-files-deployment-guide.md) guide and follow the steps required to set up Azure File Sync. |
 | ![Process step 5](media/storage-sync-files-offline-data-transfer/bullet_5.png) | [Add your live server directory as a server endpoint](storage-sync-files-deployment-guide.md#create-a-server-endpoint). Specify in the process that you already moved the files to Azure and reference the staging shares. It is your choice to enable or disable cloud tiering as needed. While creating a server endpoint on your live server, you need to reference the staging share. Enable "Offline Data Transfer" (image below) in the new server endpoint blade and reference the staging share that must reside in the same storage account as the cloud endpoint. The list of available shares is filtered by storage account and shares that are not already syncing. |
 
-![Visualizing the Azure portal user interface for enabling Offline Data Transfer while creating a new server endpoint.](media/storage-sync-files-offline-data-transfer/DataBoxIntegration_2_600.png)
+![Visualizing the Azure portal user interface for enabling Offline Data Transfer while creating a new server endpoint.](media/storage-sync-files-offline-data-transfer/data-box-integration-2-600.png)
 
 ## Syncing the share
 Once you have created your server endpoint, sync will commence. For each file that exists on the server, sync will determine if this file also exists in the staging share where Data Box deposited the files and if so, sync will copy the file from the staging share rather than uploading it from the server. If the file doesn't exist in the staging share or a newer version is available on the local server, then sync will upload the file from the local server.
 
-> [!Important]     
+> [!IMPORTANT]
 > You can only enable the bulk migration mode during the creation of a server endpoint. Once a server endpoint is established, there is currently no way to integrate bulk migrated data from an already syncing server into the namespace.
 
 ## ACLs and timestamps on files and folders
@@ -77,11 +77,11 @@ After the server completes its initial sync of the entire namespace, it will hav
 1. Hit "Disable offline data transfer" in the server endpoint properties, when the status is "Completed".
 2. Consider deleting the staging share to save cost. The staging share is unlikely to contain file and folder ACLs and as such is of limited use. For backup "point in time" purposes, rather create a real [snapshot of the syncing Azure file share](storage-snapshots-files.md). You can [enable Azure Backup to take snapshots]( ../../backup/backup-azure-files.md) on a schedule.
 
-![Visualizing the Azure portal user interface for server endpoint properties where the status and disable controls for Offline Data Transfer are located.](media/storage-sync-files-offline-data-transfer/DataBoxIntegration_3_444.png)
+![Visualizing the Azure portal user interface for server endpoint properties where the status and disable controls for Offline Data Transfer are located.](media/storage-sync-files-offline-data-transfer/data-box-integration-3-444.png)
 
 You should only disable this mode when the state is "Completed" or you truly want to abort due to misconfiguration. If you are disabling the mode mid-way a legitimate deployment, files will start to upload from the server, even if your staging share is still available.
 
-> [!Important]     
+> [!IMPORTANT]
 > After you disable offline data transfer there is no way to enable it again, even if the staging share from the bulk migration is still available.
 
 ## Next steps
