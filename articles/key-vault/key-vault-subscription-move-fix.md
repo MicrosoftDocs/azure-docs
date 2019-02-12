@@ -4,7 +4,7 @@ description: Learn how to switch the tenant ID for a key vault after a subscript
 services: key-vault
 documentationcenter: ''
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: 46d7bc21-fa79-49e4-8c84-032eef1d813e
