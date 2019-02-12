@@ -29,7 +29,7 @@ To avoid common submission errors:
 
 - For Office Add-ins, make sure that you are using [manifest schema version 1.1](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/add-in-manifests). For information about updating your manifest to version 1.1, see [Update to the latest JavaScript API for Office library and version 1.1 add-in manifest schema](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/update-your-javascript-api-for-office-and-manifest-schema-version). 
 
-- For Office Add-ins, make sure that you specify a Support URL in the **SupportUrl** element of your Office Add-in manifest. Your Support URL should be a publicly available webpage, and should not require authentication. Neither personal Social Media pages nor GitHub repositories are permitted as the primary Support URL. Note, also not permitted are links to files hosted online such as a word document on OneDrive, DropBox or Google Docs etc.
+- For Office Add-ins, make sure that you specify a support URL in the **SupportUrl** element of your Office Add-in manifest. Your support URL should be a publicly available webpage, and should not require authentication. You cannot use personal social media pages or GitHub repositories for the support URL. You also can't use links to files hosted online such as a Word document on OneDrive, DropBox or Google Docs.
 
 -  For all add-ins, make sure that your manifest is valid against the schema. For schema validation information, see [Schema reference for Office Add-ins manifests (v1.1)](https://docs.microsoft.com/en-us/office/dev/add-ins/overview/add-in-manifests) or [Schema reference for manifests of SharePoint Add-ins](https://msdn.microsoft.com/library/1f8c5d44-3b60-0bfe-9069-1df821220691(Office.15).aspx).
 
