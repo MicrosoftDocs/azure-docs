@@ -4,7 +4,7 @@ description: Overview of preferred solutions within the Marketplace and how they
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter:
 author: ellacroi
-manager: mbaldwin
+manager: 
 editor:
 
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6

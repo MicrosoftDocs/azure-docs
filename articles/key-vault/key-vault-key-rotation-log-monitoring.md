@@ -4,7 +4,7 @@ description: Use this how-to to help you get set up with key rotation and monito
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: ''
 
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
