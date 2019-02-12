@@ -55,7 +55,7 @@ Some key capabilities of Ultra disks are:
 
 ### Preview scope and limitations
 
-During preview, ultra disks Disks:
+During preview, ultra disks:
 
 - Are supported in East US 2 in a single availability zone  
 - Can only be used with availability zones (availability sets and single VM deployments outside of zones will not have the ability to attach an ultra disks)
@@ -75,7 +75,7 @@ Azure premium SSDs deliver high-performance and low-latency disk support for vir
 
 Sizes marked with an asterisk are currently in preview.
 
-| Premium Disk Type  | P4               | P6               | P10             | P15 | P20              | S30              | P40              | P50              | P60*              | P70*              | P80*              |
+| Premium SSD sizes  | P4               | P6               | P10             | P15 | P20              | S30              | P40              | P50              | P60*              | P70*              | P80*              |
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
 | Disk size in GiB           | 32             | 64             | 128            | 256  | 512            | 1,024    | 2,048     | 4,095    | 8,192     | 16,384     | 32,767     |
 | IOPS per disk       | Up to 120 | Up to 240              | Up to 500              | Up to 1,100 | Up to 2,300              | Up to 5,000              | Up to 7,500             | Up to 7,500              | Up to 12,500              | Up to 15,000              | Up to 20,000              |
@@ -89,7 +89,7 @@ Azure standard SSDs are a cost-effective storage option optimized for workloads 
 
 Sizes marked with an asterisk are currently in preview.
 
-| Standard SSD Disk Type  | E10               | E15               | E20             | E30 | E40              | E50              | E60*              | E70*              | E80*              |
+| Standard SSD sizes  | E10               | E15               | E20             | E30 | E40              | E50              | E60*              | E70*              | E80*              |
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
 | Disk size in GiB           | 128             | 256             | 512            | 1,024  | 2,048            | 4,095     | 8,192     | 16,384     | 32,767    |
 | IOPS per disk       | Up to 500              | Up to 500              | Up to 500              | Up to 500 | Up to 500              | Up to 500              | Up to 500             | Up to 500              | Up to 1,300              | Up to 2,000              | Up to 2,000              |
