@@ -50,18 +50,18 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 
 Create your request parameters by creating a new object with a `POST` method. Add your path by appending your endpoint path, and query string. Add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
-    ```javascript
-    let request_params = {
-        method : 'POST',
-        hostname : host,
-        path : path + query_string,
-        headers : {
-    		'Content-Type' : 'application/x-www-form-urlencoded',
-    		'Content-Length' : text.length + 5,
-            'Ocp-Apim-Subscription-Key' : key,
-        }
-    };
-    ```
+```javascript
+let request_params = {
+   method : 'POST',
+   hostname : host,
+   path : path + query_string,
+   headers : {
+   'Content-Type' : 'application/x-www-form-urlencoded',
+   'Content-Length' : text.length + 5,
+      'Ocp-Apim-Subscription-Key' : key,
+   }
+};
+```
 
 ## Create a response handler
 

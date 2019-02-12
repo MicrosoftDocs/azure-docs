@@ -32,8 +32,6 @@
   items:
   - name: Build a spell check web app
     href: tutorials/spellcheck.md
-  - name: 'Source code: spell check web app'
-    href: tutorials/spellcheck-source.md
 - name: How-to guides
   items:
   - name: Upgrade from v5 to v7
