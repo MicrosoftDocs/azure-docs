@@ -2605,6 +2605,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/resource-manager-export-template.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-portal.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-export-template-cli.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-cli.md",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-export-template-powershell.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell.md",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/azure-resource-manager/resource-group-portal.md",
       "redirect_url": "/azure/azure-resource-manager/manage-resources-portal.md",
       "redirect_document_id": true

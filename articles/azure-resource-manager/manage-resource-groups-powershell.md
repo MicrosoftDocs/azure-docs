@@ -129,7 +129,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Export-AzResourceGroup -ResourceGroupName $resourceGroupName
 ```
 
-For more information, see [Export resource group as template](./resource-manager-export-template-powershell.md#export-resource-group-as-template)
+For more information, see [Export resource group](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
 
 ## Next steps
 

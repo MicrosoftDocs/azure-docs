@@ -58,7 +58,7 @@ $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templat
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -Location $location
 ```
 
-For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](./resource-group-template-deploy-powershell.md).
+For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](./resource-group-template-deploy.md).
 
 ## Deploy a resource group and resources
 
