@@ -21,7 +21,7 @@ ms.lastreviewed: 09/17/2018
 
 # Add additional scale unit nodes in Azure Stack
 
-Azure Stack operators can increase the overall capacity of an existing scale unit by adding an additional physical computer. The physical computer is also referred to as a scale unit node. Each new scale unit node you add must be homogenous in CPU type, memory, and disk number and size to the nodes that are already present in the scale unit.
+Azure Stack operators can increase the overall capacity of an existing scale unit by adding an additional physical computer. The physical computer is also referred to as a scale unit node. Each new scale unit node you add must be homogeneous in CPU type, memory, and disk number and size to the nodes that are already present in the scale unit.
 
 To add a scale unit node, you act in Azure Stack and run tooling from your hardware equipment manufacturer (OEM). The OEM tooling runs on the hardware lifecycle host (HLH) to make sure the new physical computer matches the same firmware level as existing nodes.
 
