@@ -28,7 +28,7 @@ The Data Science Virtual Machine for Linux is an Ubuntu-based virtual machine im
   * [Caffe2](https://github.com/caffe2/caffe2): A cross-platform version of Caffe
   * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): A deep learning software toolkit from Microsoft Research
   * [H2O](https://www.h2o.ai/): An open-source big data platform and graphical user interface
-  * [Keras](https://keras.io/): A high-level neural network API in Python for Theano and TensorFlow
+  * [Keras](https://keras.io/): A high-level neural network API in Python for TensorFlow, Microsoft Cognitive Toolkit, and Theano
   * [MXNet](http://mxnet.io/): A flexible, efficient deep learning library with many language bindings
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits): A graphical system that simplifies common deep learning tasks
   * [PyTorch](http://pytorch.org/): A high-level Python library with support for dynamic networks
