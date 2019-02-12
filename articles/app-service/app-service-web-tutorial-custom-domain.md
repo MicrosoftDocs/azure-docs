@@ -335,10 +335,12 @@ For more information, see [Map a custom domain to a web app](scripts/cli-configu
 
 ### Azure PowerShell 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The following command adds a configured custom DNS name to an App Service app. 
 
 ```PowerShell  
-Set-AzureRmWebApp `
+Set-AzWebApp `
     -Name <app_name> `
     -ResourceGroupName <resource_group_name> ` 
     -HostNames @("<fully_qualified_domain_name>","<app_name>.azurewebsites.net") 

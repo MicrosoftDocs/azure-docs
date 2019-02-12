@@ -144,8 +144,6 @@
       href: retrain-machine-learning-model.md
     - name: Retrain programmatically
       href: retrain-models-programmatically.md
-    - name: Retrain a Classic web service
-      href: retrain-a-classic-web-service.md
     - name: Retrain with PowerShell
       href: retrain-new-web-service-using-powershell.md
     - name: Retrain an existing web service
