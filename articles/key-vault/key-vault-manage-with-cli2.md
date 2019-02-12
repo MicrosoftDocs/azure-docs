@@ -4,7 +4,7 @@ description: Use this article to automate common tasks in Key Vault by using the
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid:

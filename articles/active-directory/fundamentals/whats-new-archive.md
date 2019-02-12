@@ -1238,7 +1238,7 @@ For more information, see [Conditional access in Azure AD](https://docs.microsof
 The following apps are on the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
-- [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
+- Microsoft StaffHub
 
 For more information, see:
 

@@ -86,7 +86,7 @@ This update includes the following new features and improvements for Azure Stack
          Breaking change: Backup changes to cert-based encryption mode. Support for symmetric keys is deprecated.  
    * **Azs.Fabric.Admin Module**  
          `Get-AzsInfrastructureVolume` has been deprecated. Use the new cmdlet `Get-AzsVolume`.  
-         `Get-AzsStorageSystem` has been deprecated.  Use the new  new cmdlet `Get-AzsStorageSubSystem`.  
+         `Get-AzsStorageSystem` has been deprecated.  Use the new cmdlet `Get-AzsStorageSubSystem`.  
          `Get-AzsStoragePool` has been deprecated. The `StorageSubSystem` object contains the capacity property.  
    * **Azs.Compute.Admin Module**  
          Bug fix - `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: Calling `ConvertTo-PlatformImageObject` only in the success path.  
@@ -132,7 +132,7 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 - Fixed an issue when setting the value of Managed Disks quotas under [compute quota types](azure-stack-quota-types.md#compute-quota-types) to 0, it is equivalent to the default value of 2048 GiB. The zero quota value now is respected.
 
 <!-- 2724873 - IS --> 
-- Fixed an issue when using the PowerShell cmdlets **Start-AzsScaleUnitNode** or  **Stop-AzsScaleunitNode** to manage scale units, in which the first attempt to start or stop the scale unit might fail.
+- Fixed an issue when using the PowerShell cmdlets **Start-AzsScaleUnitNode** or  **Stop-AzsScaleUnitNode** to manage scale units, in which the first attempt to start or stop the scale unit might fail.
 
 <!-- 2724961- IS ASDK --> 
 - Fixed an issue in which you registered the **Microsoft.Insight** resource provider in the subscription settings, and created a Windows VM with Guest OS Diagnostic enabled, but the CPU Percentage chart in the VM overview page did not show metrics data. The data now correctly displays.
