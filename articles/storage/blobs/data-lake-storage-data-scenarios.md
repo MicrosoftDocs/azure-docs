@@ -16,7 +16,8 @@ There are four key stages in big data processing:
 
 > [!div class="checklist"]
 > * Create a Data Lake Gen2 storage account
-> * Ingest data into the account
+> * Create a file system
+> * Ingest the data
 > * Secure the data
 > * Process the data
 > * Visualize the data
@@ -26,9 +27,19 @@ In this article, we look at these stages with respect to Azure Data Lake Storage
 
 ## Create a Data Lake Gen2 storage account
 
-First, create your account.
+Link to quickstart here.
 
-## Ingest data into Data Lake Storage Gen2
+### Create a file system
+
+You can do this a bunch of different ways.
+
+|Tool | Guide |
+|---|--|
+|Azure Storage Explorer | See the [Create a file system](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) section of the article [Quickstart: Use Azure Storage Explorer to manage data in an Azure Data Lake Storage Gen2 account](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer). |
+|AzCopy V10 |[Create a Blob container or File Share](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share) section of the article [Transfer data with the AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
+|Technique |Link|
+
+## Ingest the data
 
 Ingesting large amounts of data into a data store, at real-time or in batches
 This section highlights the different sources of data and the different ways in which that data can be ingested into a Data Lake Storage Gen2 account.
@@ -89,11 +100,11 @@ For uploading datasets that range in several terabytes, using the methods descri
 
 * **Using Azure ExpressRoute**. Azure ExpressRoute lets you create private connections between Azure datacenters and infrastructure on your premises. This provides a reliable option for transferring large amounts of data. For more information, see [Azure ExpressRoute documentation](../../expressroute/expressroute-introduction.md).
 
-## Secure data that is stored in Data Lake Storage Gen2
+## Secure the data
 
 Put your security content here.
 
-## Process data that is stored in Data Lake Storage Gen2
+## Process the data
 
 Once the data is available in Data Lake Storage Gen2 you can run analysis on that data using the supported big data applications. Currently, you can use Azure HDInsight and Azure Databricks to run data analysis jobs on the data stored in Data Lake Storage Gen2.
 
@@ -101,7 +112,16 @@ Once the data is available in Data Lake Storage Gen2 you can run analysis on tha
 
 For an example, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2).
 
-## Download data that is stored in Data Lake Storage Gen2
+## Visualize the data
+
+You can use a mix of services to create visual representations of data stored in Data Lake Storage Gen2.
+
+![Visualize data in Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/visualize-data.png "Visualize data in Data Lake Storage Gen2")
+
+* You can start by using [Azure Data Factory to move data from Data Lake Storage Gen2 to Azure SQL Data Warehouse](../../data-factory/copy-activity-overview.md)
+* After that, you can [integrate Power BI with Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) to create visual representation of the data.
+
+## Download the data
 
 You might also want to download or move data from Azure Data Lake Storage Gen2 for scenarios such as:
 
@@ -114,12 +134,3 @@ In such cases, you can use any of the following options:
 
 * [Azure Data Factory](../../data-factory/copy-activity-overview.md)
 * [Apache DistCp](data-lake-storage-use-distcp.md)
-
-## Visualize data that is stored in Data Lake Storage Gen2
-
-You can use a mix of services to create visual representations of data stored in Data Lake Storage Gen2.
-
-![Visualize data in Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/visualize-data.png "Visualize data in Data Lake Storage Gen2")
-
-* You can start by using [Azure Data Factory to move data from Data Lake Storage Gen2 to Azure SQL Data Warehouse](../../data-factory/copy-activity-overview.md)
-* After that, you can [integrate Power BI with Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) to create visual representation of the data.
