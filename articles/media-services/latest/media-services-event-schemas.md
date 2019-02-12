@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: reference
-ms.date: 12/24/2018
+ms.date: 02/11/2019
 ms.author: juliako
 ---
 
@@ -51,6 +51,7 @@ You can register for all of the events by subscribing to the JobStateChange even
 | Microsoft.Media.JobOutputFinished| Get an event when Job output transitions to finished state.|
 | Microsoft.Media.JobOutputCanceled| Get an event when Job output transitions to canceled state.|
 | Microsoft.Media.JobOutputErrored| Get an event when Job output transitions to error state.|
+| Microsoft.Media.JobOutputProgress| |
 
 ### Live event types
 
