@@ -219,7 +219,7 @@ StatusPage supports just-in-time provisioning. You have already enabled it in [C
    
     ![Creating an Azure AD test user](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
 
-1. Type the **Email Address**, **First Name**, and **Sur Name** of a valid user you want to provision into the related textboxes. 
+1. Type the **Email Address**, **First Name**, and **Surname** of a valid user you want to provision into the related textboxes. 
    
     ![Creating an Azure AD test user](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
 

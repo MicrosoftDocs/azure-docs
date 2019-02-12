@@ -17,7 +17,7 @@ ms.date: 11/8/2018
 ms.author: tomfitz
 
 ---
-# Array and object functions for Azure Resource Manager templates 
+# Array and object functions for Azure Resource Manager templates
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -44,6 +44,8 @@ Resource Manager provides several functions for working with arrays and objects.
 To get an array of string values delimited by a value, see [split](resource-group-template-functions-string.md#split).
 
 <a id="array" />
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## array
 `array(convertToArray)`

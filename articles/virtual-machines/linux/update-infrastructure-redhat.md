@@ -105,7 +105,7 @@ If you are using an older RHEL VM image, for example, RHEL 7.4 (image URN: `RedH
 sudo yum update -y --disablerepo='*' --enablerepo='*-microsoft-*'
 ```
 
-Alternatively, running `sudo yum update` will also update the client certificate package despite "expired SSL certificate" errors you will see for other repositories. Following the update, normal connectivity to other RHUI repositories should be restored, so you will be able to run `sudo yum update` successfully.
+Alternatively, running `sudo yum update` may also update the client certificate package (depending on your RHEL version), despite "expired SSL certificate" errors you will see for other repositories. If this update is successful, normal connectivity to other RHUI repositories should be restored, so you will be able to run `sudo yum update` successfully.
 
 
 ### Troubleshoot connection problems to Azure RHUI

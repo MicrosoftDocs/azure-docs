@@ -14,6 +14,9 @@ ms.author: nitinme
 
 ---
 # Get started with Azure Data Lake Store using Azure CLI
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)

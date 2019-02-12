@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/13/2018
 ms.author: tamram
-ms.component: queues
+ms.subservice: queues
 ---
 
 # Get started with Azure Queue storage using .NET
@@ -29,7 +29,7 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 * [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
-* An [Azure storage account](../common/storage-quickstart-create-account.md)
+* An [Azure storage account](../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 

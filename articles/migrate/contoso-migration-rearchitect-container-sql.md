@@ -312,7 +312,7 @@ To connect to the Azure SQL Database, Contoso admins set up a firewall rule to a
 
 Need more help?
 
-[Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#creating-and-managing-firewall-rules) creating and managing firewall rules for Azure SQL Database.
+[Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) creating and managing firewall rules for Azure SQL Database.
 
 ### Migrate
 
