@@ -11,7 +11,7 @@ ms.date: 02/13/2019
 ms.custom: seodec18
 ---
 
-# Anomaly Detection in Azure Stream Analytics
+# Anomaly detection in Azure Stream Analytics
 
 Azure Stream Analytics offers built-in machine learning based anomaly detection capabilities that can be used to monitor the two most commonly occurring anomalies: temporary and persistent. With the **AnomalyDetection_SpikeAndDip** and **AnomalyDetection_ChangePoint** functions, you can perform anomaly detection directly in your Stream Analytics job.
 
@@ -29,7 +29,7 @@ Keep in mind that the model's response time increases with history size because 
 
 Gaps in the time series can be a result of the model not receiving events at certain points in time. This situation is handled by Stream Analytics using imputation. The history size, as well as a time duration, for the same sliding window is used to calculate the average rate at which events are expected to arrive.
 
-## Spike and Dip
+## Spike and dip
 
 Temporary anomalies in a time series event stream are known as spikes and dips. Spikes and dips can be monitored using the Machine Learning based operator, **AnomalyDetection_SpikeAndDip**.
 
@@ -60,7 +60,7 @@ INTO output
 FROM AnomalyDetectionStep
 ```
 
-## Change Point
+## Change point
 
 Persistent anomalies in a time series event stream are changes in the distribution of values in the event stream, like level changes and trends. In Stream Analytics, such anomalies are detected using the Machine Learning based **AnomalyDetection_ChangePoint** operator.
 
