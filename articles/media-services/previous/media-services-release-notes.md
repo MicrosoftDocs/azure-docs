@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 02/12/2019
 ms.author: juliako
 
 ---
-# Azure Media Services release notes (legacy)
+# Azure Media Services release notes
 
 These release notes for Azure Media Services summarize changes from previous releases and known issues.
 
