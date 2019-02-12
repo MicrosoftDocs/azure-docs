@@ -12,7 +12,7 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/12/2019
+ms.date: 02/12/2019
 ms.author: barclayn
 
 ---
@@ -241,7 +241,6 @@ Copy the BYOK toolset package from the USB drive or other portable storage, and 
 ## Step 3: Generate your key
 
 For this third step, do the following procedures on the disconnected workstation. To complete this step your HSM must be in initialization mode. 
-
 
 ### Step 3.1: Change the HSM mode to 'I'
 
