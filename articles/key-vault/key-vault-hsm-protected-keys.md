@@ -12,7 +12,7 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/12/2019
 ms.author: barclayn
 
 ---
@@ -252,13 +252,13 @@ If you are using Thales nShield Edge, to change the mode: 1. Use the Mode button
 Start a command prompt and run the Thales new-world program.
 
    ```cmd
-    new-world.exe --initialize --cipher-suite=DLf1024s160mRijndael --module=1 --acs-quorum=2/3
+    new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
    ```
 
 This program creates a **Security World** file at %NFAST_KMDATA%\local\world, which corresponds to the C:\ProgramData\nCipher\Key Management Data\local folder. You can use different values for the quorum but in our example, you’re prompted to enter three blank cards and pins for each one. Then, any two cards give full access to the security world. These cards become the **Administrator Card Set** for the new security world.
 
 > [!NOTE]
-> If your HSM supports newer cypher suite DLf3072s256mRijndael, you can replace --cipher-suite=DLf1024s160mRijndael with --cipher-suite=DLf3072s256mRijndael
+> If your HSM does not support the newer cypher suite DLf3072s256mRijndael, you can replace --cipher-suite= DLf3072s256mRijndael with --cipher-suite=DLf1024s160mRijndael
 
 Then do the following:
 
