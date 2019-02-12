@@ -14,14 +14,15 @@ ms.date: 02/09/2019
 # Upgrade your data warehouse to Gen2
 
 Azure SQL Data Warehouse recently introduced [Gen2 support for lower compute tiers](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). The new offering is already available in the regions noted in the table below.  For supported regions, existing Gen1 data warehouses can be upgraded to Gen2 through either:
-- **The automatic upgrade process** Automatic upgrades take place during your selected maintenance schedule. 
+- **The automatic upgrade process:** Automatic upgrades do not start as soon as the serivces is available in a region.  When automatic upgades start in a specific region, individual DW upgrades will take place during your selected maintenance schedule. 
 - **Self-upgrade to Gen2:** If you prefer to control when to upgrade, you can perform the upgrade yourself. If your region is not yet supported, you can migrate your DW to a region that is supported and then perform the upgrade yourself.
 
-## Automated Schedule and Region Availability Table*
-- Dates are subject to change. Check back to see when your region becomes available.
-- *\** indicates a specific schedule for the region is currently unavailable.
+## Automated Schedule and Region Availability Table
+The following table summarizes by region when the Lower Gen2 compute tier will be available and when auotmatic upgrades start. The dates are subject to change. Check back to see when your region becomes available.
 
-| **Region** | **Lower Gen2 Compute Tier Availability Date** | **Automated Upgrade Schedule** |
+\* indicates a specific schedule for the region is currently unavailable.
+
+| **Region** | **Lower Gen2 available** | **Automatic upgrades begin** |
 |:--- |:--- |:--- |
 | Australia Central 1 |March 1, 2019 |June 15, 2019 |
 | Australia Central 2 |March 1, 2019 |June 15, 2019 |
@@ -92,49 +93,38 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
 ## Migration frequently asked questions
 
-Q: How will the upgrades affect my automation scripts?
+**Q: Does Gen2 cost the same as Gen1?**
+- A: Yes.
 
-A: Any automation scripts that references a Service Level Objective should be changed to correspond to the Gen2 equivalent.  See details [here](https://review.docs.microsoft.com/en-us/azure/sql-data-warehouse/upgrade-to-latest-generation?branch=pr-en-us-65326#sign-in-to-the-azure-portal)
+**Q: How will the upgrades affect my automation scripts?**
+- A: Any automation scripts that references a Service Level Objective should be changed to correspond to the Gen2 equivalent.  See details [here](https://review.docs.microsoft.com/en-us/azure/sql-data-warehouse/upgrade-to-latest-generation?branch=pr-en-us-65326#sign-in-to-the-azure-portal)
 
-Q: How long does a self upgrade normally take?
+**Q: How long does a self upgrade normally take?**
+- A: You can upgrade in place or upgrade from a restore point.  Upgrading in place will cause your data warehouse to pause and resume.  A background process will continue while the data warehouse is online.  If you are upgrading through a restore, this will take longer as it will have to go through the full restore process.
 
-A: You can upgrade in place or upgrade from a restore point.  Upgrading in place will cause your data warehouse to pause and resume.  A background process will continue while the data warehouse is online.  If you are upgrading through a restore, this will take longer as it will have to go through the full restore process.
-
-Q: How long will the auto upgrade take?
-
-A: The actual downtime for the upgrade is simply the time it takes to pause and resume the service.  This should take approximately between 5 to 10 min.  Beyond this down time, a background process will be running that will be running a storage migration. The time for the background process will vary dependent on the size of your data warehouse.
+**Q: How long will the auto upgrade take?**
+- A: The actual downtime for the upgrade is simply the time it takes to pause and resume the service.  This should take approximately between 5 to 10 min.  Beyond this down time, a background process will be running that will be running a storage migration. The time for the background process will vary dependent on the size of your data warehouse.
 
 **Q: When will this automatic upgrade take place?**
-
-A: To minimize disruption to your business, the automated upgrades will take place during your elected maintenance schedule.
+- A: To minimize disruption to your business, the automated upgrades will take place during your elected maintenance schedule.
 
 **Q: What should I do if my background upgrade process seems to be stuck?**
-
-A: Kick off a re-index of your Columnstore tables and this will expedite the migration process.  Note that the re-indexing of the table will be offline during this operation.
-
-**Q: Does Gen2 cost the same as Gen1?**
-
-A: Yes.
+ - A: Kick off a re-index of your Columnstore tables and this will expedite the migration process.  Note that the re-indexing of the table will be offline during this operation.
 
 **Q: What if Gen2 does not have the Service Level Objective I have on Gen1?**
-
-A: If you are running a DW600 or DW1200 on Gen1, it is advised to use DW500c or DW1000c respectively since Gen2 provides more memory, resources, and higher performance than Gen1.
+- A: If you are running a DW600 or DW1200 on Gen1, it is advised to use DW500c or DW1000c respectively since Gen2 provides more memory, resources, and higher performance than Gen1.
 
 **Q: Can I disable geo-backup?**
+- A: No. This is an enterprise feature to preserve your data warehouse availability in the event a region becomes unavailable. Open a [support request](https://review.docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) if you have further concerns.
 
-A: No. This is an enterprise feature to preserve your data warehouse availability in the event a region becomes unavailable. Open a [support request](https://review.docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) if you have further concerns.
-
-**Q: Is there a difference in T-SQL language from Gen1 to Gen2?**
-
-A: There is no change in the T-SQL language surface from Gen1 to Gen2.
+**Q: Is there a difference in T-SQL syntax between Gen1 and Gen2?**
+- A: There is no change in the T-SQL language syntax from Gen1 to Gen2.
 
 **Q: Does Gen2 support Maintenance Windows?**
-
-A: Yes.
+- A: Yes.
 
 **Q : Will I be able to create new Gen1 instances after my region has been upgraded?**
-
-A: Once a region has been upgraded, new Gen1 creation will be disabled.
+- A: No. Once a region has been upgraded, new Gen1 creation will be disabled.
 
 ## Next Steps
 
