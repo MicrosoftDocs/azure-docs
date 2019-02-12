@@ -122,7 +122,7 @@ To cleanup Azure AD:
 
 - **Windows 10 devices** - Disable or delete Windows 10 devices in your on-premises AD, and let Azure AD Connect synchronize the changed device status to Azure AD.
 
-- **Windows 7/8** - Disable or delete Windows 10 devices in the Azure AD. You can't use Azure AD Connect to disable or delete Windows 7/8 devices in Azure AD.
+- **Windows 7/8** - Disable or delete Windows 7/8 devices in the Azure AD. You can't use Azure AD Connect to disable or delete Windows 7/8 devices in Azure AD.
 
 
 

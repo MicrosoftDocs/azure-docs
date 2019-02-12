@@ -3,9 +3,8 @@ title: View tenant applications - Azure Active Directory | Microsoft Docs
 description: Use the Azure portal to view the applications in your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/25/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: arvinh
 ms.custom: it-pro
 

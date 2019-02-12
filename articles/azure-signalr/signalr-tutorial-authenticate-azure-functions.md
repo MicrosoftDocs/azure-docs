@@ -335,7 +335,7 @@ So far, the chat app works anonymously. In Azure, you will use [App Service Auth
 
 When a sending message, the app can decide whether to send it to all connected clients, or only to the clients that have been authenticated to a given user.
 
-1. In VS Code, open **SendMessage/function.json**.
+1. In VS Code, open **SignalRInfo/function.json**.
 
 1. Insert a [binding expression](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings#binding-expressions-and-patterns) into the *userId* property of the *SignalRConnectionInfo* binding: `{headers.x-ms-client-principal-name}`. This sets the value to the username of the authenticated user. The attribute should now look like this.
 
@@ -497,4 +497,4 @@ To clean up the resources created in this tutorial, delete the resource group us
 In this tutorial, you learned how to use Azure Functions with Azure SignalR Service. Read more about building real-time serverless applications with SignalR Service bindings for Azure Functions.
 
 > [!div class="nextstepaction"]
-> [Build Real-time Apps with Azure Functions](signalr-concept-azure-functions.md)
+> [Build Real-time Apps with Azure Functions](signalr-overview-azure-functions.md)

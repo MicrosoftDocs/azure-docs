@@ -5,7 +5,7 @@ services: azure-stack
 keywords: 
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
@@ -182,7 +182,7 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 
 | Endpoint (VIP) | Protocol | Ports |
 |----------------|----------|-------|
-| AdminHosting | HTTPS | 443 |
+| Admin Hosting | HTTPS | 443 |
 | Hosting | HTTPS | 443 |
 
 ### Update existing publishing Rules (Post enablement of extension host)
