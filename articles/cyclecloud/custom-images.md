@@ -34,7 +34,7 @@ The `ImageName` attribute is used to specify that a cluster node should use a pr
 ```
 
 > [!NOTE]
-> For CycleCloud versions prior to 7.7.0, `InstallJetpack` must be set to true and custom images need to be specified using their Publisher/Offer/Sku/Version explicitly:
+> For CycleCloud versions prior to 7.7.0, `InstallJetpack` must be set to true and marketplace images need to be specified using their Publisher/Offer/Sku/Version explicitly:
 
 ``` ini
 [[node marketplace]]
@@ -80,7 +80,7 @@ or
       $> az vm image accept-terms --publisher PUBLISHER --offer OFFER --plan SKU
 ```
 
-## Use a Custom Image in a CycleCloud Node on CycleCloud be
+## Use a Custom Image in a CycleCloud Node on CycleCloud prior to 7.7
 
 Custom Images are useful for pre-installed applications in a cluster, or to fulfill business or security requirements.
 
