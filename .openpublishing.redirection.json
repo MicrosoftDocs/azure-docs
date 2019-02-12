@@ -12194,7 +12194,7 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-retrain-models-programmatically.md",
-      "redirect_url": "/azure/machine-learning/studio/retrain-models-programmatically",
+      "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
       "redirect_document_id": false
     },
     {
