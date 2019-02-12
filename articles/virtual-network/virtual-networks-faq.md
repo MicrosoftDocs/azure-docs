@@ -240,6 +240,7 @@ The following resources use Basic Load Balancers which means you cannot communic
 - VM Scale Sets with Basic Load Balancers 
 - Service Fabric clusters 
 - SQL Always-on
+- SQL MI
 
 You can connect to these resource via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
