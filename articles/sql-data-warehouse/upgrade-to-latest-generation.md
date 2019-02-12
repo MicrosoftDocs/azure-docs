@@ -193,22 +193,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
     ![Automatic Restore Points](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
 
-5. For User-Defined Restore Points, **select a Restore point** or **Create a new user-defined restore point**. Choose a server in a Gen2 supported geographic region. Select the suggested performance level for the data warehouse based on your current performance level on Compute Optimized Gen1 tier by using the mapping below:
-   | Compute Optimized Gen1 tier | Compute Optimized Gen2 tier |
-   |: -------------------------: | :-------------------------: |
-   |            DW100            |           DW100c            |
-   |            DW200            |           DW200c            |
-   |            DW300            |           DW300c            |
-   |            DW400            |           DW400c            |
-   |            DW500            |           DW500c            |
-   |            DW600            |           DW500c            |
-   |           DW1000            |           DW1000c           |
-   |           DW1200            |           DW1000c           |
-   |           DW1500            |           DW1500c           |
-   |           DW2000            |           DW2000c           |
-   |           DW3000            |           DW3000c           |
-   |           DW6000            |           DW6000c           |
-
+5. For User-Defined Restore Points, **select a Restore point** or **Create a new user-defined restore point**. Choose a server in a Gen2 supported geographic region. 
 
     ![User-defined Restore Points](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
