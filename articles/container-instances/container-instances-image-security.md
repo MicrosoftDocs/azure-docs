@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/11/2019
 ms.author: danlep
 ms.custom: 
 ---
@@ -26,7 +26,7 @@ This article introduces security considerations for using Azure Container Instan
 
 Containers are built from images that are stored in one or more repositories. These repositories can belong to a public registry, like [Docker Hub](https://hub.docker.com), or to a private registry. An example of a private registry is the [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/), which can be installed on-premises or in a virtual private cloud. There are also cloud-based private container registry services, including [Azure Container Registry](../container-registry/container-registry-intro.md). 
 
-A publicly available container image does not guarantee security. Container images consist of multiple software layers, and each software layer might have vulnerabilities. To help reduce the threat of attacks, you should store and retrieve images from a private registry, such as Azure Container Registry or Docker Trusted Registry. In addition to providing a managed private registry, Azure Container Registry supports [service principal-based authentication](../container-registry/container-registry-authentication.md) through Azure Active Directory for basic authentication flows. This authentication includes role-based access for read-only, write, and owner permissions.
+A publicly available container image does not guarantee security. Container images consist of multiple software layers, and each software layer might have vulnerabilities. To help reduce the threat of attacks, you should store and retrieve images from a private registry, such as Azure Container Registry or Docker Trusted Registry. In addition to providing a managed private registry, Azure Container Registry supports [service principal-based authentication](../container-registry/container-registry-authentication.md) through Azure Active Directory for basic authentication flows. This authentication includes role-based access for read-only (pull), write (push), and owner permissions.
 
 ### Monitor and scan container images
 
@@ -34,7 +34,7 @@ Security monitoring and scanning solutions such as [Twistlock](https://azuremark
 
 ### Protect credentials
 
-Containers can spread across several clusters and Azure regions. So you must secure credentials required for logins or API access, such as passwords or tokens. Ensure that only privileged users can access those containers in transit and at rest. Inventory all credential secrets, and then require developers to use emerging secrets-management tools that are designed for container platforms.  Make sure that your solution includes encrypted databases, TLS encryption for secrets data in transit, and least-privilege [role-based access control](../role-based-access-control/overview.md). [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md) is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, and passwords) for containerized applications. Because this data is sensitive and business critical, secure access to your key vaults so that only authorized applications and users can access them.
+Containers can spread across several clusters and Azure regions. So, you must secure credentials required for logins or API access, such as passwords or tokens. Ensure that only privileged users can access those containers in transit and at rest. Inventory all credential secrets, and then require developers to use emerging secrets-management tools that are designed for container platforms.  Make sure that your solution includes encrypted databases, TLS encryption for secrets data in transit, and least-privilege [role-based access control](../role-based-access-control/overview.md). [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md) is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, and passwords) for containerized applications. Because this data is sensitive and business critical, secure access to your key vaults so that only authorized applications and users can access them.
 
 ## Considerations for the container ecosystem
 
@@ -42,17 +42,14 @@ The following security measures, implemented well and managed effectively, can h
 
 ### Use vulnerability management as part of your container development lifecycle 
 
-By using effective vulnerability management throughout the container development lifecycle, you improve the odds that you can identify and resolve security concerns before they become a more serious problem.  
+By using effective vulnerability management throughout the container development lifecycle, you improve the odds that you can identify and resolve security concerns before they become a more serious problem. 
 
-### Scan for vulnerabilities before pushing images to the registry 
+### Scan for vulnerabilities 
 
-A container image registry is a service that stores container images and is hosted either by a partner or as a public/private registry such as [Docker Hub](https://hub.docker.com) and [Quay](https://quay.io/). 
+New vulnerabilities are discovered all the time, so scanning for and identifying vulnerabilities is a continuous process. Incorporate vulnerability scanning throughout the container lifecycle:
 
-As a final check after container development is complete, you should perform a vulnerability scan on containers before pushing the images to the registry.  
-
-### Continue scanning in the registry 
-
-New vulnerabilities are discovered all the time, so scanning for and identifying vulnerabilities is a continuous process. Continue to scan container images in the registry both to identify any flaws that were somehow missed during development and to address any newly discovered vulnerabilities that might exist in the code used in the container images.  
+* As a final check in your development pipeline, you should perform a vulnerability scan on containers before pushing the images to a public or private registry. 
+* Continue to scan container images in the registry both to identify any flaws that were somehow missed during development and to address any newly discovered vulnerabilities that might exist in the code used in the container images.  
 
 ### Map image vulnerabilities to running containers 
 
@@ -82,7 +79,7 @@ Part of managing security throughout the container lifecycle is to ensure the in
 
   Periodically audit images deployed in production to identify images that are out of date or have not been updated in a while. You might use blue-green deployment methodologies and rolling upgrade mechanisms to update container images without downtime. You can scan images by using tools described in the preceding section. 
 
-* A continuous integration (CI) pipeline to build images and integrated security scanning can help maintain secure private registries with secure container images. The vulnerability scanning built into the CI solution ensures that images that pass all the tests are pushed to the private registry from which production workloads are deployed. 
+* Use a continuous integration (CI) pipeline with integrated security scanning to build secure images and push them to your private registry. The vulnerability scanning built into the CI solution ensures that images that pass all the tests are pushed to the private registry from which production workloads are deployed. 
 
   A CI pipeline failure ensures that vulnerable images are not pushed to the private registry that’s used for production workload deployments. It also automates image security scanning if there’s a significant number of images. Otherwise, manually auditing images for security vulnerabilities can be painstakingly lengthy and error prone. 
 
@@ -104,13 +101,13 @@ A whitelist not only reduces the attack surface but can also provide a baseline 
 
 ### Enforce network segmentation on running containers  
 
-To help protect containers in one segment from security risks in another segment, maintain network segmentation (or nano-segmentation) or segregation between running containers. Maintaining network segmentation may also be necessary for using containers in industries that are required to meet compliance mandates.  
+To help protect containers in one subnet from security risks in another subnet, maintain network segmentation (or nano-segmentation) or segregation between running containers. Maintaining network segmentation may also be necessary for using containers in industries that are required to meet compliance mandates.  
 
 For example, the partner tool [Aqua](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) provides an automated approach for nano-segmentation. Aqua monitors container network activities in runtime. It identifies all inbound and outbound network connections to/from other containers, services, IP addresses, and the public internet. Nano-segmentation is automatically created based on monitored traffic. 
 
 ### Monitor container activity and user access 
 
-As with any IT environment, you should [consistently monitor activity](../log-analytics/log-analytics-containers.md) and user access to your container ecosystem to quickly identify any suspicious or malicious activity. The Container Monitoring solution in Log Analytics can help you view and manage your Docker and Windows container hosts in a single location. By using Log Analytics, you can:
+As with any IT environment, you should [consistently monitor activity](../log-analytics/log-analytics-containers.md) and user access to your container ecosystem to quickly identify any suspicious or malicious activity. The Azure Container Monitoring solution can help you view and manage your Docker and Windows container hosts in a single location. For example:
 
 * View detailed audit information that shows commands used with containers. 
 * Troubleshoot containers by viewing and searching centralized logs without having to remotely view Docker or Windows hosts.  
