@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory Mapping Data Flow Reference Node
-description: ADF Data Flow will add a reference node for joins, lookups, unions
+description: Data Factory Data Flow will add a reference node for joins, lookups, unions
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -13,7 +13,7 @@ ms.date: 01/31/2019
 
 ![Reference Node](media/data-flow/referencenode.png "reference node")
 
-# ADF Mapping Data Flow Reference Node
+# Azure Data Factory Mapping Data Flow Reference Node
 
 A reference node is automatically added to the canvas to signify that the node it is attached to references another existing node on the canvas. Think of a reference node as a pointer or a reference to another data flow transformation.
 

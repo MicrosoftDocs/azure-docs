@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory Mapping Data Flow Inspect and Data Preview
-description: ADF Mapping Data Flow has a pane that shows data flow metadata (Inspect) and data preview when in debug mode (data preview)
+description: Azure Data Factory Mapping Data Flow has a pane that shows data flow metadata (Inspect) and data preview when in debug mode (data preview)
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -11,7 +11,7 @@ ms.date: 02/01/2019
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-# ADF Mapping Data Flow Transformation Inspect Tab
+# Azure Data Factory Mapping Data Flow Transformation Inspect Tab
 
 ![Inspect Pane](media/data-flow/agg3.png "Inspect Pane")
 

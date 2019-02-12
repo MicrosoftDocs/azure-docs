@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory Mapping Data Flow Optimize Tab
-description: Optimize ADF Mapping Data Flows with Optimize Tab Partition Settings
+description: Optimize Azure Data Factory Mapping Data Flows with Optimize Tab Partition Settings
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -11,13 +11,13 @@ ms.date: 01/31/2019
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-# ADF Data Flow Transformation Optimize Tab
+# Azure Data Factory Data Flow Transformation Optimize Tab
 
 Each Data Flow transformation has an "Optimize" tab. The optimize tab contains optional settings to configure partitioning schemes for data flows.
 
 <img src="media/data-flow/opt001.png" width="800">
 
-The default setting is "use current partitioning". Current Partitioning instructs ADF to use the partitioning scheme native to Data Flows running on Spark in Azure Databricks. Generally, this is the recommended approach.
+The default setting is "use current partitioning". Current Partitioning instructs Azure Data Factory to use the partitioning scheme native to Data Flows running on Spark in Azure Databricks. Generally, this is the recommended approach.
 
 However, there are instances where you may wish to adjust the partitioning. For instance, if you want to output your transformations to a single file in the lake, then chose "single partition" on the Optimize tab for partitioning in the Sink Transformation.
 
@@ -33,7 +33,7 @@ Round Robin is simple partition that automatically distributes data equally acro
 
 ### Hash
 
-ADF will produce a hash of columns to produce uniform partitions such that rows with similar values will fall in the same partition. When using the Hash option, test for possible partition skew. You can set the number of physical partitions.
+Azure Data Factory will produce a hash of columns to produce uniform partitions such that rows with similar values will fall in the same partition. When using the Hash option, test for possible partition skew. You can set the number of physical partitions.
 
 ### Dynamic Range
 

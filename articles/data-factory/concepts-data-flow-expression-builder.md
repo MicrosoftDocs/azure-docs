@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory Mapping Data Flow Expression Builder
-description: The Expression Builder for ADF Mapping Data Flows
+description: The Expression Builder for Azure Data Factory Mapping Data Flows
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
@@ -15,11 +15,11 @@ ms.date: 01/30/2019
 
 ## Expression Builder
 
-In ADF Mapping Data Flow, you'll find expression boxes where you can enter expressions for data transformation. Use columns, fields, variables, parameters, functions from your data flow in these boxes. To build the expression, use the Expression Builder, which is launched by clicking in the expression text box inside the transformation. You'll also sometimes see "Computed Column" options when selecting columns for transformation. When you click that, you'll also see the Expression Builder launched.
+In Azure Data Factory Mapping Data Flow, you'll find expression boxes where you can enter expressions for data transformation. Use columns, fields, variables, parameters, functions from your data flow in these boxes. To build the expression, use the Expression Builder, which is launched by clicking in the expression text box inside the transformation. You'll also sometimes see "Computed Column" options when selecting columns for transformation. When you click that, you'll also see the Expression Builder launched.
 
 ![Expression Builder](media/data-flow/expression.png "Expression Builder")
 
-The Expression Builder tool defaults to the text editor option. the auto-complete feature reads from the entire ADF Data Flow object model with syntax checking and highlighting.
+The Expression Builder tool defaults to the text editor option. the auto-complete feature reads from the entire Azure Data Factory Data Flow object model with syntax checking and highlighting.
 
 ![Expression Builder auto-complete](media/data-flow/expb1.png "Expression Builder auto-complete")
 
@@ -33,11 +33,11 @@ At the top left of the Expression Builder UI, you will see a field called "Curre
 
 ![Expression Builder](media/data-flow/exp4b.png "Expression Data Preview")
 
-When you are working on your expressions, you can optionally switch on Debug mode from the ADF Data Flow design surface, enabling live in-progress preview of your data results from the expression that you are building. Real-time live debugging is enabled for your expressions.
+When you are working on your expressions, you can optionally switch on Debug mode from the Azure Data Factory Data Flow design surface, enabling live in-progress preview of your data results from the expression that you are building. Real-time live debugging is enabled for your expressions.
 
 ![Debug Mode](media/data-flow/debugbutton.png "Debug Button")
 
-w
+
 ![Expression Builder](media/data-flow/exp5.png "Expression Data Preview")
 
 ## Comments
@@ -48,14 +48,16 @@ Add comments to your expressions using single line and multi-line comment syntax
 
 ## Regular Expressions
 
-The ADF Data Flow expression language, [full reference documentation here](http://aka.ms/dataflowexpressions), enables functions that include regular expression syntax. When using regular expression functions, the Expression Builder will try to interpret backslash (\) as an escape character sequence. When using backslashes in your regular expression, either enclose the entire regex in ticks ` ` or use a double backslash.
+The Azure Data Factory Data Flow expression language, [full reference documentation here](http://aka.ms/dataflowexpressions), enables functions that include regular expression syntax. When using regular expression functions, the Expression Builder will try to interpret backslash (\) as an escape character sequence. When using backslashes in your regular expression, either enclose the entire regex in ticks ` ` or use a double backslash.
 
 Example using ticks
 
 ```
 regex_replace('100 and 200', `(\d+)`, 'digits')
 ```
+
 or using double slash
+
 ```
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```

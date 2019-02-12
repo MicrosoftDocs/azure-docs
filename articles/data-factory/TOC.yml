@@ -119,25 +119,25 @@
   - name: Mapping Data Flows
     items:
     - name: Mapping Data Flow concepts
-      href: concepts-adf-data-flow-overview.md
+      href: concepts-data-flow-overview.md
     - name: Debug Mode
-      href: concepts-adf-data-flow-debug-mode.md
+      href: concepts-data-flow-debug-mode.md
     - name: Schema Drift
-      href: concepts-adf-data-flow-schema-drift.md
+      href: concepts-data-flow-schema-drift.md
     - name: Inspect Pane
-      href: concepts-adf-data-flow-inspect-pane.md
+      href: concepts-data-flow-inspect-pane.md
     - name: Column Patterns
-      href: concepts-adf-data-flow-column-pattern.md
+      href: concepts-data-flow-column-pattern.md
     - name: Data Flow Monitoring
-      href: concepts-adf-data-flow-monitoring.md     
+      href: concepts-data-flow-monitoring.md     
     - name: Move Nodes
-      href: concepts-adf-data-flow-move-nodes.md
+      href: concepts-data-flow-move-nodes.md
     - name: Optimize Tab
-      href: concepts-adf-data-flow-optimize-tab.md
+      href: concepts-data-flow-optimize-tab.md
     - name: Expression Builder
-      href: concepts-adf-data-flow-expression-builder.md
+      href: concepts-data-flow-expression-builder.md
     - name: Reference Nodes
-      href: concepts-adf-data-flow-reference-node.md
+      href: concepts-data-flow-reference-node.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Understanding pricing
