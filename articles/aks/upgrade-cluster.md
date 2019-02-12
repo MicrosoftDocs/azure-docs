@@ -27,7 +27,9 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> When you upgrade an AKS cluster, Kubernetes minor versions cannot be skipped. For example, upgrades between *1.10.x* -> *1.11.x* or *1.11.x* -> *1.12.x* are allowed, however *1.10.x* -> *1.12.x* is not. To upgrade, from *1.10.x* -> *1.12.x*, first upgrade from *1.10.x* -> *1.11.x*, then upgrade from *1.11.x* -> *1.12.x*.
+> When you upgrade an AKS cluster, Kubernetes minor versions cannot be skipped. For example, upgrades between *1.10.x* -> *1.11.x* or *1.11.x* -> *1.12.x* are allowed, however *1.10.x* -> *1.12.x* is not.
+>
+> To upgrade, from *1.10.x* -> *1.12.x*, first upgrade from *1.10.x* -> *1.11.x*, then upgrade from *1.11.x* -> *1.12.x*.
 
 The following example output shows that the cluster can be upgraded to version *1.11.5* or *1.11.6*:
 
@@ -74,6 +76,6 @@ This article showed you how to upgrade an existing AKS cluster. To learn more ab
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-upgrades]: cli/azure/aks#az-aks-get-upgrades
+[az-aks-get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [az-aks-show]: /cli/azure/aks#az-aks-show
