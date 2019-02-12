@@ -93,11 +93,11 @@ Type the following commands to create a secret in the key vault called *AppSecre
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
 ```
 
-## Create a virtual machine
+## Create a Linux virtual machine
 
-Create a VM by using the [az vm create](/cli/azure/vm) command.
+Create a VM by using the `az vm create` command.
 
-The following example creates a VM named *myVM* and adds a user account named *azureuser*. The `--generate-ssh-keys` parameter automatically generates an SSH key and puts it in the default key location (*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-value` option.
+The following example creates a VM named **myVM** and adds a user account named **azureuser**. The `--generate-ssh-keys` parameter automatically generates an SSH key and puts it in the default key location (**~/.ssh**). To create a specific set of keys instead, use the `--ssh-key-value` option.
 
 ```azurecli-interactive
 az vm create \
@@ -123,11 +123,11 @@ It takes a few minutes to create the VM and supporting resources. The following 
 }
 ```
 
-Note your own `publicIpAddress` value in the output from your VM. This address is used to access the VM in the next steps.
+Make a note of your own `publicIpAddress` in the output from your VM. You'll used this address to access the VM in later steps.
 
-## Assign an identity to the virtual machine
+## Assign an identity to the VM
 
-In this step, we're creating a system-assigned identity for the virtual machine. Run the following command in the Azure CLI:
+Create a system-assigned identity to the virtual machine by running the following command:
 
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
@@ -142,57 +142,70 @@ The output of the command is as follows. Note the value of **systemAssignedIdent
 }
 ```
 
-## Give the virtual machine identity permission to the key vault
+Make a note of the `systemAssignedIdentity`. You use it the next step.
 
-Now we can give the identity permission to the key vault. Run the following command:
+## Give the VM identity permission to Key Vault
+
+Now you can give Key Vault permission to the identity you created. Run the following command:
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## Log in to the virtual machine
+## Sign in to the VM
 
-Log in to the virtual machine by following [this tutorial](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+Sign in to the virtual machine by using a terminal.
 
-## Create and run the sample Python app
+```terminal
+ssh azureuser@<PublicIpAddress>
+```
 
-The following example file is named *Sample.py*. 
-It uses the [requests](https://pypi.org/project/requests/2.7.0/) library to make HTTP GET calls.
+## Install python library on the VM
 
-## Edit Sample.py
+Download and install the [requests](https://pypi.org/project/requests/2.7.0/) python library to make HTTP GET calls.
 
-After you create Sample.py, open the file and copy the following code. The code is a two-step process:
+## Create, edit, and run the sample Python app
 
-1. Fetch a token from the local MSI endpoint on the VM. The endpoint then fetches a token from Azure Active Directory.
-2. Pass the token to the key vault and fetch your secret. 
+Create a python file called **Sample.py**.
 
-   ```python
-   # importing the requests library
-    import requests
+Open Sample.py and edit it to contain the following code:
 
-   # Step 1: Fetch an access token from an MSI-enabled Azure resource      
-    # Note that the resource here is https://vault.azure.net for the public cloud, and api-version is 2018-02-01
-    MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
-    r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"})
+      ```python
+      # importing the requests library
+       import requests
+  
+      # Step 1: Fetch an access token from an MSI-enabled Azure resource      
+       # Note that the resource here is https://vault.azure.net for the public cloud, and api-version is 2018-02-01
+       MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
+       r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"})
 
-   # Extracting data in JSON format 
-    # This request gets an access token from Azure Active Directory by using the local MSI endpoint
-    data = r.json()
+      # Extracting data in JSON format 
+       # This request gets an access token from Azure Active Directory by using the local MSI endpoint
+       data = r.json()
 
-   # Step 2: Pass the access token received from the previous HTTP GET call to the key vault
-    KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
-    kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
+      # Step 2: Pass the access token received from the previous HTTP GET call to the key vault
+       KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
+       kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
 
-   print(kvSecret.json()["value"])
-   ```
+      print(kvSecret.json()["value"])
+      ```
 
-By running the following command, you should see the secret value:
+The preceding code performs a two-step process:
+
+   1. Fetches a token from the local MSI endpoint on the VM. The endpoint then fetches a token from Azure Active Directory.
+   1. Passes the token to the key vault and fetches your secret.
+
+Running the following command. You should see the secret value.
 
 ```console
 python Sample.py
 ```
 
-The preceding code shows you how to do operations with Azure Key Vault in a Windows virtual machine. 
+Now, you've learned how to do operations with Azure Key Vault in a python app running on a Linux virtual machine.
+
+## Clean up resources
+
+Delete the resource group, virtual machine, and all related resources when you no longer need them. To do so, select the resource group for the VM and select **Delete**.
 
 ## Next steps
 
