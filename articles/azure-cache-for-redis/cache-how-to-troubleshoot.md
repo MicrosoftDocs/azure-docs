@@ -3,7 +3,7 @@ title: How to troubleshoot Azure Cache for Redis | Microsoft Docs
 description: Learn how to resolve common issues with Azure Cache for Redis.
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 

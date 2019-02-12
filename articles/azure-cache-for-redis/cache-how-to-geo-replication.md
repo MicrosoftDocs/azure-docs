@@ -3,7 +3,7 @@ title: How to configure Geo-replication for Azure Cache for Redis | Microsoft Do
 description: Learn how to replicate your Azure Cache for Redis instances across geographical regions.
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 

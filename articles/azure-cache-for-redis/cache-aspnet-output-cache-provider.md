@@ -3,7 +3,7 @@ title: Cache ASP.NET Output Cache Provider
 description: Learn how to cache ASP.NET Page Output using Azure Cache for Redis
 services: azure-cache-for-redis
 documentationcenter: na
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: tysonn
 

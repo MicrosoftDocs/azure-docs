@@ -3,7 +3,7 @@ title: Quickstart to learn how to use Azure Cache for Redis with Java | Microsof
 description: In this quickstart, you will create a new Java app that uses Azure Cache for Redis
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 
