@@ -115,21 +115,24 @@ Before you move forward towards building your application, follow the steps belo
 
     import android.support.v7.app.AppCompatActivity;
     import android.os.Bundle;
-
-    import com.microsoft.azure.maps.demo.R;
+    import com.microsoft.azure.maps.mapcontrol.AzureMaps;
     import com.microsoft.azure.maps.mapcontrol.MapControl;
     import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
     import com.microsoft.azure.maps.mapcontrol.options.MapStyle;
     import com.microsoft.azure.maps.mapcontrol.source.DataSource;
 
     public class MainActivity extends AppCompatActivity {
+        
+        static{
+            AzureMaps.setSubscriptionKey("{subscription-key}");
+        }
 
         MapControl mapControl;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_maps);
+            setContentView(R.layout.activity_main);
 
             mapControl = findViewById(R.id.mapcontrol);
 
@@ -196,23 +199,27 @@ It will take a few seconds for android studio to build the application. After th
 In order to add a marker on to your map, Add `mapView.getMapAsync()` function to the `MainActivity.java`. The final `MainActivity.java` should look like the following:
 
 ```java
-package com.microsoft.azure.maps.demo.ui;
+package com.microsoft.azure.maps.myapplication.ui;
 import android.app.Activity;
 import android.os.Bundle;
 import com.mapbox.geojson.Feature;
 import com.mapbox.geojson.Point;
-import com.microsoft.azure.maps.demo.R;
+import com.microsoft.azure.maps.mapcontrol.AzureMaps;
 import com.microsoft.azure.maps.mapcontrol.MapControl;
 import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
 import com.microsoft.azure.maps.mapcontrol.source.DataSource;
 import static com.microsoft.azure.maps.mapcontrol.options.SymbolLayerOptions.iconImage;
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
+    
+    static{
+            AzureMaps.setSubscriptionKey("{subscription-key}");
+        }
 
     MapControl mapControl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.activity_main);
 
         mapControl = findViewById(R.id.mapcontrol);
 

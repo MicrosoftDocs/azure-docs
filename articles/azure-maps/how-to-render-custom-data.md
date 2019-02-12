@@ -15,7 +15,7 @@ ms.custom: mvc
 
 This article shows you how to use [static image service](https://docs.microsoft.com/rest/api/maps/render/getmapimage) with image composition functionality to allow overlays on top of a raster map. Image composition includes the ability to get a raster tile back with additional data like custom pushpins, labels and geometry overlays. To render custom pushpins, labels and geometry, we will use the postman application. Open the Postman app, click New | Create New, select and name a collection or folder to save it to, and click Save.
 
-We will use Azure Maps Data Service APIs to store and render overlays. 
+We will use Azure Maps [Data Service APIs](https://docs.microsoft.com/rest/api/maps/data) to store and render overlays. 
 
 
 ## Prerequisites
@@ -184,5 +184,5 @@ The response image should look like the following:
 
 ## Next steps
 
-* Explore the [Azure Maps Get Map Image API documentation](https://docs.microsoft.com/rest/api/maps/search).
+* Explore the [Azure Maps Get Map Image API](https://docs.microsoft.com/rest/api/maps/search) documentation.
 * To learn more about Azure Maps Data Service functionalities, see [service Documentation](https://docs.microsoft.com/rest/api/maps/data).
