@@ -18,7 +18,16 @@ In this tutorial, you'll build a [Windows Presentation Foundation (WPF)](https:/
 
 What is WPF? It is a UI framework that creates desktop client applications. The WPF development platform supports a broad set of application development features, including an application model, resources, controls, graphics, layout, data binding, documents, and security. It is a subset of the .NET Framework, so if you have previously built applications with the .NET Framework using ASP.NET or Windows Forms, the programming experience should be familiar. WPF uses the Extensible Application Markup Language (XAML) to provide a declarative model for application programming, which we'll review in the coming sections.
 
-This table lists each of the services that we'll use in this tutorial. Follow the link to browse the API reference for each feature.
+In this tutorial, you'll learn how to:
+
+> [!div class="checklist"]
+> * Create a WPF project in Visual Studio
+> * Add assemblies and NuGet packages to your project
+> * Create your application front-end with XAML
+> * Use the Translator Text API to get languages, translate text, and detect the source language
+> * Use the Bing Spell Check API to validate your input and improve translation accuracy
+
+This is a list of the Cognitive Services used in this tutorial. Follow the link to browse the API reference for each feature.
 
 | Service | Feature | Description |
 |---------|---------|-------------|
@@ -26,16 +35,6 @@ This table lists each of the services that we'll use in this tutorial. Follow th
 | Translator Text | [Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Translate text into more than 75 languages. |
 | Translator Text | [Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Detect the language of the input text. Includes confidence score for detection. |
 | Bing Spell Check | [Spell Check](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Correct spelling errors to improve translation accuracy. |
-
-Here's what we'll cover in this tutorial:
-
-> [!div class="checklist"]
-> * Prerequisites
-> * Create a WPF project in Visual Studio
-> * Add assemblies and NuGet packages to your project
-> * Create your application front-end with XAML
-> * Use the Translator Text API to get languages, translate text, and detect the source language
-> * Use the Bing Spell Check API to validate your input and improve translation accuracy
 
 ## Prerequisites
 
@@ -155,7 +154,7 @@ That's it. You're form is ready. Now let's write some code to call Text Translat
 > [!NOTE]
 > Feel free to tweak this form or create your own.
 
-## Setup MainWindow
+## Set up MainWindow (Needs better name)
 
 `MainWindow.xaml.cs` contains the code that controls our application. In the next few sections we're going to add code to populate our drop-down menus, and to call a handful of API exposed by Translator Text and Bing Spell Check.
 
@@ -165,81 +164,76 @@ That's it. You're form is ready. Now let's write some code to call Text Translat
   * The `Detect` method of the Translator Text API is called to determine the text langauge of `TextToTranslate`.
   * Bing Spell Check is used to validate `TextToTranslate` and adjust misspellings.
 
+All of our project is encapsulated in the `MainWindow : Window` class. Let's start by adding code to set your subscription key, declare endpoints for Translator Text and Bing Spell Check, and initialize the application.
 
+1. In Visual Studio, select the tab for `MainWindow.xaml.cs`.
+2. Replace the pre-populated `using` statements with the following.
+   ```csharp
+   using System;
+   using System.Windows;
+   using System.Net;
+   using System.Net.Http;
+   using System.IO;
+   using System.Collections.Generic;
+   using System.Linq;
+   using System.Text;
+   using Newtonsoft.Json;
+   ```
+3. Locate the `MainWindow : Window` class, and replace it:
+   ```csharp
+   {
+       // This sample uses the Cognitive Services subscription key for all services. To learn more about
+       // authentication options, see: https://docs.microsoft.com/azure/cognitive-services/authentication.
+       const string COGNITIVE_SERVICES_KEY = "YOUR_COG_SERVICES_KEY";
+       // Endpoints for Translator Text and Bing Spell Check
+       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api- version=3.0";
+       const string BING_SPELL_CHECK_API_ENDPOINT = "https://westus.api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
+       // An array of language codes
+       private string[] languageCodes;
 
-### Use Translator Text
+       // Dictionary to map language codes from friendly name (sorted case-insensitively on language name)
+       private SortedDictionary<string, string> languageCodesAndTitles =
+           new SortedDictionary<string, string>(Comparer<string>.Create((a, b) => string.Compare(a, b, true)));
 
-### Use Bing Spell Check
+       public MainWindow()
+       {
+           // Display a message if unexpected error is encountered
+           AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleExceptions);
 
+           if (COGNITIVE_SERVICES_KEY.Length != 32)
+           {
+               MessageBox.Show("One or more invalid API subscription keys.\n\n" +
+                   "Put your keys in the *_API_SUBSCRIPTION_KEY variables in MainWindow.xaml.cs.",
+                   "Invalid Subscription Key(s)", MessageBoxButton.OK, MessageBoxImage.Error);
+               System.Windows.Application.Current.Shutdown();
+           }
+           else
+           {
+               // Start GUI
+               InitializeComponent();
+               // Get languages for drop-downs
+               GetLanguagesForTranslate();
+               // Populate drop-downs with values from GetLanguagesForTranslate
+               PopulateLanguageMenus();
+           }
+       }
+   // NOTE:
+   // In the following sections, we'll add more code to this class.
+   }
+   ```
 
+In this code block, we've declared two member variables that contain information about available languages for translation:
 
-## The MainWindow class
+| Variable | Type | Description |
+|----------|------|-------------|
+|`languageCodes` | Array of strings |C aches the language codes. The Translator service uses short codes, such as `en` for English, to identify languages. |
+|`languageCodesAndTitles` | Sorted dictionary | Maps the "friendly" names in the user interface back to the short codes used in the API. Kept sorted alphabetically without regard for case. |
 
-The code-behind file `MainWindow.xaml.cs` is where the code goes that makes the program do what it does. The work happens at two times:
-
-* When the program starts and `MainWindow` is instantiated, it retrieves the language list using Translator's  and  APIs and populates the drop-down menus with them. This task is done once, at the beginning of each session.
-
-* When the user clicks the **Translate** button, the user's language selections are retrieved and the text they entered, and then the `Translate` API is called to perform the translation. Other functions might also be called to determine the language of the text and to correct its spelling before translation.
-
-Take a look at the beginning of the class:
-
-```csharp
-public partial class MainWindow : Window
-{
-    // Translator text subscription key from Microsoft Azure dashboard
-    const string TEXT_TRANSLATION_API_SUBSCRIPTION_KEY = "ENTER KEY HERE";
-    const string TEXT_ANALYTICS_API_SUBSCRIPTION_KEY = "ENTER KEY HERE";
-    const string BING_SPELL_CHECK_API_SUBSCRIPTION_KEY = "ENTER KEY HERE";
-
-    public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api-version=3.0";
-    const string TEXT_ANALYTICS_API_ENDPOINT = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/";
-    const string BING_SPELL_CHECK_API_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
-
-    private string[] languageCodes;     // array of language codes
-
-    // Dictionary to map language code from friendly name (sorted case-insensitively on language name)
-    private SortedDictionary<string, string> languageCodesAndTitles =
-        new SortedDictionary<string, string>(Comparer<string>.Create((a, b) => string.Compare(a, b, true)));
-
-    public MainWindow()
-    {
-        // at least show an error dialog if there's an unexpected error
-        AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleExceptions);
-
-        if (TEXT_TRANSLATION_API_SUBSCRIPTION_KEY.Length != 32
-            || TEXT_ANALYTICS_API_SUBSCRIPTION_KEY.Length != 32
-            || BING_SPELL_CHECK_API_SUBSCRIPTION_KEY.Length != 32)
-        {
-            MessageBox.Show("One or more invalid API subscription keys.\n\n" +
-                "Put your keys in the *_API_SUBSCRIPTION_KEY variables in MainWindow.xaml.cs.",
-                "Invalid Subscription Key(s)", MessageBoxButton.OK, MessageBoxImage.Error);
-            System.Windows.Application.Current.Shutdown();
-        }
-        else
-        {
-            InitializeComponent();          // start the GUI
-            GetLanguagesForTranslate();     // get codes and friendly names of languages that can be translated
-            PopulateLanguageMenus();        // fill the drop-down language lists
-        }
-    }
-// more to come
-}
-```
-
-Two member variables declared here hold information about our languages:
-
-|||
-|-|-|
-|`languageCodes`<br>array of string|Caches the language codes. The Translator service uses short codes, such as `en` for English, to identify languages.|
-|`languageCodesAndTitles`<br>SortedDictionary|Maps the "friendly" names in the user interface back to the short codes used in the API. Kept sorted alphabetically without regard for case.|
-
-The first code executed by the application is the `MainWindow` constructor. First, set up the method `HandleExceptions` as the global error handler. This way, there is at least an error alert if an exception isn't handled.
-
-Next, check to make sure the API subscription keys are all exactly 32 characters long. If they aren't, the most likely reason is that *someone* hasn't pasted in their API keys. In this case, display an error message and bail out. (Passing this test doesn't mean the keys are valid, of course.)
+Then, within the `MainWindow` constructor, we've added error handling with `HandleExceptions`. This ensures that an alert is provided if an exception isn't handled. Then a check is run to confirm the subscription key provided is 32 characters in length. An error is thrown if the key is less than/greater than 32 characters.
 
 If there are keys that are at least the right length, the `InitializeComponent()` call gets the user interface rolling by locating, loading, and instantiating the XAML description of the main application window.
 
-Finally, set up the language drop-down menus. This task requires three separate method calls, which are covered in detail in the following sections.
+Last, we've added code to call methods to retrieve languages for translation and to populate the drop-down menus for our application front-end. Don't worry, we'll get to the code behind these calls soon.
 
 ## Get supported languages
 
