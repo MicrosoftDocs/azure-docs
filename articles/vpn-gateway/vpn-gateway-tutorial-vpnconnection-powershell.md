@@ -40,7 +40,7 @@ Complete the first tutorial: [Create VPN gateway with Azure PowerShell](vpn-gate
 The virtual network parameter values are listed below. Note the additional values for the local network gateway which represent your on-premises network. Change the values below based on your environment and network setup, then copy and paste to set the variables for this tutorial. If your Cloud Shell session times out, or you need to use a different PowerShell window, copy and paste the variables to your new session and continue the tutorial.
 
 >[!NOTE]
-> Be sure to change the values to coordinate with your on-premises network.
+> If you are using this to make a connection, be sure to change the values to match your on-premises network. If you are just running these steps as a tutorial, you don't need to make changes, but the connection will not work.
 >
 
 ```azurepowershell-interactive
@@ -52,11 +52,11 @@ $VNet1Prefix = "10.1.0.0/16"
 $VNet1ASN    = 65010
 $Gw1         = "VNet1GW"
 
-# On-premises network
+# On-premises network - LNGIP1 is the VPN device public IP address
 $LNG1        = "VPNsite1"
 $LNGprefix1  = "10.101.0.0/24"
 $LNGprefix2  = "10.101.1.0/24"
-$LNGIP1      = "Input the public IP address for your VPN device here"
+$LNGIP1      = "5.4.3.2"
 
 # Optional - on-premises BGP properties
 $LNGASN1     = 65011
@@ -184,12 +184,12 @@ Refer to [IPsec/IKE policy for S2S or VNet-to-VNet connections](vpn-gateway-ipse
 Add an additional S2S VPN connection to the same VPN gateway, create another local network gateway, and create a new connection between the new local network gateway and the VPN gateway. Use the following examples, making sure to modify the variables to reflect your own network configuration.
 
 ```azurepowershell-interactive
-# On-premises network
+# On-premises network - LNGIP2 is the VPN device public IP address
 $LNG2        = "VPNsite2"
 $Location2   = "West US"
 $LNGprefix21 = "10.102.0.0/24"
 $LNGprefix22 = "10.102.1.0/24"
-$LNGIP2      = "YourDevicePublicIP"
+$LNGIP2      = "4.3.2.1"
 $Connection2 = "VNet1ToSite2"
 
 New-AzLocalNetworkGateway -Name $LNG2 -ResourceGroupName $RG1 `
