@@ -29,7 +29,7 @@ In this article, we look at these stages with respect to Azure Data Lake Storage
 
 Link to quickstart here.
 
-### Create a file system
+## Create a file system
 
 You can do this a bunch of different ways.
 

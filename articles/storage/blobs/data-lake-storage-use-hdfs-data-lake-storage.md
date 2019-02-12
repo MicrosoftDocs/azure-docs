@@ -21,17 +21,49 @@ HDInsight provides access to the distributed file system that is locally attache
 >[!IMPORTANT]
 >HDInsight cluster billing starts after a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. To learn how to delete a cluster, see our [article on the topic](../../hdinsight/hdinsight-delete-cluster.md). However, data stored in a storage account with Data Lake Storage Gen2 enabled persists even after an HDInsight cluster is deleted.
 
+### Create a file system
+
+    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
+
+* Replace the `<file-system-name>` placeholder with the name that you want to give your file system.
+
+* Replace the `<storage-account-name>` placeholder with the name of your storage account.
+
 ### Get a list of files or directories
 
-    hdfs dfs -ls <args>
+    hdfs dfs -ls <path>
+
+Replace the `<path>` placeholder with the URI of the file system or file system folder.
+
+For example:
+
+    hdfs dfs -ls abfs://my-file-system@my-storage-account-name.dfs.core.windows.net/my-directory-name
 
 ### Create a directory
 
-    hdfs dfs -mkdir [-p] <paths>
+    hdfs dfs -mkdir [-p] <path>
 
-### Delete a file or a directory
+Replace the `<path>` placeholder with the root file system name or a folder within your file system.
 
-    hdfs dfs -rm [-skipTrash] URI [URI ...]
+### Delete a file
+
+    hdfs dfs -rm <file>
+
+Replace the `<file>` placeholder with the URI of the file that you want to delete.
+
+For example:
+
+    hdfs dfs -rmdir abfs://my-file-system@my-storage-account-name.dfs.core.windows.net/my-directory-name/my-file-name
+
+### Delete a directory
+
+    hdfs dfs -rmdir <directory>
+
+Replace the `<directory>` placeholder with the URI of the directory that you want to delete.
+
+For example:
+
+    hdfs dfs -rmdir abfs://my-file-system@my-storage-account-name.dfs.core.windows.net/my-directory-name
 
 ### Use the HDFS CLI with an HDInsight Hadoop cluster on Linux
 
