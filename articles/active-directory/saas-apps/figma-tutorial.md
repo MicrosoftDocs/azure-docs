@@ -152,7 +152,7 @@ To configure Azure AD single sign-on with Figma, perform the following steps:
 
 	g. Click **Save**.
 
-8. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
+8. On the **Set-up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
 
