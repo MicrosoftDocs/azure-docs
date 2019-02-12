@@ -105,8 +105,8 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=redis-cache
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.rediscache
-  - name: Azure CLI Preview
+    href: /powershell/module/az.rediscache
+  - name: Azure CLI
     href: /cli/azure/redis
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.redis

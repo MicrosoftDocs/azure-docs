@@ -423,6 +423,8 @@
       href: site-recovery-failover-to-azure-troubleshoot.md
     - name: Troubleshoot reprotection and failback of VMware VMs 
       href: vmware-azure-troubleshoot-failback-reprotect.md
+    - name: Troubleshoot Microsoft Azure Site Recovery Provider upgrade failures
+      href: vmware-azure-troubleshoot-upgrade-failures.md  
   - name: Hyper-V
     items:
     - name: Troubleshoot Hyper-V replication
