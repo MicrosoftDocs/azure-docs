@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create an Azure Data Explorer cluster and database using the CLI'
-description: Learn how to create an Azure Data Explorer cluster and database using the Azure CLI
+title: 'Quickstart: Create an Azure Data Explorer cluster and database by using the CLI'
+description: Learn how to create an Azure Data Explorer cluster and database by using the Azure CLI
 services: data-explorer
 author: radennis
 ms.author: radennis
@@ -10,9 +10,9 @@ ms.topic: quickstart
 ms.date: 2/4/2019
 ---
 
-# Create an Azure Data Explorer cluster and database using the CLI
+# Create an Azure Data Explorer cluster and database by using the CLI
 
-This quickstart describes how to create an Azure Data Explorer cluster and database using the Azure CLI.
+This quickstart describes how to create an Azure Data Explorer cluster and database by using the Azure CLI.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ If you choose to install and use the Azure CLI locally, this quickstart requires
 
 ## Configure the CLI parameters
 
-The following steps are not required if you're running commands in Cloud Shell. If you're running the CLI locally, follow these steps to sign in to Azure and to set your current subscription:
+The following steps are not required if you're running commands in Azure Cloud Shell. If you're running the CLI locally, follow these steps to sign in to Azure and to set your current subscription:
 
 1. Run the following command to sign in to Azure:
 
