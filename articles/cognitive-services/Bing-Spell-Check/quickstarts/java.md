@@ -20,7 +20,8 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 
 The Java Development Kit(JDK) 7 or later.
 
-[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements)]
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
+
 
 ## Create and initialize an application
 
@@ -109,7 +110,7 @@ The Java Development Kit(JDK) 7 or later.
     }
     ```
     
-**Response**
+## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
 

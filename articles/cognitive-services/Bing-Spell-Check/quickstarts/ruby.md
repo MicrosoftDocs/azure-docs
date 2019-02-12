@@ -20,7 +20,8 @@ Use this quickstart to make your first call to the Bing Spell Check REST API usi
 
 * [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) or later.
 
-[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements)]
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
+
 
 ## Create and initialize the application
 

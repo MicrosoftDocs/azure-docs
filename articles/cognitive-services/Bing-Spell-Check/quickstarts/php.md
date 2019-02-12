@@ -20,8 +20,8 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 
 * [PHP 5.6.x](http://php.net/downloads.php)
 
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements)]
 
 ## Get Spell Check results
 
