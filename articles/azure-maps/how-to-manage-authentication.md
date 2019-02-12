@@ -87,10 +87,10 @@ To view users or apps that have been granted RBAC for Azure Maps, navigate to **
 
 Once your app is registered and associated with Azure Maps, you can now request access tokens.
 
-1. If the application is intending to use user token authentication with our Azure Maps Web SDK (Web), you need to configure your html page with Azure Maps Client ID and Azure AD App ID.
+* If the application is intending to use user token authentication with our Azure Maps Web SDK (Web), you need to configure your html page with Azure Maps Client ID and Azure AD App ID.
 
 
-2. For applications using server/application authentication, request a token from Azure AD login endpoint https://login.microsoftonline.com with Azure Maps Client ID, Azure AD App ID, and Azure AD App registration password or certificate.
+* For applications using server/application authentication, request a token from Azure AD login endpoint https://login.microsoftonline.com with Azure Maps Client ID, Azure AD App ID, and Azure AD App registration password or certificate.
 
 For more information on requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 

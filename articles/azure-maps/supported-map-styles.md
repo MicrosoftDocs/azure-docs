@@ -63,4 +63,4 @@ This map style is a hybrid of roads and labels overlaid on top of satellite and 
 
 **Applicable APIs:**
 * JS map control
-* Map tile
+* [Map tile](https://docs.microsoft.com/rest/api/maps/render/getmaptile)

@@ -27,12 +27,12 @@ You can download [Android Studio](https://developer.android.com/studio/) for fre
 
 ## Create a project in Android Studio
 
-You'll need to create a new project with an empty activity. Select the following options when you create a new Android Studio project:
+You'll need to create a new project with an empty activity. Follow the steps below to create a new Android Studio project:
 
-* Under *Choose your project*, check "Phone and Tablet" as form factor that your application will run on.
-* Click *Empty  Activity* under form factor and click **Next**.
-* Under *Configure your project*, select `API 21: Android 5.0.0 (Lollipop)` as the minimum SDK. This is the lowest version supported by Azure Maps Android SDK.
-* Accept the default `Activity Name` and `Layout Name` and click **Finish**
+1. Under *Choose your project*, check "Phone and Tablet" as form factor that your application will run on.
+2. Click *Empty  Activity* under form factor and click **Next**.
+3. Under *Configure your project*, select `API 21: Android 5.0.0 (Lollipop)` as the minimum SDK. This is the lowest version supported by Azure Maps Android SDK.
+4. Accept the default `Activity Name` and `Layout Name` and click **Finish**
 
 See [Android Studio documentation](https://developer.android.com/studio/intro/) for more help installing Android Studio and Creating a new project.
 
@@ -55,7 +55,7 @@ Before you move forward towards building your application, follow the steps belo
     ```
     maven {
             url "https://atlas.microsoft.com/sdk/android"
-        }
+    }
     ```
 
 2. Update your **app/build.gradle** and add the following to it:
@@ -68,7 +68,7 @@ Before you move forward towards building your application, follow the steps belo
             targetCompatibility JavaVersion.VERSION_1_8
         }
         ```
-    a. Update your dependencies block and add the following to it:
+    2. Update your dependencies block and add the following to it:
 
         ```
         implementation "com.microsoft.azure.maps:mapcontrol:0.1"
