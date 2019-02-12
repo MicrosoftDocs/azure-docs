@@ -111,6 +111,28 @@ Code that implements exponential backoff is shown below.
     }
 ```
 
+
+Using this code in a client C\# application (another Web API client microservice, an ASP.NET MVC application, or even a C\# Xamarin application) is straightforward. The following example shows how, using the HttpClient class.
+
+```csharp
+public async Task<Cart> GetCartItems(int page)
+{
+    _apiClient = new HttpClient();
+    //
+    // Using HttpClient with Retry and Exponential Backoff
+    //
+    var retry = new RetryWithExponentialBackoff();
+    await retry.RunAsync(async () =>
+    {
+        // work with HttpClient call
+        dataString = await _apiClient.GetStringAsync(catalogUrl);
+    });
+    return JsonConvert.DeserializeObject<Cart>(dataString);
+}
+```
+
+Remember that this code is suitable only as a proof of concept. 
+
 ### Recommended client-side throttling method
 
 On HTTP error code 429, begin throttling your client using an exponential backoff approach:
