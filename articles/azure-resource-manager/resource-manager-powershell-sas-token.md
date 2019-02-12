@@ -19,6 +19,8 @@ ms.author: tomfitz
 ---
 # Deploy private Resource Manager template with SAS token and Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment. This topic explains how to use Azure PowerShell with Resource Manager templates to provide a SAS token during deployment. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -41,8 +43,8 @@ New-AzStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name} -Ty
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # create a container and upload template
-New-AzureStorageContainer -Name templates -Permission Off
-Set-AzureStorageBlobContent -Container templates -File c:\MyTemplates\storage.json
+New-AzStorageContainer -Name templates -Permission Off
+Set-AzStorageBlobContent -Container templates -File c:\MyTemplates\storage.json
 ```
 
 ## Provide SAS token during deployment
@@ -52,7 +54,7 @@ To deploy a private template in a storage account, generate a SAS token and incl
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
 # get the URI with the SAS token
-$templateuri = New-AzureStorageBlobSASToken -Container templates -Blob storage.json -Permission r `
+$templateuri = New-AzStorageBlobSASToken -Container templates -Blob storage.json -Permission r `
   -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
 
 # provide URI with SAS token during deployment

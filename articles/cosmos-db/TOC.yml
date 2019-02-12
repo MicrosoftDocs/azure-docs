@@ -462,8 +462,12 @@
       href: how-to-manage-database-account.md
     - name: Global distribution
       items:
+      - name: Configure multi-master
+        href: how-to-multi-master.md
       - name: Manage consistency levels
         href: how-to-manage-consistency.md
+      - name: Implement custom synchronization
+        href: how-to-custom-synchronization.md
       - name: Configure conflict resolution policies
         href: how-to-manage-conflicts.md
     - name: Provisioned throughput
