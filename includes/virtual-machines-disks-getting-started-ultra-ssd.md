@@ -12,7 +12,7 @@
 
 # Enabling Azure ultra disks
 
-Azure ultra disks delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Additional benefits of ultra disks include the ability to dynamically change the performance of the disk along with your workloads without the need to restart your virtual machines. Ultra disks are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
+Azure ultra disks deliver high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Additional benefits of ultra disks include the ability to dynamically change the performance of the disk along with your workloads without the need to restart your virtual machines. Ultra disks are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
 
 Currently, ultra disks are in preview and you must [enroll](https://aka.ms/UltraSSDPreviewSignUp) in the preview in order to access them.
 
@@ -77,7 +77,7 @@ Once the VM is provisioned, you can partition and format the data disks and conf
 
 - During VM Creation, ultra disks can be implicitly created as well. However, these disks will receive a default value for IOPS (500) and throughput (8 MiB/s).
 - Additional ultra disks can be attached to compatible VMs.
-- Ultra disks supports adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the virtual machine. Once a disk performance resize operation has been issued on a disk, it can take up to an hour for the change to actually take effect.
+- Ultra disks support adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the virtual machine. Once a disk performance resize operation has been issued on a disk, it can take up to an hour for the change to actually take effect.
 - Growing the disk capacity does require a virtual machine to be de-allocated.
 
 ## Next steps
