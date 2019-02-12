@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2019
+ms.date: 02/11/2019
 ms.author: tomfitz
 ---
 
@@ -212,7 +212,7 @@ Within your template, you can create your own functions. These functions are ava
 When defining a user function, there are some restrictions:
 
 * The function can't access variables.
-* The function can't access template parameters. That is, the [parameters function](resource-group-template-functions-deployment.md#parameters) is restricted to function parameters.
+* The function can only use parameters that are defined in the function. When you use the [parameters function](resource-group-template-functions-deployment.md#parameters) within a user-defined function, you are restricted to the parameters for that function.
 * The function can't call other user-defined functions.
 * The function can't use the [reference function](resource-group-template-functions-resource.md#reference).
 * Parameters for the function can't have default values.
@@ -293,9 +293,23 @@ In the Outputs section, you specify values that are returned from deployment. Fo
 
 For more information, see [Outputs section of Azure Resource Manager templates](resource-manager-templates-outputs.md).
 
-## Comments
+<a id="comments" />
 
-You have a few options for adding comments to your template.
+## Comments and metadata
+
+You have a few options for adding comments and metadata to your template.
+
+You can add a `metadata` object almost anywhere in your template. Resource Manager ignores the object, but your JSON editor may warn you that the property isn't valid. In the object, define the properties you need.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "metadata": {
+        "comments": "This template was developed for demonstration purposes.",
+        "author": "Example Name"
+    },
+```
 
 For **parameters**, add a `metadata` object with a `description` property.
 
@@ -337,18 +351,6 @@ For **resources**, add a `comments` element or a metadata object. The following 
     "properties": {}
   }
 ]
-```
-
-You can add a `metadata` object almost anywhere in your template. Resource Manager ignores the object, but your JSON editor may warn you that the property isn't valid. In the object, define the properties you need.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "metadata": {
-        "comments": "This template was developed for demonstration purposes.",
-        "author": "Example Name"
-    },
 ```
 
 For **outputs**, add a metadata object to the output value.
