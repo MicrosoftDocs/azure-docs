@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/01/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # ASP.NET Session State Provider for Azure Cache for Redis

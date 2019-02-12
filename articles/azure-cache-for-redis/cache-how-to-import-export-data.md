@@ -14,7 +14,7 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # Import and Export data in Azure Cache for Redis

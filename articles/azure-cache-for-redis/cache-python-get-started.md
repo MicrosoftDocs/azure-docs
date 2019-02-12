@@ -15,7 +15,7 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.topic: quickstart
 ms.date: 05/11/2018
-ms.author: wesmc
+ms.author: yegu
 ms.custom: mvc
 #Customer intent: As a Python developer, new to Azure Cache for Redis, I want to create a new Python app that uses Azure Cache for Redis.
 ---

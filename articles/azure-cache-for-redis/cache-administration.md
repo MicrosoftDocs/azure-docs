@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 07/05/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # How to administer Azure Cache for Redis

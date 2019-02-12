@@ -14,7 +14,7 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # How to configure Redis clustering for a Premium Azure Cache for Redis

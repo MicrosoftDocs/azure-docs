@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/30/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # Migrate from Managed Cache Service to Azure Cache for Redis

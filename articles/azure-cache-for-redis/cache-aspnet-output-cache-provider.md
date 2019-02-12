@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 02/14/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # ASP.NET Output Cache Provider for Azure Cache for Redis

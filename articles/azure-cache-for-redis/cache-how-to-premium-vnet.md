@@ -14,7 +14,7 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # How to configure Virtual Network Support for a Premium Azure Cache for Redis

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # Create a Web App plus Azure Cache for Redis using a template
