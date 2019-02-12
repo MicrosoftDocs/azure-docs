@@ -41,8 +41,8 @@ Both the Azure Backup and Azure Site Recovery services contribute to a business 
 
 Both services provide complementary but different functionality.
 
-- **Azure Site Recovery**: Site Recovery provides a disaster recovery solution for on-premises machines, and for Azure VMs. You replicate machines from a primary location to a secondary. When disaster strikes, ou fail machines over to the secondary location, and access them from there. When everything's up and running normally again, you fail machines back to recovery them in the primary site.
-- **Azure Backup**: The Azure Backup service backs up data from on-premises machines, and Azure VMs. Data can be backed up and recovered at a granular level, including back up of files, folders, machine system state, and app-aware data backup. Azure Backup handles data at a more granular level than Site Recovery. As an example, if a presentation on your laptop became corrupted, you could use Azure Backup to restore the presentation. If you want to keep a VM configuration and data safe and accessible, you could use Site Recovery.  
+- **Azure Site Recovery**: Site Recovery provides a disaster recovery solution for on-premises machines, and for Azure VMs. You replicate machines from a primary location to a secondary. When disaster strikes, you fail machines over to the secondary location, and access them from there. When everything's up and running normally again, you fail machines back to recover them in the primary site.
+- **Azure Backup**: The Azure Backup service backs up data from on-premises machines, and Azure VMs. Data can be backed up and recovered at a granular level, including backup of files, folders, machine system state, and app-aware data backup. Azure Backup handles data at a more granular level than Site Recovery. As an example, if a presentation on your laptop became corrupted, you could use Azure Backup to restore the presentation. If you want to keep a VM configuration and data safe and accessible, you could use Site Recovery.  
 
 Use the table points to help figure out your BCDR needs. 
 

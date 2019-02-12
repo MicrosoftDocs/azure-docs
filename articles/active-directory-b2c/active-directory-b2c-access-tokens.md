@@ -74,8 +74,15 @@ When requesting an access token, the client application needs to specify the des
 > [!NOTE]
 > Currently, custom domains are not supported along with access tokens. You must use your tenantName.onmicrosoft.com domain in the request URL.
 
+In the following example, you replace these values:
+
+- `<tenant-name>` - The name of your Azure AD B2C tenant.
+- `<policy-name>` - The name of your custom policy or user flow.
+- `<application-ID>` - The application identifier of the client application that you registered.
+- `<redirect-uri>` - The **Redirect URI** that you entered when you registered the client application.
+
 ```
-https://<tenantName>.b2clogin.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?client_id=<application-ID>&nonce=anyRandomValue&redirect_uri=<redirect_uri>&scope=https%3A%2F%2F<tenant-name>.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 To acquire multiple permissions in the same request, you can add multiple entries in the single **scope** parameter, separated by spaces. For example:

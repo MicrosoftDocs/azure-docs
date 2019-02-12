@@ -191,6 +191,8 @@
           href: automation-variables.md
         - name: Update Azure PowerShell modules
           href: automation-update-azure-modules.md
+        - name: Az modules in runbooks
+          href: az-modules.md
     - name: Scenarios
       items:
         - name: Runbook gallery
@@ -241,6 +243,9 @@
   - name: Update Management
     href: troubleshoot/update-management.md
     displayName: troubleshoot
+  - name: Start/Stop VMs
+    href: troubleshoot/start-stop-vm.md
+    displayName: start,stop
   - name: Shared resources
     href: troubleshoot/shared-resources.md
     displayName: module, import

@@ -4,7 +4,7 @@ description: This document explains the Azure Security Center recommendations fo
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: f5ce7f62-7b12-4bc0-b418-4a2f9ec49ca1
@@ -39,7 +39,7 @@ Use the tables below as a reference to help you understand the available Compute
 | [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md) |Recommends that you install a vulnerability assessment solution on your VM. |
 | [Remediate vulnerabilities](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Enables you to see system and application vulnerabilities detected by the vulnerability assessment solution installed on your VM. |
 
-### App services
+### App services <a name="app-services"></a>
 | Recommendation | Description |
 | --- | --- |
 | App Service should only be accessible over HTTPS | Recommends that you limit access of App Service over HTTPS only. |

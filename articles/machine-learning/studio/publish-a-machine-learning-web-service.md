@@ -5,7 +5,7 @@ description: How to convert a training experiment to a predictive experiment, pr
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs
@@ -29,7 +29,7 @@ To train a predictive analytics model, you use Azure Machine Learning Studio to 
 The process of creating and managing training experiments is covered more thoroughly elsewhere. For more information, see these articles:
 
 * [Create a simple experiment in Azure Machine Learning Studio](create-experiment.md)
-* [Develop a predictive solution with Azure Machine Learning](walkthrough-develop-predictive-solution.md)
+* [Develop a predictive solution with Azure Machine Learning](tutorial-part1-credit-risk.md)
 * [Import your training data into Azure Machine Learning Studio](import-data.md)
 * [Manage experiment iterations in Azure Machine Learning Studio](manage-experiment-iterations.md)
 

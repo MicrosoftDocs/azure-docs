@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Text Analytics in Azure Cognitive Services for sentiment analysis, key phrase extraction, language detection, and entity linking.
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics

@@ -211,6 +211,8 @@
       href: backup-azure-upgrade-backup-to-recovery-services.md
     - name: Delete a Recovery Services vault
       href: backup-azure-delete-vault.md
+    - name: Move a Recovery Services vault
+      href: backup-azure-move-recovery-services-vault.md
   - name: Troubleshoot
     items:
     - name: Azure VM
@@ -245,6 +247,8 @@
     href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Resources
   items:
+  - name: Common Security Attributes
+    href: backup-security-attributes.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum

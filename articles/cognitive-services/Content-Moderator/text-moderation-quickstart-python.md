@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: How to analyze text content for various objectionable material using the Content Moderator SDK for Python
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

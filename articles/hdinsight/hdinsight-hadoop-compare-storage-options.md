@@ -7,7 +7,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/20/2019
+ms.date: 02/04/2019
 ---
 # Compare storage options for use with Azure HDInsight clusters
 
@@ -43,7 +43,7 @@ For more information on Azure Data Lake Storage Gen2, see [Introduction to Azure
 
 Azure HDInsight uses managed identities to secure cluster access to files in Azure Data Lake Storage Gen2. Managed identities are a feature of Azure Active Directory that provides Azure services with a set of automatically managed credentials. These credentials can be used to authenticate to any service that supports Active Directory authentication. Using managed identities doesn't require you to store credentials in code or configuration files.
 
-For more information, see [What is managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
+For more information, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 #### Azure Blob File System driver
 
@@ -147,13 +147,15 @@ Certain MapReduce jobs and packages might create intermediate results that you w
 > [!NOTE]  
 > Most HDFS commands (for example, `ls`, `copyFromLocal`, and `mkdir`) work as expected in Azure Storage. Only the commands that are specific to the native HDFS implementation (which is referred to as DFS), such as `fschk` and `dfsadmin`, show different behavior in Azure Storage.
 
-## Use Azure Data Lake Storage Gen1
+## Overview of Azure Data Lake Storage Gen1
 
 Azure Data Lake Storage Gen1 is an enterprise-wide hyperscale repository for big data analytic workloads. Using Azure Data Lake, you can capture data of any size, type, and ingestion speed in one place for operational and exploratory analytics.
 
 Access Data Lake Storage Gen1 from Hadoop (available with an HDInsight cluster) by using the WebHDFS-compatible REST APIs. Data Lake Storage Gen1 is designed to enable analytics on the stored data and is tuned for performance in data analytics scenarios. Out of the box, it includes the capabilities that are essential for real-world enterprise use cases. These capabilities include security, manageability, scalability, reliability, and availability.
 
 ![Diagram showing data flow in Azure Data Lake Storage](./media/hdinsight-hadoop-compare-storage-options/data-lake-store-concept.png "HDInsight Storage Architecture")
+
+For more information on Azure Data Lake Storage Gen1, see the detailed [Overview of Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md).
 
 Some of the key capabilities of Data Lake Storage Gen1 include the following.
 
@@ -163,7 +165,7 @@ Data Lake Storage Gen1 is an Apache Hadoop file system that is compatible with H
 
 Data stored in Data Lake Storage Gen1 can be easily analyzed using Hadoop analytic frameworks such as MapReduce or Hive. Azure HDInsight clusters can be provisioned and configured to directly access data stored in Data Lake Storage Gen1.
 
-### Unlimited storage, petabyte files
+#### Unlimited storage, petabyte files
 
 Data Lake Storage Gen1 provides unlimited storage and is suitable for storing a variety of data for analytics. It doesn't impose limits on account sizes, file sizes, or the amount of data that can be stored in a data lake. Individual files can range in size from kilobytes to petabytes, making Data Lake Storage Gen1 a great choice to store any type of data. Data is stored durably by making multiple copies, and there are no limits on how long the data can be stored in the data lake.
 
@@ -182,8 +184,6 @@ Data Lake Storage Gen1 also provides enterprise-grade security for stored data. 
 Data Lake Storage Gen1 can store any data in its native format, as is, without requiring prior transformations. Data Lake Storage Gen1 doesn't require a schema to be defined before the data is loaded. The individual analytic framework interprets the data and defines a schema at the time of the analysis. Because it can store files of arbitrary sizes and formats, Data Lake Storage Gen1 can handle structured, semistructured, and unstructured data.
 
 Data Lake Storage Gen1 containers for data are essentially folders and files. You operate on the stored data by using SDKs, the Azure portal, and Azure PowerShell. As long as you put your data into the store by using these interfaces and the appropriate containers, you can store any type of data. Data Lake Storage Gen1 doesn't perform any special handling of data based on the type of data it stores.
-
-For more information on Azure Data Lake Storage Gen1, see [Overview of Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md).
 
 ## <a name="DataLakeStoreSecurity"></a>Data security in Data Lake Storage Gen1
 Data Lake Storage Gen1 uses Azure Active Directory for authentication and uses access control lists (ACLs) to manage access to your data.
@@ -204,7 +204,7 @@ Data Lake Storage Gen1 is compatible with most open-source components in the Had
 * See [Using Azure Data Lake Storage Gen1 for big data requirements](../data-lake-store/data-lake-store-data-scenarios.md) to learn how to use Data Lake Storage Gen1 in scenarios such as ingesting data, processing data, downloading data, and visualizing data.
 
 ## Data Lake Storage Gen1 file system (adl://)
-In Hadoop environments (available with an HDInsight cluster), you can access Data Lake Storage Gen1 through the new file system, the AzureDataLakeFilesystem (adl://). Applications and services that use adl:// can take advantage of further performance optimization that's not currently available in WebHDFS. As a result, when you use Data Lake Storage Gen1, you get the flexibility to either avail the best performance by using the recommended adl:// or maintain existing code by continuing to use the WebHDFS API directly. Azure HDInsight takes full advantage of the AzureDataLakeFilesystem to provide the best performance on Data Lake Storage Gen1.
+In Hadoop environments (available with an HDInsight cluster), you can access Data Lake Storage Gen1 through the new file system, the AzureDataLakeFilesystem (adl://). The performance of applications and services that use adl:// can be optimized in ways that aren't currently available in WebHDFS. As a result, when you use Data Lake Storage Gen1, you get the flexibility to either avail the best performance by using the recommended adl:// or maintain existing code by continuing to use the WebHDFS API directly. Azure HDInsight takes full advantage of the AzureDataLakeFilesystem to provide the best performance on Data Lake Storage Gen1.
 
 Access your data in Data Lake Storage Gen1 by using the following:
 

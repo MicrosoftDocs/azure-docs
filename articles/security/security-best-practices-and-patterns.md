@@ -4,7 +4,7 @@ description: The article provides a list of Azure Security best practices and pa
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 1cbbf8dc-ea94-4a7e-8fa0-c2cb198956c5

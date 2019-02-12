@@ -11,13 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 02/06/2019
 ms.author: magoedte
 ---
 
 # Take Action with an Automation Runbook from a Log Analytics log search result
 
+> [!NOTE]
+> Starting a runbook from search results is a feature of the classic Log Search portal that will be deprecated on February 15, 2019. You can configure an action group that can start a runbook in addition to other actions from an [alert rule](../platform/alerts-log.md) in Azure Monitor.
+
 From a log search result in Azure Log Analytics, you can now select **Take action** to run an Automation runbook.  The runbook can be used to remediate the issue or take some other action such as collect troubleshooting information, send an email, or create a service request. 
+
 
 ## Components and features used
 * [Azure Automation account](../../automation/automation-quickstart-create-account.md)
@@ -25,11 +29,11 @@ From a log search result in Azure Log Analytics, you can now select **Take actio
 
 ## To initiate runbook from log search
 
-To take action on an event and initiate a runbook from your log search results, you start by creating a log search and from the results you can invoke a runbook on-demand.  This can be achieved from the log search feature in the [Azure portal](../../azure-monitor/log-query/log-query-overview.md).  In this example, we perform a log search from the Azure portal with a basic demonstration of this feature.
+To take action on an event and initiate a runbook from your log search results, you start by creating a log search and from the results you can invoke a runbook on-demand. This can be achieved from the classic log search feature in the [Azure portal](../../azure-monitor/log-query/log-query-overview.md). In this example, we perform a log search from the Azure portal with a basic demonstration of this feature.
 
 1. In the Azure portal, click **All services** and select **Log Analytics**.  
 2. Select your Log Analytics workspace.
-3. On the workspace, select **Log Search**.  
+3. On the workspace, select **Logs (classic)**.  
 4. On the Log Search page, perform a log search.  
 5. From the log search results, click the ellipse to the left of one of the fields and from the popup, select **Take action on**.<br><br> ![Select Take Action from search result](./media/take-action/log-search-takeaction-menuoption.png) 
 6. Select **Run a runbook** and select a runbook to run.  You can select any runbook in the Automation account that is linked to the Log Analytics workspace.  Note the following:
