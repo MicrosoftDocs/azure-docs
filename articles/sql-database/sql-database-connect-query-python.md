@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 01/28/2019
+ms.date: 01/12/2019
 ---
 # Quickstart: Use Python to query an Azure SQL database
 

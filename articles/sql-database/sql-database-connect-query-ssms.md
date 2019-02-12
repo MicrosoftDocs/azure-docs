@@ -1,5 +1,5 @@
 ---
-title: 'SSMS: Connect and query data in Azure SQL Database | Microsoft Docs'
+title: 'SSMS: Connect and query data in an Azure SQL database | Microsoft Docs'
 description: Learn how to connect to SQL Database on Azure by using SQL Server Management Studio (SSMS). Then run Transact-SQL (T-SQL) statements to query and edit data.
 keywords: connect to sql database,sql server management studio
 services: sql-database
@@ -12,7 +12,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/12/2019
 ---
 # Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database
 

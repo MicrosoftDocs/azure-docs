@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/21/2018
+ms.date: 02/12/2019
 ---
 # Quickstart: Use .NET Core (C#) to query an Azure SQL database
 
@@ -28,7 +28,6 @@ For this tutorial, you need:
 > [!NOTE]
 > This quickstart uses the *mySampleDatabase* database. If you want to use a different database, you will need
 > to change the database references and modify the `SELECT` query in the C# code.
-
 
 ## Get SQL server connection information
 

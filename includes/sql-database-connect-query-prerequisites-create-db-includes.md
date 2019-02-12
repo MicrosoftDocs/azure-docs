@@ -8,15 +8,18 @@ ms.author: genemi
 
 <!-- sql-database-connect-query-prerequisites-create-db-includes.md -->
 
-- An Azure SQL Database placed on [Logical server](https://docs.microsoft.com/azure/sql-database/sql-database-single-index) or [Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index). You can use one of these techniques to create a database:
+- An Azure SQL database. You can use one of these quickstarts to create a database:
 
-| Logical Server | Managed Instance |
+|| Single database | Managed instance |
 | --- | --- |
-| [Portal](../articles/sql-database/sql-database-get-started-portal.md) | [Portal](../articles/sql-database/sql-database-managed-instance-get-started.md) |
-| [CLI](../articles/sql-database/sql-database-get-started-cli.md) | |
-| [PowerShell](../articles/sql-database/sql-database-get-started-powershell.md) | |
+| Create| [Portal](../articles/sql-database/sql-database-get-started-portal.md) | [Portal](../articles/sql-database/sql-database-managed-instance-get-started.md) |
+|| [CLI](../articles/sql-database/sql-database-get-started-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+|| [PowerShell](../articles/sql-database/sql-database-get-started-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+| Configure | [Server-level IP firewall rule]((../articles/sql-database/sql-database-get-started-portal-firewall.md))| [Connectivity from a VM](../articles/sql-database/sql-database-managed-instance-configure-vm.md)|
+|||[Connectivity from on-site](../articles/sql-database/sql-database-managed-instance-configure-p2s.md)
+|Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-get-started-restore)
+|||Restore or import Adventure Works from [BACPAC](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-import) file from [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+|||
 
-- **Logical Server only** - a configured server-level firewall rule that enables you to connect to your logical server. For more information, see [Create server-level firewall rule](../articles/sql-database/sql-database-get-started-portal-firewall.md).
-- **Managed Instance only** - configured connection from the computer that is accessing Managed Instance. You can use the following options:
-  - [Azure Virtual Machine](../articles/sql-database/sql-database-managed-instance-configure-vm.md) in the same Azure VNet as Managed Instance that can access the instance.
-  - [Point-to-site connection](../articles/sql-database/sql-database-managed-instance-configure-p2s.md) on your computer that will enable you to join your computer to the VNet where Managed Instance is placed and use Managed Instance as any other SQL Server in your network.
+> [!IMPORTANT]
+> The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.

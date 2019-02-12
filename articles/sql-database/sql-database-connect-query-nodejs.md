@@ -10,7 +10,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/26/2018
+ms.date: 02/12/2019
 ---
 # Quickstart: Use Node.js to query an Azure SQL database
 
