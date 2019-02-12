@@ -4,7 +4,7 @@ description: Manage access permissions for Azure Key Vault, keys, and secrets. C
 services: key-vault
 documentationcenter: ''
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
