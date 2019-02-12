@@ -1,34 +1,31 @@
 ---
 title: Azure CycleCloud Release Notes | Microsoft Docs
-description: Product release notes for Azure CycleCloud
+description: Product release notes for current Azure CycleCloud major release
 services: azure cyclecloud
-author: KimliW
+author: adriankjohnson
 ms.prod: cyclecloud
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 02/11/2019
 ms.author: adjohnso
-ms.date: 10/30/2018
 ---
 
-# Azure CycleCloud v7.6.1
+# Azure CycleCloud 7.7
 
-## What's New
+The current release is 7.7.0.
 
-* Windows full disk encryption is now supported
-* Nodes can be stopped (deallocated) and restarted from the UI
-* Accessibility fixes and improvements to the UI
-* The user interface now supports custom theming and branding
-* Added a more powerful machine-type selector that supports a prioritized list of sizes
-* Improved user experience regarding SSH keys
-* [Let's Encrypt](https://letsencrypt.org/) is now supported for getting SSL certificates
-* Automatically add ssh/rdp endpoints for public nodes and nodearrays
-* Account form includes inline help and validation of entered credentials
-* Can now specify `AuthorizedKeyPath` on Linux virtual machines
-* Cluster scaling now takes advantage of quota information to find capacity quickly
-* Added tool downloads and useful resources to About page
-* Now supports Azure Marketplace images that require acceptance of license terms
-* Can now override accelerated networking option
-* Election of Windows Azure Hybrid Licensing Benefit now supported
-* The status of instance sizes with no capacity now shown in the UI
-* Slurm support for Ubuntu added
+## Azure CycleCloud 7.7 Release Highlights
+
+|  |  |
+| --- | --- |
+| [**Revamped autoscale API**](autoscale-api.md)<br/>This release brings a significant change to the CycleCloud autoscaling API, pivoting from a core-centric API to one that is node-oriented. With these change:<br/><br/>  - Clusters can autoscale across different VM families<br/><br/>  - For MPI jobs where node proximity is crucial, schedulers will now be able to implement autoscaling strategies that ensure nodes in an MPI ring are in the same placement group.<br/><br/>  - With the node-oriented API, scheduler implementations can now autoscale by other resource requirements such as memory, GPU or swap space.<br/><br/>This new autoscaling API has been implemented for the default PBSPro and LSF clusters, with the other schedulers to follow in subsequent releases.|![Autoscale sample](./images/release-notes/autoscale-api.png) |
+| [**Specify custom images or marketplace images in the Cluster UI**](custom-images.md)<br/>Custom images are now easier to use in CycleCloud. Default cluster templates now allow a user to specify a resource URL for a custom image or marketplace image URN in the template. Gallery images can also be defined in custom templates. |![Custom image sample](./images/release-notes/custom-image.png)  |
+| [**Use a Managed Identity in CycleCloud**](managed-identities.md)<br/>Managed Identities is a feature of the Azure Active Directory service for allocating privileges without having to pass secrets or credentials. This release allows a user to configure CycleCloud with the Managed Identity attached to the underlying VM. The privileges assigned to CycleCloud are determined by roles assigned to the Managed Identity. |![Managed identity sample](./images/release-notes/managed-identity-smallfont.gif)  |
+
+## Release Notes
+
+Comprehensive release notes for the individual 7.7.x releases are listed below
+
+* [**7.7.0 Release Notes**](release-notes/7-7-0.md) - released on 2/11/19
+
+Release notes from the [previous major releases](release-notes-previous.md) and [older versions](release-notes-archive.md) are also available.

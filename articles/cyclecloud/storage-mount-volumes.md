@@ -79,42 +79,6 @@ The previous example was a fairly simple: mounting a single, pre-formatted snaps
 
 The above example shows there are three volumes that should be attached to the node named `master`, and that their mountpoint is named `giant`. The configuration for the mountpoint says that these three volumes should be RAIDed together using `raid_level = 0` for RAID0, formatted using the `xfs` filesystem, and the resulting device should be mounted at `/mnt/giant`. The device should also have block level encryption using 256-bit AES with an encryption key as defined in the template.
 
-> [!NOTE]
-> The product uses `mdadm` to RAID devices into logical units.  Therefore any dimensional limitations of mdadm will apply to your usage of RAID devices in the product.
-
-## Ephemeral Storage and Mounting
-
-By default, ephemeral devices for a node will be automatically attached and then RAIDed with using RAID0 and mounted to `/mnt`. This is the suggested way of using ephemeral devices within CycleCloud, however you can override the default behavior if necessary. All ephemeral devices are automatically assigned a mountpoint of `ephemeral`, so you can use this default behavior to customize the mountpoint as follows:
-
-``` ini
-[[[configuration cyclecloud.mounts.ephemeral]]]
-mountpoint = /mnt/ephemeral
-fs_type = ext4
-raid_level = 1
-```
-
-This configuration will instruct Azure CycleCloud to combine all the ephemeral device using RAID1, format them using ext4, then mount them at the alternative location of `/mnt/ephemeral`, which is different from the default of `/mnt`.
-
-You can manually define ephemeral volumes using the following syntax, although it is not required in most cases as reasonable defaults are already in place:
-
-``` ini
-[[node master]]
-[[[volume ephemeral0]]]
-Ephemeral = true
-Mount = ephemeral
-
-[[[volume ephemeral1]]]
-Ephemeral = true
-Mount = ephemeral
-```
-
-> [!NOTE]
-> If you do not want any ephemeral automatically mapped for you, meaning you will either use no ephemeral storage or will rely on another form of attaching/mounting, you can set the `DisableAutomaticEphemeral` to true:
-
-``` ini
-[[node master]]
-DisableAutomaticEphemeral = true  # No ephemeral disks will be automatically attached to this instance
-```
 
 ## Mounting Configuration Options
 
