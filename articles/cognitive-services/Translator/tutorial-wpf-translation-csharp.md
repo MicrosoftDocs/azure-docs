@@ -14,7 +14,9 @@ ms.author: erhopf
 
 # Tutorial: Create a translation app with WPF
 
-In this tutorial, you'll build a WPF application that uses Azure Cognitive Services for text translation, language detection, and spell checking with a single subscription key. Specifically, your application will call APIs from Translator Text and [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+In this tutorial, you'll build a [Windows Presentation Foundation (WPF)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2017) application that uses Azure Cognitive Services for text translation, language detection, and spell checking with a single subscription key. Specifically, your application will call APIs from Translator Text and [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
+
+What is WPF? It is a UI framework that creates desktop client applications. The WPF development platform supports a broad set of application development features, including an application model, resources, controls, graphics, layout, data binding, documents, and security. It is a subset of the .NET Framework, so if you have previously built applications with the .NET Framework using ASP.NET or Windows Forms, the programming experience should be familiar. WPF uses the Extensible Application Markup Language (XAML) to provide a declarative model for application programming, which we'll review in the coming sections.
 
 This table lists each of the services that we'll use in this tutorial. Follow the link to browse the API reference for each feature.
 
@@ -31,9 +33,9 @@ Here's what we'll cover in this tutorial:
 > * Prerequisites
 > * Create a WPF project in Visual Studio
 > * Add assemblies and NuGet packages to your project
+> * Create your application front-end with XAML
 > * Use the Translator Text API to translate text and detect the source language
 > * Use the Bing Spell Check API to validate your input and improve translation accuracy
-> * Configure your application front-end with XAML
 
 ## Prerequisites
 
@@ -89,7 +91,7 @@ Our application will use NewtonSoft.Json to deserialize JSON objects. Follow the
 4. Select the package and click **Install**.
 5. When the installation is complete, close the tab.
 
-
+## Create your WPF front-end with XAML
 
 
 
