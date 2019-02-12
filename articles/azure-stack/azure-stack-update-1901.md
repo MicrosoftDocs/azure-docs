@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
-
+ms.lastreviewed: 02/09/2019
 ---
 
 # Azure Stack 1901 update
