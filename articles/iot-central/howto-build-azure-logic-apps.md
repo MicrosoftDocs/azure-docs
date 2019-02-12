@@ -4,7 +4,7 @@ description: Use the IoT Central connector in Azure Logic Apps to trigger workfl
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 1/3/2019
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
@@ -31,19 +31,19 @@ This section shows you how to post a message to Microsoft Teams when a rule is t
 
 1. Enter the required information to create a new logic app. You can choose an Azure subscription to provision your new logic app into. It does not have to be the same subscription your IoT Central app was created in. Click **Create**.
 
-    ![Create logic app in Azure portal](./media/howto-build-azure-logic-apps/createinazureportal.PNG)
+    ![Create logic app in Azure portal](./media/howto-build-azure-logic-apps/createinazureportal.png)
 
 1. After your logic app has been successfully created, you will be automatically navigated to the Logic Apps Designer. Click **Blank Logic App**. 
 
-    ![Create blank logic app](./media/howto-build-azure-logic-apps/blanklogicapp.PNG)
+    ![Create blank logic app](./media/howto-build-azure-logic-apps/blanklogicapp.png)
 
 1. In the designer, search for "iot central", and choose the **When a rule is fired** trigger. Sign into the connector with the account you sign into your IoT Central app with. 
 
-    ![Sign into IoT Central connector](./media/howto-build-azure-logic-apps/addtrigger.PNG)
+    ![Sign into IoT Central connector](./media/howto-build-azure-logic-apps/addtrigger.png)
 
 1. After successful sign-in, you should see fields appear. Select the **Application** and **Rule** from the dropdowns.
 
-    ![Pick application and rule](./media/howto-build-azure-logic-apps/pickappandrule.PNG)
+    ![Pick application and rule](./media/howto-build-azure-logic-apps/pickappandrule.png)
 
 1. Add a new action. Search for **post message teams** and choose **Post a message** from the Microsoft Teams connector. Sign into the connector with the account you use in Microsoft Teams. 
 
@@ -51,7 +51,7 @@ This section shows you how to post a message to Microsoft Teams when a rule is t
     > [!NOTE]
     > Click the "See more" text in the Dynamic content window to get measurement and property values that triggered the rule.
 
-    ![Logic app editing action with dynamic pane open](./media/howto-build-azure-logic-apps/buildworkflow.PNG)
+    ![Logic app editing action with dynamic pane open](./media/howto-build-azure-logic-apps/buildworkflow.png)
 
 1. When you are done editing your action, click **Save**.
 
@@ -62,11 +62,12 @@ You can always start building a workflow using the IoT Central connector in Logi
 ## Create, update, and delete a device in a workflow
 
 When you are building a workflow in your logic app, you can add an action using the IoT Central connector. You will find the **Create a device**, **Update a device**, and **Delete a device**.
-> [!NOTE]
-> For **Update a device** and **Delete a device**, you'll need an ID of the existing device you want to update or delete. You can get the ID of the IoT Central device in the browser URL. This is **NOT** the same as the Device ID listed on the explorer page.
 
-![IoT Central device explorer device ID](./media/howto-build-azure-logic-apps/iotcdeviceid.PNG)
-  
+> [!NOTE]
+> For **Update a device** and **Delete a device**, you'll need an ID of the existing device you want to update or delete. You can get the ID of the IoT Central device in the **Device Explorer**
+
+![IoT Central device explorer device ID](./media/howto-build-azure-logic-apps/iotcdeviceid.png)
+
 
 ## Next steps
 Now that you have learned how to use Microsoft Flow to build workflows, the suggested next step is to [manage devices](howto-manage-devices.md).
