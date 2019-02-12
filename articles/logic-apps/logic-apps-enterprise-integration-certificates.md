@@ -90,7 +90,7 @@ the certificate is available to help you secure your B2B messages.
 > [AS2 agreement's](logic-apps-enterprise-integration-as2.md) **Send and Receive** settings 
 > for signing and encrypting messages.
 
-1. [Add your private key to Azure Key Vault](../key-vault/key-vault-get-started.md#add) 
+1. [Add your private key to Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) 
 and provide a **Key Name**.
    
 2. Authorize Azure Logic Apps to perform operations on Azure Key Vault. 
