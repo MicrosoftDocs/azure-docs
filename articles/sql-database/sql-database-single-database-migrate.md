@@ -1,6 +1,6 @@
 ---
-title: SQL Server database migration to Azure SQL Database | Microsoft Docs
-description: Learn how about SQL Server database migration to Azure SQL Database in the cloud. 
+title: SQL Server database migration to a single/pooled database in Azure SQL Database | Microsoft Docs
+description: Learn how about SQL Server database migration to a single database or an elastic pool in Azure SQL Database. 
 keywords: database migration,sql server database migration,database migration tools,migrate database,migrate sql database
 services: sql-database
 ms.service: sql-database
@@ -8,21 +8,21 @@ ms.subservice: migration
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/11/2019
 ---
 # SQL Server database migration to Azure SQL Database
 
-In this article, you learn about the primary methods for migrating a SQL Server 2005 or later database to a single or pooled database in Azure SQL Database. For information on migrating to a Managed Instance, see [Migrate to SQL Server instance to Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
+In this article, you learn about the primary methods for migrating a SQL Server 2005 or later database to a single or pooled database in Azure SQL Database. For information on migrating to a Managed Instance, see [Migrate to SQL Server instance to Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
 
 ## Migrate to a single database or a pooled database
 
 There are two primary methods for migrating a SQL Server 2005 or later database to a single or pooled database in Azure SQL Database. The first method is simpler but requires some, possibly substantial, downtime during the migration. The second method is more complex, but substantially eliminates downtime during the migration.
 
-In both cases, you need to ensure that the source database is compatible with Azure SQL Database using the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database V12 is approaching [feature parity](sql-database-features.md) with SQL Server, other than issues related to server-level and cross-database operations. Databases and applications that rely on [partially supported or unsupported functions](sql-database-transact-sql-information.md) need some [re-engineering to fix these incompatibilities](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) before the SQL Server database can be migrated.
+In both cases, you need to ensure that the source database is compatible with Azure SQL Database using the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database V12 is approaching [feature parity](sql-database-features.md) with SQL Server, other than issues related to server-level and cross-database operations. Databases and applications that rely on [partially supported or unsupported functions](sql-database-transact-sql-information.md) need some [re-engineering to fix these incompatibilities](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues) before the SQL Server database can be migrated.
 
 > [!NOTE]
 > To migrate a non-SQL Server database, including Microsoft Access, Sybase, MySQL Oracle, and DB2 to Azure SQL Database, see [SQL Server Migration Assistant](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
@@ -37,7 +37,7 @@ The following list contains the general workflow for a SQL Server database migra
 
 1. [Assess](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) the database for compatibility by using the latest version of the [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Prepare any necessary fixes as Transact-SQL scripts.
-3. Make a transactionally consistent copy of the source database being migrated or halt new transactions from occurring in the source database while migration is occurring. Methods to accomplish this latter option include disabling client connectivity or creating a [database snapshot](https://msdn.microsoft.com/library/ms175876.aspx). After migration, you may be able to use transactional replication to update the migrated databases with changes that occur after the cutoff point for the migration. See [Migrate using Transactional Migration](sql-database-cloud-migrate.md#method-2-use-transactional-replication).  
+3. Make a transactionally consistent copy of the source database being migrated or halt new transactions from occurring in the source database while migration is occurring. Methods to accomplish this latter option include disabling client connectivity or creating a [database snapshot](https://msdn.microsoft.com/library/ms175876.aspx). After migration, you may be able to use transactional replication to update the migrated databases with changes that occur after the cutoff point for the migration. See [Migrate using Transactional Migration](sql-database-single-database-migrate.md#method-2-use-transactional-replication).  
 4. Deploy the Transact-SQL scripts to apply the fixes to the database copy.
 5. [Migrate](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) the database copy to a new Azure SQL Database by using the Data Migration Assistant.
 

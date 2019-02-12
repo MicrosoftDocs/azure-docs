@@ -2,7 +2,7 @@
 title: Azure Key Vault - How to use soft-delete with PowerShell
 description: Use case examples of soft-delete with PowerShell code snips
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2018
@@ -231,5 +231,5 @@ Listing deleted key vault objects also shows when they're scheduled to be purged
 ## Other resources
 
 - For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](key-vault-ovw-soft-delete.md).
-- For a general overview of Azure Key Vault usage, see [Get started with Azure Key Vault](key-vault-get-started.md).
+- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](key-vault-overview.md).
 

@@ -4,7 +4,7 @@ description: Key Vault throttling limits the number of concurrent calls to preve
 services: key-vault
 documentationcenter:
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags:
 
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
