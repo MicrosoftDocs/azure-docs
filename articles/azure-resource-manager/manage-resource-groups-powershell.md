@@ -16,9 +16,7 @@ ms.author: jgao
 ---
 # Manage Azure Resource Manager resource groups by using Azure Powershell
 
-Learn how to use Azure PowerShell with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resource groups.
-
-For managing Azure resources, see [Manage Azure resources by using Azure PowerShell](./manage-resources-powershell.md).
+Learn how to use Azure PowerShell with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using Azure PowerShell](./manage-resources-powershell.md).
 
 Other articles about managing resource groups:
 
@@ -120,10 +118,10 @@ You can apply tags to resource groups and resources to logically organize your a
 
 ## Export resource groups to templates
 
-After setting up your resource group, you may want to view the Resource Manager template for the resource group. Exporting the template offers two benefits:
+After setting up your resource group successfully, you may want to view the Resource Manager template for the resource group. Exporting the template offers two benefits:
 
-1. You can easily automate future deployments of the solution because the template contains all the complete infrastructure.
-2. You can become familiar with template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
+- Automate future deployments of the solution because the template contains all the complete infrastructure.
+- Learn template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"

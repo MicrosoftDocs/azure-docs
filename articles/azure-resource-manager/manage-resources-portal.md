@@ -17,9 +17,7 @@ ms.author: jgao
 ---
 # Manage Azure resources by using the Azure portal
 
-Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resources.
-
-For managing resource groups, see [Manage Azure resource groups by using the Azure portal](./manage-resource-groups-portal.md).
+Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resources. For managing resource groups, see [Manage Azure resource groups by using the Azure portal](./manage-resource-groups-portal.md).
 
 Other articles about managing resources:
 

@@ -16,9 +16,7 @@ ms.author: jgao
 
 # Manage Azure Resource Manager resource groups by using Azure CLI
 
-Learn how to use Azure CLI with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resource groups.
-
-For managing Azure resources, see [Manage Azure resources by using Azure CLI](./manage-resources-cli.md).
+Learn how to use Azure CLI with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using Azure CLI](./manage-resources-cli.md).
 
 Other articles about managing resource groups:
 
@@ -81,11 +79,11 @@ You can create a resource group and deploy resources to the group by using a Res
 
 ## Move to another resource group
 
-You can move the resources in the group to another resource group. For more information, see [Move resources to new resource group or subscription](./resource-group-move-resources.md#move-resources).
+You can move the resources in the group to another resource group. For more information, see [Move resources](./manage-resources-cli.md#move-resources).
 
 ## Move to another subscription
 
-You can move the resources in the resource group to another subscription. For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
+You can move the resources in the resource group to another subscription. For more information, see [Move resources](./manage-resources-cli.md#move-resources).
 
 ## Lock resource groups
 
@@ -107,6 +105,16 @@ read resourceGroupName &&
 az lock list --resource-group $resourceGroupName  
 ```
 
+The following script deletes a lock:
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the lock name:" &&
+read lockName &&
+az lock delete --name $lockName --resource-group $resourceGroupName
+```
+
 For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
 ## Tag resource groups
@@ -115,10 +123,10 @@ You can apply tags to resource groups and resources to logically organize your a
 
 ## Export resource groups to templates
 
-After setting up your resource group, you may want to view the Resource Manager template for the resource group. Exporting the template offers two benefits:
+After setting up your resource group successfully, you may want to view the Resource Manager template for the resource group. Exporting the template offers two benefits:
 
-1. You can easily automate future deployments of the solution because the template contains all the complete infrastructure.
-2. You can become familiar with template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
+- Automate future deployments of the solution because the template contains all the complete infrastructure.
+- Learn template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -126,10 +134,11 @@ read resourceGroupName &&
 az group export --name $resourceGroupName  
 ```
 
-For more information, see [Export resource group as template](./resource-manager-export-template-cli.md#export-resource-group-as-template).
+For more information, see [Export resource group](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
 
 ## Next steps
 
+* To 
 * To view activity logs, see [Audit operations with Resource Manager](resource-group-audit.md).
 * To view details about a deployment, see [View deployment operations](resource-manager-deployment-operations.md).
 * To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).

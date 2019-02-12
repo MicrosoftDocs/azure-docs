@@ -1,6 +1,6 @@
 ---
-title: Manage Azure resources by using Azure PowerShell | Microsoft Docs
-description: Use Azure PowerShell and Azure Resource Manage to manage your resources. 
+title: Manage Azure resources by using Azure CLI | Microsoft Docs
+description: Use Azure CLI and Azure Resource Manage to manage your resources. 
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -15,11 +15,9 @@ ms.date: 02/11/2019
 ms.author: jgao
 
 ---
-# Manage Azure resources by using Azure PowerShell
+# Manage Azure resources by using Azure CLI
 
-Learn how to use Azure PowerShell with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resources.
-
-For managing resource groups, see [Manage Azure resource groups by using Azure PowerShell](./manage-resource-groups-powershell.md).
+Learn how to use Azure CLI with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resources. For managing resource groups, see [Manage Azure resource groups by using Azure CLI](./manage-resource-groups-cli.md).
 
 Other articles about managing resources:
 
@@ -32,35 +30,32 @@ You can deploy Azure resources directly by using Azure PowerShell, or deploy a R
 
 ### Deploy a resource
 
-The following PowerShell script creates a storage account.
+The following script creates a storage account.
 
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$storageAccountName = Read-Host -Prompt "Enter the storage account name"
-
-# Create the storage account.
-$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroupName `
-  -Name $storageAccountName `
-  -Location $location `
-  -SkuName "Standard_LRS"
-
-# Retrieve the context.
-$ctx = $storageAccount.Context
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. centralus):" &&
+read location &&
+echo "Enter the storage account name:" &&
+read storageAccountName &&
+az storage account create --resource-group $resourceGroupName --name $storageAccountName --location $location --sku Standard_LRS --kind StorageV2 &&
+az storage account show --resource-group $resourceGroupName --name $storageAccountName 
 ```
 
 ### Deploy a template
 
-The following PowerShell creates deploy a Quickstart template to create a storage account. For more information, see [Quickstart: Create Azure Resource Manager templates by using Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
+The following script creates deploy a Quickstart template to create a storage account. For more information, see [Quickstart: Create Azure Resource Manager templates by using Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
 
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -Location $location
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. centralus):" &&
+read location &&
+az group deployment create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](./resource-group-template-deploy.md).
+For more information, see [Deploy resources with Resource Manager templates and Azure CLI](./resource-group-template-deploy-cli.md).
 
 ## Deploy a resource group and resources
 
@@ -76,24 +71,30 @@ Typically, you deploy all the resources in your template to a single resource gr
 
 The following script shows how to delete a storage account.
 
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$storageAccountName = Read-Host -Prompt "Enter the storage account name"
-
-Remove-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $storageAccountName
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. centralus):" &&
+read location &&
+echo "Enter the storage account name:" &&
+read storageAccountName &&
+az storage account delete --resource-group $resourceGroupName --name $storageAccountName 
 ```
 
 ## Move resources
 
 The following script shows how to remove a storage account from one resource group to another resource group.
 
-```azurepowershell-interactive
-$srcResourceGroupName = Read-Host -Prompt "Enter the source Resource Group name"
-$destResourceGroupName = Read-Host -Prompt "Enter the destination Resource Group name"
-$storageAccountName = Read-Host -Prompt "Enter the storage account name"
+```azurecli-interactive
+echo "Enter the source Resource Group name:" &&
+read srcResourceGroupName &&
+echo "Enter the destination Resource Group name:" &&
+read destResourceGroupName &&
+echo "Enter the storage account name:" &&
+read storageAccountName &&
 
-$storageAccount = Get-AzResource -ResourceGroupName $srcResourceGroupName -ResourceName $storageAccountName
-Move-AzResource -DestinationResourceGroupName $destResourceGroupName -ResourceId $storageAccount.ResourceId
+storageAccount=$(az resource show --resource-group $srcResourceGroupName --name $storageAccountName --resource-type Microsoft.Storage/storageAccounts --query id --output tsv)
+az resource move --destination-group $destResourceGroup --ids $storageAccount
 ```
 
 For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
@@ -104,37 +105,40 @@ Locking prevents other users in your organization from accidentally deleting or 
 
 The following script locks a storage account so the account can't be deleted.
 
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$storageAccountName = Read-Host -Prompt "Enter the storage account name"
-
-New-AzResourceLock -LockName LockStorage -LockLevel CanNotDelete -ResourceGroupName $resourceGroupName -ResourceName $storageAccountName -ResourceType Microsoft.Storage/storageAccounts 
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the storage account name:" &&
+read storageAccountName &&
+az lock create --name LockSite --lock-type CanNotDelete --resource-group $resourceGroupName --resource-name $storageAccountName --resource-type Microsoft.Storage/storageAccounts 
 ```
 
 The following script gets all locks for a storage account:
 
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$storageAccountName = Read-Host -Prompt "Enter the storage account name"
-
-Get-AzResourceLock -ResourceGroupName $resourceGroupName -ResourceName $storageAccountName -ResourceType Microsoft.Storage/storageAccounts
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the storage account name:" &&
+read storageAccountName &&
+az lock list --resource-group $resourceGroupName --resource-name $storageAccountName --resource-type Microsoft.Storage/storageAccounts --parent ""
 ```
 
 The following script deletes a lock of a storage account:
 
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$storageAccountName = Read-Host -Prompt "Enter the storage account name"
-
-$lockId = (Get-AzResourceLock -ResourceGroupName $resourceGroupName -ResourceName $storageAccountName -ResourceType Microsoft.Storage/storageAccounts).LockId
-Remove-AzResourceLock -LockId $lockId
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the storage account name:" &&
+read storageAccountName &&
+lockId=$(az lock show --name LockSite --resource-group $resourceGroupName --resource-type Microsoft.Storage/storageAccounts --resource-name $storageAccountName --output tsv --query id)
+az lock delete --ids $lockId
 ```
 
 For more information, see [Lock resources with Azure Resource Manager](resource-group-lock-resources.md).
 
 ## Tag resources
 
-Tagging helps organizing your resource group and resources logically. For information, see [Using tags to organize your Azure resources](./resource-group-using-tags.md#powershell).
+Tagging helps organizing your resource group and resources logically. For information, see [Using tags to organize your Azure resources](./resource-group-using-tags.md#azure-cli).
 
 ## Next steps
 

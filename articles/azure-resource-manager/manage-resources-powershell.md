@@ -17,9 +17,7 @@ ms.author: jgao
 ---
 # Manage Azure resources by using Azure PowerShell
 
-Learn how to use Azure PowerShell with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resources.
-
-For managing resource groups, see [Manage Azure resource groups by using Azure PowerShell](./manage-resource-groups-powershell.md).
+Learn how to use Azure PowerShell with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resources. For managing resource groups, see [Manage Azure resource groups by using Azure PowerShell](./manage-resource-groups-powershell.md).
 
 Other articles about managing resources:
 
@@ -32,7 +30,7 @@ You can deploy Azure resources directly by using Azure PowerShell, or deploy a R
 
 ### Deploy a resource
 
-The following PowerShell script creates a storage account.
+The following script creates a storage account.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -51,7 +49,7 @@ $ctx = $storageAccount.Context
 
 ### Deploy a template
 
-The following PowerShell creates deploy a Quickstart template to create a storage account. For more information, see [Quickstart: Create Azure Resource Manager templates by using Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
+The following script creates deploy a Quickstart template to create a storage account. For more information, see [Quickstart: Create Azure Resource Manager templates by using Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -60,7 +58,7 @@ $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templat
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -Location $location
 ```
 
-For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](./resource-group-template-deploy.md).
+For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](./resource-group-template-deploy-powershell.md).
 
 ## Deploy a resource group and resources
 
