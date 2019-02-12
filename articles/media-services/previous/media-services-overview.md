@@ -16,7 +16,7 @@ ms.date: 02/10/2019
 ms.author: juliako
 
 ---
-# Azure Media Services overview (legacy)
+# Azure Media Services overview 
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Version 3](../latest/media-services-overview.md)
