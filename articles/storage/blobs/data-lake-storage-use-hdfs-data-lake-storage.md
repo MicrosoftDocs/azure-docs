@@ -35,9 +35,7 @@ HDInsight provides access to the distributed file system that is locally attache
 
 Replace the `<path>` placeholder with the URI of the file system or file system folder.
 
-For example:
-
-    hdfs dfs -ls abfs://my-file-system@my-storage-account-name.dfs.core.windows.net/my-directory-name
+For example: `hdfs dfs -ls abfs://my-file-system@my-storage-account-name.dfs.core.windows.net/my-directory-name`
 
 ### Create a directory
 
@@ -45,15 +43,15 @@ For example:
 
 Replace the `<path>` placeholder with the root file system name or a folder within your file system.
 
+For example: `hdfs dfs -mkdir abfs://my-file-system@my-storage-account-name.dfs.core.windows.net/`
+
 ### Delete a file
 
     hdfs dfs -rm <file>
 
 Replace the `<file>` placeholder with the URI of the file that you want to delete.
 
-For example:
-
-    hdfs dfs -rmdir abfs://my-file-system@my-storage-account-name.dfs.core.windows.net/my-directory-name/my-file-name
+For example: `hdfs dfs -rmdir abfs://my-file-system@my-storage-account-name.dfs.core.windows.net/my-directory-name/my-file-name`
 
 ### Delete a directory
 
@@ -61,9 +59,7 @@ For example:
 
 Replace the `<directory>` placeholder with the URI of the directory that you want to delete.
 
-For example:
-
-    hdfs dfs -rmdir abfs://my-file-system@my-storage-account-name.dfs.core.windows.net/my-directory-name
+For example: `hdfs dfs -rmdir abfs://my-file-system@my-storage-account-name.dfs.core.windows.net/my-directory-name`
 
 ### Use the HDFS CLI with an HDInsight Hadoop cluster on Linux
 

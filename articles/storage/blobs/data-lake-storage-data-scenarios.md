@@ -25,22 +25,22 @@ There are four key stages in big data processing:
 
 In this article, we look at these stages with respect to Azure Data Lake Storage Gen2 to understand the options and tools available to meet your big data needs.
 
-## Create a storage account
+## Create a Data Lake Storage Gen2 account
 
-Link to quickstart here.
+See [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ## Create a file system
 
-You can do this a bunch of different ways.
+A *file system* is a container for folders and files. You need at least one of them to begin ingesting data in your storage account.  Here's a list of tools that you can use to create them.
 
 |Tool | Guidance | 
 |---|--|
-|Azure Storage Explorer | [Create a file system](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) |
-|AzCopy V10 | [Create a Blob container or File Share](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share)|
-|HDInsight |Need to see if you can now do this with the HDFS or Databricks and then add those commands |
-|Databricks |Same. You can also explain how to do this in a notebook|
+|Azure Storage Explorer | [Create a file system by using Storage Explorer](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) |
+|AzCopy | [Create a Blob container or File Share by using AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share)|
+|Hadoop File System (HDFS) Command Line Interface (CLI) with HDInsight |[Create a file system by using HDFS with HDInsight](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share) |
+|HDFS CLI with Databricks| Same. You can also explain how to do this in a notebook|
 
-For HDInisght, you'll first have to setup an MSI and for databricks, you'll have to first set up a SPI and then create the accounts. It makes sense to do this only as part of a workflow where you plan to use those tools for analytics. It does not make sense to use these approaches merely for creating the file system.
+It's easiest to create file systems by using Storage Explorer or AzCopy. It takes a bit more work to create file systems by using HDInsight and Databricks. However, if you're planning to use HDInsight or Databricks clusters to process your data, you can create your clusters first, and then use the HDFS CLI to your create file systems.  
 
 ## Ingest the data
 
