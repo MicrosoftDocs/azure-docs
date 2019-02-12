@@ -18,10 +18,10 @@ Azure Kubernetes Service (AKS) makes it easy to perform common management tasks 
 
 ## Upgrade an AKS cluster
 
-Before upgrading a cluster, use the `az aks get-upgrades` command to check which Kubernetes releases are available for upgrade.
+Before upgrading a cluster, use the `az aks get-versions` command to check which Kubernetes releases are available for upgrade.
 
 ```azurecli-interactive
-az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
+az aks get-versions --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
 Output:
