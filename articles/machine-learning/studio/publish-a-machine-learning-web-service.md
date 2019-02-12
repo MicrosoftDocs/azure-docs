@@ -22,6 +22,9 @@ Azure Machine Learning has two types of web services:
 * Request-Response Service (RRS): A low latency, highly scalable service that scores a single data record.
 * Batch Execution Service (BES): An asynchronous service that scores a batch of data records.
 
+The input for BES is like data input that RRS uses. The main difference is that BES reads a block of records from a variety of sources, such as Azure Blob storage, Azure Table storage, Azure SQL Database, HDInsight (hive query), and HTTP sources.
+
+
 From a high-level point-of-view, you deploy your model in three steps:
 
 * **[Create a training experiment]** - In Studio, you can train and test a predictive analytics model using training data that you supply, using a large set of built-in machine learning algorithms.

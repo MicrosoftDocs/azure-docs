@@ -40,6 +40,10 @@ To use Azure Machine Learning Studio, you need to have a Machine Learning Studio
 
 5. Click **Create**.
 
+> [!NOTE]
+> Machine Learning Studio relies on an Azure storage account that you provide to save intermediary data when it executes the workflow. After the workspace is created, if the storage account is deleted and can no longer be found, the workspace will stop functioning, and all experiments in that workspace will fail.
+If you accidentally delete the storage account, recreate the storage account with the same name in the same region as the deleted storage account. After that, resync the access key.
+
 Once the workspace is deployed, you can open it in Machine Learning Studio.
 
 1. Browse to Machine Learning Studio at [https://studio.azureml.net/](https://studio.azureml.net/).
