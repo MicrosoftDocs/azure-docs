@@ -185,24 +185,12 @@
     href: https://feedback.azure.com/forums/914491--azure-cyclecloud
   - name: Release Notes
     items:
-    - name: Current Release
+    - name: Current Release - v7.7
       href: release-notes.md
-    - name: v7.6.1
-      href: ~/release-notes/7-6-1.md
-    - name: v7.6.0
-      href: ~/release-notes/7-6-0.md
-    - name: v7.5.5
-      href: ~/release-notes/7-5-5.md
-    - name: v7.5.4
-      href: ~/release-notes/7-5-4.md
-    - name: v7.5.3
-      href: ~/release-notes/7-5-3.md
-    - name: v7.5.2
-      href: ~/release-notes/7-5-2.md
-    - name: v7.5.1
-      href: ~/release-notes/7-5-1.md
-    - name: v7.5.0
-      href: ~/release-notes/7-5-0.md
+    - name: Previous Release - v7.6
+      href: release-notes-previous.md
+    - name: Older Releases
+      href: release-notes-archive.md
   - name: Service Policy
     href: service-policy.md
   - name: Data Usage Policy
