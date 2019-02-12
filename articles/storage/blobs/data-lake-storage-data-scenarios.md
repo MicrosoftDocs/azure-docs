@@ -15,13 +15,13 @@ ms.author: normesta
 There are four key stages in big data processing:
 
 > [!div class="checklist"]
-> * Create a storage account
+> * Create a Data Lake Storage Gen2 account
 > * Create a file system
-> * Ingest the data
-> * Secure the data
-> * Process the data
-> * Visualize the data
-> * Download the data
+> * Ingest data
+> * Secure data
+> * Process data
+> * Visualize data
+> * Download data
 
 In this article, we look at these stages with respect to Azure Data Lake Storage Gen2 to understand the options and tools available to meet your big data needs.
 
@@ -33,12 +33,14 @@ Link to quickstart here.
 
 You can do this a bunch of different ways.
 
-|Tool | Guide | Guide section |
-|---|--|---|
-|Azure Storage Explorer | [Quickstart: Use Azure Storage Explorer to manage data in an Azure Data Lake Storage Gen2 account](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer) | [Create a file system](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) |
-|AzCopy V10 |[Transfer data with the AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)| [Create a Blob container or File Share](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share)|
-|HDInsight |Need to see if you can now do this with the HDFS or Databricks and then add those commands | |
-|Databricks |Same. You can also explain how to do this in a notebook| |
+|Tool | Guidance | 
+|---|--|
+|Azure Storage Explorer | [Create a file system](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) |
+|AzCopy V10 | [Create a Blob container or File Share](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share)|
+|HDInsight |Need to see if you can now do this with the HDFS or Databricks and then add those commands |
+|Databricks |Same. You can also explain how to do this in a notebook|
+
+For HDInisght, you'll first have to setup an MSI and for databricks, you'll have to first set up a SPI and then create the accounts. It makes sense to do this only as part of a workflow where you plan to use those tools for analytics. It does not make sense to use these approaches merely for creating the file system.
 
 ## Ingest the data
 
