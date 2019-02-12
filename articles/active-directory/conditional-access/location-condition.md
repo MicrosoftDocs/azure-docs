@@ -21,6 +21,7 @@ ms.reviewer: calebb
 
 #Customer intent: As a IT admin, I need to understand what the location condition is so that I can configure location- based conditional access policies
 
+ms.collection: M365-identity-device-management
 ---
 # What is the location condition in Azure Active Directory conditional access? 
 

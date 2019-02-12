@@ -18,6 +18,7 @@ ms.date: 07/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
+ms.collection: M365-identity-device-management
 ---
 
 # Single Sign-On SAML protocol

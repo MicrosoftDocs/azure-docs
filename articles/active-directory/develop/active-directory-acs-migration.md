@@ -17,6 +17,7 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Migrate from the Azure Access Control Service

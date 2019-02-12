@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
@@ -22,7 +22,7 @@ ms.lastreviewed: 12/03/2018
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-As an Azure Stack operator, having the ability to know the health and status of your system on-demand is essential. The Azure Stack validation tool (**Test-AzureStack**) is a PowerShell cmdlet that lets you run a series of tests on your system to identify failures if present. You will typically be asked to run this tool through the [privileged end point (PEP)](azure-stack-privileged-endpoint.md) when you contact Microsoft Customer Services Support (CSS) with an issue. With the system-wide health and status information at hand, CSS can collect and analyze detailed logs, focus on the area where the error occurred, and work with you to resolve the issue.
+As an Azure Stack operator, being able to determine the health and status of your system on-demand is essential. The Azure Stack validation tool (**Test-AzureStack**) is a PowerShell cmdlet that lets you run a series of tests on your system to identify failures if present. You will typically be asked to run this tool through the [privileged end point (PEP)](azure-stack-privileged-endpoint.md) when you contact Microsoft Customer Services Support (CSS) with an issue. With the system-wide health and status information at hand, CSS can collect and analyze detailed logs, focus on the area where the error occurred, and work with you to resolve the issue.
 
 ## Running the validation tool and accessing results
 
@@ -90,7 +90,6 @@ These low impact tests work on an infrastructure level and provide you with info
 
 In addition to the infrastructure tests above, you also have the ability to run cloud scenario tests to check functionality across infrastructure components. Cloud administrator credentials are required to run these tests as they involve resource deployment. 
 	> [!NOTE]
-	>
 	> Currently you cannot run cloud scenario tests using Active Directory Federated Services (AD FS) credentials. 
 
 The following cloud scenarios are tested by the validation tool:

@@ -17,6 +17,7 @@ ms.date: 11/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 # Define data protection strategy for your hybrid identity solution
 In this task, you’ll define the data protection strategy for your hybrid identity solution to meet the business requirements that you defined in:

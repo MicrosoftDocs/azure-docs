@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+          "source_path": "articles/machine-learning/studio/retrain-a-classic-web-service.md",
+          "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
+          "redirect_document_id": true
+        },
+        {
           "source_path": "articles/machine-learning/studio/walkthrough-develop-predictive-solution.md",
           "redirect_url": "/azure/machine-learning/studio/tutorial-part1-credit-risk",
           "redirect_document_id": true
@@ -12164,7 +12169,7 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-retrain-a-classic-web-service.md",
-      "redirect_url": "/azure/machine-learning/studio/retrain-a-classic-web-service",
+      "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
       "redirect_document_id": false
     },
     {
@@ -35719,6 +35724,26 @@
     {
       "source_path": "articles/storage/blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-collect-debug-heap-dumps.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-collect-debug-heap-dump-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-debug-tez-ui.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-debug-ambari-tez-view",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-remote-desktop.md",
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-mapreduce-ssh",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-remote-desktop.md",
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-ssh",
       "redirect_document_id": false
     }
   ]

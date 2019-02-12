@@ -13,6 +13,7 @@ ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: "it-pro;seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
 ---
 
 # LinkedIn integration data sharing and consent
