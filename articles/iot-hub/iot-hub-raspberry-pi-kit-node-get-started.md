@@ -78,10 +78,7 @@ Prepare the microSD card for installation of the Raspbian image.
 
 1. Download Raspbian.
 
-   a. [Download Raspbian Stretch](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/) (the .zip file).
-
-   > [!WARNING]
-   > Please use above link to download `raspbian-2017-07-5` zip image. The latest version of Raspbian images has some known issues with Wiring-Pi Node, which might cause failure in your next steps.
+   a. [Download Raspbian Stretch with Desktop](https://www.raspberrypi.org/downloads/raspbian/) (the .zip file).
  
    b. Extract the Raspbian image to a folder on your computer.
 
@@ -179,10 +176,10 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    node -v
    ```
 
-   If the version is lower than 4.x, or if there is no Node.js on your Pi, install the latest version.
+   If the version is lower than 11.x, or if there is no Node.js on your Pi, install the latest version.
 
    ```bash
-   curl -sL http://deb.nodesource.com/setup_4.x | sudo -E bash
+   curl -sL http://deb.nodesource.com/setup_11.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 
