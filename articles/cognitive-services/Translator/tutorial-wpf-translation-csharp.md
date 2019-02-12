@@ -30,12 +30,12 @@ Here's what we'll cover in this tutorial:
 
 Before we continue, you'll need the following:
 
-* An Azure Cognitive Services subscription key. [Get a Cognitive Services key](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-subscription).
+* An Azure Cognitive Services subscription. [Get a Cognitive Services key](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-subscription).
 * A Windows machine
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) - Community or Enterprise
 
 > [!NOTE]
-> We recommend creating the subscription in the West US region for this tutorial. Otherwise, you'll need to remember to change endpoints and regions in the code as you work through this exercise.  
+> We recommend creating the subscription in the West US region for this tutorial. Otherwise, you'll need to change endpoints and regions in the code as you work through this exercise.  
 
 ## Create a WPF app in Visual Studio
 
@@ -52,15 +52,17 @@ In the next section we're going to add assemblies and a NuGet package to our pro
 
 ## Add references and NuGet packages to your project
 
-Our project requires a handful of .NET Framework assemblies and NewtonSoft.Json, which we'll install using the NuGet package manager. In this section you'll learn to add assemblies and install NuGet packages.
+Our project requires a handful of .NET Framework assemblies and NewtonSoft.Json, which we'll install using the NuGet package manager.
 
 ### Add .NET Framework assemblies
 
+Let's add assemblies to our project to serialize and deserialize objects, and to manage HTTP requests and responses.
+
 1. Locate your project in Visual Studio's Solution Explorer (right panel). Right click on your project, then select **Add > Reference...**. This will open **Reference Manager**.
 2. The assemblies tab lists all .NET Framework assemblies that are available to reference. Use the search bar in the upper-right of the screen to search for these references and add them to your project:
-   * System.Runtime.Serialization
-   * System.Web
-   * System.Web.Extensions
+   * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
+   * [System.Web](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
+   * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
    ![Add assembly references](media/add-assemblies-sample.png)
 3. After you've added these references to your project, you can click **OK** to close **Reference Manager**.
 
@@ -73,7 +75,7 @@ Our application will use NewtonSoft.Json to deserialize JSON objects. Follow the
 
 1. Locate your project in Visual Studio's Solution Explorer and right click on your project. Select **Manage NuGet Packages...**.
 2. Locate and select the **Browse** tab.
-3. Type **NewtonSoft.Json** into the search bar.
+3. Type [NewtonSoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) into the search bar.
    ![Locate and install NewtonSoft.Json](media/add-nuget-packages.png)
 4. Select the package and click **Install**.
 5. When the installation is complete, close the tab.
