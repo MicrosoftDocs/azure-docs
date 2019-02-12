@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/08/2019
+ms.date: 02/12/2019
 ms.author: juliako
 
 ---
-# Get started with delivering content on demand by using the Azure portal (legacy)
+# Get started with delivering content on demand by using the Azure portal
 
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
