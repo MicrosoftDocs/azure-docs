@@ -18,9 +18,11 @@ ms.author: lizross
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-You can use your security info to sign in to your work or school account or to reset your password.
+You can use the enhanced security info section to sign in to your work or school account or to reset your password.
 
-When you sign in, depending on your organization's settings, you might see a check box that says, **Don't ask again for X days**. This check box lets you stay signed in to your device for the number of days your administrator allows, without requiring reverification.
+You might be asked to provide your security verification multiple times, depending on your account and how your admin has set up your organization.
+
+During sign in, depending on your organization's settings, you might see a check box that says, **Don't ask again for X days**. This check box lets you stay signed in to your device for the number of days your administrator allows, without requiring reverification.
 
 ## Change your info
 You can update or add security info or change your default, based on what's allowed by your administrator and your organization.

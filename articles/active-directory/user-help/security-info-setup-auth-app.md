@@ -18,16 +18,16 @@ ms.author: lizross
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Setting up your security info requires you to sign in to your work or school account and then complete the registration process. If you've never set up your security info, you'll be asked to do it now.
-
-## Set up the Microsoft Authenticator app
-
-Depending on your organization’s settings, you may be prompted to set up the Microsoft Authenticator app when you sign in. Otherwise, to begin setting up the Microsoft Authenticator app in security info, follow the steps in [Manage your security info](security-info-manage-settings.md).
-
-To download and learn more about the Microsoft Authenticator app, see [Get started with the Microsoft Authenticator app](user-help-auth-app-download-install.md).
+Setting up your security info requires you to sign in to your work or school account and then to complete the registration process. If you've never set up your security info, you'll be asked to do it now.
 
 >[!Note]
->If you don't want to use the Microsoft Authenticator app, you can choose a different app during set up. This article uses the Microsoft Authenticator app. If you don't see the authenticator app option, it's possible that your organization doesn't allow you to use an authentication app for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
+>You aren't required to use the Microsoft Authenticator app, and you can choose a different app during the set up process. However, this article uses the Microsoft Authenticator app.
+
+>If you don't see an authenticator app option, it's possible that your organization doesn't allow you to use an authentication app for verification. In this case, you'll need to choose another method or contact your administrator for more help.
+
+## Set up the Microsoft Authenticator app
+Depending on your organization’s settings, you may be prompted to set up the Microsoft Authenticator app as soon as you sign in. However, if you're not prompted, you can still download and set up the Authenticator app. For more informations, see [Download and install the Microsoft Authenticator app](user-help-auth-app-download-install.md).
+
 
 ### To use the Microsoft Authenticator app
 
