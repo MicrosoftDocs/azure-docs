@@ -43,7 +43,7 @@ For more information about Resource Manager templates, see the following article
 
 ## Generate templates
 
-Resource Manager enables you to export a Resource Manager template from existing resources in your subscription using different tools. You can use that generated template to learn about the template syntax or to automate the redeployment of your solution as needed. For more information, see [Export templates](../azure-resource-manager/manage-resources-portal.md#export-resource-groups-to-templates).
+Resource Manager enables you to export a Resource Manager template from existing resources in your subscription using different tools. You can use that generated template to learn about the template syntax or to automate the redeployment of your solution as needed. For more information, see [Export templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 
 ## Deploy using the portal
 

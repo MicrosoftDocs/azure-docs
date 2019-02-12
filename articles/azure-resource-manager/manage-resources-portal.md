@@ -113,10 +113,13 @@ When you open a resource, the portal presents default graphs and tables for moni
 
 You can select the pin icon on the upper right corner of the graphs to pin the graph to the dashboard. To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
 
+## Manage access to resources
+
+[Role-based access control (RBAC)](../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
 ## Next steps
 
-* To view activity logs, see [Audit operations with Resource Manager](resource-group-audit.md).
-* To view details about a deployment, see [View deployment operations](resource-manager-deployment-operations.md).
-* To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
-* To manage access to resources, see [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
+- To learn Azure Resource Manager, see [Azure Resource Manager overview](./resource-group-overview.md).
+- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](./resource-group-authoring-templates.md).
+- To learn how to develop templates, see the [step-by-step tutorials](/azure/azure-resource-manager/).
+- To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

@@ -74,8 +74,6 @@ The following script shows how to delete a storage account.
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
-echo "Enter the location (i.e. centralus):" &&
-read location &&
 echo "Enter the storage account name:" &&
 read storageAccountName &&
 az storage account delete --resource-group $resourceGroupName --name $storageAccountName 
@@ -92,9 +90,8 @@ echo "Enter the destination Resource Group name:" &&
 read destResourceGroupName &&
 echo "Enter the storage account name:" &&
 read storageAccountName &&
-
-storageAccount=$(az resource show --resource-group $srcResourceGroupName --name $storageAccountName --resource-type Microsoft.Storage/storageAccounts --query id --output tsv)
-az resource move --destination-group $destResourceGroup --ids $storageAccount
+storageAccount=$(az resource show --resource-group $srcResourceGroupName --name $storageAccountName --resource-type Microsoft.Storage/storageAccounts --query id --output tsv) &&
+az resource move --destination-group $destResourceGroupName --ids $storageAccount
 ```
 
 For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
@@ -130,7 +127,7 @@ echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 echo "Enter the storage account name:" &&
 read storageAccountName &&
-lockId=$(az lock show --name LockSite --resource-group $resourceGroupName --resource-type Microsoft.Storage/storageAccounts --resource-name $storageAccountName --output tsv --query id)
+lockId=$(az lock show --name LockSite --resource-group $resourceGroupName --resource-type Microsoft.Storage/storageAccounts --resource-name $storageAccountName --output tsv --query id)&&
 az lock delete --ids $lockId
 ```
 
@@ -140,10 +137,13 @@ For more information, see [Lock resources with Azure Resource Manager](resource-
 
 Tagging helps organizing your resource group and resources logically. For information, see [Using tags to organize your Azure resources](./resource-group-using-tags.md#azure-cli).
 
+## Manage access to resources
+
+[Role-based access control (RBAC)](../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md).
+
 ## Next steps
 
-* To view activity logs, see [Audit operations with Resource Manager](resource-group-audit.md).
-* To view details about a deployment, see [View deployment operations](resource-manager-deployment-operations.md).
-* To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
-* To manage access to resources, see [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
+- To learn Azure Resource Manager, see [Azure Resource Manager overview](./resource-group-overview.md).
+- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](./resource-group-authoring-templates.md).
+- To learn how to develop templates, see the [step-by-step tutorials](/azure/azure-resource-manager/).
+- To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).

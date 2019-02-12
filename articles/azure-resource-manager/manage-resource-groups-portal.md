@@ -61,7 +61,7 @@ The resource group stores metadata about the resources. Therefore, when you spec
 ## Open resource groups
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **Resource groups**
+2. Select **Resource groups**.
 3. Select the resource group you want to open.
 
 ## Delete resource groups
@@ -95,6 +95,8 @@ Locking prevents other users in your organization from accidentally deleting or 
 4. Enter **Lock name**, **Lock type**, and **Notes**. The lock types include **Read-only**, and **Delete**.
 
     ![lock azure resource group](./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png)
+
+For more information, see [Lock resources to prevent unexpected changes](./resource-group-lock-resources.md).
 
 ## Tag resource groups
 
@@ -165,10 +167,13 @@ To resolve export issues, manually add the missing resources back into your temp
 
 After getting the JSON format for the resource, you need to get the resource values. You can see the values for the resource by using the GET operation in the REST API for the resource type. For example, to get the values for your virtual network gateway, see [Virtual Network Gateways - Get](/rest/api/network-gateway/virtualnetworkgateways/get).
 
+## Manage access to resource groups
+
+[Role-based access control (RBAC)](../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
 ## Next steps
 
-* To view activity logs, see [Audit operations with Resource Manager](resource-group-audit.md).
-* To view details about a deployment, see [View deployment operations](resource-manager-deployment-operations.md).
-* To deploy resources through the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
-* To manage access to resources, see [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control/role-assignments-portal.md).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
+- To learn Azure Resource Manager, see [Azure Resource Manager overview](./resource-group-overview.md).
+- To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](./resource-group-authoring-templates.md).
+- To learn how to develop templates, see the [step-by-step tutorials](/azure/azure-resource-manager/).
+- To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).
