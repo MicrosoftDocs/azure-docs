@@ -3,84 +3,56 @@ title: Azure SignalR Service Supported Versions
 description: An overview of Azure SignalR Service internals.
 author: sffamily
 ms.service: signalr
-ms.topic: overview
-ms.date: 12/23/2018
+ms.topic: concept
+ms.date: 02/01/2019
 ms.author: zhshang
 ---
-# Azure SignalR Service Supported Versions
+<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
 
-Azure SignalR Service is built on top of ASP.NET Core SignalR framework. It also supports ASP.NET SignalR as a preview feature.
+<!---overview articles are for new customers and explain the service from a technical point of view.
+They are not intended to define benefits or value prop; that would be in marketing content.
+--->
 
-> To support ASP.NET SignalR, Azure SignalR Service reimplements ASP.NET SignalR's data protocol on top of the ASP.NET Core framework
+# What is <product/service>? 
+<!---Required: 
+For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
+You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
+--->
 
-You can easily migrate a local ASP.NET Core SignalR application to work with SignalR Service, with a few lines of code change.
+Introductory paragraph.
+<!---Required:
+The introductory paragraph helps customers quickly determine whether an article is relevant.
+Describe in customer-friendly terms what the service is and does, and why the customer should care. Keep it short for the intro.
+You can go into more detail later in the article. Many services add artwork or videos below the introduction.
+--->
 
-The diagram below describes the typical architecture when you use the SignalR Service with your application server.
+<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
 
-The differences from self-hosted ASP.NET Core SignalR application are discussed as well.
+<!---Screenshots and videos can add another way to show and tell the overview story. But don’t overdo them. Make sure that they offer value for the overview.
+If users access your product/service via a web browser, the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.
+--->
 
-![Architecture](./media/signalr-concept-internals/arch.png)
+## <article body>
+<!---
+After the intro, you can develop your overview by discussing the features that answer the "Why should I care" question with a bit more depth.
+Be sure to call out any basic requirements and dependencies, as well as limitations or overhead.
+Don't catalog every feature, and some may only need to be mentioned as available, without any discussion.
+--->
 
-## Server connections
+## <Top task>
+<!---Suggested:
+An effective way to structure you overview article is to create an H2 for the top customer tasks identified in milestone one of the [APEX content model](contribute-get-started-mvc.md) and describe how the product/service helps customers with that task.
+Create a new H2 for each task you list.
+--->
 
-Self-hosted ASP.NET Core SignalR application server listens to and connects clients directly.
+## Next steps
 
-With SignalR Service, the application server is no longer accepting persistent client connections, instead:
+<!---Some context for the following links goes here--->
+- [link to next logical step for the customer](quickstart-view-occupancy.md)
 
-1. A `negotiate` endpoint is exposed by Azure SignalR Service SDK for each hub.
-1. This endpoint will respond to client's negotiation requests and redirect clients to SignalR Service.
-1. Eventually, clients will be connected to SignalR Service.
-
-For more information, see [Client connections](#client-connections).
-
-Once the application server is started, 
-- For ASP.NET Core SignalR, Azure SignalR Service SDK opens 5 WebSocket connections per hub to SignalR Service. 
-- For ASP.NET SignalR, Azure SignalR Service SDK opens 5 WebSocket connections per hub to SignalR Service, and one per application WebSocket connection.
-
-5 WebSocket connections is the default value that can be changed in [configuration](https://github.com/Azure/azure-signalr/blob/dev/docs/use-signalr-service.md#connectioncount).
-
-Messages to and from clients will be multiplexed into these connections.
-
-These connections will remain connected to the SignalR Service all the time. If a server connection is disconnected for network issue,
-- all clients that are served by this server connection disconnect (for more information about it, see [Data transmit between client and server](#data-transmit-between-client-and-server));
-- the server connection starts reconnecting automatically.
-
-## Client connections
-
-When you use the SignalR Service, clients connect to SignalR Service instead of application server.
-There are two steps to establish persistent connections between the client and the SignalR Service.
-
-1. Client sends a negotiate request to the application server. With Azure SignalR Service SDK, application server returns a redirect response with SignalR Service's URL and access token.
-
-- For ASP.NET Core SignalR, a typical redirect response looks like:
-    ```
-    {
-        "url":"https://test.service.signalr.net/client/?hub=chat&...",
-        "accessToken":"<a typical JWT token>"
-    }
-    ```
-- For ASP.NET SignalR, a typical redirect response looks like:
-    ```
-    {
-        "ProtocolVersion":"2.0",
-        "RedirectUrl":"https://test.service.signalr.net/aspnetclient",
-        "AccessToken":"<a typical JWT token>"
-    }
-    ```
-
-1. After receiving the redirect response, client uses the new URL and access token to start the normal process to connect to SignalR Service.
-
-Learn more about ASP.NET Core SignalR's [transport protocols](https://github.com/aspnet/SignalR/blob/release/2.2/specs/TransportProtocols.md).
-
-## Data transmit between client and server
-
-When a client is connected to the SignalR Service, service runtime will find a server connection to serve this client
-- This step happens only once, and is a one-to-one mapping between the client and server connections.
-- The mapping is maintained in SignalR Service until the client or server disconnects.
-
-At this point, the application server receives an event with information from the new client. A logical connection to the client is created in the application server. The data channel is established from client to application server, via SignalR Service.
-
-SignalR service transmits data from the client to the pairing application server. And data from the application server will be sent to the mapped clients.
-
-As you can see, the Azure SignalR Service is essentially a logical transport layer between  application server and clients. All persistent connections are offloaded to SignalR Service.
-Application server only needs to handle the business logic in hub class, without worrying about client connections.
+<!--- Required:
+In Overview articles, provide at least one next step and no more than three.
+Next steps in overview articles will often link to a quickstart.
+Use regular links; do not use a blue box link. What you link to will depend on what is really a next step for the customer.
+Do not use a "More info section" or a "Resources section" or a "See also section".
+--->

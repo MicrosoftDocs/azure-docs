@@ -1,10 +1,9 @@
 ---
 title: "Tutorial: Azure SignalR Service authentication with Azure Functions"
-description: In this tutorial, you learn how to authenticate Azure SignalR Service clients
+description: In this tutorial, you learn how to authenticate Azure SignalR Service clients for Azure Functions binding
 author: sffamily
 ms.service: signalr
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 01/31/2018
 ms.author: zhshang
 ---
@@ -497,4 +496,4 @@ To clean up the resources created in this tutorial, delete the resource group us
 In this tutorial, you learned how to use Azure Functions with Azure SignalR Service. Read more about building real-time serverless applications with SignalR Service bindings for Azure Functions.
 
 > [!div class="nextstepaction"]
-> [Build Real-time Apps with Azure Functions](signalr-overview-azure-functions.md)
+> [Build Real-time Apps with Azure Functions](signalr-concept-azure-functions.md)

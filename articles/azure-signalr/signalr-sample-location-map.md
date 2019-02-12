@@ -1,9 +1,9 @@
 ---
-title: "Tutorial: Develop real time Android native app with Azure SignalR Service"
-description: In this tutorial, you learn how to develop real time Android native app using iOS client SDKs.
+title: Sample for real time location on map
+description: A sample project using Azure SignalR Service to create a real time location on map application
 author: sffamily
 ms.service: signalr
-ms.topic: tutorial
+ms.topic: sample
 ms.date: 02/01/2019
 ms.author: zhshang
 ---
@@ -13,7 +13,7 @@ ms.author: zhshang
 You only use tutorials to show the single best procedure for completing an approved top 10 customer task.
 --->
 
-# Tutorial: <do something with X> 
+# Sample: Real time location on map 
 <!---Required:
 Starts with "Tutorial: "
 Make the first word following "Tutorial:" a verb.

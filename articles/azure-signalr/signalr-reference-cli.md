@@ -3,12 +3,11 @@ title: Azure CLI Samples - Azure SignalR Service
 description: Azure CLI Samples - Azure SignalR Service
 author: sffamily
 ms.service: signalr
-ms.topic: sample
+ms.topic: reference
 ms.date: 04/20/2018
 ms.author: zhshang
-ms.custom: mvc
 ---
-# Azure CLI Samples
+# Azure CLI reference
 
 The following table includes links to bash scripts for the Azure SignalR Service using the Azure CLI.
 

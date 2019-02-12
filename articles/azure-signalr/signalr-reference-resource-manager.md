@@ -1,9 +1,9 @@
 ---
-title: Azure SignalR Service resource limits
-description: An overview of Azure SignalR Service resource limits.
+title: Resource Manager Template for Azure SignalR Service
+description: Resource Manager template reference for Azure SignalR Service
 author: sffamily
 ms.service: signalr
-ms.topic: concept
+ms.topic: reference
 ms.date: 02/01/2019
 ms.author: zhshang
 ---
@@ -13,7 +13,7 @@ ms.author: zhshang
 They are not intended to define benefits or value prop; that would be in marketing content.
 --->
 
-# What is <product/service>? 
+# Resource Manager Template for Azure SignalR Service 
 <!---Required: 
 For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
 You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.

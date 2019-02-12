@@ -3,7 +3,7 @@ title: Azure SignalR Service internals
 description: An overview of Azure SignalR Service internals.
 author: sffamily
 ms.service: signalr
-ms.topic: overview
+ms.topic: concept
 ms.date: 12/23/2018
 ms.author: zhshang
 ---

@@ -1,5 +1,5 @@
 ---
-title: Azure SignalR Service Serverless Quickstart - JavaScript
+title: Azure SignalR Service serverless quickstart - JavaScript
 description: A quickstart for using Azure SignalR Service and Azure Functions to create a chat room.
 author: sffamily
 ms.service: signalr

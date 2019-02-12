@@ -1,6 +1,6 @@
 ---
-title: What is Azure SignalR
-description: An overview of the Azure SignalR service.
+title: What is Azure SignalR Service
+description: An overview of the Azure SignalR Service.
 author: sffamily
 ms.service: signalr
 ms.topic: overview

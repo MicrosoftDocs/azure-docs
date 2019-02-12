@@ -3,8 +3,7 @@ title: Guide for authenticating Azure SignalR Service clients
 description: In this guide, you learn how to authenticate Azure SignalR Service clients
 author: sffamily
 ms.service: signalr
-ms.topic: tutorial
-ms.custom: mvc
+ms.topic: concept
 ms.date: 06/13/2018
 ms.author: zhshang
 ---

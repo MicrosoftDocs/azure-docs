@@ -3,7 +3,6 @@ title: Quickstart - Azure SignalR Service REST API
 description: A quickstart for using the Azure SignalR Service REST API.
 author: sffamily
 ms.service: signalr
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/13/2018
 ms.author: zhshang

@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Develop real time Android native app with Azure SignalR Service"
-description: In this tutorial, you learn how to develop real time Android native app using iOS client SDKs.
+title: "Tutorial: Develop Single Page App with Azure SignalR Service"
+description: In this tutorial, you learn how to develop Single Page App with Azure SignalR Service.
 author: sffamily
 ms.service: signalr
 ms.topic: tutorial
