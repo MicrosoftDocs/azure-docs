@@ -1,5 +1,5 @@
 ---
-title: Add email-verified user accounts with self-service signup - Azure Active Directory | Microsoft Docs
+title: Self-service signup for email-verified user accounts - Azure Active Directory | Microsoft Docs
 description: Use self-service signup in an Azure Active Directory (Azure AD) tenant
 services: active-directory
 documentationcenter: ''
