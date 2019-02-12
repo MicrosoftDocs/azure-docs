@@ -25,7 +25,7 @@ You can configure monitoring by instrumenting the app in either of two ways:
 * **Build time** - You can install a package in your app in development. This option is more versatile. In addition to the same standard packages, you can write code to customize the telemetry or to send your own telemetry. You can log specific activities or record events according to the semantics of your app domain. 
 
 ## Run time instrumentation with Application Insights
-If you're already running an app service in Azure, you already get some monitoring: request and error rates. Add Application Insights to get more, such as response times, monitoring calls to dependencies, smart detection, and the powerful Log Analytics query language. 
+If you're already running an app service in Azure, you already get some monitoring: request and error rates. Add Application Insights to get more, such as response times, monitoring calls to dependencies, smart detection, and the powerful Data Explorer query language. 
 
 1. **Select Application Insights** in the Azure control panel for your app service.
 

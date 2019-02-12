@@ -4,7 +4,7 @@ description: This article provides basic explanations about core network securit
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: bedf411a-0781-47b9-9742-d524cf3dbfc1
@@ -81,7 +81,7 @@ Learn more:
 
 Learn more:
 
-* [Azure Security Center Just in T](../security-center/security-center-just-in-time.md)
+* [Azure Security Center Just in Time Access](../security-center/security-center-just-in-time.md)
 
 #### Service endpoints
 

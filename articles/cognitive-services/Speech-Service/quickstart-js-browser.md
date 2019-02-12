@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in JavaScript in a browser using the Speech Service SDK
 services: cognitive-services
 author: fmegen
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service

@@ -13,11 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/08/2019
 ms.author: sajagtap
 
 ---
-# Use Azure Media Content Moderator to detect possible adult and racy content
+# Use Azure Media Content Moderator to detect possible adult and racy content 
 
 ## Overview
 The **Azure Media Content Moderator** media processor (MP) enables you to use machine-assisted moderation for your videos. For example, you might want to detect possible adult and racy content in videos and review the flagged content by your human moderation teams.

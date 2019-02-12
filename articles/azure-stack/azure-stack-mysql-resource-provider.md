@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 10/25/2018 
-ms.author: jeffgilb 
+ms.date: 02/12/2019
+ms.author: jeffgilb
 ms.reviewer: quying
-ms.lastreviewed: 10/25/2018 
+ms.lastreviewed: 10/25/2018
 
 ---
 
 # Use MySQL databases on Microsoft Azure Stack
 
-MySQL databases are common on websites and support many website platforms. For example, you can create WordPress websites using the Web Apps platform as a service (PaaS) add-on.
+MySQL databases are commonly used with websites and support many website platforms. For example, you can create WordPress websites using the App Services resource provider (PaaS) add-on.
 
 After you deploy the resource provider, you can:
 

@@ -1,6 +1,6 @@
 ---
-title: Manage workspaces in Azure Log Analytics and the OMS portal | Microsoft Docs
-description: You can manage workspaces in Azure Log Analytics and the OMS portal using a variety of administrative tasks on users, accounts, workspaces, and Azure accounts.
+title: Manage Log Analytics workspaces in Azure Monitor | Microsoft Docs
+description: You can manage Log Analytics workspaces in Azure Monitor using a variety of administrative tasks on users, accounts, workspaces, and Azure accounts.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,13 +11,12 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/07/2019
 ms.author: magoedte
 ---
 
-# Manage workspaces
-
-To manage access to Log Analytics, you perform various administrative tasks related to workspaces. This article provides advice and procedures to manage workspaces. A workspace is essentially a container that includes account information and simple configuration information for the account. You or other members of your organization might use multiple workspaces to manage different sets of data that is collected from all or portions of your IT infrastructure.
+# Manage Log Analytics workspaces in Azure Monitor
+Azure Monitor stores log data in a Log Analytics workspace, which is essentially a container that includes data and configuration information. To manage access to log data, you perform various administrative tasks related to workspaces. You or other members of your organization might use multiple workspaces to manage different sets of data that is collected from all or portions of your IT infrastructure.
 
 To create a workspace, you need to:
 
@@ -27,11 +26,11 @@ To create a workspace, you need to:
 4. Choose a geographical location.
 
 ## Determine the number of workspaces you need
-A workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in the Azure portal.
+A Log Analytics workspace is an Azure resource and is a container where data is collected, aggregated, analyzed, and presented in Azure Monitor.
 
-You can have multiple workspaces per Azure subscription and you can have access to more than one workspace, with the ability to easily query across them. This section describes when it can be helpful to create more than one workspace.
+You can have multiple workspaces per Azure subscription, and you can have access to more than one workspace, with the ability to easily query across them. This section describes when it can be helpful to create more than one workspace.
 
-Today, a workspace provides:
+A Log Analytics workspace provides:
 
 * A geographic location for data storage
 * Data isolation to define different user access rights
@@ -39,7 +38,7 @@ Today, a workspace provides:
 
 From consumption point of view, we recommend you create as few workspaces as possible. It makes administration and query experience easier and quicker. But, based on the preceding characteristics, you may want to create multiple workspaces if:
 
-* You are a global company and you need data stored in specific regions for data sovereignty or compliance reasons.
+* You are a global company and you need log data stored in specific regions for data sovereignty or compliance reasons.
 * You are using Azure and you want to avoid outbound data transfer charges by having a workspace in the same region as the Azure resources it manages.
 * You want to allocate charges to different departments or business groups based on their usage by creating a workspace for each department or business group in its own Azure subscription.
 * You are a managed service provider and need to keep the Log Analytics data for each customer you manage isolated from other customer’s data.
@@ -50,16 +49,14 @@ When using Windows agents to collect data, you can [configure each agent to repo
 If you are using System Center Operations Manager, each Operations Manager management group can be connected with only one workspace. You can install the Microsoft Monitoring Agent on computers managed by Operations Manager and have the agent report to both Operations Manager and a different Log Analytics workspace.
 
 ## Workspace information
+While you analyze data in the Log Analytics workspace in the **Azure Monitor** menu in the Azure portal, you create and manage workspaces in the **Log Analytics workspaces** menu.
+ 
 
-You can view details about your workspace in the Azure portal. 
-
-1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com).
-
-2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.  
+1. Sign in to the [Azure portal](https://portal.azure.com) and click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**  workspaces.  
 
     ![Azure portal](media/manage-access/azure-portal-01.png)  
 
-3. On the Log Analytics subscriptions pane, select a workspace.
+3. Select your workspace from the list.
 
 4. The workspace page displays details about the getting started, configuration, and links for additional information.  
 
@@ -79,10 +76,10 @@ The following activities also require Azure permissions:
 | Creating a workspace in the Azure portal                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
 
 
-### Managing access to Log Analytics using Azure permissions
+### Managing access to Log Analytics workspace using Azure permissions
 To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
-Azure has two built-in user roles for Log Analytics:
+Azure has two built-in user roles for Log Analytics workspaces:
 - Log Analytics Reader
 - Log Analytics Contributor
 
@@ -144,5 +141,4 @@ We recommend you perform assignments at the resource level (workspace) to assure
 ## Next steps
 * See [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md) to gather data from computers in your datacenter or other cloud environment.
 * See [Collect data about Azure Virtual Machines](../../azure-monitor/learn/quick-collect-azurevm.md) to configure data collection from Azure VMs.  
-* [Add Log Analytics solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md) to add functionality and gather data.
 
