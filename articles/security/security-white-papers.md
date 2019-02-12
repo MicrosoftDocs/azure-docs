@@ -4,7 +4,7 @@ description: The article provides a curated list of Azure security white papers 
 services: azure-security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor:
 
 ms.assetid:
