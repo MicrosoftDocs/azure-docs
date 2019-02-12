@@ -106,7 +106,7 @@ For more information  about what PKI certificates are required to deploy Azure S
 ## Time synchronization
 You must choose a specific time server with is used to synchronize Azure Stack.  Time synchronization is critical to Azure Stack and its infrastructure roles, as it is used to generate Kerberos tickets which are used to authenticate internal services with each other.
 
-You must specify an IP for the time synchronization server, although most of the components in the infrastructure can resolve an URL, some can only support IP addresses. If you’re are using the disconnected deployment option, you must specify a time server on your corporate network that you are sure can be reached from the infrastructure network in Azure Stack.
+You must specify an IP for the time synchronization server, although most of the components in the infrastructure can resolve an URL, some can only support IP addresses. If you’re using the disconnected deployment option, you must specify a time server on your corporate network that you are sure can be reached from the infrastructure network in Azure Stack.
 
 ## Connect Azure Stack to Azure
 
