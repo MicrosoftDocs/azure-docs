@@ -141,7 +141,7 @@ To configure Azure AD single sign-on with FileCloud, perform the following steps
    
     ![Configure Single Sign-On On App side](./media/filecloud-tutorial/tutorial_filecloud_002.png)
 
-5. In the **IdP End Point URL** textbox, paste the value of **SAML Entity ID** which you have copied from Azure portal.
+5. In the **IdP End Point URL** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal.
 
     ![Configure Single Sign-On On App side](./media/filecloud-tutorial/tutorial_filecloud_003.png)
 
