@@ -55,6 +55,10 @@
   items:
   - name: Knowledge mining bootcamp
     href: https://azure.github.io/LearnAI-KnowledgeMiningBootcamp/
+  - name: Add search to apps (Pluralsight)
+    href: https://www.pluralsight.com/courses/azure-adding-search-abilities-apps
+  - name: Microsoft Azure Developer course (Pluralsight)
+    href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
 - name: Concepts
   items:
   - name: Full text search

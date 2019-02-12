@@ -15,10 +15,7 @@ ms.date: 04/19/2017
 # Retrain Azure Machine Learning Studio models programmatically
 In this walkthrough, you will learn how to programmatically retrain an Azure Machine Learning Studio web service using C# and the Machine Learning Batch Execution service.
 
-Once you have retrained the model, the following walkthroughs show how to update the model in your predictive web service:
-
-* If you deployed a Classic web service in the Machine Learning Web Services portal, see [Retrain a Classic web service](retrain-a-classic-web-service.md). 
-* If you deployed a New web service, see [Retrain a New web service using the Machine Learning Management cmdlets](retrain-new-web-service-using-powershell.md).
+Once you have retrained the model, see [Retrain a New web service using the Machine Learning Management cmdlets](retrain-new-web-service-using-powershell.md) to see how to update the model in your predictive web service:
 
 For an overview of the retraining process, see [Retrain a Machine Learning Model](retrain-machine-learning-model.md).
 
@@ -160,9 +157,8 @@ Examine the results to determine whether the newly trained model performs well e
 Copy the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results, you will use them during the retraining process.
 
 ## Next steps
-If you deployed the predictive web service by clicking **Deploy Web Service [Classic]**, see [Retrain a Classic web service](retrain-a-classic-web-service.md).
 
-If you deployed the predictive web service by clicking **Deploy Web Service [New]**, see [Retrain a New web service using the Machine Learning Management cmdlets](retrain-new-web-service-using-powershell.md).
+ [Retrain a New web service using the Machine Learning Management cmdlets](retrain-new-web-service-using-powershell.md).
 
 <!-- Retrain a New web service using the Machine Learning Management REST API -->
 
