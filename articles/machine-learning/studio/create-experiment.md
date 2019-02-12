@@ -20,15 +20,15 @@ In this quickstart, you create a machine learning experiment in [Azure Machine L
 
 If you're brand new to machine learning, the video series [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md) is a great introduction to machine learning using everyday language and concepts.
 
-This quickstart follows follows the default workflow for an experience:
+This quickstart follows the default workflow for an experiment:
 
-- **Create a model**
+1. **Create a model**
     - [Get the data]
     - [Prepare the data]
     - [Define features]
-- **Train the model**
+1. **Train the model**
     - [Choose and apply an algorithm]
-- **Score and test the model**
+1. **Score and test the model**
     - [Predict new automobile prices]
 
 [Get the data]: #get-the-data
