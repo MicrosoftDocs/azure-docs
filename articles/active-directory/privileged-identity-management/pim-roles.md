@@ -39,6 +39,5 @@ Roles within Exchange Online or SharePoint Online, except for Exchange Administr
 
 ## Next steps
 
-- [Start using PIM](pim-getting-started.md)
 - [Assign Azure AD directory roles in PIM](pim-how-to-add-role-to-user.md)
 - [Assign Azure resource roles in PIM](pim-resource-roles-assign-roles.md)

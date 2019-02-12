@@ -4,7 +4,7 @@ description: This tutorial shows you how to configure a just in time VM access p
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e

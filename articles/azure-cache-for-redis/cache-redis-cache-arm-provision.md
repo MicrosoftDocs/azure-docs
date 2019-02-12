@@ -18,6 +18,9 @@ ms.author: wesmc
 
 ---
 # Create an Azure Cache for Redis using a template
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 In this topic, you learn how to create an Azure Resource Manager template that deploys an Azure Cache for Redis. The cache can be used with an existing storage account to keep diagnostic data. You also learn how to define which resources are deployed and 
 how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements.
 
@@ -30,7 +33,7 @@ For the complete template, see [Azure Cache for Redis template](https://github.c
 > [!NOTE]
 > Resource Manager templates for the new [Premium tier](cache-premium-tier-intro.md) are available. 
 > 
-> * [Create a Premium Azure Cache for Redis with clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-cluster-diagnostics/)
+> * [Create a Premium Azure Cache for Redis with clustering](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [Create Premium Azure Cache for Redis with data persistence](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
 > * [Create Premium Azure Cache for Redis with VNet and optional clustering](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
 > 
@@ -125,7 +128,8 @@ Creates the Azure Cache for Redis.
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
-    New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
+
+    New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -ResourceGroupName ExampleDeployGroup -redisCacheName ExampleCache
 
 ### Azure CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-redis-cache/azuredeploy.json -g ExampleDeployGroup

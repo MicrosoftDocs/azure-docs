@@ -5,7 +5,7 @@ description: Learn about how you can use logging data to gain deep insights abou
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 
