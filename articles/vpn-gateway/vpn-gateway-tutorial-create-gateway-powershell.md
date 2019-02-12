@@ -162,6 +162,7 @@ In this tutorial, you learned about basic VPN gateway creation and management su
 
 > [!div class="checklist"]
 > * Create a VPN gateway
+> * View the public IP address
 > * Resize a VPN gateway
 > * Reset a VPN gateway
 

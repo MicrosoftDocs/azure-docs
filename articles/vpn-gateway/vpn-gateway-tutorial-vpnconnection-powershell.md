@@ -32,12 +32,16 @@ The following diagram shows the topology for this tutorial:
 
 ## Requirements
 
-Complete the first tutorial: "[Create VPN gateway with Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md)" to create the following resources:
+Complete the first tutorial: [Create VPN gateway with Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md) to create the following resources:
 
-1. Resource group (TestRG1), virtual network (VNet1), and GatewaySubnet
+1. Resource group (TestRG1), virtual network (VNet1), and the GatewaySubnet
 2. VPN gateway (VNet1GW)
 
-The virtual network parameter values are listed below. Note the additional values for the local network gateway to represent your on-premises network. Change the values below based on your environment and network setup, then copy and paste to set the variables for this tutorial. If your Cloud Shell session times out, or you need to use a different PowerShell window, copy and paste the variables to your new session and continue the tutorial.
+The virtual network parameter values are listed below. Note the additional values for the local network gateway which represent your on-premises network. Change the values below based on your environment and network setup, then copy and paste to set the variables for this tutorial. If your Cloud Shell session times out, or you need to use a different PowerShell window, copy and paste the variables to your new session and continue the tutorial.
+
+>[!NOTE]
+> Be sure to change the values to coordinate with your on-premises network.
+>
 
 ```azurepowershell-interactive
 # Virtual network
@@ -52,7 +56,7 @@ $Gw1         = "VNet1GW"
 $LNG1        = "VPNsite1"
 $LNGprefix1  = "10.101.0.0/24"
 $LNGprefix2  = "10.101.1.0/24"
-$LNGIP1      = "YourDevicePublicIP"
+$LNGIP1      = "Input the public IP address for your VPN device here"
 
 # Optional - on-premises BGP properties
 $LNGASN1     = 65011
@@ -129,7 +133,9 @@ Azure VPN gateway supports BGP dynamic routing protocol. You can enable BGP on e
 * On-premises local network gateway ASN
 * On-premises local network gateway BGP peer IP address
 
-If you have not configured the BGP properties, use the following commands to add these properties to your VPN gateway and local network gateway: [Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway?view=azurermps-6.8.1) and [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway?view=azurermps-6.8.1).
+If you have not configured the BGP properties, the following commands add these properties to your VPN gateway and local network gateway: [Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway?view=azurermps-6.8.1) and [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway?view=azurermps-6.8.1).
+
+Use the following example to configure BGP properties:
 
 ```azurepowershell-interactive
 $vng1 = Get-AzVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -175,7 +181,7 @@ Refer to [IPsec/IKE policy for S2S or VNet-to-VNet connections](vpn-gateway-ipse
 
 ## Add another S2S VPN connection
 
-To add an additional S2S VPN connection to the same VPN gateway, create another local network gateway, and create a new connection between the new local network gateway and the VPN gateway. Following the example in this article.
+Add an additional S2S VPN connection to the same VPN gateway, create another local network gateway, and create a new connection between the new local network gateway and the VPN gateway. Use the following examples, making sure to modify the variables to reflect your own network configuration.
 
 ```azurepowershell-interactive
 # On-premises network
