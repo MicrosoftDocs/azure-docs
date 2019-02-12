@@ -17,9 +17,9 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
 ```objc
-    SSCCloudSpatialAnchorSession *_cloudSession;
+    ASACloudSpatialAnchorSession *_cloudSession;
     // In your view handler
-    _cloudSession = [[SSCCloudSpatialAnchorSession alloc] init];
+    _cloudSession = [[ASACloudSpatialAnchorSession alloc] init];
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
@@ -37,7 +37,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
 
 ```objc
-    - (void)tokenRequired:(SSCCloudSpatialAnchorSession *)cloudSession :(SSCTokenRequiredEventArgs *)args {
+    - (void)tokenRequired:(ASACloudSpatialAnchorSession *)cloudSession :(ASATokenRequiredEventArgs *)args {
         args.accessToken = @"MyAccessToken";
     }
 ```
@@ -45,8 +45,8 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Asynchronous Tokens](../../../includes/spatial-anchors-create-locate-anchors-asynchronous-tokens.md)]
 
 ```objc
-    - (void)tokenRequired:(SSCCloudSpatialAnchorSession *)cloudSession :(SSCTokenRequiredEventArgs *)args {
-        SSCCloudSpatialAnchorSessionDeferral *deferral = [args getDeferral];
+    - (void)tokenRequired:(ASACloudSpatialAnchorSession *)cloudSession :(ASATokenRequiredEventArgs *)args {
+        ASACloudSpatialAnchorSessionDeferral *deferral = [args getDeferral];
         [myGetTokenAsync callback:^(NSString *myToken) {
             if (myToken) args.accessToken = myToken;
             [deferral complete];
@@ -63,7 +63,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [AAD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens-event.md)]
 
 ```objc
-    - (void)tokenRequired:(SSCCloudSpatialAnchorSession *)cloudSession :(SSCTokenRequiredEventArgs *)args {
+    - (void)tokenRequired:(ASACloudSpatialAnchorSession *)cloudSession :(ASATokenRequiredEventArgs *)args {
         args.authenticationToken = @"MyAuthenticationToken";
     }
 ```
@@ -71,8 +71,8 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Asynchronous Tokens](../../../includes/spatial-anchors-create-locate-anchors-asynchronous-tokens.md)]
 
 ```objc
-    - (void)tokenRequired:(SSCCloudSpatialAnchorSession *)cloudSession :(SSCTokenRequiredEventArgs *)args {
-        SSCCloudSpatialAnchorSessionDeferral *deferral = [args getDeferral];
+    - (void)tokenRequired:(ASACloudSpatialAnchorSession *)cloudSession :(ASATokenRequiredEventArgs *)args {
+        ASACloudSpatialAnchorSessionDeferral *deferral = [args getDeferral];
         [myGetTokenAsync callback:^(NSString *myToken) {
             if (myToken) args.authenticationToken = myToken;
             [deferral complete];
@@ -97,9 +97,9 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
 ```objc
-    - (void)sessionUpdated:(SSCCloudSpatialAnchorSession *)cloudSession :(SSCSessionUpdatedEventArgs *)args {
-        SSCSessionStatus *status = [args status];
-        if (status.userFeedback == SSCSessionUserFeedbackNone) return;
+    - (void)sessionUpdated:(ASACloudSpatialAnchorSession *)cloudSession :(ASASessionUpdatedEventArgs *)args {
+        ASASessionStatus *status = [args status];
+        if (status.userFeedback == ASASessionUserFeedbackNone) return;
         _feedback = [NSString
             stringWithFormat:@"Feedback: %@ - Recommend Create=%.0f%%",
             FeedbackToString(status.userFeedback),
@@ -121,7 +121,7 @@ ms.service: azure-spatial-anchors
     // If the user is placing some application content in their environment,
     // you might show content at this anchor for a while, then save when
     // the user confirms placement.
-    SSCCloudSpatialAnchor *cloudAnchor = [[SSCCloudSpatialAnchor alloc] init];
+    ASACloudSpatialAnchor *cloudAnchor = [[ASACloudSpatialAnchor alloc] init];
     cloudAnchor.localAnchor = localAnchor;
     [_cloudSession createAnchor:cloudAnchor withCompletionHandler:^(NSError *error) {
         if (error) {
@@ -135,7 +135,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
 ```objc
-    [_cloudSession getSessionStatusWithCompletionHandler:^(SSCSessionStatus *value, NSError *error) {
+    [_cloudSession getSessionStatusWithCompletionHandler:^(ASASessionStatus *value, NSError *error) {
         if (error) {
             _feedback = [NSString stringWithFormat:@"Session status error:%@", error.localizedDescription];
             return;
@@ -148,7 +148,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
 ```objc
-    SSCCloudSpatialAnchor *cloudAnchor = [[SSCCloudSpatialAnchor alloc] init];
+    ASACloudSpatialAnchor *cloudAnchor = [[ASACloudSpatialAnchor alloc] init];
     cloudAnchor.localAnchor = localAnchor;
     cloudAnchor.appProperties = @{ @"model-type" : @"frame", @"label" : @"my latest picture" };
     [_cloudSession createAnchor:cloudAnchor withCompletionHandler:^(NSError *error) {
@@ -159,7 +159,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
 ```objc
-    SSCCloudSpatialAnchor *anchor = /* locate your anchor */;
+    ASACloudSpatialAnchor *anchor = /* locate your anchor */;
     [anchor.appProperties setValue:@"just now" forKey:@"last-user-access"];
     [_cloudSession updateAnchorProperties:anchor withCompletionHandler:^(NSError *error) {
         if (error) _feedback = [NSString stringWithFormat:@"Updating Properties Failed:%@", error.localizedDescription];
@@ -194,7 +194,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
 ```objc
-    SSCAnchorLocateCriteria *criteria = [SSCAnchorLocateCriteria new];
+    ASAAnchorLocateCriteria *criteria = [ASAAnchorLocateCriteria new];
     criteria.identifiers = @[ @"id1", @"id2", @"id3" ];
     [_cloudSession createWatcher:criteria];
 ```
@@ -202,22 +202,22 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
 
 ```objc
-    - (void)anchorLocated:(SSCCloudSpatialAnchorSession *)cloudSession :(SSCAnchorLocatedEventArgs *)args {
-        SSCLocateAnchorStatus status = [args status];
+    - (void)anchorLocated:(ASACloudSpatialAnchorSession *)cloudSession :(ASAAnchorLocatedEventArgs *)args {
+        ASALocateAnchorStatus status = [args status];
         switch (status) {
-        case SSCLocateAnchorStatusLocated: {
-            SSCCloudSpatialAnchor *foundAnchor = [args anchor];
+        case ASALocateAnchorStatusLocated: {
+            ASACloudSpatialAnchor *foundAnchor = [args anchor];
             // Go add your anchor to the scene...
         }
             break;
-        case SSCLocateAnchorStatusAlreadyTracked:
+        case ASALocateAnchorStatusAlreadyTracked:
             // This anchor has already been reported and is being tracked
             break;
-        case SSCLocateAnchorStatusNotLocatedAnchorDoesNotExist:
+        case ASALocateAnchorStatusNotLocatedAnchorDoesNotExist:
             // The anchor was deleted or never exited in the first place
             // Drop it, or show UI to ask user to anchor the content anew
             break;
-        case SSCLocateAnchorStatusNotLocated:
+        case ASALocateAnchorStatusNotLocated:
             // The anchor hasn't been found given the location data
             // The user might in the wrong location, or maybe more data will help
             // Show UI to tell user to keep looking around

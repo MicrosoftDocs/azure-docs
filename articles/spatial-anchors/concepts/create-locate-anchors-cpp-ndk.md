@@ -17,7 +17,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
 ```cpp
-    std::shared_ptr<SpatialServices::CloudSpatialAnchorSession> cloudSession_;
+    std::shared_ptr<CloudSpatialAnchorSession> cloudSession_;
     // In your view handler
     cloudSession_ = std::make_shared<CloudSpatialAnchorSession>();
 ```
@@ -146,7 +146,7 @@ ms.service: azure-spatial-anchors
     // If the user is placing some application content in their environment,
     // you might show content at this anchor for a while, then save when
     // the user confirms placement.
-    std::shared_ptr<SpatialServices::CloudSpatialAnchor> cloudAnchor = std::make_shared<CloudSpatialAnchor>();
+    std::shared_ptr<CloudSpatialAnchor> cloudAnchor = std::make_shared<CloudSpatialAnchor>();
     cloudAnchor->LocalAnchor(localAnchor);
     cloudSession_->CreateAnchorAsync(cloudAnchor, [this, cloudAnchor](Status status) {
         std::ostringstream str;
@@ -178,7 +178,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
 ```cpp
-    std::shared_ptr<SpatialServices::CloudSpatialAnchor> cloudAnchor = std::make_shared<CloudSpatialAnchor>();
+    std::shared_ptr<CloudSpatialAnchor> cloudAnchor = std::make_shared<CloudSpatialAnchor>();
     cloudAnchor->LocalAnchor(localAnchor);
     auto properties = cloudAnchor->AppProperties();
     properties->Insert(R"(model-type)", R"(frame)");
@@ -191,7 +191,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
 ```cpp
-    std::shared_ptr<SpatialServices::CloudSpatialAnchor> anchor = /* locate your anchor */;
+    std::shared_ptr<CloudSpatialAnchor> anchor = /* locate your anchor */;
     auto properties = anchor->AppProperties();
     properties->Insert(R"(last-user-access)", R"(just now)");
     cloudSession_->UpdateAnchorPropertiesAsync(anchor, [this](Status status) {
@@ -206,7 +206,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Getting Properties](../../../includes/spatial-anchors-create-locate-anchors-getting-properties.md)]
 
 ```cpp
-    cloudSession_->GetAnchorPropertiesAsync(R"(anchorId)", [this](Status status, const std::shared_ptr<SpatialServices::CloudSpatialAnchor>& anchor) {
+    cloudSession_->GetAnchorPropertiesAsync(R"(anchorId)", [this](Status status, const std::shared_ptr<CloudSpatialAnchor>& anchor) {
         if (status != Status::OK) {
             std::ostringstream str;
             str << "Getting Properties Failed: " << std::to_string(static_cast<uint32_t>(status));
@@ -246,7 +246,7 @@ ms.service: azure-spatial-anchors
     auto anchorLocatedToken = cloudSession_->AnchorLocated([this](auto&&, auto&& args) {
         switch (args->Status()) {
             case LocateAnchorStatus::Located: {
-                std::shared_ptr<SpatialServices::CloudSpatialAnchor> foundAnchor = args->Anchor();
+                std::shared_ptr<CloudSpatialAnchor> foundAnchor = args->Anchor();
                 // Go add your anchor to the scene...
             }
                 break;
