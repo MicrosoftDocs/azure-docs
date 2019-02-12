@@ -22,10 +22,33 @@ You can now seamlessly upgrade to the SQL Data Warehouse Compute Optimized Gen2 
 
 ## Applies to
 This upgrade applies to Compute Optimized Gen1 tier data warehouses in [supported regions.](get link to Azure Updates)
->
+
 ## Before you begin
+
+1. Check if your [region](link to new document for regions) is supported for GEN1 to GEN2 migration. Note the automatic migration dates. To avoid conflicts with the automated process, plan your manual migration prior to the automated process start date.
+2. If you are in an unsuported region, continue to check for your region to be added or  [upgrade using restore to a supported region](#Upgrade-from-an-Azure-geographical-region-using-restore-through-the-Azure-portal).
+3. If your region is supported, [upgrade through the Azure portal](#Upgrade-in-a-supported-region-using-the-Azure-portal)
+4. By default, **select the suggested performance level** for the data warehouse based on your current performance level on Compute Optimized Gen1 tier by using the mapping below:
+
+   | Compute Optimized Gen1 tier | Compute Optimized Gen2 tier |
+   | :-------------------------: | :-------------------------: |
+   |            DW100            |           DW100c            |
+   |            DW200            |           DW200c            |
+   |            DW300            |           DW300c            |
+   |            DW400            |           DW400c            |
+   |            DW500            |           DW500c            |
+   |            DW600            |           DW500c            |
+   |           DW1000            |           DW1000c           |
+   |           DW1200            |           DW1000c           |
+   |           DW1500            |           DW1500c           |
+   |           DW2000            |           DW2000c           |
+   |           DW3000            |           DW3000c           |
+   |           DW6000            |           DW6000c           |
+
+## Upgrade in a supported region using the Azure portal
+
 > [!NOTE]
-> If your existing Compute Optimized Gen1 tier data warehouse is not in a region where the Compute Optimized Gen2 tier is available, you can [geo-restore](#Upgrade-from-an-Azure-geographical-region using restore) to a supported region using the Azure portal or PowerShell.
+> Migration from GEN1 to GEN2 through the Azure portal is permanent. There is not a process for returning to GEN1.  
 
 ## Sign in to the Azure portal
 
@@ -82,28 +105,12 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     > If you do not see the **Upgrade to Gen2** card under the Tasks tab, your subscription type is limited in the current region.
     > [Submit a support ticket](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) to get your subscription whitelisted.
 
-3. By default, **select the suggested performance level** for the data warehouse based on your current performance level on Compute Optimized Gen1 tier by using the mapping below:
 
-   | Compute Optimized Gen1 tier | Compute Optimized Gen2 tier |
-   | :-------------------------: | :-------------------------: |
-   |            DW100            |           DW100c            |
-   |            DW200            |           DW200c            |
-   |            DW300            |           DW300c            |
-   |            DW400            |           DW400c            |
-   |            DW500            |           DW500c            |
-   |            DW600            |           DW500c            |
-   |           DW1000            |           DW1000c           |
-   |           DW1200            |           DW1000c           |
-   |           DW1500            |           DW1500c           |
-   |           DW2000            |           DW2000c           |
-   |           DW3000            |           DW3000c           |
-   |           DW6000            |           DW6000c           |
-
-4. Ensure your workload has completed running and quiesced before upgrading. You'll experience downtime for a few minutes before your data warehouse is back online as a Compute Optimized Gen2 tier data warehouse. **Select Upgrade**:
+3. Ensure your workload has completed running and quiesced before upgrading. You'll experience downtime for a few minutes before your data warehouse is back online as a Compute Optimized Gen2 tier data warehouse. **Select Upgrade**:
 
    ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
 
-5. **Monitor your upgrade** by checking the status in the Azure portal:
+4. **Monitor your upgrade** by checking the status in the Azure portal:
 
    ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
 
@@ -111,7 +118,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
    The second step of the upgrade process is data migration ("Upgrading - Online"). Data migration is an online trickle background process. This process slowly moves columnar data from the old storage architecture to the new storage architecture using a local SSD cache. During this time, your data warehouse will be online for querying and loading. Your data will be available to query regardless of whether it has been migrated or not. The data migration happens at varying rates depending on your data size, your performance level, and the number of your columnstore segments. 
 
-6. **Optional Recommendation:** 
+5. **Optional Recommendation:** 
   Once the scaling operation is complete, you can speed up the data migration background process. You can force data movement by running [Alter Index rebuild](sql-data-warehouse-tables-index) on all primary columnstore tables you'd be querying at a larger SLO and resource class. This operation is **offline** compared to the trickle background process, which can take hours to complete depending on the number and sizes of your tables. However, once complete data migration will be much quicker due to the new enhanced storage architecture with high-quality rowgroups. 
 > [!NOTE]
 > Alter Index rebuild is an offline operation and the tables will not be available until the rebuild completes.
@@ -160,9 +167,7 @@ FROM   sys.indexes idx
                        AND idx.object_id = part.object_id 
 WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
 ```
-## Upgrade-from-an-Azure-geographical-region using restore
-
-## Restore through the Azure portal
+## Upgrade from an Azure geographical region using restore through the Azure portal
 
 ## Create a user-defined restore point using the Azure portal
 1. Sign in to the [Azure portal][Azure portal].
