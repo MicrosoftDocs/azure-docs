@@ -119,8 +119,6 @@ To configure Azure AD single sign-on with FiscalNote, perform the following step
 
 	| Name | Source Attribute|
 	| ---------------| ----------------|
-	| name | user.userprincipalname|
-	| givenName| user.givenname|
 	| familyName| user.surname|
 	| email| user.mail|
 
