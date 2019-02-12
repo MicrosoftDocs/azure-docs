@@ -199,7 +199,8 @@ It will take a few seconds for android studio to build the application. After th
 In order to add a marker on to your map, Add `mapView.getMapAsync()` function to the `MainActivity.java`. The final `MainActivity.java` should look like the following:
 
 ```java
-package com.microsoft.azure.maps.myapplication.ui;
+package com.example.myapplication;
+
 import android.app.Activity;
 import android.os.Bundle;
 import com.mapbox.geojson.Feature;
