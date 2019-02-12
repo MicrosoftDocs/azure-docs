@@ -4,7 +4,7 @@ description: This document demonstrates how just-in-time VM access in Azure Secu
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid:

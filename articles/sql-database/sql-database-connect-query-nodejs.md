@@ -35,7 +35,7 @@ To complete this sample, make sure you have the following prerequisites:
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
 > [!IMPORTANT]
-> You must have a firewall rule in place for the public IP address of the computer on which you perform this tutorial. If you're on a different computer or have a different public IP address, create a [server-level firewall rule using the Azure portal](sql-database-get-started-portal-firewall.md).
+> You must have a firewall rule in place for the public IP address of the computer on which you perform this tutorial. If you're on a different computer or have a different public IP address, create a [server-level firewall rule using the Azure portal](sql-database-server-level-firewall-rule.md).
 
 ## Create the project
 

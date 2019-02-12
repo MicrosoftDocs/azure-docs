@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use workflows with the Review API's Job operations to automate human-in-the-loop reviews based on your content policies and thresholds.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator

@@ -94,7 +94,7 @@ Apps using their own legacy methods to authenticate with Azure AD and access com
 
 1. Block [legacy authentication if you use AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Setup [SharePoint Online and Exchange Online to use modern authentication](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
-3. Use [Conditional access policies to block legacy authentication](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication).
+3. Use [Conditional access policies to block legacy authentication](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions).
 
 ### Block invalid authentication entry points
 
@@ -193,3 +193,4 @@ We appreciate how seriously you take Identity Security and hope this document is
 
 ## Next steps
 If you need assistance to plan and deploy the recommendations, refer to the [Azure AD project deployment plans](https://aka.ms/deploymentplans) for help.
+>>>>>>> 36734c3baea82b224c38757365c2984c3a0f9afc

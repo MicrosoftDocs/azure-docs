@@ -4,7 +4,7 @@ description: The article provides a curated list of Microsoft Internet of Things
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 2d5598c5-4c30-481d-b8f4-51ee024ea9a7

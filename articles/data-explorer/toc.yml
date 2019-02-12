@@ -8,6 +8,8 @@
   items:
   - name: Create a cluster - Azure portal
     href: create-cluster-database-portal.md
+  - name: Create a cluster - Azure CLI
+    href: create-cluster-database-cli.md
   - name: Ingest data
     items:
     - name: Streaming data - Event Hub
@@ -40,6 +42,8 @@
       href: power-bi-sql-query.md
 - name: Tutorials
   items:
+  - name: Ingest data without using code
+    href: ingest-data-no-code.md  
   - name: Visualize data in Power BI
     href: visualize-power-bi.md  
 - name: Concepts
@@ -81,6 +85,8 @@
       href: kqlmagic.md
     - name: Visualize data in Grafana
       href: grafana.md
+    - name: Apache Spark connector
+      href: spark-integration.md
   - name: Troubleshoot
     items:
     - name: Creating a cluster
