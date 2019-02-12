@@ -74,8 +74,8 @@ You're now ready for the second step in the process: database creation.
     **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Database name | *TestDatabase* | The database name must be unique within the cluster.
-    | Retention period | *3650* | The time span for which it's guaranteed that the data is kept available to query. The time span is measured from the time that data is ingested.
-    | Cache period | *31* | The time span for which to keep frequently-queried data available in SSD storage or RAM, rather than in longer-term storage.
+    | Retention period | *3650* | The time span (in days) for which it's guaranteed that the data is kept available to query. The time span is measured from the time that data is ingested.
+    | Cache period | *31* | The time span (in days) for which to keep frequently-queried data available in SSD storage or RAM, rather than in longer-term storage.
     | | | |
 
 1. Select **Save** to create the database. Creation typically takes less than a minute. When the process is complete, you're back on the cluster **Overview** tab.
