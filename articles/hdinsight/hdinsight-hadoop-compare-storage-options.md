@@ -165,7 +165,7 @@ Data Lake Storage Gen1 is an Apache Hadoop file system that is compatible with H
 
 Data stored in Data Lake Storage Gen1 can be easily analyzed using Hadoop analytic frameworks such as MapReduce or Hive. Azure HDInsight clusters can be provisioned and configured to directly access data stored in Data Lake Storage Gen1.
 
-#### Unlimited storage, petabyte files
+### Unlimited storage, petabyte files
 
 Data Lake Storage Gen1 provides unlimited storage and is suitable for storing a variety of data for analytics. It doesn't impose limits on account sizes, file sizes, or the amount of data that can be stored in a data lake. Individual files can range in size from kilobytes to petabytes, making Data Lake Storage Gen1 a great choice to store any type of data. Data is stored durably by making multiple copies, and there are no limits on how long the data can be stored in the data lake.
 
@@ -188,7 +188,7 @@ Data Lake Storage Gen1 containers for data are essentially folders and files. Yo
 ## <a name="DataLakeStoreSecurity"></a>Data security in Data Lake Storage Gen1
 Data Lake Storage Gen1 uses Azure Active Directory for authentication and uses access control lists (ACLs) to manage access to your data.
 
-| Feature | Description |
+| **Feature** | **Description** |
 | --- | --- |
 | Authentication |Data Lake Storage Gen1 integrates with Azure Active Directory (Azure AD) for identity and access management for all the data stored in Data Lake Storage Gen1. Because of the integration, Data Lake Storage Gen1 benefits from all Azure AD features. These features include multifactor authentication, conditional access, role-based access control, application usage monitoring, security monitoring and alerting, and so on. Data Lake Storage Gen1 supports the OAuth 2.0 protocol for authentication within the REST interface. See [Authentication within Azure Data Lake Storage Gen1 using Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
 | Access control |Data Lake Storage Gen1 provides access control by supporting POSIX-style permissions that are exposed by the WebHDFS protocol. ACLs can be enabled on the root folder, on subfolders, and on individual files. For more information on how ACLs work in the context of Data Lake Storage Gen1, see [Access control in Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md). |
@@ -210,11 +210,11 @@ Access your data in Data Lake Storage Gen1 by using the following:
 
 `adl://<data_lake_storage_gen1_name>.azuredatalakestore.net`
 
-For more information on how to access the data in Data Lake Storage Gen1, see [Actions available on the stored data](../data-lake-store/data-lake-store-get-started-portal.md#properties)
+For more information on how to access the data in Data Lake Storage Gen1, see [Actions available on the stored data](../data-lake-store/data-lake-store-get-started-portal.md#properties).
 
 
 
 ## Next steps
 
-* [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
+* [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Introduction to Azure Storage](../storage/common/storage-introduction.md)
