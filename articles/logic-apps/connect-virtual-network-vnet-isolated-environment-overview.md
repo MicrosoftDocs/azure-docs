@@ -8,13 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 02/12/2019
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
 
 > [!NOTE]
-> This capability is in *public preview*. 
+> This capability is in *private preview*. 
+> To join the private preview, 
+> [create your request here](https://aka.ms/iseprivatepreview).
 
 Sometimes, your logic apps and integration accounts need access to 
 secured resources, such as virtual machines (VMs) and other systems 

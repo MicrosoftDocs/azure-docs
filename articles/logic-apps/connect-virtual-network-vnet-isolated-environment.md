@@ -8,13 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 02/12/2019
 ---
 
-# Connect to Azure virtual networks from Azure Logic Apps through an integration service environment (ISE)
+# Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
 
 > [!NOTE]
-> This capability is in *public preview*. 
+> This capability is in *private preview*. 
+> To join the private preview, 
+> [create your request here](https://aka.ms/iseprivatepreview).
 
 For scenarios where your logic apps and integration accounts need access to an 
 [Azure virtual network](../virtual-network/virtual-networks-overview.md), create an 
@@ -100,20 +102,24 @@ virtual network's subnets where you deploy your ISE,
 you can set up [network security groups](../virtual-network/security-overview.md) 
 for those subnets by learning [how to filter network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). 
 These tables describe the ports in your virtual network 
-that your ISE uses and where those ports get used.
+that your ISE uses and where those ports get used. 
+The asterisk (*) represents any and all traffic sources. 
+The [service tag](../virtual-network/security-overview.md#service-tags) 
+represents a group of IP address prefixes that help 
+minimize complexity when creating security rules.
 
-| Purpose | Source /<br>Destination ports | Source / <br>Destination | Direction |
-|---------|-------------------------------|--------------------------|-----------|
-| Azure Logic Apps communication (in & out) | * / <br>80, 443 | INTERNET / <br>VIRTUAL_NETWORK | Inbound & Outbound |
-| Azure Active Directory | * / <br>80, 443 | VIRTUAL_NETWORK / <br>AzureActiveDirectory | Outbound |
-| Azure Storage dependency | * / <br>80, 443 | VIRTUAL_NETWORK / <br>Storage | Outbound |
-| Connection management | * / <br>443 | VIRTUAL_NETWORK /<br>INTERNET | Outbound |
-| Publish Diagnostic Logs & Metrics | * / <br>443 | VIRTUAL_NETWORK / <br>AzureMonitor | Outbound |
-| Logic Apps Designer - dynamic properties <br>Your logic app's run history <br>Connector deployment <br>Request trigger endpoint | * / <br>454 | INTERNET / <br>VIRTUAL_NETWORK | Inbound |
-| App Service Management dependency | * / <br>454 & 455 | AppServiceManagement / <br>VIRTUAL_NETWORK | Inbound |
-| API Management - management endpoint | * / <br>3443 | APIManagement / <br>VIRTUAL_NETWORK | Inbound |
-| Dependency from Log to Event Hub policy and monitoring agent | * / <br>5672 | VIRTUAL_NETWORK / <br>EventHub | Outbound |
-| Access Azure Cache for Redis Instances between RoleInstances | * / <br>6381-6383 | VIRTUAL_NETWORK / <br>VIRTUAL_NETWORK | Inbound & Outbound |
+| Purpose | Direction | Source port <br>Destination port | Source service tag <br>Destination service tag |
+|---------|-----------|---------------------------------|-----------------------------------------------|
+| Communication to Azure Logic Apps <br>Communication from Azure Logic Apps | Inbound <br>Outbound | * <br>80 & 443 | INTERNET <br>VIRTUAL_NETWORK |
+| Azure Active Directory | Outbound | * <br>80 & 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory |
+| Azure Storage dependency | Outbound | * <br>80 & 443 | VIRTUAL_NETWORK <br>Storage |
+| Connection management | Outbound | * <br>443 | VIRTUAL_NETWORK <br>INTERNET |
+| Publish Diagnostic Logs & Metrics | Outbound | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor |
+| Logic Apps Designer - dynamic properties <br>Your logic app's run history <br>Connector deployment <br>Request trigger endpoint | Inbound | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
+| App Service Management dependency | Inbound | * <br>454 & 455 | AppServiceManagement <br>VIRTUAL_NETWORK |
+| API Management - management endpoint | Inbound | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK |
+| Dependency from Log to Event Hub policy and monitoring agent | Outbound | * <br>5672 | VIRTUAL_NETWORK <br>EventHub |
+| Access Azure Cache for Redis Instances between Role Instances | Inbound <br>Outbound | * <br>6381-6383 | VIRTUAL_NETWORK <br>VIRTUAL_NETWORK |
 |||||
 
 <a name="vnet-access"></a>
