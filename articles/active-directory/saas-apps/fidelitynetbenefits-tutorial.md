@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/11/2019
+ms.date: 02/12/2019
 ms.author: jeedes
 
 ---
@@ -112,7 +112,7 @@ To configure Azure AD single sign-on with Fidelity NetBenefits, perform the foll
 
     b. In the **Reply URL** text box, type a URL that to be provided by Fidelity at time of implementation or contact your assigned Fidelity Client Service Manager.
 
-5. Fidelity NetBenefits application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Fidelity NetBenefits application expects **nameidentifier** to be mapped with **employeeid**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
+5. Fidelity NetBenefits application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Fidelity NetBenefits application expects **nameidentifier** to be mapped with **employeeid** or any other claim which is applicable to your Organization as **nameidentifier**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
 	![image](common/edit-attribute.png)
 
