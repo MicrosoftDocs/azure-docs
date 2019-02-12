@@ -13,6 +13,7 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # Frequently asked questions about Azure Active Directory

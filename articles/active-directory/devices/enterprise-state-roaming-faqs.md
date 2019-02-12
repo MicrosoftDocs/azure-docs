@@ -18,6 +18,7 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
 
+ms.collection: M365-identity-device-management
 ---
 # Settings and data roaming FAQ
 This article answers some questions IT administrators might have about settings and app data sync.

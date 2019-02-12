@@ -17,6 +17,7 @@ ms.date: 12/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory app manifest

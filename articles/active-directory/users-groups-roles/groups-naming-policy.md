@@ -16,6 +16,7 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
 
+ms.collection: M365-identity-device-management
 ---
 
 # Enforce a naming policy for Office 365 groups in Azure Active Directory (preview)

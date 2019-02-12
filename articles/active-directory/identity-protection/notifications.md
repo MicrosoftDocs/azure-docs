@@ -19,6 +19,7 @@ ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: nigu
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection notifications
 

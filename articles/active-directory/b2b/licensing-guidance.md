@@ -13,6 +13,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory B2B collaboration licensing guidance

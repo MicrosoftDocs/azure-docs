@@ -15,6 +15,7 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 # Administrator role permissions in Azure Active Directory
