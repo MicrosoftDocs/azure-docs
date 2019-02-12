@@ -39,7 +39,7 @@ Here is a brief description of how client side encryption works:
 4. The encrypted data is then uploaded to the Azure Storage service.
 
 ## Set up your Azure Key Vault
-In order to proceed with this tutorial, you need to do the following steps, which are outlined in the tutorial  [Get started with Azure Key Vault](../../key-vault/key-vault-get-started.md):
+In order to proceed with this tutorial, you need to do the following steps, which are outlined in the tutorial  [What is Azure Key Vault?](../../key-vault/key-vault-overview.md):
 
 * Create a key vault.
 * Add a key or secret to the key vault.

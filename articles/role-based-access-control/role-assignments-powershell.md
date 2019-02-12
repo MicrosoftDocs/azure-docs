@@ -216,7 +216,7 @@ In RBAC, to grant access, you create a role assignment.
 
 To assign a role, you need to identify both the object (user, group, or application) and the scope.
 
-If you don't know the subscription ID, you can find it in the **Subscriptions** blade on the Azure portal or you can use [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription).
+If you don't know the subscription ID, you can find it in the **Subscriptions** blade on the Azure portal or you can use [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
 To get the object ID for an Azure AD group, use [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup):
 
