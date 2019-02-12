@@ -157,7 +157,7 @@ That's it. You're form is ready. Now let's write some code to call Text Translat
 
 ## Setup MainWindow
 
-`MainWindow.xaml.cs` contains the code that controls our application. In our application we'll need code to populate our drop-down menus, and to call a handful of API exposed by Translator Text and Bing Spell Check.
+`MainWindow.xaml.cs` contains the code that controls our application. In the next few sections we're going to add code to populate our drop-down menus, and to call a handful of API exposed by Translator Text and Bing Spell Check.
 
 * When the program starts and `MainWindow` is instantiated, the `Languages` method of the Translator Text API is called to retrieve and populate our language selection drop-downs. This happens once at the beginning of each session.
 * When the **Translate** button is clicked, the user's language selection and text are retrieved, spell check is performed on the input, and the translation and detected language are displayed for the user.
