@@ -451,6 +451,39 @@ Write-Host $env:WEBSITE_SITE_NAME
 
 When running locally, app settings are read from the [local.settings.json](functions-run-local.md#local-settings-file) project file.
 
+## Concurrency
+
+By default, the Azure Functions PowerShell runtime can only process one invocation of an Azure function at a time. However, this amount might not be good enough if:
+
+* You're trying to handle a large number of invocations at the same time
+* Have functions invoke other functions inside of a Function App
+
+You can change this behavior by setting the following environment variable to an integer value:
+
+```
+PSWorkerInProcConcurrencyUpperBound
+```
+
+You set this environment variable in the [app settings](functions-app-settings.md) of your Function App.
+
+### Considerations for using concurrency
+
+PowerShell is a _single threaded_ scripting language by default but concurrency can be added by using multiple PowerShell runspaces in the same process. This feature is how the Azure Functions PowerShell runtime works.
+
+There are some drawbacks with this approach.
+
+#### Concurrency is only as good as the machine it's running on
+
+If your Function App is running on an app service plan that only supports a single core, then concurrency won't help much. That's because there are no additional cores to help balance the load. In fact, that single core will have to context switch between runspaces so performance will vary.
+
+The Azure Functions Consumption plan runs using only one core, so it has this drawback. If you want to take full advantage of concurrency, switch to the dedicated/app service plan over consumption.
+
+#### Azure PowerShell state
+
+Azure PowerShell uses some _process-level_ contexts and state to help save you from excess typing. However, if you opt in to concurrency in your Function App, and invoke actions that change state, you could end up with race conditions that are difficult to debug because one invocation relies on a certain state and the other invocation changed the state.
+
+There's immense value in concurrency with Azure PowerShell since some operations can take a considerable amount of time, but proceed with caution. If you suspect that you're experiencing a race condition, set the concurrency back to `1` and try the request again.
+
 ## Configure function `scriptFile`
 
 By default, a PowerShell function is executed from `run.ps1`, a file that shares the same parent directory as its corresponding `function.json`.
