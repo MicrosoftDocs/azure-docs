@@ -170,7 +170,7 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 
 	![SAP NetWeaver Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
-	a. In the **Sign-on URL** text box, type a URL using the following pattern:
+	d. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<your company instance of SAP NetWeaver>`
 
 	> [!NOTE]
