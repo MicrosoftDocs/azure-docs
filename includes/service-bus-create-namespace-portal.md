@@ -50,7 +50,7 @@ Creating a new namespace automatically generates an initial Shared Access Signat
     ![connection-info](./media/service-bus-create-namespace-portal/connection-info.png)
 4. In the **Policy: RootManageSharedAccessKey** window, click the copy button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
    
-    ![connection-string]()./media/service-bus-create-namespace-portal/connection-string.png)
+    ![connection-string](./media/service-bus-create-namespace-portal/connection-string.png)
 5. Repeat the previous step, copying and pasting the value of **Primary key** to a temporary location for later use.
 
 <!--Image references-->
