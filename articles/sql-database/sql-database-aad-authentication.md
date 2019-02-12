@@ -11,7 +11,7 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/18/2019
+ms.date: 02/12/2019
 ---
 # Use Azure Active Directory Authentication for authentication with SQL
 
@@ -105,7 +105,7 @@ To create a contained database user in Azure SQL Database, Managed Instance, or 
 - Dedicated administrator connection for Azure AD server principals (logins) which are members of sysadmin server role is supported.
     - Supported through SQLCMD Utility and SQL Server Management Studio.
 - Logon triggers are supported for logon events coming from Azure AD server principals (logins).
-- Service Broker and DB mail can be setup using Azure AD login.
+- Service Broker and DB mail can be setup using an Azure AD server principal (login).
 
 
 ## Connecting using Azure AD identities

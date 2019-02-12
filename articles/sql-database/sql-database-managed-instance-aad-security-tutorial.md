@@ -9,7 +9,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/12/2019
 ---
 # Tutorial: Managed instance security in Azure SQL Database using Azure AD server principals (logins)
 
@@ -55,15 +55,15 @@ Managed instances can only be accessed through a private IP address. There are n
 > [!NOTE] 
 > Since managed instances can only be accessed inside of its VNET, [SQL Database firewall rules](sql-database-firewall-configure.md) do not apply. Managed instance has its own [built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
-## Create an Azure AD login for a managed instance using SSMS
+## Create an Azure AD server principal (login) for a managed instance using SSMS
 
-The first Azure AD login must be created by the standard SQL Server account (non-azure AD) that is a `sysadmin`. See the following articles for examples of connecting to your managed instance:
+The first Azure AD server principal (login) must be created by the standard SQL Server account (non-azure AD) that is a `sysadmin`. See the following articles for examples of connecting to your managed instance:
 
 - [Quickstart: Configure Azure VM to connect to a managed instance](sql-database-managed-instance-configure-vm.md)
 - [Quickstart: Configure a point-to-site connection to a managed instance from on-premises](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> The Azure AD admin used to setup the managed instance cannot be used to create an Azure AD login within the managed instance. You must create the first Azure AD login using a SQL Server account that is a `sysadmin`. This is a temporary limitation that will be removed once Azure AD server principals (logins) become GA. You will see the following error if you try to use an Azure AD admin account to create the login: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+> The Azure AD admin used to setup the managed instance cannot be used to create an Azure AD server principal (login) within the managed instance. You must create the first Azure AD server principal (login) using a SQL Server account that is a `sysadmin`. This is a temporary limitation that will be removed once Azure AD server principals (logins) become GA. You will see the following error if you try to use an Azure AD admin account to create the login: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
 1. Log into your managed instance using a standard SQL Server account (non-azure AD) that is a `sysadmin`, using [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance).
 
@@ -111,8 +111,8 @@ To create other Azure AD server principals (logins), SQL Server roles or permiss
 
 ### Azure AD authentication
 
-- To allow the newly created Azure AD login the ability to create other logins for other Azure AD users, groups, or applications, grant the login `sysadmin` or `securityadmin` server role. 
-- At a minimum, **ALTER ANY LOGIN** permission must be granted to the Azure AD login to create other Azure AD server principals (logins). 
+- To allow the newly created Azure AD server principal (login) the ability to create other logins for other Azure AD users, groups, or applications, grant the login `sysadmin` or `securityadmin` server role. 
+- At a minimum, **ALTER ANY LOGIN** permission must be granted to the Azure AD server principal (login) to create other Azure AD server principals (logins). 
 - By default, the standard permission granted to newly created Azure AD server principals (logins) in master is: **CONNECT SQL** and **VIEW ANY DATABASE**.
 - The `sysadmin` server role can be granted to many Azure AD server principals (logins) within a managed instance.
 
@@ -122,7 +122,7 @@ To add the login to the `sysadmin` server role:
 
 1. In **Object Explorer**, right-click the server and choose **New Query**.
 
-1. Grant the Azure AD login the `sysadmin` server role by using the following T-SQL syntax:
+1. Grant the Azure AD server principal (login) the `sysadmin` server role by using the following T-SQL syntax:
 
     ```sql
     ALTER SERVER ROLE sysadmin ADD MEMBER login_name
@@ -138,9 +138,9 @@ To add the login to the `sysadmin` server role:
 
 ## Create additional Azure AD server principals (logins) using SSMS
 
-Once the Azure AD login has been created, and provided with `sysadmin` privileges, that login can create additional logins using the **FROM EXTERNAL PROVIDER** clause with **CREATE LOGIN**.
+Once the Azure AD server principal (login) has been created, and provided with `sysadmin` privileges, that login can create additional logins using the **FROM EXTERNAL PROVIDER** clause with **CREATE LOGIN**.
 
-1. Connect to the managed instance with the Azure AD login, using SQL Server Management Studio. Enter your managed instance host name. For Authentication in SSMS, there are three options to choose from when logging in with an Azure AD account:
+1. Connect to the managed instance with the Azure AD server principal (login), using SQL Server Management Studio. Enter your managed instance host name. For Authentication in SSMS, there are three options to choose from when logging in with an Azure AD account:
 
     - Active Directory - Universal with MFA support
     - Active Directory - Password
@@ -199,7 +199,7 @@ Once the Azure AD login has been created, and provided with `sysadmin` privilege
 
 1. As a test, log into the managed instance with the newly created login or group. Open a new connection to the managed instance, and use the new login when authenticating.
 1. In **Object Explorer**, right-click the server and choose **New Query** for the new connection.
-1. Check server permissions for the newly created Azure AD login by executing the following command:
+1. Check server permissions for the newly created Azure AD server principal (login) by executing the following command:
 
     ```sql
     SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
@@ -209,7 +209,7 @@ Once the Azure AD login has been created, and provided with `sysadmin` privilege
 > [!NOTE]
 > Azure AD guest users are supported for managed instance logins, only when added as part of an Azure AD Group. An Azure AD guest user is an account that is invited to the Azure AD that the managed instance belongs to, from another Azure AD. For example, joe@contoso.com (Azure AD Account) or steve@outlook.com (MSA Account) can be added to a group in the Azure AD aadsqlmi. Once the users are added to a group, a login can be created in the managed instance **master** database for the group using the **CREATE LOGIN** syntax. Guest users who are members of this group can connect to the managed instance using their current logins (For example, joe@contoso.com or steve@outlook.com).
 
-## Create an Azure AD user from the Azure AD login and give permissions
+## Create an Azure AD user from the Azure AD server principal (login) and give permissions
 
 Authorization to individual databases works much in the same way in managed instance as it does with SQL Server on-premise. A user can be created from an existing login in a database, and be provided with permissions on that database, or added to a database role.
 
@@ -223,7 +223,7 @@ For more information on granting database permissions, see [Getting Started with
 
 1. Log into your managed instance using a `sysadmin` account using SQL Server Management Studio.
 1. In **Object Explorer**, right-click the server and choose **New Query**.
-1. In the query window, use the following syntax to create an Azure AD user from an Azure AD login:
+1. In the query window, use the following syntax to create an Azure AD user from an Azure AD server principal (login):
 
     ```sql
     USE <Database Name> -- provide your database name
@@ -241,7 +241,7 @@ For more information on granting database permissions, see [Getting Started with
     GO
     ```
 
-1. It's also supported to create an Azure AD user from an Azure AD login that is a group.
+1. It's also supported to create an Azure AD user from an Azure AD server principal (login) that is a group.
 
     The following example creates a login for the Azure AD group _mygroup_ that  exists in your Azure AD.
 
@@ -255,7 +255,7 @@ For more information on granting database permissions, see [Getting Started with
     All users that belong to **mygroup** can access the **MyMITestDB** database.
 
     > [!IMPORTANT]
-    > When creating a **USER** from an Azure AD login, specify the user_name as the same login_name from **LOGIN**.
+    > When creating a **USER** from an Azure AD server principal (login), specify the user_name as the same login_name from **LOGIN**.
 
     For more information, see [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
 
