@@ -11,11 +11,11 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 manager: craigg
-ms.date: 02/08/2019
+ms.date: 02/11/2019
 ---
 # SQL Server instance migration to Azure SQL Database managed instance
 
-In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to [Azure SQL Database managed instance](sql-database-managed-instance.md).
+In this article, you learn about the methods for migrating a SQL Server 2005 or later version instance to [Azure SQL Database managed instance](sql-database-managed-instance.md). For information on migrating to a single database or elastic pool, see [Migrate to a single or pooled database](sql-database-cloud-migrate.md). For migration information about migrating from other platforms, see [Azure Database Migration Guide](https://datamigration.microsoft.com/).
 
 At a high level, the database migration process looks like:
 
@@ -28,7 +28,7 @@ At a high level, the database migration process looks like:
 - [Monitor applications](#monitor-applications)
 
 > [!NOTE]
-> To migrate an individual database into either a single database or elastic pool, see [Migrate a SQL Server database to Azure SQL Database](sql-database-cloud-migrate.md).
+> To migrate an individual database into either a single database or elastic pool, see [Migrate a SQL Server database to Azure SQL Database](sql-database-single-database-migrate.md).
 
 ## Assess managed instance compatibility
 

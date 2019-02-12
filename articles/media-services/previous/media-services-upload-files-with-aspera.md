@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Upload files into a Media Services account using the Aspera Server On-Demand service on Azure (legacy)
+# Upload files into a Media Services account using the Aspera Server On-Demand service on Azure 
 
 ## Overview
 
