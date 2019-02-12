@@ -562,72 +562,72 @@
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-home.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-faq.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-get-started.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-glossary.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/cognitive-services-custom-speech-meters.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-change-locale.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-custom-pronunciation.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-language-model.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-migrate-tiers.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-transcription-guidelines.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/service/how-to-deploy-to-aks.md",
@@ -13119,22 +13119,22 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md",
-      "redirect_url": "/azure/sql-database/sql-database-cloud-migrate",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-migrate",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-cloud-migrate-compatible-using-transactional-replication.md",
-      "redirect_url": "/azure/sql-database/sql-database-cloud-migrate",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-migrate",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-cloud-migrate-determine-compatibility-sqlpackage.md",
-      "redirect_url": "/azure/sql-database/sql-database-cloud-migrate",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-migrate",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-cloud-migrate-determine-compatibility-ssms.md",
-      "redirect_url": "/azure/sql-database/sql-database-cloud-migrate",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-migrate",
       "redirect_document_id": false
     },
     {
@@ -13144,17 +13144,22 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md",
-      "redirect_url": "/azure/sql-database/sql-database-cloud-migrate",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-migrate",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-cloud-migrate-fix-compatibility-issues-ssms.md",
-      "redirect_url": "/azure/sql-database/sql-database-cloud-migrate",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-migrate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-database/sql-database-cloud-migrate.md",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-migrate",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-database/sql-database-cloud-migrate-fix-compatibility-issues.md",
-      "redirect_url": "/azure/sql-database/sql-database-cloud-migrate",
+      "redirect_url": "/azure/sql-database/sql-database-single-database-migrate",
       "redirect_document_id": false
     },
     {
@@ -17356,12 +17361,12 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-reporting-api-audit-reference.md",
-      "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit",
+      "redirect_url": "https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-reporting-api-sign-in-activity-reference.md",
-      "redirect_url": "https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin",
+      "redirect_url": "https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta",
       "redirect_document_id": false
     },
     {
@@ -27529,6 +27534,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/key-vault/key-vault-get-started.md",
+      "redirect_url": "/azure/key-vault/key-vault-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/key-vault/key-vault-use-from-web-application.md",
+      "redirect_url": "/azure/key-vault/tutorial-net-create-vault-azure-web-app",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/key-vault/key-vault-manage-with-cli.md",
       "redirect_url": "/azure/key-vault/key-vault-manage-with-cli2",
       "redirect_document_id": false
@@ -35754,6 +35769,26 @@
     {
       "source_path": "articles/storage/blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-collect-debug-heap-dumps.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-collect-debug-heap-dump-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-debug-tez-ui.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-debug-ambari-tez-view",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-remote-desktop.md",
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-mapreduce-ssh",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-remote-desktop.md",
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-ssh",
       "redirect_document_id": false
     }
   ]

@@ -58,7 +58,7 @@ This table shows some of the ways you can get a list of available locations.
 | --- | --- |
 | Azure portal |Select a location from the list when you create a VM. |
 | Azure PowerShell |Use the [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation) command. |
-| REST API |Use the [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations) operation. |
+| REST API |Use the [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions) operation. |
 | Azure CLI |Use the [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest) operation. |
 
 ### VM size

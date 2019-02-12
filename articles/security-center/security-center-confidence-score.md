@@ -4,7 +4,7 @@ description: " Learn how to work with the Azure Security Center confidence score
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: e88198f8-2e16-409d-a0b0-a62e68c2f999

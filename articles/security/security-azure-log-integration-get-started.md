@@ -4,7 +4,7 @@ description: Learn how to install the Azure Log Integration service and integrat
 services: security
 documentationcenter: na
 author: Barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 
 ms.assetid: 53f67a7c-7e17-4c19-ac5c-a43fabff70e1
