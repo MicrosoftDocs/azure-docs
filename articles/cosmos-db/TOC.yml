@@ -51,12 +51,12 @@
           href: sql-api-nodejs-application.md
         - name: Xamarin
           href: mobile-apps-with-xamarin.md
-      - name: 2 - Migrate data
-        href: import-data.md
-      - name: 3 - Query data
-        href: tutorial-query-sql-api.md
-      - name: 4 - Distribute data globally
-        href: tutorial-global-distribution-sql-api.md
+    - name: 2 - Migrate data
+      href: import-data.md
+    - name: 3 - Query data
+      href: tutorial-query-sql-api.md
+    - name: 4 - Distribute data globally
+      href: tutorial-global-distribution-sql-api.md
   - name: Samples
     items:
     - name: .NET samples
