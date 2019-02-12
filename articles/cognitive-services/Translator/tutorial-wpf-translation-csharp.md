@@ -27,6 +27,8 @@ In this tutorial, you'll learn how to:
 > * Use the Translator Text API to get languages, translate text, and detect the source language
 > * Use the Bing Spell Check API to validate your input and improve translation accuracy
 
+### Cognitive Services used in this tutorial
+
 This is a list of the Cognitive Services used in this tutorial. Follow the link to browse the API reference for each feature.
 
 | Service | Feature | Description |
