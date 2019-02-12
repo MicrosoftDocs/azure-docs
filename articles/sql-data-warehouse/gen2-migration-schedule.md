@@ -1,5 +1,5 @@
 ---
-title: Migrate your existing Azure data warehouse to Gen2 | Microsoft Docs
+title: Migrate your existing Azure SQL Data Warehouse to Gen2 | Microsoft Docs
 description: Instructions for migrating an existing data warehouse to Gen2 and the migration schedule by region.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -95,7 +95,7 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 - A: Yes.
 
 **Q: How will the upgrades affect my automation scripts?**
-- A: Any automation script that references a Service Level Objective should be changed to correspond to the Gen2 equivalent.  See details [here](https://review.docs.microsoft.com/en-us/azure/sql-data-warehouse/upgrade-to-latest-generation?branch=pr-en-us-65326#sign-in-to-the-azure-portal).
+- A: Any automation script that references a Service Level Objective should be changed to correspond to the Gen2 equivalent.  See details [here](upgrade-to-latest-generation.md#sign-in-to-the-azure-portal).
 
 **Q: How long does a self-upgrade normally take?**
 - A: You can upgrade in place or upgrade from a restore point.  
@@ -126,19 +126,14 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 **Q: Will I be able to create a new Gen1 instance after my region has been upgraded?**
 - A: No. After a region has been upgraded, the creation of new Gen1 instances will be disabled.
 
-## Next Steps
+## Next steps
 
- - [Upgrade steps](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/upgrade-to-latest-generation)
- - [Maintenance windows](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/maintenance-scheduling)
- - [Resource health monitor](https://docs.microsoft.com/en-us/azure/service-health/resource-health-overview)
-
-## More information
-
-- [Before you begin a migration](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/upgrade-to-latest-generation#before-you-begin)
-- [Upgrade in-place](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/upgrade-to-latest-generation)
-- [Upgrade from restore point](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/upgrade-to-latest-generation)
-- [Create a user-defined restore point](ttps://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore#restore-through-the-azure-portal)
-- [How to restore to Gen2](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore#restore-an-active-or-paused-database-using-the-azure-portal)
-- [Alter Index rebuild](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/upgrade-to-latest-generation#start-the-upgrade)
-- [Open a SQL DW support request](https://go.microsoft.com/fwlink/?linkid=857950)
-- [Azure portal](https://portal.azure.com)
+- [Upgrade steps](upgrade-to-latest-generation)
+- [Maintenance windows](maintenance-scheduling.md)
+- [Resource health monitor](https://docs.microsoft.com/azure/service-health/resource-health-overview)
+- [Review Before you begin a migration](upgrade-to-latest-generation.md#before-you-begin)
+- [Upgrade in-place](upgrade-to-latest-generation)
+- [Upgrade from restore point](upgrade-to-latest-generation.md)
+- [Create a user-defined restore point](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
+- [Learn How to restore to Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
+- [Open a SQL Data Warehouse support request](https://go.microsoft.com/fwlink/?linkid=857950)

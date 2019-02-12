@@ -17,7 +17,7 @@ Azure SQL Data Warehouse (SQL DW) is a cloud-based Enterprise Data Warehouse tha
 
 Click on the links below to find out more about the new features and improvements that you can expect in the latest version of Azure SQL Data Warehouse. You can expect to receive these service updates during your identified maintenance schedule.
 
-- [SQL DW Version 10.0.10106.0 (January)](./release-notes-10-0-10106-0.md)
+- [SQL Data Warehouse Version 10.0.10106.0 (January)](./release-notes-10-0-10106-0.md)
 - [December 2018](./release-notes-december-2018.md)
 - [October 2018](./release-notes-october-2018.md)
 - [September 2018](./release-notes-september-2018.md)
