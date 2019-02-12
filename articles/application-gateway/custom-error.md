@@ -58,7 +58,7 @@ After you specify an error page, the application gateway downloads it from the s
 
 ## Azure PowerShell configuration
 
-You can use Azure PowerShell to configure a custom error page. For example, global custom error page:
+You can use Azure PowerShell to configure a custom error page. For example, a global custom error page:
 
 `$updatedgateway = Add-AzApplicationGatewayCustomError -ApplicationGateway $appgw -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
 
