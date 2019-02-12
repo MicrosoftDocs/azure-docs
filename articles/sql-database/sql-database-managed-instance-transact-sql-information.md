@@ -451,8 +451,8 @@ Make sure that you remove the leading `?` from the SAS key that is generated usi
 
 SQL Server Management Studio (SSMS) and SQL Server Data Tools (SSDT) might have some issues while accessing a managed instance.
 
-- Using Azure AD logins and users (**public preview**) with SSDT is currently not supported.
-- Scripting for Azure AD logins and users (**public preview**) are not supported in SSMS.
+- Using Azure AD server principals (logins) and users (**public preview**) with SSDT is currently not supported.
+- Scripting for Azure AD server principals (logins) and users (**public preview**) are not supported in SSMS.
 
 ### Incorrect database names in some views, logs, and messages
 
