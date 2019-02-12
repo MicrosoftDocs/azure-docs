@@ -158,7 +158,7 @@ To configure Azure AD single sign-on with Figma, perform the following steps:
 
 ### Configure Figma Single Sign-On
 
-To configure single sign-on on Figma side, please fill out this form: [https://goo.gl/forms/XkRB1z5ed4eVUzXn2](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). It will accept your **App Federation Metadata Url** from Step #9.
+To configure single sign-on on Figma side, please fill out this form: [https://goo.gl/forms/XkRB1z5ed4eVUzXn2](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). It will accept your **App Federation Metadata Url** from Step #8.
 
 ### Create an Azure AD test user 
 
