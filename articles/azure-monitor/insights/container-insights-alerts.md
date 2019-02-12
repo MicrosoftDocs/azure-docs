@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 02/11/2019
 ms.author: magoedte
 ---
 
 # How to be proactively alerted of Azure Monitor for containers performance problems
 Azure Monitor for containers monitors the performance of container workloads deployed to either Azure Container Instances or managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). 
 
-This article describes how to enable alerting when processor and memory utilization on nodes of the cluster or when individual containers and pods exceed our recommended baseline threshold.
+This article describes how to enable alerting when processor and memory utilization on nodes of the cluster exceeds a threshold.
 
 ## Create alert on cluster CPU or memory utilization
 To alert when CPU or memory utilization is high for a cluster, you create a metric measurement alert rule that is based off of log queries provided. The queries compare a datetime to the present using the `now` operator and goes back one hour. All dates stored by Azure Monitor for containers are in UTC format.  
@@ -106,12 +106,12 @@ Before starting, if you are not familiar with Alerts in Azure Monitor, see [Over
     a. From the **Based on** drop-down list, select **Metric measurement**. A metric measurement will create an alert for each object in the query with a value that exceeds our specified threshold.  
     b. For the **Condition**, select **Greater than** and enter **75** for **Threshold**.  
     c. Under **Trigger Alert Based On** section, select **Consecutive breaches** and from the drop-down list select **Greater than** enter a value of **2**.  
-    d. Under **Evaluation based on** section, modify the **Period** value to 60 minutes. The rule will run every two minutes and return records that were created within the last hour from the current time. Setting the time period to a wider window accounts for the potential of data latency, and ensures the query returns data to avoid a false negative where the alert never fires. 
+    d. Under **Evaluated based on** section, modify the **Period** value to 60 minutes. The rule will run every five minutes and return records that were created within the last hour from the current time. Setting the time period to a wider window accounts for the potential of data latency, and ensures the query returns data to avoid a false negative where the alert never fires. 
 
 9. Click **Done** to complete the alert rule.
 10. Provide a name of your alert in the **Alert rule name** field. Specify a **Description** detailing specifics for the alert, and select an appropriate severity from the options provided.
 11. To immediately activate the alert rule on creation, accept the default value for **Enable rule upon creation**.
-12. For the final step, you select an existing or create a new **Action Group**, which ensures that the same actions are taken each time an alert is triggered and can be used for each rule you define. Configure based on your 
+12. For the final step, you select an existing or create a new **Action Group**, which ensures that the same actions are taken each time an alert is triggered and can be used for each rule you define. Configure based on how your IT or DevOps operations manages incidents. 
 13. Click **Create alert rule** to complete the alert rule. It starts running immediately.
 
 ## Next steps
