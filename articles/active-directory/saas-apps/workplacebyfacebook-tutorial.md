@@ -147,13 +147,13 @@ To configure Azure AD single sign-on with Workplace by Facebook, perform the fol
 
 	![Admin Panel](./media/workplacebyfacebook-tutorial/tutorial_workplace-by-facebook_configure01.png)
 
-3. Under **Authentication** tab, select **Single-Sign On (SSO) Only** and perform the following steps:
+3. Under **Authentication** tab, select **Single-Sign On (SSO)** and perform the following steps:
 
 	![Authentication Tab](./media/workplacebyfacebook-tutorial/tutorial_workplace-by-facebook_configure02.png)
 
 	a. In **SAML URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
-	b. In **SAML Issuer URL textbox**, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
+	b. In **SAML Issuer URI textbox**, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
 
 	c. In **SAML Logout Redirect** (Optional), paste the value of **Logout URL**, which you have copied from Azure portal.
 
@@ -163,15 +163,13 @@ To configure Azure AD single sign-on with Workplace by Facebook, perform the fol
 
 	f. Copy the **Recipient URL** for your instance and paste it in **Sign on URL** textbox in **Basic SAML Configuration** section on Azure portal.
 
-	g. Copy the **ACS (Assertion Consumer Service) URL** for your instance and paste it in **Reply URL** textbox in **Basic SAML Configuration** section on Azure portal.
-
-	h. Scroll to the bottom of the section and click the **Test SSO** button. This results in a popup window appearing with Azure AD login page presented. Enter your credentials in as normal to authenticate.
+	g. Scroll to the bottom of the section and click the **Test SSO** button. This results in a popup window appearing with Azure AD login page presented. Enter your credentials in as normal to authenticate.
 
 	**Troubleshooting:** Ensure the email address being returned back from Azure AD is the same as the Workplace account you are logged in with.
 
-	i. Once the test has been completed successfully, scroll to the bottom of the page and click the **Save** button.
+	h. Once the test has been completed successfully, scroll to the bottom of the page and click the **Save** button.
 
-	j. All users using Workplace will now be presented with Azure AD login page for authentication.
+	i. All users using Workplace will now be presented with Azure AD login page for authentication.
 
 4. **SAML Logout Redirect (optional)** -
 
