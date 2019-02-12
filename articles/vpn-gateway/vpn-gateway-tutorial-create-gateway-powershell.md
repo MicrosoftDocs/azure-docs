@@ -113,7 +113,7 @@ If you are using the TryIt, your session may time out. That's OK. The gateway wi
 
 Once the gateway creation has completed, you can create a connection between your virtual network and another VNet, or create a connection between your virtual network and an on-premises location. You can also configure a P2S connection to your VNet from a client computer.
 
-## Get the gateway public IP address
+## View the gateway public IP address
 
 If you know the name of the public IP address, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azurermps-6.8.1) to show the public IP address assigned to the gateway.
 
@@ -148,9 +148,9 @@ For more information, see [Reset a VPN gateway](vpn-gateway-resetgw-classic.md).
 
 ## Clean up resources
 
-If you advancing to the [next tutorial](vpn-gateway-tutorial-vpnconnection-powershell.md), however, you will want to keep these resources because they are the prerequisite.
+If you advancing to the [next tutorial](vpn-gateway-tutorial-vpnconnection-powershell.md), you will want to keep these resources because they are the prerequisite.
 
-If the gateway is part of a prototype, test, or proof-of-concept deployment, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, the VPN gateway, and all related resources.
+However, if the gateway is part of a prototype, test, or proof-of-concept deployment, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, the VPN gateway, and all related resources.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $RG1
