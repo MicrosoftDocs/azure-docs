@@ -33,6 +33,8 @@ Power on the Android device, sign in, and connect it to the PC using a USB cable
 
 Open **Build Settings** by selecting **File** -> **Build Settings**.
 
+Under **Scenes In Build**, place a check mark next to the `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo` scene and clear check marks from all other scenes.
+
 Click **Build And Run**.
 
 Follow the instructions in the app. You can choose to **Create & Share Anchor**, or **Locate Shared Anchor**. The first option allows you to create an Anchor that can be later on located on the same device or a different one. The second option, if you have previously run the app, either on the same device or a different one, allows you to locate previously shared anchors.
@@ -40,6 +42,8 @@ Follow the instructions in the app. You can choose to **Create & Share Anchor**,
 ## To deploy to an iOS device
 
 Open **Build Settings** by selecting **File** -> **Build Settings**.
+
+Under **Scenes In Build**, place a check mark next to the `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo` scene and clear check marks from all other scenes.
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
