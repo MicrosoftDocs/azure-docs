@@ -7,11 +7,11 @@ ms.subservice: migration
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: douglaslMS
-ms.author: douglasl
-ms.reviewer: carlrab
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: 
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/11/2019
 ---
 # Quickstart: Import a BACPAC file to a new Azure SQL Database
 
@@ -31,7 +31,7 @@ To import a database in the Azure portal, open the page for the SQL Database ser
 
    ![Database import](./media/sql-database-import/import.png)
 
-Select the storage account, container, and BACPAC file you want to import. Specify the new database size (usually the same as origin) and provide the destination SQL Server credentials. 
+Select the storage account, container, and BACPAC file you want to import. Specify the new database size (usually the same as origin) and provide the destination SQL Server credentials. For a list of possible values for a new Azure SQL database, see [Create Database](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
 
 ### Monitor import's progress
 
@@ -114,5 +114,5 @@ You can also use these wizards.
 
 - To learn how to connect to and query an imported SQL Database, see [Quickstart: Azure SQL Database: Use SQL Server Management Studio to connect and query data](sql-database-connect-query-ssms.md).
 - For a SQL Server Customer Advisory Team blog about migrating using BACPAC files, see [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
-- For a discussion of the entire SQL Server database migration process, including performance recommendations, see [SQL Server database migration to Azure SQL Database](sql-database-cloud-migrate.md).
+- For a discussion of the entire SQL Server database migration process, including performance recommendations, see [SQL Server database migration to Azure SQL Database](sql-database-single-database-migrate.md).
 - To learn how to manage and share storage keys and shared access signatures securely, see [Azure Storage Security Guide](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

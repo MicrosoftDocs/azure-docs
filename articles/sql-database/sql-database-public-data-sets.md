@@ -7,8 +7,8 @@ ms.subservice: development
 ms.custom:
 ms.devlang: 
 ms.topic: reference
-author: douglaslMS
-ms.author: douglasl
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer:
 manager: craigg
 ms.date: 10/01/2018

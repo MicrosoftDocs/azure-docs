@@ -19,6 +19,8 @@ ms.author: tomfitz
 ---
 # Array and object functions for Azure Resource Manager templates
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Resource Manager provides several functions for working with arrays and objects.
 
 * [array](#array)

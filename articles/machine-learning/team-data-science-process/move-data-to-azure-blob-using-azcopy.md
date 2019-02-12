@@ -1,6 +1,6 @@
 ---
-title: Move Blob storage data with AzCopy - Team Data Science Process
-description: Move Data to and from Azure Blob Storage using AzCopy
+title: Transfer Blob storage data with AzCopy - Team Data Science Process
+description: Transfer Data to and from Azure Blob Storage using AzCopy
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -12,7 +12,7 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
-# Move data to and from Azure Blob Storage using AzCopy
+# Transfer data to and from Azure Blob Storage using AzCopy
 AzCopy is a command-line utility designed for uploading, downloading, and copying data to and from Microsoft Azure blob, file, and table storage.
 
 For instructions on installing AzCopy and additional information on using it with the Azure platform, see [Getting Started with the AzCopy Command-Line Utility](../../storage/common/storage-use-azcopy.md).

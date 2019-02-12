@@ -19,7 +19,8 @@ ms.author: pbutlerm
 
 # Azure application prerequisites
 
-This article describes the technical and business prerequisites for publishing a managed application offer on the Azure Marketplace.
+This article describes the technical and business prerequisites for publishing a managed application offer on the Azure Marketplace.  If you have not already done so, view the video [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
+
 
 ## Technical requirements
 
@@ -34,6 +35,7 @@ For more information, see:
   * [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates). This repo contains all the currently available Azure Resource Manager templates contributed by the community. A searchable template index is maintained at https://azure.microsoft.com/en-us/documentation/templates/.
 * Create UI Definition<br>
 For more information, see [Create Azure portal user interface for your managed application](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). This article introduces the core concepts of the createUiDefinition.json file. The Azure portal uses this file to generate the user interface for creating a managed application.
+
 
 ## Business requirements
 
@@ -50,7 +52,8 @@ The business requirements include the following procedural, contractual, and leg
 * You’re responsible for licensing your software and any third-party software dependencies.
 * You must provide content that meets criteria for your offering to be listed on Azure Marketplace and in the Azure portal.
 * You must agree to the terms of the Microsoft Azure Marketplace Participation Policies and Publisher Agreement.
-* You must comply with the Microsoft Azure Website Terms of Use, Microsoft Privacy Statement and Microsoft Azure Certified Program Agreement.
+* You must comply with the Microsoft Azure Website Terms of Use, Microsoft Privacy Statement, and Microsoft Azure Certified Program Agreement.
+
 
 ## Publishing requirements
 
@@ -60,10 +63,12 @@ To publish a new Azure application offer, you must meet the following prerequisi
   * A title
   * A description (in HTML format)
   * A logo image (in PNG format) and in these fixed image sizes: 40 x 40 pixels, 90 x 90 pixels, 115 x 115 pixels, and 255 x 115 pixels.
-* A Terms of Use and a Privacy policy
+* A *Terms of Use* and a *Privacy Policy*
 * Documentation
 * Support contacts
 
+
 ## Next steps
 
-[Create an Azure application offer](./cpp-create-offer.md) 
+Once you've met all the requirements, you'll be ready to [create an Azure application offer](./cpp-create-offer.md). 
+ 
