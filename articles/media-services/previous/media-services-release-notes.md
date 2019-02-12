@@ -21,9 +21,9 @@ ms.author: juliako
 These release notes for Azure Media Services summarize changes from previous releases and known issues.
 
 > [!NOTE]
-> We want to hear from our customers so that we can focus on fixing problems that affect you. To report a problem or ask questions, submit a post in the [Azure Media Services MSDN Forum].
-> 
-> 
+> No new features or functionality are being added to Media Services v2. 
+
+We want to hear from our customers so that we can focus on fixing problems that affect you. To report a problem or ask questions, submit a post in the [Azure Media Services MSDN Forum]. 
 
 ## <a id="issues"/>Currently known issues
 ### <a id="general_issues"/>Media Services general issues
