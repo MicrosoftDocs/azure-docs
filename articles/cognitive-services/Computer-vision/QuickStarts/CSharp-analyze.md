@@ -13,7 +13,7 @@ ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Analyze a local image using the REST API and C&#35; in Computer Vision
+# Quickstart: Analyze a local image using the REST API and C# in Computer Vision
 
 In this quickstart, you will analyze a locally stored image to extract visual features by using Computer Vision's REST API. With the [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) method, you can extract visual feature information based on image content.
 
