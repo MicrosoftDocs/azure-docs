@@ -102,7 +102,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	-DomainNameLabel <replace-with-your-unique-name> `
 	-AllocationMethod Static
 		
-	#Create an IP configuration with a static private IP address and assign the public IP ddress to it
+	#Create an IP configuration with a static private IP address and assign the public IP address to it
 	$IpConfigName1 = "IPConfig-1"
 	$IpConfig1     = New-AzureRmNetworkInterfaceIpConfig `
 	-Name $IpConfigName1 `
@@ -128,7 +128,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	-Location $Location `
 	-AllocationMethod Static
 		
-	#Create an IP configuration with a static private IP address and assign the public IP ddress to it
+	#Create an IP configuration with a static private IP address and assign the public IP address to it
 	$IpConfigName2 = "IPConfig-2"
 	$IpConfig2     = New-AzureRmNetworkInterfaceIpConfig `
 	-Name $IpConfigName2 `
@@ -162,7 +162,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 
 	```powershell
 	
-	# Define a credential object. When you run these commands, you're prompted to enter a sername and password for the VM you're reating.
+	# Define a credential object. When you run these commands, you're prompted to enter a username and password for the VM you're creating.
 	$cred = Get-Credential
 	
 	# Create a virtual machine configuration
@@ -215,7 +215,7 @@ You can add private and public IP addresses to the Azure network interface by co
 4. In the following commands, change *MyVNet* and *MySubnet* to the names of the VNet and subnet the NIC is connected to. Enter the commands to retrieve the VNet and subnet objects the NIC is connected to:
 
 	```powershell
-	$MyVNet = Get-AzureRMVirtualnetwork -Name MyVNet -ResourceGroupName $RgName
+	$MyVNet = Get-AzureRMVirtualNetwork -Name MyVNet -ResourceGroupName $RgName
 	$Subnet = $MyVnet.Subnets | Where-Object { $_.Name -eq "MySubnet" }
 	```
 	If you don't know the VNet or subnet name the NIC is connected to, enter the following command:

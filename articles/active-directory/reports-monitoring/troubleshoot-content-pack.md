@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
@@ -32,7 +32,7 @@ When working with the Power BI Content Pack for Azure Active Directory (Azure AD
 
 - [Refresh failed](troubleshoot-content-pack.md#refresh-failed) 
 - [Failed to update data source credentials](troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
-- [Importing of data is taking too long](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
+- [Importing of data is taking too long](#data-import-is-too-slow) 
 
 This article provides you with information about the possible causes and how to fix these errors.
  

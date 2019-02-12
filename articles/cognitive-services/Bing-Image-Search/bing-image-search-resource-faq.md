@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Image Search API.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
 ms.author: aahi

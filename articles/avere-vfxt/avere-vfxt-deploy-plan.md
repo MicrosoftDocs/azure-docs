@@ -4,7 +4,7 @@ description: Explains planning to do before deploying Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
 ---
 
@@ -24,11 +24,17 @@ Consider where the elements of your Avere vFXT for Azure deployment will be. The
 
 Follow these guidelines when planning your Avere vFXT system's network infrastructure:
 
-* All elements should be managed with a new subscription created for the Avere vFXT deployment. This strategy simplifies cost tracking and cleanup, and also helps partition resource quotas. Because the Avere vFXT is used with a large number of clients, isolating the clients and cluster in a single subscription protects other critical workloads from possible resource throttling during client provisioning.
+* All elements should be managed with a new subscription created for the Avere vFXT deployment. Benefits include: 
+  * Simpler cost tracking - View and audit all costs from resources, infrastructure, and compute cycles in one subscription.
+  * Easier cleanup - You can remove the entire subscription when finished with the project.
+  * Convenient partitioning of resource quotas - Protect other critical workloads from possible resource throttling when bringing up the large number of clients used for your high-performance computing workflow by isolating the Avere vFXT clients and cluster in a single subscription.
 
 * Locate your client compute systems close to the vFXT cluster. Back-end storage can be more remote.  
 
-* For simplicity, locate the vFXT cluster and the cluster controller VM in the same virtual network (vnet) and in the same resource group. They should also use the same storage account. 
+* For simplicity, locate the vFXT cluster and the cluster controller VM in the same virtual network (vnet) and in the same resource group. They should also use the same storage account. (The cluster controller creates the cluster, and also can be used for command-line cluster management.)  
+
+  > [!NOTE] 
+  > The cluster creation template can create a new resource group and a new storage account for the cluster. You can specify an existing resource group, but it must be empty.
 
 * The cluster must be located in its own subnet to avoid IP address conflicts with clients or compute resources. 
 
@@ -75,16 +81,46 @@ Make sure that your subscription has the capacity to run the Avere vFXT cluster 
 
 ## Back-end data storage
 
-When it's not in the cache, will the working set be stored in a new Blob container or in an existing cloud or hardware storage system?
+Where should the Avere vFXT cluster store your data when it's not in the cache? Decide whether your working set will be stored long term in a new Blob container or in an existing cloud or hardware storage system. 
 
-If you want to use Azure Blob storage for the back end, you should create a new container as part of creating the vFXT cluster. Use the ``create-cloud-backed-container`` deployment script and supply the storage account for the new Blob container. This option creates and configures the new container so that it is ready to use as soon as the cluster is ready. Read [Create nodes and configure the cluster](avere-vfxt-deploy.md#create-nodes-and-configure-the-cluster) for details.
+If you want to use Azure Blob storage for the back end, you should create a new container as part of creating the vFXT cluster. This option creates and configures the new container so that it is ready to use as soon as the cluster is ready. 
+
+Read [Create the Avere vFXT for Azure](avere-vfxt-deploy.md#create-the-avere-vfxt-for-azure) for details.
 
 > [!NOTE]
 > Only empty Blob storage containers can be used as core filers for the Avere vFXT system. The vFXT must be able to manage its object store without needing to preserve existing data. 
 >
 > Read [Moving data to the vFXT cluster](avere-vfxt-data-ingest.md) to learn how to copy data to the cluster's new container efficiently by using client machines and the Avere vFXT cache.
 
-If you want to use an existing on-premises storage system, you must add it to the vFXT cluster after it is created. The ``create-minimal-cluster`` deployment script creates a vFXT cluster with no back-end storage. Read [Configure storage](avere-vfxt-add-storage.md) for detailed instructions about how to add an existing storage system to the Avere vFXT cluster. 
+If you want to use an existing on-premises storage system, you must add it to the vFXT cluster after it is created. Read [Configure storage](avere-vfxt-add-storage.md) for detailed instructions about how to add an existing storage system to the Avere vFXT cluster.
+
+## Cluster access 
+
+The Avere vFXT for Azure cluster is located in a private subnet, and the cluster does not have a public IP address. You must have some method of accessing the private subnet for cluster administration and client connections. 
+
+Access options include:
+
+* Jump host - Assign a public IP address to a separate VM within the private network, and use it to create an SSL tunnel to the cluster nodes. 
+
+  > [!TIP]
+  > If you set a public IP address on the cluster controller, you can use it as the jump host. Read [Cluster controller as jump host](#cluster-controller-as-jump-host) for more information.
+
+* Virtual private network (VPN) - Configure a point-to-site or site-to-site VPN to your private network.
+
+* Azure ExpressRoute - Configure a private connection through an ExpressRoute partner. 
+
+For details about these options, read the [Azure Virtual Network documentation about internet communication](../virtual-network/virtual-networks-overview.md#communicate-with-the-internet).
+
+### Cluster controller as jump host
+
+If you set a public IP address on the cluster controller, you can use it as a jump host to contact the Avere vFXT cluster from outside the private subnet. However, because the controller has access privileges to modify cluster nodes, this creates a small security risk.  
+
+For improved security with a public IP address, use a network security group to allow inbound access only through port 22. Optionally, you can further protect the system by locking down access to your range of IP source addresses - that is, only allow connections from machines you intend to use for cluster access.
+
+When creating the cluster, you can choose whether or not to create a public IP address on the cluster controller. 
+
+* If you create a new vnet or a new subnet, the cluster controller will be assigned a public IP address.
+* If you select an existing vnet and subnet, the cluster controller will have only private IP addresses. 
 
 ## Next step: Understand the deployment process
 

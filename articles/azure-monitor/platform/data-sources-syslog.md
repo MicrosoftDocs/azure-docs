@@ -1,5 +1,5 @@
 ---
-title: Collect and analyze Syslog messages in Log Analytics | Microsoft Docs
+title: Collect and analyze Syslog messages in Azure Monitor | Microsoft Docs
 description: Syslog is an event logging protocol that is common to Linux. This article describes how to configure collection of Syslog messages in Log Analytics and details of the records they create.
 services: log-analytics
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.date: 11/28/2018
 ms.author: magoedte
 ---
 
-# Syslog data sources in Log Analytics
-Syslog is an event logging protocol that is common to Linux.  Applications will send messages that may be stored on the local machine or delivered to a Syslog collector.  When the Log Analytics agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent.  The agent then sends the message to Log Analytics where a corresponding record is created.  
+# Syslog data sources in Azure Monitor
+Syslog is an event logging protocol that is common to Linux.  Applications will send messages that may be stored on the local machine or delivered to a Syslog collector.  When the Log Analytics agent for Linux is installed, it configures the local Syslog daemon to forward messages to the agent.  The agent then sends the message to Azure Monitor where a corresponding record is created.  
 
 > [!NOTE]
-> Log Analytics supports collection of messages sent by rsyslog or syslog-ng, where rsyslog is the default daemon. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the [rsyslog daemon](http://rsyslog.com) should be installed and configured to replace sysklog.
+> Azure Monitor supports collection of messages sent by rsyslog or syslog-ng, where rsyslog is the default daemon. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the [rsyslog daemon](http://rsyslog.com) should be installed and configured to replace sysklog.
 >
 >
 

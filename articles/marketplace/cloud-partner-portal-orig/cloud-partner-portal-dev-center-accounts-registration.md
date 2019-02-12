@@ -203,7 +203,7 @@ To publish commercial offers for purchase, you need to add payout and tax inform
     - Select **Next**.
 4.  Enter your tax details, and then select **Next**.
 
->[WARNING!]
+>[!WARNING]
 >You won't be able to push to your commercial offers to production without providing bank account and tax information in your Microsoft Developer Center account.
 
 ### Developer Center registration issues

@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 ---
 
-# Azure Cosmos DB SQL language reference 
+# SQL language reference for Azure Cosmos DB 
 
 Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This article provides documentation for the SQL query language syntax, which is compatible with SQL API accounts. For a walkthrough of example SQL queries, see [SQL queries in Cosmos DB](how-to-sql-query.md).  
   
@@ -489,7 +489,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |**arithmetic**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Addition.<br /><br /> Subtraction.<br /><br /> Multiplication.<br /><br /> Division.<br /><br /> Modulation.|  
 |**bitwise**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Bitwise OR.<br /><br /> Bitwise AND.<br /><br /> Bitwise XOR.<br /><br /> Left Shift.<br /><br /> Right Shift.<br /><br /> Zero-fill Right Shift.|  
-|**logical**|**AND**<br /><br /> **OR**|Logical conjunction. Returns **true** if both arguments are **true**, returns **false** otherwise.<br /><br /> Logical conjunction. Returns **true** if both arguments are **true**, returns **false** otherwise.|  
+|**logical**|**AND**<br /><br /> **OR**|Logical conjunction. Returns **true** if both arguments are **true**, returns **false** otherwise.<br /><br /> Logical disjunction. Returns **true** if any arguments are **true**, returns **false** otherwise.|  
 |**comparison**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Equals. Returns **true** if arguments are equal, returns **false** otherwise.<br /><br /> Not equal to. Returns **true** if arguments are not equal, returns **false** otherwise.<br /><br /> Greater Than. Returns **true** if first argument is greater than the second one, return **false** otherwise.<br /><br /> Greater Than or Equal To. Returns **true** if first argument is greater than or equal to the second one, return **false** otherwise.<br /><br /> Less Than. Returns **true** if first argument is less than the second one, return **false** otherwise.<br /><br /> Less Than or Equal To. Returns **true** if first argument is less than or equal to the second one, return **false** otherwise.<br /><br /> Coalesce. Returns the second argument if the first argument is an **undefined** value.|  
 |**String**|**&#124;&#124;**|Concatenation. Returns a concatenation of both arguments.|  
   
@@ -616,7 +616,7 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |\\'|apostrophe (')|U+0027|  
 |\\"|quotation mark (")|U+0022|  
-|\\\|reverse solidus (\\)|U+005C|  
+|\\\ |reverse solidus (\\)|U+005C|  
 |\\/|solidus (/)|U+002F|  
 |\b|backspace|U+0008|  
 |\f|form feed|U+000C|  
@@ -2165,7 +2165,10 @@ REPLICATE(<str_expr>, <num_expr>)
   
 -   `num_expr`  
   
-     Is any valid numeric expression.  
+     Is any valid numeric expression. If num_expr is negative or non-finite, the result is undefined.
+
+  > [!NOTE]
+  > The maximum length of the result is 10,000 characters i.e. (length(str_expr)  *  num_expr) <= 10,000.
   
  **Return Types**  
   

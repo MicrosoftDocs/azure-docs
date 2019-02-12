@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: How to resize and crop thumbnails included in a Bing response.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: scottwhi

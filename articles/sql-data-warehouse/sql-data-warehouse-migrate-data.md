@@ -6,7 +6,7 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
@@ -24,11 +24,7 @@ If your data starts in flat files, then you will first need to transfer it to Az
 
 PolyBase also provides a high-performance option for loading the data. However, that does mean using two tools instead of one. If you need the best performance then use PolyBase. If you want a single tool experience (and the data is not massive) then ADF is your answer.
 
-
-> 
-> 
-
-Head over to the following article for some great [ADF samples][ADF samples].
+Follow [this tutorial](../data-factory/load-azure-sql-data-warehouse.md) to learn how to use ADF to load data into your data warehouse.
 
 ## Integration Services
 Integration Services (SSIS) is a powerful and flexible Extract Transform and Load (ETL) tool that supports complex workflows, data transformation, and several data loading options. Use SSIS to simply transfer data to Azure or as part of a broader migration.
@@ -177,7 +173,7 @@ For more development tips, see [development overview][development overview].
 
 <!--Article references-->
 [AZCopy]: ../storage/common/storage-use-azcopy.md
-[ADF Copy]: ../data-factory/copy-activity-overview.md 
+[ADF Copy]: ../data-factory/load-azure-sql-data-warehouse.md 
 [ADF Copy examples]: ../data-factory/quickstart-create-data-factory-dot-net.md
 [development overview]: sql-data-warehouse-overview-develop.md
 [migrate your schema]: sql-data-warehouse-migrate-schema.md

@@ -203,7 +203,7 @@ In this section, you create a user called Britta Simon in Asana.
 
 2. Type the email of the user like **britta.simon@contoso.com** in the text box and then select **Invite**.
 
-3. Click **Send Invite**. The new user will receive an email into thier email account. user will need to create and validate the account.
+3. Click **Send Invite**. The new user will receive an email into their email account. user will need to create and validate the account.
 
 ### Test single sign-on
 

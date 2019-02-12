@@ -7,7 +7,7 @@ documentationcenter: na
 manager: mtillman
 
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
