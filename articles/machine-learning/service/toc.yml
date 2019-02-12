@@ -148,7 +148,7 @@
   - name: Export and delete data
     displayName: gdpr
     href: how-to-export-delete-data.md
-  - name: Use a resource manager template
+  - name: Use a Resource Manager template
     href: how-to-create-workspace-template.md
   - name: Enable logging
     displayName: logging
