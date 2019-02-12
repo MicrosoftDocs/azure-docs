@@ -29,7 +29,7 @@ After you create your Azure Maps account, you can upgrade or downgrade the prici
 ![Change a pricing tier](./media/how-to-manage-pricing-tier/change-pricing-tier.png)
 
 > [!NOTE]
-> You don't have to generate new subscription keys if you upgrade or downgrade the pricing tier for your Azure Maps account.
+> You don't have to generate new subscription keys or client ID (for Azure AD authentication) if you upgrade or downgrade the pricing tier for your Azure Maps account.
 
 ## Next steps
 
