@@ -15,7 +15,7 @@ ms.author: normesta
 There are four key stages in big data processing:
 
 > [!div class="checklist"]
-> * Create a Data Lake Gen2 storage account
+> * Create a storage account
 > * Create a file system
 > * Ingest the data
 > * Secure the data
@@ -25,7 +25,7 @@ There are four key stages in big data processing:
 
 In this article, we look at these stages with respect to Azure Data Lake Storage Gen2 to understand the options and tools available to meet your big data needs.
 
-## Create a Data Lake Gen2 storage account
+## Create a storage account
 
 Link to quickstart here.
 
@@ -33,11 +33,12 @@ Link to quickstart here.
 
 You can do this a bunch of different ways.
 
-|Tool | Guide |
-|---|--|
-|Azure Storage Explorer | See the [Create a file system](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) section of the article [Quickstart: Use Azure Storage Explorer to manage data in an Azure Data Lake Storage Gen2 account](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer). |
-|AzCopy V10 |[Create a Blob container or File Share](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share) section of the article [Transfer data with the AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
-|Technique |Link|
+|Tool | Guide | Guide section |
+|---|--|---|
+|Azure Storage Explorer | [Quickstart: Use Azure Storage Explorer to manage data in an Azure Data Lake Storage Gen2 account](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer) | [Create a file system](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) |
+|AzCopy V10 |[Transfer data with the AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)| [Create a Blob container or File Share](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share)|
+|HDInsight |Need to see if you can now do this with the HDFS or Databricks and then add those commands | |
+|Databricks |Same. You can also explain how to do this in a notebook| |
 
 ## Ingest the data
 
