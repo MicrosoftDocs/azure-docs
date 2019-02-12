@@ -4,7 +4,7 @@ description: Use this tutorial to help you get started with Azure Key Vault logg
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8

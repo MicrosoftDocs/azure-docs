@@ -3,7 +3,7 @@ title: Azure Quickstart - Set and retrieve a secret from Key Vault using Azure C
 description: Quickstart showing how to set and retrieve a secret from Azure Key Vault using Azure CLI
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
