@@ -113,6 +113,8 @@
     href: billing-subscription-become-disable.md
   - name: Transfer ownership
     href: billing-subscription-transfer.md
+  - name: Request ownership - Microsoft Customer Agreement
+    href: billing-mca-request-billing-ownership.md
   - name: Cancel subscription
     href: billing-how-to-cancel-azure-subscription.md
   - name: Change credit card
@@ -129,6 +131,8 @@
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
   - name: Create additional subscription
     href: billing-create-subscription.md
+  - name: Create additional subscription - Microsoft Customer Agreement
+    href: billing-mca-create-subscription.md
   - name: Programmatically create Enterprise subscriptions
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: Export subscription information
