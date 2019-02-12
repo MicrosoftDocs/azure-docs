@@ -19,6 +19,9 @@ ms.custom: seodec18
 
 ---
 # High density hosting on Azure App Service using per-app scaling
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 By default, you scale App Service apps by scaling the [App Service plan](overview-hosting-plans.md) they run on. When multiple apps are run in the same App Service plan, each scaled-out instance runs all the apps in the plan.
 
 You can enable *per-app scaling* at the
@@ -34,10 +37,10 @@ can be scaled to 10 instances, but an app can be set to use only five.
 
 Create a plan with per-app scaling
 by passing in the ```-PerSiteScaling $true``` parameter to the
-```New-AzureRmAppServicePlan``` cmdlet.
+```New-AzAppServicePlan``` cmdlet.
 
 ```powershell
-New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
+New-AzAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
                             -Location $Location `
                             -Tier Premium -WorkerSize Small `
                             -NumberofWorkers 5 -PerSiteScaling $true
@@ -45,11 +48,11 @@ New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePla
 
 Enable per-app scaling with an existing App Service Plan
 by passing in the `-PerSiteScaling $true` parameter to the
-```Set-AzureRmAppServicePlan``` cmdlet.
+```Set-AzAppServicePlan``` cmdlet.
 
 ```powershell
 # Enable per-app scaling for the App Service Plan using the "PerSiteScaling" parameter.
-Set-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup `
+Set-AzAppServicePlan -ResourceGroupName $ResourceGroup `
    -Name $AppServicePlan -PerSiteScaling $true
 ```
 
@@ -60,13 +63,13 @@ of how many instances the underlying app service plan scales out to.
 
 ```powershell
 # Get the app we want to configure to use "PerSiteScaling"
-$newapp = Get-AzureRmWebApp -ResourceGroupName $ResourceGroup -Name $webapp
+$newapp = Get-AzWebApp -ResourceGroupName $ResourceGroup -Name $webapp
     
 # Modify the NumberOfWorkers setting to the desired value.
 $newapp.SiteConfig.NumberOfWorkers = 2
     
 # Post updated app back to azure
-Set-AzureRmWebApp $newapp
+Set-AzWebApp $newapp
 ```
 
 > [!IMPORTANT]

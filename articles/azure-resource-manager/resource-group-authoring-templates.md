@@ -212,7 +212,7 @@ Within your template, you can create your own functions. These functions are ava
 When defining a user function, there are some restrictions:
 
 * The function can't access variables.
-* The function can't access template parameters. That is, the [parameters function](resource-group-template-functions-deployment.md#parameters) is restricted to function parameters.
+* The function can only use parameters that are defined in the function. When you use the [parameters function](resource-group-template-functions-deployment.md#parameters) within a user-defined function, you are restricted to the parameters for that function.
 * The function can't call other user-defined functions.
 * The function can't use the [reference function](resource-group-template-functions-resource.md#reference).
 * Parameters for the function can't have default values.
