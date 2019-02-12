@@ -211,15 +211,10 @@ ms.service: azure-spatial-anchors
                 // The anchor was deleted or never exited in the first place
                 // Drop it, or show UI to ask user to anchor the content anew
                 break;
-            case LocateAnchorStatus::NotLocatedNeedsMoreData:
+            case LocateAnchorStatus::NotLocated:
                 // The anchor hasn't been found given the location data
                 // The user might in the wrong location, or maybe more data will help
                 // Show UI to tell user to keep looking around
-                break;
-            case LocateAnchorStatus::NotLocatedAnchorOrphaned:
-                // The anchor hasn't been found in a long time, space data is missing
-                // You can issue a query for properties if you keep
-                // metadata there to help user re-anchor content somewhere
                 break;
         }
     });

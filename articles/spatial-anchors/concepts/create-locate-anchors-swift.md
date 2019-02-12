@@ -17,9 +17,9 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
 ```swift
-    var _cloudSession : SSCCloudSpatialAnchorSession? = nil
+    var _cloudSession : ASACloudSpatialAnchorSession? = nil
     // In your view handler
-    _cloudSession = SSCCloudSpatialAnchorSession()
+    _cloudSession = ASACloudSpatialAnchorSession()
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
@@ -37,7 +37,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Access Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-access-tokens-event.md)]
 
 ```swift
-    internal func tokenRequired(_ cloudSession:SSCCloudSpatialAnchorSession!, _ args:SSCTokenRequiredEventArgs!) {
+    internal func tokenRequired(_ cloudSession:ASACloudSpatialAnchorSession!, _ args:ASATokenRequiredEventArgs!) {
         args.accessToken = "MyAccessToken"
     }
 ```
@@ -45,7 +45,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Asynchronous Tokens](../../../includes/spatial-anchors-create-locate-anchors-asynchronous-tokens.md)]
 
 ```swift
-    internal func tokenRequired(_ cloudSession:SSCCloudSpatialAnchorSession!, _ args:SSCTokenRequiredEventArgs!) {
+    internal func tokenRequired(_ cloudSession:ASACloudSpatialAnchorSession!, _ args:ASATokenRequiredEventArgs!) {
         let deferral = args.getDeferral()
         myGetTokenAsync( withCompletionHandler: { (myToken: String?) in
             if (myToken != nil) {
@@ -66,7 +66,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [AAD Tokens Event](../../../includes/spatial-anchors-create-locate-anchors-aad-tokens-event.md)]
 
 ```swift
-    internal func tokenRequired(_ cloudSession:SSCCloudSpatialAnchorSession!, _ args:SSCTokenRequiredEventArgs!) {
+    internal func tokenRequired(_ cloudSession:ASACloudSpatialAnchorSession!, _ args:ASATokenRequiredEventArgs!) {
         args.authenticationToken = "MyAuthenticationToken"
     }
 ```
@@ -74,7 +74,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Asynchronous Tokens](../../../includes/spatial-anchors-create-locate-anchors-asynchronous-tokens.md)]
 
 ```swift
-    internal func tokenRequired(_ cloudSession:SSCCloudSpatialAnchorSession!, _ args:SSCTokenRequiredEventArgs!) {
+    internal func tokenRequired(_ cloudSession:ASACloudSpatialAnchorSession!, _ args:ASATokenRequiredEventArgs!) {
         let deferral = args.getDeferral()
         myGetTokenAsync( withCompletionHandler: { (myToken: String?) in
             if (myToken != nil) {
@@ -103,7 +103,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Feedback](../../../includes/spatial-anchors-create-locate-anchors-feedback.md)]
 
 ```swift
-    internal func sessionUpdated(_ cloudSession:SSCCloudSpatialAnchorSession!, _ args:SSCSessionUpdatedEventArgs!) {
+    internal func sessionUpdated(_ cloudSession:ASACloudSpatialAnchorSession!, _ args:ASASessionUpdatedEventArgs!) {
         let status = args.status!
         if (status.userFeedback.isEmpty) {
             return
@@ -127,8 +127,8 @@ ms.service: azure-spatial-anchors
     // If the user is placing some application content in their environment,
     // you might show content at this anchor for a while, then save when
     // the user confirms placement.
-    var cloudAnchor : SSCCloudSpatialAnchor? = nil
-    cloudAnchor = SSCCloudSpatialAnchor()
+    var cloudAnchor : ASACloudSpatialAnchor? = nil
+    cloudAnchor = ASACloudSpatialAnchor()
     cloudAnchor!.localAnchor = localAnchor
     _cloudSession?.createAnchor(cloudAnchor!, withCompletionHandler: { (error: Error?) in
         if (error != nil) {
@@ -142,7 +142,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Session Status](../../../includes/spatial-anchors-create-locate-anchors-session-status.md)]
 
 ```swift
-    _cloudSession?.getStatusWithCompletionHandler( { (value:SSCSessionStatus, error:Error?) in
+    _cloudSession?.getStatusWithCompletionHandler( { (value:ASASessionStatus, error:Error?) in
         if (error != nil) {
             _feedback = "Session status error:\(error!.localizedDescription)"
             return
@@ -157,8 +157,8 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
 ```swift
-    var cloudAnchor : SSCCloudSpatialAnchor? = nil
-    cloudAnchor = SSCCloudSpatialAnchor()
+    var cloudAnchor : ASACloudSpatialAnchor? = nil
+    cloudAnchor = ASACloudSpatialAnchor()
     cloudAnchor!.localAnchor = localAnchor
     cloudAnchor!.appProperties = [ "model-type" : "frame", "label" : "my latest picture" ]
     _cloudSession?.createAnchor(cloudAnchor!, withCompletionHandler: { (error: Error?) in
@@ -169,7 +169,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Update Anchor Properties](../../../includes/spatial-anchors-create-locate-anchors-updating-properties.md)]
 
 ```swift
-    var anchor : SSCCloudSpatialAnchor? = /* locate your anchor */;
+    var anchor : ASACloudSpatialAnchor? = /* locate your anchor */;
     anchor!.appProperties["last-user-access"] = "just now"
     _cloudSession?.updateAnchorProperties(anchor!, withCompletionHandler: { (error:Error?) in
         if (error != nil) {
@@ -206,7 +206,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
 ```swift
-    let criteria = SSCAnchorLocateCriteria()!
+    let criteria = ASAAnchorLocateCriteria()!
     criteria.identifiers = [ "id1", "id2", "id3" ]
     _cloudSession!.createWatcher(criteria)
 ```
@@ -214,29 +214,24 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Locate Events](../../../includes/spatial-anchors-create-locate-anchors-locating-events.md)]
 
 ```swift
-    internal func anchorLocated(_ cloudSession: SSCCloudSpatialAnchorSession!, _ args: SSCAnchorLocatedEventArgs!) {
+    internal func anchorLocated(_ cloudSession: ASACloudSpatialAnchorSession!, _ args: ASAAnchorLocatedEventArgs!) {
         let status = args.status
         switch (status) {
-        case SSCLocateAnchorStatus.located:
+        case ASALocateAnchorStatus.located:
             let foundAnchor = args.anchor
             // Go add your anchor to the scene...
             break
-        case SSCLocateAnchorStatus.alreadyTracked:
+        case ASALocateAnchorStatus.alreadyTracked:
             // This anchor has already been reported and is being tracked
             break
-        case SSCLocateAnchorStatus.notLocatedAnchorDoesNotExist:
+        case ASALocateAnchorStatus.notLocatedAnchorDoesNotExist:
             // The anchor was deleted or never exited in the first place
             // Drop it, or show UI to ask user to anchor the content anew
             break
-        case SSCLocateAnchorStatus.notLocatedNeedsMoreData:
+        case ASALocateAnchorStatus.notLocated:
             // The anchor hasn't been found given the location data
             // The user might in the wrong location, or maybe more data will help
             // Show UI to tell user to keep looking around
-            break
-        case SSCLocateAnchorStatus.notLocatedAnchorOrphaned:
-            // The anchor hasn't been found in a long time, space data is missing
-            // You can issue a query for properties if you keep
-            // metadata there to help user re-anchor content somewhere
             break
         }
     }
