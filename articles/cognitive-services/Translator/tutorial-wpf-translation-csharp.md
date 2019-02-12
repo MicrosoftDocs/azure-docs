@@ -43,11 +43,10 @@ The first thing we need to do is set up our project in Visual Studio.
 
 1. Open Visual Studio. Then select **File > New > Project**.
 2. In the left panel, locate and select **Visual C#**. Then, select **WPF App (.NET Framework)** in the center panel.
-   ![Create a WPF app in Visual Studio]()
+   ![Create a WPF app in Visual Studio](media/create-wpf-project-visual-studio.png)
 3. Name your project, set the framework version to **.NET Framework 4.5.2 or later**, then click **OK**.
-   ![Configure your Visual Studio project]()
 4. Your project has been created. You'll notice that there are two tabs open: `MainWindow.xaml` and `MainWindow.xaml.cs`. Throughout this tutorial, we'll be adding code to these two files. The first for the application front-end; the latter for our calls to Translator Text and Bing Spell Check.
-   ![Review your environment]()
+   ![Review your environment](media/blank-wpf-project.png)
 
 In the next section we're going to add assemblies and a NuGet package to our project for additional functionality, like JSON parsing.
 
@@ -58,12 +57,12 @@ Our project requires a handful of .NET Framework assemblies and NewtonSoft.Json,
 ### Add .NET Framework assemblies
 
 1. Locate your project in Visual Studio's Solution Explorer (right panel). Right click on your project, then select **Add > Reference...**. This will open **Reference Manager**.
-   ![Open Reference Manager]()
+   ![Open Reference Manager](media/add-assemblies.png)
 2. The assemblies tab lists all .NET Framework assemblies that are available to reference. Use the search bar in the upper-right of the screen to search for these references and add them to your project:
    * System.Runtime.Serialization
    * System.Web
    * System.Web.Extensions
-   ![Add assembly references]()
+   ![Add assembly references](media/add-assemblies-sample.png)
 3. After you've added these references to your project, you can click **OK** to close **Reference Manager**.
 
 > [!NOTE]
