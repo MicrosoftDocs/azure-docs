@@ -3,7 +3,7 @@ title: Supportability - Azure Dedicated HSM | Microsoft Docs
 description: Support options and areas of responsibility for Azure Dedicated HSM in different scenarios
 services: dedicated-hsm
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 
 ms.service: key-vault
 ms.workload: identity
