@@ -23,7 +23,7 @@ For all steps in this quickstart, sign in to the [Azure portal](https://portal.a
 
 ## Create a single database
 
-A single database has a defined set of compute, memory, IO, and storage resources using one of two [purchasing model(sql-database-service-tiers.md). When you create a single database, you also define a [SQL Database server](sql-database-servers.md) to manage it and place it within [Azure resource group](../azure-resource-manager/resource-group-overview.md) in a specified region.
+A single database has a defined set of compute, memory, IO, and storage resources using one of two [purchasing model(sql-database-purchase-models.md). When you create a single database, you also define a [SQL Database server](sql-database-servers.md) to manage it and place it within [Azure resource group](../azure-resource-manager/resource-group-overview.md) in a specified region.
 
 To create a single database containing the AdventureWorksLT sample data:
 

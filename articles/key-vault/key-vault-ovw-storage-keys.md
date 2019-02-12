@@ -1,13 +1,13 @@
 ﻿---
 ms.assetid:
 title: Azure Key Vault managed storage account - CLI
-description: Storage account keys provide a seemless integration between Azure Key Vault and key based access to Azure Storage Account.
+description: Storage account keys provide a seamless integration between Azure Key Vault and key based access to Azure Storage Account.
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
 author: prashanthyv
 ms.author: pryerram
-manager: mbaldwin
+manager: barbkess
 ms.date: 10/03/2018
 ---
 # Azure Key Vault managed storage account - CLI
@@ -166,19 +166,9 @@ sasToken = await kv.GetSecretAsync("SecretUri");
 accountSasCredential.UpdateSASToken(sasToken);
 ```
 
+### Relevant Azure CLI commands
 
-### Relavant Azure CLI cmdlets
-[Azure CLI Storage Cmdlets](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
-
-### Relevant Powershell cmdlets
-
-- [Get-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultmanagedstorageaccount)
-- [Add-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Add-AzureKeyVaultManagedStorageAccount)
-- [Get-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Get-AzureKeyVaultManagedStorageSasDefinition)
-- [Update-AzureKeyVaultManagedStorageAccountKey](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Update-AzureKeyVaultManagedStorageAccountKey)
-- [Remove-AzureKeyVaultManagedStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.keyvault/remove-azurekeyvaultmanagedstorageaccount)
-- [Remove-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Remove-AzureKeyVaultManagedStorageSasDefinition)
-- [Set-AzureKeyVaultManagedStorageSasDefinition](https://docs.microsoft.com/powershell/module/AzureRM.KeyVault/Set-AzureKeyVaultManagedStorageSasDefinition)
+[Azure CLI Storage commands](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ## See also
 

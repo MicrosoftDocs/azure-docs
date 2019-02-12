@@ -110,7 +110,7 @@ You use a resource group to show how to assign a role at a resource group scope.
 
 To grant access for the user, you use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command to assign a role. You must specify the security principal, role definition, and scope.
 
-1. Get the ID of your subscription using the [Get-AzSubscription](/powershell/module/az.profile/get-azsubscription) command.
+1. Get the ID of your subscription using the [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) command.
 
     ```azurepowershell
     Get-AzSubscription

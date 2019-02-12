@@ -270,5 +270,5 @@ New-AzResourceGroupDeployment `
 
 ## Next steps
 
-- For general information about key vaults, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md).
+- For general information about key vaults, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md).
 - For complete examples of referencing key secrets, see [Key Vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
