@@ -28,6 +28,18 @@
     href: cli-samples.md        
 - name: Concepts
   items:
+  - name: Packaging
+    items:
+    - name: Dynamic packaging
+      href: dynamic-packaging-overview.md
+    - name: Filters and dynamic manifest
+      href: filters-dynamic-manifest-overview.md   
+  - name: Accounts
+    items:
+    - name: Quotas and limitations
+      href: limits-quotas-constraints.md   
+    - name: Storage accounts
+      href: storage-account-concept.md         
   - name: Ingest
     items:
     - name: Assets
@@ -46,14 +58,6 @@
     items:
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md   
-  - name: Stream
-    items:
-    - name: Streaming Endpoints
-      href: streaming-endpoint-concept.md
-    - name: Streaming Locators
-      href: streaming-locators-concept.md
-    - name: Streaming Policies
-      href: streaming-policy-concept.md
   - name: Stream live
     href: live-streaming-overview.md
     items:
@@ -68,11 +72,15 @@
     - name: States and billing
       href: live-event-states-billing.md
     - name: Latency
-      href: live-event-latency.md
-  - name: Deliver
+      href: live-event-latency.md       
+  - name: Deliver/stream
     items:
-    - name: Filters and dynamic manifest
-      href: filters-dynamic-manifest-overview.md     
+    - name: Streaming Endpoints
+      href: streaming-endpoint-concept.md
+    - name: Streaming Locators
+      href: streaming-locators-concept.md
+    - name: Streaming Policies
+      href: streaming-policy-concept.md
   - name: Monitor
     items:
     - name: Event Grid
@@ -90,12 +98,6 @@
       href: design-multi-drm-system-with-access-control.md
   - name: Playback
     href: use-azure-media-player.md
-  - name: Accounts
-    items:
-    - name: Quotas and limitations
-      href: limits-quotas-constraints.md   
-    - name: Storage accounts
-      href: storage-account-concept.md    
   - name: Filter, order, page entities
     href: entities-overview.md 
   - name: Migrate from v2 to v3
