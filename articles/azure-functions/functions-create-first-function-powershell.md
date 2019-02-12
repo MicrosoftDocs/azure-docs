@@ -313,9 +313,7 @@ First, save the following file as something like `template.json`:
     "variables": {
         "hostingPlanName": "[parameters('functionAppName')]",
         "location": "[resourceGroup().location]",
-        "storageAccountName": "[concat('storage', uniquestring(resourceGroup().id))]",
-        "resourceGroupScopeTemplate": "https://raw.githubusercontent.com/eamonoreilly/AzureFunctions/master/PowerShell/ManagedIdentityAssignment/assignMSIResourceGroupScope.json",
-        "contributorId": "b24988ac-6180-42a0-ab88-20f7382dd24c"
+        "storageAccountName": "[concat('storage', uniquestring(resourceGroup().id))]"
     },
     "resources": [
         {
