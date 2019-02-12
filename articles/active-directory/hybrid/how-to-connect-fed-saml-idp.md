@@ -13,6 +13,7 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 #  Use a SAML 2.0 Identity Provider (IdP) for Single Sign On

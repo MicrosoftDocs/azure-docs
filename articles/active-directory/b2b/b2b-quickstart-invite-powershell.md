@@ -15,6 +15,7 @@ ms.reviewer: mal
 
 #customer intent: As a tenant admin, I want to walk through the B2B invitation workflow so that I can understand how to add a user through PowerShell.
 
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Add a guest user with PowerShell

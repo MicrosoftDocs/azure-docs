@@ -16,6 +16,7 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
 #As a new Azure AD identity administrator, I want to automatically add or remove users, so I don't have to manually do it."
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Add or remove group members automatically
