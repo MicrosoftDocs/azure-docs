@@ -4,7 +4,7 @@ description: This document helps you to use adaptive application control in Azur
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2

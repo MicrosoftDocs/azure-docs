@@ -4,7 +4,7 @@ description: The article provides a curated list of Azure Security services and 
 services: security
 documentationcenter: na
 author: barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8

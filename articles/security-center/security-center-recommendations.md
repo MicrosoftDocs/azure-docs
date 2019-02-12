@@ -4,7 +4,7 @@ description: This document walks you through how recommendations in Azure Securi
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e

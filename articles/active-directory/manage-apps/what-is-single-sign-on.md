@@ -23,7 +23,7 @@ Single sign-on (SSO) adds security and convenience when users sign-on to applica
 
 ## Choosing a single sign-on method
 
-There are several ways to configure an application for single sign-on. Choosing a single sign method depends on how the application is configured for authentication. 
+There are several ways to configure an application for single sign-on. Choosing a single sign-on method depends on how the application is configured for authentication. 
 
 - Cloud applications can use OpenID Connect, OAuth, SAML, password-based, linked, or disabled methods for single sign-on. 
 - On-premises applications can use password-based, Integrated Windows Authentication, header-based, linked, or disabled methods for single sign-on. The on-premises choices work when applications are configured for Application Proxy.
@@ -54,7 +54,7 @@ For more information, see:
 - [Azure Active Directory developer’s guide](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 ## SAML SSO
-With **SAML single sign-on**, Azure AD authenticates to the application by using the user's Azure AD account. Azure AD communicates the sign-on information to the application through a connection protocol. With SAML-based single sign-on, you can map users to specific application roles based on rules you define in your SAML claims
+With **SAML single sign-on**, Azure AD authenticates to the application by using the user's Azure AD account. Azure AD communicates the sign-on information to the application through a connection protocol. With SAML-based single sign-on, you can map users to specific application roles based on rules you define in your SAML claims.
 
 Choose SAML-based single sign-on when the application supports it.
 
@@ -81,7 +81,7 @@ Choose password-based single sign-on when:
 Password-based single sign-on is supported for any cloud-based application that has an HTML-based sign-in page. The user can use any of the following browsers:
 
 - Internet Explorer 11 on Windows 7 or later
-- Microsoft Edge on Windows 10 Anniversary Edition or later 
+- Microsoft Edge on Windows 10 Anniversary Edition or later
 - Chrome on Windows 7 or later, and on MacOS X or later
 - Firefox 26.0 or later on Windows XP SP2 or later, and on Mac OS X 10.6 or later
 

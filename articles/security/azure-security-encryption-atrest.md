@@ -4,7 +4,7 @@ description: This article provides an overview of Microsoft Azure data  encrypti
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba

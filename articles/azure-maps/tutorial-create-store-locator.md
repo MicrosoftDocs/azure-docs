@@ -115,14 +115,14 @@ To create the user interface, add code to *index.html*:
 1. Add references to the Azure Maps web control JavaScript and CSS files:
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" /> 
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script> 
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" /> 
+    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script> 
     ```
     
 1. Add a reference to the Azure Maps Services module. The module is a JavaScript library that wraps the Azure Maps REST services and makes them easy to use in JavaScript. The module is useful for powering search functionality.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1"></script>
+    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
     ```
     
 1. Add references to *index.js* and *index.css*:
@@ -157,7 +157,6 @@ To create the user interface, add code to *index.html*:
         <div id="myMap"></div> 
 
         <button id="myLocationBtn" title="My Location"></button> 
-
     </main>
     ```
 
@@ -386,7 +385,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
     //The URL to the icon image. 
     var iconImageUrl = 'images/CoffeeIcon.png'; 
-    var map, popup, datasource, iconLayer, centerMarker, serviceClient;
+    var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
 1. Add code to *index.js*. The following code initializes the map, adds an [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) that waits until the page is finished loading, wires up events to monitor the loading of the map, and powers the search button and My Location button. 
@@ -400,28 +399,38 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
     ```Javascript
     function initialize() { 
-    
-        //Add your Azure Maps subscription key to the map SDK.  
-        atlas.setSubscriptionKey('<Your Azure Maps Key>'); 
-
         //Initialize a map instance. 
         map = new atlas.Map('myMap', { 
             center: [-90, 40], 
-            zoom: 2 
+            zoom: 2,
+
+            //Add your Azure Maps subscription key to the map SDK.
+            authOptions: {
+                authType: 'subscriptionKey',
+                subscriptionKey: '<Your Azure Maps Key>'
+            }
         }); 
 
         //Create a pop-up window, but leave it closed so we can update it and display it later. 
         popup = new atlas.Popup(); 
 
-        //Create an instance of the services client. 
-        serviceClient = new atlas.service.Client(atlas.getSubscriptionKey()); 
+        //Use SubscriptionKeyCredential with a subscription key
+        const subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(atlas.getSubscriptionKey());
+    
+        //Use subscriptionKeyCredential to create a pipeline
+        const pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential, {
+            retryOptions: { maxTries: 4 }, // Retry options
+        });
+    
+        //Create an instance of the SearchURL client.
+        searchURL = new atlas.service.SearchURL(pipeline);
 
         //If the user selects the search button, geocode the value the user passed in. 
         document.getElementById('searchBtn').onclick = performSearch; 
 
         //If the user presses Enter in the search box, perform a search. 
         document.getElementById('searchTbx').onkeyup = function (e) {
-            if (e.keyCode == 13) { 
+            if (e.keyCode === 13) { 
                 performSearch(); 
             } 
         }; 
@@ -429,8 +438,8 @@ At this point, everything is set up in the user interface. Now, we need to add t
         //If the user selects the My Location button, use the Geolocation API to get the user's location. Center and zoom the map on that location. 
         document.getElementById('myLocationBtn').onclick = setMapToUserLocation; 
 
-        //Wait until map resources are fully loaded. 
-        map.events.add('load', function () { 
+        //Wait until the map resources are ready.
+        map.events.add('ready', function () { 
 
         //Add your post-map load functionality. 
 
@@ -443,30 +452,24 @@ At this point, everything is set up in the user interface. Now, we need to add t
     function performSearch() { 
         var query = document.getElementById('searchTbx').value; 
 
-        //Get the bounding box of the map. 
-        var center = map.getCamera().center; 
-
-        //Perform a fuzzy search on the user's query. 
-        serviceClient.search.getSearchFuzzy(query, { 
-
-            //Pass in the array of the country ISO 2 code to limit the search to. 
-            countrySet: countrySet 
-        }).then(response => { 
-
-            //Parse the response to GeoJSON for the map to interpret. 
-            var geojsonResponse = new atlas.service.geojson.GeoJsonSearchResponse(response); 
-            var geojsonResults = geojsonResponse.getGeoJsonResults(); 
-
-            if (geojsonResults.features.length > 0) { 
-                //Set the camera to the bounds of the results. 
-                map.setCamera({ 
-                    bounds: geojsonResults.features[0].bbox, 
-                    padding: 40 
-                }); 
-            } else { 
-                document.getElementById('listPanel').innerHTML = '<div class="statusMessage">Unable to find the location you searched for.</div>'; 
-            }  
-        }); 
+        //Perform a fuzzy search on the users query.
+        searchURL.searchFuzzy(atlas.service.Aborter.timeout(3000), query, {
+            //Pass in the array of country ISO2 for which we want to limit the search to.
+            countrySet: countrySet
+        }).then(results => {
+            //Parse the response into GeoJSON so that the map can understand.
+            var data = results.geojson.getFeatures();
+    
+            if (data.features.length > 0) {
+                //Set the camera to the bounds of the results.
+                map.setCamera({
+                    bounds: data.features[0].bbox,
+                    padding: 40
+                });
+            } else {
+                document.getElementById('listPanel').innerHTML = '<div class="statusMessage">Unable to find the location you searched for.</div>';
+            } 
+        });
     } 
 
     function setMapToUserLocation() { 
@@ -505,14 +508,16 @@ At this point, everything is set up in the user interface. Now, we need to add t
     ```Javascript
     //Add a zoom control to the map. 
     map.controls.add(new atlas.control.ZoomControl(), { 
-            position: 'top-right'
+        position: 'top-right'
     }); 
 
     //Add an HTML marker to the map to indicate the center to use for searching. 
     centerMarker = new atlas.HtmlMarker({ 
-            htmlContent: '<div class="mapCenterIcon"></div>', 
-            position: map.getCamera().center 
+        htmlContent: '<div class="mapCenterIcon"></div>', 
+        position: map.getCamera().center 
     });
+
+    map.markers.add(centerMarker);
     ```
 
 1. In the map's `load` event listener, add a data source. Then, make a call to load and parse the dataset. Enable clustering on the data source. Clustering on the data source groups overlapping points together in a cluster. The clusters separate into individual points as the user zooms in. This makes a more fluid user experience and improves performance.
@@ -520,8 +525,8 @@ At this point, everything is set up in the user interface. Now, we need to add t
     ```Javascript
     //Create a data source, add it to the map, and then enable clustering. 
     datasource = new atlas.source.DataSource(null, { 
-    cluster: true, 
-    clusterMaxZoom: maxClusterZoomLevel - 1 
+        cluster: true, 
+        clusterMaxZoom: maxClusterZoomLevel - 1 
     }); 
 
     map.sources.add(datasource); 
@@ -537,26 +542,26 @@ At this point, everything is set up in the user interface. Now, we need to add t
     ```Javascript
     //Create a bubble layer to render clustered data points. 
     var clusterBubbleLayer = new atlas.layer.BubbleLayer(datasource, null, { 
-                radius: 12, 
-                color: '#007faa', 
-                strokeColor: 'white', 
-                strokeWidth: 2, 
-                filter: ['has', 'point_count'] //Only render data points that have a point_count property; clusters have this property. 
+        radius: 12, 
+        color: '#007faa', 
+        strokeColor: 'white', 
+        strokeWidth: 2, 
+        filter: ['has', 'point_count'] //Only render data points that have a point_count property; clusters have this property. 
     }); 
 
     //Create a symbol layer to render the count of locations in a cluster. 
     var clusterLabelLayer = new atlas.layer.SymbolLayer(datasource, null, { 
-                iconOptions: { 
-                    image: 'none' //Hide the icon image. 
-                }, 
-                
-                textOptions: { 
-                    textField: '{point_count_abbreviated}', 
-                    size: 12, 
-                    font: ['StandardFont-Bold'], 
-                    offset: [0, 0.4], 
-                    color: 'white' 
-                } 
+        iconOptions: { 
+            image: 'none' //Hide the icon image. 
+        }, 
+        
+        textOptions: { 
+            textField: '{point_count_abbreviated}', 
+            size: 12, 
+            font: ['StandardFont-Bold'], 
+            offset: [0, 0.4], 
+            color: 'white' 
+        } 
     }); 
 
     map.layers.add([clusterBubbleLayer, clusterLabelLayer]); 
@@ -566,52 +571,52 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
     //Create a layer to render a coffee cup symbol above each bubble for an individual location. 
     iconLayer = new atlas.layer.SymbolLayer(datasource, null, { 
-                iconOptions: { 
-                    //Pass in the ID of the custom icon that was loaded into the map resources. 
-                    image: 'myCustomIcon', 
+        iconOptions: { 
+            //Pass in the ID of the custom icon that was loaded into the map resources. 
+            image: 'myCustomIcon', 
 
-                    //Optionally, scale the size of the icon. 
-                    font: ['SegoeUi-Bold'], 
+            //Optionally, scale the size of the icon. 
+            font: ['SegoeUi-Bold'], 
 
-                    //Anchor the center of the icon image to the coordinate. 
-                    anchor: 'center', 
+            //Anchor the center of the icon image to the coordinate. 
+            anchor: 'center', 
 
-                    //Allow the icons to overlap. 
-                    allowOverlap: true 
-                }, 
+            //Allow the icons to overlap. 
+            allowOverlap: true 
+        }, 
 
-                filter: ['!', ['has', 'point_count']] //Filter out clustered points from this layer. 
+        filter: ['!', ['has', 'point_count']] //Filter out clustered points from this layer. 
     }); 
 
     map.layers.add(iconLayer); 
 
     //When the mouse is over the cluster and icon layers, change the cursor to a pointer. 
     map.events.add('mouseover', [clusterBubbleLayer, iconLayer], function () { 
-                map.getCanvasContainer().style.cursor = 'pointer'; 
+        map.getCanvasContainer().style.cursor = 'pointer'; 
     }); 
 
     //When the mouse leaves the item on the cluster and icon layers, change the cursor back to the default (grab). 
     map.events.add('mouseout', [clusterBubbleLayer, iconLayer], function () { 
-                map.getCanvasContainer().style.cursor = 'grab'; 
+        map.getCanvasContainer().style.cursor = 'grab'; 
     }); 
 
     //Add a click event to the cluster layer. When the user selects a cluster, zoom into it by two levels.  
     map.events.add('click', clusterBubbleLayer, function (e) { 
-                map.setCamera({ 
-                    center: e.position, 
-                    zoom: map.getCamera().zoom + 2 
-                }); 
+        map.setCamera({ 
+            center: e.position, 
+            zoom: map.getCamera().zoom + 2 
+        }); 
     }); 
 
     //Add a click event to the icon layer and show the shape that was selected. 
     map.events.add('click', iconLayer, function (e) { 
-                showPopup(e.shapes[0]); 
+        showPopup(e.shapes[0]); 
     }); 
 
-    //Add an event to monitor when the map is finished moving. 
-    map.events.add('moveend', function () { 
-                //Give the map a chance to move and render data before the list is updated. 
-                setTimeout(updateListItems, 500); 
+    //Add an event to monitor when the map is finished rendering the map after it has moved. 
+    map.events.add('render', function () { 
+        //Update the data in the list. 
+        updateListItems(); 
     });
     ```
 
@@ -649,19 +654,18 @@ At this point, everything is set up in the user interface. Now, we need to add t
                 if (row.length >= numColumns) { 
 
                     features.push(new atlas.data.Feature(new atlas.data.Point([parseFloat(row[header['Longitude']]), parseFloat(row[header['Latitude']])]), { 
-
-                            AddressLine: row[header['AddressLine']], 
-                            City: row[header['City']], 
-                            Municipality: row[header['Municipality']], 
-                            AdminDivision: row[header['AdminDivision']], 
-                            Country: row[header['Country']], 
-                            PostCode: row[header['PostCode']], 
-                            Phone: row[header['Phone']], 
-                            StoreType: row[header['StoreType']], 
-                            IsWiFiHotSpot: (row[header['IsWiFiHotSpot']].toLowerCase() == 'true') ? true : false, 
-                            IsWheelchairAccessible: (row[header['IsWheelchairAccessible']].toLowerCase() == 'true') ? true : false, 
-                            Opens: parseInt(row[header['Opens']]), 
-                            Closes: parseInt(row[header['Closes']]) 
+                        AddressLine: row[header['AddressLine']], 
+                        City: row[header['City']], 
+                        Municipality: row[header['Municipality']], 
+                        AdminDivision: row[header['AdminDivision']], 
+                        Country: row[header['Country']], 
+                        PostCode: row[header['PostCode']], 
+                        Phone: row[header['Phone']], 
+                        StoreType: row[header['StoreType']], 
+                        IsWiFiHotSpot: (row[header['IsWiFiHotSpot']].toLowerCase() === 'true') ? true : false, 
+                        IsWheelchairAccessible: (row[header['IsWheelchairAccessible']].toLowerCase() === 'true') ? true : false, 
+                        Opens: parseInt(row[header['Opens']]), 
+                        Closes: parseInt(row[header['Closes']]) 
                     })); 
                 } 
             } 
@@ -681,12 +685,29 @@ At this point, everything is set up in the user interface. Now, we need to add t
     var listItemTemplate = '<div class="listItem" onclick="itemSelected(\'{id}\')"><div class="listItem-title">{title}</div>{city}<br />Open until {closes}<br />{distance} miles away</div>'; 
 
     function updateListItems() { 
-        //Remove the center marker from the map. 
-        map.markers.remove(centerMarker); 
+        //Hide the center marker.
+        centerMarker.setOptions({
+            visible: false
+        });
 
         //Get the current camera and view information for the map. 
         var camera = map.getCamera(); 
         var listPanel = document.getElementById('listPanel'); 
+
+        //Get all the shapes that have been rendered in the bubble layer.  
+        var data = map.layers.getRenderedShapes(map.getCamera().bounds, [iconLayer]); 
+
+        data.forEach(function (shape) { 
+            if (shape instanceof atlas.Shape) { 
+                //Calculate the distance from the center of the map to each shape, and then store the data in a distance property.  
+                shape.distance = atlas.math.getDistanceTo(camera.center, shape.getCoordinates(), 'miles'); 
+            } 
+        }); 
+
+        //Sort the data by distance. 
+        data.sort(function (x, y) { 
+            return x.distance - y.distance; 
+        }); 
 
         //Check to see whether the user is zoomed out a substantial distance. If they are, tell the user to zoom in and to perform a search or select the My Location button. 
         if (camera.zoom < maxClusterZoomLevel) { 
@@ -700,53 +721,35 @@ At this point, everything is set up in the user interface. Now, we need to add t
                 visible: true 
             }); 
 
-            //Add the center marker to the map. 
-            map.markers.add(centerMarker); 
-
-            //Get all the shapes that have been rendered in the bubble layer.  
-            var data = map.layers.getRenderedShapes(map.getCamera().bounds, [iconLayer]); 
-
-            data.forEach(function (shape) { 
-                if (shape instanceof atlas.Shape) { 
-                    //Calculate the distance from the center of the map to each shape, and then store the data in a distance property.  
-                    shape.distance = atlas.math.getDistanceTo(camera.center, shape.getCoordinates(), 'miles'); 
-                } 
-            }); 
-
-            //Sort the data by distance. 
-            data.sort(function (x, y) { 
-                return x.distance - y.distance; 
-            }); 
-
             //List the ten closest locations in the side panel. 
             var html = [], properties; 
 
             /* 
             Generating HTML for each item that looks like this: 
-                <div class="listItem" onclick="itemSelected('id')"> 
-                    <div class="listItem-title">1 Microsoft Way</div> 
-                    Redmond, WA 98052<br /> 
-                    Open until 9:00 PM<br /> 
-                    0.7 miles away 
-                </div> 
-                */ 
+            <div class="listItem" onclick="itemSelected('id')"> 
+                <div class="listItem-title">1 Microsoft Way</div> 
+                Redmond, WA 98052<br /> 
+                Open until 9:00 PM<br /> 
+                0.7 miles away 
+            </div> 
+            */ 
 
             data.forEach(function (shape) { 
-                    properties = shape.getProperties(); 
-                    html.push('<div class="listItem" onclick="itemSelected(\'', shape.getId(), '\')"><div class="listItem-title">', 
-                    properties['AddressLine'], 
-                    '</div>', 
-                    //Get a formatted addressLine2 value that consists of City, Municipality, AdminDivision, and PostCode. 
-                    getAddressLine2(properties), 
-                    '<br />', 
+                properties = shape.getProperties(); 
+                html.push('<div class="listItem" onclick="itemSelected(\'', shape.getId(), '\')"><div class="listItem-title">', 
+                properties['AddressLine'], 
+                '</div>', 
+                //Get a formatted addressLine2 value that consists of City, Municipality, AdminDivision, and PostCode. 
+                getAddressLine2(properties), 
+                '<br />', 
 
-                    //Convert the closing time to a format that is easier to read. 
-                    getOpenTillTime(properties), 
-                    '<br />', 
+                //Convert the closing time to a format that is easier to read. 
+                getOpenTillTime(properties), 
+                '<br />', 
 
-                    //Route the distance to two decimal places.  
-                    (Math.round(shape.distance * 100) / 100), 
-                    ' miles away</div>'); 
+                //Route the distance to two decimal places.  
+                (Math.round(shape.distance * 100) / 100), 
+                ' miles away</div>'); 
             }); 
 
             listPanel.innerHTML = html.join(''); 
@@ -762,9 +765,9 @@ At this point, everything is set up in the user interface. Now, we need to add t
         var t = time / 100; 
         var sTime; 
 
-        if (time == 1200) { 
+        if (time === 1200) { 
             sTime = 'noon'; 
-        } else if (time == 0 || time == 2400) { 
+        } else if (time === 0 || time === 2400) { 
             sTime = 'midnight'; 
         } else {     
             sTime = Math.round(t) + ':'; 
@@ -772,7 +775,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
             //Get the minutes. 
             t = (t - Math.round(t)) * 100; 
 
-            if (t == 0) { 
+            if (t === 0) { 
                 sTime += '00'; 
             } else if (t < 10) { 
                 sTime += '0' + t; 
@@ -821,24 +824,18 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
         //Center the map over the shape on the map. 
         var center = shape.getCoordinates(); 
-
-        //If the map is less than 700 pixels wide, the layout is set for small screens. 
-        if (map.getCanvas().width < 700) { 
-
-            /*When the map is small, offset the center of the map relative to the shape so the pop-up window is visible. 
-                Calculate the pixel coordinate of the shape's coordinate.*/ 
-            var p = map.positionsToPixels([center]); 
-
-            //Offset the y-axis value. 
-            p[0][1] -= 80; 
-
-            //Calculate the coordinate on the map for the offset pixel value. 
-            center = map.pixelsToPositions(p)[0]; 
-        }      
-
-        map.setCamera({ 
-            center: center 
-        }); 
+        var offset;
+    
+        //If the map is less than 700 pixels wide, then the layout is set for small screens.
+        if (map.getCanvas().width < 700) {
+            //When the map is small, offset the center of the map relative to the shape so that there is room for the popup to appear.
+            offset = [0, -80];
+        }
+    
+        map.setCamera({
+            center: center,
+            centerOffset: offset
+        });
     } 
 
     function showPopup(shape) { 
@@ -846,21 +843,21 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
         /* Generating HTML for the pop-up window that looks like this: 
 
-                <div class="storePopup"> 
-                    <div class="popupTitle"> 
-                        3159 Tongass Avenue 
-                        <div class="popupSubTitle">Ketchikan, AK 99901</div> 
-                    </div> 
-                    <div class="popupContent"> 
-                        Open until 22:00 PM<br/> 
-                        <img title="Phone Icon" src="images/PhoneIcon.png"> 
-                        <a href="tel:1-800-XXX-XXXX">1-800-XXX-XXXX</a> 
-                        <br>Amenities: 
-                        <img title="Wi-Fi Hotspot" src="images/WiFiIcon.png"> 
-                        <img title="Wheelchair Accessible" src="images/WheelChair-small.png"> 
-                    </div> 
+            <div class="storePopup"> 
+                <div class="popupTitle"> 
+                    3159 Tongass Avenue 
+                    <div class="popupSubTitle">Ketchikan, AK 99901</div> 
                 </div> 
-            */ 
+                <div class="popupContent"> 
+                    Open until 22:00 PM<br/> 
+                    <img title="Phone Icon" src="images/PhoneIcon.png"> 
+                    <a href="tel:1-800-XXX-XXXX">1-800-XXX-XXXX</a> 
+                    <br>Amenities: 
+                    <img title="Wi-Fi Hotspot" src="images/WiFiIcon.png"> 
+                    <img title="Wheelchair Accessible" src="images/WheelChair-small.png"> 
+                </div> 
+            </div> 
+        */ 
 
         var html = ['<div class="storePopup">']; 
         html.push('<div class="popupTitle">', 

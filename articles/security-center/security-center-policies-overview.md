@@ -4,7 +4,7 @@ description: Configure Azure Security Center settings.
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: f24b1e4a-cc36-4542-b21e-041453cdfcd8
