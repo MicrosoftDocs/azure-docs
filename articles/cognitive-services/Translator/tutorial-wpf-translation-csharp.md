@@ -57,7 +57,6 @@ Our project requires a handful of .NET Framework assemblies and NewtonSoft.Json,
 ### Add .NET Framework assemblies
 
 1. Locate your project in Visual Studio's Solution Explorer (right panel). Right click on your project, then select **Add > Reference...**. This will open **Reference Manager**.
-   ![Open Reference Manager](media/add-assemblies.png)
 2. The assemblies tab lists all .NET Framework assemblies that are available to reference. Use the search bar in the upper-right of the screen to search for these references and add them to your project:
    * System.Runtime.Serialization
    * System.Web
@@ -73,7 +72,6 @@ Our project requires a handful of .NET Framework assemblies and NewtonSoft.Json,
 Our application will use NewtonSoft.Json to deserialize JSON objects. Follow these instructions to install the package.
 
 1. Locate your project in Visual Studio's Solution Explorer and right click on your project. Select **Manage NuGet Packages...***.
-   ![Open NuGet Package Manager](media/open-nuget.png)
 2. Locate and select the **Browse** tab.
 3. Type **NewtonSoft.Json** into the search bar.
    ![Locate and install NewtonSoft.Json](media/add-nuget-packages.png)
