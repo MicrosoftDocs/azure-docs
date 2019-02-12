@@ -17,6 +17,7 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 #As an Azure AD administrator, to delegate permissions across Microsoft 365 workloads quickly and accurately I want to know where the content is for admin roles.
 
+ms.collection: M365-identity-device-management
 ---
 
 # Administrator roles for Microsoft 365 workloads

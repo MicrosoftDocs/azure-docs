@@ -19,6 +19,7 @@ ms.author: cynthn
 ---
 
 # Deploy your application on virtual machine scale sets
+
 To run applications on virtual machine (VM) instances in a scale set, you first need to install the application components and required files. This article introduces ways to build a custom VM image for instances in a scale set, or automatically run install scripts on existing VM instances. You also learn how to manage application or OS updates across a scale set.
 
 
@@ -46,8 +47,8 @@ The PowerShell DSC extension lets you customize VM instances in a scale set with
 
 - Instructs the VM instances to download a DSC package from GitHub - *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
 - Sets the extension to run an install script - `configure-http.ps1`
-- Gets information about a scale set with [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
-- Applies the extension to the VM instances with [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
+- Gets information about a scale set with [Get-AzVmss](/powershell/module/az.compute/get-azvmss)
+- Applies the extension to the VM instances with [Update-AzVmss](/powershell/module/az.compute/update-azvmss)
 
 The DSC extension is applied to the *myScaleSet* VM instances in the resource group named *myResourceGroup*. Enter your own names as follows:
 
@@ -63,12 +64,12 @@ $dscConfig = @{
 }
 
 # Get information about the scale set
-$vmss = Get-AzureRmVmss `
+$vmss = Get-AzVmss `
                 -ResourceGroupName "myResourceGroup" `
                 -VMScaleSetName "myScaleSet"
 
 # Add the Desired State Configuration extension to install IIS and configure basic website
-$vmss = Add-AzureRmVmssExtension `
+$vmss = Add-AzVmssExtension `
     -VirtualMachineScaleSet $vmss `
     -Publisher Microsoft.Powershell `
     -Type DSC `
@@ -77,13 +78,13 @@ $vmss = Add-AzureRmVmssExtension `
     -Setting $dscConfig
 
 # Update the scale set and apply the Desired State Configuration extension to the VM instances
-Update-AzureRmVmss `
+Update-AzVmss `
     -ResourceGroupName "myResourceGroup" `
     -Name "myScaleSet"  `
     -VirtualMachineScaleSet $vmss
 ```
 
-If the upgrade policy on your scale set is *manual*, update your VM instances with [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance). This cmdlet applies the updated scale set configuration to the VM instances and installs your application.
+If the upgrade policy on your scale set is *manual*, update your VM instances with [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance). This cmdlet applies the updated scale set configuration to the VM instances and installs your application.
 
 
 ## Install an app to a Linux VM with cloud-init

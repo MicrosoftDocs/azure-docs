@@ -72,7 +72,7 @@ The `az login` command returns a token that you can use to authenticate, as show
 
 ![Log in to Azure](./media/batch-cli-get-started/az-login.png)
 
-The examples listed in the [Sample shell scripts](#sample-shell-scripts) section also show how to start your Azure CLI session by logging into Azure interactively. Once you have logged in, you can call commands to work with Batch Management resources, including Batch accounts, keys, application packages, and quotas.  
+The examples listed in the Sample shell scripts section also show how to start your Azure CLI session by logging into Azure interactively. Once you have logged in, you can call commands to work with Batch Management resources, including Batch accounts, keys, application packages, and quotas.  
 
 ### Log in to your Batch account
 
@@ -106,7 +106,7 @@ You have two options for authenticating against your Batch account:
     az batch account login -g myresourcegroup -n mybatchaccount --shared-key-auth
     ```
 
-The examples listed in the [Sample shell scripts](#sample-shell-scripts) section show how to log into your Batch account with the Azure CLI using both Azure AD and Shared Key.
+The examples listed in the Sample shell scripts section show how to log into your Batch account with the Azure CLI using both Azure AD and Shared Key.
 
 ## Use Azure Batch CLI extension commands
 
@@ -164,7 +164,7 @@ The following tips may help when you are troubleshooting Azure CLI issues:
 
 * Use `-h` to get **help text** for any CLI command
 * Use `-v` and `-vv` to display **verbose** command output. When the `-vv` flag is included, the Azure CLI displays the actual REST requests and responses. These switches are handy for displaying full error output.
-* You can view **command output as JSON** with the `--json` option. For example, `az batch pool show pool001 --json` displays pool001's properties in JSON format. You can then copy and modify this output to use in a `--json-file` (see [JSON files](#json-files) earlier in this article).
+* You can view **command output as JSON** with the `--json` option. For example, `az batch pool show pool001 --json` displays pool001's properties in JSON format. You can then copy and modify this output to use in a `--json-file` (see JSON files earlier in this article).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
 
 ## Next steps

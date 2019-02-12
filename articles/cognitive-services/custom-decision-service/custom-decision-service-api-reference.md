@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: A complete API guide for Custom Decision Service.
 services: cognitive-services
 author: slivkins
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-decision-service

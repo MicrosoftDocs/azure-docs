@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Workday
 

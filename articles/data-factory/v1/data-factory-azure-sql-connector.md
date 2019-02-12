@@ -197,7 +197,7 @@ The sample copies time-series data (hourly, daily, etc.) from a table in Azure S
   }
 }
 ```
-See the [Azure SQL Linked Service](#linked-service) section for the list of properties supported by this linked service.
+See the Azure SQL Linked Service section for the list of properties supported by this linked service.
 
 **Azure Blob storage linked service:**
 
@@ -246,7 +246,7 @@ Setting “external”: ”true” informs the Azure Data Factory service that t
 }
 ```
 
-See the [Azure SQL dataset type properties](#dataset) section for the list of properties supported by this dataset type.
+See the Azure SQL dataset type properties section for the list of properties supported by this dataset type.
 
 **Azure Blob output dataset:**
 
@@ -389,7 +389,7 @@ The sample copies time-series data (hourly, daily, etc.) from Azure blob to a ta
   }
 }
 ```
-See the [Azure SQL Linked Service](#linked-service) section for the list of properties supported by this linked service.
+See the Azure SQL Linked Service section for the list of properties supported by this linked service.
 
 **Azure Blob storage linked service:**
 
@@ -497,7 +497,7 @@ The sample copies data to a table named “MyTable” in Azure SQL. Create the t
   }
 }
 ```
-See the [Azure SQL dataset type properties](#dataset) section for the list of properties supported by this dataset type.
+See the Azure SQL dataset type properties section for the list of properties supported by this dataset type.
 
 **A copy activity in a pipeline with Blob source and SQL sink:**
 

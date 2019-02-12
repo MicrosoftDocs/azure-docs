@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Cezanne HR Software
 
@@ -85,7 +86,7 @@ To configure and test Azure AD single sign-on with Cezanne HR Software, you need
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a Cezanne HR Software test user](#create-a-cezannehrsoftware-test-user)** - to have a counterpart of Britta Simon in Cezanne HR Software that is linked to the Azure AD representation of user.
+1. **Create a Cezanne HR Software test user** - to have a counterpart of Britta Simon in Cezanne HR Software that is linked to the Azure AD representation of user.
 1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 

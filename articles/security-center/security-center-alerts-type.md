@@ -4,7 +4,7 @@ description: This article discusses the different kinds of security alerts avail
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
