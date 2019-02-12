@@ -103,9 +103,6 @@ To configure Azure AD single sign-on with Carlson Wagonlit Travel, perform the f
     In the **Identifier** text box, type the value:
     `cwt-stage`
 
-	> [!NOTE]
-	> This value is not real. Update the value with the actual Identifier. Contact [Carlson Wagonlit Travel Client support team](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
 5. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
