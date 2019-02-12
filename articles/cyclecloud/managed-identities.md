@@ -12,18 +12,17 @@ ms.author: rokeptne
 
 # Using Managed Identities
 
-When Azure CycleCloud has been installed on an Azure VM with a Managed Identity assigned to it, the Create Cloud Provider Account dialog will behave slightly differently. There will be a new checkbox for "Managed Identity" and the Subscription ID will be prepopulated with the subscription of the host VM.
+When Azure CycleCloud has been installed on an Azure VM with a Managed Identity assigned to it, the **Create Cloud Provider Account** dialog will behave slightly differently. There will be a new checkbox for **Managed Identity** and the **Subscription ID** will be pre-populated with the subscription of the host VM.
 
 ![Create Cloud Provider Account Managed Identities](~/images/create-account-managed-identity.png)
 
-It is still possible to enter the standard set of credentials by simply unchecking the "Managed Identity" checkbox. Upon doing so, the standard fields will be added to the form. Additionally, it is perfectly acceptable to use a separate Subscription ID; the provided value is just for convenience.
+It is still possible to enter the standard set of credentials by simply unchecking the **Managed Identity** checkbox. Upon doing so, the standard fields will be added to the form. Additionally, it is perfectly acceptable to use a separate **Subscription ID**; the provided value is just for convenience.
 
 ## Create a custom role and managed identity for CycleCloud
 
 CycleCloud automates many calls to the Azure Resource Manager for the purposes
 of managing HPC clusters. This automation requires certain permissions to be granted
-to CycleCloud. It's recommended to use a [VM with a managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) for this purpose. A sufficient
-policy for most CycleCloud features is posted below.
+to CycleCloud. It's recommended to use a [VM with a managed identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) for this purpose. A sufficient policy for most CycleCloud features is posted below.
 
 ```json
 {
@@ -83,5 +82,4 @@ Below is the basic flow using the Azure cli.
 * Assign the custom role to the identity with proper scope: 
 `az role assignment create --role <CycleCloudRole> --assignee-object-id <identity-id> --scope <subscription>` 
 
-Now the custom role is assigned and scoped to the identity and
-can be used with a VM.
+Now the custom role is assigned and scoped to the identity and can be used with a VM.
