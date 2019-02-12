@@ -199,8 +199,8 @@ Learn how to use Azure Cache for Redis, a secure data cache and messaging broker
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/module/azurerm.rediscache">PowerShell</a></p>
-                        <p><a href="/cli/azure/redis">Azure CLI 2​.0 (Preview)</a></p>
+                        <p><a href="/powershell/module/az.rediscache">PowerShell</a></p>
+                        <p><a href="/cli/azure/redis">Azure CLI</a></p>
                     </div>
                 </div>
             </div>

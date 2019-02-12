@@ -4,7 +4,7 @@ description: Manage access permissions for Azure Key Vault, keys, and secrets. C
 services: key-vault
 documentationcenter: ''
 author: amitbapat
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
@@ -252,7 +252,7 @@ We highly recommend that you further secure access to your key vault by [configu
 
 [Configure Key Vault firewalls and virtual networks](key-vault-network-security.md)
 
-For a getting started tutorial for an administrator, see [Get Started with Azure Key Vault](key-vault-get-started.md).
+For a getting started tutorial for an administrator, see [What is Azure Key Vault?](key-vault-overview.md).
 
 For more information about usage logging for Key Vault, see [Azure Key Vault logging](key-vault-logging.md).
 
