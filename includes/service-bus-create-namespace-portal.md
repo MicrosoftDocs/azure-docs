@@ -21,10 +21,13 @@ To create a namespace:
 3. In the **Create namespace** dialog, do the following steps: 
     1. Enter a **name for the namespace**. The system immediately checks to see if the name is available.
     2. Select the pricing tier (Basic, Standard, or Premium) for the namespace. If you want to use [topics and subscriptions](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), choose either Standard or Premium. Topics/subscriptions are not supported in the Basic pricing tier.
-    3. For **Subscription**, choose an Azure subscription in which to create the namespace.
-    4. For **Resource group**, choose an existing resource group in which the namespace will live, or create a new one.      
-    5. For **Location**, choose the region in which your namespace should be hosted.
-    6. Select **Create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
+    3. If you selected the **Premium** pricing tier, follow these steps: 
+        1. Specify the number of **messaging units**. The premium tier provides resource isolation at the CPU and memory level so that each workload runs in isolation. This resource container is called a messaging unit. Each premium namespace is allocated at least one messaging unit. You can select 1, 2, or 4 messaging units for each Service Bus Premium namespace. For more information, see [Service Bus Premium Messaging](../service-bus-messaging/service-bus-premium-messaging.md)
+        2. Specify whether you want to make the namespace **zone redundant**. The zone redundancy provides enhanced availability by spreading replicas across availability zones within one region at no additional cost. For more information, see [Availability zones in Azure](../availability-zones/az-overview.md)
+    4. For **Subscription**, choose an Azure subscription in which to create the namespace.
+    5. For **Resource group**, choose an existing resource group in which the namespace will live, or create a new one.      
+    6. For **Location**, choose the region in which your namespace should be hosted.
+    7. Select **Create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
    
         ![Create namespace](./media/service-bus-create-namespace-portal/create-namespace.png)
 4. Confirm that the service bus namespace is deployed successfully. To see the notifications, select the **bell icon (Alerts)** on the toolbar. Select the **name of the resource group** in the notification as shown in the image. You see the resource group that contains the service bus namespace.
