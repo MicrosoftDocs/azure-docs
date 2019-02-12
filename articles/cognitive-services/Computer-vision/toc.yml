@@ -180,7 +180,7 @@
 - name: Resources
   items: 
   - name: Samples  
-  - items:  
+    items:  
     - name: Explore an image processing app
       href: Tutorials/CSharpTutorial.md
     - name: Other Computer Vision samples
