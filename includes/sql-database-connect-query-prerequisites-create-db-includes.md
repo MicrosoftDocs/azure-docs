@@ -15,7 +15,7 @@ ms.author: genemi
 | Create| [Portal](../articles/sql-database/sql-database-get-started-portal.md) | [Portal](../articles/sql-database/sql-database-managed-instance-get-started.md) |
 || [CLI](../articles/sql-database/sql-database-get-started-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
 || [PowerShell](../articles/sql-database/sql-database-get-started-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
-| Configure | [Server-level IP firewall rule]((../articles/sql-database/sql-database-server-level-firewall-rule.md))| [Connectivity from a VM](../articles/sql-database/sql-database-managed-instance-configure-vm.md)|
+| Configure | [Server-level IP firewall rule](../articles/sql-database/sql-database-server-level-firewall-rule.md)| [Connectivity from a VM](../articles/sql-database/sql-database-managed-instance-configure-vm.md)|
 |||[Connectivity from on-site](../articles/sql-database/sql-database-managed-instance-configure-p2s.md)
 |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-get-started-restore)
 |||Restore or import Adventure Works from [BACPAC](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-import) file from [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
