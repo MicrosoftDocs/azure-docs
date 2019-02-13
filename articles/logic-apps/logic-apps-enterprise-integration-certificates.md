@@ -35,6 +35,8 @@ but don't require any keys.
 * Private certificates or [*self-signed certificates*](https://en.wikipedia.org/wiki/Self-signed_certificate), 
 which you create and issue yourself but also require private keys. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Upload a public certificate
 
 To use a *public certificate* in logic apps that have B2B capabilities, 
@@ -76,7 +78,7 @@ provide these details for your certificate. When you're done, choose **OK**.
 To use a *private certificate* in logic apps that have B2B capabilities, 
 you must first upload the certificate to your integration account. 
 You also need to have a private key that you first add to 
-[Azure Key Vault](../key-vault/key-vault-overview.md). 
+[Azure Key Vault](../key-vault/key-vault-get-started.md). 
 
 After you define the properties in the 
 [agreements](logic-apps-enterprise-integration-agreements.md) that you create, 
@@ -88,15 +90,15 @@ the certificate is available to help you secure your B2B messages.
 > [AS2 agreement's](logic-apps-enterprise-integration-as2.md) **Send and Receive** settings 
 > for signing and encrypting messages.
 
-1. [Add your private key to Azure Key Vault](../key-vault/quick-create-cli.md#add-a-secret-to-key-vault) 
+1. [Add your private key to Azure Key Vault](../key-vault/certificate-scenarios.md#import-a-certificate) 
 and provide a **Key Name**.
    
 2. Authorize Azure Logic Apps to perform operations on Azure Key Vault. 
 To grant access to the Logic Apps service principal, use the PowerShell command, 
-[Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), 
+[Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), 
 for example:
 
-   `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
+   `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
 3. Sign in to the [Azure portal](https://portal.azure.com). 

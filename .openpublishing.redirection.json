@@ -26839,6 +26839,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/bing-web-search-resource-faq.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/search-responses",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Web-Search/sdk.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/sdk-samples",
       "redirect_document_id": true
@@ -33426,6 +33431,11 @@
     {
       "source_path": "articles/cosmos-db/scripts/create-graph-database-account-cli.md",
       "redirect_url": "/azure/cosmos-db/scripts/create-gremlin-database-account-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-explorer/spark-integration.md",
+      "redirect_url": "/azure/data-explorer/",
       "redirect_document_id": false
     },
     {
