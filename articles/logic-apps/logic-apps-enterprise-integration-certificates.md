@@ -76,7 +76,7 @@ provide these details for your certificate. When you're done, choose **OK**.
 To use a *private certificate* in logic apps that have B2B capabilities, 
 you must first upload the certificate to your integration account. 
 You also need to have a private key that you first add to 
-[Azure Key Vault](../key-vault/key-vault-get-started.md). 
+[Azure Key Vault](../key-vault/key-vault-overview.md). 
 
 After you define the properties in the 
 [agreements](logic-apps-enterprise-integration-agreements.md) that you create, 
@@ -88,7 +88,7 @@ the certificate is available to help you secure your B2B messages.
 > [AS2 agreement's](logic-apps-enterprise-integration-as2.md) **Send and Receive** settings 
 > for signing and encrypting messages.
 
-1. [Add your private key to Azure Key Vault](../key-vault/key-vault-get-started.md#add) 
+1. [Add your private key to Azure Key Vault](../key-vault/quick-create-cli.md#add-a-secret-to-key-vault) 
 and provide a **Key Name**.
    
 2. Authorize Azure Logic Apps to perform operations on Azure Key Vault. 

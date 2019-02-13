@@ -76,10 +76,7 @@ For information about other ways you can work with Hadoop on HDInsight:
 * [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
-If you are using Tez with Hive, see the following documents for debugging information:
-
-* [Use the Apache Tez UI on Windows-based HDInsight](../hdinsight-debug-tez-ui.md)
-* [Use the Apache Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md)
+If you are using Tez with Hive, see the following document for debugging information: [Use the Apache Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md).
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 

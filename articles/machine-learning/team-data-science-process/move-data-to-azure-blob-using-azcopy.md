@@ -1,6 +1,6 @@
 ---
-title: Move Blob storage data with AzCopy - Team Data Science Process
-description: Move Data to and from Azure Blob Storage using AzCopy
+title: Copy Blob storage data with AzCopy - Team Data Science Process
+description: Copy Data to and from Azure Blob Storage using AzCopy
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -12,7 +12,7 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
-# Move data to and from Azure Blob Storage using AzCopy
+# Copy data to and from Azure Blob Storage using AzCopy
 AzCopy is a command-line utility designed for uploading, downloading, and copying data to and from Microsoft Azure blob, file, and table storage.
 
 For instructions on installing AzCopy and additional information on using it with the Azure platform, see [Getting Started with the AzCopy Command-Line Utility](../../storage/common/storage-use-azcopy.md).
@@ -59,10 +59,10 @@ To download a file from an Azure blob, use the following command:
     AzCopy /Source:https://<your_account_name>.blob.core.windows.net/<your_container_name>/<your_sub_directory_at_blob>  /Dest:<your_local_directory> /SourceKey:<your_account_key> /Pattern:<file_pattern> /S
 
 
-## Transfer blobs between Azure containers
-To transfer blobs between Azure containers, use the following command:
+## Copy blobs between Azure containers
+To copy blobs between Azure containers, use the following command:
 
-    # Transferring blobs between Azure containers
+    # Copying blobs between Azure containers
     AzCopy /Source:https://<your_account_name1>.blob.core.windows.net/<your_container_name1>/<your_sub_directory_at_blob1> /Dest:https://<your_account_name2>.blob.core.windows.net/<your_container_name2>/<your_sub_directory_at_blob2> /SourceKey:<your_account_key1> /DestKey:<your_account_key2> /Pattern:<file_pattern> /S
 
     <your_account_name>: your storage account name
@@ -70,7 +70,7 @@ To transfer blobs between Azure containers, use the following command:
     <your_container_name>: your container name
     <your_sub_directory_at_blob>: the sub directory in the container
     <your_local_directory>: directory of local file system where files to be uploaded from or the directory of local file system files to be downloaded to
-    <file_pattern>: pattern of file names to be transferred. The standard wildcards are supported
+    <file_pattern>: pattern of file names to be copied. The standard wildcards are supported
 
 
 ## Tips for using AzCopy

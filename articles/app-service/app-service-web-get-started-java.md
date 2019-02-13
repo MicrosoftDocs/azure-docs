@@ -4,7 +4,7 @@ description: Learn how to run web apps in App Service by deploying a basic Java 
 services: app-service\web
 documentationcenter: ''
 author: rmcmurray
-manager: mbaldwin
+manager: routlaw
 editor: ''
 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1

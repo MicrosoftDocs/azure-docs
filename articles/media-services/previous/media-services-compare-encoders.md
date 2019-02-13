@@ -13,12 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 02/08/2019
 ms.author: juliako;anilmur
 
 ---
 
-# Comparison of Azure on demand media encoders
+# Comparison of Azure on demand media encoders  
 
 This topic compares the encoding capabilities of **Media Encoder Standard** and **Media Encoder Premium Workflow**.
 

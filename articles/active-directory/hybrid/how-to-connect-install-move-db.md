@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Move Azure AD Connect database from SQL Server Express to SQL Server 

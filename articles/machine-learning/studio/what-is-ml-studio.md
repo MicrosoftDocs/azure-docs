@@ -72,7 +72,7 @@ You can create an experiment from scratch, or you can use an existing sample exp
 
 For an example of creating a simple experiment, see [Create a simple experiment in Azure Machine Learning Studio](create-experiment.md).
 
-For a more complete walkthrough of creating a predictive analytics solution, see [Develop a predictive solution with Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+For a more complete walkthrough of creating a predictive analytics solution, see [Develop a predictive solution with Azure Machine Learning](tutorial-part1-credit-risk.md).
 
 ### Datasets
 A dataset is data that has been uploaded to Machine Learning Studio so that it can be used in the modeling process. A number of sample datasets are included with Machine Learning Studio for you to experiment with, and you can upload more datasets as you need them. Here are some examples of included datasets:
@@ -151,7 +151,7 @@ Once you have a trained model, evaluate the model using the remaining test data.
 * **sample**: A part of a data set intended to be representative of the whole. Samples can be selected randomly or based on specific features of the data set.
 
 ## Next steps
-You can learn the basics of predictive analytics and machine learning using a [step-by-step tutorial](create-experiment.md) and by [building on samples](sample-experiments.md).
+You can learn the basics of predictive analytics and machine learning using a [step-by-step quickstart](create-experiment.md) and by [building on samples](sample-experiments.md).
 
 
 <!-- Module References -->

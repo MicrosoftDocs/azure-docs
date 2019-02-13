@@ -24,7 +24,7 @@ Azure SQL Database is based on SQL Server Database Engine architecture that is a
 This article discusses storage and backup considerations for the General Purpose and Business Critical service tiers in the vCore-based purchasing model.
 
 > [!NOTE]
-> For details on the Hyperscale service tier in the vCore-based purchasing model, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md). For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-service-tiers.md).
+> For details on the Hyperscale service tier in the vCore-based purchasing model, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md). For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-purchase-models.md).
 
 ## Data and log storage
 

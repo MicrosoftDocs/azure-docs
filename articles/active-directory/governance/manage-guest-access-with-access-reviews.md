@@ -15,6 +15,7 @@ ms.subservice: compliance
 ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
+ms.collection: M365-identity-device-management
 ---
 
 # Manage guest access with Azure AD access reviews
