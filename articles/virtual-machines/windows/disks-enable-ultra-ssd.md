@@ -1,5 +1,5 @@
 ---
-title: Ultra disks for Windows VMs | Microsoft Docs
+title: Ultra disks for Windows VMs - Azure Managed Disks | Microsoft Docs
 description: Learn about ultra disks for Azure VMs
 services: virtual-machines-windows
 author: roygara
