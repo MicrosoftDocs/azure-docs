@@ -154,7 +154,7 @@ All configuration items are set before creating the application gateway. The fol
    ```
 
    > [!NOTE]
-   > This sample configures the certificate used for the SSL connection. The certificate needs to be in .pfx format, and the password must be 4 to 12 characters.
+   > This sample configures the certificate used for the SSL connection. The certificate needs to be in .pfx format, and the password must be 4 to 11 characters.
 
 6. Create the HTTP listener for the application gateway. Assign the front-end IP configuration, port, and SSL certificate to use.
 
