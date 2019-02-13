@@ -1,13 +1,13 @@
 ---
 title: Indexing and query quickstart tutorial using Azure portal - Azure Search
-description: In this quickstart tutorial, use the Azure portal and built-in sample data to generate an index in Azure Search. Explore full text search, filters, facets, fuzzy search, geosearch, and more.
+description: Learn how to build and query your first index in Azure Search using built-in sample data and the Import Data wizard in the Azure portal. 
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want a low-impact introduction to index design.
@@ -89,9 +89,9 @@ Fields have data types and attributes. The check boxes across the top are *index
 
 Storage requirements do not vary as a result of your selection. For example, if you set the **Retrievable** attribute on multiple fields, storage requirements do not go up.
 
-By default, the wizard scans the data source for unique identifiers as the basis for the key field. Strings are attributed as retrievable and searchable. Integers are attributed as retrievable, filterable, sortable, and facetable.
+By default, the wizard scans the data source for unique identifiers as the basis for the key field. 
 
-1. Accept all of the defaults.
+1. Configure an index by selecting checkboxes to add attributes to each field. *Strings* should be attributed as **Retrievable** and **Searchable**. *Integers* should be attributed as **Retrievable**, **Filterable**, **Sortable**, and **Facetable**.
 
   ![Generated realestate index](media/search-get-started-portal/realestateindex2.png)
 
