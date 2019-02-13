@@ -126,7 +126,7 @@ SecurityEvent
 ```
 
 ## Next steps
-See other lessons for using the [Data Explorer query language](/azure/kusto/query/) with Azure Monitor log data:
+See other lessons for using the [Kusto query language](/azure/kusto/query/) with Azure Monitor log data:
 
 - [String operations](string-operations.md)
 - [Date and time operations](datetime-operations.md)
