@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/11/2019
+ms.date: 02/12/2019
 ms.author: magoedte
 ---
 
@@ -115,4 +115,6 @@ Before starting, if you are not familiar with Alerts in Azure Monitor, see [Over
 13. Click **Create alert rule** to complete the alert rule. It starts running immediately.
 
 ## Next steps
-To continue learning how to use Azure Monitor and monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md)
+
+* Review some of the [log query examples](container-insights-analyze.md#search-logs-to-analyze-data) to immediately start using or customize for other alert scenarios. 
+* To continue learning how to use Azure Monitor and monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md)
