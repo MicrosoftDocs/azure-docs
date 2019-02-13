@@ -134,9 +134,9 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 ## Sign in to the virtual machine
 
 To sign in to the virtual machine, do the following:
-1. Step 1.
-1. Step 2.
-1. etc.
+<!-- 1. Step 1.
+2. Step 2.
+3. etc.
 
 For more information, see [Connect and log on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
 
@@ -144,9 +144,11 @@ For more information, see [Connect and log on to an Azure virtual machine runnin
 
 In the next section is an example file named *Sample.py*. It uses a [requests](http://docs.python-requests.org/en/master/) library to make HTTP GET calls.
 
-## Edit the Sample.py file
+## Edit Sample.py
 
-After you create *Sample.py*, open the file, and then follow this two-step process: 
+After you create *Sample.py*, open the file, and then copy the code in this section. 
+
+The code presents a two-step process:
 1. Fetch a token from the local MSI endpoint on the VM.  
   Doing so also fetches a token from Azure AD.
 1. Pass the token to your key vault, and then fetch your secret. 
@@ -155,16 +157,16 @@ After you create *Sample.py*, open the file, and then follow this two-step proce
     # importing the requests library 
     import requests 
 
-    # Step 1: Fetch an access token from a Managed Identity enabled azure resource      
+    # Step 1: Fetch an access token from a Managed Identity enabled azure resource.      
     # Note that the resource here is https://vault.azure.net for public cloud and api-version is 2018-02-01
     MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
     r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"}) 
       
     # extracting data in json format 
-    # This request gets a access_token from Azure AD using the local MSI endpoint
+    # This request gets an access_token from Azure AD by using the local MSI endpoint.
     data = r.json() 
     
-    # Step 2: Pass the access_token received from previous HTTP GET call to your key vault
+    # Step 2: Pass the access_token received from previous HTTP GET call to your key vault.
     KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
     kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
     
