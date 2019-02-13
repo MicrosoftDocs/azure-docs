@@ -69,6 +69,8 @@ You can retrieve information from the activity logs through the portal, PowerShe
 
 ## PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * To retrieve log entries, run the **Get-AzLog** command. You provide additional parameters to filter the list of entries. If you don't specify a start and end time, entries for the last seven days are returned.
 
   ```azurepowershell-interactive

@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
 ms.lastreviewed: 10/15/2018
@@ -96,4 +96,4 @@ The Azure Stack VMs can now be included in scheduled update deployments together
 If you have a large number of Azure Stack VMs, you can use [this Azure Resource Manager template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) to more easily deploy the solution on VMs. The template deploys the Microsoft Monitoring Agent extension to an existing Azure Stack VM and adds it to an existing Azure LogAnalytics workspace.
  
 ## Next steps
-[Optimize SQL Server performance](azure-stack-sql-server-vm-considerations.md)
+[Optimize SQL Server VM performance](azure-stack-sql-server-vm-considerations.md)

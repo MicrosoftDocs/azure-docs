@@ -14,6 +14,7 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: chmutali
 
+ms.collection: M365-identity-device-management
 ---
 # Writing Expressions for Attribute Mappings in Azure Active Directory
 When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. 
@@ -33,7 +34,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
 * For string constants, if you need a backslash ( \ ) or quotation mark ( " ) in the string, it must be escaped with the backslash ( \ ) symbol. For example: "Company name: \\"Contoso\\""
 
 ## List of Functions
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
 - - -
 ### Append
@@ -137,7 +138,7 @@ Replaces values within a string. It works differently depending on the parameter
 
 * When **oldValue** and **replacementValue** are provided:
   
-  * Replaces all occurrences of **oldValue** in the **source** with *replacementValue**
+  * Replaces all occurrences of oldValue in the source  with replacementValue
 * When **oldValue** and **template** are provided:
   
   * Replaces all occurrences of the **oldValue** in the **template** with the **source** value
@@ -196,6 +197,21 @@ Requires one string argument. Returns the string, but with any diacritical chara
 | **[appRoleAssignments]** |Required |String |**[appRoleAssignments]** object. |
 
 - - -
+### Split
+**Function:**<br> 
+Split(source, delimiter)
+
+**Description:**<br> 
+Splits a string into a mulit-valued array, using the specified delimiter character.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **source** |Required |String |**source** value to update. |
+| **delimiter** |Required |String |Specifies the character that will be used to split the string (example: ",") |
+
+- - -
 ### StripSpaces
 **Function:**<br> 
 StripSpaces(source)
@@ -238,7 +254,7 @@ Takes a *source* string value and converts it to lower case using the culture ru
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Required |String |Usually name of the attribute from the source object. |
+| **source** |Required |String |Usually name of the attribute from the source object |
 | **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
 
 - - -
@@ -303,8 +319,18 @@ NormalizeDiacritics([givenName])
 * **INPUT** (givenName): "Zoë"
 * **OUTPUT**:  "Zoe"
 
-### Output date as a string in a certain format
+### Split a string into a multi-valued array
+You need to take a comma-delimited list of strings, and split them into an array that can be plugged into a multi-value attribute like Salesforce's PermissionSets attribute. In this example, a list of permission sets has been populated in extensionAttribute5 in Azure AD.
 
+**Expression:** <br>
+Split([extensionAttribute5], ",")
+
+**Sample input/output:** <br>
+
+* **INPUT** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
+
+### Output date as a string in a certain format
 You want to send dates to a SaaS application in a certain format. <br>
 For example, you want to format dates for ServiceNow.
 
@@ -323,7 +349,6 @@ You need to define the time zone of the user based on the state code stored in A
 If the state code doesn't match any of the predefined options, use default value of "Australia/Sydney".
 
 **Expression:** <br>
-
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
 **Sample input/output:**
@@ -331,8 +356,19 @@ If the state code doesn't match any of the predefined options, use default value
 * **INPUT** (state): "QLD"
 * **OUTPUT**: "Australia/Brisbane"
 
-### Convert generated userPrincipalName (UPN) value to lower case
+### Replace characters using a regular expression
+You need to find characters that match a regular expression value and remove them.
 
+**Expression:** <br>
+
+Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
+
+**Sample input/output:**
+
+* **INPUT** (mailNickname: "john_doe72"
+* **OUTPUT**: "72"
+
+### Convert generated userPrincipalName (UPN) value to lower case
 In the example below, the UPN value is generated by concatenating the PreferredFirstName and PreferredLastName source fields and the ToLower function operates on the generated string to convert all characters to lower case. 
 
 `ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
@@ -344,7 +380,6 @@ In the example below, the UPN value is generated by concatenating the PreferredF
 * **OUTPUT**: "john.smith@contoso.com"
 
 ### Generate unique value for userPrincipalName (UPN) attribute
-
 Based on the user's first name, middle name and last name, you need to generate a value for the UPN attribute and check for its uniqueness in the target AD directory before assigning the value to the UPN attribute.
 
 **Expression:** <br>
@@ -370,4 +405,3 @@ Based on the user's first name, middle name and last name, you need to generate 
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md)
 * [Account Provisioning Notifications](user-provisioning.md)
 * [List of Tutorials on How to Integrate SaaS Apps](../saas-apps/tutorial-list.md)
-

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: celested
 ms.reviwer: japere,asteen
+ms.collection: M365-identity-device-management
 ---
 
 # Problem signing in to the access panel website

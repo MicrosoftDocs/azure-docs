@@ -16,6 +16,7 @@ ms.date: 05/04/2018
 ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Redirect hardcoded links for apps published with Azure AD Application Proxy

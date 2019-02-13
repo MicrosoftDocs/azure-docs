@@ -12,6 +12,7 @@ ms.date: 11/12/2018
 ms.author: celested
 ms.reviewer: kasimpso
 
+ms.collection: M365-identity-device-management
 ---
 
 # Hide applications from end-users in Azure Active Directory

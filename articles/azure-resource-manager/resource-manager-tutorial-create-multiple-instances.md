@@ -129,6 +129,8 @@ az storage account list --resource-group $resourceGroupName
 
 # [PowerShell](#tab/azure-powershell)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 Get-AzStorageAccount -ResourceGroupName $resourceGroupName

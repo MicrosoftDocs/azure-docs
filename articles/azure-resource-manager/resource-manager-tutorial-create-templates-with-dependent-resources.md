@@ -111,6 +111,8 @@ By specifying the dependencies, Resource Manager efficiently deploys the solutio
 
 ## Deploy the template
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 There are many methods for deploying templates.  In this tutorial, you use Cloud Shell from the Azure portal.
 
 1. Sign in to the [Cloud Shell](https://shell.azure.com). 
@@ -137,7 +139,6 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
 7. From the Cloud shell, run the following PowerShell commands. To increase security, use a generated password for the virtual machine administrator account. See [Prerequisites](#prerequisites).
 
     ```azurepowershell
-    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $adminUsername = Read-Host -Prompt "Enter the virtual machine admin username"
@@ -145,13 +146,14 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
     New-AzResourceGroup -Name $resourceGroupName -Location $location
-    New-AzResourceGroupDeployment -Name $deploymentName `
+    New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile azuredeploy.json
     ```
+
 8. Run the following PowerShell command to list the newly created virtual machine:
 
     ```azurepowershell

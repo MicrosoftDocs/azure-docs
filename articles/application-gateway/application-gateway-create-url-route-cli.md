@@ -95,7 +95,7 @@ az network application-gateway create \
 
 ### Add image and video backend pools and port
 
-You can add backend pools named *imagesBackendPool* and *videoBackendPool* to your application gateway by using [az network application-gateway address-pool create](/cli/azure/network/application-gatewaywork_application_gateway_address-pool_create). You add the frontend port for the pools using [az network application-gateway frontend-port create](/cli/azure/network/application-gatewaywork_application_gateway_frontend_port_create). 
+You can add backend pools named *imagesBackendPool* and *videoBackendPool* to your application gateway by using [az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool#az-network-application-gateway-address-pool-create). You add the frontend port for the pools using [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port#az-network-application-gateway-frontend-port-create). 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -153,7 +153,7 @@ az network application-gateway url-path-map rule create \
 
 ### Add routing rule
 
-The routing rule associates the URL maps with the listener that you created. You can add the rule named *rule2* using [az network application-gateway rule create](/cli/azure/network/application-gatewaywork_application_gateway_rule_create).
+The routing rule associates the URL maps with the listener that you created. You can add the rule named *rule2* using [az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create).
 
 ```azurecli-interactive
 az network application-gateway rule create \

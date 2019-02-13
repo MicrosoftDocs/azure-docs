@@ -13,6 +13,7 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: celested
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 # Develop line-of-business apps for Azure Active Directory
 This guide provides an overview of developing line-of-business (LoB) applications for Azure Active Directory (AD).The intended audience is Active Directory/Office 365 global administrators.

@@ -17,6 +17,7 @@ ms.date: 09/20/2018
 ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Wrong set of users are being provisioned to an Azure AD Gallery application

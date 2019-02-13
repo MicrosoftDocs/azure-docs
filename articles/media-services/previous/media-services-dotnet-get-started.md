@@ -17,7 +17,7 @@ ms.author: juliako
 
 ---
 
-# Get started with delivering content on demand using .NET SDK (legacy)
+# Get started with delivering content on demand using .NET SDK  
 
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 

@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/06/2019
+ms.date: 02/08/2019
 ---
 # Automated backups
 
@@ -57,7 +57,7 @@ The default retention period for a database created using the DTU-based purchasi
 
 #### vCore-based purchasing model
 
-If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the default backup retention period is 7 days (for standalone, pooled, and instance databases). For all Azure SQL databases (standalone, pooled, and instance databases, you can [change backup retention period up to 35 days](#how-to-change-the-pitr-backup-retention-period).
+If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the default backup retention period is 7 days (for single, pooled, and instance databases). For all Azure SQL databases (single, pooled, and instance databases, you can [change backup retention period up to 35 days](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > If you reduce the current retention period, all existing backups older than the new retention period are no longer be available. If you increase the current retention period, SQL Database will keep the existing backups until the longer retention period is reached.
@@ -74,7 +74,7 @@ For more information, see [Point-in-time restore](sql-database-recovery-using-ba
 
 ### Backups for long-term retention
 
-Standalone and pooled databases offer the option of configuring long-term retention (LTR) of full backups for up to 10 years in Azure Blob storage. If LTR policy is enabled, the weekly full backups are automatically copied to a different RA-GRS storage container. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. The storage consumption depends on the selected frequency of backups and the retention period(s). You can use the [LTR pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) to estimate the cost of LTR storage.
+Single and pooled databases offer the option of configuring long-term retention (LTR) of full backups for up to 10 years in Azure Blob storage. If LTR policy is enabled, the weekly full backups are automatically copied to a different RA-GRS storage container. To meet different compliance requirement, you can select different retention periods for weekly, monthly and/or yearly backups. The storage consumption depends on the selected frequency of backups and the retention period(s). You can use the [LTR pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) to estimate the cost of LTR storage.
 
 Like PITR, the LTR backups are geo-redundant and protected by [Azure Storage cross-regional replication](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
