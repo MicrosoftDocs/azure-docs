@@ -54,10 +54,6 @@ Where *{Your Search Terms}* correspond to your search keywords.
 | [Error code analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Paste an error code received during sign-in or consent pages to see possible causes and resolutions. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Tool that lets you make requests and see responses against the Microsoft Graph API. |
 
-<br/>
-
-[![Stack Overflow](./media/developer-support-help-options/stackoverflow-logo.png)](https://www.stackoverflow.com)
-
 ## Post a question to Stack Overflow
 
 Stack Overflow is the preferred channel for development-related questions. Here, members of the developer community and Microsoft team members are directly involved in helping you to solve your problems.
@@ -78,8 +74,6 @@ The following posts from Stack Overflow contain tips on how to ask questions and
 
 * [How do I ask a good question](https://stackoverflow.com/help/how-to-ask)
 * [How to create a minimal, complete, and verifiable example](https://stackoverflow.com/help/mcve)
-
-[![Stack Overflow](./media/developer-support-help-options/github-logo.png)](https://www.github.com)
 
 ## Create a GitHub issue
 
