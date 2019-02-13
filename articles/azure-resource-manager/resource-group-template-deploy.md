@@ -24,7 +24,7 @@ To deploy a template, you typically need two steps:
 1. Create a resource group. Resource group serves as the container for the deployed resources. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It can't end in a period.
 2. Deploy a template. The template defines the resources to create.  The deployment creates the resources in the resource group specified.
 
-This two-step deployment method is used in this article.  The other option is to deploy a resource group and the resources at the same time.  For more information, see [Create resource group and deploy resources](./deploy-to-subscription#create-resource-group-and-deploy-resources.md).
+This two-step deployment method is used in this article.  The other option is to deploy a resource group and the resources at the same time.  For more information, see [Create resource group and deploy resources](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
 
 ## Prerequisites
 
