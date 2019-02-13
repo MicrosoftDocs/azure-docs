@@ -16,6 +16,7 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Manage certificates for federated single sign-on in Azure Active Directory
 This article covers common questions and information related to the certificates that Azure Active Directory (Azure AD) creates to establish federated single sign-on (SSO) to your SaaS applications. Add applications from the Azure AD app gallery or by using a non-gallery application template. Configure the application by using the federated SSO option.

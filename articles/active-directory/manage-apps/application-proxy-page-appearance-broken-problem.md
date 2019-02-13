@@ -15,6 +15,7 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Application page does not display correctly for an Application Proxy application

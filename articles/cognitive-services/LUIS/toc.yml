@@ -81,6 +81,7 @@
   items:
   - name: Best practices
     href: luis-concept-best-practices.md
+    displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
   - name: Plan your app
     displayName: simple, hierarchical, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md
@@ -225,7 +226,7 @@
     - name: Manage versions
       href: luis-how-to-manage-versions.md
     - name: Manage authors and collaborators
-      displayName: access, transfer, AAD, tenant, Azure AD, consent
+      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership
       href: luis-how-to-collaborate.md
     - name: Manage authoring key
       href: luis-how-to-account-settings.md

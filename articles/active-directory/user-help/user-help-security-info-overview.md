@@ -12,6 +12,7 @@ ms.subservice: user-help
 ms.topic: overview
 ms.date: 02/11/2019
 ms.author: lizross
+ms.collection: M365-identity-device-management
 ---
 
 # Security info (preview) overview
