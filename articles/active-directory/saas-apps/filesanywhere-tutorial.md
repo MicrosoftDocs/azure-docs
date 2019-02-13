@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/12/2019
+ms.date: 02/13/2019
 ms.author: jeedes
 
 ---
@@ -103,10 +103,7 @@ To configure Azure AD single sign-on with FilesAnywhere, perform the following s
     ![FilesAnywhere Domain and URLs single sign-on information](common/both-replyurl.png)
 
 	In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<company name>.filesanywhere.com/saml20.aspx?c=215`
-
-	> [!NOTE]
-	> Please note that the value **215** is a **clientid** and is just an example. You need to replace it with the actual clientid value.
+    `https://<company name>.filesanywhere.com/saml20.aspx?c=<Client Id>`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
