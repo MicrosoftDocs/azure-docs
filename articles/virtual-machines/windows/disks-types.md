@@ -1,10 +1,10 @@
 ---
-title: What are the differences between the disk types available in Azure Disk Storage - Microsoft Azure | Microsoft Docs
-description: Learn about Ultra, Premium, and Standard SSDs as well as Standard HDDs.
+title: Select a disk type for Azure IaaS VMs - Microsoft Azure
+description: Learn about the available Azure disk types, including ultra SSDs, premium SSDs, standard SSDs, and Standard HDDs.
 services: "virtual-machines-windows,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 01/11/2019
+ms.date: 02/11/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows

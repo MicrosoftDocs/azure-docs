@@ -9,13 +9,13 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-# Select an Azure disk type for IaaS virtual machines
+# What are the different disk types available in Azure?
 
-Azure managed disks currently offers four disk types, three of which are generally available and one that is currently in preview. These four disk types each have their own appropriate target customer scenarios, they are as follows:
+Azure managed disks currently offers four disk types, three of which are generally available (GA) and one that is currently in preview. These four disk types each have their own appropriate target customer scenarios.
 
 ## Disk comparison
 
-The following table provides a comparison of standard hard disk drives (HDD), standard solid-state drives (SSD), premium SSD, and ultra SSD (preview) for managed disks to help you decide what to use.
+The following table provides a comparison of ultra solid-state-drives (SSD) (preview), premium SSD, standard SSD, and standard hard disk drives (HDD) for managed disks to help you decide what to use.
 
 |   | Ultra SSD (preview)   | Premium Disk   | Standard SSD   | Standard HDD   |
 |---------|---------|---------|---------|---------|
@@ -27,7 +27,7 @@ The following table provides a comparison of standard hard disk drives (HDD), st
 
 ## Ultra SSD (preview)
 
-Azure ultra SSD (preview) delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. Some additional benefits of ultra SSD include the ability to dynamically change the performance of the disk, along with your workloads, without the need to restart your virtual machines. ultra SSD is suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads. Ultra SSDs can only be used as data disks. We recommend using Premium SSDs as OS disks.
+Azure ultra SSD (preview) delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. Some additional benefits of ultra SSD include the ability to dynamically change the performance of the disk, along with your workloads, without the need to restart your virtual machines. Ultra SSD is suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads. Ultra SSDs can only be used as data disks. We recommend using premium SSDs as OS disks.
 
 ### Performance
 
