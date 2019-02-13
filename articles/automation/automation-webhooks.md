@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/06/2018
+ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -194,7 +194,7 @@ $vms  = @(
         )
 $body = ConvertTo-Json -InputObject $vms
 $header = @{ message="StartedbyContoso"}
-$response = Invoke-RestMethod -Method Post -Uri $uri -Body $body -Headers $header
+$response = Invoke-WebRequest -Method Post -Uri $uri -Body $body -Headers $header
 $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ```
 
