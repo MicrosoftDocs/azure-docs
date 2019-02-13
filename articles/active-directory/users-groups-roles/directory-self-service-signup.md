@@ -1,5 +1,5 @@
 ---
-title: Add users via self-service or trial signup - Azure Active Directory | Microsoft Docs
+title: Self-service signup for email-verified user accounts - Azure Active Directory | Microsoft Docs
 description: Use self-service signup in an Azure Active Directory (Azure AD) tenant
 services: active-directory
 documentationcenter: ''
@@ -11,11 +11,12 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/31/2019
+ms.date: 02/12/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # What is self-service signup for Azure Active Directory?
 

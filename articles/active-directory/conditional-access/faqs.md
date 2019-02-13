@@ -17,6 +17,7 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: calebb
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory conditional access FAQs
 

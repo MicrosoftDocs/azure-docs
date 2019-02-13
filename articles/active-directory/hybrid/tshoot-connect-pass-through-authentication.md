@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot Azure Active Directory Pass-through Authentication

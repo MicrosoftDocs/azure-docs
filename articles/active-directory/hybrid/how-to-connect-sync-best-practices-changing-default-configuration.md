@@ -16,6 +16,7 @@ ms.date: 08/29/2017
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Best practices for changing the default configuration
 The purpose of this topic is to describe supported and unsupported changes to Azure AD Connect sync.
