@@ -13,7 +13,7 @@ In the **Platform** section, select **iOS**.
 
 Select **Switch Platform** to change the platform to **iOS**.
 
-![Unity Build Settings](./media/spatial-anchors-unity/unity-build-settings.png)
+![Unity Build Settings](./media/spatial-anchors-unity/unity-ios-build-settings.png)
 
 Close the **Build Settings** window.
 

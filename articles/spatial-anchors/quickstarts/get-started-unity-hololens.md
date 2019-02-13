@@ -48,7 +48,7 @@ In the **Platform** section, select **Universal Windows Platform**. Then, change
 
 Select **Switch Platform** to change the platform to **Universal Windows Platform**.
 
-![Unity Build Settings](../../../includes/media/spatial-anchors-unity/unity-build-settings.png)
+![Unity Build Settings](./media/get-started-unity-hololens/unity-build-settings.png)
 
 Close the **Build Settings** window.
 
