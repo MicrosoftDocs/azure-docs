@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 5/4/18
 ms.author: celested
 ms.reviewer: japere,asteen
+ms.collection: M365-identity-device-management
 ---
 
 # Install the access panel browser extension

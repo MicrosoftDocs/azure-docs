@@ -15,6 +15,7 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Install Azure AD Connect using SQL delegated administrator permissions

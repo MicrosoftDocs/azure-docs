@@ -16,6 +16,7 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problems signing in to an on-premises application using the Azure AD application proxy
