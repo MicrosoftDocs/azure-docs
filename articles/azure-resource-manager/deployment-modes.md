@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/24/2019
+ms.date: 02/13/2019
 ms.author: tomfitz
 ---
 # Azure Resource Manager deployment modes
 
 When deploying your resources, you specify that the deployment is either an incremental update or a complete update.  The primary difference between these two modes is how Resource Manager handles existing resources in the resource group that aren't in the template. The default mode is incremental.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Only root-level templates support the complete deployment mode. For [linked or nested templates](resource-group-linked-templates.md), you must use incremental mode. 
 
 ## Incremental and complete deployments
 
@@ -58,8 +58,6 @@ When deployed in **complete** mode, Resource C is deleted. The resource group ha
 
 ## Set deployment mode
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 To set the deployment mode when deploying with PowerShell, use the `Mode` parameter.
 
 ```azurepowershell-interactive
@@ -81,7 +79,7 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-When using a [linked or nested template](resource-group-linked-templates.md), you must set the `mode` property to `Incremental`. Only root-level templates support the complete deployment mode.
+The following example shows a linked template set to incremental deployment mode:
 
 ```json
 "resources": [
