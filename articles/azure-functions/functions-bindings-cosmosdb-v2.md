@@ -988,7 +988,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 This section contains the following examples that read a single document by specifying an ID value from various sources:
 
-* [Queue trigger, look up ID from JSON](#queue-trigger-look-up-id-from-string-javascript)
+* [Queue trigger, look up ID from JSON](#queue-trigger-look-up-id-from-json-javascript)
 * [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-javascript)
 * [HTTP trigger, look up ID from route data](#http-trigger-look-up-id-from-route-data-javascript)
 * [Queue trigger, get multiple docs, using SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1196,7 +1196,7 @@ Here's the JavaScript code:
 
 This section contains the following examples that read a single document by specifying an ID value from various sources:
 
-* [Queue trigger, look up ID from JSON](#queue-trigger-look-up-id-from-string-python)
+* [Queue trigger, look up ID from JSON](#queue-trigger-look-up-id-from-json-python)
 * [HTTP trigger, look up ID from query string](#http-trigger-look-up-id-from-query-string-python)
 * [HTTP trigger, look up ID from route data](#http-trigger-look-up-id-from-route-data-python)
 * [Queue trigger, get multiple docs, using SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-python)
@@ -2286,7 +2286,7 @@ The attribute's constructor takes the database name and collection name. For inf
     }
 ```
 
-For a complete example, see [Output - C# example](#output---c-example).
+For a complete example, see Output - C# example.
 
 ## Output - configuration
 

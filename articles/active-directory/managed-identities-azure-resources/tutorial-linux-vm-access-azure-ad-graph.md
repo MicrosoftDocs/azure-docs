@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Use a Linux VM system-assigned managed identity to access Azure AD Graph API

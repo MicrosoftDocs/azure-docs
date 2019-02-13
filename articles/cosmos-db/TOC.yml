@@ -462,8 +462,12 @@
       href: how-to-manage-database-account.md
     - name: Global distribution
       items:
+      - name: Configure multi-master
+        href: how-to-multi-master.md
       - name: Manage consistency levels
         href: how-to-manage-consistency.md
+      - name: Implement custom synchronization
+        href: how-to-custom-synchronization.md
       - name: Configure conflict resolution policies
         href: how-to-manage-conflicts.md
     - name: Provisioned throughput
@@ -594,10 +598,10 @@
       items: 
       - name: About bulk executor library
         href: bulk-executor-overview.md
-  - name: Troubleshooting guides
-    items:
-    - name: Troubleshoot Java Async SDK
-      href: troubleshoot-java-async-sdk.md
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot Java Async SDK
+        href: troubleshoot-java-async-sdk.md
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn

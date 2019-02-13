@@ -3,8 +3,8 @@ title: Troubleshoot Application Proxy | Microsoft Docs
 description: Covers how to troubleshoot errors in Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 

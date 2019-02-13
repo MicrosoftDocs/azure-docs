@@ -78,6 +78,16 @@ To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` par
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
++ **Deploy on Field Programmable Gate Arrays (FPGA)**
+
+  While deploying to FPGA, provide values for the SSL-related parameters as shown in the code snippet:
+
+    ```python
+    from azureml.contrib.brainwave import BrainwaveWebservice
+
+    deployment_config = BrainwaveWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem")
+    ```
+
 ## Update your DNS
 
 Next, you must update your DNS to point to the web service.
@@ -93,10 +103,6 @@ Next, you must update your DNS to point to the web service.
   Update the DNS under the "Configuration" tab of the "Public IP Address" of the AKS cluster as shown in the image. You can find the Public IP Address as one of the resource types created under the resource group that contains the AKS agent nodes and other networking resources.
 
   ![Azure Machine Learning service: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
-
-+ **For FPGA**:
-
-Using SSL with services deployed to FPGA is not currently supported.
 
 ## Next steps
 Learn how to:

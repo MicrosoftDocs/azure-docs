@@ -3,8 +3,8 @@ title: Problems signing in to an application using a deeplink | Microsoft Docs
 description: How to troubleshoot issues accessing an application from a deeplink URL using Azure AD
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problems signing in to an application using a deeplink

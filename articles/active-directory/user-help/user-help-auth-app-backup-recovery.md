@@ -12,6 +12,7 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
+ms.collection: M365-identity-device-management
 ---
 
 # Backup and recover account credentials with the Microsoft Authenticator app
@@ -79,7 +80,7 @@ For personal Microsoft accounts, you can prove your identity by entering your pa
     ![Microsoft Authenticator app, allowing you to scan your QR code](./media/user-help-auth-app-backup-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >For more info about how to get a QR code, see [Get started with the Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install#add-accounts-to-the-app) or [Set up security info to use an authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), based on whether your admin has turned on security info.
+    >For more info about how to get a QR code, see [Get started with the Microsoft Authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/user-help-auth-app-download-install) or [Set up security info to use an authenticator app](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-auth-app#to-use-the-microsoft-authenticator-app), based on whether your admin has turned on security info.
 
 ## Troubleshooting backup and recovery problems
 There are a few reasons why your backup might not be available:

@@ -3,8 +3,8 @@ title: Problem configuring user provisioning to an Azure AD Gallery application 
 description: How to troubleshoot common issues faced when configuring user provisioning to an application already listed in the Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,9 +14,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problem configuring user provisioning to an Azure AD Gallery application
@@ -52,7 +53,7 @@ If you set the **Provisioning Status** to be **On** in the **Azure Active Direct
 
 ## Can’t save configuration due to app credentials not working
 
-In order for provisioning to work, Azure AD requires valid credentials that allow it to connect to a user management API provided by that app. If these credentials do not work, or you don’t know wat they are, review the tutorial for setting up this app, described previously.
+In order for provisioning to work, Azure AD requires valid credentials that allow it to connect to a user management API provided by that app. If these credentials don’t work, or you don’t know what they are, review the tutorial for setting up this app, described previously.
 
 ## Audit logs say users are skipped and not provisioned even though they are assigned
 

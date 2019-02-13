@@ -22,11 +22,6 @@ As with other platforms, an application on Azure Service Fabric usually goes thr
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-The following Microsoft Virtual Academy video describes how to manage your application lifecycle:
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
-<img src="./media/service-fabric-application-lifecycle/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
-</a></center>
-
 ## Service model roles
 The service model roles are:
 
@@ -55,7 +50,7 @@ See [Deploy an application](service-fabric-deploy-remove-applications.md) for ex
 
 ## Test
 1. After deploying to the local development cluster or a test cluster, a *service developer* runs the built-in failover test scenario by using the [**FailoverTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenarioparameters) and [**FailoverTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.failovertestscenario) classes, or the [**Invoke-ServiceFabricFailoverTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricfailovertestscenario?view=azureservicefabricps). The failover test scenario runs a specified service through important transitions and failovers to ensure that it's still available and working.
-2. The *service developer* then runs the built-in chaos test scenario using the [**ChaosTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) and [**ChaosTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario#System_Fabric_Testability_Scenario_ChaosTestScenario) classes, or the [**Invoke-ServiceFabricChaosTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). The chaos test scenario randomly induces multiple node, code package, and replica faults into the cluster.
+2. The *service developer* then runs the built-in chaos test scenario using the [**ChaosTestScenarioParameters**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenarioparameters) and [**ChaosTestScenario**](https://docs.microsoft.com/dotnet/api/system.fabric.testability.scenario.chaostestscenario) classes, or the [**Invoke-ServiceFabricChaosTestScenario** cmdlet](/powershell/module/servicefabric/invoke-servicefabricchaostestscenario?view=azureservicefabricps). The chaos test scenario randomly induces multiple node, code package, and replica faults into the cluster.
 3. The *service developer* [tests service-to-service communication](service-fabric-testability-scenarios-service-communication.md) by authoring test scenarios that move primary replicas around the cluster.
 
 See [Introduction to the Fault Analysis Service](service-fabric-testability-overview.md) for more information.

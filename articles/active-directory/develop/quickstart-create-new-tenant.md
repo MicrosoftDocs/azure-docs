@@ -19,6 +19,7 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 #Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Set up a dev environment

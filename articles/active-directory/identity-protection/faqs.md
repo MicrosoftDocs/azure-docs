@@ -17,6 +17,7 @@ ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection FAQ
 

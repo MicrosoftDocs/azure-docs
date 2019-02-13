@@ -12,7 +12,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ---
 # Controlling and granting database access to SQL Database and SQL Data Warehouse
 
@@ -31,11 +31,14 @@ There are two administrative accounts (**Server admin** and **Active Directory a
 
 - **Server admin**
 
-When you create an Azure SQL server, you must designate a **Server admin login**. SQL server creates that account as a login in the master database. This account connects using SQL Server authentication (user name and password). Only one of these accounts can exist.   
+  When you create an Azure SQL server, you must designate a **Server admin login**. SQL server creates that account as a login in the master database. This account connects using SQL Server authentication (user name and password). Only one of these accounts can exist.
 
-- **Azure Active Directory admin**   
+  > [!NOTE]
+  > To reset the password for the server admin, go to the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**.
 
-One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It is optional to configure an Azure AD administrator, but an Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to SQL Database. For more information about configuring Azure Active Directory access, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+- **Azure Active Directory admin**
+
+  One Azure Active Directory account, either an individual or security group account, can also be configured as an administrator. It is optional to configure an Azure AD administrator, but an Azure AD administrator **must** be configured if you want to use Azure AD accounts to connect to SQL Database. For more information about configuring Azure Active Directory access, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) and [SSMS support for Azure AD MFA with SQL Database and SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
 
 The **Server admin** and **Azure AD admin** accounts has the following characteristics:
 
@@ -66,7 +69,6 @@ For a walk-through of creating a server, a database, server-level IP firewall ru
 > [!IMPORTANT]
 > It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
-
 ## Additional server-level administrative roles
 
 >[!IMPORTANT]
@@ -79,7 +81,7 @@ In addition to the server-level administrative roles discussed previously, SQL D
 One of these administrative roles is the **dbmanager** role. Members of this role can create new databases. To use this role, you create a user in the `master` database and then add the user to the **dbmanager** database role. To create a database, the user must be a user based on a SQL Server login in the master database or contained database user based on an Azure Active Directory user.
 
 1. Using an administrator account, connect to the master database.
-2. Optional step: Create a SQL Server authentication login, using the [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) statement. Sample statement:
+2. Create a SQL Server authentication login, using the [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) statement. Sample statement:
 
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';

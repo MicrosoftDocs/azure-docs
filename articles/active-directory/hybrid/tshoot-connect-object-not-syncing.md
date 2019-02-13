@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 # Troubleshoot an object that is not synchronizing to Azure AD
 

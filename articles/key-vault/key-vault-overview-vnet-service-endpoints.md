@@ -5,7 +5,7 @@ description: Overview of virtual network service endpoints for Key Vault
 services: key-vault
 author: amitbapat
 ms.author: ambapat
-manager: mbaldwin
+manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.workload: identity

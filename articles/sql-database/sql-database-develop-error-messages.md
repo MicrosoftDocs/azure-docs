@@ -12,7 +12,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/08/2019
 ---
 # SQL error codes for SQL Database client applications: Database connection errors and other issues
 
@@ -93,8 +93,8 @@ Related topics:
 
 | Error code | Severity | Description |
 | ---:| ---:|:--- |
-| 10928 |20 |Resource ID: %d. The %s limit for the database is %d and has been reached. For more information, see [SQL Database resource limits for standalone and pooled databases](sql-database-resource-limits-database-server.md).<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers-dtu.md). |
-| 10929 |20 |Resource ID: %d. The %s minimum guarantee is %d, maximum limit is %d, and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. For more information, see [SQL Database resource limits for standalone and pooled databases](sql-database-resource-limits-database-server.md). Otherwise, please try again later.<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers-dtu.md). |
+| 10928 |20 |Resource ID: %d. The %s limit for the database is %d and has been reached. For more information, see [SQL Database resource limits for single and pooled databases](sql-database-resource-limits-database-server.md).<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers-dtu.md). |
+| 10929 |20 |Resource ID: %d. The %s minimum guarantee is %d, maximum limit is %d, and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. For more information, see [SQL Database resource limits for single and pooled databases](sql-database-resource-limits-database-server.md). Otherwise, please try again later.<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>For more information about this error and how to resolve it, see:<br/>• [Azure SQL Database resource limits](sql-database-service-tiers-dtu.md). |
 | 40544 |20 |The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. |
 | 40549 |16 |Session is terminated because you have a long-running transaction. Try shortening your transaction. |
 | 40550 |16 |The session has been terminated because it has acquired too many locks. Try reading or modifying fewer rows in a single transaction. |

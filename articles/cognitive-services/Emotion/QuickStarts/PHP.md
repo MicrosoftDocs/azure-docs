@@ -4,13 +4,13 @@ titlesuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Emotion API with PHP.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 05/23/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
 ---
 

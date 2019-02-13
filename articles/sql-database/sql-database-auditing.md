@@ -35,7 +35,7 @@ You can use SQL database auditing to:
 - **Analyze** reports. You can find suspicious events, unusual activity, and trends.
 
 > [!IMPORTANT]
-> Audit logs are written to **Append Blobs** in an Azure blob storage on your Azure subscription.
+> Audit logs are written to **Append Blobs** in Azure Blob storage on your Azure subscription.
 >
 > - **Premium storage** is currently **not supported** by Append Blobs.
 > - **Storage in VNet** is currently **not supported**.
@@ -120,6 +120,7 @@ If you chose to write audit logs to Log Analytics:
 If you chose to write audit logs to Event Hub:
 
 - To consume audit logs data from Event Hub, you will need to set up a stream to consume events and write them to a target. For more information, see [Azure Event Hubs Documentation](https://docs.microsoft.com/azure/event-hubs/).
+- Audit logs in Event Hub are captured in the body of [Apache Avro](http://avro.apache.org/) events and stored using JSON formatting with UTF-8 encoding. To read the audit logs, you can use [Avro Tools](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) or similar tools that process this format.
 
 If you chose to write audit logs to an Azure storage account, there are several methods you can use to view the logs:
 
@@ -246,7 +247,7 @@ Extended policy with WHERE clause support for additional filtering:
 
 You can manage Azure SQL database auditing using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) templates, as shown in these examples:
 
-- [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Azure blob storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Azure Blob storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 
