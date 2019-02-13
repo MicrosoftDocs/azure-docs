@@ -19,7 +19,7 @@ You can follow these steps if you're prompted to add your security info immediat
 
 You will only see this prompt if your administrator has turned security info on, and if you haven't previously set up your security info.
 
-If you've previously set up security info, but you want to change your method information or your default method, you can follow the steps in the various method-based how-to articles. For more information, see [Add or update your security info overview](security-info-add-update-methods.md).
+If you've previously set up security info, but you want to change your method information or your default method, you can follow the steps in the various method-based how-to articles. For more information, see [Add or update your security info overview](security-info-add-update-methods-overview.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
@@ -92,7 +92,7 @@ Follow these steps to set up your security info for your work or school account 
 
 ## Next steps
 
-- To change, delete, or update your default security info methods, see:
+- To change, delete, or update default security info methods, see:
 
     - [Set up security info for an authenticator app](security-info-setup-auth-app.md).
 
