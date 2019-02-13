@@ -12,22 +12,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/13/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
 
 ---
 
-# Manage usage and billing for Azure Stack as a Cloud Service Provider 
+# Manage usage and billing for Azure Stack as a Cloud Service Provider
 
 *Applies to: Azure Stack integrated systems*
 
 This article walks you through registering Azure Stack as a Cloud Provider (CSP) and adding customers.
 
-As a CSP you work with diverse customers using your Azure Stack. Each customer has a CSP subscription in Azure. You'll need to direct usage from your Azure Stack to each user subscription.
+As a CSP you work with diverse customers using your Azure Stack. Each customer has a CSP subscription in Azure. You must direct usage from your Azure Stack to each user subscription.
 
-The following diagram shows the steps that you will need to choose your shared services account and register the Azure account with the Azure Stack account. Registered, you can onboard your end customers.
+The following figure shows the required steps to choose your shared services account, and register the Azure account with the Azure Stack account. Once registered, you can onboard your end customers.
 
 **Steps to add usage tracking as a CSP**
 
@@ -37,16 +37,16 @@ The following diagram shows the steps that you will need to choose your shared s
 
 ### Cloud Service Provider subscription types
 
-You will need to choose the type of shared services account that you use for Azure Stack. The types of subscriptions that can be used for registration of a multitenant Azure Stack are:
+Choose the type of shared services account that you use for Azure Stack. The types of subscriptions that can be used for registration of a multitenant Azure Stack are:
 
- - Cloud Service Provider 
- - Partner Shared Services subscription 
+- Cloud Service Provider
+- Partner Shared Services subscription
 
 #### Azure Partner Shared Services
 
-Azure Partner Shared Services (APSS) subscriptions are the preferred choice for registration when a Direct CSP or a CSP Distributor operates Azure Stack.
+Azure Partner Shared Services (APSS) subscriptions are the preferred choice for registration when a direct CSP or a CSP distributor operates Azure Stack.
 
-APSS subscriptions are associated with a shared-services tenant. When you register Azure Stack, you need to provide credentials for an account that is an owner of the subscription. The account you use to register Azure Stack can be different from the administrator account that you use for deployment. Furthermore, the two accounts do *not* need to belong to the same domain. In other words, you may deploy using the tenant that you already use. For example you may use ContosoCSP.onmicrosoft.com, then register using a different tenant, for example IURContosoCSP.onmicrosoft.com. You will need to remember that you sign in using ContosoCSP.onmicrosoft.com when you do day-to-do Azure Stack administration. When you sign in to Azure using IURContosoCSP.onmicrosoft.com when you need to do registration operations.
+APSS subscriptions are associated with a shared-services tenant. When you register Azure Stack, you provide credentials for an account that is an owner of the subscription. The account you use to register Azure Stack can be different from the administrator account that you use for deployment. Furthermore, the two accounts do *not* need to belong to the same domain. In other words, you may deploy using the tenant that you already use. For example you may use ContosoCSP.onmicrosoft.com, then register using a different tenant, for example IURContosoCSP.onmicrosoft.com. You will need to remember that you sign in using ContosoCSP.onmicrosoft.com when you do day-to-do Azure Stack administration. When you sign in to Azure using IURContosoCSP.onmicrosoft.com when you need to do registration operations.
 
 Refer to the following for a description of APSS subscriptions, and instructions on how to create subscription [Add Azure Partner Shared Services](https://msdn.microsoft.com/partner-center/shared-services).
 
