@@ -26,6 +26,9 @@ In this article, you will learn how to parse CSV blobs with an Azure Search blob
 > CSV blob indexing is currently in public preview and should not be used in production environments. For more information, see [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 > 
 
+> [!NOTE]
+> Follow recommendations from [one-to-many indexing](search-howto-index-one-to-many-blobs.mds) to modify your indexer configuration to enable one azure blob from producing multiple search documents.
+
 ## Setting up CSV indexing
 To index CSV blobs, create or update an indexer definition with the `delimitedText` parsing mode:  
 
