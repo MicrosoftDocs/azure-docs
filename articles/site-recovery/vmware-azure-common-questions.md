@@ -110,7 +110,7 @@ You can replicate any app or workload running on a VMware VM that complies with 
 
 ### Can I protect a virtual machine that has Docker disk configuration?
 
-No, this is an unsupported scenario. You should exclude the disk that has docker properties configured.
+No, this is an unsupported scenario.
 
 ### Can I replicate to Azure with a site-to-site VPN?
 Site Recovery replicates data from on-premises to Azure storage over a public endpoint, or using ExpressRoute public peering. Replication over a site-to-site VPN network isn't supported.

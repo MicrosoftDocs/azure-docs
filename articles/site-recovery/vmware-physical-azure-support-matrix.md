@@ -157,6 +157,7 @@ Accelerated Networking | No
 **Component** | **Supported**
 --- | ---
 Dynamic disk | Operation System disk must be a basic disk. <br/><br/>Data disks can be dynamic disks
+Docker disk configuration | No
 Host NFS | Yes for VMware<br/><br/> No for physical servers
 Host SAN (iSCSI/FC) | Yes
 Host vSAN | Yes for VMware<br/><br/> N/A for physical servers
