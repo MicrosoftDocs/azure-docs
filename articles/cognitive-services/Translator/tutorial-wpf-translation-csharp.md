@@ -288,12 +288,12 @@ Picking up where we left off in the last section, let's add a method to get supp
    // ***** GET TRANSLATABLE LANGUAGE CODES
    private void GetLanguagesForTranslate()
    {
-       // send request to get supported language codes
+       // Send request to get supported language codes
        string uri = String.Format(TEXT_TRANSLATION_API_ENDPOINT, "languages") + "&scope=translation";
        WebRequest WebRequest = WebRequest.Create(uri);
        WebRequest.Headers.Add("Accept-Language", "en");
        WebResponse response = null;
-       // read and parse the JSON response
+       // Read and parse the JSON response
        response = WebRequest.GetResponse();
        using (var reader = new StreamReader(response.GetResponseStream(), UnicodeEncoding.UTF8))
        {
@@ -334,7 +334,7 @@ The user interface is defined using XAML, so you don't need to do much to set it
            ToLanguageComboBox.Items.Add(menuItem);
        }
 
-       // set default languages
+       // Set default languages
        FromLanguageComboBox.SelectedItem = "Detect";
        ToLanguageComboBox.SelectedItem = "English";
    }
@@ -361,14 +361,14 @@ Now we're going to create method to detect the language of the source text (text
    {
        string detectUri = string.Format(TEXT_TRANSLATION_API_ENDPOINT ,"detect");
 
-       // create request to Text Analytics API
+       // Create request to Detect languages with Translator Text
        HttpWebRequest detectLanguageWebRequest = (HttpWebRequest)WebRequest.Create(detectUri);
        detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
        detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Region", "westus");
        detectLanguageWebRequest.ContentType = "app/json; charset=utf-8";
        detectLanguageWebRequest.Method = "POST";
 
-       // create and send body of request
+       // Send request
        var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
        string jsonText = serializer.Serialize(text);
 
@@ -382,12 +382,12 @@ Now we're going to create method to detect the language of the source text (text
 
        HttpWebResponse response = (HttpWebResponse)detectLanguageWebRequest.GetResponse();
 
-       // read and parse JSON response
+       // Read and parse JSON response
        var responseStream = response.GetResponseStream();
        var jsonString = new StreamReader(responseStream, Encoding.GetEncoding("utf-8")).ReadToEnd();
        dynamic jsonResponse = serializer.DeserializeObject(jsonString);
 
-       // fish out the detected language code
+       // Fish out the detected language code
        var languageInfo = jsonResponse[0];
        if (languageInfo["score"] > (decimal)0.5)
        {
@@ -565,7 +565,7 @@ That's it, you have a working translation app built using WPF. To run your app, 
 
 Source code for this project is available on GitHub.
 
-* [Explore source code](placeholder)
+* [Explore source code](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp-Tutorial)
 
 ## Next steps
 
