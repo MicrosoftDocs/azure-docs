@@ -64,7 +64,7 @@ In this section, you sign in and declare the values used for this configuration.
 
 ### Declare variables
 
-Declare the variables that you want to use. Use the following sample, substituting the values for your own when necessary.
+Declare the variables that you want to use. Use the following sample, substituting the values for your own when necessary. If you close your PowerShell/Cloud Shell session at any point during the exercise, just copy and paste the values again to re-declare the variables.
 
   ```azurepowershell-interactive
   $VNetName  = "VNet1"
