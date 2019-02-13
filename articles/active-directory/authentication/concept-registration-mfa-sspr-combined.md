@@ -17,13 +17,13 @@ ms.collection: M365-identity-device-management
 ---
 # Combined security information registration (preview)
 
-Before combined registration, users registered authentication methods for Azure Multi-Factor Authentication (MFA) and self-service password reset (SSPR) through two different experiences. Many users were confused that similar methods were used for both Azure MFA and SSPR but they had to register the methods for each feature separately. Now, with combined registration, users can register once and get the benefits of both Azure MFA and SSPR.
+Before combined registration, users registered authentication methods for Azure Multi-Factor Authentication (MFA) and self-service password reset (SSPR) through two different experiences. People were confused that similar methods were used for both Azure MFA and SSPR but they had to register for each feature separately. Now, with combined registration, users can register once and get the benefits of both Azure MFA and SSPR.
 
-Before you enable this new experience for your organization, we recommend that you review this documentation as well as the end user documentation to ensure you understand the functionality and impact of this feature. You can leverage the user documentation to train and prepare your users for the new experience and help to ensure a successful rollout.
+Before enabling the new experience, review this administrator-focused documentation and the user-focused documentation to ensure you understand the functionality and impact of this feature. Base your training on the user documentation to prepare your users for the new experience and help to ensure a successful rollout.
 
 |     |
 | --- |
-| Combined security information registration for Azure Multi-Factor Authentication and Azure AD self-service password reset are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Combined security information registration for Azure Multi-Factor Authentication and Azure AD self-service password reset is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## Methods available in converged registration
@@ -56,29 +56,42 @@ As we continue to add more authentication methods such to Azure AD, those method
 
 ## Combined Registration Modes
 
-There are two “modes” of combined registration: Interrupt and Manage. Interrupt mode is a wizard-like experience that is shown to a user when they are prompted to register or refresh their security info while signing in. Manage mode is part of the user’s profile and allows them to manage their security info. For both modes, if a user has previously registered a method that can be used for MFA, they will need to perform MFA before they can access their security info.
+There are two “modes” of combined registration: interrupt and manage. 
+
+Interrupt mode, is a wizard-like experience, shown to a user when they register or refresh their security info at sign in. 
+
+Manage mode is part of the user’s profile and allows them to manage their security info. 
+
+For both modes, if a user has previously registered a method that can be used for MFA, they will need to perform MFA before they can access their security info.
 
 ### Interrupt Mode
 
-Combined registration respects both MFA and SSPR policies, if both are enabled for your tenant. These policies affect whether a user is interrupted to register during sign in and which methods are available to the user to register.
+Combined registration respects both MFA and SSPR policies, if both are enabled for your tenant. These policies control, whether a user is interrupted to register during sign in, and which methods are available to register.
 
-There are multiple scenarios in which a user would be interrupted to register or refresh their security info while signing in:
+The following list several scenarios where a user may be prompted to register or refresh their security info:
 
-* MFA registration enforced through Identity Protection: Users will be asked to register during sign in. They will register MFA methods and SSPR methods (if the user is enabled for SSPR).
-* MFA registration enforced through per-user MFA: Users will be asked to register during sign in. They will register MFA methods and SSPR methods (if the user is enabled for SSPR).
-* MFA registration enforced through conditional access or other policies: Users will be asked to register when accessing a resource that requires MFA. They will register MFA methods and SSPR methods (if the user is enabled for SSPR).
-* SSPR registration enforced: Users will be asked to register during sign in. They will only register SSPR methods
-* SSPR refresh enforced: Users are required to review their security info at an interval set by the admin. They will be shown their info and can choose "Looks good" or make changes if needed.
+* MFA registration enforced through Identity Protection: Users will be asked to register during sign in. They register MFA methods and SSPR methods (if the user is enabled for SSPR).
+* MFA registration enforced through per-user MFA: Users will be asked to register during sign in. They  register MFA methods and SSPR methods (if the user is enabled for SSPR).
+* MFA registration enforced through conditional access or other policies: Users are asked to register when accessing a resource that requires MFA. Users will register MFA methods and SSPR methods (if the user is enabled for SSPR).
+* SSPR registration enforced: Users are asked to register during sign in. They only register SSPR methods
+* SSPR refresh enforced: Users are required to review their security info at an interval set by the admin. Users are shown their info and can choose "Looks good" or make changes if needed.
 
-When registration is enforced, users are shown the minimum number of methods needed to be compliant with both MFA and SSPR policies from most to least secure. For example, a user is enabled for SSPR and the SSPR policy required 2 methods to reset and has enabled mobile app code, email, and phone. This user will be required to register two methods and will be shown authenticator app and phone by default. If desired, the user can choose to register email instead of authenticator app or phone.  
+When registration is enforced, users are shown the minimum number of methods needed to be compliant with both MFA and SSPR policies from most to least secure.
 
-The following flowchart describes in detail which methods are shown to a user when they are interrupted to register during sign in:
+Example:
+
+* A user is enabled for SSPR. The SSPR policy required two methods to reset and has enabled mobile app code, email, and phone.
+   * This user is required to register two methods.
+      * They're shown authenticator app and phone by default.
+      * The user can choose to register email instead of authenticator app or phone.
+
+The following flowchart describes which methods are shown to a user when interrupted to register during sign in:
 
 ![INSERT FLOWCHART HERE]()
 
-If you have both MFA and SSPR enabled in your tenant, we recommend that you enforce registration through MFA.
+If you have both MFA and SSPR enabled, we recommend that you enforce MFA registration.
 
-If the SSPR policy requires users to review their security info at a regular interval, the users will be interrupted during sign in and shown all their registered methods. At that point, they can choose “Looks good” if the info is up-to-date or they can choose “Edit info” to make changes.
+If the SSPR policy requires users to review their security info at a regular interval, users are interrupted during sign in and shown all their registered methods. They can choose “Looks good” if the info is up-to-date or they can choose “Edit info” to make changes.
 
 ### Manage mode
 
