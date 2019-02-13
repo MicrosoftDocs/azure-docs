@@ -20,7 +20,7 @@ There are four key stages in big data processing:
 > * Downloading the data
 > * Visualizing the data
 
-Begin by setting up a storage account, a file system, and security. The first few sections of this article help you accomplish those tasks. In the remaining sections, we'll highlight the options and tools for each  processing phase.
+Begin by setting up a storage account and a file system. Then, grant access to the data. The first few sections of this article help you accomplish those tasks. In the remaining sections, we'll highlight the options and tools for each  processing phase.
 
 ## Create a Data Lake Storage Gen2 account
 
@@ -40,6 +40,29 @@ A *file system* is a container for folders and files. You need at least one of t
 |Code in an Azure Databricks Notebook|[Create a storage account file system (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br> [Create a file system and mount it (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
 
 It's easiest to create file systems by using Storage Explorer or AzCopy. It takes a bit more work to create file systems by using HDInsight and Databricks. However, if you're planning to use HDInsight or Databricks clusters to process your data anyway, then you can create your clusters first, and use the HDFS CLI to your create file systems.  
+
+## Grant access to the data
+
+Consider setting up access permissions to your account before you begin ingesting data. 
+
+This table shows how each Azure service or tool authenticates and authorizes access to Azure Data Lake Storage Gen2 data.
+
+|Tool | Grant access by using .. |
+|---|--|
+|Storage Explorer| [Users and groups](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory) (Assign the Storage Blob Data Contributor role to the user or group)|
+|AzCopy| [Users and groups](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory) (Assign the Storage Blob Data Contributor role to the user or group)<br> [Shared Access Signature(SAS) tokens](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)|
+|Apache DistCp | [User-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) (Assign the Storage Blob Data Owner role to the identity) |
+|Azure Data Factory| User-assigned-managed identity, Service Principal, or storage account key. See [Linked service properties](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
+|Azure HDInsight| [User-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) (Assign the Storage Blob Data Owner role to the identity) |
+|Azure Databricks| [Service Principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) (Assign the Storage Blob Data Contributor role to the identity) |
+
+To learn about how to set up file and folder-level access permissions, see these articles.
+
+* [Set file and directory level permissions using Azure Storage Explorer with Azure Data Lake Storage Gen2](https://review.docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
+
+* [Access control lists on files and directories](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories)
+
+To learn about setting up other aspects of security, see [Azure Data Lake Storage Gen2 security guide](https://review.docs.microsoft.com/en-us/azure/storage/common/storage-data-lake-storage-security-guide?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Ingest the data
 
@@ -86,7 +109,7 @@ Here's a list of tools that you can use to ingest Web server log data.
 
 |Tool | Guidance |
 |---|--|
-|Tool | [Copy Activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
+|Azure Data Factory | [Copy Activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
 
 For uploading web server log data, and also for uploading other kinds of data (e.g. social sentiments data), it is a good approach to write your own custom scripts/applications because it gives you the flexibility to include your data uploading component as part of your larger big data application. In some cases this code may take the form of a script or simple command line utility. In other cases, the code may be used to integrate big data processing into a business application or solution.
 
@@ -116,10 +139,6 @@ Large amounts of data may be stored in existing Hadoop clusters, locally on mach
 For uploading datasets that range in several terabytes, using the methods described above can sometimes be slow and costly. In such cases, you can use Azure ExpressRoute.  
 
 Azure ExpressRoute lets you create private connections between Azure data centers and infrastructure on your premises. This provides a reliable option for transferring large amounts of data. To learn more, see [Azure ExpressRoute documentation](../../expressroute/expressroute-introduction.md).
-
-## Secure the data
-
-Put your security content here.
 
 ## Process the data
 
