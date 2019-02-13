@@ -18,6 +18,7 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 #Customer intent: As an application developer, I need to know how to configure my application to expose new permissions (or scopes) and roles, to make my application available to client applications.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Configure an application to expose web APIs (Preview)

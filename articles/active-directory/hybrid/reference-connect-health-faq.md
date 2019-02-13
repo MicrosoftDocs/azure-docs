@@ -14,6 +14,7 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect Health frequently asked questions
 This article includes answers to frequently asked questions (FAQs) about Azure Active Directory (Azure AD) Connect Health. These FAQs cover questions about how to use the service, which includes the billing model, capabilities, limitations, and support.

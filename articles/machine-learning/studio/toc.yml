@@ -13,6 +13,8 @@
   - name: Create your first experiment
     displayName: quickstart
     href: create-experiment.md
+- name: Tutorials
+  items:
   - name: Create a predictive solution
     items:
     - name: 1 - Create experiment
@@ -139,12 +141,6 @@
     items:
     - name: Overview
       href: retrain-machine-learning-model.md
-    - name: Retrain programmatically
-      href: retrain-models-programmatically.md
-    - name: Retrain a Classic web service
-      href: retrain-a-classic-web-service.md
-    - name: Retrain with PowerShell
-      href: retrain-new-web-service-using-powershell.md
     - name: Retrain an existing web service
       href: retrain-existing-resource-manager-based-web-service.md
     - name: Troubleshoot

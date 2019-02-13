@@ -16,6 +16,7 @@ ms.date: 10/23/2018
 ms.author: priyamo
 
 #As a developer, I'd like to securely manage the credentials that my application uses for authenticating to cloud services without having the credentials in my code or checked into source control.
+ms.collection: M365-identity-device-management
 ---
 
 # What is managed identities for Azure resources?

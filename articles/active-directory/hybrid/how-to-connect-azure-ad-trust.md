@@ -17,6 +17,7 @@ ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: 
+ms.collection: M365-identity-device-management
 ---
 # Manage AD FS trust with Azure AD using Azure AD Connect
 

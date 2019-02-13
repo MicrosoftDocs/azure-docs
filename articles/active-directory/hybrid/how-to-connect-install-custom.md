@@ -15,6 +15,7 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Custom installation of Azure AD Connect

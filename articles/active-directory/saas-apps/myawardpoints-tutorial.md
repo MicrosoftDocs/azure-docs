@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with My Award Points Top Sub/Top Team
 
