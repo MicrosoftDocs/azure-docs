@@ -3,7 +3,7 @@ title: Resiliency and disaster recovery in Azure SignalR Service
 description: An overview on how to set up multiple SignalR service instances to achieve resiliency and disaster recovery
 author: chenkennt
 ms.service: signalr
-ms.topic: overview
+ms.topic: concept
 ms.date: 01/29/2019
 ms.author: kenchen
 ---
@@ -35,7 +35,7 @@ But when a client is connected, it's always routed to the app server in the same
 
 Below is a diagram that illustrates such topology:
 
-![topology](media/signalr-disaster-recovery/topology.png)
+![topology](media/signalr-concept-disaster-recovery/topology.png)
 
 ## Configure app servers with multiple SignalR service instances
 
@@ -96,13 +96,13 @@ Here is what happens when a primary instance is down (and recovers after some ti
 Below diagrams illustrate how failover is done in SignalR service:
 
 Fig.1 Before failover
-![Before Failover](media/signalr-disaster-recovery/before-failover.png)
+![Before Failover](media/signalr-concept-disaster-recovery/before-failover.png)
 
 Fig.2 After failover
-![After Failover](media/signalr-disaster-recovery/after-failover.png)
+![After Failover](media/signalr-concept-disaster-recovery/after-failover.png)
 
 Fig.3 Short time after primary recovers
-![Short time after primary recovers](media/signalr-disaster-recovery/after-recover.png)
+![Short time after primary recovers](media/signalr-concept-disaster-recovery/after-recover.png)
 
 You can see in normal case only primary app server and SignalR service have online traffic (in blue).
 After failover, secondary app server and SignalR service also become active.
@@ -125,4 +125,4 @@ You'll need to handle such cases at client side to make it transparent to your e
 
 ## Next steps
 
-In this article, you have learned how to configure your application to achieve resiliency for SignalR service. To understand more details about server/client connection and connection routing in SignalR service, you can read [this article](signalr-internals.md) for SignalR service internals.
+In this article, you have learned how to configure your application to achieve resiliency for SignalR service. To understand more details about server/client connection and connection routing in SignalR service, you can read [this article](signalr-concept-internals.md) for SignalR service internals.

@@ -1,13 +1,13 @@
 ---
-title: Access key rotation for Azure SignalR Service
+title: Howto - access key rotation for Azure SignalR Service
 description: An overview on why the customer needs to routinely rotate the access keys and how to do it with the Azure portal GUI and the Azure CLI.
 author: sffamily
 ms.service: signalr
-ms.topic: overview
+ms.topic: howto
 ms.date: 09/13/2018
 ms.author: zhshang
 ---
-# Access key rotation for Azure SignalR Service
+# Howto guide: Access key rotation for Azure SignalR Service
 
 Each Azure SignalR Service instance has a pair of access keys called Primary and Secondary keys. They're used to authenticate SignalR clients when requests are made to the service. The keys are associated with the instance endpoint url. Keep your keys secure, and rotate them regularly. You're provided with two access keys, so you can maintain connections by using one key while regenerating the other.
 
@@ -27,7 +27,7 @@ For security reasons and compliance requirements, routinely rotate your access k
 
    A new key and corresponding connection string are created and displayed.
 
-   ![Regenerate Keys](media/signalr-key-rotation/regenerate-keys.png)
+   ![Regenerate Keys](media/signalr-howto-key-rotation/regenerate-keys.png)
 
 You also can regenerate keys by using the [Azure CLI](/cli/azure/ext/signalr/signalr/key?view=azure-cli-latest#ext-signalr-az-signalr-key-renew).
 
@@ -50,7 +50,7 @@ Rotate your access keys regularly as a good security practice.
 In this guide, you learned how to regenerate access keys. Continue to the next tutorials about authentication with OAuth or with Azure Functions.
 
 > [!div class="nextstepaction"]
-> [Integrate with ASP.NET core identity](./signalr-authenticate-oauth.md)
+> [Integrate with ASP.NET core identity](./signalr-concept-authenticate-oauth.md)
 
 > [!div class="nextstepaction"]
-> [Build a serverless real-time app with authentication](./signalr-authenticate-azure-functions.md)
+> [Build a serverless real-time app with authentication](./signalr-tutorial-authenticate-azure-functions.md)

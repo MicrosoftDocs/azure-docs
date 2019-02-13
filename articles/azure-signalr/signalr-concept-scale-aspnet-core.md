@@ -3,7 +3,7 @@ title: Scale ASP.NET Core SignalR with Azure SignalR
 description: An overview of using Azure SignalR service to scale ASP.NET Core SignalR applications.
 author: sffamily
 ms.service: signalr
-ms.topic: overview
+ms.topic: concept
 ms.date: 09/13/2018
 ms.author: zhshang
 ---
@@ -27,7 +27,7 @@ One of the key reasons to use the Azure SignalR Service is simplicity. With Azur
 
 Also, WebSockets are typically the preferred technique to support real-time content updates. However, load balancing a large number of persistent WebSocket connections becomes a complicated problem to solve as you scale. Common solutions leverage: DNS load balancing, hardware load balancers, and software load balancing. Azure SignalR Service handles this problem for you.
 
-Another reason may be you have no requirements to actually host a web application at all. The logic of your web application may leverage [Serverless computing](https://azure.microsoft.com/overview/serverless-computing/). For example, maybe your code is only hosted and executed on demand with [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) triggers. This scenario can be tricky because your code only runs on-demand and doesn't maintain long connections with clients. Azure SignalR Service can handle this situation since the service already manages connections for you. See the [overview on how to use SignalR Service with Azure Functions](signalr-overview-azure-functions.md) for more details.
+Another reason may be you have no requirements to actually host a web application at all. The logic of your web application may leverage [Serverless computing](https://azure.microsoft.com/overview/serverless-computing/). For example, maybe your code is only hosted and executed on demand with [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) triggers. This scenario can be tricky because your code only runs on-demand and doesn't maintain long connections with clients. Azure SignalR Service can handle this situation since the service already manages connections for you. See the [overview on how to use SignalR Service with Azure Functions](signalr-concept-azure-functions.md) for more details.
 
 ## How does it scale?
 

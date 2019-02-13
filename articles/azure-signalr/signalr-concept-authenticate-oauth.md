@@ -1,14 +1,13 @@
 ---
-title: Tutorial for authenticating Azure SignalR Service clients
-description: In this tutorial, you learn how to authenticate Azure SignalR Service clients
+title: Guide for authenticating Azure SignalR Service clients
+description: In this guide, you learn how to authenticate Azure SignalR Service clients
 author: sffamily
 ms.service: signalr
-ms.topic: tutorial
-ms.custom: mvc
+ms.topic: concept
 ms.date: 06/13/2018
 ms.author: zhshang
 ---
-# Tutorial: Azure SignalR Service authentication
+# Azure SignalR Service authentication
 
 This tutorial builds on the chat room application introduced in the quickstart. If you have not completed [Create a chat room with SignalR Service](signalr-quickstart-dotnet-core.md), complete that exercise first.
 
@@ -24,7 +23,7 @@ You can use any code editor to complete the steps in this quickstart. However, [
 
 The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/GitHubChat).
 
-![OAuth Complete hosted in Azure](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
+![OAuth Complete hosted in Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
 In this tutorial, you learn how to:
 
@@ -356,15 +355,15 @@ In this section, you will turn on real authentication by adding the `Authorize` 
 
 4. Launch a browser window and navigate to `http://localhost:5000`. Click the **here** link at the top to log in with GitHub.
 
-    ![OAuth Complete hosted in Azure](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
+    ![OAuth Complete hosted in Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
     You will be prompted to authorize the chat app's access to your GitHub account. Click the **Authorize** button.
 
-    ![Authorize OAuth App](media/signalr-authenticate-oauth/signalr-authorize-oauth-app.png)
+    ![Authorize OAuth App](media/signalr-concept-authenticate-oauth/signalr-authorize-oauth-app.png)
 
     You will be redirected back to the chat application and logged in with your GitHub account name. The web application determined you account name by authenticating you using the new authentication you added.
 
-    ![Account identified](media/signalr-authenticate-oauth/signalr-oauth-account-identified.png)
+    ![Account identified](media/signalr-concept-authenticate-oauth/signalr-oauth-account-identified.png)
 
     Now that the chat app performs authentication with GitHub and stores the authentication information as cookies, you should deploy it to Azure so other users can authenticate with their accounts and communicate from other workstations.
 
@@ -552,7 +551,7 @@ The last thing you need to do is update the **Homepage URL** and **Authorization
 
 3. Navigate to your web app URL and test the application.
 
-    ![OAuth Complete hosted in Azure](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
+    ![OAuth Complete hosted in Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
 ## Clean up resources
 
@@ -567,7 +566,7 @@ Sign in to the [Azure portal](https://portal.azure.com) and click **Resource gro
 
 In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *SignalRTestResources*. On your resource group in the result list, click **...** then **Delete resource group**.
 
-![Delete](./media/signalr-authenticate-oauth/signalr-delete-resource-group.png)
+![Delete](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 
 You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and click **Delete**.
 
@@ -578,4 +577,4 @@ After a few moments, the resource group and all of its contained resources are d
 In this tutorial, you added authentication with OAuth to provide a better approach to authentication with Azure SignalR Service. To learn more about using Azure SignalR Server, continue to the Azure CLI samples for SignalR Service.
 
 > [!div class="nextstepaction"]
-> [Azure SignalR CLI Samples](./signalr-cli-samples.md)
+> [Azure SignalR CLI Samples](./signalr-reference-cli.md)

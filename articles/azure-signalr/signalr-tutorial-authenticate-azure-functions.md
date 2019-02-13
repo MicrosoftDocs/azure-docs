@@ -1,10 +1,9 @@
 ---
 title: "Tutorial: Azure SignalR Service authentication with Azure Functions"
-description: In this tutorial, you learn how to authenticate Azure SignalR Service clients
+description: In this tutorial, you learn how to authenticate Azure SignalR Service clients for Azure Functions binding
 author: sffamily
 ms.service: signalr
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 01/31/2018
 ms.author: zhshang
 ---
@@ -44,7 +43,7 @@ You will build and test the Azure Functions app locally. The app will access a S
 
 1. Search for **SignalR Service** and select it. Click **Create**.
 
-    ![New SignalR Service](media/signalr-authenticate-azure-functions/signalr-quickstart-new.png)
+    ![New SignalR Service](media/signalr-tutorial-authenticate-azure-functions/signalr-quickstart-new.png)
 
 1. Enter the following information.
 
@@ -69,7 +68,7 @@ You will build and test the Azure Functions app locally. The app will access a S
     1. The main project folder should appear. Select it (or use "Browse" to locate it).
     1. In the prompt to choose a language, select **JavaScript**.
 
-    ![Create a function app](media/signalr-authenticate-azure-functions/signalr-create-vscode-app.png)
+    ![Create a function app](media/signalr-tutorial-authenticate-azure-functions/signalr-create-vscode-app.png)
 
 ### Install function app extensions
 
@@ -113,7 +112,7 @@ When running and debugging the Azure Functions runtime locally, application sett
     * The `WEBSITE_NODE_DEFAULT_VERSION` setting is not used locally, but is required when deployed to Azure.
     * The `Host` section configures the port and CORS settings for the local Functions host (this setting has no effect when running in Azure).
 
-    ![Get SignalR Service key](media/signalr-authenticate-azure-functions/signalr-get-key.png)
+    ![Get SignalR Service key](media/signalr-tutorial-authenticate-azure-functions/signalr-get-key.png)
 
 1. Save the file.
 
@@ -418,7 +417,7 @@ App Service Authentication supports authentication with Azure Active Directory, 
 
 1. Copy the function app's URL.
 
-    ![Get URL](media/signalr-authenticate-azure-functions/signalr-get-url.png)
+    ![Get URL](media/signalr-tutorial-authenticate-azure-functions/signalr-get-url.png)
 
 1. In VS Code, open **index.html** and replace the value of `apiBaseUrl` with the function app's URL.
 
@@ -452,7 +451,7 @@ Although there is a CORS setting in **local.settings.json**, it is not propagate
 
 1. Under the **Platform features** tab, select **CORS**.
 
-    ![Find CORS](media/signalr-authenticate-azure-functions/signalr-find-cors.png)
+    ![Find CORS](media/signalr-tutorial-authenticate-azure-functions/signalr-find-cors.png)
 
 1. Add an entry with the static website *primary endpoint* as the value (remove the trailing */*).
 
@@ -486,7 +485,7 @@ Once completed, CORS credentials support is enabled in the function app.
 
 Congratulations! You have deployed a real-time, serverless chat app!
 
-![Demo](media/signalr-authenticate-azure-functions/signalr-serverless-chat.gif)
+![Demo](media/signalr-tutorial-authenticate-azure-functions/signalr-serverless-chat.gif)
 
 ## Clean up resources
 
@@ -497,4 +496,4 @@ To clean up the resources created in this tutorial, delete the resource group us
 In this tutorial, you learned how to use Azure Functions with Azure SignalR Service. Read more about building real-time serverless applications with SignalR Service bindings for Azure Functions.
 
 > [!div class="nextstepaction"]
-> [Build Real-time Apps with Azure Functions](signalr-overview-azure-functions.md)
+> [Build Real-time Apps with Azure Functions](signalr-concept-azure-functions.md)

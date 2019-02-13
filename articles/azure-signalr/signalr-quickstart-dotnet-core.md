@@ -261,6 +261,6 @@ After a few moments, the resource group and all of its contained resources are d
 In this quickstart, you've created a new Azure SignalR Service resource and used it with an ASP.NET Core Web app to push content updates in real time to multiple connected clients. To learn more about using Azure SignalR Service, continue to the next tutorial that demonstrates authentication.
 
 > [!div class="nextstepaction"]
-> [Azure SignalR Service authentication](./signalr-authenticate-oauth.md)
+> [Azure SignalR Service authentication](./signalr-concept-authenticate-oauth.md)
 
 

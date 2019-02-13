@@ -35736,6 +35736,55 @@
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters",
       "redirect_document_id": false
     },
+    {      "source_path": "articles/azure-signalr/signalr-authenticate-oauth.md",
+      "redirect_url": "/azure/azure-signalr/signalr-concept-authenticate-oauth",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-overview-azure-functions.md",
+      "redirect_url": "/azure/azure-signalr/signalr-concept-azure-functions",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-disaster-recovery.md",
+      "redirect_url": "/azure/azure-signalr/signalr-concept-disaster-recovery",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-internals.md",
+      "redirect_url": "/azure/azure-signalr/signalr-concept-internals",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-messages.md",
+      "redirect_url": "/azure/azure-signalr/signalr-concept-messages-and-connections",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-overview-scale-aspnet-core.md",
+      "redirect_url": "/azure/azure-signalr/signalr-concept-scale-aspnet-core",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-key-rotation.md",
+      "redirect_url": "/azure/azure-signalr/signalr-howto-key-rotation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-cli-samples.md",
+      "redirect_url": "/azure/azure-signalr/signalr-reference-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-faq.md",
+      "redirect_url": "/azure/azure-signalr/signalr-resource-faq",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-signalr/signalr-authenticate-azure-functions.md",
+      "redirect_url": "/azure/azure-signalr/signalr-tutorial-authenticate-azure-functions",
+      "redirect_document_id": true
+    },
     {
       "source_path": "articles/hdinsight/hdinsight-hadoop-collect-debug-heap-dumps.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-collect-debug-heap-dump-linux",

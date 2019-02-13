@@ -1,13 +1,13 @@
 ---
-title: Build Real-time Apps with Azure Functions and Azure SignalR
-description: An overview of using Azure SignalR service in serverless applications.
+title: Build Real-time apps with Azure Functions and Azure SignalR Service
+description: An overview of using Azure SignalR Service in serverless applications.
 author: sffamily
 ms.service: signalr
-ms.topic: overview
+ms.topic: concept
 ms.date: 09/18/2018
 ms.author: zhshang
 ---
-# Build Real-time Apps with Azure Functions and Azure SignalR Service
+# Build real-time Apps with Azure Functions and Azure SignalR Service
 
 Because Azure SignalR Service and Azure Functions are both fully managed, highly scalable services that allow you to focus on building applications instead of managing infrastructure, it's common to use the two services together to provide real-time communications in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment.
 
@@ -41,7 +41,7 @@ The SignalR Service bindings for Azure Functions allow an Azure Function app to 
 
 An example of how to use the SignalR Service bindings is using Azure Functions to integrate with Azure Cosmos DB and SignalR Service to send real-time messages when new events appear on a Cosmos DB change feed.
 
-![Cosmos DB, Azure Functions, SignalR Service](media/signalr-overview-azure-functions/signalr-cosmosdb-functions.png)
+![Cosmos DB, Azure Functions, SignalR Service](media/signalr-concept-azure-functions/signalr-cosmosdb-functions.png)
 
 1. A change is made in a Cosmos DB collection
 2. The change event is propagated to the Cosmos DB change feed
