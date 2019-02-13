@@ -1,14 +1,14 @@
 ---
 title: How to troubleshoot Azure Cache for Redis | Microsoft Docs
 description: Learn how to resolve common issues with Azure Cache for Redis.
-services: redis-cache
+services: cache
 documentationcenter: ''
 author: yegu-ms
 manager: jhubbard
 editor: ''
 
 ms.assetid: 928b9b9c-d64f-4252-884f-af7ba8309af6
-ms.service: redis-cache
+ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: na

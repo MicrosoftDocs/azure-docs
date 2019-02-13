@@ -1,14 +1,14 @@
 ---
 title: Azure Cache for Redis FAQ | Microsoft Docs
 description: Learn the answers to common questions, patterns and best practices for Azure Cache for Redis
-services: redis-cache
+services: cache
 documentationcenter: ''
 author: yegu-ms
 manager: jhubbard
 editor: ''
 
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
-ms.service: redis-cache
+ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: na
