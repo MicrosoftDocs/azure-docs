@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with TigerText Secure Messenger
 

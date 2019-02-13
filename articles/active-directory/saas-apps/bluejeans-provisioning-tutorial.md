@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: v-ant
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure BlueJeans for automatic user provisioning

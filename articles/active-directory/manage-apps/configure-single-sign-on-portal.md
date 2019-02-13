@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 12/06/2018
 ms.author: celested
 ms.reviewer: arvinh,luleon
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure SAML-based single sign-on for an application with Azure Active Directory

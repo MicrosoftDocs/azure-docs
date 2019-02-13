@@ -17,6 +17,7 @@ ms.date: 02/07/2019
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 # How To: Configure risk policies in Azure Active Directory identity protection (refreshed)
 

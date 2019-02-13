@@ -20,6 +20,7 @@ ms.reviewer: sandeo
 
 #Customer intent: As a IT admin, I want to setup hybrid Azure AD joined devices for federated domains so that I can automatically bring AD domain-joined devices under control
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure hybrid Azure Active Directory join for federated domains
 

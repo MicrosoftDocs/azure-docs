@@ -14,6 +14,7 @@ ms.date: 08/28/2017
 ms.author: lizross 
 ms.reviewer: krbain
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Restore a deleted Office 365 group in Azure Active Directory
