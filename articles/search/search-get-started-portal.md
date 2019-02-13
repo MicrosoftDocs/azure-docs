@@ -89,15 +89,17 @@ Fields have data types and attributes. The check boxes across the top are *index
 
 Storage requirements do not vary as a result of your selection. For example, if you set the **Retrievable** attribute on multiple fields, storage requirements do not go up.
 
-By default, the wizard scans the data source for unique identifiers as the basis for the key field. 
+By default, the wizard scans the data source for unique identifiers as the basis for the key field. *Strings* are attributed as **Retrievable** and **Searchable**. *Integers* are attributed as **Retrievable**, **Filterable**, **Sortable**, and **Facetable**.
 
-1. Configure an index by selecting checkboxes to add attributes to each field. *Strings* should be attributed as **Retrievable** and **Searchable**. *Integers* should be attributed as **Retrievable**, **Filterable**, **Sortable**, and **Facetable**.
+1. Accept the defaults. 
 
-  ![Generated realestate index](media/search-get-started-portal/realestateindex2.png)
+   If you rerun the wizard a second time using an existing realestate data source, the index won't be configured with default attributes. You'll have to manually select attributes on future imports.
+
+   ![Generated realestate index](media/search-get-started-portal/realestateindex2.png)
 
 2. Continue to the next page.
 
-  ![Next page create indexer](media/search-get-started-portal/next-button-create-indexer.png)
+   ![Next page create indexer](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### Step 4 - Configure indexer
 
