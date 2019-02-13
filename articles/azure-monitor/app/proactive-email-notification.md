@@ -29,11 +29,11 @@ This change will affect all Smart Detection rules, excluding the following ones:
 
 ## How to prepare for this change?
 
-To ensure that email notifications from Smart Detection are sent to the relevant users, those users must be assigned to the [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) and [Monitoring Contributor]((https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roles. Assignment should be made at either the subscription level (affecting all Application Insights resources in the subscription), or at the Application Insights resource level (affecting only that specific resource).
+To ensure that email notifications from Smart Detection are sent to the relevant users, those users must be assigned to the [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) and [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roles. Assignment should be made at either the subscription level (affecting all Application Insights resources in the subscription), or at the Application Insights resource level (affecting only that specific resource).
 
 To assign users to the Monitoring Reader or Monitoring Contributor roles via the Azure portal, follow the steps described in the [Add a role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment) article. Make sure to select the _Monitoring Reader_ or _Monitoring Contributor_ as the role to which users are assigned.
 
 > [!NOTE]
-> Specific recipients of Smart Detection notifications, configured using the _Additional email recipients_ option in the rule settings, will not be affected by this change, and will continue receiving the email notifications.
+> Specific recipients of Smart Detection notifications, configured using the _Additional email recipients_ option in the rule settings, will not be affected by this change. These recipients will continue receiving the email notifications.
 
-If you have any questions or concerns regarding this change, don’t hesitate to [contact us](mailto:smart-alert-feedback@microsoft.com).
+If you have any questions or concerns about this change, don’t hesitate to [contact us](mailto:smart-alert-feedback@microsoft.com).
