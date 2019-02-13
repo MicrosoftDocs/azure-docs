@@ -68,13 +68,13 @@ The Azure command-line interface (CLI) is Microsoft's cross-platform command-lin
 
     Note the storage account that contains the blob you want to work with for later use.
 
-3. Replace the parameters with actual values and then use the following command to list the primary and secondary keys for a storage account.
+3. Replace the parameters with actual values and then use the following command to list the primary and secondary keys for a storage account:
 
     ```cli
     az storage account keys list --account-name <storage-account-name>
 
     REM Returns primary key only for given storage account.
-    az storage account keys list --account-name <storage-account-name> --query "[?keyName=='key1'].{PrimaryKey:value}" --output table
+    az storage account keys list --account-name <storage-account-name> --query "[0].{PrimaryKey:value}" --output table
     ```
 
     Note the primary key for later use.
@@ -90,13 +90,13 @@ The Azure command-line interface (CLI) is Microsoft's cross-platform command-lin
 
     Note the storage container name for later use.
 
-5. Replace the parameters with actual values and then use the following command to upload a file to a storage blob.  
+5. Replace the parameters with actual values and then use the following command to upload a file to a storage blob:  
 
     ```cli
     az storage blob upload --container-name <container-name> --file <source-blob-name> --name <dest-blob-name> --account-name <storage-account-name> --account-key <primary-key>
     ```
 
-6. Replace the parameters with actual values and then use the following command to list blobs in a given container.
+6. Replace the parameters with actual values and then use the following command to list blobs in a given container:
 
     ```cli
     az storage blob list --container-name <container-name> --account-name <storage-account-name> --account-key <primary-key>
@@ -133,7 +133,7 @@ The Azure Classic command-line interface (CLI) is Microsoft's cross-platform com
 
     Note the storage account that contains the blob you want to work with for later use.
 
-3. Replace the parameters with actual values and then use the following command to list the primary and secondary keys for a storage account.
+3. Replace the parameters with actual values and then use the following command to list the primary and secondary keys for a storage account:
 
     ```cli
     azure storage account keys list --resource-group <resource-group> <storage-account-name>
@@ -149,13 +149,13 @@ The Azure Classic command-line interface (CLI) is Microsoft's cross-platform com
 
     Note the storage container name for later use.
 
-5. Replace the parameters with actual values and then use the following command to upload a file to a storage blob.  
+5. Replace the parameters with actual values and then use the following command to upload a file to a storage blob:  
 
     ```cli
     azure storage blob upload --container <container-name> --file <source-blob-name> --blob <dest-blob-name> --account-name <storage-account-name> --account-key <primary-key>
     ```
 
-6. Replace the parameters with actual values and then use the following command to list blobs in a given container.
+6. Replace the parameters with actual values and then use the following command to list blobs in a given container:
 
     ```cli
     azure storage blob list --container <container-name> --account-name <storage-account-name> --account-key <primary-key>
@@ -226,6 +226,9 @@ Azure PowerShell is a scripting environment that you can use to control and auto
 
     ```powershell
     Get-AzStorageContainer -Context $StorageContext | Format-List
+
+    # Alternative
+    (Get-AzStorageContainer -Context $StorageContext).Name
     ```
 
     Note the storage container name for later use.
@@ -317,7 +320,7 @@ The following steps are for the first time execution of Azure Storage Explorer.
 
 1. Run Azure Storage Explorer.
 
-2. From the **Connect to Azure Storage** window, ensure **Add an Azure Account** is selected and select your Azure environment form the drop-down list.
+2. From the **Connect to Azure Storage** window, ensure **Add an Azure Account** is selected and select your Azure environment from the drop-down list.
 
 3. Select **Sign in...**.
 
