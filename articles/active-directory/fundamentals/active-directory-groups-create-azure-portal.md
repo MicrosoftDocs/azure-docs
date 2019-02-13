@@ -13,6 +13,7 @@ ms.date: 08/22/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"                      
+ms.collection: M365-identity-device-management
 ---
 
 # Create a basic group and add members using Azure Active Directory

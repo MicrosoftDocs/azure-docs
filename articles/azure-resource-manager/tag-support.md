@@ -4,12 +4,14 @@ description: Shows which Azure resource types support tags. Provides details for
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/24/2019
+ms.date: 02/12/2019
 ms.author: tomfitz
 ---
 
 # Tag support for Azure resources
 This article describes whether a resource type supports [tags](resource-group-using-tags.md).
+
+To get the same data as a file of comma-separated values, download [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
 ## Microsoft.AAD
 | Resource type | Supports tags |

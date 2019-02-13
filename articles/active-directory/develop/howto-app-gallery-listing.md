@@ -18,6 +18,7 @@ ms.date: 01/30/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to: List your application in the Azure Active Directory application gallery
