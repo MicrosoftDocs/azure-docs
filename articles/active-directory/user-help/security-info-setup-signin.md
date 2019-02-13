@@ -14,7 +14,7 @@ ms.date: 02/13/2019
 ms.author: lizross
 ---
 
-# Set up your security from the sign-in page prompt
+# Set up your security info from the sign-in page prompt
 You can follow these steps if you're prompted to add your security info immediately after you sign in to your work or school account.
 
 You will only see this prompt if your administrator has turned security info on, and if you haven't previously set up your security info.
@@ -58,7 +58,9 @@ Follow these steps to set up your security info for your work or school account 
 
     The authenticator app should successfully add your work or school account without requiring any additional information from you. However, if the QR code reader can't read the code, you can select the **Can't scan the QR code link** and manually enter the code and URL into the Microsoft Authenticator app. For more information about manually adding a code, see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
 
-7. Select **Next** on the **Scan the QR code** page on your PC. A notification is sent to the Microsoft Authenticator app on your mobile device, to test your account.
+7. Select **Next** on the **Scan the QR code** page on your PC.
+
+    A notification is sent to the Microsoft Authenticator app on your mobile device, to test your account.
 
     ![Test your account with the authenticator app](media/security-info/securityinfo-prompt-test-app.png)
 
