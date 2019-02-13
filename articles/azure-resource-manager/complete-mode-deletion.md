@@ -9,7 +9,11 @@ ms.author: tomfitz
 ---
 
 # Deletion of Azure resources for complete mode deployments
-This article describes how resource types handle deletion when not in a template that is deployed in complete mode. The resource types marked with `Yes` are deleted when the type isn't in the template deployed with complete mode. The resource types marked with `No` aren't automatically deleted when not in the template; however, they're deleted if the parent resource is deleted. For a full description of the behavior, see [Azure Resource Manager deployment modes](deployment-modes.md).
+This article describes how resource types handle deletion when not in a template that is deployed in complete mode.
+
+The resource types marked with `Yes` are deleted when the type isn't in the template deployed with complete mode. 
+
+The resource types marked with `No` aren't automatically deleted when not in the template; however, they're deleted if the parent resource is deleted. For a full description of the behavior, see [Azure Resource Manager deployment modes](deployment-modes.md).
 
 To get the same data as a file of comma-separated values, download [complete-mode-deletion.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/complete-mode-deletion.csv).
 
