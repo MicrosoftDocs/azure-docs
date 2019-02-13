@@ -4,7 +4,7 @@ description: Azure Security Center Tutorial - Respond to security incidents
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f

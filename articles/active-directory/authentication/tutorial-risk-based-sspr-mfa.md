@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: How, as an Azure AD Administrator, do I utilize Azure AD Identity Protection to better protect the sign-in process.
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Use risk events to trigger Multi-Factor Authentication and password changes
 

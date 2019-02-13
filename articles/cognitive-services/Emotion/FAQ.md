@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: conceptual
 ms.date: 01/26/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
 ---
 

@@ -16,6 +16,7 @@ ms.date: 09/13/2018
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure AD Connect: Device options

@@ -27,7 +27,7 @@ ApplicationInsights
 | summarize by ApplicationName
 ```
 
-Create a function using union operator with the list of applications, then save the query as function with the alias *applicationsScoping*.  
+Create a function using union operator with the list of applications, then save the query in your workspace as function with the alias *applicationsScoping*.  
 
 ```
 union withsource=SourceApp 
@@ -40,7 +40,7 @@ app('Contoso-app5').requests
 ```
 
 >[!NOTE]
->You can modify the listed applications at any time by navigating to Query explorer in the Logs portal and editing the function, or using the `SavedSearch` PowerShell cmdlet. The `withsource= SourceApp` command adds a column to the results that designates the application that sent the log. 
+>You can modify the listed applications at any time in the portal by navigating to Query explorer in your workspace and selecting the function for editing and then saving, or using the `SavedSearch` PowerShell cmdlet. The `withsource= SourceApp` command adds a column to the results that designates the application that sent the log. 
 >
 >The query uses Application Insights schema, although the query is executed in the workspace since the applicationsScoping function returns the Application Insights data structure. 
 >

@@ -4,7 +4,7 @@ description: This FAQ answers questions about Azure Security Center.
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb

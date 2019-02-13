@@ -13,6 +13,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
+ms.collection: M365-identity-device-management
 ---
 
 # Register for self-service password reset
