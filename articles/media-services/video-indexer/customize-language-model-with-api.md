@@ -14,7 +14,8 @@ ms.author: anzaman
 
 # Customize a Language model with the Video Indexer APIs
 
-Video Indexer lets you create custom Language models to customize speech recognition by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to. Once you train your model, new words appearing in the adaptation text will be recognized. 
+Video Indexer lets you create custom Language models to customize speech recognition by uploading adaptation text, namely text from the domain whose vocabulary you'd like the engine to adapt to. Once you train your model, new words appearing in the adaptation text will be recognized. The custom Language models that you make will only be available in the account in which you created the models.
+
 
 For a detailed overview and best practices for custom Language models, see [Customize a Language model with Video Indexer](customize-language-model-overview.md).
 
