@@ -12,8 +12,7 @@ ms.topic: article
 ms.date: 02/09/2019
 ---
 # Upgrade your data warehouse to Gen2
-
-Azure SQL Data Warehouse recently introduced [Gen2 support for lower compute tiers](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). The new offering is already available in the regions noted in the table below. For supported regions, existing Gen1 data warehouses can be upgraded to Gen2 through either:
+Microsoft is helping drive down the entry-level cost of running a data warehouse capable of handling demanding queries by adding lower compute tiers for Azure SQL Data Warehouse To read full announcement about [Lower compute tier support for Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). The new offering is already available in the regions noted in the table below. For supported regions, existing Gen1 data warehouses can be upgraded to Gen2 through either:
 - **The automatic upgrade process:** Automatic upgrades do not start as soon as the service is available in a region.  When automatic upgrades start in a specific region, individual DW upgrades will take place during your selected maintenance schedule. 
 - **Self-upgrade to Gen2:** If you prefer to control when to upgrade, you can perform a self-upgrade to Gen2. If your region is not yet supported, you can migrate your DW to a region that is supported and then perform a self-upgrade to Gen 2.
 
@@ -73,9 +72,9 @@ Optionally, if you want to upgrade now, you can choose to self-upgrade by follow
 
 There are two options when conducting a self-upgrade.  You can either upgrade your current data warehouse in-place or you can restore a Gen1 data warehouse into a Gen2 instance.
 
-- [Upgrade in-place](upgrade-to-latest-generation.md) - This option will upgrade your existing Gen1 data warehouse to Gen2. The upgrade process will involve a brief drop in connectivity (approx. 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. If for any reason you need to restore back to Gen1 from a Gen2 instance, open a [support request](https://review.docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket).
+- [Upgrade in-place](upgrade-to-latest-generation.md) - This option will upgrade your existing Gen1 data warehouse to Gen2. The upgrade process will involve a brief drop in connectivity (approx. 5 min) as we restart your data warehouse.  Once your data warehouse has been restarted, it will be fully available for use. If for any reason you need to restore back to Gen1 from a Gen2 instance, open a [support request](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket).
 - [Upgrade from restore point](sql-data-warehouse-restore.md) - Create a user-defined restore point on your current Gen1 data warehouse and then restore directly to a Gen2 instance. The existing Gen1 data warehouse will stay in place. Once the restore has been completed, your Gen2 data warehouse will be fully available for use.  Once you have run all testing and validation processes on the restored Gen2 instance, the original Gen1 instance can be deleted.
-    - Step 1: From the Azure portal, [create a user-defined restore point](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore#create-a-user-defined-restore-point-using-the-azure-portal).
+    - Step 1: From the Azure portal, [create a user-defined restore point](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal).
     - Step 2: When restoring from a user-defined restore point, set the "performance Level" to your preferred Gen2 tier.
 
 You may experience a period of degradation in performance while the upgrade process continues to upgrade the data files in the background. The total time for the performance degradation will vary dependent on the size of your data files.
@@ -85,7 +84,7 @@ To expedite the background data migration process, you can immediately force dat
 > [!NOTE]
 > Alter Index rebuild is an offline operation and the tables will not be available until the rebuild completes.
 
-If you encounter any issues with your data warehouse, create a [support request](https://review.docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) and reference “Gen2 upgrade” as the possible cause.
+If you encounter any issues with your data warehouse, create a [support request](sql-data-warehouse-get-started-create-support-ticket.md) and reference “Gen2 upgrade” as the possible cause.
 
 For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
@@ -115,7 +114,7 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 - A: If you are running a DW600 or DW1200 on Gen1, it is advised to use DW500c or DW1000c respectively since Gen2 provides more memory, resources, and higher performance than Gen1.
 
 **Q: Can I disable geo-backup?**
-- A: No. Geo-backup is an enterprise feature to preserve your data warehouse availability in the event a region becomes unavailable. Open a [support request](https://review.docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) if you have further concerns.
+- A: No. Geo-backup is an enterprise feature to preserve your data warehouse availability in the event a region becomes unavailable. Open a [support request](sql-data-warehouse-get-started-create-support-ticket.md) if you have further concerns.
 
 **Q: Is there a difference in T-SQL syntax between Gen1 and Gen2?**
 - A: There is no change in the T-SQL language syntax from Gen1 to Gen2.
