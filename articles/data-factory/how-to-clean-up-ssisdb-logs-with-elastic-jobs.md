@@ -71,26 +71,26 @@ Find-Package PowerShellGet -RequiredVersion 1.6.5 | Install-Package -Force
 Install-Module -Name AzureRM.Sql -AllowPrerelease -Force
 
 # Sign in to your Azure account
-Connect-AzureRmAccount
+Connect-AzAccount
 
 # Create a Job Database which is used for defining jobs of triggering SSISDB log cleanup stored procedure and tracking cleanup history of jobs
 Write-Output "Creating a blank SQL database to be used as the SSISDBLogCleanup  Job Database ..."
-$JobDatabase = New-AzureRmSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $AgentServerName -DatabaseName $SSISDBLogCleanupJobDB -RequestedServiceObjectiveName $PricingTier
+$JobDatabase = New-AzSqlDatabase -ResourceGroupName $ResourceGroupName -ServerName $AgentServerName -DatabaseName $SSISDBLogCleanupJobDB -RequestedServiceObjectiveName $PricingTier
 $JobDatabase
 
 # Enable the Elastic Jobs preview in your Azure subscription
-Register-AzureRmProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
+Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql
 
 # Create the Elastic Job agent
 Write-Output "Creating the Elastic Job agent..."
-$JobAgent = $JobDatabase | New-AzureRmSqlElasticJobAgent -Name $SSISDBLogCleanupAgentName
+$JobAgent = $JobDatabase | New-AzSqlElasticJobAgent -Name $SSISDBLogCleanupAgentName
 $JobAgent
 
 # Create the job credential in the Job Database to connect to SSISDB database in the target server for log cleanup
 Write-Output "Creating job credential to connect to SSISDB database..."
 $JobCredSecure = ConvertTo-SecureString -String $PasswordForSSISDBCleanupUser -AsPlainText -Force
 $JobCred = New-Object -TypeName "System.Management.Automation.PSCredential" -ArgumentList "SSISDBLogCleanupUser", $JobCredSecure
-$JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "SSISDBLogCleanupUser" -Credential $JobCred
+$JobCred = $JobAgent | New-AzSqlElasticJobCredential -Name "SSISDBLogCleanupUser" -Credential $JobCred
 
 # In the master database of the target SQL server which contains SSISDB to cleanup 
 # - Create the job user login
@@ -123,31 +123,31 @@ $TargetDatabase | % {
 
 # Create a target group which includes SSISDB database needed to cleanup
 Write-Output "Creating the target group including only SSISDB database needed to cleanup ..."
-$SSISDBTargetGroup = $JobAgent | New-AzureRmSqlElasticJobTargetGroup -Name "SSISDBTargetGroup"
-$SSISDBTargetGroup | Add-AzureRmSqlElasticJobTarget -ServerName $SSISDBServerEndpoint -Database $SSISDBName 
+$SSISDBTargetGroup = $JobAgent | New-AzSqlElasticJobTargetGroup -Name "SSISDBTargetGroup"
+$SSISDBTargetGroup | Add-AzSqlElasticJobTarget -ServerName $SSISDBServerEndpoint -Database $SSISDBName 
 
 # Create the job to trigger execution of SSISDB log cleanup stored procedure
 Write-Output "Creating a new job to trigger execution of the stored procedure for SSISDB log cleanup"
 $JobName = "CleanupSSISDBLog"
-$Job = $JobAgent | New-AzureRmSqlElasticJob -Name $JobName -RunOnce
+$Job = $JobAgent | New-AzSqlElasticJob -Name $JobName -RunOnce
 $Job
 
 # Add the job step to execute internal.cleanup_server_retention_window_exclusive
 Write-Output "Adding the job step for the cleanup stored procedure execution"
 $SqlText = "EXEC internal.cleanup_server_retention_window_exclusive"
-$Job | Add-AzureRmSqlElasticJobStep -Name "step to execute cleanup stored procedure" -TargetGroupName $SSISDBTargetGroup.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText
+$Job | Add-AzSqlElasticJobStep -Name "step to execute cleanup stored procedure" -TargetGroupName $SSISDBTargetGroup.TargetGroupName -CredentialName $JobCred.CredentialName -CommandText $SqlText
 
 # Run the job to immediately start cleanup stored procedure execution for once
 IF(($RunJobOrNot = "Y") -Or ($RunJobOrNot = "y"))
 {
 Write-Output "Start a new execution of the stored procedure for SSISDB log cleanup immediately..."
-$JobExecution = $Job | Start-AzureRmSqlElasticJob
+$JobExecution = $Job | Start-AzSqlElasticJob
 $JobExecution
 }
 
 # Schedule the job running to trigger stored procedure execution on schedule for removing SSISDB logs outside the retention window
 Write-Output "Start the execution schedule of the stored procedure for SSISDB log cleanup..."
-$Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $IntervalCount -StartTime $StartTime -Enable
+$Job | Set-AzSqlElasticJob -IntervalType $IntervalType -IntervalCount $IntervalCount -StartTime $StartTime -Enable
 ```
 
 ## Clean up logs with Transact-SQL

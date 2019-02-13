@@ -30,12 +30,12 @@ This sample PowerShell script creates an Azure-SSIS integration runtime that can
 After you run the sample script, you can use the following command to remove the resource group and all resources associated with it:
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourceGroupName
+Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 ```
 To remove the data factory from the resource group, run the following command: 
 
 ```powershell
-Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
+Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
 ```
 
 ## Script explanation
@@ -44,12 +44,12 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Creates a resource group in which all resources are stored. |
-| [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Create a data factory. |
-| [Set-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime) | Creates an Azure-SSIS integration runtime that can run SSIS packages in the cloud |
-| [Start-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime) | Starts the Azure-SSIS integration runtime. |
-| [Get-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntime) | Gets information about the Azure-SSIS integration runtime. |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Deletes a resource group including all nested resources. |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
+| [Set-AzDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-Azdatafactoryv2) | Create a data factory. |
+| [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-Azdatafactoryv2integrationruntime) | Creates an Azure-SSIS integration runtime that can run SSIS packages in the cloud |
+| [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-Azdatafactoryv2integrationruntime) | Starts the Azure-SSIS integration runtime. |
+| [Get-AzDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/get-Azdatafactoryv2integrationruntime) | Gets information about the Azure-SSIS integration runtime. |
+| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 
 ## Next steps
