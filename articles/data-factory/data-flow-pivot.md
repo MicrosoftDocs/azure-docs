@@ -9,29 +9,29 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 --- 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
-
 # Azure Data Factory Mapping Data Flow Pivot Transformation
+
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Use Pivot in ADF Data Flow as an aggregation where one or more grouping columns has its distinct row values transformed into individual columns. Essentially, you can Pivot row values into new columns (turn data into metadata).
 
-<img src="media/data-flow/pivot1.png" width="300">
+![Pivot options](media/data-flow/pivot1.png "pivot 1")
 
 ## Group By
 
-<img src="media/data-flow/pivot2.png" width="300">
+![Pivot options](media/data-flow/pivot2.png "pivot 2")
 
 First, set the columns that you wish to group by for your pivot aggregation. You can set more than 1 column here with the + sign next to the column list.
 
 ## Pivot Key
 
-<img src="media/data-flow/pivot3.png" width="400">
+![Pivot options](media/data-flow/pivot3.png "pivot 3")
 
 The Pivot Key is the column that ADF will pivot from row to column. By default, each unique value in the dataset for this field will pivot to a column. However, you can optionally enter the values from the dataset that you wish to pivot to column values.
 
 ## Pivoted Columns
 
-<img src="media/data-flow/pivot4.png" width="400">
+![Pivot options](media/data-flow/pivot4.png "pivot 4")
 
 Lastly, you will choose the aggregation that you wish to use for the pivoted values and how you would like the columns to be displayed in the new output projection from the transformation.
 
@@ -39,7 +39,7 @@ Lastly, you will choose the aggregation that you wish to use for the pivoted val
 
 For instance, pivoting "Sales" by "Region" would result in new column values from each sales value, i.e. "25", "50", "1000", etc. However, if you set a prefix value of "Sales " 
 
-<img src="media/data-flow/pivot5.png" width="400">
+![Pivot options](media/data-flow/pivot5.png "pivot 5")
 
 Setting the Column Arrangement to "Normal" will group together all of the pivoted columns with their aggregated values. Setting the columns arrangement to "Lateral" will alternate between column and value.
 
