@@ -20,6 +20,7 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
 
+ms.collection: M365-identity-device-management
 ---
 # Migrate a classic policy that requires multi-factor authentication in the Azure portal 
 

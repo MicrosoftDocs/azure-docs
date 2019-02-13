@@ -13,9 +13,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/03/2018
+ms.date: 02/11/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Zendesk
 
@@ -106,7 +107,11 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
     `https://<subdomain>.zendesk.com`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `<subdomain>.zendesk.com`
+	| |
+	|-|-|
+	| `<subdomain>.zendesk.com` |
+	| `https://<subdomain>.zendesk.com` |
+	| |
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Zendesk Client support team](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -160,7 +165,7 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 
 11. After adding extension to the browser, click on **Setup Zendesk** will direct you to the Zendesk application. From there, provide the admin credentials to sign into Zendesk. The browser extension will automatically configure the application for you and automate section **Configure Zendesk Single Sign-On**.
 
-	 ![image](./media/zendesk-tutorial/d2_saml.png)
+	![image](./media/zendesk-tutorial/d2_saml.png)
 
 ### Configure Zendesk Single Sign-On
 
@@ -188,7 +193,7 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 
     f. Click **Save**.
 
-### Create an Azure AD test user 
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -276,5 +281,4 @@ When you click the Zendesk tile in the Access Panel, you should be automatically
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Configure User Provisioning](zendesk-provisioning-tutorial.md) 
-
+- [Configure User Provisioning](zendesk-provisioning-tutorial.md)

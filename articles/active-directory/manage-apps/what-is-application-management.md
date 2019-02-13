@@ -12,6 +12,7 @@ ms.date: 10/30/2018
 ms.author: celested
 ms.reviewer: arvinh
 
+ms.collection: M365-identity-device-management
 ---
 
 # Application management with Azure Active Directory

@@ -14,6 +14,7 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Connect Health operations
 This topic describes the various operations you can perform by using Azure Active Directory (Azure AD) Connect Health.

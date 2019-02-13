@@ -68,6 +68,8 @@
     href: elevate-access-global-admin.md
   - name: Manage access for external users
     href: role-assignments-external-users.md
+  - name: Classic administrators
+    href: classic-administrators.md
   - name: Troubleshoot
     href: troubleshooting.md
 - name: Reference

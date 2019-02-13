@@ -89,7 +89,7 @@ It may take several minutes for the application gateway to be created. After the
 
 ### Add the redirection configuration
 
-Add the redirection configuration that sends traffic from the application gateway to *bing.com* using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-configwork_application_gateway_redirect_config_create).
+Add the redirection configuration that sends traffic from the application gateway to *bing.com* using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \

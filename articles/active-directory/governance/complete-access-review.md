@@ -15,6 +15,7 @@ ms.subservice: compliance
 ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
+ms.collection: M365-identity-device-management
 ---
 
 # Complete an access review of members of a group or users' access to an application in Azure AD
