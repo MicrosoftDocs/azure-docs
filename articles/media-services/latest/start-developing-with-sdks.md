@@ -52,7 +52,7 @@ AMSE is an Open Source project, support is provided by the community (issues can
 
 ## REST
 
-Install a REST client to execute the Media Services REST APIs. For example **Postman**, **Visual Studio Code** with the REST plugin, or **Telerik Fiddler**.  We are using [Postman](media-rest-apis-with-postman.md)
+Install a REST client to execute the Media Services REST APIs. For example **Postman**, **Visual Studio Code** with the REST plugin, or **Telerik Fiddler**. We are using [Postman](media-rest-apis-with-postman.md) for Media Services v3 samples.
 
 ### Reference
 
@@ -60,7 +60,7 @@ Install a REST client to execute the Media Services REST APIs. For example **Pos
 
 ### Examples
 
-- [Tutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md)
+- [Tutorial: Encode a remote file based on URL and stream the video using REST](stream-files-tutorial-with-rest.md)
 - [Upload files into a Media Services account using REST](upload-files-rest-how-to.md)
 - [Create filters with Media Services REST API](filters-dynamic-manifest-rest-howto.md)
 - [Azure Resource Manager based REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)
