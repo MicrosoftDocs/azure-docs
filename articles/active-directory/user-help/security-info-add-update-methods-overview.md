@@ -17,7 +17,7 @@ ms.author: lizross
 # Overview about changing your security info methods and information
 You can add, edit, delete, and change your default security info method from within the **Security info** pages. For more information about each method and how to change your information, see the associated, method-based article.
 
-##Two-factor verification versus self-service password reset
+## Two-factor verification versus self-service password reset
 Security info methods are used for both two-factor verification and for self-service password reset verification. However, not all methods can be used for both.
 
 |Method|Used for|
@@ -38,8 +38,6 @@ This list includes the method-based articles. Each article provides details abou
 |[Set up security info to use phone calls](security-info-setup-phone-number.md)|Describes how to modify your security info method for phone calls.|
 |[Set up security info to use email](security-info-setup-email.md)|Describes how to modify your security info method to use an email address.|
 |[Set up security info to use pre-defined security questions](security-info-setup-questions.md)|Describes how to modify your security info method to use security questions.|
-|[Manage app passwords](security-info-app-passwords.md)|Describes how to set up app passwords using security info.|
-|[How to sign in](user-help-sign-in.md)|Describes how to sign in using your specified security info method.|
 
 
 
