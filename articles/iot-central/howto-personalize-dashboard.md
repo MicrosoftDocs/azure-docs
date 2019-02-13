@@ -1,6 +1,6 @@
 ---
-title: Configure the Azure IoT Central application dashboard | Microsoft Docs
-description: As a builder, learn how to configure the default Azure IoT Central application dashboard.
+title: Create Azure IoT Central personal dashboards | Microsoft Docs
+description: As a user, learn how to create and mange your personal dashboards.
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/13/2019
@@ -10,7 +10,9 @@ services: iot-central
 manager: philmea
 ---
 
-# Configure the application dashboard
+# Create and manage personal dashboards
+
+<!- TODO TODO this needs to be rewritten to describe the new feature -->
 
 The **Dashboard** is the page that loads when users who have access to the application navigate to the application's URL. If you selected either the **Sample Contoso** or **Sample Devkits** application template to create your application, your application has a pre-defined dashboard. If you chose the **Custom Application** application template, your dashboard is blank.
 
@@ -21,19 +23,19 @@ The **Dashboard** is the page that loads when users who have access to the appli
 
 The following screenshot shows the dashboard in an application created from the **Sample Contoso** template. To customize the default dashboard for your application, click **Edit** at the top right of the page.
 
-![Dashboard for applications based on the "Sample Contoso" template](media/howto-configure-homepage-experimental/image1.png)
+![Dashboard for applications based on the "Sample Contoso" template](media/howto-configure-homepage/image1.png)
 
 Clicking **Edit**, opens the dashboard library panel. The library contains the tiles and dashboard primitives you can use to customize the dashboard.
 
-![Dashboard library](media/howto-configure-homepage-experimental/image2.png)
+![Dashboard library](media/howto-configure-homepage/image2.png)
 
 For example, you can add a **Device Settings and Properties** tile to show a selection of the current settings and properties values for a device. To do so, first select a **Device Template** then select a **Device Instance**. After that give the tile a title and select a **Setting** or a **Property** to display. The following screenshot shows the **Set Temperature** setting selected to add to the tile. Click **Done** to save the change to the dashboard.
 
-!["Configure Device Details" form with details for settings and properties](media/howto-configure-homepage-experimental/image3.png)
+!["Configure Device Details" form with details for settings and properties](media/howto-configure-homepage/image3.png)
 
 Now when an operator views the default application dashboard, they see the new tile with the **Set Temperature** setting for the device:
 
-!["Dashboard" tab with displayed settings and properties for the tile](media/howto-configure-homepage-experimental/image4.png)
+!["Dashboard" tab with displayed settings and properties for the tile](media/howto-configure-homepage/image4.png)
 
 You can explore other tile types in the library to discover how to further customize the default application dashboard.
 
@@ -42,4 +44,4 @@ You can explore other tile types in the library to discover how to further custo
 Now that you've learned how to configure your Azure IoT Central default application dashboard, you can:
 
 > [!div class="nextstepaction"]
-> [Learn how to prepare and upload images](howto-prepare-images-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json)
+> [Learn how to prepare and upload images](howto-prepare-images.md)

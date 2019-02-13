@@ -1,6 +1,6 @@
 ---
-title: Configure the Azure IoT Central application dashboard | Microsoft Docs
-description: As a builder, learn how to configure the default Azure IoT Central application dashboard.
+title: Create Azure IoT Central personal dashboards | Microsoft Docs
+description: As a user, learn how to create and mange your personal dashboards.
 author: dominicbetts
 ms.author: dobett
 ms.date: 02/13/2019
@@ -10,7 +10,9 @@ services: iot-central
 manager: philmea
 ---
 
-# Configure the application dashboard
+# Create and manage personal dashboards
+
+<!- TODO this needs to be rewritten to describe the new feature -->
 
 The **Dashboard** is the page that loads when users who have access to the application navigate to the application's URL. If you selected either the **Sample Contoso** or **Sample Devkits** application template to create your application, your application has a pre-defined dashboard. If you chose the **Custom Application** application template, your dashboard is blank.
 

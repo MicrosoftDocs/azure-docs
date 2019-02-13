@@ -29,9 +29,9 @@ You can add custom images to the following locations in an Azure IoT Central app
 
     ![Image on application manager page](media/howto-prepare-images-experimental/applicationmanager.png)
 
-* The home page
+* The application dashboard
 
-    ![Image on home page](media/howto-prepare-images-experimental/homepage.png)
+    ![Image on application dashboard](media/howto-prepare-images-experimental/homepage.png)
 
 * A device template
 
@@ -55,7 +55,7 @@ The following table summarizes the image sizes you can use:
 | -------- | ------ |
 | Application Manager | 268x160 px |
 | Device template | 64x64 px |
-| Home page and dashboard tiles | The smallest sized tile is 200x200 px, larger tiles can be either square or rectangular multiples of small tiles. For example 200x400 px, 400x200 px, or 400x400 px |
+| Dashboard tiles | The smallest sized tile is 200x200 px, larger tiles can be either square or rectangular multiples of small tiles. For example 200x400 px, 400x200 px, or 400x400 px |
 
 For the best display in the application, you should create images that match the dimensions shown in the previous table.
 
@@ -71,11 +71,11 @@ To upload an image on the **Application Manager**, navigate to the **Application
 
 Click on the Application Image tile to upload your prepared image (268x160 px) from your local machine.
 
-### Home page
+### Application dashboard
 
-To upload an image on the home page, navigate to the **Homepage** of your application and click on **Edit**. You must be a builder to complete this task:
+To upload an image on the application dashboard, navigate to the **Dashboard** page of your application and click on **Edit**. You must be a builder to complete this task:
 
-![Upload home page image](media/howto-prepare-images-experimental/uploadhomepage.png)
+![Upload dashboard image](media/howto-prepare-images-experimental/uploadhomepage.png)
 
 Under Configure Image, click on the Image tile to upload your prepared image from your local machine. The smallest sized tile is 200x200 px, larger tiles can be either square or rectangular multiples of small tiles. For example 200x400 px, 400x200 px, or 400x400 px.
 

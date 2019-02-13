@@ -33,4 +33,4 @@ We have support for both dark theme and light theme. While the dark theme is the
 Now that you've learned how to manage your profile in Azure IoT Central, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Configure your Homepage](howto-configure-homepage.md)
+> [Configure your application dashboard](howto-configure-homepage.md)
