@@ -54,7 +54,7 @@ You can register for all of the events by subscribing to the JobStateChange even
 
 | Event type | Description |
 | ---------- | ----------- |
-| Microsoft.Media.JobOutputProgress| The event is a best effort to indicate the progress of the job processing, from 0% to 100%. The event is triggered if there has been at least 5% change or it has been at least 30 sec since the last event (heartbeat). The value is not guaranteed to start at 0% or reach 100% and is not increasing at a constant rate. The event should not be used to determine that the processing has been completed. Use the state change events to check if the processing is complete.|
+| Microsoft.Media.JobOutputProgress| The event is a best effort to indicate the progress of the job processing, from 0% to 100%. The event is sent if there has been at least 5% change or it has been at least 30 sec since the last event (heartbeat). The value is not guaranteed to start at 0% or reach 100% and is not increasing at a constant rate. The event should not be used to determine that the processing has been completed. Use the state change events to check if the processing is complete.|
 
 ## Live event types
 
