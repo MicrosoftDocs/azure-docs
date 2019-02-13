@@ -526,6 +526,8 @@
           href: insights/container-insights-optout.md
         - name: View container live logs
           href: insights/container-insights-live-logs.md
+        - name: Alerting
+          href: insights/container-insights-alerts.md
         - name: Agent management
           href: insights/container-insights-manage-agent.md
         - name: Troubleshooting
