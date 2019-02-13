@@ -12,6 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: celested
+ms.collection: M365-identity-device-management
 ---
 
 # Move applications from AD FS to Azure AD 

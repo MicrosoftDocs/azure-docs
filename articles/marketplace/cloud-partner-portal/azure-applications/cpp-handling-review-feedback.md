@@ -67,7 +67,7 @@ Use the following procedure to review issues documented in the pull request.
 4. Click on each comment node in the left tree to navigate to the comment in context of the surrounding code.  Fix your source code in your team's project to correct the issue described by the comment.
 
 > [!Note]
-> You cannot edit your offer's technical assets within the the review team's Azure DevOps environment.  For publishers, this is a read-only environment for the contained source code.  However, you can leave replies to the comments for the benefit of the Microsoft review team.
+> You cannot edit your offer's technical assets within the review team's Azure DevOps environment.  For publishers, this is a read-only environment for the contained source code.  However, you can leave replies to the comments for the benefit of the Microsoft review team.
 
    In the following example, the publisher has reviewed, corrected, and replied to the first issue.
 

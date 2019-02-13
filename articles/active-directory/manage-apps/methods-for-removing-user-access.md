@@ -16,6 +16,7 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to remove a user's access to an application

@@ -24,7 +24,7 @@ If your data starts in flat files, then you will first need to transfer it to Az
 
 PolyBase also provides a high-performance option for loading the data. However, that does mean using two tools instead of one. If you need the best performance then use PolyBase. If you want a single tool experience (and the data is not massive) then ADF is your answer.
 
-Follow [this tutorial]( /articles/data-factory/load-azure-sql-data-warehouse.md) to learn how to use ADF to load data into your data warehouse.
+Follow [this tutorial](../data-factory/load-azure-sql-data-warehouse.md) to learn how to use ADF to load data into your data warehouse.
 
 ## Integration Services
 Integration Services (SSIS) is a powerful and flexible Extract Transform and Load (ETL) tool that supports complex workflows, data transformation, and several data loading options. Use SSIS to simply transfer data to Azure or as part of a broader migration.

@@ -16,6 +16,7 @@ ms.date: 12/10/2018
 ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Enable remote access to SharePoint with Azure AD Application Proxy
