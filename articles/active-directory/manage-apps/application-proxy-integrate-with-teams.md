@@ -16,6 +16,7 @@ ms.date: 09/05/2017
 ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Access your on-premises applications through Microsoft Teams

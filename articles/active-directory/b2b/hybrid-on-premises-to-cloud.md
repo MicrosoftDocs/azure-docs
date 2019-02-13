@@ -13,6 +13,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Grant locally-managed partner accounts access to cloud resources using Azure AD B2B collaboration

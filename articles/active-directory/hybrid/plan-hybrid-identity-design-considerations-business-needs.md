@@ -17,6 +17,7 @@ ms.date: 06/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 # Determine identity requirements for your hybrid identity solution
 The first step in designing a hybrid identity solution is to determine the requirements for the business organization that will be leveraging this solution.  Hybrid identity starts as a supporting role (it supports all other cloud solutions by providing authentication) and goes on to provide new and interesting capabilities that unlock new workloads for users.  These workloads or services that you wish to adopt for your users will dictate the requirements for the hybrid identity design.  These services and workloads need to leverage hybrid identity both on-premises and in the cloud.  

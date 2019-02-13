@@ -15,6 +15,7 @@ ms.date: 09/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Getting started with Azure AD Connect using express settings
 Azure AD Connect **Express Settings** is used when you have a single-forest topology and [password hash synchronization](how-to-connect-password-hash-synchronization.md) for authentication. **Express Settings** is the default option and is used for the most commonly deployed scenario. You are only a few short clicks away to extend your on-premises directory to the cloud.

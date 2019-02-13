@@ -14,6 +14,7 @@ ms.date: 11/12/2018
 ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Password vaulting for single sign-on with Application Proxy

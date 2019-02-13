@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/12/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -53,6 +53,15 @@ Either add the different variations as example utterances to the intent or add t
 
 Cortana prebuilt apps were deprecated in 2017. They are no longer supported.
 
+### How do I transfer ownership of a LUIS app?
+To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. Update the LUIS app ID in the client application that calls it. The new app may return slightly different LUIS scores from the original app.
+
+## LUIS Collaborating
+
+### How do I give collaborators access to LUIS with Azure Active Directory (Azure AD) or Role-based access control (RBAC)?
+
+See [Azure Active Directory resources](luis-how-to-collaborate.md#azure-active-directory-resources)  and [Azure Active Directory tenant user](luis-how-to-collaborate.md#azure-active-directory-tenant-user) to learn how to give collaborators access. 
+
 ## LUIS endpoint
 
 ### My endpoint query returned unexpected results. What should I do?
@@ -61,7 +70,7 @@ Unexpected query prediction results are based on the state of the published mode
 
 Correcting the model starts with [active learning](luis-how-to-review-endoint-utt.md).
 
-You can remove non-deterministic training by updating the [application version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) in order to use all training data. 
+You can remove non-deterministic training by updating the [application version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) in order to use all training data.
 
 Review the [best practices](luis-concept-best-practices.md) for other tips. 
 
@@ -146,10 +155,23 @@ Each LUIS app has the authoring/starter key in the endpoint list as a convenienc
 
 If your app existed before LUIS was generally available (GA), LUIS endpoint keys in your subscription are assigned automatically. This was done to make GA migration easier. Any new LUIS endpoint keys in the Azure portal are _not_ automatically assigned to LUIS.
 
-## App management
+## Key management
 
-### How do I transfer ownership of a LUIS app?
-To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. Update the LUIS app ID in the client application that calls it. The new app may return slightly different LUIS scores from the original app.
+### How do I know what key I need, where I get it, and what I do with it? 
+
+See [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md) to learn about the differences between the [authoring key](luis-how-to-account-settings.md) and the [endpoint prediction key](luis-how-to-azure-subscription.md). 
+
+### I got an error about being out of quota. How do I fix it? 
+
+See, [How to fix out-of-quota errors when the key exceeds pricing tier usage](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) to learn more.
+
+### I need to handle more endpoint queries. How do I do that? 
+
+See, [How to fix out-of-quota errors when the key exceeds pricing tier usage](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) to learn more.
+
+
+
+## App management
 
 ### How do I download a log of user utterances?
 By default, your LUIS app logs utterances from users. To download a log of utterances that users send to your LUIS app, go to **My Apps**, and select the app. In the contextual toolbar, select **Export Endpoint Logs**. The log is formatted as a comma-separated value (CSV) file.
