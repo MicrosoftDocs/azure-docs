@@ -25,7 +25,7 @@ Azure NetApp Files displays size information for various objects. Understanding 
 - *Volume pool allocated size*  
     This is the size (GiB) of the provisioned capacity pool.  
 - *Volume pool allocated used*  
-    This is the total of volume quota (GiB) in a given capacity pool (that is, the total of the volumes' provisioned sizes  in the capacity pool). This is the size you selected during volume creation.  
+    This is the total of volume quota (GiB) in a given capacity pool (that is, the total of the volumes' provisioned sizes in the capacity pool). This is the size you selected during volume creation.  
 - *Volume pool total logical size*  
     This is the total of logical space (GiB) used across volumes in a capacity pool.  
 - *Volume pool total snapshot size*  

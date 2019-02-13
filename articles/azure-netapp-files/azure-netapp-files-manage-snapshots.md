@@ -40,9 +40,9 @@ You can create snapshots on demand (that is, manually) without creating a snapsh
 
 ## Create a snapshot policy
 
-You can schedule for volume snapshots to be taken automatically by using snapshot policies.  You can specify the frequency in hourly, daily, weekly, and monthly cycles.  You can also specify the maximum number of snapshots to retain.  
+You can schedule for volume snapshots to be taken automatically by using snapshot policies.  You can specify the frequency in hourly, daily, weekly, and monthly cycles.  You can also specify the maximum number of snapshots to keep.  
 
-1.	From the Volume blade, click **Snapshot policy**.
+1. From the Volume blade, click **Snapshot policy**.
 
     ![Navigate to snapshot policy](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshot-policy.png)
 
@@ -98,7 +98,7 @@ Currently, you can restore a snapshot only to a new volume.
 
     *   **Virtual network**  
         Specify the Azure virtual network (Vnet) from which you want to access the volume.  
-        The Vnet you specify must have a subnet delegated to Azure NetApp Files. The Azure NetApp Files service can be accessed only from the same Vnet or from a Vnet that is in the same region as the volume through Vnet peering. You can also access the volume from  your on-premise network through Express Route. 
+        The Vnet you specify must have a subnet delegated to Azure NetApp Files. You can access Azure NetApp Files only from the same Vnet or from a Vnet that is in the same region as the volume through Vnet peering. You can access the volume from your on-premise network through Express Route. 
 
     * **Subnet**  
         Specify the subnet that you want to use for the volume.  
