@@ -14,6 +14,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
                    
+ms.collection: M365-identity-device-management
 ---
 
 # Grant permissions to users from partner organizations in your Azure Active Directory tenant

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: celested
 ms.reviewr: japere
+ms.collection: M365-identity-device-management
 ---
 
 # How applications appear on the access panel

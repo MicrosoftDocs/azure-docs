@@ -17,6 +17,7 @@ ms.topic: conceptual
 ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Federate multiple instances of Azure AD with single instance of AD FS

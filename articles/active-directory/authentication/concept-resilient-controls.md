@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
+ms.collection: M365-identity-device-management
 ---
 # Create a resilient access control management strategy with Azure Active Directory
 
