@@ -47,20 +47,20 @@
     items:
     - name: Build a serverless real-time app with authentication
       href: signalr-tutorial-authenticate-azure-functions.md
-  - name: Migration
-    items:
-    - name: From ASP.NET SignalR
-      href: signalr-tutorial-migration-dotnet.md
-    - name: From ASP.NET Core SignalR
-      href: signalr-tutorial-migration-dotnet-core.md
+#  - name: Migration
+#    items:
+#    - name: From ASP.NET SignalR
+#      href: signalr-tutorial-migration-dotnet.md
+#    - name: From ASP.NET Core SignalR
+#      href: signalr-tutorial-migration-dotnet-core.md
 #    - name: From Long Polling to SignalR
 #      href: signalr-tutorial-migration-long-polling.md
 #    - name: From generic WebSocket to SignalR
 #      href: signalr-tutorial-migration-websocket.md
-  - name: Hybrid setup
-    items:
-    - name: Cross-cloud with Azure SignalR Service
-      href: signalr-tutorial-hybrid-setup-cross-cloud.md
+#  - name: Hybrid setup
+#    items:
+#    - name: Cross-cloud with Azure SignalR Service
+#      href: signalr-tutorial-hybrid-setup-cross-cloud.md
 #  - name: Mobile real-time application
 #    items:
 #    - name: Build a mobile web app
@@ -98,8 +98,8 @@
 #    href: signalr-sample-data-dashboard.md
 #  - name: Real-time location on map
 #    href: signalr-sample-location-map.md
-  - name: Remote real-time collaboration
-    href: signalr-sample-collaboration.md
+#  - name: Remote real-time collaboration
+#    href: signalr-sample-collaboration.md
   - name: More code samples
     href: https://github.com/aspnet/AzureSignalR-samples
 
@@ -127,8 +127,8 @@
     href: signalr-concept-messages-and-connections.md
   - name: Resource limits
     href: signalr-concept-resource-limits.md
-  - name: Pricing tiers
-    href: signalr-concept-pricing-tiers.md
+#  - name: Pricing tiers
+#    href: signalr-concept-pricing-tiers.md
   - name: Performance considerations
     href: signalr-concept-performance.md
   - name: Authentication
@@ -146,8 +146,8 @@
       href: signalr-howto-plan-capacity.md
     - name: Product tiers
       href: signalr-howto-plan-product-tiers.md
-    - name: Regions
-      href: signalr-howto-regions.md
+#    - name: Regions
+#      href: signalr-howto-regions.md
   - name: Develop
     items:
     - name: Set up local dev environment
@@ -166,16 +166,16 @@
       href: signalr-howto-provision-instance.md
 #    - name: CI/CD integration
 #      href: signalr-howto-deploy-continuous-integration-delivery.md
-    - name: Visual Studio
-      href: signalr-howto-deploy-visual-studio.md
+#    - name: Visual Studio
+#      href: signalr-howto-deploy-visual-studio.md
     - name: Resource Manager template
       href: signalr-howto-deploy-resource-manager.md
   - name: Configure
     items:
     - name: Server connections
       href: signalr-howto-configure-server-connections.md
-    - name: Cross region
-      href: signalr-howto-regions.md
+#    - name: Cross region
+#      href: signalr-howto-regions.md
     - name: Connection string
       href: signalr-howto-configure-connection-string.md
   - name: Scale
@@ -184,26 +184,26 @@
       href: signalr-howto-scale-free-tier.md
     - name: Scale in and out with Standard Tier
       href: signalr-howto-scale-standard-tier.md
-    - name: Multiple instances
-      href: signalr-howto-scale-multi-instances.md
-    - name: Cross region
-      href: signalr-howto-regions.md
+#    - name: Multiple instances
+#      href: signalr-howto-scale-multi-instances.md
+#    - name: Cross region
+#      href: signalr-howto-regions.md
   - name: Monitor
     items:
     - name: Key metrics
       href: signalr-howto-monitor-metrics.md
     - name: Charts
       href: signalr-howto-monitor-charts.md
-    - name: Logs
-      href: signalr-howto-access-logs.md
+#    - name: Logs
+#      href: signalr-howto-access-logs.md
   - name: Troubleshoot
     items:
     - name: Common errors
       href: signalr-howto-troubleshoot-common-errors.md
     - name: Performance
       href: signalr-howto-troubleshoot-performance.md
-    - name: Tracing
-      href: signalr-howto-troubleshoot-tracing.md
+#    - name: Tracing
+#      href: signalr-howto-troubleshoot-tracing.md
   - name: Secure
     items:
     - name: Access key rotation
@@ -235,13 +235,15 @@
   - name: Azure CLI
     href: signalr-reference-cli.md
   - name: REST API
-    href: signalr-reference-rest-api.md
-  - name: PowerShell
-    href: signalr-reference-powershell.md
+    href: https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md
+#  - name: PowerShell
+#    href: signalr-reference-powershell.md
   - name: ASP.NET Core SignalR
     href: https://docs.microsoft.com/aspnet/core/signalr
-  - name: Resource Manager template
-    href: signalr-reference-resource-manager.md
+  - name: Azure SignalR Service Protocol
+    href: https://github.com/Azure/azure-signalr/blob/dev/specs/ServiceProtocol.md
+#  - name: Resource Manager template
+#    href: signalr-reference-resource-manager.md
 
 - name: Resources
   items:
