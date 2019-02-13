@@ -15,23 +15,23 @@ ms.date: 01/30/2019
 
 Use Unpivot in ADF Mapping Data Flow as a way to turn an unnormalized dataset into a more normalized version by expanding values from multiple columns in a single record into multiple records with the same values in a single column.
 
-<img src="media/data-flow/unpivot1.png" width="300">
+![Unpivot Transformation](../images/unpivot1.png "Unpivot options 1")
 
 ## Ungroup By
 
-<img src="media/data-flow/unpivot5.png" width="300">
+![Unpivot Transformation](../images/unpivot5.png "Unpivot options 2")
 
 First, set the columns that you wish to group by for your pivot aggregation. Set one or more columns for ungrouping with the + sign next to the column list.
 
 ## Unpivot Key
 
-<img src="media/data-flow/unpivot6.png" width="400">
+![Unpivot Transformation](../images/unpivot6.png "Unpivot options 3")
 
 The Pivot Key is the column that ADF will pivot from row to column. By default, each unique value in the dataset for this field will pivot to a column. However, you can optionally enter the values from the dataset that you wish to pivot to column values.
 
 ## Unpivoted Columns
 
-<img src="media/data-flow/unpivot4.png" width="400">
+![Unpivot Transformation](../images/unpivot7.png "Unpivot options 4")
 
 Lastly, choose the aggregation that you wish to use for the pivoted values and how you would like the columns to be displayed in the new output projection from the transformation.
 
