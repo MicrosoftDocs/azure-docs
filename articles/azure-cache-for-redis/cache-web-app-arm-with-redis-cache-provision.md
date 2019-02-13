@@ -4,7 +4,7 @@ description: Use Azure Resource Manager template to deploy web app with Azure Ca
 services: app-service
 documentationcenter: ''
 author: yegu-ms
-manager: cfowler
+manager: jhubbard
 editor: ''
 
 ms.assetid: 6e99c71f-ef8e-4570-a307-e4c059e60c35
