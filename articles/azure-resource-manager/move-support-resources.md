@@ -282,7 +282,6 @@ To get the same data as a file of comma-separated values, download [move-support
 | ------------- | ----------- | ---------- |
 | servergroups | No | No |
 | servers | Yes | Yes |
-| serversv2 | No | No |
 
 ## Microsoft.DeploymentManager
 | Resource type | Resource group | Subscription |
