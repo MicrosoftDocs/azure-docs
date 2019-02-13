@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/12/2019
 ms.author: juliako
 ---
 
@@ -35,7 +35,7 @@ For more information, see [Migration guidance for moving from Media Services v2 
 
 Media Services v3 is now upported in Azure national clouds. Not all features are available in all clouds yet. For details, see [Clouds and regions in which Azure Media Services v3 exists](azure-clouds-regions.md).
 
-**Microsoft.Media.JobOutputProgress** event was added to [Azure Event Grid schemas for Media Services](media-services-event-schemas.md).
+[Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) event was added to Azure Event Grid schemas for Media Services.
 
 ## January 2019
 
