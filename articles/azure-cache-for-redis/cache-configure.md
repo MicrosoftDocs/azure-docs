@@ -3,7 +3,7 @@ title: How to configure Azure Cache for Redis | Microsoft Docs
 description: Understand the default Redis configuration for Azure Cache for Redis and learn how to configure your Azure Cache for Redis instances
 services: azure-cache-for-redis
 documentationcenter: na
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 08/22/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # How to configure Azure Cache for Redis
@@ -53,7 +53,7 @@ You can view and configure the following settings using the **Resource Menu**.
 	* [Properties](#properties)
 	* [Locks](#locks)
 	* [Automation script](#automation-script)
-* [Administration](#administration)
+* Administration
 	* [Import data](#importexport)
 	* [Export data](#importexport)
 	* [Reboot](#reboot)
@@ -61,7 +61,7 @@ You can view and configure the following settings using the **Resource Menu**.
 	* [Redis metrics](#redis-metrics)
 	* [Alert rules](#alert-rules)
 	* [Diagnostics](#diagnostics)
-* [Support & troubleshooting settings](#support-amp-troubleshooting-settings)
+* Support & troubleshooting settings
 	* [Resource health](#resource-health)
 	* [New support request](#new-support-request)
 
@@ -426,7 +426,7 @@ New Azure Cache for Redis instances are configured with the following default Re
 For more information about databases, see [What are Redis databases?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
+> The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
 > 
 > 
 

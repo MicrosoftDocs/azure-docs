@@ -92,7 +92,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Cause 4: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
-**Cause 5: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
+**Cause 5: Backup service doesn't have permission to delete the old restore points because of a resource group lock** <br>
 **Cause 6: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
 ## UserErrorUnsupportedDiskSize - Currently Azure Backup does not support disk sizes greater than 1023GB

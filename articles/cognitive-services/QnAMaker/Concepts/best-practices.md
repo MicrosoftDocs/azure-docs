@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use these best practices to improve your knowledge base and provide better results to your application/chat bot's end users.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article

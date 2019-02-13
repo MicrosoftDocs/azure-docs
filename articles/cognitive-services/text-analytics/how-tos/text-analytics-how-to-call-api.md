@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to call the Text Analytics REST API.
 services: cognitive-services
 author: ashmaka
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics

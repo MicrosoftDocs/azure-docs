@@ -17,8 +17,6 @@ ms.author: robreed
 ---
 # DSC Extension for Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
-## Overview
-
 Desired State Configuration (DSC) is a management platform that enables you to manage your IT and development infrastructure with configuration as code.
 
 DSCForLinux Extension is published and supported by Microsoft. The extension installs the OMI and DSC agent on Azure virtual machines. DSC extension can also do the following actions
@@ -29,6 +27,8 @@ DSCForLinux Extension is published and supported by Microsoft. The extension ins
 - Apply Meta MOF configuration to the Linux VM to configure Pull Server in order to pull Node Configuration (Pull ExtensionAction)
 - Install custom DSC modules to the Linux VM (Install ExtensionAction)
 - Remove custom DSC modules to the Linux VM (Remove ExtensionAction)
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## Prerequisites
 
@@ -361,7 +361,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
 You can log in to your Azure account (Azure Resource Manager mode) by running:
 
 ```powershell>
-Login-AzureRmAccount
+Login-AzAccount
 ```
 
 Click [**HERE**](../../azure-resource-manager/powershell-azure-resource-manager.md) to learn more about how to use Azure PowerShell with Azure Resource Manager.
@@ -393,7 +393,7 @@ $publicConfig = '{
 ```
 
 ```
-Set-AzureRmVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
+Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location `
   -Name $extensionName -Publisher $publisher -ExtensionType $extensionName `
   -TypeHandlerVersion $version -SettingString $publicConfig -ProtectedSettingString $privateConfig
 ```

@@ -17,6 +17,7 @@ ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: jairoc
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory device management FAQ

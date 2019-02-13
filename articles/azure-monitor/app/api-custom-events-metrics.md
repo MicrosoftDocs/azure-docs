@@ -570,6 +570,20 @@ telemetry.trackTrace({
 });
 ```
 
+*Client/Browser-side JavaScript*
+
+```javascript
+trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.SeverityLevel)
+```
+
+Log a diagnostic event such as entering or leaving a method.
+
+ Parameter | Description
+---|---
+`message` | Diagnostic data. Can be much longer than a name.
+`properties` | Map of string to string: Additional data used to [filter exceptions](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) in the portal. Defaults to empty.
+`severityLevel` | Supported values: [SeverityLevel.ts](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/JavaScript/JavaScriptSDK.Interfaces/Contracts/Generated/SeverityLevel.ts)
+
 You can search on message content, but (unlike property values) you can't filter on it.
 
 The size limit on `message` is much higher than the limit on properties.
@@ -771,7 +785,7 @@ You can attach properties and measurements to your events (and also to metrics, 
 
 *Properties* are string values that you can use to filter your telemetry in the usage reports. For example, if your app provides several games, you can attach the name of the game to each event so that you can see which games are more popular.
 
-There's a limit of 8192 on the string length. (If you want to send large chunks of data, use the message parameter of [TrackTrace](#track-trace).)
+There's a limit of 8192 on the string length. (If you want to send large chunks of data, use the message parameter of TrackTrace.)
 
 *Metrics* are numeric values that can be presented graphically. For example, you might want to see if there's a gradual increase in the scores that your gamers achieve. The graphs can be segmented by the properties that are sent with the event, so that you can get separate or stacked graphs for different games.
 
@@ -989,7 +1003,7 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 Individual telemetry calls can override the default values in their property dictionaries.
 
-*For JavaScript web clients*, [use JavaScript telemetry initializers](#js-initializer).
+*For JavaScript web clients*, use JavaScript telemetry initializers.
 
 *To add properties to all telemetry*, including the data from standard collection modules, [implement `ITelemetryInitializer`](../../azure-monitor/app/api-filtering-sampling.md#add-properties).
 

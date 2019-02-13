@@ -54,3 +54,10 @@ Locate the `StorageConnectionString` property, and set the value to be the `Conn
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
+
+## Next steps
+
+In this tutorial, you've used Azure Cosmos DB to share anchor identifiers across devices. To learn more about the Azure Spatial Anchors library, continue to our guide on how to create and locate anchors.
+
+> [!div class="nextstepaction"]
+> [Create and locate anchors using Azure Spatial Anchors](../create-locate-anchors-overview.md)

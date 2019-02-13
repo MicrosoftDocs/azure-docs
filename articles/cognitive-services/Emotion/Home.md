@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Use the cloud-based emotion recognition algorithm to build more personalized apps.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: emotion-api

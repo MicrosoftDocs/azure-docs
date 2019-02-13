@@ -111,6 +111,8 @@ By specifying the dependencies, Resource Manager efficiently deploys the solutio
 
 ## Deploy the template
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 There are many methods for deploying templates.  In this tutorial, you use Cloud Shell from the Azure portal.
 
 1. Sign in to the [Cloud Shell](https://shell.azure.com). 

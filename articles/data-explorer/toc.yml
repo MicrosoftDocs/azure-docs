@@ -42,6 +42,8 @@
       href: power-bi-sql-query.md
 - name: Tutorials
   items:
+  - name: Ingest data without using code
+    href: ingest-data-no-code.md  
   - name: Visualize data in Power BI
     href: visualize-power-bi.md  
 - name: Concepts
@@ -83,6 +85,8 @@
       href: kqlmagic.md
     - name: Visualize data in Grafana
       href: grafana.md
+    - name: Apache Spark connector
+      href: spark-integration.md
   - name: Troubleshoot
     items:
     - name: Creating a cluster

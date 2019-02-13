@@ -18,6 +18,7 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 
+ms.collection: M365-identity-device-management
 ---
 # How To: Plan your hybrid Azure Active Directory join implementation
 

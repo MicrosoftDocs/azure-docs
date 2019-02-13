@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Partner blogs, youtube videos, training for Microsoft Cognitive Services Text Analytics API on Azure.
 services: cognitive-services
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics

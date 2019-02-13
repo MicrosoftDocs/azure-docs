@@ -16,6 +16,7 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Understanding Declarative Provisioning Expressions
 Azure AD Connect sync builds on declarative provisioning first introduced in Forefront Identity Manager 2010. It allows you to implement your complete identity integration business logic without the need to write compiled code.

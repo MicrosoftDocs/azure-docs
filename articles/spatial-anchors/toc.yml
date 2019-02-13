@@ -1,6 +1,7 @@
 - name: Spatial Anchors Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: About Spatial Anchors
     href: overview.md
@@ -14,6 +15,8 @@
   - name: Create iOS app
     href: quickstarts/get-started-ios.md
   - name: Create Unity app
+    href: unity-overview.md
+    expanded: true
     items:
     - name: HoloLens
       href: quickstarts/get-started-unity-hololens.md
@@ -26,6 +29,26 @@
   items:
   - name: Share anchors
     href: tutorials/tutorial-share-anchors-across-devices.md
+    expanded: true
     items:
     - name: Using Cosmos DB
       href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Create and locate anchors
+    href: create-locate-anchors-overview.md
+    expanded: true
+    items:
+    - name: In Unity
+      href: concepts/create-locate-anchors-unity.md
+    - name: In Objective-C
+      href: concepts/create-locate-anchors-objc.md
+    - name: In Swift
+      href: concepts/create-locate-anchors-swift.md
+    - name: In Java
+      href: concepts/create-locate-anchors-java.md
+    - name: In C++/NDK
+      href: concepts/create-locate-anchors-cpp-ndk.md
+    - name: In C++/WinRT
+      href: concepts/create-locate-anchors-cpp-winrt.md

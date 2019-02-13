@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: The Bing Image Search API enables you to use Bing's cognitive image search capabilities in your application. By sending user search queries with the API, you can get and display relevant and high-quality images similar to Bing Images.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.assetid: 1446AD8B-A685-4F5F-B4AA-74C8E9A40BE9
 ms.service: cognitive-services
 ms.subservice: bing-image-search
@@ -29,9 +29,9 @@ While Bing Image Search primarily finds and returns relevant images from a searc
 | Feature                                                                                                                                                                                 | Description                                                                                                                                                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [Suggest search terms in real-time](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries) | Improve your app experience by using the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to display suggested search terms as they're typed. |
-| [Filter and restrict image results](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#filtering-images)                       | Filter the images that Bing returns by editing query parameters.                                                                                                       |
+| [Filter and restrict image results](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images)                       | Filter the images that Bing returns by editing query parameters.                                                                                                       |
 | [Crop, resize, and display thumbnails](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/resize-and-crop-thumbnails)                                                | Edit and display thumbnail previews for the images returned by Bing Image Search.                                                                                      |
-| [Pivot & expand user search queries](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries#pivoting-the-query)               | Expand your search capabilities by including and displaying Bing-suggested search terms to queries.                                                                    |
+| [Pivot & expand user search queries](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries)               | Expand your search capabilities by including and displaying Bing-suggested search terms to queries.                                                                    |
 | [Get trending images](https://review.docs.microsoft.com/azure/cognitive-services/bing-image-search/trending-images)                                                                     | Customize a search for trending images from around the world.                                                                                                          |
 
 ## Workflow

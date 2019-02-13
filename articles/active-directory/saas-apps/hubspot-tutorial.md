@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with HubSpot
 
@@ -83,7 +84,7 @@ To configure and test Azure AD single sign-on with HubSpot, you need to complete
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a HubSpot test user](#creating-a-hubspot-saml-test-user)** - to have a counterpart of Britta Simon in HubSpot that is linked to the Azure AD representation of user.
+3. **Creating a HubSpot test user** - to have a counterpart of Britta Simon in HubSpot that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 

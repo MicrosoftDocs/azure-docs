@@ -3,7 +3,7 @@ title: Service-to-service authentication to Azure Key Vault using .NET
 description: Use the Microsoft.Azure.Services.AppAuthentication library to authenticate to Azure Key Vault using .NET.
 keywords: azure key-vault authentication local credentials
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 services: key-vault
 
 ms.author: bryanla

@@ -3,7 +3,7 @@ title: Cache ASP.NET Session State Provider | Microsoft Docs
 description: Learn how to store ASP.NET Session State using Azure Cache for Redis
 services: azure-cache-for-redis
 documentationcenter: na
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: azure-cache-for-redis
 ms.workload: tbd
 ms.date: 05/01/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # ASP.NET Session State Provider for Azure Cache for Redis

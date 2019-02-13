@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Connect to Text Analytics from an ASP.NET Core web application.
 services: cognitive-services
 author: ghogen
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics

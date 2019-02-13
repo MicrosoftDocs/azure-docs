@@ -3,7 +3,7 @@ title: How to Scale Azure Cache for Redis | Microsoft Docs
 description: Learn how to scale your Azure Cache for Redis instances
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # How to Scale Azure Cache for Redis
@@ -65,9 +65,12 @@ In addition to scaling your cache instances in the Azure portal, you can scale u
 * [Scale using MAML](#scale-using-maml)
 
 ### Scale using PowerShell
-You can scale your Azure Cache for Redis instances with PowerShell by using the [Set-AzureRmRedisCache](https://docs.microsoft.com/powershell/module/azurerm.rediscache/set-azurermrediscache?view=azurermps-6.6.0) cmdlet when the `Size`, `Sku`, or `ShardCount` properties are modified. The following example shows how to scale a cache named `myCache` to a 2.5 GB cache. 
 
-    Set-AzureRmRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+You can scale your Azure Cache for Redis instances with PowerShell by using the [Set-AzRedisCache](https://docs.microsoft.com/powershell/module/az.rediscache/set-azrediscache) cmdlet when the `Size`, `Sku`, or `ShardCount` properties are modified. The following example shows how to scale a cache named `myCache` to a 2.5 GB cache. 
+
+    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 
 For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using Powershell](cache-howto-manage-redis-cache-powershell.md#scale).
 

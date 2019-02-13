@@ -4,7 +4,7 @@ description: Learn how to manage endpoint protection issues in Azure Security Ce
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
