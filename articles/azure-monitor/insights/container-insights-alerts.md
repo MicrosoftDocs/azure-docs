@@ -15,7 +15,7 @@ ms.date: 02/12/2019
 ms.author: magoedte
 ---
 
-# How to be proactively alerted of Azure Monitor for containers performance problems
+# How to set up alerts in Azure Monitor for container performance problems
 Azure Monitor for containers monitors the performance of container workloads deployed to either Azure Container Instances or managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS). 
 
 This article describes how to enable alerting when processor and memory utilization on nodes of the cluster exceeds your defined threshold.
