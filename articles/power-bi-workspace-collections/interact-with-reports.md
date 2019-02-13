@@ -57,7 +57,7 @@ The JavaScript API provides basic and advanced filtering capabilities for embedd
 #### Basic filters
 A basic filter is placed on a column or hierarchy level and contains a list of values to include or exclude.
 
-```
+```typescript
 const basicFilter: pbi.models.IBasicFilter = {
   $schema: "http://powerbi.com/product/schema#basic",
   target: {
@@ -86,7 +86,7 @@ Advanced filters use the logical operator AND or OR, and accept one or two condi
 * IsBlank
 * IsNotBlank
 
-```
+```typescript
 const advancedFilter: pbi.models.IAdvancedFilter = {
   $schema: "http://powerbi.com/product/schema#advanced",
   target: {
