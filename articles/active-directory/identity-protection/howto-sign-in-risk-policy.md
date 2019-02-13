@@ -18,6 +18,7 @@ ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 
 # How To: Configure the sign-in risk policy

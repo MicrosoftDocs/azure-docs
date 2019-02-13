@@ -19,6 +19,7 @@ ms.reviewer: spunukol
 
 #Customer intent: As a IT admin, I need to understand the conditional access settings so that  I can set them according to my business needs
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory conditional access settings reference
 

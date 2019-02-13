@@ -11,6 +11,7 @@ ms.date: 01/30/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.topic: conceptual
+ms.collection: M365-identity-device-management
 ---
 
 # What is Azure AD Connect?

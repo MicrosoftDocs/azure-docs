@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: How, as an Azure AD Administrator, do I enable password reset for Windows 10 users on the login screen to reduce helpdesk calls?
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure AD password reset from the login screen
 

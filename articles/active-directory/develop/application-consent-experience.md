@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: zawad
+ms.collection: M365-identity-device-management
 ---
 
 # Understanding Azure AD application consent experiences
