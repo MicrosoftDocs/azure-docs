@@ -83,7 +83,7 @@ Track-level events are raised per track. The track event types are:
 | Microsoft.Media.LiveEventIngestHeartbeat | Published every 20 seconds for each track when live event is running. Provides ingest health summary. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Media server detects discontinuity in the incoming track. |
 
-## Event schemas and properties
+## Event schema examples
 
 ### JobStateChange
 
