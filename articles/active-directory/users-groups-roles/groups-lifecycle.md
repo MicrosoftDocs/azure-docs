@@ -16,6 +16,7 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 # Configure the expiration policy for Office 365 groups

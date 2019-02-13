@@ -4,7 +4,7 @@ description: This document addresses recommendations in Security Center that hel
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8

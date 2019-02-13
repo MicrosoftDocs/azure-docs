@@ -18,6 +18,7 @@ ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 
 

@@ -18,6 +18,7 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory v2.0 and the OpenID Connect protocol
@@ -224,14 +225,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 &response_mode=form_post                              // 'form_post' or 'fragment'
 &scope=openid%20                                      // Include both 'openid' and scopes that your app needs  
 offline_access%20                                         
-https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
+https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
 &state=12345                                          // Any value, provided by your app
 &nonce=678910                                         // Any value, provided by your app
 ```
 
 > [!TIP]
-> Click the following link to execute this request. After you sign in, your browser is redirected to https://localhost/myapp/, with an ID token and a code in the address bar. Note that this request uses `response_mode=fragment` (for demonstration purposes only). We recommend that you use `response_mode=form_post`.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> Click the following link to execute this request. After you sign in, your browser is redirected to https://localhost/myapp/, with an ID token and a code in the address bar. Note that this request uses `response_mode=fragment` for demonstration purposes only. We recommend that you use `response_mode=form_post`.
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token%20code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=fragment&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 
 

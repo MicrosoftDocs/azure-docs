@@ -1,5 +1,5 @@
 ---
-title: "PowerShell and CLI: Enable SQL TDE - your key - Azure SQL Database | Microsoft Docs"
+title: "PowerShell and CLI: Enable SQL TDE - with Azure Key Vault - Bring your own key - Azure SQL Database | Microsoft Docs"
 description: "Learn how to configure an Azure SQL Database and Data Warehouse to start using Transparent Data Encryption (TDE) for encryption-at-rest using PowerShell or CLI."
 services: sql-database
 ms.service: sql-database
@@ -14,9 +14,9 @@ manager: craigg
 ms.date: 12/04/2018
 ---
 
-# PowerShell and CLI: Enable Transparent Data Encryption using your own key from Azure Key Vault
+# PowerShell and CLI: Enable Transparent Data Encryption with customer-managed key from Azure Key Vault
 
-This article walks through how to use a key from Azure Key Vault for Transparent Data Encryption (TDE) on a SQL Database or Data Warehouse. To learn more about the TDE with Bring Your Own Key (BYOK) Support, visit [TDE Bring Your Own Key to Azure SQL](transparent-data-encryption-byok-azure-sql.md). 
+This article walks through how to use a key from Azure Key Vault for Transparent Data Encryption (TDE) on a SQL Database or Data Warehouse. To learn more about the TDE with Azure Key Vault integration - Bring Your Own Key (BYOK) Support, visit [TDE with customer-managed keys in Azure Key Vault](transparent-data-encryption-byok-azure-sql.md). 
 
 ## Prerequisites for PowerShell
 
@@ -24,8 +24,8 @@ This article walks through how to use a key from Azure Key Vault for Transparent
 - [Recommended but Optional] Have a hardware security module (HSM) or local key store for creating a local copy of the TDE Protector key material.
 - You must have Azure PowerShell version 4.2.0 or newer installed and running. 
 - Create an Azure Key Vault and Key to use for TDE.
-   - [PowerShell instructions from Key Vault](../key-vault/key-vault-get-started.md)
-   - [Instructions for using a hardware security module (HSM) and Key Vault](../key-vault/key-vault-get-started.md#HSM)
+   - [PowerShell instructions from Key Vault](../key-vault/key-vault-overview.md)
+   - [Instructions for using a hardware security module (HSM) and Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
  - The key vault must have the following property to be used for TDE:
    - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
    - [How to use Key Vault soft-delete with PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
@@ -191,7 +191,7 @@ Check the following if an issue occurs:
 - Command-Line Interface version 2.0 or later. To install the latest version and connect to your Azure subscription, see [Install and Configure the Azure Cross-Platform Command-Line Interface 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 - Create an Azure Key Vault and Key to use for TDE.
    - [Manage Key Vault using CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
-   - [Instructions for using a hardware security module (HSM) and Key Vault](../key-vault/key-vault-get-started.md#HSM)
+   - [Instructions for using a hardware security module (HSM) and Key Vault](../key-vault/key-vault-hsm-protected-keys.md)
  - The key vault must have the following property to be used for TDE:
    - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
    - [How to use Key Vault soft-delete with CLI](../key-vault/key-vault-soft-delete-cli.md) 

@@ -4,7 +4,7 @@ description: Learn how to use Azure REST APIs to review enterprise enrollment bi
 services: billing
 documentationcenter: na
 author: lleonard-msft
-manager: MBaldwin
+manager: 
 editor: ''
 
 ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA

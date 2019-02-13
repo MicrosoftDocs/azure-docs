@@ -4,13 +4,13 @@ titlesuffix: Azure Cognitive Services
 description: Use a Jupyter notebook to learn how to use the Emotion API with Python. Visualize your results by using popular libraries.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: emotion-api
 ms.topic: tutorial
 ms.date: 05/23/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database Managed Instance T-SQL Differences | Microsoft Docs
-description: This article discusses the T-SQL differences between Azure SQL Database Managed Instance and SQL Server
+title: Azure SQL Database managed instance T-SQL Differences | Microsoft Docs
+description: This article discusses the T-SQL differences between a managed instance in Azure SQL Database and SQL Server
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,27 +11,27 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova 
 manager: craigg
-ms.date: 01/31/2019
+ms.date: 02/07/2019
 ---
-# Azure SQL Database Managed Instance T-SQL differences from SQL Server
+# Azure SQL Database managed instance T-SQL differences from SQL Server
 
-Azure SQL Database Managed Instance provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server Database Engine features are supported in Managed Instance.
+The managed instance deployment option provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server database engine features are supported in a managed instance.
 
 ![migration](./media/sql-database-managed-instance/migration.png)
 
 Since there are still some differences in syntax and behavior, this article summarizes and explains these differences. <a name="Differences"></a>
 - [Availability](#availability) including the differences in [Always-On](#always-on-availability) and [Backups](#backup),
-- [Security](#security) including the differences in [Auditing](#auditing), [Certificates](#certificates), [Credentials](#credentials), [Cryptographic providers](#cryptographic-providers), [Logins / users](#logins--users), [Service key and service master key](#service-key-and-service-master-key),
+- [Security](#security) including the differences in [Auditing](#auditing), [Certificates](#certificates), [Credentials](#credential), [Cryptographic providers](#cryptographic-providers), [Logins / users](#logins--users), [Service key and service master key](#service-key-and-service-master-key),
 - [Configuration](#configuration) including the differences in [Buffer pool extension](#buffer-pool-extension), [Collation](#collation), [Compatibility levels](#compatibility-levels),[Database mirroring](#database-mirroring), [Database options](#database-options), [SQL Server Agent](#sql-server-agent), [Table options](#tables),
 - [Functionalities](#functionalities) including [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Distributed transactions](#distributed-transactions), [Extended events](#extended-events), [External libraries](#external-libraries), [Filestream and Filetable](#filestream-and-filetable), [Full-text Semantic Search](#full-text-semantic-search), [Linked servers](#linked-servers), [Polybase](#polybase), [Replication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [Stored procedures, functions, and triggers](#stored-procedures-functions-triggers),
-- [Features that have different behavior in Managed Instance](#Changes)
+- [Features that have different behavior in managed instances](#Changes)
 - [Temporary limitations and known issues](#Issues)
 
 ## Availability
 
 ### <a name="always-on-availability"></a>Always-On
 
-[High availability](sql-database-high-availability.md) is built into Managed Instance and cannot be controlled by users. The following statements are not supported:
+[High availability](sql-database-high-availability.md) is built into managed instance and cannot be controlled by users. The following statements are not supported:
 
 - [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
 - [CREATE AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
@@ -41,9 +41,9 @@ Since there are still some differences in syntax and behavior, this article summ
 
 ### Backup
 
-Managed Instance has automatic backups, and enables users to create full database `COPY_ONLY` backups. Differential, log, and file snapshot backups are not supported.
+Managed instances have automatic backups, and enables users to create full database `COPY_ONLY` backups. Differential, log, and file snapshot backups are not supported.
 
-- Managed Instance can back up a database only to an Azure Blob Storage account:
+- With a managed instance, you can back up an instance database only to an Azure Blob Storage account:
   - Only `BACKUP TO URL` is supported
   - `FILE`, `TAPE`, and backup devices are not supported  
 - Most of the general `WITH` options are supported
@@ -54,7 +54,7 @@ Managed Instance has automatic backups, and enables users to create full databas
 
 Limitations:  
 
-- Managed Instance can back up a database to a backup with up to 32 stripes, which is enough for the databases up to 4 TB if backup compression is used.
+- With a managed instance, you can back up an instance database to a backup with up to 32 stripes, which is enough for the databases up to 4 TB if backup compression is used.
 - Max backup stripe size is 195 GB (maximum blob size). Increase the number of stripes in the backup command to reduce individual stripe size and stay within this limit.
 
 > [!TIP]
@@ -66,18 +66,18 @@ For information about backups using T-SQL, see [BACKUP](https://docs.microsoft.c
 
 ### Auditing
 
-The key differences between SQL Audit in Managed Instance, Azure SQL Database, and SQL Server on-premises are:
+The key differences between auditing in databases in Azure SQL Database and databases in SQL Server are:
 
-- In Managed Instance, SQL Audit works at the server level and stores `.xel` files on Azure blob storage account.  
-- In Azure SQL Database, SQL Audit works at the database level.
-- In SQL Server on-premises / virtual machine, SQL Audit works at the server level, but stores events on files system/windows event logs.  
+- With the managed instance deployment option in Azure SQL Database, auditing works at the server level and stores `.xel` log files in  Azure Blob storage.
+- With the single database and elastic pool deployment options in Azure SQL Database, auditing works at the database level.
+- In SQL Server on-premises / virtual machines, audit works at the server level, but stores events on files system/windows event logs.
   
-XEvent auditing in Managed Instance supports Azure blob storage targets. File and windows logs are not supported.
+XEvent auditing in managed instance supports Azure Blob storage targets. File and windows logs are not supported.
 
-The key differences in the `CREATE AUDIT` syntax for Auditing to Azure blob storage are:
+The key differences in the `CREATE AUDIT` syntax for Auditing to Azure Blob storage are:
 
 - A new syntax `TO URL` is provided and enables you to specify URL of the Azure blob Storage container where `.xel` files will be placed
-- The syntax `TO FILE` is not supported because Managed Instance cannot access Windows file shares.
+- The syntax `TO FILE` is not supported because a managed instance cannot access Windows file shares.
 
 For more information, see:  
 
@@ -87,7 +87,7 @@ For more information, see:
 
 ### Certificates
 
-Managed Instance cannot access file shares and Windows folders, so the following constraints apply:
+A managed instance cannot access file shares and Windows folders, so the following constraints apply:
 
 - `CREATE FROM`/`BACKUP TO` file is not supported for certificates
 - `CREATE`/`BACKUP` certificate from `FILE`/`ASSEMBLY` is not supported. Private key files cannot be used.  
@@ -110,7 +110,7 @@ See [CREATE CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/create-c
 
 ### Cryptographic providers
 
-Managed Instance cannot access files so cryptographic providers cannot be created:
+A managed instance cannot access files so cryptographic providers cannot be created:
 
 - `CREATE CRYPTOGRAPHIC PROVIDER` is not supported. See [CREATE CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
 - `ALTER CRYPTOGRAPHIC PROVIDER` is not supported. See [ALTER CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
@@ -164,7 +164,7 @@ For more information, see [ALTER DATABASE SET PARTNER and SET WITNESS](https://d
 - In-memory objects are not supported in the General Purpose service tier.  
 - There is a limit of 280 files per instance implying max 280 files per database. Both data and log files are counted toward this limit.  
 - Database cannot contain filegroups containing filestream data.  Restore will fail if .bak contains `FILESTREAM` data.  
-- Every file is placed in Azure Premium storage. IO and throughput per file depend on the size of each individual file, in the same way as they do for Azure Premium Storage disks. See [Azure Premium disk performance](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)  
+- Every file is placed in Azure Blob storage. IO and throughput per file depend on the size of each individual file.  
 
 #### CREATE DATABASE statement
 
@@ -185,7 +185,7 @@ For more information, see [CREATE DATABASE](https://docs.microsoft.com/sql/t-sql
 
 Some file properties cannot be set or changed:
 
-- File path cannot be specified in `ALTER DATABASE ADD FILE (FILENAME='path')` T-SQL statement. Remove `FILENAME` from the script because Managed Instance automatically places the files.  
+- File path cannot be specified in `ALTER DATABASE ADD FILE (FILENAME='path')` T-SQL statement. Remove `FILENAME` from the script because a managed instance automatically places the files.  
 - File name cannot be changed using `ALTER DATABASE` statement.
 
 The following options are set by default and cannot be changed:
@@ -222,7 +222,7 @@ For more information, see [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/
 
 ### SQL Server Agent
 
-- SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in Managed Instance.  
+- SQL Agent settings are read only. Procedure `sp_set_agent_properties` is not supported in managed instances.  
 - Jobs
   - T-SQL job steps are supported.
   - The following replication jobs are supported:
@@ -234,7 +234,7 @@ For more information, see [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/
     - Merge replication job step is not supported.  
     - Queue Reader is not supported.  
     - Command shell is not yet supported
-  - Managed Instance cannot access external resources (for example, network shares via robocopy).  
+  - Managed instances cannot access external resources (for example, network shares via robocopy).  
   - PowerShell is not yet supported.
   - Analysis Services are not supported
 - Notifications are partially supported
@@ -269,14 +269,14 @@ For information about creating and altering tables, see [CREATE TABLE](https://d
 
 ### Bulk insert / openrowset
 
-Managed Instance cannot access file shares and Windows folders, so the files must be imported from Azure blob storage:
+A managed instance cannot access file shares and Windows folders, so the files must be imported from Azure Blob storage:
 
-- `DATASOURCE` is required in `BULK INSERT` command while importing files from Azure blob storage. See [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE` is required in `OPENROWSET` function when you read a content of a file from Azure blob storage. See [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- `DATASOURCE` is required in `BULK INSERT` command while importing files from Azure Blob storage. See [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` is required in `OPENROWSET` function when you read a content of a file from Azure Blob storage. See [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 
 ### CLR
 
-Managed Instance cannot access file shares and Windows folders, so the following constraints apply:
+A managed instance cannot access file shares and Windows folders, so the following constraints apply:
 
 - Only `CREATE ASSEMBLY FROM BINARY` is supported. See [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
 - `CREATE ASSEMBLY FROM FILE` is not supported. See [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
@@ -285,7 +285,7 @@ Managed Instance cannot access file shares and Windows folders, so the following
 
 ### DBCC
 
-Undocumented DBCC statements that are enabled in SQL Server are not supported in Managed Instance.
+Undocumented DBCC statements that are enabled in SQL Server are not supported in managed instances.
 
 - `Trace Flags` are not supported. See [Trace Flags](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - `DBCC TRACEOFF` is not supported. See [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
@@ -293,13 +293,13 @@ Undocumented DBCC statements that are enabled in SQL Server are not supported in
 
 ### Distributed transactions
 
-Neither MSDTC nor [Elastic Transactions](sql-database-elastic-transactions-overview.md) are currently supported in Managed Instance.
+Neither MSDTC nor [Elastic Transactions](sql-database-elastic-transactions-overview.md) are currently supported in managed instances.
 
 ### Extended Events
 
 Some Windows-specific targets for XEvents are not supported:
 
-- `etw_classic_sync target` is not supported. Store `.xel` files on Azure blob storage. See [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
+- `etw_classic_sync target` is not supported. Store `.xel` files on Azure blob storage. See [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
 - `event_file target`is not supported. Store `.xel` files on Azure blob storage. See [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### External libraries
@@ -327,7 +327,7 @@ For more information, see [FILESTREAM](https://docs.microsoft.com/sql/relational
 
 ### Linked servers
 
-Linked servers in Managed Instance support a limited number of targets:
+Linked servers in managed instances support a limited number of targets:
 
 - Supported targets: SQL Server and SQL Database
 - Not supported targets: files, Analysis Services, and other RDBMS.
@@ -341,11 +341,11 @@ Operations
 
 ### Polybase
 
-External tables referencing the files in HDFS or Azure blob storage are not supported. For information about Polybase, see [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
+External tables referencing the files in HDFS or Azure Blob storage are not supported. For information about Polybase, see [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
 
 ### Replication
 
-Replication is available for public preview on Managed Instance. For information about Replication, see [SQL Server Replication](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+Replication is available for public preview for managed instances. For information about Replication, see [SQL Server Replication](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
 
 ### RESTORE statement
 
@@ -359,7 +359,7 @@ Replication is available for public preview on Managed Instance. For information
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
 - Source  
-  - `FROM URL` (Azure blob storage) is only supported option.
+  - `FROM URL` (Azure Blob storage) is only supported option.
   - `FROM DISK`/`TAPE`/backup device is not supported.
   - Backup sets are not supported.
 - `WITH` options are not supported (No `DIFFERENTIAL`, `STATS`, etc.)
@@ -414,11 +414,11 @@ Cross-instance service broker is not supported:
 
 The following variables, functions, and views return different results:
 
-- `SERVERPROPERTY('EngineEdition')` returns value 8. This property uniquely identifies Managed Instance. See [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` returns NULL, because the concept of instance as it exists for SQL Server does not apply to Managed Instance. See [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('EngineEdition')` returns value 8. This property uniquely identifies a managed instance. See [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` returns NULL, because the concept of instance as it exists for SQL Server does not apply to a managed instance. See [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` returns full DNS 'connectable' name, for example, my-managed-instance.wcus17662feb9ce98.database.windows.net. See [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` - returns full DNS 'connectable' name, such as `myinstance.domain.database.windows.net` for properties 'name' and 'data_source'. See [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME` returns NULL, because the concept of service as it exists for SQL Server does not apply to Managed Instance. See [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
+- `@@SERVICENAME` returns NULL, because the concept of service as it exists for SQL Server does not apply to a managed instance. See [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID` is supported. Returns NULL if AAD login is not in sys.syslogins. See [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` is not supported. Returns wrong data (temporary known issue). See [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql).
 - `GETDATE()` and other built-in date/time functions always returns time in UTC time zone. See [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
@@ -431,14 +431,14 @@ The following variables, functions, and views return different results:
 
 ### Exceeding storage space with small database files
 
-Each Managed Instance has up to 35 TB storage reserved for Azure Premium Disk space, and each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on disk is not charged, but the total sum of Azure Premium Disk sizes cannot exceed 35 TB. In some cases, a Managed Instance that does not need 8 TB in total might exceed the 35 TB Azure limit on storage size, due to internal fragmentation.
+Each managed instance has up to 35 TB storage reserved for Azure Premium Disk space, and each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on disk is not charged, but the total sum of Azure Premium Disk sizes cannot exceed 35 TB. In some cases, a managed instance that does not need 8 TB in total might exceed the 35 TB Azure limit on storage size, due to internal fragmentation.
 
-For example, a Managed Instance could have one file 1.2 TB in size that is placed on a 4 TB disk, and 248 files (each 1 GB in size) that are placed on separate 128 GB disks. In this example:
+For example, a managed instance could have one file 1.2 TB in size that is placed on a 4 TB disk, and 248 files (each 1 GB in size) that are placed on separate 128 GB disks. In this example:
 
 - The total allocated disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB.
 - The total reserved space for databases on the instance is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB.
 
-This illustrates that under certain circumstance, due to a specific distribution of files, a Managed Instance might reach the 35 TB reserved for attached Azure Premium Disk when you might not expect it to.
+This illustrates that under certain circumstance, due to a specific distribution of files, a managed instance might reach the 35 TB reserved for attached Azure Premium Disk when you might not expect it to.
 
 In this example, existing databases will continue to work and can grow without any problem as long as new files are not added. However new databases could not be created or restored because there is not enough space for new disk drives, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case is not clear.
 
@@ -449,7 +449,7 @@ Make sure that you remove the leading `?` from the SAS key that is generated usi
 
 ### Tooling
 
-SQL Server Management Studio (SSMS) and SQL Server Data Tools (SSDT) might have some issues while accessing Managed Instance.
+SQL Server Management Studio (SSMS) and SQL Server Data Tools (SSDT) might have some issues while accessing a managed instance.
 
 - Using Azure AD logins and users (**public preview**) with SSDT is currently not supported.
 - Scripting for Azure AD logins and users (**public preview**) are not supported in SSMS.
@@ -468,9 +468,9 @@ Error logs that are available in managed instance are not persisted and their si
 
 ### Error logs are verbose
 
-Managed Instance places verbose information in error logs and many of them are not relevant. The amount of information in error logs will be decreased in the future.
+A managed instance places verbose information in error logs and many of them are not relevant. The amount of information in error logs will be decreased in the future.
 
-**Workaround**: Use a custom procedure for reading error logs that filter-out some non-relevant entries. For details, see [Azure SQL DB Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Workaround**: Use a custom procedure for reading error logs that filter-out some non-relevant entries. For details, see [managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### Transaction Scope on two databases within the same instance is not supported
 
@@ -505,7 +505,7 @@ Although this code works with data within the same instance it required MSDTC.
 
 ### CLR modules and linked servers sometime cannot reference local IP address
 
-CLR modules placed in Managed Instance and linked servers/distributed queries that are referencing current instance sometime cannot resolve the IP of the local instance. This error is a transient issue.
+CLR modules placed in a managed instance and linked servers/distributed queries that are referencing current instance sometime cannot resolve the IP of the local instance. This error is a transient issue.
 
 **Workaround**: Use context connections in CLR module if possible.
 
@@ -517,6 +517,6 @@ You cannot execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that is en
 
 ## Next steps
 
-- For details about Managed Instance, see [What is a Managed Instance?](sql-database-managed-instance.md)
+- For details about managed instances, see [What is a managed instance?](sql-database-managed-instance.md)
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
-- For a quickstart showing you how to create a new Managed Instance, see [Creating a Managed Instance](sql-database-managed-instance-get-started.md).
+- For a quickstart showing you how to create a new managed instance, see [Creating a managed instance](sql-database-managed-instance-get-started.md).
