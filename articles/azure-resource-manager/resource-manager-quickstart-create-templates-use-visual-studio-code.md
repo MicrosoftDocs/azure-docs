@@ -129,23 +129,20 @@ There are many methods for deploying templates.  In this quickstart, you use the
     ```azurecli
     echo "Enter the Resource Group name:" &&
     read resourceGroupName &&
-    echo "Enter the name for this deployment:" &&
-    read deploymentName &&
     echo "Enter the location (i.e. centralus):" &&
     read location &&
     az group create --name $resourceGroupName --location $location &&
-    az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file "azuredeploy.json"
+    az group deployment create --resource-group $resourceGroupName --template-file "azuredeploy.json"
     ```
    
     # [PowerShell](#tab/PowerShell)
     
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     
     New-AzResourceGroup -Name $resourceGroupName -Location $location
-    New-AzResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
     ```
     
     ---
