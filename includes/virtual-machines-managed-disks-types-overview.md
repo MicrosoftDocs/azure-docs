@@ -9,7 +9,7 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-# What are the different disk types available in Azure?
+# What disk types are available in Azure?
 
 Azure managed disks currently offers four disk types, three of which are generally available (GA) and one that is currently in preview. These four disk types each have their own appropriate target customer scenarios.
 

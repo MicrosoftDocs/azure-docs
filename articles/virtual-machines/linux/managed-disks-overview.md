@@ -1,5 +1,5 @@
 ---
-title: Azure Disk Storage managed disk overview for Linux VMs - Disk Storage | Microsoft Docs
+title: Azure Disk Storage managed disk overview for Linux VMs | Microsoft Docs
 description: Overview of Azure managed disks, which handles the storage accounts for you when using Linux VMs
 services: "virtual-machines-linux,storage"
 author: roygara
