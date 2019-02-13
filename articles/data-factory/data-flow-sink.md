@@ -28,7 +28,7 @@ You can also choose "automap" to sink all incoming fields. If you wish to choose
 ## Output to one File
 For Azure Storage Blob or Data Lake sink types, you will output the transformed data into a folder. Spark will generate partitioned output data files based on the partitioning scheme being used in the Sink transform. You can set the partitioning scheme by clicking on the "Optimize" tab. If you would like ADF to merge your output into a single file, click on the "Single Partition" radio button.
 
-![Sink options](media/data-flow/op001.png "sink options")
+![Sink options](media/data-flow/opt001.png "sink options")
 
 ## Blob Storage Folder
 When Sinking your data transformations to Blob Store, choose a blob *folder* as your destination folder path, not a file. ADF Data Flow will generate the output files for you in that folder.
@@ -53,10 +53,10 @@ Overwrite will truncate the table if it exists, then recreate it and load the da
 
 If you deselect "Auto Map", you can map the fields to your destination table manually.
 
-![Sink ADW options](media/data-flow/adw.png "adw sink")
+![Sink ADW options](media/data-flow/adw2.png "adw sink")
 
 ### Max Concurrent Connections
 
 You can set the maximum concurrent connections in the Sink transformation when writing your data to an Azure database connection.
 
-![Connection options](media/data-flow/maxconn.png "connections")
+![Connection options](media/data-flow/maxcon.png "connections")
