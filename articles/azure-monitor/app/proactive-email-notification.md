@@ -17,7 +17,7 @@ Based on customer feedback, on April 1, 2019, we’re changing the default roles
 
 ## What is changing?
 
-Currently, Smart Detection email notifications are sent by default to the _Subscription Owner_, _Subscription Contributor, and _Subscription Reader_ roles. These roles often include users who are not actively involved in monitoring, which causes many of these users to receive notifications unnecessarily. To improve this experience, we are making a change so that email notifications only go to the [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) and [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roles by default.
+Currently, Smart Detection email notifications are sent by default to the _Subscription Owner_, _Subscription Contributor_, and _Subscription Reader_ roles. These roles often include users who are not actively involved in monitoring, which causes many of these users to receive notifications unnecessarily. To improve this experience, we are making a change so that email notifications only go to the [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) and [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roles by default.
 
 ## Scope of this change
 
