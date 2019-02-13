@@ -12,6 +12,8 @@ ms.reviewer: jrasnick
 manager: craigg
 ---
 
+# Azure SQL Data Warehouse release notes
+
 ## SQL Data Warehouse Version 10.0.10106.0 (January)
 
 ### Service improvements
