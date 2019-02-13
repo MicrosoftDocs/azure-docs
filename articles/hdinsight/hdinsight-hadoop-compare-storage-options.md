@@ -21,7 +21,7 @@ This article provides an overview of these storage types and their unique featur
 
 ## Use Azure Data Lake Storage Gen2 with Apache Hadoop in Azure HDInsight
 
-Azure Data Lake Storage Gen2 takes core features from Azure Data Lake Storage Gen1. These features include a file system that is compatible with Hadoop, Azure Active Directory, and POSIX-based access control lists (ACLs). Data Lake Storage Gen2 integrates these features into Azure Blob storage. This combination allows you to take advantage of the performance of Azure Data Lake Storage Gen1 while also using the tiering and data life-cycle management of Blob storage.
+Azure Data Lake Storage Gen2 takes core features from Azure Data Lake Storage Gen1 and integrates them into Azure Blob storage. These features include a file system that is compatible with Hadoop, Azure Active Directory (Azure AD), and POSIX-based access control lists (ACLs). This combination allows you to take advantage of the performance of Azure Data Lake Storage Gen1 while also using the tiering and data life-cycle management of Blob storage.
 
 For more information on Azure Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
@@ -83,9 +83,9 @@ For more information, see [Use the Azure Data Lake Storage Gen2 URI](../storage/
 
 Azure Storage is a robust general-purpose storage solution that integrates seamlessly with HDInsight. HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through an HDFS interface, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs.
 
-When creating an Azure Storage account, you can choose from several storage account types. The following table provides information on options that are supported with HDInsight.
+When creating an Azure storage account, you can choose from several storage account types. The following table provides information on options that are supported with HDInsight.
 
-| Storage account type | Supported services | Supported performance tiers | Supported access tiers |
+| **Storage account type** | **Supported services** | **Supported performance tiers** | **Supported access tiers** |
 |----------------------|--------------------|-----------------------------|------------------------|
 | General-purpose V2   | Blob               | Standard                    | Hot, Cool, Archive*    |
 | General-purpose V1   | Blob               | Standard                    | N/A                    |
@@ -94,7 +94,7 @@ When creating an Azure Storage account, you can choose from several storage acco
 *The Archive access tier is an offline tier that has a retrieval latency of several hours. Don't use this tier with HDInsight. For more information, see [Archive access tier](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
 
 > [!WARNING]  
-> Don't use the default blob container to store business data. The default container holds application and system logs. Make sure to retrieve the logs before you delete the default blob container. Delete the blog container after each use to reduce storage costs. Also keep in mind that one blob container can't be used as the default file system for multiple clusters.
+> We don't recommend using the default blob container to store business data. The default container holds application and system logs. Make sure to retrieve the logs before you delete the default blob container. Delete the blog container after each use to reduce storage costs. Also keep in mind that one blob container can't be used as the default file system for multiple clusters.
 
 
 ### HDInsight storage architecture
@@ -106,7 +106,7 @@ HDInsight provides access to the distributed file system that is locally attache
 
     hdfs://<namenodehost>/<path>
 
-HDInsight also allows you to access data in Azure Storage. The syntax is as follows:
+Through HDInsight you can also access data in Azure Storage. The syntax is as follows:
 
     wasb[s]://<containername>@<accountname>.blob.core.windows.net/<path>
 
@@ -157,7 +157,7 @@ Access Data Lake Storage Gen1 from Hadoop (available with an HDInsight cluster) 
 
 For more information on Azure Data Lake Storage Gen1, see the detailed [Overview of Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md).
 
-Some of the key capabilities of Data Lake Storage Gen1 include the following.
+The key capabilities of Data Lake Storage Gen1 include the following.
 
 ### Compatibility with Hadoop
 
