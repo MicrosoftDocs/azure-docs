@@ -23,6 +23,9 @@
       - name: 'C# (UWP)'
         href: quickstart-csharp-uwp.md
         displayName: 'recognize speech, speech recognition, speech to text, stt, C#, universal windows platform'
+      - name: 'C# (Unity)'
+        href: quickstart-csharp-unity.md
+        displayName: 'recognize speech, speech recognition, speech to text, stt, C#, unity 3d, windows, android, universal windows platform, uwp'
       - name: 'C++ (Windows)'
         href: quickstart-cpp-windows.md
         displayName: recognize speech, speech recognition, speech to text, stt
