@@ -71,7 +71,7 @@ Our project requires a handful of .NET Framework assemblies and NewtonSoft.Json,
 
 Let's add assemblies to our project to serialize and deserialize objects, and to manage HTTP requests and responses.
 
-1. Locate your project in Visual Studio's Solution Explorer (right panel). Right click on your project, then select **Add > Reference...**. This will open **Reference Manager**.
+1. Locate your project in Visual Studio's Solution Explorer (right panel). Right click on your project, then select **Add > Reference...**, which opens **Reference Manager**.
    ![Add assembly references](media/add-assemblies-sample.png)
 2. The assemblies tab lists all .NET Framework assemblies that are available to reference. Use the search bar in the upper right of the screen to search for these references and add them to your project:
    * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
@@ -254,7 +254,7 @@ Last, we've added code to call methods to retrieve languages for translation and
 
 The Translator Text API currently supports more than 60 languages. Since new language support will be added over time, we recommend calling the Languages resource exposed by Translator Text rather than hardcoding the language list in your app.
 
-In this section we'll create a `GET` request to the Languages resource, specifying that we want a list of languages available for translation.
+In this section, we'll create a `GET` request to the Languages resource, specifying that we want a list of languages available for translation.
 
 > [!NOTE]
 > The Languages resource allows you to filter language support with the following query parameters: transliteration, dictionary, and translation. For more information, see [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
@@ -401,7 +401,7 @@ Now we're going to create method to detect the language of the source text (text
    // In the following sections, we'll add code below this.
    ```
 
-This method creates an HTTP POST request to the Detect resource. It takes a single argument, `text`, which is passed along as the body of the request. Later, we when we create our translation request, the text entered into our UI will be passed to this method for language detection.
+This method creates an HTTP `POST` request to the Detect resource. It takes a single argument, `text`, which is passed along as the body of the request. Later, we when we create our translation request, the text entered into our UI will be passed to this method for language detection.
 
 Additionally, this method evaluates the confidence score of the response. If the score is greater than `0.5`, then the detected language is displayed in our user interface.
 
