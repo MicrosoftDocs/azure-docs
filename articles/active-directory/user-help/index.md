@@ -66,10 +66,11 @@ We've created this content to help you set up and use security info, two-step ve
                     <div class="cardText">
                         <h3>Security info (preview) help</h3>
                         <p>
+                        <a href="/azure/active-directory/user-help/user-help-security-info-overview">Overview</a><br/>
+                        <a href="/azure/active-directory/user-help/security-info-setup-signin">Set up from a sign-in page prompt</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-auth-app">Set up an authenticator app</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-text-msg">Set up text messaging</a><br/>
                         <a href="/azure/active-directory/user-help/security-info-setup-phone-number">Set up phone calls</a><br/>
-                        <a href="/azure/active-directory/user-help/security-info-manage-settings">Manage your security info</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-sign-in">How to sign in</a>
                         </p>
                     </div>
