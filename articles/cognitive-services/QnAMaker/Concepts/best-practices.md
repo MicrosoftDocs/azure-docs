@@ -21,6 +21,18 @@ The QnA Maker service is continually improving the algorithms that extract QnAs 
 
 In general, FAQ pages should be stand-alone and not combined with other information. Product manuals should have clear headings and preferably an index page. 
 
+## Creating good questions and answers
+
+### Good questions
+
+The best questions are simple. Consider the key word or phrase for each question then create a simple question for that key word or phrase. 
+
+Add as many alternate questions as you need but keep the alterations simple. Adding more words or phrasings that are not part of the main goal of the question does not help QnA Maker find a match. 
+
+### Best answers
+
+The best answers are simple answers but not too simple such as yes and no answers. If your answer should link to other sources or provide a rich experience with media and links, use [tagging](../how-to/metadata-generateanswer-usage.md) to distinguish which type of answer you expect, then submit that tag with the query to get the correct answer version.
+
 ## Chit-Chat
 Add chit-chat to your bot, to make your bot more conversational and engaging, with low effort. You can easily add chit-chat data sets for 3 pre-defined personalities when creating your KB, and change them at any time. Learn how to [add chit-chat to your KB](../How-To/chit-chat-knowledge-base.md). 
 
@@ -52,13 +64,6 @@ Make sure you are making the best use of the ranking features QnA Maker supports
 
 ### Choosing a threshold
 The default confidence score that is used as a threshold is 50, however you can change it for your KB based on your needs. Since every KB is different, you should test and choose the threshold that is best suited for your KB. Read more about the [confidence score](../Concepts/confidence-score.md). 
-
-
-### Best questions
-
-The best questions are simple. Consider the key word or phrase for each question then create a simple question for that key word or phrase. 
-
-Add as many alternate questions as you need but keep the alterations simple. Adding more words or phrasings that are not part of the main goal of the question does not help QnA Maker find a match. 
 
 ### Add alternate questions
 [Alternate questions](../How-To/edit-knowledge-base.md) improve the likelihood of a match with a user query. Alternate questions are useful when there are multiple ways in which the same question may be asked. This can include changes in the sentence structure and word-style.
@@ -92,10 +97,6 @@ For example, you might have two separate QnAs with the following questions:
 |where is the ATM *location*|
 
 Since these two QnAs are phrased with very similar words, this similarity could cause very similar scores for many user queries that are phrased like  *"where is the `<x>` location"*. Instead, try to clearly differentiate with queries like  *"where is the parking lot"* and *"where is the ATM"*, by avoiding words like "location" that could be in many questions in your KB. 
-
-### Best answers
-
-The best answers are simple answers but not too simple such as yes and no answers. If your answer should link to other sources or provide a rich experience with media and links, use [tagging](../how-to/metadata-generateanswer-usage.md) to distinguish which type of answer you expect, then submit that tag with the query to get the correct answer version.
 
 ## Collaborate
 QnA Maker allows users to [collaborate](../How-to/collaborate-knowledge-base.md) on a knowledge base. Users need access to the Azure QnA Maker resource group in order to access the knowledge bases. Some organizations may want to outsource the knowledge base editing and maintenance, and still be able to protect access to their Azure resources. This editor-approver model is done by setting up two identical [QnA Maker services](../How-to/set-up-qnamaker-service-azure.md) in different subscriptions and selecting one for the edit-testing cycle. Once testing is finished, the knowledge base contents are transferred with an [import-export](../Tutorials/migrate-knowledge-base.md) process to the QnA Maker service of the approver that will finally publish the knowledge base and update the endpoint.
