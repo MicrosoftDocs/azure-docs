@@ -8,11 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 12/13/2018
+ms.date: 03/29/2019
 ms.author: erhopf
 ---
 
-# What is Speech Services?
+# What are the Speech Services?
+
+> [!IMPORTANT]
+> Speech Services have replaced Bing Speech API, Translator Speech, and Custom Voice. See *How-to guides > Migrate* for migration instructions.
+
+Azure Speech Services is the unification of speech recognition, speech translation, and speech synthesis into a single Azure subscription. It's easy to speech enable your applications and products with the Speech SDK, Speech Devices SDK, or REST APIs.
+
+## Features
+
+These core features comprise Azure Speech Services.
+
+| Feature | Description | SDK | REST |
+|---------|-------------|-----|------|
+| [Speech Recognition]() | Speech recognition, or speech-to-text, transcribes audio streams into text that your applications, tools, or devices can display or act upon as voice commands. | Yes | Yes |
+| [Speech Translation]() | Speech translation lets enables end-to-end, real-time, multi-language translation of speech to your applications, tools, and devices. The same API can be used for both speech-to-speech and speech-to-text translation. | Yes | No |
+| [Speech Synthesis]() | Speech synthesis, or text-to-speech, converts input text into human-like speech. This service offers more than 75 voices in more than 45 languages and locales with multi-gender support. You can also create custom voices unique to your brand or product. | No | Yes |
+| [Batch Transcription]() | Batch transcription enables asynchronous speech-to-text transcription. | No | Yes |
+
+<< TODO: Consider using the bullets from the previous list. >>
+
+## Core use cases
+
 
 Like the other Azure speech services, Speech Services are powered by speech technologies used in products like Cortana and Microsoft Office.
 
@@ -52,12 +73,6 @@ The Speech Services also has a [REST API](rest-apis.md) that works with any prog
 |-|-|-|-|-|
 |[Speech SDK](speech-sdk.md)|Yes|No|Yes|Native APIs for C#, C++, and Java to simplify development.|
 |[REST APIs](rest-apis.md)|Yes|Yes|No|A simple HTTP-based API that makes it easy to add speech to your applications.|
-
-### WebSockets
-
-The Speech Services also support WebSocket protocols for streaming speech-to-text and speech translation. The Speech SDKs use these protocols to communicate with the Speech service. Use the Speech SDK instead of trying to implement your own WebSocket communication with the Speech service.
-
-If you already have code that uses Bing Speech or Translator Speech via WebSockets, you can update it to use the Speech Services. The WebSocket protocols are compatible, however, the endpoints are different.
 
 ### Speech Devices SDK
 
