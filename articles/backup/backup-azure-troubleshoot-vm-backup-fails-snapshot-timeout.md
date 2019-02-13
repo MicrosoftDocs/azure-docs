@@ -248,3 +248,6 @@ To manually clear the restore points collection which are not cleared due to the
 
 5. Click **Delete**, to clean the restore point collection.
 6. Retry the backup operation again.
+
+> [!NOTE]
+ >If the resource (RP Collection) has large number of Restore Points, then deleting the same from portal may timeout and fail. This is a known CRP issue, where all restore points are not deleted in the stipulated time and the operation times out; however the delete operation usually succeeds after 2 or 3 retries.
