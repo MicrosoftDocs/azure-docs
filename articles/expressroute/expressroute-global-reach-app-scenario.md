@@ -18,6 +18,8 @@ ms.author: rambala
 
 To learn more about ExpressRoute Global Reach, see [ExpressRoute Global Reach][Global Reach]. In this article, let's walk through an application scenario, compare the ExpressRoute Global Reach solution to a few other solutions, configure Global Reach for the example scenario, and verify the connections. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ##Application scenario
 
 Fabrikam Inc. has a large physical presence and Azure deployment in East US. Fabrikam has back-end connectivity between its on-premises and Azure deployments via ExpressRoute. Contoso Ltd. has a presence and Azure deployment in West US. Contoso has back-end connectivity between its on-premises and Azure deployments via ExpressRoute.  
@@ -89,19 +91,19 @@ Because Fabrikam Inc. and Contoso Ltd. onboarded Azure as separate companies, th
 To create an authorization for Contoso's ExpressRoute circuit, first login into Contoso's Azure account, and select the appropriate subscription (if there are multiple subscriptions). The PowerShell commands for these steps are:
 
 ```powershell
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+Connect-AzAccount
+Get-AzSubscription
+Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 The steps for creating an ExpressRoute circuit authorization are listed below:
 
 ```powershell
-$ckt_2 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
-Add-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $ckt_2 -Name "Name_for_auth_key"
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt_2
+$ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
+Add-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $ckt_2 -Name "Name_for_auth_key"
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_2
 ```
 
-The 'Set-AzureRmExpressRouteCircuit' output will list the ExpressRouteCircuit. Note the private peering ID and the authorization key that would be listed towards the end of the listing. See an example PowerShell output snippet below:
+The 'Set-AzExpressRouteCircuit' output will list the ExpressRouteCircuit. Note the private peering ID and the authorization key that would be listed towards the end of the listing. See an example PowerShell output snippet below:
 
 ```powershell
 ServiceKey                       : <serviceKey>
@@ -144,9 +146,9 @@ With the peering ID and the authorization key, you can create the Global Reach u
 Global Reach creates a redundant set of point-to-point connections across the two MSEE pairs. For the two point-to-point connections, you need to specify a /29 address prefix (for the running example let's use 192.168.11.64/29). Use the following commands to create the Global Reach connection:
 
 ```powershell
-$ckt_1 = Get-AzureRmExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
-Add-AzureRmExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix "__.__.__.__/29" -AuthorizationKey "########-####-####-####-############"
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt_1
+$ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
+Add-AzExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix "__.__.__.__/29" -AuthorizationKey "########-####-####-####-############"
+Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 ```
 
 Once the above commands are executed, it will take couple of minutes to create the redundant Global Reach connections.
