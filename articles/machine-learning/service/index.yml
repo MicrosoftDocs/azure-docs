@@ -16,7 +16,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Azure Machine Learning service provides a cloud-based environment you can use to simplify and accelerate the building, training, and deployment of your machine learning models. Use automated machine learning to identify suitable algorithms and tune hyperparameters faster. Improve productivity and reduce costs with autoscaling compute and DevOps for machine learning. Access all these capabilities from your favorite Python environment using the latest open-source frameworks, such as PyTorch, TensorFlow, and scikit-learn along with the service SDKs.  Learn how to use this service for your machine learning workflows with our quickstarts and tutorials.
+  description: Azure Machine Learning service provides a cloud-based environment to quickly build, train, and deploy your machine learning models. Use automated machine learning to identify algorithms and tune hyperparameters faster. Improve productivity and reduce costs with autoscaling compute and DevOps for machine learning. Access these capabilities from your Python environment using open-source frameworks, such as PyTorch, TensorFlow, and scikit-learn along with the service SDKs. Learn how with our quickstarts and tutorials.
   
 sections:      
 - title: 5-Minute Quickstarts
