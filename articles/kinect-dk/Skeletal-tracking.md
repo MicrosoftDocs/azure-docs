@@ -1,0 +1,1 @@
+﻿---title: Skeletal Trackingdescription: Get started with Skeletal Trackingauthor: joylitalms.author: joylitalms.date: 10/02/2018keywords: kinect, azure, skeletal tracking---# Azure Kinect Skeletal Tracking SDKUnder development and not available at the moment. More information coming soon!![Skeletal tracking early test](media/SkeletalTrackingScreenshot.png)
