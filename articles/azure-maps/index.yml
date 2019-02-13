@@ -10,7 +10,7 @@ metadata:
   ms.service: azure-maps
   services: azure-maps
   ms.topic: landing-page
-  ms.date: 02/13/2019
+  ms.date: 02/14/2019
   ms.author: philmea
 abstract:
   description: Azure Maps provides developers from all industries, powerful geospatial capabilities, packed with the freshest mapping data available to provide geographic context to web and mobile applications. Azure Maps is an Azure One API compliant set of REST APIs for Maps, Search, Routing, Traffic, Time Zones, Geolocation, Geofencing, Map Data and Spatial Operations accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms.
@@ -36,7 +36,7 @@ sections:
     - html: <a href="/azure/azure-maps/tutorial-search-location">Search for points of interest</a>
     - html: <a href="/azure/azure-maps/tutorial-route-location">Route to a point of interest</a>
     - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Routes by mode of travel</a>
-    - html: <a href="/azure/azure-maps/tutorial-tutorial-create-store-locator">Create a store locator</a>
+    - html: <a href="/azure/azure-maps/tutorial-create-store-locator">Create a store locator</a>
     - html: <a href="/azure/azure-maps/tutorial-geofence">Set up a geofence</a>
 - title: Reference
   items:
