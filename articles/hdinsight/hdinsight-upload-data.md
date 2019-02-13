@@ -13,7 +13,7 @@ ms.date: 02/08/2019
 ---
 # Upload data for Apache Hadoop jobs in HDInsight
 
-Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Storage and Azure Data Lake Storage (Gen1 and Gen2). Azure Storage and Data lake Storage Gen1 and Gen2 are designed as HDFS extensions to provide a seamless experience to customers. They enable the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure Storage, Data Lake Storage Gen1, and Gen2 are distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure Storage, see [Use Azure Storage with HDInsight][hdinsight-storage], [Use Data Lake Storage Gen1 with HDInsight](hdinsight-hadoop-use-data-lake-store.md), and [Use Data Lake Storage Gen2 with HDInsight](../storage/data-lake-storage/use-hdi-cluster.md).
+Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) over Azure Storage and Azure Data Lake Storage (Gen1 and Gen2). Azure Storage and Data Lake Storage Gen1 and Gen2 are designed as HDFS extensions to provide a seamless experience to customers. They enable the full set of components in the Hadoop ecosystem to operate directly on the data it manages. Azure Storage, Data Lake Storage Gen1, and Gen2 are distinct file systems that are optimized for storage of data and computations on that data. For information about the benefits of using Azure Storage, see [Use Azure Storage with HDInsight][hdinsight-storage], [Use Data Lake Storage Gen1 with HDInsight](hdinsight-hadoop-use-data-lake-store.md), and [Use Data Lake Storage Gen2 with HDInsight](../storage/blobs/data-lake-storage-use-hdi-cluster.md).
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Note the following requirements before you begin:
 
     - [Use Azure Storage with HDInsight][hdinsight-storage]
     - [Use Data Lake Storage Gen1 with HDInsight](hdinsight-hadoop-use-data-lake-store.md)
-    - [Use Data Lake Storage Gen2 with HDInsight](../storage/data-lake-storage/use-hdi-cluster.md)  
+    - [Use Data Lake Storage Gen2 with HDInsight](../storage/blobs/data-lake-storage-use-hdi-cluster.md)  
 
 ## Upload data to Azure Storage
 
@@ -112,7 +112,7 @@ The Azure command-line interface (CLI) is Microsoft's cross-platform command-lin
     ```
 
 ## <a id="xplatcli"></a>Azure Classic CLI
-The Azure Classic command-line interface (CLI) is Microsoft's cross-platform command-line experience for managing Azure resources. Use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or [install it on macOS, Linux, or Windows](../cli-install-nodejs.md).  Open a command prompt, bash, or other shell to enter the following commands:
+The Azure Classic command-line interface (CLI) is Microsoft's cross-platform command-line experience for managing Azure resources. Use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or [install it on macOS, Linux, or Windows](https://docs.microsoft.com/cli/azure/install-classic-cli?).  Open a command prompt, bash, or other shell to enter the following commands:
 
 1. Use the following command to interactively log in to Azure:
 
@@ -182,7 +182,7 @@ Azure PowerShell is a scripting environment that you can use to control and auto
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
-1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell](/powershell/azure/overview).
+1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 2. Use the following command to interactively log in to Azure:
 
@@ -194,7 +194,7 @@ Azure PowerShell is a scripting environment that you can use to control and auto
 
 3. Use the following command to list the storage accounts for your subscription:
 
-    ```cli
+    ```powershell
     Get-AzStorageAccount
 
     # List all storage accounts for a given resource group.
@@ -290,7 +290,7 @@ or
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-For a list of other Hadoop commands that work with files, see [https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+For a list of other Hadoop commands that work with files, see [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
 > On Apache HBase clusters, the default block size used when writing data is 256 KB. While this works fine when using HBase APIs or REST APIs, using the `hadoop` or `hdfs dfs` commands to write data larger than ~12 GB results in an error. For more information, see the [storage exception for write on blob](#storageexception) section in this article.
@@ -302,9 +302,9 @@ There are also several applications that provide a graphical interface for worki
 | --- |:---:|:---:|:---:|
 | [Microsoft Visual Studio Tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure Storage Explorer](https://storageexplorer.com/) |✔ |✔ |✔ |
-| [Cloud Storage Studio 2](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
+| [Cerulea](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
-| [Azure Explorer](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
+| [CloudBerry Explorer for Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 ### Visual Studio Tools for HDInsight
