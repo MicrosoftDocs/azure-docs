@@ -226,6 +226,6 @@ If your organization is federated for SSO with Azure AD and you are going to be 
 
 [Enable Azure Multi-Factor Authentication for your organization](howto-mfa-getstarted.md)
 
-[Enable converged registration for Azure Multi-Factor Authentication and Azure AD self-service password reset](concept-registration-mfa-sspr-converged.md)
+[Enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
 
 [End-user authentication method configuration documentation](https://aka.ms/securityinfoguide)
