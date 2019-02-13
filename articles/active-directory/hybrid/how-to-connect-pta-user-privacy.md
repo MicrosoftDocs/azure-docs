@@ -16,6 +16,7 @@ ms.date: 07/23/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 
 # User Privacy and Azure Active Directory Pass-through Authentication

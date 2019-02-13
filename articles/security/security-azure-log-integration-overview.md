@@ -4,7 +4,7 @@ description: Learn about Azure Log Integration, its key capabilities, and how it
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TerryLanfear
 
 ms.assetid: 9c1346e1-baf8-4975-b2f2-42ae05b2dc0a

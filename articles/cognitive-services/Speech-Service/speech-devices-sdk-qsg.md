@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with the Speech Devices SDK.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -42,12 +42,14 @@ Before you begin developing with the Speech Devices SDK, gather the information 
     You can [create a simple LUIS model](https://docs.microsoft.com/azure/cognitive-services/luis/) or use the sample LUIS model, LUIS-example.json. The sample LUIS model is available from the [Speech Devices SDK download site](https://shares.datatransfer.microsoft.com/). To upload your model's JSON file to the [LUIS portal](https://www.luis.ai/home), select **Import new app**, and then select the JSON file.
 
 ## Set up the development kit
-
-1. Connect the development kit to a PC or power adapter by using a high quality micro USB cable. A green power indicator will light up under the top board.
-
-1. Connect the development kit to a computer by using a second mini USB cable.
+    
+1. The development kit has two micro USB connectors. The left connector is to power the development kit and is highlighted as Power in the image below. The right one is to control it, and is marked Debug in the image.
 
     ![Connecting the dev kit](media/speech-devices-sdk/qsg-1.png)
+       
+1. Power the development kit by using a micro USB cable to connect the power port to a PC or power adapter. A green power indicator will light up under the top board.
+
+1. To control the development kit connect the debug port to a computer by using a second micro USB cable. It is essential to use a high quality cable to ensure reliable communications.
 
 1. Orient your development kit for either the circular or linear configuration.
 

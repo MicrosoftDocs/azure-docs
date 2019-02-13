@@ -660,10 +660,10 @@ az webapp log tail --resource-group <resource group name> --name <function app n
 For Azure PowerShell, use the following commands to add your Azure account, choose your subscription, and stream log files:
 
 ```powershell
-PS C:\> Add-AzureAccount
-PS C:\> Get-AzureSubscription
-PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
-PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
+Add-AzAccount
+Get-AzSubscription
+Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
+Get-AzWebSiteLog -Name <function app name> -Tail
 ```
 
 For more information, see [How to stream logs](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).

@@ -1,6 +1,6 @@
 ---
-title: Connect Excel to SQL Database | Microsoft Docs
-description: Learn how to connect Microsoft Excel to Azure SQL database in the cloud. Import data into Excel for reporting and data exploration.
+title: Connect Excel to a single database in Azure SQL Database | Microsoft Docs
+description: Learn how to connect Microsoft Excel to a single database in Azure SQL database. Import data into Excel for reporting and data exploration.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,13 +11,15 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: 
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/12/2019
 ---
-# Connect Excel to an Azure SQL database and create a report
+# Connect Excel to a single database in Azure SQL database and create a report
 
-Connect Excel to a SQL database in the cloud and import data and create tables and charts based on values in the database. In this tutorial you will set up the connection between Excel and a database table, save the file that stores data and the connection information for Excel, and then create a pivot chart from the database values.
+Connect Excel to a single database in Azure SQL Database and import data and create tables and charts based on values in the database. In this tutorial you will set up the connection between Excel and a database table, save the file that stores data and the connection information for Excel, and then create a pivot chart from the database values.
 
-You'll need a SQL database in Azure before you get started. If you don't have one, see [Create your first SQL database](sql-database-get-started-portal.md) to get a database with sample data up and running in a few minutes. In this article, you'll import sample data into Excel from that article, but you can follow similar steps with your own data.
+You'll need a single database before you get started. If you don't have one, see [Create a single database](sql-database-single-database-get-started.md) and [Create server-level IP firewall](sql-database-server-level-firewall-rule.md) to get a single database with sample data up and running in a few minutes.
+
+In this article, you'll import sample data into Excel from that article, but you can follow similar steps with your own data.
 
 You'll also need a copy of Excel. This article uses [Microsoft Excel 2016](https://products.office.com/).
 
