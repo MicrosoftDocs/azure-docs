@@ -19,8 +19,8 @@ There is no cost for transactions for a premium managed disk.
 
 For detailed information on pricing for Managed Disks, see [Managed Disks Pricing](https://azure.microsoft.com/pricing/details/managed-disks).
 
-### Ultra SSD VM reservation fee
+### Ultra disks VM reservation fee
 
-Azure VMs have the capability to indicate if they are ultra SSD compatible. An ultra SSD compatible VM allocates dedicated bandwidth capacity between the compute VM instance and the block storage scale unit to optimize the performance and reduce latency. Adding this capability on the VM results in a reservation charge that is only imposed if you enabled ultra SSD capability on the VM without attaching an ultra SSD disk to it. When an ultra SSD disk is attached to the ultra SSD compatible VM, this charge would not be applied. This charge is per vCPU provisioned on the VM.
+Azure VMs have the capability to indicate if they are compatible with ultra disks. An ultra disk compatible VM allocates dedicated bandwidth capacity between the compute VM instance and the block storage scale unit to optimize the performance and reduce latency. Adding this capability on the VM results in a reservation charge that is only imposed if you enabled ultra disk capability on the VM without attaching an ultra disk to it. When an ultra disk is attached to the ultra disk compatible VM, this charge would not be applied. This charge is per vCPU provisioned on the VM.
 
-Refer to the [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for ultra SSD Disks pricing details.
+Refer to the [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for ultra disk Disks pricing details.
