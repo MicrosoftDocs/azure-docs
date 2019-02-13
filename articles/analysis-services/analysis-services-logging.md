@@ -77,7 +77,7 @@ The Metrics category logs the same [Server metrics](analysis-services-monitor.md
 
     * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. See [Create a storage account](../storage/common/storage-create-storage-account.md). Follow the instructions to create a Resource Manager, general-purpose account, then select your storage account by returning to this page in the portal. It may take a few minutes for newly created storage accounts to appear in the drop-down menu.
     * **Stream to an event hub**. To use this option, you need an existing Event Hub namespace and event hub to connect to. To learn more, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md). Then return to this page in the portal to select the Event Hub namespace and policy name.
-    * **Send to Azure Monitor (Log Analytics workspace)**. To use this option, either use an existing workspace or [create a new workspace](../azure-monitor/learn/quick-create-workspace) resource in the portal. For more information on viewing your logs, see [View logs in Log Analytics workspace](#view-logs-in-log-analytics) in this article.
+    * **Send to Azure Monitor (Log Analytics workspace)**. To use this option, either use an existing workspace or [create a new workspace](../azure-monitor/learn/quick-create-workspace.md) resource in the portal. For more information on viewing your logs, see [View logs in Log Analytics workspace](#view-logs-in-log-analytics) in this article.
 
     * **Engine**. Select this option to log xEvents. If you're archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
     * **Service**. Select this option to log service level events. If you are archiving to a storage account, you can select the retention period for the diagnostic logs. Logs are autodeleted after the retention period expires.
@@ -196,7 +196,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 
 ### Create a new storage account for your logs
 
-You can use an existing storage account for your logs, provided it's in the same subscription as your server. For this tutorial you create a new storage account dedicated to Analysis Services logs. To make it easy, you're storing the storage account details in a variable named **sa**.
+You can use an existing storage account for your logs, provided it's in the same subscription as your server. For this tutorial, you create a new storage account dedicated to Analysis Services logs. To make it easy, you're storing the storage account details in a variable named **sa**.
 
 You also use the same resource group as the one that contains your Analysis Services server. Substitute values for `awsales_resgroup`, `awsaleslogs`, and `West Central US` with your own values:
 
@@ -222,7 +222,7 @@ To enable logging, use the Set-AzureRmDiagnosticSetting cmdlet together with the
 Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
 ```
 
-The output should look something like this:
+The output should look something like this example:
 
 ```powershell
 StorageAccountId            : 
@@ -261,7 +261,7 @@ Location                    :
 Tags                        :
 ```
 
-This confirms that logging is now enabled for the server, saving information to the storage account.
+This output confirms that logging is now enabled for the server, saving information to the storage account.
 
 You can also set retention policy for your logs so older logs are automatically deleted. For example, set retention policy using **-RetentionEnabled** flag to **$true**, and set **-RetentionInDays** parameter to **90**. Logs older than 90 days are automatically deleted.
 
