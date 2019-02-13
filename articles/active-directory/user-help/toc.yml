@@ -26,10 +26,10 @@
   items:
   - name: Overview
     href: user-help-security-info-overview.md
-  - name: Add security info during sign-in 
+  - name: Add security info during sign-in
     href: security-info-setup-signin.md
-  - name: Add or update security info methods overview 
-    href: security-info-add-update-methods-overview.md    
+  - name: Add or update security info methods overview
+    href: security-info-add-update-methods-overview.md
      items:
       - name: Set up for an authenticator app 
         href: security-info-setup-auth-app.md
@@ -38,13 +38,13 @@
       - name: Set up phone calls
         href: security-info-setup-phone-number.md
       - name: Set up email
-        href: security-info-setup-email.md  
+        href: security-info-setup-email.md
       - name: Set up security questions
-        href: security-info-setup-questions.md   
+        href: security-info-setup-questions.md
   - name: Manage app passwords
     href: security-info-app-passwords.md
   - name: How to sign in
-    href: user-help-sign-in.md?toc=./toc.json   
+    href: user-help-sign-in.md?toc=./toc.json
 - name: Microsoft Authenticator app help
   items:
   - name: Overview
