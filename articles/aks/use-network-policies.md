@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/12/2019
 ms.author: iainfou
 ---
 
@@ -21,7 +21,7 @@ This article shows you how to use network policies to control the flow of traffi
 
 ## Before you begin
 
-You need the Azure CLI version 2.0.55 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You need the Azure CLI version 2.0.56 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Overview of network policy
 
