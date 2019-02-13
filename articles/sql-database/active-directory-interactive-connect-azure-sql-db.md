@@ -15,7 +15,7 @@ manager: craigg
 ---
 # Connect to Azure SQL Database with Active Directory MFA
 
-This article provides a C# program that connects to your  Azure SQL Database. The program uses interactive mode authentication, which supports [Azure Active Directory (Azure AD) multi-factor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+This article provides a C# program that connects to your Azure SQL Database. The program uses interactive mode authentication, which supports [Azure Active Directory (Azure AD) multi-factor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
 For more information about MFA support for SQL tools, see [Azure Active Directory support in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
 
@@ -87,7 +87,7 @@ For your C# program to run, an Azure SQL server admin needs to assign an Azure A
 
  * **SQL Server** > **Active Directory admin** > **Set admin**
 
-For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server), in its section **Provision an Azure Active Directory administrator for your Azure SQL Database server**.
+For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server), in the **Provision an Azure Active Directory administrator for your Azure SQL Database server** section.
 
 ### Add a non-admin user to a specific database (optional)
 
