@@ -474,7 +474,7 @@ private string CorrectSpelling(string text)
 The last thing that we need to do is create a method that is invoked when the **Translate** button in our user interface is clicked.
 
 1. In Visual Studio, open the tab for `MainWindow.xaml.cs`.
-2. Add this code to your project below the `CorrectSpelling()` method:  
+2. Add this code to your project below the `CorrectSpelling()` method and save:  
    ```csharp
    // ***** PERFORM TRANSLATION ON BUTTON CLICK
    private async void TranslateButton_Click(object sender, EventArgs e)
@@ -547,7 +547,6 @@ The last thing that we need to do is create a method that is invoked when the **
        }
    }
    ```
-   3. Save your changes.
 
 The first step is to get the "from" and "to" languages, and the text the user entered into our form. If the source language is set to **Detect**, `DetectLanguage()` is called to determine the language of the source text. The text might be in a language that the Translator API doesn't support. In that case, display a message to inform the user, and return without translating the text.
 
