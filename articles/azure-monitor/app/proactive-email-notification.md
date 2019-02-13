@@ -17,7 +17,7 @@ Based on customer feedback, on April 1, 2019, we’re changing the default roles
 
 ## What is changing?
 
-Currently, Smart Detection email notifications are sent by default to the _Subscription Owner_, _Subscription Contributor, and _Subscription Reader_ roles. However, these roles often include users who are not actively involved in monitoring, which causes many of these users to receive the notifications unnecessarily. We will therefore be making a change and send the email notifications to the [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) and [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roles.
+Currently, Smart Detection email notifications are sent by default to the _Subscription Owner_, _Subscription Contributor, and _Subscription Reader_ roles. These roles often include users who are not actively involved in monitoring, which causes many of these users to receive notifications unnecessarily. To improve this experience, we will be making a change so that future email notifications only go to the [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) and [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roles by default.
 
 ## Scope of this change
 
@@ -34,6 +34,6 @@ To make sure that email notifications from Smart Detection are sent to the relev
 To assign users to the Monitoring Reader or Monitoring Contributor roles via the Azure portal, follow the steps described in the [Add a role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment) article. Make sure to select the _Monitoring Reader_ or _Monitoring Contributor_ as the role to which users are assigned.
 
 > [!NOTE]
-> Specific recipient of Smart Detection notifications, configured using the _Additional email recipients_ option in the rule settings, will not be affected by this change, and continue receiving the email notifications.
+> Specific recipients of Smart Detection notifications, configured using the _Additional email recipients_ option in the rule settings, will not be affected by this change, and will continue receiving the email notifications.
 
-If you have any questions or concerns regarding this change, please don’t hesitate to [contact us](mailto:smart-alert-feedback@microsoft.com).
+If you have any questions or concerns regarding this change, don’t hesitate to [contact us](mailto:smart-alert-feedback@microsoft.com).
