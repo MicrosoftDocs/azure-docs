@@ -116,5 +116,5 @@ Before starting, if you are not familiar with Alerts in Azure Monitor, see [Over
 
 ## Next steps
 
-* Review some of the [log query examples](container-insights-analyze.md#search-logs-to-analyze-data) to immediately start using or customize for other alert scenarios. 
+* Review some of the [log query examples](container-insights-analyze.md#search-logs-to-analyze-data) learn about the pre-defined queries or examples to evaluate and use or customize for other alert scenarios. 
 * To continue learning how to use Azure Monitor and monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md)
