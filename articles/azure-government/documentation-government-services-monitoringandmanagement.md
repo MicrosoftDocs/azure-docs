@@ -109,7 +109,7 @@ Action Groups are generally available in Azure Government with no differences fr
 Activity Log Alerts are generally available in Azure Government with no differences from commercial Azure.
 
 #### Alerts Experience
-The unified alerts UI experience is not available in Azure Government.
+The unified alerts UI experience is available for metric and log alerts in Azure Government.
 
 #### Autoscale
 Autoscale is generally available in Azure Government.
