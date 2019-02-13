@@ -4,7 +4,7 @@ description: Lists the Azure resource types that can be moved to a new resource 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 2/12/2019
+ms.date: 2/13/2019
 ms.author: tomfitz
 ---
 
@@ -17,6 +17,11 @@ To get the same data as a file of comma-separated values, download [move-support
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | domainservices | No | No |
+
+## microsoft.aadiam
+| Resource type | Resource group | Subscription |
+| ------------- | ----------- | ---------- |
+| tenants | No | No |
 
 ## Microsoft.AnalysisServices
 | Resource type | Resource group | Subscription |
@@ -310,6 +315,19 @@ To get the same data as a file of comma-separated values, download [move-support
 | labs/virtualmachines | Yes | No |
 | schedules | No | No |
 
+## microsoft.dns
+| Resource type | Resource group | Subscription |
+| ------------- | ----------- | ---------- |
+| dnszones | No | No |
+| dnszones/a | No | No |
+| dnszones/aaaa | No | No |
+| dnszones/cname | No | No |
+| dnszones/mx | No | No |
+| dnszones/ptr | No | No |
+| dnszones/srv | No | No |
+| dnszones/txt | No | No |
+| trafficmanagerprofiles | No | No |
+
 ## Microsoft.DocumentDB
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
@@ -356,6 +374,23 @@ To get the same data as a file of comma-separated values, download [move-support
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | jobs | Yes | Yes |
+
+## microsoft.insights
+| Resource type | Resource group | Subscription |
+| ------------- | ----------- | ---------- |
+| accounts | No | No |
+| actiongroups | Yes | Yes |
+| activitylogalerts | No | No |
+| alertrules | Yes | Yes |
+| autoscalesettings | Yes | Yes |
+| components | Yes | Yes |
+| guestdiagnosticsettings | No | No |
+| metricalerts | No | No |
+| notificationgroups | No | No |
+| notificationrules | No | No |
+| scheduledqueryrules | No | No |
+| webtests | Yes | Yes |
+| workbooks | Yes | Yes |
 
 ## Microsoft.IoTCentral
 | Resource type | Resource group | Subscription |
@@ -644,6 +679,7 @@ To get the same data as a file of comma-separated values, download [move-support
 | appliances | No | No |
 | applicationdefinitions | No | No |
 | applications | No | No |
+| jitrequests | No | No |
 
 ## Microsoft.Sql
 | Resource type | Resource group | Subscription |
@@ -724,6 +760,13 @@ To get the same data as a file of comma-separated values, download [move-support
 | Resource type | Resource group | Subscription |
 | ------------- | ----------- | ---------- |
 | imagetemplates | No | No |
+
+## microsoft.visualstudio
+| Resource type | Resource group | Subscription |
+| ------------- | ----------- | ---------- |
+| account | Yes | Yes |
+| account/extension | Yes | Yes |
+| account/project | Yes | Yes |
 
 ## Microsoft.Web
 | Resource type | Resource group | Subscription |
