@@ -81,7 +81,7 @@
       href: dynamic-packaging-overview.md
     - name: Filters
       href: filters-concept.md
-    - name: Filters and dynamic manifest
+    - name: Dynamic manifests
       href: filters-dynamic-manifest-overview.md             
   - name: Monitor
     items:
