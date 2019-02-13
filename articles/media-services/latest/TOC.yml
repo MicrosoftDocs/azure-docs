@@ -28,12 +28,6 @@
     href: cli-samples.md        
 - name: Concepts
   items:
-  - name: Packaging
-    items:
-    - name: Dynamic packaging
-      href: dynamic-packaging-overview.md
-    - name: Filters and dynamic manifest
-      href: filters-dynamic-manifest-overview.md   
   - name: Accounts
     items:
     - name: Quotas and limitations
@@ -58,6 +52,14 @@
     items:
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md   
+  - name: Deliver/stream
+    items:
+    - name: Streaming Endpoints/Origins
+      href: streaming-endpoint-concept.md
+    - name: Streaming Locators/URLs
+      href: streaming-locators-concept.md
+    - name: Streaming Policies
+      href: streaming-policy-concept.md      
   - name: Stream live
     href: live-streaming-overview.md
     items:
@@ -72,15 +74,15 @@
     - name: States and billing
       href: live-event-states-billing.md
     - name: Latency
-      href: live-event-latency.md       
-  - name: Deliver/stream
+      href: live-event-latency.md   
+  - name: Packaging
     items:
-    - name: Streaming Endpoints
-      href: streaming-endpoint-concept.md
-    - name: Streaming Locators
-      href: streaming-locators-concept.md
-    - name: Streaming Policies
-      href: streaming-policy-concept.md
+    - name: Dynamic packaging
+      href: dynamic-packaging-overview.md
+    - name: Filters
+      href: filters-concept.md
+    - name: Filters and dynamic manifest
+      href: filters-dynamic-manifest-overview.md             
   - name: Monitor
     items:
     - name: Event Grid
