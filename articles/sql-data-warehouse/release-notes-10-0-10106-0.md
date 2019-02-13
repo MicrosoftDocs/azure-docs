@@ -36,11 +36,10 @@ This article summarizes the new features and improvements in the recent releases
 [create a SQL Data Warehouse](./create-data-warehouse-portal.md)
 
 ## More information
-[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[Customer success stories]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
-[Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[Twitter]: https://twitter.com/hashtag/SQLDW
-[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[Azure glossary]: ../azure-glossary-cloud-terminology.md
+- [Blog - Azure SQL Data Warehouse](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
+- [Customer Advisory Team blogs](https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/)
+- [Customer success stories](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
+- [Stack Overflow forum](http://stackoverflow.com/questions/tagged/azure-sqldw)
+- [Twitter](https://twitter.com/hashtag/SQLDW)
+- [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
+- [Azure glossary](../azure-glossary-cloud-terminology.md)
