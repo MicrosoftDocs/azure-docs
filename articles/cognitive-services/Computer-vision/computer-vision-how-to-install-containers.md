@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 02/08/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -67,7 +67,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 ### Docker pull for the Recognize Text container
 
-```Docker
+```
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-rocognize-text:latest
 ```
 
@@ -141,18 +141,7 @@ If you run the container with an output [mount](./computer-vision-resource-conta
 
 The Recognize Text containers send billing information to Azure, using a _Recognize Text_ resource on your Azure account. 
 
-Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft. 
-
-The `docker run` command uses the following arguments for billing purposes:
-
-| Option | Description |
-|--------|-------------|
-| `ApiKey` | The API key of the _Recognize Text_ resource used to track billing information. |
-| `Billing` | The endpoint of the _Recognize Text_ resource used to track billing information.|
-| `Eula` | Indicates that you've accepted the license for the container.<br/>The value of this option must be set to `accept`. |
-
-> [!IMPORTANT]
-> All three options must be specified with valid values, or the container won't start.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](./computer-vision-resource-container-config.md).
 
