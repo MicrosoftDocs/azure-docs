@@ -38,5 +38,5 @@ This graphic shows components and layouts for using Avere vFXT for Azure to add 
 
 ## Next steps
 
-* To continue planning an Avere vFXT for Azure deployment, read [Plan your Avere vFXT for Azure system](avere-vfxt-deploy-plan.md).
+* To continue planning an Avere vFXT for Azure deployment, read [Plan your Avere vFXT system](avere-vfxt-deploy-plan.md).
 * For answers to specific questions, consult the [Avere vFXT for Azure FAQ](avere-vfxt-faq.md).
