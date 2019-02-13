@@ -25,7 +25,7 @@ Continuous deployment is a great option for projects where multiple and frequent
 * [Git local repository](../app-service/deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Azure DevOps Services](https://www.visualstudio.com/team-services/)
+* [Azure DevOps](https://azure.microsoft.com/services/devops/)
 
 Deployments are configured on a per-function app basis. After continuous deployment is enabled, access to function code in the portal is set to *read-only*.
 

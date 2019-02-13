@@ -1,6 +1,6 @@
 ---
 author: sptramer
-ms.service: virtual-machines
+ms.service: azure-powershell
 ms.topic: include
 ms.date: 02/13/2019
 ms.service: azure-powershell
