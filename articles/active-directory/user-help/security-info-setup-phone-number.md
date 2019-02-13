@@ -15,20 +15,19 @@ ms.author: lizross
 ---
 
 # Set up security info to use phone calls (preview)
+Setting up your security info requires you to sign in to your work or school account and then to complete the registration process. If you've never set up your security info, you'll be asked to do it now.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Setting up your security info requires you to sign in to your work or school account and then complete the registration process. If you've never set up your security info, you'll be asked to do it now.
-
-## Set up phone calls
-
-Depending on your organization’s settings, you may be prompted to add a phone number to your security info when you sign in. Otherwise, to begin setting up phone calls in security info, follow the steps in [Manage your security info](security-info-manage-settings.md).
+## Set up security info for phone calls
+Depending on your organization’s settings, you may be prompted to add a phone number to your security info when you sign in.
 
 >[!Note]
->Security info doesn't support using phone extensions. Even if you add the proper format, +1 4255551234X12345, the extensions are removed before the call is placed.<br>If you don't see the phone option, it's possible that your organization doesn't allow you to use phone calls for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
+>Security info doesn't support using phone extensions. Even if you add the proper format, +1 4255551234X12345, the extensions are removed before the call is placed.
+
+>If you don't see the phone option, it's possible that your organization doesn't allow you to use phone calls for verification. If this is the case, you'll need to choose another method or contact your administrator for more help.
 
 ### To use your phone number
-
 1. Select the **Phone** option.
 
     The **Set up your phone** wizard appears.

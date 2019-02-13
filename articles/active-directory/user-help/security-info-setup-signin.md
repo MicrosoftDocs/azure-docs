@@ -1,0 +1,114 @@
+---
+title: Set up security info from your sign-in prompt - Azure Active Directory | Microsoft Docs
+description: How to set up security info for your account, if you're prompted from your sign-in page.
+services: active-directory
+author: eross-msft
+manager: daveba
+ms.reviewer: sahenry
+
+ms.service: active-directory
+ms.workload: identity
+ms.subservice: user-help
+ms.topic: overview
+ms.date: 02/13/2019
+ms.author: lizross
+---
+
+# Set up your security from the sign-in page prompt
+You can follow these steps if you're prompted to add your security info immediately after you sign in to your work or school account.
+
+You will only see this prompt if your administrator has turned security info on, and if you haven't previously set up your security info. If you've previously set up security info, but you want to change your method information, you can follow the steps in the method-based, [Add or Update security info](security-info-add-update-overview.md) articles.
+
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+## Sign in to your work or school account
+After you sign in to your work or school account, you'll see a prompt that asks you to provide more information before it lets you access your account.
+
+![Prompt asking for more info](media/security-info/securityinfo-prompt.png)
+
+## Set up your security info
+Follow these steps to set up your security info for your work or school account from the prompt.
+
+>[!Important]
+>This is only an example of the process. Depending on your organization's requirements, your administrator might have set up different verification methods that you'll need to set up during this process. For this example, we're requiring two methods, the Microsoft Authenticator app and a mobile phone number for verification calls or text messages.
+
+1. After you select **Next** from the prompt, a **Keep your account secure wizard** appears, showing the first method your administrator and organization require you to set up. For this example, it's the Microsoft Authenticator app.
+
+    If you don't want to use the Microsoft Authenticator app, you can click the **I want to use a different authenticator app** link.
+
+    ![Keep your account secure wizard, showing the auth app download page](media/security-info/securityinfo-prompt-get-auth-app.png)
+
+2. Select **Download now** to download and install the Microsoft Authenticator app on your mobile device, and then select **Next**. For more information about how to download and install the app, see [Download and install the Microsoft Authenticator app](user-help-auth-app-download-install.md).
+
+    ![Keep your account secure wizard, showing the authenticator Set up your account page](media/security-info/securityinfo-prompt-auth-app-setup-acct.png)
+
+4. Remain on the **Set up your account** page while you set up the Microsoft Authenticator app on your mobile device.
+
+5. Open the Microsoft Authenticator app, select to allow notifications (if prompted), select **Add account** from the **Customize and control** icon on the upper-right, and then select **Work or school account**.
+
+6. Return to the **Set up your account** page on your PC, and then select **Next**.
+
+    The **Scan the QR code** page appears.
+
+    ![Scan the QR code using the Authenticator app](media/security-info/securityinfo-prompt-auth-app-qrcode.png)
+
+7. Scan the provided code with the Microsoft Authenticator app QR code reader, which appeared on your mobile device after you created your work or school account in Step 5.
+
+    The authenticator app should successfully add your work or school account without requiring any additional information from you. However, if the QR code reader can't read the code, you can select the **Can't scan the QR code link** and manually enter the code and URL into the Microsoft Authenticator app. For more information about manually adding a code, see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
+
+8. Select **Next** on the **Scan the QR code** page on your PC. A notification is sent to the Microsoft Authenticator app on your mobile device, to test your account.
+
+    ![Test your account with the authenticator app](media/security-info/securityinfo-prompt-test-app.png)
+
+9. Approve the notification in the Microsoft Authenticator app, and then select **Next**.
+
+    ![Success notification, connecting the app and your account](media/security-info/securityinfo-prompt-auth-app-success.png).
+
+    Your security info is updated to use the Microsoft Authenticator app by default to verify your identity when using two-step verification or self-service password reset.
+
+10. On the **Phone** set up page, choose whether you want to recieve a text message or a phone call, and then select **Next**. For the purposes of this example, we're using text messages, so you must use a phone number for a device that can accept text messages.
+
+    ![Begin setting up your phone number for text messaging](media/security-info/securityinfo-prompt-text-msg.png)
+
+    A text message is sent to your phone number. If would prefer to get a phone call, the process is the same. However, you'll receive a phone call with instructions, instead of a text message.
+
+11. Enter the code provided by the text message sent to your mobile device, and then select **Next**.
+
+    ![Test your account with the text message](media/security-info/securityinfo-prompt-text-msg-enter-code.png)
+
+12. Review the success notification, and then select **Done**.
+
+    ![Success notification](media/security-info/securityinfo-prompt-call-answered-success.png)
+
+    Your security info is updated to use text messaging as a backup method to verify your identity when using two-step verification or self-service password reset.
+
+13. Review the **Success** page to verify that you've successfully set up both the Microsoft Authenticator app and a phone (either text message or phone call) method for your security info, and then select **Done**.
+
+    ![Wizard successfully completed page](media/security-info/securityinfo-prompt-setup-success.png)
+
+## Next steps
+
+- To change or delete your security info methods, see:
+
+    - [Set up security info for an authenticator app](security-info-setup-auth-app.md).
+
+    - [Set up security info for text messaging](security-info-setup-text-msg.md).
+
+    - [Set up security info to use phone calls](security-info-setup-phone-number.md).
+
+    - [Set up security info to use email](security-info-setup-email.md).
+
+    - [Set up security info to use pre-defined security questions](security-info-setup-questions.md)
+
+- For information about how to sign in using your specified method, see [How to sign in](user-help-sign-in.md).
+
+- Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](user-help-reset-password.md) article.
+
+- Get troubleshooting tips and help for sign-in problems in the [Can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
+
+
+
+
+
+
+
