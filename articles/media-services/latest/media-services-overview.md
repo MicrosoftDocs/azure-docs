@@ -93,6 +93,8 @@ Azure Media Services supports the following SDKs/tools:
 |[Go ref](https://aka.ms/ams-v3-go-ref)|[Go SDK](https://aka.ms/ams-v3-go-sdk)||
 |Ruby|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 
+For more information, see [Start developing](start-developing-with-sdks.md).
+
 ## Next steps
 
 To see how easy it is to start encoding and streaming video files, check out [Stream files](stream-files-dotnet-quickstart.md). 
