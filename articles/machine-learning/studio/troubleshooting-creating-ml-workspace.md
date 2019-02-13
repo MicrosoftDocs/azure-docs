@@ -20,9 +20,9 @@ This guide provides solutions for some frequently encountered challenges when yo
 ## Workspace owner
 To open a workspace in Machine Learning Studio, you must be signed in to the Microsoft Account you used to create the workspace, or you need to receive an invitation from the owner to join the workspace. From the Azure portal you can manage the workspace, which includes the ability to configure access.
 
-For more information on managing a workspace, see [Manage an Azure Machine Learning workspace].
+For more information on managing a workspace, see [Manage an Azure Machine Learning Studio workspace].
 
-[Manage an Azure Machine Learning workspace]: manage-workspace.md
+[Manage an Azure Machine Learning Studio workspace]: manage-workspace.md
 
 ## Allowed regions
 Machine Learning is currently available in a limited number of regions. If your subscription does not include one of these regions, you may see the error message, “You have no subscriptions in the allowed regions.”
@@ -30,9 +30,9 @@ Machine Learning is currently available in a limited number of regions. If your 
 To request that a region be added to your subscription, create a new Microsoft support request from the Azure portal, choose **Billing** as the problem type, and follow the prompts to submit your request.
 
 ## Storage account
-The Machine Learning service needs a storage account to store data. You can use an existing storage account, or you can create a new storage account when you create the new Machine Learning workspace (if you have quota to create a new storage account).
+The Machine Learning service needs a storage account to store data. You can use an existing storage account, or you can create a new storage account when you create the new Machine Learning Studio workspace (if you have quota to create a new storage account).
 
-After the new Machine Learning workspace is created, you can sign in to Machine Learning Studio by using the Microsoft account you used to create the workspace. If you encounter the error message, “Workspace Not Found” (similar to the following screenshot), please use the following steps to delete your browser cookies.
+After the new Machine Learning Studio workspace is created, you can sign in to Machine Learning Studio by using the Microsoft account you used to create the workspace. If you encounter the error message, “Workspace Not Found” (similar to the following screenshot), please use the following steps to delete your browser cookies.
 
 ![Workspace not found][screen3]
 

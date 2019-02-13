@@ -13,11 +13,12 @@ ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ---
 # Deploy an Azure Machine Learning Studio web service
-Azure Machine Learning enables you to build and test a predictive analytic solution. Then you can deploy the solution as a web service.
 
-Machine Learning web services provide an interface between an application and a Machine Learning workflow scoring model. An external application can use Azure Machine Learning to communicate with a Machine Learning workflow scoring model in real time. A call to a Machine Learning web service returns prediction results to an external application. To make a call to a web service, you pass an API key that was created when you deployed the web service. A Machine Learning web service is based on REST, a popular architecture choice for web programming projects.
+Azure Machine Learning Studio enables you to build and test a predictive analytic solution. Then you can deploy the solution as a web service.
 
-Azure Machine Learning has two types of web services:
+Machine Learning Studio web services provide an interface between an application and a Machine Learning Studio workflow scoring model. An external application can communicate with a Machine Learning Studio workflow scoring model in real time. A call to a Machine Learning Studio web service returns prediction results to an external application. To make a call to a web service, you pass an API key that was created when you deployed the web service. A Machine Learning Studio web service is based on REST, a popular architecture choice for web programming projects.
+
+Azure Machine Learning Studio has two types of web services:
 
 * Request-Response Service (RRS): A low latency, highly scalable service that scores a single data record.
 * Batch Execution Service (BES): An asynchronous service that scores a batch of data records.
@@ -39,7 +40,7 @@ To train a predictive analytics model, you use Azure Machine Learning Studio to 
 The process of creating and managing training experiments is covered more thoroughly elsewhere. For more information, see these articles:
 
 * [Create a simple experiment in Azure Machine Learning Studio](create-experiment.md)
-* [Develop a predictive solution with Azure Machine Learning](tutorial-part1-credit-risk.md)
+* [Develop a predictive solution with Azure Machine Learning Studio](tutorial-part1-credit-risk.md)
 * [Import your training data into Azure Machine Learning Studio](import-data.md)
 * [Manage experiment iterations in Azure Machine Learning Studio](manage-experiment-iterations.md)
 
@@ -63,12 +64,12 @@ You can deploy the predictive experiment as a New web service or as a Classic we
 ### Deploy the predictive experiment as a New web service
 Now that the predictive experiment has been prepared, you can deploy it as a new Azure web service. Using the web service, users can send data to your model and the model will return its predictions.
 
-To deploy your predictive experiment, click **Run** at the bottom of the experiment canvas. Once the experiment has finished running, click **Deploy Web Service** and select **Deploy Web Service [New]**.  The deployment page of the Machine Learning Web Service portal opens.
+To deploy your predictive experiment, click **Run** at the bottom of the experiment canvas. Once the experiment has finished running, click **Deploy Web Service** and select **Deploy Web Service [New]**.  The deployment page of the Machine Learning Studio Web Service portal opens.
 
 > [!NOTE] 
 > To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md). 
 
-#### Machine Learning Web Service portal Deploy Experiment Page
+#### Machine Learning Studio Web Service portal Deploy Experiment Page
 On the Deploy Experiment page, enter a name for the web service.
 Select a pricing plan. If you have an existing pricing plan you can select it, otherwise you must create a new price plan for the service.
 
@@ -110,7 +111,7 @@ On the **CONFIGURATION** page, you can change the description, title, update the
 Once you've deployed the web service, you can:
 
 * **Access** it through the web service API.
-* **Manage** it through Azure Machine Learning web services portal.
+* **Manage** it through Azure Machine Learning Studio web services portal.
 * **Update** it if your model changes.
 
 #### Access your New web service
@@ -118,10 +119,10 @@ Once you deploy your web service from Machine Learning Studio, you can send data
 
 The **Consume** page provides all the information you need to access your web service. For example, the API key is provided to allow authorized access to the service.
 
-For more information about accessing a Machine Learning web service, see [How to consume an Azure Machine Learning Web service](consume-web-services.md).
+For more information about accessing a Machine Learning Studio web service, see [How to consume an Azure Machine Learning Studio Web service](consume-web-services.md).
 
 #### Manage your New web service
-You can manage your New web services Machine Learning Web Services portal. From the [main portal page](https://services.azureml-test.net/), click **Web Services**. From the web services page, you can delete or copy a service. To monitor a specific service, click the service and then click **Dashboard**. To monitor batch jobs associated with the web service, click **Batch Request Log**.
+You can manage your New web services Machine Learning Studio Web Services portal. From the [main portal page](https://services.azureml-test.net/), click **Web Services**. From the web services page, you can delete or copy a service. To monitor a specific service, click the service and then click **Dashboard**. To monitor batch jobs associated with the web service, click **Batch Request Log**.
 
 ### Deploy the predictive experiment as a Classic web service
 
@@ -133,11 +134,11 @@ To deploy your predictive experiment, click **Run** at the bottom of the experim
 
 #### Test your Classic web service
 
-You can test the web service in either the Machine Learning Web Services portal or Machine Learning Studio.
+You can test the web service in either the Machine Learning Studio Web Services portal or Machine Learning Studio.
 
 To test the Request Response web service, click the **Test** button in the web service dashboard. A dialog pops up to ask you for the input data for the service. These are the columns expected by the scoring experiment. Enter a set of data and then click **OK**. The results generated by the web service are displayed at the bottom of the dashboard.
 
-You can click the **Test** preview link to test your service in the Azure Machine Learning Web Services portal as shown previously in the New web service section.
+You can click the **Test** preview link to test your service in the Azure Machine Learning Studio Web Services portal as shown previously in the New web service section.
 
 To test the Batch Execution Service, click **Test** preview link . On the Batch test page, click Browse under your input and select a CSV file containing appropriate sample values. If you don't have a CSV file, and you created your predictive experiment using Machine Learning Studio, you can download the data set for your predictive experiment and use it.
 
@@ -147,7 +148,7 @@ On the **CONFIGURATION** page, you can change the display name of the service an
 
 You can provide a description for your input data, output data, and web service parameters by entering a string for each column under **INPUT SCHEMA**, **OUTPUT SCHEMA**, and **Web SERVICE PARAMETER**. These descriptions are used in the sample code documentation provided for the web service.
 
-You can enable logging to diagnose any failures that you're seeing when your web service is accessed. For more information, see [Enable logging for Machine Learning web services](web-services-logging.md).
+You can enable logging to diagnose any failures that you're seeing when your web service is accessed. For more information, see [Enable logging for Machine Learning Studio web services](web-services-logging.md).
 
 ![Configure the web service](./media/publish-a-machine-learning-web-service/figure-4.png)
 
@@ -158,15 +159,15 @@ Once you deploy your web service from Machine Learning Studio, you can send data
 
 The dashboard provides all the information you need to access your web service. For example, the API key is provided to allow authorized access to the service, and API help pages are provided to help you get started writing your code.
 
-For more information about accessing a Machine Learning web service, see [How to consume an Azure Machine Learning Web service](consume-web-services.md).
+For more information about accessing a Machine Learning Studio web service, see [How to consume an Azure Machine Learning Studio Web service](consume-web-services.md).
 
 #### Manage your Classic web service
 There are various of actions you can perform to monitor a web service. You can update it, and delete it. You can also add additional endpoints to a Classic web service in addition to the default endpoint that is created when you deploy it.
 
-For more information, see [Manage an Azure Machine Learning workspace](manage-workspace.md) and [Manage a web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md).
+For more information, see [Manage an Azure Machine Learning Studio workspace](manage-workspace.md) and [Manage a web service using the Azure Machine Learning Studio Web Services portal](manage-new-webservice.md).
 
 <!-- When this article gets published, fix the link and uncomment
-For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
+For more information on how to manage Azure Machine Learning Studio web service endpoints using the REST API, see **Azure Machine Learning Studio web service endpoints**.
 -->
 
 ## Update the web service
@@ -179,7 +180,7 @@ Because you've deployed this experiment before, you are asked if you want to ove
 > [!NOTE]
 > If you made configuration changes in the original web service, for example, entering a new display name or description, you will need to enter those values again.
 
-One option for updating your web service is to retrain the model programmatically. For more information, see [Retrain Machine Learning models programmatically](retrain-models-programmatically.md).
+One option for updating your web service is to retrain the model programmatically. For more information, see [Retrain Machine Learning Studio models programmatically](retrain-models-programmatically.md).
 
 ## Next steps
 
