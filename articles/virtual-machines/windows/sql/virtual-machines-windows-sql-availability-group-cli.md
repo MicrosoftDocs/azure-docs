@@ -1,5 +1,5 @@
 ---
-title: Use Azure SQL VM CLI to deploy an Always On availability group to a SQL Server VM in Azure
+title: Use Azure SQL VM CLI to create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM in Azure
 description: "Use Azure CLI to simplify the deployment of availability groups to SQL Server virtual machines hosted in Azure."
 services: virtual-machines-windows
 documentationcenter: na
@@ -17,8 +17,8 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Use Azure SQL VM CLI to deploy an Always On availability group to a SQL Server VM in Azure
-This article describes how to use [Azure SQL VM CLI](https://docs.microsoft.com/mt-mt/cli/azure/ext/sqlvm-preview/sqlvm?view=azure-cli-2018-03-01-hybrid) to deploy an Always On availability group to a SQL Server virtual machine hosted in Azure. 
+# Use Azure SQL VM CLI to to create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM in Azure
+This article describes how to use [Azure SQL VM CLI](https://docs.microsoft.com/mt-mt/cli/azure/ext/sqlvm-preview/sqlvm?view=azure-cli-2018-03-01-hybrid) to deploy a Windows Failover Cluster, add SQL Server VMs to the cluster, create the listener, and configure the internal load balancer. The creation of the Always On availability group is still done manually through SQL Server Management Studio (SSMS). 
 
 ## Prerequisites
 To automate the setup of an Always On availability group using Azure SQL VM CLI, you must already have the following prerequisites: 
@@ -26,7 +26,7 @@ To automate the setup of an Always On availability group using Azure SQL VM CLI,
 - A resource group with a domain controller. 
 - One or more domain-joined [VMs in Azure running SQL Server 2016 (or greater) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the same availability set or availability zone that have been [registered with the SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).  
  
-## Create storage account as Cloud Witness
+## Create storage account as Cloud Witness - Azure CLI
 The cluster needs a storage account to act as the cloud witness. You can use any existing storage account, or you can create a new storage account. If you want to use an existing storage account, skip ahead to the next section. 
 
 The following code snippet creates the storage account: 
@@ -36,7 +36,7 @@ The following code snippet creates the storage account:
 az storage account create -n <name> -g <resource group name> -l <region ex:eastus> --sku Standard_LRS --kind StorageV2 --access-tier Hot --https-only true
 ```
 
-## Define Windows Failover Cluster Metadata
+## Define Windows Failover Cluster Metadata - Azure CLI
 The first step is to define the metadata for the cluster. The Azure SQL VM CLI [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) commands manage the metadata of the Windows Failover Cluster (WSFC) service that hosts the availability group. Cluster metadata includes the AD domain, cluster accounts, storage accounts to be used as the cloud witness, and SQL Server version. Use [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) to define the metadata for the WSFC so that when the first SQL Server VM is added, the cluster will be created as defined. 
 
 The following code snippet defines the metadata for the cluster:
@@ -50,13 +50,16 @@ az sql vm group create -n <cluster name> -l <region ex:eastus> -g <resource grou
 ## Add SQL Server VMs to cluster 
 Adding the first SQL Server VM to the cluster creates the cluster. The [az sql vm add-to-group](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) command creates the cluster with the name previously given, installs the cluster role on the SQL Server VMs, and adds them to the cluster. Subsequent uses of the `az sql vm add-to-group` command adds additional SQL Server VMs to the newly-created cluster. 
 
-The following code snippet creates the cluster and adds the SQL Server VMs to it: 
+The following code snippet creates the cluster and adds the SQL Server VM to it: 
 
 ```cli
 # Add SQL Server VMs to cluster
 # example: az sql vm add-to-group -n sqlvm1 -g SQLVM-RG --sqlvm-group Cluster -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
 az sql vm add-to-group -n <VM Name> -g <Resource Group Name> --sqlvm-group <cluster name> -b <bootstrap account password> -p <operator account password> -s <service account password>
 ```
+
+Use this command to add any other SQL Server VMs to the cluster, only modifying the `-n` parameter for the SQL Server VM name. 
+
 
 
 

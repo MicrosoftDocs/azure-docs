@@ -1,5 +1,5 @@
 ---
-title: Create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM with Azure Quickstart Template
+title: Use Azure Quickstart Template to create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM
 description: "Use Azure Quickstart Templates to simplify the process of creating availability groups for SQL Server VMs in Azure by using a template to create the cluster, join SQL VMs to the cluster, create the listener, and configure the ILB."
 services: virtual-machines-windows
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM with Azure Quickstart Template
+# Use Azure Quickstart Template to create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM
 This article describes how to use the Azure Quickstart Templates to partially automate the deployment of an Always On availability group configuration for SQL Server Virtual Machines in Azure. There are two Azure Quickstart Templates that are used in this process. 
 
    | Template | Description |
