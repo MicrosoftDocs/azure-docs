@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 1902 update | Microsoft Docs
+title: Azure Stack 1901 update | Microsoft Docs
 description: Learn about the 1901 update for Azure Stack integrated systems, including what's new, known issues, and where to download the update.
 services: azure-stack
 documentationcenter: ''
