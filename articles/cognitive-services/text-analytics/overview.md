@@ -14,13 +14,13 @@ ms.author: aahi
 
 # What is Text Analytics?
 
-The Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes four main functions: sentiment analysis, key phrase extraction, language detection, and entity linking.
+The Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text. It includes four main functions: sentiment analysis, key phrase extraction, language detection, and entity linking.
 
-The API is backed by resources in [Microsoft Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects.
+The API is a part of [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), a collection of cloud-based machine learning and AI algorithms that you can integrate into your applications and services.
 
 ## Capabilities in Text Analytics
 
-Text analysis can mean different things, but in Cognitive Services, the Text Analytics API provides four types of analysis as described in the following table.
+Text analysis can mean different things, but the Text Analytics Cognitive Service provides four types of analysis as described in the following table.
 
 | Operations| Description | APIs |
 |-----------|-------------|------|
@@ -67,7 +67,7 @@ All of the Text Analytics API endpoints accept raw text data. The current limit 
 | Maximum size of entire request | 1 MB |
 | Maximum number of documents in a request | 1,000 documents |
 
-The rate limit is 100 calls per minute. Note that you can submit a large quantity of documents in a single call (up to 1000 documents).
+The rate limit is 100 calls per minute. You can submit up to 1000 documents per call.
 
 ## Unicode encoding
 
@@ -77,7 +77,7 @@ The Text Analytics API uses Unicode encoding for text representation and charact
 
 First, try the [interactive demo](https://azure.microsoft.com/services/cognitive-services/text-analytics/). You can paste a text input (5,000 character maximum) to detect the language (up to 120), calculate a sentiment score, or extract key phrases. No sign-up necessary.
 
-When you are ready to call the API directly:
+When you're ready to call the API directly:
 
 + [Sign up](how-tos/text-analytics-how-to-signup.md) for an access key and review the steps for [calling the API](how-tos/text-analytics-how-to-call-api.md).
 
