@@ -77,7 +77,11 @@ Real user utterances from the endpoint, very similar to each other, may reveal p
 
 Use pattern's [optional syntax](luis-concept-patterns.md) for punctuation so punctuation can be ignored. Use the [explicit list](luis-concept-patterns.md#explicit-lists) to compensate for pattern.any syntax issues. 
 
-Do not apply these practices before your app has received endpoint requests because that skews the confidence.  
+Do not apply these practices before your app has received endpoint requests. You should understand how the app behaves before adding phrase lists and patterns. Once you understand how your app behaves without these, add each of these features as they apply to your app. 
+
+There is no harm adding them in the beginning of your model design but it is easier to see how each feature changes results if you add them after using the app with real traffic. 
+
+You do not need to add these features with each iteration or change the features with each version. 
 
 For more information:
 * Concept: [Authoring cycle for your LUIS app](luis-concept-app-iteration.md)
