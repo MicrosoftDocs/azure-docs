@@ -21,30 +21,28 @@ ms.custom:
 
 # Start developing with Media Services v3 API using SDKs/tools
 
-As a developer, you can use Media Services [REST API](https://aka.ms/ams-v3-rest-ref) or client libraries that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The Media Services v3 API is based on the [OpenAPI specification](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) (formerly known as a Swagger).
+As a developer, you can use Media Services [REST API](https://aka.ms/ams-v3-rest-sdk) or client libraries that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The Media Services v3 API is based on the OpenAPI specification (formerly known as a Swagger).
 
 This topic provides links to the SDKs, tools, documentation. It also provides some useful information for different dev env.
 
 ## Prerequisites
 
+To start developing against Media Services, you need:
+
 - An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - [Create a Media Services account](create-account-cli-how-to.md)
 
-## Start with SDKs/tools
+## SDKs/tools
 
 Azure Media Services supports the following SDKs/tools 
 
-|API references|SDKs/Tools|Examples|
-|---|---|---|---|
-|[REST ref](https://aka.ms/ams-v3-rest-ref)|[REST SDK](https://aka.ms/ams-v3-rest-sdk)|[REST Postman examples](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[Azure Resource Manager based REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
-|[Azure CLI ref](https://aka.ms/ams-v3-cli-ref)|[Azure CLI](https://aka.ms/ams-v3-cli)|[Azure CLI examples](cli-samples.md)|
-|[.NET ref](https://aka.ms/ams-v3-dotnet-ref)|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET examples](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
-||[.NET Core SDK](https://aka.ms/ams-v3-dotnet-sdk) (Choose the **.NET CLI** tab)|[.NET Core examples](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)|
-|[Java ref](https://aka.ms/ams-v3-java-ref)|[Java SDK](https://aka.ms/ams-v3-java-sdk)||
-|[Node.js ref](https://aka.ms/ams-v3-nodejs-ref)|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)|[Node.js samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials)|
-|[Python ref](https://aka.ms/ams-v3-python-ref)|[Python SDK](https://aka.ms/ams-v3-python-sdk)||
-|[Go ref](https://aka.ms/ams-v3-go-ref)|[Go SDK](https://aka.ms/ams-v3-go-sdk)||
-|Ruby|[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
+- [Azure CLI](https://aka.ms/ams-v3-cli) 
+- [.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)
+- [Java SDK](https://aka.ms/ams-v3-java-sdk)
+- [Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)
+- [Python ref](https://aka.ms/ams-v3-python-ref) 
+- [Go SDK](https://aka.ms/ams-v3-go-sdk)
+- [Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)
 
 ### Azure Media Services Explorer
 
@@ -56,19 +54,78 @@ AMSE is an Open Source project, support is provided by the community (issues can
 
 Install a REST client to execute the Media Services REST APIs. For example **Postman**, **Visual Studio Code** with the REST plugin, or **Telerik Fiddler**.  We are using [Postman](media-rest-apis-with-postman.md)
 
+### Reference
+
+[REST ref](https://aka.ms/ams-v3-rest-ref)
+
+### Examples
+
+- [REST Postman examples](https://github.com/Azure-Samples/media-services-v3-rest-postman)
+- [Azure Resource Manager based REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)
+
+- [Tutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md)
+- [Upload files into a Media Services account using REST](upload-files-rest-how-to.md)
+- [Create filters with Media Services REST API](filters-dynamic-manifest-rest-howto.md)
+
 <!-- ## CLI -->
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
+### Reference
+
+[Azure CLI ref](https://aka.ms/ams-v3-cli-ref)
+
+### Examples
+
+[Azure CLI examples for Azure Media Services](cli-samples.md)
+
 ## .NET
 
-TODO
+### Reference
+
+[.NET ref](https://aka.ms/ams-v3-dotnet-ref)
+
+### Examples
+
+- [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md) 
+- [Tutorial: Stream live with Media Services v3 using .NET](stream-live-tutorial-with-api.md)
+- [Tutorial: Analyze videos with Media Services v3 using .NET](analyze-videos-tutorial-with-api.md)
+- [How to encode with a custom Transform](customize-encoder-presets-how-to.md)
+- [Use AES-128 dynamic encryption and the key delivery service](protect-with-aes128.md)
+- [Use DRM dynamic encryption and license delivery service](protect-with-drm.md)
+- [Get a signing key from the existing policy](get-content-key-policy-dotnet-howto.md)
+
+## Java
+
+### Reference
+
+[Java ref](https://aka.ms/ams-v3-java-ref)
 
 ## Node.js
 
 Make sure you are using the latest package, check [azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices).
 
+### Reference
+
+[Node.js ref](https://aka.ms/ams-v3-nodejs-ref)
+
+### Examples
+
+[Node.js samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials)
+
+## Python
+
+### Reference
+
+[Python ref](https://aka.ms/ams-v3-python-ref)
+
+### Go
+
+### Reference
+
+[Go ref](https://aka.ms/ams-v3-go-ref) 
+
 ## Next steps
 
 - [Create an account - CLI](create-account-cli-how-to.md)
 - [Access APIs - CLI](access-api-cli-how-to.md)
-- [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md) 
+
