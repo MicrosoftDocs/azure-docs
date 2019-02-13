@@ -16,6 +16,7 @@ ms.author: curtand
 
 ms.custom: it-pro
 ms.reviewer: sumitp
+ms.collection: M365-identity-device-management
 ---
 
 # Understand how multiple Azure Active Directory tenants interact

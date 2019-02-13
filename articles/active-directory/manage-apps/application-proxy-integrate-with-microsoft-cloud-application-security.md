@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: celested
 ms.reviewer: japere
+ms.collection: M365-identity-device-management
 ---
 
 # Configure real-time application access monitoring with Microsoft Cloud App Security and Azure Active Directory

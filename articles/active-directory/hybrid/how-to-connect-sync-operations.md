@@ -17,6 +17,7 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Operational tasks and consideration
 The objective of this topic is to describe operational tasks for Azure AD Connect sync.

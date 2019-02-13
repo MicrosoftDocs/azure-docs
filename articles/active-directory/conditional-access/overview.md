@@ -19,6 +19,7 @@ ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
 #Customer intent: As a IT admin, I want to understand conditional access well enough so that I can control how users are accessing my resources.
+ms.collection: M365-identity-device-management
 ---
 
 # What is conditional access in Azure Active Directory?

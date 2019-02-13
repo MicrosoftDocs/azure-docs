@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: celested
 ms.reviewer: japere
+ms.collection: M365-identity-device-management
 ---
 
 # Remote access to on-premises applications through Azure Active Directory's Application Proxy 

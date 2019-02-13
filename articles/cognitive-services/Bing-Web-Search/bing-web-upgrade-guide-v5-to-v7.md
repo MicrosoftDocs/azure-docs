@@ -9,7 +9,7 @@ ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: reference
-ms.date: 01/15/2017
+ms.date: 02/12/2019
 ms.author: scottwhi
 ---
 
@@ -21,7 +21,7 @@ This upgrade guide identifies the changes between version 5 and version 7 of the
 
 ### Endpoints
 
-- The endpoint's version number changed from v5 to v7. For example, https:\/\/api.cognitive.microsoft.com/bing/**v7.0**/search.
+- The endpoint's version number has changed from v5 to v7. For example, https:\/\/api.cognitive.microsoft.com/bing/**v7.0**/search.
 
 ### Error response objects and error codes
 

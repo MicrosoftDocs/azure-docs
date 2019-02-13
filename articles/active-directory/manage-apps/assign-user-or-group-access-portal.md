@@ -12,6 +12,7 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: luleon
+ms.collection: M365-identity-device-management
 ---
 
 # Assign a user or group to an enterprise app in Azure Active Directory
