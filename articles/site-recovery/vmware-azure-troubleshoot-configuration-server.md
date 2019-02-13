@@ -55,7 +55,7 @@ This error occurs when the service can't read data from the transport connection
 
 ## vCenter discovery failures
 
-In order to resolve vCenter discovery failures, ensure that vCenter server is added to the byPass list proxy settings.To perform this activity,
+To resolve vCenter discovery failures, add the vCenter server to the byPass list proxy settings. 
 
 - Download PsExec tool from [here](https://aka.ms/PsExec) to access System user content.
 - Open Internet Explorer in system user content by running the following command line
@@ -131,7 +131,7 @@ To remove stale protected machine on the configuration server, use the following
         mysql> select id as hostid, name, ipaddress, ostype as operatingsystem, from_unixtime(lasthostupdatetime) as heartbeat from hosts where name!='InMageProfiler'\G;
         ```
 
-        This returns the list of registered machines along with their IP addresses and last heart beat. Find the host which has stale replication pairs.
+        This returns the list of registered machines along with their IP addresses and last heart beat. Find the host that has stale replication pairs.
 
 2. Open an elevated command prompt and navigate to C:\ProgramData\ASR\home\svsystems\bin. 
 4. To remove the registered hosts details and the stale entry information from the configuration server, run the following command using the source machine and the IP address of the stale entry. 
