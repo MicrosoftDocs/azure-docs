@@ -148,7 +148,7 @@ To configure Azure AD single sign-on with Cezanne HR Software, perform the follo
 
 	a. Enter the name of your Identity Provider as the **Display Name**.
 
-	b. In the **Entity Identifier** textbox, paste the value of **SAML Entity ID** which you have copied from the Azure portal.
+	b. In the **Entity Identifier** textbox, paste the value of **Azure Ad Identifier** which you have copied from the Azure portal.
 
 	c. Change the **SAML Binding** to 'POST'.
 
