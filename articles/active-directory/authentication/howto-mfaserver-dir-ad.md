@@ -15,6 +15,7 @@ ms.reviewer: michmcla
 
 ms.custom: seo-update-azuread-jan
 
+ms.collection: M365-identity-device-management
 ---
 # Directory integration between Azure MFA Server and Active Directory
 

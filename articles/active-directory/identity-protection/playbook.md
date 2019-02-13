@@ -18,6 +18,7 @@ ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection playbook
 

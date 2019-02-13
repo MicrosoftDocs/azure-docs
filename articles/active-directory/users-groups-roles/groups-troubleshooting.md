@@ -14,6 +14,7 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Troubleshooting dynamic memberships for groups
 

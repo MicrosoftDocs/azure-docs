@@ -16,6 +16,7 @@ ms.author: celested
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
 
+ms.collection: M365-identity-device-management
 ---
 # How to Deploy the Access Panel Extension for Internet Explorer using Group Policy
 This tutorial shows how to use group policy to remotely install the Access Panel extension for Internet Explorer on your users' machines. This extension is required for Internet Explorer users who need to sign into apps that are configured using [password-based single sign-on](what-is-single-sign-on.md#password-based-sso).

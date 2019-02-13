@@ -48,8 +48,6 @@ Retrain the Web service:
 * Deploy the retraining web service
 * Use the Batch Execution Service code to retrain the model
 
-For a walkthrough of the preceding steps, see [Retrain Machine Learning models programmatically](retrain-models-programmatically.md).
-
 > [!NOTE] 
 > To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md). 
 
@@ -69,8 +67,6 @@ If you deployed a New Web service:
 * Update the reference to the `ilearner` blob in the JSON
 * Import the JSON into a Web Service Definition
 * Update the Web service with new Web Service Definition
-
-For a walkthrough of the preceding steps, see [Retrain a New Web service using the Machine Learning Management PowerShell cmdlets](retrain-new-web-service-using-powershell.md).
 
 The process for setting up retraining for a Classic Web service involves the following steps:
 

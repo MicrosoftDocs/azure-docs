@@ -13,6 +13,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Understand user tokens in Azure AD B2B collaboration
