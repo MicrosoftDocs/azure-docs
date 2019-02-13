@@ -4,7 +4,7 @@ description: " Prioritize your security recommendations using the secure score i
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6

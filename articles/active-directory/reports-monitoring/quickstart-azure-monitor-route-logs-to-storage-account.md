@@ -19,6 +19,7 @@ ms.author: priyamo
 ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to route Azure AD logs to an Azure storage account so I can retain it for longer than the default retention period.
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Archive Azure AD logs to an Azure storage account (preview)

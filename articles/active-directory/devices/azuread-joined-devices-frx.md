@@ -14,12 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: jairoc
 
 #Customer intent: As a user, I want to join my corporate device during a first-run so that I can access my corporate resources 
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Join a new Windows 10 device with Azure AD during a first run
 

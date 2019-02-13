@@ -4,7 +4,7 @@ description: Azure Key Vault safeguard cryptographic keys and secrets used by cl
 services: key-vault
 documentationcenter: ''
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: e759df6f-0638-43b1-98ed-30b3913f9b82
@@ -79,6 +79,7 @@ Developers can also manage the keys directly, by using APIs. For more informatio
 ## Next steps
 
 Learn how to [secure your vault](key-vault-secure-your-key-vault.md)
+
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).

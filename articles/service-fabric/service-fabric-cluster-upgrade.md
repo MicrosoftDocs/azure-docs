@@ -23,7 +23,7 @@ For any modern system, designing for upgradability is key to achieving long-term
 
 ## Controlling the fabric version that runs on your cluster
 
-Make sure to keep your cluster running a supported fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced on the service fabric team blog. The new release is available to choose then.
+Make sure to keep your cluster running a [supported fabric version](service-fabric-versions.md) always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced on the service fabric team blog. The new release is available to choose then.
 
 14 days prior to the expiry of the release your cluster is running, a health event is generated that puts your cluster into a warning health state. The cluster remains in a warning state until you upgrade to a supported fabric version.
 

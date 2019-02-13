@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Samanage for automatic user provisioning

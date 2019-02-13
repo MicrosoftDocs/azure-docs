@@ -31,7 +31,7 @@ Make sure that you installed the latest [Azure CLI](/cli/azure/install-azure-cli
 
 ## List popular images
 
-Run the [az vm image list](/cli/azure/vm/image#az_vm_image_list) command, without the `--all` option, to see a list of popular VM images in the Azure Marketplace. For example, run the following command to display a cached list of popular images in table format:
+Run the [az vm image list](/cli/azure/vm/image) command, without the `--all` option, to see a list of popular VM images in the Azure Marketplace. For example, run the following command to display a cached list of popular images in table format:
 
 ```azurecli
 az vm image list --output table
@@ -148,7 +148,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201901221        
 
 ## Navigate the images
  
-Another way to find an image in a location is to run the [az vm image list-publishers](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm image list-offers](/cli/azure/vm/image), and [az vm image list-skus](/cli/azure/vm/image#az_vm_image_list_skus) commands in sequence. With these commands, you determine these values:
+Another way to find an image in a location is to run the [az vm image list-publishers](/cli/azure/vm/image), [az vm image list-offers](/cli/azure/vm/image), and [az vm image list-skus](/cli/azure/vm/image) commands in sequence. With these commands, you determine these values:
 
 1. List the image publishers.
 2. For a given publisher, list their offers.
@@ -274,7 +274,7 @@ UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201
 ...
 ```
 
-Now you can choose precisely the image you want to use by taking note of the URN value. Pass this value with the `--image` parameter when you create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. Remember that you can optionally replace the version number in the URN with "latest". This version is always the latest version of the image. 
+Now you can choose precisely the image you want to use by taking note of the URN value. Pass this value with the `--image` parameter when you create a VM with the [az vm create](/cli/azure/vm) command. Remember that you can optionally replace the version number in the URN with "latest". This version is always the latest version of the image. 
 
 If you deploy a VM with a Resource Manager template, you set the image parameters individually in the `imageReference` properties. See the [template reference](/azure/templates/microsoft.compute/virtualmachines).
 
@@ -333,7 +333,7 @@ Output:
 
 ### Accept the terms
 
-To view and accept the license terms, use the [az vm image accept-terms](/cli/azure/vm/image?#az_vm_image_accept_terms) command. When you accept the terms, you enable programmatic deployment in your subscription. You only need to accept terms once per subscription for the image. For example:
+To view and accept the license terms, use the [az vm image accept-terms](/cli/azure/vm/image?) command. When you accept the terms, you enable programmatic deployment in your subscription. You only need to accept terms once per subscription for the image. For example:
 
 ```azurecli
 az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
