@@ -3,9 +3,8 @@ title: Get started with using Azure DevTest Labs
 description: This article provides the primary scnearios for using Azure DevTest Labs and two general paths to start using the service in your organization. 
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
-author: christianreddington
+author: spelluru
 manager: femila
-editor: spelluru
 
 ms.service: lab-services
 ms.workload: na
@@ -13,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/11/2019
-ms.author: chredd
-ms.reviewer: anthdela,juselph
+ms.author: spelluru
+ms.reviewer: christianreddington,anthdela,juselph
 
 ---
 
