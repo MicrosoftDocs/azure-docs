@@ -23,6 +23,8 @@ A self-hosted integration runtime can run copy activities between a cloud data s
 
 This document describes how you can create and configure a self-hosted IR.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## High-level steps to install a self-hosted IR
 1. Create a self-hosted integration runtime. You can use the Azure Data Factory UI for this task. Here is a PowerShell example:
 
@@ -196,8 +198,6 @@ For a twelve-minute introduction and demonstration of this feature, watch the fo
 * The data factory in which a linked IR will be created must have an [MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). By default, the data factories created in the Azure portal or PowerShell cmdlets have an MSI created implicitly. But when a data factory is created through an Azure Resource Manager template or SDK, the **Identity** property must be set explicitly to ensure that Azure Resource Manager creates a data factory that contains an MSI. 
 
 * The Azure Data Factory .NET SDK that supports this feature is version 1.1.0 or later.
-
-* The Azure PowerShell version that supports this feature is 6.6.0 or later (AzureRM.DataFactoryV2, 0.5.7 or later).
 
 * To grant permission, the user needs the Owner role or the inherited Owner role in the data factory where the shared IR exists.
 

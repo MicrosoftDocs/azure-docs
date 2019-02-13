@@ -20,6 +20,8 @@ Continuous Integration is the practice of testing each change done to your code
 
 For Azure Data Factory, continuous integration & delivery means moving Data Factory pipelines from one environment (development, test, production) to another. To do continuous integration & delivery, you can use Data Factory UI integration with Azure Resource Manager templates. The Data Factory UI can generate a Resource Manager template when you select the **ARM template** options. When you select **Export ARM template**, the portal generates the Resource Manager template for the data factory and a configuration file that includes all your connections strings and other parameters. Then you have to create one configuration file for each environment (development, test, production). The main Resource Manager template file remains the same for all the environments.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 For a nine-minute introduction and demonstration of this feature, watch the following video:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
@@ -723,7 +725,7 @@ Here is a sample deployment template that you can import in Azure Pipelines.
 
 ## Sample script to stop and restart triggers and clean up
 
-Here is a sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes code to delete resources that have been removed. To install the latest version of Azure PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps?view=azurermps-6.9.0).
+Here is a sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes code to delete resources that have been removed. To install the latest version of Azure PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 ```powershell
 param

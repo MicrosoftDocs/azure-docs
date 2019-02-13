@@ -36,6 +36,9 @@ When you create Azure-SSIS IR, ADF service connects to your Azure SQL Database s
 When you provision Azure-SSIS IR, Azure Feature Pack for SSIS and Access Redistributable are also installed. These components provide connectivity to Excel/Access files and various Azure data sources, in addition to the data sources supported by built-in components. You can also install additional components. For more info, see [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Azure subscription**. If you do not already have a subscription, you can create a [free trial](https://azure.microsoft.com/pricing/free-trial/) account.
 
 - **Azure SQL Database server or Managed Instance**. If you do not already have a database server, you can create one in Azure portal before you get started. This server will host SSISDB. We recommend that you create the database server in the same Azure region as your integration runtime. This configuration lets your integration runtime write execution logs to SSISDB without crossing Azure regions. Based on the selected database server, SSISDB can be created on your behalf as a single database, part of an elastic pool, or in your Managed Instance and accessible in public network or by joining a virtual network. For a list of supported pricing tiers for Azure SQL Database, see [SQL Database resource limits](../sql-database/sql-database-resource-limits.md).
@@ -46,7 +49,7 @@ When you provision Azure-SSIS IR, Azure Feature Pack for SSIS and Access Redistr
     - You are hosting SSISDB in Azure SQL Database server with virtual network service endpoints or in Managed Instance that is inside a virtual network.
     - You want to connect to on-premises data stores from SSIS packages running on your Azure-SSIS IR.
 
-- **Azure PowerShell**. Follow the instructions on [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-Az-ps), if you want to run a PowerShell script to provision Azure-SSIS IR.
+- **Azure PowerShell**. Follow the instructions on [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps), if you want to run a PowerShell script to provision Azure-SSIS IR.
 
 ### Region support
 For a list of Azure regions, in which ADF and Azure-SSIS IR are currently available, see [ADF + SSIS IR availability by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all).

@@ -20,7 +20,9 @@ ms.author: abnarain
 # Encrypt credentials for on-premises data stores in Azure Data Factory
 You can encrypt and store credentials for your on-premises data stores (linked services with sensitive information) on a machine with self-hosted integration runtime. 
 
-You pass a JSON definition file with credentials to the <br/>[**New-AzDataFactoryV2LinkedServiceEncryptedCredential**](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/New-AzDataFactoryV2LinkedServiceEncryptedCredential?view=azurermps-4.4.0) cmdlet to produce an output JSON definition file with the encrypted credentials. Then, use the updated JSON definition to create the linked services.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+You pass a JSON definition file with credentials to the <br/>[**New-AzDataFactoryV2LinkedServiceEncryptedCredential**](/powershell/module/az.datafactory/New-AzDataFactoryV2LinkedServiceEncryptedCredential) cmdlet to produce an output JSON definition file with the encrypted credentials. Then, use the updated JSON definition to create the linked services.
 
 ## Author SQL Server linked service
 Create a JSON file named **SqlServerLinkedService.json** in any folder with the following content:  

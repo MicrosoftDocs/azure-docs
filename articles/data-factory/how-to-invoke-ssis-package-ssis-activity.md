@@ -19,6 +19,8 @@ This article describes how to run an SSIS package in Azure Data Factory (ADF) pi
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Create an Azure-SSIS Integration Runtime (IR) if you do not have one already by following the step-by-step instructions in the [Tutorial: Deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## Run a package in the Azure portal
@@ -105,7 +107,7 @@ You can also create a scheduled trigger for your pipeline so that the pipeline r
 ## Run a package with PowerShell
 In this section, you use Azure PowerShell to create an ADF pipeline with Execute SSIS Package activity that runs your SSIS package. 
 
-Install the latest Azure PowerShell modules by following the step-by-step instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-Az-ps).
+Install the latest Azure PowerShell modules by following the step-by-step instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### Create an ADF with Azure-SSIS IR
 You can either use an existing ADF that already has Azure-SSIS IR provisioned or create a new ADF with Azure-SSIS IR following the step-by-step instructions in the [Tutorial: Deploy SSIS packages to Azure via PowerShell](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell).
