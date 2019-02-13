@@ -126,7 +126,7 @@ To configure Azure AD single sign-on with Zoom, perform the following steps:
 	| role | 	user.assignedrole |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role |
 
 	> [!NOTE]
-	> Please click [here](https://docs.microsoft.com/en-gb/azure/role-based-access-control/role-assignments-portal) to know how to configure Role in Azure AD
+	> Please click [here](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) to know how to configure Role in Azure AD
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
