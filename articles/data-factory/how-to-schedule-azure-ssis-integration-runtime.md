@@ -19,6 +19,8 @@ This article describes how to schedule the starting and stopping of Azure-SSIS I
 
 Alternatively, you can create Web activities in ADF pipelines to start/stop your IR on schedule, e.g. starting it in the morning before executing your daily ETL workloads and stopping it in the afternoon after they are done.  You can also chain an Execute SSIS Package activity between two Web activities that start and stop your IR, so your IR will start/stop on demand, just in time before/after your package execution. For more info about Execute SSIS Package activity, see [Run an SSIS package using Execute SSIS Package activity in ADF pipeline](how-to-invoke-ssis-package-ssis-activity.md) article.
 
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 ## Prerequisites
 If you have not provisioned your Azure-SSIS IR already, provision it by following instructions in the [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
 

@@ -19,7 +19,9 @@ ms.author: douglasl
 
 This sample PowerShell script creates an Azure-SSIS integration runtime that can run your SSIS packages in Azure.  
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## Sample script
 
@@ -45,10 +47,10 @@ This script uses the following commands:
 | Command | Notes |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
-| [Set-AzDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-Azdatafactoryv2) | Create a data factory. |
-| [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-Azdatafactoryv2integrationruntime) | Creates an Azure-SSIS integration runtime that can run SSIS packages in the cloud |
-| [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-Azdatafactoryv2integrationruntime) | Starts the Azure-SSIS integration runtime. |
-| [Get-AzDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/get-Azdatafactoryv2integrationruntime) | Gets information about the Azure-SSIS integration runtime. |
+| [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | Create a data factory. |
+| [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) | Creates an Azure-SSIS integration runtime that can run SSIS packages in the cloud |
+| [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) | Starts the Azure-SSIS integration runtime. |
+| [Get-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/get-Azdatafactoryv2integrationruntime) | Gets information about the Azure-SSIS integration runtime. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Deletes a resource group including all nested resources. |
 |||
 

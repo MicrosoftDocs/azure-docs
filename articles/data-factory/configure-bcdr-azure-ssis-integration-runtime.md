@@ -20,6 +20,8 @@ This article describes how to configure the Azure-SSIS Integration Runtime with 
 
 For more info about geo-replication and failover for SQL Database, see [Overview: Active geo-replication and auto-failover groups](../sql-database/sql-database-geo-replication-overview.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Scenario 1 - Azure-SSIS IR is pointing to read-write listener endpoint
 
 ### Conditions

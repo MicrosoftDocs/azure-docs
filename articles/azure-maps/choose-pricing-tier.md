@@ -29,15 +29,14 @@ The S0 and S1 pricing tiers handle different amounts of data throughput. Before 
 | Render                                  |        ✓           |     ✓    |
 | Traffic                                 |        ✓           |     ✓    |
 | Time zones                              |        ✓           |     ✓    |
-| * Imagery plus hybrid imagery (preview)  |        ✓           |     ✓    |
-| * Route range (preview)                  |        ✓           |     ✓    |
-| * IP 2 location (preview)                |        ✓           |     ✓    |
-| * Polygons from search (preview)         |        ✓           |     ✓    |
-| * Batch geocoding (preview)              |        ✓           |     ✓    |
-| * Batch routing (preview)                |        ✓           |     ✓    |
-| * Matrix routing (preview)               |        ✓           |     ✓    |
+| Imagery plus hybrid imagery    |            |     ✓    |
+| Route range                    |                   |     ✓    |
+| IP 2 location (preview)                |        ✓           |     ✓    |
+| Polygons from search          |                   |     ✓    |
+| Batch geocoding (preview)              |                   |     ✓    |
+| Batch routing (preview)                |                   |     ✓    |
+| Matrix routing (preview)               |                   |     ✓    |
 
-\* Access to these capabilities from the S0 pricing tier will be deprecated after February 4, 2019.
 
 These additional data points are worth considering:
 * What kind of enterprise do you have?

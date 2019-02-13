@@ -12,6 +12,7 @@ ms.date: 01/25/2019
 ms.author: celested
 ms.reviewer: arvindh
 
+ms.collection: M365-identity-device-management
 ---
 
 # Single sign-on to applications in Azure Active Directory

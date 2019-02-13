@@ -14,6 +14,7 @@ ms.subservice: pim
 ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 
 # Activate my Azure resource roles in PIM

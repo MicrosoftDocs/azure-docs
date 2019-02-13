@@ -188,7 +188,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=data-factory
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.datafactories
+    href: /powershell/module/az.datafactory
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactories.models
   - name: REST

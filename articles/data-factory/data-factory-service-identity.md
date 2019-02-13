@@ -19,6 +19,8 @@ ms.author: jingwang
 
 This article helps you understand what is data factory service identity and how it works.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Overview
 
 When creating a data factory, a service identity can be created along with factory creation. The service identity is a managed application registered to Azure Activity Directory, and represents this specific data factory.

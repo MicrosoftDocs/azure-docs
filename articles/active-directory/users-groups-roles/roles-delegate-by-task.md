@@ -17,6 +17,7 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 #As an Azure AD administrator, I want to know which role has the least privilege for a given task to make my Azure AD tenant more secure.
 
+ms.collection: M365-identity-device-management
 ---
 
 # Administrator roles by admin task in Azure Active Directory

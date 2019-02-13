@@ -36,21 +36,24 @@ You can use Data Factory UI to stop, edit/reconfigure, or delete an Azure-SSIS I
 3. To restart the IR, click **Start** button in the **Actions** column.     
 
 ## Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 After you provision and start an instance of Azure-SSIS integration runtime, you can reconfigure it by running a sequence of `Stop` - `Set` - `Start` PowerShell cmdlets consecutively. For example, the following PowerShell script changes the number of nodes allocated for the Azure-SSIS integration runtime instance to five.
 
 ### Reconfigure an Azure-SSIS IR
 
-1. First, stop the Azure-SSIS integration runtime by using the [Stop-AzDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/stop-Azdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet. This command releases all of its nodes and stops billing.
+1. First, stop the Azure-SSIS integration runtime by using the [Stop-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/stop-Azdatafactoryv2integrationruntime) cmdlet. This command releases all of its nodes and stops billing.
 
     ```powershell
     Stop-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName 
     ```
-2. Next, reconfigure the Azure-SSIS IR by using the [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-Azdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet. The following sample command scales out an Azure-SSIS integration runtime to five nodes.
+2. Next, reconfigure the Azure-SSIS IR by using the [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) cmdlet. The following sample command scales out an Azure-SSIS integration runtime to five nodes.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -NodeCount 5
     ```  
-3. Then, start the Azure-SSIS integration runtime by using the [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-Azdatafactoryv2integrationruntime?view=azurermps-4.4.1) cmdlet. This command allocates all of its nodes for running SSIS packages.   
+3. Then, start the Azure-SSIS integration runtime by using the [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) cmdlet. This command allocates all of its nodes for running SSIS packages.   
 
     ```powershell
     Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName

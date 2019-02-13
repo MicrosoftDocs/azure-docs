@@ -116,6 +116,28 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
+  - name: Mapping Data Flows
+    items:
+    - name: Mapping Data Flow concepts
+      href: concepts-data-flow-overview.md
+    - name: Debug Mode
+      href: concepts-data-flow-debug-mode.md
+    - name: Schema Drift
+      href: concepts-data-flow-schema-drift.md
+    - name: Inspect Pane
+      href: concepts-data-flow-inspect-pane.md
+    - name: Column Patterns
+      href: concepts-data-flow-column-pattern.md
+    - name: Data Flow Monitoring
+      href: concepts-data-flow-monitoring.md     
+    - name: Move Nodes
+      href: concepts-data-flow-move-nodes.md
+    - name: Optimize Tab
+      href: concepts-data-flow-optimize-tab.md
+    - name: Expression Builder
+      href: concepts-data-flow-expression-builder.md
+    - name: Reference Nodes
+      href: concepts-data-flow-reference-node.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Understanding pricing
@@ -480,7 +502,7 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.datafactory
   - name: PowerShell
-    href: /powershell/module/azurerm.datafactoryv2/
+    href: /powershell/module/az.datafactory/
   - name: REST API
     href: /rest/api/datafactory
   - name: Resource Manager template

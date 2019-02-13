@@ -79,9 +79,9 @@ The user who creates the Azure-SSIS Integration Runtime must have the following 
 
 - If you're joining your SSIS IR to an Azure Resource Manager virtual network, you have two options:
 
-  - Use the built-in *Network Contributor* role. This role comes with the *Microsoft.Network/\** permission, which has a much larger scope than necessary.
+  - Use the built-in *Network Contributor* role. This role comes with the _Microsoft.Network/\*_ permission, which has a much larger scope than necessary.
 
-  - Create a custom role that includes only the necessary *Microsoft.Network/virtualNetworks/\*/join/action* permission. 
+  - Create a custom role that includes only the necessary _Microsoft.Network/virtualNetworks/\*/join/action_ permission. 
 
 - If you're joining your SSIS IR to a classic virtual network, we recommend that you use the built-in *Classic Virtual Machine Contributor* role. Otherwise you have to define a custom role that includes the permission to join the virtual network.
 
@@ -275,6 +275,8 @@ You need to configure a virtual network before you can join an Azure-SSIS IR to 
 1. Now, you can start the IR by using the **Start** button in the **Actions** column for your Azure-SSIS IR. It takes approximately 20 to 30 minutes to start an Azure-SSIS IR. 
 
 ## Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### Configure a virtual network
 You need to configure a virtual network before you can join your Azure-SSIS IR to it. To automatically configure virtual network permissions/settings for your Azure-SSIS integration runtime to join the virtual network, add the following script:

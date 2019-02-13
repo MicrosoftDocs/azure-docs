@@ -30,7 +30,9 @@ This quickstart describes how to use an Azure Resource Manager template to creat
 
 ### Azure PowerShell
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-Az-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## Resource Manager templates
 

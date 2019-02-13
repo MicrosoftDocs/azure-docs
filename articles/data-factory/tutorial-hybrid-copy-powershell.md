@@ -108,15 +108,10 @@ In this section, you create a blob container named **adftutorial** in your Azure
 ### Windows PowerShell
 
 #### Install Azure PowerShell
-Install the latest version of Azure PowerShell if you don't already have it on your machine. 
 
-1. Go to [Azure SDK Downloads](https://azure.microsoft.com/downloads/). 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Under **Command-line tools**, in the **PowerShell** section, select **Windows install**. 
-
-1. To install Azure PowerShell, run the MSI file. 
-
-For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-Az-ps). 
+Install the latest version of Azure PowerShell if you don't already have it on your machine. For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps). 
 
 #### Log in to PowerShell
 

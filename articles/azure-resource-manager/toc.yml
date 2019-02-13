@@ -141,9 +141,6 @@
       href: cli-azure-resource-manager.md
     - name: Move resources
       href: resource-group-move-resources.md
-      items:
-      - name: Move support per resource type
-        href: move-support-resources.md
     - name: Organize resources by using tags
       href: resource-group-using-tags.md
     - name: Lock resources
@@ -217,8 +214,12 @@
       href: resource-group-template-functions-resource.md
     - name: String functions
       href: resource-group-template-functions-string.md
-  - name: Tag support
-    href: tag-support.md
+  - name: Resource capabilities
+    items:
+    - name: Move support
+      href: move-support-resources.md
+    - name: Tag support
+      href: tag-support.md
   - name: REST - Resource Manager
     href: /rest/api/resources/
   - name: REST - Deployment Manager

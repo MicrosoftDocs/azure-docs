@@ -92,6 +92,9 @@ https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGrou
 For a complete sample, see [Quickstart: Create a data factory by using the REST API](quickstart-create-data-factory-rest-api.md).
 
 ### Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The following sample command shows you how to manually run your pipeline by using Azure PowerShell:
 
 ```powershell

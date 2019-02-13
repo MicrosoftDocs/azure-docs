@@ -37,6 +37,8 @@ You can install both free or unlicensed components, and paid or licensed compone
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To customize your Azure-SSIS IR, you need the following things:
 
 -   [Azure subscription](https://azure.microsoft.com/)
@@ -49,7 +51,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
 ## Instructions
 
-1.  Download and install [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) (version 5.4 or later).
+1.  Download and install [Azure PowerShell](/powershell/azure/install-az-ps).
 
 1.  Prepare your custom setup script and its associated files (for example, .bat, .cmd, .exe, .dll, .msi, or .ps1 files).
 
