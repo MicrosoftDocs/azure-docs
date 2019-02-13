@@ -19,6 +19,8 @@ ms.author: dimazaid
 
 This sample PowerShell script creates a sample Azure notification hub. 
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Prerequisites
