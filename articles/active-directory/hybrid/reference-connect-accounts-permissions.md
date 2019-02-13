@@ -17,6 +17,7 @@ ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Accounts and permissions
 

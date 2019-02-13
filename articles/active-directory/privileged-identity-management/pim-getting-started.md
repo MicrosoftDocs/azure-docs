@@ -14,6 +14,7 @@ ms.workload: identity
 ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim  
+ms.collection: M365-identity-device-management
 ---
 # Start using PIM
 

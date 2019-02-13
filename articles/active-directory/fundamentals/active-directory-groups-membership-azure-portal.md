@@ -13,6 +13,7 @@ ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: "it-pro, seodec18"
 ms.reviewer: krbain
+ms.collection: M365-identity-device-management
 ---
 
 # Add or remove a group from another group using Azure Active Directory
