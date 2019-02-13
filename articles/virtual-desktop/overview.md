@@ -9,71 +9,41 @@ ms.topic: overview
 ms.date: 02/20/2019
 ms.author: helohr
 ---
-# What is Windows Virtual Desktop? (Preview)
+# What is Windows Virtual Desktop? 
 
-Windows Virtual Desktop is a multi-tenant service hosted by Microsoft that manages connections between Remote Desktop clients and isolated Windows Virtual Desktop tenant environments. This service lets users securely access a virtual machine set up by their admin anytime, anywhere, from any computer.
+Windows Virtual Desktop enables you to create a full desktop virtualization environment in your Azure subscription, without having to run any additional gateway servers. You can publish as many host pools as you need to accommodate your diverse workloads. You can use the Windows Virtual Desktop PowerShell and REST interfaces to configure the host pools, create app groups, assign users, and publish resources. Once assigned, users can launch any one of the Windows Virtual Desktop clients to connect to their published Windows desktops and applications. The users are securely established through reverse connections to the service, so you never have to leave any inbound ports open. For ongoing maintenance of your Windows Virtual Desktop environment, you can use built-in delegated access to assign roles and collect diagnostics to understand various configuration or user errors.
 
 ## Key capabilities
+With Windows Virtual Desktop, you can:
 
-As a Remote Desktop service, Windows Virtual Desktop makes it easy for users to access company resources while keeping company hardware secure.
+* **Bring your own image for production workloads, or test from the Azure Gallery**. By bringing your own image, you can easily lift-and-shift your workload to Windows Virtual Desktop. However, you can akso use the Azure Gallery as a source for an image to kickstart your testing and migration.
+  
+* **Reduce costs by providing pooled, multi-session resources**. By creating a host pool with virtual maachines based on a multi-session OS image, you can run greatly reduce the number of virtual machines--and therefore, OS overhead--while still providing the same resources to all of your users. This is possible with the familiar Remote Desktop Session Host (RDSH) role on Windows Server, along with the new Windows 10 Enterprise multi-session capability, exclusive to Windows Virtual Desktop.
 
-* Easy to access
-    * Once a user has access credentials, all they have to do to access Windows Virtual Desktop is sign in at the Windows Virtual Desktop service or the Remote Desktop web client
-* App groups allow for flexible remoting solutions based on your needs
-    * Use a desktop app group to publish the full desktop and give users access to all apps in the session host, or use a RemoteApp app group to let users access specific apps
-* Reduce resource requirements and save costs by building a Windows Virtual Desktop environment that requires fewer virtual machines to run
-    * Only pay for the resources you actually use; everything else is provided by the Azure service
-* Customizable settings and scaling tools let you adjust load balancing across host pools
-    * Adjust load based on user demand by setting thresholds where new virtual machines are created after the current virtual machine reaches the specified number of users
-    * Reduce costs through Depth mode, where you can assign the maximum number of users to one virtual machine before moving to the next
-* Users get a consistent experience across their personal desktops
-    * Access to universal and modern apps in a multi-session environment
-    * Customize which apps your users can use on their virtual desktop by offering a full desktop experience through a desktop app group or choosing individual apps to display on the client with a RemoteApp group
-* Remote Desktop roles are now offered as a complete service on Azure
-* Outbound connection from your environment to the Azure service keeps your virtual network secure
-* Windows Virtual Desktop environments can be built with a variety of tools that make it easy to integrate into preexisting IT systems
-    * These tools include REST APIs, PowerShell cmdlets, the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) tool, and an Azure portal experience for management and deployment
+* **Provide individual ownership through personal desktops**. Personal desktops are ideal for users who need additional personalization of the virtual machine or want guaranteed performance from the virtual machine (without others also logging on and using resources). By providing a personal desktop, you do not need to provide additional storage, and the desktop feels like the users' standard workstation.
 
-## Prerequisites
+* **Reduce the number of images by publishing full desktop or individual RemoteApps**. Many times, you will have users that only require specific LOB apps to use remotely, while others need a full desktop as a primary workstation. You can simplify the deployment by publishing both desktops and RemoteApps from a single host pool. You can even create individual app groups for different sets of users. If a user is assigned to multiple app groups, they will see the consolidated list of apps when they log in to the Windows Virtual Desktop client.
 
-You need one of the following things to deploy Windows Virtual Desktop:
+* **Only manage the image and virtual machines, not the infrastructure**. With Remote Desktop Services on Windows Server, you had to personally manage the Gateway, Broker, and other Remote Desktop roles. With Windows Virtual Desktop, you no longer need to manage that infrastructure, just the virtual machines in your Azure subscription. When your users hit errors, you can use the new Diagnostics service to troubleshoot standard configuration errors or user errors.
 
-* A Windows E3 or E6 license
-* A Microsoft 365 E3, E5, F1, or Business license
-* An Azure subscription
+* **Connect with your device**. You can connect to Windows Virtual Desktop with a native application on your Windows, iOS, Android, or Mac device. Or you can connect with any device with a web browser using the Windows Virtual Desktop web client.
 
-You should also have the Windows Virtual Desktop PowerShell module if you don't have it already. Install the Windows Virtual Desktop PowerShell module from the PowerShell Gallery by running this cmdlet:
+## Requirements
+Windows Virtual Desktop has several requirements to successfully connect your users to their Windows desktops and applications. You must have the following infrastructure in place before deploying Windows Virtual Desktop:
+  * An Azure Active Directory
+  * A Windows Server Active Directory in sync with Azure Active Directory. This can be enabled through
+    * Azure AD Connect
+    * Azure AD Domain Services
+  * An Azure subscription, containing:
+    * A virtual network containing--or connected to--the Windows Server Active Directory
+  
+The Azure virtual machines you create for Windows Virtual Desktop must:
+  * Be standard domain-joined or Hybrid AD Joined. Virtual machines cannot be Azure AD Joined.
+  * Running one of the supported OS images:
+    * Windows 10 Enterprise multi-session
+    * Windows Server 2016
 
-```powershell
-PS C:\> Install-Module WindowsVirtualDesktop
-```
-
-## How does Windows Virtual Desktop work?
-
-Windows Virtual Desktop is a multi-tenant environment where infrastructure roles are deployed as PaaS services. The infrastructure consists of the following roles:
-
-* **Remote Desktop Broker** is the centerpiece of Remote Desktop Services deployment, as it communicates with the database where all deployment-related configurations take place, including role configurations, user assignments, and session host health.
-* **Remote Desktop Diagnostics** is an event-based aggregator that marks each user action on the RDS deployment (end-user or administrator) as a success or failure. Later on, administrators can query the aggregation of events to identify failing components.
-* **Remote Desktop Gateway** securely connects users to their sessions over the Internet. Besides the session hosts themselves, Remote Desktop Gateway is the only other role used throughout the lifespan of a session.
-* **Remote Desktop Web** lists the apps and resources assigned to users. Remote Desktop clients query the Remote Desktop Web to find which apps users have been assigned and then launch those apps in the client itself. Remote Desktop Web has built-in caching capabilities to reduce the chance of throttling the Remote Desktop Broker and the database.
-
-### Tenants
-
-The Remote Desktop Services modern infrastructure enables a multi-tenant infrastructure to be deployed as Azure App Services that manage connections from Remote Desktop clients to multiple isolated Remote Desktop tenant environments. Each Remote Desktop tenant environment consists of one or more host pools, which in turn contain one or more identical session hosts. The session hosts are virtual machines running one of the following operating systems: Windows Server 2012 R2, Windows Server 2016, or Windows 10 RS4.
-
-Each session host must have a Windows Virtual Desktop host agent installed and registered with Windows Virtual Desktop. You must also install a protocol stack on the session host to support connections from the session host to the Windows Virtual Desktop deployment. This installation is referred to as “reverse-connect” and eliminates the need for inbound ports to be opened to the Remote Desktop tenant environment. (The opposite kind of installation is referred to as “forward-connect” and requires an inbound 3389 port to be open to the Remote Desktop tenant environment.)
-
-Each host pool may have one or more app groups. An app group is a logical grouping of the applications that are installed on the session hosts in the host pool. There are two types of app groups, desktop and RemoteApp. A desktop app group publishes the full desktop and provide access to all the apps installed on the session hosts in the host pool. A RemoteApp app group publishes one or more RemoteApps that display on the Remote Desktop client as the application window on the local Remote Desktop client desktop.
-
-### End-users
-
-Once their Windows Virtual Desktop accounts are set up, users can connect to a Windows Virtual Desktop deployment with either a Windows client or the [Remote Desktop web client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin).
-
-## Solutions that benefit from Windows Virtual Desktop
-
-* Enterprises already using Microsoft Office 365 ProPlus or plan to drive adoption of Office 365 ProPlus
-* Enterprise customers looking for a multi-user solution that gives them the most value for the lowest cost
 
 ## Next steps
 
-To learn how to set up a tenant, see [Set up Windows Virtual Desktop tenants in Active Directory](tenant-setup-azure-active-directory.md).
+- [Set up your Windows Virtual Desktop tenant](tenant-setup-azure-active-directory.md)
