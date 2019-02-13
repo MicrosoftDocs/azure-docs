@@ -3,17 +3,12 @@ title: Azure Government Monitoring + Management | Microsoft Docs
 description: This provides a comparison of features and guidance on developing applications for Azure Government.
 services: azure-government
 cloud: gov
-documentationcenter: ''
 author: gsacavdm
-manager: pathuff
-
 ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: azure-government
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 12/05/2018
+ms.date: 02/13/2019
 ms.author: gsacavdm
 
 ---
@@ -47,6 +42,17 @@ The following Advisor recommendations are not currently available in Azure Gover
 The calculation used to recommend that you should right-size or shutdown underutilized virtual machines is as follows in Azure Government:
 
 Advisor monitors your virtual machine usage for 7 days and identifies low-utilization virtual machines. Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2% or if the current workload can be accommodated by a smaller virtual machine size. If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
+
+## Alerts
+Azure Monitor [unified alerts experience](../azure-monitor/platform/alerts-overview.md) for metrics is now available, but with a reduced set of resource providers [compared to the public cloud](../azure-monitor/platform/alerts-metric-near-real-time.md). More will be added over time. 
+
+The resources currently supported in the new experience are:
+- Microsoft.Compute/virtualMachines
+- Microsoft.OperationalInsights/workspaces
+- Microsoft.PowerBIDedicated/capacities
+- Microsoft.Storage/accounts
+
+You can still use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md) to alert on resources not listed above. 
 
 ## Automation
 Automation is generally available in Azure Government.
