@@ -1,6 +1,6 @@
 ---
 title: Manage snapshots by using Azure NetApp Files | Microsoft Docs
-description: Describes how to create an on-demand snapshot for a volume or restore from a snapshot to a new volume by using Azure NetApp Files.
+description: Describes how to create snapshots for a volume or restore from a snapshot to a new volume by using Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -13,22 +13,64 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to-article
-ms.date: 03/28/2018
+ms.date: 02/15/2019
 ms.author: b-juche
 ---
 # Manage snapshots by using Azure NetApp Files
-You can use Azure NetApp Files to create an on-demand snapshot for a volume or restore from a snapshot to a new volume.
+
+You can use Azure NetApp Files to create an on-demand snapshot for a volume, create a snapshot policy, and restore from a snapshot to a new volume.
 
 ## Create an on-demand snapshot for a volume
-You can create snapshots only on demand.  Snapshot policies are not currently supported.  
-1.	From the Manage Volume blade, click **Snapshots**, then click **+ Add snapshot** to create an on-demand snapshot for a volume.
 
-2.	In the New Snapshot window, provide a name for the new snapshot that you are creating.   
+You can create snapshots on demand (that is, manually) without creating a snapshot policy.
 
-3. Click **OK**. 
+1.	From the Volume blade, click **Snapshots**.
+
+    ![Navigate to snapshots](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
+
+2.  Click **+ Add snapshot** to create an on-demand snapshot for a volume.
+
+    ![Add snapshot](../media/azure-netapp-files/azure-netapp-files-add-snapshot.png)
+
+3.	In the New Snapshot window, provide a name for the new snapshot that you are creating.   
+
+    ![New snapshot](../media/azure-netapp-files/azure-netapp-files-new-snapshot.png)
+
+4. Click **OK**. 
+
+## Create a snapshot policy
+
+You can schedule for volume snapshots to be taken automatically by using snapshot policies.  You can specify the frequency in hourly, daily, weekly, and monthly cycles.  You can also specify the maximum number of snapshots to retain.  
+
+1.	From the Volume blade, click **Snapshot policy**.
+
+    ![Navigate to snapshot policy](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshot-policy.png)
+
+2. Under Policy State, click **Enable** to enable snapshot policies. 
+
+    ![Enable snapshot policy](../media/azure-netapp-files/azure-netapp-files-enable-snapshot-policy.png)
+
+3. Click the **Hourly**, **Daily**, **Weekly**, or **Monthly** tab to create hourly, daily, weekly, or monthly snapshot policies.  
+4. Specify the number of snapshots to keep.  
+5. For each snapshot policy, specify the time when the snapshot should be taken:  
+    * For hourly snapshots, specify a value for **Minute**.
+    * For daily snapshots, specify values for **Hour** and **Minute**.
+    * For weekly snapshots, specify values for **Days** of the week, **Hour**, and **Minute**.
+    * For monthly snapshots, specify values for **Days** of the month, **Hour**, and **Minute**.
+
+    ![Daily snapshot policy](../media/azure-netapp-files/azure-netapp-files-daily-snapshot-policy.png)
+
+    ![Weekly snapshot policy](../media/azure-netapp-files/azure-netapp-files-weekly-snapshot-policy.png)
+
+    ![Monthly snapshot policy](../media/azure-netapp-files/azure-netapp-files-monthly-snapshot-policy.png)
+
+6. If you need to create additional snapshot policies, repeat steps 3 through 5 above. 
+7. Click **Save**. 
+
 
 
 ## Restore a snapshot to a new volume
+
 Currently, you can restore a snapshot only to a new volume. 
 1. Go to the **Manage Snapshots** blade from the Volume blade to display the snapshot list. 
 2. Select a snapshot to restore.  

@@ -13,20 +13,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/28/2018
+ms.date: 02/15/2019
 ms.author: b-juche
 ---
 # Set up a capacity pool
+
 Setting up a capacity pool enables you to create volumes within it.  
 
 ## Before you begin 
+
 You must have already created a NetApp account.   
 
 [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
 
 ## Steps 
 
-1. Go to the management blade for your NetApp account, and then, from the navigation pane, select **Capacity pools**.
+1. Go to the management blade for your NetApp account, and then, from the navigation pane, select **Capacity pools**.  
+    
+    ![Navigate to capacity pool](../media/azure-netapp-files/azure-netapp-files-navigate-to-capacity-pool.png)
 
 2. Click **+ Add pools** to create a new capacity pool.   
     The New Capacity Pool window appears.
@@ -38,7 +42,7 @@ You must have already created a NetApp account.
 
   * **Service level**   
     This field shows the target performance for the capacity pool.  
-    Currently, only the Premium service level is available. 
+    Specify the service level for the capacity pool: Premium or Standard.
 
   *  **Size**     
       Specify the size of the capacity pool that you are purchasing.        
@@ -51,5 +55,3 @@ You must have already created a NetApp account.
 ## Next steps 
 
 [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
-
-

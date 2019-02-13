@@ -26,6 +26,8 @@
   items:
   - name: Resource limits for Azure NetApp Files
     href: azure-netapp-files-resource-limits.md
+  - name: Usage metrics for Azure NetApp Files
+    href: azure-netapp-files-usage-metrics.md
 #  - name: FAQ for networking and security
 #    href: azure-netapp-files-faq-for-networking-security.md
 - name: How-to guides
