@@ -18,6 +18,7 @@ ms.date: 08/02/2018
 ms.author: markvi
 ms.reviewer: nigu
 
+ms.collection: M365-identity-device-management
 ---
 # Enabling Azure Active Directory Identity Protection
 

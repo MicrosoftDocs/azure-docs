@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2018
 ms.author: asmalser-msft
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure LinkedIn Elevate for automatic user provisioning

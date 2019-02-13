@@ -11,6 +11,7 @@ ms.topic: concept
 ms.date: 01/16/2019
 ms.author: celested
 ms.reviewer: japere
+ms.collection: M365-identity-device-management
 ---
 
 # Cookie settings for accessing on-premises applications in Azure Active Directory

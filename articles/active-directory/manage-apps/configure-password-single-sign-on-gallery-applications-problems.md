@@ -15,6 +15,7 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problem configuring password single sign-on for an Azure AD Gallery application

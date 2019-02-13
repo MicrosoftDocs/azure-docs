@@ -12,6 +12,7 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
+ms.collection: M365-identity-device-management
 ---
 
 # Manage my devices overview

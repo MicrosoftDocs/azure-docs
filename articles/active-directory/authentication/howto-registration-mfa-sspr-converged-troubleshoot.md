@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Disable Azure AD converged registration (Public preview)
 

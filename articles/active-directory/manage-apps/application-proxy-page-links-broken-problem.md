@@ -16,6 +16,7 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: celested
 ms.reviewer: asteen
+ms.collection: M365-identity-device-management
 ---
 
 # Links on the page don't work for an Application Proxy application

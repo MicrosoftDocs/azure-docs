@@ -16,6 +16,7 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: "martincoetzer; MarkMorow"
 
+ms.collection: M365-identity-device-management
 ---
 
 # Securing privileged access for hybrid and cloud deployments in Azure AD

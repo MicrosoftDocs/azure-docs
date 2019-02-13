@@ -14,6 +14,7 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 
 # Assign users and groups to an application in Azure Active Directory
