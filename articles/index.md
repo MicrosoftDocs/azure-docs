@@ -1328,7 +1328,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/iot-fundamentals">
                                                 <img src="media/index/IoTHub.svg" alt="" />
-                                                <p>IoT Fundamentals</p>
+                                                <p>Azure IoT</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3947,8 +3947,8 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>IoT Fundamentals</h3>
-                                                    <p>Get started connecting your devices</p>
+                                                    <h3>Azure IoT</h3>
+                                                    <p>New to Azure IoT? Start here to learn which service meets your needs</p>
                                                 </div>
                                             </div>
                                         </div>

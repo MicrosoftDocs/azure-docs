@@ -62,7 +62,7 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/i_get-started.svg" alt="" />
+                                    <img src="media/index/security.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
