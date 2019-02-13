@@ -26,7 +26,7 @@ This two-page brief has basic information and diagrams that explain how to use A
 
 ## Hybrid cloud for file-based workloads
 
-**Link:** [Infographic: Building a hybrid cloud for file-based workloads](https://azure.microsoft.com/en-us/resources/building-a-hybrid-cloud-for-file-based-hpc-workloads/) 
+**Link:** [Infographic: Building a hybrid cloud for file-based workloads](https://azure.microsoft.com/resources/building-a-hybrid-cloud-for-file-based-hpc-workloads/) 
 
 This graphic shows components and layouts for using Avere vFXT for Azure to add cloud infrastructure to your existing system. Use Avere vFXT for Azure to augment computing capacity with your existing on-premises infrastructure, or move data and computing to the cloud on a temporary or permanent basis.  
 
@@ -35,3 +35,8 @@ This graphic shows components and layouts for using Avere vFXT for Azure to add 
 **Link:** [Cloud bursting for high performance, scalable NAS](https://microsoft.sharepoint.com/sites/Infopedia_G01KC/KCDOCs2/Avere%20customer%20resources/Solution%20Brief%20Cloud%20Bursting.pdf) 
 
  This cloud bursting solution brief shows you how you can quickly make data available to cloud compute resources nondisruptively by using Avere vFXT for Azure.
+
+## Next steps
+
+* To continue planning an Avere vFXT for Azure deployment, read [Plan your Avere vFXT for Azure system](avere-vfxt-deploy-plan.md).
+* For answers to specific questions, consult the [Avere vFXT for Azure FAQ](avere-vfxt-faq.md).
