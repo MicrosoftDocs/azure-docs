@@ -67,7 +67,7 @@ To delete an IP filter rule, select one or more rules in the grid and click **De
 
 ## Retrieve and update IP filters using Azure CLI
 
-Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest). 
+Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). 
 
 To retrieve current IP filters of your IoT Hub, run:
 
@@ -116,7 +116,7 @@ Note that `<ipFilterIndexToRemove>` must correspond to the ordering of IP filter
 
 ## Retrieve and update IP filters using Azure PowerShell
 
-Your IoT Hub's IP filters can be retrieved and set through [Azure  PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azps-1.2.0). 
+Your IoT Hub's IP filters can be retrieved and set through [Azure  PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0). 
 
 ```powershell
 # Get your IoT Hub resource using its name and its resource group name
@@ -140,7 +140,7 @@ $iothubResource | Set-AzureRmResource -Force
 
 ## Update IP filter rules using REST
 
-You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.ipFilterRules` in [createorupdate method](https://docs.microsoft.com/en-us/rest/api/iothub/iothubresource/createorupdate).
+You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.ipFilterRules` in [createorupdate method](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate).
 
 
 ## IP filter rule evaluation
