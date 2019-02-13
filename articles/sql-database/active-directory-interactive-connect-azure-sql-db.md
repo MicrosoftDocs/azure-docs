@@ -25,9 +25,9 @@ Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](h
 
 * A dialog box that displays an Azure AD user name and asks for the user's password.
 
-   If the user's domain is federated with Azure AD, then this dialog box doesn't appear, as no password is needed.
+   If the user's domain is federated with Azure AD this dialog box doesn't appear, as no password is needed.
 
-   If the Azure AD policy imposes MFA on the user, then the next two dialog boxes are displayed.
+   If the Azure AD policy imposes MFA on the user, the next two dialog boxes are displayed.
 
 * The first time a user goes through MFA, the system displays a dialog box asking for a mobile phone number to send text messages to. Each message provides the *verification code* that the user must enter in the next dialog box.
 
