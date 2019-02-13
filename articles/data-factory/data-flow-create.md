@@ -31,5 +31,5 @@ You will be prompted to enter your Azure Blob Storage account information.
 
 Use the Create Resource "plus sign" button in the ADF UI to create Data Flows
 
-![Data Flow create options](media/data-flow/newresouce.png "New Resource")
+![Data Flow create options](media/data-flow/newresource.png "New Resource")
 
