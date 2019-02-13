@@ -20,7 +20,7 @@ There are four key stages in big data processing:
 > * Downloading the data
 > * Visualizing the data
 
-Begin by setting up a storage account and a file system. Then, grant access to the data. The first few sections of this article help you accomplish those tasks. In the remaining sections, we'll highlight the options and tools for each  processing phase.
+Begin by creating a storage account and a file system. Then, grant access to the data. The first few sections of this article help you accomplish those tasks. In the remaining sections, we'll highlight the options and tools for each  processing phase.
 
 ## Create a Data Lake Storage Gen2 account
 
@@ -43,20 +43,20 @@ It's easiest to create file systems by using Storage Explorer or AzCopy. It take
 
 ## Grant access to the data
 
-Consider setting up access permissions to your account before you begin ingesting data. 
+Set up the appropriate access permissions to your account, and the data in your account, before you begin ingesting data.
 
 This table shows how each Azure service or tool authenticates and authorizes access to Azure Data Lake Storage Gen2 data.
 
-|Tool | Grant access by using .. |
-|---|--|
-|Storage Explorer| [Users and groups](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory) (Assign the Storage Blob Data Contributor role to the user or group)|
-|AzCopy| [Users and groups](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory) (Assign the Storage Blob Data Contributor role to the user or group)<br> [Shared Access Signature(SAS) tokens](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)|
-|Apache DistCp | [User-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) (Assign the Storage Blob Data Owner role to the identity) |
-|Azure Data Factory| User-assigned-managed identity, Service Principal, or storage account key. See [Linked service properties](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
-|Azure HDInsight| [User-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) (Assign the Storage Blob Data Owner role to the identity) |
-|Azure Databricks| [Service Principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) (Assign the Storage Blob Data Contributor role to the identity) |
+|Tool | Grant access by using .. | Guidance |
+|---|--|---|
+|Storage Explorer| Role Based Access Control (RBAC) applied to users and groups | [Assign administrator and non-administrator roles to users with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) |
+|AzCopy| RBAC applied to users and groups **or** Shared Access Signature (SAS) tokens| [Assign administrator and non-administrator roles to users with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br>[Easily Create a SAS to Download a File from Azure Storage–Using Azure Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
+|Apache DistCp | User-assigned managed identity | [Creating an HDInsight cluster with Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2) |
+|Azure Data Factory| User-assigned-managed identity, service principal, or storage account key | [Linked service properties](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
+|Azure HDInsight| User-assigned managed identity | [Creating an HDInsight cluster with Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2)|
+|Azure Databricks| Service principal | [Create a service principal](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-service-principal)|
 
-To learn about how to set up file and folder-level access permissions, see these articles.
+To learn about how to set up access permissions at the file and folder-level, see these articles.
 
 * [Set file and directory level permissions using Azure Storage Explorer with Azure Data Lake Storage Gen2](https://review.docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
 
