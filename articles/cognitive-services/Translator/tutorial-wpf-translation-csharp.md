@@ -16,7 +16,7 @@ ms.author: erhopf
 
 In this tutorial, you'll build a [Windows Presentation Foundation (WPF)](https://docs.microsoft.com/visualstudio/designers/getting-started-with-wpf?view=vs-2017) app that uses Azure Cognitive Services for text translation, language detection, and spell checking with a single subscription key. Specifically, your app will call APIs from Translator Text and [Bing Spell Check](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 
-What is WPF? It is a UI framework that creates desktop client apps. The WPF development platform supports a broad set of app development features, including an app model, resources, controls, graphics, layout, data binding, documents, and security. It is a subset of the .NET Framework, so if you have previously built apps with the .NET Framework using ASP.NET or Windows Forms, the programming experience should be familiar. WPF uses the Extensible app Markup Language (XAML) to provide a declarative model for app programming, which we'll review in the coming sections.
+What is WPF? It's a UI framework that creates desktop client apps. The WPF development platform supports a broad set of app development features, including an app model, resources, controls, graphics, layout, data binding, documents, and security. It's a subset of the .NET Framework, so if you have previously built apps with the .NET Framework using ASP.NET or Windows Forms, the programming experience should be familiar. WPF uses the Extensible app Markup Language (XAML) to provide a declarative model for app programming, which we'll review in the coming sections.
 
 In this tutorial, you'll learn how to:
 
@@ -30,7 +30,7 @@ In this tutorial, you'll learn how to:
 
 ### Cognitive Services used in this tutorial
 
-This is a list of the Cognitive Services used in this tutorial. Follow the link to browse the API reference for each feature.
+This list includes the Cognitive Services used in this tutorial. Follow the link to browse the API reference for each feature.
 
 | Service | Feature | Description |
 |---------|---------|-------------|
@@ -73,7 +73,7 @@ Let's add assemblies to our project to serialize and deserialize objects, and to
 
 1. Locate your project in Visual Studio's Solution Explorer (right panel). Right click on your project, then select **Add > Reference...**. This will open **Reference Manager**.
    ![Add assembly references](media/add-assemblies-sample.png)
-2. The assemblies tab lists all .NET Framework assemblies that are available to reference. Use the search bar in the upper-right of the screen to search for these references and add them to your project:
+2. The assemblies tab lists all .NET Framework assemblies that are available to reference. Use the search bar in the upper right of the screen to search for these references and add them to your project:
    * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization?view=netframework-4.7.2)
    * [System.Web](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
    * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web?view=netframework-4.7.2)
@@ -95,7 +95,7 @@ Our app will use NewtonSoft.Json to deserialize JSON objects. Follow these instr
 
 ## Create a WPF form using XAML
 
-In order to use your app, you're going to need a user interface. Using XAML, we'll create a form that allows users to select input and translation languages, enter text to translate, and displays the translation output.
+To use your app, you're going to need a user interface. Using XAML, we'll create a form that allows users to select input and translation languages, enter text to translate, and displays the translation output.
 
 Let's take a look at what we're building.
 
@@ -108,9 +108,9 @@ The user interfacer includes these components:
 | `FromLanguageComboBox` | ComboBox | Displays a list of the languages supported by Microsoft Translator for text translation. The user selects the language they are translating from. |
 | `ToLanguageComboBox` | ComboBox | Displays the same list of languages as `FromComboBox`, but is used to select the language the user is translating to. |
 | `TextToTranslate` | TextBox | Allows the user to enter text to be translated. |
-| `TranslateButton` | Button | Use this button to perform a translation. |
+| `TranslateButton` | Button | Use this button to translate text. |
 | `TranslatedTextLabel` | Label | Displays the translation. |
-| `DetectedLanguageLabel` | Label | Displays the detected language of the text to be transdlated (`TextToTranslate`). |
+| `DetectedLanguageLabel` | Label | Displays the detected language of the text to be translated (`TextToTranslate`). |
 
 > [!NOTE]
 > We're creating this form using the XAML source code, however, you can create the form with the editor in Visual Studio.
@@ -167,7 +167,7 @@ That's it, your form is ready. Now let's write some code to use Text Translation
 * When the program starts and `MainWindow` is instantiated, the `Languages` method of the Translator Text API is called to retrieve and populate our language selection drop-downs. This happens once at the beginning of each session.
 * When the **Translate** button is clicked, the user's language selection and text are retrieved, spell check is performed on the input, and the translation and detected language are displayed for the user.
   * The `Translate` method of the Translator Text API is called to translate text from `TextToTranslate`. This call also includes the `to` and `from` languages selected using the drop-down menus.
-  * The `Detect` method of the Translator Text API is called to determine the text langauge of `TextToTranslate`.
+  * The `Detect` method of the Translator Text API is called to determine the text language of `TextToTranslate`.
   * Bing Spell Check is used to validate `TextToTranslate` and adjust misspellings.
 
 All of our project is encapsulated in the `MainWindow : Window` class. Let's start by adding code to set your subscription key, declare endpoints for Translator Text and Bing Spell Check, and initialize the app.
@@ -254,14 +254,14 @@ Last, we've added code to call methods to retrieve languages for translation and
 
 The Translator Text API currently supports more than 60 languages. Since new language support will be added over time, we recommend calling the Languages resource exposed by Translator Text rather than hardcoding the language list in your app.
 
-In this section we'll create a `GET` request to the Languages resource, specifying that we want a list of languages available for translation. This request doesn't need to be authenticated.
+In this section we'll create a `GET` request to the Languages resource, specifying that we want a list of languages available for translation.
 
 > [!NOTE]
 > The Languages resource allows you to filter language support with the following query parameters: transliteration, dictionary, and translation. For more information, see [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 Before we go any further, let's take a look at a sample output for a call to the Languages resource:
 
-```
+```json
 {
   "translation": {
     "af": {
@@ -317,7 +317,7 @@ The JSON response is parsed and converted to a dictionary. Then the language cod
 
 ## Populate language drop-down menus
 
-The user interface is defined using XAML, so you don't need to do much to set it up besides call `InitializeComponent()`. The one thing you need to do is add the friendly language names to the **Translate from** and **Translate to** drop-down menus, which is done with the `PopulateLanguageMenus()` method.
+The user interface is defined using XAML, so you don't need to do much to set it up besides call `InitializeComponent()`. The one thing you need to do is add the friendly language names to the **Translate from** and **Translate to** drop-down menus, this is done with the `PopulateLanguageMenus()` method.
 
 1. In Visual Studio, open the tab for `MainWindow.xaml.cs`.
 2. Add this code to your project below the `GetLanguagesForTranslate()` method:
@@ -401,7 +401,7 @@ Now we're going to create method to detect the language of the source text (text
    // In the following sections, we'll add code below this.
    ```
 
-This method create an HTTP POST request to the Detect resource. It takes a single argument, `text`, which is passed along as the body of the request. Later, we when we create our translation request, the text entered into our UI will be passed to this method for language detection.
+This method creates an HTTP POST request to the Detect resource. It takes a single argument, `text`, which is passed along as the body of the request. Later, we when we create our translation request, the text entered into our UI will be passed to this method for language detection.
 
 Additionally, this method evaluates the confidence score of the response. If the score is greater than `0.5`, then the detected language is displayed in our user interface.
 
@@ -553,7 +553,7 @@ The first step is to get the "from" and "to" languages, and the text the user en
 
 If the source language is English (whether specified or detected), check the spelling of the text with `CorrectSpelling()` and apply any corrections. The corrected text is added back into the text area so that the user sees that a correction was made.
 
-The code to perform the translation request should look familiar: build the URI, create a request, send it, and parse the response. The JSON array may contain more than one object for translation, however, our app only requires one.
+The code to translate text should look familiar: build the URI, create a request, send it, and parse the response. The JSON array may contain more than one object for translation, however, our app only requires one.
 
 After a successful request, `TranslatedTextLabel.Content` is replaced with the `translation`, which updates the user interface to display the translated text.
 
