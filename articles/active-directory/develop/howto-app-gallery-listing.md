@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/30/2019
+ms.date: 02/13/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
@@ -43,6 +43,9 @@ ms.collection: M365-identity-device-management
 - For password SSO, please ensure that your application supports form authentication so that password vaulting can be done to get single sign-on work as expected.
 
 - For automatic user-provisioning requests, application should be listed in the gallery with single sign-on feature enabled using SAML 2.0/WS-Fed. You can request for SSO and User provisioning together on the portal, if it's not already listed.
+
+>[!NOTE]
+>We are running with high number of SCIM connector requests, so we have stopped taking new requests on our portal. Please hold on your requests until further notice. We apologies for this delay and any inconvenience this may have caused.
 
 ## Submit the request in the portal
 
@@ -113,10 +116,6 @@ The timeline for the process of listing a SAML 2.0 or WS-Fed application in the 
 The timeline for the process of listing an OpenID Connect application in the gallery is 2-5 business days.
 
    ![TimeLine of listing saml application into the gallery](./media/howto-app-gallery-listing/timeline2.png)
-
-The timeline for the process of listing the application in the gallery with user provisioning support is 40-45 business days.
-
-   ![TimeLine of listing saml application into the gallery](./media/howto-app-gallery-listing/provisioningtimeline.png)
 
 ## Escalations
 
