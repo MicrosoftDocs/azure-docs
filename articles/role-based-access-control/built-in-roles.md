@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 02/05/2019
+ms.date: 02/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -107,9 +107,9 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Site Recovery Contributor](#site-recovery-contributor) | Lets you manage Site Recovery service except vault creation and role assignment |
 | [Site Recovery Operator](#site-recovery-operator) | Lets you failover and failback but not perform other Site Recovery management operations |
 | [Site Recovery Reader](#site-recovery-reader) | Lets you view Site Recovery status but not perform other management operations |
-| [Spatial Anchors Account Contributor](#spatial-anchors-account-contributor) | Lets you manage Spatial Anchors, but not delete them |
-| [Spatial Anchors Account Owner](#spatial-anchors-account-owner) | Lets you manage Spatial Anchors, including deleting them |
-| [Spatial Anchors Account Reader](#spatial-anchors-account-reader) | Lets you read Spatial Anchors |
+| [Spatial Anchors Account Contributor](#spatial-anchors-account-contributor) | Lets you manage spatial anchors in your account, but not delete them |
+| [Spatial Anchors Account Owner](#spatial-anchors-account-owner) | Lets you manage spatial anchors in your account, including deleting them |
+| [Spatial Anchors Account Reader](#spatial-anchors-account-reader) | Lets you locate and read properties of spatial anchors in your account |
 | [SQL DB Contributor](#sql-db-contributor) | Lets you manage SQL databases, but not access to them. Also, you can't manage their security-related policies or their parent SQL servers. |
 | [SQL Security Manager](#sql-security-manager) | Lets you manage the security-related policies of SQL servers and databases, but not access to them. |
 | [SQL Server Contributor](#sql-server-contributor) | Lets you manage SQL servers and databases, but not access to them, and not their security -related policies. |
@@ -484,7 +484,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/operationResults/read | The Get Operation Results operation can be used get the operation status and result for the asynchronously submitted operation |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | The Get Containers operation can be used get the containers registered for a resource. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | The Register Service Container operation can be used to register a container with Recovery Service. |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
+> | Microsoft.RecoveryServices/Vaults/usages/read | Read any Vault Usages |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
@@ -553,7 +553,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/operations/read | Operation returns the list of Operations for a Resource Provider |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Gets Operation Status for a given Operation |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | List all backup Protection Intents |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
+> | Microsoft.RecoveryServices/Vaults/usages/read | Read any Vault Usages |
 
 ## Billing Reader
 > [!div class="mx-tableFixed"]
@@ -1464,7 +1464,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/* | Create and manage recovery plans |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* | Create and manage storage configuration of Recovery Services vault |
 > | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
+> | Microsoft.RecoveryServices/Vaults/usages/read | Read any Vault Usages |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Read alerts for the Recovery services vault |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
@@ -1531,7 +1531,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
 > | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
+> | Microsoft.RecoveryServices/Vaults/usages/read | Read any Vault Usages |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
@@ -1574,7 +1574,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Read any Recovery Plans |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
 > | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
+> | Microsoft.RecoveryServices/Vaults/usages/read | Read any Vault Usages |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
@@ -1582,42 +1582,42 @@ The following table provides brief descriptions of the built-in roles. Click the
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you manage Spatial Anchors, but not delete them |
+> | **Description** | Lets you manage spatial anchors in your account, but not delete them |
 > | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
 > | **DataActions** |  |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Create Spatial Anchors |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Discover nearby Anchors |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Get properties of Spatial Anchors |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate Spatial Anchors |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit Diagnostics for Spatial Anchors |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Update Spatial Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Create spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Discover nearby spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Get properties of spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit diagnostics data to help improve the quality of the Azure Spatial Anchors service |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Update spatial anchors properties |
 
 ## Spatial Anchors Account Owner
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you manage Spatial Anchors, including deleting them |
+> | **Description** | Lets you manage spatial anchors in your account, including deleting them |
 > | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
 > | **DataActions** |  |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Create Spatial Anchors |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Delete Spatial Anchors |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Discover nearby Anchors |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Get properties of Spatial Anchors |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate Spatial Anchors |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit Diagnostics for Spatial Anchors |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Update Spatial Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Create spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Delete spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Discover nearby spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Get properties of spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit diagnostics data to help improve the quality of the Azure Spatial Anchors service |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Update spatial anchors properties |
 
 ## Spatial Anchors Account Reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you read Spatial Anchors |
+> | **Description** | Lets you locate and read properties of spatial anchors in your account |
 > | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
 > | **DataActions** |  |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Discover nearby Anchors |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Get properties of Spatial Anchors |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate Spatial Anchors |
-> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit Diagnostics for Spatial Anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Discover nearby spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Get properties of spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate spatial anchors |
+> | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit diagnostics data to help improve the quality of the Azure Spatial Anchors service |
 
 ## SQL DB Contributor
 > [!div class="mx-tableFixed"]
@@ -1914,7 +1914,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returns all Protection Policies |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Creates Protection Policy |
 > | Microsoft.RecoveryServices/Vaults/read | The Get Vault operation gets an object representing the Azure resource of type 'vault' |
-> | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
+> | Microsoft.RecoveryServices/Vaults/usages/read | Read any Vault Usages |
 > | Microsoft.RecoveryServices/Vaults/write | Create Vault operation creates an Azure resource of type 'vault' |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
