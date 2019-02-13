@@ -128,7 +128,7 @@ Subscribe to Blob Storage events to respond to blob created and deleted events.
 | [Overview: reacting to Blob storage events](../storage/blobs/storage-blob-event-overview.md) | Overview of integrating Blob storage with Event Grid. |
 | [Event schema](event-schema-blob-storage.md) | Shows fields in Blob Storage events. |
 
-## Azure Maps
+## Maps
 Subscribe to Azure Maps events to respond to geofence events. For example, an application could deliver an email notification every time a device enters or exits a geofence.
 
 |Title  |Description  |
