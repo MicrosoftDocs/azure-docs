@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 01/08/2019
+ms.date: 02/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
@@ -136,17 +136,19 @@ DirectQuery mode* leverages the backend relational database for storage and quer
 
 \* Feature availability depends on tier.
 
-## Supported datasources
+## Supported data sources
 
 Tabular models in Azure Analysis Services support a wide variety of data sources from simple text files to Big Data in Azure Data Lake Store. To learn more, see [Data sources supported in Azure Analysis Services](analysis-services-datasource.md).
 
 ## Your data is secure
 
-Azure Analysis Services provides security for your sensitive data at multiple levels. At the server level: Firewall, Azure authentication, server administrator roles, and Server-Side Encryption. And at the data model level, user roles, row-level, and object-level security ensure your data is safe and gets seen by only those users who are meant to see it.
+Azure Analysis Services provides security for your sensitive data at multiple levels. As an Azure service, Analysis Services provides **Basic** level of Distributed denial of service (DDoS) attacks automatically enabled as part of the Azure platform. To learn more, see [Azure DDoS Protection Standard overview](../virtual-network/ddos-protection-overview.md). 
+
+At the server level, Analysis Services provides firewall, Azure authentication, server administrator roles, and Server-Side Encryption. At the data model level, user roles, row-level, and object-level security ensure your data is safe and gets seen by only those users who are meant to see it.
 
 ### Firewall
 
-Azure Analysis Services Firewall blocks all client connections other than those IP addresses specified in rules. Configure rules specifying allowed IP addresses by individual client IPs or by range. Power BI (service) connections can also be allowed or blocked. Configure firewall and rules in the portal or by using PowerShell. To learn more, see [Configure a server firewall](analysis-services-qs-firewall.md).
+Azure Analysis Services Firewall blocks all client connections other than those IP addresses specified in rules. By default, firewall protection is not enabled for new servers. It's recommended firewall protection is enabled and rules are configured as part of a server provisioning script or in the portal immediately after the server is created. Configure rules specifying allowed IP addresses by individual client IPs or by range. Power BI (service) connections can also be allowed or blocked. Configure firewall and rules in the portal or by using PowerShell. To learn more, see [Configure a server firewall](analysis-services-qs-firewall.md).
 
 ### Authentication
 

@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+          "source_path": "articles/machine-learning/studio/retrain-models-programmatically.md",
+          "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/machine-learning/studio/retrain-new-web-service-using-powershell.md",
+          "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
+          "redirect_document_id": false
+        },
+        {
           "source_path": "articles/machine-learning/studio/retrain-a-classic-web-service.md",
           "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
           "redirect_document_id": true
@@ -12184,7 +12194,7 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-retrain-models-programmatically.md",
-      "redirect_url": "/azure/machine-learning/studio/retrain-models-programmatically",
+      "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
       "redirect_document_id": false
     },
     {
@@ -26829,6 +26839,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/bing-web-search-resource-faq.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/search-responses",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Web-Search/sdk.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/sdk-samples",
       "redirect_document_id": true
@@ -33416,6 +33431,11 @@
     {
       "source_path": "articles/cosmos-db/scripts/create-graph-database-account-cli.md",
       "redirect_url": "/azure/cosmos-db/scripts/create-gremlin-database-account-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-explorer/spark-integration.md",
+      "redirect_url": "/azure/data-explorer/",
       "redirect_document_id": false
     },
     {
