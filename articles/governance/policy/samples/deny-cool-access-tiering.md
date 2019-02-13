@@ -27,7 +27,7 @@ You can deploy this template using the [Azure portal](#deploy-with-the-portal), 
 
 ## Deploy with PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
 $definition = New-AzPolicyDefinition -Name "storage-account-access-tier" -DisplayName "Deny cool access tiering for storage accounts" -description "Ensures there's no usage of cool access tiering for storage." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Storage/storage-account-access-tier/azurepolicy.parameters.json' -Mode All

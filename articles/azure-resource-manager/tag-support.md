@@ -1126,7 +1126,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | servers/tdeCertificates | No | 
 
 > [!NOTE]
-> The Master database doesn't support tags, but other databases support tags.
+> The Master database doesn't support tags, but other databases, including Data Warehouse databases, support tags.
 
 
 ## Microsoft.SqlVirtualMachine
