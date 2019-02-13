@@ -268,7 +268,7 @@ dbStep = DatabricksStep(
     notebook_path=notebook_path,
     notebook_params={'myparam': 'testparam'},
     run_name='demo run name',
-    databricks_compute=databricks_compute,
+    compute_target=databricks_compute,
     allow_reuse=False
 )
 # List of steps to run

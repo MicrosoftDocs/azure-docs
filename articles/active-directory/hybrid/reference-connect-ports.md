@@ -16,6 +16,7 @@ ms.date: 08/02/2017
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Hybrid Identity Required Ports and Protocols
 The following document is a technical reference on the required ports and protocols for implementing a hybrid identity solution. Use the following illustration and refer to the corresponding table.

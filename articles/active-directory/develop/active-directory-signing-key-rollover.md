@@ -17,6 +17,7 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Signing key rollover in Azure Active Directory
@@ -40,7 +41,7 @@ How your application handles key rollover depends on variables such as the type 
 * [Web applications / APIs protecting resources using Node.js passport-azure-ad module](#passport)
 * [Web applications / APIs protecting resources and created with Visual Studio 2015 or Visual Studio 2017](#vs2015)
 * [Web applications protecting resources and created with Visual Studio 2013](#vs2013)
-* [Web APIs protecting resources and created with Visual Studio 2013](#vs2013_webapi)
+* Web APIs protecting resources and created with Visual Studio 2013
 * [Web applications protecting resources and created with Visual Studio 2012](#vs2012)
 * [Web applications protecting resources and created with Visual Studio 2010, 2008 o using Windows Identity Foundation](#vs2010)
 * [Web applications / APIs protecting resources using any other libraries or manually implementing any of the supported protocols](#other)

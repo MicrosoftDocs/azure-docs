@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Get answers to common questions about the Text Analytics API.
 services: cognitive-services
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics

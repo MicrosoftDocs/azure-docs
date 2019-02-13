@@ -3,7 +3,7 @@ title: PowerShell example-create a single database in Azure SQL Database | Micro
 description: Azure PowerShell example script to create a single database in Azure SQL Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: standalone-database
+ms.subservice: single-database
 ms.custom: 
 ms.devlang: PowerShell
 ms.topic: sample
@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/08/2019
 ---
 # Use PowerShell to create a single Azure SQL database and configure a SQL Database server firewall rule
 

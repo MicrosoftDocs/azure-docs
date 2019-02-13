@@ -4,7 +4,7 @@ description: This document explains how data is managed and safeguarded in Azure
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 33f2c9f4-21aa-4f0c-9e5e-4cd1223e39d7
