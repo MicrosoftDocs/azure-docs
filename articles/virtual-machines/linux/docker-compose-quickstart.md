@@ -23,28 +23,39 @@ With [Compose](http://github.com/docker/compose), you use a simple text file to 
 
 
 ## Set up a Linux VM as a Docker host
-You can use various Azure procedures and available images or Resource Manager templates in the Azure Marketplace to create a Linux VM and set it up as a Docker host. For example, see [Using the Docker VM Extension to deploy your environment](dockerextension.md) to quickly create an Ubuntu VM with the Azure Docker VM extension by using a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). 
-
-When you use the Docker VM extension, your VM is automatically set up as a Docker host and Compose is already installed.
+You can use various Azure procedures and available images or Resource Manager templates in the Azure Marketplace to create a Linux VM and set it up as a Docker host. 
 
 
-### Create Docker host with Azure CLI
+## Create Docker host with Azure CLI
 Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/reference-index).
 
 First, create a resource group for your Docker environment with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
-```azurecli
-az group create --name myResourceGroup --location eastus
+```azurecli-interactive
+az group create --name myDockerGroup --location eastus
 ```
 
-Next, deploy a VM with [az group deployment create](/cli/azure/group/deployment) that includes the Azure Docker VM extension from [this Azure Resource Manager template on GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). When prompted, provide your own unique values for *newStorageAccountName*, *adminUsername*, *adminPassword*, and *dnsNameForPublicIP*:
+Create a file named *cloud-init.txt* and paste the following configuration. Enter `sensible-editor cloud-init.txt` to create the file and see a list of available editors. 
 
-```azurecli
-az group deployment create --resource-group myResourceGroup \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
+```yaml
+#include https://get.docker.com
 ```
 
-It takes a few minutes for the deployment to finish.
+Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. The following example creates a VM named *myAutomatedVM*:
+
+```azurecli-interactive
+az vm create \
+    --resource-group myDockerGroup \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --custom-data cloud-init.txt
+```
+
+It takes a few minutes for the VM to be created, the packages to install, and the app to start. There are background tasks that continue to run after the Azure CLI returns you to the prompt. It may be another couple of minutes before you can access the app. When the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. 
+
+To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](/cli/azure/vm#az-vm-open-port):
 
 
 ## Verify that Compose is installed
