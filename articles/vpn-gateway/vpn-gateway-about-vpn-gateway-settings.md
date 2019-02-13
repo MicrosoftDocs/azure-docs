@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 02/13/2019
 ms.author: cherylmc
 
 ---
@@ -166,7 +166,7 @@ For additional technical resources and specific syntax requirements when using R
 
 | **Classic** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](/powershell/module/azurerm.network/#networking) |[PowerShell](/powershell/module/azurerm.network#vpn) |
+| [PowerShell](/powershell/module/azurerm.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
 | Not supported | [Azure CLI](/cli/azure/network/vnet-gateway)|
 
