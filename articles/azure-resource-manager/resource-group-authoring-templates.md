@@ -41,7 +41,7 @@ In its simplest structure, a template has the following elements:
 | parameters |No |Values that are provided when deployment is executed to customize resource deployment. |
 | variables |No |Values that are used as JSON fragments in the template to simplify template language expressions. |
 | functions |No |User-defined functions that are available within the template. |
-| resources |Yes |Resource types that are deployed or updated in a resource group. |
+| resources |Yes |Resource types that are deployed or updated in a resource group or subscription. |
 | outputs |No |Values that are returned after deployment. |
 
 Each element has properties you can set. The following example shows the full syntax for a template:
