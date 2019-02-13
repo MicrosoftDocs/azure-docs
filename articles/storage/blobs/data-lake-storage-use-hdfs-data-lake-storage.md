@@ -45,21 +45,13 @@ Replace the `<path>` placeholder with the root file system name or a folder with
 
 For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 
-### Delete a file
+### Delete a file or directory
 
-    hdfs dfs -rm <file>
+    hdfs dfs -rm <path>
 
-Replace the `<file>` placeholder with the URI of the file that you want to delete.
+Replace the `<path>` placeholder with the URI of the file or folder that you want to delete.
 
 For example: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name/my-file-name`
-
-### Delete a directory
-
-    hdfs dfs -rmdir <directory>
-
-Replace the `<directory>` placeholder with the URI of the directory that you want to delete.
-
-For example: `hdfs dfs -rmdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
 ### Use the HDFS CLI with an HDInsight Hadoop cluster on Linux
 
@@ -75,11 +67,15 @@ hdfs dfs -mkdir /samplefolder
 ```
 The connection string can be found at the "SSH + Cluster login" section of the HDInsight cluster blade in Azure portal. SSH credentials were specified at the time of the cluster creation.
 
-For more information on HDFS CLI, see the [official documentation](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) and the [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html). To learn more about the ACLs in Databricks, see the [Secrets CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli). 
+For more information on HDFS CLI, see the [official documentation](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) and the [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html). To learn more about the ACLs in Databricks, see the [Secrets CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli).
 
 ## HDFS CLI with Azure Databricks
 
 The Databricks provides an easy-to-use CLI built on top of the Databricks REST API. The open-source project is hosted on [GitHub](https://github.com/databricks/databricks-cli). Below are the commonly used commands.
+
+### Create a file system
+
+Put the guidance here.
 
 ### Get a list of files or directories
 

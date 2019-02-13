@@ -15,69 +15,78 @@ ms.author: normesta
 There are four key stages in big data processing:
 
 > [!div class="checklist"]
-> * Create a Data Lake Storage Gen2 account
-> * Create a file system
-> * Ingest data
-> * Secure data
-> * Process data
-> * Visualize data
-> * Download data
+> * Ingesting large amounts of data into a data store, at real-time or in batches
+> * Processing the data
+> * Downloading the data
+> * Visualizing the data
 
-In this article, we look at these stages with respect to Azure Data Lake Storage Gen2 to understand the options and tools available to meet your big data needs.
+Begin by setting up a storage account, a file system, and security. The first few sections of this article help you accomplish those tasks. In the remaining sections, we'll highlight the options and tools for each  processing phase.
 
 ## Create a Data Lake Storage Gen2 account
 
-See [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+A Data Lake Storage Gen2 account is a storage account that has a hierarchical namespace. 
+
+To create one, see [Quickstart: Create an Azure Data Lake Storage Gen2 storage account](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Create a file system
 
 A *file system* is a container for folders and files. You need at least one of them to begin ingesting data in your storage account.  Here's a list of tools that you can use to create them.
 
-|Tool | Guidance | 
+|Tool | Guidance |
 |---|--|
 |Azure Storage Explorer | [Create a file system by using Storage Explorer](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) |
 |AzCopy | [Create a Blob container or File Share by using AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share)|
 |Hadoop File System (HDFS) Command Line Interface (CLI) with HDInsight |[Create a file system by using HDFS with HDInsight](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
-|HDFS CLI with Databricks| Same. You can also explain how to do this in a notebook|
 |Code in an Azure Databricks Notebook|[Create a storage account file system (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br> [Create a file system and mount it (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
 
-It's easiest to create file systems by using Storage Explorer or AzCopy. It takes a bit more work to create file systems by using HDInsight and Databricks. However, if you're planning to use HDInsight or Databricks clusters to process your data, you can create your clusters first, and then use the HDFS CLI to your create file systems.  
+It's easiest to create file systems by using Storage Explorer or AzCopy. It takes a bit more work to create file systems by using HDInsight and Databricks. However, if you're planning to use HDInsight or Databricks clusters to process your data anyway, then you can create your clusters first, and use the HDFS CLI to your create file systems.  
 
 ## Ingest the data
 
-Ingesting large amounts of data into a data store, at real-time or in batches
 This section highlights the different sources of data and the different ways in which that data can be ingested into a Data Lake Storage Gen2 account.
 
 ![Ingest data into Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/ingest-data.png "Ingest data into Data Lake Storage Gen2")
 
 ### Ad hoc data
 
-This represents smaller data sets that are used for prototyping a big data application. There are different ways of ingesting ad hoc data depending on the source of the data.
+This represents smaller data sets that are used for prototyping a big data application. There are different ways of ingesting ad hoc data depending on the source of the data. 
+
+Here's a list of tools that you can use to ingest ad hoc data.
 
 | Data Source | Ingest it using |
 | --- | --- |
-| Local computer |<ul> <li>[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)</ul> |
-| Azure Storage Blob |<ul> <li>[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)</li> <li>[AzCopy tool](../common/storage-use-azcopy-v10.md)</li><li>[DistCp running on HDInsight cluster](data-lake-storage-use-distcp.md)</li> </ul> |
+| Local computer |[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)<br>[AzCopy tool](../common/storage-use-azcopy-v10.md)|
+| Azure Storage Blob |[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)<br>[AzCopy tool](../common/storage-use-azcopy-v10.md)<br>[DistCp running on HDInsight cluster](data-lake-storage-use-distcp.md)<br> |
 
 ### Streamed data
 
-This represents data that can be generated by various sources such as applications, devices, sensors, etc. This data can be ingested into Data Lake Storage Gen2 by a variety of tools. These tools will usually capture and process the data on an event-by-event basis in real-time, and then write the events in batches into Data Lake Storage Gen2 so that they can be further processed.
+This represents data that can be generated by various sources such as applications, devices, sensors, etc. This data can be ingested into Data Lake Sorage Gen2 by a variety of tools. These tools will usually capture and process the data on an event-by-event basis in real-time, and then write the events in batches into Data Lake Storage Gen2 so that they can be further processed.
 
-Following are tools that you can use:
+Here's a list of tools that you can use to ingest streamed data.
 
-* [Azure HDInsight Storm](../../hdinsight/storm/apache-storm-write-data-lake-store.md) - You can write data directly to Data Lake Storage Gen2 from the Storm cluster.
+|Tool | Guidance |
+|---|--|
+|Azure HDInsight Storm | [Write to Apache Hadoop HDFS from Apache Storm on HDInsight](https://docs.microsoft.com/azure/hdinsight/storm/apache-storm-write-data-lake-store) |
 
 ### Relational data
 
 You can also source data from relational databases. Over a period of time, relational databases collect huge amounts of data which can provide key insights if processed through a big data pipeline. You can use the following tools to move such data into Data Lake Storage Gen2.
 
-* [Azure Data Factory](../../data-factory/copy-activity-overview.md)
+Here's a list of tools that you can use to ingest relational data.
+
+|Tool | Guidance |
+|---|--|
+|Azure Data Factory | [Copy Activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 
 ### Web server log data (upload using custom applications)
 
 This type of dataset is specifically called out because analysis of web server log data is a common use case for big data applications and requires large volumes of log files to be uploaded to Data Lake Storage Gen2. You can use any of the following tools to write your own scripts or applications to upload such data.
 
-* [Azure Data Factory](../../data-factory/copy-activity-overview.md)
+Here's a list of tools that you can use to ingest Web server log data.
+
+|Tool | Guidance |
+|---|--|
+|Tool | [Copy Activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
 
 For uploading web server log data, and also for uploading other kinds of data (e.g. social sentiments data), it is a good approach to write your own custom scripts/applications because it gives you the flexibility to include your data uploading component as part of your larger big data application. In some cases this code may take the form of a script or simple command line utility. In other cases, the code may be used to integrate big data processing into a business application or solution.
 
@@ -85,9 +94,13 @@ For uploading web server log data, and also for uploading other kinds of data (e
 
 Most HDInsight cluster types (Hadoop, HBase, Storm) support Data Lake Storage Gen2 as a data storage repository. HDInsight clusters access data from Azure Storage Blobs (WASB). For better performance, you can copy the data from WASB into a Data Lake Storage Gen2 account associated with the cluster. You can use the following tools to copy the data.
 
-* [Apache DistCp](data-lake-storage-use-distcp.md)
-* [AzCopy tool](../common/storage-use-azcopy-v10.md)
-* [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)
+Here's a list of tools that you can use to ingest data associated with HDInsight clusters.
+
+|Tool | Guidance |
+|---|--|
+|Apache DistCp | [Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
+|AzCopy tool | [Transfer data with the AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
+|Azure Data Factory | [Copy data to or from Azure Data Lake Storage Gen1 by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) |
 
 ### Data stored in on-premises or IaaS Hadoop clusters
 
@@ -100,9 +113,9 @@ Large amounts of data may be stored in existing Hadoop clusters, locally on mach
 
 ### Really large datasets
 
-For uploading datasets that range in several terabytes, using the methods described above can sometimes be slow and costly. In such cases, you can use the options below.
+For uploading datasets that range in several terabytes, using the methods described above can sometimes be slow and costly. In such cases, you can use Azure ExpressRoute.  
 
-* **Using Azure ExpressRoute**. Azure ExpressRoute lets you create private connections between Azure datacenters and infrastructure on your premises. This provides a reliable option for transferring large amounts of data. For more information, see [Azure ExpressRoute documentation](../../expressroute/expressroute-introduction.md).
+Azure ExpressRoute lets you create private connections between Azure data centers and infrastructure on your premises. This provides a reliable option for transferring large amounts of data. To learn more, see [Azure ExpressRoute documentation](../../expressroute/expressroute-introduction.md).
 
 ## Secure the data
 
@@ -110,11 +123,16 @@ Put your security content here.
 
 ## Process the data
 
-Once the data is available in Data Lake Storage Gen2 you can run analysis on that data using the supported big data applications. Currently, you can use Azure HDInsight and Azure Databricks to run data analysis jobs on the data stored in Data Lake Storage Gen2.
+Once the data is available in Data Lake Storage Gen2 you can run analysis on that data using the supported big data applications. 
 
 ![Analyze data in Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/analyze-data.png "Analyze data in Data Lake Storage Gen2")
 
-For an example, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2).
+Here's a list of tools that you can use to run data analysis jobs on data that is stored in Data Lake Storage Gen2.
+
+|Tool | Guidance |
+|---|--|
+|Azure HDInsight | [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
+|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br>[Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br>[Tutorial: Extract, transform, and load data by using Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## Visualize the data
 
@@ -130,11 +148,14 @@ You can use a mix of services to create visual representations of data stored in
 You might also want to download or move data from Azure Data Lake Storage Gen2 for scenarios such as:
 
 * Move data to other repositories to interface with your existing data processing pipelines. For example, you might want to move data from Data Lake Storage Gen2 to Azure SQL Database or on-premises SQL Server.
+
 * Download data to your local computer for processing in IDE environments while building application prototypes.
 
 ![Egress data from Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/egress-data.png "Egress data from Data Lake Storage Gen2")
 
-In such cases, you can use any of the following options:
+Here's a list of tools that you can use to download data from Data Lake Storage Gen2.
 
-* [Azure Data Factory](../../data-factory/copy-activity-overview.md)
-* [Apache DistCp](data-lake-storage-use-distcp.md)
+|Tool | Guidance |
+|---|--|
+|Azure Data Factory | [Copy Activity in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
+|Apache DistCop | [Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
