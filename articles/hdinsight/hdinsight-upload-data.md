@@ -9,7 +9,7 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 02/08/2019
 ---
 # Upload data for Apache Hadoop jobs in HDInsight
 
@@ -20,11 +20,11 @@ Azure HDInsight provides a full-featured Hadoop distributed file system (HDFS) o
 Note the following requirements before you begin:
 
 * An Azure HDInsight cluster. For instructions, see [Get started with Azure HDInsight][hdinsight-get-started] or [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
-* Knowledge of the following two articles:
+* Knowledge of the following articles:
 
     - [Use Azure Storage with HDInsight][hdinsight-storage]
     - [Use Data Lake Storage Gen1 with HDInsight](hdinsight-hadoop-use-data-lake-store.md)
-    - [Use Data Lake Storage Gen2 with HDInsight](../storage/data-lake-storage/use-hdi-cluster.md)   
+    - [Use Data Lake Storage Gen2 with HDInsight](../storage/data-lake-storage/use-hdi-cluster.md)  
 
 ## Upload data to Azure Storage
 
@@ -33,20 +33,65 @@ Microsoft provides the following utilities to work with Azure Storage:
 
 | Tool | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure Classic CLI][azurecli] |✔ |✔ |✔ |
-| [Azure PowerShell][azure-powershell] | | |✔ |
+| [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) |✔ |✔ |✔ |
+| [Azure Classic CLI](https://docs.microsoft.com/cli/azure/install-classic-cli) |✔ |✔ |✔ |
+| [Azure PowerShell](https://docs.microsoft.com/powershell/module/Az.Storage) | | |✔ |
 | [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Hadoop command](#commandline) |✔ |✔ |✔ |
 
+
 > [!NOTE]  
-> While the Azure Classic CLI, Azure PowerShell, and AzCopy can all be used from outside Azure, the Hadoop command is only available on the HDInsight cluster. And the command only allows loading data from the local file system into Azure Storage.
->
->
+> The Hadoop command is only available on the HDInsight cluster. The command only allows loading data from the local file system into Azure Storage.  
+
+## Azure CLI
+The Azure command-line interface (CLI) is Microsoft's cross-platform command-line experience for managing Azure resources. Use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or [install](https://docs.microsoft.com/cli/azure/install-azure-cli) it on macOS, Linux, or Windows and run it from the command line.
+
+1. [Install and configure Azure CLI for Mac, Linux, and Windows](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
+
+    ```cli
+    az login
+    ```
+    When prompted, enter the user name and password for your subscription.
+
+3. Enter the following command to list the storage accounts for your subscription:
+
+    ```cli
+    az storage account list
+
+    REM List all storage accounts in a resource group.
+    REM az storage account list -g <resourceGroup>
+
+    REM Returns only the storage account names for a given resource group.
+    REM az storage account list -g <resourceGroup> --query "[].{StorageAccountName:name}" --output table
+    ```
+
+4. Select the storage account that contains the blob you want to work with, then use the following command to retrieve the key for this account:
+
+    ```cli
+    az storage account keys list -n <storage-account-name>
+
+    REM Returns primary key only.
+    az storage account keys list -n <storage-account-name> --query "[?keyName=='key1'].{PrimaryKey:value}" --output table
+    ```
+
+    This command returns the **Primary** and the **Secondary** keys. Copy the **Primary** key value because it will be used in the next steps.
+
+5. Use the following command to retrieve a list of blob containers within the storage account:
+
+    ```cli
+    az storage container list --account-name <storage-account-name> --account-key <primary-key>
+
+    REM To return only container names
+    az storage container list --account-name <storage-account-name>  --account-key <primary-key> --query "[].{StorageContainerName:name}" --output table
+
+    ```
 
 #### <a id="xplatcli"></a>Azure Classic CLI
 The Azure Classic CLI is a cross-platform tool that allows you to manage Azure services. Use the following steps to upload data to Azure Storage:
 
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
+
 
 1. [Install and configure the Azure Classic CLI for Mac, Linux, and Windows](../cli-install-nodejs.md).
 2. Open a command prompt, bash, or other shell, and use the following to authenticate to your Azure subscription.
@@ -287,7 +332,7 @@ Now that you understand how to get data into HDInsight, read the following artic
 * [Use Apache Pig with HDInsight][hdinsight-use-pig]
 
 [azure-management-portal]: https://porta.azure.com
-[azure-powershell]: https://msdn.microsoft.com/library/windowsazure/jj152841.aspx
+
 
 [azure-storage-client-library]: /develop/net/how-to-guides/blob-storage/
 [azure-create-storage-account]:../storage/common/storage-create-storage-account.md
@@ -310,8 +355,6 @@ Now that you understand how to get data into HDInsight, read the following artic
 [apache-sqoop-guide]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-[azurecli]: ../cli-install-nodejs.md
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
