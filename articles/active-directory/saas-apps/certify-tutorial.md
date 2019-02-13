@@ -120,7 +120,7 @@ To configure Azure AD single sign-on with Certify, perform the following steps:
 
 ### Configure Certify Single Sign-On
 
-To configure single sign-on on **Certify** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Certify support team](support@certify.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Certify** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Certify support team](mailto:support@certify.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
