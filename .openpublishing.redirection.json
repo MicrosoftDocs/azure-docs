@@ -33434,6 +33434,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/data-explorer/spark-integration.md",
+      "redirect_url": "/azure/data-explorer/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/openshift-origin.md",
       "redirect_url": "/azure/virtual-machines/linux/openshift-get-started",
       "redirect_document_id": false
