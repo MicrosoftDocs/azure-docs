@@ -22,7 +22,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'To use this service, you need a workspace and associated resources.  Get started by:'
+    text: 'To use this service, you need a workspace and associated resources.  Get started:'
   - type: list
     style: unordered
     items:
