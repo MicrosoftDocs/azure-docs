@@ -27,7 +27,7 @@ In this tutorial, you learn how to :
 > * How to setup Firewall (IP Filtering) with your Event Hubs namespace.
 
 >[!WARNING]
-> Implementing Virtual Networks integration can prevent other Azure services from interacting with Service Bus.
+> Implementing Virtual Networks integration can prevent other Azure services from interacting with Event Hubs.
 >
 > First party integrations are not supported when Virtual Networks are enabled.
 > Common Azure scenarios that don't work with Virtual Networks -
