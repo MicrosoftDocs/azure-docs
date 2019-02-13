@@ -17,6 +17,7 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync service shadow attributes
 Most attributes are represented the same way in Azure AD as they are in your on-premises Active Directory. But some attributes have some special handling and the attribute value in Azure AD might be different than what Azure AD Connect synchronizes.

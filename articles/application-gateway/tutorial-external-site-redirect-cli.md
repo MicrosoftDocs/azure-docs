@@ -89,7 +89,7 @@ It may take several minutes for the application gateway to be created. After the
 
 ### Add the redirection configuration
 
-Add the redirection configuration that sends traffic from the application gateway to *bing.com* using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-configwork_application_gateway_redirect_config_create).
+Add the redirection configuration that sends traffic from the application gateway to *bing.com* using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -102,7 +102,7 @@ az network application-gateway redirect-config create \
 
 ### Add a listener and routing rule
 
-A listener is required to enable the application gateway to appropriately route traffic. Create the listener using [az network application-gateway http-listener create](/cli/azure/network/application-gateway) with the frontend port created with [az network application-gateway frontend-port create](/cli/azure/network/application-gateway). A rule is required for the listener to know where to send incoming traffic. Create a basic rule named *redirectRule* using [az network application-gateway rule create](/cli/azure/network/application-gateway#az-network_application_gateway_rule_create) with the redirection configuration.
+A listener is required to enable the application gateway to appropriately route traffic. Create the listener using [az network application-gateway http-listener create](/cli/azure/network/application-gateway) with the frontend port created with [az network application-gateway frontend-port create](/cli/azure/network/application-gateway). A rule is required for the listener to know where to send incoming traffic. Create a basic rule named *redirectRule* using [az network application-gateway rule create](/cli/azure/network/application-gateway) with the redirection configuration.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \

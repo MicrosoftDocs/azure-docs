@@ -3,7 +3,7 @@ title: HSM physical security - Azure Dedicated HSM | Microsoft Docs
 description: Information about Azure Dedicated HSM devices' physical security in data centers
 services: dedicated-hsm
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity

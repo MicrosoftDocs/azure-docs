@@ -1,20 +1,20 @@
 ---
 title: Create an ASP.NET web app with Azure Cache for Redis | Microsoft Docs
 description: In this quickstart, you learn how to create an ASP.NET web app with Azure Cache for Redis
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 
 ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/26/2018
-ms.author: wesmc
+ms.author: yegu
 ms.custom: mvc
 
 #Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to create a new ASP.NET web app that uses Azure Cache for Redis.
@@ -96,9 +96,9 @@ Next, you create the cache for the app.
 In this section, you update the application to support a new view that displays a simple test against Azure Cache for Redis.
 
 * [Update the web.config file with an app setting for the cache](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
-* [Configure the application to use the StackExchange.Redis client](#configure-the-application-to-use-stackexchangeredis)
-* [Update the HomeController and Layout](#update-the-homecontroller-and-layout)
-* [Add a new RedisCache view](#add-a-new-rediscache-view)
+* Configure the application to use the StackExchange.Redis client
+* Update the HomeController and Layout
+* Add a new RedisCache view
 
 ### Update the web.config file with an app setting for the cache
 

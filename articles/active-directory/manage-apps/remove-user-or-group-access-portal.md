@@ -3,9 +3,8 @@ title: Remove a user or group assignment from an enterprise app in Azure Active 
 description: How to remove the access assignment of a user or group from an enterprise app in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -14,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/14/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Remove a user or group assignment from an enterprise app in Azure Active Directory
 It's easy to remove a user or a group from being assigned access to one of your enterprise applications in Azure Active Directory (Azure AD). You must have the appropriate permissions to manage the enterprise app, and you must be global admin for the directory.

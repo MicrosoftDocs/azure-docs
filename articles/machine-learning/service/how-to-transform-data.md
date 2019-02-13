@@ -20,7 +20,7 @@ In this article, you learn different methods of loading data using the [Azure Ma
 
 Currently there are functions for the following tasks:
 
-- [Add column using an expression](#column)
+- Add column using an expression
 - [Impute missing values](#impute-missing-values)
 - [Derive column by example](#derive-column-by-example)
 - [Filtering](#filtering)

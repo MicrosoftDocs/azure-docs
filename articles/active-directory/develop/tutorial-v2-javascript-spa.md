@@ -16,6 +16,7 @@ ms.workload: identity
 ms.date: 04/09/2018
 ms.author: andret
 ms.custom: aaddev 
+ms.collection: M365-identity-device-management
 ---
 
 [!INCLUDE [1. Introduction](../../../includes/active-directory-develop-guidedsetup-javascriptspa-introduction.md)]

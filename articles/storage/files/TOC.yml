@@ -1,11 +1,11 @@
+- name: Azure Storage Documentation
+  href: /azure/storage/
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Files?
     href: storage-files-introduction.md
-  - name: Choose Blobs, Files, or Disks
-    href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Quickstarts
-  expanded: true
   items:
   - name: Create / use file shares - Windows
     href: storage-files-quick-create-use-windows.md
@@ -121,6 +121,8 @@
         href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Migrate
     items:
+    - name: Migrate to Azure File Sync
+      href: storage-sync-offline-data-transfer.md
     - name: Move data to and from Azure Storage
       href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: AzCopy on Windows

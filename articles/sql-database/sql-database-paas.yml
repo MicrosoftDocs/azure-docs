@@ -6,8 +6,10 @@ metadata:
   title: Azure SQL Database - Platform as a Service
   meta.description: Learn about the PaaS capabilities of Azure SQL Database.
   services: sql-database
+  ms.subservice: service
   author: jovanpop-msft
   manager: craigg
+  requires-business-manager-approval: false
   ms.service: sql-database
   ms.tgt_pltfrm: na
   ms.devlang:

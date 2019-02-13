@@ -13,14 +13,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
 
 ---
 # Azure connected deployment planning decisions for Azure Stack integrated systems
-After you've decided [how you will integrate Azure Stack into your hybrid cloud environment](azure-stack-connection-models.md), you can then finalize your Azure Stack deployment decisions.
+After you've decided [how you will integrate Azure Stack into your hybrid cloud environment](azure-stack-connection-models.md), you can finalize your Azure Stack deployment decisions.
 
 Deploying Azure Stack connected to Azure means that you can have either Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS) for your identity store. You can also choose from either billing model: pay-as-you-use or capacity-based. A connected deployment is the default option because allows customers to get the most value out of Azure Stack, particularly for hybrid cloud scenarios that involve both Azure and Azure Stack. 
 
