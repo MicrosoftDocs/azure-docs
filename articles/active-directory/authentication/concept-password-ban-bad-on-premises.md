@@ -12,6 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
+ms.collection: M365-identity-device-management
 ---
 
 # Preview: Enforce Azure AD password protection for Windows Server Active Directory

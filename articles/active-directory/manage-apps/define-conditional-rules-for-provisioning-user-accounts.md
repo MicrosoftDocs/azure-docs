@@ -15,6 +15,7 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 
+ms.collection: M365-identity-device-management
 ---
 # Attribute-based application provisioning with scoping filters
 The objective of this article is to explain how to use scoping filters to define attribute-based rules that determine which users are provisioned to an application.

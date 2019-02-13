@@ -19,6 +19,7 @@ ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to register an app with the Azure Active Directory v2.0 endpoint so I can build an app that accepts both personal Microsoft accounts, and work and school accounts (Azure AD) to sign in.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Register an app with the Azure Active Directory v2.0 endpoint

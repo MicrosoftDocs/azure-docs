@@ -17,6 +17,7 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 
+ms.collection: M365-identity-device-management
 ---
 # Administrative units management in Azure Active Directory (public preview)
 

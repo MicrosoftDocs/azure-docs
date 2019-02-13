@@ -13,6 +13,7 @@ ms.topic: overview
 ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim 
+ms.collection: M365-identity-device-management
 ---
 # What is Azure AD Privileged Identity Management?
 
