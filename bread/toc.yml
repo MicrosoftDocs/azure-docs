@@ -61,7 +61,6 @@
       - name: Reports and monitoring
         tocHref: /azure/active-directory/reports-monitoring/
         topicHref: /azure/active-directory/reports-monitoring/
-        
   - name: Analysis Services
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/
@@ -136,7 +135,35 @@
     topicHref: /azure/azure-netapp-files/
   - name: Azure portal customization
     tocHref: /azure/azure-portal/
-    topicHref: /azure/azure-portal/
+    topicHref: /azure/azure-portal/\
+  - name: Internet of Things
+    tocHref: /azure/iot-fundamentals/
+    topicHref: /azure/iot-fundamentals/
+    items:
+      - name: IoT Hub
+        tocHref: /azure/iot-hub/
+        topicHref: /azure/iot-hub/
+      - name: IoT Central
+        tocHref: /azure/iot-central/
+        topicHref: /azure/iot-central/
+      - name: IoT Edge
+        tocHref: /azure/iot-edge/
+        topicHref: /azure/iot-edge/
+      - name: Azure Digital Twins
+        tocHref: /azure/digital-twins/
+        topicHref: /azure/digital-twins/
+      - name: IoT Solution Accelerators
+        tocHref: /azure/iot-accelerators/
+        topicHref: /azure/iot-accelerators/
+      - name: IoT Hub Device Provisioning Service
+        tocHref: /azure/iot-dps/
+        topicHref: /azure/iot-dps/
+      - name: Time Series Insights
+        tocHref: /azure/time-series-insights/
+        topicHref: /azure/time-series-insights/
+      - name: Azure Maps
+        tocHref: /azure/azure-maps/
+        topicHref: /azure/azure-maps/
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
@@ -409,34 +436,34 @@
   - name: Azure API for FHIR
     tocHref: /azure/healthcare-apis
     topicHref: /azure/healthcare-apis
-  - name: Internet of Things
-    tocHref: /azure/iot-fundamentals/
-    topicHref: /azure/iot-fundamentals/
-    items:  
-    - name: IoT Fundamentals
-      tocHref: /azure/iot-fundamentals/
-      topicHref: /azure/iot-fundamentals/
-    - name: IoT Edge
-      tocHref: /azure/iot-edge/
-      topicHref: /azure/iot-edge/
-    - name: IoT Hub
-      tocHref: /azure/iot-hub/
-      topicHref: /azure/iot-hub/ 
-    - name: IoT Hub Device Provisioning Service
-      tocHref: /azure/iot-dps/
-      topicHref: /azure/iot-dps/
-    - name: IoT solution accelerators
-      tocHref: /azure/iot-accelerators/
-      topicHref: /azure/iot-accelerators/
-    - name: IoT Central
-      tocHref: /azure/iot-central/
-      topicHref: /azure/iot-central/         
-    - name: Maps
-      tocHref: /azure/azure-maps/
-      topicHref: /azure/azure-maps/
-    - name: Time Series Insights
-      tocHref: /azure/time-series-insights/
-      topicHref: /azure/time-series-insights/                     
+#  - name: Internet of Things
+#    tocHref: /azure/iot-fundamentals/
+#    topicHref: /azure/iot-fundamentals/
+#    items:  
+#    - name: IoT Fundamentals
+#      tocHref: /azure/iot-fundamentals/
+#      topicHref: /azure/iot-fundamentals/
+#    - name: IoT Edge
+#      tocHref: /azure/iot-edge/
+#      topicHref: /azure/iot-edge/
+#    - name: IoT Hub
+#      tocHref: /azure/iot-hub/
+#      topicHref: /azure/iot-hub/ 
+#    - name: IoT Hub Device Provisioning Service
+#      tocHref: /azure/iot-dps/
+#      topicHref: /azure/iot-dps/
+#    - name: IoT solution accelerators
+#     tocHref: /azure/iot-accelerators/
+#      topicHref: /azure/iot-accelerators/
+#    - name: IoT Central
+#      tocHref: /azure/iot-central/
+#      topicHref: /azure/iot-central/         
+#    - name: Maps
+#      tocHref: /azure/azure-maps/
+#      topicHref: /azure/azure-maps/
+#    - name: Time Series Insights
+#      tocHref: /azure/time-series-insights/
+#      topicHref: /azure/time-series-insights/                     
   - name: Jenkins
     tocHref: /azure/jenkins/
     topicHref: /azure/jenkins/
