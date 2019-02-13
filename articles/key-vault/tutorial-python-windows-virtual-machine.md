@@ -101,12 +101,11 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 This secret stores the value **MySecret**.
 
 ## Create a virtual machine
-To create a virtual machine by using the Azure CLI, do the following:
-1. Step 1.
-1. Step 2.
-1. etc.
+You can create a virtual machine by using one of the following methods:
 
-For more information, see [Quickstart: Create a Windows virtual machine with the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli). 
+* Use [the Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli).
+* Use [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell).
+* Use [the Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal).
 
 ## Assign an identity to the VM
 In this step, you create a system-assigned identity for the virtual machine by running the following command in the Azure CLI:
@@ -134,9 +133,10 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 ## Sign in to the virtual machine
 
 To sign in to the virtual machine, do the following:
-<!-- 1. Step 1.
-2. Step 2.
-3. etc.
+<!-- Use this template:
+1. Step 1
+2. Step 2
+3. etc. -->
 
 For more information, see [Connect and log on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
 
