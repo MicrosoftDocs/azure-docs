@@ -13,7 +13,7 @@ ms.date: 02/12/2019
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-<img src="media/data-flow/menu.png" width="200">
+![Pivot options](media/data-flow/menu.png "menu")
 
 Branching will take the current data stream in your data flow and replicate it to another stream. Use New Branch to perform multiple sets of operations and transformations against the same data stream.
 
