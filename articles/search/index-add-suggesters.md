@@ -29,9 +29,12 @@ Although a **suggester** has several properties, it is primarily a collection of
 
 You can have only one **suggester** resource for each index (specifically, one **suggester** in the **suggesters** collection).
 
-You can create a **suggester** at any time, but the impact on your index varies based on the fields. New fields added to a suggester as part of the same update are the least impactful in that no index rebuild is required. Adding existing fields, however, changes the field definition, necessitating a full rebuild of the index.
+## Creating a suggester 
 
-## Usage 
+You can create a **suggester** at any time, but the impact on your index varies based on the fields. 
+
++ New fields added to a suggester as part of the same update are the least impactful in that no index rebuild is required.
++ Existing fields added to a suggester, however, changes the field definition, necessitating a full rebuild of the index.
 
  **Suggesters** work best when used to suggest specific documents rather than loose terms or phrases. The best candidate fields are titles, names, and other relatively short phrases that can identify an item. Less effective are repetitive fields, such as categories and tags, or very long fields such as descriptions or comments fields.  
 
