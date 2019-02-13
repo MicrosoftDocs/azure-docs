@@ -145,11 +145,11 @@ To configure Azure AD single sign-on with Workplace by Facebook, perform the fol
 
 2. In the **Admin Panel**, go to the **Security** tab.
 
-	![Admin Panel](./media/workplacebyfacebook-tutorial/tutorial_workplace-by-facebook_configure01.png)
+	![Admin Panel](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
 3. Under **Authentication** tab, select **Single-Sign On (SSO)** and perform the following steps:
 
-	![Authentication Tab](./media/workplacebyfacebook-tutorial/tutorial_workplace-by-facebook_configure02.png)
+	![Authentication Tab](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
 
 	a. In **SAML URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
