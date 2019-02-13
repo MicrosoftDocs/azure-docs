@@ -180,8 +180,6 @@ The Azure Classic command-line interface (CLI) is Microsoft's cross-platform com
 Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. For information about configuring your workstation to run Azure PowerShell, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
-
 1. Open the Azure PowerShell console as instructed in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
 2. Use the following command to interactively log in to Azure:
