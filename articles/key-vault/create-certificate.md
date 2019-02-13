@@ -4,7 +4,7 @@ description: Ways to create a certificate in Key Vault.
 services: key-vault
 documentationcenter:
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968

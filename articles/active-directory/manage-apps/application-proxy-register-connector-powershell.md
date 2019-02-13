@@ -16,6 +16,7 @@ ms.date: 05/17/2018
 ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Create an unattended installation script for the Azure AD Application Proxy connector

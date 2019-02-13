@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Remote Desktop Gateway and Azure Multi-Factor Authentication Server using RADIUS
 

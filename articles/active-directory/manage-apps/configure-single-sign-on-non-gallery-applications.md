@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
+ms.collection: M365-identity-device-management
 ---
 
 # Configure single sign-on to non-gallery applications in Azure Active Directory

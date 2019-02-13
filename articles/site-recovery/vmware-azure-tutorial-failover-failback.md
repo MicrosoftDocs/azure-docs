@@ -108,7 +108,7 @@ Follow the steps described [here](site-recovery-failover-to-azure-troubleshoot.m
 > [!IMPORTANT]
 > If you have a VPN connection between your on-premises environment and Azure, you must set up an Azure VM as a process server for reprotection and failback. To set up a process server in Azure, follow the instructions in [this article](vmware-azure-set-up-process-server-azure.md).
 
-For more information on the prerequisites for reprotect and failback refer to this [section] ](vmware-azure-reprotect.md##before-you-begin). 
+For more information on the prerequisites for reprotect and failback refer to this [section](vmware-azure-reprotect.md##before-you-begin). 
 
 ### Configure the master target server
 
