@@ -29,6 +29,8 @@ A resource group is a container that holds related resources for an Azure soluti
 
 The resource group stores metadata about the resources. Therefore, when you specify a location for the resource group, you are specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
 
+The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored.
+
 ## Create resource groups
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -73,17 +75,15 @@ The resource group stores metadata about the resources. Therefore, when you spec
 
     ![delete azure resource group](./media/manage-resource-groups-portal/delete-group.png)
 
+For more information about how Azure Resource Manager orders the deletion of resources, see [Azure Resource Manager resource group deletion](./resource-group-delete.md).
+
 ## Deploy resources to a resource group
 
 After you have created a Resource Manager template, you can use the Azure portal to deploy your Azure resources. For creating a template, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md). For deploying a template using the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
 
-## Move to another resource group
+## Move to another resource group or subscription
 
 You can move the resources in the group to another resource group. For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
-
-## Move to another subscription
-
-You can move the resources in the resource group to another subscription. For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 
 ## Lock resource groups
 

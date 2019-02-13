@@ -79,6 +79,8 @@ read storageAccountName &&
 az storage account delete --resource-group $resourceGroupName --name $storageAccountName 
 ```
 
+For more information about how Azure Resource Manager orders the deletion of resources, see [Azure Resource Manager resource group deletion](./resource-group-delete.md).
+
 ## Move resources
 
 The following script shows how to remove a storage account from one resource group to another resource group.

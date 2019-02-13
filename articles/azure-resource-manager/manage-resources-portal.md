@@ -71,6 +71,8 @@ The screenshot shows the management options for an Azure virtual machine. You ca
     ![delete azure resource](./media/manage-resources-portal/manage-azure-resources-portal-delete-resource.png)
 3. Type the name of the resource to confirm the deletion, and then select **Delete**.
 
+For more information about how Azure Resource Manager orders the deletion of resources, see [Azure Resource Manager resource group deletion](./resource-group-delete.md).
+
 ## Move resources
 
 1. Open the resource in the portal. For the steps, see [Open resources](#open-resources).
