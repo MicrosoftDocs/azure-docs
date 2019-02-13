@@ -60,12 +60,10 @@ Install a REST client to execute the Media Services REST APIs. For example **Pos
 
 ### Examples
 
-- [REST Postman examples](https://github.com/Azure-Samples/media-services-v3-rest-postman)
-- [Azure Resource Manager based REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)
-
 - [Tutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md)
 - [Upload files into a Media Services account using REST](upload-files-rest-how-to.md)
 - [Create filters with Media Services REST API](filters-dynamic-manifest-rest-howto.md)
+- [Azure Resource Manager based REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)
 
 <!-- ## CLI -->
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
@@ -76,7 +74,16 @@ Install a REST client to execute the Media Services REST APIs. For example **Pos
 
 ### Examples
 
-[Azure CLI examples for Azure Media Services](cli-samples.md)
+- [Scale Media Reserved Units](media-reserved-units-cli-how-to.md)
+- [Create a Media Services account](./scripts/cli-create-account.md) 
+- [Reset account credentials](./scripts/cli-reset-account-credentials.md)
+- [Create assets](./scripts/cli-create-asset.md)
+- [Upload a file](./scripts/cli-upload-file-asset.md)
+- [Create transforms](./scripts/cli-create-transform.md)
+- [Create jobs](./scripts/cli-create-jobs.md)
+- [Create EventGrid](./scripts/cli-create-event-grid.md)
+- [Publish an asset](./scripts/cli-publish-asset.md)
+- [Filter](filters-dynamic-manifest-cli-howto.md)
 
 ## .NET
 
@@ -89,10 +96,13 @@ Install a REST client to execute the Media Services REST APIs. For example **Pos
 - [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md) 
 - [Tutorial: Stream live with Media Services v3 using .NET](stream-live-tutorial-with-api.md)
 - [Tutorial: Analyze videos with Media Services v3 using .NET](analyze-videos-tutorial-with-api.md)
-- [How to encode with a custom Transform](customize-encoder-presets-how-to.md)
+- [Create a job input from a local file](job-input-from-local-file-how-to.md)
+- [Create a job input from an HTTPS URL](job-input-from-http-how-to.md)
+- [Encode with a custom Transform](customize-encoder-presets-how-to.md)
 - [Use AES-128 dynamic encryption and the key delivery service](protect-with-aes128.md)
 - [Use DRM dynamic encryption and license delivery service](protect-with-drm.md)
 - [Get a signing key from the existing policy](get-content-key-policy-dotnet-howto.md)
+- [Create filters with Media Services](filters-dynamic-manifest-dotnet-howto.md)
 
 ## Java
 
@@ -118,7 +128,7 @@ Make sure you are using the latest package, check [azure-arm-mediaservices](http
 
 [Python ref](https://aka.ms/ams-v3-python-ref)
 
-### Go
+## Go
 
 ### Reference
 
