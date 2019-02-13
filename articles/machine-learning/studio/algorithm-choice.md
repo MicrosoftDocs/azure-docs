@@ -40,10 +40,10 @@ rule-of-thumb recommendations, so don't worry about it being exact.
 Several data scientists I talked with said that the only sure way to
 find the very best algorithm is to try all of them.
 
-Here's an example from the [Azure AI Gallery](http://gallery.cortanaintelligence.com/) of an experiment that tries
+Here's an example from the [Azure AI Gallery](http://gallery.azure.ai/) of an experiment that tries
 several algorithms against the same data and compares the results:
 [Compare Multi-class Classifiers: Letter
-recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+recognition](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > To download an easy-to-understand infographic overview of machine learning basics to learn about popular algorithms used to answer common machine learning questions, see [Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md).
