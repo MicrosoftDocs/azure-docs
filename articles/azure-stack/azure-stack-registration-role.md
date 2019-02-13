@@ -12,10 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 02/13/2019
 ms.author: patricka
 ms.reviewer: rtiberiu
-ms.lastreviewed: 01/10/2019
+ms.lastreviewed: 02/13/2019
 
 ---
 # Create a registration role for Azure Stack
@@ -34,6 +34,8 @@ When registering Azure Stack, the registration account requires the following Az
     The *user can register applications* setting must be set to **Yes** for you to enable a user account to register Azure Stack. If the app registrations setting is set to **No**, you can't use a user account and must use a global administrator account to register Azure Stack.
 
 * **A set of sufficient Azure Subscription permissions:** Users in the Owners group have sufficient permissions. For other accounts, you can assign the permission set by assigning a custom role as outlined in the following sections.
+
+The user who registers Azure Stack is the owner of the service principal in Azure Active Directory. Only the user who registered Azure Stack can modify the Azure Stack registration. If a non-admin user that is not an owner of the registration service principal attempts to register or re-register Azure Stack, they may encounter a 403 response. A 403 response indicates the user has insufficient permissions to complete the operation.
 
 ## Create a custom role using PowerShell
 
