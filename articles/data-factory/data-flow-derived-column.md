@@ -11,7 +11,7 @@ ms.date: 10/08/2018
 
 # Azure Data Factory Data Flow Derived Column Transformation
 
-[!INCLUDE [notes](../../../includes/data-factory-data-flow-preview.md)]
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Use the Derived Column transformation to generate new columns in your data flow or to modify existing fields.
 

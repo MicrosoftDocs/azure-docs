@@ -11,7 +11,7 @@ ms.date: 02/01/2019
 
 # Azure Data Factory Mapping Data Flow Aggregate Transformation
 
-[!INCLUDE [notes](../../../includes/data-factory-data-flow-preview.md)]
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 The Aggregate transformation is where you'll define aggregations of columns in your data streams. In the Expression Builder, you can define different types of aggregations (i.e. SUM, MIN, MAX, COUNT, etc.) and create a new field in your output that includes these aggregations with optional group-by fields.
 

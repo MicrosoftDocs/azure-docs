@@ -11,7 +11,7 @@ ms.date: 02/12/2019
 
 # Azure Data Factory Mapping Data Flow Source Transformation
 
-[!INCLUDE [notes](../../../includes/data-factory-data-flow-preview.md)]
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 The Source transformation configures a data source that you wish to use to bring data into your data flow. You may have more than 1 Source transform in a single Data Flow. Always begin designing your Data Flows with a Source.
 

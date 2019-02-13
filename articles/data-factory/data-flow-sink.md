@@ -11,7 +11,7 @@ ms.date: 02/03/2019
 
 # Azure Data Factory Mapping Data Flow Sink Transformation
 
-[!INCLUDE [notes](../../../includes/data-factory-data-flow-preview.md)]
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 <img src="media/data-flow/sink1.png" width="400">
 

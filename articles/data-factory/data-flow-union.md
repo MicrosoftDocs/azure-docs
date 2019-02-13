@@ -11,7 +11,7 @@ ms.date: 02/12/2019
 
 # Azure Data Factory Mapping Data Flow Union Transformation
 
-[!INCLUDE [notes](../../../includes/data-factory-data-flow-preview.md)]
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Union will combine multiple data streams into one, with the SQL Union of those streams as the new output from the Union transformation.
 

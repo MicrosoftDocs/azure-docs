@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 --- 
 
-[!INCLUDE [notes](../../../includes/data-factory-data-flow-preview.md)]
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 # Azure Data Factory Mapping Data Flow Pivot Transformation
 

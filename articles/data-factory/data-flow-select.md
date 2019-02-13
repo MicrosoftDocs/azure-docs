@@ -11,7 +11,7 @@ ms.date: 02/12/2019
 
 # Azure Data Factory Mapping Data Flow Select Transformation
 
-[!INCLUDE [notes](../../../includes/data-factory-data-flow-preview.md)]
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Use this transformation for column selectivity (reducing number of columns) or to alias columns and stream names.
 

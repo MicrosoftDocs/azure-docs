@@ -428,7 +428,7 @@
     - name: New branch
       href: data-flow-new-branch.md
     - name: Pivot
-      href: data-flow-privot.md
+      href: data-flow-pivot.md
     - name: Select
       href: data-flow-select.md
     - name: Sink
@@ -439,8 +439,6 @@
       href: data-flow-source.md
     - name: Surrogate key
       href: data-flow-surrogate-key.md
-    - name: Transformation optimization
-      href: data-flow-optimization.md
     - name: Union
       href: data-flow-union.md
     - name: Unpivot
