@@ -942,7 +942,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
 * T1: First parameter to accumulate
-* T2: First parameter to accumulate
+* T2: Second parameter to accumulate
 * TResult: Return type of terminate
 
 For example:
