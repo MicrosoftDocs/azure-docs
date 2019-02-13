@@ -115,7 +115,7 @@ If you install applications other than the configuration server on the virtual m
 
 The configuration server must be a single purpose server and using it as a shared server is unsupported. 
 
-For more information, see the configuration FAQ in [Deploy a configuration server](vmware-azure-deploy-configuration-server#prerequisites.md#faq). 
+For more information, see the configuration FAQ in [Deploy a configuration server](vmware-azure-deploy-configuration-server.md#faq). 
 
 ## Remove the stale entries for protected items from the configuration server database 
 
@@ -183,7 +183,7 @@ You have insufficient permissions to create an application in Azure Active Direc
 
 To resolve the issue, sign in to the Azure portal and do one of the following:
 
-- Request the Application Developer role in AAD. For more information on the Application Developer role, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles).
+- Request the Application Developer role in AAD. For more information on the Application Developer role, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 - Verify that the **User can create application** flag is set to *true* in AAD. For more information, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 ## Process server/Master Target are unable to communicate with the configuration server 
@@ -225,7 +225,7 @@ To resolve the issue:
 2. Sign in to the configuration server VM and connect to the MySQL svsdb1 database. 
 3. Execute the following query:
 
-    > [!importatnt]
+    > [!IMPORTANT]
     >
     > Verify that you are entering the UUID details of the cloned configuration server or the stale entry of the configuration server that is no longer used to protect virtual machines. Entering an incorrect UUID will result in losing the information for all existing protected items.
    
