@@ -5,7 +5,7 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 02/13/2019
 ms.author: ramamill
 
 ---
@@ -76,6 +76,11 @@ To avoid this error, ensure that the time on your system clock isn't different f
 ## Failed to create a certificate
 
 A certificate that's required to authenticate Site Recovery can't be created. Rerun setup after you ensure that you're running setup as a local administrator.
+
+## Failure to activate Windows Licence from Server Standard EVALUATION to Server Standard
+
+1. As part of Configuration server deployment through OVF, an evaluation licence is used, which is valid for 180 days. You need to activate this License before this gets expired. Else, this can result in frequent shutdown of configuration server and thus cause hinderance to replication activities.
+2. If you are unable to activate Windows license, reach out to [Windows support team](https://aka.ms/Windows_Support) to resolve the issue.
 
 ## Register source machine with configuration server
 
