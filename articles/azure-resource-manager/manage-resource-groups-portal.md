@@ -159,6 +159,10 @@ If you've changed your resources from the portal, or added/remove resources in m
 
 Some exported templates need some edits before they can be used. To learn how to develop templates, see the [Step-by-step tutorials](/azure/azure-resource-manager/).
 
+### Export template before deploying
+
+You can use the portal to define a resource.  Before deploying the resource, you can view and export a template. For the instructions, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md).
+
 ### Fix export issues
 
 Not all resource types support the export template function. You only see export issues when exporting from a resource group rather than from your deployment history. If your last deployment accurately represents the current state of the resource group, you should export the template from the deployment history rather than from the resource group. Only export from a resource group when you have made changes to the resource group that aren't defined in a single template.

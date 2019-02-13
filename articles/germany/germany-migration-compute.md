@@ -205,7 +205,7 @@ Currently, apps that you created by using the Web Apps feature of Azure App Serv
 For more information:
 
 - Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/#step-by-step-tutorials).
-- Learn how to [export Resource Manager templates](../azure-resource-manager/manage-resources-portal.md#export-resource-groups-to-templates) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+- Learn how to [export Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates) or read an overview of [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 - Review the [App Service overview](../app-service/overview.md).
 - Read the [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
 - Learn how to [redeploy a template](../azure-resource-manager/resource-group-template-deploy.md).
