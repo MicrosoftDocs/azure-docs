@@ -225,7 +225,7 @@ For Azure AD users to be able to sign in, they must be provisioned in the Centra
 
 1. Sign in to your Central Desktop tenant.
 
-2. select **People** and then select **Add Internal Members**.
+2. Select **People** and then select **Add Internal Members**.
 
 	![People](./media/central-desktop-tutorial/ic781051.png "People")
 
