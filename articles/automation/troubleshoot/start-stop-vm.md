@@ -12,6 +12,27 @@ manager: carmonm
 ---
 # Troubleshoot the Start/Stop VMs during off hours solution
 
+## <a name="deployment-failure"></a>Scenario: The Start/Stop VM solution fails to properly deploy
+
+### Issue
+
+```
+Account already exists in another resourcegroup in a subscription. ResourceGroupName: [MyResourceGroup].
+```
+
+```
+Resource 'StartStop_VM_Notification' was disallowed by policy. Policy identifiers: '[{\\\"policyAssignment\\\":{\\\"name\\\":\\\"[MyPolicyName]”.
+```
+
+```
+The subscription is not registered to use namespace 'Microsoft.OperationsManagement'.
+```
+
+### Cause
+
+### Resolution
+
+
 ## <a name="all-vms-fail-to-startstop"></a>Scenario: All VMs fail to start/stop
 
 ### Issue
