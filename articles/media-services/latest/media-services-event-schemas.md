@@ -38,6 +38,8 @@ You can register for all of the events by subscribing to the JobStateChange even
 | Microsoft.Media.JobCanceled| Get an event when Job transitions to canceled state. This is a final state that includes Job outputs.|
 | Microsoft.Media.JobErrored| Get an event when Job transitions to error state. This is a final state that includes Job outputs.|
 
+[Schema examples](#event-schema-examples) follow.
+
 ### Monitoring Job output state changes
 
 | Event type | Description |
@@ -50,11 +52,15 @@ You can register for all of the events by subscribing to the JobStateChange even
 | Microsoft.Media.JobOutputCanceled| Get an event when Job output transitions to canceled state.|
 | Microsoft.Media.JobOutputErrored| Get an event when Job output transitions to error state.|
 
+[Schema examples](#event-schema-examples) follow.
+
 ### Monitoring Job output progress
 
 | Event type | Description |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputProgress| The event is a best effort to indicate the progress of the job processing, from 0% to 100%. The event is sent if there has been at least 5% change or it has been at least 30 sec since the last event (heartbeat). The value is not guaranteed to start at 0% or reach 100% and is not increasing at a constant rate. The event should not be used to determine that the processing has been completed. Use the state change events to check if the processing is complete.|
+
+[Schema examples](#event-schema-examples) follow.
 
 ## Live event types
 
@@ -70,6 +76,8 @@ Stream-level events are raised per stream or connection. Each event has a `Strea
 | Microsoft.Media.LiveEventEncoderConnected | Encoder establishes connection with live event. |
 | Microsoft.Media.LiveEventEncoderDisconnected | Encoder disconnects. |
 
+[Schema examples](#event-schema-examples) follow.
+
 ### Track-level events
 
 Track-level events are raised per track. The track event types are:
@@ -82,6 +90,8 @@ Track-level events are raised per track. The track event types are:
 | Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Media server detects any of the two video streams coming from external encoder are out of sync. Use as a warning because user experience may not be impacted. |
 | Microsoft.Media.LiveEventIngestHeartbeat | Published every 20 seconds for each track when live event is running. Provides ingest health summary. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Media server detects discontinuity in the incoming track. |
+
+[Schema examples](#event-schema-examples) follow.
 
 ## Event schema examples
 
