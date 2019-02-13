@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 02/13/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
@@ -69,7 +69,7 @@ The default confidence score that is used as a threshold is 50, however you can 
 [Metadata](../How-To/edit-knowledge-base.md) adds the ability to narrow down the results of a user query based on metadata tags. The knowledge base answer can differ based on the metadata tag, even if the query is the same. For example, *"where is parking located"* can have a different answer if the location of the restaurant branch is different - that is, the metadata is *Location: Seattle* versus *Location: Redmond*.
 
 ### Use synonyms
-While there is some support for synonyms in the English language, use [word alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) to add synonyms to keywords that take different form. Synonyms should be added at the QnA Maker service-level and shared by all knowledge bases in the service.
+While there is some support for synonyms in the English language, use case-insensitive [word alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) to add synonyms to keywords that take different form. Synonyms should be added at the QnA Maker service-level and shared by all knowledge bases in the service.
 
 |Original word|Synonyms|
 |--|--|

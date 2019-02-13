@@ -30,7 +30,7 @@ Fortunately, you can accomplish this by using the [Azure Machine Learning retrai
 > 
 
 ## Set up the training experiment
-Use the example [training experiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Training-Experiment-1) that's in the [Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com). Open this experiment in your [Azure Machine Learning Studio](https://studio.azureml.net) workspace.
+Use the example [training experiment](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) that's in the [Cortana Intelligence Gallery](http://gallery.azure.ai). Open this experiment in your [Azure Machine Learning Studio](https://studio.azureml.net) workspace.
 
 > [!NOTE]
 > In order to follow along with this example, you may want to use a standard workspace rather than a free workspace. You create one endpoint for each customer - for a total of 10 endpoints - and that requires a standard workspace since a free workspace is limited to 3 endpoints. If you only have a free workspace, just change the scripts to allow for only th locations.
@@ -58,7 +58,7 @@ Now you need to deploy the scoring web service.
 To do this, click **Set Up Web Service** below the canvas and select **Predictive Web Service**. This creates a scoring experiment.
 You need to make a few minor adjustments to make it work as a web service. Remove the label column "cnt" from the input data and limit the output to only the instance id and the corresponding predicted value.
 
-To save yourself that work, you can open the [predictive experiment](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) in the Gallery that has already been prepared.
+To save yourself that work, you can open the [predictive experiment](https://gallery.azure.ai/Experiment/Bike-Rental-Predicative-Experiment-1) in the Gallery that has already been prepared.
 
 To deploy the web service, run the predictive experiment, then click the **Deploy Web Service** button below the canvas. Name the scoring web service "Bike Rental Scoring".
 
