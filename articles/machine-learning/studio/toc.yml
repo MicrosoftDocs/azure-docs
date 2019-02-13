@@ -144,10 +144,6 @@
     items:
     - name: Overview
       href: retrain-machine-learning-model.md
-    - name: Retrain programmatically
-      href: retrain-models-programmatically.md
-    - name: Retrain with PowerShell
-      href: retrain-new-web-service-using-powershell.md
     - name: Retrain an existing web service
       href: retrain-existing-resource-manager-based-web-service.md
     - name: Troubleshoot

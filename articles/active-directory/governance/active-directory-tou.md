@@ -15,6 +15,7 @@ ms.subservice: compliance
 ms.date: 02/09/2019
 ms.author: rolyon
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory Terms of use feature

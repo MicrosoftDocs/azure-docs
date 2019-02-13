@@ -16,6 +16,7 @@ ms.subservice: pim
 ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 
 # Approve or deny requests for Azure AD directory roles in PIM

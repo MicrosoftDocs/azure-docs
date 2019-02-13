@@ -13,6 +13,7 @@ ms.date: 09/24/2018
 ms.author: lizross
 ms.custom: "it-pro, seodec18"
 ms.reviewer: krbain
+ms.collection: M365-identity-device-management
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
