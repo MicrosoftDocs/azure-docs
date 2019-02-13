@@ -25,7 +25,7 @@ JSON blobs in Azure Blob storage are typically either a single JSON document or 
 > `json` parsing mode is generally available, but `jsonArray` and `jsonLines` parsing modes are in public preview and should not be used in production environments. For more information, see [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 
 > [!NOTE]
-> Follow recommendations from [one-to-many indexing](search-howto-index-one-to-many-blobs.mds) to modify your indexer configuration to enable one azure blob to produce multiple search documents.
+> Follow the indexer configuration recommendations in [One-to-many indexing](search-howto-index-one-to-many-blobs.md) to output multiple search documents from one Azure blob.
 
 <a name="json-indexer-portal"></a>
 

@@ -27,7 +27,7 @@ In this article, you will learn how to parse CSV blobs with an Azure Search blob
 > 
 
 > [!NOTE]
-> Follow recommendations from [one-to-many indexing](search-howto-index-one-to-many-blobs.mds) to modify your indexer configuration to enable one azure blob from producing multiple search documents.
+> Follow the indexer configuration recommendations in [One-to-many indexing](search-howto-index-one-to-many-blobs.md) to output multiple search documents from one Azure blob.
 
 ## Setting up CSV indexing
 To index CSV blobs, create or update an indexer definition with the `delimitedText` parsing mode:  
