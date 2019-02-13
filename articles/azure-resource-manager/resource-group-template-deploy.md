@@ -21,17 +21,17 @@ Learn how to use Azure PowerShell with Resource Manager templates to deploy your
 
 To deploy a template, you typically need two steps:
 
-1. Create a resource group that serves as the container for the deployed resources. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It can't end in a period.
-2. Deploy to the resource group the template that defines the resources to create.
+1. Create a resource group. Resource group serves as the container for the deployed resources. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It can't end in a period.
+2. Deploy a template. The template defines the resources to create.  The deployment creates the resources in the resource group specified.
 
-This method is used in this article.  The other option is to deploy a resource group and the resources at the same time.  For more information, see [Create resource group and deploy resources](./deploy-to-subscription#create-resource-group-and-deploy-resources.md).
+This two-step deployment method is used in this article.  The other option is to deploy a resource group and the resources at the same time.  For more information, see [Create resource group and deploy resources](./deploy-to-subscription#create-resource-group-and-deploy-resources.md).
 
 ## Prerequisites
 
-Unless you use the Azure Cloud shell to deploy templates, you need to install Azure PowerShell and connect to Azure:
-- Install Azure PowerShell cmdlets on your local computer.  \For more information, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps.md).
-- Connect to Azure by using [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount.md). If you have multiple Azure subscriptions, you might also need to run [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext.md). For more information, see [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps.md).
-- Download and save a quickstart template from [https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json). The file name used in this article is **c:\MyTemplates\azuredeploy.json**.
+Unless you use the [Azure Cloud shell](#deploy-templates-from-azure-cloud-shell) to deploy templates, you need to install Azure PowerShell and connect to Azure:
+- **Install Azure PowerShell cmdlets on your local computer.** For more information, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
+- **Connect to Azure by using [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount.md)**. If you have multiple Azure subscriptions, you might also need to run [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext.md). For more information, see [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps).
+- *Download and save a [quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) . The local file name used in this article is **c:\MyTemplates\azuredeploy.json**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -84,7 +84,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-To paste the code into the shell, right-click inside the shell.
+To paste the code into the shell, right-click inside the shell and then select **Paste**.
 
 ## Deploy to multiple resource groups or subscriptions
 
