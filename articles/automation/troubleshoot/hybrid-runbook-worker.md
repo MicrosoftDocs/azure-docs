@@ -186,7 +186,7 @@ Start-Service -Name HealthService
 
 #### Issue
 
-You receive the following message when trying to add a Hybrid Runbook Worker
+You receive the following message when trying to add a Hybrid Runbook Worker using the `Add-HybridRunbookWorker` cmdlet.
 
 ```
 Machine is already registered to a different account
@@ -198,7 +198,7 @@ This can be caused if the machine is already registered with a different Automat
 
 #### Resolution
 
-To resolve this issue, remove the following registry key and try the `Add-HybridRunbookWorker` cmdlet:
+To resolve this issue, remove the following registry key and try the `Add-HybridRunbookWorker` cmdlet again:
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\HybridRunbookWorker`
 
