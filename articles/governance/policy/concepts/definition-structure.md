@@ -237,7 +237,8 @@ within an **allOf** operation.
 
 ### Conditions
 
-A condition evaluates whether a **field** meets certain criteria. The supported conditions are:
+A condition evaluates whether a **field** or the **value** accessor meets certain criteria. The
+supported conditions are:
 
 - `"equals": "value"`
 - `"notEquals": "value"`
@@ -262,8 +263,8 @@ examples, see [Allow several name patterns](../samples/allow-multiple-name-patte
 
 ### Fields
 
-Conditions are formed by using fields. A field matches properties in the resource request
-payload and describes the state of the resource.
+Conditions are formed by using fields. A field matches properties in the resource request payload
+and describes the state of the resource.
 
 The following fields are supported:
 
@@ -284,7 +285,57 @@ The following fields are supported:
   - This bracket syntax supports tag names that have a period.
   - Where **\<tagName\>** is the name of the tag to validate the condition for.
   - Example: `tags[Acct.CostCenter]` where **Acct.CostCenter** is the name of the tag.
+
 - property aliases - for a list, see [Aliases](#aliases).
+
+### Value
+
+Conditions can also be formed using **value**. **value** checks conditions against
+[parameters](#parameters), [supported template functions](#policy-functions), or literals.
+**value** is paired with any supported [condition](#conditions).
+
+#### Value examples
+
+This policy rule example uses **value** to compare the result of the `resourceGroup()` function and
+the returned **name** property to a **like** condition of `*netrg`. The rule denies any resource
+not of the `Microsoft.Network/*` **type** in any resource group whose name ends in `*netrg`.
+
+```json
+{
+    "if": {
+        "allOf": [{
+                "value": "[resourceGroup().name]",
+                "like": "*netrg"
+            },
+            {
+                "field": "type",
+                "notLike": "Microsoft.Network/*"
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+This policy rule example uses **value** to check if the result of multiple nested functions
+**equals** `true`. The rule denies any resource that doesn't have at least three tags.
+
+```json
+{
+    "mode": "indexed",
+    "policyRule": {
+        "if": {
+            "value": "[less(length(field('tags')), 3)]",
+            "equals": true
+        },
+        "then": {
+            "effect": "deny"
+        }
+    }
+}
+```
 
 ### Effect
 
@@ -333,14 +384,17 @@ For complete details on each effect, order of evaluation, properties, and exampl
 
 ### Policy functions
 
-Several [Resource Manager template
-functions](../../../azure-resource-manager/resource-group-template-functions.md) are available to use
-within a policy rule. The functions currently supported are:
+Except for the following deployment and resource functions, all [Resource Manager template
+functions](../../../azure-resource-manager/resource-group-template-functions.md) are available to
+use within a policy rule:
 
-- [parameters](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
-- [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
-- [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
-- [subscription](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+- copyIndex()
+- deployment()
+- list*
+- providers()
+- reference()
+- resourceId()
+- variables()
 
 Additionally, the `field` function is available to policy rules. `field` is primarily used with
 **AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being
