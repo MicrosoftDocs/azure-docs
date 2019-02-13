@@ -13,8 +13,6 @@
   - name: Create your first experiment
     displayName: quickstart
     href: create-experiment.md
-- name: Tutorials
-  items:
   - name: Create a predictive solution
     items:
     - name: 1 - Create experiment
