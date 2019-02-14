@@ -16,6 +16,7 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory version 2 cmdlets for group management
 

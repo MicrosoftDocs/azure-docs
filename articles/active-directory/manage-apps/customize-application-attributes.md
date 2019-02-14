@@ -3,9 +3,9 @@ title: Customizing Azure AD Attribute Mappings | Microsoft Docs
 description: Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
-editor: ''
+author: CelesteDG
+manager: mtillman
+
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/09/2018
-ms.author: barbkess
-
+ms.author: celested
 ms.custom: H1Hack27Feb2017
 
+ms.collection: M365-identity-device-management
 ---
 # Customizing User Provisioning Attribute-Mappings for SaaS Applications in Azure Active Directory
 Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, Google Apps and others. If you have user provisioning for a third-party SaaS application enabled, the Azure portal controls its attribute values in form of  attribute-mappings.

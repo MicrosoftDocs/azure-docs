@@ -18,6 +18,7 @@ ms.date: 1/11/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by an Azure AD v2.0 endpoint using client credentials flow.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Acquire a token and call Microsoft Graph API from a console app using app's identity

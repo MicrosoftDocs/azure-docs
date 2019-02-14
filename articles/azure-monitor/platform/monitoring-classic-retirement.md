@@ -5,7 +5,7 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
 ---
@@ -13,11 +13,14 @@ ms.subservice: alerts
 
 Azure Monitor has now become a unified full stack monitoring service, which now supports ‘One Metric’ and ‘One Alerts’ across resources; for more information, see our [blog post on new Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/).The new Azure monitoring and alerting platforms has been built to be faster, smarter, and extensible – keeping pace with the growing expanse of cloud computing and in-line with Microsoft Intelligent Cloud philosophy. 
 
-With the new Azure monitoring and alerting platform in place, we will be retiring the "classic" monitoring and alerting platform  - hosted within *view classic alerts* section of Azure alerts, **will be deprecated by June 2019**.
+With the new Azure monitoring and alerting platform in place, we will be retiring the "classic" monitoring and alerting platform  - hosted within *view classic alerts* section of Azure alerts, **will be deprecated by June 2019 in Azure public clouds**. [Azure Government cloud](../../azure-government/documentation-government-welcome.md) will not be affected.
 
  ![Classic alert in Azure portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 We encourage you to get started and recreate your alerts in the new platform. For customers who have a large number of alerts, we are working to provide an automated way to move existing classic alerts to the new alerts system without disruption or added costs.
+
+> [!IMPORTANT]
+> Classic Alert rules created on Activity Log will not be deprecated or migrated. All classic alert rules created on Activity Log can be accessed and used as-is from the new Azure Monitor - Alerts. For more information, see [Create, view, and manage activity log alerts using Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md). Similarly, Alerts on Service Health can be accessed and used as-is from the new Service Health section. For details, see [alerts on service health notifications](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
 ## Unified Metrics and Alerts in Application Insights
 
@@ -54,7 +57,7 @@ At the end of June 2019, in Azure Monitor:
 - Classic monitoring and alerts service will be retired and no longer available for creation of new alert rules
 - Any alert rules that continue to exist in Alerts (classic) beyond June 2019 will continue to execute and fire notifications, but not be available for modification.
 - Starting July 2019, any alert rules in classic monitoring & alerting will be automatically migrated by Microsoft to their equivalent in the new Azure monitor platform. The process will be seamless without any downtime and customers will have no loss in monitoring coverage.
-- Alert rules migrated to the new alerts platform will provide monitoring coverage as before but will fire notification with new payloads. Any email address, webhook endpoint or logic app link associated with classic alert rule will be carried forward when migrated, but may not behave correctly as alert payload will be different in the new platform
+- Alert rules migrated to the new alerts platform will provide monitoring coverage as before but will fire notification with new payloads. Any email address, webhook endpoint, or logic app link associated with classic alert rule will be carried forward when migrated, but may not behave correctly as alert payload will be different in the new platform
 
 > [!IMPORTANT]
 > Microsoft Azure Monitor will provide tools for customers to automatically migrate their classic alert rules on to the new platform soon. And run it by force for all classic alert rules that still exist, starting July 2019. Customers will need to ensure automation consuming classic alert rule payload is adapted to handle the new payload from [Unified Metrics and Alerts in Application Insights](#unified-metrics-and-alerts-in-application-insights) or [Unified Metrics and Alerts for other Azure resources](#unified-metrics-and-alerts-for-other-azure-resources), post-migration of the classic alert rules. 

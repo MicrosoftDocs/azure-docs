@@ -15,6 +15,7 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect Health Agent Installation
 This document walks you through installing and configuring the Azure AD Connect Health Agents. You can download the agents from [here](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).

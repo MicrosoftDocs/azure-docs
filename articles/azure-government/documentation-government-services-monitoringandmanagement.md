@@ -153,6 +153,19 @@ Add-AzureRmMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -Resource
 
 For more information on using PowerShell, see [public documentation](../azure-monitor/platform/powershell-quickstart-samples.md).
 
+## Application Insights
+The Azure Application Insights service uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
+
+> [!NOTE]
+> Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhooks, which require inbound firewall rules.
+
+### Outgoing ports
+You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK and/or Status Monitor to send data to the portal:
+
+| Purpose | URL | IP | Ports |
+| --- | --- | --- | --- |
+| Telemetry | dc.applicationinsights.us | 23.97.4.113 | 443 |
+
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
 
@@ -185,9 +198,9 @@ The URLs for Log Analytics are different in Azure Government:
 | \*.ods.opinsights.azure.com |\*.ods.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.oms.opinsights.azure.com |\*.oms.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.blob.core.windows.net |\*.blob.core.usgovcloudapi.net |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
-| portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md#log-analytics-page) |
-| api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md#log-analytics-page) |
-| docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md#log-analytics-page) |
+| portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
+| api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
+| docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
 | \*.azure-automation.net |\*.azure-automation.us |Azure Automation - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) |
 | N/A | *.usgovtrafficmanager.net | Azure Traffic Manager - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) |
 

@@ -58,6 +58,8 @@
     href: stream-analytics-stream-analytics-query-patterns.md
   - name: Parse JSON and AVRO data
     href: stream-analytics-parsing-json.md
+  - name: Time handling considerations
+    href: stream-analytics-time-handling.md
   - name: Event ordering considerations
     href: stream-analytics-out-of-order-and-late-events.md
   - name: Checkpoint and replay
@@ -132,7 +134,7 @@
       href: stream-analytics-dotnet-management-sdk.md
     - name: Using Azure PowerShell
       href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
-    - name: Using API
+    - name: Using API for Edge jobs
       href: stream-analytics-cicd-api.md
   - name: Visual Studio tools
     items:

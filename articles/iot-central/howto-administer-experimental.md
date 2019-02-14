@@ -136,15 +136,15 @@ To complete this self-service process, follow these steps:
 
 ## Export data
 
-You can enable **Continuous data export** to export measurements, devices, and device templates data to your Azure Blob storage account. Learn more about [how to export your data](#howto-export-data).
+You can enable **Continuous data export** to export measurements, devices, and device templates data to your Azure Blob storage account. Learn more about how to [export your data](#export-data).
 
 ## Manage device connection
 
-Connect devices at scale in your application using the keys and certificates here. Learn more about [connecting devices](#concepts-connectivity).
+Connect devices at scale in your application using the keys and certificates here. Learn more about [connecting devices](/azure/iot-central/concepts-connectivity-experimental?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json).
 
 ## Use access tokens
 
-Generate access tokens to use them in developer tools. Currently there is one developer tool available which is the IoT Central explorer for monitoring device messages and changes in propreties and settings. Learn more about the [IoT Central explorer](#howto-use-iotc-explorer). 
+Generate access tokens to use them in developer tools. Currently there is one developer tool available which is the IoT Central explorer for monitoring device messages and changes in propreties and settings. Learn more about the IoT Central explorer. 
 
 ## Use the Azure SDKs for control plane operations
 

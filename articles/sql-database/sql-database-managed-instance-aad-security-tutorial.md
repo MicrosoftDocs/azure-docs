@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > - Create an Azure Active Directory (AD) login for a managed instance
 > - Grant permissions to Azure AD logins in a managed instance
 > - Create Azure AD users from Azure AD logins
-> - Assign permissions to Azure AD users and managed database security
+> - Assign permissions to Azure AD users and manage database security
 > - Use impersonation with Azure AD users
 > - Use cross-database queries with Azure AD users
 > - Learn about security features, such as threat protection, auditing, data masking, and encryption

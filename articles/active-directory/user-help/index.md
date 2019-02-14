@@ -12,6 +12,7 @@ ms.subservice: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
+ms.collection: M365-identity-device-management
 ---
 
 # User help for authentication, apps, and device management
