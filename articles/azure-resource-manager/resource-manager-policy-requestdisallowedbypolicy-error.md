@@ -20,8 +20,6 @@ ms.author: genli
 
 This article describes the cause of the RequestDisallowedByPolicy error, it also provides solution for this error.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Symptom
 
 During deployment, you might receive a **RequestDisallowedByPolicy** error that prevents you from creating the resources. The following example shows the error:
