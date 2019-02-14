@@ -19,7 +19,7 @@ Microsoft Azure HDInsight users can choose from a few different storage options 
 
 This article provides an overview of these storage types and their unique features.
 
-## Use Azure Data Lake Storage Gen2 with Apache Hadoop in Azure HDInsight
+## Azure Data Lake Storage Gen2 with Apache Hadoop in Azure HDInsight
 
 Azure Data Lake Storage Gen2 takes core features from Azure Data Lake Storage Gen1 and integrates them into Azure Blob storage. These features include a file system that is compatible with Hadoop, Azure Active Directory (Azure AD), and POSIX-based access control lists (ACLs). This combination allows you to take advantage of the performance of Azure Data Lake Storage Gen1 while also using the tiering and data life-cycle management of Blob storage.
 
