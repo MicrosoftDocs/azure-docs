@@ -38,7 +38,7 @@ Learn what's new with Speech Services.
   * Now available for [Python](quickstart-python.md) and [Node.js](quickstart-js-node.md).
   * Support for Ubuntu 18.04 LTS was added.
   * For more information, see [Release notes](releasenotes.md).
-* December 2018 - Speech synthesis quickstarts added for [.NET Core](quickstart-dptnet-text-to-speech.md), [Python](quickstart-python-text-to-speech.md), [Node.js](quickstart-nodejs-text-to-speech.md). Additional samples are available on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http).
+* December 2018 - Speech synthesis quickstarts added for [.NET Core](quickstart-dotnet-text-to-speech.md), [Python](quickstart-python-text-to-speech.md), [Node.js](quickstart-nodejs-text-to-speech.md). Additional samples are available on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http).
 * November 2018 - Speech SDK 1.1.0
   * Support for Android x86/64.
   * Improved error messaging.
