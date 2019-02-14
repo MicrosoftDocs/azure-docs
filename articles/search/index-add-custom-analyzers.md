@@ -24,15 +24,13 @@ translation.priority.mt:
 
 A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) that consists of a user-defined combination of existing tokenizer and optional filters. By combining tokenizers and filters in new ways, you can customize text processing in the search engine to achieve specific outcomes. For example, you could create a custom analyzer with a *char filter* to remove HTML markup before text inputs are tokenized.
 
- You can define multiple custom analyzers to vary the combination of filters, but each field can only use one analyzer for indexing analysis and one for search analysis.  
-
-For an illustration of what a customer analyzer looks like, see [Custom analyzer example](search-analyzers.md#Example1).
+ You can define multiple custom analyzers to vary the combination of filters, but each field can only use one analyzer for indexing analysis and one for search analysis. For an illustration of what a customer analyzer looks like, see [Custom analyzer example](search-analyzers.md#Example1).
 
 ## Overview
 
- The role of a [full-text search engine](search-lucene-query-architecture.md), in simple terms, is to process and store documents in a way that enables efficient querying and retrieval. At a high level, it all comes down to extracting important words from documents, putting them in an index, and then using the index to find documents that match words of a given query. The process of extracting words from documents and search queries is called lexical analysis. Components that perform lexical analysis are called analyzers.
+ The role of a [full-text search engine](search-lucene-query-architecture.md), in simple terms, is to process and store documents in a way that enables efficient querying and retrieval. At a high level, it all comes down to extracting important words from documents, putting them in an index, and then using the index to find documents that match words of a given query. The process of extracting words from documents and search queries is called *lexical analysis*. Components that perform lexical analysis are called *analyzers*.
 
- In Azure Search, you can choose from a set of predefined language agnostic analyzers in the [Analyzers](#AnalyzerTable) table and language-specific analyzers listed in [Language analyzers &#40;Azure Search Service REST API&#41;](index-add-language-analyzers.md). You also have an option to define your own custom analyzers.  
+ In Azure Search, you can choose from a set of predefined language-agnostic analyzers in the [Analyzers](#AnalyzerTable) table or language-specific analyzers listed in [Language analyzers &#40;Azure Search Service REST API&#41;](index-add-language-analyzers.md). You also have an option to define your own custom analyzers.  
 
  A custom analyzer allows you to take control over the process of converting text into indexable and searchable tokens. It’s a user-defined configuration consisting of a single predefined tokenizer, one or more token filters, and one or more char filters. The tokenizer is responsible for breaking text into tokens, and the token filters for modifying tokens emitted by the tokenizer. Char filters are applied for to prepare input text before it is processed by the tokenizer. For instance, char filter can replace certain characters or symbols.
 
@@ -48,13 +46,13 @@ For an illustration of what a customer analyzer looks like, see [Custom analyzer
 
 -   ASCII folding. Add the Standard ASCII folding filter to normalize diacritics like ö or ê in search terms.  
 
- This page provides a list of supported analyzers, tokenizers, token filters, and char filters. You can also find a description of changes to the index definition with a usage example. For more background about the underlying technology leveraged in the Azure Search implementation, see [Analysis package summary (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). For examples of analyzer configurations, see [Analyzers in Azure Search > Examples](https://docs.microsoft.com/azure/search/search-analyzers#examples).
+ This page provides a list of supported analyzers, tokenizers, token filters, and char filters. You can also find a description of changes to the index definition with a usage example. For more background about the underlying technology leveraged in the Azure Search implementation, see [Analysis package summary (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). For examples of analyzer configurations, see [Add analyzers in Azure Search](search-analyzers.md#examples).
 
 ## Validation rules  
  Names of analyzers, tokenizers, token filters, and char filters have to be unique and cannot be the same as any of the predefined analyzers, tokenizers, token filters, or char filters. See the [Property Reference](#PropertyReference) for names already in use.
 
 ## Create custom analyzers
- You can define custom analyzers at index creation time. The syntax for specifying a custom analyzer is described in this section. You can also familiarize yourself with the syntax by reviewing sample definitions in [Analyzers in Azure Search](https://docs.microsoft.com/azure/search/search-analyzers#examples).  
+ You can define custom analyzers at index creation time. The syntax for specifying a custom analyzer is described in this section. You can also familiarize yourself with the syntax by reviewing sample definitions in [Add analyzers in Azure Search](search-analyzers.md#examples).  
 
  An analyzer definition includes a name, a type, one or more char filters, a maximum of one tokenizer, and one or more token filters for post-tokenization processing. Char filers are applied before tokenization. Token filters and char filters are applied from left to right.
 
@@ -143,7 +141,7 @@ Definitions for char filters, tokenizers, and token filters are added to the ind
 You can use the **Test Analyzer operation** in the [REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) to see how an analyzer breaks given text into tokens.
 
 **Request**
-~~~~
+```
   POST https://[search service name].search.windows.net/indexes/[index name]/analyze?api-version=[api-version]
   Content-Type: application/json
     api-key: [admin key]
@@ -152,9 +150,9 @@ You can use the **Test Analyzer operation** in the [REST API](https://docs.micro
      "analyzer":"my_analyzer",
      "text": "Vis-à-vis means Opposite"
   }
-~~~~
+```
 **Response**
-~~~~
+```
   {
     "tokens": [
       {
@@ -183,15 +181,15 @@ You can use the **Test Analyzer operation** in the [REST API](https://docs.micro
       }
     ]
   }
- ~~~~
+```
 
  ## Update custom analyzers
 
 Once an analyzer, a tokenizer, a token filter, or a char filter is defined, it cannot be modified. New ones can be added to an existing index only if the `allowIndexDowntime` flag is set to true in the index update request:
 
-~~~~
+```
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
-~~~~
+```
 
 This operation takes your index offline for at least a few seconds, causing your indexing and query requests to fail. Performance and write availability of the index can be impaired for several minutes after the index is updated, or longer for very large indexes, but these effects are temporary and eventually resolve on their own.
 
@@ -380,5 +378,5 @@ In the table below, the token filters that are implemented using Apache Lucene a
 
 ## See also  
  [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)   
- [Analyzers in Azure Search > Examples](https://docs.microsoft.com/azure/search/search-analyzers#examples)    
+ [Analyzers in Azure Search > Examples](search-analyzers.md#examples)    
  [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
