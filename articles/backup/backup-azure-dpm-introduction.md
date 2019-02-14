@@ -115,7 +115,7 @@ Download the vault credentials file to a local machine as follows:
 
 ## Install the Backup Agent
 
-Every machines that's backed up by Azure Backup must have the Backup agent (also known as the Microsoft Azure Recovery Service (MARS) agent) installed on it. Install the agent on the DPM server as follows:
+Every machine that's backed up by Azure Backup must have the Backup agent (also known as the Microsoft Azure Recovery Service (MARS) agent) installed on it. Install the agent on the DPM server as follows:
 
 1. Open the vault to which you want to register the DPM server.
 2. In **Settings**, click **Properties**.
