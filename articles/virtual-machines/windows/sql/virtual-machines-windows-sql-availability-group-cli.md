@@ -18,7 +18,7 @@ ms.reviewer: jroth
 
 ---
 # Use Azure SQL VM CLI to create WSFC, listener, and ILB for an Always On availability group on a SQL Server VM in Azure
-This article describes how to use [Azure SQL VM CLI](https://docs.microsoft.com/mt-mt/cli/azure/ext/sqlvm-preview/sqlvm?view=azure-cli-2018-03-01-hybrid) to deploy a Windows Failover Cluster, add SQL Server VMs to the cluster, create the listener, and configure the internal load balancer. The creation of the Always On availability group is still done manually through SQL Server Management Studio (SSMS). 
+This article describes how to use [Azure SQL VM CLI](https://docs.microsoft.com/mt-mt/cli/azure/ext/sqlvm-preview/sqlvm?view=azure-cli-2018-03-01-hybrid) to deploy a Windows Failover Cluster (WSFC), and add SQL Server VMs to the cluster, as well as create the Internal Load Balancer and listener for an Always On availability group.  The actual deployment  of the Always On availability group is still done manually through SQL Server Management Studio (SSMS). 
 
 ## Prerequisites
 To automate the setup of an Always On availability group using Azure SQL VM CLI, you must already have the following prerequisites: 
@@ -26,47 +26,47 @@ To automate the setup of an Always On availability group using Azure SQL VM CLI,
 - A resource group with a domain controller. 
 - One or more domain-joined [VMs in Azure running SQL Server 2016 (or greater) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the same availability set or availability zone that have been [registered with the SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).  
  
-## Create storage account as Cloud Witness - Azure CLI
+## Create storage account as Cloud Witness
 The cluster needs a storage account to act as the cloud witness. You can use any existing storage account, or you can create a new storage account. If you want to use an existing storage account, skip ahead to the next section. 
 
 The following code snippet creates the storage account: 
 ```cli
 # Create the storage account
 # example: az storage account create -n 'cloudwitness' -g SQLVM-RG -l 'West US' --sku Standard_LRS --kind StorageV2 --access-tier Hot --https-only true
+
 az storage account create -n <name> -g <resource group name> -l <region ex:eastus> --sku Standard_LRS --kind StorageV2 --access-tier Hot --https-only true
 ```
 
-## Define Windows Failover Cluster Metadata - Azure CLI
-The first step is to define the metadata for the cluster. The Azure SQL VM CLI [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) command group manages the metadata of the Windows Failover Cluster (WSFC) service that hosts the availability group. Cluster metadata includes the AD domain, cluster accounts, storage accounts to be used as the cloud witness, and SQL Server version. Use [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) to define the metadata for the WSFC so that when the first SQL Server VM is added, the cluster is created as defined. 
+## Define Windows Failover Cluster Metadata
+The Azure SQL VM CLI [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) command group manages the metadata of the Windows Failover Cluster (WSFC) service that hosts the availability group. Cluster metadata includes the AD domain, cluster accounts, storage accounts to be used as the cloud witness, and SQL Server version. Use [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) to define the metadata for the WSFC so that when the first SQL Server VM is added, the cluster is created as defined. 
 
 The following code snippet defines the metadata for the cluster:
 ```cli
 # Define the cluster metadata
 # example: az sql vm group create -n Cluster -l 'West US' -g SQLVM-RG --image-offer SQL2017-WS2016 --image-sku Enterprise --domain-fqdn domain.com --operator-acc vmadmin@domain.com --bootstrap-acc vmadmin@domain.com --service-acc sqlservice@domain.com --sa-key '4Z4/i1Dn8/bpbseyWX' --storage-account 'https://cloudwitness.blob.core.windows.net/'
 
-az sql vm group create -n <cluster name> -l <region ex:eastus> -g <resource group name> --image-offer <SQL2016-WS2016 or SQL2017-WS2016> --image-sku Enterprise --domain-fqdn <FQDN ex: domain.com> --operator-acc <domain account ex: testop@domain.com> --bootstrap-acc <domain account ex:bootacc@domain.com> --service-acc <service account ex:testservice@domain.com> --sa-key ‘<PublicKey>’ --storage-account ‘<ex:https://cloudwitness.blob.core.windows.net/>’
+az sql vm group create -n <cluster name> -l <region ex:eastus> -g <resource group name> --image-offer <SQL2016-WS2016 or SQL2017-WS2016> --image-sku Enterprise --domain-fqdn <FQDN ex: domain.com> --operator-acc <domain account ex: testop@domain.com> --bootstrap-acc <domain account ex:bootacc@domain.com> --service-acc <service account ex:testservice@domain.com> --sa-key '<PublicKey>' --storage-account '<ex:https://cloudwitness.blob.core.windows.net/>'
 ```
 
-## Add SQL Server VMs to cluster - Azure CLI
-Adding the first SQL Server VM to the cluster creates the cluster. The [az sql vm add-to-group](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) command creates the cluster with the name previously given, installs the cluster role on the SQL Server VMs, and adds them to the cluster. Subsequent uses of the `az sql vm add-to-group` command add additional SQL Server VMs to the newly created cluster. 
+## Add SQL Server VMs to cluster
+Adding the first SQL Server VM to the cluster creates the cluster. The [az sql vm add-to-group](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) command creates the cluster with the name previously given, installs the cluster role on the SQL Server VMs, and adds them to the cluster. Subsequent uses of the `az sql vm add-to-group` command adds additional SQL Server VMs to the newly created cluster. 
 
-The following code snippet creates the cluster and adds the SQL Server VM to it: 
+The following code snippet creates the cluster and adds the first SQL Server VM to it: 
 
 ```cli
 # Add SQL Server VMs to cluster
 # example: az sql vm add-to-group -n SQLVM -g SQLVM-RG --sqlvm-group Cluster -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
 az sql vm add-to-group -n <VM Name> -g <Resource Group Name> --sqlvm-group <cluster name> -b <bootstrap account password> -p <operator account password> -s <service account password>
 ```
-
 Use this command to add any other SQL Server VMs to the cluster, only modifying the `-n` parameter for the SQL Server VM name. 
 
-## Create availability group - SSMS
-Manually create the availability group as you normally would, using either [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell?view=sql-server-2017),  [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-2017) or [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql?view=sql-server-2017). 
+## Create availability group
+Manually create the availability group as you normally would, using either [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-2017), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell?view=sql-server-2017), or [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql?view=sql-server-2017). 
 
   >[!IMPORTANT]
   > Do **not** create a listener at this time because this is done through Azure CLI in the following sections.  
 
-## Create Internal Load Balancer - Azure CLI
+## Create Internal Load Balancer
 
 The Always On availability group (AG) listener requires an Internal Azure Load Balancer (ILB). The ILB provides a “floating” IP address for the AG listener that allows for faster failover and reconnection. If the SQL Server VMs in an availability group are part of the same availability set, then you can use a Basic Load Balancer; otherwise, you need to use a Standard Load Balancer.  **The ILB should be in the same vNet as the SQL Server VM instances.** 
 
@@ -75,21 +75,26 @@ The following code snippet creates the Internal Load Balancer:
 ```cli
 # Create the Internal Load Balancer
 # example: az network lb create --name sqlILB -g SQLVM-RG --sku Standard --vnet-name SQLVMvNet --subnet default
+
 az network lb create --name sqlILB -g <resource group name> --sku Standard --vnet-name <VNet Name> --subnet <subnet name>
 ```
 
   >[!IMPORTANT]
   > The public IP resource for each SQL Server VM should have a standard SKU to be compatible with the Standard Load Balancer. To determine the SKU of your VM's public IP resource, navigate to your **Resource Group**, select your **Public IP Address** resource for the desired SQL Server VM, and locate the value under **SKU** of the **Overview** pane.  
 
-## Create availability group listener - Azure CLI
+## Create availability group listener
 Once the availability group has been manually created, you can create the listener using [az sql vm ag-listener](https://docs.microsoft.com/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create). 
 
-- The IP address you specify when creating the AG listener should be available. 
-- The **subnet resource ID** is `/subnet/<subnetname>` appended to the resource ID of the vNet resource. To identify the subnet resource id, do the following:
+
+- The **subnet resource ID** is the value of `/subnet/<subnetname>` appended to the resource ID of the vNet resource. To identify the subnet resource id, do the following:
    1. Navigate to your resource group in the [Azure portal](https://portal.azure.com). 
    1. Select the vNet resource. 
    1. Select **Properties** in the **Settings** pane. 
-   1. Identify the resource ID for the vNet and append `/subnets/<subnetname>`to the end of it to create the subnet resource ID.  
+   1. Identify the resource ID for the vNet and append `/subnets/<subnetname>`to the end of it to create the subnet resource ID. For example:
+        - My vNet resource ID is `/subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`.
+        - My subnet name is `default`.
+        - Therefore, my subnet resource ID is `/subscriptions/a1a11a11-1a1a-aa11-aa11-1aa1a11aa11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`
+
 
 The following code snippet will create the availability group listener:
 

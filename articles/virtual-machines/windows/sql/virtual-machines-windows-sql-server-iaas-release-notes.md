@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 2/5/2019
+ms.date: 2/13/2019
 ---
 # SQL Server on Azure Virtual Machine release notes
 
@@ -25,8 +25,8 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 | Service improvements | Details |
 | --- | --- |
-| **Portal improvement** | It is now possible to change the licensing model from pay-as-you-go to bring-your-own-license using the [Azure portal](virtual-machines-windows-sql-ahb.md#use-azure-portal).|
-|**Automate setting up an availability group deployment with Azure SQL VM CLI** |It is now easier than ever to create the Windows Failover Cluster, join SQL Server VMs to it, create the listener, and configure the Internal Load Balancer using simple Azure SQL VM CLI commands. For more information, see [Use Azure SQL VM CLI to create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM in Azure](virtual-machines-windows-sql-availability-group-cli.md). | 
+| **Portal improvement** | It is now possible to change the licensing model for a SQL Server VM from pay-as-you-go to bring-your-own-license using the [Azure portal](virtual-machines-windows-sql-ahb.md#use-azure-portal).|
+|**AG deployment simplification with Azure SQL VM CLI** | It is now easier than ever to deploy an availability group to a SQL Server VM in Azure. Azure SQL VM CLI allows you to create the WSFC, ILB and AG listener all from the command line, and in record time! For more information, see [Use Azure SQL VM CLI to create WSFC, listener, and ILB for an Always On availability group on a SQL Server VM in Azure](virtual-machines-windows-sql-availability-group-cli.md). | 
 | &nbsp; | &nbsp; |
 
 ### Documentation improvements
@@ -38,8 +38,6 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 ## December 2018
 
-### Service improvements
-
 | Service improvements | Details |
 | --- | --- |
 | **New SQL cluster group resource provider** | A new resource provider (Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups) that defines the metadata of the Windows Failover Cluster. Joining a SQL Server VM to the *SqlVirtualMachineGroups* bootstraps the Windows Failover Cluster service and joins the VM to the cluster.  |
@@ -49,8 +47,6 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 
 
 ## November 2018
-
-### Service improvements
 
 | Service improvements | Details |
 | --- | --- |

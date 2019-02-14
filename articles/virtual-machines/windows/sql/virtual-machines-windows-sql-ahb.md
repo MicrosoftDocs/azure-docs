@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/14/2018
+ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 
@@ -42,13 +42,13 @@ The use of the SQL VM resource provider requires the SQL IaaS extension. As such
 The ability to switch between licensing models is a feature provided by the new SQL VM resource provider (Microsoft.SqlVirtualMachine). SQL Server VMs deployed after December 2018 are automatically registered with the new resource provider. However, existing VMs that were deployed prior to this date need to be manually registered with the resource provider before they are able to switch their licensing model. 
 
   > [!NOTE] 
-  > If you drop your SQL VM resource, you will go back to the hard coded license setting of the image. 
+  > If you drop your SQL Server VM resource, you will go back to the hard coded license setting of the image. 
 
 ### Register SQL resource provider with your subscription 
 
 To register your SQL Server VM with the SQL resource provider, you must register the resource provider to your subscription. You can do so with PowerShell, or with the Azure portal. 
 
-#### Using PowerShell
+#### With PowerShell
 The following code snippet will register the SQL resource provider with your Azure subscription. 
 
 ```powershell
@@ -56,7 +56,7 @@ The following code snippet will register the SQL resource provider with your Azu
 Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
 
-#### Using Azure portal
+#### With the Azure portal
 The following steps will register the SQL resource provider with your Azure subscription using the Azure portal. 
 
 1. Open the Azure portal and navigate to **All Services**. 
@@ -82,7 +82,7 @@ New-AzureRmResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupN
 You can modify the licensing model directly from the portal. 
 
 1. Navigate to your SQL Server VM within the [Azure portal](https://portal.azure.com). 
-1. Select **SQL Server Configuration** in the **Settings** pane. 
+1. Select **SQL Server configuration** in the **Settings** pane. 
 1. Select **Edit** in the **SQL Server License** pane to modify the license. 
 
 ![AHB in Portal](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
