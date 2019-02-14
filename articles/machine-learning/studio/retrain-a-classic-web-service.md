@@ -14,13 +14,13 @@ ms.date: 02/14/2019
 ---
 # Retrain a Classic Azure Machine Learning Studio web service
 
-When you deploy a predictive experiment as a scoring web service it is a static model. As new data becomes available or when the consumer of the API has their own data, the model needs to be retrained.
+When you deploy a predictive experiment as a scoring web service, it's a static model. However, models need to be retrained as new data becomes available.
 
-This article will show you how to retrain an existing classic web service. For a guide on how to retrain a new web service, [view this article ](retrain-machine-learning-model.md)
+This article will show you how to retrain an existing classic web service. For a guide on how to retrain a new web service, [view this article.](retrain-machine-learning-model.md)
 
 ## Prerequisites
 
-You must have set up a retraining experiment and a predictive experiment as shown in [Retrain and deploy a machine learning model](retrain-models-programmatically.md).
+You must have a retraining experiment and a predictive experiment already as shown in [Retrain and deploy a machine learning model](retrain-models-programmatically.md).
 
 > [!IMPORTANT]
 > The predictive experiment must be deployed as a Classic machine learning web service.
