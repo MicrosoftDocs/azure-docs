@@ -34,7 +34,6 @@ To run the sample, do the following steps:
     1. Select **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** when it displays, then click the checkbox next to your project name, and **Install**.
 1. Replace `Program.cs` with the following code. The `RecognizeTextAsync` and `RecognizeTextInStreamAsync` methods wrap the [Recognize Text API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) for remote and local images, respectively. The `GetTextOperationResultAsync` method wraps the [Get Recognize Text Operation Results API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201).
 
-
     ```csharp
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
@@ -169,7 +168,6 @@ To run the sample, do the following steps:
         }
     }
     ```
-
 
 1. Replace `<Subscription Key>` with your valid subscription key.
 1. Change `computerVision.Endpoint` to the Azure region associated with your subscription keys, if necessary.
