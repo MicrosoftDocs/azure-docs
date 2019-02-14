@@ -39,7 +39,7 @@ Before you begin, make sure:
 ## Ship Data Box back
 
 1. Ensure that the device is powered off and cables are removed. Spool and securely place the power cord that was provided with device in the back of the device.
-2. If the device is shipping in US, ensure that the shipping label is displayed on the E-ink display and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, then please reach out Microsoft support. Only if support suggests then go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device.
+2. If the device is shipping in US, ensure that the shipping label is displayed on the E-ink display and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, contact Microsoft support. If Support suggests, then go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device.
 
     If the device is shipping in Europe, the E-ink display does not show the shipping label. Instead the return shipping label is included in the clear pouch under the forward shipping label. Remove the old shipping label and ensure that the shipping label is clearly visible.
     
