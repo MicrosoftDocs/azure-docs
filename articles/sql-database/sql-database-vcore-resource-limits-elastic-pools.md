@@ -57,7 +57,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 ### General Purpose service tier: Generation 4 compute platform (part 2)
 
-|Compute size|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
+|Compute size|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W generation|4|4|4|4|4|4|
 |vCores|7|8|9|10|16|24|
