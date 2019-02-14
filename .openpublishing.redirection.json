@@ -35765,6 +35765,11 @@
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-remote-desktop.md",
       "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-ssh",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/computer-vision/concept-extracting-text-ocr.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/concept-recognizing-text#OCR-(optical-character-recognition)-API",
+      "redirect_document_id": false
     }
   ]
 }
