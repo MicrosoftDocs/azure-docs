@@ -258,6 +258,8 @@
       href: service-fabric-linux-windows-differences.md
     - name: Clusters on Azure
       items:
+      - name: Overview of Azure clusters
+        href: service-fabric-azure-clusters-overview.md
       - name: Node types and VM Scale Sets
         href: service-fabric-cluster-nodetypes.md
       - name: Upgrading clusters in Azure
@@ -268,6 +270,8 @@
         href: service-fabric-patterns-networking.md
     - name: Standalone clusters
       items:
+      - name: Overview of standalone clusters
+        href: service-fabric-standalone-clusters-overview.md
       - name: Upgrading standalone clusters
         href: service-fabric-cluster-upgrade-standalone.md
       - name: Scaling
@@ -540,9 +544,7 @@
     - name: Specify environment variables
       href: service-fabric-how-to-specify-environment-variables.md
     - name: Deploy or remove applications
-      items:
-      - name: Remove a node type
-        href: service-fabric-how-to-remove-node-type.md 
+      items:       
       - name: Azure Resource Manager
         href: service-fabric-application-arm-resource.md
       - name: Azure PowerShell
@@ -611,8 +613,12 @@
           href: service-fabric-cluster-scale-up-down.md
         - name: Programmatically scale out
           href: service-fabric-cluster-programmatic-scaling.md
-        - name: Virtual Machine Scale Set Node Type scale out
-          href: virtual-machine-scale-set-scale-node-type-scale-out.md
+        - name: Scale up primary node type
+          href: service-fabric-scale-up-node-type.md
+        - name: Add a node type
+          href: virtual-machine-scale-set-scale-node-type-scale-out.md        
+        - name: Remove a node type
+          href: service-fabric-how-to-remove-node-type.md
       - name: Upgrade
         items:
         - name: Upgrade the Service Fabric version 

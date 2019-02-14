@@ -21,7 +21,7 @@ The managed instance deployment option provides high compatibility with on-premi
 
 Since there are still some differences in syntax and behavior, this article summarizes and explains these differences. <a name="Differences"></a>
 - [Availability](#availability) including the differences in [Always-On](#always-on-availability) and [Backups](#backup),
-- [Security](#security) including the differences in [Auditing](#auditing), [Certificates](#certificates), [Credentials](#credentials), [Cryptographic providers](#cryptographic-providers), [Logins / users](#logins--users), [Service key and service master key](#service-key-and-service-master-key),
+- [Security](#security) including the differences in [Auditing](#auditing), [Certificates](#certificates), [Credentials](#credential), [Cryptographic providers](#cryptographic-providers), [Logins / users](#logins--users), [Service key and service master key](#service-key-and-service-master-key),
 - [Configuration](#configuration) including the differences in [Buffer pool extension](#buffer-pool-extension), [Collation](#collation), [Compatibility levels](#compatibility-levels),[Database mirroring](#database-mirroring), [Database options](#database-options), [SQL Server Agent](#sql-server-agent), [Table options](#tables),
 - [Functionalities](#functionalities) including [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Distributed transactions](#distributed-transactions), [Extended events](#extended-events), [External libraries](#external-libraries), [Filestream and Filetable](#filestream-and-filetable), [Full-text Semantic Search](#full-text-semantic-search), [Linked servers](#linked-servers), [Polybase](#polybase), [Replication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [Stored procedures, functions, and triggers](#stored-procedures-functions-triggers),
 - [Features that have different behavior in managed instances](#Changes)
@@ -68,13 +68,13 @@ For information about backups using T-SQL, see [BACKUP](https://docs.microsoft.c
 
 The key differences between auditing in databases in Azure SQL Database and databases in SQL Server are:
 
-- With the managed instance deployment option in Azure SQL Database, auditing works at the server level and stores `.xel` log files on Azure blob storage account.
+- With the managed instance deployment option in Azure SQL Database, auditing works at the server level and stores `.xel` log files in  Azure Blob storage.
 - With the single database and elastic pool deployment options in Azure SQL Database, auditing works at the database level.
 - In SQL Server on-premises / virtual machines, audit works at the server level, but stores events on files system/windows event logs.
   
-XEvent auditing in managed instance supports Azure blob storage targets. File and windows logs are not supported.
+XEvent auditing in managed instance supports Azure Blob storage targets. File and windows logs are not supported.
 
-The key differences in the `CREATE AUDIT` syntax for Auditing to Azure blob storage are:
+The key differences in the `CREATE AUDIT` syntax for Auditing to Azure Blob storage are:
 
 - A new syntax `TO URL` is provided and enables you to specify URL of the Azure blob Storage container where `.xel` files will be placed
 - The syntax `TO FILE` is not supported because a managed instance cannot access Windows file shares.
@@ -164,7 +164,7 @@ For more information, see [ALTER DATABASE SET PARTNER and SET WITNESS](https://d
 - In-memory objects are not supported in the General Purpose service tier.  
 - There is a limit of 280 files per instance implying max 280 files per database. Both data and log files are counted toward this limit.  
 - Database cannot contain filegroups containing filestream data.  Restore will fail if .bak contains `FILESTREAM` data.  
-- Every file is placed in Azure blob storage. IO and throughput per file depend on the size of each individual file.  
+- Every file is placed in Azure Blob storage. IO and throughput per file depend on the size of each individual file.  
 
 #### CREATE DATABASE statement
 
@@ -269,10 +269,10 @@ For information about creating and altering tables, see [CREATE TABLE](https://d
 
 ### Bulk insert / openrowset
 
-A managed instance cannot access file shares and Windows folders, so the files must be imported from Azure blob storage:
+A managed instance cannot access file shares and Windows folders, so the files must be imported from Azure Blob storage:
 
-- `DATASOURCE` is required in `BULK INSERT` command while importing files from Azure blob storage. See [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE` is required in `OPENROWSET` function when you read a content of a file from Azure blob storage. See [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- `DATASOURCE` is required in `BULK INSERT` command while importing files from Azure Blob storage. See [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` is required in `OPENROWSET` function when you read a content of a file from Azure Blob storage. See [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 
 ### CLR
 
@@ -299,7 +299,7 @@ Neither MSDTC nor [Elastic Transactions](sql-database-elastic-transactions-overv
 
 Some Windows-specific targets for XEvents are not supported:
 
-- `etw_classic_sync target` is not supported. Store `.xel` files on Azure blob storage. See [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
+- `etw_classic_sync target` is not supported. Store `.xel` files on Azure blob storage. See [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
 - `event_file target`is not supported. Store `.xel` files on Azure blob storage. See [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### External libraries
@@ -341,7 +341,7 @@ Operations
 
 ### Polybase
 
-External tables referencing the files in HDFS or Azure blob storage are not supported. For information about Polybase, see [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
+External tables referencing the files in HDFS or Azure Blob storage are not supported. For information about Polybase, see [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide).
 
 ### Replication
 
@@ -359,7 +359,7 @@ Replication is available for public preview for managed instances. For informati
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
 - Source  
-  - `FROM URL` (Azure blob storage) is only supported option.
+  - `FROM URL` (Azure Blob storage) is only supported option.
   - `FROM DISK`/`TAPE`/backup device is not supported.
   - Backup sets are not supported.
 - `WITH` options are not supported (No `DIFFERENTIAL`, `STATS`, etc.)

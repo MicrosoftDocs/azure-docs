@@ -49,9 +49,11 @@ The following parameters set a default value:
 * Location - defaults to East US
 * SKU - defaults to the new Per-GB pricing tier released in the April 2018 pricing model
 
->[!WARNING]
->If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**. 
->
+> [!NOTE]
+>If creating or configuring a Log Analytics workspace in a subscription that has opted into the new April 2018 pricing model, the only valid Log Analytics pricing tier is **PerGB2018**.  
+>If you might have some subscriptions in the [pre-April 2018 pricing model](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model), you can specify 
+>the **Standalone** pricing tier, and this will succeed for both subscription in the pre-April 2018 pricing model and for subscriptions in the new pricing. For workspaces in subscriptions 
+>that have adopted the new proicing model, the pricing tier will be set to **PerGB2018**. 
 
 ### Create and deploy template
 
