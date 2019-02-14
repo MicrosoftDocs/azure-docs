@@ -26,19 +26,6 @@ To the extent Microsoft is a processor or subprocessor of personal data in conne
 
 As Azure Stack resides in customer datacenters, Microsoft is the Data Controller solely of the data that is shared with Microsoft through [Diagnostics](azure-stack-diagnostics.md), [Telemetry](azure-stack-telemetry.md), and [Billing](azure-stack-usage-reporting.md).  
 
-## Diagnostic Data
-As part of the support process, Azure Stack Operaters can [share diagnostic logs](azure-stack-diagnostics.md) with Azure Stack support and engineering teams to facilitate troubleshooting.  Following are frequently asked questions related to the handling of diagnostic logs.
-
-### How are Azure Stack logs transferred to Microsoft?
-After the requested Azure Stack log is collected by the customer using a tool and script provided by Microsoft, they are transferred over an HTTPS protected encrypted connection.
-
-### Is there a need to use a password to protect the data? 
-HTTPS provides the encryption over the wire, so that there is no password needed for the encryption in transit. 
-
-### How is the data stored at Microsoft after the transfer is completed?
-Logs that are uploaded to Microsoft are encrypted and stored.    
-
-
 ## Data access controls 
 Microsoft employees, who are assigned to investigate a specific support case, will be granted read-only access to the encrypted data. Microsoft employees also have access to tools that can be used to delete the data if needed. All access to the customer data is audited and logged.  
 
@@ -55,6 +42,19 @@ As mentioned earlier, Microsoft supports on-demand data deletion per customer re
 For the automated data deletion action (90 days after case close), we do not proactively reach out to customers and notify them about the deletion. 
 
 For the on-demand data deletion action, Microsoft support engineer has access to the tool where they can initiate the data deletion on demand and they can provide confirmation on the phone with the customer when it’s done.
+
+## Diagnostic Data
+As part of the support process, Azure Stack Operaters can [share diagnostic logs](azure-stack-diagnostics.md) with Azure Stack support and engineering teams to facilitate troubleshooting.  Following are frequently asked questions related to the handling of diagnostic logs.
+
+### How are Azure Stack logs transferred to Microsoft?
+After the requested Azure Stack log is collected by the customer using a tool and script provided by Microsoft, they are transferred over an HTTPS protected encrypted connection.
+
+### Is there a need to use a password to protect the data? 
+HTTPS provides the encryption over the wire, so that there is no password needed for the encryption in transit. 
+
+### How is the data stored at Microsoft after the transfer is completed?
+Logs that are uploaded to Microsoft are encrypted and stored.    
+
 
 ## Telemetry Data
 [Azure Stack telemetry](azure-stack-telemetry.md) automatically uploads system data to Microsoft via the Connected User Experience. Azure Stack Operators have controls to customize telemetry features and privacy settings at any time.
