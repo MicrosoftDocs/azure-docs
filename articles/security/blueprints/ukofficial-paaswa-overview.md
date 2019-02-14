@@ -177,7 +177,7 @@ Detailed information about securing Azure Storage can be found in the [security 
 
 #### Application Insights
 
-[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Used to monitor live web applications it will automatically detect performance anomalies, analyze performance, diagnose issues and to understand how users interact with the app. Application Insights can be deployed on platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It integrates with your DevOps process, and has connection points to a variety of development tools.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Used to monitor live web applications it will automatically detect performance anomalies, analyze performance, diagnose issues and to understand how users interact with the app. Application Insights can be deployed on platforms including .NET, Node.js and Java EE, hosted on-premises or in the cloud. It integrates with your DevOps process, and has connection points to a variety of development tools.
 
 #### Application Insights in this blueprint
 
