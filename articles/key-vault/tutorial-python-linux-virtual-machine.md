@@ -30,7 +30,7 @@ In this tutorial, you set up an Azure web application to read information from A
 > * Grant the required permissions for the console application to read data from the key vault
 > * Retrieve a secret from your key vault
 
-Before you go any further, please read the [basic concepts about Key Vault](key-vault-whatis.md#basic-concepts).
+Before you go any further, make sure you understand the [basic concepts about Key Vault](key-vault-whatis.md#basic-concepts).
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ Before you go any further, please read the [basic concepts about Key Vault](key-
 
 ## Understand Managed Service Identity
 
-Azure Key Vault can store credentials securely so they aren’t in your code. To retrieve them, you need to authenticate to Azure Key Vault. To authenticate to Key Vault, you need a credential. It's a classic bootstrap problem. Through Azure and Azure Active Directory (Azure AD), Managed Service Identity (MSI) provides a bootstrap identity that makes it simpler to get things started.
+Azure Key Vault can store credentials securely so they aren’t in your code. To retrieve them, you need to authenticate to Azure Key Vault. However, to authenticate to Key Vault, you need a credential. It's a classic bootstrap problem. Through Azure and Azure Active Directory (Azure AD), Managed Service Identity (MSI) provides a bootstrap identity that makes it simpler to get things started.
 
 When you enable MSI for an Azure service like Virtual Machines, App Service, or Functions, Azure creates a service principal for the instance of the service in Azure AD. It injects the credentials for the service principal into the instance of the service.
 
@@ -48,9 +48,9 @@ When you enable MSI for an Azure service like Virtual Machines, App Service, or 
 
 Next, your code calls a local metadata service available on the Azure resource to get an access token. Your code uses the access token that it gets from the local MSI endpoint to authenticate to an Azure Key Vault service.
 
-## Log in to Azure
+## Sign in to Azure
 
-To log in to Azure by using the Azure CLI, enter:
+To sign in to Azure by using the Azure CLI, enter:
 
 ```azurecli
 az login
@@ -85,7 +85,7 @@ At this point, your Azure account is the only one that's authorized to perform a
 
 ## Add a secret to the key vault
 
-We're adding a secret to help illustrate how this works. You might be storing a SQL connection string or any other information that you need to keep securely but make available to your application.
+We're adding a secret to help illustrate how this works. You might want to store a SQL connection string or any other information that needs to be both kept secure and available to your application.
 
 Type the following commands to create a secret in the key vault called *AppSecret*. This secret will store the value **MySecret**.
 
@@ -123,7 +123,7 @@ It takes a few minutes to create the VM and supporting resources. The following 
 }
 ```
 
-Make a note of your own `publicIpAddress` in the output from your VM. You'll used this address to access the VM in later steps.
+Make a note of your own `publicIpAddress` in the output from your VM. You'll use this address to access the VM in later steps.
 
 ## Assign an identity to the VM
 
@@ -201,7 +201,7 @@ Run the following command. You should see the secret value.
 python Sample.py
 ```
 
-Now, you've learned how to do operations with Azure Key Vault in a Python app running on a Linux virtual machine.
+In this tutorial, you learned how to use Azure Key Vault with a Python app running on a Linux virtual machine.
 
 ## Clean up resources
 
