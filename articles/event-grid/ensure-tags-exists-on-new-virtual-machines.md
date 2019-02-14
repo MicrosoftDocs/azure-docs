@@ -29,6 +29,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 To complete this tutorial, an [Azure Automation account](../automation/automation-offering-get-started.md) is required to hold the runbook that is triggered from the Azure Event Grid subscription.
 
 * The `AzureRM.Tags` module needs to be loaded in your Automation Account, see [How to import modules in Azure Automation](../automation/automation-update-azure-modules.md) to learn how to import modules into Azure Automation.
@@ -50,7 +52,7 @@ To complete this tutorial, an [Azure Automation account](../automation/automatio
 5. After it has imported, select **Edit** to view the runbook source. Select the **Publish** button.
 
 > [!NOTE]
-> Line 74 in the script needs to have the line changed to `Update-AzVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose`. The `-Tags` parameter is now `-Tag`.
+> Line 74 in the script needs to have the line changed to `Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose`. The `-Tags` parameter is now `-Tag`.
 
 ## Create an optional Microsoft Teams webhook
 

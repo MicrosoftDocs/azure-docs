@@ -21,6 +21,8 @@ CloudEvents is being built by several [collaborators](https://github.com/cloudev
 
 This article describes how to use the CloudEvents schema with Event Grid.
 
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 ## Install preview feature
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
@@ -112,7 +114,7 @@ For PowerShell, use:
 # This module is required for preview features.
 Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
 
-New-AzEventGridTopic `
+New-AzureRmEventGridTopic `
   -ResourceGroupName gridResourceGroup `
   -Location westcentralus `
   -Name <topic_name> `
@@ -139,9 +141,9 @@ az eventgrid event-subscription create \
 
 For PowerShell, use:
 ```azurepowershell-interactive
-$topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Id
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Id
 
-New-AzEventGridSubscription `
+New-AzureRmEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `

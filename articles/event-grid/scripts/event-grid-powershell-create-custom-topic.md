@@ -19,6 +19,8 @@ ms.author: tomfitz
 
 This script creates an Event Grid custom topic.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Sample script

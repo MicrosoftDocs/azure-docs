@@ -14,6 +14,8 @@ ms.author: spelluru
 
 This article shows how to filter events when creating an Event Grid subscription. To learn about the options for event filtering, see [Understand event filtering for Event Grid subscriptions](event-filtering.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Filter by event type
 
 When creating an Event Grid subscription, you can specify which [event types](event-schema.md) to send to the endpoint. The examples in this section create event subscriptions for a resource group but limit the events that are sent to `Microsoft.Resources.ResourceWriteFailure` and `Microsoft.Resources.ResourceWriteSuccess`. If you need more flexibility when filtering events by event types, see Filter by advanced operators and data fields.

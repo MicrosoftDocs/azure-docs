@@ -18,6 +18,8 @@ When you're finished, you see that the event data has been sent to the web app.
 
 ![View results](./media/custom-event-quickstart-portal/view-result.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]

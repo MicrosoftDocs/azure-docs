@@ -14,6 +14,8 @@ ms.author: spelluru
 
 When creating an event subscription, you can customize the settings for event delivery. This article shows you how to set up a dead letter location and customize the retry settings. For information about these features, see [Event Grid message delivery and retry](delivery-and-retry.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Set dead-letter location
 
 To set a dead letter location, you need a storage account for holding events that can't be delivered to an endpoint. The examples get the resource ID of an existing storage account. They create an event subscription that uses a container in that storage account for the dead-letter endpoint.

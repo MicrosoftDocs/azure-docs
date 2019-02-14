@@ -15,6 +15,8 @@ ms.author: spelluru
 
 This article describes how to post an event to a custom topic. It shows the format of the post and event data. The [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) only applies to posts that match the expected format.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Endpoint
 
 When sending the HTTP POST to a custom topic, use the URI format: `https://<topic-endpoint>?api-version=2018-01-01`.

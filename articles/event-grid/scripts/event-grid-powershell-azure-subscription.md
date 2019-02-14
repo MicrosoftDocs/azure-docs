@@ -26,9 +26,13 @@ The preview sample script requires the Event Grid module. To install, run
 
 ## Sample script - stable
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-azure-subscription/subscribe-to-azure-subscription.ps1 "Subscribe to Azure subscription")]
 
 ## Sample script - preview module
+
+[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-azure-subscription-preview/subscribe-to-azure-subscription-preview.ps1 "Subscribe to Azure subscription")]
 

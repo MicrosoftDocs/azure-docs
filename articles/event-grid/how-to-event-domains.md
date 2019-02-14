@@ -21,6 +21,8 @@ This article shows how to:
 
 To learn about event domains, see [Understand event domains for managing Event Grid topics](event-domains.md).
 
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 ## Install preview feature
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
@@ -49,7 +51,7 @@ For PowerShell, use:
 # This module is required for preview features.
 Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
 
-New-AzEventGridDomain `
+New-AzureRmEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain-name> `
   -Location <location>
@@ -92,7 +94,7 @@ az role assignment create \
 The following PowerShell command limits `alice@contoso.com` to creating and deleting event subscriptions only on topic `demotopic1`:
 
 ```azurepowershell-interactive
-New-AzRoleAssignment `
+New-AzureRmRoleAssignment `
   -SignInName alice@contoso.com `
   -RoleDefinitionName "EventGrid EventSubscription Contributor (Preview)" `
   -Scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
@@ -120,7 +122,7 @@ az eventgrid event-subscription create \
 For PowerShell, use:
 
 ```azurepowershell-interactive
-New-AzEventGridSubscription `
+New-AzureRmEventGridSubscription `
   -ResourceId "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" `
   -EventSubscriptionName <event-subscription> `
   -Endpoint https://contoso.azurewebsites.net/api/updates
@@ -183,7 +185,7 @@ az eventgrid domain key list \
 To get the domain endpoint with PowerShell, use
 
 ```azurepowershell-interactive
-Get-AzEventGridDomain `
+Get-AzureRmEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain>
 ```
@@ -191,7 +193,7 @@ Get-AzEventGridDomain `
 To get the keys for a domain, use:
 
 ```azurepowershell-interactive
-Get-AzEventGridDomainKey `
+Get-AzureRmEventGridDomainKey `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain>
 ```

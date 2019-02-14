@@ -15,6 +15,8 @@ ms.author: spelluru
 
 This article describes how to list the Event Grid subscriptions in your Azure subscription. When querying your existing Event Grid subscriptions, it's important to understand the different types of subscriptions. You provide different parameters based on the type of subscription you want to get.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Resource groups and Azure subscriptions
 
 Azure subscriptions and resource groups aren't Azure resources. Therefore, event grid subscriptions to resource groups or Azure subscriptions do not have the same properties as event grid subscriptions to Azure resources. Event grid subscriptions to resource groups or Azure subscriptions are considered global.
