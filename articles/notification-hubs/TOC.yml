@@ -59,7 +59,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://github.com/Azure/azure-notificationhubs-samples
+    href: https://github.com/azure/azure-notificationhubs-samples
   - name: PowerShell
     href: samples-powershell.md
 - name: Concepts
