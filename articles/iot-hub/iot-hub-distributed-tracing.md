@@ -103,7 +103,7 @@ These instructions are for building the sample from. For other environments, see
     cmake ..
     ```
 
-    If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
+    If `cmake` can't find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
 
     Once the build succeeds, the last few output lines will look similar to the following output:
 
@@ -166,7 +166,7 @@ If you're not using the C SDK, and still to preview distributed tracing for IoT 
 
 ## Update sampling options 
 
-To limit or control the percentage of messages to be traced from the cloud, update the twin. You can use whatever way you like (JSON editor in portal, IoT Hub service SDK, etc.) to update it. 
+To change the percentage of messages to be traced from the cloud, update the twin. You can use whatever way you like (JSON editor in portal, IoT Hub service SDK, etc.) to update it. 
 
 ### Update using the portal
 
@@ -211,11 +211,16 @@ To limit or control the percentage of messages to be traced from the cloud, upda
 To update the distributed tracing sampling configuration for multiple devices, use [automatic device configuration](iot-hub-auto-device-config.md). Make sure you follow this twin schema:
 
 ```json
-"desired": {
-    "azureiot*com^dtracing^1": {
-        "sampling_mode": 1,
-        "sampling_rate": 100
-    },
+{
+    "properties": {
+        "desired": {
+            "azureiot*com^dtracing^1": {
+                "sampling_mode": 1,
+                "sampling_rate": 100
+            }
+        }
+    }
+}
 ```
 
 | Element name | Required | Type | Description |
@@ -256,7 +261,7 @@ To visualize the flow of IoT messages, set up the Application Map sample app. Th
 > [!div class="button"]
 <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Get the sample on Github</a>
 
-This example shows distributed tracing in App Map with 3 routing endpoints:
+This example shows distributed tracing in App Map with three routing endpoints:
 
 ![IoT distributed tracing in App Map](./media/iot-hub-distributed-tracing/app-map.png)
 
@@ -274,7 +279,7 @@ To support wider adoption for distributed tracing, Microsoft is contributing to 
 
 ### IoT Hub support
 
-Once enabled, distributed tracing support for IoT Hub works like this:
+Once enabled, distributed tracing support for IoT Hub follow this flow:
 
 1. A message is generated on the IoT device.
 1. The IoT device decides (with help from cloud) that this message should be assigned with a trace context.
@@ -289,9 +294,9 @@ Once enabled, distributed tracing support for IoT Hub works like this:
 
 ## Public preview limits and considerations
 
-- Proposal for W3C Trace Context standard is a working draft as of time of writing.
+- Proposal for W3C Trace Context standard is currently a working draft.
 - The only language supported by client SDK is C.
-- Cloud-to-device twin capability is not available for [IoT Hub basic tier](iot-hub-scaling.md#basic-and-standard-tiers). However, IoT Hub will still log to Azure Monitor if it sees a properly composed trace context header.
+- Cloud-to-device twin capability isn't available for [IoT Hub basic tier](iot-hub-scaling.md#basic-and-standard-tiers). However, IoT Hub will still log to Azure Monitor if it sees a properly composed trace context header.
 - To ensure efficient operation, IoT Hub will impose a throttle on the rate of logging that can occur as part of distributed tracing.
 
 ## Next steps
