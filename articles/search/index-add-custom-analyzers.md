@@ -22,7 +22,7 @@ translation.priority.mt:
 ---
 # Add custom analyzers to an Azure Search index
 
-A *custom analyzer* is sa pecific type of [text analyzer](search-analyzers.md) that consists of a user-defined combination of existing tokenizer and optional filters. By combining tokenizers and filters in new ways, you can customize text processing in the search engine to achieve specific outcomes. For example, you could create a custom analyzer with a *char filter* to remove HTML markup before text inputs are tokenized.
+A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) that consists of a user-defined combination of existing tokenizer and optional filters. By combining tokenizers and filters in new ways, you can customize text processing in the search engine to achieve specific outcomes. For example, you could create a custom analyzer with a *char filter* to remove HTML markup before text inputs are tokenized.
 
  You can define multiple custom analyzers to vary the combination of filters, but each field can only use one analyzer for indexing analysis and one for search analysis.  
 
@@ -57,7 +57,7 @@ By default, searchable fields in Azure Search are analyzed with the [Apache Luce
 ## Validation rules  
  Names of analyzers, tokenizers, token filters, and char filters have to be unique and cannot be the same as any of the predefined analyzers, tokenizers, token filters, or char filters. See the [Property Reference](#PropertyReference) for names already in use.
 
-## Create a custom analyzer
+## Create custom analyzers
  You can define custom analyzers at index creation time. The syntax for specifying a custom analyzer is described in this section. You can also familiarize yourself with the syntax by reviewing sample definitions in [Analyzers in Azure Search](https://docs.microsoft.com/azure/search/search-analyzers#examples).  
 
  An analyzer definition includes a name, a type, one or more char filters, a maximum of one tokenizer, and one or more token filters for post-tokenization processing. Char filers are applied before tokenization. Token filters and char filters are applied from left to right.
@@ -141,7 +141,8 @@ The analyzer definition is a part of the larger index. See [Create Index API](ht
 Definitions for char filters, tokenizers, and token filters are added to the index only if you are setting custom options. To use an existing filter or tokenizer as-is, specify it by name in the analyzer definition.
 
 <a name="Testing custom analyzers"></a>
-## Test a custom analyzer
+
+## Test custom analyzers
 
 You can use the **Test Analyzer operation** in the [REST API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) to see how an analyzer breaks given text into tokens.
 
@@ -188,7 +189,7 @@ You can use the **Test Analyzer operation** in the [REST API](https://docs.micro
   }
  ~~~~
 
- ## Update a custom analyzer
+ ## Update custom analyzers
 
 Once an analyzer, a tokenizer, a token filter, or a char filter is defined, it cannot be modified. New ones can be added to an existing index only if the `allowIndexDowntime` flag is set to true in the index update request:
 

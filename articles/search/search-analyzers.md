@@ -83,9 +83,18 @@ If a search fails to return expected results, the most likely scenario is token 
 
 The [Search Analyzer Demo](https://alice.unearth.ai/) is a third-party demo app showing a side-by-side comparison of the standard Lucene analyzer, Lucene's English language analyzer, and Microsoft's English natural language processor. The index is fixed; it contains text from a popular story. For each search input you provide, results from each analyzer are displayed in adjacent panes, giving you a sense of how each analyzer processes the same string. 
 
+## Examples
+
+The examples below show analyzer definitions for a few key scenarios.
+
++ [Custom analyzer example](#Example1)
++ [Assign analyzers to a field example](#Example2)
++ [Mixing analyzers for indexing and search](#Example3)
++ [Language analyzer example](#Example4)
+
 <a name="Example1"></a>
 
-## Example 1: Custom analyzer
+### Custom analyzer example
 
 This example illustrates an analyzer definition with custom options. Custom options for char filters, tokenizers, and token filters are specified separately as named constructs, and then referenced in the analyzer definition. Predefined elements are used as-is and simply referenced by name.
 
@@ -159,7 +168,7 @@ Walking through this example:
 
 <a name="Example2"></a>
 
-## Example 2: Override the default analyzer
+### Per-field analyzer assignment example
 
 The Standard analyzer is the default. Suppose you want to replace the default with a different predefined analyzer, such as the pattern analyzer. If you are not setting custom options, you only need to specify it by name in the field definition.
 
@@ -192,7 +201,7 @@ The "analyzer" element overrides the Standard analyzer on a field-by-field basis
 
 <a name="Example3"></a>
 
-## Example 3: Different analyzers for indexing and search operations
+### Mixing analyzers for indexing and search operations
 
 The APIs include additional index attributes for specifying different analyzers for indexing and search. The `searchAnalyzer` and `indexAnalyzer` attributes must be specified as a pair, replacing the single `analyzer` attribute.
 
@@ -220,7 +229,7 @@ The APIs include additional index attributes for specifying different analyzers 
 
 <a name="Example4"></a>
 
-## Example 4: Language analyzer
+### Language analyzer example
 
 Fields containing strings in different languages can use a language analyzer, while other fields retain the default (or use some other predefined or custom analyzer). If you use a language analyzer, it must be used for both indexing and search operations. Fields that use a language analyzer cannot have different analyzers for indexing and search.
 
