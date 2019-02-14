@@ -340,6 +340,8 @@
       items:
       - name: Pip SDK
         href: https://pypi.org/project/azure-cognitiveservices-language-luis/
+      - name: Reference
+        href: https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python
       - name: Samples
         href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis
 - name: Related

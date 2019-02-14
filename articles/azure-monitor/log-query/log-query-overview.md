@@ -16,7 +16,7 @@ ms.author: bwren
 
 # Analyze log data in Azure Monitor
 
-Log data collected by Azure Monitor is stored in a Log Analytics workspace, which is based on [Azure Data Explorer](/azure/data-explorer). It collects telemetry from a variety of sources and uses the [query language from Data Explorer](/azure/kusto/query) to retrieve and analyze data.
+Log data collected by Azure Monitor is stored in a Log Analytics workspace, which is based on [Azure Data Explorer](/azure/data-explorer). It collects telemetry from a variety of sources and uses the [Kusto query language](/azure/kusto/query) used by Data Explorer to retrieve and analyze data.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -42,7 +42,7 @@ The different ways that you will use log queries in Azure Monitor include the fo
 ![Log searches](media/log-query-overview/queries-overview.png)
 
 ## Write a query
-Azure Monitor uses [a version of the Data Explorer query language](get-started-queries.md) to retrieve and analyze log data in a variety of ways.  You'll typically start with basic queries and then progress to use more advanced functions as your requirements become more complex.
+Azure Monitor uses [a version of the Kusto query language](get-started-queries.md) to retrieve and analyze log data in a variety of ways.  You'll typically start with basic queries and then progress to use more advanced functions as your requirements become more complex.
 
 The basic structure of a query is a source table followed by a series of operators separated by a pipe character `|`.  You can chain together multiple operators to refine the data and perform advanced functions.
 
