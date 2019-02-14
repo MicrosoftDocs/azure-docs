@@ -26,7 +26,7 @@ In both Consumption Models, explicitly specifying some parameters requires speci
 * If **accelerationEfficiency** and **decelerationEfficiency** are specified, product of their values must not be greater than 1 (to prevent perpetual motion).
 * **uphillEfficiency** and **downhillEfficiency** must always be specified as a pair (i.e. both or none).
 * If **uphillEfficiency** and **downhillEfficiency** are specified, product of their values must not be greater than 1 (to prevent perpetual motion).
-* If **Efficiency** parameters are specified by the user, then **vehicleWeight** must also be specified. When **vehicleEngineType** is _combustion_, **fuelEnergyDensityInMJoulesPerLiter** must be specified as well.
+* If the \*__Efficiency__ parameters are specified by the user, then **vehicleWeight** must also be specified. When **vehicleEngineType** is _combustion_, **fuelEnergyDensityInMJoulesPerLiter** must be specified as well.
 * **maxChargeInkWh** and **currentChargeInkWh** must always be specified as a pair (i.e. both or none).
 
 > [!NOTE]
