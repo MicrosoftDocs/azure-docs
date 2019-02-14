@@ -19,7 +19,7 @@ Download this easy-to-understand infographic overview of machine learning basics
 ## Popular algorithms in Machine Learning Studio
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) comes with a large library of algorithms for predictive analytics. The infographic identifies four popular families of algorithms - regression, anomaly detection, clustering, and classification - and provides links to working examples in the
-[Azure AI Gallery](https://gallery.cortanaintelligence.com/). The Gallery contains example experiments and tutorials that demonstrate how these algorithms can be applied in many real-world solutions.
+[Azure AI Gallery](https://gallery.azure.ai/). The Gallery contains example experiments and tutorials that demonstrate how these algorithms can be applied in many real-world solutions.
 
 ## Download the infographic with algorithm examples
 
