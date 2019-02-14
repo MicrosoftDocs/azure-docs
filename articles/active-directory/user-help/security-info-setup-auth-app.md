@@ -1,5 +1,5 @@
 ---
-title: Set up security info to use an authenticator app - Azure Active Directory | Microsoft Docs
+title: Set up security info (preview) to use an authenticator app - Azure Active Directory | Microsoft Docs
 description: Set up your security info to verify your identity using the Microsoft Authenticator app.
 services: active-directory
 author: eross-msft
@@ -10,41 +10,159 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Set up security info to use an authenticator app (preview)
+# Set up security info (preview) to use an authenticator app
+Setting up your security info requires you to sign in to your work or school account and then to add your two-factor verification and self-service password reset verification methods. After you've set this up the first time, you can return to the **Security info** page to change your information.
+
+If you're prompted to set this up immediately after you sign in to your work or school account, see the detailed steps in the [Set up your security info from the sign-in page prompt](security-info-setup-signin.md) article.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-Setting up your security info requires you to sign in to your work or school account and then to complete the registration process. If you've never set up your security info, you'll be asked to do it now.
-
 >[!Note]
->You aren't required to use the Microsoft Authenticator app, and you can choose a different app during the set up process. However, this article uses the Microsoft Authenticator app.
-
 >If you don't see an authenticator app option, it's possible that your organization doesn't allow you to use an authentication app for verification. In this case, you'll need to choose another method or contact your administrator for more help.
 
-## Set up the Microsoft Authenticator app
-Depending on your organization’s settings, you may be prompted to set up the Microsoft Authenticator app as soon as you sign in. However, if you're not prompted, you can still download and set up the Authenticator app. For more informations, see [Download and install the Microsoft Authenticator app](user-help-auth-app-download-install.md).
+## In this article
+
+- [Set up the authenticator app](#set-up-the-microsoft-authenticator-app-from-the-security-info-page)
+
+- [Delete the authenticator app](#delete-your-authenticator-app-from-your-security-info-methods)
+
+- [Change the default to the authenticator app](#change-your-default-security-info-method)
+
+- [Additional security info methods](#additional-security-info-methods)
+
+- [Next steps](#next-steps)
+
+## Set up the Microsoft Authenticator app from the Security info page
+Depending on your organization’s settings, you might be able to use an authentication app as one of your security info methods. You aren't required to use the Microsoft Authenticator app, and you can choose a different app during the set up process. However, this article uses the Microsoft Authenticator app. 
+
+### To set up the Microsoft Authenticator app
+
+1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+
+    ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile.png)
+
+2. Select **Security info** from the left navigation pane or one of the links in the **Security info** block, and then select **Add method** from the **Security info** page.
+
+    ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod.png)
+
+3. On the **Add a method** page, select **Authenticator app** from the drop-down list, and then select **Add**.
+
+    ![Add method box, with Authenticator app selected](media/security-info/securityinfo-myprofile-addauthapp.png)
+
+4. On the **Start by getting the app** page, select **Download now** to download and install the Microsoft Authenticator app on your mobile device, and then select **Next**.
+
+    For more information about how to download and install the app, see [Download and install the Microsoft Authenticator app](user-help-auth-app-download-install.md).
+
+    ![Start by getting the app page](media/security-info/securityinfo-myprofile-getauthapp.png)
+
+    >![Note]
+    >If you don't want to use the Microsoft Authenticator app, you can click the **I want to use a different authenticator app** link.
+
+5. Remain on the **Set up your account** page while you set up the Microsoft Authenticator app on your mobile device.
+
+    ![Set up the authenticator app page](media/security-info/securityinfo-myprofile-setupauthapp.png)
+
+6. Open the Microsoft Authenticator app, select to allow notifications (if prompted), select **Add account** from the **Customize and control** icon on the upper-right, and then select **Work or school account**.
+
+7. Return to the **Set up your account** page on your PC, and then select **Next**.
+
+    The **Scan the QR code** page appears.
+
+    ![Scan the QR code using the Authenticator app](media/security-info/securityinfo-myprofile-qrcodeauthapp.png)
+
+6. Scan the provided code with the Microsoft Authenticator app QR code reader, which appeared on your mobile device after you created your work or school account in Step 6.
+
+    The authenticator app should successfully add your work or school account without requiring any additional information from you. However, if the QR code reader can't read the code, you can select the **Can't scan the QR code link** and manually enter the code and URL into the Microsoft Authenticator app. For more information about manually adding a code, see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
+
+7. Select **Next** on the **Scan the QR code** page on your PC.
+
+    A notification is sent to the Microsoft Authenticator app on your mobile device, to test your account.
+
+    ![Test your account with the authenticator app](media/security-info/securityinfo-myprofile-tryitauthapp.png)
+
+8. Approve the notification in the Microsoft Authenticator app, and then select **Next**.
+
+    ![Success notification, connecting the app and your account](media/security-info/securityinfo-myprofile-successauthapp.png)
+
+    Your security info is updated to use the Microsoft Authenticator app by default to verify your identity when using two-step verification or self-service password reset.
+
+## Delete your authenticator app from your security info methods
+If you no longer want to use your authenticator app as a security info method, you can remove it from the **Security info** page. This works for all authenticator apps, not just the Microsoft Authenticator app. After you delete the app, you'll have to go into the authenticator app on your mobile device and delete the account.
+
+>[!Important]
+>If you delete the authenticator app by mistake, there's no way to undo it. You'll have to add the authenticator app again, following the steps in the [Set up the authenticator app](#set-up-the-microsoft-authenticator-app-from-the-security-info-page) section of this article.
+
+### To delete the authenticator app
+
+1. On the **Security info** page, select the **Delete** link next to the Authenticator app.
+
+    ![Link to delete the authenticator app from security info](media/security-info/securityinfo-myprofile-deleteauthapp.png)
+
+    After you delete the authenticator app, it's removed from your security info and disappears from the **Security info** page. If the authenticator app is your default method, the default will change to another available method.
+
+2. Open the authenticator app on your mobile device, select **Edit accounts**, and then delete your work or school account from the authenticator app.
+
+    Your account is completely removed from the authenticator app for two-factor verification and self-service password reset verification.
+
+### Change your default security info method
+If you want the authenticator app to be the default method used when you sign-in to your work or school account using two-factor verification or for self-service password reset requests, you can set it from the Security **info** page.
+
+1. On the **Security info** page, select the **Change** link next to the **Default sign-in method** information.
+
+    ![Change link for default sign-in method](media/security-info/securityinfo-myprofile-changedefaultauthapp.png)
+
+2. Choose **Microsoft Authenticator - notification** from the drop-down list of available methods. If you're not using the Microsoft Authenticator app, select the **Authenticator app or hardware token** option.
+
+    ![Choose method for default sign-in](media/security-info/securityinfo-myprofile-defaultauthapp.png)
+
+    The default method used for sign-in changes to the Microsoft Authenticator app.
+
+## Additional security info methods
+You have additional options for how your organization contacts you to verify your identity, based on what's you're trying to do. The options include:
+
+- **Mobile device text.** Enter your mobile device number and get a text a code you'll use for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a text message (SMS), see [Set up security info to use text messaging (SMS)](security-info-setup-text-msg.md).
+
+- **Mobile device or work phone call.** Enter your mobile device number and get a phone call for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a phone number, see [Set up security info to use phone calls](security-info-setup-phone-number.md).
+
+- **Email address.** Enter your work or school email address to get an email for password reset. This option isn't available for two-step verification. For step-by-step instructions about how to set up your email, see [Set up security info to use email](security-info-setup-email.md).
+
+- **Security questions.** Answer some security questions created by your administrator for your organization. This option is only available for password reset and not for two-step verification. For step-by-step instructions about how to set up your security questions, see the [Set up security info to use security questions](security-info-setup-questions.md) article.
+    
+    >[!Note]
+    >If some of these options are missing, it's most likely because your organization doesn't allow those methods. If this is the case, you'll need to choose an available method or contact your administrator for more help.
+
+## Next steps
+
+- Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](user-help-reset-password.md) article.
+
+- Get troubleshooting tips and help for sign-in problems in the [Can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
 
 
-### To use the Microsoft Authenticator app
 
-1. Select the **Authenticator app** option.
 
-    The **Get the app** wizard appears.
 
-    ![Get the app wizard, initial screen](media/security-info/security-info-auth-app-wizard.png)
 
-    If you don't want to use the Microsoft Authenticator app, you can click the **I want to use a different authenticator app** link from the **Get the app** screen.
 
-2. After you install the Microsoft Authenticator app, select **Next**.
 
-    If you're prompted, allow notifications, add a new account, and then select **Work or school account**.
 
-3. Select **Next**.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     The **Scan the QR code** screen appears.
 
@@ -61,25 +179,4 @@ Depending on your organization’s settings, you may be prompted to set up the M
     >[!Note]
     >If your organization allows it, you'll also get a verification code along with the Microsoft Authenticator app notification. If you want to make the code your default method, follow the instructions in [Manage your security info](security-info-setup-auth-app.md).
 
-## Additional security info options
 
-You have additional options for how your organization contacts you to verify your identity, based on what's you're trying to do. The options include:
-
-- **Mobile device text.** Enter your mobile device number and get a text a code you'll use for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a text message (SMS), see [Set up security info to use text messaging (SMS)](security-info-setup-text-msg.md).
-
-- **Mobile device or work phone call.** Enter your mobile device number and get a phone call for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a phone number, see [Set up security info to use phone calls](security-info-setup-phone-number.md).
-
-- **Email address.** Enter your work or school email address to get an email for password reset. This option isn't available for two-step verification. For step-by-step instructions about how to set up your email, see [Set up security info to use email](security-info-setup-email.md).
-
-- **Security questions.** Answer some security questions created by your administrator for your organization. This option is only available for password reset and not for two-step verification. For step-by-step instructions about how to set up your security questions, see the [Set up security info to use security questions](security-info-setup-questions.md) article.
-    
-    >[!Note]
-    >If some of these options are missing, it's most likely because your organization doesn't allow those methods. If this is the case, you'll need to choose an available method or contact your administrator for more help.
-
-## Next steps
-
-- If you need to update your security info, follow the instructions in the [Manage your security info](security-info-manage-settings.md) article.
-
-- Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](user-help-reset-password.md) article.
-
-- Get troubleshooting tips and help for sign-in problems in the [Can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
