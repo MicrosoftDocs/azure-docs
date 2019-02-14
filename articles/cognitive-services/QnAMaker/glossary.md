@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: The QnA Maker service has many new terms from machine-learning and natural language processing as well as service-specific terms. This list will help you understand those terms.
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article

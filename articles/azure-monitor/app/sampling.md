@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 02/07/2019
 ms.reviewer: vitalyg
 ms.author: mbullwin
 ---
@@ -190,6 +190,63 @@ When you [configure the web pages for Application Insights](../../azure-monitor/
 For the sampling percentage, choose a percentage that is close to 100/N where N is an integer.  Currently sampling doesn't support other values.
 
 If you also enable fixed-rate sampling at the server, the clients and server will synchronize so that, in Search, you can  navigate between related page views and requests.
+
+## ASP.NET Core Sampling
+
+Adaptive sampling is enabled by default for all ASP.NET Core applications. You can disable or customize the sampling behavior.
+
+### Turning off Adaptive Sampling
+
+The default sampling feature can be disabled when we add Application Insights service, in the method ```ConfigureServices```, using ```ApplicationInsightsServiceOptions```:
+
+``` c#
+public void ConfigureServices(IServiceCollection services)
+{
+// ...
+
+var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+aiOptions.EnableAdaptiveSampling = false;
+services.AddApplicationInsightsTelemetry(aiOptions);
+
+//...
+}
+```
+
+The above code will disable sampling feature. Follow the steps below to add sampling with more customization options.
+
+### Configure Sampling settings
+
+Use extension methods of ```TelemetryProcessorChainBuilder``` as shown below to customize sampling behavior.
+
+> [!IMPORTANT]
+> If you use this method to configure sampling, please make sure to use aiOptions.EnableAdaptiveSampling = false; settings with AddApplicationInsightsTelemetry().
+
+``` c#
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+var configuration = app.ApplicationServices.GetService<TelemetryConfiguration>();
+
+var builder = configuration .TelemetryProcessorChainBuilder;
+// version 2.5.0-beta2 and above should use the following line instead of above. (https://github.com/Microsoft/ApplicationInsights-aspnetcore/blob/develop/CHANGELOG.md#version-250-beta2)
+// var builder = configuration.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
+
+// Using adaptive sampling
+builder.UseAdaptiveSampling(maxTelemetryItemsPerSecond:10);
+ 
+// OR Using fixed rate sampling   
+double fixedSamplingPercentage = 50;
+builder.UseSampling(fixedSamplingPercentage);
+
+builder.Build();
+
+// ...
+}
+
+```
+
+**If using the above method to configure sampling, please make sure to use ```aiOptions.EnableAdaptiveSampling = false;``` settings with AddApplicationInsightsTelemetry().**
+
+Without this, there will be multiple sampling processors in the TelemetryProcessor chain leading to unintended consequences.
 
 ## Fixed-rate sampling for ASP.NET and Java web sites
 Fixed rate sampling reduces the traffic sent from your web server and web browsers. Unlike adaptive sampling, it reduces telemetry at a fixed rate decided by you. It also synchronizes the client and server sampling so that related items are retained - for example, when  you look at a page view in Search, you can find its related request.

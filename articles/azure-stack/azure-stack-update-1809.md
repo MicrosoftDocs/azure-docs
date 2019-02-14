@@ -135,7 +135,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Prerequisites
 
-- Install the latest Azure Stack Hotfix for 1808 before applying 1809. For more information, see [KB 4481066 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/). While Microsoft recommends the latest Hotfix avaiable, the minimun version required to install 1809 is 1.1808.5.110.
+- Install the latest Azure Stack Hotfix for 1808 before applying 1809. For more information, see [KB 4481066 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/). While Microsoft recommends the latest Hotfix available, the minimum version required to install 1809 is 1.1808.5.110.
 
   > [!TIP]  
   > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:

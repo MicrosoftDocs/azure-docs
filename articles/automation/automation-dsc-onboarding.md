@@ -27,7 +27,8 @@ Configuration, see [Azure Automation State Configuration overview](automation-ds
 
 Azure Automation State Configuration can be used to manage a variety of machines:
 
-- Azure virtual machines (deployed both in classic and Azure Resource Manager deployment model)
+- Azure virtual machines
+- Azure virtual machines (classic)
 - Amazon Web Services (AWS) EC2 instances
 - Physical/virtual Windows machines on-premises, or in a cloud other than Azure/AWS
 - Physical/virtual Linux machines on-premises, in Azure, or in a cloud other than Azure
@@ -41,6 +42,42 @@ with the desired state in Azure Automation.
 > Managing Azure VMs with State Configuration is included at no extra charge if the virtual machine DSC extension installed is greater than 2.70. Refer to the [**Automation pricing page**](https://azure.microsoft.com/pricing/details/automation/) for more details.
 
 The following sections outline how you can onboard each type of machine to Azure Automation State Configuration.
+
+## Azure virtual machines
+
+Azure Automation State Configuration lets you easily onboard Azure virtual machines for
+configuration management, using either the Azure portal, Azure Resource Manager templates, or
+PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM
+Desired State Configuration extension registers the VM with Azure Automation State Configuration.
+Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its
+progress or troubleshoot it are provided in the following [**Troubleshooting Azure virtual machine onboarding**](#troubleshooting-azure-virtual-machine-onboarding) section.
+
+### Azure portal
+
+In the [Azure portal](https://portal.azure.com/), navigate to the Azure Automation account where
+you want to onboard virtual machines. On the State Configuration page and the **Nodes** tab, click
+**+ Add**.
+
+Select an Azure virtual machine to onboard.
+
+If the machine does not have the PowerShell desired state extension installed and the power state is running, click **Connect**.
+
+Under **Registration**, enter the [PowerShell DSC Local Configuration Manager values](/powershell/dsc/metaconfig4)
+required for your use case, and optionally a node configuration to assign to the VM.
+
+![onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+
+### Azure Resource Manager templates
+
+Azure virtual machines can be deployed and onboarded to Azure Automation State Configuration via
+Azure Resource Manager templates. See [Configure a VM via DSC extension and Azure Automation DSC](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/)
+for an example template that onboards an existing VM to Azure Automation State Configuration. To find the
+registration key and registration URL taken as input in this template, see the following [**Secure registration**](#secure-registration) section.
+
+### PowerShell
+
+The [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode)
+cmdlet can be used to onboard virtual machines in the Azure portal via PowerShell.
 
 ## Azure virtual machines (classic)
 
@@ -132,42 +169,6 @@ $VM | Update-AzureVM
 
 > [!NOTE]
 > State Configuration Node Configuration names are case sensitive in the portal. If the case is mismatched the node will not show up under the **Nodes** tab.
-
-## Azure virtual machines
-
-Azure Automation State Configuration lets you easily onboard Azure virtual machines for
-configuration management, using either the Azure portal, Azure Resource Manager templates, or
-PowerShell. Under the hood, and without an administrator having to remote into the VM, the Azure VM
-Desired State Configuration extension registers the VM with Azure Automation State Configuration.
-Since the Azure VM Desired State Configuration extension runs asynchronously, steps to track its
-progress or troubleshoot it are provided in the following [**Troubleshooting Azure virtual machine onboarding**](#troubleshooting-azure-virtual-machine-onboarding) section.
-
-### Azure portal
-
-In the [Azure portal](https://portal.azure.com/), navigate to the Azure Automation account where
-you want to onboard virtual machines. On the State Configuration page and the **Nodes** tab, click
-**+ Add**.
-
-Select an Azure virtual machine to onboard.
-
-If the machine does not have the PowerShell desired state extension installed and the power state is running, click **Connect**.
-
-Under **Registration**, enter the [PowerShell DSC Local Configuration Manager values](/powershell/dsc/metaconfig4)
-required for your use case, and optionally a node configuration to assign to the VM.
-
-![onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
-
-### Azure Resource Manager templates
-
-Azure virtual machines can be deployed and onboarded to Azure Automation State Configuration via
-Azure Resource Manager templates. See [Configure a VM via DSC extension and Azure Automation DSC](https://azure.microsoft.com/documentation/templates/dsc-extension-azure-automation-pullserver/)
-for an example template that onboards an existing VM to Azure Automation State Configuration. To find the
-registration key and registration URL taken as input in this template, see the following [**Secure registration**](#secure-registration) section.
-
-### PowerShell
-
-The [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode)
-cmdlet can be used to onboard virtual machines in the Azure portal via PowerShell.
 
 ## Amazon Web Services (AWS) virtual machines
 

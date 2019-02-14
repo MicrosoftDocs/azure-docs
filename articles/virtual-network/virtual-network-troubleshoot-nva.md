@@ -37,7 +37,7 @@ Technical support for third-party NVAs and their integration with the Azure plat
 - UDRs on virtual network subnets that direct traffic from NVA
 - Routing tables and rules within the NVA (for example, from NIC1 to NIC2)
 - Tracing on NVA NICs to verify receiving and sending network traffic
-- When using a Standard SKU and  Public IP's there must be a NSG created and an explicit rule to allow the traffic to be routed to the NVA.
+- When using a Standard SKU and Public IPs there must be a NSG created and an explicit rule to allow the traffic to be routed to the NVA.
 
 ## Basic troubleshooting steps
 
@@ -75,8 +75,8 @@ Use PowerShell
           EnableIPForwarding   : True
           NetworkSecurityGroup : null
 
-**Check for NSG when using Standard SKU Pubilc IP**
-When using a Standard SKU and Public IP's there must be a NSG created and an explicit rule to allow the traffic to the NVA.
+**Check for NSG when using Standard SKU Public IP**
+When using a Standard SKU and Public IPs there must be a NSG created and an explicit rule to allow the traffic to the NVA.
 
 **Check whether the traffic can be routed to the NVA**
 

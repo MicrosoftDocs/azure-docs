@@ -4,7 +4,7 @@ description:  In this quickstart, learn how to use Azure PowerShell to encrypt a
 services: security
 documentationcenter: na
 author: mestew
-manager: MBaldwin
+manager: barbkess
 ms.assetid: c8abd340-5ed4-42ec-b83f-4d679b61494d
 ms.service: security
 ms.devlang: na

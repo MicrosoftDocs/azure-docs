@@ -16,6 +16,7 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Use Azure PowerShell to create a service principal with a certificate

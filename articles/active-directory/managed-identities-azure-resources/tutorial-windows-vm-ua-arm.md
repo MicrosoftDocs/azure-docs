@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Use a User-assigned Managed Identity on a Windows VM, to access Azure Resource Manager

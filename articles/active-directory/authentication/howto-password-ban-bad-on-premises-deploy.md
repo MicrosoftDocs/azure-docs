@@ -12,6 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
+ms.collection: M365-identity-device-management
 ---
 
 # Preview: Deploy Azure AD Password Protection
@@ -167,7 +168,7 @@ There are two required installers for Azure AD Password Protection that can be d
       The examples above will only succeed if the currently logged in user is also an Active Directory domain administrator for the root domain. If this is not the case, you may supply alternative domain credentials via the -ForestCredential parameter.
 
    > [!NOTE]
-   > If multiple proxy servers are installed in your environment, it does not matter which proxy server is uses to register the forest.
+   > If multiple proxy servers are installed in your environment, it does not matter which proxy server is used to register the forest.
 
    > [!TIP]
    > There may be a considerable delay (many seconds) the first time this cmdlet is run for a given Azure tenant before the cmdlet completes execution. Unless a failure is reported this delay should not be considered alarming.

@@ -57,7 +57,7 @@ To enable the solution for the at-scale scenario, first configure the following 
 * Install the ServiceMap and InfrastructureInsights solutions. You can complete this installation only by using an Azure Resource Manager template that's provided in this article.
 * Configure the Log Analytics workspace to collect performance counters.
 
-To configure your workspace for the at-scale scenario, see [Set up Log Analytics workspace for an at-scale deployment](#setup-log-analytics-workspace).
+To configure your workspace for the at-scale scenario, see Set up Log Analytics workspace for an at-scale deployment.
 
 ### Supported operating systems
 

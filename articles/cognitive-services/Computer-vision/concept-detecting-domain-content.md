@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to specify an image categorization domain to return more detailed information about an image.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision

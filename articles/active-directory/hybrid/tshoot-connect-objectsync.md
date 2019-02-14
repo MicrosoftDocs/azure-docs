@@ -14,6 +14,7 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot object synchronization with Azure AD Connect sync

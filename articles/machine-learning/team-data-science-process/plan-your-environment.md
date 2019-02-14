@@ -66,7 +66,7 @@ These questions are key to planning your storage and processing environments, ea
 Take the Azure Machine Learning Studio environment for example:
 
 * For a list of the data formats and types supported by Azure Machine Learning Studio, see
-  [Data formats and data types supported](../studio/import-data.md#data-formats-and-data-types-supported) section.
+  [Data formats and data types supported](../studio/import-data.md#supported-data-formats-and-data-types) section.
 
 
 For information on the limitations of other Azure services used in the analytics process, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md).

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Add interactive search and refinement to your app with Knowledge Exploration Service (KES).
 services: cognitive-services
 author: bojunehsu
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: knowledge-exploration
