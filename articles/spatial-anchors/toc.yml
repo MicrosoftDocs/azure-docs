@@ -56,12 +56,12 @@
   expanded: true
   items:
   - name: SDK for Unity
-    href: https://review.docs.microsoft.com/dotnet/api/spatial-anchors/
+    href: https://docs.microsoft.com/dotnet/api/spatial-anchors/
   - name: SDK for iOS Objective-C
-    href: https://review.docs.microsoft.com/objectivec/api/spatial-anchors/
+    href: https://docs.microsoft.com/objectivec/api/spatial-anchors/
   - name: SDK for Android Java
-    href: https://review.docs.microsoft.com/java/api/spatial-anchors/
+    href: https://docs.microsoft.com/java/api/com.microsoft.azure.spatialanchors/
   - name: SDK for Android NDK
-    href: https://review.docs.microsoft.com/cpp/api/spatial-anchors/ndk/
+    href: https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/
   - name: SDK for HoloLens C++/WinRT
-    href: https://review.docs.microsoft.com/cpp/api/spatial-anchors/winrt/
+    href: https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/
