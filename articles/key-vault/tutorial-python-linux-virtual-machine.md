@@ -36,7 +36,9 @@ Before you go any further, make sure you understand the [basic concepts about Ke
 
 * [Git](https://git-scm.com/downloads).
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* Azure CLI. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* [Azure CLI version 2.0.4 or later](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or Azure Cloud Shell.
+
+ > [!INCLUDE [Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 ## Understand Managed Service Identity
 
@@ -206,6 +208,14 @@ In this tutorial, you learned how to use Azure Key Vault with a Python app runni
 ## Clean up resources
 
 Delete the resource group, virtual machine, and all related resources when you no longer need them. To do so, select the resource group for the VM and select **Delete**.
+
+Delete the key vault by using the `az keyvault delete` command:
+
+```azurecli
+az keyvault delete --name
+                   [--resource-group]
+                   [--subscription]
+```
 
 ## Next steps
 
