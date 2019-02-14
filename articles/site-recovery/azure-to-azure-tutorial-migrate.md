@@ -121,7 +121,7 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 3. Select the target Azure virtual network to which you want to move the Azure VMs to test the configuration. 
 
 > [!IMPORTANT]
-> We recommend that you use a separate Azure VM network for the test failure, and not the production network in teh target VM into which you want to move your VMs eventually. that was set up when you enabled replication.
+> We recommend that you use a separate Azure VM network for the test failover, and not the production network into which you want to move your VMs eventually that was set up when you enabled replication.
 
 4. To start testing the move, click **OK**. To track progress, click the VM to open its properties. Or,
    you can click the **Test Failover** job in the vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
