@@ -64,8 +64,8 @@ While the Speech Services work well with built-in models, you may want to furthe
 
 << THIS NEEDS TO BE BETTER - TRY AGAIN >>
 
-| Feature | Customization | Description |
-|---------|---------------|-------------|
+| Speech Service | Model | Description |
+|----------------|-------|-------------|
 |Speech-to-text|[Acoustic model](how-to-customize-acoustic-models.md)|Helps transcribe particular speakers and environments, such as cars or factories.|
 ||[Language model](how-to-customize-language-model.md)|Helps transcribe field-specific vocabulary and grammar, such as medical or IT jargon.|
 ||[Pronunciation model](how-to-customize-pronunciation.md)|Helps transcribe abbreviations and acronyms, such as "IOU" for "I owe you." |
