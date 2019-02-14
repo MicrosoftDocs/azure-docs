@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+          "source_path": "articles/service-bus-messaging/service-bus-paired-namespaces.md",
+          "redirect_url": "/azure/service-bus-messaging/service-bus-outages-disasters",
+          "redirect_document_id": false
+        },
+        {
           "source_path": "articles/machine-learning/studio/retrain-models-programmatically.md",
           "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
           "redirect_document_id": false
@@ -11825,6 +11830,11 @@
     {
       "source_path": "articles/machine-learning/machine-learning-faq.md",
       "redirect_url": "/azure/machine-learning/studio/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure/machine-learning/studio/faq.md",
+      "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio",
       "redirect_document_id": false
     },
     {
