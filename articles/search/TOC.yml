@@ -195,17 +195,17 @@
       href: search-query-overview.md
     - name: Search Explorer (portal)
       href: search-explorer.md
-    - name: Simple syntax examples 
+    - name: Query examples (simple syntax)
       href: search-query-simple-examples.md
-    - name: Lucene syntax examples
+    - name: Query examples (full Lucene)
       href: search-query-lucene-examples.md
-    - name: Query syntax
-      items:
-      - name: Simple query syntax
-        href: query-simple-syntax.md
-      - name: Lucene query syntax
-        href: query-lucene-syntax.md
-    - name: Paging results
+    - name: 'Syntax: simple query'
+      href: query-simple-syntax.md
+    - name: 'Syntax: full Lucene'
+      href: query-lucene-syntax.md
+  - name: Handlings results
+    items:
+    - name: Page-related features
       href: search-pagination-page-layout.md
   - name: Filtering and sorting data
     items:
