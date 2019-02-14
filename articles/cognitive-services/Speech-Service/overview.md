@@ -42,41 +42,38 @@ We offer quickstarts in most popular programming languages, each designed to hav
 
 | Recognition (SDK) | Translation (SDK) | Synthesis (REST) |
 |-------------------|-------------------|------------------|
-| C#, .NET Core (Windows) | Java (Windows, Linux) | Python (Windows, Linux, macOS) |
-| Javascript (Browser) | C#, .NET Core (Windows) | C#, .NET Core (Windows, Linux, macOS) |
-| Python (Windows, Linux, macOS) | C#, .NET Framework (Windows) | Node.js (Windows, Linux, macOS) |
-| Java (Windows, Linux) | C++ (Windows) | |
+| [C#, .NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [Java (Windows, Linux)](quickstart-translate-speech-java.md) | [Python (Windows, Linux, macOS)](quickstart-python-text-to-speech.md) |
+| [Javascript (Browser)](quickstart-js-browser.md) | [C#, .NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#, .NET Core (Windows, Linux, macOS)](quickstart-dotnet-text-to-speech.md) |
+| [Python (Windows, Linux, macOS)](quickstart-python.md) | [C#, .NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js (Windows, Linux, macOS)](quickstart-nodejs-text-to-speech.md) |
+| [Java (Windows, Linux)](quickstart-java-jre.md) | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) | |
 
-## Sample code and tutorials
+After you've had a chance to use the Speech Services, try our tutorial that teaches you how to recognize intents from speech using the Speech SDK and LUIS.
 
-<< Links to sample code on GitHub >>
+* [Tutorial: Recognize intents from speech with the Speech SDK and LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 
-## Customization
+## Sample code
 
-<< THIS NEEDS TO BE REWRITTEN >>
+Code samples are available on GitHub for each of the Azure Speech Services. Use these links to view SDK and REST samples:
 
-You can use your own data to train the models that underlie the Speech service's Speech-to-Text and Text-to-Speech features.
+* [Speech SDK samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Speech Synthesis samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
-|Feature|Model|Purpose|
-|-|-|-|
+## Customize your speech experience
+
+While the Speech Services work well with built-in models, you may want to further customize and tune the experience for your product or environment. Customization options range from acoustic model tuning to unique voice fonts for your brand.
+
+<< THIS NEEDS TO BE BETTER - TRY AGAIN >>
+
+| Feature | Customization | Description |
+|---------|---------------|-------------|
 |Speech-to-text|[Acoustic model](how-to-customize-acoustic-models.md)|Helps transcribe particular speakers and environments, such as cars or factories.|
 ||[Language model](how-to-customize-language-model.md)|Helps transcribe field-specific vocabulary and grammar, such as medical or IT jargon.|
 ||[Pronunciation model](how-to-customize-pronunciation.md)|Helps transcribe abbreviations and acronyms, such as "IOU" for "I owe you." |
 |Text-to-speech|[Voice font](how-to-customize-voice-font.md)|Gives your app a voice of its own by training the model on samples of human speech.|
 
-You can use your custom models anywhere you use the standard models in your app's Speech-to-Text or Text-to-Speech functionality.
-
-
-### Speech Devices SDK
-
-<< WHERE DOES THIS BELONG? >>
-
-The [Speech Devices SDK](speech-devices-sdk.md) is an integrated hardware and software platform for developers of speech-enabled devices. Our hardware partner provides reference designs and development units. Microsoft provides a device-optimized SDK that takes full advantage of the hardware's capabilities.
-
+After you've built a custom model, you can use it with any of the Speech Services.
 
 ## Next steps
 
-Get a subscription key for the Speech Services.
-
 > [!div class="nextstepaction"]
-> [Try the Speech Services for free](get-started.md)
+> [Get a Speech Services subscription key for free](get-started.md)
