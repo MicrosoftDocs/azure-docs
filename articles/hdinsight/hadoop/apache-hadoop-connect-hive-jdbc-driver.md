@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 02/14/2019
 ms.author: hrasheed
 
 ---
@@ -16,22 +16,18 @@ ms.author: hrasheed
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Learn how to use the JDBC driver from a Java application to submit Apache Hive queries to Apache Hadoop in Azure HDInsight. The information in this document demonstrates how to connect programmatically and from the SQuirrel SQL client.
+Learn how to use the JDBC driver from a Java application to submit Apache Hive queries to Apache Hadoop in Azure HDInsight. The information in this document demonstrates how to connect programmatically from the SQuirreL SQL client.
 
 For more information on the Hive JDBC Interface, see [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
 ## Prerequisites
 
-* A Hadoop on HDInsight cluster.
+* An HDInsight Hadoop cluster. To create one, see [Get started with Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
-  > [!IMPORTANT]
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight 3.3 retirement](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+* The [Java Developer Kit (JDK) version 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) or higher.
 
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL is a JDBC client application.
 
-* The [Java Developer Kit (JDK) version 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) or higher.
-
-* [Apache Maven](https://maven.apache.org). Maven is a project build system for Java projects that is used by the project associated with this article.
 
 ## JDBC connection string
 
@@ -55,24 +51,13 @@ DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with your HDInsight cluster. The following steps assume that you have already installed SQuirreL SQL.
 
-1. Create a directory that contains the files. For example, `mkdir hivedriver`.
+1. Create a directory to contain certain fies copied from your cluster. For example, `mkdir C:\HD\hivedriver`.
 
-2. From a command line, use the following commands to copy the files from the HDInsight cluster:
+2. In the following script, replace `sshuser` with the SSH user account name for the cluster.  Replace `CLUSTERNAME` with the HDInsight cluster name.  From a command line, use the following commands to copy the files from the HDInsight cluster:
 
     ```bash
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libfb*.jar .
-    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:"/usr/hdp/current/hadoop-client/hadoop-auth.jar /usr/hdp/current/hadoop-client/hadoop-common.jar /usr/hdp/current/hadoop-client/lib/log4j-*.jar /usr/hdp/current/hadoop-client/lib/slf4j-*.jar /usr/hdp/current/hive-client/lib/commons-codec*.jar /usr/hdp/current/hive-client/lib/commons-logging-*.jar /usr/hdp/current/hive-client/lib/hive-*-1.2*.jar /usr/hdp/current/hive-client/lib/httpclient-*.jar /usr/hdp/current/hive-client/lib/httpcore-*.jar /usr/hdp/current/hive-client/lib/libfb*.jar /usr/hdp/current/hive-client/lib/libthrift-*.jar" C:\HD\hivedriver
     ```
-
-    Replace `USERNAME` with the SSH user account name for the cluster. Replace `CLUSTERNAME` with the HDInsight cluster name.
 
 3. Start the SQuirreL SQL application. From the left of the window, select **Drivers**.
 
