@@ -109,5 +109,5 @@ If you have questions or need help, [create a support request](https://portal.az
 To learn more about your invoice and detailed usage, see:
 
 - [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md)
-- [Understand terms on your Microsoft Azure invoice](billing-understand-your-invoice-mca.md)
+- [Understand terms on your Microsoft Customer Agreement invoice](billing-understand-your-invoice-mca.md)
 - [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md)
