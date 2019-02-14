@@ -40,7 +40,7 @@ See [Android Studio documentation](https://developer.android.com/studio/intro/) 
 
 ## Set up a virtual device
 
-Android Studio lets you set up a virtual Android device on your computer. Which can help to test your application while you develop. To setup a virtual device click on the Android Virtual Device (AVD) Manager icon on the top right of your project screen. Then click the **Create Virtual Device** button. You can also get to the manager via Tools > Android > AVD Manager in the toolbar. From the **Phones** category, select **Nexus 5X** and click **Next**.
+Android Studio lets you set up a virtual Android device on your computer. Which can help to test your application while you develop. To setup a virtual device click on the Android Virtual Device (AVD) Manager icon on the top right of your project screen. Then click the **Create Virtual Device** button. You can also get to the manager via **Tools > Android > AVD Manager** in the toolbar. From the **Phones** category, select **Nexus 5X** and click **Next**.
 
 Learn more about setting up an AVD in the [Android Studio documentation](https://developer.android.com/studio/run/managing-avds).
 
@@ -74,7 +74,7 @@ Before you move forward towards building your application, follow the steps belo
         implementation "com.microsoft.azure.maps:mapcontrol:0.1"
         ```
 
-3. Set up permissions by adding the following to your `AndroidManifest.xml'
+3. Set up permissions by adding the following to your **AndroidManifest.xml**
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
