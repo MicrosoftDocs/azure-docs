@@ -28,7 +28,7 @@
     href: cli-samples.md        
 - name: Concepts
   items:
-  - mame: Cloud upload and storage
+  - name: Cloud upload and storage
     href: storage-account-concept.md     
     items:
     - name: Assets
