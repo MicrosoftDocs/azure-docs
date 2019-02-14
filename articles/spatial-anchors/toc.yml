@@ -27,11 +27,11 @@
 - name: Tutorials
   expanded: true
   items:
-  - name: Share anchors
+  - name: Share anchors with Unity app
     href: tutorials/tutorial-share-anchors-across-devices.md
     expanded: true
     items:
-    - name: Using Cosmos DB
+    - name: Using Cosmos DB and Unity
       href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
 - name: Concepts
   expanded: true
