@@ -29,7 +29,7 @@ Language analyzers convert a text input into primitive or root forms that are ef
 
 Azure Search uses the [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) as the default, which breaks text into elements following the ["Unicode Text Segmentation"](https://unicode.org/reports/tr29/) rules. Additionally, the standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.  
 
-It's used automatically on every searchable field. You can override the default on a field-by-field basis. Alternative analyzers can be a [language analyzer](index-add-language-analyzers.md), [custom analyzer](index-add-custom-anlayzers.md), or a predefined analyzer from the [list of available analyzers](index-add-custom-anlayzers.md#AnalyzerTable).
+It's used automatically on every searchable field. You can override the default on a field-by-field basis. Alternative analyzers can be a [language analyzer](index-add-language-analyzers.md), [custom analyzer](index-add-custom-analyzers.md), or a predefined analyzer from the [list of available analyzers](index-add-custom-analyzers.md#AnalyzerTable).
 
 
 ## Types of analyzers
