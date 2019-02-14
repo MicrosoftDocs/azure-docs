@@ -17,7 +17,7 @@ ms.author: mbullwin
 ---
 # Deep diagnostics for web apps and services with Application Insights
 ## Why do I need Application Insights?
-Application Insights monitors your running web app. It tells you about failures and performance issues, and helps you analyze how customers use your app. It works for apps running on many platforms (ASP.NET, J2EE, Node.js, ...) and is hosted either in the Cloud or on-premises. 
+Application Insights monitors your running web app. It tells you about failures and performance issues, and helps you analyze how customers use your app. It works for apps running on many platforms (ASP.NET, Java EE, Node.js, ...) and is hosted either in the Cloud or on-premises. 
 
 ![Aspects of the complexity of delivering web apps](./media/devops/010.png)
 

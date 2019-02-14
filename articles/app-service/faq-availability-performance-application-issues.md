@@ -110,7 +110,7 @@ To turn on failed request tracing:
 10. Select **Web.config**.
 11. In system.webServer, add this configuration (to capture a specific URL):
 
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*api*" />
@@ -126,7 +126,7 @@ To turn on failed request tracing:
     </tracing>
     ```
 12. To troubleshoot slow-performance issues, add this configuration (if the capturing request is taking more than 30 seconds):
-    ```
+    ```xml
     <system.webServer>
     <tracing> <traceFailedRequests>
     <remove path="*" />

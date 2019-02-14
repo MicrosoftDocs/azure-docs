@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.collection: M365-identity-device-management
 ---
 
 # Developer guidance for Azure Active Directory conditional access

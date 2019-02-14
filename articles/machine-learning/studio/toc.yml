@@ -8,9 +8,6 @@
     href: what-is-ml-studio.md
   - name: Compare our ML products
     href: ../service/overview-more-machine-learning.md       
-  - name: Frequently asked questions
-    displayName: FAQ
-    href: faq.md
 - name: Tutorials
   items:
   - name: Create your first experiment
@@ -142,12 +139,6 @@
     items:
     - name: Overview
       href: retrain-machine-learning-model.md
-    - name: Retrain programmatically
-      href: retrain-models-programmatically.md
-    - name: Retrain a Classic web service
-      href: retrain-a-classic-web-service.md
-    - name: Retrain with PowerShell
-      href: retrain-new-web-service-using-powershell.md
     - name: Retrain an existing web service
       href: retrain-existing-resource-manager-based-web-service.md
     - name: Troubleshoot

@@ -16,6 +16,7 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: japere
 
+ms.collection: M365-identity-device-management
 ---
 
 # Working with claims-aware apps in Application Proxy
