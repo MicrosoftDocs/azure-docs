@@ -14,7 +14,7 @@ ms.date: 02/14/2019
 ---
 # Retrain and deploy a machine learning model
 
-Retraining is one way to ensure machine learning models stay accurate with the most relevant data. This article shows how to retrain and deploy a machine learning model as a new web service in Studio. If you're looking to retrain a classic web service, [view this article](retrain-a-classic-web-service.md)
+Retraining is one way to ensure machine learning models stay accurate with the most relevant data. This article shows how to retrain and deploy a machine learning model as a new web service in Studio. If you're looking to retrain a classic web service, [view this how-to article](retrain-a-classic-web-service.md)
 
 This article assumes you already have a predictive web service deployed. If you don't already have a predictive web service, [learn how to deploy a Studio web service here](publish-a-machine-learning-web-service.md).
 

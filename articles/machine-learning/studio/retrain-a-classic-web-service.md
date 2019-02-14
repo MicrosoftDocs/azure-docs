@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
 ---
-# Retrain a Classic Azure Machine Learning Studio web service
+# Retrain and deploy a classic Studio web service
 
 When you deploy a predictive experiment as a scoring web service, it's a static model. However, models need to be retrained as new data becomes available.
 
