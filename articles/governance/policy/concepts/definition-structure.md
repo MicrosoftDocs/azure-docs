@@ -384,9 +384,9 @@ For complete details on each effect, order of evaluation, properties, and exampl
 
 ### Policy functions
 
-Except for the following deployment and resource functions, all [Resource Manager template
+All [Resource Manager template
 functions](../../../azure-resource-manager/resource-group-template-functions.md) are available to
-use within a policy rule:
+use within a policy rule, except the following functions:
 
 - copyIndex()
 - deployment()
