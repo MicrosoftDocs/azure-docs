@@ -123,7 +123,7 @@
           href: automation-starting-a-runbook.md
         - name: Start a runbook from a webhook
           href: automation-webhooks.md
-        - name: Configure runbook input parameters
+        - name: Runbook input parameters
           href: automation-runbook-input-parameters.md
         - name: Error handling in graphical runbooks
           href: automation-runbook-graphical-error-handling.md
@@ -133,8 +133,6 @@
         - name: Manage Azure Automation data
           href: automation-managing-data.md
           displayName: backup
-        - name: Pass a JSON object to an Azure Automation runbook
-          href: automation-pass-json-string.md
         - name: Manage Python 2 packages
           href: python-packages.md
     - name: Hybrid Runbook Worker
