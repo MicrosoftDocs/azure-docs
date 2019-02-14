@@ -64,7 +64,7 @@ The application identifier is available via the membership details page in the D
 
 ### Authentication token
 
-The authentication token can be downloaded after you generate a token for your application. For details on how to generate this token, refer to [Apple’s Developer documentation](http://help.apple.com/xcode/mac/current/#/dev11b059073?sub=dev1eb5dfe65).
+The authentication token can be downloaded after you generate a token for your application. For details on how to generate this token, refer to [Apple’s Developer documentation](https://help.apple.com/xcode/mac/current/#/dev11b059073?sub=dev1eb5dfe65).
 
 ## Configuring your notification hub to use token-based authentication
 
