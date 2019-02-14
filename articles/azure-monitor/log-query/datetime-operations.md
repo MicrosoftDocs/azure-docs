@@ -26,7 +26,7 @@ This article describes how to work with date and time data in Azure Monitor log 
 
 
 ## Date time basics
-The Data Explorer query language has two main data types associated with dates and times: datetime and timespan. All dates are expressed in UTC. While multiple datetime formats are supported, the ISO8601 format is preferred. 
+The Kusto query language has two main data types associated with dates and times: datetime and timespan. All dates are expressed in UTC. While multiple datetime formats are supported, the ISO8601 format is preferred. 
 
 Timespans are expressed as a decimal followed by a time unit:
 
@@ -156,7 +156,7 @@ Event
 | Get a date relative to value  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## Next steps
-See other lessons for using the [Data Explorer query language](/azure/kusto/query/) with Azure Monitor log data:
+See other lessons for using the [Kusto query language](/azure/kusto/query/) with Azure Monitor log data:
 
 - [String operations](string-operations.md)
 - [Aggregation functions](aggregations.md)
