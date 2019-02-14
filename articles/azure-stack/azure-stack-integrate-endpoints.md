@@ -30,6 +30,9 @@ Internal infrastructure VIPs aren't listed because they’re not required for pu
 > [!Note]  
 > User VIPs are dynamic, defined by the users themselves with no control by the Azure Stack operator.
 
+> [!Note]
+> As of the 1811 update, ports in the range of 12495-30015 are no longer required to be open due to the addition of the [Extension Host](azure-stack-extension-host-prepare.md).
+
 |Endpoint (VIP)|DNS host A record|Protocol|Ports|
 |---------|---------|---------|---------|
 |AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
