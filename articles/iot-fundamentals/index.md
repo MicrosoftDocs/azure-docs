@@ -83,7 +83,7 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/index/i_iot_hub.svg" alt="What's new icon" />
+                                    <img src="/media/index/i_iot_hub.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -103,7 +103,7 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/index/i_iot_accelerators.svg" alt="What's new icon" />
+                                    <img src="/media/index/i_iot_accelerators.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -123,7 +123,7 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/index/i_iot_central.svg" alt="What's new icon" />
+                                    <img src="/media/index/i_iot_central.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -143,7 +143,7 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/index/i_iot_edge.svg" alt="What's new icon" />
+                                    <img src="/media/index/i_iot_edge.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -163,7 +163,7 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/index/i_digital_twins.svg" alt="What's new icon" />
+                                    <img src="/media/index/i_digital_twins.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -183,7 +183,7 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/index/i_iot_dps.svg" alt="What's new icon" />
+                                    <img src="/media/index/i_iot_dps.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -203,7 +203,7 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/index/i_time-series-insights.svg" alt="What's new icon" />
+                                    <img src="/media/index/i_time-series-insights.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -223,7 +223,7 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/index/i_azure_maps.svg" alt="What's new icon" />
+                                    <img src="/media/index/i_azure_maps.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
