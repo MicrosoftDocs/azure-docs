@@ -11,20 +11,21 @@ ms.author: helohr
 ---
 # Tutorial: Create a tenant in Windows Virtual Desktop (Preview)
 
-Creating a tenant in Windows Virtual Desktop is the first step towards building out your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool is made up of multiple identical session hosts, running as virtual machines in Azure  and registered to Windows Virtual Desktop. With a tenant, you can build out host pools, assign users, and make connections through the service.
+Creating a tenant in Windows Virtual Desktop is the first step towards building out your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool consists of multiple session hosts, running as virtual machines in Azure  and registered to the Windows Virtual Desktop service. Each host pool also consists of one or more app groups which are used to publish remote desktop and remote application resources to users. With a tenant, you can build out host pools, create app groups, assign users, and make connections through the service.
 
 In this tutorial, learn how to:
 
 > [!div class="checklist"]
 > * Grant Azure Active Directory permissions to the Windows Virtual Desktop service.
-> * Assign the TenantCreator application role to a user in your Azure Active Directory.
+> * Assign the TenantCreator application role to a user in your Azure Active Directory tenant.
 > * Create a Windows Virtual Desktop tenant.
 
 Here's what you need to set up your Windows Virtual Desktop tenant:
 
-* The [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for Windows Virtual Desktop users.
-* A global administrator account within the Azure Active Directory.
+* The [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) tenant ID for Windows Virtual Desktop users.
+* A global administrator account within the Azure Active Directory tenant.
    * This also applies to Cloud Solution Provider (CSP) organizations creating a Windows Virtual Desktop tenant for their customers. If you are a CSP organization, you must be able to sign in as global administrator of the customer's Azure Active Directory.
+* An Azure subscription ID
 
 ## Grant Azure Active Directory permissions to the Windows Virtual Desktop service
 
@@ -37,7 +38,7 @@ To grant the service permissions:
 1. Open a browser and connect to the [Windows Virtual Desktop consent page](https://rdweb.wvd.microsoft.com).
 2. For **Consent Option** > **Server App**, enter the Azure Active Directory tenant name or Directory ID, then select **Submit**.
         For Cloud Solution Provider customers, the ID is the customer's Microsoft ID from the Partner Portal. For Enterprise customers, the ID is located under **Azure Active Directory** > **Properties** > **Directory ID**.
-3. Sign in to the Windows Virtual Desktop consent page with your global administrator account. For example, if you were with the Contoso organization, your account would be admin@contoso.com.  
+3. Sign in to the Windows Virtual Desktop consent page with a global administrator account. For example, if you were with the Contoso organization, your account might be admin@contoso.com or admin@contoso.onmicrosoft.com.  
 4. Select **Accept**.
 5. Wait for one minute.
 6. Navigate back to the [Windows Virtual Desktop consent page](https://rdweb.wvd.microsoft.com).
@@ -45,13 +46,13 @@ To grant the service permissions:
 8. Sign in to the Windows Virtual Desktop consent page as global administrator like you did back in step 3.
 9. Select **Accept**.
 
-## Assign the TenantCreator application role to a user in your Azure Active Directory
+## Assign the TenantCreator application role to a user in your Azure Active Directory tenant
 
 Assigning an Azure Active Directory user the TenantCreator application role allows that user to create a Windows Virtual Desktop tenant associated with the Azure Active Directory. You'll need to assign the TenantCreator role to your global administrator account.
 
 To assign the TenantCreator application role to your global administrator account:
 
-1. Open a browser and connect to the [Azure Active Directory portal](https://aad.portal.azure.com) with your global administrator account.
+1. Open a browser and connect to the [Azure Active Directory portal](https://aad.portal.azure.com) with your global administrator account. Note: If you are working with multiple Azure AD tenants it is a good practice to open a private browser session and copy and paste URLs into the address.
 2. Select **Enterprise applications**, search for **Windows Virtual Desktop** and select the application.
 3. Select **Users and groups**, then select **Add user**.
 4. Search for the global administrator account, then select **Select**, and then select **Assign**.
