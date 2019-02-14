@@ -8,7 +8,7 @@ ms.date: 01/11/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
-ms.component: disks
+ms.subservice: disks
 ---
 # Benchmarking a disk
 
