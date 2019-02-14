@@ -13,7 +13,7 @@ manager: craigg
 ---
 
 # Azure SQL Data Warehouse release notes
-This article summarizes the new features and improvements in the recent releases of [Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md). The article also lists notable content updates that are not direclty related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates)
+This article summarizes the new features and improvements in the recent releases of [Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md). The article also lists notable content updates that are not directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates)
 
 ## SQL Data Warehouse Version 10.0.10106.0 (January)
 
