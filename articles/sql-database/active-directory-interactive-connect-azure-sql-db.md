@@ -13,32 +13,32 @@ ms.reviewer: GeneMi
 ms.date: 01/25/2019
 manager: craigg
 ---
-# Connect to Azure SQL Database with Active Directory MFA
+# Connect to Azure SQL Database with Active Directory Multi-Factor Authentication
 
-This article provides a C# program that connects to your Azure SQL Database. The program uses interactive mode authentication, which supports [Azure Active Directory (Azure AD) multi-factor authentication (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+This article provides a C# program that connects to Azure SQL Database. The program uses interactive mode authentication, which supports [Azure Active Directory (Azure AD) Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
-For more information about MFA support for SQL tools, see [Azure Active Directory support in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
+For more information about Multi-Factor Authentication support for SQL tools, see [Azure Active Directory support in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
 
 ## Multi-factor authentication for Azure SQL Database
 
-Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) has a new value - `ActiveDirectoryInteractive`. In a client C# program, the enum value directs the system to use the Azure AD interactive mode supporting MFA to connect to an Azure SQL Database. The user who runs the program sees the following dialog boxes:
+Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) has a new value - `ActiveDirectoryInteractive`. In a client C# program, the enum value directs the system to use the Azure AD interactive mode that supports Multi-Factor Authentication to connect to an Azure SQL Database. The user who runs the program sees the following dialog boxes:
 
 * A dialog box that displays an Azure AD user name and asks for the user's password.
 
-   If the user's domain is federated with Azure AD this dialog box doesn't appear, as no password is needed.
+   If the user's domain is federated with Azure AD, this dialog box doesn't appear, because no password is needed.
 
-   If the Azure AD policy imposes MFA on the user, the next two dialog boxes are displayed.
+   If the Azure AD policy imposes Multi-Factor Authentication on the user, the next two dialog boxes are displayed.
 
-* The first time a user goes through MFA, the system displays a dialog box asking for a mobile phone number to send text messages to. Each message provides the *verification code* that the user must enter in the next dialog box.
+* The first time a user goes through Multi-Factor Authentication, the system displays a dialog box that asks for a mobile phone number to send text messages to. Each message provides the *verification code* that the user must enter in the next dialog box.
 
-* A dialog box asking for an MFA verification code, which the system has sent to a mobile phone.
+* A dialog box that asks for a Multi-Factor Authentication verification code, which the system has sent to a mobile phone.
 
-For information about how to configure Azure AD to require MFA, see [Getting started with Azure Multi-Factor Authentication in the cloud](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
+For information about how to configure Azure AD to require Multi-Factor Authentication, see [Getting started with Azure Multi-Factor Authentication in the cloud](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud).
 
-For screenshots of these dialogs, see [Configure multi-factor authentication for SQL Server Management Studio and Azure AD](sql-database-ssms-mfa-authentication-configure.md).
+For screenshots of these dialog boxes, see [Configure multi-factor authentication for SQL Server Management Studio and Azure AD](sql-database-ssms-mfa-authentication-configure.md).
 
 > [!TIP]
-> You can search .NET Framework APIs with our **.NET API Browser** tool page:
+> You can search .NET Framework APIs with the **.NET API Browser** tool page:
 >
 > [https://docs.microsoft.com/dotnet/api/](https://docs.microsoft.com/dotnet/api/)
 >
@@ -53,9 +53,9 @@ Before you begin, you should have an [Azure SQL Database server](sql-database-ge
 ### Register your app and set permissions
 
 
-To use Azure AD authentication, your C# program has to register as an Azure AD application. To register an app, you need to be either an Azure AD admin or a user assigned the Azure AD *Application Developer* role. For more information about assigning roles, see [Assign administrator and non-administrator roles to users with Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
+To use Azure AD authentication, your C# program has to register as an Azure AD application. To register an app, you need to be either an Azure AD admin or a user assigned the Azure AD *Application Developer* role. For more information about assigning roles, see [Assign administrator and non-administrator roles to users with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
- Completing an app registration generates and displays an **Application ID**. Your program has to include this ID to connect.
+ Completing an app registration generates and displays an **application ID**. Your program has to include this ID to connect.
 
 
 To register and set necessary permissions for your application:
@@ -64,7 +64,7 @@ To register and set necessary permissions for your application:
 
     ![App registration](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
-    After the app registration is created, the **Application ID** value is generated and displayed.
+    After the app registration is created, the **application ID** value is generated and displayed.
 
     ![App ID displayed](media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
@@ -87,7 +87,7 @@ For your C# program to run, an Azure SQL server admin needs to assign an Azure A
 
  * **SQL Server** > **Active Directory admin** > **Set admin**
 
-For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server), in the **Provision an Azure Active Directory administrator for your Azure SQL Database server** section.
+For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server), in the **Provision an Azure Active Directory administrator for Azure SQL Database server** section.
 
 ### Add a non-admin user to a specific database (optional)
 
@@ -103,15 +103,15 @@ The C# example relies on the [`System.Data.SqlClient`](https://docs.microsoft.co
 
 - `SqlAuthenticationMethod.ActiveDirectoryInteractive`
 
-   Use this value with an Azure AD user name to implement MFA. This value is the focus of the present article. It produces an interactive experience by displaying dialogs for the user password, and then for MFA validation if MFA is imposed on this user. This value is available starting with .NET Framework version 4.7.2.
+   Use this value with an Azure AD user name to implement Multi-Factor Authentication. This value is the focus of the present article. It produces an interactive experience by displaying dialog boxes for the user password, and then for Multi-Factor Authentication validation if Multi-Factor Authentication is imposed on this user. This value is available starting with .NET Framework version 4.7.2.
 
 - `SqlAuthenticationMethod.ActiveDirectoryIntegrated`
 
-  Use this value for a *federated* account. For a federated account, the user name is known to the Windows domain. This authentication method doesn't support MFA.
+  Use this value for a *federated* account. For a federated account, the user name is known to the Windows domain. This authentication method doesn't support Multi-Factor Authentication.
 
 - `SqlAuthenticationMethod.ActiveDirectoryPassword`
 
-  Use this value for authentication that requires an Azure AD user name and password. Azure SQL Database does the authentication. This method doesn't support MFA.
+  Use this value for authentication that requires an Azure AD user name and password. Azure SQL Database does the authentication. This method doesn't support Multi-Factor Authentication.
 
 ## Set C# parameter values from the Azure portal
 
@@ -134,7 +134,7 @@ Before you run the C# program, it's a good idea to check that your setup and con
 
 Run SSMS from the same computer, in the same building, where you plan to run the C# program. For this test, any **Authentication** mode is okay. If there's any indication that the database server firewall isn't accepting your IP address, see [Azure SQL Database server-level and database-level firewall rules](sql-database-firewall-configure.md) for help.
 
-### Verify Azure Active Directory MFA
+### Verify Azure Active Directory Multi-Factor Authentication
 
 Run SSMS again, this time with **Authentication** set to **Active Directory - Universal with MFA support**. This option requires SSMS version 17.5 or later.
 
