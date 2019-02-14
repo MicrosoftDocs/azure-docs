@@ -153,8 +153,6 @@ Azure Data Lake Storage Gen1 is an enterprise-wide hyperscale repository for big
 
 Access Data Lake Storage Gen1 from Hadoop (available with an HDInsight cluster) by using the WebHDFS-compatible REST APIs. Data Lake Storage Gen1 is designed to enable analytics on the stored data and is tuned for performance in data analytics scenarios. Out of the box, it includes the capabilities that are essential for real-world enterprise use cases. These capabilities include security, manageability, scalability, reliability, and availability.
 
-![Diagram showing data flow in Azure Data Lake Storage](./media/hdinsight-hadoop-compare-storage-options/data-lake-store-concept.png "HDInsight Storage Architecture")
-
 For more information on Azure Data Lake Storage Gen1, see the detailed [Overview of Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md).
 
 The key capabilities of Data Lake Storage Gen1 include the following.
