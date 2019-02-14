@@ -22,10 +22,6 @@ ms.author: cynthn
 With [Compose](http://github.com/docker/compose), you use a simple text file to define an application consisting of multiple Docker containers. You then spin up your application in a single command that does everything to deploy your defined environment. As an example, this article shows you how to quickly set up a WordPress blog with a backend MariaDB SQL database on an Ubuntu VM. You can also use Compose to set up more complex applications.
 
 
-## Set up a Linux VM as a Docker host
-You can use various Azure procedures and available images or Resource Manager templates in the Azure Marketplace to create a Linux VM and set it up as a Docker host. 
-
-
 ## Create Docker host with Azure CLI
 Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/reference-index).
 
@@ -41,51 +37,47 @@ Create a file named *cloud-init.txt* and paste the following configuration. Ente
 #include https://get.docker.com
 ```
 
-Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. The following example creates a VM named *myAutomatedVM*:
+Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. The following example creates a VM named *myDockerVM* and opens port 80 to web traffic.
 
 ```azurecli-interactive
 az vm create \
     --resource-group myDockerGroup \
-    --name myVM \
+    --name myDockerVM \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
     --custom-data cloud-init.txt
+az vm open-port --port 80 --resource-group myDockerGroup --name myDockerVM
 ```
 
 It takes a few minutes for the VM to be created, the packages to install, and the app to start. There are background tasks that continue to run after the Azure CLI returns you to the prompt. It may be another couple of minutes before you can access the app. When the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. 
 
-To allow web traffic to reach your VM, open port 80 from the Internet with [az vm open-port](/cli/azure/vm#az-vm-open-port):
+                 
+
+## Install Compose
 
 
-## Verify that Compose is installed
-To view details of your VM, including the DNS name, use [az vm show](/cli/azure/vm):
-
-```azurecli
-az vm show \
-    --resource-group myResourceGroup \
-    --name myDockerVM \
-    --show-details \
-    --query [fqdns] \
-    --output tsv
-```
-
-SSH to your new Docker host. Provide your own username and DNS name from the preceding steps:
+SSH to your new Docker host. Provide your own IP address.
 
 ```bash
-ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
+ssh azureuser@10.10.111.11
 ```
 
-To check that Compose is installed on the VM, run the following command:
+Make sure that the Docker service is running.
+
+
+If it isn't running, go ahead and start the Docker service.
 
 ```bash
-docker-compose --version
+sudo service docker start
 ```
 
-You see output similar to *docker-compose 1.6.2, build 4d72027*.
 
-> [!TIP]
-> If you used another method to create a Docker host and need to install Compose yourself, see the [Compose documentation](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md).
+Install Compose.
+
+```bash
+sudo apt install docker-compose
+```
 
 
 ## Create a docker-compose.yml configuration file
@@ -117,7 +109,7 @@ db:
 In the same directory as your *docker-compose.yml* file, run the following command (depending on your environment, you might need to run `docker-compose` using `sudo`):
 
 ```bash
-docker-compose up -d
+sudo docker-compose up -d
 ```
 
 This command starts the Docker containers specified in *docker-compose.yml*. It takes a minute or two for this step to complete. You see output similar to the following example:
@@ -143,15 +135,11 @@ azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/
 
 You can now connect to WordPress directly on the VM on port 80. Open a web browser and enter the DNS name of your VM (such as `http://mypublicdns.eastus.cloudapp.azure.com`). You should now see the WordPress start screen, where you can complete the installation and get started with the application.
 
-![WordPress start screen][wordpress_start]
+![WordPress start screen][media/docker-compose-quickstart/WordPress.png]
 
 ## Next steps
-* Go to the [Docker VM extension user guide](https://github.com/Azure/azure-docker-extension/blob/master/README.md) for more options to configure Docker and Compose in your Docker VM. For example, one option is to put the Compose yml file (converted to JSON) directly in the configuration of the Docker VM extension.
 * Check out the [Compose command-line reference](http://docs.docker.com/compose/reference/) and [user guide](http://docs.docker.com/compose/) for more examples of building and deploying multi-container apps.
 * Use an Azure Resource Manager template, either your own or one contributed from the [community](https://azure.microsoft.com/documentation/templates/), to deploy an Azure VM with Docker and an application set up with Compose. For example, the [Deploy a WordPress blog with Docker](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-wordpress-mysql) template uses Docker and Compose to quickly deploy WordPress with a MySQL backend on an Ubuntu VM.
 * Try integrating Docker Compose with a Docker Swarm cluster. See
   [Using Compose with Swarm](https://docs.docker.com/compose/swarm/) for scenarios.
 
-<!--Image references-->
-
-[wordpress_start]: media/docker-compose-quickstart/WordPress.png
