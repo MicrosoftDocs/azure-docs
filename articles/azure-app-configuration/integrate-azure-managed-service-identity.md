@@ -40,7 +40,7 @@ To complete this tutorial, you must have the following:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Add a managed identity to your App Service
+## Add a managed identity
 
 To set up a managed identity in the portal, you will first create an application as normal and then enable the feature.
 
@@ -66,7 +66,7 @@ To set up a managed identity in the portal, you will first create an application
 
     ![Add managed identity](./media/add-managed-identity.png)
 
-## Configure your app to use a managed identity
+## Use a managed identity
 
 1. Open *appsettings.json*, add the following and replace *<service_endpoint>* (including brackets) with the URL to your app configuration store:
 
@@ -93,7 +93,7 @@ To set up a managed identity in the portal, you will first create an application
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-## Deploy from local Git with Kudu builds
+## Deploy from local Git
 
 The easiest way to enable local Git deployment for your app with the Kudu build server is to use the Cloud Shell.
 
