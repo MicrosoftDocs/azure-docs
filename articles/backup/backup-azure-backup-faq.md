@@ -26,7 +26,7 @@ You can register up to 1000 Azure Virtual machines per vault. If you are using t
 Server data that you want to recover together should use the same passphrase when you set up backup. If you want to isolate recovery to a specific server or servers, use a passphrase for that server or servers only. For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.
 
 ### Can I move my vault between subscriptions?
-No. The vault is created at a subscription level, and can't be reassigned to another subscription.
+Yes. To move a Recovery Services vault refer this [article](backup-azure-move-recovery-services-vault.md)
 
 ### Can I move backup data to another vault?
 No. Backup data stored in a vault can't be moved to a different vault.
@@ -143,7 +143,6 @@ No. All data transferred into the vault, before the backup job was canceled, sta
 If you cancel a backup job for an Azure VM, any transferred data is ignored. The next backup job transfers incremental data from the last successful backup job.
 
 ### Why is the size of the data transferred to the Recovery Services vault smaller than the data selected for backup?
-
  Data backed up from Azure Backup Agent, DPM, and Azure Backup Server is compressed and encrypted before being transferred. With compression and encryption is applied, the data in the vault is 30-40% smaller.
 
 ### Can I delete individual files from a recovery point in the vault?
@@ -151,8 +150,8 @@ No, Azure Backup doesn't support deleting or purging individual items from store
 
 
 ### If I cancel a backup job after it starts, is the transferred backup data deleted?
-
 No. All data that was transferred into the vault before the backup job was canceled remains in the vault.
+
 - Azure Backup uses a checkpoint mechanism to occasionally add checkpoints to the backup data during the backup.
 - Because there are checkpoints in the backup data, the next backup process can validate the integrity of the files.
 - The next backup job will be incremental to the data previously backed up. Incremental backups only transfer new or changed data, which equates to better utilization of bandwidth.
@@ -172,7 +171,7 @@ No. Retention policies can only be applied on backup points. For example, this i
 
 
 ### If a backup is kept for a long time, does it take more time to recover an older data point? <br/>
-No – the time to recover the oldest or the newest point is the same. Each recovery point behaves like a full point.
+No. The time to recover the oldest or the newest point is the same. Each recovery point behaves like a full point.
 
 ### If each recovery point is like a full point, does it impact the total billable backup storage?
 Typical long-term retention point products store backup data as full points.
@@ -198,7 +197,7 @@ No. Recovery is free and you aren't charged for the egress traffic.
 When a new policy is applied, schedule and retention of the new policy is followed.
 
 - If retention is extended, existing recovery points are marked to keep them as per new policy.
-- - If retention is reduced, they are marked for pruning in the next cleanup job and subsequently deleted.
+- If retention is reduced, they are marked for pruning in the next cleanup job and subsequently deleted.
 
 ## Encryption
 

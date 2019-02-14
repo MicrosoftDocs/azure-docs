@@ -17,19 +17,20 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # ID tokens
 
-`id_tokens` are sent to the client application as part of an [OpenID Connect](v1-protocols-openid-connect-code.md) flow. They can be sent along side or instead of an access token, and are used by the client to authenticate the user. 
+`id_tokens` are sent to the client application as part of an [OpenID Connect](v1-protocols-openid-connect-code.md) flow. They can be sent along side or instead of an access token, and are used by the client to authenticate the user.
 
 ## Using the id_token
 
-ID Tokens should be used to validate that a user is who they claim to be and get additional useful information about them - it should not be used for authorization in place of an [access token](access-tokens.md). The claims it provides can be used for UX inside your application, keying a database, and providing access to the client application. 
+ID Tokens should be used to validate that a user is who they claim to be and get additional useful information about them - it should not be used for authorization in place of an [access token](access-tokens.md). The claims it provides can be used for UX inside your application, keying a database, and providing access to the client application.
 
 ## Claims in an id_token
 
-`id_tokens` for a Microsoft identity are [JWTs](https://tools.ietf.org/html/rfc7519), meaning they consist of a header, payload, and signature portion. You can use the header and payload to verify the authenticity of the token, while the payload contains the information about the user requested by your client. Except where noted, all claims listed here appear in both v1.0 and v2.0 tokens.
+`id_tokens` for a Microsoft identity are [JWTs](https://tools.ietf.org/html/rfc7519), meaning they consist of a header, payload, and signature portion. You can use the header and signature to verify the authenticity of the token, while the payload contains the information about the user requested by your client. Except where noted, all claims listed here appear in both v1.0 and v2.0 tokens.
 
 ### v1.0
 

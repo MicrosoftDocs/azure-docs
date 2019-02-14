@@ -28,9 +28,9 @@ In this tutorial, you learn these steps as we walk through a sentiment analysis 
 
 You can find experiments covered in this tutorial at Azure AI Gallery:
 
-[Predict Book Reviews](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
+[Predict Book Reviews](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-1)
 
-[Predict Book Reviews - Predictive Experiment](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
+[Predict Book Reviews - Predictive Experiment](https://gallery.azure.ai/Experiment/Predict-Book-Reviews-Predictive-Experiment-1)
 
 ## Step 1: Clean and preprocess text dataset
 We begin the experiment by dividing the review scores into categorical low and high buckets to formulate the problem as two-class classification. We use [Edit Metadata](https://msdn.microsoft.com/library/azure/dn905986.aspx) and [Group Categorical Values](https://msdn.microsoft.com/library/azure/dn906014.aspx) modules.

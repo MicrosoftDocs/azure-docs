@@ -3,7 +3,7 @@ title: Azure Quickstart - Set & retrieve a secret from Key Vault using PowerShel
 description: 
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: 1126f665-2e6c-4cca-897e-7d61842e8334

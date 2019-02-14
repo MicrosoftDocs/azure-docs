@@ -4,7 +4,7 @@ description: This article provides an overview of the core Azure security featur
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
@@ -124,5 +124,4 @@ Azure Disk Encryption uses [Azure Key Vault](https://azure.microsoft.com/service
 
 Learn more
 
-* [What is Azure Key Vault?](../key-vault/key-vault-whatis.md)
-* [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md)
+* [What is Azure Key Vault?](../key-vault/key-vault-overview.md)

@@ -16,6 +16,7 @@ ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 # Determine hybrid identity lifecycle adoption strategy
 In this task, you’ll define the identity management strategy for your hybrid identity solution to meet the business requirements that you defined in [Determine hybrid identity management tasks](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).

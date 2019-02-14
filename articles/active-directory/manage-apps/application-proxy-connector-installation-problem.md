@@ -17,6 +17,7 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: japere
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problem installing the Application Proxy Agent Connector

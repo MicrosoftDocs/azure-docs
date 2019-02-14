@@ -106,7 +106,7 @@ $SqlVm | Set-AzResource -Force
 ```
 
   >[!NOTE]
-  > To switch between licenses, you must be using the new SQL VM resource provider. If you try to run these commands before registering your SQL Server VM with the new provider, you may encounter this error: `Get-AzResource : The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set. ` If you see this error, please [register your SQL Server VM with the new resource provider](#register-existing-SQL-vm-with-new-resource-provider). 
+  > To switch between licenses, you must be using the new SQL VM resource provider. If you try to run these commands before registering your SQL Server VM with the new provider, you may encounter this error: `Get-AzResource : The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set. ` If you see this error, please register your SQL Server VM with the new resource provider. 
 
  
 

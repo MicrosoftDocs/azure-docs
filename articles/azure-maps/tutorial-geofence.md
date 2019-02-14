@@ -3,7 +3,7 @@ title: Create a geofence using Azure Maps | Microsoft Docs
 description: Setup a geofence by using Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/08/2019
+ms.date: 02/14/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -20,7 +20,7 @@ To learn more about Event Grid, see [Azure Event Grid](https://docs.microsoft.co
 In this tutorial you will learn, how to:
 
 > [!div class="checklist"]
-* Upload geofence area in the Azure Maps, Map Data service using the Map Data Upload API
+* Upload geofence area in the Azure Maps, Data service using the Data Upload API.
 *	Set up an Event Grid to handle geofence events.
 *	Setup geofence events handler.
 *	Set up alerts in response to geofence events using Logic Apps.
@@ -35,9 +35,9 @@ To complete the steps in this tutorial, you first need to see [manage account an
 
 ## Upload geofences
 
-To upload the geofence for the construction site using the Map Data Upload API, we will use the postman application. For the sake of this tutorial, we assume there is an overall construction site area, which is a hard parameter that the construction equipment should not violate. Violations of this fence are a serious offense and are reported to the Operations Manager. An optimized set of additional fences can be used that track different construction areas within the overall construction area as per schedule. We can assume that the main geofence has a subsite1, which has a set expiration time and will expire after that. You can create more nested geofences as per your requirements. For example, subsite1 could be where work is taking place during week 1 to 4 of the schedule and subsite 2 is where work takes place during week 5 to 7. All such fences can be loaded as a single dataset at the beginning of the project and used to track rules based on time and space. See [Geofence GeoJSON data](https://docs.microsoft.com/azure/azure-maps/geofence-geojson) for more information on geofence data format. You can see the [data - Upload API documentation](https://docs.microsoft.com/rest/api/maps/mapdata/uploadpreview) for more information on uploading map data to the Azure Maps service.
+To upload the geofence for the construction site using the Data Upload API, we will use the postman application. For the sake of this tutorial, we assume there is an overall construction site area, which is a hard parameter that the construction equipment should not violate. Violations of this fence are a serious offense and are reported to the Operations Manager. An optimized set of additional fences can be used that track different construction areas within the overall construction area as per schedule. We can assume that the main geofence has a subsite1, which has a set expiration time and will expire after that time. You can create more nested geofences as per your requirements. For example, subsite1 could be where work is taking place during week 1 to 4 of the schedule and subsite 2 is where work takes place during week 5 to 7. All such fences can be loaded as a single dataset at the beginning of the project and used to track rules based on time and space. For more information on geofence data format, see [Geofence GeoJSON data](https://docs.microsoft.com/azure/azure-maps/geofence-geojson). For more information on uploading data to the Azure Maps service, see [Data Upload API documentation](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) .
 
-Open the Postman app and follow the following steps to upload the construction site geofence using the Azure Maps Map-Data Upload API.
+Open the Postman app and follow the following steps to upload the construction site geofence using the Azure Maps, Data Upload API.
 
 1. Open the Postman app and click new | Create new, and select Request. Enter a Request name for Upload geofence data, select a collection or folder to save it to, and click Save.
 
@@ -190,7 +190,7 @@ Follow the steps below to create an event subscription for the geofence enter ev
 
 ## Use Geofence API
 
-You can use the Geofence API to check whether a **device** (equipment is part of status) is inside or outside a geofence. To, better understand the geofence GET API. We query it against different locations where a particular equipment has moved over time. The following figure illustrates five locations of a particular construction equipment with a unique **device id** as observed in chronological order. Each of these five locations is used to assess the geofence enter and exit status change against the fence. If a state change occurs, the geofence service triggers an event, which is sent to the Logic App by the Event Grid. As a result the operation's manager will receive the corresponding enter or exit notification via an email.
+You can use the Geofence API to check whether a **device** (equipment is part of status) is inside or outside a geofence. To better understand the geofence GET API. We query it against different locations where a particular equipment has moved over time. The following figure illustrates five locations of a particular construction equipment with a unique **device id** as observed in chronological order. Each of these five locations is used to assess the geofence enter and exit status change against the fence. If a state change occurs, the geofence service triggers an event, which is sent to the Logic App by the Event Grid. As a result the operation's manager will receive the corresponding enter or exit notification via an email.
 
 > [!Note]
 > The above scenario and behavior is based on the same **device id** so that it reflects the five different locations as in the figure below.
@@ -253,8 +253,7 @@ Following are five HTTP GET Geofencing API requests, with different correspondin
 
 ## Next steps
 
-In this tutorial you learned, how to set up geofence by uploading it in the Azure Maps, Map Data service using the Map Data Upload API. You also learned how to use Azure Maps Events Grid to subscribe to and handle geofence events. 
+In this tutorial you learned, how to set up geofence by uploading it in the Azure Maps, Data service using the Data Upload API. You also learned how to use Azure Maps Events Grid to subscribe to and handle geofence events. 
 
-> [!div class="checklist"]
 * See [Handle content types in Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type), to learn how to use Logic Apps to parse JSON to build a more complex logic.
 * To know more about event handlers in Event Grid, see [supported Events Handlers in Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers).
