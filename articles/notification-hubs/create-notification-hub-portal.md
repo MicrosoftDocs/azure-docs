@@ -14,12 +14,18 @@ ms.author: jowargo
 ---
 
 # Create an Azure notification hub by using the Azure portal 
+Azure Notification Hubs provide an easy-to-use and scaled-out push engine that allows you to send notifications to any platform (iOS, Android, Windows, Kindle, Baidu, etc.) from any backend (cloud or on-premises). For more information about the service, see [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
 
+In this quickstart, you create a notification hub in the Azure portal. The first section gives you steps to create a Notification Hubs namespace and a hub in that namespace. The second section gives you steps to create a notification hub in an existing Notification Hubs namespace. 
 
 ## Create a namespace and a notification hub
+In this section, you create a namespace and a hub in the namespace. 
+
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 ## Create a notification hub in an existing namespace
+In this section, you create a notification hub in an existing namespace. 
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** on the left menu, search for **Notification Hub**, select **star** (`*`) next to **Notification Hub Namespaces** to add it to the **FAVORITES** section on the left menu. Select **Notification Hub Namespaces**. 
 
@@ -44,18 +50,4 @@ ms.author: jowargo
       ![Azure portal - notifications -> Go to resource](./media/create-notification-hub-portal/hub-home-page.png)
 
 ## Next steps
-In this tutorial, you used Firebase Cloud Messaging to push notifications to Android devices. To learn how to push notifications by using Google Cloud Messaging, advance to the following tutorial:
-
-> [!div class="nextstepaction"]
->[Push notifications to Android devices using Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md)
-
-<!-- Images. -->
-
-<!-- URLs. -->
-[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
-[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Notification Hubs Guidance]: notification-hubs-push-notification-overview.md
-[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-[Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Azure portal]: https://portal.azure.com
+In this quickstart, you created a notification hub. To learn how to configure the hub with platform notification system (PNS) settings, see [Configure a notification hub with PNS settings](configure-notification-hub-portal-pns-settings.md). 
