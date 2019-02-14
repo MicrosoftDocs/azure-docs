@@ -150,6 +150,9 @@ New-AzResourceGroupDeployment `
 ```
 
 > [!NOTE]
+> There is a file IO issue with using Azure PowerShell in the Cloud shell.  The error message is "Cannot retrieve the dynamic parameters for the cmdlet. Cannot find path 'Azure:/azuredeploy.json' because it does not exist."  A temporary workaround is not to include the **-TemplateFile** switch in the New-AzResourceGroupDeploy command. The command will prompt you to enter the file name.
+
+> [!NOTE]
 > The deployment fails if **newOrExisting** is **new**, but the storage account with the storage account name specified already exists.
 
 Try making another deployment with **newOrExisting** set to "existing" and specify an exiting storage account. To create a storage account beforehand, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
