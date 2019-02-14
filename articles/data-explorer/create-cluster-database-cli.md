@@ -48,7 +48,7 @@ The following steps are not required if you're running commands in Azure Cloud S
 
    |**Setting** | **Suggested value** | **Field description**|
    |---|---|---|
-   | name | *azureclitest* | The name of your cluster.|
+   | name | *azureclitest* | The desired name of your cluster.|
    | sku | *D13_v2* | The SKU that will be used for your cluster. |
    | resource-group | *testrg* | The resource group name where the cluster will be created. |
 
