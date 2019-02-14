@@ -66,7 +66,7 @@ If you don't want to wait for an automatic update to come to your connector, you
 For tenants with multiple connectors, the automatic updates target one connector at a time in each group to prevent downtime in your environment. 
 
 You may experience downtime when your connector updates if:  
-- You only have one connector we recommend you install a second connector and [create a connector group](application-proxy-connector-groups.md). This will avoid downtime and provide higher availability, .  
+- You only have one connector we recommend you install a second connector and [create a connector group](application-proxy-connector-groups.md). This will avoid downtime and provide higher availability.  
 - A connector was in the middle of a transaction when the update began. Although the initial transaction is lost, your browser should automatically retry the operation or you can refresh your page. When the request is resent, the traffic is routed to a backup connector.
 
 ## Creating connector groups
@@ -79,7 +79,7 @@ To learn more about connector groups, see [Publish applications on separate netw
 
 ## Capacity Planning 
 
-It is important to make sure you have planned enough capacity between connectors to handle the expected traffic volume. In general, the more users you have, the larger a machine you will need. Below is a table giving an outline of the volume different machines can handle. Note it is all based on expected Transactions Per Second (TPS) rather than by user since usage patterns vary and cannot be used to predict load. There will also be some differences based on the size of the responses and the backend application response time - larger response sizes and slower response times will result in a lower Max TPS. We recommend having additional machines than estimated by the table so that the distributed load across the machines is about 50%. The extra capacity will ensure that you have high availability and resiliency.
+It is important to make sure you have planned enough capacity between connectors to handle the expected traffic volume. In general, the more users you have, the larger a machine you'll need. Below is a table giving an outline of the volume different machines can handle. Note it is all based on expected Transactions Per Second (TPS) rather than by user since usage patterns vary and can't be used to predict load. There will also be some differences based on the size of the responses and the backend application response time - larger response sizes and slower response times will result in a lower Max TPS. We recommend having additional machines so that the distributed load across the machines is about 50%. The extra capacity will ensure that you have high availability and resiliency.
 
 |Cores|RAM|Expected Latency (MS)-P99|Max TPS|
 | ----- | ----- | ----- | ----- |
@@ -161,7 +161,7 @@ The connectors have both admin and session logs. The admin logs include key even
 
 To see the logs, go to the Event Viewer, open the **View** menu, and enable **Show analytic and debug logs**. Then, enable them to start collecting events. These logs do not appear in Web Application Proxy in Windows Server 2012 R2, as the connectors are based on a more recent version.
 
-You can examine the state of the service in the Services window. The connector comprises two Windows Services: the actual connector, and the updater. Both of them must run all the time.
+You can examine the state of the service in the Services window. The connector is made up of two Windows Services: the actual connector, and the updater. Both of them must run all the time.
 
  ![AzureAD Services Local](./media/application-proxy-connectors/aad-connector-services.png)
 
