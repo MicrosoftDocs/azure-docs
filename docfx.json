@@ -327,6 +327,9 @@
         ]
       },
       "learn_banner_products": {
+	"articles/**/*.md": [
+          "azure"
+        ],
         "articles/azure-virtual-machines/**/*.md": [
           "azure-virtual-machines"
         ], 
