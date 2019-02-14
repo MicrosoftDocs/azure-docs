@@ -1,7 +1,8 @@
 # Audio input device selection
 
 Version 1.3.0 of the Speech SDK introduces an API to select the audio input.
-This article describes how to obtain the IDs of the audio devices connected to a system that can then be passed to the Speech SDK.
+This article describes how to obtain the IDs of the audio devices connected to a system.
+These can then be passed to the Speech SDK.
 
 On all platforms, the audio device can be configured through the `AudioConfig` object:
 
@@ -149,7 +150,7 @@ namespace ConsoleApp
 }
 ```
 
-The device ids are GUIDs like `"{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414013aac8}"`.
+The device IDs are GUIDs like `"{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414013aac8}"`.
 
 ## Audio device IDs on UWP
 
@@ -198,18 +199,18 @@ namespace helloworld {
 }
 ```
 
-A sample id looks like this: `"\\\\?\\SWD#MMDEVAPI#{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414013aac8}#{2eef81be-33fa-4800-9670-1cd474972c3f}"`.
+A sample ID is `"\\\\?\\SWD#MMDEVAPI#{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414013aac8}#{2eef81be-33fa-4800-9670-1cd474972c3f}"`.
 
 ## Audio device IDs on Linux
 
-The device ids are selected using standard ALSA device ids.
-The ids of the inputs attached to the system are contained in the output of the command `arecord -L`.
+The device IDs are selected using standard ALSA device IDs.
+The IDs of the inputs attached to the system are contained in the output of the command `arecord -L`.
 Alternatively, they can be obtained using the [ALSA C library](http://www.alsa-project.org/alsa-doc/alsa-lib/).
 Examples include `hw:1,0` or `hw:CARD=CC,DEV=0`.
 
 ## Audio device IDs on macOS
 
-The following function creates a list of the names and ids of the audio devices attached to a Mac.
+The following function creates a list of the names and IDs of the audio devices attached to a Mac.
 The `deviceUID` string is used to identify a device in the Speech SDK for macOS.
 
 ```objc
@@ -333,7 +334,7 @@ CFArrayRef CreateInputDeviceArray()
     return copy;
 }
 ```
-For example, the UID for the builtin microphone is always "BuiltInMicrophoneDevice".
+For example, the UID for the built-in microphone is always "BuiltInMicrophoneDevice".
 
 ## Audio device IDs on iOS
 
