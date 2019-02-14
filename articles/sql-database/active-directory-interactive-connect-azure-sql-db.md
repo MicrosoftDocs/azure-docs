@@ -13,15 +13,15 @@ ms.reviewer: GeneMi
 ms.date: 01/25/2019
 manager: craigg
 ---
-# Connect to Azure SQL Database with Azure Active Directory Multi-Factor Authentication
+# Connect to Azure SQL Database with Azure Multi-Factor Authentication
 
-This article provides a C# program that connects to Azure SQL Database. The program uses interactive mode authentication, which supports [Azure Active Directory (Azure AD) Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
+This article provides a C# program that connects to Azure SQL Database. The program uses interactive mode authentication, which supports [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
 For more information about Multi-Factor Authentication support for SQL tools, see [Azure Active Directory support in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
 
-## Multi-factor authentication for Azure SQL Database
+## Multi-Factor Authentication for Azure SQL Database
 
-Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) has a new value - `ActiveDirectoryInteractive`. In a client C# program, the enum value directs the system to use the Azure AD interactive mode that supports Multi-Factor Authentication to connect to an Azure SQL Database. The user who runs the program sees the following dialog boxes:
+Starting in .NET Framework version 4.7.2, the enum [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) has a new value - `ActiveDirectoryInteractive`. In a client C# program, the enum value directs the system to use the Azure Active Directory (Azure AD) interactive mode that supports Multi-Factor Authentication to connect to an Azure SQL Database. The user who runs the program sees the following dialog boxes:
 
 * A dialog box that displays an Azure AD user name and asks for the user's password.
 
@@ -85,9 +85,9 @@ To register and set necessary permissions for your application:
 
 For your C# program to run, an Azure SQL server admin needs to assign an Azure AD admin for your Azure SQL server. 
 
- *On the **SQL Server** page select **Active Directory admin** > **Set admin**.
+ On the **SQL Server** page, select **Active Directory admin** > **Set admin**.
 
-For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server), **Provision an Azure Active Directory administrator for Azure SQL Database server**.
+For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server).
 
 ### Add a non-admin user to a specific database (optional)
 
@@ -123,7 +123,7 @@ For the C# program to successfully run, you need to assign proper values to stat
 | AzureAD_UserID | "auser@abc.onmicrosoft.com" | **Azure Active Directory** > **User** > **New guest user** |
 | Initial_DatabaseName | "myDatabase" | **SQL servers** > **SQL databases** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **App registrations** > **Search by name** > **Application ID** |
-| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **App registrations** > **Search by name** > *[Your-App-registration]* > **Settings** > **RedirectURIs**<br /><br />For this article, any valid value is fine for RedirectUri, as it isn't used here. |
+| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **App registrations** > **Search by name** > *[Your-App-registration]* > **Settings** > **RedirectURIs**<br /><br />For this article, any valid value is fine for RedirectUri, because it isn't used here. |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## Verify with SQL Server Management Studio
@@ -132,13 +132,13 @@ Before you run the C# program, it's a good idea to check that your setup and con
 
 ### Verify SQL Database firewall IP addresses
 
-Run SSMS from the same computer, in the same building, where you plan to run the C# program. For this test, any **Authentication** mode is okay. If there's any indication that the database server firewall isn't accepting your IP address, see [Azure SQL Database server-level and database-level firewall rules](sql-database-firewall-configure.md) for help.
+Run SSMS from the same computer, in the same building, where you plan to run the C# program. For this test, any **Authentication** mode is OK. If there's any indication that the database server firewall isn't accepting your IP address, see [Azure SQL Database server-level and database-level firewall rules](sql-database-firewall-configure.md) for help.
 
 ### Verify Azure Active Directory Multi-Factor Authentication
 
 Run SSMS again, this time with **Authentication** set to **Active Directory - Universal with MFA support**. This option requires SSMS version 17.5 or later.
 
-For more information, see [Configure multi-factor authentication for SSMS and Azure AD](sql-database-ssms-mfa-authentication-configure.md).
+For more information, see [Configure Multi-Factor Authentication for SSMS and Azure AD](sql-database-ssms-mfa-authentication-configure.md).
 
 > [!NOTE]
 > If you are a guest user in the database, you also need to provide the Azure AD domain name for the database: Select **Options** > **AD domain name or tenant ID**. To find the domain name in the Azure portal, select **Azure Active Directory** > **Custom domain names**. In the C# example program, providing a domain name is not necessary.
