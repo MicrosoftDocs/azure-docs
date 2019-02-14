@@ -2,10 +2,10 @@
 title: 'Tutorial: Create an autoscaling, zone redundant application gateway with a reserved IP address - Azure PowerShell'
 description: In this tutorial, learn how to create an autoscaling, zone-redundant application gateway with a reserved IP address using Azure PowerShell.
 services: application-gateway
-author: amitsriva
+author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 2/14/2019
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an IT administrator new to Application Gateway, I want to configure the service in a way that automatically scales based on customer demand and is highly available across availability zones to ensure my customers can access their web applications when they need them.
@@ -20,6 +20,7 @@ If you're an IT admin concerned with improving web application access, you can o
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Create a self-signed certificate
 > * Create an autoscale virtual network
 > * Create a reserved public IP
 > * Set up your application gateway infrastructure
@@ -33,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This tutorial requires that you run Azure PowerShell locally. You must have Azure PowerShell module version 1.0.0 or later installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
+This tutorial requires that you run Azure PowerShell locally. You must have Azure PowerShell module version 1.0.0 or later installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). After you verify the PowerShell version, run `Connect-AzAccount` to create a connection with Azure.
 
 ## Sign in to Azure
 
@@ -47,10 +48,41 @@ Create a resource group in one of the available locations.
 
 ```azurepowershell
 $location = "East US 2"
-$rg = "<rg name>"
+$rg = "AppGW-rg"
 
 #Create a new Resource Group
 New-AzResourceGroup -Name $rg -Location $location
+```
+
+## Create a self-signed certificate
+
+For production use, you should import a valid certificate signed by trusted provider. For this tutorial, you create a self-signed certificate using [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). You can use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate.
+
+```powershell
+New-SelfSignedCertificate `
+  -certstorelocation cert:\localmachine\my `
+  -dnsname www.contoso.com
+```
+
+You should see something like this result:
+
+```
+PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
+
+Thumbprint                                Subject
+----------                                -------
+E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
+```
+
+Use the thumbprint to create the pfx file:
+
+```powershell
+$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+
+Export-PfxCertificate `
+  -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
+  -FilePath c:\appgwcert.pfx `
+  -Password $pwd
 ```
 
 ## Create a virtual network
@@ -98,9 +130,9 @@ $pool = New-AzApplicationGatewayBackendAddressPool -Name "Pool1" `
 $fp01 = New-AzApplicationGatewayFrontendPort -Name "SSLPort" -Port 443
 $fp02 = New-AzApplicationGatewayFrontendPort -Name "HTTPPort" -Port 80
 
-$securepfxpwd = ConvertTo-SecureString -String "scrap" -AsPlainText -Force
+$securepfxpwd = ConvertTo-SecureString -String "Azure123456!" -AsPlainText -Force
 $sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert" -Password $securepfxpwd `
-            -CertificateFile "D:\Networking\ApplicationGateway\scrap.pfx"
+            -CertificateFile "c:\appgwcert.pfx"
 $listener01 = New-AzApplicationGatewayHttpListener -Name "SSLListener" `
              -Protocol Https -FrontendIPConfiguration $fip -FrontendPort $fp01 -SslCertificate $sslCert01
 $listener02 = New-AzApplicationGatewayHttpListener -Name "HTTPListener" `
