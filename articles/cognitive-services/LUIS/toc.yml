@@ -9,9 +9,10 @@
   items:
   - name: Build prebuilt domain app
     href: luis-get-started-create-app.md
-  - name: Use SDKs
+  - name: Use .Net SDK
     items: 
-    - name: .Net SDK
+    - name: Query prediction endpoint
+      href: sdk-csharp-quickstart-query-prediction-endpoint.md
   - name: Use REST APIs
     items:
     - name: Get intent
