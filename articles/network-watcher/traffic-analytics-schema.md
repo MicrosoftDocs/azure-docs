@@ -45,7 +45,7 @@ Listed below are the fields in the schema and what they signify
 | L7Protocol_s	| Protocol Name	| Based on destination port |
 | FlowDirection_s | •	I = Inbound •	O = Outbound | Direction of the flow as in raw flow log | 
 | FlowStatus_s	| •	A = Allowed by NSG Rule •	D = Denied by NSG Rule	| Status of flow as in raw flow log |
-| NSGList_s | '<SUBSCRIPTIONID>/<RESOURCEGROUP_NAME>/<NSG_NAME>' | Network Security Group (NSG) associated with the flow |
+| NSGList_s | <SUBSCRIPTIONID>'/'<RESOURCEGROUP_NAME>'/'<NSG_NAME>' | Network Security Group (NSG) associated with the flow |
 | NSGRules_s | <Index value 0)><NSG_RULENAME><FlowDirection><FlowStatus><FlowCountProcessedByRule> |  NSG rule that allowed or denied this flow |
 | NSGRuleType_s	| •	User Defined •	Default |	The type of NSG Rule used by the flow |
 | MACAddress_s | MAC Address | MAC address of the NIC at which the flow was captured |
