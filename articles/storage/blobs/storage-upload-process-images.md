@@ -247,6 +247,8 @@ The following classes and methods are used in the preceding task:
 
 # [Node.js V2 SDK](#tab/nodejs)
 
+Select **Choose File** to select a file, then click **Upload Image**. The **Generated Thumbnails** section will remain empty until we test it later in this topic. 
+
 ![Image Upload App](media/storage-upload-process-images/upload-app-nodejs.png)
 
 In the sample code, the `post` route is responsible for uploading the image into a blob container. The route uses the modules to help process the upload:

@@ -53,10 +53,6 @@ You must have completed the previous Blob storage tutorial: [Upload image data i
 
 If you've not previously registered the Event Grid resource provider in your subscription, make sure it's registered.
 
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.EventGrid
-```
-
 ```azurecli-interactive
 az provider register --namespace Microsoft.EventGrid
 ```
