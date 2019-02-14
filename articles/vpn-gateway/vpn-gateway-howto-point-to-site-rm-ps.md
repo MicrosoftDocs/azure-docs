@@ -33,7 +33,7 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-In this article, to upload the root certificate public key, you must either use PowerShell locally, or the Azure portal.
+Most of the steps in this article can use Cloud Shell. However, to upload the root certificate public key, you must either use PowerShell locally, or the Azure portal.
 
 ### <a name="example"></a>Example values
 
