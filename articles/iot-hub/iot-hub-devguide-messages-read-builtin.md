@@ -50,7 +50,7 @@ You can then use any shared access policy that has the **ServiceConnect** permis
 
 If you need to build an Event Hub connection string by using the previous information, use the following pattern:
 
-`Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy name};SharedAccessKey={iot hub policy key}`
+`Endpoint={Event Hub-compatible endpoint};SharedAccessKeyName={iot hub policy name};SharedAccessKey={iot hub policy key};EntityPath={iot hub name}`
 
 The SDKs and integrations that you can use with Event Hub-compatible endpoints that IoT Hub exposes includes the items in the following list:
 
