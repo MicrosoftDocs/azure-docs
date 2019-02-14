@@ -98,7 +98,7 @@ The `Dismount-CloudDrive` cmdlet unmounts an Azure file share from the current s
 
 [!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-Note: If you need to define a function in a file and call it from the PowerShell cmdlets then dot operator must be included. 
+Note: If you need to define a function in a file and call it from the PowerShell cmdlets, then the dot operator must be included. 
 For example: . .\MyFunctions.ps1
 
 ## Next steps
