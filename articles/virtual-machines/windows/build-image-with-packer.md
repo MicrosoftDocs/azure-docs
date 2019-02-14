@@ -20,34 +20,35 @@ ms.author: cynthn
 # How to use Packer to create Windows virtual machine images in Azure
 Each virtual machine (VM) in Azure is created from an image that defines the Windows distribution and OS version. Images can include pre-installed applications and configurations. The Azure Marketplace provides many first and third-party images for most common OS' and application environments, or you can create your own custom images tailored to your needs. This article details how to use the open-source tool [Packer](https://www.packer.io/) to define and build custom images in Azure.
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## Create Azure resource group
 During the build process, Packer creates temporary Azure resources as it builds the source VM. To capture that source VM for use as an image, you must define a resource group. The output from the Packer build process is stored in this resource group.
 
-Create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```powershell
 $rgName = "myResourceGroup"
 $location = "East US"
-New-AzureRmResourceGroup -Name $rgName -Location $location
+New-AzResourceGroup -Name $rgName -Location $location
 ```
 
 ## Create Azure credentials
 Packer authenticates with Azure using a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like Packer. You control and define the permissions as to what operations the service principal can perform in Azure.
 
-Create a service principal with [New-AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) and assign permissions for the service principal to create and manage resources with [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment). Replace *&lt;password&gt;* in the example with your own password.  
+Create a service principal with [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) and assign permissions for the service principal to create and manage resources with [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). Replace *&lt;password&gt;* in the example with your own password.  
 
 ```powershell
-$sp = New-AzureRmADServicePrincipal -DisplayName "AzurePacker" `
+$sp = New-AzADServicePrincipal -DisplayName "AzurePacker" `
     -Password (ConvertTo-SecureString "<password>" -AsPlainText -Force)
 Sleep 20
-New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
+New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
-To authenticate to Azure, you also need to obtain your Azure tenant and subscription IDs with [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription):
+To authenticate to Azure, you also need to obtain your Azure tenant and subscription IDs with [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription):
 
 ```powershell
-$sub = Get-AzureRmSubscription
+$sub = Get-AzSubscription
 $sub.TenantId[0]
 $sub.SubscriptionId[0]
 ```
@@ -66,7 +67,6 @@ Create a file named *windows.json* and paste the following content. Enter your o
 | *client_secret*                     | Password you specified in `$securePassword` |
 | *tenant_id*                         | Output from `$sub.TenantId` command |
 | *subscription_id*                   | Output from `$sub.SubscriptionId` command |
-| *object_id*                         | View service principal object ID with `$sp.Id` |
 | *managed_image_resource_group_name* | Name of resource group you created in the first step |
 | *managed_image_name*                | Name for the managed disk image that is created |
 
@@ -79,7 +79,6 @@ Create a file named *windows.json* and paste the following content. Enter your o
     "client_secret": "P@ssw0rd!",
     "tenant_id": "72f988bf-86f1-41af-91ab-2d7cd011db47",
     "subscription_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "object_id": "a7dfb070-0d5b-47ac-b9a5-cf214fff0ae2",
 
     "managed_image_resource_group_name": "myResourceGroup",
     "managed_image_name": "myPackerImage",
@@ -204,10 +203,10 @@ It takes a few minutes for Packer to build the VM, run the provisioners, and cle
 
 
 ## Create a VM from the Packer image
-You can now create a VM from your Image with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). The supporting network resources are created if they do not already exist. When prompted, enter an administrative username and password to be created on the VM. The following example creates a VM named *myVM* from *myPackerImage*:
+You can now create a VM from your Image with [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). The supporting network resources are created if they do not already exist. When prompted, enter an administrative username and password to be created on the VM. The following example creates a VM named *myVM* from *myPackerImage*:
 
 ```powershell
-New-AzureRmVm `
+New-AzVm `
     -ResourceGroupName $rgName `
     -Name "myVM" `
     -Location $location `
@@ -219,16 +218,16 @@ New-AzureRmVm `
     -Image "myPackerImage"
 ```
 
-If you wish to create VMs in a different resource group or region than your Packer image, specify the image ID rather than image name. You can obtain the image ID with [Get-AzureRmImage](/powershell/module/AzureRM.Compute/Get-AzureRmImage).
+If you wish to create VMs in a different resource group or region than your Packer image, specify the image ID rather than image name. You can obtain the image ID with [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/Get-AzImage).
 
 It takes a few minutes to create the VM from your Packer image.
 
 
 ## Test VM and webserver
-Obtain the public IP address of your VM with [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). The following example obtains the IP address for *myPublicIP* created earlier:
+Obtain the public IP address of your VM with [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). The following example obtains the IP address for *myPublicIP* created earlier:
 
 ```powershell
-Get-AzureRmPublicIPAddress `
+Get-AzPublicIPAddress `
     -ResourceGroupName $rgName `
     -Name "myPublicIPAddress" | select "IpAddress"
 ```

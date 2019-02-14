@@ -1,10 +1,10 @@
 ---
-title: Managing Media Services Assets across Multiple Storage Accounts | Microsoft Docs
-description: This articles give you guidance on how to manage media services assets across multiple storage accounts.
+title: Managing Media Services assets across multiple storage accounts | Microsoft Docs
+description: This articles give you guidance on how to manage Media Services assets across multiple storage accounts.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2017
+ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Managing Media Services Assets across Multiple Storage Accounts
-Starting with Microsoft Azure Media Services 2.2, you can attach multiple storage accounts to a single Media Services account. Ability to attach multiple storage accounts to a Media Services account provides the following benefits:
+# Managing Media Services assets across multiple storage accounts  
+
+You can attach multiple storage accounts to a single Media Services account. Ability to attach multiple storage accounts to a Media Services account provides the following benefits:
 
 * Load balancing your assets across multiple storage accounts.
 * Scaling Media Services for large amounts of content processing (as currently a single storage account has a max limit of 500 TB). 
@@ -25,12 +26,13 @@ Starting with Microsoft Azure Media Services 2.2, you can attach multiple storag
 This article demonstrates how to attach multiple storage accounts to a Media Services account using [Azure Resource Manager APIs](/rest/api/media/operations/azure-media-services-rest-api-reference) and [Powershell](/powershell/module/azurerm.media). It also shows how to specify different storage accounts when creating assets using the Media Services SDK. 
 
 ## Considerations
+
 When attaching multiple storage accounts to your Media Services account, the following considerations apply:
 
-* All storage accounts attached to a Media Services account must be in the same data center as the Media Services account.
-* Currently, once a storage account is attached to the specified Media Services account, it cannot be detached.
+* The Media Services account and all associated storage accounts must be in the same Azure subscription. It is recommended to use storage accounts in the same location as the Media Services account.
+* Once a storage account is attached to the specified Media Services account, it cannot be detached.
 * Primary storage account is the one indicated during Media Services account creation time. Currently, you cannot change the default storage account. 
-* Currently, if you want to add a Cool Storage account to the AMS account, the storage account must be a Blob type and set to non-primary.
+* If you want to add a Cool Storage account to the AMS account, the storage account must be a Blob type and set to non-primary.
 
 Other considerations:
 

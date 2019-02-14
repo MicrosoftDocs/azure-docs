@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: The Speech Service Software Development Kit (SDK) gives your applications native access to the functions of the Speech service, making it easier to develop software. This article provides additional details about the SDK for Windows, Linux, and Android.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -75,13 +75,13 @@ To consume the package from your Android Studio project, make the following chan
 
 * In the project-level build.gradle file, add the following to the `repository` section:
 
-  ```text
+  ```gradle
   maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
   ```
 
 * In the module-level build.gradle file, add the following to the `dependencies` section:
 
-  ```text
+  ```gradle
   implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.2.0'
   ```
 

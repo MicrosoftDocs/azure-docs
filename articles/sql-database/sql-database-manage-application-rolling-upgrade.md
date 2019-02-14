@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/29/2019
+ms.date: 02/13/2019
 ---
 # Managing rolling upgrades of cloud applications using SQL Database active geo-replication
 
@@ -41,7 +41,7 @@ Once the preparation steps are completed, the application is ready for the actua
 
 1. Set the primary database to read-only mode (3). This mode will guarantee that the production slot of the web application (V1) will remain read-only during the upgrade thus preventing the data divergence between the V1 and V2 database instances.  
 2. Disconnect the secondary database using the planned termination mode (4). It will create a fully synchronized independent copy of the primary database. This database will be upgraded.
-3. Turn the primary database to read-write mode and run the upgrade script (5).
+3. Turn the secondary database to read-write mode and run the upgrade script (5).
 
 ![SQL Database geo-replication configuration. Cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option1-2.png)
 

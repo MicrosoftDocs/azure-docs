@@ -105,7 +105,7 @@ Use the following steps to configure files tracking on Windows computers:
 Recursion allows you to specify wildcards to simplify tracking across directories, and environment variables to allow you to track files across environments with multiple or dynamic drive names. The following list shows common information you should know when configuring recursion:
 
 * Wildcards are required for tracking multiple files
-* If using wildcards, they can only be used in the last segment of a path. (such as C:\folder\\**file** or /etc/*.conf)
+* If using wildcards, they can only be used in the last segment of a path. (such as `c:\folder\*file*` or `/etc/*.conf`)
 * If an environment variable has an invalid path, validation will succeed but that path will fail when inventory runs.
 * Avoid general paths such as `c:\*.*` when setting the path, as this would result in too many folders being traversed.
 
@@ -126,9 +126,9 @@ Use the following steps to configure registry key tracking on Windows computers:
 |Property  |Description  |
 |---------|---------|
 |Enabled     | Determines if the setting is applied.        |
-|Item Name     | Friendly name of the file to be tracked.        |
-|Group     | A group name for logically grouping files.        |
-|Windows Registry Key   | The path to check for the file. For example: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Item Name     | Friendly name of the registry key to be tracked.        |
+|Group     | A group name for logically grouping registry keys.        |
+|Windows Registry Key   | The path to check for the registry key. For example: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## Limitations
 
@@ -272,13 +272,13 @@ In the following example, the screenshot shows that the file `C:\windows\system3
 
 ![A chart showing the hosts file change](./media/automation-change-tracking/changes.png)
 
-To analyze this change further, go to Log search from clicking **Log Analytics**. Once in Log search, search for content changes to the Hosts file with the query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. This query looks for changes that included a change of file content for files whose fully qualified path contains the word “hosts”. You can also ask for a specific file by changing the path portion to its fully qualified form (such as `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+To analyze this change further, go to Log search from clicking **Log Analytics**. Once in Log search, search for content changes to the Hosts file with the query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. This query looks for changes that included a change of file content for files whose fully qualified path contains the word “hosts”. You can also ask for a specific file by changing the path portion to its fully qualified form (such as `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
 
 After the query returns the desired results, click the **New alert rule** button in the Log search experience to open the alert creation page. You could also navigate to this experience through **Azure Monitor** in the Azure portal. In the alert creation experience, check our query again and modify the alert logic. In this case, you want the alert to be triggered if there's even one change detected across all the machines in the environment.
 
 ![An image showing the change query for tracking changes to the hosts file](./media/automation-change-tracking/change-query.png)
 
-After the condition logic is set, assign action groups to perform actions in response to the alert being triggered. In this case, I have set up emails to be sent and an ITSM ticket to be created.  Many other useful actions can also be taken such as triggering an Azure Function, Automation runbook, Webhook, or Logic App.
+After the condition logic is set, assign action groups to perform actions in response to the alert being triggered. In this case, I have set up emails to be sent and an ITSM ticket to be created.  Many other useful actions can also be taken such as triggering an Azure Function, Automation runbook, webhook, or Logic App.
 
 ![An image configuring an action group to alert on the change](./media/automation-change-tracking/action-groups.png)
 

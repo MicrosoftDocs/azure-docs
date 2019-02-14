@@ -43,7 +43,7 @@ $SubscriptionId  =  "<subscription ID>"
 Login-AzureRmAccount -SubscriptionId $SubscriptionId
 
 $region = "southcentralus"
-$KeyVaultResourceGroupName  = "mykeyvaultgropu"
+$KeyVaultResourceGroupName  = "mykeyvaultgroup"
 $VaultName = "mykeyvault"
 $certFilename = "C:\users\sfuser\myclustercert.pfx"
 $certname = "myclustercert"
@@ -122,7 +122,7 @@ Next, open the template file in a text editor and make three updates to support 
 
     Also consider removing the *certificateThumbprint*, it may no longer be needed.
 
-2. In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint.  In **virtualMachineProfile**->**extenstionProfile**->**extensions**->**properties**->**settings**->**certificate**, add `"commonNames": ["[parameters('certificateCommonName')]"],` and remove `"thumbprint": "[parameters('certificateThumbprint')]",`.
+2. In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint.  In **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate**, add `"commonNames": ["[parameters('certificateCommonName')]"],` and remove `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json
         "virtualMachineProfile": {
         "extensionProfile": {

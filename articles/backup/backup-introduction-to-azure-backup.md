@@ -7,7 +7,7 @@ manager: carmonm
 keywords: backup and restore; recovery services; backup solutions
 ms.service: backup
 ms.topic: overview
-ms.date: 8/2/2018
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
 ---

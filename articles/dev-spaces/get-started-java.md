@@ -1,5 +1,5 @@
 ---
-title: "Create a Kubernetes dev space in the cloud using Java and VS Code| Microsoft Docs"
+title: "Create a Kubernetes dev space in the cloud using Java and VS Code | Microsoft Docs"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -12,7 +12,7 @@ description: "Rapid Kubernetes development with containers and microservices on 
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
 manager: "mmontwil"
 ---
-# Get Started on Azure Dev Spaces with Java
+# Get started on Azure Dev Spaces with Java
 
 In this guide, you will learn how to:
 
@@ -220,4 +220,4 @@ Refresh the web app in the browser. You should see your custom message appear in
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about team development](team-development-java.md)
+> [Learn about multi-service development](multi-service-java.md)

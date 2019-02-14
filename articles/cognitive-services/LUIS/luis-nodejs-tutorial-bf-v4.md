@@ -9,7 +9,7 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 01/30/2019
 ms.author: diberry
 ---
 
@@ -109,7 +109,7 @@ In order to develop the web app bot code, download the code and use on your loca
 
 6. Open the bot.js file and look for `const results = await this.luisRecognizer.recognize(context);`. This is where the user utterance entered into the bot is sent to LUIS.
 
-    ```nodejs
+   ```javascript
     /**
      * Driver code that does one of the following:
      * 1. Display a welcome card upon startup
@@ -242,7 +242,7 @@ In the `bot.js` file, add code to handle the new intents.
 
 1. At the top of the file, find the **Supported LUIS Intents** section, and add constants for the HomeAutomation intents:
 
-    ```nodejs
+   ```javascript
     // Supported LUIS Intents
     const GREETING_INTENT = 'Greeting';
     const CANCEL_INTENT = 'Cancel';
@@ -256,7 +256,7 @@ In the `bot.js` file, add code to handle the new intents.
 
 2. Find the **isTurnInterrupted** that receives the LUIS prediction of the utterance and add a line to print out the result to the console.
 
-    ```nodejs
+   ```javascript
     /**
      * Look at the LUIS results and determine if we need to handle
      * an interruptions due to a Help or Cancel intent
@@ -304,7 +304,7 @@ In the `bot.js` file, add code to handle the new intents.
 
 3. Add the intents to the onTurn method's switch statement for the `DialogTurnStatus.empty` case:
 
-    ```nodejs
+   ```javascript
     switch (topIntent) {
         case GREETING_INTENT:
             await dc.begin(GREETING_DIALOG);

@@ -1,5 +1,5 @@
 ---
-title: Delete an Azure Active Directory tenant directory | Microsoft Docs
+title: Delete a tenant directory - Azure Active Directory | Microsoft Docs
 description: Explains how to prepare an Azure AD tenant directory for deletion
 services: active-directory
 documentationcenter: ''
@@ -10,12 +10,13 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 01/31/2019
 ms.author: curtand
 
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Delete an Azure Active Directory tenant
 

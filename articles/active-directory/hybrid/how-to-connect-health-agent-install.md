@@ -11,10 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect Health Agent Installation
 This document walks you through installing and configuring the Azure AD Connect Health Agents. You can download the agents from [here](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
@@ -30,7 +31,7 @@ The following table is a list of requirements for using Azure AD Connect Health.
 | Outbound connectivity to the Azure service endpoints | During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If outbound connectivity is blocked using Firewalls, ensure that the following endpoints are added to the allowed list. See [outbound connectivity endpoints](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |Outbound connectivity based on IP Addresses | For IP address based filtering on firewalls, refer to the [Azure IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653).|
 | SSL Inspection for outbound traffic is filtered or disabled | The agent registration step or data upload operations may fail if there is SSL inspection or termination for outbound traffic at the network layer. Read more about [how to setup SSL inspection](https://technet.microsoft.com/library/ee796230.aspx) |
-| Firewall ports on the server running the agent |The agent requires the following firewall ports to be open in order for the agent to communicate with the Azure AD Health service endpoints.<br /><br /><li>TCP port 443</li><li>TCP port 5671</li> <br />Read more about [enable firewall ports](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
+| Firewall ports on the server running the agent |The agent requires the following firewall ports to be open in order for the agent to communicate with the Azure AD Health service endpoints.<br /><br /><li>TCP port 443</li><li>TCP port 5671</li> <br />Note that port 5671 is no longer required for the latest version of agent. Upgrade to the latest version so only port 443 is required. Read more about [enable firewall ports](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
 | Allow the following websites if IE Enhanced Security is enabled |If IE Enhanced Security is enabled, then the following websites must be allowed on the server that is going to have the agent installed.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>The federation server for your organization trusted by Azure Active Directory. For example: https:\//sts.contoso.com</li> Read more about [how to configure IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
 | Ensure PowerShell v4.0 or newer is installed | <li>Windows Server 2008 R2 ships with PowerShell v2.0, which is insufficient for the agent. Update PowerShell as explained below under [Agent installation on Windows Server 2008 R2 Servers](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 ships with PowerShell v3.0, which is insufficient for the agent.  [Update](https://www.microsoft.com/download/details.aspx?id=40855) the Windows Management Framework.</li><li>Windows Server 2012 R2 and later ship with a sufficiently recent version of PowerShell.</li>|
 |Disable FIPS|FIPS is not supported by Azure AD Connect Health agents.|

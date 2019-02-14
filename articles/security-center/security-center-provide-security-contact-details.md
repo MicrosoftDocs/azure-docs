@@ -4,7 +4,7 @@ description: This document shows you how to provide security contact details in 
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90

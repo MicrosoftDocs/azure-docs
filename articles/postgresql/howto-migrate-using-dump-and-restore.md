@@ -77,7 +77,7 @@ One way to migrate your existing PostgreSQL database to Azure Database for Postg
 - On the target Azure Database for PostgreSQL server, consider doing the following before the restore:
     - Turn off query performance tracking, since these statistics are not needed during the migration. You can do this by setting pg_stat_statements.track, pg_qs.query_capture_mode, and pgms_wait_sampling.query_capture_mode to NONE.
 
-    - Use a high compute and memory sku, like 32 vCore Memory Optimized, to speed up the migration. You can easily scale back down to your preferred sku after the restore is complete. The higher the sku, the more paralellism you can achieve by increasing the corresponding `-j` parameter in the pg_restore command. 
+    - Use a high compute and high memory sku, like 32 vCore Memory Optimized, to speed up the migration. You can easily scale back down to your preferred sku after the restore is complete. The higher the sku, the more parallelism you can achieve by increasing the corresponding `-j` parameter in the pg_restore command. 
 
     - More IOPS on the target server could improve the restore performance. You can provision more IOPS by increasing the server's storage size. This setting is not reversible, but consider whether a higher IOPS would benefit your actual workload in the future.
 

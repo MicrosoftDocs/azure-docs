@@ -12,6 +12,7 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
+ms.collection: M365-identity-device-management
 ---
 
 # Archive for What's new? in Azure Active Directory
@@ -711,7 +712,7 @@ For more information, see: [Customizing the list of Workday user attributes](htt
 It is possible to change how membership is managed in a group. This is useful when you want to keep the same group name and ID in the system, so any existing references to the group are still valid; creating a new group would require updating those references.
 We've updated the Azure AD Admin center to support this functionality. Now, customers can convert existing groups from dynamic membership to assigned membership and vice-versa. The existing PowerShell cmdlets are also still available.
 
-For more information, see [Changing dynamic membership to static and vice-versa](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal#changing-dynamic-membership-to-static-and-vice-versa)
+For more information, see [Changing dynamic membership to static and vice-versa](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal)
 
 ---
 
@@ -1238,7 +1239,7 @@ For more information, see [Conditional access in Azure AD](https://docs.microsof
 The following apps are on the list of [approved client apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
 - [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
-- [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
+- Microsoft StaffHub
 
 For more information, see:
 

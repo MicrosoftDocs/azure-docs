@@ -3,7 +3,7 @@ title: Azure SQL Database Hyperscale Overview | Microsoft Docs
 description: This article describes the Hyperscale service tier in the vCore-based purchasing model in Azure SQL Database and explains how it is different from the General Purpose and Business Critical service tiers.
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -27,7 +27,7 @@ The Hyperscale service tier in Azure SQL Database is the newest service tier in 
 > [!IMPORTANT]
 > Hyperscale service tier is currently in public preview and available in limited Azure regions. For the full region list, see [Hyperscale service tier available regions](#available-regions). We don't recommend running any production workload in Hyperscale databases yet. You can't update a Hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database, and update the copy to Hyperscale service tier.
 > [!NOTE]
-> For details on the General Purpose and Business Critical service tiers in the vCore-based purchasing model, see [General Purpose](sql-database-service-tier-general-purpose.md) and [Business Critical](sql-database-service-tier-business-critical.md) service tiers. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-service-tiers.md).
+> For details on the General Purpose and Business Critical service tiers in the vCore-based purchasing model, see [General Purpose](sql-database-service-tier-general-purpose.md) and [Business Critical](sql-database-service-tier-business-critical.md) service tiers. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-purchase-models.md).
 > [!IMPORTANT]
 > Hyperscale service tier is currently in public preview. We don't recommend running any production workload in Hyperscale databases yet. You can't update a Hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database, and update the copy to Hyperscale service tier.
 
@@ -157,7 +157,7 @@ Hyperscale service tier is currently in public preview and available in followin
 ## Next steps
 
 - For an FAQ on Hyperscale, see [Frequently asked questions about Hyperscale](sql-database-service-tier-hyperscale-faq.md).
-- For information about service tiers, see [Service tiers](sql-database-service-tiers.md)
+- For information about service tiers, see [Service tiers](sql-database-purchase-models.md)
 - See [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.
 - For purchasing model limits for a single database, see [Azure SQL Database vCore-based purchasing model limits for a single database](sql-database-vcore-resource-limits-single-databases.md).
 - For a features and comparison list, see [SQL common features](sql-database-features.md).

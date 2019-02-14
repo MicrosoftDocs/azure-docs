@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/03/2018
+ms.date: 01/10/2019
 ---
 # Tutorial: Implement a geo-distributed database
 
@@ -30,7 +30,7 @@ To complete the tutorial, make sure you've installed the following items:
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 - An Azure SQL database. To create one use,
-  - [Portal](sql-database-get-started-portal.md)
+  - [Portal](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
@@ -42,7 +42,7 @@ To complete the tutorial, make sure you've installed the following items:
 > [!IMPORTANT]
 > Be sure to set up firewall rules to use the public IP address of the computer on which you're performing the steps in this tutorial. Database-level firewall rules will replicate automatically to the secondary server.
 >
-> For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](sql-database-get-started-portal-firewall.md).  
+> For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](sql-database-server-level-firewall-rule.md).  
 
 ## Create a failover group
 

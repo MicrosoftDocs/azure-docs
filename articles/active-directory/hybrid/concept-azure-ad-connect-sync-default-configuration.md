@@ -12,11 +12,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Understanding the default configuration
 This article explains the out-of-box configuration rules. It documents the rules and how these rules impact the configuration. It also walks you through the default configuration of Azure AD Connect sync. The goal is that the reader understands how the configuration model, named declarative provisioning, is working in a real-world example. This article assumes that you have already installed and configure Azure AD Connect sync using the installation wizard.

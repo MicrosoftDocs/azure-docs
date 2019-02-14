@@ -6,12 +6,13 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/31/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
+ms.collection: M365-identity-device-management
 ---
 # Password policies and restrictions in Azure Active Directory
 
@@ -82,7 +83,7 @@ The following table describes the available password policy settings that can be
 | Password expiry |<ul><li>Default value: **false** days (indicates that password expiry is enabled).</li><li>The value can be configured for individual user accounts by using the `Set-MsolUser` cmdlet.</li></ul> |
 | Password change history |The last password *can't* be used again when the user changes a password. |
 | Password reset history | The last password *can* be used again when the user resets a forgotten password. |
-| Account lockout |After 10 unsuccessful sign-in attempts with the wrong password, the user is locked out for one minute. Further incorrect sign-in attempts lock out the user for increasing durations of time. |
+| Account lockout |After 10 unsuccessful sign-in attempts with the wrong password, the user is locked out for one minute. Further incorrect sign-in attempts lock out the user for increasing durations of time. [Smart lockout](howto-password-smart-lockout.md) tracks the last three bad password hashes to avoid incrementing the lockout counter for the same password. If someone enters the same bad password multiple times, this behavior will not cause the account to lockout. |
 
 ## Set password expiration policies in Azure AD
 

@@ -17,11 +17,15 @@ ms.author: tomfitz
 
 ---
 # Creating and deploying Azure resource groups through Visual Studio
+
 With Visual Studio, you can create a project that deploys your infrastructure and code to Azure. For example, you can define the web host, web site, and database for your app, and deploy that infrastructure along with the code. Visual Studio provides many different starter templates for deploying common scenarios. In this article, you deploy a web app and SQL Database.  
 
 This article shows how to use [Visual Studio 2017 with the Azure development and ASP.NET workloads installed](/dotnet/azure/dotnet-tools). If you use Visual Studio 2015 Update 2 and Microsoft Azure SDK for .NET 2.9, or Visual Studio 2013 with Azure SDK 2.9, your experience is largely the same.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Create Azure Resource Group project
+
 In this section, you create an Azure Resource Group project with a **Web app + SQL** template.
 
 1. In Visual Studio, choose **File**, **New Project**, choose either **C#** or **Visual Basic** (which language you choose has no impact on the later stages as these projects have only JSON and PowerShell content). Then choose **Cloud**, and **Azure Resource Group** project.

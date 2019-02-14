@@ -4,7 +4,7 @@ titleSuffix: "Azure Cognitive Services"
 description: In these quickstarts, you analyze an image, create a thumbnail, and extract printed and handwritten text using the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision

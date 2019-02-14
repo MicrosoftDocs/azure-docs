@@ -5,7 +5,7 @@ description: Identify and correct common issues encountered when you are retrain
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs

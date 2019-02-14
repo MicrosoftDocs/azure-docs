@@ -5,7 +5,7 @@ description: A comparison of linear regression models in Excel and in Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs

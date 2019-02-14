@@ -17,8 +17,6 @@ This article helps you set up OpenVPN on Azure VPN Gateway. The article assumes 
 > [!IMPORTANT]
 > This Public Preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="register"></a>Register this feature
 
 Click the **TryIt** in these steps to register this feature easily using Azure Cloud Shell.
@@ -30,17 +28,17 @@ Click the **TryIt** in these steps to register this feature easily using Azure C
 After clicking **TryIt** to open the Azure Cloud Shell, copy and paste the following commands:
 
 ```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
  
 ```azurepowershell-interactive
-Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
 Once the feature shows as registered, reregister the subscription to Microsoft.Network namespace.
 
 ```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ## <a name="vnet"></a>1. Create a point-to-site VPN
@@ -59,8 +57,8 @@ Install the latest version of the Resource Manager PowerShell cmdlets. For more 
 Enable OpenVPN on your gateway. Make sure that the gateway is already configured for point-to-site (IKEv2 or SSTP) before running the following commands:
 
 ```powershell
-$gw = Get-AzVirtualNetworkGateway -ResourceGroupName $rgname -name $name
-Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientProtocol OpenVPN
+$gw = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $rgname -name $name
+Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientProtocol OpenVPN
 ```
 
 ## Next steps
