@@ -19,6 +19,8 @@ ms.collection: M365-identity-device-management
 
 Before combined registration, users registered authentication methods for Azure Multi-Factor Authentication (MFA) and self-service password reset (SSPR) through two different experiences. People were confused that similar methods were used for both Azure MFA and SSPR but they had to register for each feature separately. Now, with combined registration, users can register once and get the benefits of both Azure MFA and SSPR.
 
+![Combined security information - My Profile showing registered Security info for a user, including Microsoft Authenticator and Phone for a sample user in the directory.](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+
 Before enabling the new experience, review this administrator-focused documentation and the user-focused documentation to ensure you understand the functionality and impact of this feature. Base your training on the user documentation to prepare your users for the new experience and help to ensure a successful rollout.
 
 |     |
@@ -87,7 +89,7 @@ Example:
 
 The following flowchart describes which methods are shown to a user when interrupted to register during sign in:
 
-![INSERT FLOWCHART HERE]()
+![Combined security info flow chart explaining number of methods required when More information is required when signing in. This can change if only MFA or only SSPR is required](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
 If you have both MFA and SSPR enabled, we recommend that you enforce MFA registration.
 
