@@ -21,7 +21,7 @@ ms.author: gokuma
 
 # Provision a Windows Data Science Virtual Machine on Azure
 
-The Microsoft Data Science Virtual Machine (DSVM) is a Windows Server 2016 virtual machine (VM) image on Azure that comes preinstalled and configured with tools for data analytics and machine learning.
+The Microsoft Windows Data Science Virtual Machine (DSVM) is a Windows Server 2016 virtual machine (VM) image on Azure that comes preinstalled and configured with tools for data analytics and machine learning.
 
 ## Included data science tools
 
@@ -74,7 +74,7 @@ To create a Microsoft Data Science Virtual Machine, you must have an Azure subsc
 
 To create a DSVM instance:
 
-1. Go to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016). You may be prompted to login to your Azure account if you are not already signed in.
+1. Go to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016). You may be prompted to sign in to your Azure account if you are not already signed in.
 1. Select the **Create** button at the bottom.
 
    ![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
@@ -176,11 +176,11 @@ Replace `%COMPUTERNAME%` with your VM name.
 Several Azure tools are installed on the VM:
 
 * A desktop shortcut goes to Azure SDK documentation.
-* Use **AzCopy** to move data in and out of your Azure Storage account. To see usage, enter **Azcopy** at a command prompt.
-* Use **Azure Storage Explorer** to browse the objects you store in your Azure Storage account. It also transfers data to and from Azure Storage. To access this tool, enter **Storage Explorer** in the **Search** field. Or find it in the Windows **Start** menu.
-* **Adlcopy** moves data to Azure Data Lake. To see usage, enter **adlcopy** in a command prompt.
-* **dtui** moves data to and from Azure Cosmos DB, a NoSQL database on the cloud. Enter **dtui** in a command prompt.
-* **Azure Data Factory Integration Runtime** moves data between on-premises data sources and the cloud. It's used within tools like Azure Data Factory.
+* Use **AzCopy** to copy data in and out of your Azure Storage account. To see usage, enter **Azcopy** at a command prompt.
+* Use **Azure Storage Explorer** to browse the objects you store in your Azure Storage account. It also copies data to and from Azure Storage. To access this tool, enter **Storage Explorer** in the **Search** field. Or find it in the Windows **Start** menu.
+* **Adlcopy** copies data to Azure Data Lake. To see usage, enter **adlcopy** in a command prompt.
+* **dtui** copies data to and from Azure Cosmos DB, a NoSQL database on the cloud. Enter **dtui** in a command prompt.
+* **Azure Data Factory Integration Runtime** copies data between on-premises data sources and the cloud. It's used within tools like Azure Data Factory.
 * Use **Microsoft Azure PowerShell** to administer your Azure resources in the PowerShell scripting language. It's also installed on your VM.
 
 ### Power BI
