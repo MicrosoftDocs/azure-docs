@@ -45,8 +45,8 @@ Listed below are the fields in the schema and what they signify
 | L7Protocol_s	| Protocol Name	| Based on destination port |
 | FlowDirection_s | •	I = Inbound •	O = Outbound | Direction of the flow as in raw flow log | 
 | FlowStatus_s	| •	A = Allowed by NSG Rule •	D = Denied by NSG Rule	| Status of flow as in raw flow log |
-| NSGList_s | <SUBSCRIPTIONID>\/<RESOURCEGROUP_NAME>\/<NSG_NAME> | Network Security Group (NSG) associated with the flow |
-| NSGRules_s | <Index value 0)><NSG_RULENAME><FlowDirection><FlowStatus><FlowCountProcessedByRule> |  NSG rule that allowed or denied this flow |
+| NSGList_s | \<SUBSCRIPTIONID>\/<RESOURCEGROUP_NAME>\/<NSG_NAME> | Network Security Group (NSG) associated with the flow |
+| NSGRules_s | <Index value 0)><NSG_RULENAME><Flow Direction><Flow Status><FlowCount ProcessedByRule> |  NSG rule that allowed or denied this flow |
 | NSGRuleType_s	| •	User Defined •	Default |	The type of NSG Rule used by the flow |
 | MACAddress_s | MAC Address | MAC address of the NIC at which the flow was captured |
 | Subscription_s | Subscription of the azure Virtual network is populated in this field | Applicable only for FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow and UnknownPrivate flow types (flow types where only one side is azure) |
@@ -55,7 +55,7 @@ Listed below are the fields in the schema and what they signify
 | Region_s | Azure region of virtual network/ network interface/ virtual machine to which the IP in the flow belongs to | Applicable only for FlowType = S2S, P2S, AzurePublic, ExternalPublic, MaliciousFlow and UnknownPrivate flow types (flow types where only one side is azure) |
 | Region1_s | Azure Region | Azure region of virtual network/ network interface/ virtual machine to which the source IP in the flow belongs to |
 | Region2_s	| Azure Region | Azure region of virtual network to which the destination IP in the flow belongs to |
-| NIC_s | <resourcegroup_Name>/<NetworkInterfaceName> |	Network interface associated with the MAC address |
+| NIC_s | \<resourcegroup_Name>\/<NetworkInterfaceName> |	Network interface associated with the MAC address |
 | NIC1_s | <resourcegroup_Name>/<NetworkInterfaceName> | Network interface associated with the source IP in the flow |
 | NIC2_s | <resourcegroup_Name>/<NetworkInterfaceName> | Network interface associated with the destination IP in the flow |
 | VM_s | <resourcegroup_Name>/<NetworkInterfaceName> | Virtual machine associated with the Network interface NIC_s |
