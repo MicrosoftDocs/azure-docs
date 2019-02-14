@@ -7,13 +7,13 @@ ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 03/30/2018
+ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
 ---
 # Manage an Azure virtual machine with inventory collection
 
-You can enable inventory tracking for an Azure virtual machine from the virtual machine's resource page. This method provides a browser-based user interface for setting up and configuring inventory collection.
+You can enable inventory tracking for an Azure virtual machine from the virtual machine's resource page. You can collect and view inventory for software, files, Linux daemons, Windows Services, and Windows Registry keys on your computers. This method provides a browser-based user interface for setting up and configuring inventory collection.
 
 ## Before you begin
 

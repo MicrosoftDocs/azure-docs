@@ -1187,7 +1187,7 @@ If you have only two SQL Servers and want to migrate them to a new cloud service
 
 Once you have brought up the migrated secondary and added in the new IP Address resource for the new cloud service before failover the existing Primary, you should take these steps within the Cluster Failover Manager:
 
-To add in IP Address, see the [Appendix](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage), step 14.
+To add in IP Address, see the Appendix, step 14.
 
 1. For the current IP Address resource, change the possible owner to ‘Existing Primary SQL Server’, in the example, ‘dansqlams4’:
 

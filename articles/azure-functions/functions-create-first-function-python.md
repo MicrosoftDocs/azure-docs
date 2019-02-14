@@ -175,7 +175,7 @@ You are now ready to create a Function App and other required resources for publ
 
 ## Create a Linux function app in Azure
 
-The function app provides an environment for executing your function code. It lets you group functions as a logical unit for easier management, deployment, and sharing of resources. Create a **Python function app running on Linux** using the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command.
+The function app provides an environment for executing your function code. It lets you group functions as a logical unit for easier management, deployment, and sharing of resources. Create a **Python function app running on Linux** using the [az functionapp create](/cli/azure/functionapp) command.
 
 Run the following command using a unique function app name in place of the `<app_name>` placeholder and the storage account name for  `<storage_name>`. The `<app_name>` is also the default DNS domain for the function app. This name needs to be unique across all apps in Azure.
 

@@ -81,7 +81,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
 
-   Yes. You can move easily move between the two licensing models, regardless of the image that was originally deployed. For more information, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md).
+   Yes. You can move easily move between the two licensing models, if you originally started with a pay-as-you-go gallery image. However, you will not be able to switch your license to PAYG if you initially started with a BYOL image. For more information, see [How to change the licensing model for a SQL Server VM](virtual-machines-windows-sql-ahb.md).
 
 1. **Should I use BYOL images or SQL VM RP to create new SQL VM?**
 
@@ -89,11 +89,11 @@ This article provides answers to some of the most common questions about running
 
 1. **Will switching licensing models require any downtime for SQL Server?**
 
-   No. [Changing the licensing model](virtual-machines-windows-sql-ahb.md) does not require any downtime for SQL Server as the change is effective immediately and does not require a restart of the VM. 
+   No. [Changing the licensing model](virtual-machines-windows-sql-ahb.md) does not require any downtime for SQL Server as the change is effective immediately and does not require a restart of the VM. However, to register your SQL Server VM with the SQL VM resource provider, the [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md) is a prerequisite and installing the SQL IaaS extension restarts the SQL Server service. As such, if the SQL IaaS extension needs to be installed, then it should be done during a maintenance window. 
 
 1. **Can CSP subscriptions activate the Azure Hybrid Benefit?**
 
-   Yes. [Changing the licensing model](virtual-machines-windows-sql-ahb.md) is available for CSP subscriptions. 
+   Yes, the Azure Hybrid Benefit is available for CSP subscriptions. CSP customers should first deploy a pay-as-you-go image, and then [change the licensing model](virtual-machines-windows-sql-ahb.md) to bring-your-own-license.  
 
 1. **Will registering my VM with the new SQL VM resource provider bring additional costs?**
 

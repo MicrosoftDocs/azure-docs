@@ -40,7 +40,7 @@ In some high memory-consumption scenarios, your app might truly require more com
 ## How do I automate App Service web apps by using PowerShell?
 
 You can use PowerShell cmdlets to manage and maintain App Service web apps. In our blog post [Automate web apps hosted in Azure App Service by using PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), we describe how to use Azure Resource Manager-based PowerShell cmdlets to automate common tasks. The blog post also has sample code for various web apps management tasks. 
-For descriptions and syntax for all App Service web apps cmdlets, see [AzureRM.Websites](https://docs.microsoft.com/powershell/module/azurerm.websites/?view=azurermps-4.0.0).
+For descriptions and syntax for all App Service web apps cmdlets, see [Az.Websites](/powershell/module/az.websites).
 
 ## How do I view my web app's event logs?
 

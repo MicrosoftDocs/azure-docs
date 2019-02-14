@@ -18,6 +18,7 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 
 # Integrate Azure AD logs with Log Analytics using Azure Monitor (preview)

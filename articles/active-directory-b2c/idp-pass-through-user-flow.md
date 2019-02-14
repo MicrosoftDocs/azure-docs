@@ -18,9 +18,6 @@ ms.subservice: B2C
 > [!NOTE]
 > This feature is currently in public preview.
 
-> [!Important]
-> This public preview feature is temporarily unavailable.
-
 A [user flow](active-directory-b2c-reference-policies.md) in Azure Active Directory (Azure AD) B2C provides users of your application an opportunity to sign up or sign in with an identity provider. When the journey starts, Azure AD B2C receives an [access token](active-directory-b2c-reference-tokens.md) from the identity provider. Azure AD B2C uses that token to retrieve information about the user. You enable a claim in your user flow to pass the token through to the applications that you register in Azure AD B2C.
 
 Azure AD B2C currently only supports passing the access token of [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) identity providers, which include [Facebook](active-directory-b2c-setup-fb-app.md) and [Google](active-directory-b2c-setup-goog-app.md). For all other identity providers, the claim is returned blank.

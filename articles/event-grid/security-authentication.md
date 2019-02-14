@@ -45,7 +45,7 @@ If you're using any other type of endpoint, such as an HTTP trigger based Azure 
 * The event body has the same schema as other Event Grid events.
 * The eventType property of the event is `Microsoft.EventGrid.SubscriptionValidationEvent`.
 * The data property of the event includes a `validationCode` property with a randomly generated string. For example, "validationCode: acb13…".
-* If you're using API version 2018-05-01-preview, the event data also includes a `validationUrl` property with a URL for manually validating the subscription.
+* The event data also includes a `validationUrl` property with a URL for manually validating the subscription.
 * The array contains only the validation event. Other events are sent in a separate request after you echo back the validation code.
 * The EventGrid DataPlane SDKs have classes corresponding to the subscription validation event data and subscription validation response.
 

@@ -358,7 +358,7 @@ php composer.phar require sendgrid/sendgrid 2.1.1
  // support@yourcompany.com, info@yourcompany.com
  $from = 'someone@example.com';
 
- // If you do not specify a sender list above, you can specifiy the user here. If
+ // If you do not specify a sender list above, you can specify the user here. If
  // a sender list IS specified above, this email address becomes irrelevant.
  $to = 'john@contoso.com';
 

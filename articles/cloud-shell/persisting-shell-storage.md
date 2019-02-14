@@ -101,5 +101,5 @@ The `Dismount-CloudDrive` cmdlet unmounts an Azure file share from the current s
 ## Next steps
 [Bash in Cloud Shell Quickstart](quickstart.md) <br>
 [PowerShell in Cloud Shell Quickstart](quickstart-powershell.md) <br>
-[Learn about Microsoft Azure Files storage](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Learn about Microsoft Azure Files storage](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
 [Learn about storage tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

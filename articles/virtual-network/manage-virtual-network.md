@@ -89,7 +89,7 @@ Complete the following tasks before completing steps in any section of this arti
 
 **Commands**
 
-- Azure CLI: [az network vnet show](/cli/azure/network/vnet#az_network_vnet_show)
+- Azure CLI: [az network vnet show](/cli/azure/network/vnet)
 - PowerShell: [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.network/get-azurermvirtualnetwork)
 
 ## Add or remove an address range
@@ -157,7 +157,7 @@ You can delete a virtual network only if there are no resources connected to it.
 
 **Commands**
 
-- Azure CLI: [azure network vnet delete](/cli/azure/network/vnet#az_network_vnet_delete)
+- Azure CLI: [azure network vnet delete](/cli/azure/network/vnet)
 - PowerShell: [Remove-AzureRmVirtualNetwork](/powershell/module/azurerm.network/remove-azurermvirtualnetwork)
 
 ## Permissions

@@ -62,9 +62,9 @@ These items are implementations of [Application Insights](../../azure-monitor/ap
 * [Semantic Logging (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - integrates with [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)
 * [Cloud-based load testing](https://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash plugin](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
-* [Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 * [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
 * [Logrus](https://github.com/jjcollinge/logrus-appinsights)
+* [Azure Monitor](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 
 ## Content Management Systems
 * [Concrete](https://github.com/fidmor89/appInsights-Concrete)

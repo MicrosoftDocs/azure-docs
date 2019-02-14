@@ -1,5 +1,5 @@
 ---
-title: 'Azure PowerShell script sample - Create a VPN Gatewway | Microsoft Docs'
+title: 'Azure PowerShell script sample - Create a VPN Gateway | Microsoft Docs'
 description: Create a VPN gateway using powershell.
 services: vpn-gateway
 documentationcenter: vpn-gateway
