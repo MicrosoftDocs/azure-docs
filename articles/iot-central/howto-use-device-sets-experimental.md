@@ -89,10 +89,10 @@ In order to add a location map to you device sets dashboard you must have config
 1. On your Device Set Dashboard, select Map from the library.
 2. Give a title and choose the location property you have previously configured as part of your Device Property.
 3. Save and you will see the map tile displaying the location of your devices in the Device Set.
-4. Now when an operator views the device sets dashboard, the operator can see all the tiles you have configured, including the location Map to visualize all the devices location at a glance! 
-    
-> [!NOTE] 
-> You will be able to resize the map to your desired size. Clicking on a pin in the map will display the device information, name and location. You can click on the pop-up to go to the device property page.  
+4. Now when an operator views the device sets dashboard, the operator can see all the tiles you have configured, including the location Map to visualize all the devices location at a glance!
+
+> [!NOTE]
+> You will be able to resize the map to your desired size. Clicking on a pin in the map will display the device information, name and location. You can click on the pop-up to go to the device property page.
 
 ## Configure the List for your device set
 
