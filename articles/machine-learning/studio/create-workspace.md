@@ -17,9 +17,7 @@ ms.date: 12/07/2017
 
 To use Azure Machine Learning Studio, you need to have a Machine Learning Studio workspace. This workspace contains the tools you need to create, manage, and publish experiments.
 
-
-
-### To create a Studio workspace
+## Create a Studio workspace
 
 1. Sign in to the [Azure portal](https://portal.azure.com/)
 
@@ -61,7 +59,7 @@ For information about managing your Studio workspace, see [Manage an Azure Machi
 If you encounter a problem creating your workspace, see [Troubleshooting guide: Create and connect to a Machine Learning Studio workspace](troubleshooting-creating-ml-workspace.md).
 
 
-## Sharing an Azure Machine Learning Studio workspace
+## Share an Azure Machine Learning Studio workspace
 Once a Machine Learning Studio workspace is created, you can invite users to your workspace to share access to your workspace and all its experiments, datasets, notebooks, etc. You can add users in one of two roles:
 
 * **User** - A workspace user can create, open, modify, and delete experiments, datasets, etc. in the workspace.

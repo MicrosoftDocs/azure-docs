@@ -40,15 +40,15 @@ After the new Machine Learning Studio workspace is created, you can sign in to M
 
 1. If you use Internet Explorer, click the **Tools** button in the upper-right corner and select **Internet options**.  
 
-![Internet options][screen4]
+   ![Internet options][screen4]
 
 2. Under the **General** tab, click **Delete…**
 
-![General tab][screen5]
+   ![General tab][screen5]
 
 3. In the **Delete Browsing History** dialog box, make sure **Cookies and website data** is selected, and click **Delete**.
 
-![Delete cookies][screen6]
+   ![Delete cookies][screen6]
 
 After the cookies are deleted, restart the browser and then go to the [Microsoft Azure Machine Learning](https://studio.azureml.net) page. When you are prompted for a user name and password, enter the same Microsoft account you used to create the workspace.
 
