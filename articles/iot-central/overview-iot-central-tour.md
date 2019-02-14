@@ -56,7 +56,7 @@ You can choose between a light theme or a dark theme for the UI:
 
 ![Dashboard](media/overview-iot-central-tour/homepage.png)
 
-The home page is the first page you see when you sign in to your Azure IoT Central application. The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the application dashboard for other users by adding tiles. To learn more, see the [Customize the Azure IoT Central operator's view](tutorial-customize-operator.md) tutorial. Users can also create their own personal dashboards.
+The home page is the first page you see when you sign in to your Azure IoT Central application. The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the application dashboard for other users by adding tiles. To learn more, see the [Customize the Azure IoT Central operator's view](tutorial-customize-operator.md) tutorial. Users can also [create their own personal dashboards](howto-personalize-dashboard.md).
 
 ## Device explorer
 

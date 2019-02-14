@@ -15,7 +15,7 @@ manager: philmea
 The **Dashboard** is the page that loads when users who have access to the application navigate to the application's URL. If you selected either the **Sample Contoso** or **Sample Devkits** application template to create your application, your application has a pre-defined dashboard. If you chose the **Custom Application** application template, your dashboard is blank.
 
 > [!NOTE]
-> Users can also create their own personal dashboards to use instead of the default application dashboard.
+> Users can also [create their own personal dashboards](howto-personalize-dashboard-experimental.md?toc=/azure/iot-central-experimental/toc.json&bc=/azure/iot-central-experimental/breadcrumb/toc.json) to use instead of the default application dashboard.
 
 ## Add tiles
 

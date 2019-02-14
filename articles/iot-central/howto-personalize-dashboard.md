@@ -12,36 +12,41 @@ manager: philmea
 
 # Create and manage personal dashboards
 
-<!- TODO TODO this needs to be rewritten to describe the new feature -->
+The **Dashboard** is the page that loads when you first navigate to your application. A **builder** in your application defines the default application dashboard for all users. You can replace this default dashboard with your own, personalized application dashboard. You can have several dashboards that display different data and switch between them.
 
-The **Dashboard** is the page that loads when users who have access to the application navigate to the application's URL. If you selected either the **Sample Contoso** or **Sample Devkits** application template to create your application, your application has a pre-defined dashboard. If you chose the **Custom Application** application template, your dashboard is blank.
+## Create dashboard
 
-> [!NOTE]
-> Users can also create their own personal dashboards to use instead of the default application dashboard.
+The following screenshot shows the dashboard in an application created from the **Sample Contoso** template. You can replace the default application dashboard with a personal dashboard. To do so, click **+ New** at the top right of the page.
 
-## Add tiles
+![Dashboard for applications based on the "Sample Contoso" template](media/howto-personalize-dashboard/defaultdashboard.png)
 
-The following screenshot shows the dashboard in an application created from the **Sample Contoso** template. To customize the default dashboard for your application, click **Edit** at the top right of the page.
+Clicking **+ New**, opens the dashboard editor. In the editor, you can give your dashboard a name and chose items from the library. The library contains the tiles and dashboard primitives you can use to customize the dashboard.
 
-![Dashboard for applications based on the "Sample Contoso" template](media/howto-configure-homepage/image1.png)
+![Dashboard library](media/howto-personalize-dashboard/dashboardeditor.png)
 
-Clicking **Edit**, opens the dashboard library panel. The library contains the tiles and dashboard primitives you can use to customize the dashboard.
+For example, you can add a **Device Settings and Properties** tile to show settings and properties values for one of the devices you manage. To do so, first select a **Device Template** then select a **Device Instance**. Then give the tile a title and select a **Setting** or a **Property** to display. The following screenshot shows the **Fan speed** setting selected to add to the tile. Click **Done** to save the change to your dashboard.
 
-![Dashboard library](media/howto-configure-homepage/image2.png)
+!["Configure Device Details" form with details for settings and properties](media/howto-personalize-dashboard/dashboardsetting.png)
 
-For example, you can add a **Device Settings and Properties** tile to show a selection of the current settings and properties values for a device. To do so, first select a **Device Template** then select a **Device Instance**. After that give the tile a title and select a **Setting** or a **Property** to display. The following screenshot shows the **Set Temperature** setting selected to add to the tile. Click **Done** to save the change to the dashboard.
+Now when you view your personal dashboard, you see the new tile with the **Fan speed** setting for the device:
 
-!["Configure Device Details" form with details for settings and properties](media/howto-configure-homepage/image3.png)
+!["Dashboard" tab with displayed settings and properties for the tile](media/howto-personalize-dashboard/personaldashboard.png)
 
-Now when an operator views the default application dashboard, they see the new tile with the **Set Temperature** setting for the device:
+You can explore other tile types in the library to discover how to further customize your personal dashboards.
 
-!["Dashboard" tab with displayed settings and properties for the tile](media/howto-configure-homepage/image4.png)
+## Manage dashboards
 
-You can explore other tile types in the library to discover how to further customize the default application dashboard.
+You can have several personal dashboards and switch between them or choose the default application dashboard:
+
+![Switch dashboard](media/howto-personalize-dashboard/switchdashboards.png)
+
+You can edit your personal dashboards and delete those you no longer need:
+
+![Delete dashboard](media/howto-personalize-dashboard/managedashboards.png)
 
 ## Next steps
 
-Now that you've learned how to configure your Azure IoT Central default application dashboard, you can:
+Now that you've learned how to create and manage personal dashboards, you can:
 
 > [!div class="nextstepaction"]
-> [Learn how to prepare and upload images](howto-prepare-images.md)
+> [Learn how to manage your application preferences](howto-manage-preferences.md)
