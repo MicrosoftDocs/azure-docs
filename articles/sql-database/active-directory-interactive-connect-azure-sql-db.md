@@ -13,7 +13,7 @@ ms.reviewer: GeneMi
 ms.date: 01/25/2019
 manager: craigg
 ---
-# Connect to Azure SQL Database with Active Directory Multi-Factor Authentication
+# Connect to Azure SQL Database with Azure Active Directory Multi-Factor Authentication
 
 This article provides a C# program that connects to Azure SQL Database. The program uses interactive mode authentication, which supports [Azure Active Directory (Azure AD) Multi-Factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
@@ -60,7 +60,7 @@ To use Azure AD authentication, your C# program has to register as an Azure AD a
 
 To register and set necessary permissions for your application:
 
-1. Azure portal > **Azure Active Directory** > **App registrations** > **New application registration**
+1. In the Azure portal, select > **Azure Active Directory** > **App registrations** > **New application registration**.
 
     ![App registration](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
@@ -68,15 +68,15 @@ To register and set necessary permissions for your application:
 
     ![App ID displayed](media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. **Registered app** > **Settings** > **Required permissions** > **Add**
+2. Select **Registered app** > **Settings** > **Required permissions** > **Add**.
 
     ![Permissions settings for registered app](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
-3. **Required permissions** > **Add** > **Select an API** > **Azure SQL Database**
+3. Select **Required permissions** > **Add** > **Select an API** > **Azure SQL Database**.
 
     ![Add access to API for Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
-4. **API access** > **Select permissions** > **Delegated permissions**
+4. Select **API access** > **Select permissions** > **Delegated permissions**.
 
     ![Delegate permissions to API for Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
@@ -85,9 +85,9 @@ To register and set necessary permissions for your application:
 
 For your C# program to run, an Azure SQL server admin needs to assign an Azure AD admin for your Azure SQL server. 
 
- * **SQL Server** > **Active Directory admin** > **Set admin**
+ *On the **SQL Server** page select **Active Directory admin** > **Set admin**.
 
-For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server), in the **Provision an Azure Active Directory administrator for Azure SQL Database server** section.
+For more information about Azure AD admins and users for Azure SQL Database, see the screenshots in [Configure and manage Azure Active Directory authentication with SQL Database](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server), **Provision an Azure Active Directory administrator for Azure SQL Database server**.
 
 ### Add a non-admin user to a specific database (optional)
 
@@ -123,7 +123,7 @@ For the C# program to successfully run, you need to assign proper values to stat
 | AzureAD_UserID | "auser@abc.onmicrosoft.com" | **Azure Active Directory** > **User** > **New guest user** |
 | Initial_DatabaseName | "myDatabase" | **SQL servers** > **SQL databases** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **App registrations** > **Search by name** > **Application ID** |
-| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **App registrations** > **Search by name** > *[Your-App-regis]* > **Settings** > **RedirectURIs**<br /><br />For this article, any valid value is fine for RedirectUri, as it isn't used here. |
+| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **App registrations** > **Search by name** > *[Your-App-registration]* > **Settings** > **RedirectURIs**<br /><br />For this article, any valid value is fine for RedirectUri, as it isn't used here. |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## Verify with SQL Server Management Studio
@@ -141,7 +141,7 @@ Run SSMS again, this time with **Authentication** set to **Active Directory - Un
 For more information, see [Configure multi-factor authentication for SSMS and Azure AD](sql-database-ssms-mfa-authentication-configure.md).
 
 > [!NOTE]
-> If you are a guest user in the database, you also need to provide the Azure AD  domain name for the database - **Options** > **AD domain name or tenant ID**. To find the domain name in the Azure portal, select **Azure Active Directory** > **Custom domain names**. In the C# example program, providing a domain name is not necessary.
+> If you are a guest user in the database, you also need to provide the Azure AD domain name for the database: Select **Options** > **AD domain name or tenant ID**. To find the domain name in the Azure portal, select **Azure Active Directory** > **Custom domain names**. In the C# example program, providing a domain name is not necessary.
 
 ## C# code example
 
@@ -149,7 +149,7 @@ The example C# program relies on the [*Microsoft.IdentityModel.Clients.ActiveDir
 
 To install this package, in Visual Studio, select **Project** > **Manage NuGet Packages**. Search for and install **Microsoft.IdentityModel.Clients.ActiveDirectory**.
 
-### C# source code
+This is an example of C# source code.
 
 ```csharp
 
@@ -319,7 +319,7 @@ namespace ADInteractive5
 
 &nbsp;
 
-#### Actual test output from C#
+This is an example of the C# test output.
 
 ```
 [C:\Test\VSProj\ADInteractive5\ADInteractive5\bin\Debug\]
