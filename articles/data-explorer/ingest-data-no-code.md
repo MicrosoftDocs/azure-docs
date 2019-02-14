@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Ingest diagnostic and activity log data in Azure Data Explorer without one line of code | Microsoft Docs'
+title: 'Tutorial: Ingest diagnostic and activity log data in Azure Data Explorer without one line of code'
 description: In this tutorial, you learn how to ingest data to Azure Data Explorer without one line of code and query that data.
 services: data-explorer
 author: orspod
@@ -223,9 +223,9 @@ To map the activity logs' data to the table, use the following query:
 
 ## Create an Azure Event Hubs namespace
 
-Azure diagnostic logs enable exporting metrics to a storage account or to an event hub. In this tutorial, we'll route the metrics via an event hub. You'll create an Azure Event Hubs namespace and an event hub for the diagnostic logs in the following steps. Azure Monitor will create the event hub **insights-operational-logs** for the activity logs.
+Azure diagnostic logs enable exporting metrics to a storage account or to an event hub. In this tutorial, we'll route the metrics via an event hub. You'll create an Event Hubs namespace and an event hub for the diagnostic logs in the following steps. Azure Monitor will create the event hub **insights-operational-logs** for the activity logs.
 
-1. Create an event hub by using an Azure Resource Manager template in the Azure portal. To follow the rest of the steps in this article, press and hold (or right-click) the **Deploy to Azure** button, and then select **Open in new window**. The **Deploy to Azure** button takes you to the Azure portal.
+1. Create an event hub by using an Azure Resource Manager template in the Azure portal. To follow the rest of the steps in this article, right-click the **Deploy to Azure** button, and then select **Open in new window**. The **Deploy to Azure** button takes you to the Azure portal.
 
     [![Deploy to Azure button](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
@@ -258,7 +258,7 @@ Select a resource from which to export metrics. Several resource types support e
 
     ![Diagnostic settings](media/ingest-data-no-code/diagnostic-settings.png)
 
-1. The **Diagnostics settings** pane opens. Do the following steps:
+1. The **Diagnostics settings** pane opens. Take the following steps:
     1. Give your diagnostics log data the name **ADXExportedData**.
     1. Under **METRIC**, select the **AllMetrics** check box (optional).
     1. Select the **Stream to an event hub** check box.
@@ -287,7 +287,7 @@ Select a resource from which to export metrics. Several resource types support e
  
     ![Export activity log window](media/ingest-data-no-code/export-activity-log.png)
 
-1. In the **Export activity log** window, do the following steps:
+1. In the **Export activity log** window, take the following steps:
       1. Select your subscription.
       1. In the **Regions** list, choose **Select all**.
       1. Select the **Export to an event hub** check box.
@@ -335,7 +335,7 @@ Now you need to create the data connections for your diagnostic logs and activit
 
     Target table:
 
-    There are two options for routing: *static* and *dynamic*. For this tutorial, you'll use static routing (the default), where you specify the table name, the data format, and the mapping. Don't select the **My data includes routing info** check box.
+    There are two options for routing: *static* and *dynamic*. For this tutorial, you'll use static routing (the default), where you specify the table name, the data format, and the mapping. Leave **My data includes routing info** unselected.
 
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
@@ -364,7 +364,7 @@ Repeat the steps in the [Create the data connection for diagnostic logs](#diagno
 
     Target table:
 
-    There are two options for routing: *static* and *dynamic*. For this tutorial, you'll use static routing (the default), where you specify the table name, data format, and mapping. Don't select the **My data includes routing info** check box.
+    There are two options for routing: *static* and *dynamic*. For this tutorial, you'll use static routing (the default), where you specify the table name, data format, and mapping. Leave **My data includes routing info** unselected.
 
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
@@ -379,9 +379,9 @@ Repeat the steps in the [Create the data connection for diagnostic logs](#diagno
 
 You now have a pipeline with data flowing. Ingestion via the cluster takes 5 minutes by default, so allow the data to flow for a few minutes before beginning to query.
 
-### Diagnostic logs' table query example
+### An example of querying the diagnostic logs table
 
-The following query analyzes query-duration data from Azure Data Explorer diagnostic-log records:
+The following query analyzes query duration data from diagnostic log records in Azure Data Explorer:
 
 ```kusto
 DiagnosticLogsRecords
@@ -397,9 +397,9 @@ Query results:
 |   | 00:06.156 |
 | | |
 
-### Activity logs' table query example
+### An example of querying the activity logs table
 
-The following query analyzes data from Azure Data Explorer activity-log records:
+The following query analyzes data from activity log records in Azure Data Explorer:
 
 ```kusto
 ActivityLogsRecords
