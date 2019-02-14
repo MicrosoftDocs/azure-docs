@@ -11,7 +11,7 @@ ms.author: danlep
 ---
 # Quotas and region availability for Azure Container Instances
 
-All Azure services include certain default limits and quotas for resources and features. The following sections detail the default resource limits for several Azure Container Instances (ACI) resources, as well as the availability of the ACI service in Azure regions.
+All Azure services include certain default limits and quotas for resources and features. The following sections detail the default resource limits for several Azure Container Instances resources, as well as the availability of the service in Azure regions.
 
 ## Service quotas and limits
 
