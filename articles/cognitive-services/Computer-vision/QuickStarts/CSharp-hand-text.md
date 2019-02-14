@@ -420,7 +420,7 @@ When no longer needed, delete the Visual Studio solution. To do so, open File Ex
 
 ## Next steps
 
-Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR). Create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image
+Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR). Create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image.
 
 > [!div class="nextstepaction"]
 > [Computer Vision API C# Tutorial](../Tutorials/CSharpTutorial.md)
