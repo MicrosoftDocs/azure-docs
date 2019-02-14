@@ -1,5 +1,5 @@
 ---
-title: Quickstart for Azure App Configuration with .Net Core | Microsoft Docs
+title: Quickstart for Azure App Configuration with .NET Core | Microsoft Docs
 description: A quickstart for using Azure App Configuration with .NET Core apps
 services: azure-app-configuration
 documentationcenter: ''
