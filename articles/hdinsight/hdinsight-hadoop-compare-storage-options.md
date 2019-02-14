@@ -206,6 +206,7 @@ Data Lake Storage Gen1 is compatible with most open-source components in the Had
 * See [Scenarios for using Data Lake Storage Gen1](../data-lake-store/data-lake-store-data-scenarios.md) to learn how to use Data Lake Storage Gen1 in scenarios such as ingesting data, processing data, downloading data, and visualizing data.
 
 ### What is Data Lake Storage Gen1 file system (adl://)?
+
 Data Lake Storage Gen1 can be accessed via the new filesystem, the AzureDataLakeFilesystem (adl://), in Hadoop environments (available with HDInsight cluster). Applications and services that use adl:// are able to take advantage of further performance optimization that are not currently available in WebHDFS. As a result, Data Lake Storage Gen1 gives you the flexibility to either avail the best performance with the recommended option of using adl:// or maintain existing code by continuing to use the WebHDFS API directly. Azure HDInsight fully leverages the AzureDataLakeFilesystem to provide the best performance on Data Lake Storage Gen1.
 
 You can access your data in Data Lake Storage Gen1 using `adl://<data_lake_storage_gen1_name>.azuredatalakestore.net`. For more information on how to access the data in Data Lake Storage Gen1, see [View properties of the stored data](../data-lake-store/data-lake-store-get-started-portal.md#properties)
