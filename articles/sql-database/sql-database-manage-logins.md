@@ -100,7 +100,7 @@ One of these administrative roles is the **dbmanager** role. Members of this rol
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Add the new user, to the **dbmanager** database role using the [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) statement. Sample statements:
+4. Add the new user, to the **dbmanager** database role in `master` using the [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) statement. Sample statements:
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
