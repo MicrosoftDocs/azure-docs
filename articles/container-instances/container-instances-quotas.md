@@ -1,12 +1,12 @@
 ---
 title: Azure Container Instances quotas and region availability
-description: The default quotas and region availability of the Azure Container Instances service.
+description: Quotas, limits, and region availability of the Azure Container Instances service.
 services: container-instances
 author: dlepow
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 02/08/2019
+ms.date: 02/13/2019
 ms.author: danlep
 ---
 # Quotas and region availability for Azure Container Instances
@@ -17,9 +17,20 @@ All Azure services include certain default limits and quotas for resources and f
 
 [!INCLUDE [container-instances-limits](../../includes/container-instances-limits.md)]
 
+## Feature availability
+
+Azure Container Instances can schedule both Windows and Linux containers with the same API. The following features are currently available only in Linux container groups. Windows support is planned.
+
+* Multiple containers per container group
+* Volume mounting (Azure Files, emptyDir, GitRepo, secret)
+* Virtual network (preview)
+* GPU resources (preview)
+
 ## Region availability
 
-Azure Container Instances is available in the following regions with the specified CPU and memory limits. Values are current at time of publication. For up-to-date information, use the [List Capabilities](/rest/api/container-instances/listcapabilities/listcapabilities) API. Availability and resource limits may differ when using Azure Container Instances with a [virtual network](container-instances-vnet.md) (preview) or with [GPU resources](container-instances-gpu.md) (preview).
+Azure Container Instances is available in the following regions with the specified CPU and memory limits for each container group. Values are current at time of publication. For up-to-date information, use the [List Capabilities](/rest/api/container-instances/listcapabilities/listcapabilities) API. 
+
+Availability and resource limits may differ when using Azure Container Instances with a [virtual network](container-instances-vnet.md) (preview) or with [GPU resources](container-instances-gpu.md) (preview).
 
 | Location | OS | CPU | Memory (GB) |
 | -------- | -- | :---: | :-----------: |
