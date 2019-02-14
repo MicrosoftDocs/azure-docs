@@ -14,15 +14,15 @@ multiple Kinects can be connected to one another to enable cross device synchron
 is important to make sure that the color and depth data align well. 
 
 ## Device internal synchronization
-Image capture between the individuals cameras is synchronized in hardware. In every [k4a_capture_t](~/api/current/k4a-capture-t.md) 
+Image capture between the individuals cameras is synchronized in hardware. In every k4a_capture_t 
 that contains images from the both the color and depth sensor the images are timestamp aligned based on the operating mode of the
 hardware. By default the images of a capture are center of exposure aligned. The relative timing of 
-depth and color captures can be adjusted using the ```depth_delay_off_color_usec``` field of [k4a_device_configuration_t](~/api/current/k4a-device-configuration-t.md).
+depth and color captures can be adjusted using the ```depth_delay_off_color_usec``` field of k4a_device_configuration_t.
 
 ## Device external synchronization
 See [external synchronization](external-sync.md) for hardware setup. Once the hardware is configured the software 
 for each camera must be configured to specify if the camera is operating in a master or subordinate mode. This 
-setting is configured on the [k4a_device_configuration_t](~/api/current/k4a-device-configuration-t.md).
+setting is configured on the k4a_device_configuration_t.
 
 ### Master mode:
 ```
@@ -38,10 +38,10 @@ deviceConfig.wired_sync_mode = K4A_WIRED_SYNC_MODE_SUBORDINATE
 ### Retrieving synchronization jack state
 
 To programatically retrieve the current state of the synchronization input and synchronization output jacks use 
-the [k4a_device_get_sync_jack](~/api/0.5.2/k4a-device-get-sync-jack.md) function.
+the k4a_device_get_sync_jack function.
 
 
 ## See Also
-- [k4a_device_configuration_t](~/api/current/k4a-device-configuration-t.md)
-- [k4a_wired_sync_mode_t](~/api/current/k4a-wired-sync-mode-t.md)
-- [k4a_device_get_sync_jack](~/api/0.5.2/k4a-device-get-sync-jack.md)
+- k4a_device_configuration_t
+- k4a_wired_sync_mode_t
+- k4a_device_get_sync_jack

@@ -39,6 +39,6 @@ Microphone array is standard USB Audio Class device and can be accessed through 
 ## Next steps
 
 - [Setup Azure Kinect DK](set-up-hardware.md) and verify sensor streaming using Kinect for Azure Viewer
-- [Download Sensor SDK](download-sdk.md)
+- Download Sensor SDK
 - [See source code and samples in GitHub](https://github.com/microsoft/azure-kinect-sensor-sdk)
-- Learn more about [using Sensor SDK](sensor-sdk.md) and [API documentation](download-sdk.md)
+- Learn more about [using Sensor SDK](sensor-sdk.md) and API documentation

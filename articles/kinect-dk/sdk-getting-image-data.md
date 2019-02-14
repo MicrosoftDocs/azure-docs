@@ -15,8 +15,8 @@ images requires opening a device, configuring the device, and then capturing ima
 ## Find and open the device
 
 The first step in retrieving image data is to enumerate and open the desired device. The number of available devices can be 
-retrieved using [k4a_device_get_installed_count](~/api/current/k4a-device-get-installed-count.md). This number can be used to check for the existence of any device or to walk through and query each individual
-device for its serial number using [k4a_device_get_serialnum ](~/api/current/k4a-device-get-serialnum.md). In our example we open the default device. If there is more than one device attached
+retrieved using k4a_device_get_installed_count. This number can be used to check for the existence of any device or to walk through and query each individual
+device for its serial number using k4a_device_get_serialnum. In our example we open the default device. If there is more than one device attached
 to a single host then a specific device instance should be selected.  
 
 ```C
@@ -59,7 +59,7 @@ if (K4A_RESULT_SUCCEEDED != k4a_device_start_cameras(device, &config))
 
 Images are captured from the device in a correlated manner. Each capture will contain a depth image, an ir image, a color image, 
 or a combinatino of images. All images that exist on a capture are time syncrhonized. To retrieve individual images
-from a capture call the appropariate function for each image type. To access the memory buffer of an image use [k4a_image_get_buffer](~/api/current/k4a-image-get-buffer.md).
+from a capture call the appropariate function for each image type. To access the memory buffer of an image use k4a_image_get_buffer.
 
 ```C
 // Capture a depth frame

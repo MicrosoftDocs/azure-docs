@@ -17,7 +17,7 @@ Get the tools to developer for Azure Kinect.
 >Bookmark this page and check it regularly to keep up-to-date on the most recent version of each tool recommended Azure Kinect development.
 
 ## Sensor SDK
-Download SDK: [Download](download-sdk.md)
+Download SDK
 
 Source code repository [here](https://microsoft.visualstudio.com/DefaultCollection/Analog/_git/analog.ai.depthcamera)
 

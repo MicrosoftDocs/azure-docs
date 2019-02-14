@@ -16,7 +16,7 @@ Azure Kinect DK does not update firmware automatically, you can use AzureKinectF
 
 ## Prepare for firmware update
 
-1. [Download SDK](download-sdk.md)
+1. Download SDK
 2. Unzip all content, you should have under \tools\amd64\release\
     - AzureKinectFirmwareTool.exe and 
     - .bin file under firmware directory

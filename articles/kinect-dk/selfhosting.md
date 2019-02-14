@@ -6,7 +6,7 @@ Azure Kinect DK (aka. Eden) has not been announced in public so keep the device 
 
 People using Eden hardware will need to be tented into Eden selfhost tent. Main purpose of this is to remind on confidentiality as well as help users to find out through [https://cpmt](https://cpmt) other Eden users and they can share information with.
 
-Eden Selfhosting Requirements document can be found [here](images/Eden-selfhosting-requirements.pdf) 
+Eden Selfhosting Requirements document can be found [here](media/Eden-selfhosting-requirements.pdf) 
 
 ## How can I get hardware?
 
