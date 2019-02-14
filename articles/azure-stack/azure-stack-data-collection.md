@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2019
 ms.author: jeffgilb
-ms.reviewer: 
+ms.reviewer: chengwei
 ms.lastreviewed: 02/14/2019
 
 ---
@@ -44,17 +44,9 @@ For the automated data deletion action (90 days after case close), we do not pro
 For the on-demand data deletion action, Microsoft support engineer has access to the tool where they can initiate the data deletion on demand and they can provide confirmation on the phone with the customer when it’s done.
 
 ## Diagnostic Data
-As part of the support process, Azure Stack Operaters can [share diagnostic logs](azure-stack-diagnostics.md) with Azure Stack support and engineering teams to facilitate troubleshooting.  Following are frequently asked questions related to the handling of diagnostic logs.
+As part of the support process, Azure Stack Operaters can [share diagnostic logs](azure-stack-diagnostics.md) with Azure Stack support and engineering teams to facilitate troubleshooting.
 
-### How are Azure Stack logs transferred to Microsoft?
-After the requested Azure Stack log is collected by the customer using a tool and script provided by Microsoft, they are transferred over an HTTPS protected encrypted connection.
-
-### Is there a need to use a password to protect the data? 
-HTTPS provides the encryption over the wire, so that there is no password needed for the encryption in transit. 
-
-### How is the data stored at Microsoft after the transfer is completed?
-Logs that are uploaded to Microsoft are encrypted and stored.    
-
+Microsoft provides a tool and script for customers to collect and upload requested diagnostic log files. Once collected, the log files are transferred over an HTTPS protected encrypted connection to Microsoft. Becuase HTTPS provides the encryption over the wire, there is no password needed for the encryption in transit. After they are recieved, logs are encrypted and stored until they are automatically deleted 90 days after the support case is closed.
 
 ## Telemetry Data
 [Azure Stack telemetry](azure-stack-telemetry.md) automatically uploads system data to Microsoft via the Connected User Experience. Azure Stack Operators have controls to customize telemetry features and privacy settings at any time.
