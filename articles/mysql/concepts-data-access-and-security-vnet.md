@@ -18,6 +18,7 @@ To create a virtual network rule, there must first be a [virtual network][vm-vir
 
 > [!NOTE]
 > This feature is available in all regions of Azure where Azure Database for MySQL is deployed for General Purpose and Memory Optimized servers.
+> In case of VNET peering, if traffic is flowing through a common VNET Gateway with Service Endpoint and is supposed to flow to the peer, we should create ACL/VNET rule to allow Azure VM's in Gateway VNET to access the MySQL server.”
 
 <a name="anch-terminology-and-description-82f" />
 
