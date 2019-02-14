@@ -48,7 +48,7 @@ Depending on your organization’s settings, you might be able to use an authent
 
     ![Start by getting the app page](media/security-info/securityinfo-myprofile-getauthapp.png)
 
-    >![Note]
+    >[!Note]
     >If you want to use an authenticator app other than the Microsoft Authenticator app, select the **I want to use a different authenticator app** link.
     
     >If your organization lets you choose a different method besides the authenticator app, you can select the **I want to set up a different method link**.
