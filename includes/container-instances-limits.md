@@ -11,7 +11,8 @@ ms.author: danlep
 | Number of containers per container group | 60 |
 | Number of volumes per container group | 20 |
 | Ports per IP | 5 |
-| Container instance log size | 4 MB (running instance)<br/>16 KB or 1000 lines (stopped instance) |
+| Container instance log size - running instance | 4 MB |
+| Container instance log size - stopped instance | 16 KB or 1000 lines |
 | Container creates per hour |300<sup>1</sup> |
 | Container creates per 5 minutes | 100<sup>1</sup> |
 | Container deletes per hour | 300<sup>1</sup> |

@@ -19,7 +19,7 @@ All Azure services include certain default limits and quotas for resources and f
 
 ## Feature availability
 
-Azure Container Instances can schedule both Windows and Linux containers with the same API. The following features are currently available only in Linux container groups. Windows support is planned.
+Azure Container Instances can schedule both Windows and Linux containers with the same API. However, the following features are currently available only in Linux container groups. Windows support is planned.
 
 * Multiple containers per container group
 * Volume mounting (Azure Files, emptyDir, GitRepo, secret)
