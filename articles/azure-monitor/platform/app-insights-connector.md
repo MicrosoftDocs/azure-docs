@@ -265,7 +265,7 @@ A record with a *type* of *ApplicationInsights* is created for each type of inpu
 This solution does not have a set of sample log searches shown on the dashboard. However, sample log search queries with descriptions are shown in the [View Application Insights Connector information](#view-application-insights-connector-information) section.
 
 ## Removing the connector with PowerShell
-With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. You can remove existing connections by executing this PowerShell cmdlet:
+With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. You can remove existing connections with the following PowerShell script.
 
 ```PowerShell
 $Subscription_app = "App Subscription Name"
@@ -280,6 +280,34 @@ Set-AzureRmContext -SubscriptionId $Subscription_app
 $AIApp = Get-AzureRmApplicationInsights -ResourceGroupName $ResourceGroup_app -Name $Application 
 Set-AzureRmContext -SubscriptionId $Subscription_workspace
 Remove-AzureRmOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
+```
+
+You can retrieve a list of applications using the following PowerShell script. This requires an Azure Active Directory authentication token.
+
+```PowerShell
+Connect-AzureRmAccount
+$Tenant = "TenantId"
+$Subscription_workspace = "Workspace Subscription Name"
+$ResourceGroup_workspace = "Workspace ResourceGroup"
+$Workspace = "Workspace Name"
+$AccessToken = "AAD Authentication Token" 
+
+Set-AzureRmContext -SubscriptionId $Subscription_workspace
+$LAWorkspace = Get-AzureRmOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup_workspace -Name $Workspace
+
+$Headers = @{
+    "Authorization" = "Bearer $($AccessToken)"
+    "x-ms-client-tenant-id" = $Tenant
+}
+
+$Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
+$ConnectionsJson = $Connections | ConvertTo-Json
+```
+
+You can also retrieve a list of applications use a log query.
+
+```Kusto
+ApplicationInsights | summarize by ApplicationName
 ```
 
 ## Next steps
