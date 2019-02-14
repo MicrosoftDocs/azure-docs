@@ -8,16 +8,11 @@
     href: what-is-ml-studio.md
   - name: Compare our ML products
     href: ../service/overview-more-machine-learning.md       
-  - name: Frequently asked questions
-    displayName: FAQ
-    href: faq.md
-- name: Quickstarts
+- name: Tutorials
   items:
   - name: Create your first experiment
     displayName: quickstart
     href: create-experiment.md
-- name: Tutorials
-  items:
   - name: Create a predictive solution
     items:
     - name: 1 - Create experiment
