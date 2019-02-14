@@ -20,6 +20,7 @@ If you're an IT admin concerned with improving web application access, you can o
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Create a self-signed certificate
 > * Create an autoscale virtual network
 > * Create a reserved public IP
 > * Set up your application gateway infrastructure
@@ -33,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This article requires that you run Azure PowerShell locally. You must have Azure PowerShell module version 1.0.0 or later installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). After you verify the PowerShell version, run `Connect-AzAccount` to create a connection with Azure.
+This tutorial requires that you run Azure PowerShell locally. You must have Azure PowerShell module version 1.0.0 or later installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). After you verify the PowerShell version, run `Connect-AzAccount` to create a connection with Azure.
 
 ## Sign in to Azure
 
@@ -55,7 +56,7 @@ New-AzResourceGroup -Name $rg -Location $location
 
 ## Create a self-signed certificate
 
-For production use, you should import a valid certificate signed by trusted provider. For this article, you create a self-signed certificate using [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). You can use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate.
+For production use, you should import a valid certificate signed by trusted provider. For this tutorial, you create a self-signed certificate using [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). You can use [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) with the Thumbprint that was returned to export a pfx file from the certificate.
 
 ```powershell
 New-SelfSignedCertificate `
