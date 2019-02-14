@@ -1,5 +1,5 @@
 ---
-title: Tutorial - How to use an Azure virtual machine and a Python application to store secrets in Azure Key Vault | Microsoft Docs
+title: Tutorial - Use a Linux virtual machine and a Python application to store secrets in Azure Key Vault | Microsoft Docs
 description: In this tutorial, you learn how to configure a Python application to read a secret from Azure Key Vault.
 services: key-vault
 documentationcenter: 
@@ -24,23 +24,23 @@ In this tutorial, you set up an Azure web application to read information from A
 
 > [!div class="checklist"]
 > * Create a key vault
-> * Store a secret in Key Vault
+> * Store a secret in your key vault
 > * Create an Azure Linux Virtual Machine
 > * Enable a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the virtual machine
-> * Grant the required permissions for the console application to read data from Key Vault
-> * Retrieve a secret from Key Vault
+> * Grant the required permissions for the console application to read data from the key vault
+> * Retrieve a secret from your key vault
 
 Before you go any further, please read the [basic concepts about Key Vault](key-vault-whatis.md#basic-concepts).
 
 ## Prerequisites
 
-* Git [Download git](https://git-scm.com/downloads).
+* [Git](https://git-scm.com/downloads).
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* Azure CLI. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install of upgrade the CLI, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Azure CLI. You must have the Azure CLI version 2.0.4 or later installed. Run `az --version` to find the version. If you need to install or upgrade the CLI, see [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## Understand Managed Service Identity
 
-Azure Key Vault can store credentials securely so they aren’t in your code. To retrieve them, you need to authenticate to Azure Key Vault. To authenticate to Key Vault, you need a credential! It's a classic bootstrap problem. Through Azure and Azure Active Directory (Azure AD), Managed Service Identity (MSI) provides a bootstrap identity that makes it simpler to get things started.
+Azure Key Vault can store credentials securely so they aren’t in your code. To retrieve them, you need to authenticate to Azure Key Vault. To authenticate to Key Vault, you need a credential. It's a classic bootstrap problem. Through Azure and Azure Active Directory (Azure AD), Managed Service Identity (MSI) provides a bootstrap identity that makes it simpler to get things started.
 
 When you enable MSI for an Azure service like Virtual Machines, App Service, or Functions, Azure creates a service principal for the instance of the service in Azure AD. It injects the credentials for the service principal into the instance of the service.
 
@@ -152,9 +152,9 @@ Now you can give Key Vault permission to the identity you created. Run the follo
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## Sign in to the VM
+## Log in to the VM
 
-Sign in to the virtual machine by using a terminal.
+Log in to the virtual machine by using a terminal.
 
 ```terminal
 ssh azureuser@<PublicIpAddress>
@@ -162,11 +162,11 @@ ssh azureuser@<PublicIpAddress>
 
 ## Install Python library on the VM
 
-Download and install the [requests](https://pypi.org/project/requests/2.7.0/) python library to make HTTP GET calls.
+Download and install the [requests](https://pypi.org/project/requests/2.7.0/) Python library to make HTTP GET calls.
 
 ## Create, edit, and run the sample Python app
 
-Create a python file called **Sample.py**.
+Create a Python file called **Sample.py**.
 
 Open Sample.py and edit it to contain the following code:
 
@@ -195,13 +195,13 @@ The preceding code performs a two-step process:
    1. Fetches a token from the local MSI endpoint on the VM. The endpoint then fetches a token from Azure Active Directory.
    1. Passes the token to the key vault and fetches your secret.
 
-Running the following command. You should see the secret value.
+Run the following command. You should see the secret value.
 
 ```console
 python Sample.py
 ```
 
-Now, you've learned how to do operations with Azure Key Vault in a python app running on a Linux virtual machine.
+Now, you've learned how to do operations with Azure Key Vault in a Python app running on a Linux virtual machine.
 
 ## Clean up resources
 
