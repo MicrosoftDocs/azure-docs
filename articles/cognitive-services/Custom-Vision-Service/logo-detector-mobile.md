@@ -25,12 +25,12 @@ This tutorial will show you how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 
-## Verify prerequisites
+## Prerequisites
 
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 - A Xamarin workload for Visual Studio (see [Installing Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
 - An iOS or Android emulator for Visual Studio
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (optional)
+- The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (optional)
 
 ## Get the source code
 
@@ -40,7 +40,7 @@ If you want to use the provided web app, clone or download the app's source code
 
 Sign in to the [Custom Vision website](https://customvision.ai/) and create a new project. Specify an Object Detection project and use the Logo domain; this will let the service use an algorithm optimized for logo detection. 
 
-![New-project window on the Custom Vision website in a Chrome browser window](media/azure-logo-tutorial/new-project.png)
+![New-project window on the Custom Vision website in the Chrome browser](media/azure-logo-tutorial/new-project.png)
 
 ## Upload and tag images
 
@@ -82,7 +82,7 @@ This result takes the form of a **PredictionResult** instance, which itself cont
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?range=3-12)]
 
-To learn more about how the app handles this data, start with the **GetResourcesAsync** method, which is defined in the Source/VisualProvision/Services/Recognition/RecognitionService.cs file.  
+To learn more about how the app handles this data, start with the **GetResourcesAsync** method. This method is defined in the Source/VisualProvision/Services/Recognition/RecognitionService.cs file.  
 
 ## Add Computer Vision
 
@@ -101,7 +101,7 @@ Next, open the **Source\VisualProvision\AppSettings.cs** file and populate the *
 
 The app requires an Azure service principal account to deploy services to your Azure subscription. A service principal lets you delegate specific permissions to an app using role-based access control. To learn more, see the [service principals guide](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
 
-You can create a service principal by using either Azure Cloud Shell or the Azure CLI, as shown below. To begin, sign in and select the subscription you want to use.
+You can create a service principal by using either Azure Cloud Shell or the Azure CLI, as shown here. To begin, sign in and select the subscription you want to use.
 
 ```console
 az login
@@ -147,20 +147,20 @@ Follow these steps to run the app:
 1. On the first screen, enter your service principal client ID, tenant ID, and password. Select the **Login** button.
 
     > [!NOTE]
-    > On some emulators, the **Login** button might not activate at this step. If this happens, stop the app, open the **Source/VisualProvision/Pages/LoginPage.xaml** file, find the **Button** element labeled **LOGIN BUTTON**, remove the following line, and then run the app again.
+    > On some emulators, the **Login** button might not be activated at this step. If this happens, stop the app, open the **Source/VisualProvision/Pages/LoginPage.xaml** file, find the **Button** element labeled **LOGIN BUTTON**, remove the following line, and then run the app again.
     >  ```xaml
     >  IsEnabled="{Binding IsValid}"
     >  ```
     
     ![The app screen, showing fields for service principal credentials](media/azure-logo-tutorial/app-credentials.png)
 
-1. On the next screen, select your Azure subscription from the drop-down menu. (This menu should contain all of the subscriptions to which your service principal has access.) Select the **Continue** button.
+1. On the next screen, select your Azure subscription from the drop-down menu. (This menu should contain all of the subscriptions to which your service principal has access.) Select the **Continue** button. At this point, the app might prompt you to grant access to the device's camera and photo storage. Grant the access permissions.
 
     ![The app screen, showing a drop-down field for Target Azure subscription](media/azure-logo-tutorial/app-az-subscription.png)
 
-    At this point, the app might prompt you to grant access to the device's camera and photo storage. Grant the access permissions.
+    
 
-1. The camera on your device will activate. Take a photo of one of the Azure service logos that you trained. A deployment window should prompt you to select a region and resource group for the new services (as you would do if you were deploying them from the Azure portal). 
+1. The camera on your device will be activated. Take a photo of one of the Azure service logos that you trained. A deployment window should prompt you to select a region and resource group for the new services (as you would do if you were deploying them from the Azure portal). 
 
     ![A smartphone camera screen focused on two paper cutouts of Azure logos](media/azure-logo-tutorial/app-camera-capture.png)
 
@@ -168,7 +168,7 @@ Follow these steps to run the app:
 
 ## Clean up resources 
 
-If you've followed all of the steps of this scenario and used the app to deploy Azure services to your account, be sure to go to the [Azure portal](https://ms.portal.azure.com/) when you finish. There, cancel the services you don't want to use.
+If you've followed all of the steps of this scenario and used the app to deploy Azure services to your account, go to the [Azure portal](https://ms.portal.azure.com/). There, cancel the services you don't want to use.
 
 If you plan to create your own object detection project with Custom Vision, you might want to delete the logo detection project you created in this tutorial. A free trial for Custom Vision allows for only two projects. To delete the logo detection project, on the [Custom Vision website](https://customvision.ai), open **Projects** and then select the trash icon under **My New Project**.
 
