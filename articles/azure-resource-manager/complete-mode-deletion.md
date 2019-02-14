@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager tag support for resources
-description: Shows which Azure resource types support tags. Provides details for all Azure services.
+title: Azure Resource Manager complete mode deletion by resource type
+description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
@@ -8,30 +8,34 @@ ms.date: 02/13/2019
 ms.author: tomfitz
 ---
 
-# Tag support for Azure resources
-This article describes whether a resource type supports [tags](resource-group-using-tags.md).
+# Deletion of Azure resources for complete mode deployments
+This article describes how resource types handle deletion when not in a template that is deployed in complete mode.
 
-To get the same data as a file of comma-separated values, download [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
+The resource types marked with `Yes` are deleted when the type isn't in the template deployed with complete mode. 
+
+The resource types marked with `No` aren't automatically deleted when not in the template; however, they're deleted if the parent resource is deleted. For a full description of the behavior, see [Azure Resource Manager deployment modes](deployment-modes.md).
+
+To get the same data as a file of comma-separated values, download [complete-mode-deletion.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/complete-mode-deletion.csv).
 
 ## Microsoft.AAD
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | DomainServices | Yes | 
 | DomainServices/oucontainer | No | 
 
 ## microsoft.aadiam
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | diagnosticSettings | No | 
 | diagnosticSettingsCategories | No | 
 
 ## Microsoft.Addons
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | supportProviders | No | 
 
 ## Microsoft.ADHybridHealthService
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | aadsupportcases | No | 
 | addsservices | No | 
@@ -43,7 +47,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | services | No | 
 
 ## Microsoft.Advisor
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | configurations | No | 
 | generateRecommendations | No | 
@@ -51,7 +55,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | suppressions | No | 
 
 ## Microsoft.AlertsManagement
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | actionRules | No | 
 | alerts | No | 
@@ -63,24 +67,24 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | smartGroups | No | 
 
 ## Microsoft.AnalysisServices
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | servers | Yes | 
 
 ## Microsoft.ApiManagement
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | reportFeedback | No | 
 | service | Yes | 
 | validateServiceName | No | 
 
 ## Microsoft.Attestation
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | attestationProviders | No | 
 
 ## Microsoft.Authorization
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | classicAdministrators | No | 
 | denyAssignments | No | 
@@ -95,7 +99,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | roleDefinitions | No | 
 
 ## Microsoft.Automation
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | automationAccounts | Yes | 
 | automationAccounts/configurations | Yes | 
@@ -105,7 +109,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | automationAccounts/webhooks | No | 
 
 ## Microsoft.Azure.Geneva
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | environments | No | 
 | environments/accounts | No | 
@@ -113,24 +117,24 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | environments/accounts/namespaces/configurations | No | 
 
 ## Microsoft.AzureActiveDirectory
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | b2cDirectories | Yes | 
 
 ## Microsoft.AzureStack
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | registrations | Yes | 
 | registrations/customerSubscriptions | No | 
 | registrations/products | No | 
 
 ## Microsoft.Batch
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | batchAccounts | Yes | 
 
 ## Microsoft.Billing
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | billingAccounts | No | 
 | billingAccounts/billingProfiles | No | 
@@ -184,18 +188,18 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | usagePlans | No | 
 
 ## Microsoft.BingMaps
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | mapApis | Yes | 
 | updateCommunicationPreference | No | 
 
 ## Microsoft.BizTalkServices
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | BizTalk | Yes | 
 
 ## Microsoft.Blueprint
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | blueprintAssignments | No | 
 | blueprintAssignments/assignmentOperations | No | 
@@ -206,20 +210,20 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | blueprints/versions/artifacts | No | 
 
 ## Microsoft.BotService
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | botServices | Yes | 
 | botServices/channels | No | 
 | botServices/connections | No | 
 
 ## Microsoft.Cache
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | Redis | Yes | 
 | RedisConfigDefinition | No | 
 
 ## Microsoft.Capacity
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | appliedReservations | No | 
 | calculatePrice | No | 
@@ -238,7 +242,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | validateReservationOrder | No | 
 
 ## Microsoft.Cdn
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | edgenodes | No | 
 | profiles | Yes | 
@@ -248,14 +252,14 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | validateProbe | No | 
 
 ## Microsoft.CertificateRegistration
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | certificateOrders | Yes | 
 | certificateOrders/certificates | No | 
 | validateCertificateRegistrationInformation | No | 
 
 ## Microsoft.ClassicCompute
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | capabilities | No | 
 | domainNames | No | 
@@ -274,12 +278,12 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | virtualMachines/diagnosticSettings | No | 
 
 ## Microsoft.ClassicInfrastructureMigrate
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | classicInfrastructureResources | No | 
 
 ## Microsoft.ClassicNetwork
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | capabilities | No | 
 | expressRouteCrossConnections | No | 
@@ -293,7 +297,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | virtualNetworks/virtualNetworkPeerings | No | 
 
 ## Microsoft.ClassicStorage
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | capabilities | No | 
 | disks | No | 
@@ -309,18 +313,18 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | vmImages | No | 
 
 ## Microsoft.CognitiveServices
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | accounts | Yes | 
 
 ## Microsoft.Commerce
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | RateCard | No | 
 | UsageAggregates | No | 
 
 ## Microsoft.Compute
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | availabilitySets | Yes | 
 | disks | Yes | 
@@ -341,7 +345,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | virtualMachineScaleSets/virtualMachines/networkInterfaces | No | 
 
 ## Microsoft.Consumption
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | AggregatedCost | No | 
 | Balances | No | 
@@ -364,13 +368,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | UsageDetails | No | 
 
 ## Microsoft.ContainerInstance
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | containerGroups | Yes | 
 | serviceAssociationLinks | No | 
 
 ## Microsoft.ContainerRegistry
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | registries | Yes | 
 | registries/builds | No | 
@@ -396,24 +400,24 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | registries/webhooks/ping | No | 
 
 ## Microsoft.ContainerService
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | containerServices | Yes | 
 | managedClusters | Yes | 
 
 ## Microsoft.ContentModerator
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | applications | Yes | 
 | updateCommunicationPreference | No | 
 
 ## Microsoft.CortanaAnalytics
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | accounts | Yes | 
 
 ## Microsoft.CostManagement
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | Alerts | No | 
 | BillingAccounts | No | 
@@ -427,7 +431,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | Reports | No | 
 
 ## Microsoft.CustomerInsights
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | hubs | Yes | 
 | hubs/authorizationPolicies | No | 
@@ -444,33 +448,33 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | hubs/widgetTypes | No | 
 
 ## Microsoft.DataBox
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | jobs | Yes | 
 
 ## Microsoft.DataBoxEdge
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | DataBoxEdgeDevices | Yes | 
 
 ## Microsoft.Databricks
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | workspaces | Yes | 
 | workspaces/virtualNetworkPeerings | No | 
 
 ## Microsoft.DataCatalog
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | catalogs | Yes | 
 
 ## Microsoft.DataConnect
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | connectionManagers | Yes | 
 
 ## Microsoft.DataFactory
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | dataFactories | Yes | 
 | dataFactories/diagnosticSettings | No | 
@@ -479,7 +483,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | factories/integrationRuntimes | No | 
 
 ## Microsoft.DataLakeAnalytics
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | accounts | Yes | 
 | accounts/dataLakeStoreAccounts | No | 
@@ -487,34 +491,34 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | accounts/storageAccounts/containers | No | 
 
 ## Microsoft.DataLakeStore
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | accounts | Yes | 
 | accounts/eventGridFilters | No | 
 | accounts/firewallRules | No | 
 
 ## Microsoft.DataMigration
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | services | Yes | 
 | services/projects | Yes | 
 
 ## Microsoft.DBforMariaDB
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | servers | Yes | 
 | servers/recoverableServers | No | 
 | servers/virtualNetworkRules | No | 
 
 ## Microsoft.DBforMySQL
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | servers | Yes | 
 | servers/recoverableServers | No | 
 | servers/virtualNetworkRules | No | 
 
 ## Microsoft.DBforPostgreSQL
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | servers | Yes | 
 | servers/advisors | No | 
@@ -525,7 +529,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | servers/waitStatistics | No | 
 
 ## Microsoft.Devices
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | IotHubs | Yes | 
 | IotHubs/eventGridFilters | No | 
@@ -533,12 +537,12 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | usages | No | 
 
 ## Microsoft.DevSpaces
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | controllers | Yes | 
 
 ## Microsoft.DevTestLab
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | labs | Yes | 
 | labs/serviceRunners | Yes | 
@@ -546,13 +550,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | schedules | Yes | 
 
 ## Microsoft.DocumentDB
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | databaseAccountNames | No | 
 | databaseAccounts | Yes | 
 
 ## Microsoft.DomainRegistration
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | domains | Yes | 
 | domains/domainOwnershipIdentifiers | No | 
@@ -561,14 +565,14 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | validateDomainRegistrationInformation | No | 
 
 ## Microsoft.DynamicsLcs
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | lcsprojects | No | 
 | lcsprojects/clouddeployments | No | 
 | lcsprojects/connectors | No | 
 
 ## Microsoft.EventGrid
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | domains | Yes | 
 | domains/topics | No | 
@@ -578,7 +582,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | topicTypes | No | 
 
 ## Microsoft.EventHub
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | clusters | Yes | 
 | namespaces | Yes | 
@@ -589,13 +593,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | namespaces/eventhubs/consumergroups | No | 
 
 ## Microsoft.Features
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | features | No | 
 | providers | No | 
 
 ## Microsoft.Gallery
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | enroll | No | 
 | galleryitems | No | 
@@ -611,29 +615,29 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | retrieveresourcesbyid | No | 
 
 ## Microsoft.GuestConfiguration
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | guestConfigurationAssignments | No | 
 | software | No | 
 
 ## Microsoft.HanaOnAzure
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | hanaInstances | Yes | 
 
 ## Microsoft.HDInsight
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | clusters | Yes | 
 | clusters/applications | No | 
 
 ## Microsoft.ImportExport
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | jobs | Yes | 
 
 ## Microsoft.InformationProtection
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | labelGroups | No | 
 | labelGroups/labels | No | 
@@ -642,7 +646,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | labelGroups/labels/subLabels/conditions | No | 
 
 ## microsoft.insights
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | actiongroups | Yes | 
 | activityLogAlerts | Yes | 
@@ -674,23 +678,23 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | workbooks | Yes | 
 
 ## Microsoft.Intune
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | diagnosticSettings | No | 
 | diagnosticSettingsCategories | No | 
 
 ## Microsoft.IoTCentral
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | IoTApps | Yes | 
 
 ## Microsoft.IoTSpaces
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | Graph | Yes | 
 
 ## Microsoft.KeyVault
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | deletedVaults | No | 
 | vaults | Yes | 
@@ -698,7 +702,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | vaults/secrets | No | 
 
 ## Microsoft.Kusto
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | clusters | Yes | 
 | clusters/databases | No | 
@@ -706,41 +710,41 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | clusters/databases/eventhubconnections | No | 
 
 ## Microsoft.LabServices
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | labaccounts | Yes | 
 | users | No | 
 
 ## Microsoft.LocationBasedServices
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | accounts | Yes | 
 
 ## Microsoft.LocationServices
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | accounts | Yes | 
 
 ## Microsoft.LogAnalytics
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | logs | No | 
 
 ## Microsoft.Logic
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | integrationAccounts | Yes | 
 | workflows | Yes | 
 
 ## Microsoft.MachineLearning
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | commitmentPlans | Yes | 
 | webServices | Yes | 
 | Workspaces | Yes | 
 
 ## Microsoft.MachineLearningExperimentation
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | accounts | Yes | 
 | accounts/workspaces | Yes | 
@@ -750,24 +754,24 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | teamAccounts/workspaces/projects | Yes | 
 
 ## Microsoft.MachineLearningModelManagement
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | accounts | Yes | 
 
 ## Microsoft.MachineLearningServices
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | workspaces | Yes | 
 | workspaces/computes | No | 
 
 ## Microsoft.ManagedIdentity
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | Identities | No | 
 | userAssignedIdentities | Yes | 
 
 ## Microsoft.Management
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | getEntities | No | 
 | managementGroups | No | 
@@ -776,13 +780,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | tenantBackfillStatus | No | 
 
 ## Microsoft.Maps
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | accounts | Yes | 
 | accounts/eventGridFilters | No | 
 
 ## Microsoft.Marketplace
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | offers | No | 
 | offerTypes | No | 
@@ -796,19 +800,19 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | products | No | 
 
 ## Microsoft.MarketplaceApps
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | classicDevServices | Yes | 
 | updateCommunicationPreference | No | 
 
 ## Microsoft.MarketplaceOrdering
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | agreements | No | 
 | offertypes | No | 
 
 ## Microsoft.Media
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | mediaservices | Yes | 
 | mediaservices/accountFilters | No | 
@@ -828,12 +832,12 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | mediaservices/transforms/jobs | No | 
 
 ## Microsoft.Migrate
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | projects | Yes | 
 
 ## Microsoft.Network
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | applicationGateways | Yes | 
 | applicationSecurityGroups | Yes | 
@@ -894,13 +898,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | webApplicationFirewallPolicies | Yes | 
 
 ## Microsoft.NotificationHubs
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | namespaces | Yes | 
 | namespaces/notificationHubs | Yes | 
 
 ## Microsoft.OperationalInsights
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | devices | No | 
 | linkTargets | No | 
@@ -911,7 +915,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | workspaces/query | No | 
 
 ## Microsoft.OperationsManagement
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | managementassociations | No | 
 | managementconfigurations | Yes | 
@@ -919,7 +923,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | views | Yes | 
 
 ## Microsoft.PolicyInsights
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | policyEvents | No | 
 | policyStates | No | 
@@ -927,35 +931,35 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | remediations | No | 
 
 ## Microsoft.Portal
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | consoles | No | 
 | dashboards | Yes | 
 | userSettings | No | 
 
 ## Microsoft.PowerBI
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | workspaceCollections | Yes | 
 
 ## Microsoft.PowerBIDedicated
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | capacities | Yes | 
 
 ## Microsoft.ProjectOxford
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | accounts | Yes | 
 
 ## Microsoft.RecoveryServices
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | backupProtectedItems | No | 
 | vaults | Yes | 
 
 ## Microsoft.Relay
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | namespaces | Yes | 
 | namespaces/authorizationrules | No | 
@@ -965,13 +969,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | namespaces/wcfrelays/authorizationrules | No | 
 
 ## Microsoft.ResourceGraph
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | resources | No | 
 | subscriptionsStatus | No | 
 
 ## Microsoft.ResourceHealth
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | availabilityStatuses | No | 
 | childAvailabilityStatuses | No | 
@@ -981,7 +985,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | notifications | No | 
 
 ## Microsoft.Resources
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | deployments | No | 
 | deployments/operations | No | 
@@ -1000,25 +1004,25 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | tenants | No | 
 
 ## Microsoft.SaaS
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | applications | Yes | 
 | saasresources | No | 
 
 ## Microsoft.Scheduler
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | flows | Yes | 
 | jobcollections | Yes | 
 
 ## Microsoft.Search
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | resourceHealthMetadata | No | 
 | searchServices | Yes | 
 
 ## Microsoft.Security
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | advancedThreatProtectionSettings | No | 
 | alerts | No | 
@@ -1053,13 +1057,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | workspaceSettings | No | 
 
 ## Microsoft.SecurityGraph
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | diagnosticSettings | No | 
 | diagnosticSettingsCategories | No | 
 
 ## Microsoft.ServiceBus
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | namespaces | Yes | 
 | namespaces/authorizationrules | No | 
@@ -1074,13 +1078,13 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | premiumMessagingRegions | No | 
 
 ## Microsoft.ServiceFabric
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | clusters | Yes | 
 | clusters/applications | No | 
 
 ## Microsoft.ServiceFabricMesh
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | applications | Yes | 
 | gateways | Yes | 
@@ -1089,12 +1093,12 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | volumes | Yes | 
 
 ## Microsoft.SignalRService
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | SignalR | Yes | 
 
 ## Microsoft.Solutions
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | applianceDefinitions | Yes | 
 | appliances | Yes | 
@@ -1103,7 +1107,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | jitRequests | Yes | 
 
 ## Microsoft.SQL
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | managedInstances | Yes |
 | managedInstances/databases | Yes (see note below) |
@@ -1127,18 +1131,18 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | servers/tdeCertificates | No | 
 
 > [!NOTE]
-> The Master database doesn't support tags, but other databases, including Azure SQL Data Warehouse databases, support tags. Azure SQL Data Warehouse databases must be in Active (not Paused) state.
+> The Master database doesn't support tags, but other databases, including Data Warehouse databases, support tags.
 
 
 ## Microsoft.SqlVirtualMachine
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | SqlVirtualMachineGroups | Yes | 
 | SqlVirtualMachineGroups/AvailabilityGroupListeners | No | 
 | SqlVirtualMachines | Yes | 
 
 ## Microsoft.Storage
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | storageAccounts | Yes | 
 | storageAccounts/blobServices | No | 
@@ -1149,7 +1153,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | usages | No | 
 
 ## Microsoft.StorageSync
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | storageSyncServices | Yes | 
 | storageSyncServices/registeredServers | No | 
@@ -1159,12 +1163,12 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | storageSyncServices/workflows | No | 
 
 ## Microsoft.StorSimple
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | managers | Yes | 
 
 ## Microsoft.StreamAnalytics
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | streamingjobs | Yes (see note below) | 
 | streamingjobs/diagnosticSettings | No | 
@@ -1173,25 +1177,25 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > You can't add a tag when streamingjobs is running. Stop the resource to add a tag.
 
 ## Microsoft.Subscription
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | CreateSubscription | No | 
 | SubscriptionDefinitions | No | 
 | SubscriptionOperations | No | 
 
 ## microsoft.support
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | supporttickets | No | 
 
 ## Microsoft.TerraformOSS
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | providerRegistrations | Yes | 
 | resources | Yes | 
 
 ## Microsoft.TimeSeriesInsights
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | environments | Yes | 
 | environments/accessPolicies | No | 
@@ -1199,14 +1203,14 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | environments/referenceDataSets | Yes | 
 
 ## microsoft.visualstudio
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | account | Yes | 
 | account/extension | Yes | 
 | account/project | Yes | 
 
 ## Microsoft.Web
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | apiManagementAccounts | No | 
 | apiManagementAccounts/apiAcls | No | 
@@ -1253,18 +1257,18 @@ To get the same data as a file of comma-separated values, download [tag-support.
 | verifyHostingEnvironmentVnet | No | 
 
 ## Microsoft.WindowsDefenderATP
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | diagnosticSettings | No | 
 | diagnosticSettingsCategories | No | 
 
 ## Microsoft.WindowsIoT
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | DeviceServices | Yes | 
 
 ## Microsoft.WorkloadMonitor
-| Resource type | Supports tags |
+| Resource type | Complete mode deletion |
 | ------------- | ----------- |
 | components | No | 
 | componentsSummary | No | 
