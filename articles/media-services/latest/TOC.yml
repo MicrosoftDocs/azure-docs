@@ -90,7 +90,7 @@
     - name: Events with Event Grid
       href: reacting-to-media-services-events.md   
   - name: Player clients
-    items
+    items:
     - name: Azure Media Player
       href: use-azure-media-player.md
   - name: Media Services entities
