@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/13/2019
+ms.date: 02/14/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
+
 ms.collection: M365-identity-device-management
 ---
 
@@ -106,6 +107,12 @@ To update or remove an existing application in the Azure AD app gallery, you fir
     * If you want to update an existing application, select **Update existing application listing**.
     * If you want to remove an existing application from the Azure AD gallery, select **Remove existing application listing**.
     * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+
+## Listing requests by customers
+
+Customer can submit the request of listing an application by clicking **App requests by Customers** tile. Below is the flow of customer requested applications-
+
+![Customer requested apps flow](./media/howto-app-gallery-listing/reqbycustomer.png)
 
 ## Timelines
 
