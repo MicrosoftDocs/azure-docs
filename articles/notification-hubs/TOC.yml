@@ -112,7 +112,7 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.notificationhubs
   - name: PowerShell
-    href: /powershell/module/azurerm.notificationhubs
+    href: /powershell/module/az.notificationhubs
   - name: REST API
     href: /rest/api/notificationhubs
   - name: Resource Manager template
