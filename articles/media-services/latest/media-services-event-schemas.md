@@ -54,14 +54,6 @@ You can register for all of the events by subscribing to the JobStateChange even
 
 [Schema examples](#event-schema-examples) follow.
 
-### Monitoring Job output progress
-
-| Event type | Description |
-| ---------- | ----------- |
-| Microsoft.Media.JobOutputProgress| The event is a best effort to indicate the progress of the job processing, from 0% to 100%. The event is sent if there has been at least 5% change or it has been at least 30 sec since the last event (heartbeat). The value is not guaranteed to start at 0% or reach 100% and is not increasing at a constant rate. The event should not be used to determine that the processing has been completed. Use the state change events to check if the processing is complete.|
-
-[Schema examples](#event-schema-examples) follow.
-
 ## Live event types
 
 Media Services also emits the **Live** event types described below. There are two categories for the **Live** events: stream-level events and track-level events. 
@@ -253,31 +245,6 @@ For each JobOutput state change, the example schema looks similar to the followi
   "dataVersion": "1.0",
   "metadataVersion": "1"
 }]
-```
-
-### JobOutputProgress
-
-The example schema looks similar to the following:
-
-```json
-[{
-  "topic": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/belohuswc12",
-  "subject": "transforms/VideoAnalyzerTransform/jobs/job-5AB6DE32",
-  "eventType": "Microsoft.Media.JobOutputProgress",
-  "eventTime": "2018-12-10T18:20:12.1514867",
-  "id": "00000000-0000-0000-0000-000000000000",
-  "data": {
-    "jobCorrelationData": {
-      "TestKey1": "TestValue1",
-      "testKey2": "testValue2"
-    },
-    "label": "VideoAnalyzerPreset_0",
-    "progress": 86
-  },
-  "dataVersion": "1.0",
-  "metadataVersion": "1"
-}]
-
 ```
 
 ### LiveEventConnectionRejected
