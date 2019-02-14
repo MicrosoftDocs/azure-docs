@@ -57,7 +57,7 @@ You can add scoring endpoints using the sample code provided in this [GitHub rep
 
 ### Option 1: Programmatically
 
-To get the correct PATCH URL programmatically follow these steps:
+To get the correct PATCH URL programmatically, follow these steps:
 
 1. Run the [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) sample code.
 1. From the output of AddEndpoint, find the *HelpLocation* value and copy the URL.
@@ -72,7 +72,7 @@ To get the correct PATCH URL using the web portal follow these steps:
 
 1. Sign in to the [Azure Machine Learning Web Services](https://services.azureml.net/) portal.
 1. Click **Web Services** or **Classic Web Services** at the top.
-1. Click the scoring web service you are working with (if you didn't modify the default name of the web service, it will end in "[Scoring Exp.]").
+1. Click the scoring web service you're working with (if you didn't modify the default name of the web service, it will end in "[Scoring Exp.]").
 1. Click **+NEW**.
 1. After the endpoint is added, click the endpoint name.
 1. Under the **Patch** URL, click **API Help** to open the patching help page.
@@ -141,7 +141,7 @@ The value of the *Name* parameter in *Resources* should match the Resource Name 
 1. On the endpoint dashboard, click **Update Resource**.
 1. On the Update Resource API Documentation page for the web service, you can find the **Resource Name** under **Updatable Resources**.
 
-If your SAS token expires before you finish updating the endpoint, you must perform a GET with the Job Id to obtain a fresh token.
+If your SAS token expires before you finish updating the endpoint, you must perform a GET with the Job ID to obtain a fresh token.
 
 When the code has successfully run, the new endpoint should start using the retrained model in approximately 30 seconds.
 
@@ -154,7 +154,7 @@ Using the Retraining APIs, you can update the trained model of a predictive Web 
 
 ## Next Steps
 
-To learn more about how to manage web services or keep track of multiple experiment runs, see the following articles:
+To learn more about how to manage web services or keep track of multiple experiments runs, see the following articles:
 
 * [Explore the  Web Services portal](manage-new-webservice.md)
 * [Manage experiment iterations](manage-experiment-iterations.md)
