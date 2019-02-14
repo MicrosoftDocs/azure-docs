@@ -26,7 +26,7 @@ Traffic Analytics is built on top of Log Analytics, so you can run custom querie
 Listed below are the fields in the schema and what they signify
 
 | Field | Format | Comments | 
-|---------|--------- |---------|
+|:---   |:---    |:---  |
 | TableName	| AzureNetworkAnalytics_CL |	
 | SubType_s	| FlowLog |	Subtype for the flow logs |
 | FASchemaVersion_s |	1	| Flow log schema version |
@@ -35,15 +35,15 @@ Listed below are the fields in the schema and what they signify
 | FlowIntervalEndTime_t	| Date and Time in UTC | Ending time of the flow log processing interval |
 | FlowStartTime_t |	Date and Time in UTC |	First occurrence of such an aggregated flow (same four tuple) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. This gets aggregated based on aggregation logic |
 | FlowEndTime_t | Date and Time in UTC | Last occurrence of the aggregated flow (same four tuple) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. In terms of flow log v2, this field contains the time when the last flow with the same four-tuple started (marked as “B” in the raw flow record) |
-| FlowType_s | - IntraVNet - InterVNet - S2S - P2S - AzurePublic - ExternalPublic - MaliciousFlow -	Unknown Private - Unknown | Definition in note below the table |
+| FlowType_s |  * IntraVNet  * InterVNet * S2S * P2S * AzurePublic * ExternalPublic * MaliciousFlow  * Unknown Private * Unknown | Definition in note below the table |
 | SrcIP_s |	Source IP address |	Will be blank in case of In case of AzurePublic and ExternalPublic flows |
 | DestIP_s | Destination IP address	| Will be blank in case of In case of AzurePublic and ExternalPublic flows |
 | VMIP_s | IP of the VM	| Used for AzurePublic and ExternalPublic flows |
 | PublicIP_S | Public IP addresses | Used for AzurePublic and ExternalPublic flows |
 | DestPort_d | |Destination Port|
-| L4Protocol_s	| #	T #	U 	| Transport Protocol . T = TCP . U = UDP | 
+| L4Protocol_s	| *	T <br> * U 	| Transport Protocol . T = TCP . U = UDP | 
 | L7Protocol_s	| Protocol Name	| Based on destination port |
-| FlowDirection_s | #	I = Inbound #	O = Outbound | Direction of the flow as in raw flow log | 
+| FlowDirection_s | - I = Inbound<br> -	O = Outbound | Direction of the flow as in raw flow log | 
 | FlowStatus_s	| #	A = Allowed by NSG Rule #	D = Denied by NSG Rule	| Status of flow as in raw flow log |
 | NSGList_s | \<SUBSCRIPTIONID>\/<RESOURCEGROUP_NAME>\/<NSG_NAME> | Network Security Group (NSG) associated with the flow |
 | NSGRules_s | \<Index value 0)><NSG_RULENAME>\<Flow Direction>\<Flow Status>\<FlowCount ProcessedByRule> |  NSG rule that allowed or denied this flow |
@@ -85,15 +85,15 @@ Listed below are the fields in the schema and what they signify
 | InboundBytes_d |	Bytes received as captured at the network interface where NSG rule was applied | This is populated only for the Version 2 of NSG flow log schema |
 | OutboundBytes_d |	Bytes sent as captured at the network interface where NSG rule was applied | This is populated only for the Version 2 of NSG flow log schema |
 | CompletedFlows_d	|  | This is populated with non-zero value only for the Version 2 of NSG flow log schema |
-| PublicIPs_s | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries seperaed by bars |
+| PublicIPs_s | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries seperated by bars |
     
 # Notes
     
-    1. All flows that happened between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t” and captured in the storage account will be processed by Network watcher traffic analytics service. As of now, the default processing interval is 60 minutes and always this processing interval aligns with the hour interval. Processing interval never spans across hours.
-    2. Network watcher traffic analytics exposes intervals at which the NSG flow logs should be processed. Default processing interval is 60 minutes.
-    3. Aggregation Logic - In network watcher traffic analytics, we aggregate flows that have the same Source IP, Destination IP, Destination port and Transport layer protocol (TCP or UDP) (Note: Source port is excluded for aggregation). FlowStartTime_t field indicates the first occurrence of such an aggregated flow (same four tuple) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”
-    4. In case of AzurePublic and ExternalPublic flows, the customer owned azure VM IP is populated in this field, while the Public IP addresses are being populated in the PublicIPs_s field. For these two flow types, we should use VMIP_s and PublicIPs_s instead of SrcIP_s and DestIP_s fields. For AzurePublic and ExternalPublicIP addresses, we aggregate further, so that the number of records ingested to customer log analytics workspace is minimal.(This field will be deprecated soon and we should be using SrcIP_ and DestIP_s depending on whether azure VM was the source or the destination in the flow)
-    5. Details for flow types : Based on the IP addresses involved in the flow, we categorize the flows in to the following flow types.
+1. All flows that happened between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t” and captured in the storage account will be processed by Network watcher traffic analytics service. As of now, the default processing interval is 60 minutes and always this processing interval aligns with the hour interval. Processing interval never spans across hours.
+2. Network watcher traffic analytics exposes intervals at which the NSG flow logs should be processed. Default processing interval is 60 minutes.
+3. Aggregation Logic - In network watcher traffic analytics, we aggregate flows that have the same Source IP, Destination IP, Destination port and Transport layer protocol (TCP or UDP) (Note: Source port is excluded for aggregation). FlowStartTime_t field indicates the first occurrence of such an aggregated flow (same four tuple) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”
+4. In case of AzurePublic and ExternalPublic flows, the customer owned azure VM IP is populated in this field, while the Public IP addresses are being populated in the PublicIPs_s field. For these two flow types, we should use VMIP_s and PublicIPs_s instead of SrcIP_s and DestIP_s fields. For AzurePublic and ExternalPublicIP addresses, we aggregate further, so that the number of records ingested to customer log analytics workspace is minimal.(This field will be deprecated soon and we should be using SrcIP_ and DestIP_s depending on whether azure VM was the source or the destination in the flow)
+5. Details for flow types : Based on the IP addresses involved in the flow, we categorize the flows in to the following flow types.
     
 
 
