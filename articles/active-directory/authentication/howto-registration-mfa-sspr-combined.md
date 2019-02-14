@@ -19,6 +19,8 @@ ms.collection: M365-identity-device-management
 
 Before enabling the new experience, review the article [Combined security information registration (preview)](concept-registration-mfa-sspr-combined.md) to ensure you understand the functionality and impact of this feature.
 
+![Combined security information registration enhanced experience requesting more information at sign in. Example shows registering Microsoft Authenticator app as first method.](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
+
 |     |
 | --- |
 | Combined security information registration for Azure Multi-Factor Authentication and Azure AD self-service password reset is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
@@ -30,7 +32,7 @@ To enable converged registration, complete the following steps:
 2. Browse to **Azure Active Directory** > **User settings** > **Manage settings for access panel preview features**.
 3. Under **Users can use preview features for registering and managing security info - refresh**, choose to enable for a **Selected** group of users or for **All** users.
 
-![Combined security information registration enhanced experience requesting more information at sign in. Example shows registering Microsoft Authenticator app as first method.](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
+![Enable the combined security info preview experience for All users in the Azure AD portal](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
 > [!IMPORTANT]
 > If a user is enabled for both the non-refreshed and refreshed combined registration experience, they will see the new experience. Users who are enabled for both experiences will only see the new My Profile experience. The new My Profile aligns with the look and feel of combined registration and provides a seamless experience for users. Users can see My Profile by going to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo).
