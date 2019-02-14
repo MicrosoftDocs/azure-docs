@@ -35,16 +35,16 @@ Listed below are the fields in the schema and what they signify
 | FlowIntervalEndTime_t	| Date and Time in UTC | Ending time of the flow log processing interval |
 | FlowStartTime_t |	Date and Time in UTC |	First occurrence of such an aggregated flow (same four tuple) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. This gets aggregated based on aggregation logic |
 | FlowEndTime_t | Date and Time in UTC | Last occurrence of the aggregated flow (same four tuple) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. In terms of flow log v2, this field contains the time when the last flow with the same four-tuple started (marked as “B” in the raw flow record) |
-| FlowType_s |  * IntraVNet  * InterVNet * S2S * P2S * AzurePublic * ExternalPublic * MaliciousFlow  * Unknown Private * Unknown | Definition in note below the table |
+| FlowType_s |  • IntraVNet <br> • InterVNet <br> • S2S <br> • P2S <br> • AzurePublic <br> • ExternalPublic <br> • MaliciousFlow <br> • Unknown Private <br> • Unknown | Definition in note below the table |
 | SrcIP_s |	Source IP address |	Will be blank in case of In case of AzurePublic and ExternalPublic flows |
 | DestIP_s | Destination IP address	| Will be blank in case of In case of AzurePublic and ExternalPublic flows |
 | VMIP_s | IP of the VM	| Used for AzurePublic and ExternalPublic flows |
 | PublicIP_S | Public IP addresses | Used for AzurePublic and ExternalPublic flows |
 | DestPort_d | |Destination Port|
-| L4Protocol_s	| *	T <br> * U 	| Transport Protocol . T = TCP . U = UDP | 
+| L4Protocol_s	| •	T <br> • U 	| Transport Protocol . T = TCP <br> U = UDP | 
 | L7Protocol_s	| Protocol Name	| Based on destination port |
-| FlowDirection_s | - I = Inbound<br> -	O = Outbound | Direction of the flow as in raw flow log | 
-| FlowStatus_s	| #	A = Allowed by NSG Rule #	D = Denied by NSG Rule	| Status of flow as in raw flow log |
+| FlowDirection_s | • I = Inbound<br> •	O = Outbound | Direction of the flow as in raw flow log | 
+| FlowStatus_s	| •	A = Allowed by NSG Rule <br> •	D = Denied by NSG Rule	| Status of flow as in raw flow log |
 | NSGList_s | \<SUBSCRIPTIONID>\/<RESOURCEGROUP_NAME>\/<NSG_NAME> | Network Security Group (NSG) associated with the flow |
 | NSGRules_s | \<Index value 0)><NSG_RULENAME>\<Flow Direction>\<Flow Status>\<FlowCount ProcessedByRule> |  NSG rule that allowed or denied this flow |
 | NSGRuleType_s	| •	User Defined •	Default |	The type of NSG Rule used by the flow |
