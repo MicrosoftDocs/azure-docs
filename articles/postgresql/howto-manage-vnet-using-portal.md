@@ -12,6 +12,7 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 
 > [!NOTE]
 > Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
+> In case of VNET peering, if traffic is flowing through a common VNET Gateway with Service Endpoint and is supposed to flow to the peer, we should create ACL/VNET rule to allow Azure VM's in Gateway VNET to access the PostgreSQL server.
 
 ## Create a VNet rule and enable service endpoints in the Azure portal
 
