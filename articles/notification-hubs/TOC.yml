@@ -8,6 +8,8 @@
   items:
   - name: Create a notification hub - Azure portal
     href: create-notification-hub-portal.md  
+  - name: Configure a notification hub - Azure portal
+    href: configure-notification-hub-portal-pns-settings.md  
 - name: Tutorials
   items:
   - name: 1 - Push notifications to all registered devices
