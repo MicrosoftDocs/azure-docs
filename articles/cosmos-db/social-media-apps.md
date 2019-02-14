@@ -4,7 +4,7 @@ description: Learn about a design pattern for Social Networks by leveraging the 
 author: ealsur
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 02/11/2019
 ms.author: maquaran
 
 ---
@@ -217,7 +217,7 @@ Another available option is to use [Azure Cognitive Services](https://www.micros
 
 There is a last, but not least, important article I must address: **scalability**. When you design an architecture, each component should scale on its own. You will eventually need to process more data, or you will want to have a bigger geographical coverage. Thankfully, achieving both tasks is a **turnkey experience** with Cosmos DB.
 
-Cosmos DB supports [dynamic partitioning](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) out-of-the-box. It automatically creates partitions based on a given **partition key**, which is defined as an attribute in your documents. Defining the correct partition key must be done at design time. For more information, see the [choose the right partition key](partitioning-overview.md#choose-partitionkey) article.
+Cosmos DB supports dynamic partitioning out-of-the-box. It automatically creates partitions based on a given **partition key**, which is defined as an attribute in your documents. Defining the correct partition key must be done at design time. For more information, see [Partitioning in Azure Cosmos DB](partitioning-overview.md).
 
 For a social experience, you must align your partitioning strategy with the way you query and write. (For example, reads within the same partition are desirable, and avoid "hot spots" by spreading writes on multiple partitions.) Some options are: partitions based on a temporal key (day/month/week), by content category, by geographical region, or by user. It all really depends on how you'll query the data and show the data in your social experience.
 

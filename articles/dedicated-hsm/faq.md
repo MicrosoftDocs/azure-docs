@@ -3,7 +3,7 @@ title: Frequently asked questions - Azure Dedicated HSM | Microsoft Docs
 description: Frequently asked questions covering different topics on Azure Dedicated HSM 
 services: dedicated-hsm
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 ms.custom: "mvc, seodec18"
 ms.service: key-vault

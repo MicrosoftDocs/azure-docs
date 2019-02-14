@@ -24,6 +24,7 @@ There are several advantages of creating and managing alerts using [scheduledQue
 
 - Ability to [cross workspace log search](../log-query/cross-workspace-query.md) in alert rules and span up external resources like Log Analytics workspaces or even Application Insights apps
 - When multiple fields used to Group in query, using [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) user can specify which field to aggregate-on in Azure portal
+- Log alerts created using [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) can have period defined up to 48 hours and fetch data for longer period than before
 - Create alert rules in one shot as a single resource without the need to create three levels of resources as with [legacy Log Analytics Alert API](api-alerts.md)
 - Single programmatic interface for all variants of query-based log alerts in Azure -  new [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) can be used to manage rules for Log Analytics as well as Application Insights
 - All new log alert functionality and future development will be available only via the new [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
@@ -51,6 +52,13 @@ With request body containing the below JSON.
 }
 ```
 
+The API can also be accessed from a PowerShell command line using [ARMClient](https://github.com/projectkudu/ARMClient), an open-source command-line tool that simplifies invoking the Azure Resource Manager API. As illustrated below, in sample PUT call using ARMclient tool to switch all alert rules associated with the specific Log Analytics workspace.
+
+```PowerShell
+$switchJSON = {'scheduledQueryRulesEnabled': 'true'}
+armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
+```
+
 If switch of all alert rules in the Log Analytics workspace to use new [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) is successful, the following response will be provided.
 
 ```json
@@ -64,6 +72,12 @@ Users can also check the current status of your Log Analytics workspace and see 
 
 ```
 GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
+```
+
+To execute the above in using PowerShell command line using [ARMClient](https://github.com/projectkudu/ARMClient) tool, see the sample below.
+
+```PowerShell
+armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
 If the specified Log Analytics workspace has been switched to use [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) only; then the response JSON will be as listed below.

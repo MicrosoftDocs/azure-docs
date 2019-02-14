@@ -570,6 +570,20 @@ telemetry.trackTrace({
 });
 ```
 
+*Client/Browser-side JavaScript*
+
+```javascript
+trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.SeverityLevel)
+```
+
+Log a diagnostic event such as entering or leaving a method.
+
+ Parameter | Description
+---|---
+`message` | Diagnostic data. Can be much longer than a name.
+`properties` | Map of string to string: Additional data used to [filter exceptions](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) in the portal. Defaults to empty.
+`severityLevel` | Supported values: [SeverityLevel.ts](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/JavaScript/JavaScriptSDK.Interfaces/Contracts/Generated/SeverityLevel.ts)
+
 You can search on message content, but (unlike property values) you can't filter on it.
 
 The size limit on `message` is much higher than the limit on properties.

@@ -18,6 +18,7 @@
   - name: Create Apache Hadoop cluster - Portal
     href: apache-hadoop-linux-create-cluster-get-started-portal.md
   - name: Create Apache Hadoop cluster - Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
     href: apache-hadoop-linux-tutorial-get-started.md      
 - name: Tutorials
   items:
@@ -89,8 +90,6 @@
         href: apache-hadoop-use-mapreduce-curl.md
       - name: Use Azure PowerShell
         href: apache-hadoop-use-mapreduce-powershell.md
-      - name: Use Remote Desktop
-        href: apache-hadoop-use-mapreduce-remote-desktop.md
       - name: Use .NET SDK
         href: apache-hadoop-use-mapreduce-dotnet-sdk.md
       - name: Run the MapReduce samples
@@ -106,8 +105,6 @@
         href: apache-hadoop-use-pig-dotnet-sdk.md
       - name: Use cURL
         href: apache-hadoop-use-pig-curl.md
-      - name: Use Remote Desktop
-        href: apache-hadoop-use-pig-remote-desktop.md
     - name: Use Apache DataFu with Apache Pig
       href: apache-hadoop-use-pig-datafu-udf.md
     - name: Submit Apache Hadoop jobs
@@ -300,6 +297,7 @@
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
       - name: Use Azure Resource Manager templates
+        displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
     - name: Manage Apache Hadoop clusters
@@ -486,6 +484,7 @@
   - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
   - name: Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
     href: /azure/templates/microsoft.hdinsight/allversions
 - name: Related
   items:
@@ -514,9 +513,6 @@
       maintainContext: true
     - name: Use Apache Maven to build Java applications
       href: ../hdinsight-hbase-build-java-maven.md
-      maintainContext: true
-    - name: Use the Apache Tez UI to debug Tez Jobs
-      href: ../hdinsight-debug-tez-ui.md
       maintainContext: true
     - name: Customize using Script Action
       href: ../hdinsight-hadoop-customize-cluster.md

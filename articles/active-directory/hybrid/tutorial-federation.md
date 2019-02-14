@@ -14,6 +14,7 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Federate a single AD forest environment to the cloud

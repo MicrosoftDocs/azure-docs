@@ -31,11 +31,6 @@ To develop a predictive analysis model, you typically use data from one or more 
 
 There is no programming required, just visually connecting datasets and modules to construct your predictive analysis model.
 
-> [!TIP]
-> To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](studio-overview-diagram.md).
->
->
-
 ![Azure Machine Learning studio diagram: Create experiments, read data for many sources, write scored data, write models.][ml-studio-overview]
 
 ## Get started with Machine Learning Studio
@@ -60,7 +55,7 @@ Click **Studio** and you'll be taken to the **Azure Machine Learning Studio**. F
 * **SETTINGS** - A collection of settings that you can use to configure your account and resources.
 
 ### Gallery
-Click **Gallery** and you'll be taken to the **[Azure AI Gallery](http://gallery.cortanaintelligence.com/)**. The Gallery is a place where a community of data scientists and developers share solutions created using components of the Cortana Intelligence Suite.
+Click **Gallery** and you'll be taken to the **[Azure AI Gallery](http://gallery.azure.ai/)**. The Gallery is a place where a community of data scientists and developers share solutions created using components of the Cortana Intelligence Suite.
 
 For more information about the Gallery, see [Share and discover solutions in the Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
 
@@ -77,7 +72,7 @@ You can create an experiment from scratch, or you can use an existing sample exp
 
 For an example of creating a simple experiment, see [Create a simple experiment in Azure Machine Learning Studio](create-experiment.md).
 
-For a more complete walkthrough of creating a predictive analytics solution, see [Develop a predictive solution with Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+For a more complete walkthrough of creating a predictive analytics solution, see [Develop a predictive solution with Azure Machine Learning](tutorial-part1-credit-risk.md).
 
 ### Datasets
 A dataset is data that has been uploaded to Machine Learning Studio so that it can be used in the modeling process. A number of sample datasets are included with Machine Learning Studio for you to experiment with, and you can upload more datasets as you need them. Here are some examples of included datasets:
@@ -156,7 +151,7 @@ Once you have a trained model, evaluate the model using the remaining test data.
 * **sample**: A part of a data set intended to be representative of the whole. Samples can be selected randomly or based on specific features of the data set.
 
 ## Next steps
-You can learn the basics of predictive analytics and machine learning using a [step-by-step tutorial](create-experiment.md) and by [building on samples](sample-experiments.md).
+You can learn the basics of predictive analytics and machine learning using a [step-by-step quickstart](create-experiment.md) and by [building on samples](sample-experiments.md).
 
 
 <!-- Module References -->
