@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+          "source_path": "articles/machine-learning/studio/troubleshooting-retraining-models.md",
+          "redirect_url": "/azure/machine-learning/studio/retrain-a-classic-web-service",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/machine-learning/studio/retrain-existing-resource-manager-based-web-service.md",
+          "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
+          "redirect_document_id": false
+        },
+        {
           "source_path": "articles/service-bus-messaging/service-bus-paired-namespaces.md",
           "redirect_url": "/azure/service-bus-messaging/service-bus-outages-disasters",
           "redirect_document_id": false
@@ -14,11 +24,6 @@
           "source_path": "articles/machine-learning/studio/retrain-new-web-service-using-powershell.md",
           "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
           "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/machine-learning/studio/retrain-a-classic-web-service.md",
-          "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
-          "redirect_document_id": true
         },
         {
           "source_path": "articles/machine-learning/studio/walkthrough-develop-predictive-solution.md",
@@ -12189,12 +12194,12 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-retrain-a-classic-web-service.md",
-      "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
+      "redirect_url": "/azure/machine-learning/studio/retrain-a-classic-web-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/machine-learning-retrain-existing-resource-manager-based-web-service.md",
-      "redirect_url": "/azure/machine-learning/studio/retrain-existing-resource-manager-based-web-service",
+      "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
       "redirect_document_id": false
     },
     {
@@ -12249,7 +12254,7 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-troubleshooting-retraining-models.md",
-      "redirect_url": "/azure/machine-learning/studio/troubleshooting-retraining-models",
+      "redirect_url": "/azure/machine-learning/studio/retrain-a-classic-web-service",
       "redirect_document_id": false
     },
     {
