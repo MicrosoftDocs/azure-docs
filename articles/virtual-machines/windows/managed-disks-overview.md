@@ -7,7 +7,7 @@ ms.service: virtual-machines-windows
 ms.workload: storage
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/11/2019
 ms.author: rogarana
 ms.subservice: disks
 ---

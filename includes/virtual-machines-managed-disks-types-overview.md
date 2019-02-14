@@ -9,13 +9,13 @@
  ms.author: rogarana
  ms.custom: include file
 ---
-# Select an Azure disk type for IaaS virtual machines
+# What disk types are available in Azure?
 
-Azure managed disks currently offers four disk types, three of which are generally available and one that is currently in preview. These four disk types each have their own appropriate target customer scenarios, they are as follows:
+Azure managed disks currently offers four disk types, three of which are generally available (GA) and one that is currently in preview. These four disk types each have their own appropriate target customer scenarios.
 
 ## Disk comparison
 
-The following table provides a comparison of standard hard disk drives (HDD), standard solid-state drives (SSD), premium SSD, and ultra disks (preview) for managed disks to help you decide what to use.
+The following table provides a comparison of ultra disks (preview), premium solid-state-drives (SSD), standard SSD, and standard hard disk drives (HDD) for managed disks to help you decide what to use.
 
 |   | Ultra disks (preview)   | Premium SSD   | Standard SSD   | Standard HDD   |
 |---------|---------|---------|---------|---------|
