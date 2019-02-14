@@ -119,7 +119,7 @@ When you run the application, the output includes the URL and shared access sign
 
 You can see the performance results of the retrained model by combining the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results for *output2* and pasting the complete URL into the browser address bar.
 
-Examine the results to determine whether the newly trained model performs better than the existing one.
+Examine the results to determine if the newly trained model performs better than the existing one.
 
 Save the *BaseLocation*, *RelativeLocation*, and *SasBlobToken* from the output results.
 
@@ -185,7 +185,7 @@ Finally, use the [Update-AzureRmMlWebService](https://docs.microsoft.com/powersh
 
 ## Next Steps
 
-To learn more about how to manage web services or keep track of multiple experiment runs, see the following articles:
+To learn more about how to manage web services or keep track of multiple experiments runs, see the following articles:
 
 * [Explore the  Web Services portal](manage-new-webservice.md)
 * [Manage experiment iterations](manage-experiment-iterations.md)
