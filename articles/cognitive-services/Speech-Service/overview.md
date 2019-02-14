@@ -1,7 +1,7 @@
 ---
 title: What are the Azure Speech Services?
 titleSuffix: Azure Cognitive Services
-description: The Azure Speech Services are the unification of speech recognition, speech translation, and speech synthesis into a single Azure subscription. It's easy to add speech your applications, tools, and devices with the Speech SDK, Speech Devices SDK, or REST APIs. Add speech functionality to an existing chat bot, convert text-to-speech in a translation application, or transcribe large volumes of call center data. 
+description: The Azure Speech Services are the unification of speech recognition, speech translation, and speech synthesis into a single Azure subscription. It's easy to add speech your applications, tools, and devices with the Speech SDK, Speech Devices SDK, or REST APIs. Add speech functionality to an existing chat bot, convert text-to-speech in a translation application, or transcribe large volumes of call center data.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -19,7 +19,7 @@ Azure Speech Services are the unification of speech recognition, speech translat
 > [!IMPORTANT]
 > Speech Services have replaced Bing Speech API, Translator Speech, and Custom Voice. See *How-to guides > Migrate* for migration instructions.
 
-These core features comprise Azure Speech Services. Use the links in this table to learn more about common use cases for each feature or browse the API reference.
+These features comprise Azure Speech Services. Use the links in this table to learn more about common use cases for each feature or browse the API reference.
 
 | Feature | Description | SDK | REST |
 |---------|-------------|-----|------|
@@ -28,25 +28,24 @@ These core features comprise Azure Speech Services. Use the links in this table 
 | [Speech Synthesis](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) | Speech synthesis, or text-to-speech, converts input text into human-like speech. This service offers more than 75 voices in more than 45 languages and locales with multi-gender support. Choose from standard or neural voices, which are indistinguishable from human speech, or create a custom voice unique to your product or brand. | No | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Batch Transcription](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription) | Batch transcription enables asynchronous speech-to-text transcription. This service is only available via REST. | No | [Yes](https://westus.cris.ai/swagger/ui/index) |
 
-<< DO WE NEED INFO HERE ABOUT COMMON USE CASES? WILL IT IMPROVE SEO -- OR IS IT DUPLICATIVE OF CONTENT IN THE INDIVIDUAL SERVICE ARTICLES >>
-
 ## News and updates
 
-Learn what's new with Speech Services.
+Learn what's new with the Azure Speech Services.
 
-* December 2018 - Speech SDK 1.2.0
-  * Now available for [Python](quickstart-python.md) and [Node.js](quickstart-js-node.md).
-  * Support for Ubuntu 18.04 LTS was added.
-  * For more information, see [Release notes](releasenotes.md).
+* December 2018 - Released Speech SDK 1.2.0 with support for [Python](quickstart-python.md) and [Node.js](quickstart-js-node.md), as well as Ubuntu 18.04 LTS. For more information, see [Release notes](releasenotes.md).
 * December 2018 - Speech synthesis quickstarts added for [.NET Core](quickstart-dotnet-text-to-speech.md), [Python](quickstart-python-text-to-speech.md), [Node.js](quickstart-nodejs-text-to-speech.md). Additional samples are available on [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http).
-* November 2018 - Speech SDK 1.1.0
-  * Support for Android x86/64.
-  * Improved error messaging.
-  * For more information, see [Release notes](https://docs.microsoft.com/azure/cognitive-services/speech-service/releasenotes#speech-sdk-110).
+* November 2018 - Released Speech SDK 1.1.0 with support for Android x86/64. It also adds imporved error messaging. For a complete list of enhancements and known issues, see [Release notes](https://docs.microsoft.com/azure/cognitive-services/speech-service/releasenotes#speech-sdk-110).
 
 ## Try Speech Services
 
-<< Add an intro to use quickstarts. Highlight the most popular languages for each of the services. >>
+We offer quickstarts in most popular programming languages, each designed to have you running code in less than 10 minutes. This table contains the most popular quickstarts for each feature. Use the left-hand navigation to explore additional languages and platforms.
+
+| Recognition (SDK) | Translation (SDK) | Synthesis (REST) |
+|-------------------|-------------------|------------------|
+| C#, .NET Core (Windows) | Java (Windows, Linux) | Python (Windows, Linux, macOS) |
+| Javascript (Browser) | C#, .NET Core (Windows) | C#, .NET Core (Windows, Linux, macOS) |
+| Python (Windows, Linux, macOS) | C#, .NET Framework (Windows) | Node.js (Windows, Linux, macOS) |
+| Java (Windows, Linux) | C++ (Windows) | |
 
 ## Sample code and tutorials
 
