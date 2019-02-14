@@ -17,7 +17,7 @@ ms.custom: "include file"
 >
 > - To authorize blob and queue operations with an OAuth token, you must use HTTPS.
 >
-> - The Azure portal now supports using Azure AD credentials to read and write blob and queue data, as part of the preview release.
+> - The Azure portal now supports using Azure AD credentials to read and write blob and queue data, as part of the preview release. 
 > 
 > - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) currently uses your storage account key to access blob and queue data. OAuth access is supported for blobs.
 >

@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 02/13/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -32,8 +32,6 @@ Azure Storage supports both built-in and custom RBAC roles. Azure Storage offers
 For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#management-and-data-operations-preview).
 
 You can also define custom roles for use with containers and queues. For more information, see [Create custom roles for Azure Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## Assign a role to a security principal
 
@@ -74,7 +72,7 @@ To assign a built-in role granting access to all containers or queues in the sto
 ### Assign a role scoped to a container or queue in the Azure portal
 
 > [!IMPORTANT]
-> You cannot do this if you are using an account with the hierarchical namespace enabled, yet.
+> You cannot assign a role scoped to a container or queue if your storage account has a hierarchical namespace enabled.
 
 The steps for assigning a built-in role scoped to a container or to a queue are similar. The procedure shown here assigns a role scoped to a container, but you can follow the same steps to assign a role scoped to a queue: 
 
