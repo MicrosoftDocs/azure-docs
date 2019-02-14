@@ -86,7 +86,7 @@ az network lb create --name sqlILB -g <resource group name> --sku Standard --vne
 Once the availability group has been manually created, you can create the listener using [az sql vm ag-listener](https://docs.microsoft.com/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create). 
 
 
-- The **subnet resource ID** is the value of `/subnet/<subnetname>` appended to the resource ID of the vNet resource. To identify the subnet resource id, do the following:
+- The **subnet resource ID** is the value of `/subnet/<subnetname>` appended to the resource ID of the vNet resource. To identify the subnet resource ID, do the following:
    1. Navigate to your resource group in the [Azure portal](https://portal.azure.com). 
    1. Select the vNet resource. 
    1. Select **Properties** in the **Settings** pane. 
