@@ -20,7 +20,7 @@ ms.author: banders
 ---
 # Understand the Azure charges on your Microsoft Customer Agreement invoice
 
-This article applies to a billing account for a Microsoft Customer Agreement. Check if you have a [Microsoft Customer Agreement](billing-mca-overview.md#check-your-access-to-a-billing-account-for-microsoft-customer-agreement).
+This article applies to a billing account for a Microsoft Customer Agreement. Check if you have a [Microsoft Customer Agreement](billing-mca-overview.md#check-your-access-to-a-microsoft-customer-agreement).
 
 To understand your Azure charges, compare your invoice with the detailed daily usage file and the transaction history in the Azure portal.
 
