@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: reference
-ms.date: 02/11/2019
+ms.date: 02/13/2019
 ms.author: juliako
 ---
 
@@ -51,6 +51,14 @@ You can register for all of the events by subscribing to the JobStateChange even
 | Microsoft.Media.JobOutputFinished| Get an event when Job output transitions to finished state.|
 | Microsoft.Media.JobOutputCanceled| Get an event when Job output transitions to canceled state.|
 | Microsoft.Media.JobOutputErrored| Get an event when Job output transitions to error state.|
+
+[Schema examples](#event-schema-examples) follow.
+
+### Monitoring Job output progress
+
+| Event type | Description |
+| ---------- | ----------- |
+| Microsoft.Media.JobOutputProgress| This event reflects the job processing progress, from 0% to 100%. The service attempts to send an event if there has been 5% or greater increase in the progress value or it has been more than 30 seconds since the last event (heartbeat). The progress value is not guaranteed to start at 0%, or to reach 100%, nor is it guaranteed to increase at a constant rate over time. This event should not be used to determine that the processing has been completed – you should instead use the state change events.|
 
 [Schema examples](#event-schema-examples) follow.
 
@@ -241,6 +249,29 @@ For each JobOutput state change, the example schema looks similar to the followi
       "testKey1": "testValue1",
       "testKey2": "testValue2"
     }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+### JobOutputProgress
+
+The example schema looks similar to the following:
+
+ ```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/belohGroup/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/job-5AB6DE32",
+  "eventType": "Microsoft.Media.JobOutputProgress",
+  "eventTime": "2018-12-10T18:20:12.1514867",
+  "id": "00000000-0000-0000-0000-000000000000",
+  "data": {
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    },
+    "label": "VideoAnalyzerPreset_0",
+    "progress": 86
   },
   "dataVersion": "1.0",
   "metadataVersion": "1"
