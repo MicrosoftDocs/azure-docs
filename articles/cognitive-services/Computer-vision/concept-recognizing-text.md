@@ -16,11 +16,11 @@ ms.custom: seodec18
 
 # Recognize printed and handwritten text
 
-Computer Vision provides a number of services that detect and extract printed or handwritten text that appears in images. This feature is useful in a variety of scenarios such as notetaking, medical records, security, and banking. The following sections detail three different APIs, each with their own preferable use cases.
+Computer Vision provides a number of services that detect and extract printed or handwritten text that appears in images. This is useful in a variety of scenarios such as notetaking, medical records, security, and banking. The following three sections detail three different text recognition APIs, each optimized for different use cases.
 
 ## OCR (optical character recognition) API
 
-Computer Vision's optical character recognition (OCR) feature detects text content in an image and converts the identified text into a machine-readable character stream. You can use the result for many purposes such as search, medical records, security, and banking. 
+Computer Vision's optical character recognition (OCR) feature detects text content in an image and converts the identified text into a machine-readable character stream.
 
 OCR supports 25 languages: Arabic, Chinese Simplified, Chinese Traditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, Serbian (Cyrillic and Latin), Slovak, Spanish, Swedish, and Turkish. OCR automatically detects the language of the detected text.
 
@@ -32,15 +32,15 @@ See the [OCR reference docs](https://westus.dev.cognitive.microsoft.com/docs/ser
 
 ### Image requirements
 
-Computer Vision can extract text using OCR from images that meet the following requirements:
+The OCR API works on images that meet the following requirements:
 
 * The image must be presented in JPEG, PNG, GIF, or BMP format
 * The size of the input image must be between 50 x 50 and 4200 x 4200 pixels
-* The text in the image can be rotated by any multiple of 90 degrees plus a small angle of up to 40 degrees.
+* The text in the image can be rotated by any multiple of 90 degrees plus a small angle of up to 40 degrees
 
 ### Limitations
 
-On photographs where text is dominant, false positives may come from partially recognized words. On some photographs, especially photos without any text, precision can vary a lot depending on the type of image.
+On photographs where text is dominant, false positives may come from partially recognized words. On some photographs, especially photos without any text, precision can vary depending on the type of image.
 
 ## Recognize Text API
 
@@ -59,25 +59,24 @@ The RecognizeText API works with images that meet the following requirements:
 
 ## Read API
 
-The Read API is similar to optical character recognition but is optimized for text-heavy images (such as documents that have been digitally scanned). It executes asynchronously because on larger documents it can take several minutes to return a result.
+The Read API is similar to optical character recognition but is optimized for text-heavy images (such as documents that have been digitally scanned). It executes asynchronously because larger documents can take several minutes to return a result.
 
-The Read operation maintains the original line groupings of recognized words in its output. Each line comes with bounding box coordinates, and each word within the line also has its own coordinates. If a word was recognized with low confidence, that information is conveyed as well. See the Read API reference docs to learn more.
+The Read operation maintains the original line groupings of recognized words in its output. Each line comes with bounding box coordinates, and each word within the line also has its own coordinates. If a word was recognized with low confidence, that information is conveyed as well. See the [Read API reference docs](https://westus.api.cognitive.microosft.com/vision/v2.0/read/core/asyncBatchAnalyze) to learn more.
 
 > [!NOTE]
 > This feature is currently in preview and is only available for English text.
 
 ## Improve results
 
-The accuracy of text recognition operations depends on the quality of the images. An inaccurate reading may be caused by the following situations:
+The accuracy of text recognition operations depends on the quality of the images. An inaccurate reading may be caused by the following factors:
 
 * Blurry images.
 * Handwritten or cursive text.
 * Artistic font styles.
 * Small text size.
 * Complex backgrounds, shadows, or glare over text or perspective distortion.
-* Oversized or missing capital letters at the beginnings of words
+* Oversized or missing capital letters at the beginnings of words.
 * Subscript, superscript, or strikethrough text.
-
 
 ## Next steps
 
