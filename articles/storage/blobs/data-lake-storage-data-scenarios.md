@@ -37,7 +37,7 @@ A *file system* is a container for folders and files. You need at least one of t
 |Azure Storage Explorer | [Create a file system by using Storage Explorer](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-explorer#create-a-filesystem) |
 |AzCopy | [Create a Blob container or File Share by using AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share)|
 |Hadoop File System (HDFS) Command Line Interface (CLI) with HDInsight |[Create a file system by using HDFS with HDInsight](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
-|Code in an Azure Databricks Notebook|[Create a storage account file system (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br> [Create a file system and mount it (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
+|Code in an Azure Databricks Notebook|[Create a storage account file system (Scala)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-storage-account-file-system) <br><br> [Create a file system and mount it (Python)](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-databricks-spark?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-file-system-and-mount-it)|
 
 It's easiest to create file systems by using Storage Explorer or AzCopy. It takes a bit more work to create file systems by using HDInsight and Databricks. However, if you're planning to use HDInsight or Databricks clusters to process your data anyway, then you can create your clusters first, and use the HDFS CLI to your create file systems.  
 
@@ -50,7 +50,7 @@ This table shows how each Azure service or tool authenticates and authorizes acc
 |Tool | Grant access by using .. | Guidance |
 |---|--|---|
 |Storage Explorer| Role Based Access Control (RBAC) applied to users and groups | [Assign administrator and non-administrator roles to users with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) |
-|AzCopy| RBAC applied to users and groups **or** Shared Access Signature (SAS) tokens| [Assign administrator and non-administrator roles to users with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br>[Easily Create a SAS to Download a File from Azure Storage–Using Azure Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
+|AzCopy| RBAC applied to users and groups **or** Shared Access Signature (SAS) tokens| [Assign administrator and non-administrator roles to users with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[Easily Create a SAS to Download a File from Azure Storage–Using Azure Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
 |Apache DistCp | User-assigned managed identity | [Creating an HDInsight cluster with Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2) |
 |Azure Data Factory| User-assigned-managed identity, service principal, or storage account key | [Linked service properties](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
 |Azure HDInsight| User-assigned managed identity | [Creating an HDInsight cluster with Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2)|
@@ -78,8 +78,8 @@ Here's a list of tools that you can use to ingest ad hoc data.
 
 | Data Source | Ingest it using |
 | --- | --- |
-| Local computer |[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)<br>[AzCopy tool](../common/storage-use-azcopy-v10.md)|
-| Azure Storage Blob |[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)<br>[AzCopy tool](../common/storage-use-azcopy-v10.md)<br>[DistCp running on HDInsight cluster](data-lake-storage-use-distcp.md)<br> |
+| Local computer |[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)<br><br>[AzCopy tool](../common/storage-use-azcopy-v10.md)|
+| Azure Storage Blob |[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)<br><br>[AzCopy tool](../common/storage-use-azcopy-v10.md)<br><br>[DistCp running on HDInsight cluster](data-lake-storage-use-distcp.md)|
 
 ### Streamed data
 
@@ -151,7 +151,7 @@ Here's a list of tools that you can use to run data analysis jobs on data that i
 |Tool | Guidance |
 |---|--|
 |Azure HDInsight | [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
-|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br>[Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br>[Tutorial: Extract, transform, and load data by using Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extract, transform, and load data by using Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## Visualize the data
 
