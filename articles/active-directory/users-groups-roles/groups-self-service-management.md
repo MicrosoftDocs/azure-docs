@@ -17,6 +17,7 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: "it-pro;seo-update-azuread-jan"
 
+ms.collection: M365-identity-device-management
 ---
 # Set up Azure Active Directory for self-service group management
 

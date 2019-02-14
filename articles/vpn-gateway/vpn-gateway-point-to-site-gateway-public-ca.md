@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 02/11/2019
 ms.author: cherylmc
 
 ---
@@ -19,14 +19,14 @@ Previously, self-signed certificate for the gateway needed to be updated every 1
 Only older gateways are affected by this change. If your gateway certificate needs to be transitioned, you will receive communication or toast in the Azure portal. You can check to see if your gateway is affected by using the steps in this article.
 
 >[!IMPORTANT]
->The transition is scheduled for March 09,2019 starting at 18:00 UTC. You can create a support case if you prefer a different time window. You can request one of the following windows:
+>The transition is scheduled for March 12,2019 starting at 18:00 UTC. You can create a support case if you prefer a different time window. Make and finalize your request at least 24 hours in advance.  You can request one of the following windows:
 >
 >* 06:00 UTC on 25 Feb
 >* 18:00 UTC on 25 Feb
 >* 06:00 UTC on 1 Mar
 >* 18:00 UTC on 1 Mar
 >
->**All remaining gateways will transition on March 09, 2019 starting at 18:00 UTC**.
+>**All remaining gateways will transition on March 12, 2019 starting at 18:00 UTC**.
 >
 
 ## 1. Verify your certificate

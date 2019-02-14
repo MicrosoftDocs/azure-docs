@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 02/08/2019
 ms.author: diberry
 ---
 
@@ -55,7 +55,7 @@ The `--cpus` and `--memory` settings are used as part of the `docker run` comman
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the `mcr.microsoft.com/azure-cognitive-services/luis` repository:
 
-```Docker
+```
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
@@ -320,18 +320,7 @@ If you run the container with an output [mount](luis-container-configuration.md#
 
 The LUIS container sends billing information to Azure, using a _Language Understanding_ resource on your Azure account. 
 
-Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (the utterance) to Microsoft. 
-
-The `docker run` uses the following arguments for billing purposes:
-
-| Option | Description |
-|--------|-------------|
-| `ApiKey` | The API key of the _Language Understanding_ resource used to track billing information.<br/>The value of this option must be set to an API key for the provisioned LUIS Azure resource specified in `Billing`. |
-| `Billing` | The endpoint of the _Language Understanding_ resource used to track billing information.<br/>The value of this option must be set to the endpoint URI of a provisioned LUIS Azure resource.|
-| `Eula` | Indicates that you've accepted the license for the container.<br/>The value of this option must be set to `accept`. |
-
-> [!IMPORTANT]
-> All three options must be specified with valid values, or the container won't start.
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 For more information about these options, see [Configure containers](luis-container-configuration.md).
 

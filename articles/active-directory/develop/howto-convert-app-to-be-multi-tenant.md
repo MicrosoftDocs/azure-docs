@@ -18,6 +18,7 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Sign in any Azure Active Directory user using the multi-tenant application pattern

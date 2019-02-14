@@ -81,7 +81,7 @@ In addition to the server-level administrative roles discussed previously, SQL D
 One of these administrative roles is the **dbmanager** role. Members of this role can create new databases. To use this role, you create a user in the `master` database and then add the user to the **dbmanager** database role. To create a database, the user must be a user based on a SQL Server login in the master database or contained database user based on an Azure Active Directory user.
 
 1. Using an administrator account, connect to the master database.
-2. Optional step: Create a SQL Server authentication login, using the [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) statement. Sample statement:
+2. Create a SQL Server authentication login, using the [CREATE LOGIN](https://msdn.microsoft.com/library/ms189751.aspx) statement. Sample statement:
 
    ```sql
    CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';

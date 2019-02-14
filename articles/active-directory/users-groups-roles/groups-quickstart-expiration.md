@@ -15,6 +15,7 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 #As a new Azure AD identity administrator, I want user-created Office 365 groups in my tenant to expire so I can reduce the number of unused groups.
+ms.collection: M365-identity-device-management
 ---
 # Quickstart: Set Office 365 groups to expire in Azure Active Directory
 
