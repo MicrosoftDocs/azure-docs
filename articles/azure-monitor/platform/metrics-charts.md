@@ -95,19 +95,6 @@ You can split a metric by dimension to visualize how different segments of the m
    > [!NOTE]
    > Use both Filtering and Splitting on the same dimension to hide the segments that are irrelevant for your scenario and make charts easier to read.
 
-### New alert rule
-
-You can also use the criteria you have set to visualize your metrics as the basis for the underlying logic of a metric based alert rule. 
-
-If you click **New Alert rule**
-
-![New alert rule button highlighted in red](./media/metrics-charts/015.png)
-
-You will be taken to the alert rule creation pane with the underlying metric dimensions from your chart pre-populated to make it easier to generate custom alert rules.
-
-![Create alert rule](./media/metrics-charts/016.png)
-
-Check out this [article](alerts-metric.md) to learn more about setting up metric alerts.
 
 ## Lock boundaries of chart y-axis
 
@@ -134,6 +121,20 @@ After configuring your chart, click on the **Chart Actions** menu in the right t
 
 ![metric image](./media/metrics-charts/00013.png)
 
+## Create new alert rules
+
+You can use the criteria you have set to visualize your metrics as the basis for the underlying logic of a metric based alert rule. 
+
+If you click **New Alert rule**
+
+![New alert rule button highlighted in red](./media/metrics-charts/015.png)
+
+You will be taken to the alert rule creation pane with the underlying metric dimensions from your chart pre-populated to make it easier to generate custom alert rules.
+
+![Create alert rule](./media/metrics-charts/016.png)
+
+Check out this [article](alerts-metric.md) to learn more about setting up metric alerts.
+
 ## Troubleshooting
 
 *I don't see any data on my chart.*
@@ -147,4 +148,3 @@ After configuring your chart, click on the **Chart Actions** menu in the right t
 ## Next steps
 
   Read [Creating custom KPI dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards) to learn about the best practices for creating actionable dashboards with metrics.
-
