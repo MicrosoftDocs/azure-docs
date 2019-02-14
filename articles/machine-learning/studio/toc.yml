@@ -137,12 +137,10 @@
       href: scaling-webservice.md
   - name: Retrain models
     items:
-    - name: Overview
+    - name: Retrain and deploy a new web service
       href: retrain-machine-learning-model.md
-    - name: Retrain an existing web service
-      href: retrain-existing-resource-manager-based-web-service.md
-    - name: Troubleshoot
-      href: troubleshooting-retraining-models.md
+    - name: Retrain and deploy a classic web service
+      href: retrain-a-classic-web-service.md
   - name: Consume models
     items:
     - name: Overview
