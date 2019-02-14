@@ -117,11 +117,11 @@
       href: search-create-index-portal.md
     - name: Analyzers
       items:
-      - name: Add text analyzers
+      - name: Adding analyzers
         href: search-analyzers.md
-      - name: Add language analyzers
+      - name: Add a language analyzer
         href: index-add-language-analyzers.md
-      - name: Add custom analyzers
+      - name: Add a custom analyzer
         href: index-add-custom-analyzers.md
     - name: Add autosuggest
       href: index-add-suggesters.md
