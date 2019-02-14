@@ -83,11 +83,11 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/index/i_iot_hub.svg" alt="" />
+                                    <img src="media/index/i_iot_hub.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Build your own IoT solution</h3>
+                                <h3>Build your own IoT solution</h3><br>
                                 <p><a href="../iot-hub/about-iot-hub.md">What is Azure IoT Hub?</a></p>
                                 <p><a href="../iot-hub/quickstart-send-telemetry-c.md">Send telemetry from a device</a></p>
                                 <p><a href="../iot-hub/quickstart-control-device-node.md">Control a device from the cloud</a></p>
@@ -103,11 +103,11 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/index/i_iot_accelerators.svg" alt="" />
+                                    <img src="media/index/i_iot_accelerators.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Customize a pre-built IoT solution</h3>
+                                <h3>Customize a pre-built IoT solution</h3><br>
                                 <p><a href="../iot-accelerators/about-iot-accelerators.md">What are Azure IoT solution accelerators?</a></p>
                                 <p><a href="../iot-accelerators/quickstart-remote-monitoring-deploy.md">Try a remote monitoring solution</a></p>
                                 <p><a href="../iot-accelerators/quickstart-connected-factory-deploy.md">Try a connected factory solution</a></p>
@@ -123,11 +123,11 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/index/i_iot_central.svg" alt="" />
+                                    <img src="media/index/i_iot_central.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Deploy a fully-managed IoT solution</h3>
+                                <h3>Deploy a fully-managed IoT solution</h3><br>
                                 <p><a href="../iot-central/overview-iot-central.md">What is Azure IoT Central?</a></p>
                                 <p><a href="../iot-central/overview-iot-central-tour.md">How doe the IoT Central UI look?</a></p>
                                 <p><a href="../iot-central/quick-deploy-iot-central.md">Create an IoT Central application</a></p>
@@ -143,11 +143,11 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/index/i_iot_edge.svg" alt="" />
+                                    <img src="media/index/i_iot_edge.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Create smart device interfaces</h3>
+                                <h3>Create smart device interfaces</h3><br>
                                 <p><a href="../iot-edge/about-iot-edge.md">What is Azure IoT Edge?</a></p>
                                 <p><a href="../iot-edge/quickstart-linux.md">Deploy IoT Edge module to a Linux device</a></p>
                                 <p><a href="../iot-edge/quickstart.md">Deploy IoT Edge module to a Windows device</a></p>
@@ -163,11 +163,11 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/index/i_digital_twins.svg" alt="" />
+                                    <img src="media/index/i_digital_twins.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Create smart buildings and infrastructure</h3>
+                                <h3>Create smart buildings and infrastructure</h3><br>
                                 <p><a href="../digital-twins/about-digital-twins.md">What are Azure Digital Twins?</a></p>
                                 <p><a href="../digital-twins/quickstart-view-occupancy-dotnet.md">Find empty rooms in a building</a></p>
                                 <p><a href="../digital-twins/concepts-objectmodel-spatialgraph.md">Understand spatial graphs and object model</a></p>
@@ -183,11 +183,11 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/index/i_iot_dps.svg" alt="" />
+                                    <img src="media/index/i_iot_dps.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Securely provision devices on a large scale</h3>
+                                <h3>Securely provision devices on a large scale</h3><br>
                                 <p><a href="../iot-dps/about-iot-dps.md">What is Azure IoT Hub Device Provisioning Service?</a></p>
                                 <p><a href="../iot-dps/quick-setup-auto-provision-cli.md">Set up the service</a></p>
                                 <p><a href="../iot-dps/quick-create-simulated-device.md">Provision a TPM device</a></p>
@@ -203,11 +203,11 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/index/i_time-series-insights.svg" alt="" />
+                                    <img src="media/index/i_time-series-insights.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Explore and analyze device data</h3>
+                                <h3>Explore and analyze device data</h3><br>
                                 <p><a href="../time-series-insights/time-series-insights-update-overview.md">What is Azure Time Series Insights?</a></p>
                                 <p><a href="../time-series-insights/time-series-quickstart.md">Explore Time Series Insights UI</a></p>
                                 <p><a href="../time-series-insights/tutorial-create-tsi-sample-spa.md">Create a Time Series Insights web app</a></p>
@@ -223,11 +223,11 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/index/i_azure_maps.svg" alt="" />
+                                    <img src="media/index/i_azure_maps.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Mapping service for your enterprise</h3>
+                                <h3>Mapping service for your enterprise</h3><br>
                                 <p><a href="../azure-maps/about-azure-maps.md">What is Azure Maps?</a></p>
                                 <p><a href="../azure-maps/quick-demo-map-app.md">Create an interactive search map</a></p>
                                 <p><a href="../azure-maps/tutorial-route-location.md">Route to your point of interest</a></p>
