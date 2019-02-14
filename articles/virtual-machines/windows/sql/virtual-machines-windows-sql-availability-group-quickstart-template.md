@@ -75,7 +75,7 @@ Manually create the availability group as you normally would, using either [Powe
   > Do **not** create a listener at this time because this is automated by the **101-sql-vm-aglistener-setup**  quickstart template in Step 4. 
 
 ## Step 3 - Manually create the Internal Load Balancer (ILB)
-The Always On availability group (AG) listener requires an internal Azure Load Balancer (ILB). The ILB provides a “floating” IP address for the AG listener that allows for faster failover and reconnection. If the SQL Server VMs in an availability group are part of the same availability set, then you can use a Basic Load Balancer; otherwise, you need to use a Standard Load Balancer.  **The ILB should be in the same vNet as the SQL Server VM instances.** The ILB only needs to be created, the rest of the configuration (such as the backend pool, health probe, and load-balancing rules) is handled by the **101-sql-vm-aglistener-setup** quickstart template in Step 4. 
+The Always On availability group (AG) listener requires an Internal Azure Load Balancer (ILB). The ILB provides a “floating” IP address for the AG listener that allows for faster failover and reconnection. If the SQL Server VMs in an availability group are part of the same availability set, then you can use a Basic Load Balancer; otherwise, you need to use a Standard Load Balancer.  **The ILB should be in the same vNet as the SQL Server VM instances.** The ILB only needs to be created, the rest of the configuration (such as the backend pool, health probe, and load-balancing rules) is handled by the **101-sql-vm-aglistener-setup** quickstart template in Step 4. 
 
 1. In the Azure portal, open the resource group that contains the SQL Server virtual machines. 
 2. In the resource group, click **Add**.
@@ -99,7 +99,7 @@ The Always On availability group (AG) listener requires an internal Azure Load B
 6. Select **Create**. 
 
 
-  >[!NOTE]
+  >[!IMPORTANT]
   > The public IP resource for each SQL Server VM should have a standard SKU to be compatible with the Standard Load Balancer. To determine the SKU of your VM's public IP resource, navigate to your **Resource Group**, select your **Public IP Address** resource for the desired SQL Server VM, and locate the value under **SKU** of the **Overview** pane. 
 
 ## Step 4 - Create the AG listener and configure the ILB with the quickstart template

@@ -34,7 +34,8 @@ Switching between the two license models incurs **no downtime**, does not restar
 ## Prerequisites
 The use of the SQL VM resource provider requires the SQL IaaS extension. As such, to proceed with utilizing the SQL VM resource provider, you need the following:
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) with the [SQL IaaS extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) installed. 
+- [Software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 
+- A *pay-as-you-go* [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) with the [SQL IaaS extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) installed. 
 
 
 ## Register existing SQL Server VM with SQL resource provider
@@ -77,9 +78,20 @@ $vm=Get-AzureRmVm -ResourceGroupName <ResourceGroupName> -Name <VMName>
 New-AzureRmResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Properties @{virtualMachineResourceId=$vm.Id}
 ```
 
+## Use Azure portal
+You can modify the licensing model directly from the portal. 
+
+1. Navigate to your SQL Server VM within the [Azure portal](https://portal.azure.com). 
+1. Select **SQL Server Configuration** in the **Settings** pane. 
+1. Select **Edit** in the **SQL Server License** pane to modify the license. 
+
+![AHB in Portal](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
+
+  >[!NOTE]
+  > This option is not available for bring-your-own-license images. 
 
 ## Use PowerShell 
-You can use PowerShell to change your licensing model.  Be sure that your SQL Server VM has already been registered with the new SQL resource provider before switching the licensing model. 
+You can use PowerShell to change your licensing model.  Be sure that your SQL Server VM has already been registered with the SQL resource provider before switching the licensing model. 
 
 The following code snippet switches your pay-per-usage license model to BYOL (or using Azure Hybrid Benefit): 
 ```PowerShell
