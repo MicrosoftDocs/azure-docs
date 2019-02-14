@@ -35,16 +35,16 @@ Listed below are the fields in the schema and what they signify
 | FlowIntervalEndTime_t	| Date and Time in UTC | Ending time of the flow log processing interval |
 | FlowStartTime_t |	Date and Time in UTC |	First occurrence of such an aggregated flow (same four tuple) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. This gets aggregated based on aggregation logic |
 | FlowEndTime_t | Date and Time in UTC | Last occurrence of the aggregated flow (same four tuple) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. In terms of flow log v2, this field contains the time when the last flow with the same four-tuple started (marked as “B” in the raw flow record) |
-| FlowType_s | • IntraVNet • InterVNet • S2S • P2S • AzurePublic • ExternalPublic • MaliciousFlow •	Unknown Private • Unknown | Definition in note below the table |
+| FlowType_s | # IntraVNet # InterVNet # S2S # P2S # AzurePublic # ExternalPublic # MaliciousFlow #	Unknown Private # Unknown | Definition in note below the table |
 | SrcIP_s |	Source IP address |	Will be blank in case of In case of AzurePublic and ExternalPublic flows |
 | DestIP_s | Destination IP address	| Will be blank in case of In case of AzurePublic and ExternalPublic flows |
 | VMIP_s | IP of the VM	| Used for AzurePublic and ExternalPublic flows |
 | PublicIP_S | Public IP addresses | Used for AzurePublic and ExternalPublic flows |
 | DestPort_d | |Destination Port|
-| L4Protocol_s	| •	T •	U 	| Transport Protocol . T = TCP . U = UDP | 
+| L4Protocol_s	| #	T #	U 	| Transport Protocol . T = TCP . U = UDP | 
 | L7Protocol_s	| Protocol Name	| Based on destination port |
-| FlowDirection_s | •	I = Inbound •	O = Outbound | Direction of the flow as in raw flow log | 
-| FlowStatus_s	| •	A = Allowed by NSG Rule •	D = Denied by NSG Rule	| Status of flow as in raw flow log |
+| FlowDirection_s | #	I = Inbound #	O = Outbound | Direction of the flow as in raw flow log | 
+| FlowStatus_s	| #	A = Allowed by NSG Rule #	D = Denied by NSG Rule	| Status of flow as in raw flow log |
 | NSGList_s | \<SUBSCRIPTIONID>\/<RESOURCEGROUP_NAME>\/<NSG_NAME> | Network Security Group (NSG) associated with the flow |
 | NSGRules_s | \<Index value 0)><NSG_RULENAME>\<Flow Direction>\<Flow Status>\<FlowCount ProcessedByRule> |  NSG rule that allowed or denied this flow |
 | NSGRuleType_s	| •	User Defined •	Default |	The type of NSG Rule used by the flow |
@@ -64,14 +64,14 @@ Listed below are the fields in the schema and what they signify
 | Subnet_s | <ResourceGroup_Name>/<VNET_Name>/\<SubnetName> | Subnetwork associated with the NIC_s |
 | Subnet1_s	| <ResourceGroup_Name>/<VNET_Name>/\<SubnetName> | Subnetwork associated with the source IP in the flow |
 | Subnet2_s | <ResourceGroup_Name>/<VNET_Name>/\<SubnetName>	| Subnetwork associated with the Destination IP in the flow |
-| ApplicationGateway1_s | <SubscriptionID>/<ResourceGroupName>/<ApplicationGatewayName> | Application gateway associated with the Source IP in the flow | 
-| ApplicationGateway2_s | <SubscriptionID>/<ResourceGroupName>/<ApplicationGatewayName> | Application gateway associated with the destination IP in the flow |
-| LoadBalancer1_s |	<SubscriptionID>/<ResourceGroupName>/<LoadBalancerName> | Load balancer associated with the Source IP in the flow |
-| LoadBalancer2_s | <SubscriptionID>/<ResourceGroupName>/<LoadBalancerName> | Load balancer associated with the Destination IP in the flow |
-| LocalNetworkGateway1_s | <SubscriptionID>/<ResourceGroupName>/<LocalNetworkGatewayName> | Local network gateway associated with the Source IP in the flow |
-| LocalNetworkGateway2_s | <SubscriptionID>/<ResourceGroupName>/<LocalNetworkGatewayName> | Local network gateway associated with the Destination IP in the flow |
+| ApplicationGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the Source IP in the flow | 
+| ApplicationGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<ApplicationGatewayName> | Application gateway associated with the destination IP in the flow |
+| LoadBalancer1_s |	\<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer associated with the Source IP in the flow |
+| LoadBalancer2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LoadBalancerName> | Load balancer associated with the Destination IP in the flow |
+| LocalNetworkGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the Source IP in the flow |
+| LocalNetworkGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the Destination IP in the flow |
 | ConnectionType_s | Possible values are VNetPeering, VpnGateway and ExpressRoute |	Connection Type |
-| ConnectionName_s | <SubscriptionID>/<ResourceGroupName>/<ConnectionName> | Connection Name |
+| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Connection Name |
 | ConnectingVNets_s	| Space separated list of virtual network names | In case of hub and spoke topology, hub virtual networks will be populated here |
 | Country_s | Two letter country code (ISO 3166-1 alpha-2) | Populated for flow type ExternalPublic. All IP addresses in PublicIPs_s field will share the same country code |
 | AzureRegion_s | Azure region locations | Populated for flow type AzurePublic. All IP addresses in PublicIPs_s field will share the azure region |
@@ -85,9 +85,9 @@ Listed below are the fields in the schema and what they signify
 | InboundBytes_d |	Bytes received as captured at the network interface where NSG rule was applied | This is populated only for the Version 2 of NSG flow log schema |
 | OutboundBytes_d |	Bytes sent as captured at the network interface where NSG rule was applied | This is populated only for the Version 2 of NSG flow log schema |
 | CompletedFlows_d	|  | This is populated with non-zero value only for the Version 2 of NSG flow log schema |
-| PublicIPs_s | <PUBLIC_IP>'|'<FLOW_STARTED_COUNT>'|'<FLOW_ENDED_COUNT>'|'<OUTBOUND_PACKETS>'|'<INBOUND_PACKETS>'|'<OUTBOUND_BYTES>'|'<INBOUND_BYTES> | Entries seperaed by bars |
+| PublicIPs_s | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries seperaed by bars |
     
-    Notes
+# Notes
     
     1. All flows that happened between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t” and captured in the storage account will be processed by Network watcher traffic analytics service. As of now, the default processing interval is 60 minutes and always this processing interval aligns with the hour interval. Processing interval never spans across hours.
     2. Network watcher traffic analytics exposes intervals at which the NSG flow logs should be processed. Default processing interval is 60 minutes.
