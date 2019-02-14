@@ -15,7 +15,7 @@ ms.author: dkshir
 <div id="main" class="v2">
     <div class="container">
         <h1>Azure Internet of Things Documentation</h1>
-        <p>Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services connecting, monitoring, and controling billions of IoT assets.</p><p></p>
+        <p>Azure Internet of Things (IoT) is a collection of Microsoft-managed cloud services that connect, monitor, and control billions of IoT assets.</p><p></p>
         <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
             <li>
                 <a href="../iot-fundamentals/iot-introduction.md">
@@ -129,7 +129,7 @@ ms.author: dkshir
                             <div class="cardText">
                                 <h3>Deploy a fully-managed IoT solution</h3><br>
                                 <p><a href="../iot-central/overview-iot-central.md">What is Azure IoT Central?</a></p>
-                                <p><a href="../iot-central/overview-iot-central-tour.md">How doe the IoT Central UI look?</a></p>
+                                <p><a href="../iot-central/overview-iot-central-tour.md">How does the IoT Central UI look?</a></p>
                                 <p><a href="../iot-central/quick-deploy-iot-central.md">Create an IoT Central application</a></p>
                                 <p><a href="../iot-central/index.yml"><i>See more &gt;</i></a></p>
                             </div>

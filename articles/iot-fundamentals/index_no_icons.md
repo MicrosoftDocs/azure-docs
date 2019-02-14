@@ -62,7 +62,7 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/security.svg" alt="" />
+                                    <img src="media/index/i_security.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -116,12 +116,12 @@ ms.author: dkshir
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="../iot-accelerators/index.yml">Customize a pre-built IoT solution</a></h3>
+                                                        <h3><a href="../iot-accelerators/index.md">Customize a pre-built IoT solution</a></h3>
                                                         <p>
                                                             <a href="../iot-accelerators/about-iot-accelerators.md">What are Azure IoT solution accelerators?</a><br>
                                                             <a href="../iot-accelerators/quickstart-remote-monitoring-deploy.md">Try a remote monitoring solution</a><br>
                                                             <a href="../iot-accelerators/quickstart-connected-factory-deploy.md">Try a connected factory solution</a><br>
-                                                            <a href="../iot-accelerators/index.yml"><i>See more &gt;</i></a>
+                                                            <a href="../iot-accelerators/index.md"><i>See more &gt;</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="../iot-dps/index.yml">Securely provision devices on a large scale</a></h3>
