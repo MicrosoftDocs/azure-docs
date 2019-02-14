@@ -40,7 +40,7 @@ Timespans are expressed as a decimal followed by a time unit:
 |microsecond | microsecond  |
 |tick        | nanosecond   |
 
-Datetimes can be created by casting a string using the `todatetime` operator. For example, to review the VM heartbeats sent in a specific timeframe, you can make use of the [between operator](/azure/kusto/query/betweenoperator), which is convenient to specify a time range..
+Datetimes can be created by casting a string using the `todatetime` operator. For example, to review the VM heartbeats sent in a specific timeframe, you can make use of the `between operator`, which is convenient to specify a time range..
 
 ```Kusto
 Heartbeat
@@ -77,7 +77,7 @@ Heartbeat
 ```
 
 ## Converting time units
-It can be useful to express a datetime or timespan in a time unit other than the default one. For example, suppose you're reviewing error events from the last 30 minutes, and need a calculated column that shows how long ago the event happened:
+It's often useful to express a datetime or timespan in a time unit other than the default. For example, if you're reviewing error events from the last 30 minutes and need a calculated column showing how long ago the event happened:
 
 ```Kusto
 Event
@@ -86,7 +86,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-You can see the `timeAgo` column holds values such as: "00:09:31.5118992", meaning they are formatted as hh:mm:ss.fffffff. If you'd like to format these values to the `numver` of minutes since the start time, simply divide that value by "1 minute":
+The `timeAgo` column holds values such as: "00:09:31.5118992", meaning they're formatted as hh:mm:ss.fffffff. If you want to format these values to the `numver` of minutes since the start time, divide that value by "1 minute":
 
 ```Kusto
 Event
