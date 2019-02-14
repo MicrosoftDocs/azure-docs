@@ -78,7 +78,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
+      html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p><p><a href="/powershell/module/az.eventgrid">PowerShell</a></p>
     - title: REST APIs
       html: <p><a href="/rest/api/eventgrid">REST</a></p>  
     - title: Schemas
