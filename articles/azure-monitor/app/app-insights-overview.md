@@ -40,7 +40,7 @@ Application Insights is aimed at the development team, to help you understand ho
 
 * **Request rates, response times, and failure rates** - Find out which pages are most popular, at what times of day, and where your users are. See which pages perform best. If your response times and failure rates go high when there are more requests, then perhaps you have a resourcing problem. 
 * **Dependency rates, response times, and failure rates** - Find out whether external services are slowing you down.
-* **Exceptions** - Analyse the aggregated statistics, or pick specific instances and drill into the stack trace and related requests. Both server and browser exceptions are reported.
+* **Exceptions** - Analyze the aggregated statistics, or pick specific instances and drill into the stack trace and related requests. Both server and browser exceptions are reported.
 * **Page views and load performance** - reported by your users' browsers.
 * **AJAX calls** from web pages - rates, response times, and failure rates.
 * **User and session counts**.
@@ -83,7 +83,7 @@ Install Application Insights in your app, set up [availability web tests](../../
 When you receive an alert or discover a problem:
 
 * Assess how many users are affected.
-* Correlate failures with exceptions, dependency calls and traces.
+* Correlate failures with exceptions, dependency calls, and traces.
 * Examine profiler, snapshots, stack dumps, and trace logs.
 
 ### Build, Measure, Learn
@@ -107,7 +107,7 @@ There are several ways to get started. Begin with whichever works best for you. 
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.js](../../azure-monitor/app/nodejs.md)
   * [Other platforms](../../azure-monitor/app/platforms.md)
-* **[Instrument your web pages](../../azure-monitor/app/javascript.md)** for page view, AJAX and other client-side telemetry.
+* **[Instrument your web pages](../../azure-monitor/app/javascript.md)** for page view, AJAX, and other client-side telemetry.
 * **[Analyze mobile app usage](../../azure-monitor/learn/mobile-center-quickstart.md)** by integrating with Visual Studio App Center.
 * **[Availability tests](../../azure-monitor/app/monitor-web-app-availability.md)** - ping your website regularly from our servers.
 
