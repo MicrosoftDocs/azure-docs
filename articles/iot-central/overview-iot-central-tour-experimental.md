@@ -32,7 +32,7 @@ As an _operator_, you use the Azure IoT Central UI to manage your Azure IoT Cent
 
 ## Use the left navigation menu
 
-Use the left navigation menu to access the different areas of the application:
+Use the left navigation menu to access the different areas of the application. You can expand or collapse the navigation bar by clicking **<** or **>**:
 
 | Menu | Description |
 | ---- | ----------- |
@@ -44,10 +44,10 @@ The top menu appears on every page:
 
 ![Toolbar](media/overview-iot-central-tour-experimental/toolbar.png)
 
-- To search for device templates and devices, choose the **Search** icon.
-- To change the UI language, choose the **Language** icon.
+- To search for device templates and devices, enter a **Search** value.
+- To change the UI language or theme, choose the **Settings** icon.
+- To sign out of the application, choose the **Account** icon.
 - To get help and support, choose the **Help** drop-down for a list of resources.
-- To change the UI theme, or sign out of the application, choose the **Account** icon.
 
 You can choose between a light theme or a dark theme for the UI:
 

@@ -25,7 +25,7 @@ To complete the steps in this article, you need the following:
 
 You can add custom images to the following locations in an Azure IoT Central application:
 
-* The **Application Manager** page
+* The **My applications** page
 
     ![Image on application manager page](media/howto-prepare-images-experimental/applicationmanager.png)
 
@@ -65,7 +65,7 @@ The following sections describe how to upload the images in the different locati
 
 ### Application manager
 
-To upload an image on the **Application Manager**, navigate to the **Application Settings** page in the **Administration** section. You must be an administrator to complete this task:
+To upload an image to use on the **My applications** page, navigate to the **Application Settings** page in the **Administration** section. You must be an administrator to complete this task:
 
 ![Upload application image](media/howto-prepare-images-experimental/uploadapplicationmanager.png)
 
@@ -79,7 +79,7 @@ To upload an image on the application dashboard, navigate to the **Dashboard** p
 
 Under Configure Image, click on the Image tile to upload your prepared image from your local machine. The smallest sized tile is 200x200 px, larger tiles can be either square or rectangular multiples of small tiles. For example 200x400 px, 400x200 px, or 400x400 px.
 
-**Save** the uploaded image. You can resize it while in the edit mode. Click **Done** when finished. 
+**Save** the uploaded image. You can resize it while in the edit mode. Click **Done** when finished.
 
 ### Device template
 
@@ -87,7 +87,7 @@ To upload an image on a device template, navigate to **Device Templates** and ch
 
 ![Upload device template image](media/howto-prepare-images-experimental/uploaddevicetemplate.png)
 
-Click on the image tile to upload your prepared image (64x64 px) from your local machine. 
+Click on the image tile to upload your prepared image (64x64 px) from your local machine.
 
 ### Device dashboard
 
