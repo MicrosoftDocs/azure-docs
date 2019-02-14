@@ -44,10 +44,17 @@ A *custom analyzer* is a user-specified combination of tokenizer and optional fi
 
 -   ASCII folding. Add the Standard ASCII folding filter to normalize diacritics like ö or ê in search terms.  
 
- You can define multiple custom analyzers to vary the combination of filters, but each field can only use one analyzer for indexing analysis and one for search analysis.  
-
  This page provides a list of supported analyzers, tokenizers, token filters, and char filters. You can also find a description of changes to the index definition with a usage example. For more background about the underlying technology leveraged in the Azure Search implementation, see [Analysis package summary (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). For examples of analyzer configurations, see [Analyzers in Azure Search > Examples](https://docs.microsoft.com/azure/search/search-analyzers#examples).
 
+## When to add analyzers
+
+ You can define multiple custom analyzers to vary the combination of filters, but each field can only use one analyzer for indexing analysis and one for search analysis.  
+
+You should configure analyzers during active development when index definition is still in flux. An analyzer specified on a field is an integral part of the field's definition, so you can only add it when the field is created. If you want to add analyzers to existing fields, you'll have to [drop and rebuild](search-howto-reindex.md) the index.
+
+An exception is the searchAnalyzer variant. There are three ways to specify analyzers: **analyzer**, **indexAnalyzer**, **searchAnalyzer**. The first one, **analyzer**, is used for both indexing and query requests. The other two allow you to control which analyzers are used for each request type.
+
+Both **analyzer** and **indexAnalyzer** have to be specified on the initial field definition. The **searchAnalyzer** attribute can be added to a field that already exists, without incurring a rebuild requirement.
 
 ## Default analyzer  
 

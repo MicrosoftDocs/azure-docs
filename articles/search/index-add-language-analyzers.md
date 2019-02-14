@@ -1,7 +1,7 @@
 ---
 title: Add language analyzers - Azure Search
 description: Multi-lingual lexical text analysis for non-English queries and indexes in Azure Search.
-ms.date: 01/31/2019
+ms.date: 02/14/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -25,6 +25,16 @@ translation.priority.mt:
 A *language analyzer* is a specific component of a [full-text search engine](https://docs.microsoft.com/azure/search/search-lucene-query-architecture) that performs lexical analysis using the linguistic rules of the target language. Every searchable field has an `analyzer` property. If your index contains translated strings, such as separate fields for English and Chinese text, you could specify language analyzers on each field to access the rich linguistic capabilities of those analyzers.  
 
 Azure Search supports 35 analyzers backed by Lucene, and 50 analyzers backed by proprietary Microsoft natural language processing technology used in Office and Bing.
+
+## When to add analyzers
+
+ You can define multiple custom analyzers to vary the combination of filters, but each field can only use one analyzer for indexing analysis and one for search analysis.  
+ 
+You should configure analyzers during active development when index definition is still in flux. An analyzer specified on a field is an integral part of the field's definition, so you can only add it when the field is created. If you want to add analyzers to existing fields, you'll have to [drop and rebuild](search-howto-reindex.md) the index.
+
+An exception is the searchAnalyzer variant. There are three ways to specify analyzers: **analyzer**, **indexAnalyzer**, **searchAnalyzer**. The first one, **analyzer**, is used for both indexing and query requests. The other two allow you to control which analyzers are used for each request type.
+
+Both **analyzer** and **indexAnalyzer** have to be specified on the initial field definition. The **searchAnalyzer** attribute can be added to a field that already exists, without incurring a rebuild requirement.
 
 ## Compare language analyzer types 
 

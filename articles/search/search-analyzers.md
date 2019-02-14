@@ -40,7 +40,7 @@ You can customize a predefined analyzer, such as **Pattern** or **Stop**, to use
 
 1. (for custom analyzers only) Create an **analyzer** section in the index definition. For more information, see [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) and also [Custom Analyzers > Create](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer).
 
-2. On a [field definition](https://docs.microsoft.com/rest/api/searchservice/create-index) in the index, set the **analyzer** property to the name of a target analyzer (for example, `"analyzer" = "keyword"`. Valid values include name of a predefined analyzer, language analyzer, or custom analyzer also defined in the index schema.
+2. On a [field definition](https://docs.microsoft.com/rest/api/searchservice/create-index) in the index, set the **analyzer** property to the name of a target analyzer (for example, `"analyzer" = "keyword"`. Valid values include name of a predefined analyzer, language analyzer, or custom analyzer also defined in the index schema. Plan on assigning an analyzer during field definition.
 
 3. Optionally, instead of one **analyzer** property, you can set different analyzers for indexing and querying using the **indexAnalyzer** and **searchAnalyzer`** field parameters. 
 
