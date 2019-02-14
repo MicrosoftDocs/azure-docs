@@ -66,7 +66,7 @@ For a complete tutorial on pushing notifications to a Universal Windows Platform
     4. Select **OK** to close the **Upload Certificate** page. 
     5. On the **Windows Phone(MPNS)** page, select **Save** on the toolbar.
 
-For a complete tutorial on pushing notifications to a Windows Phone 8 app by using the Microsoft Push Notification Service (MPNS), see [this tutorial](notification-hubs-windows-mobile-push-notifications-mpns).
+For a complete tutorial on pushing notifications to a Windows Phone 8 app by using the Microsoft Push Notification Service (MPNS), see [this tutorial](notification-hubs-windows-mobile-push-notifications-mpns.md).
       
 ## Configure Amazon Device Messaging (ADM) settings for the hub
 1. Select **Amazon (ADM)** under **Settings** on the left menu.
@@ -96,6 +96,6 @@ For complete step-by-step instructions for pushing notifications to these differ
 - [Push notifications to iOS devices by using Azure Notification Hubs and Apple Push Notification Service (APNS)](notification-hubs-ios-apple-push-notification-apns-get-started.md).
 - [Push notifications to Android devices by using Azure Notification Hubs and Google Firebase Cloud Messaging](notification-hubs-android-push-notification-google-fcm-get-started.md).
 - [Push notifications to a Universal Windows Platform (UWP) app running on a Windows device](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
-- [Push notifications to a Windows Phone 8 app by using the Microsoft Push Notification Service (MPNS)](notification-hubs-windows-mobile-push-notifications-mpns).
+- [Push notifications to a Windows Phone 8 app by using the Microsoft Push Notification Service (MPNS)](notification-hubs-windows-mobile-push-notifications-mpns.md).
 - [Push notifications to a Kindle application](notification-hubs-kindle-amazon-adm-push-notification.md).
 - [Push notifications by using Azure Notification Hubs and Baidu cloud push](notification-hubs-baidu-china-android-notifications-get-started.md).
