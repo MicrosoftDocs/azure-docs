@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/11/2019
+ms.date: 02/14/2019
 ms.topic: quickstart
 ms.author: jgao
 
@@ -21,13 +21,9 @@ ms.author: jgao
 
 # Quickstart: Create Azure Resource Manager templates by using Visual Studio Code
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Learn how to use Visual Studio code and the Azure Resource Manager Tools extension to create and edit Azure Resource Manager templates. You can create Resource Manager templates in Visual Studio Code without the extension, but the extension provides autocomplete options that simplify template development. To understand the concepts associated with deploying and managing your Azure solutions, see [Azure Resource Manager overview](resource-group-overview.md).
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -53,6 +49,7 @@ The template used in this quickstart is called [Create a standard storage accoun
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. Select **Open** to open the file.
 4. Select **File**>**Save As** to save the file as **azuredeploy.json** to your local computer.
 
@@ -93,6 +90,9 @@ To experience how to edit a template using Visual Studio Code, you add one more 
 ## Deploy the template
 
 There are many methods for deploying templates.  In this quickstart, you use the Azure Cloud shell. The Cloud shell is a web application, which doesn't require any configuration. It supports both Azure CLI and Azure PowerShell.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 1. Sign in to the [Azure Cloud shell](https://shell.azure.com)
 
@@ -147,7 +147,10 @@ There are many methods for deploying templates.  In this quickstart, you use the
     
     ---
 
-    Update the template file name if you save the file to a name other than **azuredeploy.json**.
+    > [!NOTE]
+    > There is a file IO issue with using Azure PowerShell in the Cloud shell.  The error message is *Cannot retrieve the dynamic parameters for the cmdlet. Cannot find path 'Azure:/azuredeploy.json' because it does not exist.*  A temporary workaround is not to include the **-TemplateFile** switch in the `New-AzResourceGroupDeploy` command. The command will prompt you to enter the file name.
+
+    Update the template file name if you save the file to a name other than **azuredeploy.json**. 
 
     The following screenshot shows a sample deployment:
 

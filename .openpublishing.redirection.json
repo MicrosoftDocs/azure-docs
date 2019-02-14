@@ -11828,6 +11828,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure/machine-learning/studio/faq.md",
+      "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/studio/whats-new.md",
       "redirect_url": "https://azure.microsoft.com/updates/?product=machine-learning-studio",
       "redirect_document_id": false
@@ -33431,6 +33436,11 @@
     {
       "source_path": "articles/cosmos-db/scripts/create-graph-database-account-cli.md",
       "redirect_url": "/azure/cosmos-db/scripts/create-gremlin-database-account-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-explorer/spark-integration.md",
+      "redirect_url": "/azure/data-explorer/",
       "redirect_document_id": false
     },
     {

@@ -7,7 +7,7 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/13/2019
 ms.custom: seodec2018
 ---
 # Create a basic index in Azure Search
@@ -17,6 +17,12 @@ In Azure Search, an *index* is a persistent store of *documents* and other const
 When you add or upload an index, Azure Search creates physical structures based on the schema you provide. For example, if a field in your index is marked as searchable, an inverted index is created for that field. Later, when you add or upload documents, or submit search queries to Azure Search, you are sending requests to a specific index in your search service. Loading fields with document values is called *indexing* or data ingestion.
 
 You can create an index in the portal, [REST API](search-create-index-rest-api.md), or [.NET SDK](search-create-index-dotnet.md).
+
+## Recommended workflow
+
+Because physical structures are created during indexing, you will need to [drop and recreate indexes](search-howto-reindex.md) whenever you make material changes to an existing field definition. This means that during development, you should plan on frequent rebuilds. You might consider working with a subset of your data to make rebuilds go faster. 
+
+Code rather than portal indexing is also recommended. If you rely on the portal for index definition, you will have to fill out the index definition on each rebuild. As an alternative, using a tool like [Postman and the REST API](search-fiddler.md) are helpful for proof-of-concept testing when development projects are still in early phases. You can make incremental changes to an index definition in a request body, sending the request to your service to recreate an index using an updated schema.
 
 ## Components of an index
 
@@ -127,8 +133,20 @@ You can find more detailed information about Azure Search's [supported data type
 
 You can find more detailed information about Azure Search's [index attributes here](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
+## Storage implications of index attributes
+
+The attributes you select have an impact on storage. The following screenshot is an illustration of index storage patterns resulting from various combinations of attributes. The index is based on the [built-in realestate sample](search-get-started-portal.md) data source, which you can index and query in the portal.
+
+Filter and sort operations query on exact matches so documents are stored intact. Searchable fields enable full-text and fuzzy search. Inverted indexes are created for searchable fields and populated with tokenized terms. Marking a field as retrievable has no appreciable impact on index size.
+
+![Index size based on attribute selection](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
+
+Storage implementation is considered an implementation detail of Azure Search and could change without notice. There is no guarantee that current behavior will persist in the future.
+
 ## Suggesters
-A suggester is a section of the schema that defines which fields in an index are used to support auto-complete or type-ahead queries in searches. Typically partial search strings are sent to the Suggestions (Azure Search Service REST API) while the user is typing a search query, and the API returns a set of suggested phrases. A suggester that you define in the index determines which fields are used to build the type-ahead search terms. For more information, see [Add suggesters](index-add-suggesters.md) for configuration details.
+A suggester is a section of the schema that defines which fields in an index are used to support auto-complete or type-ahead queries in searches. Typically partial search strings are sent to the Suggestions (Azure Search Service REST API) while the user is typing a search query, and the API returns a set of suggested phrases. 
+
+A suggester that you define in the index determines which fields are used to build the type-ahead search terms. For more information, see [Add suggesters](index-add-suggesters.md) for configuration details.
 
 ## Scoring profiles
 
