@@ -17,7 +17,7 @@ Datasets are a Data Factory construct that define the shape of the data you are 
 
 Use Datasets in Data Flow Source and Sink transforms to define the basic data schema. If you do not have schema in your data, you can set Schema Drift on for your Source and Sink. With schema defined from the dataset, you will have the related data types, data formats, file location, and connection information from the associated Linked Service.
 
-Currently in data flow, you will find 4 datasets:
+Currently in data flow, you will find four datasets:
 
 * Azure SQL DB
 * Azure SQL DW
@@ -26,11 +26,11 @@ Currently in data flow, you will find 4 datasets:
 
 Data flow datasets separate the source *type* from the Linked Service connection type. Typically in Data Factory, you choose the connection type (Blob, ADLS, etc.) and then define the type of file in the Dataset. Inside Data Flow, you will pick the source types, which can be associated with different Linked Service connection types.
 
-![Scource Transformation options](media/data-flow/dataset1.png "sources")
+![Source Transformation options](media/data-flow/dataset1.png "sources")
 
 When creating a new Dataset, there is a checkbox labeled "Data Flow Compatible" on the top right of the panel. Clicking that button will filter only the datasets that can be used with Data Flows. 
 
 ## Import schemas
 
-When importing the schema of Data Flow datasets, you will see an Import Schema button. Clicking that button will present you with two options: Import from the source or import from a local file. In most cases, you will import the schema directly from the source. However, if you have a richly-defined schema file, you can point to that local file and Data Factory will define the schema based upon that schema file.
+When importing the schema of Data Flow datasets, you will see an Import Schema button. Clicking that button will present you with two options: Import from the source or import from a local file. In most cases, you will import the schema directly from the source. However, if you have an existing schema file, you can point to that local file and Data Factory will define the schema based upon that schema file.
 
