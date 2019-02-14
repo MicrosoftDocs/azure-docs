@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # How to use Azure Maps Android SDK
 
-The Azure Maps Android SDK is a vector maps library for Android. This article will guide you through the process of installing the Azure Maps Android SDK, loading a map and placing a pin on it.
+The Azure Maps Android SDK is a vector maps library for Android. This article will guide you through the process of installing the Azure Maps Android SDK, loading a map, and placing a pin on it.
 
 ## Prerequisites to get started
 
@@ -40,7 +40,7 @@ See [Android Studio documentation](https://developer.android.com/studio/intro/) 
 
 ## Set up a virtual device
 
-Android Studio lets you set up a virtual Android device on your computer. Which can help to test your application while you develop. To setup a virtual device click on the Android Virtual Device (AVD) Manager icon on the top right of your project screen. Then click the **Create Virtual Device** button. You can also get to the manager via Tools > Android > AVD Manager in the toolbar. From the **Phones** category, select **Nexus 5X** and click **Next**.
+Android Studio lets you set up a virtual Android device on your computer. Which can help to test your application while you develop. To set up a virtual device click on the Android Virtual Device (AVD) Manager icon on the top right of your project screen. Then click the **Create Virtual Device** button. You can also get to the manager via **Tools > Android > AVD Manager** in the toolbar. From the **Phones** category, select **Nexus 5X** and click **Next**.
 
 Learn more about setting up an AVD in the [Android Studio documentation](https://developer.android.com/studio/run/managing-avds).
 
@@ -50,7 +50,7 @@ Learn more about setting up an AVD in the [Android Studio documentation](https:/
 
 Before you move forward towards building your application, follow the steps below to install Azure Maps Android SDK. 
 
-1. Add the following to the **allprojects**,repositories block in your **build.gradle** file.
+1. Add the following to the **all projects**, repositories block in your **build.gradle** file.
 
     ```
     maven {
@@ -74,7 +74,7 @@ Before you move forward towards building your application, follow the steps belo
         implementation "com.microsoft.azure.maps:mapcontrol:0.1"
         ```
 
-3. Set up permissions by adding the following to your `AndroidManifest.xml'
+3. Set up permissions by adding the following to your **AndroidManifest.xml**
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -85,7 +85,7 @@ Before you move forward towards building your application, follow the steps belo
     </manifest>
     ```
 
-4. Edit **res > layout > activity_main.xml**, so it look like the XML below:
+4. Edit **res > layout > activity_main.xml**, so it looks like the XML below:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -182,7 +182,7 @@ Before you move forward towards building your application, follow the steps belo
 
 ## Import Classes
 
-After completing the steps above, you will most likely get warnings from Android Studio on some of the text in the code. To handle this you will have to import some of the classes that are being referenced in `MainActivity.java`.
+After completing the steps above, you will most likely get warnings from Android Studio on some of the text in the code. To resolve these warnings, import the classes being referenced in `MainActivity.java`.
 
 You can automatically import these classes by pressing `Alt`+`Enter`(`Option`+`Return` on Mac). 
 
@@ -283,6 +283,6 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-Re-run your application and you should see a marker on the map like the one below.
+Rerun your application and you should see a marker on the map like the one below.
 
 ![Android map pin](./media/how-to-use-android-map-control-library/android-map-pin.png)
