@@ -61,12 +61,12 @@ You don't have to manually delete connectors that are unused. When a connector i
 
 Azure AD provides automatic updates for all the connectors that you deploy. As long as the Application Proxy Connector Updater service is running, your connectors update automatically. If you don’t see the Connector Updater service on your server, you need to [reinstall your connector](application-proxy-add-on-premises-application.md) to get any updates. 
 
-If you don't want to wait for an automatic update to come to your connector, you can perform a manual upgrade. Go to the [connector download page](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) on the server where your connector is located and select **Download**. This process kicks off an upgrade for the local connector. 
+If you don't want to wait for an automatic update to come to your connector, you can do a manual upgrade. Go to the [connector download page](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download) on the server where your connector is located and select **Download**. This process kicks off an upgrade for the local connector. 
 
 For tenants with multiple connectors, the automatic updates target one connector at a time in each group to prevent downtime in your environment. 
 
 You may experience downtime when your connector updates if:  
-- You only have one connector we recommend you install a second connector and [create a connector group](application-proxy-connector-groups.md). Thi will avoid downtime and provide higher availability, .  
+- You only have one connector we recommend you install a second connector and [create a connector group](application-proxy-connector-groups.md). This will avoid downtime and provide higher availability, .  
 - A connector was in the middle of a transaction when the update began. Although the initial transaction is lost, your browser should automatically retry the operation or you can refresh your page. When the request is resent, the traffic is routed to a backup connector.
 
 ## Creating connector groups
@@ -79,7 +79,7 @@ To learn more about connector groups, see [Publish applications on separate netw
 
 ## Capacity Planning 
 
-It is important to make sure you have planned enough capacity between connectors to handle the expected traffic volume. In general, the more users you have, the larger a machine you will need. Below is a table giving an outline of the volume different machines can handle. Note it is all based on expected Transactions Per Second (TPS) rather than by user since usage patterns vary and cannot be used to predict load.  Also note that there will be some differences based on the size of the responses and the backend application response time - larger response sizes and slower response times will result in a lower Max TPS.
+It is important to make sure you have planned enough capacity between connectors to handle the expected traffic volume. In general, the more users you have, the larger a machine you will need. Below is a table giving an outline of the volume different machines can handle. Note it is all based on expected Transactions Per Second (TPS) rather than by user since usage patterns vary and cannot be used to predict load. There will also be some differences based on the size of the responses and the backend application response time - larger response sizes and slower response times will result in a lower Max TPS. We recommend having additional machines than estimated by the table so that the distributed load across the machines is about 50%. The extra capacity will ensure that you have high availability and resiliency.
 
 |Cores|RAM|Expected Latency (MS)-P99|Max TPS|
 | ----- | ----- | ----- | ----- |
@@ -103,7 +103,7 @@ For more information about configuring outbound firewall rules, see [Work with e
 
 ## Performance and scalability
 
-Scale for the Application Proxy service is transparent, but scale is a factor for connectors. You need to have enough connectors to handle peak traffic. Since connectors are stateless, they are not affected by the number of users or sessions. Instead, they respond to the number of requests and their payload size. With standard web traffic, an average machine can handle a couple thousand requests per second. The specific capacity depends on the exact machine characteristics. 
+Scale for the Application Proxy service is transparent, but scale is a factor for connectors. You need to have enough connectors to handle peak traffic. Since connectors are stateless, they aren't affected by the number of users or sessions. Instead, they respond to the number of requests and their payload size. With standard web traffic, an average machine can handle a couple thousand requests per second. The specific capacity depends on the exact machine characteristics. 
 
 The connector performance is bound by CPU and networking. CPU performance is needed for SSL encryption and decryption, while networking is important to get fast connectivity to the applications and the online service in Azure.
 
