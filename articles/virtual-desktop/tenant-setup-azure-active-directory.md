@@ -71,13 +71,13 @@ Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
 After that, create a new Windows Virtual Desktop tenant associated with the Azure Active Directory:
 
 ```powershell
-New-RdsTenant -Name <TenantName> -AadTenantId <DirectoryID>
+New-RdsTenant -Name <TenantName> -AadTenantId <DirectoryID> -AzureSubscriptionId <SubscriptionID>
 ```
 
 The bracketed values should be replaced with values relevant to your organization and tenant. For example, let's say you're the global admin of the Contoso organization. The cmdlet you'd run would look like this:
 
 ```powershell
-New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444
+New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
 ```
 
 ## Next steps
