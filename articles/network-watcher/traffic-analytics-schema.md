@@ -1,4 +1,4 @@
---
+---
 title: Azure traffic analytics | Microsoft Docs
 description: Understand schema of Traffic Analytics to analyse Azure network security group flow logs .
 services: network-watcher
@@ -25,6 +25,8 @@ Traffic Analytics is built on top of Log Analytics, so you can run custom querie
 
 Listed below are the fields in the schema and what they signify
 
+| Field | Format | Comments | 
+|---------|--------- |---------|
 | TableName	| AzureNetworkAnalytics_CL |	
 | SubType_s	| FlowLog |	Subtype for the flow logs |
 | FASchemaVersion_s |	1	| Flow log schema version |
