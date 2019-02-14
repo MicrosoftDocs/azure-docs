@@ -47,13 +47,19 @@ Set up the appropriate access permissions to your account, and the data in your 
 
 There's three ways to grant access:
 
-* Assign the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview), [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview) or [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview) role to a user, group, user-managed identity, or service principal.
+* Assign one of these roles to a user, group, user-managed identity, or service principal:
 
-* A Shared Access Signature (SAS) token.
+  [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
 
-* A storage account key.
+  [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
 
-This table shows how each Azure service or tool authenticates and authorizes access to Azure Data Lake Storage Gen2 data.
+  [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner-preview)
+
+* Use a Shared Access Signature (SAS) token.
+
+* Use a storage account key.
+
+This table shows how to grant access for each Azure service or tool.
 
 |Tool | To grant access | Guidance |
 |---|--|---|
@@ -64,7 +70,7 @@ This table shows how each Azure service or tool authenticates and authorizes acc
 |Azure HDInsight| Assign a role to a user-assigned managed identity | [Creating an HDInsight cluster with Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#creating-an-hdinsight-cluster-with-data-lake-storage-gen2)|
 |Azure Databricks| Assign a role to a service principal | [Create a service principal](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-a-service-principal)|
 
-To learn about how to set up access permissions at the file and folder-level, see these articles.
+To grant access to specific file and folders, see these articles.
 
 * [Set file and directory level permissions using Azure Storage Explorer with Azure Data Lake Storage Gen2](https://review.docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
 
