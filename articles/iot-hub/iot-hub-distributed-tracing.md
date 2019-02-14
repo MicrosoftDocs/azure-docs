@@ -43,7 +43,7 @@ In this article, you use the [Azure IoT device SDK for C](./iot-hub-device-sdk-c
 
 In this section, you configure an IoT Hub to log distributed tracing attributes (correlation IDs and timestamps).
 
-1. Navigate to your IoT hub in the Azure portal.
+1. Navigate to your IoT hub in the [Azure portal](https://portal.azure.com/).
 
 1. In the left pane for your IoT hub, scroll down to the **Monitoring** section and click **Diagnostics settings**.
 
@@ -79,7 +79,9 @@ To learn more about these logs and their schemas, see [Distributed tracing in Io
 
 In this section, you prepare a development environment for use with the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). Then, you modify one of samples to enable distributed tracing on your device's telemetry messages.
 
-These instructions are for building the sample from. For other environments, see [Compile the C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compile) or [Prepackaged C SDK for Platform Specific Development](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#prepackaged-c-sdk-for-platform-specific-development)
+These instructions are for building the sample on Windows. For other environments, see [Compile the C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compile) or [Prepackaged C SDK for Platform Specific Development](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#prepackaged-c-sdk-for-platform-specific-development)
+
+### Clone the source code and initialize
 
 1. Install ["Desktop development with C++" workload](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2017) for either Visual Studio 2015 or 2017
 
@@ -87,7 +89,7 @@ These instructions are for building the sample from. For other environments, see
 
 1. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
 
-    ```cmd/sh
+    ```cmd
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
 
@@ -95,7 +97,7 @@ These instructions are for building the sample from. For other environments, see
 
 1. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder.
 
-    ```cmd/sh
+    ```cmd
     cd azure-iot-sdk-c
     git checkout public-preview
     mkdir cmake
@@ -107,7 +109,7 @@ These instructions are for building the sample from. For other environments, see
 
     Once the build succeeds, the last few output lines will look similar to the following output:
 
-    ```cmd/sh
+    ```cmd
     $ cmake ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
@@ -121,39 +123,43 @@ These instructions are for building the sample from. For other environments, see
     -- Build files have been written to: E:/IoT Testing/azure-iot-sdk-c/cmake
     ```
 
+### Edit the send telemetry sample to enable distributed tracing
+
 1. Use an editor to open the `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c` source file.
 
 1. Find the declaration of the `connectionString` constant:
 
-    [!code-c[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=2)]
+    [!code-C[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=2)]
 
     Replace the value of the `connectionString` constant with the device connection string you made a note of in the [register a device](./quickstart-send-telemetry-c.md#register-a-device) section of the [Send telemetry C Quickstart](./quickstart-send-telemetry-c.md).
 
 1. Change the `MESSAGE_COUNT` define to `5000`:
 
-    [!code-c[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=3)]
+    [!code-C[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_config&highlight=3)]
 
 1. Find the line of code that calls `IoTHubDeviceClient_LL_SetConnectionStatusCallback` to register a connection status callback function before the send message loop. Add code under that line as shown below to call `IoTHubDeviceClient_LL_EnablePolicyConfiguration` enabling distributed tracing for the device:
 
-    [!code-c[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_tracing&highlight=5)]
+    [!code-C[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_tracing&highlight=5)]
 
     The `IoTHubDeviceClient_LL_EnablePolicyConfiguration` function enables policies for specific IoTHub features that are configured via [device twins](./iot-hub-devguide-device-twins.md). Once `POLICY_CONFIGURATION_DISTRIBUTED_TRACING` is enabled with the line of code above, the tracing behavior of the device will reflect distributed tracing changes made on the device twin.
 
-    Also add a one-second delay at the end of the send message loop:
+1. To keep the sample app running without using up all your quota, add a one-second delay at the end of the send message loop:
 
-    [!code-c[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_sleep&highlight=8)]
+    [!code-C[](samples/iot-hub-distributed-tracing/iothub_ll_telemetry_sample.c?name=snippet_sleep&highlight=8)]
+
+### Compile and run
 
 1. Navigate to the *iothub_ll_telemetry_sample* project directory from the CMake directory (`azure-iot-sdk-c/cmake`) you created earlier, and compile the sample:
 
-    ```cmd/sh
+    ```cmd
     cd iothub_client/samples/iothub_ll_telemetry_sample
     cmake --build . --target iothub_ll_telemetry_sample --config Debug
     ```
 
 1. Run the application. The device sends telemetry supporting distributed tracing.
 
-    ```cmd/sh
-    Debug\iothub_ll_telemetry_sample.exe
+    ```cmd
+    Debug/iothub_ll_telemetry_sample.exe
     ```
 
 1. Keep the app running. Optionally observe the message being sent to IoT Hub by looking at the console window.
@@ -162,7 +168,7 @@ These instructions are for building the sample from. For other environments, see
 
 ### Using third-party clients
 
-If you're not using the C SDK, and still to preview distributed tracing for IoT Hub, construct the message to contain a `tracestate` application property with the creation time of the message in the unix timestamp format. For example, `tracestate=timestamp=1539243209`. To control the percentage of messages containing this property, implement logic to listen to cloud-initiated events such as twin updates.
+If you're not using the C SDK and still would like to preview distributed tracing for IoT Hub, construct the message to contain a `tracestate` application property with the creation time of the message in the unix timestamp format. For example, `tracestate=timestamp=1539243209`. To control the percentage of messages containing this property, implement logic to listen to cloud-initiated events such as twin updates.
 
 ## Update sampling options 
 
@@ -170,7 +176,7 @@ To change the percentage of messages to be traced from the cloud, update the twi
 
 ### Update using the portal
 
-1. Navigate to your IoT hub in Azure portal, then click **IoT devices**
+1. Navigate to your IoT hub in [Azure portal](https://portal.azure.com/), then click **IoT devices**
 
 1. Click your device
 
