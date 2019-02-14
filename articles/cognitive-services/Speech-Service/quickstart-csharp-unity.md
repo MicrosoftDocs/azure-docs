@@ -20,48 +20,93 @@ Use this guide to create a speech-to-text application using [Unity](https://unit
 When finished, you can use your computer's microphone to transcribe speech to text in real time.
 
 > [!NOTE]
-> The Speech SDK for Unity is currently it beta.
+> The Speech SDK for Unity is currently in beta.
 > It supports Windows x86 and x64 (stand-alone desktop application or Universal Windows Platform), and Android (ARM32/64, x86).
-
-TODO rest needs to be updated
 
 ## Prerequisites
 
 To complete this project, you'll need:
 
+* [Unity 2018.3 or later](https://store.unity.com/).
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * A subscription key for the Speech Service. [Get one for free](get-started.md).
 * Access to your computer's microphone
 
-## Create a Visual Studio project
+## Create a Unity project
 
-[!INCLUDE [Create project ](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
+* Start Unity and under the **Projects** tab select **New**.
+* Specify **Project name** as **csharp-unity**, **Template** as **3D** and pick a location.
+  Then select **Create project**.
+* After a bit of time, the Unity Editor window should pop up.
 
-## Add sample code
+## Install the Speech SDK
 
-1. Open `Program.cs` and replace the automatically generated code with this sample:
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
+* The Speech SDK for Unity (beta) is packaged as a Unity asset package (.unitypackage).
+  Download it from [here](https://aka.ms/csspeech/unitypackage).
+* Import the Speech SDK by selecting **Assets** > **Import Package** > **Custom Package**.
+* In the file picker, select the Speech SDK .unitypackage file that you downloaded above.
+* Ensure that all files are selected and click **Import**.
+
+## Add UI
+
+We will add a text field as minimal UI that is used to show speech recognition output.
+
+* In the [Hierarchy Window](https://docs.unity3d.com/Manual/Hierarchy.html), a sample scene should be active that Unity create with the new project.
+* Right-click into it, and select **UI** > **Text**.
+* This should create three game objects: a **Text** object nested within a **Canvas** object, and an **EventSystem** object (which we will not need).
+
+## Add the sample code
+
+1. In the [Project Window](https://docs.unity3d.com/Manual/ProjectView.html), click the **Create** button and then select **C# script**. Name the script `HelloWorld`.
+
+1. Edit the script by double-clicking it.
+
+  > [!NOTE]
+  > You can configure which code editor will be launched under **Edit** > **Preferences**, see the [Unity user manual](https://docs.unity3d.com/Manual/Preferences.html)).
+
+1. Replace all code with the following:
+
+   ```csharp
+   // TODO
+   ```
 
 1. Locate and replace the string `YourSubscriptionKey` with your Speech Service subscription key.
 
 1. Locate and replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
 
-1. Save the changes to the project.
+1. Save the changes to the script and close your code editor.
 
-## Build and run the app
+1. The script needs to be added as a component to one of your game objects.
 
-1. From the menu bar, select **Build** > **Build Solution**. The code should compile without errors now.
+  * Click on the **Canvas** object in the Hierarchy Window. This opens up its setting in the [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
+  * Click the **Add Component** button in the Inspector Window, then search for the HelloWorld script we create above and add it.
+  * You will note that the Hello World component has a **Recognized Text** property that says `None (Text)`.
+    Click the Object Picker (the small circle icon to the right of the property), and choose the **Text** object you created earlier.
 
-    ![Screenshot of Visual Studio application, with Build Solution option highlighted](media/sdk/qs-csharp-dotnet-windows-08-build.png "Successful build")
+## Run the sample in the Unity Editor
 
-1. From the menu bar, select **Debug** > **Start Debugging**, or press **F5** to start the application.
+* Press the **Play** button in the Unity Editor toolbar (below the menu bar).
+  * When you say something after the app has been launched, you should see the recognized text in the Unity Editor's Game Window.
+  * Check also the [Console Window](https://docs.unity3d.com/Manual/Console.html) for debug messages.
+* Click the **Play** button again to stop running the app.
 
-    ![Screenshot of Visual Studio application, with Start Debugging option highlighted](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Start the app into debugging")
+## Additional options to run this sample
 
-1. A console window will appear, prompting you to speak. Now, say something in English. Your speech is transmitted to the Speech Service and transcribed to text in real time. The result is printed to the console.
+TODO
 
-    ![Screenshot of console output after successful recognition](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Console output after successful recognition")
+### Build and run the sample as a stand-alone desktop application
+
+TODO
+
+### Build and run the sample as Universal Windows Platform application
+
+TODO
+
+### Build and run the sample for Android platform
+
+TODO
 
 ## Next steps
 
