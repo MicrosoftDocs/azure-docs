@@ -26,7 +26,6 @@ Understanding resource limits for Azure NetApp Files helps you manage your volum
 - The minimum size for a single capacity pool is 4 TiB, and the maximum size is 500 TiB. 
 - Each capacity pool can have a maximum of 500 volumes.
 - The minimum size for a single volume is 100 GiB, and the maximum size is 92 TiB.
-- You can have a maximum of 100 volumes per Azure subscription per region.  
 - Each volume can have a maximum of 255 snapshots.
 - Each Azure Virtual Network (Vnet) can have only one subnet delegated to Azure NetApp Files.
 
