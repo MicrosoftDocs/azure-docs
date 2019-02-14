@@ -28,11 +28,12 @@ Note the following requirements before you begin:
 
 ## Upload data to Azure Storage
 
-### Command-line utilities
+## Utilities
 Microsoft provides the following utilities to work with Azure Storage:
 
 | Tool | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
+| [Azure Portal](https://portal.azure.com) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AzCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
