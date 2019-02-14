@@ -1,7 +1,7 @@
 ---
 title: Add custom analyzers - Azure Search
 description: Modify text tokenizers and character filters used in Azure Search full text search queries.
-ms.date: 01/31/2019
+ms.date: 02/14/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -22,13 +22,15 @@ translation.priority.mt:
 ---
 # Add custom analyzers to an Azure Search index
 
-A *custom analyzer* is a user-specified combination of tokenizer and optional filters used for customizing text processing in the search engine. For example, you could create a custom analyzer with a *char filter* to remove HTML markup before text inputs are tokenized.
+A *custom analyzer* is sa pecific type of [text analyzer](search-analyzers.md) that consists of a user-defined combination of existing tokenizer and optional filters. By combining tokenizers and filters in new ways, you can customize text processing in the search engine to achieve specific outcomes. For example, you could create a custom analyzer with a *char filter* to remove HTML markup before text inputs are tokenized.
+
+ You can define multiple custom analyzers to vary the combination of filters, but each field can only use one analyzer for indexing analysis and one for search analysis.  
 
 ## Overview
 
  The role of a [full-text search engine](search-lucene-query-architecture.md), in simple terms, is to process and store documents in a way that enables efficient querying and retrieval. At a high level, it all comes down to extracting important words from documents, putting them in an index, and then using the index to find documents that match words of a given query. The process of extracting words from documents and search queries is called lexical analysis. Components that perform lexical analysis are called analyzers.
 
- In Azure Search, you can choose from a set of predefined language agnostic analyzers in the [Analyzers](#AnalyzerTable) table and language specific analyzers listed in [Language analyzers &#40;Azure Search Service REST API&#41;](index-add-language-analyzers.md). You also have an option to define your own custom analyzers.  
+ In Azure Search, you can choose from a set of predefined language agnostic analyzers in the [Analyzers](#AnalyzerTable) table and language-specific analyzers listed in [Language analyzers &#40;Azure Search Service REST API&#41;](index-add-language-analyzers.md). You also have an option to define your own custom analyzers.  
 
  A custom analyzer allows you to take control over the process of converting text into indexable and searchable tokens. It’s a user-defined configuration consisting of a single predefined tokenizer, one or more token filters, and one or more char filters. The tokenizer is responsible for breaking text into tokens, and the token filters for modifying tokens emitted by the tokenizer. Char filters are applied for to prepare input text before it is processed by the tokenizer. For instance, char filter can replace certain characters or symbols.
 
@@ -45,16 +47,6 @@ A *custom analyzer* is a user-specified combination of tokenizer and optional fi
 -   ASCII folding. Add the Standard ASCII folding filter to normalize diacritics like ö or ê in search terms.  
 
  This page provides a list of supported analyzers, tokenizers, token filters, and char filters. You can also find a description of changes to the index definition with a usage example. For more background about the underlying technology leveraged in the Azure Search implementation, see [Analysis package summary (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). For examples of analyzer configurations, see [Analyzers in Azure Search > Examples](https://docs.microsoft.com/azure/search/search-analyzers#examples).
-
-## When to add analyzers
-
- You can define multiple custom analyzers to vary the combination of filters, but each field can only use one analyzer for indexing analysis and one for search analysis.  
-
-You should configure analyzers during active development when index definition is still in flux. An analyzer specified on a field is an integral part of the field's definition, so you can only add it when the field is created. If you want to add analyzers to existing fields, you'll have to [drop and rebuild](search-howto-reindex.md) the index.
-
-An exception is the searchAnalyzer variant. There are three ways to specify analyzers: **analyzer**, **indexAnalyzer**, **searchAnalyzer**. The first one, **analyzer**, is used for both indexing and query requests. The other two allow you to control which analyzers are used for each request type.
-
-Both **analyzer** and **indexAnalyzer** have to be specified on the initial field definition. The **searchAnalyzer** attribute can be added to a field that already exists, without incurring a rebuild requirement.
 
 ## Default analyzer  
 
@@ -208,7 +200,7 @@ This operation takes your index offline for at least a few seconds, causing your
 
  <a name="ReferenceIndexAttributes"></a>
 
-## Index Attribute Reference
+## Analyzer reference
 
 The tables below list the configuration properties for the analyzers, tokenizers, token filters, and char filter section of an index definition. The structure of an analyzer, tokenizer, or filter in your index is composed of these attributes. For value assignment information, see the [Property Reference](#PropertyReference).
 
@@ -290,7 +282,7 @@ This section provides the valid values for attributes specified in the definitio
 |[stop](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/StopAnalyzer.html)|StopAnalyzer|Divides text at non-letters, applies the lowercase and stopword token filters.<br /><br /> **Options**<br /><br /> stopwords (type: string array) - A list of stopwords. The default is a predefined list for English. |  
 |[whitespace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html)|(type applies only when options are available) |An analyzer that uses the whitespace tokenizer. Tokens that are longer than 255 characters are split.|  
 
- <sup>1</sup> Analyzer Types are always prefixed in code with "#Microsoft.Azure.Search" such that "PatternAnalyzer" would actually be specified as "#Microsoft.Azure.Search.PatternAnalyzer". We removed the prefix for brevity, the but prefix is required in your code. 
+ <sup>1</sup> Analyzer Types are always prefixed in code with "#Microsoft.Azure.Search" such that "PatternAnalyzer" would actually be specified as "#Microsoft.Azure.Search.PatternAnalyzer". We removed the prefix for brevity, but the prefix is required in your code. 
  
 The analyzer_type is only provided for analyzers that can be customized. If there are no options, as is the case with the keyword analyzer, there is no associated #Microsoft.Azure.Search type.
 

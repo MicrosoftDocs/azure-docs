@@ -4,7 +4,7 @@ description: Assign analyzers to searchable text fields in an index to replace d
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/11/2017
+ms.date: 02/15/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
@@ -20,18 +20,18 @@ An *analyzer* is a component of [full text search](search-lucene-query-architect
 + Upper-case words are lower-cased.
 + Words are reduced to root forms so that a match can be found regardless of tense.
 
-Linguistic analyzers convert a text input into primitive or root forms that are efficient for information storage and retrieval. Conversion occurs during indexing, when the index is built, and then again during search when the index is read. You are more likely to get the search results you expect if you use the same text analyzer for both operations.
+Text analyzers convert a text input into primitive or root forms that are efficient for information storage and retrieval. Conversion occurs during indexing, when the index is built, and then again during search when the index is read. You are more likely to get the search results you expect if you use the same text analyzer for both operations.
 
 Azure Search uses the [Standard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) as the default. You can override the default on a field-by-field basis. This article describes the range of choices and offers best practices for custom analysis. It also provides example configurations for key scenarios.
 
-## Supported analyzers
+## Types of analyzers
 
-The following list describes which analyzers are supported in Azure Search.
+The following list describes which analyzers are available in Azure Search.
 
 | Category | Description |
 |----------|-------------|
 | [Standard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. No specification or configuration is required. This general-purpose analyzer performs well for most languages and scenarios.|
-| Predefined analyzers | Offered as a finished product intended to be used as-is, with limited customization. <br/>There are two types: specialized and language. What makes them "predefined" is that you reference them by name, with no customization. <br/><br/>[Specialized (language agnostic) analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) are used when text inputs require specialized processing or minimal processing. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) are used when you need rich linguistic support for individual languages. Azure Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
+| Predefined analyzers | Offered as a finished product intended to be used as-is, with limited customization. <br/>There are two types: specialized and language. What makes them "predefined" is that you reference them by name, with no configuration or customization. <br/><br/>[Specialized (language agnostic) analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable) are used when text inputs require specialized processing or minimal processing. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) are used when you need rich linguistic support for individual languages. Azure Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
 |[Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | A user-defined configuration of a combination of existing elements, consisting of one tokenizer (required) and optional filters (char or token).|
 
 You can customize a predefined analyzer, such as **Pattern** or **Stop**, to use alternative options documented in [Predefined Analyzer Reference](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable). Only a few of the predefined analyzers have options that you can set. As with any customization, provide your new configuration with a name, such as *myPatternAnalyzer* to distinguish it from the Lucene Pattern analyzer.
@@ -51,7 +51,17 @@ You can customize a predefined analyzer, such as **Pattern** or **Stop**, to use
  | Add a new field | minimal | If the field doesn't exist yet in the schema, there is no field revision to make because the field does not yet have a physical presence in your index. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) for this task.|
  | Add an analyzer to an existing indexed field. | rebuild | The inverted index for that field must be recreated from the ground up and the content for those fields must be reindexed. <br/> <br/>For indexes under active development, [delete](https://docs.microsoft.com/rest/api/searchservice/delete-index) and [create](https://docs.microsoft.com/rest/api/searchservice/create-index) the index to pick up the new field definition. <br/> <br/>For indexes in production, you should create a new field to provide the revised definition and start using it. Use [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) and [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to incorporate the new field. Later, as part of planned index servicing, you can clean up the index to remove obsolete fields. |
 
-## Tips and best practices
+ ## When to add analyzers
+
+ You can define multiple custom analyzers to vary the combination of filters, but each field can only use one analyzer for indexing analysis and one for search analysis.  
+
+You should configure analyzers during active development when index definition is still in flux. An analyzer specified on a field is an integral part of the field's definition, so you can only add it when the field is created. If you want to add analyzers to existing fields, you'll have to [drop and rebuild](search-howto-reindex.md) the index.
+
+An exception is the searchAnalyzer variant. There are three ways to specify analyzers: **analyzer**, **indexAnalyzer**, **searchAnalyzer**. The first one, **analyzer**, is used for both indexing and query requests. The other two allow you to control which analyzers are used for each request type.
+
+Both **analyzer** and **indexAnalyzer** have to be specified on the initial field definition. The **searchAnalyzer** attribute can be added to a field that already exists, without incurring a rebuild requirement.
+
+## Recommendations for working with analyzers
 
 This section offers advice on how to work with analyzers.
 
@@ -73,12 +83,9 @@ If a search fails to return expected results, the most likely scenario is token 
 
 The [Search Analyzer Demo](https://alice.unearth.ai/) is a third-party demo app showing a side-by-side comparison of the standard Lucene analyzer, Lucene's English language analyzer, and Microsoft's English natural language processor. The index is fixed; it contains text from a popular story. For each search input you provide, results from each analyzer are displayed in adjacent panes, giving you a sense of how each analyzer processes the same string. 
 
-## Examples
-
-The examples below show analyzer definitions for a few key scenarios.
-
 <a name="Example1"></a>
-### Example 1: Custom options
+
+## Example 1: Custom analyzer
 
 This example illustrates an analyzer definition with custom options. Custom options for char filters, tokenizers, and token filters are specified separately as named constructs, and then referenced in the analyzer definition. Predefined elements are used as-is and simply referenced by name.
 
@@ -151,7 +158,8 @@ Walking through this example:
 ~~~~
 
 <a name="Example2"></a>
-### Example 2: Override the default analyzer
+
+## Example 2: Override the default analyzer
 
 The Standard analyzer is the default. Suppose you want to replace the default with a different predefined analyzer, such as the pattern analyzer. If you are not setting custom options, you only need to specify it by name in the field definition.
 
@@ -183,7 +191,8 @@ The "analyzer" element overrides the Standard analyzer on a field-by-field basis
 ~~~~
 
 <a name="Example3"></a>
-### Example 3: Different analyzers for indexing and search operations
+
+## Example 3: Different analyzers for indexing and search operations
 
 The APIs include additional index attributes for specifying different analyzers for indexing and search. The `searchAnalyzer` and `indexAnalyzer` attributes must be specified as a pair, replacing the single `analyzer` attribute.
 
@@ -210,7 +219,8 @@ The APIs include additional index attributes for specifying different analyzers 
 ~~~~
 
 <a name="Example4"></a>
-### Example 4: Language analyzer
+
+## Example 4: Language analyzer
 
 Fields containing strings in different languages can use a language analyzer, while other fields retain the default (or use some other predefined or custom analyzer). If you use a language analyzer, it must be used for both indexing and search operations. Fields that use a language analyzer cannot have different analyzers for indexing and search.
 
