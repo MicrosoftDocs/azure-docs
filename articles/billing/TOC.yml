@@ -15,6 +15,10 @@
     href: billing-understand-your-usage.md
   - name: Invoice terms explained
     href: billing-understand-your-invoice.md
+  - name: Invoice terms explained - MCA only
+    href: billing-understand-your-invoice-mca.md
+  - name: Understand your bill - MCA only
+    href: billing-understand-your-bill-mca.md
   - name: Billing accounts for Microsoft Customer Agreement
     href: billing-mca-overview.md
 - name: Manage costs

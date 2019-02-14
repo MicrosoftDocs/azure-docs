@@ -22,9 +22,9 @@ ms.author: banders
 
 For most subscriptions, you can download your invoice from the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or have it sent in email. If you're an Azure customer with an Enterprise Agreement (EA customer), you can't download your organization's invoices. Invoices are sent to whoever is set up to receive invoices for the enrollment.
 
-If you want to download usage as an EA customer, it's available in the [Azure portal](https://portal.azure.com/) > **Cost Management + Billing** > **Usage + charges**. For other subscriptions, go to the [Azure Account Center](https://account.azure.com/Subscriptions).
+If you're an EA customer or have a [Microsoft Customer Agreement](billing-mca-overview.md#check-your-access-to-a-microsoft-customer-agreement), you can download usage in the [Azure portal](https://portal.azure.com/). For other subscriptions, go to the [Azure Account Center](https://account.azure.com/Subscriptions) to download usage.
 
-Only certain roles have permission to get billing invoice and usage information, like the Account Administrator, or Enterprise Administrator. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](billing-manage-access.md).
+Only certain roles have permission to get billing invoice and usage information, like the Account Administrator, or Enterprise Administrator. If you have a Microsoft Customer Agreement, you must be an Owner, Contributor, or Invoice manager of a billing profile to view its invoices. To learn more about getting access to billing information, see [Manage access to Azure billing using roles](billing-manage-access.md).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -33,7 +33,17 @@ Only certain roles have permission to get billing invoice and usage information,
  If you're an EA customer, you can't download your organization's invoices. Invoices are sent to whoever is set up to receive invoices for the  enrollment. For other subscriptions, you can get your invoice in email or download it from the Azure portal.
 
 ### Get your invoice in email (.pdf)
-You can opt in and configure additional recipients to receive your Azure invoice in an email. This feature may not be available for certain subscriptions such as support offers, Enterprise Agreements, or Azure in Open.
+
+If you have a Microsoft Customer Agreement, you can opt in to get your invoice in an email. All users with Owner, Contributor, and Invoice manager roles on the billing profile will get the invoice by email.
+
+1. Search on **Cost Management + Billing**.
+1. Select a billing profile.
+1. Under **Settings**, select **Properties**.
+1. Under **Email Invoice**, select **Update email invoice preference**.
+1. Select **Opt in**.
+1. Click **Update**.
+
+If you don't have a Microsoft Customer Agreement, you can opt in and configure additional recipients to receive your Azure invoice in an email. This feature may not be available for certain subscriptions such as support offers, Enterprise Agreements, or Azure in Open.
 
 1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Opt in for each subscription you own. Click **Invoices** then **Email my invoice**. 
 
@@ -49,24 +59,42 @@ You can opt in and configure additional recipients to receive your Azure invoice
     
 If you don't get an email after following the steps, make sure your email address is correct in the [communication preferences on your profile](https://account.windowsazure.com/profile).
 
-### Opt out from getting your invoice in email
-If you don't want to get your invoice in email, click **Opt out of emailed invoices**. This option removes any email addresses set to receive invoices in email. If you opt back in, you will have to reconfigure recipients.
+### Opt out of getting your invoice in email
+
+If you have a Microsoft Customer Agreement and don't want to get your invoice in email, you can opt out. All Owners, Contributors, and Invoice managers will be opted out of getting the invoice by email, too.
+
+1. Click **Update email invoice preferences**.
+1. Select **Opt out**.
+1. Click **Update**.
+
+If you don't have an Microsoft Customer Agreement, you can opt out of getting your invoice by email by clicking **Opt out of emailed invoices**. This option removes any email addresses set to receive invoices in email. You can reconfigure recipients if you opt back in.
 
  ![Screenshot that shows the opt-out flow](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
 ### Download invoice from Azure portal (.pdf)
 
+If you have a Microsoft Customer Agreement, you can download your billing profile's invoice PDF from the Azure portal. You must be the Owner, Contributor, or Invoice manager of the billing profile.
+
+1. Search on **Cost Management + Billing**.
+2. Select a billing profile.
+3. Select **Invoices**.
+4. In the invoice grid, find the row of the invoice you want to download.
+5. Click on the ellipsis at the end of the row.
+6. In the download context menu, select **Invoice**.
+
+If you don't have a Microsoft Customer Agreement, you can download the invoice PDF for for your subscription.
+
 1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in Azure portal as [a user with access to invoices](billing-manage-access.md).
 
-2. Select **Invoices**. 
+2. Select **Invoices**.
 
-    ![Screenshot that shows the Billing & usage option](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png) 
+    ![Screenshot that shows the Billing & usage option](./media/billing-download-azure-invoice-daily-usage-date/billingandusage.png)
 
 3. Click **Download Invoice** to view a copy of your PDF invoice. If it says **Not available**, see [Why don't I see an invoice for the last billing period?](#noinvoice)
 
     ![Screenshot that shows billing periods, the download option, and total charges for each billing period](./media/billing-download-azure-invoice-daily-usage-date/billing4.png)
 
-4. You can also view your daily usage by clicking the billing period. 
+4. You can also view your daily usage by clicking the billing period.
 
 For more information about your invoice, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md). For help managing your costs, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md).
 
@@ -74,17 +102,17 @@ For more information about your invoice, see [Understand your bill for Microsoft
 
 There could be several reasons that you don't see an invoice:
 
-- You have a monthly credit amount with your subscription that you didn't exceed or you have a Free Trial. An invoice is only generated when you owe money.
-
 - It's less than 30 days from the day you subscribed to Azure.
 
 - The invoice isn't generated yet. Wait until the end of the billing period.
 
-- If you're not the Account Administrator, older invoices may not be available to you.
+- You don't have permission to view invoices. For MCA billing accounts, you must be the Owner, Contributor, or Invoice manager of the billing profile. For other subscriptions, you might not see old invoices if you aren't the Account Administrator.
+
+- If you don't have an Microsoft Customer Agreement, you won't get an invoice if you have a monthly credit amount with your subscription that you didn't exceed or if you have a Free Trial.
 
 ## Download usage
 
- For most subscriptions, find your  daily usage file in the [Azure Account Center](https://account.azure.com/Subscriptions). If you want to download usage as an EA customer, it's available in the [Azure portal](https://portal.azure.com/) > **Cost Management + Billing** > **Usage + charges**. 
+ For most subscriptions, find your  daily usage file in the [Azure Account Center](https://account.azure.com/Subscriptions). If you are an EA customer or have a Microsoft Customer Agreement, you can download usage in the [Azure portal](https://portal.azure.com/).
 
 ### Download usage from the Account Center (.csv)
 
@@ -126,6 +154,30 @@ To view and download usage data as a EA customer, you must be an Enterprise Admi
 1. Select **Usage + charges**.
 1. For the month you want to download, select **Download**.
 
+### Download usage for a Microsoft Customer Agreement billing account
+
+To view and download usage data for a billing profile, you must be an Owner, Contributor, or Invoice manager of the billing profile.
+
+1. Search on **Cost Management + Billing**.
+2. Select a billing profile.
+3. Select **Invoices**.
+4. In the invoice grid, find the row of the invoice you want to download.
+5. Click on the ellipsis at the end of the row.
+6. In the download context menu, select **Azure usage and charges**.
+
 ## Need help? Contact us.
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+## Next steps
+
+To learn more about your invoice and charges, see:
+
+- [Understand your bill for Microsoft Azure](billing-understand-your-bill-mca.md)
+- [Understand terms on your Azure invoice](billing-understand-your-invoice.md)
+- [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md)
+
+If you have a Microsoft Customer Agreement, see:
+
+- [Understand the Azure charges on your Microsoft Customer Agreement invoice](billing-understand-your-bill-mca.md)
+- [Understand terms on your Microsoft Customer Agreement invoice](billing-understand-your-invoice-mca.md)
