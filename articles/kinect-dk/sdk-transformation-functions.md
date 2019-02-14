@@ -89,7 +89,7 @@ The function k4a_calibration_3d_to_2d() converts a 3D point of the source coordi
 
  The function k4a_transformation_depth_image_to_color_camera() transforms the depth map from the viewpoint of the depth camera into the viewpoint of the color camera. This function is designed to produce so-called RGB-D images where D represents an additional image channel recording the depth value. As seen in the figure below, the color image and the output of k4a_transformation_depth_image_to_color_camera() look as if they were taken from the same viewpoint, i.e., the viewpoint of the color camera.
 
- ![Result of RGB-D Functions](images/sdk_rgbd.png)
+ ![Result of RGB-D Functions](media/sdk_rgbd.png)
 
  #### Implementation
 
