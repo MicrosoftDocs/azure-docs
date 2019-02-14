@@ -7,19 +7,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/14/2019
 ms.author: alkohli
 ---
-# Use Windows PowerShell to manage Azure Data Box Edge
+# Manage Azure Data Box Edge via Windows PowerShell
 
-Azure Data Box Edge is a storage solution that allows you to process data and send it over the network to Azure. This article describes some of the configuration and management tasks that you can perform on the Data Box Edge device. You can manage your Data Box Edge using the Azure portal UI, the local web UI, and the Windows PowerShell interface of the device.
+Azure Data Box Edge is a storage solution that allows you to process data and send it over the network to Azure. This article describes some of the configuration and management tasks for your Data Box Edge device. You can manage your Data Box Edge using the Azure portal UI, the local web UI, and the Windows PowerShell interface of the device.
 
-This article focuses on the tasks that you can perform using the PowerShell interface. PowerShell provides a command-line interface that is built in a constrained runspace with dedicated cmdlets so that only a set of restricted operations can be performed. Use the PowerShell interface to get Azure container logs, reset the device, generate a log package for Microsoft Support, and run diagnostic tests.
+This article focuses on the tasks that you can perform using the PowerShell interface. PowerShell provides a command-line interface built in a constrained runspace with dedicated cmdlets so that only restricted operations can be performed. Use the PowerShell interface to get Azure container logs, reset the device, generate a log package for Microsoft Support, and run diagnostic tests.
 
 
 This article includes the following tutorials:
 
 - Connect to the PowerShell interface
+- Connect to support session
+- Upload certificate
 - Reset the device
 - Boot up in non-DHCP environment
 - View device information
@@ -29,7 +31,7 @@ This article includes the following tutorials:
 
 ## Connect to the PowerShell interface
 
-Depending on the operating system of client you are using, the procedures to remotely connect to the device are different.
+Depending on the operating system of client, the procedures to remotely connect to the device are different.
 
 ### Remotely connect from a Windows client
 
@@ -56,7 +58,8 @@ Follow these steps to remotely connect from a Windows client.
 
     `Enter-PSSession -ComputerName $ip -Credential $ip\EdgeUser -ConfigurationName Minishell`
 
-5. Provide the password when prompted. This is the same password that is used to sign into the local web UI, *Password1*. When you successfully connect to the device using remote PowerShell, you see the following sample output:  
+5. Provide the password when prompted. Use the same password that is used to sign into the local web UI, *Password1*. When you successfully connect to the device using remote PowerShell, you see the following sample output:  
+
     ```
     Windows PowerShell
     Copyright (C) Microsoft Corporation. All rights reserved.
@@ -73,36 +76,97 @@ Follow these steps to remotely connect from a Windows client.
 
 ### Remotely connect from an NFS client
 
-Before you begin, ensure that Follow these steps to remotely connect from a Linux client.
+On the NFS client that you will use to connect:
 
+- [Install the latest PowerShell Core for Linux](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6) from GitHub to get the SSH remoting feature. 
+- [Install only the `gss-ntlmssp` package from the NTLM module](https://github.com/Microsoft/omi/blob/master/Unix/doc/setup-ntlm-omi.md). For Ubnutu clients, use the following command:
+    - `sudo apt-get install gss-ntlmssp`
 
-1. Run PowerShell as an administrator and run the following commands- 
+For more information, go to [PowerShell remoting over SSH](https://docs.microsoft.com/powershell/scripting/learn/remoting/ssh-remoting-in-powershell-core?view=powershell-6).
+
+Follow these steps to remotely connect from an NFS client.
+
+1. To open PowerShell session, type:
+
+    sudo pwsh
  
+2. For connecting using the remote client, type:
+
+    `Enter-PSSession -ComputerName $ip -Authentication Negotiate -ConfigurationName Minishell -Credential ~\EdgeUser`
+
+    When prompted, provide the password used to sign into your device.
  
+> [!NOTE]
+> This procedure does not work on Mac OS.
 
 
-1. In the local web UI, go to **Contact Support** and click **Create Support package**.
+## Connect to support session
 
-    ![Create Support package 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
+1. Run Windows PowerShell session as an administrator.
+2. Assign a variable to the device IP address.
 
-2. A Support package is gathered. This operation takes a few minutes.
+    $ip = "<device_ip>"
 
-    ![Create Support package 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
+    Replace `<device_ip>` with the IP address of your device.
+ 
+3. Start a Windows PowerShell session on the device and connect to the minishell runspace.
 
-3. Once the Support package creation is complete, click **Download Support package**. 
+    ```
+    Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Force
+    $minishellSession= New-PSSession -ComputerName $ip -ConfigurationName "Minishell" -Credential ~\EdgeUser
+    ```
 
-    ![Create Support package 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
+    When prompted, provide the password used to sign into the device.
 
-4. Browse and choose the download location. Open the folder to view the contents.
+4. Connect to the Support session runspace.  
 
-    ![Create Support package 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
+    ```
+    Invoke-Command -Session $minishellSession -ScriptBlock { Enable-HcsSupportAccess }
+    ```  
+    This command outputs an encrypted key.
+
+5. Send this key to the Support Engineer in email. Microsoft will send you an access key for the support session.
+
+6. Use the password in the following command:
+
+    ``` 
+    $supportSession = New-PSSession -ComputerName $ip -Credential ~\EdgeSupport -ConfigurationName SupportSession
+    Enter-PSSession -Session $supportSession
+    ```
+7. You are now in support session. The following sample output shows how to connect to the Support session:
+
+    ```
+    PS C:\WINDOWS\system32> $ip = "10.100.10.10";
+    PS C:\WINDOWS\system32> Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Force
+    PS C:\WINDOWS\system32> $minishellSession= New-PSSession -ComputerName $ip -ConfigurationName "Minishell" -Credential ~\EdgeUser
+    WARNING: The Windows PowerShell interface of your device is intended to
+    be used only for the initial network configuration. Please
+    engage Microsoft Support if you need to access this interface
+    to troubleshoot any potential issues you may be experiencing.
+    Changes made through this interface without involving Microsoft
+    Support could result in an unsupported configuration.
+    PS C:\WINDOWS\system32> Invoke-Command -Session $minishellSession -ScriptBlock { Enable-HcsSupportAccess }
+    UAAAADcAMQAyAEYAQwBDAEEANwA0ADIARABCADUANgA1ADkANQA0AEIAQgA0ADgAMQBEADEAMQAxADMAMgAyADYAOAA3AEIANwA0ADgAMwBFAEMAiix6gA6zBIELa6vbb73CSO9/Yo/g85QRp2g5ngw773sKgBVcirk5sTHFuSQXWRirggGEip9NI5m54iPcVxdIEcoH+2vlvxCAJVWXOLGOB6WqWDtzR3XWSwJKig95LZfBjtPO1sM5TZLu65iCRCB4AV9nOezhAoy2lGdTuZOpXP2w5FIZPFvmgR4+4m+pfsD0NQSsw+PD3hNBHvUUyIhc4WTVaIJbzoJBzg06uJnc6C0Zo1YnYD6u8SoevejXbt3dgU7m36Vg3K0qPfCPA9WNLd71uiUsV1lMLwCabj60rAuRp/qJlPRXPU5PbGeayKNQJQfUkQYh6afUxtOXohke+A==
+    PS C:\WINDOWS\system32> $supportSession = New-PSSession -ComputerName $ip -Credential ~\EdgeSupport -ConfigurationName SupportSession
+    PS C:\WINDOWS\system32> Enter-PSSession -Session $supportSession
+    [10.100.10.10]: PS C:\Users\EdgeSupport\Documents>
+    ```
+    If you need to get the access key again when the support session is enabled, use the `Get-HcsSupportAccessKey` cmdlet.
+
+    ```
+    [10.128.24.33]: PS C:\Users\EdgeSupport\Documents> Get-HcsSupportAccessKey
+    UAAAADcAMQAyAEYAQwBDAEEANwA0ADIARABCADUANgA1ADkANQA0AEIAQgA0ADgAMQBEADEAMQAxADMAMgAyADYAOAA3AEIANwA0ADgAMwBFAEMAiix6gA6zBIELa6vbb73CSO9/Yo/g85QRp2g5ngw773sKgBVcirk5sTHFuSQXWRirggGEip9NI5m54iPcVxdIEcoH+2vlvxCAJVWXOLGOB6WqWDtzR3XWSwJKig95LZfBjtPO1sM5TZLu65iCRCB4AV9nOezhAoy2lGdTuZOpXP2w5FIZPFvmgR4+4m+pfsD0NQSsw+PD3hNBHvUUyIhc4WTVaIJbzoJBzg06uJnc6C0Zo1YnYD6u8SoevejXbt3dgU7m36Vg3K0qPfCPA9WNLd71uiUsV1lMLwCabj60rAuRp/qJlPRXPU5PbGeayKNQJQfUkQYh6afUxtOXohke+A==
+    [10.128.24.33]: PS C:\Users\EdgeSupport\Documents>
+    ```
+
+    The support session stays enabled for 8 hours. To disable the support session anytime, use the `Disable-HcsSupportAccess` cmdlet.
 
 ## Upload certificate
 
 You can upload your own certificate via the PowerShell interface of the device.
 
 1. Connect to the PowerShell interface.
-2. Use the `Set-HcsCertificate` cmdlet to upload the certificate. When prompted, provide the following:
+2. Use the `Set-HcsCertificate` cmdlet to upload the certificate. When prompted, provide the following parameters:
 
     - `CertificateFilePath` - Path to the share that contains the certificate file in *.pfx* format.
     - `CertificatePassword` - A password assigned by the user to protect the certificate.
@@ -111,8 +175,8 @@ You can upload your own certificate via the PowerShell interface of the device.
     The following example shows the usage of this cmdlet:
 
     ```
-   Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credentials "Username/Password"
-    ``` 
+    Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credentials "Username/Password"
+    ```
 
 ## Boot up in non-DHCP environment
 
@@ -142,13 +206,12 @@ If you boot up in a non-DHCP environment, follow these steps to deploy the virtu
 ## View device information
 
 1. Connect to the Windows PowerShell interface.
-2. Use the `Get-HcsApplianceInfo` to get the information for your Data Box Edge or Data Box Gateway device.
+2. Use the `Get-HcsApplianceInfo` to get the information for your device.
 
     The following example shows the usage of this cmdlet:
 
     ```
     [10.100.10.10]: PS>Get-HcsApplianceInfo
-    
     
     Id                            : b2044bdb-56fd-4561-a90b-407b2a67bdfc
     FriendlyName                  : DBE-NBSVFQR94S6
@@ -174,44 +237,18 @@ If you boot up in a non-DHCP environment, follow these steps to deploy the virtu
     IsRegistered                  : False
     ```
 
-Here is a table summarizing some of the important device information:
+    Here is a table summarizing some of the important device information:
+    
+    | Parameter                             | Description                                                                                                                                                  |   |
+    |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
+    | FriendlyName                   | The friendly name of the device as configured through the local web UI during device deployment. The default friendly name is the device serial number.  |   |
+    | SerialNumber                   | The device serial number is assigned at the factory and is XX characters long.                                                                             |   |
+    | Model                          | The model for your Data Box Edge or Data Box Gateway device. The model is virtual for Data Box Gateway and   physical for Data Box Edge.                   |   |
+    | FriendlySoftwareVersion        | The friendly string that corresponds to the device software version. For a system running GA, the friendly software version would be Data Box Edge XXXX. |   |
+    | HcsVersion                     | The HCS software version running on your device. For instance, the HCS software   version corresponding to Data Box Edge GA XXX is 1.4.771.324.            |   |
+    | LocalCapacityInMb              | The total local capacity of the device in Megabits.                                                                                                        |   |
+    | IsRegistered                   | This value indicates if your device is activated with the service.                                                                                         |   |
 
-| Parameter                             | Description                                                                                                                                                  |   |
-|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-| FriendlyName                   | The friendly name of the device as configured through the local web UI during device deployment. The default   friendly name is the device serial number.  |   |
-| SerialNumber                   | The device serial number is assigned at the factory and is XX characters long.                                                                             |   |
-| Model                          | The model for your Data Box Edge or Data Box Gateway device. The model is virtual for Data Box Gateway and   physical for Data Box Edge.                   |   |
-| FriendlySoftwareVersion        | The friendly string that corresponds to the device software version. For a system running   GA, the friendly software version would be Data Box Edge XXXX. |   |
-| HcsVersion                     | The HCS software version running on your device. For instance, the HCS software   version corresponding to Data Box Edge GA XXX is 1.4.771.324.            |   |
-| LocalCapacityInMb              | The total local capacity of the device in Megabits.                                                                                                        |   |
-| IsRegistered                   | This value indicates if your device is activated with the service.                                                                                         |   |
-
-## Connect to Support session
-
-1. Run Windows PowerShell session as an administrator.
-2. Assign a variable to the device IP address.
-
-    $ip = "<device_ip>"
-
-    Replace `<device_ip>` with the IP address of your device.
- 
-3. Start a Windows PowerShell session on the device and connect to the support runspace.
-
-    ```
-    Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Force
-    $minishellSession= New-PSSession -ComputerName $ip -ConfigurationName "Minishell" -Credential ~\EdgeUser  
-    Invoke-Command -Session $minishellSession -ScriptBlock { Enable-HcsSupportAccess }
-    ```  
-    This command outputs an encrypted key. 
-
-4. Send this key to the Support Engineer in email. Microsoft will send you an access key for the support session.
-
-5. Use the password in the following command:
-    ``` 
-    $supportSession = New-PSSession -ComputerName $ip -Credential ~\EdgeSupport -ConfigurationName SupportSession 
-    Enter-PSSession -Session $supportSession
-    ```
-6. You are now in support session. The support session stays enabled for 8 hours. If you need to get the access key, use the `Get-HcsSupportAccessKey` cmdlet. To disable the support session any time, use the `Disable-HcsSupportAccess` cmdlet.
 
 ## Create a support package
 
