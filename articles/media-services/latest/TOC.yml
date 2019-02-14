@@ -28,9 +28,8 @@
     href: cli-samples.md        
 - name: Concepts
   items:
-  - name: Overview
-    href: storage-account-concept.md         
-  - name: Ingestion
+  - mame: Cloud upload and storage
+    href: storage-account-concept.md     
     items:
     - name: Assets
       href: assets-concept.md    
@@ -43,7 +42,7 @@
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md      
-  - name: Analytics 
+  - name: Media analytics 
     href: analyzing-video-audio-files-concept.md
     items:
     - name: Transforms and Jobs
@@ -71,7 +70,7 @@
       href: streaming-policy-concept.md  
     - name: Content Key Policies
       href: content-key-policy-concept.md              
-  - name: Live stream 
+  - name: Live streaming 
     href: live-streaming-overview.md
     items:
     - name: Live Events and Live Outputs
@@ -86,14 +85,18 @@
       href: live-event-states-billing.md
     - name: Latency
       href: live-event-latency.md              
-  - name: Monitoring
+  - name: Continuous monitoring
     items:
-    - name: Event Grid
-      href: reacting-to-media-services-events.md      
-  - name: Azure Media Player
-    href: use-azure-media-player.md
-  - name: Filters and paging in entities
-    href: entities-overview.md 
+    - name: Events with Event Grid
+      href: reacting-to-media-services-events.md   
+  - name: Player clients
+    items
+    - name: Azure Media Player
+      href: use-azure-media-player.md
+  - name: Media Services entities
+    items:
+    - name: Sorting, filtering, paging of entities
+      href: entities-overview.md 
   - name: Migration guidance from v2 to v3
     href: migrate-from-v2-to-v3.md      
 - name: How-to guides
