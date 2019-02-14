@@ -84,7 +84,7 @@ sensible-editor docker-compose.yml
 
 Paste the following example into your Docker Compose file. This configuration uses images from the [DockerHub Registry](https://registry.hub.docker.com/_/wordpress/) to install WordPress (the open source blogging and content management system) and a linked backend MariaDB SQL database. Enter your own *MYSQL_ROOT_PASSWORD*.
 
-```sh
+```yml
 wordpress:
   image: wordpress
   links:
@@ -107,19 +107,16 @@ sudo docker-compose up -d
 
 This command starts the Docker containers specified in *docker-compose.yml*. It takes a minute or two for this step to complete. You'll see output similar to the following:
 
-```bash
+```
 Creating wordpress_db_1...
 Creating wordpress_wordpress_1...
 ...
 ```
 
-> [!NOTE]
-> Be sure to use the **-d** option so that the containers run in the background continuously.
-
 
 To verify that the containers are up, type `sudo docker-compose ps`. You should see something like:
 
-```bash
+```
         Name                       Command               State         Ports
 -----------------------------------------------------------------------------------
 azureuser_db_1          docker-entrypoint.sh mysqld      Up      3306/tcp
@@ -128,7 +125,7 @@ azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/
 
 You can now connect to WordPress directly on the VM on port 80. Open a web browser and enter the IP address name of your VM. You should now see the WordPress start screen, where you can complete the installation and get started with the application.
 
-![WordPress start screen][./media/docker-compose-quickstart/wordpressstart.png]
+![WordPress start screen](./media/docker-compose-quickstart/wordpressstart.png)
 
 ## Next steps
 * Check out the [Compose command-line reference](http://docs.docker.com/compose/reference/) and [user guide](http://docs.docker.com/compose/) for more examples of building and deploying multi-container apps.
