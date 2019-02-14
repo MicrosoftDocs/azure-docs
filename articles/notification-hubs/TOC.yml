@@ -121,7 +121,7 @@
   items:
   - name: FAQ
     href: notification-hubs-push-notification-faq.md
-  - name: SDK
+  - name: SDKs
     href: notification-hubs-sdks.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/

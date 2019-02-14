@@ -1,5 +1,5 @@
 ---
-title: Notification Hubs SDKs
+title: Azure Notification Hubs SDKs
 description: A list of the available Azure Notification Hubs SDKs
 services: notification-hubs
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.author: jowargo
 ms.date: 02/14/2019
 ---
 
-# Notification Hubs SDKs
+# Azure Notification Hubs SDKs
 
 Microsoft and third-parties publish SDKs for Azure Notification Hubs.
 
