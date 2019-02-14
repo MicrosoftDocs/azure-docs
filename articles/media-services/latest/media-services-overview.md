@@ -95,7 +95,7 @@ Azure Media Services supports the following client libraries:
 
 ## v3 content map
 
-The Media Services v3 content is organized according to the following structure:
+The Media Services v3 content is organized according to the following structure (also reflected in the table of contents):
 
 |Sections| Description|
 |---|---|
@@ -103,7 +103,7 @@ The Media Services v3 content is organized according to the following structure:
 | Quickstarts | Show fundamental day-1 instructions for new customers to quickly try out Media Services.|
 | Tutorials | Show scenario-based procedures for some of the top Media Services tasks.|
 | Samples | Links to code samples. |
-| Concepts | Contain in-depth explanation of Media Services v3 functionality and diagrams. The fundamental concepts described in these topics should be reviewed prior to starting development.<br/><br/>* Cloud upload and storage<br/>* Encoding<br/>* Media analytics<br/>* Packaging, delivery, protection<br/>* Live streaming<br/>* Continuous monitoring<br/>* Player clients<br/>and more. |
+| Concepts | Contain in-depth explanation of Media Services v3 functionality and diagrams. The fundamental concepts described in these topics should be reviewed prior to starting development.<br/><br/>* Cloud upload and storage<br/>* Encoding<br/>* Media analytics<br/>* Packaging, delivery, protection<br/>* Live streaming<br/>* Continuous monitoring<br/>* Player clients<br/><br/>and more. |
 | How-to guides | Demonstrate how to complete a task.|
 
 ## Next steps
