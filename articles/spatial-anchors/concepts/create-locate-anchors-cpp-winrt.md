@@ -17,12 +17,12 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
 ```cpp
-    SpatialAnchorsFactory m_sscfactory{ nullptr };
+    SpatialAnchorsFactory m_asafactory{ nullptr };
     CloudSpatialAnchorSession m_cloudSession{ nullptr };
     winrt::com_ptr<::IUnknown> unk;
-    winrt::check_hresult(SSCCreateFactory(unk.put()));
-    m_sscfactory = unk.as<SpatialAnchorsFactory>();
-    m_cloudSession = m_sscfactory.CreateCloudSpatialAnchorSession();
+    winrt::check_hresult(ASACreateFactory(unk.put()));
+    m_asafactory = unk.as<SpatialAnchorsFactory>();
+    m_cloudSession = m_asafactory.CreateCloudSpatialAnchorSession();
 ```
 
 [!INCLUDE [Account Keys](../../../includes/spatial-anchors-create-locate-anchors-account-keys.md)]
@@ -132,7 +132,7 @@ ms.service: azure-spatial-anchors
     // If the user is placing some application content in their environment,
     // you might show content at this anchor for a while, then save when
     // the user confirms placement.
-    CloudSpatialAnchor cloudAnchor = m_sscfactory.CreateCloudSpatialAnchor();
+    CloudSpatialAnchor cloudAnchor = m_asafactory.CreateCloudSpatialAnchor();
     cloudAnchor.LocalAnchor(localAnchor);
     co_await m_cloudSession.CreateAnchorAsync(cloudAnchor);
     m_feedback = LR"(Created a cloud anchor with ID=)" + cloudAnchor.Identifier();
@@ -149,7 +149,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Setting Properties](../../../includes/spatial-anchors-create-locate-anchors-setting-properties.md)]
 
 ```cpp
-    CloudSpatialAnchor cloudAnchor = m_sscfactory.CreateCloudSpatialAnchor();
+    CloudSpatialAnchor cloudAnchor = m_asafactory.CreateCloudSpatialAnchor();
     cloudAnchor.LocalAnchor(localAnchor);
     auto properties = m_cloudAnchor.AppProperties();
     properties.Insert(LR"(model-type)", LR"(frame)");
@@ -187,7 +187,7 @@ ms.service: azure-spatial-anchors
 [!INCLUDE [Locate](../../../includes/spatial-anchors-create-locate-anchors-locating.md)]
 
 ```cpp
-    AnchorLocateCriteria criteria = m_sscfactory.CreateAnchorLocateCriteria();
+    AnchorLocateCriteria criteria = m_asafactory.CreateAnchorLocateCriteria();
     criteria.Identifiers({ LR"(id1)", LR"(id2)", LR"(id3)" });
     auto cloudSpatialAnchorWatcher = m_cloudSession.CreateWatcher(criteria);
 ```
