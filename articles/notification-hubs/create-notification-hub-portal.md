@@ -16,30 +16,30 @@ ms.author: jowargo
 # Create an Azure notification hub by using the Azure portal 
 
 
-## Create a namespace and a hub 
+## Create a namespace and a notification hub
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-## Create a hub in an existing namespace
+## Create a notification hub in an existing namespace
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All services** on the left menu, search for **Notification Hub**, select **star** (`*`) next to **Notification Hub Namespaces** to add it to the **FAVORITES** section on the left menu. After **Notification Hubs** is added to **FAVORITES**, select it on the left menu. 
+2. Select **All services** on the left menu, search for **Notification Hub**, select **star** (`*`) next to **Notification Hub Namespaces** to add it to the **FAVORITES** section on the left menu. Select **Notification Hub Namespaces**. 
 
       ![Azure portal - select Notification Hub Namespaces](./media/create-notification-hub-portal/select-notification-hub-namespaces-all-services.png)
 3. On the **Notification Hub Namespaces** page, select your namespace from the list. 
 
       ![Select your namespace from the list](./media/create-notification-hub-portal/select-namespace.png)
-1. On the **Notification Hubs** page, select **Add** on the toolbar. 
+1. On the **Notification Hub Namespace** page, select **Add Hub** on the toolbar. 
 
       ![Notification Hub Namespaces - Add Hub button](./media/create-notification-hub-portal/add-hub-button.png)
 4. On the **New Notification Hub** page, enter a name for the notification hub, and select **OK**.
 
       ![New Notification Hub page -> enter a name for your hub](./media/create-notification-hub-portal/new-notification-hub-page.png)
-4. Select **Notifications** (Bell icon) at the top to see the status of the deployment of new hub. Select **X** in the right-corner to close the notification window. 
+4. Select **Notifications** (Bell icon) at the top to see the status of the deployment of the new hub. Select **X** in the right-corner to close the notification window. 
 
       ![Deployment notification](./media/create-notification-hub-portal/deployment-notification.png)
 5. Refresh the **Notification Hub Namespaces** web page to see your new hub in the list. 
 
-      ![Azure portal - notifications -> Go to resource](./media/create-notification-hub-portal/gonew-hub-in-list.png)
-6. Select your notification hub to see the home page for your notification hub. 
+      ![Azure portal - notifications -> Go to resource](./media/create-notification-hub-portal/new-hub-in-list.png)
+6. Select your **notification hub** to see the home page for your notification hub. 
 
       ![Azure portal - notifications -> Go to resource](./media/create-notification-hub-portal/hub-home-page.png)
 
