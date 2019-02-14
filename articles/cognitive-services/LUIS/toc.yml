@@ -9,6 +9,9 @@
   items:
   - name: Build prebuilt domain app
     href: luis-get-started-create-app.md
+  - name: Use SDKs
+    items: 
+    - name: .Net SDK
   - name: Use REST APIs
     items:
     - name: Get intent
