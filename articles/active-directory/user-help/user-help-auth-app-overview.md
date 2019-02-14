@@ -59,7 +59,7 @@ Depending on your account type, your organization might decide that you must use
 
 - **Personal Microsoft account.** You can choose to set up two-factor verification for your personal Microsoft accounts (for example, alain@outlook.com). For more information about adding your personal Microsoft account, see [Add your personal accounts](user-help-auth-app-add-personal-ms-account.md).
 
-- **Non-Microsoft account.** You can choose to set up two-factor verification for your non-Microsoft accounts (for example, alain@gmail.com). Your non-Microsoft accounts might not use the term, two-factor verification, but you should be able to find the feature within the **Security** or the **Sign-in** settings. The Microsoft Authenticator app works with any accounts that support the TOTP standards. For more information about adding your personal Microsoft account, see [Add your personal accounts](user-help-auth-app-add-non-ms-account.md).
+- **Non-Microsoft account.** You can choose to set up two-factor verification for your non-Microsoft accounts (for example, alain@gmail.com). Your non-Microsoft accounts might not use the term, two-factor verification, but you should be able to find the feature within the **Security** or the **Sign-in** settings. The Microsoft Authenticator app works with any accounts that support the TOTP standards. For more information about adding your non-Microsoft accounts, see [Add your personal accounts](user-help-auth-app-add-non-ms-account.md).
 
 ## In this section
 
