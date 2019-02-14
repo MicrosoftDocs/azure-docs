@@ -144,9 +144,9 @@ Migration of an encrypted database to a managed instance is supported via the Az
 
 ## Azure Active Directory Integration
 
-The managed instance deployment option supports traditional SQL server Database engine logins and logins integrated with Azure Active Directory (AAD). AAD Logins (**public preview**) are Azure cloud version of on-premises database logins that you are using in your on-premises environment. AAD logins enables you to specify users and groups from your Azure Active Directory tenant as true instance-scoped principals, capable of performing any instance-level operation, including cross-database queries within the same managed instance.
+The managed instance deployment option supports traditional SQL server Database engine logins and logins integrated with Azure Active Directory (AAD). Azure AD server principals (logins) (**public preview**) are Azure cloud version of on-premises database logins that you are using in your on-premises environment. Azure AD server principals (logins) enables you to specify users and groups from your Azure Active Directory tenant as true instance-scoped principals, capable of performing any instance-level operation, including cross-database queries within the same managed instance.
 
-A new syntax is introduced to create AAD logins (**public preview**), **FROM EXTERNAL PROVIDER**. For more information on the syntax, see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, and review the [Provision an Azure Active Directory administrator for your managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) article.
+A new syntax is introduced to create Azure AD server principals (logins) (**public preview**), **FROM EXTERNAL PROVIDER**. For more information on the syntax, see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>, and review the [Provision an Azure Active Directory administrator for your managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance) article.
 
 ### Azure Active Directory integration and multi-factor authentication
 

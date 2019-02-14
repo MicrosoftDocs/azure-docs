@@ -118,7 +118,8 @@ A Managed Instance can't access files so cryptographic providers can't be create
 ### Logins / users
 
 - SQL logins created `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, and `FROM SID` are supported. See [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
-- Azure Active Directory (Azure AD) server principals (logins) created with [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax or the [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax are supported (**public preview**).
+- Azure Active Directory (Azure AD) server principals (logins) created with [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax or the [CREATE USER FROM LOGIN [Azure AD Login]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax are supported (**public preview**). These are logins created at the server level.
+    - Managed Instance supports Azure AD database principals with the syntax `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. This is also known as Azure AD contained database users.
 - Windows logins created with `CREATE LOGIN ... FROM WINDOWS` syntax aren't supported. Use Azure Active Directory logins and users.
 - Azure AD user who created the instance has [unrestricted admin privileges](sql-database-manage-logins.md#unrestricted-administrative-accounts).
 - Non-administrator Azure Active Directory (Azure AD) database-level users can be created using `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users).
@@ -139,7 +140,7 @@ A Managed Instance can't access files so cryptographic providers can't be create
     - Using Azure AD server principals (logins) with SSMS
         - Scripting Azure AD logins (using any authenticated login) isn't supported.
         - Intellisense doesn't recognize the **CREATE LOGIN FROM EXTERNAL PROVIDER** statement and will show a red underline.
-- Only the server-level principal login (created by the Managed Instance provisioning process), members of the server roles, `securityadmin` or `sysadmin`, and other logins with ALTER ANY LOGIN permission at the server level can create Azure AD server principals (logins) in the master database for Managed Instance.
+- Only the server-level principal login (created by the Managed Instance provisioning process), members of the server roles (`securityadmin` or `sysadmin`), or other logins with ALTER ANY LOGIN permission at the server level can create Azure AD server principals (logins) in the master database for Managed Instance.
 - If the login is a SQL Principal, only logins that are part of the `sysadmin` role can use the create command to create logins for an Azure AD account.
 - Azure AD login must be a member of an Azure AD within the same directory used for Azure SQL Managed Instance.
 - Azure AD server principals (logins) are visible in object explorer staring with SSMS 18.0 preview 5.
