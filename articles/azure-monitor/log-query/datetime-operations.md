@@ -40,7 +40,7 @@ Timespans are expressed as a decimal followed by a time unit:
 |microsecond | microsecond  |
 |tick        | nanosecond   |
 
-Datetimes can be created by casting a string using the `todatetime` operator. For example, to review the VM heartbeats sent in a specific timeframe, you can make use of the [between operator](/azure/kusto/query/betweenoperator) which is convenient to specify a time range..
+Datetimes can be created by casting a string using the `todatetime` operator. For example, to review the VM heartbeats sent in a specific timeframe, you can make use of the [between operator](/azure/kusto/query/betweenoperator), which is convenient to specify a time range..
 
 ```Kusto
 Heartbeat
@@ -86,7 +86,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-You can see the _timeAgo_ column holds values such as: "00:09:31.5118992", meaning they are formatted as hh:mm:ss.fffffff. If you'd like to format these values to the _numver_ of minutes since the start time, simply divide that value by "1 minute":
+You can see the `timeAgo` column holds values such as: "00:09:31.5118992", meaning they are formatted as hh:mm:ss.fffffff. If you'd like to format these values to the `numver` of minutes since the start time, simply divide that value by "1 minute":
 
 ```Kusto
 Event
@@ -98,7 +98,7 @@ Event
 
 
 ## Aggregations and bucketing by time intervals
-Another very common scenario is the need to obtain statistics over a certain time period in a particular time grain. For this, a `bin` operator can be used as part of a summarize clause.
+Another common scenario is the need to obtain statistics over a certain time period in a particular time grain. For this scenario, a `bin` operator can be used as part of a summarize clause.
 
 Use the following query to get the number of events that occurred every 5 minutes during the last half hour:
 
@@ -108,7 +108,7 @@ Event
 | summarize events_count=count() by bin(TimeGenerated, 5m) 
 ```
 
-This produces the following table:  
+This query produces the following table:  
 |TimeGenerated(UTC)|events_count|
 |--|--|
 |2018-08-01T09:30:00.000|54|
@@ -126,7 +126,7 @@ Event
 | summarize events_count=count() by startofday(TimeGenerated) 
 ```
 
-This produces the following results:
+This query produces the following results:
 
 |timestamp|count_|
 |--|--|
@@ -134,11 +134,11 @@ This produces the following results:
 |2018-07-29T00:00:00.000|12,315|
 |2018-07-30T00:00:00.000|16,847|
 |2018-07-31T00:00:00.000|12,616|
-|2018-08-01T00:00:00.000|5,416	|
+|2018-08-01T00:00:00.000|5,416|
 
 
 ## Time zones
-Since all datetime values are expressed in UTC, it's often useful to convert these into the local timezone. For example, use this calculation to convert UTC to PST times:
+Since all datetime values are expressed in UTC, it's often useful to convert these values into the local timezone. For example, use this calculation to convert UTC to PST times:
 
 ```Kusto
 Event
