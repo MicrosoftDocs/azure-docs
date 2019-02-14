@@ -3,7 +3,7 @@ title: Azure Stack log and data handling | Microsoft Docs
 description: Learn about how Azure Stack collects information.  
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: PatAltimore
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2019
-ms.author: jeffgilb
+ms.author: PatAltimore
 ms.reviewer: chengwei
 ms.lastreviewed: 02/14/2019
 
