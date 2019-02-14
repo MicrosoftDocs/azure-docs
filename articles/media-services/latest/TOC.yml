@@ -34,20 +34,21 @@
     - name: Assets
       href: assets-concept.md    
   - name: Encoding
-    href: encoding-concept.md
     items:
+    - name: Presets
+      href: encoding-concept.md   
     - name: Transforms and Jobs
-      href: transforms-jobs-concept.md   
+      href: transforms-jobs-concept.md 
     - name: Media Encoder standard formats
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md      
   - name: Media analytics 
     items:
-    - name: Transforms and Jobs
-      href: transforms-jobs-concept.md 
     - name: Presets
       href: analyzing-video-audio-files-concept.md
+    - name: Transforms and Jobs
+      href: transforms-jobs-concept.md 
   - name: Packaging, delivery, protection
     items:
     - name: Packaging
