@@ -26,7 +26,7 @@ Microsoft and third-parties publish SDKs for Azure Notification Hubs.
 | [Android](https://github.com/Azure/azure-notificationhubs/tree/master/Android)  |Microsoft |
 | [iOS](https://github.com/Azure/azure-notificationhubs/tree/master/iOS) |Microsoft |
 | [Java Server](https://github.com/Azure/azure-notificationhubs-java-backend) |Microsoft |
-| [Nodejs](http://github.com/Azure/azure-sdk-for-node)Microsoft |
+| [Nodejs](http://github.com/Azure/azure-sdk-for-node) | Microsoft |
 | [React Native](https://github.com/CatalystCode/react-native-azurenotificationhub) | Third-party |
 
 > [!Note]
