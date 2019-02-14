@@ -1,6 +1,6 @@
 ---
 title: Set up security info (preview) to use an authenticator app - Azure Active Directory | Microsoft Docs
-description: Set up your security info to verify your identity using the Microsoft Authenticator app.
+description: How to set up your security info to verify your identity using the Microsoft Authenticator app.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Set up security info (preview) to use an authenticator app
-Setting up your security info requires you to sign in to your work or school account and then to add your two-factor verification and self-service password reset verification methods. After you've set this up the first time, you can return to the **Security info** page to change your information.
+Setting up your security info requires you to sign in to your work or school account and then to add your two-factor verification and self-service password reset verification methods. After you've set this up the first time, you can return to the **Security info** page to change add, edit, delete, or change your default security info method.
 
 If you're prompted to set this up immediately after you sign in to your work or school account, see the detailed steps in the [Set up your security info from the sign-in page prompt](security-info-setup-signin.md) article.
 
@@ -24,18 +24,6 @@ If you're prompted to set this up immediately after you sign in to your work or 
 
 >[!Note]
 >If you don't see an authenticator app option, it's possible that your organization doesn't allow you to use an authentication app for verification. In this case, you'll need to choose another method or contact your administrator for more help.
-
-## In this article
-
-- [Set up the authenticator app](#set-up-the-microsoft-authenticator-app-from-the-security-info-page)
-
-- [Delete the authenticator app](#delete-your-authenticator-app-from-your-security-info-methods)
-
-- [Change the default to the authenticator app](#change-your-default-security-info-method)
-
-- [Additional security info methods](#additional-security-info-methods)
-
-- [Next steps](#next-steps)
 
 ## Set up the Microsoft Authenticator app from the Security info page
 Depending on your organization’s settings, you might be able to use an authentication app as one of your security info methods. You aren't required to use the Microsoft Authenticator app, and you can choose a different app during the set up process. However, this article uses the Microsoft Authenticator app. 

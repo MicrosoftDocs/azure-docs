@@ -12,6 +12,7 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
+ms.collection: M365-identity-device-management
 ---
 
 # Overview about changing your security info (preview) methods and information
