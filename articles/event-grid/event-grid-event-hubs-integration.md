@@ -124,7 +124,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
     1. Copy and paste the following command into the Cloud Shell window.
 
         ```powershell
-        New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
+        New-AzResourceGroup -Name rgDataMigration -Location westcentralus
         ```
     2. Specify a name for the **resource group**.
     3. Press ENTER. 
@@ -132,7 +132,7 @@ In this step, you deploy the required infrastructure with a [Resource Manager te
     1. Copy and paste the command into the Cloud Shell window. Alternatively, you may want to copy/paste into an editor of your choice, set values, and then copy the command to the Cloud Shell. 
 
         ```powershell
-        New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
+        New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
         ```
     2. Specify values for the following entities:
         1. Name of the resource group you created earlier.

@@ -112,7 +112,7 @@ For PowerShell, use:
 # This module is required for preview features.
 Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
 
-New-AzureRmEventGridTopic `
+New-AzEventGridTopic `
   -ResourceGroupName gridResourceGroup `
   -Location westcentralus `
   -Name <topic_name> `
@@ -139,9 +139,9 @@ az eventgrid event-subscription create \
 
 For PowerShell, use:
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `

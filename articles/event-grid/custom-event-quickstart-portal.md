@@ -121,8 +121,8 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 The second example uses PowerShell to perform similar steps.
 
 ```azurepowershell-interactive
-$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Endpoint
-$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
+$endpoint = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Endpoint
+$keys = Get-AzEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
 
 $eventID = Get-Random 99999
 

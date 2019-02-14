@@ -38,7 +38,7 @@ This script uses the following command to create the event subscription. Each co
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmEventGridSubscription](https://docs.microsoft.com/powershell/module/azurerm.eventgrid/new-azurermeventgridsubscription) | Create an Event Grid subscription. |
+| [New-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridsubscription) | Create an Event Grid subscription. |
 
 ## Next steps
 

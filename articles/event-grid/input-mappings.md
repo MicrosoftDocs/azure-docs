@@ -68,7 +68,7 @@ For PowerShell, use:
 # This module is required for preview features.
 Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
 
-New-AzureRmEventGridTopic `
+New-AzEventGridTopic `
   -ResourceGroupName myResourceGroup `
   -Name demotopic `
   -Location eastus2 `
@@ -106,9 +106,9 @@ az eventgrid event-subscription create \
 The following example subscribes to an event grid topic and uses the Event Grid schema. For PowerShell, use:
 
 ```azurepowershell-interactive
-$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
+$topicid = (Get-AzEventGridTopic -ResourceGroupName myResourceGroup -Name demoTopic).Id
 
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName eventsub1 `
   -EndpointType webhook `
@@ -119,7 +119,7 @@ New-AzureRmEventGridSubscription `
 The next example uses the input schema of the event:
 
 ```azurepowershell-interactive
-New-AzureRmEventGridSubscription `
+New-AzEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName eventsub2 `
   -EndpointType webhook `
@@ -145,8 +145,8 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 For PowerShell, use:
 
 ```azurepowershell-interactive
-$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
-$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
+$endpoint = (Get-AzEventGridTopic -ResourceGroupName myResourceGroup -Name demotopic).Endpoint
+$keys = Get-AzEventGridTopicKey -ResourceGroupName myResourceGroup -Name demotopic
 
 $htbody = @{
     myEventTypeField="Created"

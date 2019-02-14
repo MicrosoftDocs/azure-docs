@@ -30,7 +30,7 @@ az eventgrid topic show --name <topic-name> -g <topic-resource-group> --query "e
 To get the endpoint for a custom topic with Azure PowerShell, use:
 
 ```powershell
-(Get-AzureRmEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
+(Get-AzEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
 ## Header
@@ -48,7 +48,7 @@ az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --quer
 To get the key for a custom topic with PowerShell, use:
 
 ```powershell
-(Get-AzureRmEventGridTopicKey -ResourceGroupName <topic-resource-group> -Name <topic-name>).Key1
+(Get-AzEventGridTopicKey -ResourceGroupName <topic-resource-group> -Name <topic-name>).Key1
 ```
 
 ## Event data

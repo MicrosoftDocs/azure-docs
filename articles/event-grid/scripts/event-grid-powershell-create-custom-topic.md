@@ -31,7 +31,7 @@ This script uses the following command to create the custom topic. Each command 
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmEventGridTopic](https://docs.microsoft.com/powershell/module/azurerm.eventgrid/new-azurermeventgridtopic) | Create an Event Grid custom topic. |
+| [New-AzEventGridTopic](https://docs.microsoft.com/powershell/module/az.eventgrid/new-azeventgridtopic) | Create an Event Grid custom topic. |
 
 ## Next steps
 
