@@ -100,12 +100,20 @@ One of these administrative roles is the **dbmanager** role. Members of this rol
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. Add the new user, to the **dbmanager** database role by using the [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) statement. Sample statements:
+4. Add the new user, to the **dbmanager** database role. In Azure SQL DB use the [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) statement. Sample statements:
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
    ALTER ROLE dbmanager ADD MEMBER [mike@contoso.com];
    ```
+
+    In Azure SQL Data Warehouse use [EXEC sp_addrolemember](../../sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017.md
+)
+
+   ```sql
+   EXEC sp_addrolemember 'dbmananger', 'Mary';
+   EXEC sp_addrolemember 'dbmananger', [mike@contoso.com];
+    ```
 
    > [!NOTE]
    > The dbmanager is a database role in master database so you can only add a database user to the dbmanager role. You cannot add a server-level login to database-level role.
@@ -140,6 +148,12 @@ To give additional users full control of the database, make them a member of the
 ```sql
 ALTER ROLE db_owner ADD MEMBER Mary; 
 ```
+
+In Azure SQL Data Warehouse use EXEC sp_addrolemember.
+```sql
+Exec sp_addrolemember 'db_owner', 'Mary'; 
+```
+
 
 > [!NOTE]
 > One common reason to create a database user based on a SQL Database server login is for users that need access to multiple databases. Since contained database users are individual entities, each database maintains its own user and its own password. This can cause overhead as the user must then remember each password for each database, and it can become untenable when having to change multiple passwords for many databases. However, when using SQL Server Logins and high availability (active geo-replication and failover groups), the SQL Server logins must be set manually at each server. Otherwise, the database user will no longer be mapped to the server login after a failover occurs, and will not be able to access the database post failover. For more information on configuring logins for geo-replication, please see  [Configure and manage Azure SQL Database security for geo-restore or failover](sql-database-geo-replication-security-config.md).
