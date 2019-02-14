@@ -14,9 +14,7 @@ ms.date: 02/14/2019
 ---
 # Retrain and deploy a classic Studio web service
 
-When you deploy a predictive experiment as a scoring web service, it's a static model. However, models need to be retrained as new data becomes available.
-
-This article will show you how to retrain an existing classic web service. For a guide on how to retrain a new web service, [view this article.](retrain-machine-learning-model.md)
+You can use retraining to ensure machine learning models stay accurate and based on the most relevant data. This article will show you how to retrain an existing classic web service. For a guide on how to retrain a new web service, [view this how-to article.](retrain-machine-learning-model.md)
 
 ## Prerequisites
 
