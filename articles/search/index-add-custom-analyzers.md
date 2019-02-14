@@ -26,6 +26,8 @@ A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) t
 
  You can define multiple custom analyzers to vary the combination of filters, but each field can only use one analyzer for indexing analysis and one for search analysis.  
 
+For an illustration of what a customer analyzer looks like, see [Custom analyzer example](search-analyzers.md#Example1).
+
 ## Overview
 
  The role of a [full-text search engine](search-lucene-query-architecture.md), in simple terms, is to process and store documents in a way that enables efficient querying and retrieval. At a high level, it all comes down to extracting important words from documents, putting them in an index, and then using the index to find documents that match words of a given query. The process of extracting words from documents and search queries is called lexical analysis. Components that perform lexical analysis are called analyzers.
@@ -47,12 +49,6 @@ A *custom analyzer* is a specific type of [text analyzer](search-analyzers.md) t
 -   ASCII folding. Add the Standard ASCII folding filter to normalize diacritics like ö or ê in search terms.  
 
  This page provides a list of supported analyzers, tokenizers, token filters, and char filters. You can also find a description of changes to the index definition with a usage example. For more background about the underlying technology leveraged in the Azure Search implementation, see [Analysis package summary (Lucene)](https://lucene.apache.org/core/4_10_0/core/org/apache/lucene/codecs/lucene410/package-summary.html). For examples of analyzer configurations, see [Analyzers in Azure Search > Examples](https://docs.microsoft.com/azure/search/search-analyzers#examples).
-
-## Default analyzer  
-
-By default, searchable fields in Azure Search are analyzed with the [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) which breaks text into elements following the ["Unicode Text Segmentation"](https://unicode.org/reports/tr29/) rules. Additionally, the standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.  
-
- It's used automatically on every searchable field unless you explicitly override it with another analyzer within the field definition. Alternative analyzers can be a custom analyzer or a different predefined analyzer from the list of available [Analyzers](#AnalyzerTable) below.
 
 ## Validation rules  
  Names of analyzers, tokenizers, token filters, and char filters have to be unique and cannot be the same as any of the predefined analyzers, tokenizers, token filters, or char filters. See the [Property Reference](#PropertyReference) for names already in use.
