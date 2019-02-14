@@ -4,7 +4,7 @@ description: Learn how to read and understand your usage and bill for your Azure
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: alherz
+manager: jureid
 editor: ''
 tags: billing
 
@@ -21,7 +21,9 @@ ms.author: cwatson
 # Understand your bill for Microsoft Azure
 To understand your Azure bill, compare your invoice with the detailed daily usage file and the cost management reports in the Azure portal.
 
-This article doesn't apply to Azure customers with an Enterprise Agreement (EA customers). If you’re an EA customer, see [Understand your bill for Azure customers with an Enterprise Agreement](billing-understand-your-bill-ea.md).  
+This article doesn't apply to Azure customers with an Enterprise Agreement (EA customers). If you’re an EA customer, see [Understand your bill for Azure customers with an Enterprise Agreement](billing-understand-your-bill-ea.md). 
+
+This article doesn't apply to Azure customers with a Microsoft Customer Agreement. If you have a billing account for a Microsoft Customer Agreement, see [Understand the Azure charges on your Microsoft Customer Agreement invoice](billing-understand-your-bill-mca.md).
 
 ## <a name="charges"></a>Review your charges
 
