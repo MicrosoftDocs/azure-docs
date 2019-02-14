@@ -15,7 +15,7 @@ ms.custom: seodec2018
 
 An *analyzer* is a component of [full text search](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. There are language analyzers and text manipulation analyzers. Language analyzers are the most common and there is default language analyzer assigned to every string field in an Azure Search index.
 
-The following language transformations are typical during ltext analysis:
+The following language transformations are typical during text analysis:
 
 + Non-essential words (stopwords) and punctuation are removed.
 + Phrases and hyphenated words are broken down into component parts.
@@ -29,7 +29,7 @@ Language analyzers convert a text input into primitive or root forms that are ef
 
 Azure Search uses the [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) as the default, which breaks text into elements following the ["Unicode Text Segmentation"](https://unicode.org/reports/tr29/) rules. Additionally, the standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.  
 
-It's used automatically on every searchable field. You can override the default on a field-by-field basis. Alternative analyzers can be a [language analyzer](index-add-language-analyzers.md), [custom analyzer](index-add-custom-anlayzers.md) or a different predefined analyzer from the [list of available analyzers](index-add-custom-anlayzers.md#AnalyzerTable) below.
+It's used automatically on every searchable field. You can override the default on a field-by-field basis. Alternative analyzers can be a [language analyzer](index-add-language-analyzers.md), [custom analyzer](index-add-custom-anlayzers.md), or a predefined analyzer from the [list of available analyzers](index-add-custom-anlayzers.md#AnalyzerTable).
 
 
 ## Types of analyzers
