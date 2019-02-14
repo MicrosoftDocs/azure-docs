@@ -243,7 +243,8 @@ To build Service Fabric services using Java, install Gradle to run build tasks. 
 * Ubuntu
 
     ```bash
-    sudo apt-get install gradle
+    curl -s https://get.sdkman.io | bash
+    sdk install gradle 5.1
     ```
 
 * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)

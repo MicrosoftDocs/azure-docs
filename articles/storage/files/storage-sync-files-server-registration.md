@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.component: files
+ms.subservice: files
 ---
 
 # Manage registered servers with Azure File Sync
@@ -99,8 +99,8 @@ You can also perform server registration via PowerShell. This is the only suppor
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-Login-AzStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
-Register-AzStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
+Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
 ```
 
 ### Unregister the server with Storage Sync Service
@@ -138,10 +138,10 @@ Login-AzStorageSync -SubscriptionId $accountInfo.Context.Subscription.Id -Tenant
 
 $StorageSyncService = "<your-storage-sync-service>"
 
-Get-AzStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEach-Object { 
+Get-AzureRmStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEach-Object { 
     $SyncGroup = $_; 
-    Get-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name | Where-Object { $_.DisplayName -eq $env:ComputerName } | ForEach-Object { 
-        Remove-AzStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name -ServerEndpointName $_.Name 
+    Get-AzureRmStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name | Where-Object { $_.DisplayName -eq $env:ComputerName } | ForEach-Object { 
+        Remove-AzureRmStorageSyncServerEndpoint -StorageSyncServiceName $StorageSyncService -SyncGroupName $SyncGroup.Name -ServerEndpointName $_.Name 
     } 
 }
 ```
@@ -161,7 +161,10 @@ Since Azure File Sync will rarely be the only service running in your datacenter
 > Setting limits too low will impact the performance of Azure File Sync synchronization and recall.
 
 ### Set Azure File Sync network limits
-You can throttle the network utilization of Azure File Sync by using the `StorageSyncNetworkLimit` cmdlets. 
+You can throttle the network utilization of Azure File Sync by using the `StorageSyncNetworkLimit` cmdlets.
+
+> [!Note]  
+> Network limits do not apply when a tiered file is accessed or the Invoke-StorageSyncFileRecall cmdlet is used.
 
 For example, you can create a new throttle limit to ensure that Azure File Sync does not use more than 10 Mbps between 9 am and 5 pm (17:00h) during the work week: 
 
@@ -187,5 +190,6 @@ When Azure File Sync is hosted in a virtual machine running on a Windows Server 
 
 ## See also
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
-- [Deploy Azure File Sync](storage-sync-files-deployment-guide.md) 
+- [Deploy Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Monitor Azure File Sync](storage-sync-files-monitoring.md)
 - [Troubleshoot Azure File Sync](storage-sync-files-troubleshoot.md)

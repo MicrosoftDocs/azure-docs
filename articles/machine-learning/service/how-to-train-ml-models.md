@@ -6,7 +6,7 @@ ms.author: minxia
 author: mx-iao
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 12/04/2018

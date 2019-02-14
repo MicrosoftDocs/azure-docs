@@ -51,10 +51,10 @@ Along with selecting the best-fitting algorithm(s), you need to consider whether
 
 HDInsight has several machine learning options for an advanced analytics workflow:
 
-* [Machine Learning and Apache Spark](#machine-learning-and-spark)
-* [R and ML Services](#r-and-r-server)
-* [Azure Machine Learning and Apache Hive](#azure-machine-learning-and-hive)
-* [Apache Spark and Deep learning](#spark-and-deep-learning)
+* Machine Learning and Apache Spark
+* R and ML Services
+* Azure Machine Learning and Apache Hive
+* Apache Spark and Deep learning
 
 ### Machine Learning and Apache Spark
 

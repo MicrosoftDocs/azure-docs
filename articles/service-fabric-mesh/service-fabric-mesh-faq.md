@@ -88,15 +88,15 @@ The following container OS images can be used to deploy services:
 
 ## Developer experience issues
 
-### DNS resolution from an outbound container doesn't work
+### DNS resolution from a container doesn't work
 
-Service-to-service communication may fail under certain circumstances. This is being  investigated. To mitigate:
+Outgoing DNS queries from a container to the Service Fabric DNS service may fail under certain circumstances. This is being investigated. To mitigate:
 
 - Use Windows Fall Creators update (version 1709) or higher as your base container image.
 - If the service name alone doesn't work, try the fully qualified name: ServiceName.ApplicationName.
 - In the Docker file for your service, add `EXPOSE <port>` where port is the port you are exposing your service on. For example:
 
-```DockerFile
+```Dockerfile
 EXPOSE 80
 ```
 

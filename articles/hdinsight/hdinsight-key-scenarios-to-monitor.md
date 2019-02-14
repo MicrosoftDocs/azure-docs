@@ -72,11 +72,11 @@ A cluster's performance bottleneck can happen at the storage level. This type of
 
 If you are using Azure Storage, for information on monitoring storage-related issues, including throttling, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 
-If your cluster's backing store is Azure Data Lake Store (ADLS), your throttling is most likely due to bandwidth limits. Throttling in this case could be identified by observing throttling errors in task logs. For ADLS, see the throttling section for the appropriate service in these articles:
+If your cluster's backing store is Azure Data Lake Storage (ADLS), your throttling is most likely due to bandwidth limits. Throttling in this case could be identified by observing throttling errors in task logs. For ADLS, see the throttling section for the appropriate service in these articles:
 
-* [Performance tuning guidance for Apache Hive on HDInsight and Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-hive.md)
-* [Performance tuning guidance for MapReduce on HDInsight and Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
-* [Performance tuning guidance for Apache Storm on HDInsight and Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+* [Performance tuning guidance for Apache Hive on HDInsight and Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-hive.md)
+* [Performance tuning guidance for MapReduce on HDInsight and Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
+* [Performance tuning guidance for Apache Storm on HDInsight and Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
 ## Next steps
 

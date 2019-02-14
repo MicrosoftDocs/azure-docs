@@ -21,7 +21,7 @@ ms.custom: seodec18
 ---
 # Manage an App Service plan in Azure
 
-An [Azure App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) provides the resources that an App Service app needs to run. This guide shows how to manage an App Service plan.
+An [Azure App Service plan](overview-hosting-plans.md) provides the resources that an App Service app needs to run. This guide shows how to manage an App Service plan.
 
 ## Create an App Service plan
 

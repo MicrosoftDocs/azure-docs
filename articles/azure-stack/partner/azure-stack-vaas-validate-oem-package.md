@@ -11,9 +11,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/19/2018
+ms.date: 01/07/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 01/07/2019
+
+ROBOTS: NOINDEX
 
 ---
 
@@ -90,7 +93,7 @@ Use **Blob SAS URL** when starting a new **Package Validation** workflow in the 
 
 3. Select **Start** on the **Package Validation** tile.
 
-    ![Package Validations workflow tile](media/tile_validation-package.png)
+    ![Package validations workflow tile](media/tile_validation-package.png)
 
 4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 
@@ -110,11 +113,25 @@ Use **Blob SAS URL** when starting a new **Package Validation** workflow in the 
 
 ## Run Package Validation tests
 
-In the **Package validation tests summary** page, you will see a list of the tests required for completing validation. Tests in this workflow run for approximately 24 hours.
+1. In the **Package Validation tests summary** page, you will see a list of the tests required for completing validation. Tests in this workflow run for approximately 24 hours.
 
-[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+    In the validation workflows, **scheduling** a test uses the workflow-level common parameters that you specified during workflow creation (see [Workflow common parameters for Azure Stack Validation as a Service](azure-stack-vaas-parameters.md)). If any of test parameter values become invalid, you must resupply them as instructed in [Modify workflow parameters](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 
-When all tests have successfully completed, send the name of your VaaS Solution and Package Validation to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) to request package signing.
+    > [!NOTE]
+    > Scheduling a validation test over an existing instance will create a new instance in place of the old instance in the portal. Logs for the old instance will be retained but are not accessible from the portal.  
+    Once a test has completed successfully, the **Schedule** action becomes disabled.
+
+2. Select the agent that will run the test. For information about adding local test execution agents, see [Deploy the local agent](azure-stack-vaas-local-agent.md).
+
+3. For each of the following tests, do step four and five:
+    - OEM Extension Package Verification
+    - Cloud Simulation Engine
+
+4. Select **Schedule** from the context menu to open a prompt for scheduling the test instance.
+
+5. Review the test parameters and then select **Submit** to schedule the test for execution.
+
+When all tests have successfully completed, send the name of your VaaS solution and Package Validation to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) to request package signing.
 
 ## Next steps
 

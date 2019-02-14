@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Get the 86 categories of taxonomy for the Computer Vision API in Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: reference
 ms.date: 12/19/2016
 ms.author: kefre

@@ -1,20 +1,15 @@
 ---
-title: 'Troubleshoot: Create, connect to a Machine Learning Studio workspace - Azure | Microsoft Docs'
+title: 'Troubleshoot: Create, connect to a Machine Learning Studio workspace'
+titleSuffix: Azure Machine Learning Studio
 description: This guide provides solutions for some frequently encountered challenges when you are setting up Azure Machine Learning Studio workspaces.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: 1a8aec4b-35f9-44e8-9570-2575b8979ab1
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ---
 # Troubleshooting guide: Create and connect to an Azure Machine Learning Studio workspace

@@ -4,7 +4,7 @@ description: Learn about Azure Log Integration, its key capabilities, and how it
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TerryLanfear
 
 ms.assetid: 9c1346e1-baf8-4975-b2f2-42ae05b2dc0a
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: TomSh
 ms.custom: azlog
 
@@ -21,11 +21,11 @@ ms.custom: azlog
 # Introduction to Azure Log Integration
 
 >[!IMPORTANT]
-> The Azure Log integration feature will be deprecated by 06/01/2019. AzLog downloads will be disabled by Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> The Azure Log integration feature will be deprecated by 06/01/2019. AzLog downloads were disabled on Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Azure Log Integration was made available to simplify the task of integrating Azure logs with your on-premises Security Information and Event Management (SIEM) system.
 
- The recommended method for integrating Azure logs is to use your SIEM vendor’s connectors. Azure Monitor provides the ability to stream the logs into event hubs, and SIEM vendors can write connectors to further integrate logs from the event hub into the SIEM.  For a description of how this works, follow the instructions in [Monitor stream monitoring for data event hubs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). The article also lists the SIEMs for which direct Azure connectors are already available.  
+ The recommended method for integrating Azure logs is to use your SIEM vendor's connectors. Azure Monitor provides the ability to stream the logs into event hubs, and SIEM vendors can write connectors to further integrate logs from the event hub into the SIEM.  For a description of how this works, follow the instructions in [Monitor stream monitoring for data event hubs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). The article also lists the SIEMs for which direct Azure connectors are already available.  
 
 > [!IMPORTANT]
 > If your primary interest is collecting virtual machine logs, most SIEM vendors include this option in their solution. Using the SIEM vendor's connector is always the preferred alternative.

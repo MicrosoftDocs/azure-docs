@@ -11,7 +11,7 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 12/19/2018
 ---
 # Managing Azure SQL databases using Azure Automation
 

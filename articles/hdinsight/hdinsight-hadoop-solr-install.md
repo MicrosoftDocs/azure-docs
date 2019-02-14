@@ -34,7 +34,7 @@ The sample script used in this topic creates a Windows-based Solr cluster with a
 * [Develop Script Action scripts for HDInsight](hdinsight-hadoop-script-actions.md).
 
 ## What is Solr?
-<a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> is an enterprise search platform that enables powerful full-text search on data. While Hadoop enables storing and managing vast amounts of data, Apache Solr provides the search capabilities to quickly retrieve the data.
+<a href="https://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> is an enterprise search platform that enables powerful full-text search on data. While Hadoop enables storing and managing vast amounts of data, Apache Solr provides the search capabilities to quickly retrieve the data.
 
 ## Install Solr using portal
 1. Start creating a cluster by using the **CUSTOM CREATE** option, as described at [Create Apache Hadoop clusters in HDInsight](hdinsight-provision-clusters.md).
@@ -42,17 +42,12 @@ The sample script used in this topic creates a Windows-based Solr cluster with a
 
     ![Use Script Action to customize a cluster](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "Use Script Action to customize a cluster")
 
-    <table border='1'>
-        <tr><th>Property</th><th>Value</th></tr>
-        <tr><td>Name</td>
-            <td>Specify a name for the script action. For example, <b>Install Solr</b>.</td></tr>
-        <tr><td>Script URI</td>
-            <td>Specify the Uniform Resource Identifier (URI) to the script that is invoked to customize the cluster. For example, <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
-        <tr><td>Node Type</td>
-            <td>Specify the nodes on which the customization script is run. You can choose <b>All nodes</b>, <b>Head nodes only</b>, or <b>Worker nodes only</b>.
-        <tr><td>Parameters</td>
-            <td>Specify the parameters, if required by the script. The script to install Solr does not require any parameters, so you can leave this blank.</td></tr>
-    </table>
+    |Property|Value|
+    |---|---|
+    |Name|Specify a name for the script action. For example, **Install Solr**.|
+    |Script URI|Specify the Uniform Resource Identifier (URI) to the script that is invoked to customize the cluster. For example, *https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1*|
+    |Node Type|Specify the nodes on which the customization script is run. You can choose **All nodes**, **Head nodes only**, or **Worker nodes only**.
+    |Parameters|Specify the parameters, if required by the script. The script to install Solr does not require any parameters, so you can leave this blank.|
 
     You can add more than one script action to install multiple components on the cluster. After you have added the scripts, click the checkmark to start creating the cluster.
 
@@ -162,7 +157,7 @@ You must start with indexing Solr with some data files. You can then use Solr to
 
    This command copies the snapshot to /example/data/ under the container within the default Storage account associated with the cluster.
 
-## Install Solr using Aure PowerShell
+## Install Solr using Azure PowerShell
 See [Customize HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  The sample demonstrates how to install Apache Spark using Azure PowerShell. You need to customize the script to use [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
 
 ## Install Solr using .NET SDK

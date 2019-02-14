@@ -206,6 +206,9 @@ To use this policy, create or update your data source like this:
 
 When using SQL integrated change tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows. However, for the deletes to be detected "automagically", the document key in your search index must be the same as the primary key in the SQL table. 
 
+> [!NOTE]  
+> When using [TRUNCATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/truncate-table-transact-sql) to remove a large number of rows from a SQL table, the indexer needs to be [reset](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) to reset the change tracking state to pick up row deletions.
+
 <a name="HighWaterMarkPolicy"></a>
 
 ### High Water Mark Change Detection policy

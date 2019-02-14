@@ -3,9 +3,9 @@ title: Automatically scale a virtual machine scale set in Azure using Ansible
 description: Learn how to use Ansible to scale a virtual machine scale set with autoscale in Azure
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, scale, autoscale, virtual machine, virtual machine scale set, vmss
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
-ms.author: yuwzho, kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/10/2018
 ---
@@ -24,7 +24,7 @@ When you create a scale set, you define the number of VM instances that you wish
 > Ansible 2.7 is required to run the following the sample playbooks in this tutorial. 
 
 ## Auto scale based on a schedule   
-To enable autoscale on a scale set, you first define an autoscale profile. This profile defines the default, minimum, and maximum scale set capacity. These limits let you control cost by not continuedly creating VM instances, and balance acceptable performance with a minimum number of instances that remain in a scale-in event. 
+To enable autoscale on a scale set, you first define an autoscale profile. This profile defines the default, minimum, and maximum scale set capacity. These limits let you control cost by not continually creating VM instances, and balance acceptable performance with a minimum number of instances that remain in a scale-in event. 
 
 You can scale in and scale out in Virtual Machine Scale Sets by a recurring schedule, or by a particular date. This section presents a sample Ansible playbook that creates an autoscale setting that increases the number of VM instances to three in your scale sets on 10:00 of every Monday, Pacific Time zone. 
 

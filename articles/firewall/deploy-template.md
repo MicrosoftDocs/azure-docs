@@ -48,6 +48,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    
 1. Explore the resources that were created with the firewall. 
 
+To learn about the JSON syntax and properties for a firewall in a template, see [Microsoft.Network/azureFirewalls](/azure/templates/microsoft.network/azurefirewalls).
+
 ## Clean up resources
 
 When you no longer need them, you can remove the resource group, firewall, and all related resources by running the [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) PowerShell command. To remove a resource group named *MyResourceGroup*, run: 

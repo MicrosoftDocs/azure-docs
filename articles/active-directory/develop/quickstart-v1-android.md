@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
@@ -19,6 +19,7 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to sign-in users and call the Microsoft Graph API from my Android app.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an Android app
@@ -126,7 +127,7 @@ You can find all the configuration for this code sample in the ***src/main/java/
 
 1. Check the [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki) for more info on the library mechanics and how to configure new scenarios and capabilities.
 2. In Native scenarios, the app will use an embedded Webview and will not leave the app. The `Redirect URI` can be arbitrary.
-3. Find any problems or have requests? You can create an issue or post on Stackoverflow with the tag `azure-active-directory`.
+3. Find any problems or have requests? You can create an issue or post on Stack Overflow with the tag `azure-active-directory`.
 
 ### Cross-app SSO
 

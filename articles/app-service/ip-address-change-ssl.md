@@ -48,4 +48,4 @@ If you received a notification that the SSL IP address of your Azure App Service
 
 ## Next steps
 
-This article explained how to prepare for an IP address change that was initiated by Azure. For more information about IP addresses in Azure App Service, see [SSL and SSL IP addresses in Azure App Service](app-service-ip-addresses.md).
+This article explained how to prepare for an IP address change that was initiated by Azure. For more information about IP addresses in Azure App Service, see [SSL and SSL IP addresses in Azure App Service](overview-inbound-outbound-ips.md).

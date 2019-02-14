@@ -28,6 +28,8 @@
     href: how-to-configure-student-usage.md
   - name: Access classroom labs
     href: how-to-use-classroom-lab.md
+  - name: Create and manage schedules
+    href: how-to-create-schedules.md 
 - name: Reference
   items:
   - name: CLI

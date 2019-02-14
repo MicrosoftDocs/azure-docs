@@ -4,12 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in Objective-C on iOS using the Speech Service SDK
 services: cognitive-services
 author: chlandsi
-manager: cgronlun
-
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/13/2018
 ms.author: chlandsi
 ---
 
@@ -96,10 +95,7 @@ Currently the Speech SDK only supports 64bit iOS platforms.
 
 1. After you click the "Recognize (Microphone)" button in the app and say a few words, you should see the text you have spoken on the lower part of the screen.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/objectivec-ios` folder.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get our samples](speech-sdk.md#get-the-samples)
+> [Explore Objective-C samples on GitHub](https://aka.ms/csspeech/samples)

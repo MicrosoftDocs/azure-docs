@@ -3,9 +3,9 @@ title: Scale Azure App Service web apps by using Ansible
 description: Learn how to use Ansible to create a web app with Java 8 and the Tomcat container runtime in App Service on Linux
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, scale, Java
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
-ms.author: kyliel
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
 ---
@@ -34,7 +34,7 @@ You can scale up by changing the pricing tier of the App Service plan that your 
     location: eastus
 
   tasks:
-  - name: Get facts of existing App serivce plan
+  - name: Get facts of existing App service plan
     azure_rm_appserviceplan_facts:
       resource_group: "{{ resource_group }}"
       name: "{{ plan_name }}"
@@ -68,14 +68,14 @@ To run the playbook,  use the **ansible-playbook** command as follows:
 ansible-playbook webapp_scaleup.yml
 ```
 
-After running the playbook, output similiar to the following example shows that the App service plan has been successfully updated to S2 with three workers:
+After running the playbook, output similar to the following example shows that the App service plan has been successfully updated to S2 with three workers:
 ```Output
 PLAY [localhost] **************************************************************
 
 TASK [Gathering Facts] ********************************************************
 ok: [localhost]
 
-TASK [Get facts of existing App serivce plan] **********************************************************
+TASK [Get facts of existing App service plan] **********************************************************
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 ok: [localhost]

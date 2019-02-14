@@ -1,16 +1,14 @@
 ---
 title: 'Azure Cosmos DB: SQL Python API, SDK & resources'
 description: Learn all about the SQL Python API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB Python SDK.
-services: cosmos-db
-author: rnagpal
-
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
 ms.date: 11/29/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
+ms.author: sngun
+
 
 ---
 # Azure Cosmos DB Python SDK for SQL API: Release notes and resources
@@ -28,20 +26,14 @@ ms.custom: H1Hack27Feb2017
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**Download SDK**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
-
-<tr><td>**API documentation**</td><td>[Python API reference documentation](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)</td></tr>
-
-<tr><td>**SDK installation instructions**</td><td>[Python SDK installation instructions](https://github.com/Azure/azure-cosmos-python)</td></tr>
-
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-python)</td></tr>
-
-<tr><td>**Get started**</td><td>[Get started with the Python SDK](sql-api-python-application.md)</td></tr>
-
-<tr><td>**Current supported platform**</td><td>[Python 2.7](https://www.python.org/downloads/) and [Python 3.5](https://www.python.org/downloads/)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**Download SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
+|**API documentation**|[Python API reference documentation](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)|
+|**SDK installation instructions**|[Python SDK installation instructions](https://github.com/Azure/azure-cosmos-python)|
+|**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-cosmos-python)|
+|**Get started**|[Get started with the Python SDK](sql-api-python-application.md)|
+|**Current supported platform**|[Python 2.7](https://www.python.org/downloads/) and [Python 3.5](https://www.python.org/downloads/)|
 
 ## Release notes
 
@@ -175,7 +167,7 @@ Any request to Cosmos DB using a retired SDK are rejected by the service.
 | [1.6.0](#1.6.0) |March 29, 2016 |--- |
 | [1.5.0](#1.5.0) |January 03, 2016 |--- |
 | [1.4.2](#1.4.2) |October 06, 2015 |--- |
-| [1.4.1](#1.4.1) |October 06, 2015 |--- |
+| 1.4.1 |October 06, 2015 |--- |
 | [1.2.0](#1.2.0) |August 06, 2015 |--- |
 | [1.1.0](#1.1.0) |July 09, 2015 |--- |
 | [1.0.1](#1.0.1) |May 25, 2015 |--- |

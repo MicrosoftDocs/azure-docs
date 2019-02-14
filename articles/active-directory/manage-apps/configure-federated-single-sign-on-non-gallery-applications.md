@@ -3,19 +3,20 @@ title: How to configure federated single sign-on for a non-gallery application |
 description: How to configure federated single sign-on for a custom non-gallery application that you want to integrate with Azure AD
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to configure federated single sign-on for a non-gallery application
@@ -33,7 +34,7 @@ Below is a high-level overview of the steps required to configure federated sing
 
 -   [Configure Azure AD metadata values in the application (Sign on URL, Issuer, Logout URL and certificate)](#_Configuring_single_sign-on)
 
--   [Assign users to the application](#_Assign_users_to_the_application)
+-   Assign users to the application
 
 ## Configuring single sign-on to non-gallery applications
 
@@ -101,7 +102,7 @@ To select the User Identifier or add user attributes, follow the steps below:
 
 8.  Under the **User attributes** section, select the unique identifier for your users in the **User Identifier** dropdown. The selected option needs to match the expected value in the application to authenticate the user.
 
- >[!NOTE}
+ >[!NOTE]
  >Azure AD select the format for the NameID attribute (User Identifier) based on the value selected or the format requested by the application in the SAML AuthRequest. For more information visit the article [Single Sign-On SAML protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) under the section NameIDPolicy.
  >
  >

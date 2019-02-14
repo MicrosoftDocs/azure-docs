@@ -14,7 +14,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
+ms.reviewer: anajod
+ms.lastreviewed: 11/07/2018
 ---
 
 # Tutorial: Deploy apps to Azure and Azure Stack
@@ -177,9 +178,7 @@ You can set the scope at the level of the subscription, resource group, or resou
 
 3. In Visual Studio Enterprise, select **Access Control (IAM)**.
 
-    ![Access Control (IAM)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
-
-4. Select **Add**.
+4. Select **Add role assignment**.
 
     ![Add](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 
@@ -360,7 +359,7 @@ Hybrid CI/CD can apply to both application code and infrastructure code. Use [Az
 
 1. Sign in to Azure DevOps Services with an organization that can create a build pipeline.
 
-2. Navigate to the **Build Web Applicaiton** page for the project.
+2. Navigate to the **Build Web Application** page for the project.
 
 3. In **Arguments**, add **-r win10-x64** code. This is required to trigger a self-contained deployment with .Net Core.
 

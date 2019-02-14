@@ -44,7 +44,7 @@ az appservice list-locations --sku P1V2
 
 ## Create an app in PremiumV2 tier
 
-The pricing tier of an App Service app is defined in the [App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) that it runs on. You can create an App Service plan by itself or as part of app creation.
+The pricing tier of an App Service app is defined in the [App Service plan](overview-hosting-plans.md) that it runs on. You can create an App Service plan by itself or as part of app creation.
 
 When configuring the App Service plan in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, select **Pricing tier**. 
 
@@ -109,10 +109,12 @@ az appservice plan create \
 
 ### Azure PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 The following command creates an App Service plan in _P1V2_. The options for `-WorkerSize` are _Small_, _Medium_, and _Large_.
 
 ```PowerShell
-New-AzureRmAppServicePlan -ResourceGroupName <resource_group_name> `
+New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
     -Name <app_service_plan_name> `
     -Location <region_name> `
     -Tier "PremiumV2" `

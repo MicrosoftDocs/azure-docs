@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description:  Understand what HTTP response codes are returned from the QnA Maker APIs. This will help you resolve any errors.  
 services: cognitive-services
 author: tulasim88
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: luis
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 01/24/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---

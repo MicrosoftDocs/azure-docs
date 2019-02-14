@@ -165,11 +165,11 @@ For more information, see the [Node.js Developer Center].
 
 <!-- URL List -->
 
-[Azure Websites, Cloud Services and Virtual Machines comparison]: ../app-service/choose-web-site-cloud-service-vm.md
+[Azure Websites, Cloud Services and Virtual Machines comparison]: ../app-service/overview-compare.md
 [using a lightweight web app]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure Powershell]: /powershell/azureps-cmdlets-docs
 [Azure SDK for .NET 2.7]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
-[Connect PowerShell]: /powershell/azureps-cmdlets-docs#step-3-connect
+[Connect PowerShell]: /powershell/azureps-cmdlets-docs
 [nodejs.org]: http://nodejs.org/
 [Overview of Creating a Hosted Service for Azure]: https://azure.microsoft.com/documentation/services/cloud-services/
 [Node.js Developer Center]: https://azure.microsoft.com/develop/nodejs/

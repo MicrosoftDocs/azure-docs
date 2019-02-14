@@ -10,11 +10,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.date: 09/24/2018
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.collection: M365-identity-device-management
 ---
 
 # Developer guidance for Azure Active Directory conditional access
@@ -73,7 +74,7 @@ Developers can take this challenge and append it onto a new request to Azure AD.
 
 ### Prerequisites
 
-Azure AD conditional access is a feature included in [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis#choose-an-edition). You can learn more about licensing requirements in the [unlicensed usage report](../active-directory-conditional-access-unlicensed-usage-report.md). Developers can join the [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), which includes a free subscription to the Enterprise Mobility Suite, which includes Azure AD Premium.
+Azure AD conditional access is a feature included in [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). You can learn more about licensing requirements in the [unlicensed usage report](../active-directory-conditional-access-unlicensed-usage-report.md). Developers can join the [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), which includes a free subscription to the Enterprise Mobility Suite, which includes Azure AD Premium.
 
 ### Considerations for specific scenarios
 
@@ -88,11 +89,11 @@ The following sections discuss common scenarios that are more complex. The core 
 
 ## Scenario: App accessing Microsoft Graph
 
-In this scenario, learn how a web app requests access to Microsoft Graph. The conditional access policy in this case could be assigned to SharePoint, Exchange, or some other service that is accessed as a workload through Microsoft Graph. In this example, let's assume there's a conditional access policy on Sharepoint Online.
+In this scenario, learn how a web app requests access to Microsoft Graph. The conditional access policy in this case could be assigned to SharePoint, Exchange, or some other service that is accessed as a workload through Microsoft Graph. In this example, let's assume there's a conditional access policy on SharePoint Online.
 
 ![App accessing Microsoft Graph flow diagram](./media/conditional-access-dev-guide/app-accessing-microsoft-graph-scenario.png)
 
-The app first requests authorization to Microsoft Graph which requires accessing a downstream workload without conditional access. The request succeeds without invoking any policy and the app receives tokens for Microsoft Graph. At this point, the app may use the access token in a bearer request for the endpoint requested. Now, the app needs to access a Sharepoint Online endpoint of Microsoft Graph, for example: `https://graph.microsoft.com/v1.0/me/mySite`
+The app first requests authorization to Microsoft Graph which requires accessing a downstream workload without conditional access. The request succeeds without invoking any policy and the app receives tokens for Microsoft Graph. At this point, the app may use the access token in a bearer request for the endpoint requested. Now, the app needs to access a SharePoint Online endpoint of Microsoft Graph, for example: `https://graph.microsoft.com/v1.0/me/mySite`
 
 The app already has a valid token for Microsoft Graph, so it can perform the new request without being issued a new token. This request fails and a claims challenge is issued from Microsoft Graph in the form of an HTTP 403 Forbidden with a ```WWW-Authenticate``` challenge.
 
@@ -104,7 +105,7 @@ error=insufficient_claims
 www-authenticate="Bearer realm="", authorization_uri="https://login.windows.net/common/oauth2/authorize", client_id="<GUID>", error=insufficient_claims, claims={"access_token":{"polids":{"essential":true,"values":["<GUID>"]}}}"
 ```
 
-The claims challenge is inside the ```WWW-Authenticate``` header, which can be parsed to extract the claims parameter for the next request. Once it's appended to the new request, Azure AD knows to evaluate the conditional access policy when signing in the user and the app is now in compliance with the conditional access policy. Repeating the request to the Sharepoint Online endpoint succeeds.
+The claims challenge is inside the ```WWW-Authenticate``` header, which can be parsed to extract the claims parameter for the next request. Once it's appended to the new request, Azure AD knows to evaluate the conditional access policy when signing in the user and the app is now in compliance with the conditional access policy. Repeating the request to the SharePoint Online endpoint succeeds.
 
 The ```WWW-Authenticate``` header does have a unique structure and is not trivial to parse in order to extract values. Here's a short method to help.
 

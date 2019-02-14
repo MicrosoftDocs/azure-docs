@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: A list of natural languages supported by the Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
@@ -34,7 +34,6 @@ The V3 Translator API is neural by default and statistical systems are only avai
 |:-----|:-----:|:-----|:-----|
 |Afrikaans|	`af`	|Statistical only|	Neural|
 |Arabic|	`ar`	|Neural available|	Neural|
-|Arabic, Levantine|	`apc`	|Neural available|	Neural|
 |Bangla|	`bn`	|Neural available|	Neural|
 |Bosnian (Latin)|	`bs`	|Neural available|	Neural|
 |Bulgarian|	`bg`	|Neural available|	Neural|

@@ -12,7 +12,7 @@ ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---
-# Run Apache Hadoop MapReduce samples in Windows-based HDInsight
+# Run MapReduce samples in Windows-based HDInsight
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
 A set of samples is provided to help you get started running MapReduce jobs on Apache Hadoop clusters using Azure HDInsight. These samples are made available on each of the HDInsight managed clusters that you create. Running these samples familiarize you with using Azure PowerShell cmdlets to run jobs on Hadoop clusters.
@@ -50,7 +50,7 @@ Nowadays, many people choose Apache Hive and Apache Pig over MapReduce.  For mor
 ## <a name="hdinsight-sample-wordcount"></a>Word count - Java
 To submit a MapReduce project, you first create a MapReduce job definition. In the job definition, you specify the MapReduce program jar file and the location of the jar file, which is **wasb:///example/jars/hadoop-mapreduce-examples.jar**, the class name, and the arguments.  The wordcount MapReduce program takes two arguments: the source file that is used to count words, and the location for output.
 
-The source code can be found in the [Appendix A](#apendix-a---the-word-count-MapReduce-program-in-java).
+The source code can be found in the Appendix A.
 
 For the procedure of developing a Java MapReduce program, see - [Develop Java MapReduce programs for Apache Hadoop in HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
@@ -131,7 +131,7 @@ In the meantime, the reducer collects the line-oriented output from the [stdout]
 
 **To submit a C# streaming word count job**
 
-* Follow the procedure in [Word count - Java](#word-count-java), and replace the job definition with the following line:
+* Follow the procedure in Word count - Java, and replace the job definition with the following line:
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -153,7 +153,7 @@ The script provided for this sample submits a Hadoop jar job and is set up to ru
 
 **To submit a pi estimator job**
 
-* Follow the procedure in [Word count - Java](#word-count-java), and replace the job definition with the following line:
+* Follow the procedure in Word count - Java, and replace the job definition with the following line:
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -163,7 +163,7 @@ The script provided for this sample submits a Hadoop jar job and is set up to ru
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>10-GB Graysort
-This sample uses a modest 10 GB of data so that it can be run relatively quickly. It uses the MapReduce applications developed by Owen O'Malley and Arun Murthy that won the annual general-purpose ("daytona") terabyte sort benchmark in 2009 with a rate of 0.578TB/min (100 TB in 173 minutes). For more information on this and other sorting benchmarks, see the [Sortbenchmark](http://sortbenchmark.org/) site.
+This sample uses a modest 10 GB of data so that it can be run relatively quickly. It uses the MapReduce applications developed by Owen O'Malley and Arun Murthy that won the annual general-purpose ("daytona") terabyte sort benchmark in 2009 with a rate of 0.578TB/min (100 TB in 173 minutes). For more information on this and other sorting benchmarks, see the [Sortbenchmark](https://sortbenchmark.org/) site.
 
 This sample uses three sets of MapReduce programs:
 
@@ -181,7 +181,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 
 **To submit the jobs**
 
-* Follow the procedure in [Word count - Java](#word-count-java), and use the following job definitions:
+* Follow the procedure in Word count - Java, and use the following job definitions:
 
     ```powershell
     $teragen = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -379,7 +379,7 @@ The pi estimator Java code that contains the mapper and reducer functions is ava
 * "License"); you may not use this file except in compliance
 * with the License. You may obtain a copy of the License at
 *
-* http://www.apache.org/licenses/LICENSE-2.0
+* https://www.apache.org/licenses/LICENSE-2.0
 *
 * Unless required by applicable law or agreed to in writing, software
 * distributed under the License is distributed on an "AS IS" BASIS,
@@ -718,7 +718,7 @@ The code for the TeraSort MapReduce program is presented for inspection in this 
     * "License"); you may not use this file except in compliance
     * with the License.  You may obtain a copy of the License at
     *
-    *     http://www.apache.org/licenses/LICENSE-2.0
+    *     https://www.apache.org/licenses/LICENSE-2.0
     *
     * Unless required by applicable law or agreed to in writing, software
     * distributed under the License is distributed on an "AS IS" BASIS,

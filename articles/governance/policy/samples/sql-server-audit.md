@@ -6,7 +6,7 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 09/18/2018
+ms.date: 01/23/2019
 ms.author: dacoulte
 ---
 # Audit SQL server audit settings
@@ -57,12 +57,12 @@ When assigning a policy, select **Audit SQL Server Level Audit Setting** from th
 
 ## Deploy with PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
-$definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9
+$definition = Get-AzPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9
 
-New-AzureRmPolicyAssignment -name "SQL Audit audit" -PolicyDefinition $definition -PolicyParameter '{"setting": {"value":"enabled"}}' -Scope <scope>
+New-AzPolicyAssignment -name "SQL Audit audit" -PolicyDefinition $definition -PolicyParameter '{"setting": {"value":"enabled"}}' -Scope <scope>
 ```
 
 ### Clean up PowerShell deployment
@@ -70,7 +70,7 @@ New-AzureRmPolicyAssignment -name "SQL Audit audit" -PolicyDefinition $definitio
 Run the following command to remove the policy assignment.
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyAssignment -Name "SQL Audit audit" -Scope <scope>
+Remove-AzPolicyAssignment -Name "SQL Audit audit" -Scope <scope>
 ```
 
 ## Deploy with Azure CLI

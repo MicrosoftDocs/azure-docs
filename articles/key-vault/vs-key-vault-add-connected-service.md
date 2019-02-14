@@ -1,5 +1,5 @@
 ---
-title: Add Key Vault support to your ASP.NET project using Visual Studio | Microsoft Docs
+title: Add Key Vault support to your ASP.NET project using Visual Studio - Azure Key Vault | Microsoft Docs
 description: Use this tutorial to help you learn how to add Key Vault support to an ASP.NET or ASP.NET Core web application.
 services: key-vault
 author: ghogen
@@ -9,7 +9,7 @@ ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
-ms.date: 04/15/2018
+ms.date: 01/02/2019
 ms.author: ghogen
 ---
 # Add Key Vault to your web application by using Visual Studio Connected Services

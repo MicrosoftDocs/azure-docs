@@ -69,11 +69,12 @@
 ### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 
 # Reference
-## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
+## [Azure PowerShell](/powershell/module/az.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
 ## [Python](https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python)
 ## [REST](/rest/api/datalakeanalytics/)
+## [Resource Manager template](/azure/templates/microsoft.datalakeanalytics/allversions)
 ## [CLI](https://docs.microsoft.com/cli/azure/dla)
 
 # Resources

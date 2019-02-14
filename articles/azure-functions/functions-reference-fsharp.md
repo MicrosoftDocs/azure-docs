@@ -92,7 +92,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## Logging
-To log output to your [streaming logs](../app-service/web-sites-enable-diagnostic-log.md) in F#, your function should take an argument of type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). For consistency, we recommend this argument is named `log`. For example:
+To log output to your [streaming logs](../app-service/troubleshoot-diagnostic-logs.md) in F#, your function should take an argument of type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). For consistency, we recommend this argument is named `log`. For example:
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =

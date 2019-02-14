@@ -3,30 +3,30 @@ title: Integrate logs from Azure Key Vault by using Event Hubs | Microsoft Docs
 description: Tutorial that provides the necessary steps to make Key Vault logs available to a SIEM by using Azure Log Integration
 services: security
 author: barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 
 ms.assetid:
 ms.service: security
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
 ---
 # Azure Log Integration tutorial: Process Azure Key Vault events by using Event Hubs
 
 >[!IMPORTANT]
-> The Azure Log integration feature will be deprecated by 06/01/2019. AzLog downloads will be disabled by Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
+> The Azure Log integration feature will be deprecated by 06/01/2019. AzLog downloads were disabled on Jun 27, 2018. For guidance on what to do moving forward review the post [Use Azure monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 You can use Azure Log Integration to retrieve logged events and make them available to your security information and event management (SIEM) system. This tutorial shows an example of how Azure Log Integration can be used to process logs that are acquired through Azure Event Hubs.
 
-The preferred method for integrating Azure logs is by using your SIEM vendor’s Azure Monitor connector and following these [instructions](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesn’t provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
+The preferred method for integrating Azure logs is by using your SIEM vendor's Azure Monitor connector and following these [instructions](../azure-monitor/platform/stream-monitoring-data-event-hubs.md). However, if your SIEM vendor doesn't provide a connector to Azure Monitor, you may be able to use Azure Log Integration as a temporary solution (if your SIEM is supported by Azure Log Integration) until such a connector is available.
 
  
-Use this tutorial to get acquainted with how Azure Log Integration and Event Hubs work together by following the example steps and understanding how each step supports the solution. Then you can take what you’ve learned here to create your own steps to support your company’s unique requirements.
+Use this tutorial to get acquainted with how Azure Log Integration and Event Hubs work together by following the example steps and understanding how each step supports the solution. Then you can take what you've learned here to create your own steps to support your company's unique requirements.
 
 >[!WARNING]
-The steps and commands in this tutorial are not intended to be copied and pasted. They're examples only. Do not use the PowerShell commands “as is” in your live environment. You must customize them based on your unique environment.
+The steps and commands in this tutorial are not intended to be copied and pasted. They're examples only. Do not use the PowerShell commands "as is" in your live environment. You must customize them based on your unique environment.
 
 
 This tutorial walks you through the process of taking Azure Key Vault activity logged to an event hub and making it available as JSON files to your SIEM system. You can then configure your SIEM system to process the JSON files.
@@ -51,31 +51,32 @@ Before you can complete the steps in this article, you need the following:
  
 1. A system with access to the internet that meets the requirements for installing Azure Log Integration. The system can be on a cloud service or hosted on-premises.
 
-1. [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) installed. To install it:
+1. Azure Log Integration installed. To install it:
 
    a. Use Remote Desktop to connect to the system mentioned in step 2.   
-   b. Copy the Azure Log Integration installer to the system. You can [download the installation files](https://www.microsoft.com/download/details.aspx?id=53324).   
-   c. Start the installer and accept the Microsoft Software License Terms.   
-   d. If you will provide telemetry information, leave the check box selected. If you'd rather not send usage information to Microsoft, clear the check box.
-   
+   b. Copy the Azure Log Integration installer to the system. 
+   c. Start the installer and accept the Microsoft Software License Terms.
+
+1. If you will provide telemetry information, leave the check box selected. If you'd rather not send usage information to Microsoft, clear the check box.
+
    For more information about Azure Log Integration and how to install it, see [Azure Log Integration with Azure Diagnostics logging and Windows Event Forwarding](security-azure-log-integration-get-started.md).
 
 1. The latest PowerShell version.
- 
+
    If you have Windows Server 2016 installed, then you have at least PowerShell 5.0. If you're using any other version of Windows Server, you might have an earlier version of PowerShell installed. You can check the version by entering ```get-host``` in a PowerShell window. If you don't have PowerShell 5.0 installed, you can [download it](https://www.microsoft.com/download/details.aspx?id=50395).
 
    After you have at least PowerShell 5.0, you can proceed to install the latest version:
-   
+
    a. In a PowerShell window, enter the ```Install-Module Azure``` command. Complete the installation steps.    
    b. Enter the ```Install-Module AzureRM``` command. Complete the installation steps.
 
-   For more information, see [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0).
+   For more information, see [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0).
 
 
 ## Create supporting infrastructure elements
 
 1. Open an elevated PowerShell window and go to **C:\Program Files\Microsoft Azure Log Integration**.
-1. Import the AzLog cmdlets by running the script LoadAzLogModule.ps1. Enter the `.\LoadAzLogModule.ps1` command. (Notice the “.\” in that command.)
+1. Import the AzLog cmdlets by running the script LoadAzLogModule.ps1. Enter the `.\LoadAzLogModule.ps1` command. (Notice the ".\" in that command.)
 You should see something like this:</br>
 
    ![Loaded modules list](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
@@ -89,7 +90,7 @@ You should see something like this:</br>
 
    ![PowerShell window](./media/security-azure-log-integration-keyvault-eventhub/login-azurermaccount.png)
 1. Create variables to store values that will be used later. Enter each of the following PowerShell lines. You might need to adjust the values to match your environment.
-    - ```$subscriptionName = ‘Visual Studio Ultimate with MSDN’``` (Your subscription name might be different. You can see it as part of the output of the previous command.)
+    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (Your subscription name might be different. You can see it as part of the output of the previous command.)
     - ```$location = 'West US'``` (This variable will be used to pass the location where resources should be created. You can change this variable to be any location of your choosing.)
     - ```$random = Get-Random```
     - ``` $name = 'azlogtest' + $random``` (The name can be anything, but it should include only lowercase letters and numbers.)

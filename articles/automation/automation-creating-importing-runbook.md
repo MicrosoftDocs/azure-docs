@@ -3,7 +3,7 @@ title: Creating or importing a runbook in Azure Automation
 description: This article describes how to create a new runbook in Azure Automation or import one from a file.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 08/06/2018

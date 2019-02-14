@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: This quickstart walks you through getting an answer from your knowledge base using cURL.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry

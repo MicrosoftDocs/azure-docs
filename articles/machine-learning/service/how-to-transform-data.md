@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn about transforming and cleaning data with Azure Machine Learning Data Prep SDK. Use transform methods to add columns, filter out unwanted rows or columns, and impute missing values.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: cforbe
 author: cforbe
@@ -20,7 +20,7 @@ In this article, you learn different methods of loading data using the [Azure Ma
 
 Currently there are functions for the following tasks:
 
-- [Add column using an expression](#column)
+- Add column using an expression
 - [Impute missing values](#impute-missing-values)
 - [Derive column by example](#derive-column-by-example)
 - [Filtering](#filtering)

@@ -3,14 +3,14 @@ title: Web sign-in with OpenID Connect in Azure Active Directory B2C | Microsoft
 description: Building web applications by using the Azure Active Directory implementation of the OpenID Connect authentication protocol.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Azure Active Directory B2C: Web sign-in with OpenID Connect
@@ -25,7 +25,7 @@ which enables you to use OpenID Connect to add user experiences--such as sign-up
 in your web applications. We'll also show you how to get access tokens for accessing web APIs.
 
 The example HTTP requests in the next section use our sample B2C directory, fabrikamb2c.onmicrosoft.com, as well as our sample application, https://aadb2cplayground.azurewebsites.net, and user flows. You're free to try out the requests yourself by using these values, or you can replace them with your own.
-Learn how to [get your own B2C tenant, application, and user flows](#use-your-own-b2c-directory).
+Learn how to [get your own B2C tenant, application, and user flows](#use-your-own-b2c-tenant).
 
 ## Send authentication requests
 When your web app needs to authenticate the user and execute a user flow, it can direct the user to the `/authorize` endpoint. This is the interactive portion of the flow, where the user takes action, depending on the user flow.

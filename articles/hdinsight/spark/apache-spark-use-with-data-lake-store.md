@@ -25,7 +25,7 @@ In this tutorial, you use [Jupyter Notebook](https://jupyter.org/) available wit
 ## Prepare the data
 
 > [!NOTE]  
-> You do not need to perform this step if you have created the HDInsight cluster with Data Lake Storage as default storage. The cluster creation process adds some sample data in the Data Lake Storage account that you specify while creating the cluster. Skip to the section [Use HDInsight Spark cluster with Data Lake Storage](#use-an-hdinsight-spark-cluster-with-data-lake-store).
+> You do not need to perform this step if you have created the HDInsight cluster with Data Lake Storage as default storage. The cluster creation process adds some sample data in the Data Lake Storage account that you specify while creating the cluster. Skip to the section Use HDInsight Spark cluster with Data Lake Storage.
 
 If you created an HDInsight cluster with Data Lake Storage as additional storage and Azure Storage Blob as default storage, you should first copy over some sample data to the Data Lake Storage account. You can use the sample data from the Azure Storage Blob associated with the HDInsight cluster. You can use the [ADLCopy tool](https://aka.ms/downloadadlcopy) to do so. Download and install the tool from the link.
 
@@ -126,3 +126,4 @@ If you created an HDInsight cluster with Data Lake Storage as additional storage
 * [Create a standalone Scala application to run on Apache Spark cluster](apache-spark-create-standalone-application.md)
 * [Use HDInsight Tools in Azure Toolkit for IntelliJ to create Apache Spark applications for HDInsight Spark Linux cluster](apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools in Azure Toolkit for Eclipse to create Apache Spark applications for HDInsight Spark Linux cluster](apache-spark-eclipse-tool-plugin.md)
+* [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

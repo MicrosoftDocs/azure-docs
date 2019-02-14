@@ -26,7 +26,7 @@ A project also maintains metadata and other configuration settings that affect t
 
 Your **My Projects** dashboard at `https://notebooks.azure.com/<userID>/projects` is where you view, manage, and create projects:
 
-[![](media/my-projects-dashboard.png "My Projects dashboard in Azure Notebooks")](media/my-projects-dashboard.png#lightbox)
+[![My Projects dashboard in Azure Notebooks](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 What you can do on the dashboard depends on whether you're signed in with the account that owns the user ID:
 

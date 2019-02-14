@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/18/2018
+ms.date: 12/21/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand why and when to review endpoint utterances. 
 
 --- 
 
-# Tutorial 1: Fix unsure predictions
+# Tutorial: Fix unsure predictions by reviewing endpoint utterances
 In this tutorial, improve app predictions by verifying or correcting utterances received via the LUIS HTTPS endpoint that LUIS is unsure of. Some utterances may have to be verified for intent and others may need to be verified for entity. You should review endpoint utterances as a regular part of you scheduled LUIS maintenance. 
 
 This review process is another way for LUIS to learn your app domain. LUIS selected the utterances that appear in the review list. This list is:
@@ -30,7 +30,7 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Use existing tutorial app
+> * Import example app
 > * Review endpoint utterances
 > * Update phrase list
 > * Train app
@@ -39,11 +39,11 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Use existing app
+## Import example app
 
 Continue with the app created in the last tutorial, named **HumanResources**. 
 
-If you do not have the HumanResources app from the previous tutorial, use the following steps:
+Use the following steps:
 
 1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
 

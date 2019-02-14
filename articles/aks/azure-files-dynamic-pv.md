@@ -180,7 +180,7 @@ Create the pod with the [kubectl apply][kubectl-apply] command.
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-You now have a running pod with your Azure disk mounted in the */mnt/azure* directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`. The following condensed example output shows the volume mounted in the container:
+You now have a running pod with your Azure Files share mounted in the */mnt/azure* directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`. The following condensed example output shows the volume mounted in the container:
 
 ```
 Containers:

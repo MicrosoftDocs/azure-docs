@@ -1,4 +1,4 @@
-﻿---
+---
 title: Approve or deny requests for Azure AD directory roles in PIM | Microsoft Docs
 description: Learn how to approve or deny requests for Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
@@ -12,15 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
-ms.date: 08/29/2018
+ms.subservice: pim
+ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 
 # Approve or deny requests for Azure AD directory roles in PIM
 
-With Azure AD Privileged Identity Management (PIM), you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers. Follow the steps in this article to approve or deny requests for Azure AD directory roles.
+With Azure AD Privileged Identity Management (PIM), you can configure roles to require approval for activation, and choose one or multiple users or groups as delegated approvers. Delegated approvers have 24 hours to approve requests. If a request is not approved within 24 hours, then the eligible user must re-submit a new request. The 24 hour approval time window is not configurable.
+
+Follow the steps in this article to approve or deny requests for Azure AD directory roles.
 
 ## View pending requests
 

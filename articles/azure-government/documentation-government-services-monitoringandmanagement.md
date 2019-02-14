@@ -21,21 +21,32 @@ ms.author: gsacavdm
 This article outlines the monitoring and management services variations and considerations for the Azure Government environment.
 
 ## Advisor
-Advisor is in public preview in Azure Government.
+Advisor is generally available in Azure Government.
 
 For more information, see [Advisor public documentation](../advisor/advisor-overview.md).
 
 ### Variations
 The following Advisor recommendations are not currently available in Azure Government:
 
-* Security
-  * Security recommendations from Security Center
-* Cost
-  * Optimize virtual machine spend by resizing or shutting down underutilized instances
-  * Eliminate unprovisioned ExpressRoute circuits
+* High Availability
+  * Configure your VPN gateway to active-active for connection resilience
+  * Create Azure Service Health alerts to be notified when Azure issues affect you
+  * Configure Traffic Manager endpoints for resiliency
+  * Use soft delete for your Azure Storage Account
 * Performance
   * Improve App Service performance and reliability
-  * Improve Azure Cache for Redis performance and reliability
+  * Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
+  * Improve SQL Datawarehouse performance
+  * Use Premium Storage
+  * Migrate your Storage Account to Azure Resource Manager
+* Cost
+  * Buy reserved virtual machines instances to save money over pay-as-you-go costs
+  * Eliminate unprovisioned ExpressRoute circuits
+  * Delete or reconfigure idle virtual network gateways
+
+The calculation used to recommend that you should right-size or shutdown underutilized virtual machines is as follows in Azure Government:
+
+Advisor monitors your virtual machine usage for 7 days and identifies low-utilization virtual machines. Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2% or if the current workload can be accommodated by a smaller virtual machine size. If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
 
 ## Automation
 Automation is generally available in Azure Government.
@@ -86,7 +97,7 @@ The following URLs for Site Recovery are different in Azure Government:
 | \*.hypervrecoverymanager.windowsazure.com | \*.hypervrecoverymanager.windowsazure.us | Access to the Site Recovery Service |
 | \*.backup.windowsazure.com  | \*.backup.windowsazure.us | Access to Protection Service |
 | \*.blob.core.windows.net | \*.blob.core.usgovcloudapi.net | For storing the VM Snapshots |
-| http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
+| https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
 
 ## Monitor
 Azure Monitor is generally available in Azure Government.
@@ -142,6 +153,19 @@ Add-AzureRmMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -Resource
 
 For more information on using PowerShell, see [public documentation](../azure-monitor/platform/powershell-quickstart-samples.md).
 
+## Application Insights
+The Azure Application Insights service uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
+
+> [!NOTE]
+> Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhooks, which require inbound firewall rules.
+
+### Outgoing ports
+You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK and/or Status Monitor to send data to the portal:
+
+| Purpose | URL | IP | Ports |
+| --- | --- | --- | --- |
+| Telemetry | dc.applicationinsights.us | 23.97.4.113 | 443 |
+
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
 
@@ -174,9 +198,9 @@ The URLs for Log Analytics are different in Azure Government:
 | \*.ods.opinsights.azure.com |\*.ods.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.oms.opinsights.azure.com |\*.oms.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.blob.core.windows.net |\*.blob.core.usgovcloudapi.net |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
-| portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md#log-analytics-page) |
-| api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md#log-analytics-page) |
-| docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md#log-analytics-page) |
+| portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
+| api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
+| docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
 | \*.azure-automation.net |\*.azure-automation.us |Azure Automation - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) |
 | N/A | *.usgovtrafficmanager.net | Azure Traffic Manager - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) |
 
