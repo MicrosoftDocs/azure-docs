@@ -31,7 +31,7 @@
   - name: Add or update security info methods overview
     href: security-info-add-update-methods-overview.md
     items:
-    - name: Set up for an authenticator app 
+    - name: Set up an authenticator app 
       href: security-info-setup-auth-app.md
     - name: Set up text messaging        
       href: security-info-setup-text-msg.md
