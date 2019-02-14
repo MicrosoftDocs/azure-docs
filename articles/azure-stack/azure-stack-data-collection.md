@@ -43,17 +43,17 @@ For the automated data deletion action (90 days after case close), we do not pro
 
 For the on-demand data deletion action, Microsoft support engineer has access to the tool where they can initiate the data deletion on demand and they can provide confirmation on the phone with the customer when it’s done.
 
-## Diagnostic Data
+## Diagnostic data
 As part of the support process, Azure Stack Operators can [share diagnostic logs](azure-stack-diagnostics.md) with Azure Stack support and engineering teams to facilitate troubleshooting.
 
 Microsoft provides a tool and script for customers to collect and upload requested diagnostic log files. Once collected, the log files are transferred over an HTTPS protected encrypted connection to Microsoft. Because HTTPS provides the encryption over the wire, there is no password needed for the encryption in transit. After they are received, logs are encrypted and stored until they are automatically deleted 90 days after the support case is closed.
 
-## Telemetry Data
+## Telemetry data
 [Azure Stack telemetry](azure-stack-telemetry.md) automatically uploads system data to Microsoft via the Connected User Experience. Azure Stack Operators have controls to customize telemetry features and privacy settings at any time.
 
 Microsoft doesn't intend to gather sensitive data, such as credit card numbers, usernames and passwords, email addresses, or similar sensitive information. If we determine that sensitive information has been inadvertently received, we delete it. 
 
-## Billing Data
+## Billing data
 [Azure Stack Billing](azure-stack-usage-reporting.md) leverages global Azure’s Billing and Usage pipeline and is therefore in alignment with Microsoft compliance guidelines.
 
 Azure Stack Operators can configure Azure Stack to forward usage information to Azure for billing. This is required for Multi-Node Azure Stack customers who choose pay-as-you-use billing model. Usage reporting is controlled independently from telemetry and is not required for Multi-Node customers who choose the capacity model or for Azure Stack Development Kit users. For these scenarios, usage reporting can be turned off using [the registration script](azure-stack-usage-reporting.md).
