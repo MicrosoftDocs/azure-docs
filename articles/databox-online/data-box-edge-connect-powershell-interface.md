@@ -79,7 +79,7 @@ Before you begin, ensure that Follow these steps to remotely connect from a Linu
 1. Run PowerShell as an administrator and run the following commands- 
  
  
-If you experience any device issues, you can create a Support package from the system logs. Microsoft Support uses this package to troubleshoot the issue. To generate a Support package, perform the following steps:
+
 
 1. In the local web UI, go to **Contact Support** and click **Create Support package**.
 
@@ -174,7 +174,7 @@ If you boot up in a non-DHCP environment, follow these steps to deploy the virtu
     IsRegistered                  : False
     ```
 
-Here is a table summarizing some of the important appliance information:
+Here is a table summarizing some of the important device information:
 
 | Parameter                             | Description                                                                                                                                                  |   |
 |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
@@ -195,23 +195,27 @@ Here is a table summarizing some of the important appliance information:
 
     Replace `<device_ip>` with the IP address of your device.
  
-3. Start a Windows PowerShell session on the device and connect to the Support runspace.
+3. Start a Windows PowerShell session on the device and connect to the support runspace.
 
     ```
     Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Force
     $minishellSession= New-PSSession -ComputerName $ip -ConfigurationName "Minishell" -Credential ~\EdgeUser  
     Invoke-Command -Session $minishellSession -ScriptBlock { Enable-HcsSupportAccess }
     ```  
-4. This command will output an encrypted key. Send this key to the Support Engineer in email. Microsoft will send you the decrypted password for the support session.
+    This command outputs an encrypted key. 
 
+4. Send this key to the Support Engineer in email. Microsoft will send you an access key for the support session.
+
+5. Use the password in the following command:
     ``` 
     $supportSession = New-PSSession -ComputerName $ip -Credential ~\EdgeSupport -ConfigurationName SupportSession 
     Enter-PSSession -Session $supportSession
     ```
-5. The support session automatically disables after 8 hours.
+6. You are now in support session. The support session stays enabled for 8 hours. If you need to get the access key, use the `Get-HcsSupportAccessKey` cmdlet. To disable the support session any time, use the `Disable-HcsSupportAccess` cmdlet.
 
-Get-HcsSupportAccessKey - to get the access key if the support session is already enabled
+## Create a support package
 
+If you experience any device issues, you can create a support package from the system logs. Microsoft Support uses this package to troubleshoot the issues. Follow these steps to create a support package:
 
 Get-HcsNodeSupportPackage
 
