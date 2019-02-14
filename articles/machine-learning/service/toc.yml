@@ -35,6 +35,7 @@
   - name: Regression (NYC Taxi data)
     items:
     - name: 1. Prepare data for modeling
+      displayName: data prep
       href: tutorial-data-prep.md
     - name: 2. Auto-train an ML model
       displayName: automl, automated, auto ml,
