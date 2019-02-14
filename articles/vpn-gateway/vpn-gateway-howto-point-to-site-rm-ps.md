@@ -33,6 +33,8 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
+In this article, to upload the root certificate public key, you must either use PowerShell locally, or the Azure portal.
+
 ### <a name="example"></a>Example values
 
 You can use the example values to create a test environment, or refer to these values to better understand the examples in this article. The variables are set in section [1](#declare) of the article. You can either use the steps as a walk-through and use the values without changing them, or change them to reflect your environment.
@@ -163,8 +165,7 @@ If you use self-signed certificates, they must be created using specific paramet
 
 Verify that your VPN gateway has finished creating. Once it has completed, you can upload the .cer file (which contains the public key information) for a trusted root certificate to Azure. Once a.cer file is uploaded, Azure can use it to authenticate clients that have installed a client certificate generated from the trusted root certificate. You can upload additional trusted root certificate files - up to a total of 20 - later, if needed.
 
->[!NOTE]
-> You can't upload this information using Azure Cloud Shell. You can either use Azure PowerShell locally on your computer, or you can upload the certificate using the [Azure portal steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
+You can't upload this information using Azure Cloud Shell. You can either use Azure PowerShell locally on your computer, or you can upload the certificate using the [Azure portal steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
 
 1. Declare the variable for your certificate name, replacing the value with your own.
 
