@@ -1,5 +1,5 @@
 ---
-title: Starting a runbook in Azure Automation
+title: Start a runbook in Azure Automation
 description: Summarizes the different methods that can be used to start a runbook in Azure Automation and provides details on using both the Azure portal and Windows PowerShell.
 services: automation
 ms.service: automation
@@ -10,14 +10,15 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 ---
-# Starting a runbook in Azure Automation
+# Start a runbook in Azure Automation
+
 The following table helps you determine the method to start a runbook in Azure Automation that is most suitable to your particular scenario. This article includes details on starting a runbook with the Azure portal and with Windows PowerShell. Details on the other methods are provided in other documentation that you can access from the links below.
 
 | **METHOD** | **CHARACTERISTICS** |
 | --- | --- |
 | [Azure portal](#starting-a-runbook-with-the-azure-portal) |<li>Simplest method with interactive user interface.<br> <li>Form to provide simple parameter values.<br> <li>Easily track job state.<br> <li>Access authenticated with Azure logon. |
-| [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook) |<li>Call from command line with Windows PowerShell cmdlets.<br> <li>Can be included in automated solution with multiple steps.<br> <li>Request is authenticated with certificate or OAuth user principal / service principal.<br> <li>Provide simple and complex parameter values.<br> <li>Track job state.<br> <li>Client required to support PowerShell cmdlets. |
-| [Azure Automation API](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>Most flexible method but also most complex.<br> <li>Call from any custom code that can make HTTP requests.<br> <li>Request authenticated with certificate, or Oauth user principal / service principal.<br> <li>Provide simple and complex parameter values. *If you are calling a Python runbook using the API, the JSON payload must be serialized.*<br> <li>Track job state. |
+| [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Call from command line with Windows PowerShell cmdlets.<br> <li>Can be included in automated solution with multiple steps.<br> <li>Request is authenticated with certificate or OAuth user principal / service principal.<br> <li>Provide simple and complex parameter values.<br> <li>Track job state.<br> <li>Client required to support PowerShell cmdlets. |
+| [Azure Automation API](/rest/api/automation/) |<li>Most flexible method but also most complex.<br> <li>Call from any custom code that can make HTTP requests.<br> <li>Request authenticated with certificate, or Oauth user principal / service principal.<br> <li>Provide simple and complex parameter values. *If you are calling a Python runbook using the API, the JSON payload must be serialized.*<br> <li>Track job state. |
 | [Webhooks](automation-webhooks.md) |<li>Start runbook from single HTTP request.<br> <li>Authenticated with security token in URL.<br> <li>Client cannot override parameter values specified when webhook created. Runbook can define single parameter that is populated with the HTTP request details.<br> <li>No ability to track job state through webhook URL. |
 | [Respond to Azure Alert](../log-analytics/log-analytics-alerts.md) |<li>Start a runbook in response to Azure alert.<br> <li>Configure webhook for runbook and link to alert.<br> <li>Authenticated with security token in URL. |
 | [Schedule](automation-schedules.md) |<li>Automatically start runbook on hourly, daily, weekly, or monthly schedule.<br> <li>Manipulate schedule through Azure portal, PowerShell cmdlets, or Azure API.<br> <li>Provide parameter values to be used with schedule. |
@@ -27,14 +28,16 @@ The following image illustrates detailed step-by-step process in the life cycle 
 
 ![Runbook Architecture](media/automation-starting-runbook/runbooks-architecture.png)
 
-## Starting a runbook with the Azure portal
+## Start a runbook with the Azure portal
+
 1. In the Azure portal, select **Automation** and then click the name of an automation account.
 2. On the Hub menu, select **Runbooks**.
 3. On the **Runbooks** page, select a runbook, and then click **Start**.
 4. If the runbook has parameters, you are prompted to provide values with a text box for each parameter. See [Runbook Parameters](#Runbook-parameters) below for further details on parameters.
 5. On the **Job** page, you can view the status of the runbook job.
 
-## Starting a runbook with Windows PowerShell
+## Start a runbook with PowerShell
+
 You can use the [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) to start a runbook with Windows PowerShell. The following sample code starts a runbook called Test-Runbook.
 
 ```azurepowershell-interactive
@@ -68,11 +71,13 @@ Start-AzureRmAutomationRunbook â€“AutomationAccountName "MyAutomationAccount" â€
 ```
 
 ## Runbook parameters
+
 When you start a runbook from the Azure portal or Windows PowerShell, the instruction is sent through the Azure Automation web service. This service does not support parameters with complex data types. If you need to provide a value for a complex parameter, then you must call it inline from another runbook as described in [Child runbooks in Azure Automation](automation-child-runbooks.md).
 
 The Azure Automation web service provides special functionality for parameters using certain data types as described in the following sections:
 
 ### Named values
+
 If the parameter is data type [object], then you can use the following JSON format to send it a list of named values: *{Name1:'Value1', Name2:'Value2', Name3:'Value3'}*. These values must be simple types. The runbook receives the parameter as a [PSCustomObject](https://msdn.microsoft.com/library/system.management.automation.pscustomobject%28v=vs.85%29.aspx) with properties that correspond to each named value.
 
 Consider the following test runbook that accepts a parameter called user.
@@ -109,6 +114,7 @@ Smith
 ```
 
 ### Arrays
+
 If the parameter is an array such as [array] or [string[]], then you can use the following JSON format to send it a list of values: *[Value1, Value2, Value3]*. These values must be simple types.
 
 Consider the following test runbook that accepts a parameter called *user*.
@@ -144,6 +150,7 @@ Smith
 ```
 
 ### Credentials
+
 If the parameter is data type **PSCredential**, then you can provide the name of an Azure Automation [credential asset](automation-credentials.md). The runbook retrieves the credential with the name that you specify.
 
 Consider the following test runbook that accepts a parameter called credential.
@@ -171,7 +178,6 @@ jsmith
 ```
 
 ## Next steps
+
 * The runbook architecture in current article provides a high-level overview of runbooks managing resources in Azure and on-premises with the Hybrid Runbook Worker. To learn about executing Automation runbooks in your datacenter, refer to [Hybrid Runbook Workers](automation-hybrid-runbook-worker.md).
 * To learn more about the creating modular runbooks to be used by other runbooks for specific or common functions, refer to [Child Runbooks](automation-child-runbooks.md).
-
-

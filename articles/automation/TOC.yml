@@ -85,8 +85,6 @@
         - name: Runbook types
           href: automation-runbook-types.md
           displayName: graphical, python, powershell, powershell workflow
-        - name: Create and import runbooks
-          href: automation-creating-importing-runbook.md
         - name: Create a graphical runbook
           href: automation-first-runbook-graphical.md
         - name: Create a PowerShell runbook
@@ -119,8 +117,10 @@
           href: graphical-runbook-sdk.md
     - name: Automate
       items:
+        - name: Manage runbooks
+          href: manage-runbooks.md
         - name: Start a runbook
-          href: automation-starting-a-runbook.md
+          href: start-runbooks.md
         - name: Start a runbook from a webhook
           href: automation-webhooks.md
         - name: Runbook input parameters
@@ -203,12 +203,6 @@
           displayName: Monitor, Azure Monitor 
         - name: Create Amazon Web Service VM
           href: automation-scenario-aws-deployment.md
-        - name: Source control integration with GitHub Enterprise
-          href: automation-scenario-source-control-integration-with-github-ent.md
-          displayName: CI, runbooks
-        - name: Source control integration with Azure DevOps
-          href: automation-scenario-source-control-integration-with-VSTS.md
-          displayName: VSTS, CI, runbooks
         - name: Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
           href: automation-deploy-template-runbook.md
         - name: Integrate Azure Automation with Event Grid and Microsoft Teams
