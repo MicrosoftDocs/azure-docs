@@ -49,7 +49,9 @@ Depending on your organization’s settings, you might be able to use an authent
     ![Start by getting the app page](media/security-info/securityinfo-myprofile-getauthapp.png)
 
     >![Note]
-    >If you don't want to use the Microsoft Authenticator app, you can click the **I want to use a different authenticator app** link.
+    >If you want to use an authenticator app other than the Microsoft Authenticator app, select the **I want to use a different authenticator app** link.
+    
+    >If your organization lets you choose a different method besides the authenticator app, you can select the **I want to set up a different method link**.
 
 5. Remain on the **Set up your account** page while you set up the Microsoft Authenticator app on your mobile device.
 
@@ -107,6 +109,8 @@ If you want the authenticator app to be the default method used when you sign-in
 2. Choose **Microsoft Authenticator - notification** from the drop-down list of available methods. If you're not using the Microsoft Authenticator app, select the **Authenticator app or hardware token** option.
 
     ![Choose method for default sign-in](media/security-info/securityinfo-myprofile-defaultauthapp.png)
+
+3. Select **Confirm**.
 
     The default method used for sign-in changes to the Microsoft Authenticator app.
 

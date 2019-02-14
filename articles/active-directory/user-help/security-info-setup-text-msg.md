@@ -23,7 +23,7 @@ If you're prompted to set this up immediately after you sign in to your work or 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->If you don't see a text message option, it's possible that your organization doesn't allow you to use a phone number for verification. In this case, you'll need to choose another method or contact your administrator for more help.
+>If you don't see a phone option, it's possible that your organization doesn't allow you to use a phone number for verification. In this case, you'll need to choose another method or contact your administrator for more help.
 
 ## Set up text messages from the Security info page
 Depending on your organization’s settings, you might be able to use text messaging as one of your security info methods. The text message option is a part of the phone option, so you'll set everything up the same way you would for your phone number, but instead of having Microsoft call you, you'll choose to use a text message.
@@ -69,7 +69,7 @@ If you no longer want to use text messages as a security info method, you can re
 
 - On the **Security info** page, select the **Delete** link next to the **Phone** option.
 
-    ![Link to delete the phone and text messaging from security info](media/security-info/securityinfo-myprofile-phonetext-delete.png)
+    ![Link to delete the phone and text messaging method from security info](media/security-info/securityinfo-myprofile-phonetext-delete.png)
 
     After you delete the **Phone** option, it's removed from your security info and disappears from the **Security info** page. If text messaging is your default method, the default will change to another available method.
 
@@ -80,7 +80,7 @@ If you want text messaging to be the default method used when you sign-in to you
 
     ![Change link for default sign-in method](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
-2. Select **Phone - text (*_your_phone_number_*)** from the drop-down list of available methods.
+2. Select **Phone - text (*_your_phone_number_*)** from the drop-down list of available methods, and then select **Confirm**.
 
     ![Choose method for default sign-in](media/security-info/securityinfo-myprofile-phonetext-changeddefault.png)
 

@@ -18,9 +18,7 @@ ms.collection: M365-identity-device-management
 # Set up your security info (preview) from the sign-in page prompt
 You can follow these steps if you're prompted to add your security info immediately after you sign in to your work or school account.
 
-You will only see this prompt if your administrator has turned security info on, and if you haven't previously set up your security info.
-
-If you've previously set up security info, but you want to change your method information or your default method, you can follow the steps in the various method-based how-to articles. For more information, see [Add or update your security info overview](security-info-add-update-methods-overview.md).
+You will only see this prompt if your administrator has turned security info on, and if you haven't previously set up your security info. If you've previously set up security info, but you want to change your method information or your default method, you can follow the steps in the various method-based how-to articles. For more information, see [Add or update your security info overview](security-info-add-update-methods-overview.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
@@ -37,7 +35,10 @@ Follow these steps to set up your security info for your work or school account 
 
 1. After you select **Next** from the prompt, a **Keep your account secure wizard** appears, showing the first method your administrator and organization require you to set up. For this example, it's the Microsoft Authenticator app.
 
-    If you don't want to use the Microsoft Authenticator app, you can click the **I want to use a different authenticator app** link.
+    >![Note]
+    >If you want to use an authenticator app other than the Microsoft Authenticator app, select the **I want to use a different authenticator app** link.
+    
+    >If your organization lets you choose a different method besides the authenticator app, you can select the **I want to set up a different method link**.
 
     ![Keep your account secure wizard, showing the auth app download page](media/security-info/securityinfo-prompt-get-auth-app.png)
 
