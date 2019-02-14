@@ -17,17 +17,13 @@ Windows Virtual Desktop enables you to create a full desktop virtualization envi
 
 With Windows Virtual Desktop, you can:
 
-* Bring your own image for production workloads, or test from the Azure Gallery. By bringing your own image, you can easily lift-and-shift your workload to Windows Virtual Desktop. However, you can also use the Azure Gallery as a source for an image to kickstart your testing and migration.
-  
-* Reduce costs by providing pooled, multi-session resources. By creating a host pool with virtual machines based on a multi-session OS image, you can run greatly reduce the number of virtual machines--and therefore, OS overhead--while still providing the same resources to all of your users. This is possible with the familiar Remote Desktop Session Host (RDSH) role on Windows Server, along with the new Windows 10 Enterprise multi-session capability, exclusive to Windows Virtual Desktop.
-
-* Provide individual ownership through personal desktops. Personal desktops are ideal for users who need additional personalization of the virtual machine or want guaranteed performance from the virtual machine (without others also logging on and using resources). By providing a personal desktop, you don't need to provide additional storage, and the desktop feels like the users' standard workstation.
-
-* Reduce the number of images by publishing full desktop or individual RemoteApps. Sometimes your users only require specific LOB apps to use remotely, while others need a full desktop as a primary workstation. You can simplify deployment by publishing both desktops and RemoteApps from a single host pool. You can even create individual app groups for different sets of users. If a user is assigned to multiple app groups, they will see the consolidated list of apps when they sign in to the Windows Virtual Desktop client.
-
-* Only manage the image and virtual machines, not the infrastructure. With Remote Desktop Services on Windows Server, you had to personally manage the Gateway, Broker, and other Remote Desktop roles. With Windows Virtual Desktop, you no longer need to manage that infrastructure, just the virtual machines in your Azure subscription. When your users hit errors, you can use the new Diagnostics service to troubleshoot standard configuration errors or user errors.
-
-* Connect with your device. You can connect to Windows Virtual Desktop with a native application on your Windows, iOS, Android, or Mac device. Or you can connect with any device through a web browser by using the Windows Virtual Desktop web client.
+* Bring your own image for production workloads, or test from the Azure Gallery.
+* Reduce costs with pooled, multi-session resources. With the Remote Desktop Session Host (RDSH) role on Windows Server and the new Windows 10 Enterprise multi-session capability exclusive to Windows Virtual Desktop, you can run greatly reduce the number of virtual machines and OS overhead while still providing the same resources to your users.
+* Provide individual ownership through personal desktops.
+* Publish full desktop or individual RemoteApps from a single host pool, create individual app groups for different sets of users, or even assign users to multiple app groups to reduce the number of images.
+* Only manage the image and virtual machines, not the infrastructure. You don't need to personally manage the Remote Desktop roles like you do with Remote Desktop Services, just the virtual machines in your Azure subscription.
+* Use the new Diagnostics service to troubleshoot errors.
+* Connect with any device through either a native application on your device or the Windows Virtual Desktop web client.
 
 ## Requirements
 
