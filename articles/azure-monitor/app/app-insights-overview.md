@@ -11,11 +11,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/23/2019
+ms.date: 02/14/2019
 ms.author: mbullwin
 ---
 # What is Application Insights?
-Application Insights is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises, hybrid, or any public cloud. It integrates with your DevOps process, and has connection points to a variety of development tools. It can monitor and analyze telemetry from mobile apps by integrating with Visual Studio App Center.
+Application Insights is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app.  It's designed to help you continuously improve  performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and Java EE, hosted on-premises, hybrid, or any public cloud. It integrates with your DevOps process, and has connection points to a variety of development tools. It can monitor and analyze telemetry from mobile apps by integrating with Visual Studio App Center.
 
 [Take a look at the intro animation](https://www.youtube.com/watch?v=fX2NtGrh-Y0).
 
@@ -101,7 +101,7 @@ There are several ways to get started. Begin with whichever works best for you. 
 * **At run time: instrument your web app on the server.** Avoids any update to the code. You need admin access to your server.
   * [**IIS on-premises or on a VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
   * [**Azure web app or VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [**J2EE**](../../azure-monitor/app/java-live.md)
+  * [**Java EE**](../../azure-monitor/app/java-live.md)
 * **At development time: add Application Insights to your code.** Allows you to write custom telemetry and to instrument back-end and desktop apps.
   * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 update 2 or later.
   * [Java](../../azure-monitor/app/java-get-started.md)
@@ -116,7 +116,7 @@ There are several ways to get started. Begin with whichever works best for you. 
 Get started at runtime with:
 
 * [IIS server](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [J2EE server](../../azure-monitor/app/java-live.md)
+* [Java EE server](../../azure-monitor/app/java-live.md)
 
 Get started at development time with:
 
