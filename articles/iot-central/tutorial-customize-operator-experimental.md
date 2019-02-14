@@ -119,7 +119,7 @@ When a builder or operator signs in to an Azure IoT Central application, they se
 
 1. To customize the default application dashboard, navigate to the **Dashboard** page and click **Edit** on the top right of the page. A panel appears with a library of objects you can add to the dashboard.
 
-    ![Dashboard page]((media/tutorial-customize-operator-experimental/builderhome.png)
+    ![Dashboard page](media/tutorial-customize-operator-experimental/builderhome.png)
 
 2. To customize the dashboard, add tiles from the **Library**. Choose **Link**, and add details of your organization's web site. Then choose **Save**:
 
@@ -136,7 +136,7 @@ When a builder or operator signs in to an Azure IoT Central application, they se
 
 ## Preview the dashboard
 
-To preview the application dashboard as an operator, select **Done** on the top right of the page
+To preview the application dashboard as an operator, select **Done** on the top right of the page.
 
 ![Toggle Design Mode](media/tutorial-customize-operator-experimental/operatorviewhome.png)
 
