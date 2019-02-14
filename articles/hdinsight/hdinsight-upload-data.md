@@ -48,7 +48,7 @@ The Azure command-line interface (CLI) is Microsoft's cross-platform command-lin
 
 1. Use the following command to interactively log in to Azure:
 
-    ```cli
+    ```azurecli
     az login
     ```
 
@@ -56,7 +56,7 @@ The Azure command-line interface (CLI) is Microsoft's cross-platform command-lin
 
 2. Use the following command to list the storage accounts for your subscription:
 
-    ```cli
+    ```azurecli
     az storage account list
 
     REM List all storage accounts for a given resource group.
@@ -70,7 +70,7 @@ The Azure command-line interface (CLI) is Microsoft's cross-platform command-lin
 
 3. Replace the parameters with actual values and then use the following command to list the primary and secondary keys for a storage account:
 
-    ```cli
+    ```azurecli
     az storage account keys list --account-name <storage-account-name>
 
     REM Returns primary key only for given storage account.
@@ -81,7 +81,7 @@ The Azure command-line interface (CLI) is Microsoft's cross-platform command-lin
 
 4. Replace the parameters with actual values and then use the following command to list containers in a storage account:
 
-    ```cli
+    ```azurecli
     az storage container list --account-name <storage-account-name> --account-key <primary-key>
 
     REM Return only container names for given storage account.
@@ -92,13 +92,13 @@ The Azure command-line interface (CLI) is Microsoft's cross-platform command-lin
 
 5. Replace the parameters with actual values and then use the following command to upload a file to a storage blob:  
 
-    ```cli
+    ```azurecli
     az storage blob upload --container-name <container-name> --file <source-blob-name> --name <dest-blob-name> --account-name <storage-account-name> --account-key <primary-key>
     ```
 
 6. Replace the parameters with actual values and then use the following command to list blobs in a given container:
 
-    ```cli
+    ```azurecli
     az storage blob list --container-name <container-name> --account-name <storage-account-name> --account-key <primary-key>
 
     REM Returns names only for files that start with foo.
@@ -107,7 +107,7 @@ The Azure command-line interface (CLI) is Microsoft's cross-platform command-lin
 
 7. Replace the parameters with actual values and then use the following command to download a blob to a file path:
 
-    ```cli
+    ```azurecli
     az storage blob download --container-name <container-name> --file <dest-blob-name> --name <source-blob-name> --account-name <storage-account-name> --account-key <primary-key>
     ```
 
