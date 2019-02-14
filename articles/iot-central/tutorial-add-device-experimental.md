@@ -69,7 +69,7 @@ The real device is created from the **Connected Air Conditioner** device templat
 
 3. You can view the **Measurements**, **Rules**, and **Dashboard** pages for your real device.
 
-## Generate connection string for real device from application
+## Generate connection string
 
 A device developer needs to embed the *connection string* for your real device in the code that runs on the device. The connection string enables the device to connect securely to your Azure IoT Central application. You generate the connection string as part of preparing the client code written in Node.js in the next steps. The Node.js application represents the real connected air conditioner. 
 
@@ -156,7 +156,7 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 
 1. Save the changes you have made so far, but keep the file open.
 
-## Understand how client code maps to the application
+## Review client code
 
 In the previous section, you created a skeleton Node.js project for an application that connects to your Azure IoT Central application. In this section, you add the code to:
 
@@ -293,7 +293,7 @@ In the previous section, you created a skeleton Node.js project for an applicati
 
 1. Save the changes you have made so far, but keep the file open.
 
-## Configure client code for the real device
+## Configure client code
 
 <!-- Add the connection string to the sample code, build, and run -->
 To configure your client code to connect to your Azure IoT Central application, you need to add the connection string for your real device that you noted earlier in this tutorial.
