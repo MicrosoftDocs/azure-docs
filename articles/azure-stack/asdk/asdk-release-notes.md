@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 02/09/2019
@@ -24,6 +24,21 @@ ms.lastreviewed: 02/09/2019
 This article provides information about changes, fixes, and known issues in the Azure Stack Development Kit (ASDK). If you're not sure which version you're running, you can [use the portal to check](../azure-stack-updates.md#determine-the-current-version).
 
 Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [feed](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#).
+
+## Build 1.1902.x.xx
+
+### Changes
+
+This build includes the following improvements for Azure Stack:
+
+### New features
+
+- For a list of new features in this release, see [this section](../azure-stack-update-1902.md#new-features) of the Azure Stack release notes.
+
+### Fixed and known issues
+
+- For a list of issues fixed in this release, see [this section](../azure-stack-update-1902.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../azure-stack-update-1902.md#known-issues-post-installation).
+- Note that [available Azure Stack hotfixes](../azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK.
 
 ## Build 1.1901.0.95
 
@@ -58,17 +73,3 @@ For a list of new features in this release, see [this section](../azure-stack-up
 ### Fixed and known issues
 
 For a list of issues fixed in this release, see [this section](../azure-stack-update-1811.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../azure-stack-update-1811.md#known-issues-post-installation).
-
-## Build 1.1809.0.90
-
-### New features
-
-For a list of new features in this release, see [this section](../azure-stack-update-1809.md#new-features) of the Azure Stack release notes.
-
-### Fixed issues
-
-For a list of issues fixed in this release, see [this section](../azure-stack-update-1809.md#fixed-issues).
-
-### Known issues
-
-For a list of known issues in this release, see [this section](../azure-stack-update-1809.md#known-issues-post-installation).
