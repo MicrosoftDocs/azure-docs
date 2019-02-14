@@ -82,7 +82,7 @@ If you want phone calls to be the default method used when you sign-in to your w
 
 2. Select **Phone - call (*_your_phone_number_*)** from the drop-down list of available methods, and then select **Confirm**.
 
-    ![Choose method for default sign-in](media/securityinfo-myprofile-phonecall-changeddefault.png)
+    ![Choose method for default sign-in](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
     The default method used for sign-in changes to **Phone - call (*_your_phone_number_*)**.
 
