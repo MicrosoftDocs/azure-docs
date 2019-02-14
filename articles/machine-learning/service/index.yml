@@ -16,7 +16,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Azure Machine Learning service provides a cloud-based environment to quickly build, train, and deploy your machine learning models. Use automated machine learning to identify algorithms and tune hyperparameters faster. Improve productivity and reduce costs with autoscaling compute and DevOps for machine learning. Access these capabilities from your Python environment using open-source frameworks, such as PyTorch, TensorFlow, and scikit-learn along with the service SDKs. Learn how with our quickstarts and tutorials.
+  description: Azure Machine Learning service provides a cloud-based environment to quickly build, train, and deploy your machine learning models. Use automated machine learning to identify algorithms and tune hyperparameters faster. Improve productivity and reduce costs with autoscaling compute and Azure DevOps for machine learning. Access these capabilities from your Python environment using open-source frameworks, such as PyTorch, TensorFlow, and scikit-learn along with the service SDKs. Learn how with our quickstarts and tutorials.
   
 sections:      
 - title: 5-Minute Quickstarts
@@ -26,8 +26,8 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: '<a href="quickstart-get-started">Use the Azure portal quickstart</a> to get the workspace and run an experiment without installing anything'
-    - html: '<a href="quickstart-create-workspace-with-python">Use the Python quickstart</a> to install the main SDK, create a workspace, and run an experiment in a local notebook server'
+    - html: '<a href="quickstart-get-started">Use the Azure portal quickstart</a> to get the workspace and run an experiment without installing anything.'
+    - html: '<a href="quickstart-create-workspace-with-python">Use the Python quickstart</a> to install the main SDK, create a workspace, and run an experiment in a local notebook server.'
 
 - title: Step-by-Step Tutorials
   items:
