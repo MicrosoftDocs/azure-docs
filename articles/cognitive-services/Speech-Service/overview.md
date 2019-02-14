@@ -62,7 +62,7 @@ Code samples are available on GitHub for each of the Azure Speech Services. Use 
 
 While the Speech Services work well with built-in models, you may want to further customize and tune the experience for your product or environment. Customization options range from acoustic model tuning to unique voice fonts for your brand.
 
-<< THIS NEEDS TO BE BETTER - TRY AGAIN >>
+<< TODO: ERIK - THIS NEEDS TO BE BETTER - TRY AGAIN >>
 
 | Speech Service | Model | Description |
 |----------------|-------|-------------|
