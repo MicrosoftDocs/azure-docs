@@ -16,6 +16,7 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Understanding Users, Groups, and Contacts
 There are several different reasons why you would have multiple Active Directory forests and there are several different deployment topologies. Common models include an account-resource deployment and GAL sync’ed forests after a merger & acquisition. But even if there are pure models, hybrid models are common as well. The default configuration in Azure AD Connect sync does not assume any particular model but depending on how user matching was selected in the installation guide, different behaviors can be observed.

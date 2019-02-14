@@ -1,6 +1,21 @@
 {
     "redirections": [
         {
+          "source_path": "articles/machine-learning/studio/retrain-models-programmatically.md",
+          "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/machine-learning/studio/retrain-new-web-service-using-powershell.md",
+          "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/machine-learning/studio/retrain-a-classic-web-service.md",
+          "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
+          "redirect_document_id": true
+        },
+        {
           "source_path": "articles/machine-learning/studio/walkthrough-develop-predictive-solution.md",
           "redirect_url": "/azure/machine-learning/studio/tutorial-part1-credit-risk",
           "redirect_document_id": true
@@ -11813,6 +11828,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure/machine-learning/studio/faq.md",
+      "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/studio/whats-new.md",
       "redirect_url": "https://azure.microsoft.com/updates/?product=machine-learning-studio",
       "redirect_document_id": false
@@ -12164,7 +12184,7 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-retrain-a-classic-web-service.md",
-      "redirect_url": "/azure/machine-learning/studio/retrain-a-classic-web-service",
+      "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
       "redirect_document_id": false
     },
     {
@@ -12179,7 +12199,7 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-retrain-models-programmatically.md",
-      "redirect_url": "/azure/machine-learning/studio/retrain-models-programmatically",
+      "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
       "redirect_document_id": false
     },
     {
@@ -26824,6 +26844,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/bing-web-search-resource-faq.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/search-responses",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Web-Search/sdk.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/sdk-samples",
       "redirect_document_id": true
@@ -33414,6 +33439,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/data-explorer/spark-integration.md",
+      "redirect_url": "/azure/data-explorer/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/openshift-origin.md",
       "redirect_url": "/azure/virtual-machines/linux/openshift-get-started",
       "redirect_document_id": false
@@ -35719,6 +35749,26 @@
     {
       "source_path": "articles/storage/blobs/data-lake-storage-quickstart-create-connect-hdi-cluster.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-collect-debug-heap-dumps.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-collect-debug-heap-dump-linux",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-debug-tez-ui.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-debug-ambari-tez-view",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-remote-desktop.md",
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-mapreduce-ssh",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-remote-desktop.md",
+      "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-ssh",
       "redirect_document_id": false
     }
   ]

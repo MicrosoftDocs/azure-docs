@@ -16,6 +16,7 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: japere
+ms.collection: M365-identity-device-management
 ---
 
 # Problems signing in to an application from the access panel

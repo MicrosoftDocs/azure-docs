@@ -19,6 +19,7 @@ ms.date: 02/01/2019
 ms.author: markvi
 ms.reviewer: calebb
 
+ms.collection: M365-identity-device-management
 ---
 # How to: Block legacy authentication to Azure AD with conditional access   
 

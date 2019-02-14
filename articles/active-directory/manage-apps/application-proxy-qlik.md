@@ -14,6 +14,7 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Application Proxy and Qlik Sense 
 Azure Active Directory Application Proxy and Qlik Sense have partnered together to ensure you are easily able to use Application Proxy to provide remote access for your Qlik Sense deployment.  
