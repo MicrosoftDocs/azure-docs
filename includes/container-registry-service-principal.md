@@ -36,4 +36,4 @@ The following script uses the [az role assignment create][/cli/azure/role/assign
 
 <!-- LINKS - Internal -->
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
-[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-role-assignment-create]: /cli/azure/role/assignment
