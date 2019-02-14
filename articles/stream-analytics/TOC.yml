@@ -216,9 +216,9 @@
             - name: Analytic Functions Overview
               href: /stream-analytics-query/analytic-functions-azure-stream-analytics 
             - name: AnomalyDetection_SpikeAndDip
-              href: anomalydetection-spikeanddip-azure-stream-analytics.md
+              href: /stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics.md
             - name: AnomalyDetection_ChangePoint
-              href: anomalydetection-changepoint-azure-stream-analytics.md
+              href: /stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics.md
             - name: ISFIRST
               href: /stream-analytics-query/isfirst-azure-stream-analytics 
             - name: LAG
