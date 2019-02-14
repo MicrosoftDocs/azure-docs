@@ -18,6 +18,7 @@ To step through this how-to guide, you need:
 
 > [!NOTE]
 > Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
+> In case of VNET peering, if traffic is flowing through a common VNET Gateway with Service Endpoint and is supposed to flow to the peer, we should create ACL/VNET rule to allow Azure VM's in Gateway VNET to access the PostgreSQL server.
 
 ## Configure Vnet service endpoints for Azure Database for PostgreSQL
 The [az network vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) commands are used to configure Virtual Networks.
