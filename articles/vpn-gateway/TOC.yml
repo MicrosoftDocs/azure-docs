@@ -222,7 +222,7 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn
+    href: /powershell/module/az.network#vpn
   - name: Azure PowerShell (classic)
     href: /powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure
   - name: REST
