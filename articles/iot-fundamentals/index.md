@@ -48,7 +48,7 @@ ms.author: dkshir
                             </div>
                             <div class="cardText">
                                 <h3>Azure IoT services and technologies</h3>
-                                <p>Learn about the SaaS and PaaS services, solutions and technologies, available under the Azure IoT product portfolio, as well as how they relate to each other.</p>
+                                <p>Learn which SaaS and PaaS services, solutions and technologies, are available under the Azure IoT product portfolio.</p>
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@ ms.author: dkshir
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/security.svg" alt="" />
+                                    <img src="media/index/i_security.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -75,142 +75,167 @@ ms.author: dkshir
                 </a>
             </li>
         </ul>
-        <ul class="pivots">
+        <h2>Azure IoT services</h2>
+        <ul class="panelContent cardsF">
             <li>
-                <a href="#products"></a>
-                <ul id="products">
-                    <li>
-                        <a class="singlePanelNavItem selected" style="display: none" href="#indexA" data-linktype="self-bookmark"></a>
-                        <ul class="panelContent singlePanelContent" id="indexA" style="border: medium; border-image: none; margin-top: 0px; display: flex; float: left;">
-                            <li class="fullSpan">
-                                <a href="#index1" data-linktype="self-bookmark"></a>
-                                <ul class="cardsF cols cols4" id="index1" style="float: left; display: flex; width: 100%; border-bottom: 1px var(--grey-lighter) solid;">  
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
-                                                        <h3><a href="../iot-hub/index.yml">Build your own IoT solution</a></h3>
-                                                        <p>
-                                                            <a href="../iot-hub/about-iot-hub.md">What is Azure IoT Hub?</a><br>
-                                                            <a href="../iot-hub/quickstart-send-telemetry-c.md">Send telemetry from a device</a><br>
-                                                            <a href="../iot-hub/quickstart-control-device-node.md">Control a device from the cloud</a><br>
-                                                            <a href="../iot-hub/index.yml"><i>See more &gt;</i></a>
-                                                        </p>
-                                                        <br><br>
-                                                        <h3><a href="../digital-twins/index.yml">Create smart buildings and infrastructure</a></h3>
-                                                        <p>
-                                                            <a href="../digital-twins/about-digital-twins.md">What are Azure Digital Twins?</a><br>
-                                                            <a href="../digital-twins/quickstart-view-occupancy-dotnet.md">Find empty rooms in a building</a><br>
-                                                            <a href="../digital-twins/concepts-objectmodel-spatialgraph.md">Understand spatial graphs and object model</a><br>
-                                                            <a href="../digital-twins/index.yml"><i>See more &gt;</i></a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
-                                                        <h3><a href="../iot-accelerators/index.yml">Customize a pre-built IoT solution</a></h3>
-                                                        <p>
-                                                            <a href="../iot-accelerators/about-iot-accelerators.md">What are IoT solution accelerators?</a><br>
-                                                            <a href="../iot-accelerators/quickstart-remote-monitoring-deploy.md">Try a remote monitoring solution</a><br>
-                                                            <a href="../iot-accelerators/quickstart-connected-factory-deploy.md">Try a connected factory solution</a><br>
-                                                            <a href="../iot-accelerators/index.yml"><i>See more &gt;</i></a>
-                                                        </p>
-                                                        <br><br>
-                                                        <h3><a href="../iot-dps/index.yml">Scalable and secure device provisioning for your IoT hubs</a></h3>
-                                                        <p>
-                                                            <a href="../iot-dps/about-iot-dps.md">What is IoT Hub Device Provisioning Service?</a><br>
-                                                            <a href="../iot-dps/quick-setup-auto-provision-cli.md">Set up the service</a><br>
-                                                            <a href="../iot-dps/quick-create-simulated-device.md">Provision a TPM device</a><br>
-                                                            <a href="../iot-dps/index.yml"><i>See more &gt;</i></a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
-                                                        <h3><a href="../iot-central/index.yml">Deploy a fully-managed IoT solution</a></h3>
-                                                        <p>
-                                                            <a href="../iot-central/overview-iot-central.md">What is Azure IoT Central?</a><br>
-                                                            <a href="../iot-central/overview-iot-central-tour.md">How doe the IoT Central UI look?</a><br>
-                                                            <a href="../iot-central/quick-deploy-iot-central.md">Create an IoT Central application</a><br>
-                                                            <a href="../iot-central/index.yml"><i>See more &gt;</i></a>
-                                                        </p>
-                                                        <br><br>
-                                                        <h3><a href="../time-series-insights/index.yml">Explore and analyze device data</a></h3>
-                                                        <p>
-                                                            <a href="../time-series-insights/time-series-insights-update-overview.md">What is Time Series Insights?</a><br>
-                                                            <a href="../time-series-insights/time-series-quickstart.md">Explore Time Series Insights UI</a><br>
-                                                            <a href="../time-series-insights/tutorial-create-tsi-sample-spa.md">Create a Time Series Insights web app</a><br>
-                                                            <a href="../time-series-insights/index.yml"><i>See more &gt;</i></a><br>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText">
-                                                        <h3><a href="../iot-edge/index.yml">Create smart device interfaces</a></h3>
-                                                        <p>
-                                                            <a href="../iot-edge/about-iot-edge.md">What is Azure IoT Edge?</a><br>
-                                                            <a href="../iot-edge/quickstart-linux.md">Deploy IoT Edge module to a Linux device</a><br>
-                                                            <a href="../iot-edge/quickstart.md">Deploy IoT Edge module to a Windows device</a><br>
-                                                            <a href="../iot-edge/index.yml"><i>See more &gt;</i></a>
-                                                        </p>
-                                                        <br><br>
-                                                        <h3><a href="/azure-maps/index.yml">Mapping serivce for your enterprise</a></h3>
-                                                        <p>
-                                                            <a href="../azure-maps/about-azure-maps.md">What is Azure Maps?</a><br>
-                                                            <a href="../azure-maps/quick-demo-map-app.md">Create an interactive search map</a><br>
-                                                            <a href="../azure-maps/tutorial-route-location.md">Route to your point of interest</a><br>
-                                                            <a href="../azure-maps/index.yml"><i>See more &gt;</i></a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
-            <li>
-                <a href=" https://docs.microsoft.com/dotnet/api/overview/azure/iot?view=azure-dotnet">
                 <div class="cardSize">
                     <div class="cardPadding">
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/office/media/icons/caret-right-blue.svg" alt="" />
+                                    <img src="/media/index/i_iot_hub.svg" alt="What's new icon" />
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Azure IoT API interface</h3>
-                                <p>Explore client and management APIs for Azure IoT services.</p>
+                                <h3>Build your own IoT solution</h3>
+                                <p><a href="../iot-hub/about-iot-hub.md">What is Azure IoT Hub?</a></p>
+                                <p><a href="../iot-hub/quickstart-send-telemetry-c.md">Send telemetry from a device</a></p>
+                                <p><a href="../iot-hub/quickstart-control-device-node.md">Control a device from the cloud</a></p>
+                                <p><a href="../iot-hub/index.yml"><i>See more &gt;</i></a></p>
                             </div>
                         </div>
                     </div>
                 </div>
-                </a>
+            </li>
+            <li>
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="/media/index/i_iot_accelerators.svg" alt="What's new icon" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Customize a pre-built IoT solution</h3>
+                                <p><a href="../iot-accelerators/about-iot-accelerators.md">What are Azure IoT solution accelerators?</a></p>
+                                <p><a href="../iot-accelerators/quickstart-remote-monitoring-deploy.md">Try a remote monitoring solution</a></p>
+                                <p><a href="../iot-accelerators/quickstart-connected-factory-deploy.md">Try a connected factory solution</a></p>
+                                <p><a href="../iot-accelerators/index.md"><i>See more &gt;</i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="/media/index/i_iot_central.svg" alt="What's new icon" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Deploy a fully-managed IoT solution</h3>
+                                <p><a href="../iot-central/overview-iot-central.md">What is Azure IoT Central?</a></p>
+                                <p><a href="../iot-central/overview-iot-central-tour.md">How doe the IoT Central UI look?</a></p>
+                                <p><a href="../iot-central/quick-deploy-iot-central.md">Create an IoT Central application</a></p>
+                                <p><a href="../iot-central/index.yml"><i>See more &gt;</i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="/media/index/i_iot_edge.svg" alt="What's new icon" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Create smart device interfaces</h3>
+                                <p><a href="../iot-edge/about-iot-edge.md">What is Azure IoT Edge?</a></p>
+                                <p><a href="../iot-edge/quickstart-linux.md">Deploy IoT Edge module to a Linux device</a></p>
+                                <p><a href="../iot-edge/quickstart.md">Deploy IoT Edge module to a Windows device</a></p>
+                                <p><a href="../iot-edge/index.yml"><i>See more &gt;</i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="/media/index/i_digital_twins.svg" alt="What's new icon" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Create smart buildings and infrastructure</h3>
+                                <p><a href="../digital-twins/about-digital-twins.md">What are Azure Digital Twins?</a></p>
+                                <p><a href="../digital-twins/quickstart-view-occupancy-dotnet.md">Find empty rooms in a building</a></p>
+                                <p><a href="../digital-twins/concepts-objectmodel-spatialgraph.md">Understand spatial graphs and object model</a></p>
+                                <p><a href="../digital-twins/index.yml"><i>See more &gt;</i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="/media/index/i_iot_dps.svg" alt="What's new icon" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Securely provision devices on a large scale</h3>
+                                <p><a href="../iot-dps/about-iot-dps.md">What is Azure IoT Hub Device Provisioning Service?</a></p>
+                                <p><a href="../iot-dps/quick-setup-auto-provision-cli.md">Set up the service</a></p>
+                                <p><a href="../iot-dps/quick-create-simulated-device.md">Provision a TPM device</a></p>
+                                <p><a href="../iot-dps/index.yml"><i>See more &gt;</i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="/media/index/i_time-series-insights.svg" alt="What's new icon" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Explore and analyze device data</h3>
+                                <p><a href="../time-series-insights/time-series-insights-update-overview.md">What is Azure Time Series Insights?</a></p>
+                                <p><a href="../time-series-insights/time-series-quickstart.md">Explore Time Series Insights UI</a></p>
+                                <p><a href="../time-series-insights/tutorial-create-tsi-sample-spa.md">Create a Time Series Insights web app</a></p>
+                                <p><a href="../time-series-insights/index.yml"><i>See more &gt;</i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="/media/index/i_azure_maps.svg" alt="What's new icon" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Mapping service for your enterprise</h3>
+                                <p><a href="../azure-maps/about-azure-maps.md">What is Azure Maps?</a></p>
+                                <p><a href="../azure-maps/quick-demo-map-app.md">Create an interactive search map</a></p>
+                                <p><a href="../azure-maps/tutorial-route-location.md">Route to your point of interest</a></p>
+                                <p><a href="../azure-maps/index.yml"><i>See more &gt;</i></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </li>
         </ul>
     </div>
