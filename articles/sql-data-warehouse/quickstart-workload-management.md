@@ -5,7 +5,7 @@ services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
 ms.date: 02/07/2019
 ms.author: rortloff
@@ -14,7 +14,7 @@ ms.reviewer: jrasnick
 
 # Quickstart: Create a workload classifier 
 
-Quickly create a workload classifier with high importance for the CEO of your organization. This will allow CEO queries to take precedence over other queries in the queue.
+In this quickstart you will quickly create a workload classifier with high importance for the CEO of your organization. This will allow CEO queries to take precedence over other queries in the queue.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -23,29 +23,87 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 >
 >
 
-## Before you begin
+## Prerequisites
 
-This quickstart assumes you already have a SQL data warehouse and that you have CONTRO DATABASE permissions. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**.
+This quickstart assumes you already have a SQL data warehouse and that you have CONTROL DATABASE permissions. If you need to create one, use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**.
 
 ## Sign in to the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create user 
+## Create TheCEO and DataAnalyst users in mySampleDataWarehouse
+   ```sql
+   CREATE USER [TheCEO] WITH DEFAULT_SCHEMA=[dbo]
+   CREATE USER [DataAnalyst] WITH DEFAULT_SCHEMA=[dbo]
+   ```
 
-## run queries to show CEO waiting
+## Create workload classifiers for TheCEO and the DataAnalyst with normal importance
 
-## Create the workload classifier
+   ```sql
+   DROP WORKLOAD CLASSIFIER wgcTheCEO;
+   CREATE WORKLOAD CLASSIFIER wgcTheCEO
+   WITH (WORKLOAD_GROUP = 'xlargerc'
+         ,MEMBERNAME = 'TheCEO'
+         ,IMPORTANCE = NORMAL);
 
-## run queries again to show CEO not waiting
+   DROP WORKLOAD CLASSIFIER wgcDataAnalyst;
+   CREATE WORKLOAD CLASSIFIER wgcDataAnalyst 
+   WITH (WORKLOAD_GROUP = 'xlargerc'
+         ,MEMBERNAME = 'DataAnalyst'
+	     ,IMPORTANCE = NORMAL);
 
-##  
+   ```
+
+## In separate query windows run three queries as dataAnalyst and one as TheCEO
+   ```sql
+   ```
+
+
+## In another query window monitor the running queries. You will see that THECeo query is queued behind the DataAnalyst queries due to being submitted after the DataAnalyst queries.
+   ```sql
+   SELECT s.login_name, r.[Status], r.Importance, submit_time, start_time
+   FROM sys.dm_pdw_exec_sessions s
+   JOIN sys.dm_pdw_exec_requests r ON s.session_id = r.session_id
+   WHERE s.login_name IN ('DataAnalyst','TheCEO')
+   AND r.[Status] in ('Running', 'Suspended') and s.session_id<>session_id()
+   ORDER BY submit_time
+
+   SELECT s.login_name, r.[Status], r.Importance, submit_time, start_time
+   FROM sys.dm_pdw_exec_sessions s
+   JOIN sys.dm_pdw_exec_requests r ON s.session_id = r.session_id
+   WHERE r.request_id IN (SELECT TOP 4 r.request_id FROM sys.dm_pdw_exec_sessions s
+   JOIN sys.dm_pdw_exec_requests r ON s.session_id = r.session_id WHERE s.login_name IN ('DataAnalyst','TheCEO') and r.resource_class is not null ORDER BY submit_time DESC)
+   ORDER BY submit_time
+
+   SELECT s.login_name, r.[Status], r.Importance, submit_time, start_time
+   FROM sys.dm_pdw_exec_sessions s
+   JOIN sys.dm_pdw_exec_requests r ON s.session_id = r.session_id
+   WHERE r.request_id IN (SELECT TOP 4 r.request_id FROM sys.dm_pdw_exec_sessions s
+   JOIN sys.dm_pdw_exec_requests r ON s.session_id = r.session_id WHERE s.login_name IN ('DataAnalyst','TheCEO') and r.resource_class is not null ORDER BY submit_time DESC)
+   ORDER BY start_time
+```
+
+## Drop and recreate TheCEO workload classifier with high importance
+   ```sql
+   DROP WORKLOAD CLASSIFIER wgcTheCEO;
+   CREATE WORKLOAD CLASSIFIER wgcTheCEO
+   WITH (WORKLOAD_GROUP = 'xlargerc'
+         ,MEMBERNAME = 'TheCEO'
+         ,IMPORTANCE = HIGH);
+   ```
+
+## In separate query windows, re-run three queries as dataAnalyst and one as TheCEO
+
+## Monitor the queries again and see that THECEO query runs before the queued DataAnalyst queries started before THECEO query
 
 
 ## Clean up resources
-
-## drop workload classifier
-## Drop user
+   ```sql
+   DROP USER [TheCEO] 
+   DROP USER [DataAnalyst] 
+   DROP WORKLOAD CLASSIFIER wgcTheCEO;
+   DROP WORKLOAD CLASSIFIER wgcDataAnalyst;
+   ```
 
 You are being charged for data warehouse units and data stored your data warehouse. These compute and storage resources are billed separately. 
 
