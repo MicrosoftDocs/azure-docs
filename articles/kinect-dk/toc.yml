@@ -1,0 +1,86 @@
+- name: Microsoft Technical Documentation License Agreement
+  # href: <blank>
+- name: Azure Kinect Sensor SDK
+  # href: <blank>
+- name: Overview
+  # href: <blank>
+  items:
+  - name: Azure Kinect Sensor SDK
+    # href: <blank>
+- name: Download Sensor SDK
+  # href: <blank>
+  items:
+  - name: License
+    # href: <blank>
+  - name: Third-party notices
+    # href: <blank>
+- name: Quickstarts
+  # href: <blank>
+  items:
+  - name: Set up Azure Kinect DK
+    # href: <blank>
+  - name: Record sensor streams to a file
+    # href: <blank>
+  - name: Recognize speech
+    # href: <blank>
+- name: Tutorials
+  # href: <blank>
+- name: Samples
+  # href: <blank>
+- name: How-to guides
+  # href: <blank>
+  items:
+  - name: Azure Kinect DK
+    # href: <blank>
+    items:
+    - name: Mount and Position
+      # href: <blank>
+    - name: Setup external syncronization
+      # href: <blank>
+    - name: Update firmware
+      # href: <blank>
+    - name: Recover firmware
+      # href: <blank>
+  - name: Using Sensor SDK
+    # href: <blank>
+    items:
+    - name: Overview
+      # href: <blank>
+    - name: Getting image data
+      # href: <blank>
+    - name: Getting Inertial Motion Unit (IMU) samples
+      # href: <blank>
+    - name: Accessing microphones
+      # href: <blank>
+    - name: Transformations
+      # href: <blank>
+    - name: Device synchronization
+      # href: <blank>
+    - name: Record and playback
+      # href: <blank>
+    - name: Porting from Kinect for Windows v2
+      # href: <blank>
+- name: Concepts
+  # href: <blank>
+  items:
+  - name: Azure Kinect Viewer
+    # href: <blank>
+  - name: Kinect for Windows comparison
+    # href: <blank>
+  - name: Azure Kinect DK System requirements
+    # href: <blank>
+  - name: Azure Kinect DK Hardware Specification
+    # href: <blank>
+- name: Resources
+  # href: <blank>
+  items:
+  - name: Known Issues and Troubleshooting
+    # href: <blank>
+  - name: Azure Kinect DK support pages
+    # href: <blank>
+  - name: Contributing to this repo
+    # href: <blank>
+- name: Selfhosting Azure Kinect DK
+  # href: <blank>
+- name: API Documentation
+  # href: <blank>
