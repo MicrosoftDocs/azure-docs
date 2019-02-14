@@ -29,7 +29,7 @@ The best questions are simple. Consider the key word or phrase for each question
 
 Add as many alternate questions as you need but keep the alterations simple. Adding more words or phrasings that are not part of the main goal of the question does not help QnA Maker find a match. 
 
-### Best answers
+### Good answers
 
 The best answers are simple answers but not too simple such as yes and no answers. If your answer should link to other sources or provide a rich experience with media and links, use [tagging](../how-to/metadata-generateanswer-usage.md) to distinguish which type of answer you expect, then submit that tag with the query to get the correct answer version.
 
