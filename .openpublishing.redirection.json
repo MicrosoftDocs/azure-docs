@@ -2,7 +2,7 @@
     "redirections": [
         {
           "source_path": "articles/service-bus-messaging/service-bus-paired-namespaces.md",
-          "redirect_url": "articles/service-bus-messaging/service-bus-outages-disasters.md",
+          "redirect_url": "/azure/service-bus-messaging/service-bus-outages-disasters",
           "redirect_document_id": false
         },
         {
