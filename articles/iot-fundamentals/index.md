@@ -76,7 +76,7 @@ ms.author: dkshir
             </li>
         </ul>
         <h2>Azure IoT services</h2>
-        <ul class="panelContent cardsF">
+        <ul class="cardsF panelContent singlePanelContent cols cols4" style="display:flex!important;">
             <li>
                 <div class="cardSize">
                     <div class="cardPadding">
