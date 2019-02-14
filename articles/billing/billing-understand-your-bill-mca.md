@@ -24,7 +24,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. Ch
 
 To understand your Azure charges, compare your invoice with the detailed daily usage file and the transaction history in the Azure portal.
 
-### Option 1: Compare usage and costs with usage file
+## Option 1: Compare usage and costs with usage file
 
 The detailed usage CSV file shows your charges by billing
 period and daily usage. To get the file, see
@@ -33,9 +33,9 @@ data](billing-download-azure-invoice-daily-usage-date.md).
 
 Your usage charges are displayed at the meter level. The screenshots and tables below map information from the invoice PDF to the detailed usage CSV.
 
-**Invoice Summary** 
+### Invoice Summary
 
-![billing period](./media/billing-understand-your-bill-mca/invoice-summary.png)
+![Example image showing the invoice summary with Billing Profile and billing period information](./media/billing-understand-your-bill-mca/invoice-summary.png)
 
  | Invoice PDF value | Usage CSV key|
  | --- | --- |
@@ -44,9 +44,9 @@ Your usage charges are displayed at the meter level. The screenshots and tables 
  |01-30-2019 |billingPeriodStartDate |
  |02-28-2019 |billingPeriodEndDate |
 
-**Details by Invoice Section**
+### Details by Invoice Section
 
-![invoicesection-details](./media/billing-understand-your-bill-mca/invoicesection-details.png)
+![Example image showing the details by invoice section information](./media/billing-understand-your-bill-mca/invoicesection-details.png)
 
  | Invoice PDF value | Usage CSV key|
  | --- | --- |
@@ -54,23 +54,24 @@ Your usage charges are displayed at the meter level. The screenshots and tables 
  |Usage Charges - Azure Standard |productOrderName |
  |Storage |serviceFamily |
 
-Following the To find the daily usage for your IT Department's storage in the detailed usage CSV:
-1. Filter the invoiceSectionName column to only show results for "IT Department"
-2. Filter the productOrderName column to only show results for "Usage Charges - Azure Standard"
-3. Filter the serviceFamily column to only show results for "storage"
+The following steps walk you through finding daily usage for the example IT department in the detailed usage CSV file:
+
+1. Filter the **invoiceSectionName** column in the CSV file to the department name in the PDF file. In this example, the department name is *IT Department*.
+2. Filter the **productOrderName** column in the CSV file to the product order name in the PDF file. In this example, the product order name is *Usage Charges - Azure Standard*.
+3. Filter the **serviceFamily** column in the CSV file to the service family in the PDF file. In this example, the service family name is *storage*.
 
 To learn more, see:
 
 - [Understand your Azure invoice](billing-understand-your-invoice-mca.md)
 - [Understand your Azure detailed usage](billing-understand-your-invoice.md)
 
-### Option 2: Compare the usage and costs with the Azure portal
+## Option 2: Compare the usage and costs with the Azure portal
 
 The Azure portal can also help you verify the charges in your invoice.
-1. In the Azure portal, search on **Cost Management + Billing**
-2. Select the Billing profile of the invoice
-3. Under Billing, select **All transactions**
-4. Search for the invoice ID to view all transactions for the invoice
+1. In the Azure portal, search on **Cost Management + Billing**.
+2. Select the Billing profile of the invoice.
+3. Under Billing, select **All transactions**.
+4. Search for the invoice ID to view all transactions for the invoice.
 
 ## Resources billed by usage meters
 
@@ -97,14 +98,16 @@ When the VM is created, each one of those meters begins emitting usage records. 
 
 Instructions for paying your bill are listed at the bottom of the invoice. [Learn how to pay](billing-understand-your-invoice-mca.md#how-to-pay).
 
-To check on the status of your payment, [create a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-## Next steps
-To learn more about your invoice and detailed usage, see:
-- [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md)
-- [Understand terms on your Microsoft Azure invoice](billing-understand-your-invoice-mca.md)
-- [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md)
+If you've already paid your bill and want to check the status of the payment, [create a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Need help? Contact us
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+## Next steps
+
+To learn more about your invoice and detailed usage, see:
+
+- [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md)
+- [Understand terms on your Microsoft Azure invoice](billing-understand-your-invoice-mca.md)
+- [Understand terms on your Microsoft Azure detailed usage](billing-understand-your-usage.md)
