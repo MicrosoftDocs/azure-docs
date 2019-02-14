@@ -39,7 +39,7 @@ The following environment variables may be set when you install Java and the JDK
 ## How to use the HdfsBolt with HDInsight
 
 > [!IMPORTANT]  
-> Before using the HdfsBolt with Storm on HDInsight, you must first use a script action to copy required jar files into the `extpath` for Storm. For more information, see the [Configure the cluster](#configure) section.
+> Before using the HdfsBolt with Storm on HDInsight, you must first use a script action to copy required jar files into the `extpath` for Storm. For more information, see the Configure the cluster section.
 
 The HdfsBolt uses the file scheme that you provide to understand how to write to HDFS. With HDInsight, use one of the following schemes:
 
@@ -216,3 +216,5 @@ Storm topologies run until stopped, or the cluster is deleted. To stop the topol
 
 Now that you have learned how to use Apache Storm to write to Azure Storage and Azure Data Lake Storage, discover other [Apache Storm examples for HDInsight](apache-storm-example-topology.md).
 
+## See also
+* [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

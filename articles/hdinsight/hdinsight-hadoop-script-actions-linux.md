@@ -68,10 +68,10 @@ You can check the OS version by using `lsb_release`. The following code demonstr
 ```bash
 OS_VERSION=$(lsb_release -sr)
 if [[ $OS_VERSION == 14* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
     HUE_TARFILE=hue-binaries-14-04.tgz
 elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
     HUE_TARFILE=hue-binaries-16-04.tgz
 fi
 ...
@@ -130,7 +130,7 @@ Linux-based HDInsight clusters provide two head nodes that are active within the
 
 ### <a name="bPS6"></a>Configure the custom components to use Azure Blob storage
 
-Components that you install on the cluster might have a default configuration that uses Apache Hadoop Distributed File System (HDFS) storage. HDInsight uses either Azure Storage or Data Lake Store as the default storage. Both provide an HDFS compatible file system that persists data even if the cluster is deleted. You may need to configure components you install to use WASB or ADL instead of HDFS.
+Components that you install on the cluster might have a default configuration that uses Apache Hadoop Distributed File System (HDFS) storage. HDInsight uses either Azure Storage or Data Lake Storage as the default storage. Both provide an HDFS compatible file system that persists data even if the cluster is deleted. You may need to configure components you install to use WASB or ADL instead of HDFS.
 
 For most operations, you do not need to specify the file system. For example, the following copies the giraph-examples.jar file from the local file system to cluster storage:
 
@@ -138,7 +138,7 @@ For most operations, you do not need to specify the file system. For example, th
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-In this example, the `hdfs` command transparently uses the default cluster storage. For some operations, you may need to specify the URI. For example, `adl:///example/jars` for Data Lake Store or `wasb:///example/jars` for Azure Storage.
+In this example, the `hdfs` command transparently uses the default cluster storage. For some operations, you may need to specify the URI. For example, `adl:///example/jars` for Data Lake Storage or `wasb:///example/jars` for Azure Storage.
 
 ### <a name="bPS7"></a>Write information to STDOUT and STDERR
 
@@ -159,7 +159,7 @@ By default, `echo` sends the string to STDOUT. To direct it to STDERR, add `>&2`
 >&2 echo "An error occurred installing Foo"
 ```
 
-This redirects information written to STDOUT to STDERR (2) instead. For more information on IO redirection, see [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+This redirects information written to STDOUT to STDERR (2) instead. For more information on IO redirection, see [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 For more information on viewing information logged by script actions, see [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
@@ -274,17 +274,17 @@ Scripts used to customize a cluster needs to be stored in one of the following l
 
 * A __publicly readable URI__. For example, a URL to data stored on OneDrive, Dropbox, or other file hosting service.
 
-* An __Azure Data Lake Store account__ that is associated with the HDInsight cluster. For more information on using Azure Data Lake Store with HDInsight, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+* An __Azure Data Lake Storage account__ that is associated with the HDInsight cluster. For more information on using Azure Data Lake Storage with HDInsight, see [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]  
-    > The service principal HDInsight uses to access Data Lake Store must have read access to the script.
+    > The service principal HDInsight uses to access Data Lake Storage must have read access to the script.
 
 Resources used by the script must also be publicly available.
 
-Storing the files in an Azure Storage account or Azure Data Lake Store provides fast access, as both within the Azure network.
+Storing the files in an Azure Storage account or Azure Data Lake Storage provides fast access, as both within the Azure network.
 
 > [!NOTE]  
-> The URI format used to reference the script differs depending on the service being used. For storage accounts associated with the HDInsight cluster, use `wasb://` or `wasbs://`. For publicly readable URIs, use `http://` or `https://`. For Data Lake Store, use `adl://`.
+> The URI format used to reference the script differs depending on the service being used. For storage accounts associated with the HDInsight cluster, use `wasb://` or `wasbs://`. For publicly readable URIs, use `http://` or `https://`. For Data Lake Storage, use `adl://`.
 
 ### Checking the operating system version
 
@@ -295,10 +295,10 @@ To check the OS version, use `lsb_release`. For example, the following script de
 ```bash
 OS_VERSION=$(lsb_release -sr)
 if [[ $OS_VERSION == 14* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
     HUE_TARFILE=hue-binaries-14-04.tgz
 elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
     HUE_TARFILE=hue-binaries-16-04.tgz
 fi
 ```

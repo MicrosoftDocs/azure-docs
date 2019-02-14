@@ -1,15 +1,15 @@
-﻿---
+---
 title: "Example: Real-time video analysis - Emotion API"
 titlesuffix: Azure Cognitive Services
 description: Use the Emotion API to perform near-real-time analysis on frames taken from a live video stream.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: sample
 ms.date: 01/25/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
 ---
 

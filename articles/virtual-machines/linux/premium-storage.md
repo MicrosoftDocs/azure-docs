@@ -8,7 +8,7 @@ ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
-ms.component: disks
+ms.subservice: disks
 ---
 
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-premium-storage.md)]

@@ -8,11 +8,12 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.topic: overview
 ms.date: 11/13/2018
 ms.author: rolyon
 ms.custom: pim 
+ms.collection: M365-identity-device-management
 ---
 # Microsoft Graph APIs for PIM (Preview)
 

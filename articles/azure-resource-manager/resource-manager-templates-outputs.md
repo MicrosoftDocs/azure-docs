@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/07/2018
+ms.date: 02/04/2019
 ms.author: tomfitz
 
 ---
 # Outputs section in Azure Resource Manager templates
+
 In the Outputs section, you specify values that are returned from deployment. For example, you could return the URI to access a deployed resource.
 
 ## Define and use output values
@@ -35,7 +36,7 @@ The following example shows how to return the resource ID for a public IP addres
 After the deployment, you can retrieve the value with script. For PowerShell, use:
 
 ```powershell
-(Get-AzureRmResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
+(Get-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Name <deployment-name>).Outputs.resourceID.value
 ```
 
 For Azure CLI, use:
@@ -77,25 +78,9 @@ The following example shows the structure of an output definition:
 | type |Yes |Type of the output value. Output values support the same types as template input parameters. |
 | value |Yes |Template language expression that is evaluated and returned as output value. |
 
-## Recommendations
-
-If you use a template to create public IP addresses, include an outputs section that returns details of the IP address and the fully qualified domain name (FQDN). You can use output values to easily retrieve details about public IP addresses and FQDNs after deployment.
-
-```json
-"outputs": {
-    "fqdn": {
-        "value": "[reference(parameters('publicIPAddresses_name')).dnsSettings.fqdn]",
-        "type": "string"
-    },
-    "ipaddress": {
-        "value": "[reference(parameters('publicIPAddresses_name')).ipAddress]",
-        "type": "string"
-    }
-}
-```
+For information about adding comments, see [Comments in templates](resource-group-authoring-templates.md#comments).
 
 ## Example templates
-
 
 |Template  |Description  |
 |---------|---------|
@@ -107,5 +92,4 @@ If you use a template to create public IP addresses, include an outputs section 
 ## Next steps
 * To view complete templates for many different types of solutions, see the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/).
 * For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](resource-group-template-functions.md).
-* To combine multiple templates during deployment, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
-* You may need to use resources that exist within a different resource group. This scenario is common when working with storage accounts or virtual networks that are shared across multiple resource groups. For more information, see the [resourceId function](resource-group-template-functions-resource.md#resourceid).
+* For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md).

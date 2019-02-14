@@ -22,7 +22,7 @@ ms.custom: seodec18
 
 # Connect an App Service app to Cosmos DB using CLI
 
-This sample script creates an Azure Cosmos DB API account for MongoDB and an App Service app. It then links the MongoDB connection string to the app using app settings.
+This sample script creates an Azure Cosmos DB account using the Azure Cosmos DB's API for MongoDB and an App Service app. It then links a MongoDB connection string to the web app using app settings.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

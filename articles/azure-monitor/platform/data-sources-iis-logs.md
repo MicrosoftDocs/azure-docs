@@ -72,4 +72,4 @@ The following table provides different examples of log queries that retrieve IIS
 
 ## Next steps
 * Configure Azure Monitor to collect other [data sources](agent-data-sources.md) for analysis.
-* Learn about [log queries](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions.
+* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions.

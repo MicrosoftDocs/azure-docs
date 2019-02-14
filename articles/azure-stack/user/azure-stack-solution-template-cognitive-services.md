@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: mabrigg
 ms.reviewer: guanghu
+ms.lastreviewed: 12/11/2018
 
 ---
 
@@ -23,7 +24,7 @@ ms.reviewer: guanghu
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!Note]  
-> Aure Cognitive Services on Azure Stack is in preview.
+> Azure Cognitive Services on Azure Stack is in preview.
 
 You can use Azure Cognitive Services with container support on Azure Stack. Container support in Azure Cognitive Services allows you to use the same rich APIs that are available in Azure. Your use of containers enables flexibility in where to deploy and host the services delivered in [Docker containers](https://www.docker.com/what-container). Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), [Face](https://docs.microsoft.com/azure/cognitive-services/face/overview), and [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview), and [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS).
 
@@ -38,7 +39,7 @@ Containerization is an approach to software distribution in which an application
   Provide app users to version and update of the models deployed in their solution.
 
 - **Portable architecture**  
-  Enable the creation of a portable app architecture so that you can deploy your solution to the public cloud, to a private cloud on-premesis, or the edge. You can deploy your container to Azure Kubernetes Service, Azure Container Instances, or to a Kubernetes cluster in to Azure Stack. For more information, see [Deploy Kubernetes to Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+  Enable the creation of a portable app architecture so that you can deploy your solution to the public cloud, to a private cloud on-premises, or the edge. You can deploy your container to Azure Kubernetes Service, Azure Container Instances, or to a Kubernetes cluster in to Azure Stack. For more information, see [Deploy Kubernetes to Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 
 - **High throughput and low latency**  
    Provide your app users the ability to scale with spikes in traffic for high throughput and low latency. Enable Cognitive Services to run in Azure Kubernetes Service physically close to their application logic and data.
@@ -140,7 +141,7 @@ Details about the key fields:
 | ImageLocation | Indicates the location of the specific cognitive service container image in ACR. For example, the face service: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
 | BillingURL |The Endpoint URL noted in step of [Create Azure Resource](#create-azure-resources) |
 | ApiKey | The subscription key noted in step of [Create Azure Resource](#create-azure-resources) |
-| SecretName | The secret name you just noted in step of [Create secrete to access the private container registry](#create-secrete-to-access-the-private-container-registry) |
+| SecretName | The secret name you just noted in step of Create secrete to access the private container registry |
 
 ## Deploy the cognitive service
 
@@ -201,7 +202,7 @@ print(faces)
 
 [How to install and run Computer Vision API containers.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/computer-vision-how-to-install-containers)
 
-[How to install and run Face API containers](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers#create-a-face-resource-on-azure)
+[How to install and run Face API containers](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers)
 
 [How to install and run Text Analytics API containers](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers)
 

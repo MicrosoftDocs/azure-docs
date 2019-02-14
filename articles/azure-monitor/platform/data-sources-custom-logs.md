@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 02/12/2019
 ms.author: bwren
 ---
 
@@ -37,13 +37,21 @@ The log files to be collected must match the following criteria.
 > If your application creates a new log file each day or when it reaches a certain size, the Log Analytics agent for Linux does not discover them until after it is restarted. This is because the agent only enumerates and begins monitoring for patterns with the specified logs upon start up, and because of this you need to plan around it by automating the restart of the agent.  This limitation does not exist with the Log Analytics agent for Windows.  
 >
 
+>[!NOTE]
+> A Log Analytics workspace supports the following limits:
+> 
+> * Only 500 custom logs can be created.
+> * A table only supports up to 500 columns. 
+> * The maximum number of characters for the column name is 500. 
+>
+
 ## Defining a custom log
 Use the following procedure to define a custom log file.  Scroll to the end of this article for a walkthrough of a sample of adding a custom log.
 
 ### Step 1. Open the Custom Log Wizard
 The Custom Log Wizard runs in the Azure portal and allows you to define a new custom log to collect.
 
-1. In the Azure portal, select **Log Analytics** > your workspace > **Advanced Settings**.
+1. In the Azure portal, select **Log Analytics workspaces** > your workspace > **Advanced Settings**.
 2. Click on **Data** > **Custom logs**.
 3. By default, all configuration changes are automatically pushed to all agents.  For Linux agents, a configuration file is sent to the Fluentd data collector.  If you wish to modify this file manually on each Linux agent, then uncheck the box *Apply below configuration to my Linux machines*.
 4. Click **Add+** to open the Custom Log Wizard.
@@ -159,6 +167,18 @@ We use a query of *Type=MyApp_CL* to return all records from the collected log.
 We use Custom Fields to define the *EventTime*, *Code*, *Status*, and *Message* fields and we can see the difference in the records that are returned by the query.
 
 ![Log query with custom fields](media/data-sources-custom-logs/query-02.png)
+
+## Alternatives to custom logs
+While custom logs are useful if your data fits the criteria listed about, but there are cases such as the following where you need another strategy:
+
+- The data doesn't fit the required structure such as having the timestamp in a different format.
+- The log file doesn't adhere to requirements such as file encoding or an unsupported folder structure.
+- The data requires preprocessing or filtering  before collection. 
+
+In the cases where your data can't be collected with custom logs, consider the following alternate strategies:
+
+- Use a custom script or other method to write data to [Windows Events](data-sources-windows-events.md) or [Syslog](data-sources-syslog.md) which are collected by Azure Monitor. 
+- Send the data directly to Azure Monitor using [HTTP Data Collector API](data-collector-api.md). An example using runbooks in Azure Automation is provided in [Collect log data in Azure Monitor with an Azure Automation runbook](runbook-datacollect.md).
 
 ## Next steps
 * See [Parse text data in Azure Monitor](../log-query/parse-text.md) for methods to parse each imported log entry into multiple properties.

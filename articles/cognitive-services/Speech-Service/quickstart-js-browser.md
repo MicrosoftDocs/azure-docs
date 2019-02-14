@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in JavaScript in a browser using the Speech Service SDK
 services: cognitive-services
 author: fmegen
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
@@ -99,10 +99,7 @@ To launch the app, double-click on the index.html file or open index.html with y
 
 To launch your app, open your favorite web browser and point it to the public URL that you host the folder on, enter your [region](regions.md), and trigger a recognition using the microphone. If configured, it will acquire a token from your token source.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/js-browser` folder.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get our samples](speech-sdk.md#get-the-samples)
+> [Explore JavaScript samples on GitHub](https://aka.ms/csspeech/samples)

@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
+ms.subservice: disks
 ---
 
 # Find and delete unattached Azure managed and unmanaged disks
@@ -38,7 +39,7 @@ The following script looks for unattached [managed disks](managed-disks-overview
 # Set deleteUnattachedDisks=0 if you want to see the Id of the unattached Managed Disks
 $deleteUnattachedDisks=0
 
-$managedDisks = Get-AzureRmDisk
+$managedDisks = Get-AzDisk
 
 foreach ($md in $managedDisks) {
     
@@ -50,7 +51,7 @@ foreach ($md in $managedDisks) {
             
             Write-Host "Deleting unattached Managed Disk with Id: $($md.Id)"
 
-            $md | Remove-AzureRmDisk -Force
+            $md | Remove-AzDisk -Force
 
             Write-Host "Deleted unattached Managed Disk with Id: $($md.Id) "
 
@@ -81,11 +82,11 @@ Unmanaged disks are VHD files that are stored as [page blobs](/rest/api/storages
 # Set deleteUnattachedVHDs=0 if you want to see the Uri of the unattached VHDs
 $deleteUnattachedVHDs=0
 
-$storageAccounts = Get-AzureRmStorageAccount
+$storageAccounts = Get-AzStorageAccount
 
 foreach($storageAccount in $storageAccounts){
 
-    $storageKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.StorageAccountName)[0].Value
+    $storageKey = (Get-AzStorageAccountKey -ResourceGroupName $storageAccount.ResourceGroupName -Name $storageAccount.StorageAccountName)[0].Value
 
     $context = New-AzureStorageContext -StorageAccountName $storageAccount.StorageAccountName -StorageAccountKey $storageKey
 

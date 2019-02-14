@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
-ms.component: logs
+ms.subservice: logs
 ---
 # Prepare for format change to Azure Monitor diagnostic logs archived to a storage account
 
@@ -25,7 +25,7 @@ Azure Monitor offers a capability that enables you to send resource diagnostic d
 * Setting a diagnostic setting between now and November 1 continues to emit data in the current format until November 1.
 * This change will occur at once across all public cloud regions. The change will not occur in Azure China, Azure Germany, or Azure Government clouds yet.
 * This change impacts the following data types:
-  * [Azure resource diagnostic logs](./../../azure-monitor/platform/archive-diagnostic-logs.md) ([see list of resources here](./../../azure-monitor/platform/tutorial-dashboards.md))
+  * [Azure resource diagnostic logs](./../../azure-monitor/platform/archive-diagnostic-logs.md) ([see list of resources here](./../../azure-monitor/platform/diagnostic-logs-schema.md))
   * [Azure resource metrics being exported by diagnostic settings](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)
   * [Azure Activity log data being exported by log profiles](./../../azure-monitor/platform/archive-activity-log.md)
 * This change does not impact:
@@ -131,3 +131,4 @@ Custom tools should be updated to handle both the current format and the JSON Li
 
 * Learn about [archiving resource diagnostic logs to a storage account](./../../azure-monitor/platform/archive-diagnostic-logs.md)
 * Learn about [archiving activity log data to a storage account](./../../azure-monitor/platform/archive-activity-log.md)
+

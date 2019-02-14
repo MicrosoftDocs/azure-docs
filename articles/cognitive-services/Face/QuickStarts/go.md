@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you detect faces from an image using the Face API with Go.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 06/25/2018
 ms.author: pafarley

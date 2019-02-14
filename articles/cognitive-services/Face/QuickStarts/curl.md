@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you will use the Azure Face REST API with cURL to detect faces in an image.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley

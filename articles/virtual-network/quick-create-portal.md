@@ -1,15 +1,12 @@
 ---
-title: Create a virtual network - quickstart - Azure portal | Microsoft Docs
+title: Create a virtual network - quickstart - Azure portal
+titlesuffix: Azure Virtual Network
 description: In this quickstart, you learn to create a virtual network using the Azure portal. A virtual network lets Azure resources, like virtual machines, communicate privately with each other, and with the internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: quickstart
@@ -17,7 +14,7 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: jdial
-ms.custom: mvc
+
 ---
 
 # Quickstart: Create a virtual network using the Azure portal

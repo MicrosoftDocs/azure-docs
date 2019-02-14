@@ -7,7 +7,7 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.component: common
+ms.subservice: common
 ---
 
 # Azure Storage Explorer troubleshooting guide
@@ -95,7 +95,7 @@ If you are unable to retrieve your subscriptions after you successfully sign in,
 If you are unable to remove an attached account or storage resource through the UI, you can manually delete all attached resources by deleting the following folders:
 
 * Windows: `%AppData%/StorageExplorer`
-* macOS: `/Users/<your_name>/Library/Applicaiton Support/StorageExplorer`
+* macOS: `/Users/<your_name>/Library/Application Support/StorageExplorer`
 * Linux: `~/.config/StorageExplorer`
 
 > [!NOTE]

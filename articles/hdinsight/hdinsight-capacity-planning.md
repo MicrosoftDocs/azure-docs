@@ -32,17 +32,17 @@ HDInsight is available in many Azure regions. To find the closest region, see th
 
 ### Location of default storage
 
-The default storage, either an Azure Storage account or Azure Data Lake Store, must be in the same location as your cluster. Azure Storage is available at all locations. Data Lake Store Gen1 is available in some regions - see the current Data Lake Store availability under *Storage* in [Azure Products Available by Region](https://azure.microsoft.com/regions/services/).
+The default storage, either an Azure Storage account or Azure Data Lake Storage, must be in the same location as your cluster. Azure Storage is available at all locations. Data Lake Storage Gen1 is available in some regions - see the current Data Lake Storage availability under *Storage* in [Azure Products Available by Region](https://azure.microsoft.com/regions/services/).
 
 ### Location of existing data
 
-If you already have a storage account or Data Lake Store containing your data and want to use this storage as your cluster's default storage, then you must deploy your cluster at that same location.
+If you already have a storage account or Data Lake Storage containing your data and want to use this storage as your cluster's default storage, then you must deploy your cluster at that same location.
 
 ### Storage size
 
-After you have an HDInsight cluster deployed, you can attach additional Azure Storage accounts or access other Data Lake Stores. All your storage accounts must reside in the same location as your cluster. A Data Lake Store can be in a different location, although this may introduce some data read/write latency.
+After you have an HDInsight cluster deployed, you can attach additional Azure Storage accounts or access other Data Lake Storage. All your storage accounts must reside in the same location as your cluster. A Data Lake Storage can be in a different location, although this may introduce some data read/write latency.
 
-Azure Storage has some [capacity limits](../azure-subscription-service-limits.md#storage-limits), while  Data Lake Store Gen1 is virtually unlimited.
+Azure Storage has some [capacity limits](../azure-subscription-service-limits.md#storage-limits), while  Data Lake Storage Gen1 is virtually unlimited.
 
 A cluster can access a combination of different storage accounts. Typical examples include:
 
@@ -72,7 +72,7 @@ The VM size and type is determined by CPU processing power, RAM size, and networ
 
 * RAM: The VM size also dictates the amount of RAM available in the VM. For workloads that store data in memory for processing, rather than reading from disk, ensure your worker nodes have enough memory to fit the data.
 
-* Network: For most cluster types, the data processed by the cluster is not on local disk, but rather in an external storage service such as Data Lake Store or Azure Storage. Consider the network bandwidth and throughput between the node VM and the storage service. The network bandwidth available to a VM typically increases with larger sizes. For details, see [VM sizes overview](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+* Network: For most cluster types, the data processed by the cluster is not on local disk, but rather in an external storage service such as Data Lake Storage or Azure Storage. Consider the network bandwidth and throughput between the node VM and the storage service. The network bandwidth available to a VM typically increases with larger sizes. For details, see [VM sizes overview](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
 ## Choose the cluster scale
 
@@ -86,7 +86,7 @@ You can scale out your cluster to meet peak load demands, then scale it back dow
 
 You are charged for a cluster's lifetime. If there are only specific times that you need your cluster up and running, you can [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). You can also create PowerShell scripts that provision and delete your cluster, and then schedule those scripts using [Azure Automation](https://azure.microsoft.com/services/automation/).
 
-> [!NOTE]
+> [!NOTE]  
 > When a cluster is deleted, its default Hive metastore is also deleted. To persist the metastore for the next cluster re-creation, use an external metadata store such as Azure Database or [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
@@ -117,7 +117,7 @@ After determining your target cluster VM size, scale, and type, check the curren
 1. Click **Next: Review + create**.
 1. On the **Review + create** tab, click **Create**.
 
-> [!Note]
+> [!NOTE]  
 > If you need to increase the HDInsight core quota in a private region, [submit a whitelist request](https://aka.ms/canaryintwhitelist).
 
 You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).

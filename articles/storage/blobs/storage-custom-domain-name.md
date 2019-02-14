@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Configure a custom domain name for your Azure storage account
@@ -150,7 +150,7 @@ After the custom domain has been removed successfully, you will see a portal not
 
 ### Azure CLI
 
-To remove a custom domain registration, use the [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) CLI command, and then specify an empty string (`""`) for the `--custom-domain` argument value.
+To remove a custom domain registration, use the [az storage account update](https://docs.microsoft.com/cli/azure/storage/account) CLI command, and then specify an empty string (`""`) for the `--custom-domain` argument value.
 
 * Command format:
 

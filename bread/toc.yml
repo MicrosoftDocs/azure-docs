@@ -107,16 +107,7 @@
     tocHref: /azure/data-explorer/
     topicHref: /azure/data-explorer/
   - name: Azure Monitor
-    tocHref: /azure/application-insights/
-    topicHref: /azure/azure-monitor/
-  - name: Azure Monitor
-    tocHref: /azure/log-analytics/
-    topicHref: /azure/azure-monitor/
-  - name: Azure Monitor
-    tocHref: /azure/monitoring/
-    topicHref: /azure/azure-monitor/
-  - name: Azure Monitor
-    tocHref: /azure/monitoring-and-diagnostics/
+    tocHref: /azure/azure-monitor/
     topicHref: /azure/azure-monitor/
   - name: Container Registry
     tocHref: /azure/container-registry/
@@ -129,7 +120,7 @@
     topicHref: /azure/azure-functions/
     items:
     - name: Durable Functions
-      tocHRef: /azure/azure-functions/durable/
+      tocHref: /azure/azure-functions/durable/
       topicHref: /azure/azure-functions/durable/durable-functions-overview
   - name: Azure Government
     tocHref: /azure/azure-government/
@@ -231,9 +222,6 @@
     - name: Custom Decision Service
       tocHref: /azure/cognitive-services/custom-decision-service/
       topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview
-    - name: Custom Speech Service
-      tocHref: /azure/cognitive-services/custom-speech-service/
-      topicHref: /azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home
     - name: Speaker Recognition
       tocHref: /azure/cognitive-services/speaker-recognition/
       topicHref: /azure/cognitive-services/speaker-recognition/home
@@ -415,6 +403,9 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
+  - name: Azure API for FHIR
+    tocHref: /azure/healthcare-apis
+    topicHref: /azure/healthcare-apis
   - name: Internet of Things
     tocHref: /azure/iot-fundamentals/
     topicHref: /azure/iot-fundamentals/
@@ -569,6 +560,9 @@
   - name: Service Fabric
     tocHref: /azure/service-fabric/
     topicHref: /azure/service-fabric/
+  - name: Service Fabric Mesh
+    tocHref: /azure/service-fabric-mesh/
+    topicHref: /azure/service-fabric-mesh/
   - name: Site Recovery
     tocHref: /azure/site-recovery/
     topicHref: /azure/site-recovery/

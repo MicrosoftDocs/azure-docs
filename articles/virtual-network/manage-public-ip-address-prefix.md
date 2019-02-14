@@ -1,14 +1,10 @@
 ﻿---
-title: Create, change, or delete an Azure public IP address prefix | Microsoft Docs
+title: Create, change, or delete an Azure public IP address prefix
+titlesuffix: Azure Virtual Network
 description: Learn how to create, change, or delete a public IP address prefix.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
-manager: narayan
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -66,7 +62,7 @@ Public IP address prefixes have a charge. For details, see [pricing](https://azu
 Once you create a prefix, you must create static IP addresses from the prefix. In order to do this, follow steps below.
 
 1. In the box that contains the text *Search resources* at the top of the Azure portal, type *public ip address prefix*. When **Public IP address prefixes** appear in the search results, select it.
-2. Select the prefx you want to create public IPs from.
+2. Select the prefix you want to create public IPs from.
 3. When it appears in the search results, select it and click on **+Add IP address** in the Overview section. In case you don't see this, make sure you are using the right link for preview: https://aka.ms/publicipprefixportal
 4. Enter or select values for the following settings under **Create public IP address**. Since a prefix is for Standard SKU, IPv4, and static, you only need to provide the following information:
 

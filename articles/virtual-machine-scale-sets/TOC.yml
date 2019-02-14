@@ -180,14 +180,6 @@
       href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
   - name: Deploy
     items:
-    - name: Ansible
-      items:
-      - name: Create and manage scale sets
-        href: /azure/ansible/ansible-create-configure-vmss
-        maintainContext: true
-      - name: Deploy apps to scale sets
-        href: /azure/ansible/ansible-deploy-app-vmss
-        maintainContext: true
     - name: Create with Visual Studio
       href: virtual-machine-scale-sets-vs-create.md
     - name: Use Availability Zones
@@ -201,6 +193,12 @@
         href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
     - name: Applications on scale sets
       href: virtual-machine-scale-sets-deploy-app.md
+    - name: Extensions on scale sets
+      items:
+        - name: Extension sequencing on scale sets
+          href: virtual-machine-scale-sets-extension-sequencing.md
+        - name: Application Health extension
+          href: virtual-machine-scale-sets-health-extension.md
     - name: Use data disks with scale sets
       href: virtual-machine-scale-sets-attached-disks.md
     - name: Encrypt disks in scale sets
@@ -226,8 +224,10 @@
     - name: Shared image galleries (preview)
       href: shared-image-galleries.md
       items:
-      - name: Create shared images using CLI
+      - name: CLI
         href: shared-images-cli.md
+      - name: PowerShell
+        href: shared-images-powershell.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Vertical scaling in a scale set
@@ -244,6 +244,17 @@
       href: virtual-machine-scale-sets-convert-template-to-md.md
     - name: Planned maintenance
       href: virtual-machine-scale-sets-maintenance-notifications.md
+  - name: Use Ansible
+    items:
+    - name: Create and manange scale sets
+      href: /azure/ansible/ansible-create-configure-vmss
+      maintainContext: true
+    - name: Deploy apps to scale sets
+      href: /azure/ansible/ansible-deploy-app-vmss
+      maintainContext: true
+    - name: Autoscale a scale set
+      href: /azure/ansible/ansible-auto-scale-vmss
+      maintainContext: true
   - name: Troubleshoot
     items:
     - name: Autoscale
@@ -260,6 +271,8 @@
     href: ../virtual-machines/azure-cli-arm-commands.md
   - name: REST
     href: /rest/api/virtualmachinescalesets/
+  - name: Azure templates
+    href: /azure/templates/microsoft.compute/virtualmachinescalesets
 - name: Resources
   items:
   - name: Azure Roadmap

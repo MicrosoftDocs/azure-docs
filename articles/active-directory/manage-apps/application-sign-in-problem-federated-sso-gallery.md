@@ -3,20 +3,21 @@ title: Problems signing in to a gallery application configured for federated sin
 description: Guidance for the specific errors when signing into an application you have configured for SAML-based federated single sign-on with Azure AD
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Problems signing in to a gallery application configured for federated single sign-on
@@ -258,6 +259,19 @@ To delete and create a new certificate, follow the steps below:
 10. Check **Make new certificate active** to override the active certificate. Then, click **Save** at the top of the pane and accept to activate the rollover certificate.
 
 11. Under the **SAML Signing Certificate** section, click **remove** to remove the **Unused** certificate.
+
+## SAML Request not present in the request
+
+*Error AADSTS750054: SAMLRequest or SAMLResponse must be present as query string parameters in HTTP request for SAML Redirect binding.*
+
+**Possible cause**
+
+Azure AD wasn’t able to identify the SAML request within the URL parameters in the HTTP request. This can happen if the application is not using HTTP Redirect Binding for sending the SAML request to Azure AD.
+
+**Resolution**
+
+The application needs to send the SAML request encoded into the location header using HTTP Redirect Binding. For more information about how to implement it, read the section HTTP Redirect Binding in the [SAML protocol specification document](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+
 
 ## Problem when customizing the SAML claims sent to an application
 

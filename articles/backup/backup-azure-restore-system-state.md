@@ -151,7 +151,7 @@ Once you have recovered System State as files using Azure Recovery Services Agen
 
 10. For the location of the System State Recovery, select **Original Location**, and click **Next**.
 
-11. Review the confirmation details, verify the reboot settings, and click **Recover** to applly the restored System State files.
+11. Review the confirmation details, verify the reboot settings, and click **Recover** to apply the restored System State files.
 
     ![launch the restore System State files](./media/backup-azure-restore-system-state/launch-ss-recovery.png)
 

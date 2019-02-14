@@ -58,7 +58,7 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
 
 ### Use Serial control
 
-1. Connect to [Serial Console and open CMD instance](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+1. Connect to [Serial Console and open CMD instance](serial-console-windows.md#use-cmd-or-powershell-in-serial-console).
 ). If the Serial Console is not enabled on your VM, see [Reset network interface](reset-network-interface.md).
 2. Check if the DHCP is disabled on the network interface:
 
@@ -91,7 +91,7 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
 
 #### DHCP Client service is stopped because of an Access Denied error
 
-1. Connect to [Serial Console](serial-console-windows.md#) and open a PowerShell instance.
+1. Connect to [Serial Console](serial-console-windows.md) and open a PowerShell instance.
 2. Download the Process Monitor tool by running the following script:
 
    ```

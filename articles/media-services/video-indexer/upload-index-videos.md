@@ -8,13 +8,13 @@ manager: femila
 
 ms.service: media-services
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 02/10/2019
 ms.author: juliako
 ---
 
 # Upload and index your videos  
 
-When uploading videos with Video Indexer API, you have two uploading options: 
+When uploading videos with Video Indexer API, you have the following upload options: 
 
 * upload your video from a URL (preferred),
 * send the video file as a byte array in the request body,

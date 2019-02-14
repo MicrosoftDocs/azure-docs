@@ -9,13 +9,14 @@ manager: beatrizd-msft
 
 ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure Zendesk for automatic user provisioning
@@ -165,6 +166,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 ## Connector Limitations
 * Zendesk supports usage of groups for Users with Agent roles only. For more information, please refer to [Zendesk's documentation](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
+* When a custom role is assigned to a user and/or group, the Azure AD automatic user provisioning service will also assign the default role **Agent**. Only **Agents** can be assigned a custom role. For more information, refer to this [Zendesk API documentation](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests).  
 
 ## Additional resources
 

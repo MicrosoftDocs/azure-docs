@@ -20,7 +20,7 @@ ms.author: kraigb
 
 Within the powerful, collaborative space of Azure Notebooks, your user profile presents your public image to others:
 
-[![](media/accounts/profile-page.png "An Azure Notebooks profile page")](media/accounts/profile-page.png#lightbox)
+[![An Azure Notebooks profile page](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
 Your user ID is part of the URLs you use to share projects and notebooks. The following list describes the different URL patterns:
 

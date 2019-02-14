@@ -4,11 +4,11 @@ title: Reset a user's password - Azure Active Directory | Microsoft Docs
 description: Instructions about how to reset a user's password using Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.assetid: fad5624b-2f13-4abc-b3d4-b347903a8f16
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2018
@@ -16,6 +16,7 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
 
+ms.collection: M365-identity-device-management
 ---
 # Reset a user's password using Azure Active Directory
 As an administrator, you can reset a user's password if the password is forgotten, if the user gets locked out of a device, or if the user never received a password.

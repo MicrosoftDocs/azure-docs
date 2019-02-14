@@ -13,9 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
+ms.lastreviewed: 10/25/2018
 
 ---
 # Infrastructure Backup Service reference
@@ -83,9 +84,16 @@ The requirements include:
 
 Infrastructure Backup Controller will back up data on demand. The recommendation is to back up at last two times a day and keep at most seven days of backups. 
 
+**1811 and beyond**
 | Environment Scale | Projected size of backup | Total amount of space required |
 |-------------------|--------------------------|--------------------------------|
-| 4-16 nodes        | 10 GB                     | 140 GB                          |
+| 4-16 nodes        | 20 GB                    | 280 GB                        |
+| ASDK              | 10 GB                    | 140 GB                        |
+
+**Pre-1811**
+| Environment Scale | Projected size of backup | Total amount of space required |
+|-------------------|--------------------------|--------------------------------|
+| 4-16 nodes, ASDK  | 10 GB                     | 140 GB                        |
 
 ### Network requirements
 | Storage location                                                                 | Details                                                                                                                                                                                 |
@@ -105,7 +113,7 @@ Consider these limits as you plan, deploy, and operate your Microsoft Azure Stac
 | Limit identifier                                                 | Limit        | Comments                                                                                                                                    |
 |------------------------------------------------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Backup type                                                      | Full only    | Infrastructure Backup Controller only supports full backups. Incremental backups are not supported.                                          |
-| Scheduled backups                                                | Manual only  | Backup controller currently only supports on-demand backups                                                                                 |
+| Scheduled backups                                                | Scheduled and manual  | Backup controller supports scheduled and on-demand backups                                                                                 |
 | Maximum concurrent backup jobs                                   | 1            | Only one active backup job is supported per instance of Backup Controller.                                                                  |
 | Network switch configuration                                     | Not in scope | Administrator must back up network switch configuration using OEM tools. Refer to documentation for Azure Stack provided by each OEM vendor. |
 | Hardware Lifecycle Host                                          | Not in scope | Administrator must back up Hardware Lifecycle Host using OEM tools. Refer to documentation for Azure Stack provided by each OEM vendor.      |

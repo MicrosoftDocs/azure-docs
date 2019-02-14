@@ -3,16 +3,17 @@ title: Architecture overview - Azure Active Directory | Microsoft Docs
 description: Learn what an Azure Active Directory tenant is and how to manage Azure using Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # What is the Azure Active Directory architecture?
@@ -30,7 +31,7 @@ The following architecture elements are covered in this article:
  *	Data centers
 
 ### Service architecture design
-The most common way to build an accessible and usable, data-rich system is through independent building blocks or scale units for the Azure AD data tier, scale units are called *partitions*. 
+The most common way to build an accessible and usable, data-rich system is through independent building blocks or scale units. For the Azure AD data tier, scale units are called *partitions*. 
 
 The data tier has several front-end services that provide read-write capability. The diagram below shows how the components of a single-directory partition are delivered throughout geographically distributed data centers. 
 

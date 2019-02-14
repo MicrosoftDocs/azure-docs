@@ -4,10 +4,10 @@ titleSuffix: "Azure Cognitive Services"
 description: Connect to the Computer Vision API from an ASP.NET Core web application using the Visual Studio Connected Service feature.
 services: cognitive-services
 author: ghogen
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: Tutorial
 ms.date: 03/01/2018
 ms.author: ghogen

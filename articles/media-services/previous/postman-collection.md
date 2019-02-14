@@ -4,7 +4,7 @@ description: This article provides a definition of the Postman collection for Az
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2017
+ms.date: 02/08/2019
 ms.author: juliako
 
 ---
 
-# Import a Postman collection with On-Demand Streaming operations
+# Import a Postman collection with On-Demand Streaming operations 
 
 This article contains a definition of the **Postman** collection that contains grouped HTTP requests that call Azure Media Services REST APIs. For information about how to configure **Postman** so it can be used to call Media Services REST APIs, see [Configure Postman for Media Services REST API calls](media-rest-apis-with-postman.md) tutorial.
 
-```
+```json
 {
 	"info": {
 		"name": "Azure Media Services Operations",
@@ -4261,7 +4261,7 @@ This article contains a definition of the **Postman** collection that contains g
 								"MediaProcessors"
 							]
 						},
-						"description": "List MediaProcesors\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
+						"description": "List MediaProcessors\n\nFull REST API documentation\nhttps://msdn.microsoft.com/library/azure/hh973617.aspx"
 					},
 					"response": []
 				}

@@ -330,6 +330,9 @@ The Service Bus trigger provides several [metadata properties](functions-trigger
 |`CorrelationId`|`string`|The correlation ID.|
 |`UserProperties`|`IDictionary<String,Object>`|The application specific message properties.|
 
+> [!NOTE]
+> Currently, trigger only works with queues and subscriptions that don't use sessions. Please track [this feature item](https://github.com/Azure/azure-functions-host/issues/563) for any further updates regarding this feature. 
+
 See [code examples](#trigger---example) that use these properties earlier in this article.
 
 ## Trigger - host.json properties
@@ -350,7 +353,7 @@ See the language-specific example:
 * [C# script (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
-* [Java](#output--java-example)
+* Java
 
 ### Output - C# example
 
@@ -624,7 +627,7 @@ This section describes the global configuration settings available for this bind
 |Property  |Default | Description |
 |---------|---------|---------| 
 |maxAutoRenewDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically.| 
-|autoComplete|false|Whether the trigger should immediately mark as complete (autocomplete) or wait for processing to call complete.| 
+|autoComplete|true|Whether the trigger should immediately mark as complete (autocomplete) or wait for processing to call complete.| 
 |maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `maxConcurrentCalls` to 1. | 
 |prefetchCount|n/a|The default PrefetchCount that will be used by the underlying MessageReceiver.| 
 

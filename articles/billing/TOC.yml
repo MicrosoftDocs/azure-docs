@@ -19,6 +19,8 @@
     href: billing-understand-your-invoice-mca.md
   - name: Understand your bill - MCA only
     href: billing-understand-your-bill-mca.md
+  - name: Billing accounts for Microsoft Customer Agreement
+    href: billing-mca-overview.md
 - name: Manage costs
   items:
   - name: Prevent unexpected costs
@@ -33,6 +35,8 @@
     href: ../cost-management/tutorial-acm-create-budgets.md?toc=/azure/billing/TOC.json
   - name: Optimize recommendations - EA only
     href: ../cost-management/tutorial-acm-opt-recommendations.md?toc=/azure/billing/TOC.json
+  - name: Track credits for Microsoft Customer Agreement
+    href: billing-mca-check-azure-credits-balance.md
   - name: Calculate pricing
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Understand spending limit
@@ -93,10 +97,14 @@
     href: billing-manage-access.md
   - name: EA roles in Azure
     href: billing-understand-ea-roles.md 
+  - name: Roles for Microsoft Customer Agreements
+    href: billing-understand-mca-roles.md 
   - name: Link partner ID
     href: billing-partner-admin-link-started.md
   - name: View billing accounts
     href: billing-view-all-accounts.md
+  - name: Group charges with invoice sections
+    href: billing-mca-section-invoice.md
   - name: Resolve past due balance
     href: billing-azure-subscription-past-due-balance.md
   - name: Sign up with Office 365 account
@@ -109,6 +117,8 @@
     href: billing-subscription-become-disable.md
   - name: Transfer ownership
     href: billing-subscription-transfer.md
+  - name: Request ownership - Microsoft Customer Agreement
+    href: billing-mca-request-billing-ownership.md
   - name: Cancel subscription
     href: billing-how-to-cancel-azure-subscription.md
   - name: Change credit card
@@ -125,6 +135,8 @@
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
   - name: Create additional subscription
     href: billing-create-subscription.md
+  - name: Create additional subscription - Microsoft Customer Agreement
+    href: billing-mca-create-subscription.md
   - name: Programmatically create Enterprise subscriptions
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: Export subscription information

@@ -176,10 +176,10 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
    > [!IMPORTANT]  
    > When prompted for the HTTP/s or SSH user name and password, you must provide a password that meets the following criteria:
    >
-   > * Must be at least 10 characters in length
-   > * Must contain at least one digit
-   > * Must contain at least one non-alphanumeric character
-   > * Must contain at least one upper or lower case letter
+   > * Must be at least 10 characters in length.
+   > * Must contain at least one digit.
+   > * Must contain at least one non-alphanumeric character.
+   > * Must contain at least one upper or lower case letter.
 
 It takes a while for this script to complete, usually around 15 minutes. When the script completes without any errors, the cluster has been created.
 
@@ -286,10 +286,10 @@ Once connected to the cluster, use the following steps to verify that you can on
 
 **Resolution**: Use a password that meets the following criteria:
 
-* Must be at least 10 characters in length
-* Must contain at least one digit
-* Must contain at least one non-alphanumeric character
-* Must contain at least one upper or lower case letter
+* Must be at least 10 characters in length.
+* Must contain at least one digit.
+* Must contain at least one non-alphanumeric character.
+* Must contain at least one upper or lower case letter.
 
 ## Next steps
 

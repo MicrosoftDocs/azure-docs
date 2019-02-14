@@ -104,5 +104,5 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 * [What is Azure App Service on Linux?](app-service-linux-intro.md)
 * [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (Preview)](../../cloud-shell/overview.md)
-* [Set up staging environments in Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Set up staging environments in Azure App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Continuous Deployment with Web App for Containers](app-service-linux-ci-cd.md)
