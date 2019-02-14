@@ -34,6 +34,8 @@ You can scale out a data management gateway by associating multiple on-premises 
 > [!NOTE]
 > Currently, gateway supports only the copy activity and stored procedure activity in Data Factory. It is not possible to use the gateway from a custom activity to access on-premises data sources.      
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Overview
 ### Capabilities of data management gateway
 Data management gateway provides the following capabilities:
@@ -51,7 +53,7 @@ When you use a copy activity to copy data between on-premises and cloud, the act
 Here is the high-level data flow for and summary of steps for copy with data gateway:
 ![Data flow using gateway](./media/data-factory-data-management-gateway/data-flow-using-gateway.png)
 
-1. Data developer creates a gateway for an Azure Data Factory using either the [Azure portal](https://portal.azure.com) or [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.datafactories/).
+1. Data developer creates a gateway for an Azure Data Factory using either the [Azure portal](https://portal.azure.com) or [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.datafactory/).
 2. Data developer creates a linked service for an on-premises data store by specifying the gateway. As part of setting up the linked service, data developer uses the Setting Credentials application to specify authentication types and credentials.  The Setting Credentials application dialog communicates with the data store to test connection and the gateway to save credentials.
 3. Gateway encrypts the credentials with the certificate associated with the gateway (supplied by data developer), before saving the credentials in the cloud.
 4. Data Factory service communicates with the gateway for scheduling & management of jobs via a control channel that uses a shared Azure service bus queue. When a copy activity job needs to be kicked off, Data Factory queues the request along with credential information. Gateway kicks off the job after polling the queue.
@@ -246,7 +248,7 @@ If you are using a third-party firewall, you can manually open the port 8050. If
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-If you choose not to open the port 8050 on the gateway machine, use mechanisms other than using the **Setting Credentials** application to configure data store credentials. For example, you could use [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactories/new-azdatafactoryencryptvalue) PowerShell cmdlet. See Setting Credentials and Security section on how data store credentials can be set.
+If you choose not to open the port 8050 on the gateway machine, use mechanisms other than using the **Setting Credentials** application to configure data store credentials. For example, you could use [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet. See Setting Credentials and Security section on how data store credentials can be set.
 
 ## Update
 By default, data management gateway is automatically updated when a newer version of the gateway is available. The gateway is not updated until all the scheduled tasks are done. No further tasks are processed by the gateway until the update operation is completed. If the update fails, gateway is rolled back to the old version.
@@ -469,7 +471,7 @@ If you access the portal from a machine that is different from the gateway machi
 
 When you use the **Setting Credentials** application, the portal encrypts the credentials with the certificate specified in the **Certificate** tab of the **Gateway Configuration Manager** on the gateway machine.
 
-If you are looking for an API-based approach for encrypting the credentials, you can use the [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactories/new-azdatafactoryencryptvalue) PowerShell cmdlet to encrypt credentials. The cmdlet uses the certificate that gateway is configured to use to encrypt the credentials. You add encrypted credentials to the **EncryptedCredential** element of the **connectionString** in the JSON. You use the JSON with the [New-AzDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/az.datafactories/new-azdatafactorylinkedservice) cmdlet or in the Data Factory Editor.
+If you are looking for an API-based approach for encrypting the credentials, you can use the [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet to encrypt credentials. The cmdlet uses the certificate that gateway is configured to use to encrypt the credentials. You add encrypted credentials to the **EncryptedCredential** element of the **connectionString** in the JSON. You use the JSON with the [New-AzDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet or in the Data Factory Editor.
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",

@@ -28,6 +28,8 @@ robots: noindex
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data to/from an on-premises SQL Server database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Supported scenarios
 You can copy data **from a SQL Server database** to the following data stores:
 

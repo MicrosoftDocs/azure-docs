@@ -34,6 +34,8 @@ This article describes how to monitor, manage, and debug your pipelines by using
 > [!IMPORTANT]
 > Azure Data Factory version 1 now uses the new [Azure Monitor alerting infrastructure](../../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). The old alerting infrastructure is deprecated. As a result, your existing alerts configured for version 1 data factories no longer work. Your existing alerts for v1 data factories are not migrated automatically. You have to recreate these alerts on the new alerting infrastructure. Log in to the Azure portal and select **Monitor** to create new alerts on metrics (such as failed runs or successful runs) for your version 1 data factories.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Understand pipelines and activity states
 By using the Azure portal, you can:
 
@@ -286,7 +288,7 @@ In case the slice has failed validation because of a policy failure (for example
 ![Fix errors and validate](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### Use Azure PowerShell
-You can rerun failures by using the **Set-AzDataFactorySliceStatus** cmdlet. See the [Set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactories/set-azdatafactoryslicestatus) topic for syntax and other details about the cmdlet.
+You can rerun failures by using the **Set-AzDataFactorySliceStatus** cmdlet. See the [Set-AzDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/az.datafactory/set-azdatafactoryslicestatus) topic for syntax and other details about the cmdlet.
 
 **Example:**
 

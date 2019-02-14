@@ -46,6 +46,9 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 > The data pipeline in this tutorial copies data from a source data store to a destination data store. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **prerequisite** steps.
 * Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the Curl tool with REST commands to create a data factory. 
 * Follow instructions from [this article](../../active-directory/develop/howto-create-service-principal-portal.md) to: 

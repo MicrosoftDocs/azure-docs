@@ -41,6 +41,9 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 > The pipeline in this tutorial has only one activity of type: HDInsightHive. A pipeline can have more than one activity. And, you can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. For more information, see [scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
 * Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install latest version of Azure PowerShell on your computer.
 * See [Authoring Azure Resource Manager Templates](../../azure-resource-manager/resource-group-authoring-templates.md) to learn about Azure Resource Manager templates. 

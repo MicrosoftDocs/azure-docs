@@ -24,9 +24,12 @@ robots: noindex
 
 This article describes an architecture of a sample solution that moves and processes large-scale datasets in an automatic and scheduled manner. It also provides an end-to-end walkthrough to implement the solution by using Data Factory and Azure Batch.
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 This article is longer than a typical article because it contains a walkthrough of an entire sample solution. If you're new to Batch and Data Factory, you can learn about these services and how they work together. If you know something about the services and are designing/architecting a solution, you can focus on the architecture section of the article. If you're developing a prototype or a solution, you might want to try out the step-by-step instructions in the walkthrough. We invite your comments about this content and how you use it.
 
 First, let's look at how Data Factory and Batch services can help you process large datasets in the cloud.     
+
 
 ## Why Azure Batch?
  You can use Batch to run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines (VMs). It can automatically scale compute resources to meet the needs of your jobs.
@@ -199,7 +202,7 @@ The method has a few key components that you need to understand:
 1. Import the **Azure Storage** NuGet package into the project. You need this package because you use the Blob Storage API in this sample:
 
 	```powershell
-	Install-Package Azure.Storage
+	Install-Package Az.Storage
 	```
 1. Add the following using directives to the source file in the project:
 

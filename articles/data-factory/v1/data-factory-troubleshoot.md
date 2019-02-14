@@ -24,6 +24,8 @@ robots: noindex
 
 This article provides troubleshooting tips for issues when using Azure Data Factory. This article does not list all the possible issues when using the service, but it covers some issues and general troubleshooting tips.   
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Troubleshooting tips
 ### Error: The subscription is not registered to use namespace 'Microsoft.DataFactory'
 If you receive this error, the Azure Data Factory resource provider has not been registered on your machine. Do the following:

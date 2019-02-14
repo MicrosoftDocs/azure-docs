@@ -44,10 +44,13 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 > The data pipeline in this tutorial copies data from a source data store to a destination data store. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Go through [Tutorial Overview and Pre-requisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to get an overview of the tutorial and complete the **prerequisite** steps.
 * Visual Studio 2012 or 2013 or 2015
 * Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/)
-* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-Az-ps) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
+* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
 
 ### Create an application in Azure Active Directory
 Create an Azure Active Directory application, create a service principal for the application, and assign it to the **Data Factory Contributor** role.

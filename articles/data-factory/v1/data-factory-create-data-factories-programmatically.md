@@ -29,6 +29,9 @@ You can create, monitor, and manage Azure data factories programmatically using 
 > This article does not cover all the Data Factory .NET API. See [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) for comprehensive documentation on .NET API for Data Factory. 
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Visual Studio 2012 or 2013 or 2015
 * Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.

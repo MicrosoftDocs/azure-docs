@@ -39,13 +39,16 @@ In this tutorial, you create a pipeline with one activity in it: Copy Activity. 
 A pipeline can have more than one activity. And, you can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. For more information, see [multiple activities in a pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 > [!NOTE]
-> This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](/powershell/module/azurerm.datafactories) for comprehensive documentation on these cmdlets.
+> This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](/powershell/module/az.datafactory) for comprehensive documentation on these cmdlets.
 > 
 > The data pipeline in this tutorial copies data from a source data store to a destination data store. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 - Complete prerequisites listed in the [tutorial prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article.
-- Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-Az-ps).
+- Install **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## Steps
 Here are the steps you perform as part of this tutorial:
@@ -547,7 +550,7 @@ In this step, you use Azure PowerShell to monitor what’s going on in an Azure 
 	Type                : Copy  
 	```
 
-For comprehensive documentation on Data Factory cmdlets, see [Data Factory Cmdlet Reference](/powershell/module/azurerm.datafactories).
+For comprehensive documentation on Data Factory cmdlets, see [Data Factory Cmdlet Reference](/powershell/module/az.datafactory).
 
 ## Summary
 In this tutorial, you created an Azure data factory to copy data from an Azure blob to an Azure SQL database. You used PowerShell to create the data factory, linked services, datasets, and a pipeline. Here are the high-level steps you performed in this tutorial:  

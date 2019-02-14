@@ -22,6 +22,8 @@ robots: noindex
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [frequently asked question - Data Factory](../frequently-asked-questions.md).
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## General questions
 ### What is Azure Data Factory?
 Data Factory is a cloud-based data integration service that **automates the movement and transformation of data**. Just like a factory that runs equipment to take raw materials and transform them into finished goods, Data Factory orchestrates existing services that collect raw data and transform it into ready-to-use information.
@@ -197,7 +199,7 @@ You can also do the following in the Azure portal:
 6. You should see the **DURATION** field with a value. This value is the time taken to process the slice.   
 
 ### How to stop a running slice?
-If you need to stop the pipeline from executing, you can use [Suspend-AzDataFactoryPipeline](/powershell/module/az.datafactories/suspend-azdatafactorypipeline) cmdlet. Currently, suspending the pipeline does not stop the slice executions that are in progress. Once the in-progress executions finish, no extra slice is picked up.
+If you need to stop the pipeline from executing, you can use [Suspend-AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) cmdlet. Currently, suspending the pipeline does not stop the slice executions that are in progress. Once the in-progress executions finish, no extra slice is picked up.
 
 If you really want to stop all the executions immediately, the only way would be to delete the pipeline and create it again. If you choose to delete the pipeline, you do NOT need to delete tables and linked services used by the pipeline.
 
@@ -205,9 +207,9 @@ If you really want to stop all the executions immediately, the only way would be
 [msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models
 [msdn-rest-api-reference]: /rest/api/datafactory/
 
-[adf-powershell-reference]: /powershell/module/azurerm.datafactories/
+[adf-powershell-reference]: /powershell/module/az.datafactory/
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: /powershell/module/azurerm.datafactories/set-Azdatafactoryslicestatus
+[set-azure-datafactory-slice-status]: /powershell/module/az.datafactory/set-Azdatafactoryslicestatus
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/

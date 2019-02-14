@@ -44,6 +44,9 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
 * Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the CURL tool with REST commands to create a data factory.
 * Follow instructions from [this article](../../active-directory/develop/howto-create-service-principal-portal.md) to:

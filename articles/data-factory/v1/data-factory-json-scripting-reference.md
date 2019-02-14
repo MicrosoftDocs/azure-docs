@@ -24,6 +24,8 @@ robots: noindex
 
 This article provides JSON schemas and examples for defining Azure Data Factory entities (pipeline, activity, dataset, and linked service).
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Pipeline
 The high-level structure for a pipeline definition is as follows:
 
@@ -3729,7 +3731,7 @@ To define a HDFS linked service, set the **type** of the linked service to **Hdf
 | userName |Username for Windows authentication. |Yes (for Windows Authentication) |
 | password |Password for Windows authentication. |Yes (for Windows Authentication) |
 | gatewayName |Name of the gateway that the Data Factory service should use to connect to the HDFS. |Yes |
-| encryptedCredential |[New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactories/new-azdatafactoryencryptvalue) output of the access credential. |No |
+| encryptedCredential |[New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) output of the access credential. |No |
 
 #### Example: Using Anonymous authentication
 
@@ -4460,7 +4462,7 @@ To define an ODBC linked service, set the **type** of the linked service to **On
 }
 ```
 #### Example - Using Basic authentication with encrypted credentials
-You can encrypt the credentials using the [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactories/new-azdatafactoryencryptvalue) (1.0 version of Azure PowerShell) cmdlet or [New-AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0.9 or earlier version of the Azure PowerShell).
+You can encrypt the credentials using the [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) cmdlet.
 
 ```json
 {

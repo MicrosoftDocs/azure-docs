@@ -43,9 +43,12 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 > A pipeline can have more than one activity. And, you can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. For more information, see [scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
 * Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/overview) article to install latest version of Azure PowerShell on your computer.
-* (optional) This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](/powershell/module/azurerm.datafactories) for comprehensive documentation on Data Factory cmdlets.
+* (optional) This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](/powershell/module/az.datafactory) for comprehensive documentation on Data Factory cmdlets.
 
 ## Create data factory
 In this step, you use Azure PowerShell to create an Azure Data Factory named **FirstDataFactoryPSH**. A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run a Hive script to transform input data. Let's start with creating the data factory in this step.
@@ -412,7 +415,7 @@ In this article, you have created a pipeline with a transformation activity (HDI
 ## See Also
 | Topic | Description |
 |:--- |:--- |
-| [Data Factory Cmdlet Reference](/powershell/module/azurerm.datafactories) |See comprehensive documentation on Data Factory cmdlets |
+| [Data Factory Cmdlet Reference](/powershell/module/az.datafactory) |See comprehensive documentation on Data Factory cmdlets |
 | [Pipelines](data-factory-create-pipelines.md) |This article helps you understand pipelines and activities in Azure Data Factory and how to use them to construct end-to-end data-driven workflows for your scenario or business. |
 | [Datasets](data-factory-create-datasets.md) |This article helps you understand datasets in Azure Data Factory. |
 | [Scheduling and Execution](data-factory-scheduling-and-execution.md) |This article explains the scheduling and execution aspects of Azure Data Factory application model. |
