@@ -52,11 +52,14 @@ You can schedule for volume snapshots to be taken automatically by using snapsho
 
 3. Click the **Hourly**, **Daily**, **Weekly**, or **Monthly** tab to create hourly, daily, weekly, or monthly snapshot policies.  
 4. Specify the number of snapshots to keep.  
+
+    Each volume can have a maximum of 255 snapshots.  
+
 5. For each snapshot policy, specify the time when the snapshot should be taken:  
     * For hourly snapshots, specify a value for **Minute**.
     * For daily snapshots, specify values for **Hour** and **Minute**.
     * For weekly snapshots, specify values for **Days** of the week, **Hour**, and **Minute**.
-    * For monthly snapshots, specify values for **Days** of the month, **Hour**, and **Minute**.
+    * For monthly snapshots, specify values for **Days** of the month, **Hour**, and **Minute**.  
 
     ![Daily snapshot policy](../media/azure-netapp-files/azure-netapp-files-daily-snapshot-policy.png)
 
@@ -66,8 +69,6 @@ You can schedule for volume snapshots to be taken automatically by using snapsho
 
 6. If you need to create additional snapshot policies, repeat steps 3 through 5 above. 
 7. Click **Save**. 
-
-
 
 ## Restore a snapshot to a new volume
 
@@ -111,3 +112,6 @@ Currently, you can restore a snapshot only to a new volume.
 5. Click **OK**.   
     The new volume to which the snapshot is restored appears in the Volumes blade.
 
+## Next steps
+
+[Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)

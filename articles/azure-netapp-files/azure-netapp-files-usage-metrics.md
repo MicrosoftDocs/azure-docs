@@ -18,7 +18,7 @@ ms.author: b-juche
 ---
 # Usage metrics for Azure NetApp Files
 
-Azure NetApp Files displays size information for various objects. Understanding the associated use metrics helps you monitor and optimize your Azure NetApp Files usage.  
+Azure NetApp Files displays size information for various objects. Understanding the associated usage metrics helps you monitor and optimize your Azure NetApp Files subscription.  
 
 ## <a name="capacity_pools"></a>For capacity pools
 

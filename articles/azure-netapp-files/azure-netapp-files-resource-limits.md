@@ -13,25 +13,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/03/2019
+ms.date: 02/14/2019
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
+
 Understanding resource limits for Azure NetApp Files helps you manage your volumes.
 
-## <a name="capacity_pools"></a>Capacity pools
-
+- Each Azure subscription can have a maximum of 10 NetApp accounts.
+- Each NetApp account can have a maximum of 25 capacity pools.
+- Each capacity pool can belong to only one NetApp account.  
 - The minimum size for a single capacity pool is 4 TiB, and the maximum size is 500 TiB. 
-- Each capacity pool can belong to only one NetApp account. However, you can have multiple capacity pools within a NetApp account.  
-
-## <a name="volumes"></a>Volumes
-
+- Each capacity pool can have a maximum of 500 volumes.
 - The minimum size for a single volume is 100 GiB, and the maximum size is 92 TiB.
 - You can have a maximum of 100 volumes per Azure subscription per region.  
-
-## <a name="delegated_subnet"></a>Delegated subnet 
-
-In each Azure Virtual Network (Vnet), only one subnet can be delegated to Azure NetApp Files.
+- Each volume can have a maximum of 255 snapshots.
+- Each Azure Virtual Network (Vnet) can have only one subnet delegated to Azure NetApp Files.
 
 ## Next steps
 
