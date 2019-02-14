@@ -215,7 +215,7 @@ New-AzResourceGroupDeployment `
 ```
 
 > [!NOTE]
-> There is a file IO issue with using Azure PowerShell in the Cloud shell.  The error message is "Cannot retrieve the dynamic parameters for the cmdlet. Cannot find path 'Azure:/azuredeploy.json' because it does not exist."  A temporary workaround is not to include the **-TemplateFile** switch in the New-AzResourceGroupDeploy command. The command will prompt you to enter the file name.
+> There is a file IO issue with using Azure PowerShell in the Cloud shell.  The error message is *Cannot retrieve the dynamic parameters for the cmdlet. Cannot find path 'Azure:/azuredeploy.json' because it does not exist.*  A temporary workaround is not to include the **-TemplateFile** switch in the `New-AzResourceGroupDeploy` command. The command will prompt you to enter the file name.
 
 Use a generated password. See [Prerequisites](#prerequisites).
 For the values of _artifactsLocation, _artifactsLocationSasToken and bacpacFileName, see [Generate a SAS token](#generate-a-sas-token).
