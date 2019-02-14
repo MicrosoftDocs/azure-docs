@@ -25,7 +25,7 @@
     5. Select **Create**. 
 
         ![Azure portal - set notification hub properties](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
-4. Select **Notifications** (Bell icon), and select **Go to resource**, or refresh the list in the **Notification Hubs** page, and select your notification hub. 
+4. Select **Notifications** (Bell icon), and select **Go to resource**. You can also refresh the list in the **Notification Hubs** page, and select your notification hub. 
 
       ![Azure portal - notifications -> Go to resource](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
 5. Select **Access Policies** from the list. Note the two connection strings that are available to you. You need them to handle push notifications later.
