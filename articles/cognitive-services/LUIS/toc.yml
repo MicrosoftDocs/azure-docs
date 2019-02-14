@@ -81,6 +81,7 @@
   items:
   - name: Best practices
     href: luis-concept-best-practices.md
+    displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
   - name: Plan your app
     displayName: simple, hierarchical, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md

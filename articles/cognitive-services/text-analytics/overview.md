@@ -3,21 +3,21 @@ title: What is Text Analytics?
 titleSuffix: Azure Cognitive Services
 description: Text Analytics in Azure Cognitive Services for sentiment analysis, key phrase extraction, language detection, and entity linking.
 services: cognitive-services
-author: ashmaka
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 10/01/2018
-ms.author: ashmaka
+ms.date: 02/13/2019
+ms.author: aahi
 ---
 
 # What is Text Analytics?
 
 The Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes four main functions: sentiment analysis, key phrase extraction, language detection, and entity linking.
 
-The API is backed by resources in [Microsoft Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud, readily consumable in your development projects.
+The API is a part of [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), a collection of machine learning and AI algorithms in the cloud for your development projects.
 
 ## Capabilities in Text Analytics
 
