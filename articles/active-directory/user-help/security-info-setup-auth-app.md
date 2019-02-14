@@ -97,7 +97,7 @@ If you no longer want to use your authenticator app as a security info method, y
 
     Your account is completely removed from the authenticator app for two-factor verification and self-service password reset verification.
 
-### Change your default security info method
+## Change your default security info method
 If you want the authenticator app to be the default method used when you sign-in to your work or school account using two-factor verification or for self-service password reset requests, you can set it from the Security **info** page.
 
 1. On the **Security info** page, select the **Change** link next to the **Default sign-in method** information.
@@ -129,42 +129,3 @@ You have additional options for how your organization contacts you to verify you
 - Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](user-help-reset-password.md) article.
 
 - Get troubleshooting tips and help for sign-in problems in the [Can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    The **Scan the QR code** screen appears.
-
-    ![Scan the QR code using the Authenticator app](media/security-info/security-info-scan-qr.png)
-
-4. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Work or school account**. 
-
-5. If you have a QR code reader app, scan the provided code. If you don't have a code reader app, you can select the **Can't scan the QR code link** and manually enter the code and URL into the Microsoft Authenticator app.
-
-6. Use the Microsoft Authenticator app to approve the notification to activate the app.
-
-    Your security info is updated to use the Microsoft Authenticator app to verify your identity when using two-step verification or self-service password reset.
-
-    >[!Note]
-    >If your organization allows it, you'll also get a verification code along with the Microsoft Authenticator app notification. If you want to make the code your default method, follow the instructions in [Manage your security info](security-info-setup-auth-app.md).
-
-

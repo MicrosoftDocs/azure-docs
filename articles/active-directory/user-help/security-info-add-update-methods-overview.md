@@ -39,7 +39,3 @@ This list includes the method-based articles. Each article provides details abou
 |[Set up security info to use phone calls](security-info-setup-phone-number.md)|Describes how to modify your security info method for phone calls.|
 |[Set up security info to use email](security-info-setup-email.md)|Describes how to modify your security info method to use an email address.|
 |[Set up security info to use pre-defined security questions](security-info-setup-questions.md)|Describes how to modify your security info method to use security questions.|
-
-
-
-

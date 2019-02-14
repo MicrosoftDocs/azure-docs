@@ -73,7 +73,7 @@ If you no longer want to use text messages as a security info method, you can re
 
     After you delete the **Phone** option, it's removed from your security info and disappears from the **Security info** page. If text messaging is your default method, the default will change to another available method.
 
-### Change your default security info method
+## Change your default security info method
 If you want text messaging to be the default method used when you sign-in to your work or school account using two-factor verification or for self-service password reset requests, you can set it from the **Security info** page.
 
 1. On the **Security info** page, select the **Change** link next to the **Default sign-in method** information.
