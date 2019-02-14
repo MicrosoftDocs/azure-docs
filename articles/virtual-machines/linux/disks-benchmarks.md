@@ -1,5 +1,5 @@
 ---
-title: Benchmarking your application on Azure Disk Storage- Microsoft Azure | Microsoft Docs
+title: Benchmarking your application on Azure Disk Storage - managed disks
 description: Learn about the process of benchmarking your application on Azure.
 services: "virtual-machines-linux,storage"
 author: roygara
@@ -8,7 +8,7 @@ ms.date: 01/11/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
-ms.component: disks
+ms.subservice: disks
 ---
 # Benchmarking a disk
 
