@@ -23,15 +23,13 @@ For more information on the Hive JDBC Interface, see [HiveJDBCInterface](https:/
 ## Prerequisites
 
 * An HDInsight Hadoop cluster. To create one, see [Get started with Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md).
-
 * The [Java Developer Kit (JDK) version 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) or higher.
-
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL is a JDBC client application.
 
 
 ## JDBC connection string
 
-JDBC connections to an HDInsight cluster on Azure are made over 443, and the traffic is secured using SSL. The public gateway that the clusters sit behind redirects the traffic to the port that HiveServer2 is actually listening on. The following connection string shows the format to use for HDInsight:
+JDBC connections to an HDInsight cluster on Azure are made over port 443, and the traffic is secured using SSL. The public gateway that the clusters sit behind redirects the traffic to the port that HiveServer2 is actually listening on. The following connection string shows the format to use for HDInsight:
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
@@ -51,9 +49,9 @@ DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with your HDInsight cluster. The following steps assume that you have already installed SQuirreL SQL.
 
-1. Create a directory to contain certain fies copied from your cluster. For example, `mkdir C:\HD\hivedriver`.
+1. Create a directory to contain certain files to be copied from your cluster. For example, `mkdir C:\HD\hivedriver`.
 
-2. In the following script, replace `sshuser` with the SSH user account name for the cluster.  Replace `CLUSTERNAME` with the HDInsight cluster name.  From a command line, use the following commands to copy the files from the HDInsight cluster:
+2. In the following script, replace `sshuser` with the SSH user account name for the cluster.  Replace `CLUSTERNAME` with the HDInsight cluster name.  From a command line, enter the following command to copy files from an HDInsight cluster:
 
     ```bash
     scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:"/usr/hdp/current/hadoop-client/hadoop-auth.jar /usr/hdp/current/hadoop-client/hadoop-common.jar /usr/hdp/current/hadoop-client/lib/log4j-*.jar /usr/hdp/current/hadoop-client/lib/slf4j-*.jar /usr/hdp/current/hive-client/lib/commons-codec*.jar /usr/hdp/current/hive-client/lib/commons-logging-*.jar /usr/hdp/current/hive-client/lib/hive-*-1.2*.jar /usr/hdp/current/hive-client/lib/httpclient-*.jar /usr/hdp/current/hive-client/lib/httpcore-*.jar /usr/hdp/current/hive-client/lib/libfb*.jar /usr/hdp/current/hive-client/lib/libthrift-*.jar" C:\HD\hivedriver
@@ -76,9 +74,9 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
    ![add driver dialog](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
 
-   Click **OK** to save these settings.
+   Select **OK** to save these settings.
 
-6. On the left of the SQuirreL SQL window, select **Aliases**. Then click the **+** icon to create a connection alias.
+6. On the left of the SQuirreL SQL window, select **Aliases**. Then select the **+** icon to create a connection alias.
 
     ![add new alias](./media/apache-hadoop-connect-hive-jdbc-driver/aliases.png)
 
@@ -86,7 +84,7 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
     * **Name**: Hive on HDInsight
 
-    * **Driver**: Use the dropdown to select the **Hive** driver
+    * **Driver**: Use the drop-down to select the **Hive** driver
 
     * **URL**: `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
@@ -107,7 +105,7 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 
     ![connection dialog](./media/apache-hadoop-connect-hive-jdbc-driver/connect.png)
 
-9. Once connected, enter the following query into the SQL query dialog, and then select the **Run** icon. The results area should show the results of the query.
+9. Once connected, enter the following query into the SQL query dialog, and then select the **Run** icon (a running person). The results area should show the results of the query.
 
         select * from hivesampletable limit 10;
 
@@ -133,13 +131,9 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **Resolution**: To fix this error, use the following steps:
 
-1. Download the commons-codec jar file from your HDInsight cluster.
+1. Exit SQuirreL, and then go to the directory where SQuirreL is installed on your system. In the SquirreL directory, under the `lib` directory, replace the existing commons-codec.jar with the one downloaded from the HDInsight cluster.
 
-        scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-codec*.jar ./commons-codec.jar
-
-2. Exit SQuirreL, and then go to the directory where SQuirreL is installed on your system. In the SquirreL directory, under the `lib` directory, replace the existing commons-codec.jar with the one downloaded from the HDInsight cluster.
-
-3. Restart SQuirreL. The error should no longer occur when connecting to Hive on HDInsight.
+2. Restart SQuirreL. The error should no longer occur when connecting to Hive on HDInsight.
 
 ## Next steps
 
