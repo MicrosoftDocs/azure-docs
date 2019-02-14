@@ -65,7 +65,7 @@ Sort orders often default to relevance, but it's common to make alternative sort
 
  ![][3]
 
-In Azure Search, sorting is based on the `$orderby` expression, for all fields that are indexed as `"Sortable": true.` An `$orderby` clause is an OData expression. For information about syntax, see [OData expression syntax for filters and order-by clauses](query-odata-filter-orderby.md).
+In Azure Search, sorting is based on the `$orderby` expression, for all fields that are indexed as `"Sortable": true.` An `$orderby` clause is an OData expression. For information about syntax, see [OData expression syntax for filters and order-by clauses](query-odata-filter-orderby-syntax.md).
 
 Relevance is strongly associated with scoring profiles. You can use the default scoring, which relies on text analysis and statistics to rank order all results, with higher scores going to documents with more or stronger matches on a search term.
 
