@@ -16,18 +16,17 @@ Azure Data Box Edge is a storage solution that allows you to process data and se
 
 This article focuses on the tasks that you can perform using the PowerShell interface. PowerShell provides a command-line interface built in a constrained runspace with dedicated cmdlets so that only restricted operations can be performed. Use the PowerShell interface to get Azure container logs, reset the device, generate a log package for Microsoft Support, and run diagnostic tests.
 
-
 This article includes the following tutorials:
 
 - Connect to the PowerShell interface
-- Connect to support session
+- Start a support session
+- Create a support package
 - Upload certificate
 - Reset the device
 - Boot up in non-DHCP environment
 - View device information
 - Get container logs
 - Run diagnostics tests
-
 
 ## Connect to the PowerShell interface
 
@@ -39,8 +38,8 @@ Before you begin, make sure that your Windows client is running Windows PowerShe
 
 Follow these steps to remotely connect from a Windows client.
 
-1. Run Windows PowerShell session as an administrator.
-2. Make sure that Windows Remote Management service is running on your client. At the command prompt, type:
+1. Run a Windows PowerShell session as an administrator.
+2. Make sure that the Windows Remote Management service is running on your client. At the command prompt, type:
 
     `winrm quickconfig`
 
@@ -88,7 +87,7 @@ Follow these steps to remotely connect from an NFS client.
 
 1. To open PowerShell session, type:
 
-    sudo pwsh
+    `sudo pwsh`
  
 2. For connecting using the remote client, type:
 
@@ -100,7 +99,9 @@ Follow these steps to remotely connect from an NFS client.
 > This procedure does not work on Mac OS.
 
 
-## Connect to support session
+## Start a support session
+
+To troubleshoot any issues that you might experience with your device, you will need to engage with the Microsoft Support team. Microsoft Support may need to use a support session to sign into your device.
 
 1. Run Windows PowerShell session as an administrator.
 2. Assign a variable to the device IP address.
@@ -115,15 +116,14 @@ Follow these steps to remotely connect from an NFS client.
     Set-Item WSMan:\localhost\Client\TrustedHosts $ip -Force
     $minishellSession= New-PSSession -ComputerName $ip -ConfigurationName "Minishell" -Credential ~\EdgeUser
     ```
-
     When prompted, provide the password used to sign into the device.
 
-4. Connect to the Support session runspace.  
+4. Connect to the support session runspace.  
 
     ```
     Invoke-Command -Session $minishellSession -ScriptBlock { Enable-HcsSupportAccess }
     ```  
-    This command outputs an encrypted key.
+    This command outputs an encrypted key. Copy this string into a text editor such as Notepad.
 
 5. Send this key to the Support Engineer in email. Microsoft will send you an access key for the support session.
 
@@ -151,7 +151,7 @@ Follow these steps to remotely connect from an NFS client.
     PS C:\WINDOWS\system32> Enter-PSSession -Session $supportSession
     [10.100.10.10]: PS C:\Users\EdgeSupport\Documents>
     ```
-    If you need to get the access key again when the support session is enabled, use the `Get-HcsSupportAccessKey` cmdlet.
+    If you need to get the same encrypted access key that you used when the support session was enabled, use the `Get-HcsSupportAccessKey` cmdlet.
 
     ```
     [10.128.24.33]: PS C:\Users\EdgeSupport\Documents> Get-HcsSupportAccessKey
@@ -160,6 +160,12 @@ Follow these steps to remotely connect from an NFS client.
     ```
 
     The support session stays enabled for 8 hours. To disable the support session anytime, use the `Disable-HcsSupportAccess` cmdlet.
+
+## Create a support package
+
+If you experience any device issues, you can create a support package from the system logs. Microsoft Support uses this package to troubleshoot the issues. Follow these steps to create a support package:
+
+Get-HcsNodeSupportPackage
 
 ## Upload certificate
 
@@ -250,11 +256,7 @@ If you boot up in a non-DHCP environment, follow these steps to deploy the virtu
     | IsRegistered                   | This value indicates if your device is activated with the service.                                                                                         |   |
 
 
-## Create a support package
 
-If you experience any device issues, you can create a support package from the system logs. Microsoft Support uses this package to troubleshoot the issues. Follow these steps to create a support package:
-
-Get-HcsNodeSupportPackage
 
 
 ## Next steps
