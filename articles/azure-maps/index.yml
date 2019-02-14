@@ -29,7 +29,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Build a geospatial web application to search for points of interest, route to locations or track devices by creating a geofence using Azure Maps.
+    text: Build a geospatial web application to search for points of interest, route to locations and track devices by creating a geofence using Azure Maps.
   - type: list
     style: ordered
     items:
