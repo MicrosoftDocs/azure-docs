@@ -10,7 +10,7 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-#Customer intent: As a developer, I want to understand the core concepts and patterns that Azure Durable Functions supports so that I can evaluate this technology to solve my application development challenges.
+#Customer intent: As a developer, I want to understand the core concepts and patterns that Azure Durable Functions supports, so I can evaluate this technology to solve my application development challenges.
 ---
 
 # Durable Functions patterns and technical concepts (Azure Functions)
