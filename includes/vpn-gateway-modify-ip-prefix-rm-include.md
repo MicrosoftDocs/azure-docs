@@ -13,13 +13,12 @@
 
 To add additional address prefixes:
 
-  Set the variable for the LocalNetworkGateway.
+1. Set the variable for the LocalNetworkGateway.
 
    ```azurepowershell-interactive
    $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
    ```
-
-  Modify the prefixes.
+2. Modify the prefixes.
 
   ```azurepowershell-interactive
   Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
@@ -28,15 +27,14 @@ To add additional address prefixes:
 
 To remove address prefixes:
 
-Leave out the prefixes that you no longer need. In this example, we no longer need prefix 10.101.2.0/24 (from the previous example), so we update the local network gateway, excluding that prefix.
+  Leave out the prefixes that you no longer need. In this example, we no longer need prefix 10.101.2.0/24 (from the previous example), so we update the local network gateway, excluding that prefix.
 
-  Set the variable for the LocalNetworkGateway.
+1. Set the variable for the LocalNetworkGateway.
 
   ```azurepowershell-interactive
   $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
   ```
-
-  Modify the prefixes.
+2. Set the gateway with the updated prefixes.
 
   ```azurepowershell-interactive
   Set-AzLocalNetworkGateway -LocalNetworkGateway $local `
@@ -52,7 +50,7 @@ If you have a gateway connection and want to add or remove the IP address prefix
    ```azurepowershell-interactive
    Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName TestRG1
    ```
-2. Modify the address prefixes for your local network gateway.
+2. Set the local network gateway with the modified address prefixes.
    
    Set the variable for the LocalNetworkGateway.
 
