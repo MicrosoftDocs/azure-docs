@@ -28,7 +28,7 @@ These are the main steps in the publishing process:
 
 ![Publishing process steps for Power BI App](./media/publishing-process-steps.png)
 
-This table describes the steps and provides a maximum time estimate for their completion:
+This table describes the steps and provides a time estimate for their completion:
 
 |   Publishing step            |   Time     |   Description                                                                  |
 | --------------------         |------------| ----------------                                                               |
@@ -36,7 +36,7 @@ This table describes the steps and provides a maximum time estimate for their co
 | Certification                | 1-7 days   | The Power BI Certification Team analyzes your offer. The team runs your Power BI app through a manual verification test by installing the app via the provided installation URL. Primary validations are performed as part of the app certification process (described later in this document).         |
 | Packaging                    | \< 1 hour  | The offer’s technical assets are packaged for customer use.                        |
 | Lead generation registration | \< 1 hour  | Lead systems are configured and deployed.                                      |
-| Publisher signoff            | \-         | You perform final review and confirmation before the offer goes live. You'll also now have a link to preview your offering. After you're happy with how your preview looks, select **Go Live** on the **Status** tab. This sends a request to the onboarding team to list your app on AppSource.    |
+| Publisher signoff            | \-         | You complete a final review and confirmation before the offer goes live. You'll also now have a link to preview your offering. After you're happy with how your preview looks, select **Go Live** on the **Status** tab. This sends a request to the onboarding team to list your app on AppSource.    |
 | Live                         | \< 3 hours | Your offer is now publicly listed ("live") on AppSource, and customers can view your app and deploy it in their Power BI subscriptions. You'll also receive a confirmation email. In the right column on the **All offers** tab, you can see the status of all your offers. On the **Status** tab, you can see the detailed publishing flow status for your offer. |
 |   |   |
 
@@ -50,10 +50,10 @@ The Microsoft onboarding team uses this process to validate your Power BI app of
 
 1. Review legal documents and help links.
 2. Validate support contact information.
-3. Use installer URL to verify proper installation.
-4. Scan app for malware and other malicious content.
+3. Use the installer URL to verify proper installation.
+4. Scan the app for malware and other malicious content.
 5. Verify that content displayed matches the app’s description.
-6. Verify that app-related operations work as expected in Power BI: open reports and dashboards with sample data, connect to custom data sources, refresh data, and so on.
+6. Verify that app-related operations work as expected in Power BI. The team opens reports and dashboards with sample data, connects to custom data sources, refreshes data, and so on.
 
 The Certification Team provides feedback if they find any issues.  For more info on Power BI app requirements, see the [Power BI app documentation](https://go.microsoft.com/fwlink/?linkid=2028636).
 

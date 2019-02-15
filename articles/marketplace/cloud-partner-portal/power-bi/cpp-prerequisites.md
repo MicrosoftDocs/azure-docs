@@ -19,7 +19,7 @@ ms.author: pbutlerm
 
 # Power BI app prerequisites
 
-This article provides the technical and business requirements that you must meet before you can publish a Power BI app offer to the Microsoft AppSource marketplace.
+This article provides the technical and business requirements that you need to meet before you can publish a Power BI app offer to the Microsoft AppSource marketplace.
 
 ## Technical requirements
 
