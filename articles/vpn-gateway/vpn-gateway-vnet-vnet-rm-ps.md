@@ -117,7 +117,26 @@ We use the following values in the examples:
 
 ### <a name="Step2"></a>Step 2 - Create and configure TestVNet1
 
-1. Declare your variables. This example declares the variables using the values for this exercise. In most cases, you should replace the values with your own. However, you can use these variables if you are running through the steps to become familiar with this type of configuration. Modify the variables if needed, then copy and paste them into your PowerShell console.
+1. Verify your subscription settings.
+
+  Connect to your account if you are running PowerShell locally on your computer. If you are using Azure Cloud Shell, you are connected automatically.
+
+  ```azurepowershell-interactive
+  Connect-AzAccount
+  ```
+
+  Check the subscriptions for the account.
+
+  ```azurepowershell-interactive
+  Get-AzSubscription
+  ```
+
+  Specify the subscription that you want to use.
+
+  ```azurepowershell-interactive
+  Select-AzSubscription -SubscriptionName $Sub1
+  ```
+2. Declare your variables. This example declares the variables using the values for this exercise. In most cases, you should replace the values with your own. However, you can use these variables if you are running through the steps to become familiar with this type of configuration. Modify the variables if needed, then copy and paste them into your PowerShell console.
 
   ```azurepowershell-interactive
   $Sub1 = "Replace_With_Your_Subscription_Name"
@@ -138,25 +157,7 @@ We use the following values in the examples:
   $Connection14 = "VNet1toVNet4"
   $Connection15 = "VNet1toVNet5"
   ```
-
-2. Connect to your account. Use the following example to help you connect:
-
-  ```azurepowershell-interactive
-  Connect-AzAccount
-  ```
-
-  Check the subscriptions for the account.
-
-  ```azurepowershell-interactive
-  Get-AzSubscription
-  ```
-
-  Specify the subscription that you want to use.
-
-  ```azurepowershell-interactive
-  Select-AzSubscription -SubscriptionName $Sub1
-  ```
-3. Create a new resource group.
+3. Create a resource group.
 
   ```azurepowershell-interactive
   New-AzResourceGroup -Name $RG1 -Location $Location1
