@@ -84,7 +84,7 @@ You may have a limited number of email actions in an Action Group. See the [rate
 
 **Voice** - You may have a limited number of Voice actions in an Action Group. See the [rate limiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) article.
 
-**Webhook** - You may have a limited number of Webhook actions in an Action Group. Webhooks are retried using the following rules. The webhook call is retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The timeout period for a response is 10 seconds and the first retry happens after those 10 seconds. The second retry happens after 100 seconds. After two failures the endpoint will not be called for 30 minutes from any action group.
+**Webhook** - You may have a limited number of Webhook actions in an Action Group. Webhooks are retried using the following rules. The webhook call is retried a maximum of 2 times when the following HTTP status codes are returned: 408, 429, 503, 504 or the HTTP endpoint does not respond. The first retry happens after 10 seconds. The second retry happens after 100 seconds. After two failures, no action group will call the endpoint for 30 minutes. 
 
 Source IP address ranges
  - 13.72.19.232
