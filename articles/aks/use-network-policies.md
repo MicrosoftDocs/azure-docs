@@ -232,7 +232,7 @@ spec:
   ingress:
   - from:
     - namespaceSelector: {}
-      podSelector:
+    - podSelector:
         matchLabels:
           app: webapp
           role: frontend
@@ -353,7 +353,7 @@ spec:
     - namespaceSelector:
         matchLabels:
           purpose: development
-      podSelector:
+    - podSelector:
         matchLabels:
           app: webapp
           role: frontend
