@@ -92,7 +92,7 @@ Use the following steps to configure the native Windows VPN client for certifica
 
 3. Optional Step - If you want to specify a custom DNS, add the following lines to the **mobileconfig** file:
 
-```xml
+  ```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -104,7 +104,7 @@ Use the following steps to configure the native Windows VPN client for certifica
             <string>TestDomain.com</string>
         </array>
     </dict> 
-```
+  ```
 4. Double-click the profile to install it, and select **Continue**. The profile name is the same as the name of your virtual network.
 
    ![Installation message](./media/point-to-site-vpn-client-configuration-radius/adinstall.png)
