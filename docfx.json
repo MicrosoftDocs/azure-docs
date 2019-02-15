@@ -320,6 +320,25 @@
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
         "articles/governance/policy/**/*.md": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph"
+      },
+      "featureFlags": {
+        "articles/**/*.md": [
+          "show_learn_banner"
+        ]
+      },
+      "learn_banner_products": {
+	"articles/**/*.md": [
+          "azure"
+        ],
+        "articles/azure-virtual-machines/**/*.md": [
+          "azure-virtual-machines"
+        ], 
+        "articles/azure-portal/**/*.md": [
+          "azure-portal"
+        ], 
+        "articles/azure-functions/**/*.md": [
+          "azure-functions"
+        ]
       }
     },
     "template": [

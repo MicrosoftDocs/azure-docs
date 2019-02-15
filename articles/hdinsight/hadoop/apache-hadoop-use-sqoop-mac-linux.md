@@ -100,7 +100,7 @@ GO
     The fields in the data are separated by a tab character, and the lines are terminated by a new-line character.
 
     > [!IMPORTANT]  
-    > The `wasb:///` path works with clusters that use Azure Storage as the default cluster storage. For clusters that use Azure Data Lake Storage, use `adl:///` instead.
+    > The `wasb:///` path works with clusters that use Azure Storage as the default cluster storage. For clusters that use Azure Data Lake Storage Gen1, use `adl:///` instead.
 
 2. Once the import has completed, use the following command to list out the data in the new directory:
 
