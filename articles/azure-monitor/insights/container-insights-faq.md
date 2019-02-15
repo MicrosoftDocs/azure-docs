@@ -16,6 +16,9 @@ ms.author: magoedte
 # Azure Monitor for containers Frequently Asked Questions
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
+## If my Log Analytics workspace is configured with the Free pricing tier, why aren't I seeing any data? 
+
+You may have reached the default 500 MB limit or specified a daily cap to control the amount of data to collect daily. To check your data usage, see [Log data usage and cost](../platform/manage-cost-storage.md). 
 ## What are the states of containers that can be seen in the ContainerInventory table?
 The ContainerInventory table contains information about both stopped and running containers. The table is populated by a workflow inside the agent that queries the docker for all the containers (running and stopped), and forwards that data the Log Analytics workspace.
  
