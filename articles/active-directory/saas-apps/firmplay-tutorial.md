@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with FirmPlay - Employee Advocacy for Recruiting
 

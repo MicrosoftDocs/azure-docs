@@ -61,6 +61,7 @@ There are also differences with storage metrics:
 Azure Stack Managed Disks supports the following API versions:
 
 - 2017-03-30
+- 2017-12-01
 
 ## Managed images
 

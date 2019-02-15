@@ -15,6 +15,7 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # FAQs and known issues with managed identities for Azure resources
