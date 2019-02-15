@@ -51,6 +51,8 @@ Use the **searchFields** query parameter to specify which language-specific fiel
 
 For more information about index properties, see [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). For more information about analysis in Azure Search, see [Analyzers in Azure Search](https://docs.microsoft.com/azure/search/search-analyzers).
 
+<a name="language-analyzer-list"></a>
+
 ## Language analyzer list 
  Below is the list of supported languages together with Lucene and Microsoft analyzer names.  
 
