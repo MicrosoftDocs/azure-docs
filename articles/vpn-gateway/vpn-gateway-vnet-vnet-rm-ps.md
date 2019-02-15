@@ -131,15 +131,14 @@ We use the following values in the examples:
   Get-AzSubscription
   ```
 
-  Specify the subscription that you want to use.
+  If you have more than one subscription, specify the subscription that you want to use.
 
   ```azurepowershell-interactive
-  Select-AzSubscription -SubscriptionName $Sub1
+  Select-AzSubscription -SubscriptionName nameofsubscription
   ```
 2. Declare your variables. This example declares the variables using the values for this exercise. In most cases, you should replace the values with your own. However, you can use these variables if you are running through the steps to become familiar with this type of configuration. Modify the variables if needed, then copy and paste them into your PowerShell console.
 
   ```azurepowershell-interactive
-  $Sub1 = "Replace_With_Your_Subscription_Name"
   $RG1 = "TestRG1"
   $Location1 = "East US"
   $VNetName1 = "TestVNet1"
