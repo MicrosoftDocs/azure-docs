@@ -29,7 +29,7 @@ Now let’s walk through the options you have as a lab owner while using this AP
 - You can enter a **new resource group** name for all virtual machines.
 - You can continue with the existing behavior, that is, a resource group is created for each VM in the lab.
  
-This setting applies to new virtual machines created in the lab. The older VMs in your lab that were created in their own resource groups continue to remain unaffected. However, you can migrate these virtual machines from their individual resource groups to the common resource group so that all your lab virtual machines are in one common resource group. For more information, see [Move resources to a new resource group](../azure-resource-manager/resource-group-move-resources.md). Environments created in your lab continue to remain in their own resource groups.
+This setting applies to new virtual machines created in the lab. The older VMs in your lab that were created in their own resource groups continue to remain unaffected. Environments created in your lab continue to remain in their own resource groups.
 
 ### How to use this API:
 - Use the API version **2018_10_15_preview** while using this API. 
