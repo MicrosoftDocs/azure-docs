@@ -65,7 +65,7 @@ As you update a published offer, you can check the changes you've made. To use t
 
 ## History of publishing actions
 
-To view publishing history, on the left side of the Cloud Partner Portal, open the **History** tab. Here you'll see a history of time-stamped actions on your AppSource offers.
+To view your offer's publishing history, on the left side of the Cloud Partner Portal, open the **History** tab. Here you'll see a history of time-stamped actions on your AppSource offers.
 
 ## Next steps
 

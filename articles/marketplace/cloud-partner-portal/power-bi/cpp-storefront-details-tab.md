@@ -28,7 +28,7 @@ In the **Offer Details** section, enter general information about your Microsoft
 
 ![Offer Details section of the Storefront Details tab](./media/offer-details-section.png)
 
-This table describes the purpose of the fields in the **Offer Details** section.
+Use the following table to complete the fields in this section.
 
 |   Field               |   Description                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
@@ -43,7 +43,7 @@ The **Listing Details** section gathers information on the context of your app: 
 
 ![Listing Details section of the Storefront Details tab](./media/listing-details-section.png)
 
-This table describes the purpose of the fields in the **Listing Details** section.
+Use the following table to complete the fields in this section.
  
 |   Field                                  |   Description                                                        |
 | --------------                           | ---------------------                                                |
@@ -61,6 +61,7 @@ In the **Marketing Artifacts** section, upload branding and marketing materials 
 
 ![Marketing Artifacts section of the Storefront Details tab](./media/marketing-artifacts-section.png)
 
+Use the following table to complete the fields in this section.
  
 |    Field                             |    Description                                                    |
 |   -----------                        |    -------------                                                  |
@@ -87,9 +88,11 @@ The logos you upload to [Cloud Partner Portal](https://cloudpartner.azure.com) s
 
 ## Legal section
 
-In the **Legal** section, provide the two legal documents required for each offer: Privacy Policy and Terms of Use.
+In the **Legal** section, provide the two legal documents required for each offer: your privacy policy and your terms of use.
 
 ![Legal section of the Storefront Details tab](./media/legal-section.png)
+
+Use the following table to complete the fields in this section.
 
 |   Field                |   Description                           |
 |------------------------|--------------------------------------   |
@@ -105,7 +108,7 @@ In the **Customer Support** section, provide the **Support URL** for your online
 
 ## Lead Management section
 
-In the **Lead Management** section, set up your system to collect the customer leads that your AppSource offers generate. Open the drop-down lists to choose your storage options for the leads.
+In the **Lead Management** section, set up your system to collect the customer leads that your AppSource offers generate. Use the following table to choose your storage options for the leads.
 
 |    Field               |   Lead destination                               |
 |------------------------|--------------------------------------            |
