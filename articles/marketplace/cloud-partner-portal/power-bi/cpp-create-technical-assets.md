@@ -24,7 +24,7 @@ The primary technical asset you will need for this offer type is a Power BI App,
 
 ## Obtain an installation URL
 
-You can build a Power BI App only within the [Power BI service](https://powerbi.microsoft.com/). You must sign in with a [Power BI Pro license](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro). After you create and test your service application in Power BI, save the app installation URL that Power BI generates. You must supply the URL on the [Technical Info](./cpp-technical-info-tab.md) tab of the Cloud Partner Portal submission form.
+You can build a Power BI App only within the [Power BI service](https://powerbi.microsoft.com/). To begin, you sign in with a [Power BI Pro license](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro). After you create and test your service application in Power BI, you save the app installation URL that Power BI generates. Finally, you supply the URL on the [Technical Info](./cpp-technical-info-tab.md) tab of the Cloud Partner Portal submission form.
  
 
 ## Next steps
