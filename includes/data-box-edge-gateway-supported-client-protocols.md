@@ -10,6 +10,6 @@ Here are the supported protocols for clients accessing your device.
 
 |**Protocol** |**Versions**   |**Notes**  |
 |---------|---------|---------|
-|SMB    | 2.X, 3.X      | SMB 1 is not supported.|
+|SMB    | 2.X, 3.X      | SMB 1 isn't supported.|
 |NFS     | V4.1        |         |
 
