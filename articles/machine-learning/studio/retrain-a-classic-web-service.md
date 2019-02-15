@@ -14,11 +14,11 @@ ms.date: 02/14/2019
 ---
 # Retrain and deploy a classic Studio web service
 
-Retraining machine learning models is one way to ensure they stay accurate and based on the most relevant data available. This article will show you how to retrain an existing classic Studio web service. For a guide on how to retrain a new Studio web service, [view this how-to article.](retrain-machine-learning-model.md)
+Retraining machine learning models is one way to ensure they stay accurate and based on the most relevant data available. This article will show you how to retrain a classic Studio web service. For a guide on how to retrain a new Studio web service, [view this how-to article.](retrain-machine-learning-model.md)
 
 ## Prerequisites
 
-This articles assumes you already have both a retraining experiment and a predictive experiment as explained in the first step of [Retrain and deploy a machine learning model](retrain-models-programmatically.md. However, instead of deploying your machine learning model as a new web service, you will deploy your predictive experiment as a classic web service.
+This article assumes you already have both a retraining experiment and a predictive experiment. These steps are explained in [Retrain and deploy a machine learning model.](retrain-models-programmatically.md) However, instead of deploying your machine learning model as a new web service, you will deploy your predictive experiment as a classic web service.
      
 ## Add a new endpoint
 
@@ -61,7 +61,7 @@ To get the correct PATCH URL programmatically, follow these steps:
 
 ### Option 2: Use the Azure Machine Learning Web Services portal
 
-To get the correct PATCH URL using the web portal follow these steps:
+Follow these steps to get the correct PATCH URL using the web portal:
 
 1. Sign in to the [Azure Machine Learning Web Services](https://services.azureml.net/) portal.
 1. Click **Web Services** or **Classic Web Services** at the top.
