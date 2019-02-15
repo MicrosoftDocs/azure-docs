@@ -95,20 +95,6 @@ You can split a metric by dimension to visualize how different segments of the m
    > [!NOTE]
    > Use both Filtering and Splitting on the same dimension to hide the segments that are irrelevant for your scenario and make charts easier to read.
 
-### New alert rule
-
-You can also use the criteria you have set to visualize your metrics as the basis for the underlying logic of a metric based alert rule. 
-
-If you click **New Alert rule**
-
-![New alert rule button highlighted in red](./media/metrics-charts/015.png)
-
-You will be taken to the alert rule creation pane with the underlying metric dimensions from your chart pre-populated to make it easier to generate custom alert rules.
-
-![Create alert rule](./media/metrics-charts/016.png)
-
-Check out this [article](alerts-metric.md) to learn more about setting up metric alerts.
-
 ## Lock boundaries of chart y-axis
 
 Locking the range of the y-axis becomes important when the chart shows smaller fluctuations of larger values. 
@@ -133,6 +119,20 @@ To pin a configured chart to a dashboard:
 After configuring your chart, click on the **Chart Actions** menu in the right top corner of the chart, and click **Pin to dashboard**.
 
 ![metric image](./media/metrics-charts/00013.png)
+
+## Create alert rules
+
+You can use the criteria you have set to visualize your metrics as the basis of a metric based alert rule. The new alerting rule will include your target resource, metric, splitting, and filter dimensions from your chart. You will be able to modify these settings later on the alert rule creation pane.
+
+### To create a new alert rule, click **New Alert rule**
+
+![New alert rule button highlighted in red](./media/metrics-charts/015.png)
+
+You will be taken to the alert rule creation pane with the underlying metric dimensions from your chart pre-populated to make it easier to generate custom alert rules.
+
+![Create alert rule](./media/metrics-charts/016.png)
+
+Check out this [article](alerts-metric.md) to learn more about setting up metric alerts.
 
 ## Troubleshooting
 

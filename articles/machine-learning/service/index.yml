@@ -11,28 +11,28 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 1/30/2019
+  ms.date: 2/15/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Azure Machine Learning service provides a cloud-based environment to quickly build, train, and deploy your machine learning models. Use automated machine learning to identify algorithms and tune hyperparameters faster. Improve productivity and reduce costs with autoscaling compute and Azure DevOps for machine learning. Access these capabilities from your Python environment using open-source frameworks, such as PyTorch, TensorFlow, and scikit-learn along with the service SDKs. Learn how with our quickstarts and tutorials.
+  description: Azure Machine Learning service provides a cloud environment to quickly prep data, train, and deploy machine learning models. Use automated machine learning to identify algorithms and tune hyperparameters faster. Improve productivity and reduce costs with autoscaling compute and pipelines. Access these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn and the service's SDKs. Get started with our quickstarts and tutorials.
   
 sections:      
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'To use this service, you need a workspace and associated resources.  Get started:'
+    text: 'To use this service, you need a workspace and associated resources.  Get started with:'
   - type: list
     style: unordered
     items:
-    - html: '<a href="quickstart-get-started">Use the Azure portal quickstart</a> to get the workspace and run an experiment without installing anything.'
-    - html: '<a href="quickstart-create-workspace-with-python">Use the Python quickstart</a> to install the main SDK, create a workspace, and run an experiment in a local notebook server.'
+    - html: '<a href="quickstart-get-started">Azure portal quickstart</a>: get a workspace and run experiments without installing anything.'
+    - html: '<a href="quickstart-create-workspace-with-python">Python quickstart</a>: install the main SDK, create a workspace, and experiment in a local notebook server.'
 
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to prep data, set up experiments, and operationalize your machine learning models:'
+    text: 'Learn how to prep data, set up experiments, train and operationalize your machine learning models:'
   - type: list
     style: unordered
     items:

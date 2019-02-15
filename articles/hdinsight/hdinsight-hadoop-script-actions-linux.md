@@ -138,7 +138,7 @@ For most operations, you do not need to specify the file system. For example, th
 hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
 ```
 
-In this example, the `hdfs` command transparently uses the default cluster storage. For some operations, you may need to specify the URI. For example, `adl:///example/jars` for Data Lake Storage or `wasb:///example/jars` for Azure Storage.
+In this example, the `hdfs` command transparently uses the default cluster storage. For some operations, you may need to specify the URI. For example, `adl:///example/jars` for Data Lake Storage Gen1 or `wasb:///example/jars` for Azure Storage.
 
 ### <a name="bPS7"></a>Write information to STDOUT and STDERR
 

@@ -114,7 +114,7 @@ This example provides sample JSON definitions that you can use to create a pipel
 
 The sample has the following Data Factory entities:
 
-- A DB2 linked service of type [OnPremisesDb2](data-factory-onprem-db2-connector.md#linked-service-properties)
+- A DB2 linked service of type [OnPremisesDb2](data-factory-onprem-db2-connector.md)
 - An Azure Blob storage linked service of type [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
 - An input [dataset](data-factory-create-datasets.md) of type [RelationalTable](data-factory-onprem-db2-connector.md#dataset-properties)
 - An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties)
