@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Use Cosmos DB to Store Azure Spatial Anchors | Microsoft Docs
-description: In this tutorial, you learn how to use CosmosDB to store your Spatial Anchors.
+title: Tutorial - Share Azure Spatial Anchor identifiers between devices in Unity with a back-end service and Azure Cosmos DB | Microsoft Docs
+description: In this tutorial, you learn how to share Azure Spatial Anchor identifiers between devices in Unity with a back-end service and Azure Cosmos DB.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -10,9 +10,9 @@ ms.date: 1/30/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want to learn how to use Cosmos DB to store Azure Spatial Anchors to be able to share them across other devices.
+#Customer intent: As a Mixed Reality developer, I want to learn how to share Azure Spatial Anchor identifiers between devices in Unity with a back-end service and Azure Cosmos DB.
 ---
-# Tutorial: Use Cosmos DB to Store Azure Spatial Anchors
+# Tutorial: Share Azure Spatial Anchor identifiers between devices in Unity with a back-end service and Azure Cosmos DB
 
 This tutorial shows how to enhance your experience by using Azure Cosmos DB to share anchor identifiers and additional data across other devices. [Spatial Anchors](../overview.md) is a cross-platform developer service that allows you to create Mixed Reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an app that can be deployed to two or more devices. Azure Spatial Anchors created by one instance will share their identifiers to the others using Cosmos DB.
 
