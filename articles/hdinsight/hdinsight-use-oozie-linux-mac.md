@@ -295,7 +295,7 @@ The job definition describes where to find the workflow.xml. It also describes w
     ```
 
     > [!NOTE]  
-    > If the HDInsight cluster uses Azure Storage as the default storage, the `<value>` element contents begin with `wasb://`. If Azure Data Lake Storage is used instead, it begins with `adl://`.
+    > If the HDInsight cluster uses Azure Storage as the default storage, the `<value>` element contents begin with `wasb://`. If Azure Data Lake Storage Gen1 is used instead, it begins with `adl://`.
 
     Save the contents of the `<value>` element, as it's used in the next steps.
 
