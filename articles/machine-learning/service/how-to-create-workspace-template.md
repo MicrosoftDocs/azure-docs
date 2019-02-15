@@ -1,7 +1,7 @@
 ---
 title: Use a template to create a workspace
 titleSuffix: Azure Machine Learning service
-description: Learn how to use an Azure resource manager template to create a new Azure Machine Learning service workspace.
+description: Learn how to use an Azure Resource Manager template to create a new Azure Machine Learning service workspace.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core

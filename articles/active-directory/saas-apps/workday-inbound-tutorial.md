@@ -16,6 +16,7 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure Workday for automatic user provisioning
 

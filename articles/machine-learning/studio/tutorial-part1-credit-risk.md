@@ -41,7 +41,7 @@ If you've never used **Azure Machine Learning Studio** before, you might want to
 
 
 > [!TIP] 
-> You can find a working copy of the experiment that you develop in this tutorial in the [Azure AI Gallery](https://gallery.cortanaintelligence.com). Go to **[tutorial - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/tutorial-Credit-risk-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
+> You can find a working copy of the experiment that you develop in this tutorial in the [Azure AI Gallery](https://gallery.azure.ai). Go to **[Tutorial - Predict credit risk](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
 > 
 
 

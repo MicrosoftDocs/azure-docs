@@ -8,20 +8,21 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 02/12/2019
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
 
 > [!NOTE]
 > This capability is in *private preview*. 
-> To request access, [create your request to join here](https://aka.ms/iseprivatepreview).
+> To join the private preview, 
+> [create your request here](https://aka.ms/iseprivatepreview).
 
 Sometimes, your logic apps and integration accounts need access to 
 secured resources, such as virtual machines (VMs) and other systems 
 or services, in an [Azure virtual network](../virtual-network/virtual-networks-overview.md). 
 To set up this access, you can [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 
-for running your logic apps and integration accounts. 
+for running your logic apps and integration accounts.
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
@@ -47,14 +48,14 @@ Azure deploys a private instance of the Logic Apps service into your
 virtual network. This action creates an isolated environment where you 
 can create and run your logic apps on dedicated resources. When you 
 create a logic app, you select this environment as your app's location, 
-which gives your logic app direct access to the resources in your virtual network. 
+which gives your logic app direct access to the resources in your virtual network.
 
 Logic apps in an ISE provide the same user experiences and similar 
 capabilities as the global Logic Apps service. Not only can you use 
 the same built-in actions and connectors in the global Logic Apps service, 
 but you can also use ISE-specific connectors. For example, here's 
 some standard connectors that offer versions that run in an ISE:
- 
+
 * Azure Blob Storage, File Storage, and Table Storage
 * Azure Queues, Azure Service Bus, Azure Event Hubs, and IBM MQ
 * FTP and SFTP-SSH
@@ -65,19 +66,19 @@ The difference between ISE and non-ISE connectors is
 in the locations where the triggers and actions run:
 
 * In your ISE, built-in triggers and actions such as 
-HTTP always run in the same ISE as your logic app. 
+HTTP always run in the same ISE as your logic app.
 
 * For connectors that offer two versions, one version runs in an ISE, 
 while the other version runs in the global Logic Apps service.  
 
   Connectors that have the **ISE** label always run 
   in the same ISE as your logic app. Connectors without 
-  the **ISE** label run in the global Logic Apps service. 
+  the **ISE** label run in the global Logic Apps service.
 
   ![Select ISE connectors](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
 
 * Connectors that run in an ISE are also 
-available in the global Logic Apps service. 
+available in the global Logic Apps service.
 
 > [!IMPORTANT]
 > Logic apps, built-in actions, and connectors that run in your ISE use 
@@ -96,15 +97,15 @@ results in an isolated environment where you can create and
 run your logic apps on dedicated resources. When you create 
 your logic apps select your ISE as your apps' location. 
 These logic apps can then directly access your virtual 
-network and connect to resources in that network. 
+network and connect to resources in that network.
 
 For systems that are connected to a virtual network, 
 you can inject an ISE into that virtual network so your logic apps 
-can directly access those systems by using any of these items: 
+can directly access those systems by using any of these items:
 
 * ISE connector for that system, for example, SQL Server
 
-* HTTP action 
+* HTTP action
 
 * Custom connector
 

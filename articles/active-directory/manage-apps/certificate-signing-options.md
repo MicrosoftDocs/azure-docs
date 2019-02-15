@@ -17,6 +17,7 @@ ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
 
+ms.collection: M365-identity-device-management
 ---
 # Advanced certificate signing options in the SAML token for gallery apps in Azure Active Directory
 Today Azure Active Directory (Azure AD) supports thousands of pre-integrated applications in the Azure Active Directory App Gallery. This number includes more than 500 applications that support single sign-on by using the SAML 2.0 protocol. When a user authenticates to an application through Azure AD by using SAML, Azure AD sends a token to the application (via an HTTP POST). Then, the application validates and uses the token to log in the user instead of prompting for a username and password. These SAML tokens are signed with the unique certificate that's generated in Azure AD and by specific standard algorithms.

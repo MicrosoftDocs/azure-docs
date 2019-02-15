@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: sasubram
 #Customer intent: As a tenant admin, I want to walk through the B2B  invitation workflow so that I can understand how to add a guest user in the portal, and understand the end user experience.
 
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Add guest users to your directory in the Azure portal

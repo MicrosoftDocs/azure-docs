@@ -16,6 +16,7 @@ ms.date: 05/15/2018
 ms.author: celested
 ms.reviewer: richagi
 
+ms.collection: M365-identity-device-management
 ---
 # Use Tenant Restrictions to manage access to SaaS cloud applications
 
