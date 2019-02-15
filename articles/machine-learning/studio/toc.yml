@@ -108,7 +108,7 @@
   - name: Deploy models
     items:
     - name: Deploy a web service
-      displayName: publish
+      displayName: publish, multiple regions
       href: publish-a-machine-learning-web-service.md
     - name: How it works
       href: model-progression-experiment-to-web-service.md
@@ -117,9 +117,6 @@
     - name: Use external data
       displayName: import, export
       href: web-services-that-use-import-export-modules.md
-    - name: Deploy in multi-regions
-      displayName: multiple regions
-      href: how-to-deploy-to-multiple-regions.md
     - name: Use web service parameters
       href: web-service-parameters.md
     - name: Enable logging
