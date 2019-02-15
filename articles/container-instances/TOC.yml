@@ -48,12 +48,24 @@
       href: container-instances-vnet.md
     - name: Deploy with GPU resources (preview)
       href: container-instances-gpu.md
+    - name: Configure a managed identity (preview)
+      href: container-instances-managed-identity.md
     - name: Deploy from Azure Container Registry
       href: container-instances-using-azure-container-registry.md
     - name: Set environment variables (env)
       href: container-instances-environment-variables.md
     - name: Configure liveness probes
       href: container-instances-liveness-probe.md
+    - name: Configure data volumes
+      items:
+      - name: Azure Files
+        href: container-instances-volume-azure-files.md
+      - name: emptyDir
+        href: container-instances-volume-emptydir.md
+      - name: gitRepo
+        href: container-instances-volume-gitrepo.md
+      - name: secret
+        href: container-instances-volume-secret.md
   - name: Manage
     items:
     - name: Update running containers
@@ -70,18 +82,6 @@
       href: container-instances-restart-policy.md
     - name: Jenkins build agents on ACI
       href: container-instances-jenkins.md
-    - name: Use a managed identity (preview)
-      href: container-instances-managed-identity.md
-  - name: Configure data volumes
-    items:
-    - name: Azure Files
-      href: container-instances-volume-azure-files.md
-    - name: emptyDir
-      href: container-instances-volume-emptydir.md
-    - name: gitRepo
-      href: container-instances-volume-gitrepo.md
-    - name: secret
-      href: container-instances-volume-secret.md
   - name: Troubleshoot
     items:
     - name: Get container logs & events
