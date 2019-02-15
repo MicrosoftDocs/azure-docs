@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 2/7/2019
+ms.date: 2/15/2019
 ms.author: victorh
 ---
 
@@ -24,14 +24,11 @@ During this initial public preview release, there is no user interface in the Az
 
 ## Logs
 
-The following log excerpts are examples showing triggered rules.
-
-Here's a log entry for a packet dropped at layer 7:
+The following log excerpt shows a triggered rule:
 
 ```
-
 {
-    "category": "AzureFirewallApplicationRule",
+    "category": "AzureFirewallNetworkRule",
     "time": "2018-04-16T23:45:04.8295030Z",
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
     "operationName": "AzureFirewallThreatIntelLog",
@@ -41,21 +38,8 @@ Here's a log entry for a packet dropped at layer 7:
 }
 ```
 
-And here's a log entry for a packet dropped at layer 4:
-
-```
-{
-    "category": "AzureFirewallNetworkRule",
-    "time": "2018-06-14T23:44:11.0590400Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallThreatIntelLog",
-    "properties": {
-         "msg": "TCP request from 10.0.0.5:54084 to 64.95.103.180:80. Action: Alert. ThreatIntel: Bot Networks"
-    }
-}
-```
-
 ## Next steps
 
-- Learn how to [deploy and configure an Azure Firewall](tutorial-firewall-deploy-portal.md).
+- See [Azure Firewall Log Analytics samples](log-analytics-samples.md)
+- Learn how to [deploy and configure an Azure Firewall](tutorial-firewall-deploy-portal.md)
 - Review the [Microsoft Security intelligence report](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)

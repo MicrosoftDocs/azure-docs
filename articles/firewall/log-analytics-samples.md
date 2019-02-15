@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 2/15/2019
 ms.author: victorh
 ---
 # Azure Firewall Log Analytics samples
@@ -92,7 +92,7 @@ RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rul
 
 ## Network rules log data query
 
-The query below parses the network rule log data. In the various comment lines there's some guidance as to how the query was built:
+The following query parses the network rule log data. In the various comment lines there's some guidance as to how the query was built:
 
 ```Kusto
 AzureDiagnostics
@@ -140,6 +140,23 @@ AzureDiagnostics
 | parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
 | extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
 | extend Action = case(Action1a == "", case(Action1b == "",Action2,Action1b), Action1a),Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort),NatDestination = case(NatDestination == "", "N/A", NatDestination)
+| project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
+```
+
+## Threat Intelligence log data query
+
+The following query parses the Threat Intelligence rule log data:
+
+```Kusto
+AzureDiagnostics
+| where OperationName  == "AzureFirewallThreatIntelLog"
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| parse msg_s with * ". Action: " Action1a
+| parse msg_s with * " was " Action1b " to " NatDestination
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
+| extend Action = case(Action1a == "", case(Action1b == "",Action2,Action1b), Action1a),Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort),NatDestination = case(NatDestination == "", "N/A", NatDestination)
+| sort by TimeGenerated desc 
 | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
 ```
 
