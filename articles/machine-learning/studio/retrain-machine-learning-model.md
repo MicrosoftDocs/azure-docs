@@ -14,21 +14,19 @@ ms.date: 02/14/2019
 ---
 # Retrain and deploy a machine learning model
 
-Retraining is one way to ensure machine learning models stay accurate with the most relevant data. This article shows how to retrain and deploy a machine learning model as a new web service in Studio. If you're looking to retrain a classic web service, [view this how-to article](retrain-a-classic-web-service.md)
+Retraining is one way to ensure machine learning models stay accurate and based on the most relevant data available. This article shows how to retrain and deploy a machine learning model as a new web service in Studio. If you're looking to retrain a classic web service, [view this how-to article.](retrain-a-classic-web-service.md)
 
-This article assumes you already have a predictive web service deployed. If you don't already have a predictive web service, [learn how to deploy a Studio web service here](publish-a-machine-learning-web-service.md).
+This article assumes you already have a predictive web service deployed. If you don't already have a predictive web service, [learn how to deploy a Studio web service here.](publish-a-machine-learning-web-service.md)
 
-You'll follow these steps to retrain and deploy a machine learning web service:
+You'll follow these steps to retrain and deploy a machine learning new web service:
 
 1. Deploy a **retraining web service**
-1. Retrain a new model using your **retraining web service**
+1. Train a new model using your **retraining web service**
 1. Update your existing **predictive experiment** to use the new model
 
 ## Deploy the retraining web service
 
-A retraining web service lets you retrain your model with a new set of parameters, like new data, and save it for later.
-
-When you connect a **Web Service Output**  to a **Train Model**, the training experiment outputs a new model for you to use.
+A retraining web service lets you retrain your model with a new set of parameters, like new data, and save it for later. When you connect a **Web Service Output**  to a **Train Model**, the training experiment outputs a new model for you to use.
 
 Use the following steps to deploy a retraining web service:
 
@@ -41,7 +39,7 @@ Use the following steps to deploy a retraining web service:
 
     ![Resulting workflow](media/retrain-existing-arm-web-service/machine-learning-retrain-models-programmatically-IMAGE04.png)
 
-    Next, you must deploy the training experiment as a retraining web service that produces a trained model and model evaluation results.
+    Now, you deploy the training experiment as a retraining web service that outputs a trained model and model evaluation results.
 
 1. At the bottom of the experiment canvas, click **Set Up Web Service**
 1. Select **Deploy Web Service [New]**. The Azure Machine Learning Web Services portal opens to the **Deploy Web Service** page.

@@ -14,29 +14,24 @@ ms.date: 02/14/2019
 ---
 # Retrain and deploy a classic Studio web service
 
-You can use retraining to ensure machine learning models stay accurate and based on the most relevant data. This article will show you how to retrain an existing classic web service. For a guide on how to retrain a new web service, [view this how-to article.](retrain-machine-learning-model.md)
+Retraining machine learning models is one way to ensure they stay accurate and based on the most relevant data available. This article will show you how to retrain an existing classic Studio web service. For a guide on how to retrain a new Studio web service, [view this how-to article.](retrain-machine-learning-model.md)
 
 ## Prerequisites
 
-You must have a retraining experiment and a predictive experiment already as shown in [Retrain and deploy a machine learning model](retrain-models-programmatically.md).
-
-> [!IMPORTANT]
-> The predictive experiment must be deployed as a Classic machine learning web service.
-
+This articles assumes you already have both a retraining experiment and a predictive experiment as explained in the first step of [Retrain and deploy a machine learning model](retrain-models-programmatically.md. However, instead of deploying your machine learning model as a new web service, you will deploy your predictive experiment as a classic web service.
+     
 ## Add a new endpoint
 
 The predictive web service that you deployed contains a default scoring endpoint that is kept in sync with the original training and scoring experiments trained model. To update your web service to with a new trained model, you must create a new scoring endpoint.
-
-To create a new scoring endpoint, on the predictive web service that can be updated with the trained model:
-
-> [!NOTE]
-> Be sure you are adding the endpoint to the Predictive Web Service, not the Training Web Service. If you have correctly deployed both a Training and a Predictive Web Service, you should see two separate web services listed. The Predictive Web Service should end with "[predictive exp.]".
->
 
 There are two ways in which you can add a new end point to a web service:
 
 1. Programmatically
 1. Using the Azure Web Services portal
+
+> [!NOTE]
+> Be sure you are adding the endpoint to the Predictive Web Service, not the Training Web Service. If you have correctly deployed both a Training and a Predictive Web Service, you should see two separate web services listed. The Predictive Web Service should end with "[predictive exp.]".
+>
 
 ### Programmatically add an endpoint
 
@@ -76,7 +71,7 @@ To get the correct PATCH URL using the web portal follow these steps:
 1. Under the **Patch** URL, click **API Help** to open the patching help page.
 
 > [!NOTE]
-> If you have added the endpoint to the Training Web Service instead of the Predictive Web Service, you will receive the following error when you click the **Update Resource** link: "Sorry, but this feature is not supported or available in this context. This Web Service has no updatable resources. We apologize for the inconvenience and are working on improving this workflow."
+> If you added the endpoint to the Training Web Service instead of the Predictive Web Service, you will receive the following error when you click the **Update Resource** link: "Sorry, but this feature is not supported or available in this context. This Web Service has no updatable resources. We apologize for the inconvenience and are working on improving this workflow."
 >
 
 The PATCH help page contains the PATCH URL you must use and provides sample code you can use to call it.
@@ -142,13 +137,6 @@ The value of the *Name* parameter in *Resources* should match the Resource Name 
 If your SAS token expires before you finish updating the endpoint, you must perform a GET with the Job ID to obtain a fresh token.
 
 When the code has successfully run, the new endpoint should start using the retrained model in approximately 30 seconds.
-
-## Summary
-
-Using the Retraining APIs, you can update the trained model of a predictive Web Service enabling scenarios such as:
-
-* Periodic model retraining with new data.
-* Distribution of a model to customers with the goal of letting them retrain the model using their own data.
 
 ## Next Steps
 
