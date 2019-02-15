@@ -110,7 +110,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 	Example: For an account with a tenant URL of https://my-tenant.zendesk.com, your subdomain would be **my-tenant**.
 
 6. The **Secret Token** for your Zendesk account is located in **Admin > API > Settings**.
-   Ensure that the **Token Access** is set to  **Enabled**.
+   Ensure that **Token Access** is set to  **Enabled**.
 
 	![Zendesk Provisioning](./media/zendesk-provisioning-tutorial/ZenDesk4.png)
 	![Zendesk Provisioning](./media/zendesk-provisioning-tutorial/ZenDesk2.png)
