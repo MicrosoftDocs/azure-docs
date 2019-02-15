@@ -22,13 +22,11 @@ ms.collection: M365-identity-device-management
 
 # Problems signing in to a gallery application configured for federated single sign-on
 
-To troubleshoot your problem, you need to verify the application configuration in Azure AD as follow:
+To troubleshoot the sign-in issues below, we recommend you follow these suggestion to get better diagnosis and automate the resolution steps:
 
--   You have followed all the configuration steps for the Azure AD gallery application.
+- Install the [My Apps Secure Browser Extension](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/access-panel-extension-problem-installing) to help Azure AD to provide better diagnosis and resolutions when using the testing experience in the Azure AD portal.
+- Reproduce the error using the testing experience in the app configuration page on Azure AD. Learn more on [Debug SAML-based single sign-on applications](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-v1-debug-saml-sso-issues)
 
--   The Identifier and Reply URL configured in AAD match they expected values in the application
-
--   You have assigned users to the application
 
 ## Application not found in directory
 
@@ -40,7 +38,7 @@ The Issuer attribute sends from the application to Azure AD in the SAML request 
 
 **Resolution**
 
-Ensure that the Issuer attribute in the SAML request it’s matching the Identifier value configured in Azure AD:
+Ensure that the Issuer attribute in the SAML request it’s matching the Identifier value configured in Azure AD. If you use the [testing experience](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps:
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
@@ -56,11 +54,9 @@ Ensure that the Issuer attribute in the SAML request it’s matching the Identif
 
 6.  Select the application you want to configure single sign-on
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
+7.  Once the application loads, open **Basic SAML configuration**. Verify that the value in the Identifier textbox is matching the value for the identifier value displayed in the error.
 
-8.  Go to **Domain and URLs** section. Verify that the value in the Identifier textbox is matching the value for the identifier value displayed in the error.
 
-After you have updated the Identifier value in Azure AD and it’s matching the value sends by the application in the SAML request, you should be able to sign in to the application.
 
 ## The reply address does not match the reply addresses configured for the application.
 
@@ -72,7 +68,7 @@ The AssertionConsumerServiceURL value in the SAML request doesn't match the Repl
 
 **Resolution**
 
-Ensure that the AssertionConsumerServiceURL value in the SAML request it's matching the Reply URL value configured in Azure AD.
+Ensure that the AssertionConsumerServiceURL value in the SAML request it's matching the Reply URL value configured in Azure AD. If you use the [testing experience](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps.
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
@@ -88,11 +84,8 @@ Ensure that the AssertionConsumerServiceURL value in the SAML request it's match
 
 6.  Select the application you want to configure single sign-on
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
-
-8.  Go to **Domain and URLs** section. Verify or update the value in the Reply URL textbox to match the AssertionConsumerServiceURL value in the SAML request. 	
-	* If you don't see the Reply URL textbox, select the **Show advanced URL settings** checkbox.
-
+7.  Once the application loads, open **Basic SAML configuration**. Verify or update the value in the Reply URL textbox to match the AssertionConsumerServiceURL value in the SAML request. 	
+	
 After you have updated the Reply URL value in Azure AD and it’s matching the value sends by the application in the SAML request, you should be able to sign in to the application.
 
 ## User not assigned a role
@@ -105,7 +98,7 @@ The user has not been granted access to the application in Azure AD.
 
 **Resolution**
 
-To assign one or more users to an application directly, follow the steps below:
+To assign one or more users to an application directly, follow the steps below. If you use the [testing experience](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps.
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
@@ -167,42 +160,15 @@ They should validate they support the Azure AD SAML implementation for Single Si
 
 ## No resource in requiredResourceAccess list
 
-*Error AADSTS65005:The client application has requested access to resource '00000002-0000-0000-c000-000000000000'. This request has failed because the client has not specified this resource in its requiredResourceAccess list*.
+*Error AADSTS650056: Misconfigured application. This could be due to one of the following: The client has not listed any permissions for 'AAD Graph' in the requested permissions in the client's application registration. Or, The admin has not consented in the tenant. Or, Check the application identifier in the request to ensure it matches the configured client application identifier. Please contact your admin to fix the configuration or consent on behalf of the tenant.*.
 
 **Possible cause**
 
-The application object is corrupted.
+The Issuer attribute sends from the application to Azure AD in the SAML request doesn’t match the Identifier value configured in the application Azure AD.
 
-**Resolution: option 1**
+**Resolution**
 
-To solve the problem, add the unique Identifier value in the Azure AD configuration. To add a Identifier value, follow the steps below:
-
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
-
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
-
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
-
-5.  click **All Applications** to view a list of all your applications.
-
-  * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
-
-6.  Select the application you have configured single sign-on.
-
-7.  Once the application loads, click on the **Single sign-on** from the application’s left-hand navigation menu
-
-8.  Under the **Domain and URL** section, check on the **Show advanced URL settings**.
-
-9.  in the **Identifier** textbox type a unique identifier for the application.
-
-10. **Save** the configuration.
-
-
-**Resolution option 2**
-
-If option 1 above did not work for you, try removing the application from the directory. Then, add and reconfigure the application, follow the steps below:
+Ensure that the Issuer attribute in the SAML request it’s matching the Identifier value configured in Azure AD. If you use the [testing experience](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-v1-debug-saml-sso-issues) in the Azure portal with the My Apps Secure Browser Extension, you don't need to manually follow these steps:
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
@@ -218,11 +184,8 @@ If option 1 above did not work for you, try removing the application from the di
 
 6.  Select the application you want to configure single sign-on
 
-7.  Click **Delete** at the top-left of the application **Overview** pane.
+7.  Once the application loads, open **Basic SAML configuration**. Verify that the value in the Identifier textbox is matching the value for the identifier value displayed in the error.
 
-8.  Refresh Azure AD and Add the application from the Azure AD gallery. Then, Configure the application
-
-<span id="_Hlk477190176" class="anchor"></span>After reconfiguring the application, you should be able to sign in to the application.
 
 ## Certificate or key not configured
 
