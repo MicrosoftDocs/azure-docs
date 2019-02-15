@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/14/2019
+ms.date: 02/15/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
@@ -110,9 +110,13 @@ To update or remove an existing application in the Azure AD app gallery, you fir
 
 ## Listing requests by customers
 
-Customer can submit the request of listing an application by clicking **App requests by Customers** tile. Below is the flow of customer requested applications-
+Customers can submit the request of listing an application by clicking **App requests by Customers** -> **Submit new request**.
 
-![Customer requested apps flow](./media/howto-app-gallery-listing/reqbycustomer.png)
+![Customer requested apps tile](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Below is the flow of customer requested applications-
+
+![Customer requested apps flow](./media/howto-app-gallery-listing/request-by-customer.png)
 
 ## Timelines
 
