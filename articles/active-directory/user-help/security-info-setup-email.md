@@ -67,7 +67,7 @@ If you no longer want to use your email address as a security info method, you c
 
     ![Link to delete the phone method from security info](media/security-info/securityinfo-myprofile-emaildelete.png)
 
-2. Select **Yes** from the confirmation box, and the **Email** option is deleted. After it's deleted, it's removed from your security info and it disappears from the **Security info** page.
+2. Select **Yes** from the confirmation box to delete the **Email** account. After the email account is deleted, it's removed from your security info and it disappears from the **Security info** page.
 
 ## Additional security info methods
 You have additional options for how your organization contacts you to verify your identity, based on what's you're trying to do. The options include:

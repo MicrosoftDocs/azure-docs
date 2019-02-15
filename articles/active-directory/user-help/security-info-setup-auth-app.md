@@ -93,7 +93,7 @@ If you no longer want to use your authenticator app as a security info method, y
 
     ![Link to delete the authenticator app from security info](media/security-info/securityinfo-myprofile-deleteauthapp.png)
 
-2. Select **Yes** from the confirmation box, and the authenticator app is deleted. After it's deleted, it's removed from your security info and it disappears from the **Security info** page. If the authenticator app is your default method, the default will change to another available method.
+2. Select **Yes** from the confirmation box to delete the authenticator app. After the authenticator app is deleted, it's removed from your security info and it disappears from the **Security info** page. If the authenticator app is your default method, the default will change to another available method.
 
 3. Open the authenticator app on your mobile device, select **Edit accounts**, and then delete your work or school account from the authenticator app.
 
@@ -101,6 +101,8 @@ If you no longer want to use your authenticator app as a security info method, y
 
 ## Change your default security info method
 If you want the authenticator app to be the default method used when you sign-in to your work or school account using two-factor verification or for self-service password reset requests, you can set it from the Security **info** page.
+
+### To change your default security info method
 
 1. On the **Security info** page, select the **Change** link next to the **Default sign-in method** information.
 

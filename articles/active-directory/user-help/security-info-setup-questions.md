@@ -64,7 +64,7 @@ If you no longer want to use your security questions as a security info method, 
 
     ![Link to delete the phone method from security info](media/security-info/securityinfo-myprofile-questionsdelete.png)
 
-2. Select **Yes** from the confirmation box, and **Security options** is deleted. After it's deleted, it's removed from your security info and it disappears from the **Security info** page.
+2. Select **Yes** from the confirmation box to delete your **Security questions**. After your security questions are deleted, the method is removed from your security info and it disappears from the **Security info** page.
 
 ## Additional security info methods
 You have additional options for how your organization contacts you to verify your identity, based on what's you're trying to do. The options include:
@@ -81,60 +81,6 @@ You have additional options for how your organization contacts you to verify you
     >If some of these options are missing, it's most likely because your organization doesn't allow those methods. If this is the case, you'll need to choose an available method or contact your administrator for more help.
 
 ## Next steps
-
-- Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](user-help-reset-password.md) article.
-
-- Get troubleshooting tips and help for sign-in problems in the [Can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### To choose and answer your security questions
-
-1. Select **Security questions**, and then choose which security questions you want to answer. 
-
-    The number of security questions you have to pick are determined by your administrator.
-
-    ![Security info page, pick your security questions](media/security-info/security-info-keep-secure-setup-pick-questions.png)
-
-2. Provide answers for your selected questions, and then select **Done**.
-
-## Additional security info options
-
-You have options for how your organization contacts you to verify your identity, based on what's you're trying to do. The options include:
-
-- **Authenticator app.** Download and use an authenticator app to get either an approval notification or a randomly generated approval code for two-step verification or password reset. For step-by-step instructions about how to set up and use the Microsoft Authenticator app, see [Set up security info to use an authenticator app](security-info-setup-auth-app.md).
-
-- **Mobile device text.** Enter your mobile device number and get a text a code you'll use for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a text message (SMS), see [Set up security info to use text messaging (SMS)](security-info-setup-text-msg.md).
-
-- **Mobile device or work phone call.** Enter your mobile device number and get a phone call for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a phone number, see [Set up security info to use phone calls](security-info-setup-phone-number.md).
-
-- **Email address.** Enter your work or school email address to get an email for password reset. This option isn't available for two-step verification. For step-by-step instructions about how to set up your email, see [Set up security info to use email](security-info-setup-email.md).
-   
-    >[!Note]
-    >If some of these options are missing, it's most likely because your organization doesn't allow those methods. If this is the case, you'll need to choose an available method or contact your administrator for more help.
-
-## Next steps
-
-- If you need to update your security info, follow the instructions in the [Manage your security info](security-info-manage-settings.md) article.
 
 - Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](user-help-reset-password.md) article.
 
