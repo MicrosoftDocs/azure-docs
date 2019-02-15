@@ -16,9 +16,9 @@ ms.collection: M365-identity-device-management
 ---
 
 # Set up security info (preview) to use security questions
-Setting up your security info requires you to sign in to your work or school account and then to add security questions as your password reset authentication method from the **Security info** page. Depending on your organization, you might also be able to use a non-work or school account's email address for password reset requests. For more information, see [Set up security info to use your email address](security-info-setup-email.md).
+You can follow these steps to add your password reset method. After you've set this up the first time, you can return to the **Security info** page to add, update, or delete your security information.
 
-After you set up your password reset information, you must also set up your two-factor verification method, using an [authenticator app](security-info-setup-auth-app.md), [text messaging](security-info-setup-text-msg.md), or a [phone call](security-info-setup-phone-number.md).
+After you set up your password reset method, you must also set up your two-factor verification method, using an [authenticator app](security-info-setup-auth-app.md), [text messaging](security-info-setup-text-msg.md), or a [phone call](security-info-setup-phone-number.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 

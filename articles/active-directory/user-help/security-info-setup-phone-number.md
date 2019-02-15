@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Set up security info (preview) to use phone calls
-Setting up your security info requires you to sign in to your work or school account and then to add your two-factor verification and password reset authentication methods. After you've set this up the first time, you can return to the **Security info** page to change add, edit, delete, or change your default security info method.
+You can follow these steps to add your two-factor verification and password reset methods. After you've set this up the first time, you can return to the **Security info** page to add, update, or delete your security information.
 
 If you're prompted to set this up immediately after you sign in to your work or school account, see the detailed steps in the [Set up your security info from the sign-in page prompt](security-info-setup-signin.md) article.
 
