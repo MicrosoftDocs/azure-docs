@@ -38,7 +38,7 @@ User | Can restore any deleted Office 365 group that they owned
 
 2. Select **Groups**, then select **Deleted groups** to view the deleted groups that are available to restore
 
-![Deleted groups blade](./media/groups-lifecycle/deleted-groups.png)
+![Deleted groups blade](./media/groups-lifecycle/deleted-groups3.png)
 
 3. On the **Deleted groups** blade, you can:
 
