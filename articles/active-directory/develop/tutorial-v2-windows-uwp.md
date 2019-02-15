@@ -3,7 +3,7 @@ title: Azure AD v2.0 UWP getting started | Microsoft Docs
 description: How Universal Windows Platform applications (UWP) can call an API that requires access tokens by the Azure Active Directory v2.0 endpoint
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: jmprieur
 manager: mtillman
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/24/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: aaddev 
 ms.collection: M365-identity-device-management
 ---
