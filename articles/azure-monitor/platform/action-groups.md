@@ -60,7 +60,7 @@ After you create an action group, it's visible in the **Action groups** section 
 * Delete the action group.
 
 ## Action specific information
-> ![NOTE]
+> [!NOTE]
 > See [Subscription Service Limits for Monitoring](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#monitor-limits. ) for numeric limits on each of the items below.  
 
 **Azure app Push** - You can have a limited number of Azure app actions in an Action Group. At this time, the Azure app action only supports ServiceHealth alerts. Any other alert time will be ignored. See [configure alerts whenever a service health notification is posted](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
