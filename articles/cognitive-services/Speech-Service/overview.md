@@ -25,7 +25,7 @@ These features comprise Azure Speech Services. Use the links in this table to le
 |---------|-------------|-----|------|
 | [Speech Recognition](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-to-text) | Speech recognition, or speech-to-text, transcribes audio streams in real time to text that your applications, tools, or devices can display. Use speech recognition with [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) to derive user intents from transcribed speech and act on voice commands. | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Speech Translation](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation) | Speech translation enables end-to-end, real-time, multi-language translation of speech to your applications, tools, and devices. Use this service for speech-to-speech and speech-to-text translation. | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | No |
-| [Speech Synthesis](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) | Speech synthesis, or text-to-speech, converts input text into human-like speech. This service offers more than 75 voices in more than 45 languages and locales with multi-gender support. Choose from standard or neural voices, which are indistinguishable from human speech, or create a custom voice unique to your product or brand. | No | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Speech Synthesis](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech) | Speech synthesis, or text-to-speech, converts input text into human-like speech. This service offers more than 75 voices in more than 45 languages and locales with multi-gender support. Choose from standard and neural voices, or create a custom voice unique to your product or brand. | No | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Batch Transcription](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription) | Batch transcription enables asynchronous speech-to-text transcription. This service is only available via REST. | No | [Yes](https://westus.cris.ai/swagger/ui/index) |
 
 ## News and updates
@@ -53,7 +53,7 @@ After you've had a chance to use the Speech Services, try our tutorial that teac
 
 ## Get sample code
 
-Sample code is available on GitHub for each of the Azure Speech Services, and covers common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models. Use these links to view SDK and REST samples:
+Sample code is available on GitHub for each of the Azure Speech Services. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models. Use these links to view SDK and REST samples:
 
 * [Speech Recognition and Translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Speech Synthesis samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
@@ -64,10 +64,10 @@ Azure Speech Services works well with built-in models, however, you may want to 
 
 | Speech Service | Model | Description |
 |----------------|-------|-------------|
-| Speech Recognition | [Acoustic model](how-to-customize-acoustic-models.md) | Creating a custom acoustic model is helpful if your application, tools, or device is designed for use in a particular environment, like a car or factory floor, with specific recording conditions. Examples involve accented speech, specific background noises, or using a specific microphone for recording. |
+| Speech Recognition | [Acoustic model](how-to-customize-acoustic-models.md) | Creating a custom acoustic model is helpful if your application, tools, or devices are used in a particular environment, like a car or factory floor, with specific recording conditions. Examples involve accented speech, specific background noises, or using a specific microphone for recording. |
 | | [Language model](how-to-customize-language-model.md) | Create a custom language model to improve transcription of field-specific vocabulary and grammar, such as medical terminology, or IT jargon. |
 | | [Pronunciation model](how-to-customize-pronunciation.md) | With a custom pronunciation model, you can define the phonetic form and display of a word or term. It's useful for handling customized terms, such as product names or acronyms. All you need to get started is a pronunciation file -- a simple .txt file. |
-| Speech Synthesis | [Voice font](how-to-customize-voice-font.md) | Custom voice fonts allow you to create a recognizable, one-of-a-kind voice for your brand. It only takes a small amount of data to get started, but the more data you provide, the more natural and human-like it will sound. |
+| Speech Synthesis | [Voice font](how-to-customize-voice-font.md) | Custom voice fonts allow you to create a recognizable, one-of-a-kind voice for your brand. It only takes a small amount of data to get started. The more data that you provide, the more natural and human-like your voice font will sound. |
 
 ## Reference docs
 
