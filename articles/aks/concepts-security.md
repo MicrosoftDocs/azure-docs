@@ -42,7 +42,7 @@ Kubernetes environments, in AKS or elsewhere, currently aren't completely safe f
 
 ## Cluster upgrades
 
-For security and compliance, or to use the latest features, Azure provides tools to orchestrate the upgrade of an AKS cluster and components. This upgrade orchestration includes both the Kubernetes master and agent components. You can view a list of available Kubernetes versions for your AKS cluster. To start the upgrade process, you specify one of these available versions. Azure then safely cordons and drains each AKS node and performs the upgrade.
+For security and compliance, or to use the latest features, Azure provides tools to orchestrate the upgrade of an AKS cluster and components. This upgrade orchestration includes both the Kubernetes master and agent components. You can view a [list of available Kubernetes versions](supported-kubernetes-versions.md) for your AKS cluster. To start the upgrade process, you specify one of these available versions. Azure then safely cordons and drains each AKS node and performs the upgrade.
 
 ### Cordon and drain
 
@@ -53,7 +53,7 @@ During the upgrade process, AKS nodes are individually cordoned from the cluster
 - Pods are scheduled to run on them again.
 - The next node in the cluster is cordoned and drained using the same process until all nodes are successfully upgraded.
 
-For more information, see [Upgrade and AKS cluster][aks-upgrade-cluster].
+For more information, see [Upgrade an AKS cluster][aks-upgrade-cluster].
 
 ## Network security
 
