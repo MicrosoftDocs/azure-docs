@@ -180,7 +180,7 @@ Save the file locally as `DeployTemplate.ps1`.
 Now we use PowerShell to import the runbook into your Azure Automation account,
 and then publish the runbook.
 For information about how to import and publish a runbook in the Azure portal, see 
-[Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md).
+[Manage runbooks in Azure Automation](manage-runbooks.md).
 
 To import `DeployTemplate.ps1` into your Automation account as a PowerShell runbook,
 run the following PowerShell commands:

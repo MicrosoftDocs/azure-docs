@@ -16,7 +16,7 @@ The textual editor in Azure Automation can be used to edit [PowerShell runbooks]
 
 The textual editor includes a feature to insert code for cmdlets, assets, and child runbooks into a runbook. Rather than typing in the code yourself, you can select from a list of available resources and have the appropriate code inserted into the runbook.
 
-Each runbook in Azure Automation has two versions, Draft and Published. You edit the Draft version of the runbook and then publish it so it can be executed. The Published version cannot be edited. See [Publishing a runbook](automation-creating-importing-runbook.md#publishing-a-runbook) for more information.
+Each runbook in Azure Automation has two versions, Draft and Published. You edit the Draft version of the runbook and then publish it so it can be executed. The Published version cannot be edited. See [Publishing a runbook](manage-runbooks.md#publish-a-runbook) for more information.
 
 To work with [Graphical Runbooks](automation-runbook-types.md#graphical-runbooks), see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
 
@@ -75,7 +75,7 @@ Export-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $autom
 
 ### To Change the Contents of a Runbook Using Windows PowerShell
 
-The following sample commands show how to replace the existing contents of a runbook with the contents of a script file. Note that this is the same sample procedure as in [To import a runbook from a script file with Windows PowerShell](automation-creating-importing-runbook.md).
+The following sample commands show how to replace the existing contents of a runbook with the contents of a script file. Note that this is the same sample procedure as in [To import a runbook from a script file with Windows PowerShell](manage-runbooks.md#import-a-runbook).
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"
@@ -89,7 +89,7 @@ Publish-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $auto
 
 ## Related articles
 
-* [Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md)
+* [Manage runbooks in Azure Automation](manage-runbooks.md)
 * [Learning PowerShell workflow](automation-powershell-workflow.md)
 * [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 * [Certificates](automation-certificates.md)

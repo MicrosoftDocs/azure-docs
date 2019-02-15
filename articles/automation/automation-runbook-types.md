@@ -42,7 +42,7 @@ Azure Automation supports several types of runbooks that are  briefly described 
 
 ## PowerShell runbooks
 
-PowerShell runbooks are based on Windows PowerShell.  You directly edit the code of the runbook using the text editor in the Azure portal.  You can also use any offline text editor and [import the runbook](automation-creating-importing-runbook.md) into Azure Automation.
+PowerShell runbooks are based on Windows PowerShell.  You directly edit the code of the runbook using the text editor in the Azure portal.  You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
 
 ### Advantages
 
@@ -67,7 +67,7 @@ Following are current known issues with PowerShell runbooks.
 
 ## PowerShell Workflow runbooks
 
-PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Workflow](automation-powershell-workflow.md).  You directly edit the code of the runbook using the text editor in the Azure portal.  You can also use any offline text editor and [import the runbook](automation-creating-importing-runbook.md) into Azure Automation.
+PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Workflow](automation-powershell-workflow.md).  You directly edit the code of the runbook using the text editor in the Azure portal.  You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
 
 ### Advantages
 
@@ -85,7 +85,7 @@ PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Work
 
 ## Python runbooks
 
-Python runbooks compile under Python 2.  You can directly edit the code of the runbook using the text editor in the Azure portal, or you can use any offline text editor and [import the runbook](automation-creating-importing-runbook.md) into Azure Automation.
+Python runbooks compile under Python 2.  You can directly edit the code of the runbook using the text editor in the Azure portal, or you can use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
 
 ### Advantages
 
@@ -108,5 +108,5 @@ You should take into account the following additional considerations when determ
 
 * To learn more about Graphical runbook authoring, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md)
 * To understand the differences between PowerShell and PowerShell workflows for runbooks, see [Learning Windows PowerShell Workflow](automation-powershell-workflow.md)
-* For more information on how to create or import a Runbook, see [Creating or Importing a Runbook](automation-creating-importing-runbook.md)
+* For more information on how to create or import a Runbook, see [Creating or Importing a Runbook](manage-runbooks.md)
 
