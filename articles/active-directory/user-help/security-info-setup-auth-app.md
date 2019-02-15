@@ -93,9 +93,9 @@ If you no longer want to use your authenticator app as a security info method, y
 
     ![Link to delete the authenticator app from security info](media/security-info/securityinfo-myprofile-deleteauthapp.png)
 
-    After you delete the authenticator app, it's removed from your security info and disappears from the **Security info** page. If the authenticator app is your default method, the default will change to another available method.
+2. Select **Yes** from the confirmation box, and the authenticator app is deleted. After it's deleted, it's removed from your security info and it disappears from the **Security info** page. If the authenticator app is your default method, the default will change to another available method.
 
-2. Open the authenticator app on your mobile device, select **Edit accounts**, and then delete your work or school account from the authenticator app.
+3. Open the authenticator app on your mobile device, select **Edit accounts**, and then delete your work or school account from the authenticator app.
 
     Your account is completely removed from the authenticator app for two-factor verification and self-service password reset verification.
 

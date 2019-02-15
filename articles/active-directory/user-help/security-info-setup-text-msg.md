@@ -67,11 +67,11 @@ If you no longer want to use text messages as a security info method, you can re
 
 ### To delete text messaging
 
-- On the **Security info** page, select the **Delete** link next to the **Phone** option.
+1. On the **Security info** page, select the **Delete** link next to the **Phone** option.
 
     ![Link to delete the phone and text messaging method from security info](media/security-info/securityinfo-myprofile-phonetext-delete.png)
 
-    After you delete the **Phone** option, it's removed from your security info and disappears from the **Security info** page. If text messaging is your default method, the default will change to another available method.
+2. Select **Yes** from the confirmation box, and **Phone** is deleted. After it's deleted, it's removed from your security info and it disappears from the **Security info** page. If **Phone** is your default method, the default will change to another available method.
 
 ## Change your default security info method
 If you want text messaging to be the default method used when you sign-in to your work or school account using two-factor verification or for self-service password reset requests, you can set it from the **Security info** page.
