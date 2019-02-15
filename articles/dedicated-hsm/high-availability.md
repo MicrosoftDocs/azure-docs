@@ -3,7 +3,7 @@ title: High availability - Azure Dedicated HSM | Microsoft Docs
 description: Azure Dedicated HSM high availability example and basic considerations
 services: dedicated-hsm
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 ms.custom: "mvc, seodec18"
 ms.service: key-vault
 ms.workload: identity

@@ -20,6 +20,7 @@ ms.author: priyamo
 ms.reviewer: dhanyahk  
 
 # Customer intent: As an Azure AD administrator, I want to understand what monitoring solutions are available for Azure AD activity data and how they can help me manage my tenant.
+ms.collection: M365-identity-device-management
 ---
 
 # What is Azure Active Directory monitoring? (preview)

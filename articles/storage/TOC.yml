@@ -23,5 +23,3 @@
     href: ../virtual-machines/windows/about-disks-and-vhds.md
   - name: Linux
     href: ../virtual-machines/linux/about-disks-and-vhds.md
-- name: Common Security Attributes
-  href: storage-security-attributes.md

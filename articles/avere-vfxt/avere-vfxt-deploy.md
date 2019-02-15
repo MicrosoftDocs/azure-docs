@@ -75,7 +75,7 @@ Fill in the following information:
 
 * **Subscription** - Select the subscription for the Avere vFXT. 
 
-* **Resource group** - Select the resource group for the Avere vFXT cluster, or click "Create new" and enter a new resource group name. 
+* **Resource group** - Select an existing empty resource group for the Avere vFXT cluster, or click "Create new" and enter a new resource group name. 
 
 * **Location** - Select the Azure location for your cluster and resources.
 

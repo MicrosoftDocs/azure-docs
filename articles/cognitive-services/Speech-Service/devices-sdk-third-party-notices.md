@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: This file provides information regarding components that are being relicensed to you by Microsoft under Microsoft's software licensing terms.  Microsoft reserves all rights not expressly granted herein, whether by implication, estoppel or otherwise.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual

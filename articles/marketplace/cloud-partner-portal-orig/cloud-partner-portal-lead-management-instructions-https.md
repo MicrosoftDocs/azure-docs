@@ -61,7 +61,7 @@ You can use an HTTPS endpoint to handle Azure Marketplace and AppSource leads. T
 
     ![Select leads](./media/cloud-partner-portal-lead-management-instructions-https/https-image011.png)
 
-4. Flow shows a form for providing lead information. You can map items from the input request by choosing to add dynamic content. The following screen capture shows **LeadTitle** as an example.
+4. Flow shows a form for providing lead information. You can map items from the input request by choosing to add dynamic content. The following screen capture shows **OfferTitle** as an example.
 
     ![Add dynamic content](./media/cloud-partner-portal-lead-management-instructions-https/https-image013.png)
 

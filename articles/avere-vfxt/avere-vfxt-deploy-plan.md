@@ -33,6 +33,9 @@ Follow these guidelines when planning your Avere vFXT system's network infrastru
 
 * For simplicity, locate the vFXT cluster and the cluster controller VM in the same virtual network (vnet) and in the same resource group. They should also use the same storage account. (The cluster controller creates the cluster, and also can be used for command-line cluster management.)  
 
+  > [!NOTE] 
+  > The cluster creation template can create a new resource group and a new storage account for the cluster. You can specify an existing resource group, but it must be empty.
+
 * The cluster must be located in its own subnet to avoid IP address conflicts with clients or compute resources. 
 
 ## IP address requirements 

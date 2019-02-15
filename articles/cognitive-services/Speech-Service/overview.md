@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: "The Speech Service, part of Azure Cognitive Services, unites several speech services that were previously available separately: Bing Speech (comprising speech recognition and text to speech), Custom Speech, and Speech Translation."
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview

@@ -10,7 +10,7 @@
       maintainContext: true
 - name: Quickstarts
   items:
-  - name: "Send search queries using the REST API"
+  - name: REST API
     items:
     - name: "Using C#"
       href: quickstarts/csharp.md
@@ -24,7 +24,7 @@
       href: quickstarts/python.md
     - name: "Using Ruby"
       href: quickstarts/ruby.md
-  - name: "Search for images using the SDK"
+  - name: SDK
     items:
     - name: "Using C#"
       href: image-search-sdk-quickstart.md
