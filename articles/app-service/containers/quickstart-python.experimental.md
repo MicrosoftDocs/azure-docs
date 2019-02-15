@@ -13,68 +13,23 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 02/14/2019
 ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
 
-experimental: true
+experimental: false
 experiment_id: 1e304dc9-5add-4b
 ---
 # Create a Python app in Azure App Service on Linux (Preview)
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Python app on top of the built-in Python image (Preview) in App Service on Linux using the [Azure CLI](/cli/azure/install-azure-cli).
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Python app on top of the built-in Python image (Preview) in App Service on Linux using the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 You can follow the steps in this article using a Mac, Windows, or Linux machine.
 
 ![Sample app running in Azure](media/quickstart-python/hello-world-in-browser.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-## Prerequisites
-
-To complete this quickstart:
-
-* <a href="https://www.python.org/downloads/" target="_blank">Install Python 3.7</a>
-* <a href="https://git-scm.com/" target="_blank">Install Git</a>
-
-## Download the sample locally
-
-In a terminal window, run the following commands to clone the sample application to your local machine, and navigate to the directory with the sample code.
-
-```bash
-git clone https://github.com/Azure-Samples/python-docs-hello-world
-cd python-docs-hello-world
-```
-
-The repository contains an *application.py*, which tells App Service that the repository contains a Flask app. For more information, see [Container startup process and customizations](how-to-configure-python.md).
-
-## Run the app locally
-
-Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window and use the commands below to install the required dependencies and launch the built-in development server. 
-
-```bash
-# In Bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-FLASK_APP=application.py flask run
-
-# In PowerShell
-py -3 -m venv env
-env\scripts\activate
-pip install -r requirements.txt
-Set-Item Env:FLASK_APP ".\application.py"
-flask run
-```
-
-Open a web browser, and navigate to the sample app at `http://localhost:5000/`.
-
-You see the **Hello World!** message from the sample app displayed in the page.
-
-![Sample app running locally](media/quickstart-python/hello-world-in-browser.png)
-
-In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
