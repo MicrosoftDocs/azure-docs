@@ -32,8 +32,20 @@ Company Administrator, Partner Tier2 support, and InTune Service Admins | Can re
 User Account Administrator and Partner Tier1 support | Can restore any deleted Office 365 group except those assigned to the Company Administrator role
 User | Can restore any deleted Office 365 group that they owned
 
+## View and manage the deleted Office 365 groups that are available to restore
 
-## View the deleted Office 365 groups that are available to restore
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an Administrator account
+
+2. Select **Groups**, then select **Deleted groups** to view the deleted groups that are available to restore
+
+![Deleted groups blade](./media/groups-lifecycle/deleted-groups.png)
+
+3. On the **Deleted groups** blade, you can:
+
+  * Restore the deleted group and its contents by selecting **Restore group**.
+  * Permanently remove the deleted group by selecting **Delete permanently**. To permanently remove a group, you must be an administrator.
+
+## View the deleted Office 365 groups that are available to restore using Powershell
 
 The following cmdlets can be used to view the deleted groups to verify that the one or ones you're interested in have not yet been permanently purged. These cmdlets are part of the [Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/). More information about this module can be found in the [Azure Active Directory PowerShell Version 2](/powershell/azure/install-adv2?view=azureadps-2.0) article.
 
@@ -49,7 +61,7 @@ The following cmdlets can be used to view the deleted groups to verify that the 
   Get-AzureADMSDeletedGroup –Id <objectId>
   ```
 
-## How to restore your deleted Office 365 group
+## How to restore your deleted Office 365 group using Powershell
 Once you have verified that the group is still available to restore, restore the deleted group with one of the following steps. If the group contains documents, SP sites, or other persistent objects, it might take up to 24 hours to fully restore a group and its contents.
 
 1.	Run the following cmdlet to restore the group and its contents.
