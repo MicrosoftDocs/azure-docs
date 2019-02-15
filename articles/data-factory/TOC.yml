@@ -120,8 +120,10 @@
     href: concepts-integration-runtime.md
   - name: Mapping Data Flows
     items:
-    - name: Mapping Data Flow concepts
+    - name: Mapping data flow concepts
       href: concepts-data-flow-overview.md
+    - name: Data flow datasets
+      href: concepts-data-flow-datasets.md
     - name: Debug Mode
       href: concepts-data-flow-debug-mode.md
     - name: Schema Drift
