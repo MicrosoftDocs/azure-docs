@@ -19,7 +19,7 @@ ms.author: pbutlerm
 
 # Create Power BI App technical assets
 
-The primary technical asset you will need for this offer type is a Power BI App, which is a collection of primary datasets, reports or dashboards, and optional connected services and embedded datasets. Power BI App is an evolution of an asset type previously known as [content packs](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction). For more information about developing this type of app, see [What are Power BI template apps?](https://go.microsoft.com/fwlink/?linkid=2028636).
+The primary technical asset that you need for this offer type is Power BI App. Power BI App is a collection of primary datasets, reports or dashboards, and optional connected services and embedded datasets. It has evolved from an asset type previously known as [content packs](https://docs.microsoft.com/power-bi/service-organizational-content-pack-introduction). For more information about developing this type of app, see [What are Power BI template apps?](https://go.microsoft.com/fwlink/?linkid=2028636).
 
 
 ## Obtain an installation URL
