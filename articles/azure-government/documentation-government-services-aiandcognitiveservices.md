@@ -116,7 +116,6 @@ Commonly used services in bot applications that are currently unavailable in Azu
 - Azure Search
 - QnA Maker Cognitive Service
 - Speech Services Cognitive Service
-As these services are made available the corresponding Bot Service features will be enabled.
 
 For more information, see [global Azure documentation](https://aka.ms/botdocs/) for Bot Service.
 
