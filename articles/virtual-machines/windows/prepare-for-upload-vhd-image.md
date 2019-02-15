@@ -405,7 +405,7 @@ Not every role or application that’s installed on a Windows-based computer sup
 
 
 >[!NOTE]
-> A custom unattend.xml is not supported. While we do support the additionalUnattendContent property, that only provides limited support for adding [microsoft-windows-shell-setup](https://docs.microsoft.com/en-us/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) options into the unattend.xml that the Azure provisioning agent uses. E.g.  they can use [additionalUnattendContent](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) to add FirstLogonCommands and LogonCommands. See also https://github.com/Azure/azure-quickstart-templates/issues/1407
+> A custom unattend.xml is not supported. While we do support the additionalUnattendContent property, that only provides limited support for adding [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) options into the unattend.xml that the Azure provisioning agent uses. E.g.  they can use [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) to add FirstLogonCommands and LogonCommands. See also [additionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 
 ## Complete recommended configurations
