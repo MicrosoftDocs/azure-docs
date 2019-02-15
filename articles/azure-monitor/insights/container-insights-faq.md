@@ -27,16 +27,16 @@ The documentation for how to do this can be found [here](../../azure-resource-ma
 ## Does Azure Monitor for containers include support for RBAC enabled AKS clusters?
 RBAC enabled AKS clusters are currently not supported by the solution. The solution details page may not show the right information in the blades that show data for these clusters.
 
-## How do I enable log collection for containers in the kube-system namespace through helm?
-The log collection from containers in the kube-system namespace is disabled by default. It can enabled by setting environment variable on the omsagent to enable the collection. For more information on how to do this can be found [here](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers). 
+## How do I enable log collection for containers in the kube-system namespace through Helm?
+The log collection from containers in the kube-system namespace is disabled by default. It can enabled by setting an environment variable on the omsagent to enable the collection. For more information on how to do this can be found [here](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers). 
 
 ## How do I update the omsagent to the latest released version?
 Details on how to do this can be found under [Agent management](container-insights-manage-agent.md)
 
-## How do I enable multiline logging for containers?
-Currently Azure Monitor for containers doesn’t support multiline logging, but there are workarounds available. You can convert all the services to log in json format and then docker/moby won’t break them up into multiple lines.
+## How do I enable multi-line logging?
+Currently Azure Monitor for containers doesn’t support multi-line logging, but there are workarounds available. You can configure all the services to write in JSON format and then Docker/Moby will write them as a single line.
 
-For example, you can wrap your log as a json object as shown in the example below for a sample node js application:
+For example, you can wrap your log as a JSON object as shown in the example below for a sample node.js application:
 
 ```console.log(json.stringify({ 
                 "Hello": "This example has multiple lines:",
@@ -51,7 +51,7 @@ This data will look like the following in Azure Monitor for logs when you query 
 ```
 For a detailed look at the issue, review the following [github link](https://github.com/moby/moby/issues/22920).
 
-## What are the steps to resolve Azure Active Directory errors when I enable live logs ? 
+## What are the steps to resolve Azure Active Directory errors when I enable live logs? 
 You may see the following error **The reply url specified in the request does not match the reply urls configured for the application: '60b4dec7-5a69-4165-a211-12c40b5c0435'**. The fix for this can be found in the article [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
 
 ## Next steps
