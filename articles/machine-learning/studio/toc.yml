@@ -132,9 +132,8 @@
       displayName: endpoint, endpoints
       href: manage-web-service-endpoints-using-api-management.md
     - name: Create endpoints
+      displayName: scale, scaling
       href: create-endpoint.md
-    - name: Scaling
-      href: scaling-webservice.md
   - name: Retrain models
     items:
     - name: Overview
