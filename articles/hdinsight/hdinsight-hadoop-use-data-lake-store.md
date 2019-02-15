@@ -12,7 +12,8 @@ ms.date: 11/06/2018
 ---
 # Use Data Lake Storage Gen1 with Azure HDInsight clusters
 
-> [!Note] Deploy new HDInsight clusters using [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md) for improved performance and new features.
+> [!Note] 
+> Deploy new HDInsight clusters using [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md) for improved performance and new features.
 
 To analyze data in HDInsight cluster, you can store the data either in [Azure Storage](../storage/common/storage-introduction.md), [Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md) or [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md). All storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
