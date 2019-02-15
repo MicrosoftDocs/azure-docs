@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/10/2019
+ms.date: 02/14/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ---
@@ -68,7 +68,10 @@ Once you have opened the access review, you can see your access.
 
     Your selection is submitted and you returned to the MyApps portal.
 
-    If you want to change your answer, re-open the access reviews page and update your response. You can do this step until the access review is finished. If you indicated that you no longer need access, you aren't removed immediately. You are removed when the review is finished or when an administrator stops the review.
+    If you want to change your response, re-open the access reviews page and update your response. You can do this step until the access review is finished.
+
+    > [!NOTE]
+    > If you indicated that you no longer need access, you aren't removed immediately. You are removed when the review is finished or when an administrator stops the review.
 
 ## Next steps
 

@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/10/2019
+ms.date: 02/14/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ---
@@ -52,20 +52,20 @@ If you don't have the email, you can open your access reviews by following these
 
 Once you have opened the access review, you see the names of users who need to be reviewed.
 
-1. Review the list of users to decide whether to approve or deny access.
+If the request is to review your own access, the page will look different. For more information, see [Review your own access](review-your-access.md).
 
-    If the request is to review your own access, the page will look different. For more information, see [Review your own access](review-your-access.md).
+![Perform access review](./media/perform-access-review/perform-access-review.png)
 
-    ![Perform access review](./media/perform-access-review/perform-access-review.png)
+There are two ways that you can approve or deny access:
 
-    There are two ways that you can approve or deny access:
+- You can approve and deny each request individually, or
+- You can accept the system recommendations, which is the easiest and quickest way.
 
-    - You can approve and deny each request.
-    - You can accept the recommendations.
+### Review each request
 
-    Accepting the recommendations is the easiest and quickest way.
+1. Review the list of users to decide whether to approve or deny their continued access.
 
-1. To approve or deny each request, click row to open the window to specify the action to take.
+1. To approve or deny each request, click the row to open the window to specify the action to take.
 
 1. Click **Approve** or **Deny**. (If you don't know the user, you can indicate that too.)
 
@@ -73,19 +73,26 @@ Once you have opened the access review, you see the names of users who need to b
 
     The reviewer might require that you supply a reason for approving continued access or group membership.
 
-1. Click **Save**.
+1. Once you have specified the action to take, click **Save**.
 
-    If you want to change your answer and approve a previously denied user or deny a previously approved user, select the row and update the response. You can do this step until the access review is finished.
+    If you want to change your response, for example, and approve a previously denied user or deny a previously approved user, select the row and update the response. You can do this step until the access review is finished. If there are multiple reviewers, the last submitted response would be recorded.
 
-    If a user is denied access, they aren't removed immediately. They are removed when the review is finished or when an administrator stops the review.
+    > [!NOTE]
+    > If a user is denied access, they aren't removed immediately. They are removed when the review is finished or when an administrator stops the review.
 
-1. If instead you want to just accept the recommended approvals and denies, click **Accept recommendations** in the blue bar at the bottom of the page.
+### Review the easy way
 
-    You see a summary of the recommended approvals and denies. The recommendations are based on your sign-in.
+To make access reviews easier and faster for you, we also provide recommended actions that you can accept with a single click. The recommended actions are generated based on your sign-in and the user's activity, so you can have confidence in the recommendations.
+
+1. In the blue bar at the bottom of the page, click **Accept recommendations**.
 
     ![Accept recommendations](./media/perform-access-review/accept-recommendations.png)
 
-1. Click **Ok** to accept the recommended approvals and denies.
+    You see a summary of the recommended actions.
+
+    ![Accept recommendations summary](./media/perform-access-review/accept-recommendations-summary.png)
+
+1. Click **Ok** to accept the recommendations.
 
 ## Next steps
 
