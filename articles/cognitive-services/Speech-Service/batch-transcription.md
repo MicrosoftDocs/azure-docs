@@ -39,7 +39,7 @@ The Batch Transcription API offers asynchronous speech-to-text transcription, al
 1. Downloading transcriptions
 
 > [!NOTE]
-> The Batch Transcription API is ideal for call centers, which typically accumulate thousands of hours of audio. The API is guided by a "fire and forget" philosophy, which makes it easy to transcribe large volumes of audio recordings.
+> The Batch Transcription API is ideal for call centers, which typically accumulate thousands of hours of audio. It make it easy to transcribe large volumes of audio recordings.
 
 ### Supported formats
 
@@ -89,77 +89,75 @@ The complete sample is available in the [GitHub sample repository](https://aka.m
 
 You have to customize the sample code with your subscription information, the service region, the SAS URI pointing to the audio file to transcribe, and model IDs in case you want to use a custom acoustic or language model. 
 
-```cs
-        // Replace with your subscription key
-        private const string SubscriptionKey = "<YourSubscriptionKey>";
+  ```cs
+  // Replace with your subscription key
+  private const string SubscriptionKey = "<YourSubscriptionKey>";
 
-        // Update with your service region
-        private const string HostName = "<YourServiceRegion>.cris.ai";
-        private const int Port = 443;
+  // Update with your service region
+  private const string HostName = "<YourServiceRegion>.cris.ai";
+  private const int Port = 443;
 
-        // recordings and locale
-        private const string Locale = "en-US";
-        private const string RecordingsBlobUri = "URI pointing to an audio file stored Azure blob";
+  // recordings and locale
+  private const string Locale = "en-US";
+  private const string RecordingsBlobUri = "URI pointing to an audio file stored Azure blob";
 
-        // For usage of baseline models, no acoustic and language model needs to be specified.
-        private static Guid[] modelList = new Guid[0];
+  // For usage of baseline models, no acoustic and language model needs to be specified.
+  private static Guid[] modelList = new Guid[0];
 
-        // For use of specific acoustic and language models:
-        // - comment the previous line
-        // - uncomment the next lines and create an array containing the guids of your required model(s)
-        // private static Guid AdaptedAcousticId = new Guid("<id of the custom acoustic model>");
-        // private static Guid AdaptedLanguageId = new Guid("<id of the custom language model>");
-        // private static Guid[] modelList = new[] { AdaptedAcousticId, AdaptedLanguageId };
-```
+  // For use of specific acoustic and language models:
+  // - comment the previous line
+  // - uncomment the next lines and create an array containing the guids of your required model(s)
+  // private static Guid AdaptedAcousticId = new Guid("<id of the custom acoustic model>");
+  // private static Guid AdaptedLanguageId = new Guid("<id of the custom language model>");
+  // private static Guid[] modelList = new[] { AdaptedAcousticId, AdaptedLanguageId };
+  ```
 
 The sample code will setup the client and submit the transcription request. It will then poll for status information and print details about the transcription progress.
 
-```cs
+  ```cs
+  // get all transcriptions for the user
+  transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
 
-            // get all transcriptions for the user
-            transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
+  // for each transcription in the list we check the status
+  foreach (var transcription in transcriptions)
+  {
+      switch(transcription.Status)
+      {
+          case "Failed":
+          case "Succeeded":
+              // we check to see if it was one of the transcriptions we created from this client.
+              if (!createdTranscriptions.Contains(transcription.Id))
+              {
+                  // not created from here, continue
+                  continue;
+              }
 
-            // for each transcription in the list we check the status
-            foreach (var transcription in transcriptions)
-            {
-                switch(transcription.Status)
-                {
-                    case "Failed":
-                    case "Succeeded":
-                        // we check to see if it was one of the transcriptions we created from this client.
-                        if (!createdTranscriptions.Contains(transcription.Id))
-                        {
-                            // not created from here, continue
-                            continue;
-                        }
+              completed++;
 
-                        completed++;
+              // if the transcription was successful, check the results
+              if (transcription.Status == "Succeeded")
+              {
+                  var resultsUri = transcription.ResultsUrls["channel_0"];
+                  WebClient webClient = new WebClient();
+                  var filename = Path.GetTempFileName();
+                  webClient.DownloadFile(resultsUri, filename);
+                  var results = File.ReadAllText(filename);
+                  Console.WriteLine("Transcription succeeded. Results: ");
+                  Console.WriteLine(results);
+              }
+              break;
 
-                        // if the transcription was successful, check the results
-                        if (transcription.Status == "Succeeded")
-                        {
-                            var resultsUri = transcription.ResultsUrls["channel_0"];
-                            WebClient webClient = new WebClient();
-                            var filename = Path.GetTempFileName();
-                            webClient.DownloadFile(resultsUri, filename);
-                            var results = File.ReadAllText(filename);
-                            Console.WriteLine("Transcription succeeded. Results: ");
-                            Console.WriteLine(results);
-                        }
-                        break;
+          case "Running":
+              running++;
+              break;
 
-                    case "Running":
-                        running++;
-                        break;
-
-                    case "NotStarted":
-                        notStarted++;
-                        break;
-                    }
-                }
-            }
-        }
-```
+          case "NotStarted":
+              notStarted++;
+              break;
+          }
+      }
+  }
+  ```
 
 For full details about the preceding calls, see our [Swagger document](https://westus.cris.ai/swagger/ui/index). For the full sample shown here, go to [GitHub](https://aka.ms/csspeech/samples) in the `samples/batch` subdirectory.
 

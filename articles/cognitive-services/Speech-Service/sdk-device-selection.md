@@ -1,4 +1,18 @@
-# Audio input device selection
+---
+title: 'Audio input device selection with the Speech SDK - Speech Services'
+titleSuffix: Azure Cognitive Services
+description: Learn about selecting audio input device in the Speech SDK.
+services: cognitive-services
+author: chlandsi
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: quickstart
+ms.date: 2/19/2019
+ms.author: chlandsi
+---
+
+# Audio input device selection with the Speech SDK
 
 Version 1.3.0 of the Speech SDK introduces an API to select the audio input.
 This article describes how to obtain the IDs of the audio devices connected to a system.
@@ -10,7 +24,7 @@ On all platforms, the audio device can be configured through the `AudioConfig` o
 audioConfig = AudioConfig.FromMicrophoneInput("<device id>");
 ```
 
-```C#
+```cs
 audioConfig = AudioConfig.FromMicrophoneInput("<device id>");
 ```
 
@@ -28,10 +42,10 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 
 ## Audio device IDs on Windows for Desktop applications
 
-Audio device GUIDs can be retrieved from the [`IMMDevice`](https://docs.microsoft.com/en-us/windows/desktop/api/mmdeviceapi/nn-mmdeviceapi-immdevice) object in Windows for Desktop applications.
+Audio device [endpoint ID strings](/windows/desktop/CoreAudio/endpoint-id-strings) can be retrieved from the [`IMMDevice`](/windows/desktop/api/mmdeviceapi/nn-mmdeviceapi-immdevice) object in Windows for Desktop applications.
 The following code sample illustrates how to use it to enumerate audio devices.
 
-```
+```cpp
 #include <cstdio>
 #include <mmdeviceapi.h>
 
@@ -50,7 +64,6 @@ constexpr auto REFTIMES_PER_MILLISEC = 10000;
                 { (punk)->Release(); (punk) = NULL; }
 
 void ListEndpoints();
-
 
 int main()
 {
@@ -127,34 +140,33 @@ Exit:
 
 The C# sample uses the [NAudio](https://github.com/naudio/NAudio) library to access the CoreAudio API.
 
-```C#
+```cs
 using System;
 
 using NAudio.CoreAudioApi;
 
-
 namespace ConsoleApp
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			var enumerator = new MMDeviceEnumerator();
-			foreach (var endpoint in
-					 enumerator.EnumerateAudioEndPoints(DataFlow.Capture, DeviceState.Active))
-			{
-				Console.WriteLine("{0} ({1})", endpoint.FriendlyName, endpoint.ID);
-			}
-		}
-	}
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var enumerator = new MMDeviceEnumerator();
+            foreach (var endpoint in
+                     enumerator.EnumerateAudioEndPoints(DataFlow.Capture, DeviceState.Active))
+            {
+                Console.WriteLine("{0} ({1})", endpoint.FriendlyName, endpoint.ID);
+            }
+        }
+    }
 }
 ```
 
-The device IDs are GUIDs like `"{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414013aac8}"`.
+The device IDs are strings like `"{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414013aac8}"`.
 
 ## Audio device IDs on UWP
 
-On Windows UWP, audio input devices can be obtained using the `Id()` property of the corresponding [`DeviceInformation`](https://docs.microsoft.com/en-us/uwp/api/windows.devices.enumeration.deviceinformation) object.
+On Windows UWP, audio input devices can be obtained using the `Id()` property of the corresponding [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) object.
 The following code samples show how to do this in C++ and C#.
 
 ```cpp
@@ -206,11 +218,11 @@ A sample ID is `"\\\\?\\SWD#MMDEVAPI#{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-4
 The device IDs are selected using standard ALSA device IDs.
 The IDs of the inputs attached to the system are contained in the output of the command `arecord -L`.
 Alternatively, they can be obtained using the [ALSA C library](http://www.alsa-project.org/alsa-doc/alsa-lib/).
-Examples include `hw:1,0` or `hw:CARD=CC,DEV=0`.
+Sample IDs are `hw:1,0` and `hw:CARD=CC,DEV=0`.
 
 ## Audio device IDs on macOS
 
-The following function creates a list of the names and IDs of the audio devices attached to a Mac.
+The following function implemented in Objective-C creates a list of the names and IDs of the audio devices attached to a Mac.
 The `deviceUID` string is used to identify a device in the Speech SDK for macOS.
 
 ```objc
@@ -227,7 +239,7 @@ CFArrayRef CreateInputDeviceArray()
 
     UInt32 dataSize = 0;
     OSStatus status = AudioObjectGetPropertyDataSize(kAudioObjectSystemObject, &propertyAddress, 0, NULL, &dataSize);
-    if(kAudioHardwareNoError != status) {
+    if (kAudioHardwareNoError != status) {
         fprintf(stderr, "AudioObjectGetPropertyDataSize (kAudioHardwarePropertyDevices) failed: %i\n", status);
         return NULL;
     }
@@ -235,13 +247,13 @@ CFArrayRef CreateInputDeviceArray()
     UInt32 deviceCount = (uint32)(dataSize / sizeof(AudioDeviceID));
 
     AudioDeviceID *audioDevices = (AudioDeviceID *)(malloc(dataSize));
-    if(NULL == audioDevices) {
+    if (NULL == audioDevices) {
         fputs("Unable to allocate memory", stderr);
         return NULL;
     }
 
     status = AudioObjectGetPropertyData(kAudioObjectSystemObject, &propertyAddress, 0, NULL, &dataSize, audioDevices);
-    if(kAudioHardwareNoError != status) {
+    if (kAudioHardwareNoError != status) {
         fprintf(stderr, "AudioObjectGetPropertyData (kAudioHardwarePropertyDevices) failed: %i\n", status);
         free(audioDevices);
         audioDevices = NULL;
@@ -249,7 +261,7 @@ CFArrayRef CreateInputDeviceArray()
     }
 
     CFMutableArrayRef inputDeviceArray = CFArrayCreateMutable(kCFAllocatorDefault, deviceCount, &kCFTypeArrayCallBacks);
-    if(NULL == inputDeviceArray) {
+    if (NULL == inputDeviceArray) {
         fputs("CFArrayCreateMutable failed", stderr);
         free(audioDevices);
         audioDevices = NULL;
@@ -258,13 +270,13 @@ CFArrayRef CreateInputDeviceArray()
 
     // Iterate through all the devices and determine which are input-capable
     propertyAddress.mScope = kAudioDevicePropertyScopeInput;
-    for(UInt32 i = 0; i < deviceCount; ++i) {
+    for (UInt32 i = 0; i < deviceCount; ++i) {
         // Query device UID
         CFStringRef deviceUID = NULL;
         dataSize = sizeof(deviceUID);
         propertyAddress.mSelector = kAudioDevicePropertyDeviceUID;
         status = AudioObjectGetPropertyData(audioDevices[i], &propertyAddress, 0, NULL, &dataSize, &deviceUID);
-        if(kAudioHardwareNoError != status) {
+        if (kAudioHardwareNoError != status) {
             fprintf(stderr, "AudioObjectGetPropertyData (kAudioDevicePropertyDeviceUID) failed: %i\n", status);
             continue;
         }
@@ -274,7 +286,7 @@ CFArrayRef CreateInputDeviceArray()
         dataSize = sizeof(deviceName);
         propertyAddress.mSelector = kAudioDevicePropertyDeviceNameCFString;
         status = AudioObjectGetPropertyData(audioDevices[i], &propertyAddress, 0, NULL, &dataSize, &deviceName);
-        if(kAudioHardwareNoError != status) {
+        if (kAudioHardwareNoError != status) {
             fprintf(stderr, "AudioObjectGetPropertyData (kAudioDevicePropertyDeviceNameCFString) failed: %i\n", status);
             continue;
         }
@@ -283,20 +295,20 @@ CFArrayRef CreateInputDeviceArray()
         dataSize = 0;
         propertyAddress.mSelector = kAudioDevicePropertyStreamConfiguration;
         status = AudioObjectGetPropertyDataSize(audioDevices[i], &propertyAddress, 0, NULL, &dataSize);
-        if(kAudioHardwareNoError != status) {
+        if (kAudioHardwareNoError != status) {
             fprintf(stderr, "AudioObjectGetPropertyDataSize (kAudioDevicePropertyStreamConfiguration) failed: %i\n", status);
             continue;
         }
 
         AudioBufferList *bufferList = (AudioBufferList *)(malloc(dataSize));
-        if(NULL == bufferList) {
+        if (NULL == bufferList) {
             fputs("Unable to allocate memory", stderr);
             break;
         }
 
         status = AudioObjectGetPropertyData(audioDevices[i], &propertyAddress, 0, NULL, &dataSize, bufferList);
-        if(kAudioHardwareNoError != status || 0 == bufferList->mNumberBuffers) {
-            if(kAudioHardwareNoError != status)
+        if (kAudioHardwareNoError != status || 0 == bufferList->mNumberBuffers) {
+            if (kAudioHardwareNoError != status)
                 fprintf(stderr, "AudioObjectGetPropertyData (kAudioDevicePropertyStreamConfiguration) failed: %i\n", status);
             free(bufferList);
             bufferList = NULL;
@@ -334,12 +346,11 @@ CFArrayRef CreateInputDeviceArray()
     return copy;
 }
 ```
-For example, the UID for the built-in microphone is always "BuiltInMicrophoneDevice".
+
+For example, the UID for the built-in microphone is "BuiltInMicrophoneDevice".
 
 ## Audio device IDs on iOS
 
-Audio device selection within the Speech SDK is not supported on iOS.
+Audio device selection with the Speech SDK is not supported on iOS.
 However, apps using the SDK can influence audio routing through the [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) Framework.
 For example, the instruction `[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryRecord withOptions:AVAudioSessionCategoryOptionAllowBluetooth error:NULL];` enables the use of a Bluetooth headset for a speech-enabled app.
-
-

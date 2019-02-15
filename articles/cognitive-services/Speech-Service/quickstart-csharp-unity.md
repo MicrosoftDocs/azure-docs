@@ -53,9 +53,9 @@ To complete this project, you'll need:
 
 We will add a text field as minimal UI that is used to show speech recognition output.
 
-* In the [Hierarchy Window](https://docs.unity3d.com/Manual/Hierarchy.html), a sample scene should be active that Unity create with the new project.
+* In the [Hierarchy Window](https://docs.unity3d.com/Manual/Hierarchy.html), a sample scene is shown that Unity created with the new project.
 * Right-click into it, and select **UI** > **Text**.
-* This should create three game objects: a **Text** object nested within a **Canvas** object, and an **EventSystem** object (which we will not need).
+* This creates three game objects: a **Text** object nested within a **Canvas** object, and an **EventSystem** object (which we will not need).
 
 ## Add the sample code
 
@@ -88,7 +88,7 @@ We will add a text field as minimal UI that is used to show speech recognition o
 ## Run the sample in the Unity Editor
 
 * Press the **Play** button in the Unity Editor toolbar (below the menu bar).
-  * When you say something after the app has been launched, you should see the recognized text in the Unity Editor's Game Window.
+  * When you say something after the app has been launched, you'll see the recognized text in the Unity Editor's Game Window.
   * Check also the [Console Window](https://docs.unity3d.com/Manual/Console.html) for debug messages.
 * Click the **Play** button again to stop running the app.
 

@@ -176,7 +176,7 @@
   - name: Speech synthesis markup
     href: speech-synthesis-markup.md
     displayName: synthesize speech, speech synthesis, text to speech, tts
-  - name: Audio input device selection in the SDK
+  - name: Audio input device selection in the Speech SDK
     href: sdk-device-selection.md
     displayName: audio, microphone, input, device
 - name: Resources
