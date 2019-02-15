@@ -17,52 +17,64 @@ ms.author: spelluru
 
 ---
 # Add an artifact repository to your lab in DevTest Labs
-DevTest Labs allows you to specify an artifact to be added to a VM at the time of creating the VM or after the VM is created. This artifact could be a tool or an application that you want to install on the VM. For more information, see [add an artifact to a VM](devtest-lab-add-vm.md). Artifacts are defined in a JSON file loaded from a GitHub or VSTS Git repository. The [public artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), maintained by DevTest Labs, provides many common tools for both Windows and Linux. You can create your own artifact repository with specific tools that aren't available in the public artifact repository. For instructions how to add an artifact repository source using the Azure portal, see [Add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).
+DevTest Labs allows you to specify an artifact to be added to a VM at the time of creating the VM or after the VM is created. This artifact could be a tool or an application that you want to install on the VM. For more information, see [add an artifact to a VM](devtest-lab-add-vm.md). Artifacts are defined in a JSON file loaded from a GitHub or VSTS Git repository. 
+
+The [public artifact repository](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), maintained by DevTest Labs, provides many common tools for both Windows and Linux. You can create your own artifact repository with specific tools that aren't available in the public artifact repository. For instructions how to add an artifact repository source using the Azure portal, see [Add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).
 
 This article provides information on how to automate the task of adding a custom artifact repository by using Azure Resource Management templates and Azure PowerShell. With these scripts, you can automate the creation of team DevTest Labs instances or automate the addition of a new artifact source to several DevTest Labs instances easily.
 
+
+## Prerequisites
+To add a repository to your lab, first, get key information from your repository. The following sections describe how to get required information for repositories that are hosted on **GitHub** or **Azure DevOps**.
+
+### Get the GitHub repository clone URL and personal access token
+
+1. Go to the home page of the GitHub repository that contains the artifact or Resource Manager template definitions.
+2. Select **Clone or download**.
+3. To copy the URL to the clipboard, select the **HTTPS clone url** button. Save the URL for later use.
+4. In the upper-right corner of GitHub, select the profile image, and then select **Settings**.
+5. In the **Personal settings** menu on the left, select **Personal access tokens**.
+6. Select **Generate new token**.
+7. On the **New personal access token** page, under **Token description**, enter a description. Accept the default items under **Select scopes**, and then select **Generate Token**.
+8. Save the generated token. You use the token later.
+9. Close GitHub.   
+10. Continue to the [Connect your lab to the repository](#connect-your-lab-to-the-repository) section.
+
+### Get the Azure Repos clone URL and personal access token
+1. Go to the home page of your team collection (for example, https://contoso-web-team.visualstudio.com), and then select your project.
+2. On the project home page, select **Code**.
+3. To view the clone URL, on the project **Code** page, select **Clone**.
+4. Save the URL. You use the URL later.
+5. To create a personal access token, in the user account drop-down menu, select **My profile**.
+6. On the profile information page, select **Security**.
+7. On the **Security** tab, select **Add**.
+8. On the **Create a personal access token** page:
+   1. Enter a **Description** for the token.
+   2. In the **Expires In** list, select **180 days**.
+   3. In the **Accounts** list, select **All accessible accounts**.
+   4. Select the **All scopes** option.
+   5. Select **Create Token**.
+9. The new token appears in the **Personal Access Tokens** list. Select **Copy Token**, and then save the token value for later use.
+10. Continue to the [Connect your lab to the repository](#connect-your-lab-to-the-repository) section.
+
 ## Use Azure portal
-While creating a VM, you can add existing artifacts. Each lab includes artifacts from the Public DevTest Labs Artifact Repository as 
-well as artifacts that you've created and added to your own Artifact Repository.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **More Services**, and then select **DevTest Labs** from the list of services.
+3. From the list of labs, select your lab. 
+4. Select **Configuration and policies** on the left menu.
+5. Select **Repositories** under **External resources** section on the left menu.
+6. Select **+ Add** on the toolbar.
 
-* Azure DevTest Labs *artifacts* let you specify *actions* that are performed when the VM is provisioned, such as running Windows PowerShell scripts, running Bash commands, and installing software.
-* Artifact *parameters* let you customize the artifact for your particular scenario
+    ![The Add repository button](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
+5. On the **Repositories** page, specify the following information:
+  1. **Name**. Enter a name for the repository.
+  2. **Git Clone Url**. Enter the Git HTTPS clone URL that you copied earlier from either GitHub or Azure DevOps Services.
+  3. **Branch**. To get your definitions, enter the branch.
+  4. **Personal Access Token**. Enter the personal access token that you got earlier from either GitHub or Azure DevOps Services.
+  5. **Folder Paths**. Enter at least one folder path relative to the clone URL that contains your artifact or Resource Manager template definitions. When you specify a subdirectory, make sure you include the forward slash in the folder path.
 
-To discover how to create artifacts, see the article, [Learn how to author your own artifacts for use with DevTest Labs](devtest-lab-artifact-author.md).
-
-1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Select **All Services**, and then select **DevTest Labs** from the list.
-1. From the list of labs, select the lab containing the VM with which you want to work.  
-1. Select **My virtual machines**.
-1. Select the desired VM.
-1. Select **Manage artifacts**. 
-1. Select **Apply artifacts**.
-1. On the **Apply artifacts** pane, select the artifact you wish to add to the VM.
-1. On the **Add artifact** pane, enter the required parameter values and any optional parameters that you need.  
-1. Select **Add** to add the artifact and return to the **Apply artifacts** pane.
-1. Continue adding artifacts as needed for your VM.
-1. Once you've added your artifacts, you can [change the order in which the artifacts are run](#change-the-order-in-which-artifacts-are-run). You can also go back to [view or modify an artifact](#view-or-modify-an-artifact).
-1. When you're done adding artifacts, select **Apply**
-
-### Change the order in which artifacts are run
-By default, the actions of the artifacts are executed in the order in which they are added to the VM. 
-The following steps illustrate how to change the order in which the artifacts are run.
-
-1. At the top of the **Apply artifacts** pane, select the link indicating the number of artifacts that have been added to the VM.
-   
-    ![Number of artifacts added to VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. On the **Selected artifacts** pane, drag and drop the artifacts into the desired order. **Note:** If you have trouble dragging the artifact, make sure that you are dragging from the left side of the artifact. 
-1. Select **OK** when done.  
-
-### View or modify an artifact
-The following steps illustrate how to view or modify the parameters of an artifact:
-
-1. At the top of the **Apply artifacts** pane, select the link indicating the number of artifacts that have been added to the VM.
-   
-    ![Number of artifacts added to VM](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. On the **Selected artifacts** pane, select the artifact that you want to view or edit.  
-1. On the **Add artifact** pane, make any needed changes, and select **OK** to close the **Add artifact** pane.
-1. Select **OK** to close the **Selected artifacts** pane.
+        ![Repositories area](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+6. Select **Save**.
 
 ## Use Azure Resource Manager template
 Azure Resource Management (Azure Resource Manager) templates are JSON files that describe resources in Azure that you want to create. For more information about these templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
@@ -92,7 +104,7 @@ Gather some basic information such as the artifact display name, repository type
 		},
 		"artifactRepoFolder": {
 			"type": "string",
-			"defaultValue": "Artifacts/"
+			"defaultValue": "/Artifacts"
 		},
 		"artifactRepoType": {
 			"type": "string",
@@ -236,7 +248,7 @@ Uri to the repository.
 Branch in which artifact files can be found. Defaults to 'master'.
 
 .PARAMETER FolderPath
-Folder under which artifacts can be found. Defaults to 'Artifacts/'
+Folder under which artifacts can be found. Defaults to '/Artifacts'
 
 .PARAMETER PersonalAccessToken
 Security token for access to GitHub or VSOGit repository.
@@ -382,7 +394,7 @@ Uri to the repository.
 Branch in which artifact files can be found. Defaults to 'master'.
 
 .PARAMETER FolderPath
-Folder under which artifacts can be found. Defaults to 'Artifacts/'
+Folder under which artifacts can be found. Defaults to '/Artifacts'
 
 .PARAMETER PersonalAccessToken
 Security token for access to GitHub or VSOGit repository.
