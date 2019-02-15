@@ -14,13 +14,13 @@ ms.author: kasinh
 
 Use the information in the following tables to troubleshoot errors that you encounter while using Azure Backup Server.
 
-## Invalid vault credentials provided 
+## Invalid vault credentials provided
 
 To resolve this issue, follow [these troubleshooting steps](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues).
 
-## The agent operation failed because of a communication error with the DPM agent coordinator service on the server 
+## The agent operation failed because of a communication error with the DPM agent coordinator service on the server
 
-To resolve this issue, follow [these troubleshooting steps](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues). 
+To resolve this issue, follow [these troubleshooting steps](https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues).
 
 ## Setup could not update registry metadata
 
@@ -51,7 +51,7 @@ To resolve this issue, follow [these troubleshooting steps](https://docs.microso
 | Configuring protection groups | DPM could not enumerate the application component on the protected computer (protected computer name). | Select **Refresh** on the configure protection group UI screen at the relevant datasource/component level. |
 | Configuring protection groups | Unable to configure protection | If the protected server is a SQL server, verify that the sysadmin role permissions have been provided to the system account (NTAuthority\System) on the protected computer as described in [this article](https://technet.microsoft.com/library/hh757977(v=sc.12).aspx).
 | Configuring protection groups | There is insufficient free space in the storage pool for this protection group. | The disks that are added to the storage pool [should not contain a partition](https://technet.microsoft.com/library/hh758075(v=sc.12).aspx). Delete any existing volumes on the disks. Then add them to the storage pool.|
-| Policy change |The backup policy could not be modified. Error: The current operation failed due to an internal service error [0x29834]. Please retry the operation after some time has passed. If the issue persists, contact Microsoft support. |**Cause:**<br/>This error occurs under three conditions: when security settings are enabled, when you try to reduce retention range below the minimum values specified previously, and when you are on an unsupported  version. (Unsupported versions are those below Microsoft Azure Backup Server version 2.0.9052 and Azure Backup Server update 1.) <br/>**Recommended action:**<br/> To proceed with policy-related udpates, set the retention period above the minimum retention period specified. (The minimum retention period is seven days for daily, four weeks for weekly, three weeks for monthly or one year for yearly.) <br><br>Optionally, another preferred approach is to update the backup agent and Azure Backup Server to leverage all the security updates. |
+| Policy change |The backup policy could not be modified. Error: The current operation failed due to an internal service error [0x29834]. Please retry the operation after some time has passed. If the issue persists, contact Microsoft support. | **Cause:**<br/>This error occurs under three conditions: when security settings are enabled, when you try to reduce retention range below the minimum values specified previously, and when you are on an unsupported  version. (Unsupported versions are those below Microsoft Azure Backup Server version 2.0.9052 and Azure Backup Server update 1.) <br/>**Recommended action:**<br/> To proceed with policy-related udpates, set the retention period above the minimum retention period specified. (The minimum retention period is seven days for daily, four weeks for weekly, three weeks for monthly or one year for yearly.) <br><br>Optionally, another preferred approach is to update the backup agent and Azure Backup Server to leverage all the security updates. |
 
 ## Backup
 | Operation | Error details | Workaround |
@@ -66,6 +66,11 @@ To resolve this issue, follow [these troubleshooting steps](https://docs.microso
 | Backup | The option to re-protect a VMware VM on a new Microsoft Azure Backup Server does not show as available to add. | VMware properties are pointed at an old, retired instance of Microsoft Azure Backup Server. To resolve this issue:<br><ol><li>In VCenter (SC-VMM equivalent), go to the **Summary** tab, and then to **Custom Attributes**.</li>  <li>Delete the old Microsoft Azure Backup Server name from the **DPMServer** value.</li>  <li>Go back to the new Microsoft Azure Backup Server and modify the PG.  After you select the **Refresh** button, the VM appears with a check box as available to add to protection.</li></ol> |
 | Backup | Error while accessing files/shared folders | Try modifying the antivirus settings as suggested in the TechNet article [Run antivirus software on the DPM server](https://technet.microsoft.com/library/hh757911.aspx).|
 | Backup | Online recovery point creation jobs for VMware VM fail. DPM encountered an error from VMware while trying to get ChangeTracking information. ErrorCode - FileFaultFault (ID 33621 ) |  <ol><li> Reset the CTK on VMware for the affected VMs.</li> <li>Check that independent disk is not in place on VMware.</li> <li>Stop protection for the affected VMs and re-protect with the **Refresh** button. </li><li>Run a CC for the affected VMs.</li></ol>|
+
+## Restore
+| Operation | Error details | Workaround |
+| --- | --- | --- |
+| Restore | **Error code**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br> **Error message**: The vault credentials provided are different from the vault the server is registered <br> **Description**: This issue occurs when you are trying to restore files to the alternate server from the original server using External DPM recovery option and If the server which is being recovered and the original server from where the data is backed-up are not associated with the same Recovery Service vault.  | To resolve this issue ensure both the original and alternate server are registered to the same vault.|
 
 
 ## Change passphrase
