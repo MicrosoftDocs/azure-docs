@@ -20,7 +20,7 @@ Along with many other machine learning capabilities, the Azure Machine Learning 
 
 | Date | Batch AI service support details |
 | ---- |-----------------|
-| December&nbsp;14&#x2c;&nbsp;2018| Continue to use your existing Azure Batch AI subscriptions as before. However, registering **new subscriptions** is no longer possible and no new investments will be made to this service.|
+| December&nbsp;14&#x2c;&nbsp;2018| You can use your existing Azure Batch AI subscriptions as before. However, no **new subscriptions** are possible and no new investments are being made.|
 | March&nbsp;31&#x2c;&nbsp;2019 | After this date, existing Batch AI subscriptions will no longer work. |
 
 ## How does Azure Machine Learning service compare?
@@ -32,11 +32,11 @@ A typical model development lifecycle involves Data Preparation, Training & Expe
 ![Flow diagram](./media/overview-what-happened-batch-ai/lifecycle.png)
 
 
-[Learn more about how the service works and its main concepts](../machine-learning/service/concept-azure-machine-learning-architecture.md). Many of the concepts in the model training workflow are similar to existing concepts in BatchAI. 
+[Learn more about how the service works and its main concepts](../machine-learning/service/concept-azure-machine-learning-architecture.md). Many of the concepts in the model training workflow are similar to existing concepts in Batch AI. 
 
 Specifically, here is a mapping of how you should think about them:
  
-|BatchAI service|	Azure Machine Learning service|
+|Batch AI service|	Azure Machine Learning service|
 |:--:|:---:|
 |Workspace|Workspace|
 |Cluster|	Compute of type `AmlCompute`|
@@ -46,7 +46,7 @@ Specifically, here is a mapping of how you should think about them:
  
 Here is another view of the same table that will help you visualize things further:
  
-**BatchAI hierarchy**
+**Batch AI hierarchy**
 ![Flow diagram](./media/overview-what-happened-batch-ai/batchai-heirarchy.png) 
  
 **Azure Machine Learning service hierarchy**
@@ -77,7 +77,7 @@ Azure Machine Learning service brings a great set of new functionalities includi
  |Support for Tensorboard	|No|	Yes|
 |VM family level quotas	|Yes	|Yes (with your previous capacity carried forward)|
  
-In addition to the above, there are features in the Azure Machine Learning service that were traditionally not supported in BatchAI.
+In addition to the preceding table, there are features in the Azure Machine Learning service that were traditionally not supported in BatchAI.
 
 |Feature|BatchAI service|Azure Machine Learning service|
 |-------|:-------:|:-------:|
