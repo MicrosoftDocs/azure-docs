@@ -58,7 +58,7 @@ Choose which service you are trying to collect diagnostics on and use the follow
 * [How to monitor Cloud services using Azure Diagnostics](../../cloud-services/cloud-services-how-to-monitor.md)
 * [Set up Azure Diagnostics in a Cloud Services Application](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 
-For more advanced topics, see
+For more advanced topics, see asdf asdfko j
 
 * [Using Azure Diagnostics with Application Insights for Cloud Services](../../azure-monitor/app/cloudservices.md)
 * [Trace the flow of a Cloud Services application with Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
