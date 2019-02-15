@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Set up security info (preview) to use phone calls
-Setting up your security info requires you to sign in to your work or school account and then to add your two-factor verification and self-service password reset verification methods. After you've set this up the first time, you can return to the **Security info** page to change add, edit, delete, or change your default security info method.
+Setting up your security info requires you to sign in to your work or school account and then to add your two-factor verification and password reset authentication methods. After you've set this up the first time, you can return to the **Security info** page to change add, edit, delete, or change your default security info method.
 
 If you're prompted to set this up immediately after you sign in to your work or school account, see the detailed steps in the [Set up your security info from the sign-in page prompt](security-info-setup-signin.md) article.
 
@@ -57,7 +57,7 @@ Depending on your organization’s settings, you might be able to use phone call
 
     ![Success notification, connecting the phone number, the choice to receive phone calls, and your account](media/security-info/securityinfo-myprofile-phonetext-success.png)
 
-    Your security info is updated and you can use phone calls to verify your identity when using two-step verification or self-service password reset. If you want to make phone calls your default method, see the [Change your default security info method](#change-your-default-security-info-method) section of this article.
+    Your security info is updated and you can use phone calls to verify your identity when using two-step verification or password reset. If you want to make phone calls your default method, see the [Change your default security info method](#change-your-default-security-info-method) section of this article.
 
 ## Delete phone calls from your security info methods
 If you no longer want to use phone calls as a security info method, you can remove it from the **Security info** page.
@@ -74,7 +74,7 @@ If you no longer want to use phone calls as a security info method, you can remo
 2. Select **Yes** from the confirmation box to delete the **Phone** number. After your phone number is deleted, it's removed from your security info and it disappears from the **Security info** page. If **Phone** is your default method, the default will change to another available method.
     
 ## Change your default security info method
-If you want phone calls to be the default method used when you sign-in to your work or school account using two-factor verification or for self-service password reset requests, you can set it from the **Security info** page.
+If you want phone calls to be the default method used when you sign-in to your work or school account using two-factor verification or for password reset requests, you can set it from the **Security info** page.
 
 ### To change your default security info method
 

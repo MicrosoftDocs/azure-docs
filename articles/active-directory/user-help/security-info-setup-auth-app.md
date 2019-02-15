@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Set up security info (preview) to use an authenticator app
-Setting up your security info requires you to sign in to your work or school account and then to add your two-factor verification and self-service password reset verification methods. After you've set this up the first time, you can return to the **Security info** page to change add, edit, delete, or change your default security info method.
+Setting up your security info requires you to sign in to your work or school account and then to add your two-factor verification and password reset methods. After you've set this up the first time, you can return to the **Security info** page to change add, edit, delete, or change your default security info method.
 
 If you're prompted to set this up immediately after you sign in to your work or school account, see the detailed steps in the [Set up your security info from the sign-in page prompt](security-info-setup-signin.md) article.
 
@@ -79,7 +79,7 @@ Depending on your organization’s settings, you might be able to use an authent
 
     ![Success notification, connecting the app and your account](media/security-info/securityinfo-myprofile-successauthapp.png)
 
-    Your security info is updated to use the Microsoft Authenticator app by default to verify your identity when using two-step verification or self-service password reset.
+    Your security info is updated to use the Microsoft Authenticator app by default to verify your identity when using two-step verification or password reset.
 
 ## Delete your authenticator app from your security info methods
 If you no longer want to use your authenticator app as a security info method, you can remove it from the **Security info** page. This works for all authenticator apps, not just the Microsoft Authenticator app. After you delete the app, you'll have to go into the authenticator app on your mobile device and delete the account.
@@ -97,10 +97,10 @@ If you no longer want to use your authenticator app as a security info method, y
 
 3. Open the authenticator app on your mobile device, select **Edit accounts**, and then delete your work or school account from the authenticator app.
 
-    Your account is completely removed from the authenticator app for two-factor verification and self-service password reset verification.
+    Your account is completely removed from the authenticator app for two-factor verification and password reset requests.
 
 ## Change your default security info method
-If you want the authenticator app to be the default method used when you sign-in to your work or school account using two-factor verification or for self-service password reset requests, you can set it from the Security **info** page.
+If you want the authenticator app to be the default method used when you sign-in to your work or school account using two-factor verification or for password reset requests, you can set it from the Security **info** page.
 
 ### To change your default security info method
 

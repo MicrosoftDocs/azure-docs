@@ -18,16 +18,16 @@ ms.collection: M365-identity-device-management
 # Overview about changing your security info (preview) methods and information
 You can add, edit, delete, and change your default security info method from within the **Security info** pages. For more information about each method and how to change your information, see the associated, method-based article.
 
-## Two-factor verification versus self-service password reset
-Security info methods are used for both two-factor verification and for self-service password reset verification. However, not all methods can be used for both.
+## Two-factor verification versus password reset authentication
+Security info methods are used for both two-factor verification and for password reset. However, not all methods can be used for both.
 
 |Method|Used for|
 |------|--------|
-|Authenticator app|Two-factor verification and self-service password reset.|
-|Text messages|Two-factor verification and self-service password reset.|
-|Phone calls|Two-factor verification and self-service password reset.|
-|Email account|Self-service password reset only. You'll need to choose another method for two-factor verification.|
-|Security questions|Self-service password reset only. You'll need to choose another method for two-factor verification.|
+|Authenticator app|Two-factor verification and password reset authentication.|
+|Text messages|Two-factor verification and password reset authentication.|
+|Phone calls|Two-factor verification and password reset authentication.|
+|Email account|Password reset authentication only. You'll need to choose another method for two-factor verification.|
+|Security questions|Password reset authentication only. You'll need to choose another method for two-factor verification.|
 
 ## Method-based how-to articles
 This list includes the method-based articles. Each article provides details about how to add, edit, delete, or change your security info based on the specified method.

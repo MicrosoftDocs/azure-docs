@@ -16,9 +16,9 @@ ms.collection: M365-identity-device-management
 ---
 
 # Set up your security info (preview) from the sign-in page prompt
-You can follow these steps if you're prompted to add your security info immediately after you sign in to your work or school account.
+You can follow these steps if you're prompted to set up your security info immediately after you sign-in to your work or school account.
 
-You will only see this prompt if your administrator has turned security info on, and if you haven't previously set up your security info. If you've previously set up security info, but you want to change your method information or your default method, you can follow the steps in the various method-based how-to articles. For more information, see [Add or update your security info overview](security-info-add-update-methods-overview.md).
+You'll only see this prompt if you haven’t set up the security info required by your organization. If you've previously set up your security info, but you want to make changes, you can follow the steps in the various method-based how-to articles. For more information, see [Add or update your security info overview](security-info-add-update-methods-overview.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
@@ -70,7 +70,7 @@ Follow these steps to set up your security info for your work or school account 
 
     ![Success notification, connecting the app and your account](media/security-info/securityinfo-prompt-auth-app-success.png).
 
-    Your security info is updated to use the Microsoft Authenticator app by default to verify your identity when using two-step verification or self-service password reset.
+    Your security info is updated to use the Microsoft Authenticator app by default to verify your identity when using two-step verification or password reset.
 
 9. On the **Phone** set up page, choose whether you want to recieve a text message or a phone call, and then select **Next**. For the purposes of this example, we're using text messages, so you must use a phone number for a device that can accept text messages.
 
@@ -86,7 +86,7 @@ Follow these steps to set up your security info for your work or school account 
 
     ![Success notification](media/security-info/securityinfo-prompt-call-answered-success.png)
 
-    Your security info is updated to use text messaging as a backup method to verify your identity when using two-step verification or self-service password reset.
+    Your security info is updated to use text messaging as a backup method to verify your identity when using two-step verification or password reset.
 
 12. Review the **Success** page to verify that you've successfully set up both the Microsoft Authenticator app and a phone (either text message or phone call) method for your security info, and then select **Done**.
 

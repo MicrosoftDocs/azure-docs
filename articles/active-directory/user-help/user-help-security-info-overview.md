@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Security info (preview) overview
-You can set up your two-step verification and password reset info in the enhanced **Security info** section. After you initially set up your security info, you won't have to do it again. However, you can edit your info and change the default method at any time.
+You can set up your security info for two-step verification and password reset on the **Security info** page. You can also edit your security info and change your default method from that page
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 

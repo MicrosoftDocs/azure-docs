@@ -16,9 +16,9 @@ ms.collection: M365-identity-device-management
 ---
 
 # Set up security info (preview) to use security questions
-Setting up your security info requires you to sign in to your work or school account and then to add security questions as your self-service password reset verification method from the **Security info** page. Depending on your organization, you might also be able to use a non-work or school account's email address for your self-service password reset verification. For more information, see [Set up security info to use your email address](security-info-setup-email.md).
+Setting up your security info requires you to sign in to your work or school account and then to add security questions as your password reset authentication method from the **Security info** page. Depending on your organization, you might also be able to use a non-work or school account's email address for password reset requests. For more information, see [Set up security info to use your email address](security-info-setup-email.md).
 
-After you set up your self-service password reset information, you must also set up your two-factor verification method, using an [authenticator app](security-info-setup-auth-app.md), [text messaging](security-info-setup-text-msg.md), or a [phone call](security-info-setup-phone-number.md).
+After you set up your password reset information, you must also set up your two-factor verification method, using an [authenticator app](security-info-setup-auth-app.md), [text messaging](security-info-setup-text-msg.md), or a [phone call](security-info-setup-phone-number.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
@@ -50,7 +50,7 @@ If you use security questions, we recommend using them in conjunction with anoth
 
     ![Add phone number and choose phone calls](media/security-info/securityinfo-myprofile-securityquestions.png)
 
-    Your security info is updated and you can use your security questions to verify your identity when using self-service password reset.
+    Your security info is updated and you can use your security questions to verify your identity when using password reset.
 
 ## Delete security questions from your security info methods
 If you no longer want to use your security questions as a security info method, you can remove them from the **Security info** page.
