@@ -28,7 +28,7 @@ You must have already created a NetApp account.
 
 ## Steps 
 
-1. Go to the management blade for your NetApp account, and then, from the navigation pane, select **Capacity pools**.  
+1. Go to the management blade for your NetApp account, and then, from the navigation pane, click **Capacity pools**.  
     
     ![Navigate to capacity pool](../media/azure-netapp-files/azure-netapp-files-navigate-to-capacity-pool.png)
 
@@ -42,13 +42,13 @@ You must have already created a NetApp account.
 
   * **Service level**   
     This field shows the target performance for the capacity pool.  
-    Specify the service level for the capacity pool: Premium or Standard.
+    Specify the service level for the capacity pool: **Premium** or **Standard**.
 
-  *  **Size**     
-      Specify the size of the capacity pool that you are purchasing.        
-      The minimum capacity pool size is 4 TiB. You can create a pool with a size that is multiples of 4 TiB.   
+  * **Size**     
+    Specify the size of the capacity pool that you are purchasing.        
+    The minimum capacity pool size is 4 TiB. You can create a pool with a size that is multiples of 4 TiB.   
       
-      ![New capacity pool](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
+    ![New capacity pool](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
 4. Click **OK**.
 
