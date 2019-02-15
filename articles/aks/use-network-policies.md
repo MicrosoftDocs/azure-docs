@@ -55,6 +55,12 @@ When ready, refresh the registration of the *Microsoft.ContainerService* resourc
 az provider register --namespace Microsoft.ContainerService
 ```
 
+It takes a few seconds for the status to show *Registered*. You can check on the registration status using the [az provider show][az-provider-show] command:
+
+```azurecli-interactive
+az provider show -n Microsoft.ContainerService -o table --query "{Namespace:namespace,RegistrationState:registrationState}"
+```
+
 To use network policy with an AKS cluster, you must use the [Azure CNI plugin][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking]. The following example script:
 
 * Creates a virtual network and subnet.
@@ -447,3 +453,4 @@ To learn more about using policies, see [Kubernetes network policies][kubernetes
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[az-provider-show]: /cli/azure/provider#az-provider-show
