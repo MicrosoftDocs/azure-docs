@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: overview
-ms.date: 02/13/2019
+ms.date: 02/15/2019
 ms.author: danlep
 ---
 # Quotas and region availability for Azure Container Instances
@@ -34,11 +34,11 @@ Availability and resource limits may differ when using Azure Container Instances
 
 | Location | OS | CPU | Memory (GB) |
 | -------- | -- | :---: | :-----------: |
-| Canada Central, Central US, East US 2 | Linux | 4 | 16 |
+| Canada Central, Central US, East US 2, South Central US | Linux | 4 | 16 |
 | East US, North Europe, West Europe, West US, West US 2 | Linux | 4 | 14 |
 | Japan East | Linux | 2 | 8 |
 | Australia East, Southeast Asia | Linux | 2 | 7 |
-| Central India, East Asia, North Central US, South Central US, South India | Linux | 2 | 3.5 |
+| Central India, East Asia, North Central US, South India | Linux | 2 | 3.5 |
 | East US, West Europe, West US | Windows | 4 | 14 |
 | Australia East, Canada Central, Central India, Central US, East Asia, East US 2, Japan East, North Central US, North Europe, South Central US, South India, Southeast Asia, West US 2 | Windows | 2 | 3.5 |
 
