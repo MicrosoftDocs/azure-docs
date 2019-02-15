@@ -70,7 +70,7 @@ To resolve this issue, follow [these troubleshooting steps](https://docs.microso
 ## Restore
 | Operation | Error details | Workaround |
 | --- | --- | --- |
-| Restore | **Error code**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br> **Error message**: The vault credentials provided are different from the vault the server is registered <br> **Description**: This issue occurs when you are trying to restore files to the alternate server from the original server using External DPM recovery option and If the server which is being recovered and the original server from where the data is backed-up are not associated with the same Recovery Service vault.  | To resolve this issue ensure both the original and alternate server are registered to the same vault.|
+| Restore | **Error code**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Error message**: The vault credentials provided are different from the vault the server is registered | **Cause**: This issue occurs when you are trying to restore files to the alternate server from the original server using External DPM recovery option and if the server which is being recovered and the original server from where the data is backed-up are not associated with the same Recovery Service vault.<br/> <br/>**Workaround** To resolve this issue ensure both the original and alternate server are registered to the same vault.|
 
 
 ## Change passphrase
