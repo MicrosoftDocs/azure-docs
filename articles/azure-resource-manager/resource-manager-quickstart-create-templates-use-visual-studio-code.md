@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/11/2019
+ms.date: 02/14/2019
 ms.topic: quickstart
 ms.author: jgao
 
@@ -49,6 +49,7 @@ The template used in this quickstart is called [Create a standard storage accoun
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. Select **Open** to open the file.
 4. Select **File**>**Save As** to save the file as **azuredeploy.json** to your local computer.
 
@@ -146,7 +147,10 @@ There are many methods for deploying templates.  In this quickstart, you use the
     
     ---
 
-    Update the template file name if you save the file to a name other than **azuredeploy.json**.
+    > [!NOTE]
+    > There is a file IO issue with using Azure PowerShell in the Cloud shell.  The error message is *Cannot retrieve the dynamic parameters for the cmdlet. Cannot find path 'Azure:/azuredeploy.json' because it does not exist.*  A temporary workaround is not to include the **-TemplateFile** switch in the `New-AzResourceGroupDeploy` command. The command will prompt you to enter the file name.
+
+    Update the template file name if you save the file to a name other than **azuredeploy.json**. 
 
     The following screenshot shows a sample deployment:
 
