@@ -19,7 +19,15 @@ Traffic analytics is a cloud-based solution that provides visibility into user a
 - Understand traffic flow patterns across Azure regions and the internet to optimize your network deployment for performance and capacity.
 - Pinpoint network misconfigurations leading to failed connections in your network.
 
-# Fields used in Traffic Analytics Queries
+# Data Aggreagation
+
+1. All NSG flow logs between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t” are captured at 1 minute intervals in the storage account as blobs before being processed by Traffic Analytics. 
+2. Default processing interval of Traffic Anlaytics is 60 minutes . This means that every 60 mins Traffic Analytics picks blobs from storage for aggregation.
+3. Flows that have the same Source IP, Destination IP, Destination port , NSG name , NSG rule and Flow Direction and Transport layer protocol (TCP or UDP) (Note: Source port is excluded for aggregation) are clubbed into a single flow by Traffic Analytics, decorated per the scehma and ingested in Log Analytics. FlowStartTime_t field indicates the first occurrence of such an aggregated flow (same four tuple) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. 
+4. For any resource in TA, the flows incidated in the UI are total flows seen by the NSG, but as in Log Anlaytics we ingested the reduced record user will see single record. This record will contain the blob id, which can be referenced from Storage. The total flow count for that record will match the individual flows seen in the blob.
+
+
+# Fields used in Traffic Analytics Schema
 
 Traffic Analytics is built on top of Log Analytics, so you can run custom queries on data decorated by Traffic Analytics and set alerts on the same.
 
@@ -89,11 +97,8 @@ Listed below are the fields in the schema and what they signify
     
 # Notes
     
-1. All flows that happened between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t” and captured in the storage account will be processed by Network watcher traffic analytics service. As of now, the default processing interval is 60 minutes and always this processing interval aligns with the hour interval. Processing interval never spans across hours.
-2. Network watcher traffic analytics exposes intervals at which the NSG flow logs should be processed. Default processing interval is 60 minutes.
-3. Aggregation Logic - In network watcher traffic analytics, we aggregate flows that have the same Source IP, Destination IP, Destination port and Transport layer protocol (TCP or UDP) (Note: Source port is excluded for aggregation). FlowStartTime_t field indicates the first occurrence of such an aggregated flow (same four tuple) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”
-4. In case of AzurePublic and ExternalPublic flows, the customer owned azure VM IP is populated in this field, while the Public IP addresses are being populated in the PublicIPs_s field. For these two flow types, we should use VMIP_s and PublicIPs_s instead of SrcIP_s and DestIP_s fields. For AzurePublic and ExternalPublicIP addresses, we aggregate further, so that the number of records ingested to customer log analytics workspace is minimal.(This field will be deprecated soon and we should be using SrcIP_ and DestIP_s depending on whether azure VM was the source or the destination in the flow)
-5. Details for flow types : Based on the IP addresses involved in the flow, we categorize the flows in to the following flow types : <br>
+1. In case of AzurePublic and ExternalPublic flows, the customer owned Azure VM IP is populated in VMIP_s field, while the Public IP addresses are being populated in the PublicIPs_s field. For these two flow types, we should use VMIP_s and PublicIPs_s instead of SrcIP_s and DestIP_s fields. For AzurePublic and ExternalPublicIP addresses, we aggregate further, so that the number of records ingested to customer log analytics workspace is minimal.(This field will be deprecated soon and we should be using SrcIP_ and DestIP_s depending on whether azure VM was the source or the destination in the flow)
+2. Details for flow types : Based on the IP addresses involved in the flow, we categorize the flows in to the following flow types : <br>
  •	IntraVNet – Both the IP addresses in the flow reside in the same Azure virtual network. <br>
  •	InterVNet - Both the IP addresses in the flow reside in the two different azure virtual networks. <br>
 •	S2S – (Site To Site) One of the IP addresses belong to azure virtual network while the other IP address belongs to customer network (Site) connected to the azure virtual network through VPN gateway or express route. <br>
