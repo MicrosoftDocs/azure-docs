@@ -48,11 +48,7 @@ You will use the [.NET Core command-line interface (CLI)](https://docs.microsoft
 
 You will add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
 
-<<<<<<< HEAD
-1. Open your *.csproj* file. Add a `UserSecretsId` element as shown below and replace its value with your own, which typically is a GUID. Save the file.
-=======
 - Open your *.csproj* file. Add a `UserSecretsId` element as shown below and replace its value with your own, which typically is a GUID. Save the file.
->>>>>>> 154dd2ed8465e54ec21699ad53744a2714de0855
 
     *TestAppConfig.csproj:*
 

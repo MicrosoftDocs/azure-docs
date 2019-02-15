@@ -1,9 +1,5 @@
 ---
-<<<<<<< HEAD
-title: Quickstart for Azure App Configuration with .Net Core | Microsoft Docs
-=======
 title: Quickstart for Azure App Configuration with .NET Core | Microsoft Docs
->>>>>>> 154dd2ed8465e54ec21699ad53744a2714de0855
 description: A quickstart for using Azure App Configuration with .NET Core apps
 services: azure-app-configuration
 documentationcenter: ''

@@ -19,13 +19,9 @@ ms.custom: mvc
 
 To enhance the resiliency of your application against the remote possibility of not being able to reach Azure App Configuration, you should package the current configuration data into a file that is deployed with the application and loaded locally during its startup. This approach guarantees that your application will have default setting values at least. These values will be overwritten by any newer changes in an app configuration store when it is available.
 
-<<<<<<< HEAD
-Using the [**Export**](./howto-import-export-data.md#export) function of App Configuration, you can automate the process of retrieving current configuration data as a single file. You can then include this file in a build or deployment step in your continuous integration and continuous deployment pipeline.
-=======
 ## Automate configuration data retrieval
 
-Using the [**Export**](./howto-import-export-data.md#export-data) function of App Configuration, you can automate the process of retrieving current configuration data as a single file. You can then include this file in a build or deployment step in your continuous integration and continuous deployment pipeline.
->>>>>>> 154dd2ed8465e54ec21699ad53744a2714de0855
+Using the [**Export**](./howto-import-export-data.md#export-data) function of Azure App Configuration, you can automate the process of retrieving current configuration data as a single file. You can then include this file in a build or deployment step in your continuous integration and continuous deployment pipeline.
 
 ## Next steps
 
