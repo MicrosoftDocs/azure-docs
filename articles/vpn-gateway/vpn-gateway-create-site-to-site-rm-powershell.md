@@ -201,7 +201,7 @@ After running this command, it can take up to 45 minutes for the gateway configu
 
 ## <a name="ConfigureVPNDevice"></a>6. Configure your VPN device
 
-Site-to-Site connections to an on-premises network require a VPN device. In this step, you configure your VPN device. When configuring your VPN device, you need the following:
+Site-to-Site connections to an on-premises network require a VPN device. In this step, you configure your VPN device. When configuring your VPN device, you need the following items:
 
 - A shared key. This is the same shared key that you specify when creating your Site-to-Site VPN connection. In our examples, we use a basic shared key. We recommend that you generate a more complex key to use.
 - The Public IP address of your virtual network gateway. You can view the public IP address by using the Azure portal, PowerShell, or CLI. To find the Public IP address of your virtual network gateway using PowerShell, use the following example. In this example, VNet1GWPIP is the name of the public IP address resource that you created in an earlier step.
@@ -215,7 +215,7 @@ Site-to-Site connections to an on-premises network require a VPN device. In this
 
 ## <a name="CreateConnection"></a>7. Create the VPN connection
 
-Next, create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration. Notice that the '-ConnectionType' for Site-to-Site is *IPsec*.
+Next, create the Site-to-Site VPN connection between your virtual network gateway and your VPN device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration. Notice that the '-ConnectionType' for Site-to-Site is **IPsec**.
 
 1. Set the variables.
   ```azurepowershell-interactive
