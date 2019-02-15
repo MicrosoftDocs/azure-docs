@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
+ms.date: 02/14/2019
 ms.author: tomfitz
 
 ---
@@ -266,7 +266,9 @@ You can use resource and property iteration together. Reference the property ite
 
 ## Variable iteration
 
-To create multiple instances of a variable, use the `copy` element in the variables section. You can create multiple instances of objects with related values, and then assign those values to instances of the resource. You can use copy to create either an object with an array property or an array. Both approaches are shown in the following example:
+To create multiple instances of a variable, use the `copy` element in the variables section. You create an array of the type of value in the `input` element. You can use `copy` within a variable, or at the top level of the variables section.
+
+The following example several different ways to use the copy element with variables. It shows how to use copy within a variable to create an array of objects and an array of strings. It also how to use copy in the top level to create arrays of objects, strings, and integers.
 
 ```json
 {
@@ -284,18 +286,33 @@ To create multiple instances of a variable, use the `copy` element in the variab
             "diskSizeGB": "1",
             "diskIndex": "[copyIndex('disks')]"
           }
+        },
+        {
+            "name": "diskNames",
+            "count": 5,
+            "input": "[concat('myDataDisk', copyIndex('diskNames', 1))]"
         }
       ]
     },
     "copy": [
       {
-        "name": "disks-top-level-array",
+        "name": "top-level-object-array",
         "count": 5,
         "input": {
-          "name": "[concat('myDataDisk', copyIndex('disks-top-level-array', 1))]",
+          "name": "[concat('myDataDisk', copyIndex('top-level-object-array', 1))]",
           "diskSizeGB": "1",
-          "diskIndex": "[copyIndex('disks-top-level-array')]"
+          "diskIndex": "[copyIndex('top-level-object-array')]"
         }
+      },
+      {
+          "name": "top-level-string-array",
+          "count": 5,
+          "input": "[concat('myDataDisk', copyIndex('top-level-string-array', 1))]"
+      },
+      {
+          "name": "top-level-integer-array",
+          "count": 5,
+          "input": "[copyIndex('top-level-integer-array')]"
       }
     ]
   },
@@ -309,33 +326,20 @@ To create multiple instances of a variable, use the `copy` element in the variab
       "value": "[variables('disk-array-on-object').disks]",
       "type" : "array"
     },
-    "exampleArray": {
-      "value": "[variables('disks-top-level-array')]",
+    "exampleObjectArray": {
+      "value": "[variables('top-level-object-array')]",
       "type" : "array"
+    },
+    "exampleStringArray": {
+      "value": "[variables('top-level-string-array')]",
+      "type" : "array"
+    },
+    "exampleIntegerArray": {
+        "value": "[variables('top-level-integer-array')]",
+        "type" : "array"
     }
   }
 }
-```
-
-With either approach, the copy element is an array so you can specify more than one variable. Add an object for each variable to create.
-
-```json
-"copy": [
-  {
-    "name": "first-variable",
-    "count": 5,
-    "input": {
-      "demoProperty": "[concat('myProperty', copyIndex('first-variable'))]",
-    }
-  },
-  {
-    "name": "second-variable",
-    "count": 3,
-    "input": {
-      "demoProperty": "[concat('myProperty', copyIndex('second-variable'))]",
-    }
-  },
-]
 ```
 
 ## Depend on resources in a loop

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/18/2018
+ms.date: 02/14/2019
 ms.author: tomfitz
 ---
 
@@ -54,9 +54,7 @@ The preceding example showed one way to define a variable. You can use any of th
             {
                 "name": "<name-of-array-property>",
                 "count": <number-of-iterations>,
-                "input": {
-                    <properties-to-repeat>
-                }
+                "input": <object-or-value-to-repeat>
             }
         ]
     },
@@ -64,9 +62,7 @@ The preceding example showed one way to define a variable. You can use any of th
         {
             "name": "<variable-array-name>",
             "count": <number-of-iterations>,
-            "input": {
-                <properties-to-repeat>
-            }
+            "input": <object-or-value-to-repeat>
         }
     ]
 }
@@ -113,7 +109,7 @@ You retrieve the current settings with:
 
 ## Use copy element in variable definition
 
-You can use the **copy** syntax to create a variable with an array of several elements. You provide a count for the number of elements. Each element contains the properties within the **input** object. You can use copy either within a variable or to create the variable. When you define a variable and use **copy** within that variable, you create an object that has an array property. When you use **copy** at the top level and define one or more variables within it, you create one or more arrays. Both approaches are shown in the following example:
+You can use the **copy** syntax to create a variable with an array of several elements. You provide a count for the number of elements. Each element contains the object or value in the **input** property. You can use copy either within a variable or to create the variable. When you define a variable and use **copy** within that variable, you create an object that has an array property. When you use **copy** at the top level and define one or more variables within it, you create one or more arrays. Both approaches are shown in the following example:
 
 ```json
 "variables": {
@@ -139,6 +135,11 @@ You can use the **copy** syntax to create a variable with an array of several el
                 "diskSizeGB": "1",
                 "diskIndex": "[copyIndex('disks-top-level-array')]"
             }
+        },
+        {
+          "name": "top-level-string-array",
+          "count": 5,
+          "input": "[concat('myDataDisk', copyIndex('top-level-string-array', 1))]"
         }
     ]
 },
@@ -187,6 +188,18 @@ The variable **disks-top-level-array** contains the following array:
     "diskSizeGB": "1",
     "diskIndex": 2
   }
+]
+```
+
+The variable **top-level-string-array** contains the following array:
+
+```json
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
 ]
 ```
 
