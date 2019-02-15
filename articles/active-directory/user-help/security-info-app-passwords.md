@@ -60,8 +60,7 @@ If you use two-step verification with your work or school account and your admin
 5. Copy the text from the **Password** box, paste the password in the password area of the app (in this example, Outlook 2010), and then select **Done**.
 
     ![App password page, with name of app](media/security-info/securityinfo-myprofile-password-copytext.png)
-
-
+    
     The password is added and you can successfully log in to your app going forward.
 
 ## Delete your app passwords
@@ -78,5 +77,5 @@ If you no longer need to use an app that requires an app password, you can delet
 
 2. Select **Yes** from the confirmation box to delete the **App password**. After the app password is deleted, it's removed from your security info and it disappears from the **Security info** page.
 
-## Next steps
+## For more information
 - For more information about the **Security info** page and how to set it up, see [Security info overview](user-help-security-info-overview.md)
