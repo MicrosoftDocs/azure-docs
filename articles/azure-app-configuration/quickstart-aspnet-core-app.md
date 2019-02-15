@@ -48,7 +48,11 @@ You will use the [.NET Core command-line interface (CLI)](https://docs.microsoft
 
 You will add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
 
+<<<<<<< HEAD
+1. Open your *.csproj* file. Add a `UserSecretsId` element as shown below and replace its value with your own, which typically is a GUID. Save the file.
+=======
 - Open your *.csproj* file. Add a `UserSecretsId` element as shown below and replace its value with your own, which typically is a GUID. Save the file.
+>>>>>>> 154dd2ed8465e54ec21699ad53744a2714de0855
 
     *TestAppConfig.csproj:*
 
@@ -70,9 +74,9 @@ You will add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/se
 
 ## Connect to app configuration store
 
-1. Add a reference to the `Microsoft.Extensions.Configuration.Azconfig` NuGet package by executing the following command:
+1. Add a reference to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package by executing the following command:
 
-        dotnet add package Microsoft.Extensions.Configuration.Azconfig
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
 
 2. Execute the following command to restore packages for your project.
 
@@ -90,7 +94,7 @@ You will add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/se
 
     This secret is a accessed with the configuration API. A colon (:) works in the configuration name with the configuration API on all supported platforms, see [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment).
 
-4. Open *Program.cs* and update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzconfig()` method.
+4. Open *Program.cs* and update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -98,7 +102,7 @@ You will add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/se
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzconfig(settings["ConnectionStrings:AppConfigHub"]);
+                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfigHub"]);
             })
             .UseStartup<Startup>();
     ```

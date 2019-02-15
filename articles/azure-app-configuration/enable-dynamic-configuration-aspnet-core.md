@@ -40,7 +40,7 @@ To complete this quickstart, install the [.NET Core SDK](https://dotnet.microsof
 
 ## Reload data from App Configuration
 
-1. Open *Program.cs* and update the `CreateWebHostBuilder` method by adding the `config.AddAzconfig()` method.
+1. Open *Program.cs* and update the `CreateWebHostBuilder` method by adding the `config.AddAzureAppConfiguration()` method.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -48,7 +48,7 @@ To complete this quickstart, install the [.NET Core SDK](https://dotnet.microsof
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzconfig(o => o.Connect(settings["ConnectionStrings:AppConfigHub"])
+                config.AddAzureAppConfiguration(o => o.Connect(settings["ConnectionStrings:AppConfigHub"])
                     .Watch("TestApp:Settings:BackgroundColor", TimeSpan.FromSeconds(1))
                     .Watch("TestApp:Settings:FontColor", TimeSpan.FromSeconds(1))
                     .Watch("TestApp:Settings:Message", TimeSpan.FromSeconds(1)));
@@ -160,7 +160,7 @@ To complete this quickstart, install the [.NET Core SDK](https://dotnet.microsof
     |---|---|
     | TestAppSettings:BackgroundColor | blue |
     | TestAppSettings:FontColor | lightGray |
-    | TestAppSettings:Message | Data from an app configuration store - now with live updates! |
+    | TestAppSettings:Message | Data from Azure App Configuration - now with live updates! |
 
 6. Refresh the browser page to see the new configuration settings.
 

@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
+title: Quickstart for Azure App Configuration with .Net Core | Microsoft Docs
+=======
 title: Quickstart for Azure App Configuration with .NET Core | Microsoft Docs
+>>>>>>> 154dd2ed8465e54ec21699ad53744a2714de0855
 description: A quickstart for using Azure App Configuration with .NET Core apps
 services: azure-app-configuration
 documentationcenter: ''
@@ -46,21 +50,21 @@ You will use the [.NET Core command-line interface (CLI)](https://docs.microsoft
 
 ## Connect to app configuration store
 
-1. Add a reference to the `Microsoft.Extensions.Configuration.Azconfig` NuGet package by executing the following command:
+1. Add a reference to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package by executing the following command:
 
-        dotnet add package Microsoft.Extensions.Configuration.Azconfig
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
 
 2. Execute the following command to restore packages for your project.
 
         dotnet restore
 
-3. Open *Program.cs* and update the `Main` method to use App Configuration by calling the `builder.AddAzconfig()` method.
+3. Open *Program.cs* and update the `Main` method to use App Configuration by calling the `builder.AddAzureAppConfiguration()` method.
 
     ```csharp
     static void Main(string[] args)
     {
         var builder = new ConfigurationBuilder();
-        builder.AddAzconfig(Environment.GetEnvironmentVariable("ConnectionString"));
+        builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
 
         var config = builder.Build();
         Console.WriteLine(config["TestApp:Settings:Message"] ?? "Hello world!");

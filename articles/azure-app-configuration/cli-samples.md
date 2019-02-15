@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
+title: Azure CLI Samples - Azure App Configuration | Microsoft Docs
+=======
 title: Azure CLI samples - Azure App Configuration | Microsoft Docs
+>>>>>>> 154dd2ed8465e54ec21699ad53744a2714de0855
 description: Provides information about available sample scripts for Azure App Configuration
 services: azure-app-configuration
 documentationcenter: ''
@@ -17,7 +21,11 @@ ms.author: yegu
 ms.custom: mvc
 ---
 
+<<<<<<< HEAD
+# Azure CLI Samples
+=======
 # Azure CLI samples
+>>>>>>> 154dd2ed8465e54ec21699ad53744a2714de0855
 
 The following table includes links to bash scripts for the Azure App Configuration service using the Azure CLI.
 

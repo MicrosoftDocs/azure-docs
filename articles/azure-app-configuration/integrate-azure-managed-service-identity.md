@@ -40,7 +40,11 @@ To complete this tutorial, you must have the following:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+<<<<<<< HEAD
+## Add a managed identity to your App Service
+=======
 ## Add a managed identity
+>>>>>>> 154dd2ed8465e54ec21699ad53744a2714de0855
 
 To set up a managed identity in the portal, you will first create an application as normal and then enable the feature.
 
@@ -66,7 +70,11 @@ To set up a managed identity in the portal, you will first create an application
 
     ![Add managed identity](./media/add-managed-identity.png)
 
+<<<<<<< HEAD
+## Configure your app to use a managed identity
+=======
 ## Use a managed identity
+>>>>>>> 154dd2ed8465e54ec21699ad53744a2714de0855
 
 1. Open *appsettings.json*, add the following and replace *<service_endpoint>* (including brackets) with the URL to your app configuration store:
 
@@ -76,7 +84,7 @@ To set up a managed identity in the portal, you will first create an application
     }
     ```
 
-2. Open *Program.cs* and update the `CreateWebHostBuilder` method by replacing the `config.AddAzconfig()` method.
+2. Open *Program.cs* and update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -84,7 +92,7 @@ To set up a managed identity in the portal, you will first create an application
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzconfig(o => o.ConnectWithManagedIdentity(settings["AppConfigHub:Url"]));
+                config.AddAzureAppConfiguration(o => o.ConnectWithManagedIdentity(settings["AppConfigHub:Url"]));
             })
             .UseStartup<Startup>();
     ```
@@ -93,7 +101,11 @@ To set up a managed identity in the portal, you will first create an application
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
+<<<<<<< HEAD
+## Deploy from local Git with Kudu builds
+=======
 ## Deploy from local Git
+>>>>>>> 154dd2ed8465e54ec21699ad53744a2714de0855
 
 The easiest way to enable local Git deployment for your app with the Kudu build server is to use the Cloud Shell.
 
