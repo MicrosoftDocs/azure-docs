@@ -114,6 +114,7 @@ Upgrading from the Preview BatchAI service to the GA'ed Azure Machine Learning s
 Azure Machine Learning service also brings in new functionality such as Automated ML, Hyperparameter Tuning and ML Pipelines, which are extremely useful in most large scale AI workloads. The ability to operationalize a trained model without switching to a separate service helps complete the data science loop from data preparation (using the Data Prep SDK) all the way to operationalization and model monitoring.
 
 <a name="migrate"></a>
+
 ## How do I migrate?
 
 Before you follow the steps in this migration guide that help map commands between the two services, we recommend that you spend some time getting familiar with the Azure Machine Learning service through its documentation](../machine-learning/service/overview-what-is-azure-ml.md) including the [tutorial in Python](../machine-learning/service/tutorial-train-models-with-aml.md).
@@ -145,7 +146,8 @@ Once you open a jupyter notebook with the kernel pointing to the relevant conda 
 ### Create a workspace
 The concept of initializing a workspace using a configuration.json in BatchAI maps similarly to using a config file in Azure ML.
 
-+ Batch AI:
+For Batch AI, you did it this way:
+
 ```python
 sys.path.append('../../..')
 import utilities as utils
@@ -157,7 +159,7 @@ utils.config.create_resource_group(cfg)
 _ = client.workspaces.create(cfg.resource_group, cfg.workspace, cfg.location).result()
 ```
 
-+ Azure Machine Learning service:
+Azure Machine Learning service:
 
 ```python
 from azureml.core.workspace import Workspace
@@ -192,7 +194,8 @@ More detailed documentation on the AML Workspace class with the relevant functio
 #### Create a compute cluster
 Azure Machine Learning supports multiple compute targets, some of which are managed by the service and others that can be attached to your workspace (eg. An HDInsight cluster or a remote VM, more information is available here). The concept of creating a BatchAI compute cluster maps to creating an AmlCompute cluster in Azure ML. The Amlcompute creation takes in a compute configuration similar to how you pass parameters in BatchAI. One thing to note is that autoscaling is on by default on your AmlCompute cluster whereas it is turned off by default in BatchAI.
 
-BatchAI:
+For Batch AI, you did it this way:
+
 ```python
 nodes_count = 2
 cluster_name = 'nc6'
@@ -211,7 +214,7 @@ parameters = models.ClusterCreateParameters(
 _ = client.clusters.create(cfg.resource_group, cfg.workspace, cluster_name, parameters).result()
 ```
 
-Azure ML:
+For Azure Machine Learning service, try:
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -244,14 +247,14 @@ More detailed documentation on the AmlCompute class with the relevant functions 
 Monitoring status of your cluster
 This is more straightforward in Azure ML as below.
 
-BatchAI:
+For Batch AI, you did it this way:
 
 ```python
 cluster = client.clusters.get(cfg.resource_group, cfg.workspace, cluster_name)
 utils.cluster.print_cluster_status(cluster)
 ```
 
-Azure ML:
+For Azure Machine Learning service, try:
 
 ```python
 gpu_cluster.get_status().serialize()
@@ -260,7 +263,7 @@ gpu_cluster.get_status().serialize()
 #### Getting reference to a Storage account
 The concept of a data storage like blob, gets simplified in Azure ML using the DataStore object. By default your Azure ML workspace creates a storage account, but you can attach your own storage also as part of workspace creation. 
 
-BatchAI:
+For Batch AI, you did it this way:
 
 ```python
 azure_blob_container_name = 'batchaisample'
@@ -268,7 +271,7 @@ blob_service = BlockBlobService(cfg.storage_account_name, cfg.storage_account_ke
 blob_service.create_container(azure_blob_container_name, fail_on_exist=False)
 ```
 
-Azure ML:
+For Azure Machine Learning service, try:
 
 ```python
 ds = ws.get_default_datastore()
@@ -281,7 +284,7 @@ More information on registering additional storage accounts, or getting a refere
 #### Downloading and Uploading data 
 In the case of either service you can upload the data into the storage account easily using the datastore reference from above. In the case of BatchAI we also deploy the training script as part of the fileshare, although you will see how you can specify it as part of your job configuration in the case of Azure ML.
 
-BatchAI:
+For Batch AI, you did it this way:
 
 ```python
 mnist_dataset_directory = 'mnist_dataset'
@@ -297,7 +300,7 @@ blob_service.create_blob_from_path(azure_blob_container_name,
 ```
 
 
-Azure ML:
+For Azure Machine Learning service, try:
 
 ```python
 import os
@@ -314,14 +317,14 @@ path_on_datastore = ' mnist_dataset/mnist.npz' ds_data = ds.path(path_on_datasto
 #### Create an experiment
 As mentioned above Azure ML has a concept of an experiment very similar to BatchAI. Each experiment can then have individual runs, similar to how we have jobs in BatchAI. Azure ML also allows you to have hierarchy under each parent run, for individual child runs.
 
-BatchAI:
+For Batch AI, you did it this way:
 
 ```python
 experiment_name = 'tensorflow_experiment'
 experiment = client.experiments.create(cfg.resource_group, cfg.workspace, experiment_name).result()
 ```
 
-Azure ML:
+For Azure Machine Learning service, try:
 
 ```python
 from azureml.core import Experiment
@@ -334,7 +337,7 @@ experiment = Experiment(ws, name=experiment_name)
 #### Submit a job
 Once you create an experiment, you have a few different ways of submitting a run. In this example we are trying to create a deep learning model using TensorFlow and will use an Azure ML Estimator to do that. An Estimator is simply a wrapper function on the underlying run configuration which makes it easier to submit runs, and is currently supported for Pytorch and TensorFlow only. Through the concept of datastores, you will also see how easy it becomes to specify the mount paths 
 
-BatchAI:
+For Batch AI, you did it this way:
 
 ```python
 azure_file_share = 'afs'
@@ -404,7 +407,7 @@ print('Created Job {0} in Experiment {1}'.format(job.name, experiment.name))
 
 The full information for this training code snippet (including the mnist_replica.py file that we had uploaded to the file share above) can be found in the BatchAI sample notebook github repo here.
 
-Azure ML:
+For Azure Machine Learning service, try:
 
 ```python
 from azureml.train.dnn import TensorFlow
@@ -441,7 +444,7 @@ There is another way of specifying parameters for your run, using a run config â
 #### Monitor your run
 Once you submit a run you can either wait for it to complete or monitor it in Azure ML using neat Jupyter widgets that you can invoke directly from your code. You can also pull context of any previous run by simply looping through the various experiments in a workspace, and the individual runs within each experiment.
 
-BatchAI:
+For Batch AI, you did it this way:
 
 ```python
 utils.job.wait_for_job_completion(client, cfg.resource_group, cfg.workspace, 
@@ -454,7 +457,7 @@ for f in list(files):
 ```
 
 
-Azure ML:
+For Azure Machine Learning service, try:
 
 ```python
 run.wait_for_completion(show_output=True)
@@ -471,12 +474,12 @@ Here is a snapshot of how the widget would load in your notebook for looking at 
 #### Delete a cluster
 Deleting a cluster is pretty straightforward. In addition Azure ML also allows you to update a cluster from within the notebook in case you want to scale it to a higher number of nodes or increase the idle wait time before scaling down the cluster. Note that we donâ€™t allow you to change the VM size of the cluster itself, since it requires a new deployment effectively in the backend.
 
-BatchAI:
+For Batch AI, you did it this way:
 ```python
 _ = client.clusters.delete(cfg.resource_group, cfg.workspace, cluster_name)
 ```
 
-Azure ML:
+For Azure Machine Learning service, try:
 
 ```python
 gpu_cluster.delete()
