@@ -5,6 +5,7 @@
     - name: About Azure App Configuration
       href: overview.md
 - name: Quickstarts
+  expanded: true
   items:
     - name: Create an ASP.NET Core app
       href: quickstart-aspnet-core-app.md
