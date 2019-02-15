@@ -231,7 +231,7 @@ To update the distributed tracing sampling configuration for multiple devices, u
 
 | Element name | Required | Type | Description |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Yes | Integer | Two mode values are currently supported to enable and disable sampling. `1` is On and, `2` is Off |
+| `sampling_mode` | Yes | Integer | Two mode values are currently supported to turn sampling on and off. `1` is On and, `2` is Off |
 | `sampling_rate` | Yes | Integer | This value is a percentage. Only values from `0` to `100` (inclusive) are permitted.  |
 
 ## Query and visualize
