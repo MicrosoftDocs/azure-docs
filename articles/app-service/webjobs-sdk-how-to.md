@@ -213,7 +213,7 @@ You can use a method return value for an output binding, by applying the attribu
 
 ## Binding types
 
-The way that biding types are installed and managed differs between version 3.x and 2.x of the SDK. You can find the package to install for a particular binding type in the **Packages** section of that binding type's [reference article](#binding-reference-information) for Azure Functions. An exception is the Files trigger and binding (for the local file system), which is not supported by Azure Functions.
+The way that binding types are installed and managed differs between version 3.x and 2.x of the SDK. You can find the package to install for a particular binding type in the **Packages** section of that binding type's [reference article](#binding-reference-information) for Azure Functions. An exception is the Files trigger and binding (for the local file system), which is not supported by Azure Functions.
 
 #### Version 3.x
 
