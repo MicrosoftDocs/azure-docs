@@ -9,25 +9,25 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 12/04/2018
+ms.date: 2/14/2019
 ms.custom: seodec18
 
 ---
 
-# Train models with Azure Machine Learning
+# Train models with Azure Machine Learning using estimator
 
-Training machine learning models, particularly deep neural networks, is often a time- and compute-intensive task. Once you've finished writing your training script and running on a small subset of data on your local machine, you will likely want to scale up your workload.
+With Azure Machine Learning, you can easily submit your training script to [various compute targets](how-to-set-up-training-targets#compute-targets-for-training), using [RunConfiguration object](how-to-set-up-training-targets#whats-a-run-configuration) and [ScriptRunConfig object](how-to-set-up-training-targets#submit). That pattern gives you a lot of flexibility and maximum control.
 
-To facilitate training, the Azure Machine Learning Python SDK provides a high-level abstraction, the estimator class, which allows users to easily train their models in the Azure ecosystem. You can create and use an [`Estimator` object](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit any training code you want to run on remote compute, whether it's a single-node run or distributed training across a GPU cluster. For PyTorch and TensorFlow jobs, Azure Machine Learning also provides respective custom `PyTorch` and `TensorFlow` estimators to simplify using these frameworks.
+To facilitate deep learning model training, the Azure Machine Learning Python SDK provides an alternative higher-level abstraction, the estimator class, which allows users to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit training script using any learning framework you choose (such as scikit-learn) you want to run on any compute target, whether it's your local machine, a single VM in Azure, or a GPU cluster in Azure. For PyTorch, TensorFlow and Chainer tasks, Azure Machine Learning also provides respective [PyTorch](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) and [Chainer](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimators to simplify using these frameworks.
 
 ## Train with an estimator
 
 Once you've created your [workspace](concept-azure-machine-learning-architecture.md#workspace) and set up your [development environment](how-to-configure-environment.md), training a model in Azure Machine Learning involves the following steps:  
-1. Create a [remote compute target](how-to-set-up-training-targets.md)
-2. Upload your [training data](how-to-access-data.md) (Optional)
+1. Create a [remote compute target](how-to-set-up-training-targets.md) (note you can also use local computer as compute target)
+2. Upload your [training data](how-to-access-data.md) to datastore (Optional)
 3. Create your [training script](tutorial-train-models-with-aml.md#create-a-training-script)
 4. Create an `Estimator` object
-5. Submit your training job
+5. Submit the estimator to an experiment object under the workspace
 
 This article focuses on steps 4-5. For steps 1-3, refer to the [train a model tutorial](tutorial-train-models-with-aml.md) for an example.
 
@@ -65,7 +65,7 @@ Now that you've created your `Estimator` object, submit the training job to be r
 
 ```Python
 run = experiment.submit(sk_est)
-print(run.get_details().status)
+print(run.get_portal_url())
 ```
 
 > [!IMPORTANT]
@@ -74,7 +74,7 @@ print(run.get_details().status)
 >
 > To create artifacts during training (such as model files, checkpoints, data files, or plotted images) write these to the `./outputs` folder.
 >
-> Similarly, you write any logs from your training run to the `./logs` folder. To utilize Azure Machine Learning's [TensorBoard integration](https://aka.ms/aml-notebook-tb) make sure you write your TensorBoard logs to this folder. While your run is in progress, you will be able to launch TensorBoard and stream these logs.  Later, you will also be able to restore the logs from any of your previous runs.
+> Similarly, you can write any logs from your training run to the `./logs` folder. To utilize Azure Machine Learning's [TensorBoard integration](https://aka.ms/aml-notebook-tb) make sure you write your TensorBoard logs to this folder. While your run is in progress, you will be able to launch TensorBoard and stream these logs.  Later, you will also be able to restore the logs from any of your previous runs.
 >
 > For example, to download a file written to the *outputs* folder to your local machine after your remote training run: 
 > `run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
@@ -85,21 +85,21 @@ There are two additional training scenarios you can carry out with the `Estimato
 * Using a custom Docker image
 * Distributed training on a multi-node cluster
 
-The following code shows how to carry out distributed training for a CNTK model. In addition, instead of using the default Azure Machine Learning images, it assumes you are using your own custom docker image for training.
+The following code shows how to carry out distributed training for a Keras model. In addition, instead of using the default Azure Machine Learning images, it specifies a custom docker image from Docker Hub `continuumio/miniconda` for training.
 
 You should have already created your [compute target](how-to-set-up-training-targets.md#amlcompute) object `compute_target`. You create the estimator as follows:
 
 ```Python
 from azureml.train.estimator import Estimator
 
-estimator = Estimator(source_directory='./my-cntk-proj',
+estimator = Estimator(source_directory='./my-keras-proj',
                       compute_target=compute_target,
                       entry_script='train.py',
                       node_count=2,
                       process_count_per_node=1,
                       distributed_backend='mpi',     
-                      pip_packages=['cntk==2.5.1'],
-                      custom_docker_base_image='microsoft/mmlspark:0.12')
+                      conda_packages=['tensorflow', 'keras'],
+                      custom_docker_base_image='continuumio/miniconda')
 ```
 
 The above code exposes the following new parameters to the `Estimator` constructor:
@@ -113,14 +113,18 @@ Parameter | Description | Default
 
 Finally, submit the training job:
 ```Python
-run = experiment.submit(cntk_est)
+run = experiment.submit(estimator)
+print(run.get_portal_url())
 ```
 
 ## Examples
-For a notebook that trains an sklearn model, see:
+For a notebook that shows the basics of estimator pattern, see:
+* [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
+
+For a notebook that trains an scikit-learn model using estimator, see:
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-For notebooks on distributed deep learning, see:
+For notebooks on training models using deep-learning-framework specific estimators, see:
 * [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
