@@ -38,7 +38,7 @@ Before you go any further, make sure you understand the [basic concepts about Ke
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * [Azure CLI version 2.0.4 or later](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or Azure Cloud Shell.
 
- > [!INCLUDE [Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 ## Understand Managed Service Identity
 
@@ -54,7 +54,7 @@ Next, your code calls a local metadata service available on the Azure resource t
 
 To sign in to Azure by using the Azure CLI, enter:
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -64,7 +64,7 @@ An Azure resource group is a logical container into which Azure resources are de
 
 Create a resource group by using the `az group create` command in the West US location with the following code. Replace `YourResourceGroupName` with a name of your choice.
 
-```azurecli
+```azurecli-interactive
 # To list locations: az account list-locations --output table
 az group create --name "<YourResourceGroupName>" --location "West US"
 ```
@@ -79,7 +79,7 @@ Next, you create a key vault in the resource group that you created in the previ
 * Resource group name.
 * Location: **West US**.
 
-```azurecli
+```azurecli-interactive
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
 ```
 
@@ -91,7 +91,7 @@ We're adding a secret to help illustrate how this works. You might want to store
 
 Type the following commands to create a secret in the key vault called *AppSecret*. This secret will store the value **MySecret**.
 
-```azurecli
+```azurecli-interactive
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
 ```
 
@@ -131,7 +131,7 @@ Make a note of your own `publicIpAddress` in the output from your VM. You'll use
 
 Create a system-assigned identity to the virtual machine by running the following command:
 
-```azurecli
+```azurecli-interactive
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
@@ -150,7 +150,7 @@ Make a note of the `systemAssignedIdentity`. You use it the next step.
 
 Now you can give Key Vault permission to the identity you created. Run the following command:
 
-```azurecli
+```azurecli-interactive
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
@@ -211,7 +211,7 @@ Delete the resource group, virtual machine, and all related resources when you n
 
 Delete the key vault by using the `az keyvault delete` command:
 
-```azurecli
+```azurecli-interactive
 az keyvault delete --name
                    [--resource-group]
                    [--subscription]
