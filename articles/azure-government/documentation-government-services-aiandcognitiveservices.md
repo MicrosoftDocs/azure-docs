@@ -31,9 +31,9 @@ The following AI and Cognitive Services are generally available in Azure Governm
 > [!IMPORTANT]
 > Billing for Computer Vision, Face, Translator Text, Content Moderator, and Language Understanding will begin on 11/1/2018.
 
-### Vision
+## Vision
 
-#### Computer Vision
+### Computer Vision
 
 Variations in Azure Government:
 
@@ -42,7 +42,7 @@ Variations in Azure Government:
 
 For more information, see the [global Azure documentation](../cognitive-services/computer-vision/index.yml) and [Computer Vision API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
  
-#### Face
+### Face
 
 Variations in Azure Government:
 
@@ -51,7 +51,7 @@ Variations in Azure Government:
 
 For more information, see the [global Azure documentation](../cognitive-services/face/index.yml) and [Face API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-#### Content Moderator
+## Content Moderator
 
 Variations in Azure Government:
 
@@ -61,9 +61,9 @@ Variations in Azure Government:
  
 For more information, see the [global Azure documentation](../cognitive-services/content-moderator/overview.md) and [Content Moderator API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 
-### Language
+## Language
  
-#### Translator Text (Text Translation): 
+### Translator Text (Text Translation): 
 
 Variations in Azure Government:
 
@@ -74,7 +74,7 @@ Variations in Azure Government:
  
 For more information, see the [global Azure documentation](../cognitive-services/translator/translator-info-overview.md) and [Translator Text API documentation](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference).
 
-#### Language Understanding (LUIS)
+### Language Understanding (LUIS)
 
 Variations in Azure Government:
 
@@ -85,7 +85,7 @@ Variations in Azure Government:
 
 For more information, see [global Azure documentation](../cognitive-services/luis/what-is-luis.md) for Language Understanding.
 
-#### Azure Bot Service
+## Azure Bot Service
 
 Variations in Azure Government:
 
@@ -119,7 +119,7 @@ Commonly used services in bot applications that are currently unavailable in Azu
 
 For more information, see [global Azure documentation](https://aka.ms/botdocs/) for Bot Service.
 
-### Data Considerations
+## Data Considerations
 
 Data considerations for Cognitive Services and Azure Bot Service are not yet available. 
 
