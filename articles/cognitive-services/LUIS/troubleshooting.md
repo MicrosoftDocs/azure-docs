@@ -9,14 +9,16 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/15/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
 
 This article contains answers to frequently asked questions about Language Understanding (LUIS).
 
-## LUIS authoring
+<a name="luis-authoring"></a>
+
+## Authoring
 
 ### What are the LUIS best practices?
 Start with the [Authoring Cycle](luis-concept-app-iteration.md), then read the [best practices](luis-concept-best-practices.md).
@@ -56,17 +58,21 @@ Cortana prebuilt apps were deprecated in 2017. They are no longer supported.
 ### How do I transfer ownership of a LUIS app?
 To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. Update the LUIS app ID in the client application that calls it. The new app may return slightly different LUIS scores from the original app.
 
-## LUIS Collaborating
+<a name="luis-collaborating"></a>
+
+## Collaborating
 
 ### How do I give collaborators access to LUIS with Azure Active Directory (Azure AD) or Role-based access control (RBAC)?
 
 See [Azure Active Directory resources](luis-how-to-collaborate.md#azure-active-directory-resources)  and [Azure Active Directory tenant user](luis-how-to-collaborate.md#azure-active-directory-tenant-user) to learn how to give collaborators access. 
 
-## LUIS endpoint
+<a name="luis-endpoint"></a>
+
+## Endpoint
 
 ### My endpoint query returned unexpected results. What should I do?
 
-Unexpected query prediction results are based on the state of the published model. To correct the model, you may need to need to change the model, train, and publish again. 
+Unexpected query prediction results are based on the state of the published model. To correct the model, you may need to change the model, train, and publish again. 
 
 Correcting the model starts with [active learning](luis-how-to-review-endoint-utt.md).
 
@@ -86,9 +92,9 @@ Your system should use the highest scoring intent regardless of its value. For e
 ### Why don't I see my endpoint hits in my app's Dashboard?
 The total endpoint hits in your app's Dashboard are updated periodically, but the metrics associated with your LUIS endpoint key in the Azure portal are updated more frequently.
 
-If you don't see updated endpoint hits in the Dashboard, log in to the Azure portal, and find the resource associated with your LUIS endpoint key, and open **Metrics** to select the **Total Calls** metric. If the endpoint key is used for more than one LUIS app, the metric in the Azure portal shows the aggregate number of calls from all LUIS apps that use it.
+If you don't see updated endpoint hits in the Dashboard, sign in to the Azure portal, and find the resource associated with your LUIS endpoint key, and open **Metrics** to select the **Total Calls** metric. If the endpoint key is used for more than one LUIS app, the metric in the Azure portal shows the aggregate number of calls from all LUIS apps that use it.
 
-### Is there a PowerShell command to the endpoint quota?
+### Is there a PowerShell command get to the endpoint quota?
 
 You can use a PowerShell command to see the endpoint quota:
 
@@ -208,6 +214,35 @@ The [Trust Center](https://www.microsoft.com/trustcenter) explains our commitmen
 
 ### Why did I get an email saying I'm almost out of quota?
 Your authoring/starter key is only allowed 1000 endpoint queries a month. Create a LUIS endpoint key (free or paid) and use that key when making endpoint queries. If you are making endpoint queries from a bot or another client application, you need to change the LUIS endpoint key there.
+
+## Bots
+
+### My LUIS bot isn't working. What do I do?
+
+The first issue is to isolate if the issue is related to LUIS or happens outside the LUIS middleware. 
+
+#### Resolve issue in LUIS
+Pass the same utterance to LUIS from the [LUIS endpoint](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance). If you receive an error, resolve the issue in LUIS until the error is no longer returned. Common errors include:
+
+* `Out of call volume quota. Quota will be replenished in <time>.` - This issue indicates you either need to change from an authoring key to an [endpoint key](luis-how-to-azure-subscription.md) or you need to change [service tiers](luis-how-to-azure-subscription.md#change-pricing-tier). 
+
+#### Resolve issue in Azure Bot Service
+
+If you are using the Azure Bot Service and the issue is that the **Test in Web Chat** returns `Sorry, my bot code is having an issue`, check your logs:
+
+1. In the Azure portal, for your bot, from the **Bot management** section, select **Build**.
+1. Open the online code editor. 
+1. In the top, blue navigation bar, select the bot name (the second item to the right).
+1. In the resulting drop-down list, select **Open Kudu Console**.
+1. Select **LogFiles**, then select **Application**. Review all log files. If you don't see the error in the application folder, review all log files under **LogFiles**. 
+1. Remember to rebuild your project if you are using a compiled language such as C#.
+
+> [!Tip] 
+> The console can also install packages. 
+
+#### Resolve issue while debugging on local machine with Bot Framework. 
+
+To learn more about local debugging of a bot, see [Debug a bot](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-debug-bot?view=azure-bot-service-4.0).
 
 ## Integrating LUIS
 
