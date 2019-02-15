@@ -40,7 +40,7 @@ To test SAML-based single sign-on between AAD and a target application:
 1.	Sign in to the [Azure portal](https://portal.azure.com) as a global administrator or other administrator that is authorized to manage applications.
 2.	In the left blade, click **Azure Active Directory**, and then click **Enterprise applications**. 
 3.	From the list of Enterprise Applications, click the application for which you want to test single sign-on, and then from the options on the left click **Single sign-on**.
-4.	To open the SAML-based single sign-on testing experience, in the **Domain and URLs** section click **Test SAML Setting**. If the Test SAML Setting button is greyed out, you need to fill out and save the required attributes first.
+4.	To open the SAML-based single sign-on testing experience,  go to **Test single sign-on** (Step 5). If the Test button is greyed out, you need to fill out and save the required attributes first in the **Basic SAML Configuration** section.
 5.	In the **Test single sign-on** blade, use your corporate credentials to sign in to the target application. You can sign in as the current user or as a different user. If you sign in as a different user, a prompt will ask you to authenticate.
 
     ![Test SAML page](./media/howto-v1-debug-saml-sso-issues/testing.png)
@@ -61,9 +61,12 @@ To debug this error, you need the error message and the SAML request. The My App
 
 To resolve the sign-in error with the MyApps Secure Sign-in Extension installed:
 
-1.	When an error occurs, the extension redirects you back to the Azure Ad **Test single sign-on** blade. 
+1.	When an error occurs, the extension redirects you back to the Azure AD **Test single sign-on** blade. 
 2.	On the **Test single sign-on** blade, click **Download the SAML request**. 
-3.	You should see specific resolution guidance based on the error and the values in the SAML request. Review the guidance.
+3.	You should see specific resolution guidance based on the error and the values in the SAML request.
+4. You will see a **Fix it** button to automatically update the configuration in Azure AD to resolve the issue. If you don't see this button, then the sign-in issue is not due to a misconfiguration on Azure AD.
+
+If no resolution is provided for you sign-in error, we suggest you use the feedback textbox to inform us.
 
 To resolve the error without installing MyApps Secure Sign-in Extension:
 
