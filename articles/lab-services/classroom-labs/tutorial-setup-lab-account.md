@@ -44,7 +44,7 @@ The following steps illustrate how to use the Azure portal to create a lab accou
     2. Select the **Azure subscription** in which you want to create the lab account.
     3. For **Resource group**, select **Create new**, and enter a name for the resource group.
     4. For **Location**, select a location/region in which you want the lab account to be created. 
-    5. For **Lab location selection**, specify whether you want lab creators to be able to select a location for the lab. By default, the option is disabled. When it's disabled, labs are created in the same location that the lab account is in. When it's enabled, a lab creator can select a location at the time creating a lab. 
+    5. For the **Allow lab creator to pick lab location** field, specify whether you want lab creators to be able to select a location for the lab. By default, the option is disabled. When it's disabled, lab creators can't specify a location for the lab they are creating. The labs are created in the closest geographical location to lab account. When it's enabled, a lab creator can select a location at the time of creating a lab. 
     6. Select **Create**. 
 
         ![Create a lab account window](../media/tutorial-setup-lab-account/lab-account-settings.png)
