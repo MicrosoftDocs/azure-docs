@@ -27,6 +27,8 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
 
 The following query doesn't have a filter on the partition key (`DeviceId`), and is fanned out to all partitions where it is run against the partition's index. To run a query across partitions, set `EnableCrossPartitionQuery` to true (or `x-ms-documentdb-query-enablecrosspartition` in the REST API).
 
+EnablecrossPartitionQuery: It accepts a boolean value. When set to true and if your query doesn't have a partition key, Azure Cosmos DB fans out the query across partitions. The fan out is done by issuing individual queries to all the partitions. To read the quey results, the client applications should consume the results from the FeedResponse and check for the ContinuationToken property. To read all the results, keep iterating on the data until the ContinuationToken is null. 
+
 ```csharp
 // Query across partition keys into a class called, DeviceReading
 IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<DeviceReading>(
