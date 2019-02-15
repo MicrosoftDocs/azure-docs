@@ -72,6 +72,7 @@
     href: Concepts/development-lifecycle-knowledge-base.md
   - name: Best practices
     href: Concepts/best-practices.md
+    displayName: tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat
   - name: Confidence score
     displayName: DefaultAnswer, Default answer  
     href: Concepts/confidence-score.md

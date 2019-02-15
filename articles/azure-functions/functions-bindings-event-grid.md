@@ -42,7 +42,7 @@ The Event Grid trigger is provided in the [Microsoft.Azure.WebJobs.Extensions.Ev
 
 See the language-specific example for an Event Grid trigger:
 
-* [C#](#c-example)
+* C#
 * [C# script (.csx)](#c-script-example)
 * [Java](#trigger---java-examples)
 * [JavaScript](#javascript-example)
@@ -310,7 +310,7 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 }
 ```
 
-For a complete example, see [C# example](#c-example).
+For a complete example, see C# example.
 
 ## Configuration
 

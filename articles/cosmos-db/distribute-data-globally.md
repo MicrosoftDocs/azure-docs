@@ -17,6 +17,8 @@ You can configure your databases to be globally distributed and available in any
 
 With Azure Cosmos DB, you can add or remove the regions associated with your account at any time. Your application doesn't need to be paused or redeployed to add or remove a region. It continues to be highly available all the time because of the multihoming capabilities that the service provides.
 
+![Highly available deployment topology](./media/distribute-data-globally/deployment-topology.png)
+
 ## Key benefits of global distribution
 
 **Build global active-active apps.** With the multi-master feature, every region is a write region. It's also readable. The multi-master feature also guarantees:
@@ -44,6 +46,7 @@ Many applications benefit from the performance enhancements that come with the a
 Read more about global distribution in the following articles:
 
 * [Global distribution - under the hood](global-dist-under-the-hood.md)
+* [How to configure multi-master in your applications](how-to-multi-master.md)
 * [Configure clients for multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
 * [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Create a custom conflict resolution policy for SQL API accounts](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

@@ -7,7 +7,7 @@ services: key-vault
 ms.service: key-vault
 author: prashanthyv
 ms.author: pryerram
-manager: mbaldwin
+manager: barbkess
 ms.date: 10/03/2018
 ---
 # Azure Key Vault managed storage account - CLI

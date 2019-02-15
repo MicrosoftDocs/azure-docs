@@ -16,6 +16,7 @@ ms.author: curtand
 ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD service limits and restrictions
 This article contains the usage constraints and other service limits for the Azure Active Directory (Azure AD) service. If you’re looking for the full set of Microsoft Azure service limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md).

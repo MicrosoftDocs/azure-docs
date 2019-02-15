@@ -4,7 +4,7 @@ description: The various versions of Azure Key Vault
 services: key-vault
 documentationcenter:
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: e8622dcc-59a3-4f4b-9f63-cd2232515a65

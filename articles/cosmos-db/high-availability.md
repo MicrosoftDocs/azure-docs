@@ -4,7 +4,7 @@ description: This article describes how Azure Cosmos DB provides high availabili
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 2/13/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 
@@ -54,25 +54,13 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 
 ## Building highly available applications
 
-- To ensure high write and read availability, configure your Cosmos account to span at least two regions with multiple-write regions. This configuration will provide the availability, lowest latency, and scalability for both reads and writes backed by SLAs. To learn more, see how to [configure your Cosmos account with multiple write-regions](tutorial-global-distribution-sql-api.md).
+- To ensure high write and read availability, configure your Cosmos account to span at least two regions with multiple-write regions. This configuration will provide the availability, lowest latency, and scalability for both reads and writes backed by SLAs. To learn more, see how to [configure your Cosmos account with multiple write-regions](tutorial-global-distribution-sql-api.md). To configure multi-master in your applications, see [How to configure multi-master](how-to-multi-master.md).
 
 - For multi-region Cosmos accounts that are configured with a single-write region, [enable automatic-failover by using Azure CLI or Azure portal](how-to-manage-database-account.md#automatic-failover). After you enable automatic failover, whenever there is a regional disaster, Cosmos DB will automatically failover your account.  
 
 - Even if your Cosmos account is highly available, your application may not be correctly designed to remain highly available. To test the end-to-end high availability for your application, periodically invoke the [manual failover by using Azure CLI or Azure portal](how-to-manage-database-account.md#manual-failover), as a part of your application testing or disaster-recovery (DR) drills.
 
-
-As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after a disruptive event. The time required for an  application to fully recover is known as recovery time objective (RTO). You also need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. The time period of updates that you might afford to lose is known as recovery point objective (RPO).
-
-The following table shows the RPO and RTO for the most common scenarios.
-
-|Number Of region(s) |Configuration |Consistency Level|RPO |RTO |
-|---------|---------|---------|-------|-------|
-|1    | *    |*   | < 240 Minutes | < 1 Week |
-|>1     | Single-Master replication | Session, Consistent Prefix, Eventual | < 15 minutes | < 15 minutes |
-|>1     | Single-Master replication | Bounded Staleness | K & T | < 15 minutes |
-|>1     | Multi-Master replication | Session, Consistent Prefix, Eventual | < 15 minutes | 0 |
-|>1     | Multi-Master replication | Bounded Staleness | K & T | 0 |
-|>1     | * | Strong | 0 | < 15 minutes |
+- Within a globally distributed database environment there is a direct relationship between the consistency level and data durability in the presence of a region-wide outage. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after a disruptive event. The time required for an application to fully recover is known as recovery time objective (RTO). You also need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. The time period of updates that you might afford to lose is known as recovery point objective (RPO). To see the RPO and RTO for Azure Cosmos DB, see [Consistency levels and data durability](consistency-levels-tradeoffs.md#rto)
 
 ## Next steps
 
@@ -82,3 +70,4 @@ Next you can learn about scaling throughput in the following article:
 * [Globally scaling provisioned throughput](scaling-throughput.md)
 * [Global distribution - under the hood](global-dist-under-the-hood.md)
 * [Consistency levels in Azure Cosmos DB](consistency-levels.md)
+* [How to configure multi-master in your applications](how-to-multi-master.md)

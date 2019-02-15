@@ -140,7 +140,7 @@ This example demonstrates how to support pre-flight requests, such as those with
 This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 - **Policy sections:** inbound
-- **Policy scopes:** API, operation
+- **Policy scopes:** global, API, operation
 
 ## <a name="JSONP"></a> JSONP
 The `jsonp` policy adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients. JSONP is a method used in JavaScript programs to request data from a server in a different domain. JSONP bypasses the limitation enforced by most web browsers where access to web pages must be in the same domain.

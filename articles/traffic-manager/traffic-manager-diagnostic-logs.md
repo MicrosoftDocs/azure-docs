@@ -36,14 +36,14 @@ If you run PowerShell from your computer, you need the Azure PowerShell module, 
 
 2. **Enable diagnostic logging for the Traffic Manager profile:**
 
-    Enable diagnostic logging for the Traffic Manager profile using the ID obtained in the previous step with [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/set-azdiagnosticsetting?view=latest). The following command stores verbose logs for the Traffic Manager profile to a specified Azure Storage account. 
+    Enable diagnostic logging for the Traffic Manager profile using the ID obtained in the previous step with [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting?view=latest). The following command stores verbose logs for the Traffic Manager profile to a specified Azure Storage account. 
 
       ```azurepowershell-interactive
     Set-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId> -StorageAccountId <storageAccountId> -Enabled $true
       ``` 
 3. **Verify diagnostic settings:**
 
-      Verify diagnostic settings for the Traffic Manager profile using [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.insights/get-azdiagnosticsetting?view=latest). The following command displays the categories that are logged for a resource.
+      Verify diagnostic settings for the Traffic Manager profile using [Get-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/get-azdiagnosticsetting?view=latest). The following command displays the categories that are logged for a resource.
 
      ```azurepowershell-interactive
      Get-AzDiagnosticSetting -ResourceId <TrafficManagerprofileResourceId>

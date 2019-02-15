@@ -1,5 +1,5 @@
 ---
-title: Manage after migration - Azure SQL Database | Microsoft Docs
+title: Manage single and pooled databases after migration - Azure SQL Database | Microsoft Docs
 description: Learn how to manage your database after migration to Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,22 +11,25 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/13/2019
 ---
-# New DBA in the cloud – Managing your database in Azure SQL Database
+# New DBA in the cloud – Managing your single and pooled databases in Azure SQL Database
 
-Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of SQL Database to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who:
+Moving from the traditional self-managed, self-controlled environment to a PaaS environment can seem a bit overwhelming at first. As an app developer or a DBA, you would want to know the core capabilities of the platform that would help you keep your application available, performant, secure and resilient - always. This article aims to do exactly that. The article succinctly organizes resources and gives you some guidance on how to best use the key capabilities of SQL Database with single and pooled databases to manage and keep your application running efficiently and achieve optimal results in the cloud. Typical audience for this article would be those who:
 
-- Are evaluating migration of their application(s) to Azure SQL DB – Modernizing your application(s).
+- Are evaluating migration of their application(s) to Azure SQL Database – Modernizing your application(s).
 - Are In the process of migrating their application(s) – On-going migration scenario.
 - Have recently completed the migration to Azure SQL DB – New DBA in the cloud.
 
-This article discusses some of the core characteristics of Azure SQL DB as a platform that you can readily leverage. They are the following:
+This article discusses some of the core characteristics of Azure SQL Database as a platform that you can readily leverage when working with single databases and pooled databases in elastic pools. They are the following:
 
 - Business continuity and disaster recovery (BCDR)
 - Security and compliance
 - Intelligent database monitoring and maintenance
 - Data movement
+
+> [!NOTE]
+> This article applies to the following deployment options in Azure SQL Database: single databases and elastic pools. It does not apply to the managed instance deployment option in SQL Database.
 
 ## Business continuity and disaster recovery (BCDR)
 
@@ -304,7 +307,7 @@ SQL Database uses some smart techniques that allow it to handle certain classes 
 You have several ways to achieve this:
 
 - **[Data Sync](sql-database-sync-data.md)** – This feature helps you synchronize data bi-directionally between multiple on-premises SQL Server databases and SQL Database. To sync with on-premises SQL Server databases, you need to install and configure sync agent on a local computer and open the outbound TCP port 1433.
-- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from on-premises to Azure SQL DB with the on-premises being the publisher and the Azure SQL DB being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from on-premises to Azure SQL with minimal downtime, see: [Use Transaction Replication](sql-database-cloud-migrate.md#method-2-use-transactional-replication)
+- **[Transaction Replication](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – With transaction replication you can synchronize your data from on-premises to Azure SQL DB with the on-premises being the publisher and the Azure SQL DB being the subscriber. For now, only this setup is supported. For more information on how to migrate your data from on-premises to Azure SQL with minimal downtime, see: [Use Transaction Replication](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
 ## Next steps
 
