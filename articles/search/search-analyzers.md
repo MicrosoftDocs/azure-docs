@@ -4,7 +4,7 @@ description: Assign analyzers to searchable text fields in an index to replace d
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 02/15/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
@@ -49,9 +49,9 @@ A few predefined analyzers, such as **Pattern** or **Stop**, support a limited s
 
 2. On a [field definition](https://docs.microsoft.com/rest/api/searchservice/create-index) in the index, set the field's **analyzer** property to the name of a target analyzer (for example, `"analyzer" = "keyword"`. Valid values include name of a predefined analyzer, language analyzer, or custom analyzer also defined in the index schema. Plan on assigning analyzer in the index definition phase before the index is created in the service.
 
-3. Optionally, instead of one **analyzer** property, you can set different analyzers for indexing and querying using the **indexAnalyzer** and **searchAnalyzer** field parameters. One advantage to using **searchAnalyzer** is that you can change it at any time after the index has been created, without incurring a rebuild requirement.
+3. Optionally, instead of one **analyzer** property, you can set different analyzers for indexing and querying using the **indexAnalyzer** and **searchAnalyzer** field parameters. You would use different analyzers for data preparation and retrieval if one of those activities required a specific transformation not needed by the other.
 
-3. Adding an **analyzer** or **indexAnalyzer** to an existing field definition is a write operation on the index. If any of this is unclear, review the following table for a breakdown of which actions require a rebuild and why.
+Assigning **analyzer** or **indexAnalyzer** to a field that has already been physically created is not allowed. If any of this is unclear, review the following table for a breakdown of which actions require a rebuild and why.
  
  | Scenario | Impact | Steps |
  |----------|--------|-------|
@@ -66,9 +66,9 @@ As an index definition solidifies, you can append new analysis constructs to an 
 
 *Index update not allowed because it would cause downtime. In order to add new analyzers, tokenizers, token filters, or character filters to an existing index, set the 'allowIndexDowntime' query parameter to 'true' in the index update request. Note that this operation will put your index offline for at least a few seconds, causing your indexing and query requests to fail. Performance and write availability of the index can be impaired for several minutes after the index is updated, or longer for very large indexes.*
 
-The same holds true when assigning an analyzer to a field. An analyzer is an integral part of the field's definition, so you can only add it when the field is created. If you want to add analyzers to existing fields, you'll have to [drop and rebuild](search-howto-reindex.md) the index.
+The same holds true when assigning an analyzer to a field. An analyzer is an integral part of the field's definition, so you can only add it when the field is created. If you want to add analyzers to existing fields, you'll have to [drop and rebuild](search-howto-reindex.md) the index, or add a new field with the analyzer you want.
 
-As noted, an exception is the **searchAnalyzer** variant. Of the three ways to specify analyzers (**analyzer**, **indexAnalyzer**, **searchAnalyzer**), only the **searchAnalyzer** attribute can be added to or changed on a field that already exists, without incurring a rebuild requirement.
+As noted, an exception is the **searchAnalyzer** variant. Of the three ways to specify analyzers (**analyzer**, **indexAnalyzer**, **searchAnalyzer**), only the **searchAnalyzer** attribute can be changed on an existing field.
 
 ## Recommendations for working with analyzers
 

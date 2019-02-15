@@ -33,7 +33,7 @@ In contrast with rebuilds that take an index offline, *data refresh* runs as a b
 Any other modification can be made without impacting existing physical structures. Specifically, the following changes do *not* require an index rebuild:
 
 + Add a new field
-+ Set the **Retrievable** attribute on an existing field
++ Set the **retrievable** attribute on an existing field
 + Set a **searchAnalyzer** on an existing field
 + Add a new analyzer construct in an index
 + Add, update, or delete scoring profiles

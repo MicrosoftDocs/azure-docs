@@ -45,7 +45,7 @@ The default analyzer is Standard Lucene, which works well for English, but perha
 
 ## Configuring analyzers
 
-Language analyzers are used as-is. For each field in the index definition, you can set the **analyzer** property to an analyzer name that specifies which language and vendor. The same analyzer will be applied when indexing and searching for that field. For example, you can have separate fields for English, French, and Spanish hotel descriptions that exist side by side in the same index. Alternatively, instead of **analyzer**, you can use **indexAnalyzer** and **searchAnalyzer** to vary analysis by workload. 
+Language analyzers are used as-is. For each field in the index definition, you can set the **analyzer** property to an analyzer name that specifies the language and linguistics stack (Microsoft or Lucene). The same analyzer will be applied when indexing and searching for that field. For example, you can have separate fields for English, French, and Spanish hotel descriptions that exist side by side in the same index. Alternatively, instead of **analyzer**, you can use **indexAnalyzer** and **searchAnalyzer** to have different analysis rules at indexing time and query time. 
 
 Use the **searchFields** query parameter to specify which language-specific field to search against in your queries. You can review query examples that include the analyzer property in [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
