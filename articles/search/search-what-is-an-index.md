@@ -104,7 +104,10 @@ The [*fields collection*](#fields-collection) is typically the largest part of a
 }
 ```
 
-## Fields collection and attribution
+<a name="fields-collection"></a>
+
+## Fields collection and field attributes
+
 As you define your schema, you must specify the name, type, and attributes of each field in your index. The field type classifies the data that is stored in that field. Attributes are set on individual fields to specify how the field is used. The following tables enumerate the types and attributes you can specify.
 
 ### Data types
@@ -133,7 +136,7 @@ You can find more detailed information about Azure Search's [supported data type
 
 You can find more detailed information about Azure Search's [index attributes here](https://docs.microsoft.com/rest/api/searchservice/Create-Index).
 
-## Storage implications of index attributes
+## Storage implications
 
 The attributes you select have an impact on storage. The following screenshot is an illustration of index storage patterns resulting from various combinations of attributes. The index is based on the [built-in realestate sample](search-get-started-portal.md) data source, which you can index and query in the portal.
 
@@ -141,9 +144,9 @@ Filter and sort operations query on exact matches so documents are stored intact
 
 ![Index size based on attribute selection](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
 
-Several of these combinations are theoretical, useful for illuminating an outcome, but would not result in a viable index. In practice, you would never create an index that is retrievable but not searchable or filterable, or searchable but not retrievable.
+Several of these combinations are artificial, useful for illuminating a point, but would not result in a viable index. In practice, you would never add every single field to a suggester, or create an index that searchable but not retrievable.
 
-Storage implementation is considered an implementation detail of Azure Search and could change without notice. There is no guarantee that current behavior will persist in the future.
+Storage architecture is considered an implementation detail of Azure Search and could change without notice. There is no guarantee that current behavior will persist in the future.
 
 ## Suggesters
 A suggester is a section of the schema that defines which fields in an index are used to support auto-complete or type-ahead queries in searches. Typically partial search strings are sent to the Suggestions (Azure Search Service REST API) while the user is typing a search query, and the API returns a set of suggested phrases. 
