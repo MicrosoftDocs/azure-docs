@@ -19,12 +19,12 @@ ms.author: pbutlerm
 
 # Create a Power BI App offer
 
-This section lists the steps that are required for you to create a new Power BI App offer for [AppSource](https://appsource.microsoft.com). Every offer appears as its own entity in AppSource. When you create a new offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/), you're required to supply four groups of assets for your offer.
+This section lists the steps that you follow to create a new Power BI App offer for [AppSource](https://appsource.microsoft.com). Every offer appears as its own entity in AppSource. When you create a new offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/), you're required to supply four groups of assets for your offer.
 
 |   Asset group      | Description                                                                         |
 | ----------------   | ----------------                                                                    |
 | Offer Settings     | The primary identifications and name for the offer.                                      |
-| Technical Info     | The Installer URL that's used to install the app in the client’s Power BI workspace. For more information about how to generate this URL, see [Power BI App documentation](https://go.microsoft.com/fwlink/?linkid=2028636). |
+| Technical Info     | The installer URL that you use to install the app in the client’s Power BI workspace. For more information about how to generate this URL, see [Power BI App documentation](https://go.microsoft.com/fwlink/?linkid=2028636). |
 | Storefront Details | Contains marketing, legal, and lead management assets. Marketing assets include offer description and logos. Legal assets include a privacy policy, terms of use, and other legal documentation. The lead management policy enables you to specify how to handle leads from the AppSource end-user portal. |
 | Contacts           | Contains support contact and policy information.                                     |
 |    |     |
