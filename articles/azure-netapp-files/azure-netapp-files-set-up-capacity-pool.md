@@ -53,5 +53,6 @@ You must have already created a NetApp account.
 4. Click **OK**.
 
 ## Next steps 
-[Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
-[Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+
+- [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
+- [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)

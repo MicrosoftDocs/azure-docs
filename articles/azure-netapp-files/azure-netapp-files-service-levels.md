@@ -28,5 +28,6 @@ The *Premium* storage provides up to 64 MiB/s per TiB of throughput. Throughput 
 The *Standard* storage provides up to 16 MiB/s per TiB of throughput. Throughput performance is indexed against volume quota. For example, a volume from the Standard storage with 2 TiB of provisioned quota (regardless of actual consumption) has a throughput of 32 MiB/s.
 
 ## Next steps
-See the [Azure NetApp Files pricing page](https://azure.microsoft.com/pricing/details/storage/netapp/) for the price of different service levels
-[Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+
+- See the [Azure NetApp Files pricing page](https://azure.microsoft.com/pricing/details/storage/netapp/) for the price of different service levels
+- [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
