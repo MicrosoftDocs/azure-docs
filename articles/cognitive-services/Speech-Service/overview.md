@@ -51,27 +51,23 @@ After you've had a chance to use the Speech Services, try our tutorial that teac
 
 * [Tutorial: Recognize intents from speech with the Speech SDK and LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 
-## Sample code
+## Get sample code
 
-Code samples are available on GitHub for each of the Azure Speech Services. Use these links to view SDK and REST samples:
+Sample code is available on GitHub for each of the Azure Speech Services, and covers common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models. Use these links to view SDK and REST samples:
 
-* [Speech SDK samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Speech Recognition and Translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Speech Synthesis samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## Customize your speech experience
 
-While the Speech Services work well with built-in models, you may want to further customize and tune the experience for your product or environment. Customization options range from acoustic model tuning to unique voice fonts for your brand.
-
-<< TODO: ERIK - THIS NEEDS TO BE BETTER - TRY AGAIN >>
+Azure Speech Services work well with built-in models, however, you may want to further customize and tune the experience for your product or environment. Customization options range from acoustic model tuning to unique voice fonts for your brand. After you've built a custom model, you can use it with any of the Azure Speech Services.
 
 | Speech Service | Model | Description |
 |----------------|-------|-------------|
-|Speech-to-text|[Acoustic model](how-to-customize-acoustic-models.md)|Helps transcribe particular speakers and environments, such as cars or factories.|
-||[Language model](how-to-customize-language-model.md)|Helps transcribe field-specific vocabulary and grammar, such as medical or IT jargon.|
-||[Pronunciation model](how-to-customize-pronunciation.md)|Helps transcribe abbreviations and acronyms, such as "IOU" for "I owe you." |
-|Text-to-speech|[Voice font](how-to-customize-voice-font.md)|Gives your app a voice of its own by training the model on samples of human speech.|
-
-After you've built a custom model, you can use it with any of the Speech Services.
+| Speech-to-text | [Acoustic model](how-to-customize-acoustic-models.md) | Creating a custom acoustic model is helpful if your application, tools, or device is designed for use in a particular environment, like a car or factory floor, with specific recording conditions. Examples involve accented speech, specific background noises, or using a specific microphone for recording. |
+| | [Language model](how-to-customize-language-model.md) | Create a custom language model to improve transcription of field-specific vocabulary and grammar, such as medical terminology, or IT jargon. |
+| | [Pronunciation model](how-to-customize-pronunciation.md) | With a custom pronunciation model, you can define the phonetic form and display of a word or term. It's useful for handling customized terms, such as product names or acronyms. All you need to get started is a pronunciation file -- a simple .txt file. |
+| Text-to-speech | [Voice font](how-to-customize-voice-font.md) | Custom voice fonts allow you to create a recognizable, one-of-a-kind voice for your brand. It only takes a small amount of data to get started, but the more data you provide, the more natural and human-like it will sound. |
 
 ## Next steps
 
