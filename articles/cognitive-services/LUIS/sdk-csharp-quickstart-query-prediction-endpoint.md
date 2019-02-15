@@ -11,9 +11,9 @@ ms.date: 02/14/2019
 ms.author: diberry
 ---
 
-# Quickstart: Query prediction endpoint with C# .Net SDK
+# Quickstart: Query prediction endpoint with C# .NET SDK
 
-Use the .Net SDK, found on [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/), to send a user utterance to Language Understanding (LUIS) and receive a prediction of the user's intention. 
+Use the .NET SDK, found on [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/), to send a user utterance to Language Understanding (LUIS) and receive a prediction of the user's intention. 
 
 This quickstart sends a user utterance, such as `turn on the bedroom light`, to a public Language Understanding application, then receives the prediction and displays the top-scoring intent `HomeAutomation.TurnOn` and the entity `HomeAutomation.Room` found within the utterance. 
 
@@ -47,12 +47,12 @@ az cognitiveservices account create \
     --yes
 ```
 
-## Create .Net Core project
+## Create .NET Core project
 
-Create a .Net Core console project in Visual Studio Community 2017.
+Create a .NET Core console project in Visual Studio Community 2017.
 
 1. Open Visual Studio Community 2017.
-1. Create a new project, from the **Visual C#** section, choose **Console App (.Net Core)**.
+1. Create a new project, from the **Visual C#** section, choose **Console App (.NET Core)**.
 1. Enter the project name `QueryPrediction`, leave the remaining default values, and select **OK**.
     This creates a simple project with the primary code file named **Program.cs**.
 
@@ -175,7 +175,7 @@ HomeAutomation.Room:'bedroom' begins at position 12 and ends at position 18
 
 ## Next steps
 
-Learn more about the [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) and the [.Net reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet). 
+Learn more about the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) and the [.NET reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet). 
 
 > [!div class="nextstepaction"] 
 > [Tutorial: Build LUIS app to determine user intentions](luis-quickstart-intents-only.md) 
