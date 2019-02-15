@@ -21,7 +21,7 @@
         href: create-sql-api-python.md
       - name: Xamarin
         href: create-sql-api-xamarin-dotnet.md
-    - name: MongoDB
+    - name: Azure Cosmos DB's API for MongoDB
       items:
       - name: .NET
         href: create-mongodb-dotnet.md
@@ -253,15 +253,7 @@
       - name: How-to guides
         items:
         - name: Tune query performance
-          href: sql-api-query-metrics.md
-        - name : Server-side programming
-          items:
-          - name: Write stored procedures, triggers, & UDFs
-            href: how-to-write-stored-procedures-triggers-udfs.md
-          - name: Write stored procedures & triggers with JavaScript query API
-            href: how-to-write-javascript-query-api.md
-          - name: Use stored procedures, triggers, & UDFs
-            href: how-to-use-stored-procedures-triggers-udfs.md  
+          href: sql-api-query-metrics.md 
         - name: Data types
           items:
           - name: DateTime
@@ -337,7 +329,7 @@
           - name: Node.js and React app
             href: tutorial-develop-mongodb-react.md
         - name: 2 - Migrate data
-          href: mongodb-migrate.md
+          href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
         - name: 3 - Query data
           href: tutorial-query-mongodb.md
         - name: 4 - Distribute data globally
@@ -470,8 +462,12 @@
       href: how-to-manage-database-account.md
     - name: Global distribution
       items:
+      - name: Configure multi-master
+        href: how-to-multi-master.md
       - name: Manage consistency levels
         href: how-to-manage-consistency.md
+      - name: Implement custom synchronization
+        href: how-to-custom-synchronization.md
       - name: Configure conflict resolution policies
         href: how-to-manage-conflicts.md
     - name: Provisioned throughput
@@ -496,6 +492,14 @@
         items:
         - name: Manage indexing
           href: how-to-manage-indexing-policy.md
+    - name : Server-side programming
+      items:
+      - name: Write stored procedures, triggers, & UDFs
+        href: how-to-write-stored-procedures-triggers-udfs.md
+      - name: Write stored procedures & triggers with JavaScript query API
+        href: how-to-write-javascript-query-api.md
+      - name: Use stored procedures, triggers, & UDFs
+        href: how-to-use-stored-procedures-triggers-udfs.md 
     - name: Security
       items:
       - name: Configure IP firewall
@@ -594,10 +598,10 @@
       items: 
       - name: About bulk executor library
         href: bulk-executor-overview.md
-  - name: Troubleshooting guides
-    items:
-    - name: Troubleshoot Java Async SDK
-      href: troubleshoot-java-async-sdk.md
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot Java Async SDK
+        href: troubleshoot-java-async-sdk.md
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn

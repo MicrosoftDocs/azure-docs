@@ -70,7 +70,7 @@ Whether you use the tools or APIs, you perform the following steps to create a p
 2. Create datasets to represent input and output data for the copy operation. 
 3. Create a pipeline with a copy activity that takes a dataset as an input and a dataset as an output. 
 
-When you use the Copy Wizard, JSON definitions for the Data Factory linked services, datasets, and pipeline entities are automatically created for you. When you use tools or APIs (except the .NET API), you define the Data Factory entities by using the JSON format. The [JSON example: Copy data from DB2 to Azure Blob storage](#json-example-copy-data-from-db2-to-azure-blob) shows the JSON definitions for the Data Factory entities that are used to copy data from an on-premises DB2 data store.
+When you use the Copy Wizard, JSON definitions for the Data Factory linked services, datasets, and pipeline entities are automatically created for you. When you use tools or APIs (except the .NET API), you define the Data Factory entities by using the JSON format. The JSON example: Copy data from DB2 to Azure Blob storage shows the JSON definitions for the Data Factory entities that are used to copy data from an on-premises DB2 data store.
 
 The following sections provide details about the JSON properties that are used to define the Data Factory entities that are specific to a DB2 data store.
 

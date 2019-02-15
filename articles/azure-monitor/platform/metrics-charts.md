@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor metrics explorer
-description: Learn about new features in Azure Monitor Metrics Explorer
+description: Learn about new features in Azure Monitor metrics explorer
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -10,13 +10,13 @@ ms.author: vitalyg
 ms.subservice: metrics
 ---
 
-# Azure Monitor Metrics Explorer
+# Azure Monitor metrics explorer
 
-Azure Monitor Metrics Explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Metrics Explorer is an essential starting point for investigating various performance and availability issues with your applications and infrastructure hosted in Azure or monitored by Azure Monitor services.
+Azure Monitor metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Metrics explorer is an essential starting point for investigating various performance and availability issues with your applications and infrastructure hosted in Azure or monitored by Azure Monitor services.
 
 ## Metrics in Azure
 
-Metrics in Microsoft Azure are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Custom metrics are stored in the Application Insights resources together with other application specific metrics.
+[Metrics in Azure Monitor](data-collection.md#metrics) are the series of measured values and counts that are collected and stored over time. There are standard (or “platform”) metrics, and custom metrics. The standard metrics are provided to you by the Azure platform itself. Standard metrics reflect the health and usage statistics of your Azure resources. Whereas custom metrics are sent to Azure by your applications using the [Application Insights API for custom events](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Custom metrics are stored in the Application Insights resources together with other application specific metrics.
 
 ## Create a new chart
 
@@ -47,7 +47,7 @@ Metrics in Microsoft Azure are the series of measured values and counts that are
 7. By clicking on **Add metric** and repeating steps 3-6, you can add more metrics on the same chart.
 
    > [!NOTE]
-   > You typically don’t want to have metrics with different units of measure (i.e. “milliseconds” and “kilobytes”) or with significantly different scale on one chart. Instead, consider using multiple charts. Click on the Add Chart button to create multiple charts in Metrics Explorer.
+   > You typically don’t want to have metrics with different units of measure (i.e. “milliseconds” and “kilobytes”) or with significantly different scale on one chart. Instead, consider using multiple charts. Click on the Add Chart button to create multiple charts in metrics explorer.
 
 ## Apply filters to charts
 

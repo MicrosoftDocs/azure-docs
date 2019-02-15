@@ -5,7 +5,7 @@ description: How to deploy a workspace for Azure Machine Learning using Azure Re
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs

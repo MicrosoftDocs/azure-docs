@@ -84,7 +84,7 @@ sudo systemctl edit iotedge
 
 Enter the following text, replacing **\<proxy URL>** with your proxy server address and port. Then, save and exit. 
 
-```text
+```ini
 [Service]
 Environment="https_proxy=<proxy URL>"
 ```

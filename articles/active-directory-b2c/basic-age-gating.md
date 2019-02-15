@@ -13,7 +13,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ---
 
-# Enable age gating in Azure Active Directory B2C
+# Enable Age Gating in Azure Active Directory B2C
 
 >[!IMPORTANT]
 >This feature is in public preview. Do not use feature for production applications. 
@@ -99,7 +99,7 @@ After your tenant is set up to use age gating, you can then use this feature in 
 1. Create a user flow that has age gating enabled.
 2. After you create the user flow, select **Properties** in the menu.
 3. In the **Age gating** section, select **Enabled**.
-4. You then decide how you want to manage users that identify as minors. For **Sign-up or sign-in**, you select `Allow minors to access your application` or `Block minors from accessing your application`. If blocking minors is selected, you select `Send a JSON bcak to the application` or `Show an error message`. 
+4. You then decide how you want to manage users that identify as minors. For **Sign-up or sign-in**, you select `Allow minors to access your application` or `Block minors from accessing your application`. If blocking minors is selected, you select `Send a JSON back to the application` or `Show an error message`. 
 
 
 

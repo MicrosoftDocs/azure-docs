@@ -73,6 +73,9 @@ To use this walkthrough, you need two Azure AD accounts in addition to your Azur
 | Delegated provider |User |
 | User |User |
 
+ > [!NOTE]
+   > In the case of an CSP-reseller, to create this delegated provider, it will require these users in the Tenant-Directory (the user AAD). The Azure Stack Operator will need to [first onboard](https://docs.microsoft.com/azure/azure-stack/azure-stack-enable-multitenancy) that tenant AAD and then configure usage and billing by following [these steps](https://docs.microsoft.com/azure/azure-stack/azure-stack-csp-howto-register-tenants).
+
 ### Identify the delegated provider
 
 1. Sign in to the administrator portal as an Azure Stack operator.

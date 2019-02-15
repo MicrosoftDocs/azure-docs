@@ -159,7 +159,7 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 Now that you've learned the basics of Service Bus topics, follow these links to learn more.
 
 * See [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md).
-* API reference for [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter).
+* API reference for [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter).
 * Visit the [Azure SDK for Ruby](https://github.com/Azure/azure-sdk-for-ruby) repository on GitHub.
 
 [Azure portal]: https://portal.azure.com

@@ -3,13 +3,13 @@ title: Increase endpoint quota
 titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) offers the ability to increase the endpoint request quota beyond a single key's quota. This is done by creating more keys for LUIS and adding them to the LUIS application on the **Publish** page in the **Resources and Keys** section.
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/08/2019
 ms.author: diberry
 #Customer intent: As an advanced user, I want to understand how to use multiple LUIS endpoint keys to increase the number of endpoint requests my application receives.
 ---
@@ -336,7 +336,7 @@ To validate that the DNS response returns a LUIS endpoint, request the Traffic M
 
 The following Node.js code makes a request for the parent profile and returns a LUIS endpoint:
 
-```nodejs
+```javascript
 const dns = require('dns');
 
 dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {
@@ -358,6 +358,9 @@ The successful response with the LUIS endpoint is:
 ## Use the Traffic Manager parent profile
 In order to manage traffic across endpoints, you need to insert a call to the Traffic Manager DNS to find the LUIS endpoint. This call is made for every LUIS endpoint request and needs to simulate the geographic location of the user of the LUIS client application. Add the DNS response code in between your LUIS client application and the request to LUIS for the endpoint prediction. 
 
+## Resolving a degraded state
+
+Enable [diagnostic logs](../../traffic-manager/traffic-manager-diagnostic-logs.md) for Traffic Manager to see why endpoint status is degraded.
 
 ## Clean up
 Remove the two LUIS endpoint keys, the three Traffic Manager profiles, and the resource group that contained these five resources. This is done from the Azure portal. You delete the five resources from the resources list. Then delete the resource group. 

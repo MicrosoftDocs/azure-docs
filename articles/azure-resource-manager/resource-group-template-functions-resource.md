@@ -30,6 +30,8 @@ Resource Manager provides the following functions for getting resource values:
 
 To get values from parameters, variables, or the current deployment, see [Deployment value functions](resource-group-template-functions-deployment.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 <a id="listkeys" />
 <a id="list" />
 
@@ -134,7 +136,7 @@ The possible uses of list* are shown in the following table.
 
 To determine which resource types have a list operation, you have the following options:
 
-* View the [REST API operations](/rest/api/) for a resource provider, and look for list operations. For example, storage accounts have the [listKeys operation](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys).
+* View the [REST API operations](/rest/api/) for a resource provider, and look for list operations. For example, storage accounts have the [listKeys operation](/rest/api/storagerp/storageaccounts).
 * Use the [Get-​AzProvider​Operation](/powershell/module/az.resources/get-azprovideroperation) PowerShell cmdlet. The following example gets all list operations for storage accounts:
 
   ```powershell

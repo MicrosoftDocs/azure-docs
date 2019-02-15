@@ -36,7 +36,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -46,7 +46,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a virtual machine
 
-Create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. 
+Create a VM with the [az vm create](/cli/azure/vm) command. 
 
 The following example creates a VM named *myVM* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  
 
@@ -76,7 +76,7 @@ When the VM has been created, the Azure CLI shows information similar to the fol
 
 ## SSH into your VM
 
-If you don't already know the public IP address of your VM, run the [az network public-ip list](/cli/azure/network/public-ip#az_network_public_ip_list) command:
+If you don't already know the public IP address of your VM, run the [az network public-ip list](/cli/azure/network/public-ip) command:
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress

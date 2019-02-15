@@ -50,7 +50,7 @@ The account you log into, or connect to Azure with, must be assigned to the [net
 
 **Commands**
 
-- Azure CLI: [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)
+- Azure CLI: [az network vnet subnet create](/cli/azure/network/vnet/subnet)
 - PowerShell: [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig)
 
 ## Change subnet settings

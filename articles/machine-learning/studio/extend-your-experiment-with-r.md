@@ -5,7 +5,7 @@ description: How to extend the functionality of Azure Machine Learning Studio th
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs

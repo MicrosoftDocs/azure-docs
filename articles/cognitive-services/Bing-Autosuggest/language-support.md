@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: A list of supported languages and regions for the Bing Autosuggest API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest

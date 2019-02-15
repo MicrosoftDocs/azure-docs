@@ -41,7 +41,7 @@ az network application-gateway waf-config list-rule-sets --type OWASP
 
 The following output is a truncated response from the preceding example:
 
-```
+```json
 [
   {
     "id": "/subscriptions//resourceGroups//providers/Microsoft.Network/applicationGatewayAvailableWafRuleSets/",
@@ -94,7 +94,7 @@ az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP
 
 The following output is a truncated response from the preceding example:
 
-```
+```json
 [
   {
     "id": "/subscriptions//resourceGroups//providers/Microsoft.Network/applicationGatewayAvailableWafRuleSets/",

@@ -15,6 +15,7 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Install Azure AD Connect using SQL delegated administrator permissions
@@ -49,10 +50,7 @@ To provision the database out of band and install Azure AD Connect with database
 ## Additional information
 Once the database is provisioned, the Azure AD Connect administrator can install and configure on-premises synchronization at their convenience.  
 
-The **/UseExistingDatabase** flag is required when using a pre-created database.  It is not only used in recovery situations.
-
-In addition to supporting new installations of Azure AD Connect, this feature also enables delegation for any scenario related to the **/UseExistingDatabase** flag.  For more information on installing Azure AD Connect with an existing database, see [Install Azure AD Connect using an existing ADSync database](how-to-connect-install-existing-database.md)
-
+For more information on installing Azure AD Connect with an existing database, see [Install Azure AD Connect using an existing ADSync database](how-to-connect-install-existing-database.md)
 
 ## Next steps
 - [Getting started with Azure AD Connect using express settings](how-to-connect-install-express.md)

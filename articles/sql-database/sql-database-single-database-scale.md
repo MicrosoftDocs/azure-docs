@@ -11,11 +11,14 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/07/2019
 ---
 # Scale single database resources in Azure SQL Database
 
 This article describes how to scale the compute and storage resources available for a single database in Azure SQL Database.
+
+> [!IMPORTANT]
+> You are billed for each hour a database exists using the highest service tier + compute size that applied during that hour, regardless of usage or whether the database was active for less than an hour. For example, if you create a single database and delete it five minutes later your bill reflects a charge for one database hour.
 
 ## vCore-based purchasing model: Change storage size
 

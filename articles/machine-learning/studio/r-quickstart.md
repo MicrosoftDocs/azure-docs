@@ -5,7 +5,7 @@ description: Use this R programming tutorial to get started quickly using the R 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs
@@ -740,7 +740,7 @@ The `ts.detrend()` function shown below performs both of these operations. The f
 
 There is quite a bit happening in the `ts.detrend()` function. Most of this code is checking for potential problems with the arguments or dealing with exceptions, which can still arise during the computations. Only a few lines of this code actually do the computations.
 
-We have already discussed an example of defensive programming in [Value transformations](#valuetransformations). Both computation blocks are wrapped in `tryCatch()`. For some errors it makes sense to return the original input vector, and in other cases, I return a vector of zeros.  
+We have already discussed an example of defensive programming in Value transformations. Both computation blocks are wrapped in `tryCatch()`. For some errors it makes sense to return the original input vector, and in other cases, I return a vector of zeros.  
 
 Note that the linear regression used for de-trending is a time series regression. The predictor variable is a time series object.  
 

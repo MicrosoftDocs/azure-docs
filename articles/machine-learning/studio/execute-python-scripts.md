@@ -5,7 +5,7 @@ description: Outlines design principles underlying support for Python scripts in
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: article
 
 author: ericlicoding
 ms.author: amlstudiodocs

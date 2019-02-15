@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure API Management FAQ | Microsoft Docs
 description: Learn the answers to frequently asked questions (FAQ), patterns, and best practices in Azure API Management.
 services: api-management
@@ -32,7 +32,7 @@ Get the answers to common questions, patterns, and best practices for Azure API 
 * [How do I set up multiple environments in a single API?](#how-do-i-set-up-multiple-environments-in-a-single-api)
 * [Can I use SOAP with API Management?](#can-i-use-soap-with-api-management)
 * [Is the API Management gateway IP address constant? Can I use it in firewall rules?](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules)
-* [Can I configure an OAuth 2.0 authorization server with AD FS security?](#can-i-configure-an-oauth-20-authorization-server-with-adfs-security)
+* Can I configure an OAuth 2.0 authorization server with AD FS security?
 * [What routing method does API Management use in deployments to multiple geographic locations?](#what-routing-method-does-api-management-use-in-deployments-to-multiple-geographic-locations)
 * [Can I use an Azure Resource Manager template to create an API Management service instance?](#can-i-use-an-azure-resource-manager-template-to-create-an-api-management-service-instance)
 * [Can I use a self-signed SSL certificate for a back end?](#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)
@@ -129,7 +129,7 @@ Yes. This can be done through PowerShell or by directly submitting to the API. T
 #### Powershell method ####
 Use the [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (for new back end) or [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (for existing back end) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`. 
 
-```
+```powershell
 $context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```

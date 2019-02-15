@@ -12,6 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
+ms.collection: M365-identity-device-management
 ---
 # How to get Azure Multi-Factor Authentication
 
