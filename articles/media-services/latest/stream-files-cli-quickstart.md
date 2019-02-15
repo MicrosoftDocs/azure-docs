@@ -80,7 +80,7 @@ az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 Once it is started, you get a response similar to this:
 
 ```
-julia@Azure:~$ az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
+az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 {
   "accessControl": null,
   "availabilitySetName": null,
