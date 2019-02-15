@@ -347,10 +347,10 @@ These binding-specific settings are equivalent to settings in the [host.json pro
 You can configure the following bindings:
 
 * [Azure CosmosDB trigger](#azure-cosmosdb-trigger-configuration-version-3x)
+* [Event Hubs trigger](#event-hubs-trigger-configuration-version-3x)
 * [Queue storage trigger](#queue-trigger-configuration)
 * [SendGrid binding](#sendgrid-binding-configuration-version-3x)
 * [Service Bus trigger](#service-bus-trigger-configuration-version-3x)
-* 
 
 ### Azure CosmosDB trigger configuration (version 3.x)
 
