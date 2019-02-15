@@ -213,7 +213,7 @@ There are two ways to create a new Function App in Azure:
 
 ### Creating the Function App
 
-1. Navigate to the Azure Portal using [this special link containing a feature flag](https://ms.portal.azure.com/?feature.customPortal=false&feature.canmodifystamps=true&WebsitesExtension=canary&websitesextension_powershell=true&feature.fastmanifest=false&nocdn=force&websitesextension_functionsnext=true&WebsitesExtension_useReactFrameBlade=true#create/Microsoft.FunctionApp).
+1. Navigate to the Azure Portal using [this special link containing a feature flag](https://portal.azure.com/?websitesextension_powershell=true#create/Microsoft.FunctionApp).
 2. Click on "+ Create a resource":
 
 ![create a resource](https://user-images.githubusercontent.com/2644648/47879512-0455a500-ddde-11e8-89dc-09ac187d2a24.png)
