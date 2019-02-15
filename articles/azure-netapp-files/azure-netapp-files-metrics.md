@@ -1,6 +1,6 @@
 ---
-title: Usage metrics for Azure NetApp Files | Microsoft Docs
-description: Describes usage metrics for Azure NetApp Files capacity pools and volumes. 
+title: Metrics for Azure NetApp Files | Microsoft Docs
+description: Describes metrics for Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -16,11 +16,11 @@ ms.topic: concepts
 ms.date: 02/15/2019
 ms.author: b-juche
 ---
-# Usage metrics for Azure NetApp Files
+# Metrics for Azure NetApp Files
 
-Azure NetApp Files displays size information for various objects. Understanding the associated usage metrics helps you monitor and optimize your Azure NetApp Files subscription.  
+Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume throughput, IOPS, and latency. By analyzing these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.  
 
-## <a name="capacity_pools"></a>For capacity pools
+## <a name="capacity_pools"></a>Usage metrics for capacity pools
 
 - *Volume pool allocated size*  
     This is the size (GiB) of the provisioned capacity pool.  
@@ -31,7 +31,7 @@ Azure NetApp Files displays size information for various objects. Understanding 
 - *Volume pool total snapshot size*  
     This is the total of incremental logical space used by the snapshots.  
 
-## <a name="volumes"></a>For volumes
+## <a name="volumes"></a>Usage metrics for volumes
 
 - *Volume allocated size*   
     This is the volume size (quota) provisioned in GiB.  

@@ -42,7 +42,7 @@ You must have already created a NetApp account.
 
   * **Service level**   
     This field shows the target performance for the capacity pool.  
-    Specify the service level for the capacity pool: **Premium** or **Standard**.
+    Specify the service level for the capacity pool: [**Premium**](azure-netapp-files-service-levels.md#Premium) or [**Standard**](azure-netapp-files-service-levels.md#Standard).
 
   * **Size**     
     Specify the size of the capacity pool that you are purchasing.        
@@ -53,5 +53,5 @@ You must have already created a NetApp account.
 4. Click **OK**.
 
 ## Next steps 
-
+[Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
 [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)

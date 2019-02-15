@@ -1,6 +1,6 @@
 ---
 title: Resource limits for Azure NetApp Files | Microsoft Docs
-description: Describes limits for Azure NetApp Files resources, including limits for capacity pools, volumes, and the delegated subnet.
+description: Describes limits for Azure NetApp Files resources, including limits for NetApp accounts, capacity pools, volumes, snapshots, and the delegated subnet.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: reference
+ms.topic: concepts
 ms.date: 02/14/2019
 ms.author: b-juche
 ---
