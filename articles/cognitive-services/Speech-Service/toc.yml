@@ -1,5 +1,5 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
-- name: Speech Service Documentation
+- name: Speech Services Documentation
   href: index.yml
 - name: Overview
   expanded: true
