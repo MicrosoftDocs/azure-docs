@@ -55,4 +55,5 @@ You must have already created a NetApp account.
 ## Next steps 
 
 - [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
+- See the [Azure NetApp Files pricing page](https://azure.microsoft.com/pricing/details/storage/netapp/) for the price of different service levels
 - [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
