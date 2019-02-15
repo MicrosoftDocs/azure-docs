@@ -21,7 +21,7 @@ In Azure Functions, specific functions share a few core technical concepts and c
 This article assumes that you've already read the [Azure Functions overview](functions-overview.md).
 
 ## Function code
-A *function* is the primary concept in Azure Functions. A function contains two important pieces - your code, which can be written in a variety of languages, and some config, the function.json file. For compiled languages, this config is generated automatically from annotations in your code. For scripting languages, you must provide the config yourself.
+A *function* is the primary concept in Azure Functions. A function contains two important pieces - your code, which can be written in a variety of languages, and some config, the function.json file. For compiled languages, this config file is generated automatically from annotations in your code. For scripting languages, you must provide the config file yourself.
 
 The function.json file defines the function's trigger, bindings, and other configuration settings. Every function has one and only one trigger. The runtime uses this config file to determine the events to monitor and how to pass data into and return data from a function execution. The following is an example function.json file.
 
