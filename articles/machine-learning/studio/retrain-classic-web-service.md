@@ -26,8 +26,8 @@ The predictive web service that you deployed contains a default scoring endpoint
 
 There are two ways in which you can add a new end point to a web service:
 
-1. Programmatically
-1. Using the Azure Web Services portal
+* Programmatically
+* Using the Azure Web Services portal
 
 > [!NOTE]
 > Be sure you are adding the endpoint to the Predictive Web Service, not the Training Web Service. If you have correctly deployed both a Training and a Predictive Web Service, you should see two separate web services listed. The Predictive Web Service should end with "[predictive exp.]".
@@ -138,7 +138,7 @@ If your SAS token expires before you finish updating the endpoint, you must perf
 
 When the code has successfully run, the new endpoint should start using the retrained model in approximately 30 seconds.
 
-## Next Steps
+## Next steps
 
 To learn more about how to manage web services or keep track of multiple experiments runs, see the following articles:
 
