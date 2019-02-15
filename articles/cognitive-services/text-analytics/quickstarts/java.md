@@ -103,9 +103,9 @@ public class DetectLanguage {
 // a free trial access key, you should not need to change this region.
     static String host = "https://westus.api.cognitive.microsoft.com";
 
-    static String path = "/text/analytics/v2.0/languages";
-
-    public static String GetLanguage (Documents documents) throws Exception {
+	static String path = "/text/analytics/v2.1/languages";
+    
+	public static String GetLanguage (Documents documents) throws Exception {
 		String text = new Gson().toJson(documents);
 		byte[] encoded_text = text.getBytes("UTF-8");
 
@@ -280,7 +280,7 @@ public class GetSentiment {
 // a free trial access key, you should not need to change this region.
 	static String host = "https://westus.api.cognitive.microsoft.com";
 
-	static String path = "/text/analytics/v2.0/sentiment";
+	static String path = "/text/analytics/v2.1/sentiment";
     
 	public static String getTheSentiment (Documents documents) throws Exception {
 		String text = new Gson().toJson(documents);
@@ -433,7 +433,7 @@ public class GetKeyPhrases {
 // a free trial access key, you should not need to change this region.
 	static String host = "https://westus.api.cognitive.microsoft.com";
 
-	static String path = "/text/analytics/v2.0/keyPhrases";
+	static String path = "/text/analytics/v2.1/keyPhrases";
     
 	public static String GetKeyPhrases (Documents documents) throws Exception {
 		String text = new Gson().toJson(documents);
@@ -605,7 +605,7 @@ public class GetEntities {
 // a free trial access key, you should not need to change this region.
 	static String host = "https://westus.api.cognitive.microsoft.com";
 
-	static String path = "/text/analytics/v2.1-preview/entities";
+	static String path = "/text/analytics/v2.1//text/analytics/v2.1/ies";
     
 	public static String GetEntities (Documents documents) throws Exception {
 		String text = new Gson().toJson(documents);

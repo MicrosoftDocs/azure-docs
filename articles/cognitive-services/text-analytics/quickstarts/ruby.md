@@ -58,7 +58,7 @@ accessKey = 'enter key here'
 # NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 # a free trial access key, you should not need to change this region.
 uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.0/languages'
+path = '/text/analytics/v2.1/languages'
 
 uri = URI(uri + path)
 
@@ -161,7 +161,7 @@ accessKey = 'enter key here'
 # NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 # a free trial access key, you should not need to change this region.
 uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.0/sentiment'
+path = '/text/analytics/v2.1/sentiment'
 
 uri = URI(uri + path)
 
@@ -238,7 +238,7 @@ accessKey = 'enter key here'
 # NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 # a free trial access key, you should not need to change this region.
 uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.0/keyPhrases'
+path = '/text/analytics/v2.1/keyPhrases'
 
 uri = URI(uri + path)
 
@@ -335,7 +335,7 @@ accessKey = 'enter key here'
 # NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
 # a free trial access key, you should not need to change this region.
 uri = 'https://westus.api.cognitive.microsoft.com'
-path = '/text/analytics/v2.1-preview/entities'
+path = '/text/analytics/v2.1/entities'
 
 uri = URI(uri + path)
 

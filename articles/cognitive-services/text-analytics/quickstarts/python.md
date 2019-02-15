@@ -42,7 +42,7 @@ Next, verify that the region in `text_analytics_base_url` corresponds to the one
 
 
 ```python
-text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/"
+text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/"
 ```
 
 <a name="Detect"></a>
@@ -57,7 +57,7 @@ language_api_url = text_analytics_base_url + "languages"
 print(language_api_url)
 ```
 
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/languages
 
 
 The payload to the API consists of a list of `documents`, each of which in turn contains an `id` and a `text` attribute. The `text` attribute stores the text to be analyzed. 
@@ -127,7 +127,7 @@ sentiment_api_url = text_analytics_base_url + "sentiment"
 print(sentiment_api_url)
 ```
 
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment
 
 
 As with the language detection example, the service is provided with a dictionary with a `documents` key that consists of a list of documents. Each document is a tuple consisting of the `id`, the `text` to be analyzed and the `language` of the text. You can use the language detection API from the previous section to populate this field. 
@@ -174,7 +174,7 @@ key_phrase_api_url = text_analytics_base_url + "keyPhrases"
 print(key_phrase_api_url)
 ```
 
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases
 
 
 The collection of documents is the same as what was used for sentiment analysis.
