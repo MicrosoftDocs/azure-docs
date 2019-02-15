@@ -42,8 +42,6 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * Flock supports **SP** initiated SSO
 
-* Flock supports **Just In Time** user provisioning
-
 ## Adding Flock from the gallery
 
 To configure the integration of Flock into Azure AD, you need to add Flock from the gallery to your list of managed SaaS apps.
