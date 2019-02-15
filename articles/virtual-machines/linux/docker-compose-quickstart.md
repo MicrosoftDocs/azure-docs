@@ -21,7 +21,7 @@ ms.author: cynthn
 # Get started with Docker and Compose to define and run a multi-container application in Azure
 With [Compose](http://github.com/docker/compose), you use a simple text file to define an application consisting of multiple Docker containers. You then spin up your application in a single command that does everything to deploy your defined environment. As an example, this article shows you how to quickly set up a WordPress blog with a backend MariaDB SQL database on an Ubuntu VM. You can also use Compose to set up more complex applications.
 
-This article was last tested on 2/14/2019 using the [Azure Cloud Shell](https://shell.azure.com/bash) and the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) version 2.0.58.
+This article was last tested on 2/14/2019 using the [Azure Cloud Shell](https://shell.azure.com/bash) and the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) version 2.0.58.
 
 ## Create Docker host with Azure CLI
 Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/reference-index).
