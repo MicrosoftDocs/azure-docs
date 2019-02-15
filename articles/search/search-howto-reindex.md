@@ -23,7 +23,9 @@ In contrast with rebuilds that take an index offline, *data refresh* runs as a b
 
 | Condition | Description |
 |-----------|-------------|
-| Changing a field definition | Revising a name, data type, or specific [index attributes](https://docs.microsoft.com/rest/api/searchservice/create-index) (searchable, filterable, sortable, facetable) requires a full rebuild. Adding a pre-existing field to a suggesters construct also requires a rebuild.|
+| Changing a field definition | Revising a field name, data type, or specific [index attributes](https://docs.microsoft.com/rest/api/searchservice/create-index) (searchable, filterable, sortable, facetable) requires a full rebuild. |
+| Adding an analyzer to a field | [Analyzers](search-analyzers.md) are defined in an index and then assigned to fields. You can add an analyzer to an index at any time, but you can only assign an analyzer when the field is created. This is true for both the **analyzer** and **indexAnalyzer** properties. The **searchAnalyzer** property is an exception.
+| Adding a field to a suggester | If a field already exists and you want to add it to a [Suggesters](index-add-suggesters.md) construct, you must rebuild the index. |
 | Deleting a field | To physically remove all traces of a field, you have to rebuild the index. When an immediate rebuild is not practice, most developers modify application code to disable access to the "deleted" field. Physically, the field definition and contents remain in the index until the next rebuild, using a schema that omits the field in question. |
 | Switching tiers | If you require more capacity, there is no in-place upgrade. A new service is created at the new capacity point, and indexes must be built from scratch on the new service. |
 
@@ -31,7 +33,8 @@ Any other modification can be made without impacting existing physical structure
 
 + Add a new field
 + Set the **Retrievable** attribute on an existing field
-+ Set an analyzer on an existing field
++ Set a **searchAnalyzer** on an existing field
++ Add, update, or delete an analyzer construct in an index
 + Add, update, or delete scoring profiles
 + Add, update, or delete CORS settings
 + Add, update, or delete synonymMaps
