@@ -40,7 +40,7 @@ To configure Azure AD integration with webMethods Integration Cloud, you need th
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* webMethods Integration Cloud supports **SP** initiated SSO
+* webMethods Integration Cloud supports **SP** and **IDP** initiated SSO
 
 * webMethods Integration Cloud supports **just-in-time** user provisioning
 
