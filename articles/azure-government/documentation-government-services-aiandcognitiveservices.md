@@ -17,15 +17,16 @@ ms.author: jglixon
 ---
 # Azure Government AI and Machine Learning
 
-This article outlines variations and considerations when using **Cognitive Services** in the Azure Government environment.
+This article outlines variations and considerations when using **Cognitive Services** and the **Azure Bot Service** in the Azure Government environment.
 
-The following Cognitive Services are generally available in Azure Government: 
+The following AI and Cognitive Services are generally available in Azure Government: 
 
 - Computer Vision
 - Face
 - Content Moderator
 - Translator Text
 - Language Understanding
+- Azure Bot Service
 
 > [!IMPORTANT]
 > Billing for Computer Vision, Face, Translator Text, Content Moderator, and Language Understanding will begin on 11/1/2018.
@@ -84,9 +85,44 @@ Variations in Azure Government:
 
 For more information, see [global Azure documentation](../cognitive-services/luis/what-is-luis.md) for Language Understanding.
 
+#### Azure Bot Service
+
+Variations in Azure Government:
+
+The service URL endpoints for Azure Bot Service apps created in Azure Government are different from those apps created in the Azure public cloud:
+
+- Bot Service Endpoints:	*.botframework.azure.us
+- Bot Authentication Endpoint: login.microsoftonline.us
+
+Some Bot Service features available in the public cloud are not yet available in Azure Government:
+- BotBuilder V3 Bot Templates
+- Channels
+ - Cortana channel
+ - Skype for Business Channel
+ - Teams Channel
+ - Slack Channel
+ - Office 365 Email Channel
+ - Facebook Messenger Channel
+ - Telegram Channel
+ - Kik Messenger Channel
+ - GroupMe Channel
+ - Skype Channel
+- Application Insights related capabilities including the Analytics Tab 
+- Speech Priming Feature
+- Payment Card Feature
+
+Commonly used services in bot applications that are currently unavailable in Azure Government:
+- Application Insights
+- Azure Search
+- QnA Maker Cognitive Service
+- Speech Services Cognitive Service
+As these services are made available the corresponding Bot Service features will be enabled.
+
+For more information, see [global Azure documentation](https://aka.ms/botdocs/) for Bot Service.
+
 ### Data Considerations
 
-Data considerations for Cognitive Services are not yet available. 
+Data considerations for Cognitive Services and Azure Bot Service are not yet available. 
 
 ## Next Steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
