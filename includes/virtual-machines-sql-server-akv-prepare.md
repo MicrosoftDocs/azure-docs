@@ -43,7 +43,7 @@ Next, register an application with AAD. This will give you a Service Principal a
 
 * The application ID and the secret will also be used to create a credential in SQL Server.
 
-* You must authorize this new client ID to have the following access permissions: **get**, **wrapKey**, **unwrapKey**. This is done with the [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzKeyVaultAccessPolicy) cmdlet. For more information, see [Authorize the application to use the key or secret](../articles/key-vault/key-vault-manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
+* You must authorize this new client ID to have the following access permissions: **get**, **wrapKey**, **unwrapKey**. This is done with the [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) cmdlet. For more information, see [Azure Key Vault overview](../articles/key-vault/key-vault-overview.md).
 
 ### <a id="createkeyvault"></a> Create a key vault
 In order to use Azure Key Vault to store the keys you will use for encryption in your VM, you need access to a key vault. If you have not already set up your key vault, create one by following the steps in the [Getting Started with Azure Key Vault](../articles/key-vault/key-vault-overview.md) article. Before completing these steps, there is some information you need to collect during this set up that is needed later when you enable Azure Key Vault Integration on your SQL VM.

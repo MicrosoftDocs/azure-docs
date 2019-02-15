@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Figma
 
@@ -228,4 +229,3 @@ When you click the Figma tile in the Access Panel, you should be automatically s
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

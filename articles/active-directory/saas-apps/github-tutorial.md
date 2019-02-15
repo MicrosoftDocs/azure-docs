@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with GitHub
 
@@ -34,7 +35,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To configure Azure AD integration with GitHub, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* GitHub single sign-on enabled subscription
+* A GitHub organization created in [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), which requires the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
 
 ## Scenario description
 

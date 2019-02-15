@@ -18,6 +18,7 @@ ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
+ms.collection: M365-identity-device-management
 ---
 # Get started with Azure Active Directory Identity Protection and Microsoft Graph
 

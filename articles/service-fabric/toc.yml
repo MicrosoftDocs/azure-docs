@@ -64,11 +64,7 @@
   - name: Create and manage a cluster
     items:
     - name: 1- Create a cluster on Azure
-      items:
-      - name: 1a- Create a Windows cluster
-        href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
-      - name: 1b- Create a Linux cluster
-        href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
+      href: service-fabric-tutorial-create-vnet-and-windows-cluster.md      
     - name: 2- Scale the cluster
       href: service-fabric-tutorial-scale-cluster.md
     - name: 3- Upgrade the cluster runtime
@@ -607,14 +603,18 @@
           href: service-fabric-cluster-creation-via-arm.md        
         - name: Create using certificate common name
           href: service-fabric-create-cluster-using-cert-cn.md
+        - name: Create a Linux cluster
+          href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
       - name: Scale
         items:
         - name: Manually scale out
           href: service-fabric-cluster-scale-up-down.md
         - name: Programmatically scale out
           href: service-fabric-cluster-programmatic-scaling.md
-        - name: Virtual Machine Scale Set Node Type scale out
-          href: virtual-machine-scale-set-scale-node-type-scale-out.md
+        - name: Scale up primary node type
+          href: service-fabric-scale-up-node-type.md
+        - name: Add a node type
+          href: virtual-machine-scale-set-scale-node-type-scale-out.md        
         - name: Remove a node type
           href: service-fabric-how-to-remove-node-type.md
       - name: Upgrade

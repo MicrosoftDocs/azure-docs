@@ -17,6 +17,7 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 # Wildcard applications in the Azure Active Directory application proxy 

@@ -13,6 +13,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Self-service portal for Azure AD B2B collaboration sign-up
