@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 2/19/2019
 ms.author: panosper
 ms.custom: seodec18
 ---
@@ -51,7 +51,7 @@ The Batch Transcription API supports the following formats:
 | MP3 | PCM | 16-bit | 8 or 16 kHz, mono, stereo |
 | OGG | OPUS | 16-bit | 8 or 16 kHz, mono, stereo |
 
-For stereo audio streams, the Batch transcription API splits the left and right channel during the transcription. The two JSON files with the result are each created from a single channel. The timestamps per utterance enable the developer to create an ordered final transcript. The following JSON shows a sample request, includuing properties for setting up the profanity filter, the punctuation model, and word level timestamps.
+For stereo audio streams, the Batch transcription API splits the left and right channel during the transcription. The two JSON files with the result are each created from a single channel. The timestamps per utterance enable the developer to create an ordered final transcript. The following JSON shows a sample request, including properties for setting up the profanity filter, the punctuation model, and word level timestamps.
 
 ### Configuration
 
@@ -87,7 +87,7 @@ Parameters for the batch transcription are supplied in JSON formatted:
 
 The complete sample is available in the [GitHub sample repository](https://aka.ms/csspeech/samples) inside the `samples/batch` subdirectory.
 
-You have to customize the sample code with your subscription information, the service region, the SAS URI pointing to the audio file to equires transcribe, and model IDs in case you want to use a custom acoustic or language model. 
+You have to customize the sample code with your subscription information, the service region, the SAS URI pointing to the audio file to transcribe, and model IDs in case you want to use a custom acoustic or language model. 
 
 ```cs
         // Replace with your subscription key
@@ -112,7 +112,7 @@ You have to customize the sample code with your subscription information, the se
         // private static Guid[] modelList = new[] { AdaptedAcousticId, AdaptedLanguageId };
 ```
 
-The sample code will setup the client and submit the transcription request. It will then poll for status information and print details about the transription progress.
+The sample code will setup the client and submit the transcription request. It will then poll for status information and print details about the transcription progress.
 
 ```cs
 
@@ -161,14 +161,14 @@ The sample code will setup the client and submit the transcription request. It w
         }
 ```
 
-For full details about the preceding calls, see our [swagger document](https://westus.cris.ai/swagger/ui/index). For the full sample shown here, go to [GitHub](https://aka.ms/csspeech/samples) in the `samples/batch` subdirectory.
+For full details about the preceding calls, see our [Swagger document](https://westus.cris.ai/swagger/ui/index). For the full sample shown here, go to [GitHub](https://aka.ms/csspeech/samples) in the `samples/batch` subdirectory.
 
 Take note of the asynchronous setup for posting audio and receiving transcription status. The client that you create is a .NET HTTP client. There's a `PostTranscriptions` method for sending the audio file details and a `GetTranscriptions` method for receiving the results. `PostTranscriptions` returns a handle, and `GetTranscriptions` uses it to create a handle to get the transcription status.
 
 The current sample code doesn't specify a custom model. The service uses the baseline models for transcribing the file or files. To specify the models, you can pass on the same method as the model IDs for the acoustic and the language model.
 
 > [!NOTE]
-> For baseline transcriptions, you don't have to declare the ID of the baseline models. If you specify onlay a language model id (and no acoustic model id), we will pick automatically a matching acoustic model. If you only specify an acoustic model, we will pick a matching language model.
+> For baseline transcriptions, you don't have to declare the ID of the baseline models. If you specify only a language model id (and no acoustic model id), we will pick automatically a matching acoustic model. If you only specify an acoustic model, we will pick a matching language model.
 
 ### Supported storage
 
