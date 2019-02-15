@@ -302,7 +302,6 @@
       "branch": "master",
       "branch_mapping": {}
     },
-    
     {
       "path_to_root": "samples-cogserv-containers",
       "url": "https://github.com/Azure-Samples/cognitive-services-containers-samples",
