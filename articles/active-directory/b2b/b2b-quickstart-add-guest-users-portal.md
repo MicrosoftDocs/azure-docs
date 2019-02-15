@@ -4,7 +4,7 @@ description: Use this quickstart to learn how Azure AD admins can add B2B guest 
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: quickstart
 ms.date: 07/02/2018
 
@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: sasubram
 #Customer intent: As a tenant admin, I want to walk through the B2B  invitation workflow so that I can understand how to add a guest user in the portal, and understand the end user experience.
 
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Add guest users to your directory in the Azure portal

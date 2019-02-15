@@ -8,13 +8,14 @@ manager: daveba
 editor: 
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # Assign a managed identity access to a resource by using the Azure portal

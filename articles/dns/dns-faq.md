@@ -29,7 +29,7 @@ For more information, see the [Azure DNS pricing page](https://azure.microsoft.c
 
 ### What is the SLA for Azure DNS?
 
-Azure guarantees that valid DNS requests receive a response from at least one Azure DNS name server at least 99.99% of the time.
+Azure guarantees that valid DNS requests receive a response from at least one Azure DNS name server 100% of the time.
 
 For more information, see the [Azure DNS SLA page](https://azure.microsoft.com/support/legal/sla/dns).
 

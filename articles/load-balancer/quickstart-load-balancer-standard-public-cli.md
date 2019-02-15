@@ -1,20 +1,20 @@
 ---
-title: Quickstart:Create a public Standard Load Balancer - Azure CLI | Microsoft Docs
+title: Quickstart:Create a public Standard Load Balancer - Azure CLI
+titlesuffix: Azure Load Balancer
 description: This quickstart shows how to create a public load balancer using the Azure CLI
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: twooley
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 01/25/2019
 ms.author: kumud
 ms.custom: mvc
 ---
@@ -165,7 +165,7 @@ In this example, you create three virtual machines to be used as backend servers
 
 ### Create an Availability set
 
-Create an availability set with [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
+Create an availability set with [az vm availabilityset create](/cli/azure/network/nic)
 
  ```azurecli-interactive
   az vm availability-set create \

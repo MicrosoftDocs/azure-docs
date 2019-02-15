@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
-ms.component: disks
+ms.subservice: disks
 
 ---
 # How to detach a data disk from a Windows virtual machine
@@ -31,16 +31,18 @@ When you no longer need a data disk that's attached to a virtual machine, you ca
 If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.
 
 
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+
 ## Detach a data disk using PowerShell
 
 You can *hot* remove a data disk using PowerShell, but make sure nothing is actively using the disk before detaching it from the VM.
 
-In this example, we remove the disk named **myDisk** from the VM **myVM** in the **myResourceGroup** resource group. First you remove the disk using the [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) cmdlet. Then, you update the state of the virtual machine, using the [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet, to complete the process of removing the data disk.
+In this example, we remove the disk named **myDisk** from the VM **myVM** in the **myResourceGroup** resource group. First you remove the disk using the [Remove-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdatadisk) cmdlet. Then, you update the state of the virtual machine, using the [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) cmdlet, to complete the process of removing the data disk.
 
 ```azurepowershell-interactive
-$VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
-Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "myDisk"
-Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Remove-AzVMDataDisk -VM $VirtualMachine -Name "myDisk"
+Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 ```
 
 The disk stays in storage but is no longer attached to a virtual machine.

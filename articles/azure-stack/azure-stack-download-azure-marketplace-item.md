@@ -13,10 +13,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/10/2018
+ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: unknown
+ms.lastreviewed: 12/10/2018
 ---
+
 # Download marketplace items from Azure to Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
@@ -160,9 +162,15 @@ There are two parts to this scenario:
 
    ```PowerShell
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
-   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
+   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
    ```
+
+   The `-origin` parameter specifies the top level folder that contains all the downloaded products; for example, `"D:\downloadfolder"`.
+
    The `-AzsCredential` parameter is optional. It is used to renew the access token, if it has expired. If the `-AzsCredential` parameter is not specified and the token expires, you receive a prompt to enter the operator credentials.
+
+    > [!Note]  
+    > AD FS only supports interactive authentication with user identities. If a credential object is required you must use a service principal (SPN). For more information on setting up a service principal with Azure Stack and AD FS as your identity management service, see [Manage service principal for AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 4. After the script successfully completes, the item should be available in the Azure Stack Marketplace.
 
@@ -229,9 +237,9 @@ There are two parts to this scenario:
 
 With the release of Azure Stack PowerShell 1.3.0 you can now add Virtual Machine Extensions. For example:
 
-````PowerShell
+```PowerShell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
-````
+```
 
 ## Next steps
 

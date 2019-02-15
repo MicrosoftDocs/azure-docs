@@ -179,11 +179,11 @@ The next step is to update the Android application created in the [Tutorial: Pus
         protected HttpClient httpClient;
         private String authorizationHeader;
 
-        public RegisterClient(Context context, String backendEnpoint) {
+        public RegisterClient(Context context, String backendEndpoint) {
             super();
             this.settings = context.getSharedPreferences(PREFS_NAME, 0);
             httpClient =  new DefaultHttpClient();
-            Backend_Endpoint = backendEnpoint + "/api/register";
+            Backend_Endpoint = backendEndpoint + "/api/register";
         }
 
         public String getAuthorizationHeader() {

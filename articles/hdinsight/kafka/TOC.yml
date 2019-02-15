@@ -16,7 +16,8 @@
     href: apache-kafka-get-started.md
   - name: Create an Apache Kafka cluster - PowerShell
     href: apache-kafka-quickstart-powershell.md
-  - name: Create an Apache kafka cluster - Template
+  - name: Create an Apache Kafka cluster - Resource Manager Template
+    displayName: resource manager template, arm template, resource manager group
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Tutorials
   items:
@@ -142,6 +143,7 @@
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
       - name: Use Azure Resource Manager templates
+        displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
     - name: Manage Apache Hadoop clusters
@@ -261,6 +263,7 @@
   - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
   - name: Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
     href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resources
   items:

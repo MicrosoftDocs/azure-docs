@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.component: disks
+ms.subservice: disks
 
 ---
 # Use the portal to attach a data disk to a Linux VM 
@@ -95,10 +95,10 @@ The output is similar to the following example:
 
 Here, *sdc* is the disk that we want. 
 
-### Partion a new disk
+### Partition a new disk
 If you are using an existing disk that contains data, skip to mounting the disk. If you are attaching a new disk, you need to partition the disk.
 
-Use `fdisk` to partition the disk, make it a primary disk on partition 1, and accept the other defaults. The following example starts the `fdisk` process on */dev/sdc*:
+Partition the disk with `fdisk`. If the disk size is 2 tebibytes (TiB) or larger then you must use GPT partitioning, you can use `parted` to perform GPT partitioning. If disk size is under 2TiB, then you can use either MBR or GPT partitioning. Make it a primary disk on partition 1, and accept the other defaults. The following example starts the `fdisk` process on */dev/sdc*:
 
 ```bash
 sudo fdisk /dev/sdc

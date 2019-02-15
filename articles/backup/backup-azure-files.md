@@ -4,7 +4,7 @@ description: This article details how to back up and restore your Azure file sha
 services: backup
 author: rayne-wiselman
 ms.author: raynew
-ms.date: 3/23/2018
+ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm

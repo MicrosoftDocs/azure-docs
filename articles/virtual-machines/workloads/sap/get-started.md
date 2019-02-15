@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/22/2019
+ms.date: 02/05/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -33,6 +33,8 @@ The uniqueness of Azure for SAP HANA is an offer that sets Azure apart from comp
 Hosting SAP workload scenarios in Azure also can create requirements of Identity integration and Single-Sign-On using Azure Activity Directory to different SAP components and SAP SaaS or PaaS offers. A list of such integration and Single-Sign-On scenarios with Azure Active Directory (AAD) and SAP entities is described and documented in the section "AAD SAP Identity Integration and Single-Sign-On."
 
 ## Latest Changes
+
+Release of [SAP workload configurations with Azure Availability Zones](sap-ha-availability-zones.md)
 
 Release of [SAP workload planning and deployment checklist](sap-deployment-checklist.md)
 

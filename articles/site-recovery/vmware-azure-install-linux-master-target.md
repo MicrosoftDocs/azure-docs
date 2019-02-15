@@ -127,7 +127,7 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 
     ![Select software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. In the selction for installing the GRUB boot loader, Select **Yes**, and then select **Enter**.
+1. In the selection for installing the GRUB boot loader, Select **Yes**, and then select **Enter**.
      
     ![GRUB boot installer](./media/vmware-azure-install-linux-master-target/image20.png)
 

@@ -8,13 +8,14 @@ manager: daveba
 editor: bryanla
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # Use a Linux VM system-assigned managed identity to access Azure Resource Manager

@@ -8,14 +8,15 @@ author: barbkess
 manager: daveba
 ms.service: active-directory
 ms.topic: landing-page
-ms.date: 01/16/2019
-ms.author: mtillman
+ms.date: 01/24/2019
+ms.author: barbkess
+ms.collection: M365-identity-device-management
 ---
 
 <div id="main" class="v2">
     <div class="container">
         <h1>Azure Active Directory Documentation</h1>
-        <p>Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory, and identity management service.</p><p></p>
+        <p>Azure Active Directory (Azure AD) is a multi-tenant, cloud-based identity and access management service.</p><p></p>
         <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
             <li>
                 <a href="fundamentals/active-directory-whatis.md">
@@ -24,7 +25,7 @@ ms.author: mtillman
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="../cognitive-services/media/index/i_overview.svg" alt="" />
+                                    <img src="media/index/i_overview.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -43,7 +44,7 @@ ms.author: mtillman
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="../cognitive-services/media/index/i_get-started.svg" alt="" />
+                                    <img src="media/index/i_get-started.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -62,12 +63,12 @@ ms.author: mtillman
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                    <img src="media/index/i_guidelines.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
                                 <h3>Add company branding</h3>
-                                <p>Learn how to add your organization's  logo and color scheme to your Azure AD sign-in pages.</p>
+                                <p>Learn how to add your organization's logo and color scheme to your Azure AD sign-in pages.</p>
                             </div>
                         </div>
                     </div>
@@ -81,7 +82,7 @@ ms.author: mtillman
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                    <img src="media/index/i_guidelines.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -100,7 +101,7 @@ ms.author: mtillman
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                    <img src="media/index/i_guidelines.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -119,12 +120,12 @@ ms.author: mtillman
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="../cognitive-services/media/index/i_guidelines.svg" alt="" />
+                                    <img src="media/index/i_guidelines.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
                                 <h3>Learn</h3>
-                                <p>Learn how to secure your Azure resources with conditional access</p>
+                                <p>Learn how to secure your Azure resources with conditional access.</p>
                             </div>
                         </div>
                     </div>
@@ -305,6 +306,27 @@ ms.author: mtillman
                         </ul>
                     </li>
                 </ul>
+            </li>
+        </ul>
+        <ul class="cardsY panelContent singlePanelContent" style="display:flex!important;">
+            <li>
+                <a href=" https://docs.microsoft.com/microsoft-365/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="/office/media/icons/caret-right-blue.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Microsoft 365</h3>
+                                <p>Explore Microsoft 365, a complete solution that includes Azure AD.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </a>
             </li>
         </ul>
     </div>

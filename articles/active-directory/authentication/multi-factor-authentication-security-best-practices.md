@@ -4,7 +4,7 @@ description: This document provides guidance around using Azure MFA with Azure a
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
@@ -13,6 +13,7 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Security guidance for using Azure Multi-Factor Authentication with Azure AD accounts
 

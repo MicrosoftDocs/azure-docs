@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to use the Custom Vision service to build custom image classifiers in the Azure cloud.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 01/10/2019
 ms.author: anroth

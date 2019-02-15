@@ -4,7 +4,7 @@ description: Azure Active Directory B2B collaboration supports guest user access
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: overview
 ms.date: 09/14/2018
 
@@ -13,6 +13,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 
+ms.collection: M365-identity-device-management
 ---
 
 # What is guest user access in Azure Active Directory B2B?

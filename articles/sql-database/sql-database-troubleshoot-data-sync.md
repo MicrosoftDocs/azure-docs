@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 07/16/2018
+ms.date: 12/20/2018
 ---
 # Troubleshoot issues with SQL Data Sync
 

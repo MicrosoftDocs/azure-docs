@@ -10,7 +10,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Troubleshoot creating an Azure Active Directory or Azure Active Directory B2C tenant 

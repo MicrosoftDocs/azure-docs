@@ -4,7 +4,7 @@ description: Learn how to require multi-factor authentication (MFA) when you use
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 06/25/2018
 
@@ -13,6 +13,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Enforce multi-factor authentication for B2B guest users

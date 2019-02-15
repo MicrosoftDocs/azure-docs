@@ -8,7 +8,7 @@ ms.date: 11/15/2017
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
-ms.component: disks
+ms.subservice: disks
 ---
 
 # Scalability and performance targets for VM disks on Linux

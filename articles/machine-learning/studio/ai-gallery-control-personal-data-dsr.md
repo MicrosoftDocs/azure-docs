@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning Studio
 description: You can export and delete your in-product user data from Azure AI Gallery using the interface or AI Gallery Catalog API. This article shows you how.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: conceptual
 
 author: ericlicoding
@@ -42,7 +42,7 @@ The author ID is based on the email address used when publishing to the Azure AI
 1.	Sign in to [Azure AI Gallery](https://gallery.azure.ai/).
 2.	Click the profile picture in the top-right corner, and then the account name to load your profile page.
 3.	The URL in the address bar displays the alphanumeric ID following `authorId=`. For example, for the URL: 
-    `https://gallery.cortanaintelligence.com/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
+    `https://gallery.azure.ai/Home/Author?authorId=99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`
         
     Author ID: 
     `99F1F5C6260295F1078187FA179FBE08B618CB62129976F09C6AF0923B02A5BA`

@@ -9,8 +9,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/13/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Migrate from federation to password hash synchronization for Azure Active Directory
@@ -25,7 +26,8 @@ The following prerequisites are required to migrate from using AD FS to using pa
 
 ### Update Azure AD Connect
 
-To successfully complete the steps it takes to migrate to using password hash synchronization, you must have [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0 or a later version. In Azure AD Connect 1.1.819.0, the way sign-in conversion is performed changes significantly. The overall time to migrate from AD FS to cloud authentication in this version is reduced from potentially hours to minutes.
+As a minimum to successfully perform the steps to migrate to password hash synchronization, you should have [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0. This version contains significant changes to the way sign-in conversion is performed and reduces the overall time to migrate from Federation to Cloud Authentication from potentially hours to minutes.
+
 
 > [!IMPORTANT]
 > You might read in outdated documentation, tools, and blogs that user conversion is required when you convert domains from federated identity to managed identity. *Converting users* is no longer required. Microsoft is working to update documentation and tools to reflect this change.

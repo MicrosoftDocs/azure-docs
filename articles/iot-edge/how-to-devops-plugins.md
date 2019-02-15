@@ -18,4 +18,4 @@ The Azure IoT Edge plugin for Jenkins focuses on continuous integration and cont
 
 Before you start using the IoT Edge plugin for Jenkins, you need an IoT hub in Azure and a container registry to hold your container images. Use an Azure Service Principal to give Jenkins contributor permissions to your IoT hub so that the plugin can create deployments for your IoT Edge devices. 
 
-If you're ready to get started, find installation and use details for the [Azure IoT Edge plugin for Jenkinx](https://plugins.jenkins.io/azure-iot-edge).
+If you're ready to get started, find installation and use details for the [Azure IoT Edge plugin for Jenkins](https://plugins.jenkins.io/azure-iot-edge).

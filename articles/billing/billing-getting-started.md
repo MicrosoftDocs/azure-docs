@@ -3,7 +3,7 @@ title: Prevent unexpected costs, manage billing in Azure | Microsoft Docs
 description: Learn how to avoid unexpected charges on your Azure bill. Use cost-tracking and management features for a Microsoft Azure subscription.
 services: ''
 documentationcenter: ''
-author: tonguyen10
+author: bandersmsft
 manager: alherz
 editor: ''
 tags: billing
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: cwatson
+ms.author: banders
 ---
 # Prevent unexpected charges with Azure billing and cost management
 
@@ -70,7 +70,7 @@ This example uses the **Actual Cost Over Time** report to send a notification wh
 5. Select the **Threshold** tab and then select  **Actual Cost vs. Threshold**. 
    1. In the **Red alert** threshold box enter 10000. 
    2. In the **Yellow alert** threshold box enter 9000. 
-   3. In the **Number of consecutive alerts** box, enter the number of consecutive alerts to recieve. When you recieve the total number of alerts that you specified, no additional alerts are sent. 
+   3. In the **Number of consecutive alerts** box, enter the number of consecutive alerts to receive. When you receive the total number of alerts that you specified, no additional alerts are sent. 
 6. Select **Save**.
 
     ![Example showing red and yellow alerts based on spending thresholds](./media/billing-getting-started/schedule-alert01.png)

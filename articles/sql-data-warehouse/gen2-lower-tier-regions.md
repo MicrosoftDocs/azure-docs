@@ -5,7 +5,7 @@ author: antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 12/03/2018
 ms.author: anvang
 ms.reviewer: igorstan
@@ -42,6 +42,7 @@ Watch Azure SQL Data Warehouse Gen2 in action in this [Microsoft Mechanics video
 - Japan East
 - India Central
 - Australia East
+- Australia Southeast
 - Canada Central
 - Japan West 
 - Canada Central

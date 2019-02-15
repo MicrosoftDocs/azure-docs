@@ -41,6 +41,8 @@ The window will appear as shown:
 | SU % Utilization       | The utilization of the Streaming Unit(s) assigned to a job from the Scale tab of the job. Should this indicator reach 80%, or above, there is high probability that event processing may be delayed or stopped making progress. |
 | Watermark Delay       | The maximum watermark delay across all partitions of all outputs in the job. |
 
+You can use these metrics to [monitor the performance of your Stream Analytics job](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-set-up-alerts#scenarios-to-monitor). 
+
 ## Customizing Monitoring in the Azure portal
 You can adjust the type of chart, metrics shown, and time range in the Edit Chart settings. For details, see [How to Customize Monitoring](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 

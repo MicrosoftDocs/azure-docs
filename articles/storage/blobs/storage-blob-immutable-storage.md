@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: hux
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Store business-critical data in Azure Blob storage

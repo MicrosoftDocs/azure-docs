@@ -99,7 +99,7 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 
 ```
 
-The `az mysql server georestore` command requies the following parameters:
+The `az mysql server georestore` command requires the following parameters:
 
 | Setting | Suggested value | Description  |
 | --- | --- | --- |

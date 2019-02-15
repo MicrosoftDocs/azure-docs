@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: In this tutorial, you will learn how to integrate the Azure Computer Vision service into a web app to generate metadata for images.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: tutorial 
 ms.date: 01/03/2019
 ms.author: pafarley

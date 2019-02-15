@@ -6,12 +6,13 @@ author: MarkusVi
 manager: daveba
 tags: azuread
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/13/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: martincoetzer
+ms.collection: M365-identity-device-management
 ---
 
 # How To: Plan your conditional access deployment in Azure Active Directory
@@ -27,7 +28,7 @@ If additional features are required, you might also need to get related licenses
 
 There are two types of conditional access policies: baseline and standard. A [baseline policy](baseline-protection.md) is a predefined conditional access policy. The goal of these policies is to make sure that you have at least the baseline level of security enabled. Baseline policies. Baseline policies are available in all editions of Azure AD, and they provide only limited customization options. If a scenario requires more flexibility, disable the baseline policy, and implement your requirements in a custom standard policy.
 
-In a standard conditional access policy, you can to customize all settings to adjust the policy to your business requirements. Standard policies require an Azure AD Premium P1 license.
+In a standard conditional access policy, you can customize all settings to adjust the policy to your business requirements. Standard policies require an Azure AD Premium P1 license.
 
 
 
@@ -49,9 +50,9 @@ Use the following example template to create conditional access policies for you
 
 |When *this* happens:|Then do *this*:|
 |-|-|
-|An access attempt is made:<br>- To a cloud app*<br>- By users and groups*<br>Using:<br>- Condition 1 (for example, outside Corp network)<br>- Condition 2 (for example, sign-in risk)|Block access to the application|
-|An access attempt is made:<br>- To a cloud app*<br>- By users and groups*<br>Using:<br>- Condition 1 (for example, outside Corp network)<br>- Condition 2 (for example, sign-in risk)|Grant access with (AND):<br>- Requirement 1 (for example, MFA)<br>- Requirement 2 (for example, Device compliance)|
-|An access attempt is made:<br>- To a cloud app*<br>- By users and groups*<br>Using:<br>- Condition 1 (for example, outside Corp network)<br>- Condition 2 (for example, sign-in risk)|Grant access with (OR):<br>- Requirement 1 (for example, MFA)<br>- Requirement 2 (for example, Device compliance)|
+|An access attempt is made:<br>- To a cloud app*<br>- By users and groups*<br>Using:<br>- Condition 1 (for example, outside Corp network)<br>- Condition 2 (for example, device platforms)|Block access to the application|
+|An access attempt is made:<br>- To a cloud app*<br>- By users and groups*<br>Using:<br>- Condition 1 (for example, outside Corp network)<br>- Condition 2 (for example, device platforms)|Grant access with (AND):<br>- Requirement 1 (for example, MFA)<br>- Requirement 2 (for example, Device compliance)|
+|An access attempt is made:<br>- To a cloud app*<br>- By users and groups*<br>Using:<br>- Condition 1 (for example, outside Corp network)<br>- Condition 2 (for example, device platforms)|Grant access with (OR):<br>- Requirement 1 (for example, MFA)<br>- Requirement 2 (for example, Device compliance)|
 
 At a minimum, **when this happens** defines the principal (**who**) that attempts to access a cloud app (**what**). If necessary, you can also include **how** an access attempt is performed. In conditional access, the elements that define the who, what, and how are known as conditions. For more information, see [What are conditions in Azure Active Directory conditional access?](conditions.md) 
 
@@ -65,28 +66,42 @@ The combination of conditions with your access controls represents a conditional
 
 For more information, see [what's required to make a policy work](best-practices.md#whats-required-to-make-a-policy-work).
 
-At this point, it's is a good time to decide on a naming standard for your policies. The naming standard helps you to find policies and understand their purpose without opening them in the Azure admin portal. You should name your policy to show:
+At this point, it's a good time to decide on a naming standard for your policies. The naming standard helps you to find policies and understand their purpose without opening them in the Azure admin portal. You should name your policy to show:
 
 - A sequence number
 - The cloud app it applies to
 - The response
 - Who it applies to
-- When it applies 
+- When it applies (if applicable)
  
 ![Naming standard](./media/plan-conditional-access/11.png)
 
-
+While a descriptive name helps you to keep an overview of your conditional access implementation, the sequence number is helpful if you need to reference a policy in a conversation. For example, if you talk a fellow administrator on the phone, you can ask him to open policy EM063 to solve an issue.
 
 
 
 For example, the following name states that the policy requires MFA for marketing users on external networks using the Dynamics CRP app:
 
-`CA01-Dynamics CRP: Require MFA For marketing When on external networks`
+`CA01 - Dynamics CRP: Require MFA For marketing When on external networks`
 
 
-In addition to your active policies, you should also implement disabled policies that act as secondary [resilient access controls in outage/emergency scenarios](../authentication/concept-resilient-controls.md). Your naming standard should also include this purpose to make it easier to enable them during an outage. For example:
+In addition to your active policies, it is advisable to also implement disabled policies that act as secondary [resilient access controls in outage/emergency scenarios](../authentication/concept-resilient-controls.md). Your naming standard for the contingency policies should include a few more items: 
 
-`EM01-Finance app: Require MFA For Sales When on untrusted network`
+- `ENABLE IN EMERGENCY` at the beginning to make the name stand out among the other policies.
+
+- The name of disruption it should apply to.
+
+- An ordering sequence number to help the administrator to know in which order policies should be enabled. 
+
+
+For example, the following name indicates that this policy is the first policy out of four you should enable in the case of MFA disruption:
+
+`EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users`
+
+
+
+
+
 
 
 ## Plan policies
@@ -113,12 +128,12 @@ Common use cases to require MFA are access:
 
 - [By admins](baseline-protection.md#require-mfa-for-admins)
 - [To specific apps](app-based-mfa.md) 
-- [From network locations you don't trust](untrusted-networks.md).
+- [From network locations, you don't trust](untrusted-networks.md).
 
 
 ### Respond to potentially compromised accounts
 
-With conditional access polices, you can implement automated responses to sign-ins from potentially compromised identities. The probability that an account has been compromised is expressed in form of risk levels. There are two risk levels calculated by identity protection: sign-in risk and user risk. To implement a response to a sign-in risk, you have two options:
+With conditional access policies, you can implement automated responses to sign-ins from potentially compromised identities. The probability that an account has been compromised is expressed in form of risk levels. There are two risk levels calculated by identity protection: sign-in risk and user risk. To implement a response to a sign-in risk, you have two options:
 
 - [The sign-in risk condition](conditions.md#sign-in-risk) in conditional access policy
 - [The sign-in risk policy](../identity-protection/howto-sign-in-risk-policy.md) in identity protection 
@@ -178,10 +193,10 @@ The test plan is important to have a comparison between the expected results and
 |[Require MFA when not at work](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Authorized user signs into *App* while on a trusted location / work|User isn't prompted to MFA| |
 |[Require MFA when not at work](https://docs.microsoft.com/azure/active-directory/conditional-access/untrusted-networks)|Authorized user signs into *App* while not on a trusted location / work|User is prompted to MFA and can sign in successfully| |
 |[Require MFA (for admin)](https://docs.microsoft.com/azure/active-directory/conditional-access/baseline-protection#require-mfa-for-admins)|Global Admin signs into *App*|Admin is prompted to MFA| |
-|[Risky Sign-Ins](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|User signs into *App* using a [Tor browser](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|Admin is prompted to MFA| |
-|[Device Management](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Authorized user attempts to sign in from an authorized device|Access Granted| |
-|[Device Management](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Authorized user attempts to sign in from an unauthorized device|Access blocked| |
-|[Password Change for risky users](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|Authorized user attempts to sign in with compromised credentials (high risk sign in)|User is prompted to change password or access is blocked based on your policy| |
+|[Risky sign-ins](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)|User signs into *App* using a [Tor browser](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-playbook)|Admin is prompted to MFA| |
+|[Device management](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Authorized user attempts to sign in from an authorized device|Access Granted| |
+|[Device management](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|Authorized user attempts to sign in from an unauthorized device|Access blocked| |
+|[Password change for risky users](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)|Authorized user attempts to sign in with compromised credentials (high risk sign in)|User is prompted to change password or access is blocked based on your policy| |
 
 
 ### Configure the policy
@@ -209,7 +224,7 @@ Now that you have configured your conditional access policy, you probably want t
 
 Run test cases according to your test plan. In this step, you run through an end-to-end test of each policy for your test users to make sure each policy behaves correctly. Use the scenarios created above to execute each test.
 
-It is important to make sure you test the exclusion criteria of a policy. For example, you may exclude a user or group from a policy that require MFA. You should therefore test if the excluded users are prompted for MFA, because the combination of other policies might require MFA for those users.
+It is important to make sure you test the exclusion criteria of a policy. For example, you may exclude a user or group from a policy that requires MFA. You should therefore test if the excluded users are prompted for MFA, because the combination of other policies might require MFA for those users.
 
 
 ### Cleanup
@@ -227,7 +242,7 @@ The cleanup procedure consists of the following steps:
 
 ## Move to production
 
-When you are ready to deploy a new policy into your environment, you should do this in phases:
+When new policies are ready for your environment, deploy them in phases::
 
 - Provide internal change communication to end users.
 

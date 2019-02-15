@@ -7,7 +7,7 @@ documentationcenter: ''
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/21/2018
 
@@ -16,6 +16,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Add B2B collaboration guest users without an invitation

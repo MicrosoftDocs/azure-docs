@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 02/07/2019
 ms.reviewer: mbullwin
 ms.author: harelbr
 ---
@@ -26,6 +26,7 @@ You can configure the following settings for a smart detection rule:
 - If the rule is enabled (the default is **true**.)
 - If emails should be sent to the subscription owners, contributors and readers when a detection is found (the default is **true**.)
 - Any additional email recipients who should get a notification when a detection is found.
+- * Email configuration is not available for Smart Detection rules marked as _Preview_.
 
 To allow configuring the rule settings via Azure Resource Manager, the smart detection rule configuration is now available as an inner resource within the Application Insights resource, named **ProactiveDetectionConfigs**.
 For maximal flexibility, each smart detection rule can be configured with unique notification settings.
@@ -152,7 +153,7 @@ Below is a table of smart detection rule names as they appear in the portal, alo
 
 ## Who receives the (classic) alert notifications?
 
-This section only applies to smart detection classic alerts and will help you optimize your alert notifications to ensure that only your desired recipients receive notifications. To understand more about the difference between [classic alerts](../platform/alerts-classic.overview.md and the new alerts experience refer to the [alerts overview article](../platform/alerts-overview.md). Currently smart detection alerts only support the classic alerts experience. The one exception to this is [smart detection alerts on Azure cloud services](./proactive-cloud-services.md). To control alert notification for smart detection alerts on Azure cloud services use [action groups](../platform/action-groups.md).
+This section only applies to smart detection classic alerts and will help you optimize your alert notifications to ensure that only your desired recipients receive notifications. To understand more about the difference between [classic alerts](../platform/alerts-classic.overview.md) and the new alerts experience refer to the [alerts overview article](../platform/alerts-overview.md). Currently smart detection alerts only support the classic alerts experience. The one exception to this is [smart detection alerts on Azure cloud services](./proactive-cloud-services.md). To control alert notification for smart detection alerts on Azure cloud services use [action groups](../platform/action-groups.md).
 
 * We recommend the use of specific recipients for smart detection/classic alert notifications.
 

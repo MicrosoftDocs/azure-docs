@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/23/2019
-ms.author: cwatson
+ms.author: banders
 
 ---
 # Cancel your subscription for Azure

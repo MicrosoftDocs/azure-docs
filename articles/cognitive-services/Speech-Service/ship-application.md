@@ -4,9 +4,9 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to create apps using the Speech SDK.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma

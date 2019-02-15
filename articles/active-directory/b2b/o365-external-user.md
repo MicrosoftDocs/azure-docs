@@ -4,7 +4,7 @@ description: Discusses sharing resources with external partners using O365 and A
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/24/2017
 
@@ -13,6 +13,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Office 365 external sharing and Azure Active Directory B2B collaboration

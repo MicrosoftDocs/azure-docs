@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to use the Bing Image Search API to get more information about an image.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 0BCD936E-D4C0-472D-AE40-F4B2AB6912D5
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
@@ -216,7 +216,7 @@ The values of the rectangle are relative to the width and height of the original
 -   Right: 290 / 300 = 0.9667...  
 -   Bottom: 150 / 200 = 0.75  
 
-You can use the region that Bing returns in subsequent insights calls. For example, to get visually similar images of the recognized entity. For more information, see [Cropping Images to use with Visually Similar and Entity Recognition Modules](#croppingimages). The following shows the mapping between the region fields and the query parameters that you'd use to crop images.  
+You can use the region that Bing returns in subsequent insights calls. For example, to get visually similar images of the recognized entity. For more information, see Cropping Images to use with Visually Similar and Entity Recognition Modules. The following shows the mapping between the region fields and the query parameters that you'd use to crop images.  
 
 -   Left maps to [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  
 -   Top maps to [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat)  

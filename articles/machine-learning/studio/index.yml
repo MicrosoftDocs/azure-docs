@@ -6,7 +6,7 @@ metadata:
   description: Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.
   services: machine-learning
   ms.service: machine-learning
-  ms.component: studio
+  ms.subservice: studio
   ms.topic: landing-page
   
   author: j-martens
@@ -39,7 +39,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="walkthrough-develop-predictive-solution">Create and deploy a predictive solution</a>
+    - html: <a href="tutorial-part1-credit-risk">Create and deploy a predictive solution</a>
     - html: <a href="azure-ml-customer-churn-scenario">Customer churn example</a>
 
 

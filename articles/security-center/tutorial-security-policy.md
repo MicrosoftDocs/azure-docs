@@ -4,7 +4,7 @@ description: This article describes how to working with security policies in Azu
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -32,7 +32,7 @@ A security policy defines the desired configuration of your workloads and helps 
 
 Your security policies drive the security recommendations you get in Azure Security Center. You can monitor compliance with them to help you identify potential vulnerabilities and mitigate threats. For more information about how to determine the option that is appropriate for you, see the list of [built-in security policies](security-center-policy-definitions.md).
 
-When you enable Security Center, the security policy built-in to Security Center is reflected in Azure Policy as a built-in initiative under the category Security Center. The built-in intitiative is automatically assigned to all Security Center registered subscriptions (Free or Standard tiers). The built-in initiative contains only Audit policies. 
+When you enable Security Center, the security policy built-in to Security Center is reflected in Azure Policy as a built-in initiative under the category Security Center. The built-in initiative is automatically assigned to all Security Center registered subscriptions (Free or Standard tiers). The built-in initiative contains only Audit policies. 
 
 
 ### Management groups
@@ -117,7 +117,7 @@ The built-in initiative has all of Security Center’s policies enabled by defau
 In the following examples, replace these variables:
 
 - **{scope}** enter the name of the management group or subscription you are applying the policy to.
-- **{poicyAssignmentName}** enter the [name of the relevant policy assignment](#policy-names).
+- **{policyAssignmentName}** enter the [name of the relevant policy assignment](#policy-names).
 - **{name}** enter your name, or the name of the administrator who approved the policy change.
 
 This example shows you how to assign the built-in Security Center initiative on a subscription or management group
@@ -208,7 +208,7 @@ This example shows you how to remove an assignment:
 |Security configurations |Monitor OS vulnerabilities in Azure Security Center |systemConfigurationsMonitoringEffect| 
 |Endpoint protection |Monitor missing Endpoint Protection in Azure Security Center |endpointProtectionMonitoringEffect |
 |Disk encryption |Monitor unencrypted VM Disks in Azure Security Center |diskEncryptionMonitoringEffect|
-|Vulnerability assessment |Monitor VM Vulnerabilities in Azure Security Center |vulnerabilityAssesmentMonitoringEffect|
+|Vulnerability assessment |Monitor VM Vulnerabilities in Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
 |Web application firewall |Monitor unprotected web application in Azure Security Center |webApplicationFirewallMonitoringEffect |
 |Next generation firewall |Monitor unprotected network endpoints in Azure Security Center| |
 

@@ -1,10 +1,10 @@
 ---
 title: Consume Studio web service with web app template
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
 description: Use a web app template in Azure Marketplace to consume a predictive web service in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.topic: article
 
 author: ericlicoding
@@ -16,7 +16,7 @@ ms.date: 03/20/2017
 
 You can develop a predictive model and deploy it as an Azure web service by using:
 - Azure Machine Learning Studio.
-- Tools such as R or Python. 
+- Tools such as R or Python.
 
 After that, you can access the operationalized model by using a REST API.
 
@@ -31,10 +31,10 @@ The web app templates available in the Azure Marketplace can build a custom web 
 
 Two templates are available:
 
-* [Azure ML Request-Response Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
-* [Azure ML Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
+* [Azure Machine Learning studio Request-Response Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
+* [Azure Machine Learning studio Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
 
-Each template creates a sample ASP.NET application by using the API URI and key for your web service. The template then deploys the application as a website to Azure. 
+Each template creates a sample ASP.NET application by using the API URI and key for your web service. The template then deploys the application as a website to Azure.
 
 The Request-Response Service (RRS) template creates a web app that you can use to send a single row of data to the web service to get a single result. The Batch Execution Service (BES) template creates a web app that you can use to send many rows of data to get multiple results.
 
@@ -59,33 +59,33 @@ Follow these steps to use the RRS web app template, as shown in the following di
 <!--    ![API Key][image3] -->
 
 <!-- This value will look like this:
-   
+
         https://ussouthcentral.services.azureml.net/workspaces/<workspace-id>/services/<service-id>/execute?api-version=2.0&details=true
-   
+
     ![Request URI][image4] -->
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **New**, search for and select **Azure ML Request-Response Service Web App**, and then select **Create**. 
+2. Select **New**, search for and select **Azure ML Request-Response Service Web App**, and then select **Create**.
 3. In the **Create** pane:
-   
+
    * Give your web app a unique name. The URL of the web app will be this name followed by **.azurewebsites.net**. An example is **http://carprediction.azurewebsites.net**.
    * Select the Azure subscription and services under which your web service is running.
    * Select **Create**.
-     
+
    ![Create web app][image5]
 
 4. When Azure has finished deploying the web app, select the **URL** on the web app settings page in Azure, or enter the URL in a web browser. For example, enter **http://carprediction.azurewebsites.net**.
 5. When the web app first runs, it asks you for the **API Post URL** and **API Key**. Enter the values that you saved earlier (request URI and API key, respectively). Select **Submit**.
-     
+
    ![Enter post URI and API key][image6]
 
 6. The web app displays its **Web App Configuration** page with the current web service settings. Here you can make changes to the settings that the web app uses.
-   
+
    > [!NOTE]
    > Changing the settings here only changes them for this web app. It doesn't change the default settings of your web service. For example, if you change the text in **Description** here, it doesn't change the description shown on the web service dashboard in Machine Learning Studio.
-   > 
-   > 
-   
+   >
+   >
+
     When you're done, select **Save changes**, and then select **Go to Home Page**.
 
 7. From the home page, you can enter values to send to your web service. Select **Submit** when you're done, and the result will be returned.
@@ -101,11 +101,11 @@ The input values for a batch execution web service can come from Azure Storage o
 
 ![Process to use BES web template][image2]
 
-1. Follow the same procedure to create the BES web app as for the RRS template. But in this case, go to [Azure ML Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) to open the BES template in the Azure Marketplace. Select **Create Web App**.
+1. Follow the same procedure to create the BES web app as for the RRS template. But in this case, go to [Azure Machine Learning studio Batch Execution Service Web App Template](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) to open the BES template in the Azure Marketplace. Select **Create Web App**.
 
 2. To specify where you want the results stored, enter the destination container information on the web app's home page. Also specify where the web app can get the input values: either in a local file or in an Azure storage container.
    Select **Submit**.
-   
+
    ![Storage information][image7]
 
 The web app displays a page with job status. When the job is completed, you get the location of the results in Azure Blob storage. You also have the option of downloading the results to a local file.

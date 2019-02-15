@@ -22,7 +22,7 @@ with [Azure Log Analytics](../log-analytics/log-analytics-overview.md).
 This service monitors your cloud and on-premises environments, 
 help you maintain their availability and performance, and collects 
 runtime details and events for richer debugging. You can also 
-[use this data with other services](#extend-diagnostic-data) 
+use this data with other services 
 such as Azure Storage and Azure Event Hubs.
 
 > [!NOTE]

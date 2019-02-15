@@ -152,6 +152,8 @@
       href: copy-vm.md
   - name: Secure VMs
     items:
+    - name: Just-in-time access
+      href: ../../security-center/security-center-just-in-time.md
     - name: Encrypt
       href: encrypt-disks.md
     - name: Use access controls

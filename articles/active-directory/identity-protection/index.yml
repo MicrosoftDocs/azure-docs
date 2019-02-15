@@ -6,7 +6,7 @@ metadata:
   title: Azure Active Directory Identity Protection Documentation - Quickstarts, concepts, references | Microsoft Docs
   description: Learn how to configure and test Azure Active Directory Identity Protection.
   services: active-directory
-  ms.component: identity-protection
+  ms.subservice: identity-protection
   author: MarkusVi
   manager: daveba
   ms.service: active-directory

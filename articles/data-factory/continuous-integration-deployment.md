@@ -849,7 +849,7 @@ You can define custom parameters for the Resource Manager template. You simply n
 
 Here are some guidelines to use when authoring the custom parameters file. To see examples of this syntax, see the following section, [Sample custom parameters file](#sample).
 
-1. When you specify array in the definition file, you indicate that the matching property in the template is an array. Data Factory iterates through all the objects in the array using the definition specified in the fIntegration Runtimest object of the array. The second object, a string, becomes the name of the property, which is used as the name for the parameter for each iteration.
+1. When you specify array in the definition file, you indicate that the matching property in the template is an array. Data Factory iterates through all the objects in the array using the definition specified in the Integration Runtime object of the array. The second object, a string, becomes the name of the property, which is used as the name for the parameter for each iteration.
 
     ```json
     ...

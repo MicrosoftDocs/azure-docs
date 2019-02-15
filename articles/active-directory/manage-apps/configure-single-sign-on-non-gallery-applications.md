@@ -2,15 +2,16 @@
 title: Single sign-on - non-gallery applications - Azure Active Directory | Microsoft Docs
 description: Configure single sign-on (SSO) to non-gallery applications in Azure Active Directory (Azure AD)
 services: active-directory
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
 ms.date: 01/08/2019
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asmalser,luleon
+ms.collection: M365-identity-device-management
 ---
 
 # Configure single sign-on to non-gallery applications in Azure Active Directory

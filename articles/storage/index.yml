@@ -61,8 +61,8 @@ sections:
         - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
       - title: Data Lake Storage Gen2
         values:
-        - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account#create-an-account-using-the-azure-portal      
-        - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account#create-an-account-using-powershell      
+        - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account      
+        - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account      
         - href: /azure/storage/blobs/data-lake-storage-quickstart-create-account      
         - href: 
         - href: 

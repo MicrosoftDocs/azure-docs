@@ -1,5 +1,5 @@
 ---
-title: How to integrate Azure Active Directory logs with Log Analytics by using Azure Monitor (preview)  | Microsoft Docs
+title: Stream Azure Active Directory logs to Log Analytics using Azure Monitor (preview)  | Microsoft Docs
 description: Learn how to integrate Azure Active Directory logs with Log Analytics by using Azure Monitor (preview)
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 
 # Integrate Azure AD logs with Log Analytics using Azure Monitor (preview)

@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/21/2018
+ms.date: 01/25/2019
 
 ms.custom: seodec18
 ---
@@ -38,8 +38,8 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 
 | Linux distribution | Version | Volume type supported for encryption|
 | --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | OS and data disk |
-| Ubuntu | 14.04.5-DAILY-LTS | OS and data disk |
+| Ubuntu | 16.04| OS and data disk |
+| Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS and data disk |
 | RHEL | 7.5 | OS and data disk* |
 | RHEL | 7.4 | OS and data disk* |
 | RHEL | 7.3 | OS and data disk* |
@@ -55,13 +55,9 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 | CentOS | 6.7 | Data disk |
 | CentOS | 6.6 | Data disk |
 | CentOS | 6.5 | Data disk |
-| openSUSE | 13.2 | Data disk |
-| SLES | 12 SP1 | Data disk |
-| SLES | Priority: 12-SP1 | Data disk |
-| SLES | HPC 12 | Data disk |
-| SLES | Priority: 11-SP4 | Data disk |
-| SLES | 11 SP4 | Data disk |
-
+| openSUSE | 42.3 | Data disk |
+| SLES | 12-SP4 | Data disk |
+| SLES | 12-SP3 | Data disk |
 
 *__New ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. Please also refer to the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article for more information.__
 

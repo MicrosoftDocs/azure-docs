@@ -4,7 +4,7 @@ description: In this tutorial, you will enable Azure AD self-service password re
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 
@@ -14,6 +14,7 @@ manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: How, as an Azure AD Administrator, do I enable SSPR to complete a pilot roll out.
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Complete an Azure AD self-service password reset pilot roll out
 

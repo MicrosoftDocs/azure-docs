@@ -6,7 +6,7 @@ metadata:
   title: Azure Active Directory B2B Documentation - Tutorials, quickstarts, concepts, references | Microsoft Docs
   description: Learn how to use B2B guest user access so you can securely share resources and collaborate with external partners.
   services: active-directory
-  ms.component: authentication
+  ms.subservice: authentication
   author: msmimart
   manager: daveba
   ms.service: active-directory

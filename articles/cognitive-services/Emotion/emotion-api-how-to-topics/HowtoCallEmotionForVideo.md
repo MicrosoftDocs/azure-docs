@@ -1,16 +1,16 @@
-﻿---
+---
 title: "Example: Call the Emotion API for Video"
 titlesuffix: Azure Cognitive Services
 description: Learn how to call the Emotion API for Video in Cognitive Services.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: sample
 ms.date: 02/06/2017
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
 ---
 

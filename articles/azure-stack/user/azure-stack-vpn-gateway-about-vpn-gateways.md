@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2019
 ms.author: sethm
+ms.lastreviewed: 01/04/2019
 ---
 
 # About VPN gateway for Azure Stack

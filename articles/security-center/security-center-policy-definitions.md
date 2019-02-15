@@ -4,7 +4,7 @@ description: Azure policy definitions monitored in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: c89cb1aa-74e8-4ed1-980a-02a7a25c1a2f
@@ -30,7 +30,7 @@ To understand the built-in policies that are monitored by Security Center, refer
 |Audit authorization rules on Event Hub namespaces|Event Hub clients should not use a namespace level access policy that provides access to all queues and topics in a namespace. To align with the least privilege security model, you should create access policies at the entity level for queues and topics to provide access to only the specific entity.|
 |Audit existence of authorization rules on Event Hub entities|Audit existence of authorization rules on Event Hub entities to grant least-privileged access.|
 |Audit unrestricted network access to storage accounts|Audit unrestricted network access in your storage account firewall settings. Instead, configure network rules so only applications from allowed networks can access the storage account. To allow connections from specific Internet or on-premise clients, access can be granted to traffic from specific Azure virtual networks or to public Internet IP address ranges.|
-|Audit usage of custom RBAC rules|Audit built-in roles such as 'Owner, Contributer, Reader' instead of custom RBAC roles, which are error prone. Using custom roles is treated as an exception and requires a rigorous review and threat modeling.|
+|Audit usage of custom RBAC rules|Audit built-in roles such as 'Owner, Contributor, Reader' instead of custom RBAC roles, which are error prone. Using custom roles is treated as an exception and requires a rigorous review and threat modeling.|
 |Audit enabling of diagnostic logs in Azure Stream Analytics|Audit enabling of logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised.|
 |Audit secure transfer to storage accounts|Audit requirement of Secure transfer in your storage account. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking.|
 |Audit provisioning of an Azure Active Directory administrator for SQL server|Audit provisioning of an Azure Active Directory administrator for your SQL server to enable Azure AD authentication. Azure AD authentication enables simplified permission management and centralized identity management of database users and other Microsoft services.|

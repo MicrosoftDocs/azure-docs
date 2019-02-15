@@ -9,7 +9,7 @@ metadata:
   manager: carmonm
   ms.service: resource-graph
   ms.topic: landing-page
-  ms.date: 01/23/2019
+  ms.date: 01/31/2019
   ms.author: dacoulte
 abstract:
   description: Azure Resource Graph documentation helps you configure and learn the query language to discover and explore your resources at scale.
@@ -39,6 +39,8 @@ sections:
     style: cards
     className: cardsD
     items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure CLI</a></p>
     - title: PowerShell
       html: <p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
     - title: REST API

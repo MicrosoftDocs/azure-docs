@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/10/2019
+ms.date: 01/24/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -20,11 +20,12 @@ Use data copy service:
 - In the network-attached storage (NAS) environments where the intermediate hosts may not be available.
 - With small files that take weeks for ingestion and upload of data. This service significantly improves the ingestion and upload time.
 
-In this tutorial, you learn how to:
+In this tutorial, you learn about:
 
 > [!div class="checklist"]
+> * Prerequisites
 > * Copy data to Data Box
-> * Prepare to ship Data Box.
+
 
 ## Prerequisites
 
@@ -56,13 +57,13 @@ To copy data using data copy service, you need to create a job. Follow these ste
     |-------------------------------|---------|
     |Job name                       |A unique name fewer than 230 characters for the job. These characters aren't allowed in the job name - \<, \>, \|, \?, \*, \\, \:, \/, and \\\.         |
     |Source location                |Provide the SMB path to the data source in the format: `\\<ServerIPAddress>\<ShareName>` or `\\<ServerName>\<ShareName>`.        |
-    |Username                       |Username to access the data source.        |
+    |Username                       |Username in `\\<DomainName><UserName>` format to access the data source.        |
     |Password                       |Password to access the data source.           |
     |Destination storage account    |Select the target storage account to upload data to from the dropdown list.         |
     |Destination storage type       |Select the target storage type from block blob, page blob, or Azure Files.        |
     |Destination container/share    |Enter the name of the container or share to upload data in your destination storage account. The name can be a share name or a container name. For example, `myshare` or `mycontainer`. You can also enter in the format `sharename\directory_name` or `containername\virtual_directory_name` in cloud.        |
     |Copy files matching pattern    | Enter file name matching pattern in the following two ways.<ul><li>**Use wildcard expressions** Only `*` and `?` are supported in wildcard expressions. For example, this expression `*.vhd` matches all the files that have .vhd extension. Similarly, `*.dl?` matches all the files whose extension is either `.dl` or `.dll`. Also, `*foo` will match all the files whose names end with `foo`.<br>You can directly enter wildcard expression in the field. By default, value entered in the field is treated as wildcard expression.</li><li>**Use regular expressions** - POSIX-based regular expressions are supported. For example, a regular expression `.*\.vhd` will match all the files that have `.vhd` extension. For regular expression, provide the `<pattern>` directly as `regex(<pattern>)`. <li>For more information on regular expressions, go to [Regular expression language - a quick reference](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
-    |File optimization              |When enabled, the files are packed at the ingest. This speeds up the data copy for small files.        |
+    |File optimization              |When enabled, the files less than 1 MB are packed at the ingest. This speeds up the data copy for small files. Significant time savings are seen when the number of files far exceeds the number of directories.        |
  
 4. Click **Start**. The inputs are validated and if the validation succeeds, then a job starts. It may take a few minutes for the job to start.
 
@@ -103,9 +104,7 @@ To copy data using data copy service, you need to create a job. Follow these ste
     - In this release, you can't delete a job.
     
     - You can create unlimited jobs but run a maximum of 10 jobs in parallel at any given time.
-    - If the file optimization is on, the small files are packed at ingest to improve the copy performance. In these instances, you will see a packed file (GUID as name) as shown in the following screenshot.
-
-        ![Example of a packed file](media/data-box-deploy-copy-data-via-copy-service/packed-file-on-ingest.png)
+    - If the file optimization is on, the small files are packed at ingest to improve the copy performance. In these instances, you will see a packed file (GUID as name). Do not delete this file as this file will be unpacked during upload.
 
 6. While the job is in progress, on the **Copy data** page:
 
@@ -136,18 +135,14 @@ Once the copy job is finished, you can go to **Prepare to ship**.
 >[!NOTE]
 > Prepare to ship can't run while copy jobs are in progress.
 
-## Prepare to ship
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
-
-
 ## Next steps
 
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
+> * Prerequisites
 > * Copy data to Data Box
-> * Prepare to ship Data Box
+
 
 Advance to the next tutorial to learn how to ship your Data Box back to Microsoft.
 
