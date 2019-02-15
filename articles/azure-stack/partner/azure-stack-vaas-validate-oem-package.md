@@ -32,7 +32,7 @@ You can test a new OEM package when there has been a change to the firmware or d
 
 ## Managing packages for validation
 
-When using the **Package Validation** workflow to validate a package, you will need to provide a URL to an **Azure Storage blob**. This blob is the OEM package that was installed on the solution at deployment time. Create the blob using the Azure Storage Account you created during setup (see [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md)).
+When using the **Package Validation** workflow to validate a package, you will need to provide a URL to an **Azure Storage blob**. This blob is the test signed OEM package that will be installed as part of the update process. Create the blob using the Azure Storage Account you created during setup (see [Set up your Validation as a Service resources](azure-stack-vaas-set-up-resources.md)).
 
 ### Prerequisite: Provision a storage container
 
@@ -96,7 +96,7 @@ Use **Blob SAS URL** when starting a new **Package Validation** workflow in the 
 
 4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 
-5. Enter the Azure Storage blob URL to the OEM package that was installed on the solution at deployment time. For instructions, see [Generate package blob URL for VaaS](#generate-package-blob-url-for-vaas).
+5. Enter the Azure Storage blob URL to the test signed OEM package requiring a signature from Microsoft. For instructions, see [Generate package blob URL for VaaS](#generate-package-blob-url-for-vaas).
 
 6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
@@ -112,7 +112,7 @@ Use **Blob SAS URL** when starting a new **Package Validation** workflow in the 
 
 ## Run Package Validation tests
 
-1. In the **Package Validation tests summary** page, you will see a list of the tests required for completing validation. Tests in this workflow run for approximately 24 hours.
+1. In the **Package Validation tests summary** page, you will see a list of the tests required for completing validation. Tests in this workflow run for approximately 48 hours.
 
     In the validation workflows, **scheduling** a test uses the workflow-level common parameters that you specified during workflow creation (see [Workflow common parameters for Azure Stack Validation as a Service](azure-stack-vaas-parameters.md)). If any of test parameter values become invalid, you must resupply them as instructed in [Modify workflow parameters](azure-stack-vaas-monitor-test.md#change-workflow-parameters).
 
@@ -122,13 +122,11 @@ Use **Blob SAS URL** when starting a new **Package Validation** workflow in the 
 
 2. Select the agent that will run the test. For information about adding local test execution agents, see [Deploy the local agent](azure-stack-vaas-local-agent.md).
 
-3. For each of the following tests, do step four and five:
-    - OEM Extension Package Verification
-    - Cloud Simulation Engine
+3. To complete OEM Extension Package Verification select **Schedule** from the context menu to open a prompt for scheduling the test instance.
 
-4. Select **Schedule** from the context menu to open a prompt for scheduling the test instance.
+4. Review the test parameters and then select **Submit** to schedule OEM Extension Package Verification for execution.
 
-5. Review the test parameters and then select **Submit** to schedule the test for execution.
+5. Review the result for OEM Extension Package Verification. Once the test has succeeded, schedule Cloud Simulation Engine for execution.
 
 When all tests have successfully completed, send the name of your VaaS solution and Package Validation to [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) to request package signing.
 
