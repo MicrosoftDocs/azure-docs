@@ -17,6 +17,10 @@ In this tutorial, you perform an ETL (extract, transform, and load data) operati
 
 The steps in this tutorial use the SQL Data Warehouse connector for Azure Databricks to transfer data to Azure Databricks. This connector, in turn, uses Azure Blob Storage as temporary storage for the data being transferred between an Azure Databricks cluster and Azure SQL Data Warehouse.
 
+The following illustration shows the application flow:
+
+![Azure Databricks with Data Lake Store and SQL Data Warehouse](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "Azure Databricks with Data Lake Store and SQL Data Warehouse")
+
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
