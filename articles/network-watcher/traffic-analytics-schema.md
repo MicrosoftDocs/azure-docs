@@ -10,7 +10,7 @@ editor:
 
 ---
 
-# Traffic analytics
+### Traffic Analytics
 
 Traffic analytics is a cloud-based solution that provides visibility into user and application activity in cloud networks. Traffic analytics analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. With traffic analytics, you can:
 
@@ -19,15 +19,15 @@ Traffic analytics is a cloud-based solution that provides visibility into user a
 - Understand traffic flow patterns across Azure regions and the internet to optimize your network deployment for performance and capacity.
 - Pinpoint network misconfigurations leading to failed connections in your network.
 
-# Data Aggreagation
+### Data Aggreagation
 
 1. All NSG flow logs between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t” are captured at 1 minute intervals in the storage account as blobs before being processed by Traffic Analytics. 
 2. Default processing interval of Traffic Anlaytics is 60 minutes . This means that every 60 mins Traffic Analytics picks blobs from storage for aggregation.
 3. Flows that have the same Source IP, Destination IP, Destination port , NSG name , NSG rule and Flow Direction and Transport layer protocol (TCP or UDP) (Note: Source port is excluded for aggregation) are clubbed into a single flow by Traffic Analytics, decorated per the scehma and ingested in Log Analytics. FlowStartTime_t field indicates the first occurrence of such an aggregated flow (same four tuple) in the flow log processing interval between “FlowIntervalStartTime_t” and “FlowIntervalEndTime_t”. 
-4. For any resource in TA, the flows incidated in the UI are total flows seen by the NSG, but as in Log Anlaytics we ingested the reduced record user will see single record. This record will contain the blob id, which can be referenced from Storage. The total flow count for that record will match the individual flows seen in the blob.
+4. For any resource in TA, the flows indicated in the UI are total flows seen by the NSG, but as in Log Anlaytics user will see only the single , reduced record. To see all the flows use user can use the blob_id field  This will contain the blob id, which can be referenced from Storage. The total flow count for that record will match the individual flows seen in the blob.
 
 
-# Fields used in Traffic Analytics Schema
+### Fields used in Traffic Analytics Schema
 
 Traffic Analytics is built on top of Log Analytics, so you can run custom queries on data decorated by Traffic Analytics and set alerts on the same.
 
@@ -95,7 +95,7 @@ Listed below are the fields in the schema and what they signify
 | CompletedFlows_d	|  | This is populated with non-zero value only for the Version 2 of NSG flow log schema |
 | PublicIPs_s | <PUBLIC_IP>\|\<FLOW_STARTED_COUNT>\|\<FLOW_ENDED_COUNT>\|\<OUTBOUND_PACKETS>\|\<INBOUND_PACKETS>\|\<OUTBOUND_BYTES>\|\<INBOUND_BYTES> | Entries seperated by bars |
     
-# Notes
+### Notes
     
 1. In case of AzurePublic and ExternalPublic flows, the customer owned Azure VM IP is populated in VMIP_s field, while the Public IP addresses are being populated in the PublicIPs_s field. For these two flow types, we should use VMIP_s and PublicIPs_s instead of SrcIP_s and DestIP_s fields. For AzurePublic and ExternalPublicIP addresses, we aggregate further, so that the number of records ingested to customer log analytics workspace is minimal.(This field will be deprecated soon and we should be using SrcIP_ and DestIP_s depending on whether azure VM was the source or the destination in the flow)
 2. Details for flow types : Based on the IP addresses involved in the flow, we categorize the flows in to the following flow types : <br>
