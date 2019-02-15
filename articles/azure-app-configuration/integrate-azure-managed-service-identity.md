@@ -76,7 +76,7 @@ To set up a managed identity in the portal, you will first create an application
     }
     ```
 
-2. Open *Program.cs* and update the `CreateWebHostBuilder` method by replacing the `config.AddAzconfig()` method.
+2. Open *Program.cs* and update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -84,7 +84,7 @@ To set up a managed identity in the portal, you will first create an application
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzconfig(o => o.ConnectWithManagedIdentity(settings["AppConfigHub:Url"]));
+                config.AddAzureAppConfiguration(o => o.ConnectWithManagedIdentity(settings["AppConfigHub:Url"]));
             })
             .UseStartup<Startup>();
     ```

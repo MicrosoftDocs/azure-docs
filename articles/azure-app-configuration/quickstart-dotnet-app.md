@@ -44,7 +44,7 @@ To complete this quickstart, install [Visual Studio 2017](https://visualstudio.m
 
 1. Right-click your project and select **Manage NuGet Packages...**. In the **Browse** tab, search and add following NuGet packages to your project (check the **Include prerelease** box if you cannot find them).
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Azconfig 1.0.0 preview or later
+    Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
     ```
 
@@ -57,7 +57,7 @@ To complete this quickstart, install [Visual Studio 2017](https://visualstudio.m
 
     <configBuilders>
         <builders>
-            <add name="MyConfigHub" mode="Greedy" connectionString="${ConnectionString}" type="Microsoft.Configuration.ConfigurationBuilders.AzconfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azconfig" />
+            <add name="MyConfigHub" mode="Greedy" connectionString="${ConnectionString}" type="Microsoft.Configuration.ConfigurationBuilders.AzureAppConfigurationBuilder, Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration" />
             <add name="Environment" mode="Greedy" type="Microsoft.Configuration.ConfigurationBuilders.EnvironmentConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Environment" />
         </builders>
     </configBuilders>

@@ -21,7 +21,7 @@ To enhance the resiliency of your application against the remote possibility of 
 
 ## Automate configuration data retrieval
 
-Using the [**Export**](./howto-import-export-data.md#export-data) function of App Configuration, you can automate the process of retrieving current configuration data as a single file. You can then include this file in a build or deployment step in your continuous integration and continuous deployment pipeline.
+Using the [**Export**](./howto-import-export-data.md#export-data) function of Azure App Configuration, you can automate the process of retrieving current configuration data as a single file. You can then include this file in a build or deployment step in your continuous integration and continuous deployment pipeline.
 
 ## Next steps
 

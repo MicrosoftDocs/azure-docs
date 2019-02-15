@@ -39,6 +39,6 @@ ms.custom: include file
     | TestApp:Settings:BackgroundColor | white |
     | TestApp:Settings:FontSize | 24 |
     | TestApp:Settings:FontColor | black |
-    | TestApp:Settings:Message | Data from App Configuration |
+    | TestApp:Settings:Message | Data from Azure App Configuration |
 
     You will leave **Label** and **Content Type** empty for now.

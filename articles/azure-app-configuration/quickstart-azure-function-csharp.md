@@ -45,10 +45,10 @@ To complete this quickstart, install [Visual Studio 2017](https://visualstudio.m
 1. Open *Function1.cs* and add a reference to App Configuration .NET Core configuration provider.
 
     ```csharp
-    using Microsoft.Extensions.Configuration.Azconfig;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-2. Update the `Run` method to use App Configuration by calling `builder.AddAzconfig()`.
+2. Update the `Run` method to use App Configuration by calling `builder.AddAzureAppConfiguration()`.
 
     ```csharp
     public static async Task<IActionResult> Run(
@@ -57,7 +57,7 @@ To complete this quickstart, install [Visual Studio 2017](https://visualstudio.m
         log.LogInformation("C# HTTP trigger function processed a request.");
 
         var builder = new ConfigurationBuilder();
-        builder.AddAzconfig(Environment.GetEnvironmentVariable("ConnectionString"));
+        builder.AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
         var config = builder.Build();
         string message = config["TestApp:Settings:Message"];
         message = message ?? req.Query["message"];

@@ -70,9 +70,9 @@ You will add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/se
 
 ## Connect to app configuration store
 
-1. Add a reference to the `Microsoft.Extensions.Configuration.Azconfig` NuGet package by executing the following command:
+1. Add a reference to the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package by executing the following command:
 
-        dotnet add package Microsoft.Extensions.Configuration.Azconfig
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
 
 2. Execute the following command to restore packages for your project.
 
@@ -90,7 +90,7 @@ You will add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/se
 
     This secret is a accessed with the configuration API. A colon (:) works in the configuration name with the configuration API on all supported platforms, see [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment).
 
-4. Open *Program.cs* and update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzconfig()` method.
+4. Open *Program.cs* and update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -98,7 +98,7 @@ You will add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/se
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzconfig(settings["ConnectionStrings:AppConfigHub"]);
+                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfigHub"]);
             })
             .UseStartup<Startup>();
     ```

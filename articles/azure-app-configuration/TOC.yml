@@ -26,7 +26,7 @@
 - name: Samples
   items:
     - name: Code samples
-      href: https://github.com/Azure/AppConfigurationHubs/samples
+      href: https://github.com/Azure/AppConfiguration/samples
     - name: Azure CLI
       href: cli-samples.md
 - name: Concepts
@@ -43,5 +43,11 @@
       href: howto-integrate-ci-cd-pipeline.md
 - name: Reference
   items:
+    - name: .NET Core configuration provider
+      href: https://go.microsoft.com/fwlink/?linkid=2074664
+    - name: .NET Framework configuration builder
+      href: https://go.microsoft.com/fwlink/?linkid=2074663
+    - name: Java Spring configuration provider
+      href: https://go.microsoft.com/fwlink/?linkid=2074659
     - name: REST
       href: https://docs.microsoft.com/rest/api/azure-app-configuration
