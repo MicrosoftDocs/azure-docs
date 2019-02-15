@@ -67,11 +67,11 @@ In this section, you configure an IoT Hub to log distributed tracing attributes 
 
 1. (Optional) To see the messages flow to different places, set up [routing rules to at least two different endpoints](iot-hub-devguide-messages-d2c.md).
 
-Once the logging is turned on, IoT Hub records logs when messages containing valid trace properties 
+Once the logging is turned on, IoT Hub records a log when a message containing valid trace properties is encountered in any of the following situations:
 
-* Arrive at IoT Hub's gateway
-* Are processed by IoT Hub
-* (If enabled) are routed to custom endpoints
+- The messages arrives at IoT Hub's gateway.
+- The message is processed by the IoT Hub.
+- The message is routed to custom endpoints. Routing must be enabled.
 
 To learn more about these logs and their schemas, see [Distributed tracing in IoT Hub diagnostic logs](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
 
@@ -79,18 +79,18 @@ To learn more about these logs and their schemas, see [Distributed tracing in Io
 
 In this section, you prepare a development environment for use with the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). Then, you modify one of samples to enable distributed tracing on your device's telemetry messages.
 
-These instructions are for building the sample on Windows. For other environments, see [Compile the C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compile) or [Prepackaged C SDK for Platform Specific Development](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#prepackaged-c-sdk-for-platform-specific-development)
+These instructions are for building the sample on Windows. For other environments, see [Compile the C SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compile) or [Prepackaged C SDK for Platform Specific Development](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#prepackaged-c-sdk-for-platform-specific-development).
 
 ### Clone the source code and initialize
 
-1. Install ["Desktop development with C++" workload](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2017) for either Visual Studio 2015 or 2017
+1. Install ["Desktop development with C++" workload](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2017) for either Visual Studio 2015 or 2017.
 
 1. Install [CMake](https://cmake.org/). Make sure it is in your `PATH` by typing `cmake -version` from a command prompt.
 
 1. Open a command prompt or Git Bash shell. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
 
     ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
     The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
@@ -98,8 +98,7 @@ These instructions are for building the sample on Windows. For other environment
 1. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder.
 
     ```cmd
-    cd azure-iot-sdk-c
-    git checkout public-preview
+    cd azure-iot-sdk-c    
     mkdir cmake
     cd cmake
     cmake ..
@@ -176,17 +175,17 @@ To change the percentage of messages to be traced from the cloud, you must updat
 
 ### Update using the portal
 
-1. Navigate to your IoT hub in [Azure portal](https://portal.azure.com/), then click **IoT devices**
+1. Navigate to your IoT hub in [Azure portal](https://portal.azure.com/), then click **IoT devices**.
 
-1. Click your device
+1. Click your device.
 
-1. Look for **Enable distributed tracing (preview)**, then select **Enable**
+1. Look for **Enable distributed tracing (preview)**, then select **Enable**.
 
     ![Enable distributed tracing in Azure portal](./media/iot-hub-distributed-tracing/azure-portal.png)
 
 1. Choose a **Sampling rate** between 0% and 100%.
 
-1. Click **Save**
+1. Click **Save**.
 
 1. Wait a few seconds, and hit **Refresh**, then if successfully acknowledged by device, a sync icon with a checkmark appears.
 
@@ -200,13 +199,13 @@ To change the percentage of messages to be traced from the cloud, you must updat
 
 1. Install VS Code, then install the latest version of Azure IoT Hub Toolkit for VS Code from [here](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
-1. Open VS Code and [set up IoT Hub connection string](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites)
+1. Open VS Code and [set up IoT Hub connection string](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
 
-1. Expand the device and look for **Distributed Tracing Setting (Preview)**. Under it, click **Update Distributed Tracing Setting (Preview)** of sub node 
+1. Expand the device and look for **Distributed Tracing Setting (Preview)**. Under it, click **Update Distributed Tracing Setting (Preview)** of sub node.
 
     ![Enable distributed tracing in Azure IoT Hub Toolkit](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
-1. In the popup window, select **Enable**, then press Enter to confirm 100 as sampling rate
+1. In the popup window, select **Enable**, then press Enter to confirm 100 as sampling rate.
 
     ![Update sampling mode](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-2.png)
 
@@ -231,7 +230,7 @@ To update the distributed tracing sampling configuration for multiple devices, u
 
 | Element name | Required | Type | Description |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Yes | Integer | Two mode values are currently supported to turn sampling on and off. `1` is On and, `2` is Off |
+| `sampling_mode` | Yes | Integer | Two mode values are currently supported to turn sampling on and off. `1` is On and, `2` is Off. |
 | `sampling_rate` | Yes | Integer | This value is a percentage. Only values from `0` to `100` (inclusive) are permitted.  |
 
 ## Query and visualize
@@ -309,4 +308,4 @@ Once enabled, distributed tracing support for IoT Hub will follow this flow:
 
 - To learn more about the general distributed tracing pattern in microservices, see [Microservice architecture pattern: distributed tracing](https://microservices.io/patterns/observability/distributed-tracing.html).
 - To set up configuration to apply distributed tracing settings to a large number of devices, see [Configure and monitor IoT devices at scale](iot-hub-auto-device-config.md).
-- To learn more about Azure Monitor, see [What is Azure Monitor?](../azure-monitor/overview.md)
+- To learn more about Azure Monitor, see [What is Azure Monitor?](../azure-monitor/overview.md).
