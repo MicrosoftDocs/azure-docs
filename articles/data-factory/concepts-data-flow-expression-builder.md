@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 --- 
 
-# Azure Data Factory Mapping Data Flow Expression Builder
+# Mapping Data Flow Expression Builder
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 

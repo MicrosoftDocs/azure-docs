@@ -2206,7 +2206,7 @@
     },
     {
       "source_path": "articles/virtual-machines/linux/dockerextension-nodejs.md",
-      "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+      "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
       "redirect_document_id": false
     },
     {
@@ -17826,7 +17826,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md",
-      "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+      "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
       "redirect_document_id": false
     },
     {
@@ -17956,7 +17956,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md",
-      "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+      "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
       "redirect_document_id": false
     },
     {
@@ -18271,12 +18271,12 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-dockerextension-nodejs.md",
-      "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+      "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-dockerextension.md",
-      "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+      "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
       "redirect_document_id": false
     },
     {
@@ -30911,12 +30911,17 @@
     },
     {
       "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
-      "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+      "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/linux/classic/portal-use-docker.md",
-      "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+      "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
+      "redirect_document_id": false
+    },
+	   {
+      "source_path": "articles/virtual-machines/linux/dockerextension.md",
+      "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
       "redirect_document_id": false
     },
     {
@@ -35774,6 +35779,11 @@
     {
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-remote-desktop.md",
       "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-ssh",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization.md",
+      "redirect_url": "/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
       "redirect_document_id": false
     }
   ]
