@@ -29109,6 +29109,56 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/about-disks-and-vhds.md",
+      "redirect_url": "/azure/virtual-machines/linux/managed-disks-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/about-disks-and-vhds.md",
+      "redirect_url": "/azure/virtual-machines/windows/managed-disks-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/premium-storage.md",
+      "redirect_url": "/azure/virtual-machines/windows/disks-types#premium-ssd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/premium-storage.md",
+      "redirect_url": "/azure/virtual-machines/linux/disks-types#premium-ssd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-standard-ssd.md",
+      "redirect_url": "/azure/virtual-machines/linux/disks-types#standard-ssd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-standard-ssd.md",
+      "redirect_url": "/azure/virtual-machines/windows/disks-types#standard-ssd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-ultra-ssd.md",
+      "redirect_url": "/azure/virtual-machines/windows/disks-types#ultra-ssd-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-ultra-ssd.md",
+      "redirect_url": "/azure/virtual-machines/linux/disks-types#ultra-ssd-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/standard-storage.md",
+      "redirect_url": "/azure/virtual-machines/windows/disks-types#standard-hdd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/standard-storage.md",
+      "redirect_url": "/azure/virtual-machines/linux/disks-types#standard-hdd",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/sql/index.md",
       "redirect_url": "/azure/virtual-machines/linux/sql/sql-server-linux-virtual-machines-overview",
       "redirect_document_id": false
