@@ -91,6 +91,7 @@ Use the following steps to configure the native Windows VPN client for certifica
    ![Location of the mobileconfig file](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
 
 3. Optional Step - If you want to specify a custom DNS, add the following lines to the **mobileconfig** file:
+
 ```xml
     <key>DNS</key>
     <dict>
