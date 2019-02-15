@@ -198,11 +198,13 @@ We use the following values in the examples:
   -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
+After you finish the commands, it will take up to 45 minutes to create this gateway. If you are using Azure Cloud Shell, you can restart your CloudShell session by clicking in the upper left of the console, then configure TestVNet4. You don't need to wait until the TestVNet1 gateway completes.
+
 ### Step 3 - Create and configure TestVNet4
 
-Once you've configured TestVNet1, create TestVNet4. Follow the steps below, replacing the values with your own when needed. This step can be done within the same PowerShell session because it is in the same subscription.
+Once you've configured TestVNet1, create TestVNet4. Follow the steps below, replacing the values with your own when needed.
 
-1. Declare your variables. Be sure to replace the values with the ones that you want to use for your configuration.
+1. Connect and declare your variables. Be sure to replace the values with the ones that you want to use for your configuration.
 
   ```azurepowershell-interactive
   $RG4 = "TestRG4"
@@ -221,7 +223,7 @@ Once you've configured TestVNet1, create TestVNet4. Follow the steps below, repl
   $GWIPconfName4 = "gwipconf4"
   $Connection41 = "VNet4toVNet1"
   ```
-2. Create a new resource group.
+2. Create a resource group.
 
   ```azurepowershell-interactive
   New-AzResourceGroup -Name $RG4 -Location $Location4
@@ -262,7 +264,9 @@ Once you've configured TestVNet1, create TestVNet4. Follow the steps below, repl
 
 ### Step 4 - Create the connections
 
-1. Get both virtual network gateways. If both of the gateways are in the same subscription, as they are in the example, you can complete this step in the same PowerShell session.
+Wait until both gateways are completed. Restart your Azure Cloud Shell session and copy and paste the variables from the beginng of Steps 2 and 3 into the console to redeclare values.
+
+1. Get both virtual network gateways.
 
   ```azurepowershell-interactive
   $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
