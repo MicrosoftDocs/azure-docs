@@ -141,6 +141,8 @@ Filter and sort operations query on exact matches so documents are stored intact
 
 ![Index size based on attribute selection](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
 
+Several of these combinations are theoretical, useful for illuminating an outcome, but would not result in a viable index. In practice, you would never create an index that is retrievable but not searchable or filterable, or searchable but not retrievable.
+
 Storage implementation is considered an implementation detail of Azure Search and could change without notice. There is no guarantee that current behavior will persist in the future.
 
 ## Suggesters
