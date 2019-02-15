@@ -4,7 +4,7 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is the Speech Service?
+  - name: What are the Speech Services?
     href: overview.md
   - name: Try the Speech Service for free
     href: get-started.md
