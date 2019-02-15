@@ -16,15 +16,15 @@ The following table helps you determine the method to start a runbook in Azure A
 
 | **METHOD** | **CHARACTERISTICS** |
 | --- | --- |
-| [Azure portal](#starting-a-runbook-with-the-azure-portal) |<li>Simplest method with interactive user interface.<br> <li>Form to provide simple parameter values.<br> <li>Easily track job state.<br> <li>Access authenticated with Azure logon. |
+| [Azure portal](#starting-a-runbook-with-the-azure-portal) |<li>Simplest method with interactive user interface.<br> <li>Form to provide simple parameter values.<br> <li>Easily track job state.<br> <li>Access authenticated with Azure sign in. |
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Call from command line with Windows PowerShell cmdlets.<br> <li>Can be included in automated solution with multiple steps.<br> <li>Request is authenticated with certificate or OAuth user principal / service principal.<br> <li>Provide simple and complex parameter values.<br> <li>Track job state.<br> <li>Client required to support PowerShell cmdlets. |
-| [Azure Automation API](/rest/api/automation/) |<li>Most flexible method but also most complex.<br> <li>Call from any custom code that can make HTTP requests.<br> <li>Request authenticated with certificate, or Oauth user principal / service principal.<br> <li>Provide simple and complex parameter values. *If you are calling a Python runbook using the API, the JSON payload must be serialized.*<br> <li>Track job state. |
-| [Webhooks](automation-webhooks.md) |<li>Start runbook from single HTTP request.<br> <li>Authenticated with security token in URL.<br> <li>Client cannot override parameter values specified when webhook created. Runbook can define single parameter that is populated with the HTTP request details.<br> <li>No ability to track job state through webhook URL. |
+| [Azure Automation API](/rest/api/automation/) |<li>Most flexible method but also most complex.<br> <li>Call from any custom code that can make HTTP requests.<br> <li>Request authenticated with certificate, or Oauth user principal / service principal.<br> <li>Provide simple and complex parameter values. *If you're calling a Python runbook using the API, the JSON payload must be serialized.*<br> <li>Track job state. |
+| [Webhooks](automation-webhooks.md) |<li>Start runbook from single HTTP request.<br> <li>Authenticated with security token in URL.<br> <li>Client can't override parameter values specified when webhook created. Runbook can define single parameter that is populated with the HTTP request details.<br> <li>No ability to track job state through webhook URL. |
 | [Respond to Azure Alert](../log-analytics/log-analytics-alerts.md) |<li>Start a runbook in response to Azure alert.<br> <li>Configure webhook for runbook and link to alert.<br> <li>Authenticated with security token in URL. |
 | [Schedule](automation-schedules.md) |<li>Automatically start runbook on hourly, daily, weekly, or monthly schedule.<br> <li>Manipulate schedule through Azure portal, PowerShell cmdlets, or Azure API.<br> <li>Provide parameter values to be used with schedule. |
 | [From Another Runbook](automation-child-runbooks.md) |<li>Use a runbook as an activity in another runbook.<br> <li>Useful for functionality used by multiple runbooks.<br> <li>Provide parameter values to child runbook and use output in parent runbook. |
 
-The following image illustrates detailed step-by-step process in the life cycle of a runbook. It includes different ways a runbook is started in Azure Automation, components required for Hybrid Runbook Worker to execute Azure Automation runbooks and interactions between different components. To learn about executing Automation runbooks in your datacenter, refer to [hybrid runbook workers](automation-hybrid-runbook-worker.md)
+The following image illustrates detailed step-by-step process in the life cycle of a runbook. It includes different ways a runbook starts in Azure Automation, which components required for Hybrid Runbook Worker to execute Azure Automation runbooks and interactions between different components. To learn about executing Automation runbooks in your datacenter, refer to [hybrid runbook workers](automation-hybrid-runbook-worker.md)
 
 ![Runbook Architecture](media/automation-starting-runbook/runbooks-architecture.png)
 
@@ -33,7 +33,7 @@ The following image illustrates detailed step-by-step process in the life cycle 
 1. In the Azure portal, select **Automation** and then click the name of an automation account.
 2. On the Hub menu, select **Runbooks**.
 3. On the **Runbooks** page, select a runbook, and then click **Start**.
-4. If the runbook has parameters, you are prompted to provide values with a text box for each parameter. See [Runbook Parameters](#Runbook-parameters) below for further details on parameters.
+4. If the runbook has parameters, you're prompted to provide values with a text box for each parameter. For further details on parameters, see [Runbook Parameters](#Runbook-parameters).
 5. On the **Job** page, you can view the status of the runbook job.
 
 ## Start a runbook with PowerShell
@@ -63,7 +63,7 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-If the runbook requires parameters, then you must provide them as a [hashtable](https://technet.microsoft.com/library/hh847780.aspx) where the key of the hashtable matches the parameter name and the value is the parameter value. The following example shows how to start a runbook with two string parameters named FirstName and LastName, an integer named RepeatCount, and a boolean parameter named Show. For more information on parameters, see [Runbook Parameters](#Runbook-parameters) below.
+If the runbook requires parameters, then you must provide them as a [hashtable](https://technet.microsoft.com/library/hh847780.aspx). The key of the hashtable must match the parameter name and the value is the parameter value. The following example shows how to start a runbook with two string parameters named FirstName and LastName, an integer named RepeatCount, and a boolean parameter named Show. For more information on parameters, see [Runbook Parameters](#Runbook-parameters) below.
 
 ```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
@@ -72,7 +72,7 @@ Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" �
 
 ## Runbook parameters
 
-When you start a runbook from the Azure portal or Windows PowerShell, the instruction is sent through the Azure Automation web service. This service does not support parameters with complex data types. If you need to provide a value for a complex parameter, then you must call it inline from another runbook as described in [Child runbooks in Azure Automation](automation-child-runbooks.md).
+When you start a runbook from the Azure portal or Windows PowerShell, the instruction is sent through the Azure Automation web service. This service doesn't support parameters with complex data types. If you need to provide a value for a complex parameter, then you must call it inline from another runbook as described in [Child runbooks in Azure Automation](automation-child-runbooks.md).
 
 The Azure Automation web service provides special functionality for parameters using certain data types as described in the following sections:
 
