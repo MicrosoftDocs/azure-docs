@@ -30,6 +30,8 @@ By the end of the quickstart you will be able to stream a video.
 
 ## Create a Media Services account
 
+To start using Media Services, you need to create a Media Services account. At the time you create a Media Services account, you also create an associated storage account.
+
 ### Create a resource group
 
 ```azurecli
@@ -69,7 +71,7 @@ az ams account create --n amsaccount -g amsResourceGroup --storage-account amsst
 
 ## Start streaming endpoint
 
-The following CLI starts the default streaming endpoint.
+The following CLI starts the default **Streaming Endpoint**.
 
 ```azurecli
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
@@ -113,6 +115,8 @@ If the streaming endpoint is already running, you get
 
 ## Create a transform for Adaptive Bitrate Encoding
 
+Create a **Transform** to configure common tasks for encoding or analyzing videos. In this example we want to do an adaptive bitrate encoding. Then, you will submit a **Job** under the transform you created. The Job is the actual request to Media Services to apply the transform to a given input video or audio content.
+
 ```azurecli
 az ams transform create --name testEncodingTransform --preset AdaptiveStreaming --description 'a simple Transform for Adaptive Bitrate Encoding' -g amsResourceGroup -a amsaccount
 ```
@@ -142,6 +146,8 @@ You get a response similar to this:
 ```
 
 ## Create an output asset
+
+Creates an output **Asset** that is used as the encoding job's output.
 
 ```azurecli
 az ams asset create -n testOutputAssetName -a amsaccount -g amsResourceGroup
@@ -256,6 +262,8 @@ You get a response similar to this:
 ```
 
 ## Create Streaming Locator​ and get path
+
+After the encoding is complete, the next step is to make the video in the output asset available to clients for playback. You can accomplish this in two steps: first, create a **Streaming Locator**, and second, build the streaming URLs that clients can use.
 
 ### Create a Streaming Locator
 
