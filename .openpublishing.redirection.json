@@ -12238,6 +12238,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/scaling-webservice.md",
+      "redirect_url": "/azure/machine-learning/studio/create-endpoint#scaling",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-studio-overview-diagram.md",
       "redirect_url": "/azure/machine-learning/studio/studio-overview-diagram",
       "redirect_document_id": false
