@@ -181,7 +181,7 @@ az ams job start --name testJob001 --transform-name testEncodingTransform --base
 ```
 
 > [!TIP]
-> Notice that you have to add "=" to the output assets name if the asset does not have the label set.
+> Notice that you have to add "=" to the output assets name even if you don’t set the label property on the job outputs.
 
 You get a response similar to this:
 
@@ -223,45 +223,10 @@ You get a response similar to this:
 In 5 min check the status of the job. It should be "Finished". It is not, check in a few more minutes. Once it is "Finished", go to the next step and create a **Streaming Locator**.
 
 ```azurecli
-az ams job list -a amsaccount -g amsResourceGroup -t testEncodingTransform
+az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n testJob001
 ```
 
-You get a response similar to this:
-
-```
-{
-"correlationData": {},
-"created": "2019-02-15T05:08:26.267000+00:00",
-"description": null,
-"id": "/subscriptions/<id>/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/transforms/testEncodingTransform/jobs/myFirstJob_001",
-"input": {
-    "baseUri": "https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/",
-    "files": [
-    "Ignite-short.mp4"
-    ],
-    "label": null,
-    "odatatype": "#Microsoft.Media.JobInputHttp"
-},
-"lastModified": "2019-02-15T05:08:26.267000+00:00",
-"name": "testJob001",
-"outputs": [
-    {
-    "assetName": "testOutputAssetName",
-    "error": null,
-    "label": "",
-    "odatatype": "#Microsoft.Media.JobOutputAsset",
-    "progress": 100,
-    "state": "Finished"
-    }
-],
-"priority": "Normal",
-"resourceGroup": "amsResourceGroup",
-"state": "Finished",
-"type": "Microsoft.Media/mediaservices/transforms/jobs"
-}
-```
-
-## Create Streaming Locator​ and get path
+## Create Streaming Locator and get path
 
 After the encoding is complete, the next step is to make the video in the output asset available to clients for playback. You can accomplish this in two steps: first, create a **Streaming Locator**, and second, build the streaming URLs that clients can use.
 
@@ -291,7 +256,7 @@ You get a response similar to this:
 }
 ```
 
-### Get Streaming Locator Paths​
+### Get Streaming Locator Paths
 
 ```azurecli
 az ams streaming-locator get-paths -a amsaccount -g amsResourceGroup -n testStreamingLocator
@@ -335,36 +300,7 @@ Copy the Hls path. In this case: `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.i
 ### Get streaming endpoint host name
 
 ```azurecli
-az ams streaming-endpoint list -a amsaccount -g amsResourceGroup
-```
-
-You get a response similar to this:
-
-```
-{
-"accessControl": null,
-"availabilitySetName": null,
-"cdnEnabled": true,
-"cdnProfile": "AzureMediaStreamingPlatformCdnProfile-StandardVerizon",
-"cdnProvider": "StandardVerizon",
-"created": "2019-02-06T21:58:03.604954+00:00",
-"crossSiteAccessPolicies": null,
-"customHostNames": [],
-"description": "",
-"freeTrialEndTime": "2019-02-21T22:05:31.277936+00:00",
-"hostName": "amsaccount-usw22.streaming.media.azure.net",
-"id": "/subscriptions/<id>/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingendpoints/default",
-"lastModified": "2019-02-06T21:58:03.604954+00:00",
-"location": "West US 2",
-"maxCacheAge": null,
-"name": "default",
-"provisioningState": "Succeeded",
-"resourceGroup": "amsResourceGroup",
-"resourceState": "Running",
-"scaleUnits": 0,
-"tags": {},
-"type": "Microsoft.Media/mediaservices/streamingEndpoints"
-}
+az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 ```
 
 Copy the `hostName` value. In this case: `amsaccount-usw22.streaming.media.azure.net`.
