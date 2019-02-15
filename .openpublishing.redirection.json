@@ -12093,6 +12093,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/how-to-deploy-to-multiple-regions.md",
+      "redirect_url": "/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-data-science-import-data.md",
       "redirect_url": "/azure/machine-learning/studio/import-data",
       "redirect_document_id": false
