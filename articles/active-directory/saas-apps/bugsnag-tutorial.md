@@ -1,30 +1,29 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with CA PPM | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and CA PPM.
+title: 'Tutorial: Azure Active Directory integration with Bugsnag | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Bugsnag.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 
-ms.assetid: ca9d5e71-e429-4891-8d10-3498e7210e89
+ms.assetid: f08b8a14-ef69-42a7-ac9d-da95f2e36287
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/12/2019
+ms.date: 02/13/2019
 ms.author: jeedes
 
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with CA PPM
+# Tutorial: Azure Active Directory integration with Bugsnag
 
-In this tutorial, you learn how to integrate CA PPM with Azure Active Directory (Azure AD).
-Integrating CA PPM with Azure AD provides you with the following benefits:
+In this tutorial, you learn how to integrate Bugsnag with Azure Active Directory (Azure AD).
+Integrating Bugsnag with Azure AD provides you with the following benefits:
 
-* You can control in Azure AD who has access to CA PPM.
-* You can enable your users to be automatically signed-in to CA PPM (Single Sign-On) with their Azure AD accounts.
+* You can control in Azure AD who has access to Bugsnag.
+* You can enable your users to be automatically signed-in to Bugsnag (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -32,22 +31,23 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To configure Azure AD integration with CA PPM, you need the following items:
+To configure Azure AD integration with Bugsnag, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* CA PPM single sign-on enabled subscription
+* Bugsnag single sign-on enabled subscription
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* CA PPM supports **IDP** initiated SSO
+* Bugsnag supports **SP and IDP** initiated SSO
+* Bugsnag supports **Just In Time** user provisioning
 
-## Adding CA PPM from the gallery
+## Adding Bugsnag from the gallery
 
-To configure the integration of CA PPM into Azure AD, you need to add CA PPM from the gallery to your list of managed SaaS apps.
+To configure the integration of Bugsnag into Azure AD, you need to add Bugsnag from the gallery to your list of managed SaaS apps.
 
-**To add CA PPM from the gallery, perform the following steps:**
+**To add Bugsnag from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
@@ -61,31 +61,31 @@ To configure the integration of CA PPM into Azure AD, you need to add CA PPM fro
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **CA PPM**, select **CA PPM** from result panel then click **Add** button to add the application.
+4. In the search box, type **Bugsnag**, select **Bugsnag** from result panel then click **Add** button to add the application.
 
-	 ![CA PPM in the results list](common/search-new-app.png)
+	 ![Bugsnag in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with CA PPM based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in CA PPM needs to be established.
+In this section, you configure and test Azure AD single sign-on with Bugsnag based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Bugsnag needs to be established.
 
-To configure and test Azure AD single sign-on with CA PPM, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with Bugsnag, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure CA PPM Single Sign-On](#configure-ca-ppm-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure Bugsnag Single Sign-On](#configure-bugsnag-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create CA PPM test user](#create-ca-ppm-test-user)** - to have a counterpart of Britta Simon in CA PPM that is linked to the Azure AD representation of user.
+5. **[Create Bugsnag test user](#create-bugsnag-test-user)** - to have a counterpart of Britta Simon in Bugsnag that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
-To configure Azure AD single sign-on with CA PPM, perform the following steps:
+To configure Azure AD single sign-on with Bugsnag, perform the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **CA PPM** application integration page, select **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Bugsnag** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on link](common/select-sso.png)
 
@@ -97,36 +97,30 @@ To configure Azure AD single sign-on with CA PPM, perform the following steps:
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Set up Single Sign-On with SAML** page, perform the following steps:
+4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following step:
 
-    ![CA PPM Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Bugsnag Domain and URLs single sign-on information](common/both-replyurl.png)
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://ca.ondemand.saml.20.post.<companyname>`
+	In the **Reply URL** text box, type a URL using the following pattern:
+    `https://app.bugsnag.com/user/sign_in/saml/<org_slug>/acs`
 
-    b. In the **Reply URL** text box, type as:
-    `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
+    > [!NOTE]
+	> The Reply URL value is not real. Update this value with the actual Reply URL. Contact [Bugsnag Client support team](mailto:support@bugsnag.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-	> [!NOTE]
-	> This value is not real. Update this value with the actual Identifier. Contact [CA PPM Client support team](mailto:catechnicalsupport@ca.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+    ![Bugsnag Domain and URLs single sign-on information](common/both-signonurl.png)
 
-	![The Certificate download link](common/certificatebase64.png)
+    In the **Sign-on URL** text box, type as:
+    `https://app.bugsnag.com/user/identity_provider`
 
-6. On the **Set up CA PPM** section, copy the appropriate URL(s) as per your requirement.
+6. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![The Certificate download link](common/copy-metadataurl.png)
 
-	a. Login URL
+### Configure Bugsnag Single Sign-On
 
-	b. Azure Ad Identifier
-
-	c. Logout URL
-
-### Configure CA PPM Single Sign-On
-
-To configure single sign-on on **CA PPM** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [CA PPM support team](mailto:catechnicalsupport@ca.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Bugsnag** side, you need to send the **App Federation Metadata Url** to [Bugsnag support team](mailto:support@bugsnag.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -155,15 +149,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to CA PPM.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Bugsnag.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **CA PPM**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Bugsnag**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **CA PPM**.
+2. In the applications list, select **Bugsnag**.
 
-	![The CA PPM link in the Applications list](common/all-applications.png)
+	![The Bugsnag link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -179,15 +173,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
-### Create CA PPM test user
+### Create Bugsnag test user
 
-In this section, you create a user called Britta Simon in CA PPM. Work with [CA PPM support team](mailto:catechnicalsupport@ca.com) to add the users in the CA PPM platform. Users must be created and activated before you use single sign-on.
+In this section, a user called Britta Simon is created in Bugsnag. Bugsnag supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Bugsnag, a new one is created after authentication.
 
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the CA PPM tile in the Access Panel, you should be automatically signed in to the CA PPM for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Bugsnag tile in the Access Panel, you should be automatically signed in to the Bugsnag for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional Resources
 
