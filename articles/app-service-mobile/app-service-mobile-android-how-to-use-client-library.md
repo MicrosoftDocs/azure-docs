@@ -422,7 +422,7 @@ List<ToDoItem> result = mToDoTable
 If you wish to get all records in a table, implement code to iterate over all pages:
 
 ```java
-List<MyDataModel> results = new List<MyDataModel>();
+List<MyDataModel> results = new ArrayList<>();
 int nResults;
 do {
     int currentCount = results.size();
