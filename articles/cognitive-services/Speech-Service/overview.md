@@ -69,6 +69,13 @@ Azure Speech Services work well with built-in models, however, you may want to f
 | | [Pronunciation model](how-to-customize-pronunciation.md) | With a custom pronunciation model, you can define the phonetic form and display of a word or term. It's useful for handling customized terms, such as product names or acronyms. All you need to get started is a pronunciation file -- a simple .txt file. |
 | Speech synthesis | [Voice font](how-to-customize-voice-font.md) | Custom voice fonts allow you to create a recognizable, one-of-a-kind voice for your brand. It only takes a small amount of data to get started, but the more data you provide, the more natural and human-like it will sound. |
 
+## Reference docs
+
+* [Speech SDK](speech-sdk-reference.md)
+* [Speech Devices SDK](speech-devices-sdk.md)
+* [Speech recognition and synthesis REST APIs](rest-apis.md)
+* [Batch transcription and customization REST APIs](https://westus.cris.ai/swagger/ui/index)
+
 ## Next steps
 
 > [!div class="nextstepaction"]
