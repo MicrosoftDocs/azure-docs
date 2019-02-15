@@ -52,7 +52,7 @@ The second method also uses CNAME records. To avoid downtime, however, it first 
 
 Mapping your custom domain to a blob endpoint can cause a brief period of downtime while you are registering the domain in the [Azure portal](https://portal.azure.com). If the domain currently supports an application with a service-level agreement (SLA) that requires zero downtime, use the Azure *asverify* subdomain as an intermediate registration step. This step ensures that users can access your domain while the DNS mapping takes place.
 
-The intermediary method is covered in [Register a custom domain by using the *asverify* subdomain](#register-a-custom-domain-using-the-asverify-subdomain).
+The intermediary method is covered in Register a custom domain by using the *asverify* subdomain.
 
 ## Register a custom domain
 Register the domain by using the procedure in this section if the following statements apply:
@@ -61,7 +61,7 @@ Register the domain by using the procedure in this section if the following stat
 
 You can use Azure DNS to configure a custom DNS name for your Azure Blob store. For more information, see [Use Azure DNS to provide custom domain settings for an Azure service](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage).
 
-If your custom domain currently supports an application that cannot have any downtime, use the procedure in [Register a custom domain by using the *asverify* subdomain](#register-a-custom-domain-using-the-asverify-subdomain).
+If your custom domain currently supports an application that cannot have any downtime, use the procedure in Register a custom domain by using the *asverify* subdomain.
 
 To configure a custom domain name, create a new CNAME record in DNS. The CNAME record specifies an alias for a domain name. In our example, it maps the address of your custom domain to your storage account's Blob storage endpoint.
 
