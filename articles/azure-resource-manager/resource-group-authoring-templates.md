@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/11/2019
+ms.date: 02/14/2019
 ms.author: tomfitz
 ---
 
@@ -147,6 +147,7 @@ Each element has properties you can set. The following example shows the full sy
     ],
     "outputs": {
         "<outputName>" : {
+            "condition": "<boolean-value-whether-to-output-value>",
             "type" : "<type-of-output-value>",
             "value": "<output-value-expression>"
         }
