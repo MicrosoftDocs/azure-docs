@@ -16,7 +16,7 @@ ms.author: diberry
 
 This article contains answers to frequently asked questions about Language Understanding (LUIS).
 
-<a name="luis-authoring">
+<a name="luis-authoring"></a>
 
 ## Authoring
 
@@ -58,7 +58,7 @@ Cortana prebuilt apps were deprecated in 2017. They are no longer supported.
 ### How do I transfer ownership of a LUIS app?
 To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. Update the LUIS app ID in the client application that calls it. The new app may return slightly different LUIS scores from the original app.
 
-<a name="luis-collaborating">
+<a name="luis-collaborating"></a>
 
 ## Collaborating
 
@@ -66,7 +66,7 @@ To transfer a LUIS app to a different Azure subscription, export the LUIS app an
 
 See [Azure Active Directory resources](luis-how-to-collaborate.md#azure-active-directory-resources)  and [Azure Active Directory tenant user](luis-how-to-collaborate.md#azure-active-directory-tenant-user) to learn how to give collaborators access. 
 
-<a name="luis-endpoint">
+<a name="luis-endpoint"></a>
 
 ## Endpoint
 
