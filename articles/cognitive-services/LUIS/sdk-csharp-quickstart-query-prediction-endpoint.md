@@ -23,7 +23,7 @@ This quickstart sends a user utterance, such as `turn on the bedroom light`, to 
 * C# programming language (included with VS Community 2017)
 * Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
-While you do need the NuGet package for Language Understanding, this quickstart uses NuGet from inside Visual Studio you how to add it from Visual Studio, later in the quickstart, so you don't need to download it as a prerequisite. 
+While you do need the NuGet package for Language Understanding, this quickstart uses NuGet from inside Visual Studio and shows you how to add it from Visual Studio, later in the quickstart, so you don't need to download it as a prerequisite. 
 
 > [!Note]
 > The complete solution is available from the [cognitive-services-language-understanding](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/sdk-quickstarts/c%23/UsePredictionRuntime) GitHub repository.
@@ -35,13 +35,18 @@ Looking for more documentation?
 
 ## Get Cognitive Services or Language Understanding key
 
-In order to use the public app for home automation, you need a valid key for endpoint predictions. You can use either a Cognitive Services key (created below with the Azure CLI), which is valid for many cognitive services, or a language understanding key. 
+In order to use the public app for home automation, you need a valid key for endpoint predictions. You can use either a Cognitive Services key (created below with the Azure CLI), which is valid for many cognitive services, or a `Language Understanding` key. 
 
-Use the following .Net code with the Cognitive Services management SDK to create a Cognitive Service key:
+Use the following Azure CLI command to create a Cognitive Service key:
 
-```csharp
-
-
+```azurecli-interactive
+az cognitiveservices account create \
+    -n my-cog-serv-resource \
+    -g my-cog-serv-resource-group \
+    --kind CognitiveServices \
+    --sku S0 \
+    -l WestEurope \ 
+    --yes
 ```
 
 ## Create .Net Core project
@@ -65,7 +70,7 @@ using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime;
 
 ## Create a new method for the prediction
 
-Create a new method to send the query to the query prediction endpoint. The method will create and configure all necessary objects then return a `Task` with the [`LuisResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-dotnet) prediction results. 
+Create a new method, `GetPrediction` to send the query to the query prediction endpoint. The method will create and configure all necessary objects then return a `Task` with the [`LuisResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-dotnet) prediction results. 
 
 ```csharp
 static async System.Threading.Tasks.Task<Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models.LuisResult> GetPrediction() {
@@ -165,3 +170,4 @@ HomeAutomation.Room:'bedroom' begins at position 12 and ends at position 18
 ```
 
 ## Next steps
+
