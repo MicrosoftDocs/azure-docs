@@ -50,7 +50,7 @@ Here is another view of the same table that will help you visualize things furth
 ![Flow diagram](./media/overview-what-happened-batch-ai/batchai-heirarchy.png) 
  
 **Azure Machine Learning service hierarchy**
-![Flow diagram](./media/overview-what-happened-batch-ai/azure-machine-learning-service-heirarchy.png.png) 
+![Flow diagram](./media/overview-what-happened-batch-ai/azure-machine-learning-service-heirarchy.png) 
 
 ### Platform Capabilities
 Azure Machine Learning service brings a great set of new functionalities including an end to end training->deployment stack that you can use for your AI development without having to manage any Azure resources. This table compares feature support for training between the two services.
@@ -137,7 +137,7 @@ Current SDK support in Azure Machine Learning service is through several Python 
 pip install --upgrade azureml-sdk[notebooks]
 ```
 
-Set up your environment and install the SDK using these [quickstart instructions](../machine-learning/service/quickstart-create-workspace-with-python#install-the-sdk.md)
+Set up your environment and install the SDK using these [quickstart instructions](../machine-learning/service/quickstart-create-workspace-with-python.md#install-the-sdk)
 
 Once you open a jupyter notebook with the kernel pointing to the relevant conda environment, here is how the commands in the two services map:
 
