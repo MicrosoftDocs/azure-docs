@@ -12,7 +12,7 @@ ms.author: hrasheed
 ---
 # Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
 
-Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built on Azure Blob storage. Data Lake Storage Gen2 combines the capabilities of Azure Blob storage and Azure Data Lake Storage Gen1. The result is a service that offers features from Azure Data Lake Storage Gen1, such as file system semantics, directory, and file level security and scale along with the low-cost, tiered storage, high availability, and disaster recovery capabilities from Azure Blob storage.
+Azure Data Lake Storage Gen2 is a cloud storage service dedicated to big data analytics, built on Azure Blob storage. Data Lake Storage Gen2 combines the capabilities of Azure Blob storage and Azure Data Lake Storage Gen1. The resulting service offers features from Azure Data Lake Storage Gen1, such as file system semantics, directory-level and file-level security, and scalability, along with the low-cost, tiered storage, high availability, and disaster-recovery capabilities from Azure Blob storage.
 
 ## Data Lake Storage Gen2 availability
 
@@ -62,11 +62,11 @@ To create an HDInsight cluster that uses Data Lake Storage Gen2 for storage, fol
 
 ### Using an Azure Resource Manager template deployed with Azure CLI
 
-You can download a [sample template file here](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) and a [sample parameters file here](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Before using the template, replace the string `<SUBSCRIPTION_ID>`with your actual Azure subscription ID. Also, replace the string `<PASSWORD>` with your chosen password to set both the password that you'll use to sign in to your cluster and the SSH password.
+You can download a [sample template file here](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) and a [sample parameters file here](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Before using the template, replace the string `<SUBSCRIPTION_ID>` with your actual Azure subscription ID. Also, replace the string `<PASSWORD>` with your chosen password to set both the password that you'll use to log in to your cluster and the SSH password.
 
 The code snippet below does the following initial steps:
 
-1. Signs in to your Azure account.
+1. Logs in to your Azure account.
 1. Sets the active subscription where the create operations will be done.
 1. Creates a new resource group for the new deployment activities named `hdinsight-deployment-rg`.
 1. Creates a user-assigned managed identity named `test-hdinsight-msi`.
@@ -91,7 +91,7 @@ az storage account create --name hdinsightadlsgen2 \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-Next, sign in to the portal. Add the new user-assigned managed identity to the **Storage Blob Data Contributor (Preview)** role on the storage account, as described in step 3 above under [Using the Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md#using-the-azure-portal).
+Next, log in to the portal. Add the new user-assigned managed identity to the **Storage Blob Data Contributor (Preview)** role on the storage account, as described in step 3 above under [Using the Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md#using-the-azure-portal).
 
 After you've assigned the role for the user-assigned managed identity, deploy the template by using the code snippet below.
 
@@ -116,7 +116,7 @@ For more information about file permissions with ACLs, see [Access control lists
 
 ### How do I control access to my data in Data Lake Storage Gen2?
 
-Your HDInsight cluster's ability to access files in Data Lake Storage Gen2 is controlled through managed identities. A managed identity is an identity registered in Azure Active Directory (Azure AD) whose credentials are managed by Azure. You don't need to register service principals in Azure AD and maintain credentials such as certificates.
+Your HDInsight cluster's ability to access files in Data Lake Storage Gen2 is controlled through managed identities. A managed identity is an identity registered in Azure Active Directory (Azure AD) whose credentials are managed by Azure. With managed identities, you don't need to register service principals in Azure AD and maintain credentials such as certificates.
 
 Azure services have two types of managed identities: system-assigned and user-assigned. HDInsight uses user-assigned managed identities to access Data Lake Storage Gen2. A user-assigned managed identity is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Azure AD tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances.
 
