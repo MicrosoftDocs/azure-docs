@@ -91,7 +91,8 @@ Use the following steps to configure the native Windows VPN client for certifica
    ![Location of the mobileconfig file](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
 
 3. Optional Step - If you want to specify a custom DNS, add the following lines to the **mobileconfig** file:
-```xml
+
+  ```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -103,7 +104,7 @@ Use the following steps to configure the native Windows VPN client for certifica
             <string>TestDomain.com</string>
         </array>
     </dict> 
-```
+  ```
 4. Double-click the profile to install it, and select **Continue**. The profile name is the same as the name of your virtual network.
 
    ![Installation message](./media/point-to-site-vpn-client-configuration-radius/adinstall.png)
@@ -127,7 +128,7 @@ Use the following steps to configure the native Windows VPN client for certifica
    ![Details for the VPN connection](./media/point-to-site-vpn-client-configuration-radius/adconnection.png)
 11. Select **Authentication Settings**. Select **Username** in the list and enter your credentials. If you entered the credentials earlier, then **Username** is automatically chosen in the list and the username and password are prepopulated. Select **OK** to save the settings.
 
-    ![Authentication settings](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
+   ![Authentication settings](./media/point-to-site-vpn-client-configuration-radius/adauthentication.png)
 12. Back in the **Network** dialog box, select **Apply** to save the changes. To initiate the connection, select **Connect**.
 
 #### <a name="adlinuxcli"></a>Linux VPN client setup through strongSwan
