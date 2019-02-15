@@ -56,4 +56,4 @@ sections:
     style: ordered
     items:
       - html: <a href="/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices">Sharing in Unity.</a>
-      - html: <a href="/azure/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors">Sharing in Unity with Cosmos DB .</a>
+      - html: <a href="/azure/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors">Sharing in Unity with Azure Cosmos DB.</a>

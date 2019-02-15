@@ -29,7 +29,7 @@
   items:
   - name: Sharing in Unity
     href: tutorials/tutorial-share-anchors-across-devices.md
-  - name: Sharing in Unity with Cosmos DB 
+  - name: Sharing in Unity with Azure Cosmos DB
     href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
 - name: Concepts
   expanded: true
