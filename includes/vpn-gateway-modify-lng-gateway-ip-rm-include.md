@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 03/28/2018
+ ms.date: 02/14/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -44,7 +44,8 @@ If the VPN device that you want to connect to has changed its public IP address,
     Set the variables.
 
    ```azurepowershell-interactive
-   $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1 `
+   $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
+
    $vnetgw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
    ```
    
