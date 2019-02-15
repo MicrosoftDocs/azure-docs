@@ -116,11 +116,12 @@ To configure Azure AD single sign-on with FloQast, perform the following steps:
 
 7. In addition to above, FloQast application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
-	| Name | Namespace  |  Source Attribute|
+	| Name |  Source Attribute|
 	| ------------------- | -------------------- |    
 	| FirstName 		  | user.givenname |
 	| LastName 		  | user.surname |
-	| Email       | user.mail    |
+	| Email       		  | user.mail    |
+	
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
 	![image](common/new-save-attribute.png)
