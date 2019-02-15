@@ -202,7 +202,7 @@ When a new policy is applied, schedule and retention of the new policy is follow
 ## Encryption
 
 ### Is the data sent to Azure encrypted?
-Yes. Data is encrypted on the on-premises machine using AES256. The data is sent over a secure HTTPS link. The data is transmitted in cloud is protected by HTTPS link only between storage and recovery service. iSCSI protocol secures the data transmitted between recovery service and user machine. Secure tunneling is used to protect the iSCSI channel.
+Yes. Data is encrypted on the on-premises machine using AES256. The data is sent over a secure HTTPS link. The data transmitted in cloud is protected by HTTPS link only between storage and recovery service. iSCSI protocol secures the data transmitted between recovery service and user machine. Secure tunneling is used to protect the iSCSI channel.
 
 ### Is the backup data on Azure encrypted as well?
 Yes. The data in Azure is encrypted-at-rest.
