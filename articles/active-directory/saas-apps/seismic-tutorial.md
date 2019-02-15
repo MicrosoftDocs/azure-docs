@@ -1,30 +1,29 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Certify | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Certify.
+title: 'Tutorial: Azure Active Directory integration with Seismic | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Seismic.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 
-ms.assetid: 0b36e020-175a-4534-b341-85260739f889
+ms.assetid: 56014c05-e37f-4f85-bcfa-5115dda2d678
 ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/12/2019
+ms.date: 02/13/2019
 ms.author: jeedes
 
-ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with Certify
+# Tutorial: Azure Active Directory integration with Seismic
 
-In this tutorial, you learn how to integrate Certify with Azure Active Directory (Azure AD).
-Integrating Certify with Azure AD provides you with the following benefits:
+In this tutorial, you learn how to integrate Seismic with Azure Active Directory (Azure AD).
+Integrating Seismic with Azure AD provides you with the following benefits:
 
-* You can control in Azure AD who has access to Certify.
-* You can enable your users to be automatically signed-in to Certify (Single Sign-On) with their Azure AD accounts.
+* You can control in Azure AD who has access to Seismic.
+* You can enable your users to be automatically signed-in to Seismic (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -32,23 +31,22 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To configure Azure AD integration with Certify, you need the following items:
+To configure Azure AD integration with Seismic, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Certify single sign-on enabled subscription
+* Seismic single sign-on enabled subscription
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Certify supports **IDP** initiated SSO
-* Certify supports **Just In Time** user provisioning
+* Seismic supports **SP** initiated SSO
 
-## Adding Certify from the gallery
+## Adding Seismic from the gallery
 
-To configure the integration of Certify into Azure AD, you need to add Certify from the gallery to your list of managed SaaS apps.
+To configure the integration of Seismic into Azure AD, you need to add Seismic from the gallery to your list of managed SaaS apps.
 
-**To add Certify from the gallery, perform the following steps:**
+**To add Seismic from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
@@ -62,31 +60,31 @@ To configure the integration of Certify into Azure AD, you need to add Certify f
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Certify**, select **Certify** from result panel then click **Add** button to add the application.
+4. In the search box, type **Seismic**, select **Seismic** from result panel then click **Add** button to add the application.
 
-	 ![Certify in the results list](common/search-new-app.png)
+	 ![Seismic in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Certify based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Certify needs to be established.
+In this section, you configure and test Azure AD single sign-on with Seismic based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Seismic needs to be established.
 
-To configure and test Azure AD single sign-on with Certify, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with Seismic, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Certify Single Sign-On](#configure-certify-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure Seismic Single Sign-On](#configure-seismic-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Certify test user](#create-certify-test-user)** - to have a counterpart of Britta Simon in Certify that is linked to the Azure AD representation of user.
+5. **[Create Seismic test user](#create-seismic-test-user)** - to have a counterpart of Britta Simon in Seismic that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
-To configure Azure AD single sign-on with Certify, perform the following steps:
+To configure Azure AD single sign-on with Seismic, perform the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Certify** application integration page, select **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Seismic** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on link](common/select-sso.png)
 
@@ -100,16 +98,22 @@ To configure Azure AD single sign-on with Certify, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![Certify Domain and URLs single sign-on information](common/idp-identifier.png)
+    ![Seismic Domain and URLs single sign-on information](common/sp-identifier.png)
 
-    In the **Identifier** text box, type the URL:
-    `https://www.certify.com`
+	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.seismic.com`
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Raw)** from the given options as per your requirement and save it on your computer.
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `https://<SUBDOMAIN>.seismic.com`
 
-	![The Certificate download link](common/certificateraw.png)
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Seismic Client support team](mailto:support@seismic.com) to get these values. You can also upload the **Service Provider Metadata** to auto populate the Identifier value, for more information about **Service Provider Metadata**, contact to [Seismic Client support team](mailto:support@seismic.com).
 
-6. On the **Set up Certify** section, copy the appropriate URL(s) as per your requirement.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+
+	![The Certificate download link](common/certificatebase64.png)
+
+6. On the **Set up Seismic** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -119,11 +123,11 @@ To configure Azure AD single sign-on with Certify, perform the following steps:
 
 	c. Logout URL
 
-### Configure Certify Single Sign-On
+### Configure Seismic Single Sign-On
 
-To configure single sign-on on **Certify** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Certify support team](mailto:support@certify.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Seismic** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Seismic support team](mailto:support@seismic.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create an Azure AD test user 
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -150,15 +154,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Certify.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Seismic.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Certify**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Seismic**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Certify**.
+2. In the applications list, select **Seismic**.
 
-	![The Certify link in the Applications list](common/all-applications.png)
+	![The Seismic link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -174,24 +178,20 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
-### Create Certify test user
+### Create Seismic test user
 
-In this section, a user called Britta Simon is created in Certify. Certify supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Certify, a new one is created after authentication.
-
-> [!NOTE]
-> If you need to create an user manually, you need to contact the [Certify support team](mailto:support@certify.com).
+In this section, you create a user called Britta Simon in Seismic. Work with [Seismic support team](mailto:support@seismic.com) to add the users in the Seismic platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Certify tile in the Access Panel, you should be automatically signed in to the Certify for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the Seismic tile in the Access Panel, you should be automatically signed in to the Seismic for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional resources
+## Additional Resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
