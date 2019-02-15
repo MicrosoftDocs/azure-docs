@@ -45,9 +45,9 @@ The default analyzer is Standard Lucene, which works well for English, but perha
 
 ## Configuring analyzers
 
-Language analyzers are used as-is. For each field in the index definition, you can set the **analyzer** property to an analyzer name that specifies which language and vendor. The same analyzer will be applied when indexing and searching for that field. For example, you can have separate fields for English, French, and Spanish hotel descriptions that exist side by side in the same index.  
+Language analyzers are used as-is. For each field in the index definition, you can set the **analyzer** property to an analyzer name that specifies which language and vendor. The same analyzer will be applied when indexing and searching for that field. For example, you can have separate fields for English, French, and Spanish hotel descriptions that exist side by side in the same index. Alternatively, instead of **analyzer**, you can use **indexAnalyzer** and **searchAnalyzer** to vary analysis by workload. 
 
-Use the **searchFields** query parameter to specify which language-specific field to search against in your queries. You can review query examples that include the analyzer property in Search Documents. 
+Use the **searchFields** query parameter to specify which language-specific field to search against in your queries. You can review query examples that include the analyzer property in [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
 For more information about index properties, see [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index). For more information about analysis in Azure Search, see [Analyzers in Azure Search](https://docs.microsoft.com/azure/search/search-analyzers).
 
