@@ -19,11 +19,6 @@ This article describes the common issues in Azure Site Recovery when replicating
 - **[Trusted root certificates (error code 151066)](#trusted-root-certificates-error-code-151066)** 
 - **[Outbound connectivity for Site Recovery (error code 151195)](#issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br)** 
 
-
-- Linux VM protection errors
-- **[device name mentioned in the GRUB configuration instead of UUID (error code 151126)](#enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126)** 
-
-
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Azure resource quota issues (error code 150097)
 Your subscription should be enabled to create Azure VMs in the target region that you plan to use as your disaster recovery region. Also, your subscription should have sufficient quota enabled to create VMs of specific size. By default, Site Recovery picks the same size for the target VM as the source VM. If the matching size isn't available, the closest possible size is picked automatically. If there's no matching size that supports source VM configuration, this error message appears:
 
