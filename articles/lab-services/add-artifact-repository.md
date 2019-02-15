@@ -509,5 +509,7 @@ Set-AzureRMContext -SubscriptionId 11111111-1111-1111-1111-111111111111
 ```
 
 ## Next steps
-* Learn how to [add a Git artifact repository to a lab](devtest-lab-add-artifact-repo.md).
+- [Specify mandatory artifacts for your lab in Azure DevTest Labs](devtest-lab-mandatory-artifacts.md)
+- [Create custom artifacts for your DevTest Labs virtual machine](devtest-lab-artifact-author.md)
+- [Diagnose artifact failures in the lab](devtest-lab-troubleshoot-artifact-failure.md)
 
