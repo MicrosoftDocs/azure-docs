@@ -16,7 +16,7 @@ ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Scaling Media Processing overview (legacy)
+# Scaling Media Processing overview 
 This page gives an overview of how and why to scale media processing. 
 
 ## Overview

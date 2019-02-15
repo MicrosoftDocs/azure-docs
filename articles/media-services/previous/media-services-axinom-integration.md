@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
 
 ---
-# Using Axinom to deliver Widevine licenses to Azure Media Services (legacy)
+# Using Axinom to deliver Widevine licenses to Azure Media Services 
 > [!div class="op_single_selector"]
 > * [castLabs](media-services-castlabs-integration.md)
 > * [Axinom](media-services-axinom-integration.md)

@@ -14,6 +14,7 @@ ms.subservice: compliance
 ms.date: 02/14/2019
 ms.author: rolyon
 ms.reviewer: mwahl
+ms.collection: M365-identity-device-management
 ---
 
 # Review your own access to groups or applications in Azure AD Access Reviews

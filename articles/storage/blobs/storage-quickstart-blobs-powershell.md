@@ -70,7 +70,7 @@ Get-AzStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## Download blobs
 
-Download the blobs to your local disk. For each blob you want to download, set the name and call [Get-AzStorageBlobConten](/powershell/module/az.storage/get-AzStorageblobcontent) to download the blob.
+Download the blobs to your local disk. For each blob you want to download, set the name and call [Get-AzStorageBlobContent](/powershell/module/az.storage/get-AzStorageblobcontent) to download the blob.
 
 This example downloads the blobs to *D:\\_TestImages\Downloads* on the local disk. 
 

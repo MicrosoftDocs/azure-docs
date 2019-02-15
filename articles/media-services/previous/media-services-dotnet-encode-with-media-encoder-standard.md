@@ -17,7 +17,8 @@ ms.date: 02/09/2019
 ms.author: juliako;anilmur
 
 ---
-# Encode an asset with Media Encoder Standard using .NET (legacy)
+
+# Encode an asset with Media Encoder Standard using .NET  
 
 Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another. When you encode, you can use the Media Services built-in Media Encoder. You can also use an encoder provided by a Media Services partner; third-party encoders are available through the Azure Marketplace. 
 

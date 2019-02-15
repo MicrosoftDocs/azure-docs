@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: Mingfeiy;willzhan;Juliako
 
 ---
-# Using castLabs to deliver Widevine licenses to Azure Media Services (legacy)
+# Using castLabs to deliver Widevine licenses to Azure Media Services 
 > [!div class="op_single_selector"]
 > * [Axinom](media-services-axinom-integration.md)
 > * [castLabs](media-services-castlabs-integration.md)

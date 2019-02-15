@@ -18,7 +18,7 @@ ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Streaming endpoints overview (legacy)
+# Streaming endpoints overview  
 
 ## Overview
 

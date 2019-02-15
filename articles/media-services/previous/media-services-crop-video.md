@@ -16,7 +16,7 @@ ms.date: 02/08/2019
 ms.author: anilmur;juliako;
 
 ---
-# Crop videos with Media Encoder Standard (legacy)
+# Crop videos with Media Encoder Standard  
 
 You can use Media Encoder Standard (MES) to crop your input video. Cropping is the process of selecting a rectangular window within the video frame, and encoding just the pixels within that window. The following diagram helps illustrate the process.
 

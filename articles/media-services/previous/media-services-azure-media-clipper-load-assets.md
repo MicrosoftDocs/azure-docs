@@ -22,7 +22,7 @@ ms.service: media-services
 # manager: MSFT-alias-manager-or-PM-counterpart
 ---
 
-# Loading assets into Azure Media Clipper (legacy)
+# Loading assets into Azure Media Clipper  
 
 Assets can be loaded into the Azure Media Clipper by two methods:
 1. Statically passing in a library of assets

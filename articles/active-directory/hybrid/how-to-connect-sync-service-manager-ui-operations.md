@@ -17,6 +17,7 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
+ms.collection: M365-identity-device-management
 ---
 # Using the Sync Service Manager Operations tab
 

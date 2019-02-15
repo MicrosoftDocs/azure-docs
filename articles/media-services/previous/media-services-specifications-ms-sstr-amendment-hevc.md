@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: johndeu;
 
 ---
-# Smooth Streaming Protocol (MS-SSTR) Amendment for HEVC (legacy)
+# Smooth Streaming Protocol (MS-SSTR) Amendment for HEVC 
 
 ## 1 Introduction 
 

@@ -16,7 +16,7 @@ ms.date: 02/08/2019
 ms.author: willzhan;kilroyh;yanmf;juliako
 
 ---
-# Design of a content protection system with access control using Azure Media Services (legacy)
+# Design of a content protection system with access control using Azure Media Services 
 
 ## Overview
 

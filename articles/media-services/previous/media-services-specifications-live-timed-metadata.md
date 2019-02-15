@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: johndeu;
 
 ---
-# Signaling Timed Metadata in Live Streaming (legacy)
+# Signaling Timed Metadata in Live Streaming 
 
 
 ## 1 Introduction 

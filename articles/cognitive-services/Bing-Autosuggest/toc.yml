@@ -32,6 +32,10 @@
   items:
   - name: Upgrade from v5 to v7
     href: bing-autosuggest-upgrade-guide-v5-to-v7.md
+- name: Concepts
+  items:
+  - name: Suggesting query terms
+    href: concepts/get-suggestions.md
 - name: Reference
   items:
   - name: Bing Autosuggest API v7

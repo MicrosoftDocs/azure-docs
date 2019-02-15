@@ -4,7 +4,7 @@ title: Azure DDoS Protection best practices and reference architectures | Micros
 description: Learn about how you can use logging data to gain deep insights about your application.
 services: security
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 

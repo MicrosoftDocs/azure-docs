@@ -13,6 +13,7 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: olhaun
+ms.collection: M365-identity-device-management
 ---
 
 # Microsoft Authenticator app FAQ

@@ -18,7 +18,7 @@ ms.author: juliako;anilmur
 
 ---
 
-# Comparison of Azure on demand media encoders (legacy)
+# Comparison of Azure on demand media encoders  
 
 This topic compares the encoding capabilities of **Media Encoder Standard** and **Media Encoder Premium Workflow**.
 

@@ -18,7 +18,7 @@ ms.author: juliako
 
 ---
 
-# Azure Media Services telemetry (legacy)
+# Azure Media Services telemetry  
 
 Azure Media Services (AMS) enables you to access telemetry/metrics data for its services. The current version of AMS lets you collect telemetry data for live **Channel**, **StreamingEndpoint**, and live **Archive** entities. 
 

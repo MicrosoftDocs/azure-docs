@@ -17,7 +17,8 @@ ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Monitor Job Progress using .NET (legacy)
+
+# Monitor Job Progress using .NET 
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)

@@ -12,10 +12,10 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 02/08/2018
+ms.date: 02/10/2019
 ms.author: juliako 
 ---
-# Scenarios and availability of Media Services features across datacenters (legacy)
+# Scenarios and availability of Media Services features across datacenters
 
 Microsoft Azure Media Services (AMS) enables you to securely upload, store, encode, and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 

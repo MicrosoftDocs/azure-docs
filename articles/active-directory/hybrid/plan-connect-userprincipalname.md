@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.service: active-Directory
 manager: daveba
+ms.collection: M365-identity-device-management
 ---
 
 # Azure AD UserPrincipalName population

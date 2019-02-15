@@ -16,7 +16,7 @@ ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Troubleshooting guide for live streaming (legacy)
+# Troubleshooting guide for live streaming  
 
 This article gives suggestions on how to troubleshoot some live streaming problems.
 

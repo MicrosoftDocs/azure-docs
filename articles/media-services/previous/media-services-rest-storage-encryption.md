@@ -17,7 +17,7 @@ ms.date: 02/09/2019
 ms.author: juliako
 
 ---
-# Encrypting your content with storage encryption (legacy)
+# Encrypting your content with storage encryption 
 
 It is highly recommended to encrypt your content locally using AES-256 bit encryption and then upload it to Azure Storage where it is stored encrypted at rest.
 

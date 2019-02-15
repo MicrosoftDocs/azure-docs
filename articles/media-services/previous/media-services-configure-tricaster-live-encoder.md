@@ -17,7 +17,7 @@ ms.date: 02/08/2019
 ms.author: juliako;cenkd;anilmur
 
 ---
-# Use the NewTek TriCaster encoder to send a single bitrate live stream (legacy)
+# Use the NewTek TriCaster encoder to send a single bitrate live stream  
 > [!div class="op_single_selector"]
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Elemental Live](media-services-configure-elemental-live-encoder.md)

@@ -15,6 +15,7 @@ ms.subservice: compliance
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
+ms.collection: M365-identity-device-management
 ---
 
 # Retrieve access review results for groups or applications in Azure AD Access Reviews

@@ -319,9 +319,6 @@
     - name: Use Apache Maven to build Java applications
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: Use the Apache TEZ UI to debug TEZ Jobs
-      href: ../hdinsight-debug-tez-ui.md
-      maintainContext: true
     - name: Customize using Script Action
       href: ../hdinsight-hadoop-customize-cluster.md
       maintainContext: true
