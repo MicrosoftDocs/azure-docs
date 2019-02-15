@@ -55,27 +55,29 @@ To assign the TenantCreator application role to your global administrator accoun
 1. Open a browser and connect to the [Azure Active Directory portal](https://aad.portal.azure.com) with your global administrator account. Note: If you are working with multiple Azure AD tenants it is a good practice to open a private browser session and copy and paste URLs into the address.
 2. Select **Enterprise applications**, search for **Windows Virtual Desktop** and select the application.
 3. Select **Users and groups**, then select **Add user**.
-4. Search for the global administrator account, then select **Select**, and then select **Assign**.
+4. Select Users and groups in the **Add Assignment** blade
+5. Search for a user account that will create your Windows Virtual Desktop tenant. Note: For simplicity, this can be the global administrator account.
+6. Select the user account, click the **Select** button, and then select **Assign**.
 
 ## Create a Windows Virtual Desktop tenant
 
-Now that you've granted the Windows Virtual Desktop service permissions to query the Azure Active Directory and assigned the TenantCreator role to your global administrator account, you can create a Windows Virtual Desktop tenant.
+Now that you've granted the Windows Virtual Desktop service permissions to query the Azure Active Directory and assigned the TenantCreator role to a user account account, you can create a Windows Virtual Desktop tenant.
 
 First, download the Windows Virtual Desktop module and import the module to use in your PowerShell session, if you haven't already.
 
-Sign in to Windows Virtual Desktop as a global administrator with this cmdlet:
+Sign in to Windows Virtual Desktop using the TenantCreator user account with this cmdlet:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
 ```
 
-After that, create a new Windows Virtual Desktop tenant associated with the Azure Active Directory:
+After that, create a new Windows Virtual Desktop tenant associated with the Azure Active Directory tenant:
 
 ```powershell
 New-RdsTenant -Name <TenantName> -AadTenantId <DirectoryID> -AzureSubscriptionId <SubscriptionID>
 ```
 
-The bracketed values should be replaced with values relevant to your organization and tenant. For example, let's say you're the global admin of the Contoso organization. The cmdlet you'd run would look like this:
+The bracketed values should be replaced with values relevant to your organization and tenant. For example, let's say you're the Windows Virtual Desktop TenantCreator for the Contoso organization. The cmdlet you'd run would look like this:
 
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
