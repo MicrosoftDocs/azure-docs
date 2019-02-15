@@ -374,8 +374,8 @@
     href: https://aka.ms/luis-roadmap
   - name: Glossary
     href: luis-glossary.md
-  - name: FAQ
-    href: luis-resources-faq.md
+  - name: Troubleshooting
+    href: troubleshooting.md
   - name: Pricing and limits 
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
   - name: Stack Overflow
