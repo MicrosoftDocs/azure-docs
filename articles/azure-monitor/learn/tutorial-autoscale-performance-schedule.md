@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
-ms.component: autoscale
+ms.subservice: autoscale
 ---
 
 # Create an Autoscale Setting for  Azure resources based on performance data or a schedule
@@ -32,7 +32,7 @@ Log in to the [Azure portal](https://portal.azure.com/).
 ## Create a Web App and App Service Plan
 1. Click the **Create a resource** option from the left-hand navigation pane.
 2. Search for and select the *Web App* item and click **Create**.
-3. Select an app name like *MyTestScaleWebApp*. Create a new resource group *myResourceGroup' and place it into the resource group of your choosing.
+3. Select an app name like *MyTestScaleWebApp*. Create a new resource group *myResourceGroup' or place it into a resource group of your choosing.
 
 Within a few minutes, your resources should be provisioned. Use the Web App and corresponding App Service Plan in the remainder of this tutorial.
 
@@ -58,7 +58,7 @@ The next few steps help you fill the autoscale screen to look like following pic
   ![Navigate to autoscale settings](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## Create recurrance profile
+## Create recurrence profile
 
 1. Click on the **Add a scale condition** link under the default profile.
 
@@ -180,3 +180,4 @@ To learn more about autoscale settings, continue on to the [autoscale overview](
 
 > [!div class="nextstepaction"]
 > [Archive your monitoring data](tutorial-archive-data.md)
+

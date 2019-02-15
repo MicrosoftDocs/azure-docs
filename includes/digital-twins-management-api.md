@@ -19,4 +19,4 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.
 | Name | Replace with |
 | --- | --- |
 | YOUR_INSTANCE_NAME | The name of your Azure Digital Twins instance |
-| YOUR_LOCATION | Which server region your instance is hosted on |
+| YOUR_LOCATION | The region your instance is hosted on |

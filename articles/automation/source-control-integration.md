@@ -3,10 +3,10 @@ title: Source Control integration in Azure Automation
 description: This article describes source control integration with GitHub in Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/26/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -53,6 +53,9 @@ On the **Source Control Summary** page, fill out the information and click **Sav
 |Description     | A text field to provide additional details        |
 
 ![Source control summary](./media/source-control-integration/source-control-summary.png)
+
+> [!NOTE]
+> Ensure you are logged in with the correct account when configuring source control. If there is a doubt, open a new tab in your browser and log out from visualstudio.com or github.com and try connecting source control again.
 
 ## Syncing
 
@@ -135,3 +138,4 @@ Select the source control you want to remove. On the **Source Control Summary** 
 ## Next steps
 
 To learn more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)
+

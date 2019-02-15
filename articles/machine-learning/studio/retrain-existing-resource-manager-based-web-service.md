@@ -1,20 +1,15 @@
 ---
-title: Retrain an existing predictive Studio web service - Azure Machine Learning Studio | Microsoft Docs
+title: Retrain an existing predictive Studio web service
+titleSuffix: Azure Machine Learning Studio
 description: Learn how to retrain a model and update the web service to use the newly trained model in Azure Machine Learning Studio.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
-ms.author: amlstudiodocs
-
-editor: cgronlun
-ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 11/07/2017
 ---
 # Retrain an existing predictive Azure Machine Learning Studio web service

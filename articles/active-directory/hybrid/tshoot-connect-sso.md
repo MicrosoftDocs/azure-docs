@@ -4,14 +4,15 @@ description: This topic describes how to troubleshoot Azure Active Directory Sea
 services: active-directory
 author: billmath
 ms.reviewer: swkrish
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/24/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot Azure Active Directory Seamless Single Sign-On
@@ -22,7 +23,7 @@ This article helps you find troubleshooting information about common problems re
 
 - In a few cases, enabling Seamless SSO can take up to 30 minutes.
 - If you disable and re-enable Seamless SSO on your tenant, users will not get the single sign-on experience till their cached Kerberos tickets, typically valid for 10 hours, have expired.
-- Edge browser support is not available.
+- Microsoft Edge browser support is not available.
 - If Seamless SSO succeeds, the user does not have the opportunity to select **Keep me signed in**. Due to this behavior, [SharePoint and OneDrive mapping scenarios](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) don't work.
 - Office 365 Win32 clients (Outlook, Word, Excel, and others) with versions 16.0.8730.xxxx and above are supported using a non-interactive flow. Other versions are not supported; on those versions, users will enter their usernames, but not passwords, to sign-in. For OneDrive, you will have to activate the [OneDrive silent config feature](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) for a silent sign-on experience.
 - Seamless SSO doesn't work in private browsing mode on Firefox.

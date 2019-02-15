@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 ---
 # Using Search in Application Insights
-Search is a feature of [Application Insights](../../application-insights/app-insights-overview.md) that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
+Search is a feature of [Application Insights](../../azure-monitor/app/app-insights-overview.md) that you use to find and explore individual telemetry items, such as page views, exceptions, or web requests. And you can view log traces and events that you have coded.
 
 (For more complex queries over your data, use [Analytics](../../azure-monitor/log-query/get-started-portal.md).)
 

@@ -5,7 +5,7 @@ services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.component: luis
+ms.subservice: luis
 ms.topic: include
 ms.custom: include file
 ms.date: 07/26/2018

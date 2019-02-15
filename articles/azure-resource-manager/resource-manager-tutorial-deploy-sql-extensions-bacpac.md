@@ -132,22 +132,26 @@ Add two additional resources to the template.
 
 ## Deploy the template
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Refer to the [Deploy the template](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) section for the deployment procedure. Use the following PowerShell deployment script instead:
 
 ```azurepowershell
-$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $adminUsername = Read-Host -Prompt "Enter the SQL admin username"
 $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-New-AzureRmResourceGroupDeployment -Name $deploymentName `
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -adminUser $adminUsername `
     -adminPassword $adminPassword `
     -TemplateFile azuredeploy.json
 ```
+
+> [!NOTE]
+> There is a file IO issue with using Azure PowerShell in the Cloud shell.  The error message is *"*Cannot retrieve the dynamic parameters for the cmdlet. Cannot find path 'Azure:/azuredeploy.json' because it does not exist.*  A temporary workaround is not to include the **-TemplateFile** switch in the `New-AzResourceGroupDeploy` command. The command will prompt you to enter the file name.
 
 Use a generated password. See [Prerequisites](#prerequisites).
 

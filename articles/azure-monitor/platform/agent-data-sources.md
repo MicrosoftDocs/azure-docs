@@ -38,9 +38,9 @@ The following table lists the agent data sources that are currently available in
 ## Configuring data sources
 You configure data sources from the **Data** menu in **Advanced Settings** for the workspace.  Any configuration is delivered to all connected sources in your workspace.  You cannot currently exclude any agents from this configuration.
 
-![Configure Windows events](./media/agent-data-sources/configure-events.png)
+![Configure Windows events](media/agent-data-sources/configure-events.png)
 
-1. In the Azure portal, select **Workspaces** > your workspace > **Advanced Settings**.
+1. In the Azure portal, select **Log Analytics workspaces** > your workspace > **Advanced Settings**.
 2. Select **Data**.
 3. Click on the data source you want to configure.
 4. Follow the link to the documentation for each data source in the above table for details on their configuration.
@@ -49,7 +49,7 @@ You configure data sources from the **Data** menu in **Advanced Settings** for t
 ## Data collection
 Data source configurations are delivered to agents that are directly connected to Azure Monitor within a few minutes.  The specified data is collected from the agent and delivered directly to Azure Monitor at intervals specific to each data source.  See the documentation for each data source for these specifics.
 
-For System Center Operations Manager agents in a connected management group, data source configurations are translated into management packs and delivered to the management group every 5 minutes by default.  The agent downloads the management pack like any other and collects the specified data. Depending on the data source, the data will be either sent to a management server which forwards the data to the Azure Monitor, or the agent will send the data to Azure Monitor without going through the management server. See [Data collection details for monitoring solutions in Azure](../../azure-monitor/insights/solutions-inventory.md) for details.  You can read about details of connecting Operations Manager and Azure Monitor and modifying the frequency that configuration is delivered at [Configure Integration with System Center Operations Manager](../../log-analytics/log-analytics-om-agents.md).
+For System Center Operations Manager agents in a connected management group, data source configurations are translated into management packs and delivered to the management group every 5 minutes by default.  The agent downloads the management pack like any other and collects the specified data. Depending on the data source, the data will be either sent to a management server which forwards the data to the Azure Monitor, or the agent will send the data to Azure Monitor without going through the management server. See [Data collection details for monitoring solutions in Azure](../insights/solutions-inventory.md) for details.  You can read about details of connecting Operations Manager and Azure Monitor and modifying the frequency that configuration is delivered at [Configure Integration with System Center Operations Manager](om-agents.md).
 
 If the agent is unable to connect to Azure Monitor or Operations Manager, it will continue to collect data that it will deliver when it establishes a connection.  Data can be lost if the amount of data reaches the maximum cache size for the client, or if the agent is not able to establish a connection within 24 hours.
 
@@ -57,6 +57,6 @@ If the agent is unable to connect to Azure Monitor or Operations Manager, it wil
 All log data collected by Azure Monitor is stored in the workspace as records.  Records collected by different data sources will have their own set of properties and be identified by their **Type** property.  See the documentation for each data source and solution for details on each record type.
 
 ## Next steps
-* Learn about [monitoring solutions](../../azure-monitor/insights/solutions.md) that add functionality to Azure Monitor and also collect data into the workspace.
-* Learn about [log queries](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and monitoring solutions.  
-* Configure [alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) to proactively notify you of critical data collected from data sources and monitoring solutions.
+* Learn about [monitoring solutions](../insights/solutions.md) that add functionality to Azure Monitor and also collect data into the workspace.
+* Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and monitoring solutions.  
+* Configure [alerts](alerts-overview.md) to proactively notify you of critical data collected from data sources and monitoring solutions.

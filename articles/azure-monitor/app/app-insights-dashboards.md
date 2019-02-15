@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 ---
 # Navigation and Dashboards in the Application Insights portal
-After you have [set up Application Insights on your project](../../application-insights/app-insights-overview.md), telemetry data about your app's performance and usage will appear in your project's Application Insights resource in the [Azure portal](https://portal.azure.com).
+After you have [set up Application Insights on your project](../../azure-monitor/app/app-insights-overview.md), telemetry data about your app's performance and usage will appear in your project's Application Insights resource in the [Azure portal](https://portal.azure.com).
 
 ## Find your telemetry
 Sign in to the [Azure portal](https://portal.azure.com) and navigate to the Application Insights resource that you created for your app.
@@ -30,7 +30,7 @@ The overview blade (page) for your app shows a summary of the key diagnostic met
 You can customize any of the charts and grids and pin them to a dashboard. That way, you can bring together the key telemetry from different apps on a central dashboard.
 
 ## Dashboards
-The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Azure Application Insights](../../application-insights/app-insights-overview.md).
+The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 ![A customized dashboard.](./media/app-insights-dashboards/31.png)
 
@@ -58,7 +58,7 @@ The chart is automatically refreshed with a frequency that depends on the chart'
 * Time range above 24 hours: (Time range)/60.
 
 ### Pin any query in Analytics
-You can also [pin Analytics](../../azure-monitor/log-query/get-started-portal.md) charts to a [shared](#share-dashboards-with-your-team) dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics. 
+You can also [pin Analytics](../../azure-monitor/log-query/get-started-portal.md) charts to a shared dashboard. This allows you to add charts of any arbitrary query alongside the standard metrics. 
 
 Results are automatically recalculated every hour. Click the Refresh icon on the chart to recalculate immediately. (Browser refresh doesn't recalculate.)
 

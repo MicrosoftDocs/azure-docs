@@ -4,10 +4,10 @@ titleSuffix: Language Understanding - Azure Cognitive Services
 description: Utterances are input from the user that your app needs to interpret. Collect phrases that you think users will enter. Include utterances that mean the same thing but are constructed differently in word length and word placement.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
@@ -33,7 +33,7 @@ When you first get started by [adding example utterances](luis-how-to-add-exampl
 
 ### Utterances aren't always well formed
 
-It may be a sentence, like "Book a ticket to Paris for me", or a fragment of a sentence, like "Booking" or "Paris flight."  Users often make spelling mistakes. When planning your app, consider whether or not you use [Bing Spell Check][(luis-tutorial-bing-spellcheck) to correct user input before passing it to LUIS. 
+It may be a sentence, like "Book a ticket to Paris for me", or a fragment of a sentence, like "Booking" or "Paris flight."  Users often make spelling mistakes. When planning your app, consider whether or not you use [Bing Spell Check](luis-tutorial-bing-spellcheck.md) to correct user input before passing it to LUIS. 
 
 If you do not spell check user utterances, you should train LUIS on utterances that include typos and misspellings.
 
@@ -83,7 +83,7 @@ You can remove non-deterministic training by updating the [version settings](htt
 
 ## Testing utterances 
 
-Developers should start testing their LUIS application with real traffic by sending utterances to the [prediction endpoint](luis-how-to-manage-keys.md) URL. These utterances are used to improve the performance of the intents and entities with [Review utterances](luis-how-to-review-endoint-utt.md). Tests submitted with the LUIS website testing pane are not sent through the endpoint, and so do not contribute to active learning. 
+Developers should start testing their LUIS application with real traffic by sending utterances to the [prediction endpoint](luis-how-to-azure-subscription.md) URL. These utterances are used to improve the performance of the intents and entities with [Review utterances](luis-how-to-review-endoint-utt.md). Tests submitted with the LUIS website testing pane are not sent through the endpoint, and so do not contribute to active learning. 
 
 ## Review utterances
 

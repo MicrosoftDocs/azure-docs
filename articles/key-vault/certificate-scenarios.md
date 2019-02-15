@@ -4,7 +4,7 @@ description: The following scenarios outline several of the primary usages of Ke
 services: key-vault
 documentationcenter:
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
@@ -54,7 +54,7 @@ Certificates are composed of three interrelated resources linked together as a K
 
      For more information on creating accounts with CA Providers, see the related post on the [Key Vault blog](https://aka.ms/kvcertsblog).  
 
-**Step 3.1** - set up [certificate contacts](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) for notifications. This is the contact for the Key Vault user. Key Vault does not enforce this step.  
+**Step 3.1** - Set up [certificate contacts](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) for notifications. This is the contact for the Key Vault user. Key Vault does not enforce this step.  
 
 Note - This process, through step 3.1, is a onetime operation.  
 

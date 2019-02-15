@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 40d034ff-7394-4713-923d-1f8f2ed8bf36
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Boomi
 

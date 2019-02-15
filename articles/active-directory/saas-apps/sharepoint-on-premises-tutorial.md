@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 85b8d4d0-3f6a-4913-b9d3-8cc327d8280d
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with SharePoint on-premises
 
@@ -110,14 +111,14 @@ To configure Azure AD single sign-on with SharePoint on-premises, perform the fo
     `https://<YourSharePointServerURL>/_trust/default.aspx`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [SharePoint on-premises Client support team](https://support.office.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-On URL, Identifier, and Reply URL. Contact [SharePoint on-premises Client support team](https://support.office.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
     > [!Note]
-	> Please note down the file path to which you have downloaded the certificate file, as you need to use it later in the PowerShell script for configuration.
+    > Note the file path where you downloaded the certificate file. You need the file later in the PowerShell script for the configuration.
 
 6. On the **Set up SharePoint on-premises** section, copy the appropriate URL(s) as per your requirement. For **Single Sign-On Service URL**, use a value of the following pattern: `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
 
@@ -133,7 +134,7 @@ To configure Azure AD single sign-on with SharePoint on-premises, perform the fo
 	c. Logout URL
 
     > [!NOTE]
-	> Sharepoint On-Premises application uses SAML 1.1 token, so Azure AD expects WS Fed request from SharePoint server and after authentication, it issues the SAML 1.1. token.
+	> SharePoint On-Premises application uses SAML 1.1 token, so Azure AD expects WS Fed request from SharePoint server and after authentication, it issues the SAML 1.1. token.
 
 ### Configure SharePoint on-premises Single Sign-On
 
@@ -174,7 +175,7 @@ To configure Azure AD single sign-on with SharePoint on-premises, perform the fo
 	![Configuring your authentication provider](./media/sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
 
 	> [!NOTE]
-	> Some of the external users will not able to use this single sign-on integration as their UPN will have mangled value something like `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. Soon we will allow customers app config on how to handle the UPN depending on the user type. After that all your guest users should be able to use SSO seamlessly as the organization employees.
+	> Some external users won't be able to use this single sign-on integration as their UPN will have a mangled value like `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`. Soon we will allow custom app configuration to handle the UPN depending on the user type. After that all your guest users should be able to use SSO seamlessly as the organization employees.
 
 ### Create an Azure AD test user
 

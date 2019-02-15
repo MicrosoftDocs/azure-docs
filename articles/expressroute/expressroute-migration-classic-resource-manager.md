@@ -6,7 +6,7 @@ author: ganesr
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/17/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
 
@@ -34,6 +34,7 @@ This article explains how to migrate ExpressRoute-associated virtual networks fr
 * Virtual networks, gateways, and associated deployments within the virtual network that are attached to an ExpressRoute circuit in the same subscription can be migrated to the Resource Manager environment without any downtime. You can follow the steps described later to migrate resources such as virtual networks, gateways, and virtual machines deployed within the virtual network. You must ensure that the virtual networks are configured correctly before they are migrated. 
 * Virtual networks, gateways, and associated deployments within the virtual network that are not in the same subscription as the ExpressRoute circuit require some downtime to complete the migration. The last section of the document describes the steps to be followed to migrate resources.
 * A virtual network with both ExpressRoute Gateway and VPN Gateway can't be migrated.
+* ExpressRoute circuit cross-subscription migration is not supported. For more information, see [Services that cannot be moved](../azure-resource-manager/resource-group-move-resources.md#services-that-cannot-be-moved).
 
 ## Move an ExpressRoute circuit from classic to Resource Manager
 You must move an ExpressRoute circuit from the classic to the Resource Manager environment before you try to migrate resources that are attached to the ExpressRoute circuit. To accomplish this task, see the following articles:

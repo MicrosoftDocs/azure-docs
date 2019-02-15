@@ -3,13 +3,13 @@ title: "Quickstart: Recognize emotions on faces in an image - Emotion API, Pytho
 description: Get information and code samples to help you quickly get started using the Emotion API with Python.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: quickstart
 ms.date: 02/05/2018
-ms.author: anroth
+ms.author: nitinme
 ROBOTS: NOINDEX
 ---
 

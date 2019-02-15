@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/17/2018
+ms.date: 01/14/2019
 
 ms.custom: seodec18
 
@@ -33,7 +33,7 @@ Azure Disk Encryption is supported on the following operating systems:
 - Azure Disk Encryption is only supported on specific Azure Gallery based Linux server distributions and versions. For the list of currently supported versions, refer to the [Azure Disk Encryption FAQ](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
 - Azure Disk Encryption requires that your key vault and VMs reside in the same Azure region and subscription. Configuring the resources in separate regions causes a failure in enabling the Azure Disk Encryption feature.
 
-## <a name="bkmk_LinuxPrereq"></a> Additional prerequisites for Linux Iaas VMs 
+## <a name="bkmk_LinuxPrereq"></a> Additional prerequisites for Linux IaaS VMs 
 
 - Azure Disk Encryption for Linux requires 7 GB of RAM on the VM to enable OS disk encryption on [supported images](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Once the OS disk encryption process is complete, the VM can be configured to run with less memory.
 - Before enabling encryption, the data disks to be encrypted need to be properly listed in /etc/fstab. Use a persistent block device name for this entry, as device names in the "/dev/sdX" format can't be relied upon to be associated with the same disk across reboots, particularly after encryption is applied. For more detail on this behavior, see: [Troubleshoot Linux VM device name changes](../virtual-machines/linux/troubleshoot-device-names-problems.md)
@@ -69,18 +69,17 @@ An example of commands that can be used to mount the data disks and create the n
 **Group Policy:**
  - The Azure Disk Encryption solution uses the BitLocker external key protector for Windows IaaS VMs. For domain joined VMs, don't push any group policies that enforce TPM protectors. For information about the group policy for “Allow BitLocker without a compatible TPM,” see [BitLocker Group Policy Reference](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup).
 
--  Bitlocker policy on domain joined virtual machines with custom group policy must include the following setting: [Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption will fail when custom group policy settings for Bitlocker are incompatible. On machines that didn't have the correct policy setting, apply the new policy, force the new policy to update (gpupdate.exe /force), and then restarting may be required.  
+-  BitLocker policy on domain joined virtual machines with custom group policy must include the following setting: [Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption will fail when custom group policy settings for BitLocker are incompatible. On machines that didn't have the correct policy setting, apply the new policy, force the new policy to update (gpupdate.exe /force), and then restarting may be required.  
 
 
 ## <a name="bkmk_PSH"></a> Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) provides a set of cmdlets that uses the [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) model for managing your Azure resources. You can use it in your browser with [Azure Cloud Shell](../cloud-shell/overview.md), or you can install it on your local machine using the instructions below to use it in any PowerShell session. If you already have it installed locally, make sure you use the latest version of Azure PowerShell SDK version to configure Azure Disk Encryption. Download the latest version of [Azure PowerShell release](https://github.com/Azure/azure-powershell/releases).
 
 ### Install Azure PowerShell for use on your local machine (optional):  
-1. Follow the instructions in the links for your operating system, then continue though the rest of the steps below.      
-    - [Install and configure Azure PowerShell for Windows](/powershell/azure/install-azurerm-ps). 
+1. Follow the instructions in the links for your operating system, then continue though the rest of the steps below.
+    - [Install and configure Azure PowerShell for Windows](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0). 
         - Install PowerShellGet, Azure PowerShell, and load the AzureRM module. 
-    - [Install and configure Azure Powershell on macOS and Linux](/powershell/azure/install-azurermps-maclinux).
-        -  Install PowerShell Core, Azure PowerShell for .NET Core, and load the Az module.
+
 2. Install the [Azure Active Directory PowerShell module](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module). 
 
      ```powershell
@@ -144,7 +143,7 @@ The [Azure CLI 2.0](/cli/azure) is a command-line tool for managing Azure resour
 
 ## Prerequisite workflow for Key Vault and the Azure AD app
 
-If you're already familiar with the Key Vault and Azure AD prerequisites for Azure Disk Encryption, you can use the [Azure Disk Encryption prerequisites PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). For more information on using the prerequisites script, see the [Encrypt a VM Quickstart](quick-encrypt-vm-powershell.md) and the [Azure Disk Encryption Appendix](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
+If you're already familiar with the Key Vault and Azure AD prerequisites for Azure Disk Encryption, you can use the [Azure Disk Encryption prerequisites PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). For more information on using the prerequisites script, see the [Encrypt a VM Quickstart](quick-encrypt-vm-powershell.md) and the [Azure Disk Encryption Appendix](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
 1. Create a key vault. 
 2. Set up an Azure AD application and service principal.
@@ -152,7 +151,7 @@ If you're already familiar with the Key Vault and Azure AD prerequisites for Azu
 4. Set key vault advanced access policies.
  
 ## <a name="bkmk_KeyVault"></a> Create a key vault 
-Azure Disk Encryption is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. You can create a key vault or use an existing one for Azure Disk Encryption. For more information about key vaults, see [Get started with Azure Key Vault](../key-vault/key-vault-get-started.md) and [Secure your key vault](../key-vault/key-vault-secure-your-key-vault.md). You can use a Resource Manager template, Azure PowerShell, or the Azure CLI to create a key vault. 
+Azure Disk Encryption is integrated with [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) to help you control and manage the disk-encryption keys and secrets in your key vault subscription. You can create a key vault or use an existing one for Azure Disk Encryption. For more information about key vaults, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md) and [Secure your key vault](../key-vault/key-vault-secure-your-key-vault.md). You can use a Resource Manager template, Azure PowerShell, or the Azure CLI to create a key vault. 
 
 
 >[!WARNING]

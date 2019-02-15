@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: c199073f-02ce-45c2-b515-8285d4bbbca2
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Adobe Creative Cloud
 

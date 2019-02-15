@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
+ms.lastreviewed: 08/20/2018
 
 ---
 # App Service on Azure Stack update 3 release notes
@@ -192,7 +193,7 @@ If you chose to deploy into an existing virtual network and an internal IP addre
 
 ### Known issues for Cloud Admins operating Azure App Service on Azure Stack
 
-Refer to the documentation in the [Azure Stack 1807 Release Notes](azure-stack-update-1807.md)
+Refer to the documentation in the Azure Stack 1807 Release Notes.
 
 ## Next steps
 

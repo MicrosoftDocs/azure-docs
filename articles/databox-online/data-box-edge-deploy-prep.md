@@ -114,7 +114,7 @@ After the Data Box Edge resource is up and running, you'll need to get the activ
 
 > [!IMPORTANT]
 > - The activation key expires three days after it is generated. 
-> - If the key has epxired, generate a new key. The older key is not valid.
+> - If the key has expired, generate a new key. The older key is not valid.
 
 ## Next steps
 

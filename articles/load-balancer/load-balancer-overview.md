@@ -12,7 +12,7 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 01/11/2019
 ms.author: kumud
 
 ---
@@ -135,7 +135,7 @@ By default, Azure Load Balancer distributes network traffic equally among multip
 
 ### <a name = "internalloadbalancer"></a> Internal Load Balancer
 
-An internal Load Balancer directs traffic only to resources that are inside a virtual network or that use a VPN to access Azure infrastructure. In this respect, an internal Load Balancer differs from a public Load Balancer. Azure infrastructure restricts access to the load-balanced frontend IP addresses of a virtual network. frontend IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources.
+An internal Load Balancer directs traffic only to resources that are inside a virtual network or that use a VPN to access Azure infrastructure. In this respect, an internal Load Balancer differs from a public Load Balancer. Azure infrastructure restricts access to the load-balanced frontend IP addresses of a virtual network. Frontend IP addresses and virtual networks are never directly exposed to an internet endpoint. Internal line-of-business applications run in Azure and are accessed from within Azure or from on-premises resources.
 
 An internal Load Balancer enables the following types of load balancing:
 
@@ -149,7 +149,13 @@ An internal Load Balancer enables the following types of load balancing:
 *Figure: Load balancing multi-tier applications by using both public and internal Load Balancer*
 
 ## Pricing
-Standard Load Balancer usage is charged based on the number of configured load-balancing rules and the amount of processed inbound and outbound data. For Standard Load Balancer pricing information, go to the [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.
+
+Standard Load Balancer usage is charged.
+
+- Number of configured load-balancing and outbound rules (inbound NAT rules do not count against the total number of rules)
+- Amount of data processed inbound and outbound irrespective of rule. 
+
+For Standard Load Balancer pricing information, go to the [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/) page.
 
 Basic Load Balancer is offered at no charge.
 

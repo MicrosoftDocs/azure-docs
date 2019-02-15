@@ -22,6 +22,12 @@
   - name: Create and manage Azure Policy
     displayName: assign, definition, compliance, exempt, exclusion
     href: ./tutorials/create-and-manage.md
+  - name: Create a custom policy definition
+    displayName: disabled, parameters, rule, mode
+    href: ./tutorials/create-custom-policy-definition.md
+  - name: Hands-on Labs - Exploring Azure Policy
+    displayName: create, policy, training, learn
+    href: https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy
 - name: Samples
   items:
   - name: Index
@@ -107,6 +113,11 @@
     - name: Enforce Data Lake Store encryption
       displayName: deny
       href: samples/enforce-data-lake-store-encryption.md
+  - name: Key Vaults
+    items:
+    - name: Audit vaults for no virtual network endpoints
+      displayName: audit, KeyVault, indexed
+      href: samples/keyvault-no-vnet-rules.md
   - name: Monitoring
     items:
     - name: Audit diagnostic setting
@@ -262,7 +273,7 @@
   - name: Azure PowerShell
     items:
     - name: Policy
-      href: /powershell/module/azurerm.resources/#policies
+      href: /powershell/module/az.resources/#policies
     - name: Guest Configuration (preview)
       href: https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration
   - name: REST API
@@ -297,8 +308,8 @@
     href: https://github.com/Azure/azure-policy
   - name: Video - Build 2018
     href: https://channel9.msdn.com/events/Build/2018/THR2030
-  - name: Video - Ignite 2017
-    href: https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2238
+  - name: Governance YouTube Channel
+    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
   - name: Guest Configuration videos
     items:
     - name: Getting Started

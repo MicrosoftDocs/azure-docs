@@ -4,11 +4,11 @@ description: Install Visual Studio and SQL Server Development Tools (SSDT) for A
 services: sql-data-warehouse
 ms.custom: vs-azure
 ms.workload: azure-vs
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan

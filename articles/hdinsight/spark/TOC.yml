@@ -16,7 +16,8 @@
       href: apache-spark-jupyter-spark-sql-use-portal.md
     - name: Create an Apache Spark cluster - PowerShell
       href: apache-spark-jupyter-spark-sql-use-powershell.md
-    - name: Create an Apache Spark cluster - Template
+    - name: Create an Apache Spark cluster - Resource Manager Template
+      displayName: resource manager template, arm template, resource manager group
       href: apache-spark-jupyter-spark-sql.md
 - name: Tutorials
   items:
@@ -41,7 +42,10 @@
         - name: Using Azure Storage
           href: ../hdinsight-hadoop-use-blob-storage.md
           maintainContext: true
-        - name: Using Azure Data Lake Storage
+        - name: Using Azure Data Lake Storage Gen2
+          href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
+          maintainContext: true
+        - name: Using Azure Data Lake Storage Gen1
           href: ../hdinsight-hadoop-use-data-lake-store.md
           maintainContext: true
     - name: Develop
@@ -98,6 +102,8 @@
           href: apache-spark-connect-to-sql-database.md
         - name: Implement a lambda architecture using Apache Spark and Cosmos DB
           href: ../../cosmos-db/lambda-architecture.md
+        - name: Run Azure ML workloads with AutoML
+          href: apache-spark-run-machine-learning-automl.md
           maintainContext: true
     - name: Apache Spark streaming
       items:
@@ -243,6 +249,7 @@
           href: ../hdinsight-hadoop-create-linux-clusters-portal.md
           maintainContext: true
         - name: Use Azure Resource Manager templates
+          displayName: resource manager template, arm template, resource manager group
           href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
       - name: Create on-demand clusters
         href: ../hdinsight-hadoop-create-linux-clusters-adf.md
@@ -433,6 +440,9 @@
     href: /rest/api/hdinsight/
   - name: REST API (Apache Spark)
     href: /rest/api/hdinsightspark/
+  - name: Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
+    href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resources
   items:
     - name: Release notes

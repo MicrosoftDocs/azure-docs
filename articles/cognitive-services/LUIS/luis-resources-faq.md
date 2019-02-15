@@ -3,13 +3,13 @@ title: Frequently asked questions (FAQ)
 titleSuffix: Azure Cognitive Services
 description: This article contains answers to frequently asked questions about Language Understanding (LUIS).
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/12/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -53,6 +53,15 @@ Either add the different variations as example utterances to the intent or add t
 
 Cortana prebuilt apps were deprecated in 2017. They are no longer supported.
 
+### How do I transfer ownership of a LUIS app?
+To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. Update the LUIS app ID in the client application that calls it. The new app may return slightly different LUIS scores from the original app.
+
+## LUIS Collaborating
+
+### How do I give collaborators access to LUIS with Azure Active Directory (Azure AD) or Role-based access control (RBAC)?
+
+See [Azure Active Directory resources](luis-how-to-collaborate.md#azure-active-directory-resources)  and [Azure Active Directory tenant user](luis-how-to-collaborate.md#azure-active-directory-tenant-user) to learn how to give collaborators access. 
+
 ## LUIS endpoint
 
 ### My endpoint query returned unexpected results. What should I do?
@@ -61,7 +70,7 @@ Unexpected query prediction results are based on the state of the published mode
 
 Correcting the model starts with [active learning](luis-how-to-review-endoint-utt.md).
 
-You can remove non-deterministic training by updating the [application version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) in order to use all training data. 
+You can remove non-deterministic training by updating the [application version settings API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) in order to use all training data.
 
 Review the [best practices](luis-concept-best-practices.md) for other tips. 
 
@@ -69,7 +78,7 @@ Review the [best practices](luis-concept-best-practices.md) for other tips.
 LUIS [tokenizes](luis-glossary.md#token) the utterance based on the [culture](luis-language-support.md#tokenization). Both the original value and the tokenized value are available for [data extraction](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### How do I create and assign a LUIS endpoint key?
-[Create the endpoint key](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](luis-how-to-manage-keys.md#assign-endpoint-key) on the **[Keys and endpoints](luis-how-to-manage-keys.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
+[Create the endpoint key](luis-how-to-azure-subscription.md) in Azure for your [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) level. [Assign the key](luis-how-to-azure-subscription.md) on the **[Keys and endpoints](luis-how-to-azure-subscription.md)** page. There is no corresponding API for this action. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### How do I interpret LUIS scores?
 Your system should use the highest scoring intent regardless of its value. For example, a score below 0.5 (less than 50%) does not necessarily mean that LUIS has low confidence. Providing more training data can help increase the [score](luis-concept-prediction-score.md) of the most-likely intent.
@@ -78,6 +87,14 @@ Your system should use the highest scoring intent regardless of its value. For e
 The total endpoint hits in your app's Dashboard are updated periodically, but the metrics associated with your LUIS endpoint key in the Azure portal are updated more frequently.
 
 If you don't see updated endpoint hits in the Dashboard, log in to the Azure portal, and find the resource associated with your LUIS endpoint key, and open **Metrics** to select the **Total Calls** metric. If the endpoint key is used for more than one LUIS app, the metric in the Azure portal shows the aggregate number of calls from all LUIS apps that use it.
+
+### Is there a PowerShell command to the endpoint quota?
+
+You can use a PowerShell command to see the endpoint quota:
+
+```powershell
+Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+``` 
 
 ### My LUIS app was working yesterday but today I'm getting 403 errors. I didn't change the app. How do I fix it?
 Following the [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) in the next FAQ to create a LUIS endpoint key and assign it to the app. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
@@ -138,10 +155,23 @@ Each LUIS app has the authoring/starter key in the endpoint list as a convenienc
 
 If your app existed before LUIS was generally available (GA), LUIS endpoint keys in your subscription are assigned automatically. This was done to make GA migration easier. Any new LUIS endpoint keys in the Azure portal are _not_ automatically assigned to LUIS.
 
-## App management
+## Key management
 
-### How do I transfer ownership of a LUIS app?
-To transfer a LUIS app to a different Azure subscription, export the LUIS app and import it using a new account. Update the LUIS app ID in the client application that calls it. The new app may return slightly different LUIS scores from the original app.
+### How do I know what key I need, where I get it, and what I do with it? 
+
+See [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md) to learn about the differences between the [authoring key](luis-how-to-account-settings.md) and the [endpoint prediction key](luis-how-to-azure-subscription.md). 
+
+### I got an error about being out of quota. How do I fix it? 
+
+See, [How to fix out-of-quota errors when the key exceeds pricing tier usage](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) to learn more.
+
+### I need to handle more endpoint queries. How do I do that? 
+
+See, [How to fix out-of-quota errors when the key exceeds pricing tier usage](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) to learn more.
+
+
+
+## App management
 
 ### How do I download a log of user utterances?
 By default, your LUIS app logs utterances from users. To download a log of utterances that users send to your LUIS app, go to **My Apps**, and select the app. In the contextual toolbar, select **Export Endpoint Logs**. The log is formatted as a comma-separated value (CSV) file.
@@ -188,6 +218,12 @@ If you select a LUIS template, and select the **Select** button in the template 
 
 ### What LUIS regions support Bot Framework speech priming?
 [Speech priming](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming) is only supported for LUIS apps in the central (US) instance.
+
+## API Programming Strategies
+
+### How do I programmatically get the LUIS region of a resource? 
+
+Use the LUIS sample to [find region](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/find-region) programmatically using C# or Node.Js. 
 
 ## LUIS service
 

@@ -7,7 +7,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
-ms.topic: article
+ms.topic: tutorial
 ---
 
 # Use Ansible to manage your Azure dynamic inventories

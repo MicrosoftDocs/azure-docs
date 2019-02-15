@@ -117,7 +117,7 @@ In this example, you create two virtual machines to be used as backend servers f
 ### Add backend servers
 
 1. Click **All resources**, and then click **myAppGateway**.
-2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGateayBackendPool**.
+2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
 3. Click **Add target** to add each virtual machine that you created to the backend pool.
 
     ![Add backend servers](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)

@@ -77,7 +77,7 @@ The solution doesn't support the following scenarios, features, and technology:
 
 * Basic tier IaaS VMs.
 * Disable encryption on an OS drive for Linux IaaS VMs.
-* Disable encryption on a data drive when the OS drive is encrypted for Linux Iaas VMs.
+* Disable encryption on a data drive when the OS drive is encrypted for Linux IaaS VMs.
 * IaaS VMs that are created by using the classic VM creation method.
 * Enable encryption of customer custom images on Linux IaaS VMs.
 * Integration with your on-premises key management system.

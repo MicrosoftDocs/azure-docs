@@ -29,7 +29,7 @@ If you are using PowerShell locally on your computer, rather than using Cloud Sh
 Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
 ```
 
-If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
+If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
 
 [!INCLUDE [PowerShell login](../../includes/vpn-gateway-ps-login-include.md)]
 

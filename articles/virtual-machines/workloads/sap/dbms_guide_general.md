@@ -130,7 +130,11 @@ Azure enforces an IOPS quota per data disk. These quotas are different for disks
 
 > [!NOTE]
 > In order to benefit from Azure's unique [single VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) all disks attached need to be of the type Azure Premium Storage, including the base VHD.
->
+
+
+> [!NOTE]
+> It is not supported to host main database files (data and log files) of SAP databases on storage hardware that is located in co-located third party datacenters adjacent to Azure datacenters. For SAP workload only storage that is represented as native Azure service is supported for the data and transaction log files of SAP databases.
+> 
 
 The placement of the database files and log/redo files and the type of Azure Storage used, should be defined by IOPS, latency, and throughput requirements. In order to have enough IOPS, you might be forced to leverage multiple disks or use a larger Premium Storage disk. In case of using multiple disks, you would build a software stripe across the disks, which contain the data files or log/redo files. In such cases, the IOPS and the disk throughput SLAs of the underlying Premium Storage disks or the maximum achievable IOPS of Azure Standard Storage disks are accumulative for the resulting stripe set.
 

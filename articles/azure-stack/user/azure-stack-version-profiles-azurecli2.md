@@ -11,9 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: sijuman
+ms.lastreviewed: 01/24/2019
 
 ---
 # Use API version profiles with Azure CLI in Azure Stack
@@ -209,16 +210,13 @@ Use the following steps to connect to Azure Stack:
       ```
     * AD FS environments
 
-        * Sign in as a user using a web browser:  
-              ```azurecli  
-              az login
-              ```
         * Sign in as a user using a web browser with a device code:  
-              ```azurecli  
-              az login --use-device-code
-              ```
-        > [!Note]  
-        >Running the command gives you a URL and a code that you must use to authenticate.
+           ```azurecli  
+           az login --use-device-code
+           ```
+
+           > [!NOTE]  
+           >Running the command gives you a URL and a code that you must use to authenticate.
 
         * Sign in as a service principal:
         

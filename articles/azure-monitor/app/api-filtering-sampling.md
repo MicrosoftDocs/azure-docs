@@ -278,7 +278,7 @@ In ApplicationInsights.config:
 
 ### Java telemetry initializers
 
-[Java SDK documentation](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility._telemetry_initializer?view=azure-java-stable)
+[Java SDK documentation](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.telemetryinitializer?view=azure-java-stable)
 
 ```Java
 public interface TelemetryInitializer

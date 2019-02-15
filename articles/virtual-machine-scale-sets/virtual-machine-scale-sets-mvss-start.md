@@ -65,7 +65,7 @@ Next is the resources section of the template. Here, you define what you actuall
    "resources": [
 ```
 
-All resources require `type`, `name`, `apiVersion`, and `location` properties. This example's first resource has type [Microsft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), name `myVnet`, and apiVersion `2016-03-30`. (To find the latest API version for a resource type, see the [Azure Resource Manager template reference](/azure/templates/).)
+All resources require `type`, `name`, `apiVersion`, and `location` properties. This example's first resource has type [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), name `myVnet`, and apiVersion `2016-03-30`. (To find the latest API version for a resource type, see the [Azure Resource Manager template reference](/azure/templates/).)
 
 ```json
      {

@@ -222,7 +222,7 @@ The `StateStore` object mainly has these methods:
     /// <summary>
     /// Retrieve all states that were previously uncommitted, excluding all aborted states 
     /// </summary>
-    /// <returns>Uncommited States</returns>
+    /// <returns>Uncommitted States</returns>
     public IEnumerable<State> GetUnCommitted();
 
     /// <summary>
@@ -243,7 +243,7 @@ The `StateStore` object mainly has these methods:
     /// List all the committed states
     /// </summary>
     /// <returns>Registries contain the Committed State </returns> 
-    public IEnumerable<Registry> Commited();
+    public IEnumerable<Registry> Committed();
 
     /// <summary>
     /// List all the Aborted State in the StateStore

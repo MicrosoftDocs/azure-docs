@@ -50,11 +50,11 @@ You can also install it manually with [npm](https://www.npmjs.com/), included wi
 To proceed with an npm-based installation, run:
 
 ```
-npm install -g azure-functions-core-tools@core
+npm install -g azure-functions-core-tools
 ```
 
 > [!NOTE]
-> If you have trouble installing Azure Functions Core Tools version 2.0, see [Version 2.x runtime](/azure/azure-functions/functions-run-local#version-2x-runtime).
+> If you have trouble installing Azure Functions Core Tools version 2.0, see [Version 2.x runtime](/azure/azure-functions/functions-run-local).
 
 ## Generate a new Functions project
 

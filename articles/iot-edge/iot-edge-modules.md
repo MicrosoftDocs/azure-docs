@@ -25,7 +25,7 @@ Azure IoT Edge lets you deploy and manage business logic on the edge in the form
 IoT Edge module images contain applications that take advantage of the management, security, and communication features of the IoT Edge runtime. You can develop your own module images, or export one from a supported Azure service, such as Azure Stream Analytics.
 The images exist in the cloud and they can be updated, changed, and deployed in different solutions. For instance, a module that uses machine learning to predict production line output exists as a separate image than a module that uses computer vision to control a drone. 
 
-Each time a module image is deployed to a device and started by the IoT Edge runtime, a new instance of that module is created. Two devices in different parts of the world could use the same module image; however each would have their own module instance when the module is started on the device. 
+Each time a module image is deployed to a device and started by the IoT Edge runtime, a new instance of that module is created. Two devices in different parts of the world could use the same module image. However, each device would have its own module instance when the module is started on the device. 
 
 ![Diagram - Module images in cloud, module instances on devices](./media/iot-edge-modules/image_instance.png)
 
@@ -48,7 +48,7 @@ Clearly, in scenarios when you need to deploy one module image multiple times on
 
 Each module instance also has a corresponding module twin that you can use to configure the module instance. The instance and the twin are associated with each other through the module identity. 
 
-A module twin is a JSON document that stores module information and configuration properties. This concept parallels the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) concept from IoT Hub. The structure of a module twin is exactly the same as a device twin. The APIs used to interact with both types of twins are also the same. The only difference between the two is the identity used to instantiate the client SDK. 
+A module twin is a JSON document that stores module information and configuration properties. This concept parallels the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) concept from IoT Hub. The structure of a module twin is the same as a device twin. The APIs used to interact with both types of twins are also the same. The only difference between the two is the identity used to instantiate the client SDK. 
 
 ```csharp
 // Create a ModuleClient object. This ModuleClient will act on behalf of a 
@@ -68,9 +68,9 @@ Azure IoT Edge supports offline operations on your IoT Edge devices. These capab
 IoT Edge modules can be offline for extended periods as long as the following requirements are met: 
 
 * **Message time-to-live (TTL) has not expired**. The default value for message TTL is two hours, but can be changed higher or lower in the Store and forward configuration in the IoT Edge hub settings. 
-* **Modules don't need to reauthenticate with the IoT Edge hub when offline**. Modules can only authenticate with Edge hubs that have an active connection with an IoT hub. Modules need to re-authenticate if they are restarted for any reason. Modules can still send messages to the Edge hub after their SAS token has expired. When connectivity resumes, the Edge hub requests a new token from the module and validates it with the IoT hub. If successful, the Edge hub forwards the module messages it has stored, even the messages that were sent while the module's token was expired. 
-* **The module that sent the messages while offline is still functional when connectivity resumes**. Upon reconnecting to IoT Hub, the Edge hub needs to validate a new module token (if the previous one expired) before it can forward the module messages. If the module is not available to provide a new token, the Edge hub cannot act on the module's stored messages. 
-* **The Edge hub has disk space to store the messages**. By default, messages are stored in the Edge hub container's filesystem. There is a configuration option to specify a mounted volume to store the messages instead. In either case, there needs to be space available to store the messages for deferred delivery to IoT Hub.  
+* **Modules don't need to reauthenticate with the IoT Edge hub when offline**. Modules can only authenticate with IoT Edge hubs that have an active connection with an IoT hub. Modules need to reauthenticate if they are restarted for any reason. Modules can still send messages to the IoT Edge hub after their SAS token has expired. When connectivity resumes, the IoT Edge hub requests a new token from the module and validates it with the IoT hub. If successful, the IoT Edge hub forwards the module messages it has stored, even the messages that were sent while the module's token was expired. 
+* **The module that sent the messages while offline is still functional when connectivity resumes**. Upon reconnecting to IoT Hub, the IoT Edge hub needs to validate a new module token (if the previous one expired) before it can forward the module messages. If the module is not available to provide a new token, the IoT Edge hub cannot act on the module's stored messages. 
+* **The IoT Edge hub has disk space to store the messages**. By default, messages are stored in the IoT Edge hub container's filesystem. There is a configuration option to specify a mounted volume to store the messages instead. In either case, there needs to be space available to store the messages for deferred delivery to IoT Hub.  
 
 Additional offline capabilities are available in public preview. For more information, see [Understand extended offline capabilities for IoT Edge devices, modules, and child devices](offline-capabilities.md).
 

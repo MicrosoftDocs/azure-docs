@@ -23,7 +23,7 @@ ms.author: nitinme
 >
 >
 
-In this article, you learn how to perform filesytem operations on Data Lake Storage Gen1 using .NET SDK. Filesystem operations include creating folders in a Data Lake Storage Gen1 account, uploading files, downloading files, etc.
+In this article, you learn how to perform filesystem operations on Data Lake Storage Gen1 using .NET SDK. Filesystem operations include creating folders in a Data Lake Storage Gen1 account, uploading files, downloading files, etc.
 
 For instructions on how to perform account management operations on Data Lake Storage Gen1 using .NET SDK, see [Account management operations on Data Lake Storage Gen1 using .NET SDK](data-lake-store-get-started-net-sdk.md).
 

@@ -363,7 +363,7 @@ during startup to support the Mobile Services runtime.  You can override certain
 file.  Create a file in called `applicationHost.xdt` - this file must end up in the `D:\home\site` directory on the Azure Service.  Upload the
 `applicationHost.xdt` file via a custom deployment script or directly using Kudu.  The following shows an example document:
 
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <system.webServer>
@@ -410,7 +410,7 @@ Now that your application is migrated to App Service, there are even more featur
 
 <!-- Links -->
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[Application Insights]: ../application-insights/app-insights-overview.md
+[Application Insights]: ../azure-monitor/app/app-insights-overview.md
 [Auto-scale]: ../app-service/web-sites-scale.md
 [Azure App Service]: ../app-service/overview.md
 [Azure Classic Portal]: https://manage.windowsazure.com

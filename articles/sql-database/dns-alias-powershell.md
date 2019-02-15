@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi,amagarwa,maboja, jrasnick
 manager: craigg
-ms.date: 02/05/2018
+ms.date: 01/17/2019
 ---
 # PowerShell for DNS Alias to Azure SQL Database
 
@@ -154,6 +154,6 @@ For a full explanation of the DNS Alias feature for SQL Database, see [DNS alias
 
 [https://azure.microsoft.com/free/]: https://azure.microsoft.com/free/
 
-[install-azurerm-ps-84p]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[install-azurerm-ps-84p]: https://docs.microsoft.com/powershell/azure/install-az-ps
 
 [dns-alias-overview-37v]: dns-alias-overview.md

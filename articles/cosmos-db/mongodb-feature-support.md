@@ -8,19 +8,19 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ---
-# Use Azure Cosmos DB's API for MongoDB support for MongoDB features and syntax
+# Azure Cosmos DB’s API for MongoDB: supported features and syntax
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB's API for MongoDB using any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB's API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of the MongoDB you're used to, with all of the enterprise capabilities that Cosmos DB provides: [global distribution](distribute-data-globally.md), [automatic sharding](partition-data.md), availability and latency guarantees, automatic indexing of every field, encryption at rest, backups, and much more.
 
-## MongoDB Protocol Support
+## Protocol Support
 
-The Azure Cosmos DB's API for MongoDB is compatible with MongoDB Server version **3.2** by default. The supported operators and any limitations or exceptions are listed below. Features or query operators added in MongoDB version **3.4** are currently available as a preview feature. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB.
+The Azure Cosmos DB's API for MongoDB is compatible with MongoDB server version **3.2** by default. The supported operators and any limitations or exceptions are listed below. Features or query operators added in MongoDB version **3.4** are currently available as a preview feature. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB.
 
 The [MongoDB aggregation pipeline](#aggregation-pipeline) is also currently available as a separate preview feature.
 
-## MongoDB query language support
+## Query language support
 
 Azure Cosmos DB's API for MongoDB provides comprehensive support for MongoDB query language constructs. Below you can find the detailed list of currently supported operations, operators, stages, commands and options.
 
@@ -277,6 +277,9 @@ $center | ```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 
 $centerSphere | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Yes
 $box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }``` | Yes
 $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Yes
+
+## Sort Operations
+When using the `findOneAndUpdate` operation, sort operations on a single field are supported but sort operations on multiple fields are not supported.
 
 ## Additional operators
 

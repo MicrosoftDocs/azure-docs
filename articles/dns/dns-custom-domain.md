@@ -1,17 +1,11 @@
 ---
-title: Integrate Azure DNS with your Azure resources | Microsoft Docs
+title: Integrate Azure DNS with your Azure resources
 description: Learn how to use Azure DNS along to provide DNS for your Azure resources.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 1/19/2018
+ms.date: 1/18/2019
 ms.author: victorh
 ---
 
@@ -29,7 +23,7 @@ You can configure a vanity or custom domain for [Azure Function Apps](#azure-fun
 
 To configure a custom domain for Azure function apps, a CNAME record is created as well as configuration on the function app itself.
  
-Navigate to **Other** > **Function App** and select your Function App. Click **Platform features** and under **NETWORKING** click **Custom domains**.
+Navigate to **Function App** and select your function app. Click **Platform features** and under **Networking** click **Custom domains**.
 
 ![function app blade](./media/dns-custom-domain/functionapp.png)
 
@@ -47,9 +41,9 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 |TTL unit     | Hours        | Hours are used as the time measurement         |
 |Alias     | adatumfunction.azurewebsites.net        | The DNS name you are creating the alias for, in this example it is the adatumfunction.azurewebsites.net DNS name provided by default to the function app.        |
 
-Navigate back to your function app, click **Platform features**, and under **NETWORKING** click **Custom domains**, then under **Hostnames** click **+ Add hostname**.
+Navigate back to your function app, click **Platform features**, and under **Networking** click **Custom domains**, then under **Custom Hostnames** click **+ Add hostname**.
 
-On the **Add hostname** blade, enter the CNAME record in the **hostname** text field and click **Validate**. If the record was able to be found, the **Add hostname** button appears. Click **Add hostname** to add the alias.
+On the **Add hostname** blade, enter the CNAME record in the **hostname** text field and click **Validate**. If the record is found, the **Add hostname** button appears. Click **Add hostname** to add the alias.
 
 ![function apps add host name blade](./media/dns-custom-domain/functionaddhostname.png)
 
@@ -82,7 +76,7 @@ Once the A record is created, run `nslookup` to validate the record resolves.
 
 The following steps take you through configuring a custom domain for an app service web app.
 
-Navigate to **Web & Mobile** > **App Service** and select the resource you are configuring a custom domain name, and click **Custom domains**.
+Navigate to **App Service** and select the resource you are configuring a custom domain name, and click **Custom domains**.
 
 Note the current url on the **Custom domains** blade, this address is used as the alias for the DNS record created.
 
@@ -145,7 +139,7 @@ To learn more about mapping a custom domain to a blob storage endpoint visit [Co
 
 The following steps take you through configuring a CNAME record for a CDN endpoint using the cdnverify method. This method ensures there is no downtime.
 
-Navigate to **Networking** > **CDN Profiles**, select your CDN profile, and click **Endpoints** under **General**.
+Navigate to **Networking** > **CDN Profiles**, select your CDN profile.
 
 Select the endpoint you are working with and click **+ Custom domain**. Note the **Endpoint hostname** as this value is the record that the CNAME record points to.
 

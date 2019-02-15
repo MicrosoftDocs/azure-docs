@@ -282,7 +282,7 @@ The following table explains the binding configuration properties that you set i
 |**queueName**|**QueueName**|Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
 |**topicName**|**TopicName**|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
 |**subscriptionName**|**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
-|**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. |
+|**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Get the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-management-credentials). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic. |
 |**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x, this property is not available because the latest version of the Storage SDK doesn't support manage operations.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -353,7 +353,7 @@ See the language-specific example:
 * [C# script (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
-* [Java](#output--java-example)
+* Java
 
 ### Output - C# example
 
@@ -569,7 +569,7 @@ The following table explains the binding configuration properties that you set i
 |**name** | n/a | The name of the variable that represents the queue or topic in function code. Set to "$return" to reference the function return value. | 
 |**queueName**|**QueueName**|Name of the queue.  Set only if sending queue messages, not for a topic.
 |**topicName**|**TopicName**|Name of the topic to monitor. Set only if sending topic messages, not for a queue.|
-|**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Obtain the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#obtain-the-management-credentials). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.|
+|**connection**|**Connection**|The name of an app setting that contains the Service Bus connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name. For example, if you set `connection` to "MyServiceBus", the Functions runtime looks for an app setting that is named "AzureWebJobsMyServiceBus." If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting that is named "AzureWebJobsServiceBus".<br><br>To obtain a connection string, follow the steps shown at [Get the management credentials](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md#get-the-management-credentials). The connection string must be for a Service Bus namespace, not limited to a specific queue or topic.|
 |**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x, this property is not available because the latest version of the Storage SDK doesn't support manage operations.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -627,7 +627,7 @@ This section describes the global configuration settings available for this bind
 |Property  |Default | Description |
 |---------|---------|---------| 
 |maxAutoRenewDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically.| 
-|autoComplete|false|Whether the trigger should immediately mark as complete (autocomplete) or wait for processing to call complete.| 
+|autoComplete|true|Whether the trigger should immediately mark as complete (autocomplete) or wait for processing to call complete.| 
 |maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate. By default, the Functions runtime processes multiple messages concurrently. To direct the runtime to process only a single queue or topic message at a time, set `maxConcurrentCalls` to 1. | 
 |prefetchCount|n/a|The default PrefetchCount that will be used by the underlying MessageReceiver.| 
 

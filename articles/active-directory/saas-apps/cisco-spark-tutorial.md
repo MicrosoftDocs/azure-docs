@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Cisco Spark
 

@@ -203,4 +203,4 @@ If your application sends a lot of data and you are using the Application Insigh
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
 [qna]: ../../azure-monitor/app/troubleshoot-faq.md
-[start]: ../../application-insights/app-insights-overview.md
+[start]: ../../azure-monitor/app/app-insights-overview.md

@@ -76,7 +76,7 @@ Install the updates as follows:
 > [!NOTE]
 >All Scout components' file update version may not be the same in the update .zip file. The older version indicate that there is no change in the component since previous update to this update.
 
-Download the [update](https://aka.ms/asr-scout-update7) .zip file. The file contains the all the base binaries and cumulative upgrade binaries of the following components: 
+Download the [update](https://aka.ms/asr-scout-update7) .zip file and the [MySQL and PHP upgrade](https://aka.ms/asr-scout-u7-mysql-php-manualupgrade) configuration files. The update .zip file contains the all the base binaries and cumulative upgrade binaries of the following components: 
   - InMage_ScoutCloud_RX_8.0.1.0_RHEL6-64_GA_02Mar2015.tar.gz
   - RX_8.0.7.0_GA_Update_7_2965621_28Dec18.tar.gz
   - InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe
@@ -122,7 +122,7 @@ Download the [update](https://aka.ms/asr-scout-update7) .zip file. The file cont
 6. **Linux master target server**: To update the unified agent, copy **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** to the Linux Master Target server and extract it. In the extracted folder, run **/Install**.
 7. **Windows source server**: To update the unified agent, copy **InMage_UA_8.0.7.0_Windows_GA_27Dec2018_release.exe** to the source server. Double-click on the file to run it. 
 8. **Linux source server**: To update the unified agent, copy the corresponding version of the unified agent file to the Linux server, and extract it. In the extracted folder, run **/Install**.  Example: For RHEL 6.7 64-bit server, copy **InMage_UA_8.0.7.0_RHEL6-64_GA_03Dec2018_release.tar.gz** to the server, and extract it. In the extracted folder, run **/Install**.
-9. After upgrading Configuration Server, Process Server and RX server with the above mentioned installers, the PHP and MySQL libraries needs to be upgraded manually with steps mentioned in the [section](#manual-upgrade-for-php-and-mysql-on-cs-ps-and-rx).
+9. After upgrading Configuration Server, Process Server and RX server with the above mentioned installers, the PHP and MySQL libraries needs to be upgraded manually with steps mentioned in section 7.4 of the [quick installation guide](https://aka.ms/asr-scout-quick-install-guide).
 
 ## Enable replication
 
@@ -215,7 +215,7 @@ Scout Update 5 is a cumulative update. It contains all fixes from Update 1 to Up
 
 #### New platform support
 * SUSE Linux Enterprise Server 11 Service Pack 4(SP4)
-* SLES 11 SP4 64 bit  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** is packaged with the base Scout GA package (**InMage_Scout_Standard_8.0.1 GA.zip**). Download the GA package from the portal, as described in [create a vault](#create-a-vault).
+* SLES 11 SP4 64 bit  **InMage_UA_8.0.1.0_SLES11-SP4-64_GA_13Apr2017_release.tar.gz** is packaged with the base Scout GA package (**InMage_Scout_Standard_8.0.1 GA.zip**). Download the GA package from the portal, as described in create a vault.
 
 
 #### Bug fixes and enhancements
@@ -249,7 +249,7 @@ Scout Update 4 is a cumulative update. It includes all fixes from Update 1 to Up
   * CentOS 6.8
 
 > [!NOTE]
-> RHEL/CentOS 7 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** is packaged with the base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download the Scout GA package from the portal as described in [create a vault](#create-a-vault).
+> RHEL/CentOS 7 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** is packaged with the base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download the Scout GA package from the portal as described in create a vault.
 
 #### Bug fixes and enhancements
 

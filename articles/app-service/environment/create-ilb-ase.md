@@ -184,7 +184,7 @@ Both Functions and web jobs are supported on an ILB ASE but for the portal to wo
 
 When you use Azure Functions on an ILB ASE, you might get an error message that says "We are not able to retrieve your functions right now. Please try again later." This error occurs because the Functions UI leverages the SCM site over HTTPS and the root certificate is not in the browser chain of trust. Web jobs has a similar problem. To avoid this problem you can do one of the following:
 
-- Add the certificate to your trusted certificate store. This unblocks Edge and Internet Explorer.
+- Add the certificate to your trusted certificate store. This unblocks Microsoft Edge and Internet Explorer.
 - Use Chrome and go to the SCM site first, accept the untrusted certificate and then go to the portal.
 - Use a commercial certificate that is in your browser chain of trust.  This is the best option.  
 
@@ -220,6 +220,7 @@ To learn more about how to configure your ILB ASE with a WAF device, see [Config
 
 * To get started with ASEs, see [Introduction to App Service environments][Intro].
  
+
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png
 [2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png

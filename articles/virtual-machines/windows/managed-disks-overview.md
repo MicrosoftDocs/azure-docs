@@ -9,6 +9,6 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: rogarana
-ms.component: disks
+ms.subservice: disks
 ---
 [!INCLUDE [virtual-machines-managed-disks-overview.md](../../../includes/virtual-machines-managed-disks-overview.md)]

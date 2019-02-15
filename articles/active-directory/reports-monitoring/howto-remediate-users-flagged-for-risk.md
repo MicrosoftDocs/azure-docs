@@ -4,7 +4,7 @@ title: Users flagged for risk security report in the Azure Active Directory port
 description: Learn about the users flagged for risk security report in the Azure Active Directory portal
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 # Remediate users flagged for risk in the Azure Active Directory portal
 

@@ -10,6 +10,7 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
+#Customer intent: As a developer, I want to understand the options provided for managing my Durable Functions orchestration instances so that can keep my orchestrations running efficiently and make improvements.
 ---
 
 # Manage instances in Durable Functions in Azure
@@ -18,7 +19,7 @@ ms.author: azfuncdf
 
 ## Starting instances
 
-The [StartNewAsync] (https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) method on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) or `startNew` on the `DurableOrchestrationClient` (JavaScript) starts a new instance of an orchestrator function. Instances of this class can be acquired using the `orchestrationClient` binding. Internally, this method enqueues a message into the control queue, which then triggers the start of a function with the specified name that uses the `orchestrationTrigger` trigger binding.
+The [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) method on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) (.NET) or `startNew` on the `DurableOrchestrationClient` (JavaScript) starts a new instance of an orchestrator function. Instances of this class can be acquired using the `orchestrationClient` binding. Internally, this method enqueues a message into the control queue, which then triggers the start of a function with the specified name that uses the `orchestrationTrigger` trigger binding.
 
 This async operation completes when the orchestration process is successfully scheduled. The orchestration process should start within 30 seconds. If it takes longer, a `TimeoutException` is thrown.
 
@@ -185,7 +186,7 @@ public static async Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
     ILogger log)
 {
-    IList<DurableOrchestrationStatus> instances = await starter.GetStatusAsync(); // You can pass CancellationToken as a parameter.
+    IList<DurableOrchestrationStatus> instances = await client.GetStatusAsync(); // You can pass CancellationToken as a parameter.
     foreach (var instance in instances)
     {
         log.LogInformation(JsonConvert.SerializeObject(instance));

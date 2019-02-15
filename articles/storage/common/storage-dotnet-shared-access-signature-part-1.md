@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 # Using shared access signatures (SAS)
 

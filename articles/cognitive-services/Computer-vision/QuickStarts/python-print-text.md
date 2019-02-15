@@ -4,12 +4,12 @@ titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract printed text from an image using the Computer Vision API with Python.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -202,10 +202,6 @@ A successful response is returned in JSON. The sample webpage parses and display
   ]
 }
 ```
-
-## Clean up resources
-
-When no longer needed, delete the file.
 
 ## Next steps
 

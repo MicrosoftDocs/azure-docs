@@ -50,7 +50,7 @@ You can select each listed object model for a more detailed summary of key attri
 
 ![Swagger model][3]
 
-The generated Swagger object models are convenient to see all available Azure Digital Twins [objects and APIs](./concepts-objectmodel-spatialgraph.md). Developers can make use of this resource when they build solutions on Azure Digital Twins.
+The generated Swagger object models are convenient to see all available Azure Digital Twins [objects and APIs](./concepts-objectmodel-spatialgraph.md). Developers can use this resource when they build solutions on Azure Digital Twins.
 
 ## Endpoint summary
 
@@ -74,7 +74,7 @@ After you select a specific endpoint, you see **Try it out**.
 
 ![Swagger try][5]
 
-Expand that section to bring up input fields for each required and optional parameter. Enter the values accordingly, and select **Execute**.
+Expand that section to bring up input fields for each required and optional parameter. Enter the correct values, and select **Execute**.
 
 ![Swagger tried][6]
 

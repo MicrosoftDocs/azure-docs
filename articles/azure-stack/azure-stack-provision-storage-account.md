@@ -6,14 +6,14 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 
-ms.assetid: e1152110-b756-4c1a-9fa2-73fe3ab0ad8e
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 1/18/2019
 ms.author: mabrigg
+ms.lastreviewed: 1/18/2019
 
 ---
 # Storage accounts in Azure Stack

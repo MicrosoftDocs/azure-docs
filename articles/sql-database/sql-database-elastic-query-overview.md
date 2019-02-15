@@ -11,7 +11,7 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 01/19/2019
 ---
 
 # Azure SQL Database elastic query overview (preview)
@@ -141,7 +141,7 @@ Elastic query is included into the cost of Azure SQL Database databases. Note th
 
 ## Feedback
 
-Share feedback on your experience with elastic queries with us below, on the MSDN forums, or on Stackoverflow. We are interested in all kinds of feedback about the service (defects, rough edges, feature gaps).
+Share feedback on your experience with elastic queries with us below, on the MSDN forums, or on Stack Overflow. We are interested in all kinds of feedback about the service (defects, rough edges, feature gaps).
 
 ## Next steps
 

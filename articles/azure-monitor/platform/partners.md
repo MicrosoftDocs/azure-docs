@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
-ms.component: ""
+ms.subservice: ""
 ---
 # Azure Monitor partner integrations
 | Partners |  |  |
@@ -243,3 +243,4 @@ Turbonomic delivers workload automation for hybrid clouds by simultaneously opti
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk documentation."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic documentation."
 [turbonomic-doc]: https://turbonomic.com/solutions/technologies/azure-cloud/ "Turbonomic introduction."
+

@@ -3,7 +3,7 @@ title: Azure Quickstart - Set and retrieve a secret from Key Vault using Azure C
 description: Quickstart showing how to set and retrieve a secret from Azure Key Vault using Azure CLI
 services: key-vault
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 01/08/2019
 ms.author: barclayn
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -39,7 +39,7 @@ For more information on login options via the CLI take a look at [sign in with A
 A resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *ContosoResourceGroup* in the *eastus* location.
 
 ```azurecli
-az group create --name 'ContosoResourceGroup' --location eastus
+az group create --name "ContosoResourceGroup" --location eastus
 ```
 
 ## Create a Key Vault
@@ -51,7 +51,7 @@ Next you will create a Key Vault in the resource group created in the previous s
 - The location **East US**.
 
 ```azurecli
-az keyvault create --name 'Contoso-Vault2' --resource-group 'ContosoResourceGroup' --location eastus
+az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGroup" --location eastus
 ```
 
 The output of this cmdlet shows properties of the newly created Key Vault. Take note of the two properties listed below:
@@ -63,12 +63,12 @@ At this point, your Azure account is the only one authorized to perform any oper
 
 ## Add a secret to Key Vault
 
-To add a secret to the vault, you just need to take a couple of additional steps. This password could be used by an application. The password will be called **ExamplePassword** and will store the value of **Pa$$w0rd** in it.
+To add a secret to the vault, you just need to take a couple of additional steps. This password could be used by an application. The password will be called **ExamplePassword** and will store the value of **hVFkk965BuUv** in it.
 
-Type the commands below to create a secret in Key Vault called **ExamplePassword** that will store the value **Pa$$w0rd** :
+Type the commands below to create a secret in Key Vault called **ExamplePassword** that will store the value **hVFkk965BuUv** :
 
 ```azurecli
-az keyvault secret set --vault-name 'Contoso-Vault2' --name 'ExamplePassword' --value 'Pa$$w0rd'
+az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
 You can now reference this password that you added to Azure Key Vault by using its URI. Use **https://ContosoVault.vault.azure.net/secrets/ExamplePassword** to get the current version. 
@@ -76,7 +76,7 @@ You can now reference this password that you added to Azure Key Vault by using i
 To view the value contained in the secret as plain text:
 
 ```azurecli
-az keyvault secret show --name 'ExamplePassword' --vault-name 'Contoso-Vault2'
+az keyvault secret show --name "ExamplePassword" --vault-name "Contoso-Vault2"
 ```
 
 Now, you have created a Key Vault, stored a secret, and retrieved it.
@@ -84,7 +84,7 @@ Now, you have created a Key Vault, stored a secret, and retrieved it.
 ## Clean up resources
 
 Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
-When no longer needed, you can use the [az group delete](/cli/azure/group#delete) command to remove the resource group, and all related resources. You can delete the resources as follows:
+When no longer needed, you can use the [az group delete](/cli/azure/group) command to remove the resource group, and all related resources. You can delete the resources as follows:
 
 ```azurecli
 az group delete --name ContosoResourceGroup

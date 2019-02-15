@@ -2,15 +2,16 @@
 title: Configure single sign-on - Azure Active Directory | Microsoft Docs
 description: This tutorial uses the Azure portal to configure SAML-based single sign-on for an application with Azure Active Directory (Azure AD). 
 services: active-directory
-author: barbkess
+author: CelesteDG
 manager: mtillman
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 12/06/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: arvinh,luleon
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Configure SAML-based single sign-on for an application with Azure Active Directory

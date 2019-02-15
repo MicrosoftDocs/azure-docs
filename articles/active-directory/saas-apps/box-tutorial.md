@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 3b565c8d-35e2-482a-b2f4-bf8fd7d8731f
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Box
 

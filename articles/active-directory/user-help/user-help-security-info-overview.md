@@ -3,15 +3,16 @@ title: Security info (preview) overview - Azure Active Directory | Microsoft Doc
 description: Learn about how to set up and use security info.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
+ms.collection: M365-identity-device-management
 ---
 
 
@@ -19,10 +20,10 @@ ms.author: lizross
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
+Set up your two-step verification and password reset info in **Security info**. After you initially set up your security info, you won't have to do it again. However, you can edit your info and change the default method at any time.
+
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
-
-Set up your two-step verification and password reset info in **Security info**. After you initially set up your security info, you won't have to do it again. However, you can edit your info and change the default method at any time.
 
 You can add any of the following methods, including:
 
