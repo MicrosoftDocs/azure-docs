@@ -342,9 +342,78 @@ Some trigger and bindings let you configure their behavior. The way that you con
 * **Version 3.x:** Configuration is set when the `Add<Binding>` method is called in `ConfigureWebJobs`.
 * **Version 2.x:** By setting properties in a configuration object that you pass in to the `JobHost`.
 
+These binding-specific settings are equivalent to settings in the [host.json project file](../azure-functions/functions-host-json.md) in Azure Functions.
+
+You can configure the following bindings:
+
+* [Azure CosmosDB trigger](#azure-cosmosdb-trigger-configuration-version-3x)
+* [Queue storage trigger](#queue-trigger-configuration)
+* [SendGrid binding](#sendgrid-binding-configuration-version-3x)
+* [Service Bus trigger](#service-bus-trigger-configuration-version-3x)
+* 
+
+### Azure CosmosDB trigger configuration (version 3.x)
+
+The following example shows how to configure the Azure Cosmos DB trigger:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddCosmosDB(a =>
+        {
+            a.ConnectionMode = ConnectionMode.Gateway;
+            a.Protocol = Protocol.Https;
+            a.LeaseOptions.LeasePrefix = "prefix1";
+
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+For more details, see the [Azure CosmosDB binding article](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings).
+
+### Event Hubs trigger configuration (version 3.x)
+
+The following example shows how to configure the Event Hubs trigger:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddEventHubs(a =>
+        {
+            a.BatchCheckpointFrequency = 5;
+            a.EventProcessorOptions.MaxBatchSize = 256;
+            a.EventProcessorOptions.PrefetchCount = 512;
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+For more details, see the [Event Hubs binding article](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings).
+
 ### Queue trigger configuration
 
-The settings you can configure for the Storage queue trigger are explained in the Azure Functions [host.json reference](../azure-functions/functions-host-json.md#queues). The following examples show how to set them in your configuration:
+The following examples show how to configure the Storage queue trigger:
 
 #### Version 3.x
 
@@ -371,6 +440,8 @@ static void Main()
 }
 ```
 
+For more details, see the [Queue storage binding article](../azure-functions/functions-bindings-storage-queue.md#hostjson-settings).
+
 #### Version 2.x
 
 ```cs
@@ -385,6 +456,64 @@ static void Main(string[] args)
     host.RunAndBlock();
 }
 ```
+
+For more details, see the [host.json v1.x reference](../azure-functions/functions-host-json-v1.md#queues).
+
+### SendGrid binding configuration (version 3.x)
+
+The following example shows how to configure the SendGrid output binding:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddSendGrid(a =>
+        {
+            a.FromAddress.Email = "samples@functions.com";
+            a.FromAddress.Name = "Azure Functions";
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+For more details, see the [SendGrid binding article](../azure-functions/functions-bindings-sendgrid.md#hostjson-settings).
+
+### Service Bus trigger configuration (version 3.x)
+
+The following example shows how to configure the Service Bus trigger:
+
+```cs
+static void Main()
+{
+    var builder = new HostBuilder();
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddServiceBus(sbOptions =>
+        {
+            sbOptions.MessageHandlerOptions.AutoComplete = true;
+            sbOptions.MessageHandlerOptions.MaxConcurrentCalls = 16;
+        });
+    });
+    var host = builder.Build();
+    using (host)
+    {
+
+        host.Run();
+    }
+}
+```
+
+For more details, see the [Service Bus binding article](../azure-functions/functions-bindings-service-bus.md#hostjson-settings).
 
 ### Configuration for other bindings
 
