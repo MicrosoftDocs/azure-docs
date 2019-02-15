@@ -75,9 +75,9 @@ For this exercise, you can combine configurations, or just choose the one that y
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Before beginning, you need to install the latest version of the Azure PowerShell module. For more information about installing the PowerShell module, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+* Because it takes up to 45 minutes to create a gateway, Azure Cloud Shell will timeout periodically during this exercise. You can restart Cloud Shell by clicking in the upper left of the terminal. Be sure to redeclare any variables when you restart the terminal.
 
-Because it takes up to 45 minutes to create a gateway, Azure Cloud Shell will timeout periodically during this exercise. You can restart Cloud Shell by clicking in the upper left of the terminal. Be sure to redeclare any variables when you restart the terminal.  
+* If you would rather install latest version of the Azure PowerShell module locally, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="Step1"></a>Step 1 - Plan your IP address ranges
 
@@ -404,7 +404,7 @@ This step must be done in the context of the new subscription. This part may be 
 
 In this example, because the gateways are in the different subscriptions, we've split this step into two PowerShell sessions marked as [Subscription 1] and [Subscription 5].
 
-1. **[Subscription 1]** Get the virtual network gateway for Subscription 1. Log in and connect to Subscription 1 before running the following example:
+1. **[Subscription 1]** Get the virtual network gateway for Subscription 1. Sign in and connect to Subscription 1 before running the following example:
 
   ```azurepowershell-interactive
   $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
@@ -425,7 +425,7 @@ In this example, because the gateways are in the different subscriptions, we've 
   PS D:\> $vnet1gw.Id
   /subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroupsTestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
   ```
-2. **[Subscription 5]** Get the virtual network gateway for Subscription 5. Log in and connect to Subscription 5 before running the following example:
+2. **[Subscription 5]** Get the virtual network gateway for Subscription 5. Sign in and connect to Subscription 5 before running the following example:
 
   ```azurepowershell-interactive
   $vnet5gw = Get-AzVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5
