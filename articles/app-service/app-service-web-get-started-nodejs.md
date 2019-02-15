@@ -180,10 +180,6 @@ You see your web app's Overview page. Here, you can perform basic management tas
 
 The left menu provides different pages for configuring your app. 
 
-## Video
-
-Watch the video to see this quickstart in action and then follow the steps yourself to publish your first Node.js app on Azure.
-
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
