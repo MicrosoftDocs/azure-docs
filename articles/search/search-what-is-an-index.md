@@ -144,7 +144,7 @@ Filter and sort operations query on exact matches so documents are stored intact
 
 ![Index size based on attribute selection](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
 
-Several of these combinations are artificial, useful for illuminating a point, but would not result in a viable index. In practice, you would never add every single field to a suggester, or create an index that searchable but not retrievable.
+Several of these combinations are artificial, useful for illuminating a point, but would not result in a viable index. In practice, you would never add every single field to a suggester, or create an index that is searchable but not retrievable.
 
 Storage architecture is considered an implementation detail of Azure Search and could change without notice. There is no guarantee that current behavior will persist in the future.
 
