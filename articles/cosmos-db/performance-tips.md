@@ -26,7 +26,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
 1. **Connection policy: Use direct connection mode**
 
-    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of observed client-side latency. There are two key configuration settings available for configuring client Connection Policy – the connection *mode* and the [connection *protocol*](#connection-protocol).  The two available modes are:
+    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of observed client-side latency. There are two key configuration settings available for configuring client Connection Policy – the connection *mode* and the connection *protocol*.  The two available modes are:
 
    * Gateway Mode (default)
       

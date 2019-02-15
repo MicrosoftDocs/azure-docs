@@ -40,7 +40,7 @@ You must add the following four JAR files from the Apache Qpid JMS AMQP 1.0 dist
 * geronimo-jms\_1.1\_spec-1.0.jar
 * qpid-jms-client-[version].jar
 
-> ![NOTE]
+> [!NOTE]
 > JMS JAR names and versions may have changed. For details, see [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10).
 
 ## Coding Java applications
