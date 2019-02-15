@@ -16,6 +16,7 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 # Configure the expiration policy for Office 365 groups
@@ -50,15 +51,16 @@ For more information on permissions to restore a deleted group, see [Restore a d
   
   ![Expiration blade](./media/groups-lifecycle/expiration-settings.png)
 
-4. On the **Expiration** blade, you can:
+3. On the **Expiration** blade, you can:
 
   * Set the group lifetime in days. You could select one of the preset values, or a custom value (should be 31 days or more). 
   * Specify an email address where the renewal and expiration notifications should be sent when a group has no owner. 
   * Select which Office 365 groups expire. You can enable expiration for **All** Office 365 groups, you can choose to enable only **Selected** Office 365 groups, or you select **None** to disable expiration for all groups.
   * Save your settings when you're done by selecting **Save**.
 
+## Email notifications
 
-Email notifications such as this one are sent to the Office 365 group owners 30 days, 15 days, and 1 day prior to expiration of the group.
+Email notifications such as this one are sent to the Office 365 group owners 30 days, 15 days, and 1 day prior to expiration of the group. The language of the email is determined by groups owner's preferred language or tenant language. If the group owner has defined a preferred language, or multiple owners have the same preferred language, then that language is used. For all other cases, tenant language is used.
 
 ![Expiration email notification](./media/groups-lifecycle/expiration-notification.png)
 

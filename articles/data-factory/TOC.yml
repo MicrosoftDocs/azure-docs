@@ -25,6 +25,8 @@
     href: quickstart-create-data-factory-rest-api.md
   - name: Create data factory - Resource Manager template
     href: quickstart-create-data-factory-resource-manager-template.md
+  - name: Create data flow
+    href: data-flow-create.md
 - name: Tutorials
   items:
   - name: Copy data in cloud
@@ -116,6 +118,28 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
+  - name: Mapping Data Flows
+    items:
+    - name: Mapping Data Flow concepts
+      href: concepts-data-flow-overview.md
+    - name: Debug Mode
+      href: concepts-data-flow-debug-mode.md
+    - name: Schema Drift
+      href: concepts-data-flow-schema-drift.md
+    - name: Inspect Pane
+      href: concepts-data-flow-inspect-pane.md
+    - name: Column Patterns
+      href: concepts-data-flow-column-pattern.md
+    - name: Data Flow Monitoring
+      href: concepts-data-flow-monitoring.md     
+    - name: Move Nodes
+      href: concepts-data-flow-move-nodes.md
+    - name: Optimize Tab
+      href: concepts-data-flow-optimize-tab.md
+    - name: Expression Builder
+      href: concepts-data-flow-expression-builder.md
+    - name: Reference Nodes
+      href: concepts-data-flow-reference-node.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Understanding pricing
@@ -146,6 +170,8 @@
       href: connector-azure-cosmos-db.md
     - name: Azure Cosmos DB MongDB API
       href: connector-azure-cosmos-db-mongodb-api.md
+    - name: Azure Data Explorer
+      href: connector-azure-data-explorer.md
     - name: Azure Data Lake Storage Gen1
       href: connector-azure-data-lake-store.md
     - name: Azure Data Lake Storage Gen2
@@ -301,6 +327,8 @@
     items:
     - name: Copy data using Copy Activity
       href: copy-activity-overview.md
+    - name: Delete files using Delete Activity
+      href: delete-activity.md
     - name: Copy Data tool
       href: copy-data-tool.md
     - name: Load Data Lake Storage Gen2
@@ -381,6 +409,42 @@
       href: control-flow-wait-activity.md
     - name: Web Activity
       href: control-flow-web-activity.md
+  - name: Data flow transformations
+    items:
+    - name: Aggregate
+      href: data-flow-aggregate.md
+    - name: Conditional split
+      href: data-flow-conditional-split.md
+    - name: Derived column
+      href: data-flow-derived-column.md
+    - name: Exists
+      href: data-flow-exists.md
+    - name: Filter
+      href: data-flow-filter.md
+    - name: Join
+      href: data-flow-join.md
+    - name: Lookup
+      href: data-flow-lookup.md
+    - name: New branch
+      href: data-flow-new-branch.md
+    - name: Pivot
+      href: data-flow-pivot.md
+    - name: Select
+      href: data-flow-select.md
+    - name: Sink
+      href: data-flow-sink.md
+    - name: Sort
+      href: data-flow-sort.md
+    - name: Source
+      href: data-flow-source.md
+    - name: Surrogate key
+      href: data-flow-surrogate-key.md
+    - name: Union
+      href: data-flow-union.md
+    - name: Unpivot
+      href: data-flow-unpivot.md
+    - name: Window
+      href: data-flow-window.md
   - name: Parameterize
     items:
     - name: Parameterize linked services
@@ -455,8 +519,22 @@
       href: how-to-create-schedule-trigger.md
     - name: Create a tumbling window trigger
       href: how-to-create-tumbling-window-trigger.md
+    - name: Create a tumbling window trigger dependency
+      href: tumbling-window-trigger-dependency.md
     - name: Create an event-based trigger
       href: how-to-create-event-trigger.md
+  - name: Templates
+    items:
+    - name: Overview of templates
+      href: solution-templates-introduction.md
+    - name: Copy files from multiple containers
+      href: solution-template-copy-files-multiple-containers.md
+    - name: Bulk copy with control table
+      href: solution-template-bulk-copy-with-control-table.md
+    - name: Delta copy with control table
+      href: solution-template-delta-copy-with-control-table.md
+    - name: Transform data with Databricks
+      href: solution-template-databricks-notebook.md
 - name: Reference
   items:
   - name: .NET

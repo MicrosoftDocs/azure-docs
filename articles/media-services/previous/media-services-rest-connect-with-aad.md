@@ -12,12 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 02/10/2019
 ms.author: willzhan;juliako;johndeu
 
 ---
 
-# Use Azure AD authentication to access the Azure Media Services API with REST
+# Use Azure AD authentication to access the Media Services API with REST
 
 When you're using Azure AD authentication with Azure Media Services, you can authenticate in one of two ways:
 

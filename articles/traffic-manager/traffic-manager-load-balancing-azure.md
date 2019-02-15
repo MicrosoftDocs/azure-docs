@@ -4,7 +4,7 @@ description: 'This tutorial shows you how to create a scenario by using the Azur
 services: traffic-manager
 documentationcenter: ''
 author: liumichelle
-manager: vitinnan
+manager: dkays
 editor: ''
 
 ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17

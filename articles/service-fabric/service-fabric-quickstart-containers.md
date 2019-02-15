@@ -4,7 +4,7 @@ description: In this quickstart, you create your first Windows container applica
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
-manager: jeanpaul.connock
+manager: jpconnock
 editor: 'vturecek'
 ms.assetid: 
 ms.service: service-fabric
@@ -86,7 +86,7 @@ Also in the *ApplicationManifest.xml* file, change **PasswordEncrypted** to **fa
 
 ## Create a cluster
 
-The following sample script creates a five-node Service Fabric cluster secured with an X.509 certificate. The command creates a self-signed certificate and uploads it to a new key vault. The certificate is also copied to a local directory. You can learn more about creating a cluster using this script in [Create a Service Fabric cluster](/scripts/service-fabric-powershell-create-secure-cluster-cert).
+The following sample script creates a five-node Service Fabric cluster secured with an X.509 certificate. The command creates a self-signed certificate and uploads it to a new key vault. The certificate is also copied to a local directory. You can learn more about creating a cluster using this script in [Create a Service Fabric cluster](scripts/service-fabric-powershell-create-secure-cluster-cert.md).
 
 If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview).
 

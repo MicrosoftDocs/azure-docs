@@ -183,6 +183,52 @@ The city, region, and country dimensions are derived from IP addresses and aren'
 ## Exception "method not found" on running in Azure Cloud Services
 Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Services roles. [Install 4.6 on each role](../../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.
 
+## Troubleshooting Logs
+
+Follow these instructions to capture troubleshooting logs for your framework.
+
+### .Net Framework
+
+1. Install the [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) package from NuGet. The version you install must match the current installed version of `Microsoft.ApplicationInsighs`
+
+2. Modify your applicationinsights.config file to include the following:
+
+   ```xml
+   <TelemetryModules>
+      <Add Type="Microsoft.ApplicationInsights.Extensibility.HostingStartup.FileDiagnosticsTelemetryModule, Microsoft.AspNet.ApplicationInsights.HostingStartup">
+        <Severity>Verbose</Severity>
+        <LogFileName>mylog.txt</LogFileName>
+        <LogFilePath>C:\\SDKLOGS</LogFilePath>
+      </Add>
+   </TelemetryModules>
+   ```
+   Your application must have Write permissions to the configured location
+ 
+ 3. Restart process so that these new settings are picked up by SDK
+ 
+ 4. Revert these changes when you are finished.
+  
+### .Net Core
+
+1. Install the [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) package from NuGet. The version you install must match the current installed version of `Microsoft.ApplicationInsighs`
+
+2. Modify `ConfigureServices` method in your `Startup.cs` class.:
+
+    ```csharp
+    services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();
+    services.ConfigureTelemetryModule<FileDiagnosticsTelemetryModule>( (module, options) => {
+        module.LogFilePath = "C:\\SDKLOGS";
+        module.LogFileName = "mylog.txt";
+        module.Severity = "Verbose";
+    } );
+    ```
+   Your application must have Write permissions to the configured location
+ 
+ 3. Restart process so that these new settings are picked up by SDK
+ 
+ 4. Revert these changes when you are finished.
+  
+
 ## Still not working...
 * [Application Insights forum](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
 

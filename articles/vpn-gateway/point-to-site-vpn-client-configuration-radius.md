@@ -94,10 +94,10 @@ Use the following steps to configure the native Windows VPN client for certifica
 
 2. Locate the **mobileconfig** file on the Mac.
 
-   ![Location of the mobilconfig file](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
+   ![Location of the mobileconfig file](./media/point-to-site-vpn-client-configuration-radius/admobileconfigfile.png)
 
 3. Optional Step - If you want to specify a custom DNS, add the following lines to the **mobileconfig** file:
-```
+```xml
     <key>DNS</key>
     <dict>
       <key>ServerAddresses</key>
@@ -256,17 +256,17 @@ Use the following steps to configure the native VPN client on a Mac for certific
 
 To use a different authentication type (for example, OTP), or to use a different authentication protocol (such as PEAP-MSCHAPv2 instead of EAP-MSCHAPv2), you must create your own VPN client configuration profile. To create the profile, you need information such as the virtual network gateway IP address, tunnel type, and split-tunnel routes. You can get this information by using the following steps:
 
-1. Use the `Get-AzureRmVpnClientConfiguration` cmdlet to generate the VPN client configuration for EapMSChapv2. For instructions, see [this section](#ccradius) of the article.
+1. Use the `Get-AzureRmVpnClientConfiguration` cmdlet to generate the VPN client configuration for EapMSChapv2. For instructions, see this section of the article.
 
-2. Unzip the VpnClientConfiguration.zip file and look for the **GenenericDevice** folder. Ignore the folders that contain the Windows installers for 64-bit and 32-bit architectures.
+2. Unzip the VpnClientConfiguration.zip file and look for the **GenericDevice** folder. Ignore the folders that contain the Windows installers for 64-bit and 32-bit architectures.
  
-3. The **GenenericDevice** folder contains an XML file called **VpnSettings**. This file contains all the required information:
+3. The **GenericDevice** folder contains an XML file called **VpnSettings**. This file contains all the required information:
 
    * **VpnServer**: FQDN of the Azure VPN gateway. This is the address that the client connects to.
    * **VpnType**: Tunnel type that you use to connect.
    * **Routes**: Routes that you have to configure in your profile so that only traffic that's bound for the Azure virtual network is sent over the P2S tunnel.
    
-   The **GenenericDevice** folder also contains a .cer file called **VpnServerRoot**. This file contains the root certificate that's required to validate the Azure VPN gateway during P2S connection setup. Install the certificate on all devices that will connect to the Azure virtual network.
+   The **GenericDevice** folder also contains a .cer file called **VpnServerRoot**. This file contains the root certificate that's required to validate the Azure VPN gateway during P2S connection setup. Install the certificate on all devices that will connect to the Azure virtual network.
 
 ## Next steps
 

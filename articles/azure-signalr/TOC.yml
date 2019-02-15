@@ -40,6 +40,8 @@
     href: signalr-key-rotation.md
   - name: Messages and connections
     href: signalr-messages.md
+  - name: Resiliency and disaster recovery
+    href: signalr-disaster-recovery.md
 - name: Resources
   items:
   - name: SignalR Roadmap
@@ -47,7 +49,7 @@
   - name: FAQs
     href: signalr-faq.md
   - name: SignalR Service subscription level limits
-    href: https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#signalr-service-limits 
+    href: https://docs.microsoft.com/azure/azure-subscription-service-limits#signalr-service-limits 
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/signalr-service/
   - name: Videos

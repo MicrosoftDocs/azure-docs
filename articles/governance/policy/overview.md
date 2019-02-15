@@ -197,7 +197,7 @@ part of that initiatives assignments.
 evaluated. If you need to evaluate a policy individually, it's better to not include it in an
 initiative.
 
-## Video Overview
+## Video overview
 
 The following overview of Azure Policy is from Build 2018. For slides or video download,
 visit [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) on Channel 9.
