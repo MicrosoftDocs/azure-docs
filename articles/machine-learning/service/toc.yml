@@ -58,7 +58,11 @@
 - name: How-to guides
   items:
   - name: Manage workspaces
-    href: how-to-manage-workspace.md
+    items:
+    - name: Use portal for workspaces
+      href: how-to-manage-workspace.md
+    - name: Use a Resource Manager template
+      href: how-to-create-workspace-template.md
   - name: Set up development environment 
     items:
     - name: Configure dev environments
@@ -118,8 +122,6 @@
       href: how-to-deploy-fpga-web-service.md
     - name: Troubleshoot
       href: how-to-troubleshoot-deployment.md
-    - name: Secure web services with SSL
-      href: how-to-secure-web-service.md
   - name: Consume web services
     items:
     - name: Consume in real-time
@@ -135,25 +137,27 @@
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights
       href: how-to-enable-app-insights.md
+  - name: Security
+    items: 
+    - name: Use virtual networks
+      displayName: vnet
+      href: how-to-enable-virtual-network.md
+    - name: Secure web services with SSL
+      href: how-to-secure-web-service.md
   - name: Create your first pipeline
     href: how-to-create-your-first-pipeline.md
+  - name: Enable logging
+    displayName: logging
+    href: how-to-enable-logging.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
-  - name: Secure with virtual networks
-    displayName: vnet
-    href: how-to-enable-virtual-network.md
   - name: Use the Machine Learning CLI
     displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: Export and delete data
     displayName: gdpr
     href: how-to-export-delete-data.md
-  - name: Use a Resource Manager template
-    href: how-to-create-workspace-template.md
-  - name: Enable logging
-    displayName: logging
-    href: how-to-enable-logging.md
 - name: Reference
   items:
   - name: Machine learning SDK
@@ -165,8 +169,6 @@
   - name: Monitoring SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.machinelearningservices/allversions
 - name: Resources
   items:
   - name: Azure roadmap
