@@ -77,6 +77,8 @@ For this exercise, you can combine configurations, or just choose the one that y
 
 Before beginning, you need to install the latest version of the Azure PowerShell module. For more information about installing the PowerShell module, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
 
+Because it takes up to 45 minutes to create a gateway, Azure Cloud Shell will timeout periodically during this exercise. You can restart Cloud Shell by clicking in the upper left of the terminal. Be sure to redeclare any variables when you restart the terminal.  
+
 ### <a name="Step1"></a>Step 1 - Plan your IP address ranges
 
 In the following steps, you create two virtual networks along with their respective gateway subnets and configurations. You then create a VPN connection between the two VNets. It’s important to plan the IP address ranges for your network configuration. Keep in mind that you must make sure that none of your VNet ranges or local network ranges overlap in any way. In these examples, we do not include a DNS server. If you want name resolution for your virtual networks, see [Name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
@@ -198,7 +200,7 @@ We use the following values in the examples:
   -VpnType RouteBased -GatewaySku VpnGw1
   ```
 
-After you finish the commands, it will take up to 45 minutes to create this gateway. If you are using Azure Cloud Shell, you can restart your CloudShell session by clicking in the upper left of the console, then configure TestVNet4. You don't need to wait until the TestVNet1 gateway completes.
+After you finish the commands, it will take up to 45 minutes to create this gateway. If you are using Azure Cloud Shell, you can restart your CloudShell session by clicking in the upper left of the Cloud Shell terminal, then configure TestVNet4. You don't need to wait until the TestVNet1 gateway completes.
 
 ### Step 3 - Create and configure TestVNet4
 
@@ -264,7 +266,7 @@ Once you've configured TestVNet1, create TestVNet4. Follow the steps below, repl
 
 ### Step 4 - Create the connections
 
-Wait until both gateways are completed. Restart your Azure Cloud Shell session and copy and paste the variables from the beginng of Steps 2 and 3 into the console to redeclare values.
+Wait until both gateways are completed. Restart your Azure Cloud Shell session and copy and paste the variables from the beginning of Step 2 and Step 3 into the console to redeclare values.
 
 1. Get both virtual network gateways.
 
@@ -290,11 +292,15 @@ Wait until both gateways are completed. Restart your Azure Cloud Shell session a
 
 ## <a name="difsub"></a>How to connect VNets that are in different subscriptions
 
-In this scenario, you connect TestVNet1 and TestVNet5. TestVNet1 and TestVNet5 reside in a different subscription. The subscriptions do not need to be associated with the same Active Directory tenant. The difference between these steps and the previous set is that some of the configuration steps need to be performed in a separate PowerShell session in the context of the second subscription. Especially when the two subscriptions belong to different organizations.
+In this scenario, you connect TestVNet1 and TestVNet5. TestVNet1 and TestVNet5 reside in different subscriptions. The subscriptions do not need to be associated with the same Active Directory tenant.
+
+The difference between these steps and the previous set is that some of the configuration steps need to be performed in a separate PowerShell session in the context of the second subscription. Especially when the two subscriptions belong to different organizations.
+
+Due to changing subscription context in this exercise, you may find it easier to use PowerShell locally on your computer, rather than using the Azure Cloud Shell, when you get to Step 8.
 
 ### Step 5 - Create and configure TestVNet1
 
-You must complete [Step 1](#Step1) and [Step 2](#Step2) from the previous section to create and configure TestVNet1 and the VPN Gateway for TestVNet1. For this configuration, you are not required to create TestVNet4 from the previous section, although if you do create it, it will not conflict with these steps. Once you complete Step 1 and Step 2, continue with Step 6 to create TestVNet5. 
+You must complete [Step 1](#Step1) and [Step 2](#Step2) from the previous section to create and configure TestVNet1 and the VPN Gateway for TestVNet1. For this configuration, you are not required to create TestVNet4 from the previous section, although if you do create it, it will not conflict with these steps. Once you complete Step 1 and Step 2, continue with Step 6 to create TestVNet5.
 
 ### Step 6 - Verify the IP address ranges
 
