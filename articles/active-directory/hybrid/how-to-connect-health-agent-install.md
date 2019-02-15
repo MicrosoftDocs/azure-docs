@@ -37,7 +37,7 @@ The following table is a list of requirements for using Azure AD Connect Health.
 |Disable FIPS|FIPS is not supported by Azure AD Connect Health agents.|
 
 ### Outbound connectivity to the Azure service endpoints
- During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If outbound connectivity is blocked using Firewalls, ensure that the following endpoints are added to the allowed list. Read more about [check outbound connectivity](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
+ During installation and runtime, the agent requires connectivity to Azure AD Connect Health service endpoints. If outbound connectivity is blocked using Firewalls, make sure that the following URLs are not blocked by default. Do not disable security monitoring or inspection of these URLs, but allow them as you would other internet traffic. They permit communication with Azure AD Connect Health service endpoints. Read more about [check outbound connectivity](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
 
 | Domain Environment | Required Azure service endpoints |
 | --- | --- |
