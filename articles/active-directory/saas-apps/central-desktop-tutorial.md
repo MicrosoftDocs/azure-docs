@@ -153,6 +153,7 @@ To configure Azure AD single sign-on with Central Desktop, perform the following
 4. In the **Message Signature Verification Method** section, take the following steps:
 
 	![Message signature verification method](./media/central-desktop-tutorial/ic769565.png "Message Signature Verification Method")
+	
 	a. Select **Certificate**.
 
 	b. In the **SSO Certificate** list, select **RSH SHA256**.
