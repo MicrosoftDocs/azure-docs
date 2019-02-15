@@ -7,8 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Stream video files with .NET
+  - name: Stream video files - .NET
     href: stream-files-dotnet-quickstart.md
+  - name: Stream video files - CLI
+    href: stream-files-cli-quickstart.md
 - name: Tutorials
   expanded: true
   items:
