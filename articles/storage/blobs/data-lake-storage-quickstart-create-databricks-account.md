@@ -7,7 +7,7 @@ ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/24/2019
+ms.date: 02/15/2019
 ---
 
 # Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks
@@ -20,7 +20,13 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-- [Create a storage account with Data Lake Storage Gen2 enabled](data-lake-storage-quickstart-create-account.md)
+* [Create a storage account with Data Lake Storage Gen2 enabled](data-lake-storage-quickstart-create-account.md)
+
+*  Create a service principal by following the guidance in this topic: [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+   * Assign the [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview) role to the service principal in the scope of the Data Lake Storage Gen2 storage account.
+
+   * Paste the tenant ID, application ID, and authentication key values into a text file. You'll need those soon.
 
 <a id="config"/>
 
@@ -121,11 +127,11 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
 
    ```
- 
+
     > [!NOTE]
     > This code block directly accesses the Data Lake Gen2 endpoint by using OAuth, but there are other ways to connect the Databricks workspace to your Data Lake Storage Gen2 account. For example, you could mount the file system by using OAuth or use a direct access with Shared Key. <br>To see examples of these approaches, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website.
 
-5. In this code block, replace the `storage-account-name`, `application-id`, `authentication-id`, and `tenant-id` placeholder values in this code block with the values that you collected when you completed the steps in the [Get the name of your storage account](#config) and [Create a service principal](#service-principal) sections of this article.  Set the `file-system-name` placeholder value to whatever name you want to give the file system.
+5. In this code block, replace the `storage-account-name`, `application-id`, `authentication-id`, and `tenant-id` placeholder values in this code block with the values that you collected when you created the service prinicpal. Set the `file-system-name` placeholder value to whatever name you want to give the file system.
 
 6. Press the **SHIFT + ENTER** keys to run the code in this block.
 
