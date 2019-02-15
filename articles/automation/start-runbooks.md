@@ -33,7 +33,7 @@ The following image illustrates detailed step-by-step process in the life cycle 
 1. In the Azure portal, select **Automation** and then click the name of an automation account.
 2. On the Hub menu, select **Runbooks**.
 3. On the **Runbooks** page, select a runbook, and then click **Start**.
-4. If the runbook has parameters, you're prompted to provide values with a text box for each parameter. For further details on parameters, see [Runbook Parameters](#Runbook-parameters).
+4. If the runbook has parameters, you're prompted to provide values with a text box for each parameter. For more information on parameters, see [Runbook Parameters](#Runbook-parameters).
 5. On the **Job** page, you can view the status of the runbook job.
 
 ## Start a runbook with PowerShell
