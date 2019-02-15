@@ -126,7 +126,7 @@ Pricing is region specific, so you need to define a billing plan for each region
 
 #### Create a plan in another region
 
-1. Sign into [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/).
+1. Sign in to [Microsoft Azure Machine Learning Web Services](https://services.azureml.net/).
 2. Click the **Plans** menu option.
 3. On the Plans over view page, click **New**.
 4. From the **Subscription** dropdown, select the subscription in which the new plan will reside.
@@ -138,7 +138,7 @@ Pricing is region specific, so you need to define a billing plan for each region
 
 #### Deploy the web service to another region
 
-1. Click the **Web Services** menu option.
+1. On the Microsoft Azure Machine Learning Web Services page, click the **Web Services** menu option.
 2. Select the Web Service you are deploying to a new region.
 3. Click **Copy**.
 4. In **Web Service Name**, type a new name for the web service.
