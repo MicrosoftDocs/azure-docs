@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 02/15/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -108,7 +108,7 @@ To configure Azure AD single sign-on with Cisco Webex, perform the following ste
     `https://idbroker.webex.com/<Org Id>`
 
 	> [!NOTE]
-	> This Identifier value is not real. Update this value with the actual Identifier. If you have Service Provider Metadata, upload it in the **Basic SAML Configuration** section then the **Identifier (Entity ID)** value gets auto populated automatically. Contact [Cisco Webex Client support team](https://collaborationhelp.cisco.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> This Identifier value is not real. Update this value with the actual Identifier. If you have Service Provider Metadata, upload it in the **Basic SAML Configuration** section then the **Identifier (Entity ID)** value gets auto populated automatically.
 
 5. Cisco Webex application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click on **Edit** icon to add the attributes.
 
@@ -118,7 +118,7 @@ To configure Azure AD single sign-on with Cisco Webex, perform the following ste
     
 	| Name |  Source Attribute|
 	| ---------------|--------- |
-	| uid | user.userprincipalname |
+	| UID | user.userprincipalname |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
