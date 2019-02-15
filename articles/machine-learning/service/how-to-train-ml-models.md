@@ -106,7 +106,7 @@ The above code exposes the following new parameters to the `Estimator` construct
 
 Parameter | Description | Default
 --|--|--
-`custom_docker_base_image`| Name of the image you want to use. Only provide images available in public docker repositories (in this case Docker Hub). To use an image from a private docker repository, use the constructor's `environment_definition` parameter instead | `None`
+`custom_docker_base_image`| Name of the image you want to use. Only provide images available in public docker repositories (in this case Docker Hub). To use an image from a private docker repository, use the constructor's `environment_definition` parameter instead. [See example](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| Number of nodes to use for your training job. | `1`
 `process_count_per_node`| Number of processes (or "workers") to run on each node. In this case, you use the `2` GPUs available on each node.| `1`
 `distributed_backend`| Backend for launching distributed training, which the Estimator offers via MPI.  To carry out parallel or distributed training (e.g. `node_count`>1 or `process_count_per_node`>1 or both), set `distributed_backend='mpi'`. The MPI implementation used by AML is [Open MPI](https://www.open-mpi.org/).| `None`
