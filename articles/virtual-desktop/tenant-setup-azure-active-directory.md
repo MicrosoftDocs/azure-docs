@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Tutorial: Create a tenant in Windows Virtual Desktop (Preview)
 
-Creating a tenant in Windows Virtual Desktop is the first step towards building out your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool consists of multiple session hosts, running as virtual machines in Azure  and registered to the Windows Virtual Desktop service. Each host pool also consists of one or more app groups which are used to publish remote desktop and remote application resources to users. With a tenant, you can build out host pools, create app groups, assign users, and make connections through the service.
+Creating a tenant in Windows Virtual Desktop is the first step towards building out your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool consists of multiple session hosts, running as virtual machines in Azure and registered to the Windows Virtual Desktop service. Each host pool also consists of one or more app groups that are used to publish remote desktop and remote application resources to users. With a tenant, you can build out host pools, create app groups, assign users, and make connections through the service.
 
 In this tutorial, learn how to:
 
@@ -52,7 +52,8 @@ Assigning an Azure Active Directory user the TenantCreator application role allo
 
 To assign the TenantCreator application role to your global administrator account:
 
-1. Open a browser and connect to the [Azure Active Directory portal](https://aad.portal.azure.com) with your global administrator account. Note: If you are working with multiple Azure AD tenants it is a good practice to open a private browser session and copy and paste URLs into the address.
+1. Open a browser and connect to the [Azure Active Directory portal](https://aad.portal.azure.com) with your global administrator account.
+   - If you're working with multiple Azure AD tenants, it's best practice to open a private browser session and copy and paste URLs into the address.
 2. Select **Enterprise applications**, search for **Windows Virtual Desktop** and select the application.
 3. Select **Users and groups**, then select **Add user**.
 4. Select Users and groups in the **Add Assignment** blade
