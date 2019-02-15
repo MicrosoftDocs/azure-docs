@@ -143,7 +143,7 @@ The following commands demonstrate how to register a trained model, and then dep
 
 A run configuration is used to configure the training environment used to train your model. This configuration can be created in-memory using the SDK or it can be loaded from a runconfig file.
 
-The runconfig file is a YAML document that describes the configuration for the training environment. For example, it lists the name of the training script and the file that contains the conda dependencies needed to train the model.
+The runconfig file is a text document that describes the configuration for the training environment. For example, it lists the name of the training script and the file that contains the conda dependencies needed to train the model.
 
 The Azure Machine Learning CLI creates two default `.runconfig` files named `docker.runconfig` and `local.runconfig` when you attach a project using the `az ml project attach` command. 
 
@@ -151,7 +151,7 @@ If you have code that creates a run configuration using the [RunConfiguration](h
 
 The following is an example of the contents of a `.runconfig` file:
 
-```yaml
+```text
 # The script to run.
 script: train.py
 # The arguments to the script file.
