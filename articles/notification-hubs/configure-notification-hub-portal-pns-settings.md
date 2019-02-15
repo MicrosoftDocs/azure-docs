@@ -13,7 +13,7 @@ ms.date: 02/14/2019
 ms.author: jowargo
 ---
 
-# Configure an Azure notification hub with platform notification system (PNS) settings by using the Azure portal 
+# Configure an Azure notification hub with platform notification system settings in the Azure portal 
 Azure Notification Hubs provide an easy-to-use and scaled-out push engine that allows you to send notifications to any platform (iOS, Android, Windows, Kindle, Baidu, etc.) from any backend (cloud or on-premises). For more information about the service, see [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
 
 [Create an Azure notification hub by using Azure portal](create-notification-hub-portal.md) if you haven't done so already. In this quickstart, you learn how to configure a notification hub in the Azure portal with platform notification system (PNS) settings.
