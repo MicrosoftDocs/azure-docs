@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Run an application in Azure Container Instances - CLI
+title: Quickstart - Deploy Docker container in Azure Container Instances - CLI
 description: In this quickstart, you use the Azure CLI to deploy a Docker container application to run in an isolated container in Azure Container Instances
 services: container-instances
 author: dlepow
@@ -11,9 +11,9 @@ ms.author: danlep
 ms.custom: "seodec18, mvc"
 ---
 
-# Quickstart: Run a container application in Azure Container Instances with the Azure CLI
+# Quickstart: Deploy a container instance to Azure using the Azure CLI
 
-Use Azure Container Instances to run Docker containers in Azure with simplicity and speed. You don't need to deploy virtual machines or use a full container orchestration platform like Kubernetes. In this quickstart, you use the Azure CLI to create a container in Azure and make its application available with a fully qualified domain name (FQDN). A few seconds after you execute a single deployment command, you can browse to the running application:
+Use Azure Container Instances to run Docker containers in Azure with simplicity and speed. You don't need to deploy virtual machines or use a full container orchestration platform like Kubernetes. In this quickstart, you use the Azure CLI to deploy an isolated container in Azure and make its application available with a fully qualified domain name (FQDN). A few seconds after you execute a single deployment command, you can browse to the running application:
 
 ![App deployed to Azure Container Instances viewed in browser][aci-app-browser]
 
@@ -39,7 +39,7 @@ Now that you have a resource group, you can run a container in Azure. To create 
 
 You can expose your containers to the internet by specifying one or more ports to open, a DNS name label, or both. In this quickstart, you deploy a container with a DNS name label so that the web app is publicly reachable.
 
-Execute the following command to start a container instance. The `--dns-name-label` value must be unique within the Azure region you create the instance. If you receive a "DNS name label not available" error message, try a different DNS name label.
+Execute the following command to start a container instance. Substitute a unique `--dns-name-label` value for *aci-demo*. If you receive a "DNS name label not available" error message, try a different DNS name label.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
