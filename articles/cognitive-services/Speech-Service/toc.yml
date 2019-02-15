@@ -82,6 +82,10 @@
   - name: Batch transcription (REST)
     href: batch-transcription.md
     displayName: recognize speech, speech recognition, speech to text, stt
+  - name: Prepare transcripts
+    href: prepare-transcription.md
+  - name: Use custom audio streams
+    href: how-to-use-audio-input-streams.md
   - name: Customization
     items:
     - name: Speech recognition
@@ -98,15 +102,11 @@
       items:
       - name: Create voice fonts (bot brand voice)
         href: how-to-customize-voice-font.md
-    - name: Customize wake word (Devices SDK)
+      - name: Record voice samples
+        href: record-custom-voice-samples.md
+    - name: Create a custom wake word (Devices SDK)
       href: speech-devices-sdk-create-kws.md
       displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
-  - name: Record voice samples
-    href: record-custom-voice-samples.md
-  - name: Prepare transcripts
-    href: prepare-transcription.md
-  - name: Use custom audio streams
-    href: how-to-use-audio-input-streams.md
   - name: Migrate
     items:
     - name: From Bing Speech
