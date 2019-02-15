@@ -48,7 +48,7 @@ This article includes the following procedures:
 
 ## View device information
 
-[!INCLUDE [Boot up in non-DHCP environment](../../includes/data-box-edge-gateway-view-device-info.md)]
+[!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
 ## Next steps
 
