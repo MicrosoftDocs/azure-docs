@@ -46,7 +46,7 @@ The second report dives deeper into events and shows a historical view of errors
 ![Power BI report page 2](media/howto-connect-powerbi/template-page2-hasdata.PNG)
 
 ## Architecture
-All of the resources that have been created can be accessed in the Azure portal. Everything should be under one resource group (unless a user was using an existing SQL server. In this case the SQL Server will appear in whatever resource group it already existed in).
+All of the resources that have been created can be accessed in the Azure portal. Everything should be under one resource group.
 
 ![Azure Portal view of resource group](media/howto-connect-powerbi/azure-deployment.PNG)
 
