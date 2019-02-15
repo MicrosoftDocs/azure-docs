@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/15/2019
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -113,9 +113,10 @@ minimize complexity when creating security rules.
 | Communication to Azure Logic Apps <br>Communication from Azure Logic Apps | Inbound <br>Outbound | * <br>80 & 443 | INTERNET <br>VIRTUAL_NETWORK |
 | Azure Active Directory | Outbound | * <br>80 & 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory |
 | Azure Storage dependency | Outbound | * <br>80 & 443 | VIRTUAL_NETWORK <br>Storage |
+| Your logic app's run history | Inbound | * <br>443 | INTERNET <br>VIRTUAL_NETWORK |
 | Connection management | Outbound | * <br>443 | VIRTUAL_NETWORK <br>INTERNET |
 | Publish Diagnostic Logs & Metrics | Outbound | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor |
-| Logic Apps Designer - dynamic properties <br>Your logic app's run history <br>Connector deployment <br>Request trigger endpoint | Inbound | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
+| Logic Apps Designer - dynamic properties <br>Connector deployment <br>Request trigger endpoint | Inbound | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
 | App Service Management dependency | Inbound | * <br>454 & 455 | AppServiceManagement <br>VIRTUAL_NETWORK |
 | API Management - management endpoint | Inbound | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK |
 | Dependency from Log to Event Hub policy and monitoring agent | Outbound | * <br>5672 | VIRTUAL_NETWORK <br>EventHub |
