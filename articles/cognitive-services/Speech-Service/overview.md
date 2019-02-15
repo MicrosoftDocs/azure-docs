@@ -64,10 +64,10 @@ Azure Speech Services work well with built-in models, however, you may want to f
 
 | Speech Service | Model | Description |
 |----------------|-------|-------------|
-| Speech-to-text | [Acoustic model](how-to-customize-acoustic-models.md) | Creating a custom acoustic model is helpful if your application, tools, or device is designed for use in a particular environment, like a car or factory floor, with specific recording conditions. Examples involve accented speech, specific background noises, or using a specific microphone for recording. |
+| Speech recognition | [Acoustic model](how-to-customize-acoustic-models.md) | Creating a custom acoustic model is helpful if your application, tools, or device is designed for use in a particular environment, like a car or factory floor, with specific recording conditions. Examples involve accented speech, specific background noises, or using a specific microphone for recording. |
 | | [Language model](how-to-customize-language-model.md) | Create a custom language model to improve transcription of field-specific vocabulary and grammar, such as medical terminology, or IT jargon. |
 | | [Pronunciation model](how-to-customize-pronunciation.md) | With a custom pronunciation model, you can define the phonetic form and display of a word or term. It's useful for handling customized terms, such as product names or acronyms. All you need to get started is a pronunciation file -- a simple .txt file. |
-| Text-to-speech | [Voice font](how-to-customize-voice-font.md) | Custom voice fonts allow you to create a recognizable, one-of-a-kind voice for your brand. It only takes a small amount of data to get started, but the more data you provide, the more natural and human-like it will sound. |
+| Speech synthesis | [Voice font](how-to-customize-voice-font.md) | Custom voice fonts allow you to create a recognizable, one-of-a-kind voice for your brand. It only takes a small amount of data to get started, but the more data you provide, the more natural and human-like it will sound. |
 
 ## Next steps
 
