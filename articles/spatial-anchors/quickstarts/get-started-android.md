@@ -38,6 +38,8 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
+If you're building the Android NDK sample, you'll need to download `arcore_c_api.h` from [here](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.5.0/libraries/include/arcore_c_api.h) and place it in `Android\NDK\libraries\include`.
+
 Open Android Studio.
 
 # [Java](#tab/openproject-java)
