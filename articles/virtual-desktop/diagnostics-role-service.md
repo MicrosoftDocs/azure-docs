@@ -31,7 +31,7 @@ Windows Virtual Desktop Diagnostics uses just one PowerShell cmdlet but contains
 
 ### Retrieve diagnostic activities in your tenant
 
-You can retrieve diagnostic activites by entering the **Get-RdsDiagnosticsActivities** cmdlet. The following example cmdlet will return a list of diagnostic activities, sorted from most to least recent.
+You can retrieve diagnostic activities by entering the **Get-RdsDiagnosticsActivities** cmdlet. The following example cmdlet will return a list of diagnostic activities, sorted from most to least recent.
 
 ```powershell
 Get-RdsDiagnosticsActivities -TenantName <tenantName>
@@ -70,13 +70,13 @@ The **-UserName** parameter can also be combined with other optional filtering p
 You can filter the returned diagnostic activity list with the **-StartTime** and **-EndTime** parameters. The **-StartTime** parameter will return a diagnostic activity list starting from a specific date, as shown in the following example.
 
 ```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime “08/01/2018”
+Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime "08/01/2018"
 ```
 
 The **-EndTime** parameter can be added to a cmdlet with the **-StartTime** parameter to specify a specific period of time you want to receive results for. The following example cmdlet will return a list of diagnostic activities from between August 1st and August 10th.
 
 ```powershell
-Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime “08/01/2018” -EndTime “08/10/2018”
+Get-RdsDiagnosticActivities -TenantName <tenantName> -StartTime "08/01/2018" -EndTime "08/10/2018"
 ```
 
 The **-StartTime** and **-EndTime** parameters can also be combined with other optional filtering parameters.

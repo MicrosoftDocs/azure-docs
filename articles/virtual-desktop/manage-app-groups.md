@@ -30,7 +30,7 @@ PS C:\> Install-Module WindowsVirtualDesktop
 1. Run the following PowerShell cmdlet to create a new empty RemoteApp group.
 
  ```powershell
- New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType “RemoteApp”
+ New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
  ```
 
 2. (Optional) To verify the application group was created, you can run the following cmdlet to see a list of all application groups for the host pool.

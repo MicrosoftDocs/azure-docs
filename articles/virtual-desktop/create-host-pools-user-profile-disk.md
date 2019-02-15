@@ -44,7 +44,6 @@ The following are generalized steps on how to prepare a virtual machine to act a
 
 For best practices on permissions, see the [following FSLogix documentation](https://support.fslogix.com/index.php/forum-main/faqs/84-best-practices#120).
 
-
 ## Configure the FSLogix profile container
 
 To configure the virtual machines with the FSLogix software, do the following on each machine registered to the host pool:

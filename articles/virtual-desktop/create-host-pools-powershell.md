@@ -16,7 +16,7 @@ Host pools are a collection of one or more identical virtual machines within Win
 ## Use your PowerShell client to create a host pool
 
 Run the following cmdlet to sign in to the Windows Virtual Desktop environment
-    
+
 ```powershell
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
 ```
@@ -42,7 +42,7 @@ New-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname> -E
 After that, run this cmdlet to add Azure Active Directory users to the default desktop app group for the host pool.
 
 ```powershell
-Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName “Desktop Application Group” -UserPrincipalName <userupn>
+Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
 The **Add-RdsAppGroupUser** cmdlet doesn't support adding security groups and only adds one user at a time to the app group. If you want to add multiple users to the app group, rerun the cmdlet with the appropriate user principal names.

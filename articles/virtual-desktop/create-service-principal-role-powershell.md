@@ -36,9 +36,9 @@ Before you can create service principals and role assignments, you’ll need to 
 2. Run the following cmdlets with the values in quotes replaced by the values relevant to your session.
 
     ```powershell
-    $myTenantGroupName = “<my-tenant-group-name>”
-    $myTenantName = “<my-tenant-name>”
-    $powerShellLocation = “<windows-virtual-desktop-powershell-location>”
+    $myTenantGroupName = "<my-tenant-group-name>"
+    $myTenantName = "<my-tenant-name>"
+    $powerShellLocation = "<windows-virtual-desktop-powershell-location>"
     ```
 
 3. Follow all instructions in this article in the same PowerShell session. It might not work if you close the window and return to it later.

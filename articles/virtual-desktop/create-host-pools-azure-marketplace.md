@@ -95,7 +95,7 @@ To assign users to the desktop application group, you must first open a PowerShe
 Run the following cmdlet to sign in to the Windows Virtual Desktop environment:
 
 ```powershell
-Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 Next, set the context to the tenant group specified in the Azure Resource Manager template with this cmdlet:
@@ -107,7 +107,7 @@ Set-RdsContext -TenantGroupName <Tenant Group name>
 Once you've done those two things, you can add users to the desktop application group with this cmdlet:
 
 ```powershell
-Add-RdsAppGroupUser <tenantname> <hostpoolname> “Desktop Application Group” -UserPrincipalName <userupn>
+Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
 The user’s UPN should match the user’s identity in Azure Active Directory (for example, user1@contoso.com). If you want to add multiple users, you must run this cmdlet for each user.
