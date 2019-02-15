@@ -10,7 +10,7 @@
     href: get-started.md
 - name: Quickstarts
   items:
-  - name: SDK
+  - name: Speech SDK
     items:
     - name: Recognize speech
       items:
@@ -74,56 +74,31 @@
     displayName: roobo, speech devices sdk
 - name: Tutorials
   items:
-  - name: Recognize speech
-    displayName: recognize speech, speech recognition, speech to text, stt
-    items:
-    - name: 'C#'
-      href: how-to-recognize-speech-csharp.md
-    - name: C++
-      href: how-to-recognize-speech-cpp.md
-    - name: Java
-      href: how-to-recognize-speech-java.md
-    - name: REST
-      href: how-to-recognize-speech-rest.md
-  - name: Recognize intents from speech
+  - name: Recognize speech intents, C#
+    href: how-to-recognize-intents-from-speech-csharp.md
     displayName: recognize intent, intent recognition, language understanding service, luis
-    items:
-    - name: C#
-      href: how-to-recognize-intents-from-speech-csharp.md
-    - name: C++
-      href: how-to-recognize-intents-from-speech-cpp.md
-    - name: Java
-      href: how-to-recognize-intents-from-speech-java.md
-  - name: Translate speech
-    displayName: translate speech, speech translation, translator, s2s, speech to speech
-    items:
-    - name: 'C#'
-      href: how-to-translate-speech-csharp.md
-    - name: C++
-      href: how-to-translate-speech-cpp.md
-    - name: Java
-      href: how-to-translate-speech-java.md
 - name: How-to guides
   items:
   - name: Batch transcription (REST)
     href: batch-transcription.md
     displayName: recognize speech, speech recognition, speech to text, stt
-  - name: Get the Speech Devices SDK
-    href: get-speech-devices-sdk.md
-    displayName: roobo, speech devices sdk, download
-  - name: Customize
+  - name: Customization
     items:
-    - name: Customize acoustic models
-      href: how-to-customize-acoustic-models.md
-    - name: Customize language models
-      href: how-to-customize-language-model.md
-    - name: Customize pronunciation
-      href: how-to-customize-pronunciation.md
-    - name: Create custom Speech-To-Text endpoint
-      href: how-to-create-custom-endpoint.md
-    - name: Customize voice fonts (bot brand voice)
-      href: how-to-customize-voice-font.md
-    - name: Customize device wake word (Devices SDK)
+    - name: Speech recognition
+      items:
+      - name: Customize acoustic models
+        href: how-to-customize-acoustic-models.md
+      - name: Customize language models
+        href: how-to-customize-language-model.md
+      - name: Customize pronunciation
+        href: how-to-customize-pronunciation.md
+      - name: Create custom recognition endpoint
+        href: how-to-create-custom-endpoint.md
+    - name: Speech synthesis
+      items:
+      - name: Create voice fonts (bot brand voice)
+        href: how-to-customize-voice-font.md
+    - name: Customize wake word (Devices SDK)
       href: speech-devices-sdk-create-kws.md
       displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
   - name: Record voice samples
