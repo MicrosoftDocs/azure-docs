@@ -22,7 +22,7 @@ When you invoke a runbook inline, it runs in the same job as the parent runbook.
 
 When a runbook is published, any child runbooks that it calls must already be published. This is because Azure Automation builds an association with any child runbooks when a runbook is compiled. If they aren’t, the parent runbook appears to publish properly, but will generate an exception when it’s started. If this happens, you can republish the parent runbook to properly reference the child runbooks. You do not need to republish the parent runbook if any of the child runbooks are changed because the association has already been created.
 
-The parameters of a child runbook called inline can be any data type including complex objects. There is no [JSON serialization](manage-runbooks.md#runbook-parameters) as there is when you start the runbook using the Azure portal or with the Start-AzureRmAutomationRunbook cmdlet.
+The parameters of a child runbook called inline can be any data type including complex objects. There is no [JSON serialization](start-runbooks.md#runbook-parameters) as there is when you start the runbook using the Azure portal or with the Start-AzureRmAutomationRunbook cmdlet.
 
 ### Runbook types
 
@@ -59,7 +59,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 > [!IMPORTANT]
 > If you are invoking a child runbook with the `Start-AzureRmAutomationRunbook` cmdlet with the `-Wait` switch and the results of the child runbook is an object, you may encounter errors. To work around the error, see [Child runbooks with object output](troubleshoot/runbooks.md#child-runbook-object) to learn how to implement the logic to poll for the results and use the [Get-AzureRmAutomationJobOutputRecord](/powershell/module/azurerm.automation/get-azurermautomationjoboutputrecord)
 
-You can use the [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) cmdlet to start a runbook as described in [To start a runbook with Windows PowerShell](start-runbooks.md#starting-a-runbook-with-powershell). There are two modes of use for this cmdlet.  In one mode, the cmdlet returns the job id when the child job is created for the child runbook.  In the other mode, which you enable by specifying the **-wait** parameter, the cmdlet waits until the child job finishes and returns the output from the child runbook.
+You can use the [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) cmdlet to start a runbook as described in [To start a runbook with Windows PowerShell](start-runbooks.md#start-a-runbook-with-powershell). There are two modes of use for this cmdlet.  In one mode, the cmdlet returns the job id when the child job is created for the child runbook.  In the other mode, which you enable by specifying the **-wait** parameter, the cmdlet waits until the child job finishes and returns the output from the child runbook.
 
 The job from a child runbook started with a cmdlet runs in a separate job from the parent runbook. This behavior results in more jobs than starting the runbook inline and makes them more difficult to track. The parent can start more than one child runbook asynchronously without waiting for each to complete. For that same kind of parallel execution calling the child runbooks inline, the parent runbook would need to use the [parallel keyword](automation-powershell-workflow.md#parallel-processing).
 
