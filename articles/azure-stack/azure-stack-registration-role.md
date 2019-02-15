@@ -35,8 +35,6 @@ When registering Azure Stack, the registration account requires the following Az
 
 * **A set of sufficient Azure Subscription permissions:** Users in the Owners group have sufficient permissions. For other accounts, you can assign the permission set by assigning a custom role as outlined in the following sections.
 
-The user who registers Azure Stack is the owner of the service principal in Azure Active Directory. Only the user who registered Azure Stack can modify the Azure Stack registration. If a non-admin user that is not an owner of the registration service principal attempts to register or re-register Azure Stack, they may encounter a 403 response. A 403 response indicates the user has insufficient permissions to complete the operation.
-
 ## Create a custom role using PowerShell
 
 To create a custom role, you must have the `Microsoft.Authorization/roleDefinitions/write` permission on all `AssignableScopes`, such as [Owner](../role-based-access-control/built-in-roles.md#owner) or [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator). Use the following JSON template to simplify defining the custom role. The template creates a custom role that allows the required read and write access for Azure Stack registration.
