@@ -185,7 +185,7 @@ This tutorial starts and runs as follows; see the GitHub sample for an example u
 
 ```go
 ctx := context.Background()
-err = p.Start()
+err = p.Start(ctx)
 if err != nil {
 	log.Fatalf("failed to start EPH: %s\n", err)
 }
