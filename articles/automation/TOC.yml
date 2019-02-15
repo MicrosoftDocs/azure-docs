@@ -99,43 +99,43 @@
         href: automation-first-runbook-textual-python2.md
       - name: Create runbooks with the Graphical runbook SDK
         href: graphical-runbook-sdk.md
-      - name: Edit runbooks
-        items:
-        - name: Edit textual runbooks
-          href: automation-edit-textual-runbook.md
-          displayName: powershell
-        - name: Edit graphical runbooks
-          href: automation-graphical-authoring-intro.md
-      - name: Start a runbook
-        href: start-runbooks.md
-      - name: Start a runbook from a webhook
-        href: automation-webhooks.md
-      - name: Runbook input parameters
-        href: automation-runbook-input-parameters.md
-        displayName: input,json
-      - name: Error handling in graphical runbooks
-        href: automation-runbook-graphical-error-handling.md
-      - name: Track a runbook job
-        href: automation-runbook-execution.md
-        displayName: fair share, activity log
-      - name: Manage Azure Automation data
-        href: automation-managing-data.md
-        displayName: backup
-      - name: Manage Python 2 packages
-        href: python-packages.md
-      - name: Learning PowerShell Workflow
-        href: automation-powershell-workflow.md
-      - name: Child runbooks
-        href: automation-child-runbooks.md
-      - name: Runbook output
-        href: automation-runbook-output-and-messages.md
-        displayName: message streams, progress records, preference
-      - name: Source control integration
-        href: source-control-integration.md
-        displayName: github, vsts, azure devops, personal access token
-      - name: Source control integration - legacy
-        href: automation-source-control-integration-legacy.md
-        displayname: github
+    - name: Edit runbooks
+      items:
+      - name: Edit textual runbooks
+        href: automation-edit-textual-runbook.md
+        displayName: powershell
+      - name: Edit graphical runbooks
+        href: automation-graphical-authoring-intro.md
+    - name: Start a runbook
+      href: start-runbooks.md
+    - name: Start a runbook from a webhook
+      href: automation-webhooks.md
+    - name: Runbook input parameters
+      href: automation-runbook-input-parameters.md
+      displayName: input,json
+    - name: Error handling in graphical runbooks
+      href: automation-runbook-graphical-error-handling.md
+    - name: Track a runbook job
+      href: automation-runbook-execution.md
+      displayName: fair share, activity log
+    - name: Manage Azure Automation data
+      href: automation-managing-data.md
+      displayName: backup
+    - name: Manage Python 2 packages
+      href: python-packages.md
+    - name: Learning PowerShell Workflow
+      href: automation-powershell-workflow.md
+    - name: Child runbooks
+      href: automation-child-runbooks.md
+    - name: Runbook output
+      href: automation-runbook-output-and-messages.md
+      displayName: message streams, progress records, preference
+    - name: Source control integration
+      href: source-control-integration.md
+      displayName: github, vsts, azure devops, personal access token
+    - name: Source control integration - legacy
+      href: automation-source-control-integration-legacy.md
+      displayname: github
   - name: Hybrid Runbook Worker
     items:
     - name: Hybrid Runbook Worker overview
