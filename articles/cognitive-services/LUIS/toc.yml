@@ -9,7 +9,7 @@
   items:
   - name: Build prebuilt domain app
     href: luis-get-started-create-app.md
-  - name: Use .Net SDK
+  - name: Use .NET SDK
     items: 
     - name: Query prediction endpoint
       href: sdk-csharp-quickstart-query-prediction-endpoint.md
