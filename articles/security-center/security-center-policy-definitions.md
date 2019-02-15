@@ -4,7 +4,7 @@ description: Azure policy definitions monitored in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: c89cb1aa-74e8-4ed1-980a-02a7a25c1a2f

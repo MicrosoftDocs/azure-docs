@@ -13,6 +13,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 
+ms.collection: M365-identity-device-management
 ---
 
 # What is guest user access in Azure Active Directory B2B?

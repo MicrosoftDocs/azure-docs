@@ -11,8 +11,9 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/29/2019
+ms.date: 02/13/2019
 ---
+
 # Manage rolling upgrades of cloud applications by using SQL Database active geo-replication
 
 Learn how to use [active geo-replication](sql-database-auto-failover-group.md) in Azure SQL Database to enable rolling upgrades of your cloud application. Because upgrades are disruptive operations, they should be part of your business-continuity planning and design. In this article, we look at two different methods of orchestrating the upgrade process and discuss the benefits and tradeoffs of each option. For the purposes of this article, we refer to an application that consists of a website that's connected to a single database as its data tier. Our goal is to upgrade version 1 (V1) of the application to version 2 (V2) without any significant impact on the user experience.
@@ -22,7 +23,7 @@ When evaluating upgrade options, consider these factors:
 * Impact on application availability during upgrades, such as how long application functions might be limited or degraded.
 * Ability to roll back if the upgrade fails.
 * Vulnerability of the application if an unrelated, catastrophic failure occurs during the upgrade.
-* Total dollar cost. This factor includes additional redundancy and incremental costs of the temporary components used by the upgrade process.
+* Total dollar cost. This factor includes additional database redundancy and incremental costs of the temporary components used by the upgrade process.
 
 ## Upgrade applications that rely on database backups for disaster recovery
 
@@ -40,7 +41,7 @@ When the preparation steps are complete, the application is ready for the actual
 
 1. Set the primary database to read-only mode (3). This mode guarantees that the production environment of the web app (V1) remains read-only during the upgrade, thus preventing data divergence between the V1 and V2 database instances.
 2. Disconnect the secondary database by using the planned termination mode (4). This action creates a fully synchronized, independent copy of the primary database. This database will be upgraded.
-3. Turn the primary database to read-write mode and run the upgrade script (5).
+3. Turn the secondary database to read-write mode and run the upgrade script (5).
 
 ![SQL Database geo-replication configuration for cloud disaster recovery.](media/sql-database-manage-application-rolling-upgrade/option1-2.png)
 
@@ -136,5 +137,3 @@ The two upgrade methods described in the article differ in complexity and dollar
 * To learn about Azure SQL Database auto-failover groups, see [Use auto-failover groups to enable transparent and coordinated failover of multiple databases](sql-database-auto-failover-group.md).
 * To learn about staging environments in Azure App Service, see [Set up staging environments in Azure App Service](../app-service/deploy-staging-slots.md).
 * To learn about Azure Traffic Manager profiles, see [Manage an Azure Traffic Manager profile](../traffic-manager/traffic-manager-manage-profiles.md).
-
-

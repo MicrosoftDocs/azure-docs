@@ -23,6 +23,14 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 ### Azure Machine Learning SDK for Python v1.0.15
 
++ **New features**
+  + Azure Machine Learning Pipelines added AzureBatchStep ([notebook](https://aka.ms/pl-azbatch)), HyperDriveStep ([notebook](https://aka.ms/pl-hyperdrive)) and time-based scheduling fuctionality ([notebook](https://aka.ms/pl-schedule)).
+  +  DataTranferStep updated to work with Azure SQL Server and Azure database for PostgreSQL ([notebook](https://aka.ms/pl-data-trans)).
+
++ **Changes**
+  + Deprecated `PublishedPipeline.get_published_pipeline` in favor of `PublishedPipeline.get`.
+  + Deprecated `Schedule.get_schedule` in favor of `Schedule.get`.
+
 ### Azure Machine Learning Data Prep SDK v1.0.12
 
 + **New features**

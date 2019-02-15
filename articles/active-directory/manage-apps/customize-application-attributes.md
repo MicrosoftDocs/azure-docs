@@ -16,6 +16,7 @@ ms.date: 09/09/2018
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 
+ms.collection: M365-identity-device-management
 ---
 # Customizing User Provisioning Attribute-Mappings for SaaS Applications in Azure Active Directory
 Microsoft Azure AD provides support for user provisioning to third-party SaaS applications such as Salesforce, Google Apps and others. If you have user provisioning for a third-party SaaS application enabled, the Azure portal controls its attribute values in form of  attribute-mappings.
