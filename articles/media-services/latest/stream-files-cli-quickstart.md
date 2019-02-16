@@ -30,7 +30,9 @@ By the end of the quickstart you will be able to stream a video.
 
 ## Create a Media Services account
 
-To start using Media Services, you need to create a Media Services account. At the time you create a Media Services account, you also create an associated storage account.
+To start encrypting, encoding, analyzing, managing, and streaming media content in Azure, you need to create a Media Services account. The Media Services account needs to be associated with one or more storage accounts.
+
+The Media Services account and all associated storage accounts must be in the same Azure subscription. It is strongly recommended to use storage accounts in the same location as the Media Services account to avoid additional latency and data egress costs.
 
 ### Create a resource group
 
