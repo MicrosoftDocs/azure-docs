@@ -217,7 +217,7 @@ Use the following query to map the data to the table:
 2. Add an [update policy](/azure/kusto/concepts/updatepolicy) to the target table. It will automatically run the query on any newly ingested data in the *ActivityLogsRawRecords* intermediate data table and ingest its results into *ActivityLogsRecords* table:
 
     ```kusto
-    .alter table ActivityLogRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
 ## Create an Event Hub Namespace
