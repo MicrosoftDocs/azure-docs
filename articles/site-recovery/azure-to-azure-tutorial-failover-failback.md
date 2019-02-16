@@ -74,7 +74,9 @@ After failover of the VM, you need to reprotect it so that it replicates back to
 3. Review the **Resource group, Network, Storage, and Availability sets** information. Any
    resources marked (new) are created as part of the reprotect operation.
 4. Click **OK** to trigger a reprotect job. This job seeds the target site with the latest data. Then, it replicates the deltas to the primary region. The VM is now in a protected state.
-
+> [!NOTE]
+> Refer ["How to section"](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection)" for more details on re-protection work flow and what happens during re protection.
+> 
 ## Fail back to the primary region
 
 After VMs are reprotected,  you can fail back to the primary region as you need to. To do this, set up a failover from the secondary to primary region, as described in this article.
