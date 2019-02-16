@@ -119,15 +119,28 @@
     href: media-rest-apis-with-postman.md      
   - name: Upload content
     items:
-    - name: From HTTP(s) - .NET
+    - name: From HTTPS - .NET
+      displayName: upload
       href: job-input-from-http-how-to.md
     - name: From a local file - .NET
+      displayName: upload
       href: job-input-from-local-file-how-to.md  
     - name: From a local file - REST
+      displayName: upload
       href: upload-files-rest-how-to.md
   - name: Encode content
     items:
-    - name: Customize Transform presets - .NET
+    - name: HTTPS as Job input - .NET
+      displayName: encode
+      href: job-input-from-http-how-to.md
+    - name: Local file as Job input - .NET
+      displayName: encode
+      href: job-input-from-local-file-how-to.md  
+    - name: Local file as Job input - REST
+      displayName: encode
+      href: upload-files-rest-how-to.md    
+    - name: Use a custom Transform - .NET
+      displayName: encode, encoding, tranform
       href: customize-encoder-presets-how-to.md
   - name: Use Event Grid
     items:
