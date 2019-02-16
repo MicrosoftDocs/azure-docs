@@ -35,15 +35,16 @@
 ## Configure High Availability
 ### [Use Azure Storage for backup and restore](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 ### Always On availability group
-#### [Using Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md)
-#### [Using Azure portal template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
-#### [Using Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md)
-#### Manually    
+#### [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md)
+#### [Azure portal template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md)
+#### [Multiple regions](virtual-machines-windows-portal-sql-availability-group-dr.md)
+#### Configure manually    
 ##### [Prerequisites](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 ##### [Tutorial](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 ##### [Load balancer - Azure portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
 ##### [Load balancer - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
-#### [Multiple regions](virtual-machines-windows-portal-sql-availability-group-dr.md)
+
 ### Failover Cluster Instance
 #### [Configure](virtual-machines-windows-portal-sql-create-failover-cluster.md)
 

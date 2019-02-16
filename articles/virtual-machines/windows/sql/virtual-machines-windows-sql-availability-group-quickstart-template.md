@@ -69,7 +69,7 @@ Once your SQL Server VMs have been registered with the SQL VM new resource provi
 
 
 ## Step 2 - Manually create the availability group 
-Manually create the availability group as you normally would, using either [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio?view=sql-server-2017), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell?view=sql-server-2017), or [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql?view=sql-server-2017). 
+Manually create the availability group as you normally would, using either [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell), or [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
   >[!IMPORTANT]
   > Do **not** create a listener at this time because this is automated by the **101-sql-vm-aglistener-setup**  quickstart template in Step 4. 
