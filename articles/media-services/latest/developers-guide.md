@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/12/2019
+ms.date: 02/16/2019
 ms.author: juliako
 ms.custom: 
 ---
@@ -32,7 +32,7 @@ To start developing against Media Services, you need:
 - An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - [Create a Media Services account](create-account-cli-how-to.md)
 
-## SDKs/tools
+## Start developing
 
 Azure Media Services supports the following SDKs/tools 
 
@@ -54,7 +54,7 @@ AMSE is an Open Source project, support is provided by the community (issues can
 
 To start developing with the Media Services REST APIs, install a REST client. For example **Postman**, **Visual Studio Code** with the REST plugin, or **Telerik Fiddler**. We are using [Postman](media-rest-apis-with-postman.md) for Media Services v3 samples.
 
-Explore the Media Services [REST API ref](https://aka.ms/ams-v3-rest-ref) and check out these examples:
+Explore the Media Services [REST API ref](https://aka.ms/ams-v3-rest-ref) documentation and check out these examples:
 
 - [Tutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md)
 - [Upload files into a Media Services account - REST](upload-files-rest-how-to.md)
@@ -64,7 +64,7 @@ Explore the Media Services [REST API ref](https://aka.ms/ams-v3-rest-ref) and ch
 <!-- ## CLI -->
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
-Explore the Media Services [Azure CLI ref](https://aka.ms/ams-v3-cli-ref) and check out these examples:
+Explore the Media Services [Azure CLI ref](https://aka.ms/ams-v3-cli-ref) documentation and check out these examples:
 
 - [Scale Media Reserved Units - CLI](media-reserved-units-cli-how-to.md)
 - [Create a Media Services account - CLI](./scripts/cli-create-account.md) 
@@ -79,7 +79,7 @@ Explore the Media Services [Azure CLI ref](https://aka.ms/ams-v3-cli-ref) and ch
 
 ## .NET
 
-Explore the Media Services [.NET ref](https://aka.ms/ams-v3-dotnet-ref) and check out these examples:
+Explore the Media Services [.NET ref](https://aka.ms/ams-v3-dotnet-ref) documentation and check out these examples:
 
 - [Tutorial: Upload, encode, and stream videos - .NET](stream-files-tutorial-with-api.md) 
 - [Tutorial: Stream live with Media Services v3 - .NET](stream-live-tutorial-with-api.md)
@@ -94,19 +94,19 @@ Explore the Media Services [.NET ref](https://aka.ms/ams-v3-dotnet-ref) and chec
 
 ## Java
 
-Check out the Media Services [Java ref](https://aka.ms/ams-v3-java-ref).
+Review the Media Services [Java ref](https://aka.ms/ams-v3-java-ref) documentation.
 
 ## Node.js
 
-Explore the Media Services [Node.js ref](https://aka.ms/ams-v3-nodejs-ref) and check out [samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials) that show how to use Media Services API with node.js.
+Explore the Media Services [Node.js ref](https://aka.ms/ams-v3-nodejs-ref) documentation and check out [samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials) that show how to use Media Services API with node.js.
 
 ## Python
 
-Check out the Media Services [Python ref](https://aka.ms/ams-v3-python-ref).
+Review the Media Services [Python ref](https://aka.ms/ams-v3-python-ref) documentation.
 
 ## Go
 
-Check out the Media Services [Go ref](https://aka.ms/ams-v3-go-ref).
+Review the Media Services [Go ref](https://aka.ms/ams-v3-go-ref) documentation.
 
 ## Next steps
 
