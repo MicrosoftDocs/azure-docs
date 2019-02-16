@@ -93,8 +93,6 @@ These are some of the features supported on premium storage enabled VMs:
 
     > [!NOTE]
     > If you stripe premium storage data disks by using [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx), set up Storage Spaces with 1 column for each disk that you use. Otherwise, overall performance of the striped volume might be lower than expected because of uneven distribution of traffic across the disks. By default, in Server Manager, you can set up columns for up to 8 disks. If you have more than 8 disks, use PowerShell to create the volume. Specify the number of columns manually. Otherwise, the Server Manager UI continues to use 8 columns, even if you have more disks. For example, if you have 32 disks in a single stripe set, specify 32 columns. To specify the number of columns the virtual disk uses, in the [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet, use the *NumberOfColumns* parameter. For more information, see [Storage Spaces Overview](https://technet.microsoft.com/library/hh831739.aspx) and [Storage Spaces FAQs](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
-    >
-    > 
 
 * **Cache**
 
