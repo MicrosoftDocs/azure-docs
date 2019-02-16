@@ -52,13 +52,9 @@ AMSE is an Open Source project, support is provided by the community (issues can
 
 ## REST
 
-Install a REST client to execute the Media Services REST APIs. For example **Postman**, **Visual Studio Code** with the REST plugin, or **Telerik Fiddler**. We are using [Postman](media-rest-apis-with-postman.md) for Media Services v3 samples.
+To start developing with the Media Services REST APIs, install a REST client. For example **Postman**, **Visual Studio Code** with the REST plugin, or **Telerik Fiddler**. We are using [Postman](media-rest-apis-with-postman.md) for Media Services v3 samples.
 
-### Reference
-
-[REST ref](https://aka.ms/ams-v3-rest-ref)
-
-### Examples
+Explore the Media Services [REST API ref](https://aka.ms/ams-v3-rest-ref) and check out these examples:
 
 - [Tutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md)
 - [Upload files into a Media Services account - REST](upload-files-rest-how-to.md)
@@ -68,11 +64,7 @@ Install a REST client to execute the Media Services REST APIs. For example **Pos
 <!-- ## CLI -->
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
-### Reference
-
-[Azure CLI ref](https://aka.ms/ams-v3-cli-ref)
-
-### Examples
+Explore the Media Services [Azure CLI ref](https://aka.ms/ams-v3-cli-ref) and check out these examples:
 
 - [Scale Media Reserved Units - CLI](media-reserved-units-cli-how-to.md)
 - [Create a Media Services account - CLI](./scripts/cli-create-account.md) 
@@ -87,11 +79,7 @@ Install a REST client to execute the Media Services REST APIs. For example **Pos
 
 ## .NET
 
-### Reference
-
-[.NET ref](https://aka.ms/ams-v3-dotnet-ref)
-
-### Examples
+Explore the Media Services [.NET ref](https://aka.ms/ams-v3-dotnet-ref) and check out these examples:
 
 - [Tutorial: Upload, encode, and stream videos - .NET](stream-files-tutorial-with-api.md) 
 - [Tutorial: Stream live with Media Services v3 - .NET](stream-live-tutorial-with-api.md)
@@ -106,33 +94,19 @@ Install a REST client to execute the Media Services REST APIs. For example **Pos
 
 ## Java
 
-### Reference
-
-[Java ref](https://aka.ms/ams-v3-java-ref)
+Check out the Media Services [Java ref](https://aka.ms/ams-v3-java-ref).
 
 ## Node.js
 
-Make sure you are using the latest package, check [azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices).
-
-### Reference
-
-[Node.js ref](https://aka.ms/ams-v3-nodejs-ref)
-
-### Examples
-
-The following GitHub repository contains [Node.js samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials) that show how to use Media Services API with node.js.
+Explore the Media Services [Node.js ref](https://aka.ms/ams-v3-nodejs-ref) and check out [samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials) that show how to use Media Services API with node.js.
 
 ## Python
 
-### Reference
-
-[Python ref](https://aka.ms/ams-v3-python-ref)
+Check out the Media Services [Python ref](https://aka.ms/ams-v3-python-ref).
 
 ## Go
 
-### Reference
-
-[Go ref](https://aka.ms/ams-v3-go-ref) 
+Check out the Media Services [Go ref](https://aka.ms/ams-v3-go-ref).
 
 ## Next steps
 
