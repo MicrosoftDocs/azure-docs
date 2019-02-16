@@ -101,18 +101,11 @@ Learn how to [stop replication on a replica](howto-read-replicas-portal.md).
 
 This section summarizes considerations about the read replica feature.
 
-### Prerequisite
+### Prerequisites
 Before you create a read replica, the `azure.replication_support` parameter must be set to **REPLICA** on the master server. When this parameter is changed, a server restart is required for the change to take effect. The `azure.replication_support` parameter applies to the General Purpose and Memory Optimized tiers only.
 
-### New replica
-A read replica is created as a new Azure Database for PostgreSQL server. An existing server can't be made into a replica.
-
-A read replica can only be created in the same Azure region as the master.
-
-You can't create a replica of another read replica.
-
-### Stopped replica
-If you stop replication between a master server and a read replica, the replica restarts to apply the change. The stopped replica becomes a read-write standalone server. The standalone server can't be made into a replica again.
+### New replicas
+A read replica is created as a new Azure Database for PostgreSQL server. An existing server can't be made into a replica. A read replica can only be created in the same Azure region as the master. You can't create a replica of another read replica.
 
 ### Replica configuration
 A replica is created by using the same server configuration as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and back-up retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
@@ -124,7 +117,10 @@ Azure Database for PostgreSQL requires the value of the `max_connections` parame
 
 If you try to update the server values, but don't adhere to the limitations, you can receive an error.
 
-### Master server deleted
+### Stopped replicas
+If you stop replication between a master server and a read replica, the replica restarts to apply the change. The stopped replica becomes a read-write standalone server. The standalone server can't be made into a replica again.
+
+### Deleted master and standalone servers
 When a master server is deleted, all of its read replicas become standalone servers. The replicas are restarted to reflect this change.
 
 ## Next steps

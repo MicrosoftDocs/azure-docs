@@ -116,15 +116,13 @@ To delete a server from the Azure portal, follow these steps:
  
 
 ## Delete a replica
-You can delete a read replica by following [the steps to delete a master server](#delete-a-master-server), as described in the previous section, or from the **Replication** window.
+You can delete a read replica similar to how you delete a master server.
 
-1. Open the **Overview** page for the read replica. Select **Delete**.
+- In the Azure portal, open the **Overview** page for the read replica. Select **Delete**.
 
    ![On the replica Overview page, select to delete the replica](./media/howto-read-replicas-portal/delete-replica.png)
-
-2. Continue with the steps listed in the previous section [to delete a master server](#delete-a-master-server).
  
-To delete the read replica from the **Replication** window, follow these steps:
+You can also delete the read replica from the **Replication** window by following these steps:
 
 1.	In the Azure portal, select your master Azure Database for PostgreSQL server.
 
