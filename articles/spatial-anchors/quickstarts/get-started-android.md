@@ -29,7 +29,8 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-- A Windows or macOS machine with <a href="https://developer.android.com/studio/" target="_blank">Android Studio</a>.
+- A Windows or macOS machine with <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a>.
+  - To build the NDK sample, you'll also need to install the NDK and CMake 3.6 SDK Tools in Android Studio.
 - An <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore capable</a> Android device.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
