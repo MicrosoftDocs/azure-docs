@@ -29,7 +29,7 @@ The following table includes links to [Azure Policy](../governance/policy/overvi
 | [NSG X on every subnet](../governance/policy/samples/nsg-on-subnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Requires that a specific network security group is used with every virtual subnet. You specify the ID of the network security group to use. |
 | [No route table](../governance/policy/samples/no-user-defined-route-table.md?toc=%2fazure%2fvirtual-network%2ftoc.json)  |Prohibits virtual networks from being deployed with a route table. |
 | [Use approved subnet for VM network interfaces](../governance/policy/samples/use-approved-subnet-vm-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Requires that network interfaces use an approved subnet. You specify the ID of the approved subnet. |
-| [Use approved vNet for VM network interfaces](../azure/governance/policy/samples/use-approved-vnet-vm-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Requires that network interfaces use an approved virtual network. You specify the ID of the approved virtual network. |
+| [Use approved vNet for VM network interfaces](../governance/policy/samples/use-approved-vnet-vm-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Requires that network interfaces use an approved virtual network. You specify the ID of the approved virtual network. |
 |**Monitoring**||
 | [Audit diagnostic setting](../governance/policy/samples/audit-diagnostic-setting.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Audits if diagnostic settings are not enabled for specified resource types. You specify an array of resource types to check whether diagnostic settings are enabled. |
 |**Name and text conventions**||
