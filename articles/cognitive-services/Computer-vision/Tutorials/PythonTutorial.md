@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Tutorial: Computer Vision API Python
 
-This tutorial shows you how to use the Computer Vision API in Python and how to visualize your results using popular libraries. You will use Jupyter to run the tutorial. To learn how to get started with interactive Jupyter notebooks, refer to the [Jupyter Documementation](https://jupyter.readthedocs.io/en/latest/index.html).
+This tutorial shows you how to use the Computer Vision API in Python and how to visualize your results using popular libraries. You will use Jupyter to run the tutorial. To learn how to get started with interactive Jupyter notebooks, refer to the [Jupyter Documentation](https://jupyter.readthedocs.io/en/latest/index.html).
 
 ## Prerequisites
 
