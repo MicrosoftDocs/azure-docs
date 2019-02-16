@@ -18,6 +18,7 @@ ms.date: 02/03/2019
 ms.author: markvi
 ms.reviewer: sandeo
 
+ms.collection: M365-identity-device-management
 ---
 # How To: Plan your hybrid Azure Active Directory join implementation
 
@@ -141,7 +142,7 @@ Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to
 - [Configure hybrid Azure Active Directory join for managed domains](hybrid-azuread-join-managed-domains.md)
 
 
- If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-manual). 
+ If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual). 
 
 
 ## On-premises AD UPN support in Hybrid Azure AD join

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 # Troubleshoot an object that is not synchronizing to Azure AD
 
@@ -138,7 +139,7 @@ You can inspect the object and which rule applied for a particular attribute flo
 The Log page is used to see the password sync status and history. For more information, see [Troubleshoot password hash synchronization](tshoot-connect-password-hash-synchronization.md).
 
 ## Metaverse object properties
-It is usually better to start searching from the source Active Directory [connector space](#connector-space). But you can also start searching from the metaverse.
+It is usually better to start searching from the source Active Directory connector space. But you can also start searching from the metaverse.
 
 ### Search for an object in the MV
 In **Synchronization Service Manager**, click **Metaverse Search**. Create a query you know finds the user. You can search for common attributes, such as accountName (sAMAccountName) and userPrincipalName. For more information, see [Metaverse search](how-to-connect-sync-service-manager-ui-mvsearch.md).

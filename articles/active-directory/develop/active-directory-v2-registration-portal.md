@@ -18,6 +18,7 @@ ms.date: 08/28/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # App registration reference

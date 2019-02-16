@@ -33,17 +33,7 @@ It is recommended that you submit Jobs using a HTTP(s) URL pointing to the video
 
 ### How does pagination work?
 
-Media Services supports $top for resources that support OData but the value passed to $top must be less than 1000 (for example, the page size for pagination).
-
-This allows you to either get a small sample of items using $top (for example, the 100 most recent items) or to page though all items using pagination. 
-
-Media Services does not support paging through the data with a user specified page size.
-
-For more information, see [Filtering, ordering, paging](entities-overview.md).
-
-### How to retrieve an entity in Media Services v3?
-
-v3 is based on a unified API surface, which exposes both management and operations functionality built on **Azure Resource Manager**. In accordance with **Azure Resource Manager**, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource.
+When using pagination, you should always use the next link to enumerate the collection and not depend on a particular page size. For details and examples, see [Filtering, ordering, paging](entities-overview.md).
 
 ## Live streaming 
 

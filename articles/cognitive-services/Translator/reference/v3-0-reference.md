@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Reference documentation for the Translator Text API V3.0.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text

@@ -42,6 +42,8 @@
       href: power-bi-sql-query.md
 - name: Tutorials
   items:
+  - name: Ingest data without using code
+    href: ingest-data-no-code.md  
   - name: Visualize data in Power BI
     href: visualize-power-bi.md  
 - name: Concepts

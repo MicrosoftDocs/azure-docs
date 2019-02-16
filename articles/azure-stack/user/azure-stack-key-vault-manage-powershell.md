@@ -63,7 +63,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 If the registration is successful, the following output is returned:
 
 ![Register](media/azure-stack-key-vault-manage-powershell/image2.png)
-When you invoke the key vault commands, you might get an error, such as "The subscription is not registered to use namespace 'Microsoft.KeyVault'." If you get an error, confirm that you have [enabled the Key Vault resource provider](#enable-your-tenant-subscription-for-vault-operations) by following the instructions that were mentioned previously.
+When you invoke the key vault commands, you might get an error, such as "The subscription is not registered to use namespace 'Microsoft.KeyVault'." If you get an error, confirm that you have enabled the Key Vault resource provider by following the instructions that were mentioned previously.
 
 ## Create a key vault
 

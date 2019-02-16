@@ -4,7 +4,7 @@ description: This article describes how to working with security policies in Azu
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea

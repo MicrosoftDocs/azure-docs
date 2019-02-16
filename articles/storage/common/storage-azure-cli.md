@@ -167,7 +167,7 @@ Done
 ## Manage storage accounts
 
 ### Create a new storage account
-To use Azure Storage, you need a storage account. You can create a new Azure Storage account after you've configured your computer to [connect to your subscription](#connect-to-your-azure-subscription).
+To use Azure Storage, you need a storage account. You can create a new Azure Storage account after you've configured your computer to connect to your subscription.
 
 ```azurecli
 az storage account create \

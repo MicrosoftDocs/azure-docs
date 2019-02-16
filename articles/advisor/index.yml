@@ -15,20 +15,22 @@ metadata:
 abstract:
   description: Azure Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It then recommends solutions to help improve the performance, security, and high availability of your resources while looking for opportunities to reduce your overall Azure spend.
 sections:
-- title:   
+- title: 
   items:
-  - type: paragraph
   - type: list
-    style: icon48
-    items: 
-    - image:
-        src: media/index/advisor.svg
-      text: Learn about Azure Advisor
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Learn about Azure Advisor
       href: /azure/advisor/advisor-overview
-    - image:
-        src: media/index/get-started.svg
-      text: Get started with Azure Advisor
+      image: 
+        src: media/index/advisor.svg
+        href: /azure/advisor/advisor-overview
+    - title:  Get started with Azure Advisor
       href: /azure/advisor/advisor-get-started
+      image: 
+        src: media/index/get-started.svg
+        href: /azure/advisor/advisor-get-started
 - title: Reference
   items:
   - type: list
