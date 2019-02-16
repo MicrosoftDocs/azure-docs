@@ -36,7 +36,7 @@ You need to install the Azure App Configuration CLI extension first by executing
 ```azurecli-interactive
 #!/bin/bash
 
-appConfigName=myTestAppConfigHub
+appConfigName=myTestAppConfigStore
 newKey="TestKey"
 
 # Create a new key-value 

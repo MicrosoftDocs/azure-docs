@@ -57,17 +57,17 @@ To complete this quickstart, install [Visual Studio 2017](https://visualstudio.m
 
     <configBuilders>
         <builders>
-            <add name="MyConfigHub" mode="Greedy" connectionString="${ConnectionString}" type="Microsoft.Configuration.ConfigurationBuilders.AzureAppConfigurationBuilder, Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration" />
+            <add name="MyConfigStore" mode="Greedy" connectionString="${ConnectionString}" type="Microsoft.Configuration.ConfigurationBuilders.AzureAppConfigurationBuilder, Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration" />
             <add name="Environment" mode="Greedy" type="Microsoft.Configuration.ConfigurationBuilders.EnvironmentConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Environment" />
         </builders>
     </configBuilders>
 
-    <appSettings configBuilders="Environment,MyConfigHub">
+    <appSettings configBuilders="Environment,MyConfigStore">
         <add key="AppName" value="Console App Demo" />
         <add key="ConnectionString" value ="First filled in by 'Environment'. Could be a dev, test, staging, or production connection string." />
     </appSettings>
     ```
-   Plesae note, as we will be reading the connection string of your app configuration store from the environment variable `ConnectionString`, it's important to add the `Environment` configuration builder before the `MyConfigHub` in the `configBuilders` property of the `appSettings` section.
+   Plesae note, as we will be reading the connection string of your app configuration store from the environment variable `ConnectionString`, it's important to add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
 
 3. Open *Program.cs* and update the `Main` method to use App Configuration by calling `ConfigurationManager`.
 
@@ -84,11 +84,11 @@ To complete this quickstart, install [Visual Studio 2017](https://visualstudio.m
 
 1. Set an environment variable named **ConnectionString** to the connection string of your app configuration store. If you are using Windows Command Prompt, execute the following command:
 
-        setx ConnectionString "connection-string-of-your-app-configuration-hub"
+        setx ConnectionString "connection-string-of-your-app-configuration-store"
 
     If you are using Windows PowerShell, execute the following command:
 
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-hub"
+        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
 2. Restart Visual Studio to allow the change to take effect, and then press **Ctrl + F5** on your keyboard to build and run the console app.
 

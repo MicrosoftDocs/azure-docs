@@ -36,9 +36,9 @@ You need to install the Azure App Configuration CLI extension first by executing
 ```azurecli-interactive
 #!/bin/bash
 
-appConfigName=myTestAppConfigHub
+appConfigName=myTestAppConfigStore
 #resource name must be lowercase
-myAppConfigHubName=${appConfigName,,}
+myAppConfigStoreName=${appConfigName,,}
 myResourceGroupName=$appConfigName"Group"
 
 # Create resource group 
@@ -46,13 +46,13 @@ az group create --name $myResourceGroupName --location eastus
 
 # Create the Azure AppConfig Service resource and query the hostName
 appConfigHostname=$(az appconfig create \
-  --name $myAppConfigHubName \
+  --name $myAppConfigStoreName \
   --resource-group $myResourceGroupName \
   --query hostName \
   -o tsv)
 
 # Get the AppConfig primary key 
-appConfigPrimaryKey=$(az appconfig key list --name $myAppConfigHubName \
+appConfigPrimaryKey=$(az appconfig key list --name $myAppConfigStoreName \
   --resource-group $myResourceGroupName --query primaryKey -o tsv)
 
 # Form the connection string for use in your application

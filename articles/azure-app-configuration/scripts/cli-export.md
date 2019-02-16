@@ -37,7 +37,7 @@ You need to install the Azure App Configuration CLI extension first by executing
 #!/bin/bash
 
 # Export all key-values
-az appconfig kv export --name myTestAppConfigHub --file ~/Export.json
+az appconfig kv export --name myTestAppConfigStore --file ~/Export.json
 ```
 
 [!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]
