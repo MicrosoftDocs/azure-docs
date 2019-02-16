@@ -48,12 +48,6 @@
       href: container-instances-vnet.md
     - name: Deploy from Azure Container Registry
       href: container-instances-using-azure-container-registry.md
-  - name: Manage
-    items:
-    - name: Configure liveness probes
-      href: container-instances-liveness-probe.md
-    - name: Update running containers
-      href: container-instances-update.md
   - name: Container scenarios
     items:
     - name: Set restart policy for run-once tasks
@@ -78,6 +72,12 @@
         href: container-instances-volume-gitrepo.md
       - name: secret
         href: container-instances-volume-secret.md
+  - name: Manage
+    items:
+    - name: Configure liveness probes
+      href: container-instances-liveness-probe.md
+    - name: Update running containers
+      href: container-instances-update.md
   - name: Monitor and log
     items:
     - name: Monitor CPU and memory usage
