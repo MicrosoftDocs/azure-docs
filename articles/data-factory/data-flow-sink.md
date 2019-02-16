@@ -44,17 +44,17 @@ On the Mapping tab of your Sink transformation, you can map the incoming (left s
 
 You can use multi-select in the mapping table to Link multiple columns with one click, Delink multiple columns or map multiple rows to the same column name.
 
-<img src="../images/multi1.png" width="500">
+![Field Mapping](media/data-flow/multi1.png "multiple options")
 
 If you'd like to reset your columns mappings, press the "Remap" button to reset the mappings.
 
-<img src="../images/maxcon.png" width="400">
+![Connections](media/data-flow/maxcon.png "Connections")
 
 ### Updates to Sink Transformation for ADF V2 GA Version
 
-<img src="../images/sink1.png" width="400">
+![Sink options](media/data-flow/sink1.png "Sink One")
 
-<img src="../images/sink2.png" width="400">
+![Sink options](media/data-flow/sink2.png "Sinks")
 
 1. Allow Schema Drift and Validate Schema options are now available in Sink. This will allow you to instruct ADF to either fully accept flexible schema definitions (Schema Drift) or fail the Sink if the schema changes (Validate Schema).
 
@@ -67,7 +67,8 @@ If you'd like to reset your columns mappings, press the "Remap" button to reset 
 * Per partition: Enter a file name per partition
 * As data in column: Set the output file to the value of a column
 
-**NOTE: File operations will only execute when you are running the Execute Data Flow activity, not while in Data Flow Debug mode**
+> [!NOTE]
+> File operations will only execute when you are running the Execute Data Flow activity, not while in Data Flow Debug mode
 
 With the SQL sink types, you can set:
 
@@ -75,7 +76,7 @@ With the SQL sink types, you can set:
 * Recreate table (performs drop/create)
 * Batch size for large data loads. Enter a number to bucket writes into chunks.
 
-<img src="../images/sql001.png" width="400">
+![Field Mapping](media/data-flow/sql001.png "SQL Options")
 
 ## Next Steps
 

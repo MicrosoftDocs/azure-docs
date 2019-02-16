@@ -33,7 +33,7 @@ Select Allow Schema Drift if the source columns will change often. This setting 
 
 ### Validate Schema
 
-![Public Source](../images/source1.png "public source 1")
+![Public Source](media/data-flow/source1.png "public source 1")
 
 If the incoming version of the source data does not match the defined schema, then execution of the data flow will fail.
 
@@ -67,7 +67,7 @@ Select a column to partition on from your source table. You must also set the ma
 You can optionally choose to partition the connections based on a query. For this option, simply put in the contents of a WHERE predicate. I.e. year > 1980
 
 ## Source file management
-![New Source Settings](../images/source2.png "New settings")
+![New Source Settings](media/data-flow/source2.png "New settings")
 
 * Wilcard path to pick a series of files from your source folder that match a pattern. This will override any file that you have set in your dataset defintion.
 * List of Files. Same as a file set. Point to a text file that you create with a list of relative path files to process.
@@ -87,11 +87,11 @@ When you are using Azure SQL DB or Azure SQL DW as your source, you will have ad
 
 ### Projection
 
-![Projection](../images/source3.png "Projection")
+![Projection](media/data-flowsource3.png "Projection")
 
 Similar to schemas in datasets, the Projection in Source defines the data columns, data types, and data formats from the source data. If you have a text file with no defined schema, click "Detect Data Type" to ask ADF to attempt to sample and infer the data types. You can set the default data formats for auto-detect using the "Define Default Format" button. You can modify the column data types in a subsequent Derived Column transformation. The column names can be modified using the Select transformation.
 
-![Default formats](../images/source2.png "Default formats")
+![Default formats](media/data-flow/source2.png "Default formats")
 
 ## Next Steps
 
