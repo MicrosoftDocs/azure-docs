@@ -108,130 +108,135 @@ In this section, you enable Azure AD single sign-on in the Azure portal.
     `https://<company>.answerhub.com`
 
 	> [!NOTE]
-	> These values aren't real. Update these values with the actual Sign on URL and Identifier. Contact [AnswerHub Client support team](mailto:success@answerhub.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values aren't real. Update these values with the actual sign-on URL and identifier. Contact the [AnswerHub support team](mailto:success@answerhub.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select the **Download** link next to **Certificate (Base64)**, per your requirements, and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
+	![Certificate download link](common/certificatebase64.png)
 
-6. On the **Set up AnswerHub** section, copy the appropriate URL(s) as per your requirement.
+6. In the **Set up AnswerHub** section, copy the appropriate URL or URLs, based on your requirements.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	a. Login URL
+   You can copy these URLs:
+    - Login URL
 
-	b. Azure Ad Identifier
+	- Azure Ad Identifier
 
-	c. Logout URL
+	- Logout URL
 
-### Configure AnswerHub Single Sign-On
+### Configure AnswerHub single sign-on
 
-1. In a different web browser window, log into your AnswerHub company site as an administrator.
+**To configure AnswerHub single sign-on, perform the following steps:**
+
+1. In a different web browser window, sign in to your AnswerHub company site as an admin.
 
     > [!NOTE]
-    > If you need help configuring AnswerHub, contact [AnswerHub's support team](mailto:success@answerhub.com.).
+    > If you need help configuring AnswerHub, contact the [AnswerHub support team](mailto:success@answerhub.com.).
 
 2. Go to **Administration**.
 
-3. Click the **User and Group** tab.
+3. On the **User and Groups** tab, in the navigation pane on the left side, in the **Social Settings** section, select **SAML Setup**.
 
-4. In the navigation pane on the left side, in the **Social Settings** section, click **SAML Setup**.
+4. On the **IDP Config** tab, perform these steps:
 
-5. Click **IDP Config** tab.
-
-6. On the **IDP Config** tab, perform the following steps:
-
-    ![SAML Setup](./media/answerhub-tutorial/ic785172.png "SAML Setup")  
+    ![Users & Groups tab](./media/answerhub-tutorial/ic785172.png "SAML Setup")  
   
-    a. In **IDP Login URL** textbox, paste **Login URL** which you have copied from Azure portal.
+    a. In the **IDP Login URL** box, paste the **Login URL** that you copied from the Azure portal.
   
-    b. In **IDP Logout URL** textbox, paste **Logout URL** value which you have copied from Azure portal.
+    b. In the **IDP Logout URL** box, paste the **Logout URL** that you copied from the Azure portal.
 
-    c. In **IDP Name Identifier Format** textbox, enter the user Identifier value same as selected in Azure portal in **User Attributes** section.
+    c. In the **IDP Name Identifier Format** box, enter the User Identifier value selected in the **User Attributes** section on the Azure portal.
   
-    d. Click **Keys and Certificates**.
+    d. Select **Keys and Certificates**.
 
-7. On the **Keys and Certificates** tab, perform the following steps:
+5. In the **Keys and Certificates** section, perform these steps:
 
-    ![Keys and Certificates](./media/answerhub-tutorial/ic785173.png "Keys and Certificates")  
+    ![Keys and Certificates section](./media/answerhub-tutorial/ic785173.png "Keys and Certificates")  
 
-    a. Open your base-64 encoded certificate which you have downloaded from Azure portal in notepad, copy the content of it into your clipboard, and then paste it to the **IDP Public Key (x509 Format)** textbox.
+    a. Open the Base64-encoded certificate that you downloaded from the Azure portal in Notepad, copy its contents, and then paste the contents into the **IDP Public Key (x509 Format)** box.
   
-    b. Click **Save**.
+    b. Select **Save**.
 
-8. On the **IDP Config** tab, click **Save**.
+6. On the **IDP Config** tab, select **Save** again.
 
 ### Create an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, you create a test user named Britta Simon in the Azure portal.
+
+**To create an Azure AD test user, perform the following steps:**
 
 1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+    ![Select Azure Active Directory, Users, All users](common/users.png)
 
 2. Select **New user** at the top of the screen.
 
-    ![New user Button](common/new-user.png)
+    ![New user button](common/new-user.png)
 
-3. In the User properties, perform the following steps.
+3. In the user properties, perform these steps.
 
-    ![The User dialog box](common/user-properties.png)
+    ![User properties](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** box, enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** box, enter **brittasimon@<yourcompanydomain.extension>**.  
+    For example, BrittaSimon@contoso.com.
 
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
+    c. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
 
-    d. Click **Create**.
+    d. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to AnswerHub.
+In this section, you enable Britta Simon to use Azure AD single sign-on by granting her access to AnswerHub.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **AnswerHub**.
+**To assign the Azure AD test user, perform the following steps:**
+
+1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **AnswerHub**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **AnswerHub**.
+2. In the list of applications, select **AnswerHub**.
 
-	![The AnswerHub link in the Applications list](common/all-applications.png)
+	![Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
-    ![The "Users and groups" link](common/users-groups-blade.png)
+    ![Select Users and groups](common/users-groups-blade.png)
 
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+4. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
 
-    ![The Add Assignment pane](common/add-assign-user.png)
+    ![Add Assignment pane](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog box, select **Britta Simon** in the **Users** list, and then select the **Select** button at the bottom of the screen.
 
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+6. If you're expecting a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. 
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+7. Select the **Select** button at the bottom of the screen.
 
-### Create AnswerHub test user
+8. In the **Add Assignment** dialog box, select **Assign**.
 
-To enable Azure AD users to log in to AnswerHub, they must be provisioned into AnswerHub. In the case of AnswerHub, provisioning is a manual task.
+### Create an AnswerHub test user
 
-**To provision a user account, perform the following steps:**
+To enable Azure AD users to sign in to AnswerHub, you need to add them in AnswerHub. In AnswerHub, this is a manual task.
 
-1. Log in to your **AnswerHub** company site as administrator.
+**To set up a user account, perform the following steps:**
+
+1. Sign in to your **AnswerHub** company site as admin.
 
 2. Go to **Administration**.
 
-3. Click the **Users & Groups** tab.
+3. Select the **Users & Groups** tab.
 
-4. In the navigation pane on the left side, in the **Manage Users** section, click **Create or import users** and then click **Users & Groups**.
+4. In the navigation pane on the left side, in the **Manage Users** section, select **Create or import users**, and then select **Users & Groups**.
 
-   ![Users & Groups](./media/answerhub-tutorial/ic785175.png "Users & Groups")
+   ![Users & Groups tab](./media/answerhub-tutorial/ic785175.png "Users & Groups")
 
-5. Type the **Email address**, **Username** and **Password** of a valid Azure Active Directory account you want to provision into the related textboxes, and then click **Save**.
+5. Enter the **Email address**, **Username**, and **Password** of a valid Azure AD account that you want to add into the appropriate boxes, and then click **Save**.
 
 > [!NOTE]
-> You can use any other AnswerHub user account creation tools or APIs provided by AnswerHub to provision AAD user accounts.
+> You can use any other user account creation tool or API provided by AnswerHub to set up Azure AD user accounts.
 
 ### Test single sign-on
 
