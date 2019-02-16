@@ -21,8 +21,6 @@ To get started, click the overview video below to learn about all new updates to
   <div style="width:image width px; font-size:80%; text-align:center;">        
       <img src="./media/sql-data-warehouse-videos/modern-data-warehouse-overview.PNG" alt="Modern Data Warehouse" height="200px" style="padding-bottom:0.5em;">
   </div>
-  <p style="text-align:center"> Modern Data Warehouse pattern with Azure SQL Data Warehouse </p>
-
 </a>
 
 Additional videos describing specific functionalities can be viewed on: 
