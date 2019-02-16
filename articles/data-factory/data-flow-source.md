@@ -87,7 +87,7 @@ When you are using Azure SQL DB or Azure SQL DW as your source, you will have ad
 
 ### Projection
 
-![Projection](media/data-flowsource3.png "Projection")
+![Projection](media/data-flow/source3.png "Projection")
 
 Similar to schemas in datasets, the Projection in Source defines the data columns, data types, and data formats from the source data. If you have a text file with no defined schema, click "Detect Data Type" to ask ADF to attempt to sample and infer the data types. You can set the default data formats for auto-detect using the "Define Default Format" button. You can modify the column data types in a subsequent Derived Column transformation. The column names can be modified using the Select transformation.
 
