@@ -35,8 +35,9 @@
       href: assets-concept.md    
   - name: Encoding
     items:
-    - name: Presets
+    - name: Overview
       href: encoding-concept.md   
+      displayName: Presets
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md 
     - name: Media Encoder standard formats
@@ -45,8 +46,9 @@
       href: autogen-bitrate-ladder.md      
   - name: Media analytics 
     items:
-    - name: Presets
+    - name: Overview
       href: analyzing-video-audio-files-concept.md
+      displayName: Presets
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md 
   - name: Packaging, delivery, protection
