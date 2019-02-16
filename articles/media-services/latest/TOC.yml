@@ -13,12 +13,15 @@
   expanded: true
   items:
   - name: Encode remote file and stream video – REST
+    displayName: encoding, job, transform
     href: stream-files-tutorial-with-rest.md
   - name: Encode uploaded file and stream video - .NET
+    displayName: encode, encoding, job, transform
     href: stream-files-tutorial-with-api.md
   - name: Stream live - .NET
     href: stream-live-tutorial-with-api.md
   - name: Analyze your video - .NET
+    displayName: encode, encoding, job, transform
     href: analyze-videos-tutorial-with-api.md
 - name: Samples
   items:
@@ -131,10 +134,10 @@
   - name: Encode content
     items:
     - name: HTTPS as Job input - .NET
-      displayName: encode
+      displayName: encode, encoding
       href: job-input-from-http-how-to.md
     - name: Local file as Job input - .NET
-      displayName: encode
+      displayName: encode, encoding
       href: job-input-from-local-file-how-to.md  
     - name: Local file as Job input - REST
       displayName: encode
