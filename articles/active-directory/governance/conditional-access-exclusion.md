@@ -1,6 +1,6 @@
 ---
-title: Use Azure AD Access Reviews to manage users that have been excluded from conditional access policies | Microsoft Docs
-description: Use Azure Active Directory (Azure AD) Access Reviews to manage users that have been excluded from conditional access policies
+title: Use Azure AD Access Reviews to manage users excluded from conditional access policies | Microsoft Docs
+description: Learn how to use Azure Active Directory (Azure AD) Access Reviews to manage users that have been excluded from conditional access policies
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -18,7 +18,7 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Use Azure AD Access Reviews to manage users that have been excluded from conditional access policies
+# Use Azure AD Access Reviews to manage users excluded from conditional access policies
 
 In an ideal world, all users would follow the access polices to secure access to your organization's resources. However, sometimes there are business cases that require you to make exceptions. This article describes some examples where exclusions might be required and how you, as the IT administrator, can manage this task, avoid oversight of policy exceptions, and provide auditors with proof that these exceptions are reviewed regularly using Azure Active Directory (Azure AD) Access Reviews.
 

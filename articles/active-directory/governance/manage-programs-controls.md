@@ -1,6 +1,6 @@
 ---
-title: Manage programs and controls for Azure AD Access Reviews| Microsoft Docs
-description: You can create additional programs for each governance, risk management, and compliance initiative in your organization to collect and organize Azure Active Directory Access Reviews as controls.
+title: Manage programs and controls for Azure AD Access Reviews | Microsoft Docs
+description: Learn how to create additional programs for each governance, risk management, and compliance initiative in your organization to collect and organize Azure Active Directory Access Reviews as controls.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -18,7 +18,7 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Manage programs and their controls 
+# Manage programs and controls for Azure AD Access Reviews
 
 Azure Active Directory (Azure AD) includes access reviews of group members and application access. These examples of controls ensure oversight for who has access to your organization's group memberships and applications. Organizations can use these controls to efficiently address their governance, risk management, and compliance requirements.
 
