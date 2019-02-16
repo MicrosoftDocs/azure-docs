@@ -19,7 +19,7 @@ ms.author: aljo
 
 # Set up Azure Active Directory for client authentication
 
-For clusters running on Azure, Azure Active Directory (Azure AD) is recommended to secure access to management endpoints.  This article describes how to setup Azure AD to authenticate clients for a Service Fabric cluster, which must be done before [creating the cluster](service-fabric-cluster-creation-via-arm.md).  Azure AD enables organizations (known as tenants) to manage user access to applications. Applications are divided into those with a web-based sign-in UI and those with a native client experience. In this article, we assume that you have already created a tenant. If you have not, start by reading [How to get an Azure Active Directory tenant][active-directory-howto-tenant].
+For clusters running on Azure, Azure Active Directory (Azure AD) is recommended to secure access to management endpoints.  This article describes how to setup Azure AD to authenticate clients for a Service Fabric cluster, which must be done before [creating the cluster](service-fabric-cluster-creation-via-arm.md).  Azure AD enables organizations (known as tenants) to manage user access to applications. Applications are divided into those with a web-based sign-in UI and those with a native client experience. 
 
 A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, you create two Azure AD applications to control access to the cluster: one web application and one native application.  After the applications are created, you assign users to read-only and admin roles.
 
@@ -27,6 +27,8 @@ A Service Fabric cluster offers several entry points to its management functiona
 > You must complete the following steps before you create the cluster. Because the scripts expect cluster names and endpoints, the values should be planned and not values that you have already created.
 
 ## Prerequisites
+In this article, we assume that you have already created a tenant. If you have not, start by reading [How to get an Azure Active Directory tenant][active-directory-howto-tenant].
+
 To simplify some of the steps involved in configuring Azure AD with a Service Fabric cluster, we have created a set of Windows PowerShell scripts.
 
 1. [Download the scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) to your computer.
