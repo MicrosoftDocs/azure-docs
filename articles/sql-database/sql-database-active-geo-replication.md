@@ -11,9 +11,9 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
+ms.date: 02/15/2019
 ---
-# Create readable secondary databases using active geo-replication
+# Creating and using active geo-replication
 
 Active geo-replication is Azure SQL Database feature that allows you to create readable secondary databases of individual databases on a SQL Database server in the same or different data center (region).
 
@@ -104,7 +104,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 - **Keeping credentials and firewall rules in sync**
 
-  We recommend using [database firewall rules](sql-database-firewall-configure.md) for geo-replicated databases so these rules can be replicated with the database to ensure all secondary databases have the same firewall rules as the primary. This approach eliminates the need for customers to manually configure and maintain firewall rules on servers hosting both the primary and secondary databases. Similarly, using [contained database users](sql-database-manage-logins.md) for data access ensures both primary and secondary databases always have the same user credentials so during a failover, there is no disruptions due to mismatches with logins and passwords. With the addition of [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), customers can manage user access to both primary and secondary databases and eliminating the need for managing credentials in databases altogether.
+We recommend using [database firewall rules](sql-database-firewall-configure.md) for geo-replicated databases so these rules can be replicated with the database to ensure all secondary databases have the same firewall rules as the primary. This approach eliminates the need for customers to manually configure and maintain firewall rules on servers hosting both the primary and secondary databases. Similarly, using [contained database users](sql-database-manage-logins.md) for data access ensures both primary and secondary databases always have the same user credentials so during a failover, there is no disruptions due to mismatches with logins and passwords. With the addition of [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), customers can manage user access to both primary and secondary databases and eliminating the need for managing credentials in databases altogether.
 
 ## Upgrading or downgrading a primary database
 
@@ -119,6 +119,16 @@ Due to the high latency of wide area networks, continuous copy uses an asynchron
 
 > [!NOTE]
 > **sp_wait_for_database_copy_sync** prevents data loss after failover, but does not guarantee full synchronization for read access. The delay caused by a **sp_wait_for_database_copy_sync** procedure call can be significant and depends on the size of the transaction log at the time of the call.
+
+## Monitoring geo-replication lag
+
+To monitor lag with respect to RPO, use *replication_lag_sec* column of [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) on the primary database. It shows lag in seconds between the transactions committed on the primary and persisted on the secondary. E.g. if the value of the lag is 1 second, it means if the primary is impacted by an outage at this moment and the failover is intiated, 1 second of last transtions will not be saved. 
+
+To measure lag with respect to changes on the primary database that have been applied on the secondary, i.e. available to read from the geo-secondary,  use *last_commit* column on teh secondary database using teh same view.
+
+> [!NOTE]
+> Sometimes *replication_lag_sec* on the geo-primary has a value of -1, which means that the geo-primary does not currently know how far the geo-secondary is.   This typically happens after process restarts and should be a transient condition. Consider alerting the application if the *replication_lag_sec* returns -1 for an extended period of time. It would indicate that the secondary database cannot communicate with the primary due to a permanent connnectivity failure. There are also conditions that coudl cause *last_commit* to jump to a large number. E.g. if a commit is made on the geo-primary after a long period of no changes, the measured lag will jump up to a large value before quickly returning to 0. Consider it an error condition when *last_commit* on the secondary is persistently lagging for a long time.
+
 
 ## Programmatically managing active geo-replication
 
