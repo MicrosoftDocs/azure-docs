@@ -73,7 +73,7 @@ See the [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md) 
 
 ## How can I get started with v3?
 
-For information on how to start developing with the Media Services v3 API using variuos tools and SDKs, see [Start developing](start-developing-with-sdks.md).
+For information on how to start developing with the Media Services v3 API using variuos tools and SDKs, see [Start developing](developers-guide.md).
 
 ## Next steps
 
