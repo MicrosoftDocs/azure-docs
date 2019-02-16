@@ -1,12 +1,12 @@
 ---
-title: Azure Data Factory Mapping Data Flow Sink Transformation
-description: Azure Data Factory Mapping Data Flow Sink Transformation
+title: Azure Data Factory Mapping Data Flow Expression Functions
+description: Azure Data Factory Mapping Data Flow Expression Functions
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/03/2019
+ms.date: 02/15/2019
 --- 
 
 # Mapping Data Flow Expression Functions

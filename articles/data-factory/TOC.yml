@@ -142,6 +142,8 @@
       href: concepts-data-flow-expression-builder.md
     - name: Reference Nodes
       href: concepts-data-flow-reference-node.md
+    - name: Expression Language
+      href: data-flow-expression-functions.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
   - name: Understanding pricing
