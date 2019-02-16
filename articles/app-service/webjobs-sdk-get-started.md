@@ -334,6 +334,7 @@ The WebJobs SDK looks for the storage connection string in the Application Setti
     ```
 
 1. Replace *{storage connection string}* with the connection string that you copied earlier.
+1. Select the *appsettings.json* file in Solution Explorer and in the **Properties** window, set the setting **Copy to Output Directory** to **Copy if newer**.
 
 ### App.config (SDK version 2.x)
 
