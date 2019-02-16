@@ -21,7 +21,7 @@
   - name: Stream live - .NET
     href: stream-live-tutorial-with-api.md
   - name: Analyze your video - .NET
-    displayName: encode, encoding, job, transform
+    displayName: job, transform
     href: analyze-videos-tutorial-with-api.md
 - name: Samples
   items:
