@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/15/2019
 ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: "it-pro, seodec18"
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # What are the default user permissions in Azure Active Directory?
-In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user’s access consists of the type of user, their [role memberships](active-directory-users-assign-role-azure-portal.md), and their ownership of individual objects. This article describes those default permissions and contains a comparison of the member and guest user defaults.
+In Azure Active Directory (Azure AD), all users are granted a set of default permissions. A user’s access consists of the type of user, their [role memberships](active-directory-users-assign-role-azure-portal.md), and their ownership of individual objects. This article describes those default permissions and contains a comparison of the member and guest user defaults. The default user permissions can be changed only in user settings in Azure AD.
 
 ## Member and guest users
 The set of default permissions received depends on whether the user is a native member of the tenant (member user) or if the user is brought over from another directory as a B2B collaboration guest (guest user). See [What is Azure AD B2B collaboration?](../b2b/what-is-b2b.md) for more information about adding guest users.
