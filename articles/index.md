@@ -1075,7 +1075,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
+                                            <a href="/azure/virtual-machines/windows/managed-disks-overview">
                                                 <img src="media/index/Disks-color.svg" alt="" />
                                                 <p>Disk Storage</p>
                                             </a>
@@ -2413,7 +2413,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
+                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
