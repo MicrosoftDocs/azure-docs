@@ -16,7 +16,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
-ms.reviewer:
+ms.reviewer: unknown
+ms.lastreviewed: 01/05/2019
+
 
 ---
 # Deploy templates in Azure Stack using Visual Studio

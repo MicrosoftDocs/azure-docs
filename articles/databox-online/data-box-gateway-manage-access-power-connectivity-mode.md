@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 02/07/2019
 ms.author: alkohli
 ---
 
@@ -31,7 +31,7 @@ The access to your Data Box Gateway device is controlled by the use of a device 
 
 ### Change device administrator password
 
-If you forgot your password, then you can change the password. Follow these steps in the local UI to change the device administrator password.
+Follow these steps in the local UI to change the device administrator password.
 
 1. In the local web UI, go to **Maintenance > Password change**.
 2. Enter the current password and then the new password. The supplied password must be between 8 and 16 characters. The password must have 3 of the following characters: uppercase, lowercase, numeric, and special characters. Confirm the new password.

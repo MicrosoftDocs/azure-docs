@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Connect to Bing News Search from an ASP.NET Core web application.
 services: cognitive-services
 author: ghogen
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen

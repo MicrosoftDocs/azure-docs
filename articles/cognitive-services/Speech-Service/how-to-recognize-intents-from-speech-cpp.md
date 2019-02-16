@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to recognize intents from speech from a file or a microphone by using the Speech SDK for C++.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: wolfma

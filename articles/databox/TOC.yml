@@ -26,6 +26,8 @@
           href: data-box-deploy-copy-data-via-nfs.md
         - name: Via REST
           href: data-box-deploy-copy-data-via-rest.md
+        - name: Via data copy service
+          href: data-box-deploy-copy-data-via-copy-service.md
       - name: 4 - Return, upload, verify
         href: data-box-deploy-picked-up.md  
     - name: Concepts

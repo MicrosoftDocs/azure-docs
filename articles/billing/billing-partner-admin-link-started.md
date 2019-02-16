@@ -5,7 +5,7 @@ services: billing
 author: dhirajgandhi
 manager: dhgandhi
 
-ms.author: cwatson
+ms.author: banders
 ms.date: 03/12/2018
 ms.service: billing
 ms.devlang: na

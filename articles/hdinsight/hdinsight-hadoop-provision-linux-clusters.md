@@ -9,7 +9,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 01/28/2019
 ---
 
 # Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more
@@ -22,7 +22,6 @@ A Hadoop cluster consists of several virtual machines (nodes) that are used for 
 
 > [!IMPORTANT]  
 > HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. Learn how to [delete a cluster.](hdinsight-delete-cluster.md)
->
 
 ## Cluster setup methods
 The following table shows the different methods you can use to set up an HDInsight cluster.
@@ -46,7 +45,7 @@ Follow instructions on the screen to do a basic cluster setup. Details are provi
 
 * [Resource group name](#resource-group-name)
 * [Cluster types and configuration](#cluster-types) 
-* [Cluster login and SSH username](#cluster-login-and-ssh-username)
+* Cluster login and SSH username
 * [Location](#location)
 
 > [!IMPORTANT]  
@@ -62,8 +61,6 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 
 > [!IMPORTANT]  
 > HDInsight clusters are available in various types, each for a single workload or technology. There is no supported method to create a cluster that combines multiple types, such as Storm and HBase on one cluster. If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](https://docs.microsoft.com/azure/virtual-network) can connect the required cluster types. 
->
->
 
 | Cluster type | Functionality |
 | --- | --- |
@@ -79,20 +76,12 @@ Azure HDInsight currently provides the following cluster types, each with a set 
 ### HDInsight version
 Choose the version of HDInsight for this cluster. For more information, see [Supported HDInsight versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-### Enterprise security package
 
-For Hadoop, Spark, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Directory. For more information, see [Enterprise Security Package in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
-
-![hdinsight create options choose enterprise security package](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
-
-For more information on creating domain-joined HDInsight cluster, see [Create domain-joined HDInsight sandbox environment](./domain-joined/apache-domain-joined-configure.md).
-
-
-## Cluster login and SSH user name
+## Cluster login and SSH username
 With HDInsight clusters, you can configure two user accounts during cluster creation:
 
-* HTTP user: The default user name is *admin*. It uses the basic configuration on the Azure portal. Sometimes it is called "Cluster user."
-* SSH user (Linux clusters): Used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* HTTP user: The default username is *admin*. It uses the basic configuration on the Azure portal. Sometimes it is called "Cluster user."
+* SSH user: Used to connect to the cluster through SSH. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 The Enterprise security package allows you to integrate HDInsight with Active Directory and Apache Ranger. Multiple users can be created using the Enterprise security package.
 
@@ -138,10 +127,19 @@ To increase performance when using Oozie, use a custom metastore. A metastore ca
 
 ## Custom cluster setup
 Custom cluster setup builds on the Quick create settings, and adds the following options:
+- [Enterprise security package](#enterprise-security-package)
 - [HDInsight applications](#install-hdinsight-applications-on-clusters)
 - [Cluster size](#configure-cluster-size)
 - [Script actions](#advanced-settings-script-actions)
 - [Virtual network](#advanced-settings-extend-clusters-with-a-virtual-network)
+ 
+## Enterprise security package
+
+For Hadoop, Spark, HBase, Kafka, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Directory. For more information, see [Enterprise Security Package in Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
+
+![hdinsight create options choose enterprise security package](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
+
+For more information on creating domain-joined HDInsight cluster, see [Create domain-joined HDInsight sandbox environment](./domain-joined/apache-domain-joined-configure.md). 
 
 ## Install HDInsight applications on clusters
 
@@ -240,9 +238,6 @@ For more information on using an Azure virtual network with HDInsight, see [Exte
 
 For an example of using two cluster types within an Azure virtual network, see [Use Apache Spark Structured Streaming with Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). For more information about using HDInsight with a virtual network, including specific configuration requirements for the virtual network, see [Extend HDInsight capabilities by using Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
-## Troubleshoot access control issues
-
-If you run into issues with creating HDInsight clusters, see [access control requirements](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## Next steps
 

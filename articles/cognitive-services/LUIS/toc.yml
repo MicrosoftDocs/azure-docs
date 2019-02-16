@@ -9,6 +9,10 @@
   items:
   - name: Build prebuilt domain app
     href: luis-get-started-create-app.md
+  - name: Use .NET SDK
+    items: 
+    - name: Query prediction endpoint
+      href: sdk-csharp-quickstart-query-prediction-endpoint.md
   - name: Use REST APIs
     items:
     - name: Get intent
@@ -81,6 +85,7 @@
   items:
   - name: Best practices
     href: luis-concept-best-practices.md
+    displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
   - name: Plan your app
     displayName: simple, hierarchical, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md
@@ -219,33 +224,20 @@
     - name: Using the dashboard
       displayName: analytics, usage
       href: luis-how-to-use-dashboard.md
-    - name: Create endpoint keys
-      displayName: azure portal
+    - name: Using subscription keys with your LUIS app
+      displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription
       href: luis-how-to-azure-subscription.md
-    - name: Add endpoint keys to app
-      displayName: assign key, assign
-      href: luis-how-to-manage-keys.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
     - name: Manage authors and collaborators
-      displayName: access, transfer, AAD, tenant, Azure AD, consent
+      displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership
       href: luis-how-to-collaborate.md
     - name: Manage authoring key
       href: luis-how-to-account-settings.md
-    - name: Manage endpoint usage
-      items:
-      - name: View endpoint usage with PowerShell
-        href: luis-how-to-manage-from-cloud-shell.md
-      - name: Spread endpoint quota across keys with Traffic Manager
-        href: luis-traffic-manager.md
+    - name: Spread endpoint quota across keys with Traffic Manager
+      href: luis-traffic-manager.md
   - name: Migrate to V2 REST API
     href: luis-migration-api-v1-to-v2.md
-  - name: Find region programmatically
-    items:
-    - name: Using REST API & C#
-      href: luis-find-region-csharp.md
-    - name: Using REST API & Node.js
-      href: luis-find-region-nodejs.md
   - name: Use containers
     items:
     - name: Install and run containers
@@ -352,6 +344,8 @@
       items:
       - name: Pip SDK
         href: https://pypi.org/project/azure-cognitiveservices-language-luis/
+      - name: Reference
+        href: https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python
       - name: Samples
         href: https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/language/luis
 - name: Related
@@ -384,8 +378,8 @@
     href: https://aka.ms/luis-roadmap
   - name: Glossary
     href: luis-glossary.md
-  - name: FAQ
-    href: luis-resources-faq.md
+  - name: Troubleshooting
+    href: troubleshooting.md
   - name: Pricing and limits 
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
   - name: Stack Overflow

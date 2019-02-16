@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is Azure Backup?
-    href: backup-introduction-to-azure-backup.md
+    href: backup-overview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -33,6 +33,10 @@
     href: backup-rm-template-samples.md
 - name: Concepts
   items:
+  - name: Backup architecture
+    href: backup-architecture.md
+  - name: Backup support matrix
+    href: backup-support-matrix.md
   - name: FAQ
     items:
     - name: FAQ on Recovery Services vault
@@ -121,8 +125,6 @@
         href: backup-azure-vms-encryption.md
       - name: Enable VM backup during VM creation
         href: backup-during-vm-creation.md
-      - name: Instant Restore capability
-        href: backup-instant-restore-capability.md
     - name: Manage and monitor VMs
       items:
       - name: Manage Azure VM backups in Azure portal
@@ -135,6 +137,8 @@
         href: backup-azure-restore-files-from-vm.md
       - name: Restore VMs in Azure portal
         href: backup-azure-arm-restore-vms.md
+      - name: Instant Restore capability
+        href: backup-instant-restore-capability.md
       - name: Restore encrypted VMs
         href: backup-azure-vms-encryption.md
       - name: Restore Key Vault key and secret for encrypted VMs
@@ -205,10 +209,10 @@
       href: backup-azure-recovery-services-vault-overview.md
     - name: Upgrading a Backup vault to Recovery Services vault
       href: backup-azure-upgrade-backup-to-recovery-services.md
-    - name: Move a Recovery Services vault
-      href: backup-azure-move-recovery-services-vault.md
     - name: Delete a Recovery Services vault
       href: backup-azure-delete-vault.md
+    - name: Move a Recovery Services vault
+      href: backup-azure-move-recovery-services-vault.md
   - name: Troubleshoot
     items:
     - name: Azure VM
@@ -243,6 +247,8 @@
     href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Resources
   items:
+  - name: Common Security Attributes
+    href: backup-security-attributes.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum

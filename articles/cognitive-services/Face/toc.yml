@@ -57,6 +57,8 @@
     href: Face-API-How-to-Topics/how-to-use-large-scale.md
   - name: Analyze videos in real time
     href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
+  - name: Migrate face data
+    href: Face-API-How-to-Topics/how-to-migrate-face-data.md
   - name: Use containers
     items:
     - name: Install and run containers

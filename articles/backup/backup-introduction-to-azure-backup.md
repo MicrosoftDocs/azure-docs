@@ -7,7 +7,7 @@ manager: carmonm
 keywords: backup and restore; recovery services; backup solutions
 ms.service: backup
 ms.topic: overview
-ms.date: 8/2/2018
+ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -81,18 +81,18 @@ System Center DPM | File-consistent backup of Linux Guest VMs on Hyper-V and VMW
 Azure Backup Server | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/><br/> VM restore of Hyper-V and VMWare Linux guest VMs</br></br> File-consistent backup not available for Azure VMs 
 Azure IaaS VM Backup | App-consistent backup using the [pre-script and post-script framework](backup-azure-linux-app-consistent.md)<br/><br/> [File-level recovery](backup-azure-restore-files-from-vm.md)<br/><br/> [Create a VM from a restored disk](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Create a VM from a recovery point](backup-azure-arm-restore-vms.md#create-new-create-a-vm).
 
-## Using Premium Storage VMs with Azure Backup
-Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../virtual-machines/windows/premium-storage.md).
+## Using premium storage VMs with Azure Backup
+Azure Backup protects premium storage VMs. Azure premium storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage and other disk types, see the article, [select a disk type](../virtual-machines/windows/disks-types.md).
 
-### Back up Premium Storage VMs
-While backing up Premium Storage VMs, the Backup service creates a temporary staging location, named "AzureBackup-", in the Premium Storage account. The size of the staging location is equal to the size of the recovery point snapshot. Be sure the Premium Storage account has adequate free space to accommodate the temporary staging location. For more information, see the article, [premium storage limitations](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets). Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../virtual-machines/windows/premium-storage.md#pricing-and-billing).
+### Back up premium storage VMs
+While backing up Premium Storage VMs, the Backup service creates a temporary staging location, named "AzureBackup-", in the premium Storage account. The size of the staging location is equal to the size of the recovery point snapshot. Be sure the premium Storage account has adequate free space to accommodate the temporary staging location. For more information, see the article on [Azure storage scalability targets](../storage/common/storage-scalability-targets.md). Once the backup job finishes, the staging location is deleted. The price of storage used for the staging location is consistent with all [Premium storage pricing](../virtual-machines/windows/disks-types.md).
 
 > [!NOTE]
 > Do not modify or edit the staging location.
 >
 >
 
-### Restore Premium Storage VMs
+### Restore premium storage VMs
 You can restore Premium Storage VMs to either Premium Storage or to Standard Storage. Restoring a Premium Storage VM recovery point back to Premium Storage is the typical process. However, it can be cost effective to restore a Premium Storage VM recovery point to Standard Storage if you need a subset of files from the VM.
 
 ## Using managed disk VMs with Azure Backup

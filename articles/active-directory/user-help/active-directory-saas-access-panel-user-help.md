@@ -3,16 +3,17 @@ title: Get help with accessing and using the MyApps portal in Azure Active Direc
 description: Get help with signing in to and performing common tasks in the access panel.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot issues with accessing and using the MyApps portal

@@ -8,19 +8,17 @@
     items:
     - name: Recent updates
       href: azure-stack-servicing-policy.md#update-package-release-cadence 
+    - name: 1901 update 
+      href: azure-stack-update-1901.md      
     - name: 1811 update 
-      href: azure-stack-update-1811.md      
+      href: azure-stack-update-1811.md
     - name: 1809 update 
-      href: azure-stack-update-1809.md
+      href: azure-stack-update-1809.md 
     - name: 1808 update 
       href: azure-stack-update-1808.md 
-    - name: 1807 update 
-      href: azure-stack-update-1807.md 
 - name: Quickstarts
   expanded: true
   items:
-  - name: Evaluate Azure Stack
-    href: azure-stack-deploy-overview.md
   - name: Use the administration portal
     href: azure-stack-manage-portals.md
 - name: Tutorials
@@ -130,16 +128,8 @@
       href: azure-stack-registration.md
     - name: Region management
       href: azure-stack-region-management.md
-    - name: Connect to Azure
-      items:
-      - name: Connect using VPN
-        href: azure-stack-connect-vpn.md
-      - name: About VPN gateway
-        href: azure-stack-vpn-gateway-about-vpn-gateways.md
-      - name: VPN gateway settings
-        href: azure-stack-vpn-gateway-settings.md
-      - name: Connect using ExpressRoute
-        href: azure-stack-connect-expressroute.md  
+    - name: Connect to Azure using ExpressRoute
+      href: azure-stack-connect-expressroute.md  
     - name: Enable CLI for users
       href: azure-stack-cli-admin.md
     - name: Set up management environment
@@ -216,6 +206,8 @@
       href: azure-stack-rotate-secrets.md
     - name: Update antivirus
       href: azure-stack-security-av.md
+    - name: Log collection and data handling
+      href: azure-stack-data-collection.md
   - name: Populate the marketplace
     items:
     - name: Marketplace overview
@@ -226,8 +218,6 @@
       href: azure-stack-marketplace-azure-items.md
     - name: Create and publish a marketplace item
       href: azure-stack-create-and-publish-marketplace-item.md
-    - name: Use the marketplace publishing tool
-      href: azure-stack-marketplace-publisher.md
     - name: Supported guest operating systems for Azure Stack
       href: azure-stack-supported-os.md
     - name: Add a custom virtual machine image

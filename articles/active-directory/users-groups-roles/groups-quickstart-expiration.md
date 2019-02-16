@@ -1,5 +1,5 @@
 ---
-title: Expiration policy quickstart for Office 365 groups in Azure Active Directory | Microsoft Docs
+title: Expiration policy quickstart for Office 365 groups - Azure Active Directory | Microsoft Docs
 description: Expiration for Office 365 groups - Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -8,13 +8,14 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 08/07/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 #As a new Azure AD identity administrator, I want user-created Office 365 groups in my tenant to expire so I can reduce the number of unused groups.
+ms.collection: M365-identity-device-management
 ---
 # Quickstart: Set Office 365 groups to expire in Azure Active Directory
 

@@ -50,7 +50,7 @@ Nowadays, many people choose Apache Hive and Apache Pig over MapReduce.  For mor
 ## <a name="hdinsight-sample-wordcount"></a>Word count - Java
 To submit a MapReduce project, you first create a MapReduce job definition. In the job definition, you specify the MapReduce program jar file and the location of the jar file, which is **wasb:///example/jars/hadoop-mapreduce-examples.jar**, the class name, and the arguments.  The wordcount MapReduce program takes two arguments: the source file that is used to count words, and the location for output.
 
-The source code can be found in the [Appendix A](#apendix-a---the-word-count-MapReduce-program-in-java).
+The source code can be found in the Appendix A.
 
 For the procedure of developing a Java MapReduce program, see - [Develop Java MapReduce programs for Apache Hadoop in HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
@@ -131,7 +131,7 @@ In the meantime, the reducer collects the line-oriented output from the [stdout]
 
 **To submit a C# streaming word count job**
 
-* Follow the procedure in [Word count - Java](#word-count-java), and replace the job definition with the following line:
+* Follow the procedure in Word count - Java, and replace the job definition with the following line:
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -153,7 +153,7 @@ The script provided for this sample submits a Hadoop jar job and is set up to ru
 
 **To submit a pi estimator job**
 
-* Follow the procedure in [Word count - Java](#word-count-java), and replace the job definition with the following line:
+* Follow the procedure in Word count - Java, and replace the job definition with the following line:
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -181,7 +181,7 @@ Three tasks are required by the sample, each corresponding to one of the MapRedu
 
 **To submit the jobs**
 
-* Follow the procedure in [Word count - Java](#word-count-java), and use the following job definitions:
+* Follow the procedure in Word count - Java, and use the following job definitions:
 
     ```powershell
     $teragen = New-AzureRmHDInsightMapReduceJobDefinition `

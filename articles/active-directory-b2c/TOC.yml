@@ -18,7 +18,15 @@
   items:
   - name: 1 - Create B2C tenant
     href: tutorial-create-tenant.md
-  - name: 2 - Authenticate accounts
+  - name: 2 - Register an application
+    href: tutorial-register-applications.md
+  - name: 3 - Create user flows
+    href: tutorial-create-user-flows.md
+  - name: Add identity providers
+    href: tutorial-add-identity-providers.md
+  - name: Customize the UI
+    href: tutorial-customize-ui.md
+  - name: Authenticate accounts
     items:
     - name: ASP.NET
       href: active-directory-b2c-tutorials-web-app.md
@@ -26,7 +34,7 @@
       href: active-directory-b2c-tutorials-desktop-app.md
     - name: Single page
       href: active-directory-b2c-tutorials-spa.md
-  - name: 3 - Grant API access
+  - name: Grant API access
     items:
     - name: ASP.NET
       href: active-directory-b2c-tutorials-web-api.md
@@ -34,8 +42,6 @@
       href: active-directory-b2c-tutorials-desktop-app-webapi.md
     - name: Single page
       href: active-directory-b2c-tutorials-spa-webapi.md
-  - name: Customize the UI
-    href: tutorial-customize-ui.md
 - name: Samples
   href: code-samples.md
 - name: Concepts
@@ -64,13 +70,19 @@
     href: manage-user-data.md
   - name: User flows
     href: active-directory-b2c-reference-policies.md
+  - name: User flows with JavaScript
+    href: user-flow-javascript-overview.md
   - name: User interface customization
     href: customize-ui-overview.md
 - name: How-to guides
   items:
   - name: Access audit logs 
     href: active-directory-b2c-reference-audit-logs.md
-  - name: Age gating
+  - name: Add a web API application
+    href: add-web-application.md
+  - name: Add a native client application
+    href: add-native-application.md
+  - name: Configure age gating
     href: basic-age-gating.md
   - name: Configure tokens
     href: active-directory-b2c-token-session-sso.md
@@ -263,8 +275,6 @@
     href: active-directory-b2c-access-tokens.md
   - name: Pass through access token
     href: idp-pass-through-user-flow.md
-  - name: Register your application
-    href: active-directory-b2c-app-registration.md
   - name: Report usage
     href: active-directory-b2c-reference-usage-reporting-api.md
   - name: Resource owner password credentials

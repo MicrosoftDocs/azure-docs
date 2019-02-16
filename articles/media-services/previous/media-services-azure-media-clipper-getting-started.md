@@ -7,7 +7,7 @@ keywords: clip;subclip;encoding;media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
-ms.date: 11/10/2017
+ms.date: 02/10/2019
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
 ms.service: media-services
@@ -111,7 +111,7 @@ The parameters for the initialization method call are:
 - `autoplayVideo` (OPTIONAL, bool): autoplayVideo allows Clipper to autoplay the video on load. The default value is true.
 - `language` {OPTIONAL, string}: language sets the language of the widget. If not specified, the widget tries to localize the messages based on the browser language. If no language is detected in the browser, the widget defaults to English. For more information, see the [configure localization](media-services-azure-media-clipper-localization.md) section.
 - `languages` {OPTIONAL, JSON}: the languages parameter replaces the default dictionary of languages with a custom dictionary defined by the user. For more information, see the [configure localization](media-services-azure-media-clipper-localization.md) section.
-- `extraLanguages` (OPTIONAL, JSON): the extraLanaguages parameter adds new languages to the default dictionary. For more information, see the [configure localization](media-services-azure-media-clipper-localization.md) section.
+- `extraLanguages` (OPTIONAL, JSON): the extraLanguages parameter adds new languages to the default dictionary. For more information, see the [configure localization](media-services-azure-media-clipper-localization.md) section.
 
 ## TypeScript definition
 A [TypeScript](https://www.typescriptlang.org/) definition file for the Clipper can be found [here](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).

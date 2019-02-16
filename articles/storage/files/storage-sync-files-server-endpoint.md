@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.component: files
+ms.subservice: files
 ---
 
 # Add/remove an Azure File Sync server endpoint
@@ -65,3 +65,4 @@ To remove the server endpoint:
 ## Next steps
 - [Register/unregister a server with Azure File Sync](storage-sync-files-server-registration.md)
 - [Planning for an Azure File Sync deployment](storage-sync-files-planning.md)
+- [Monitor Azure File Sync](storage-sync-files-monitoring.md)

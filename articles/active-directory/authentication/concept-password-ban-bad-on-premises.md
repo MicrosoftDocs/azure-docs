@@ -4,14 +4,15 @@ description: Ban weak passwords in on-premises Active Directory using the Azure 
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/25/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
+ms.collection: M365-identity-device-management
 ---
 
 # Preview: Enforce Azure AD password protection for Windows Server Active Directory
@@ -26,7 +27,7 @@ Azure AD password protection is a new feature in public preview powered by Azure
 There are three software components that make up Azure AD password protection:
 
 * The Azure AD password protection proxy service runs on any domain-joined machine in the current Active Directory forest. It forwards requests from domain controllers to Azure AD and returns the response from Azure AD back to the domain controller.
-* The Azure AD password protection DC agent service receives password validation requests from the DC Agent password filter dll, processes them using the current locally available password policy, and returns the result (pass\fail). This service is responsible for periodically (once per hour) calling the Azure AD password protection proxy service to retrieve new versions of the password policy. Communication for calls to and from the Azure AD password protection proxy service is handled over RPC (Remote Procedure Call) over TCP. Upon retrieval, new policies are stored in a sysvol folder where they can replicate to other domain controllers. The DC agent service also monitors the sysvol folder for changes in case other domain controllers have written new password policies there, if a suitably recent policy already is available the check of the Azure AD password protection proxy service will be skipped.
+* The Azure AD password protection DC agent service receives password validation requests from the DC Agent password filter dll, processes them using the current locally available password policy, and returns the result (pass\fail). This service is responsible for periodically (once per hour) calling the Azure AD password protection proxy service to retrieve new versions of the password policy. Communication between the Azure AD password protection DC agent service and the Azure AD password protection proxy service is handled using RPC (Remote Procedure Call) over TCP. Upon retrieval, new policies are stored in a sysvol folder where they can replicate to other domain controllers. The DC agent service also monitors the sysvol folder for changes in case other domain controllers have written new password policies there; if a suitably recent policy is already available then new policy download requests will be skipped.
 * The DC Agent password filter dll receives password validation requests from the operating system and forwards them to the Azure AD password protection DC agent service running locally on the domain controller.
 
 ![How Azure AD password protection components work together](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
@@ -54,7 +55,7 @@ There are two required installers for Azure AD password protection that can be d
 * There is no minimum Active Directory Domain or Forest Functional level (DFL\FFL) requirement.
 * The software does not create or require any accounts in the Active Directory domains it protects.
 * Incremental deployment is supported with the tradeoff that password policy is only enforced where the domain controller agent is installed.
-* It is recommended to install the DC agent on all DCs to ensure password protection enforcement. 
+* It is recommended to install the DC agent on all DCs to ensure password protection enforcement.
 * Azure AD password protection is not a real-time policy application engine. There may be a delay in the time between a password policy configuration change and the time it reaches and is enforced on all domain controllers.
 
 ## Next steps

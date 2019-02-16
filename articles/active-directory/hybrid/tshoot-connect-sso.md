@@ -4,14 +4,15 @@ description: This topic describes how to troubleshoot Azure Active Directory Sea
 services: active-directory
 author: billmath
 ms.reviewer: swkrish
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/24/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot Azure Active Directory Seamless Single Sign-On

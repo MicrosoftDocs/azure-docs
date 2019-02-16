@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
 
@@ -71,10 +71,16 @@ For an app, the available metrics are:
 | Metric | Description |
 | --- | --- |
 | **Average Response Time** | The average time taken for the app to serve requests, in milliseconds. |
-| **Average memory working set** | The average amount of memory used by the app, in mebibytes (MiB). |
+| **Average memory working set** | The average amount of memory used by the app, in megabytes (MiB). |
+| **Connections** | The number of bound sockets existing in the sandbox (w3wp.exe and its child processes).  A bound socket is created by calling bind()/connect() APIs and remains until said socket is closed with CloseHandle()/closesocket(). |
 | **CPU Time** | The amount of CPU consumed by the app, in seconds. For more information about this metric, see [CPU time vs CPU percentage](#cpu-time-vs-cpu-percentage). |
+| **Current Assemblies** | The current number of Assemblies loaded across all AppDomains in this application. |
 | **Data In** | The amount of incoming bandwidth consumed by the app, in MiB. |
 | **Data Out** | The amount of outgoing bandwidth consumed by the app, in MiB. |
+| **Gen 0 Garbage Collections** | The number of times the generation 0 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|
+| **Gen 1 Garbage Collections** | The number of times the generation 1 objects are garbage collected since the start of the app process. Higher generation GCs include all lower generation GCs.|
+| **Gen 2 Garbage Collections** | The number of times the generation 2 objects are garbage collected since the start of the app process.|
+| **Handle Count** | The total number of handles currently open by the app process.|
 | **Http 2xx** | The count of requests resulting in an HTTP status code ≥ 200 but < 300. |
 | **Http 3xx** | The count of requests resulting in an HTTP status code ≥ 300 but < 400. |
 | **Http 401** | The count of requests resulting in HTTP 401 status code. |
@@ -83,8 +89,20 @@ For an app, the available metrics are:
 | **Http 406** | The count of requests resulting in HTTP 406 status code. |
 | **Http 4xx** | The count of requests resulting in an HTTP status code ≥ 400 but < 500. |
 | **Http Server Errors** | The count of requests resulting in an HTTP status code ≥ 500 but < 600. |
+| **IO Other Bytes Per Second** | The rate at which the app process is issuing bytes to I/O operations that do not involve data, such as control operations.|
+| **IO Other Operations Per Second** | The rate at which the app process is issuing I/O operations that are neither read nor write operations.|
+| **IO Read Bytes Per Second** | The rate at which the app process is reading bytes from I/O operations.|
+| **IO Read Operations Per Second** | The rate at which the app process is issuing read I/O operations.|
+| **IO Write Bytes Per Second** | The rate at which the app process is writing bytes to I/O operations.|
+| **IO Write Operations Per Second** | The rate at which the app process is issuing write I/O operations.|
 | **Memory working set** | The current amount of memory used by the app, in MiB. |
+| **Private Bytes** | Private Bytes is the current size, in bytes, of memory that the app process has allocated that cannot be shared with other processes.|
 | **Requests** | The total number of requests regardless of their resulting HTTP status code. |
+| **Requests In Application Queue** | The number of requests in the application request queue.|
+| **Thread Count** | The number of threads currently active in the app process.|
+| **Total App Domains** | The current number of AppDomains loaded in this application.|
+| **Total App Domains Unloaded** | The total number of AppDomains unloaded since the start of the application.|
+
 
 For an App Service plan, the available metrics are:
 
@@ -141,14 +159,12 @@ To learn more about metrics, see [Monitor service metrics](../monitoring-and-dia
 ## Alerts and autoscale
 Metrics for an app or an App Service plan can be hooked up to alerts. For more information, see [Receive alert notifications](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-App Service apps hosted in Basic, Standard, or Premium App Service plans support autoscale. With autoscale, you can configure rules that monitor the App Service plan metrics. Rules can increase or decrease the instance count, which can provide additional resources as needed. Rules can also help you save money when the app is over-provisioned. 
+App Service apps hosted in Basic, Standard, or Premium App Service plans support autoscale. With autoscale, you can configure rules that monitor the App Service plan metrics. Rules can increase or decrease the instance count, which can provide additional resources as needed. Rules can also help you save money when the app is over-provisioned.
 
 For more information about autoscale, see [How to scale](../monitoring-and-diagnostics/insights-how-to-scale.md) and [Best practices for Azure Monitor autoscaling](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
-
-
 
 <!-- Images. -->
 [http403]: ./media/web-sites-monitor/http403.png

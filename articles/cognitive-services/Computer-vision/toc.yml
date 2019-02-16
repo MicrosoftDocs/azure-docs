@@ -97,16 +97,20 @@
       href: quickstarts-sdk/csharp-thumb-sdk.md
     - name: Extract text
       href: quickstarts-sdk/csharp-hand-text-sdk.md
+  - name: Using the Python SDK
+    href: quickstarts-sdk/python-sdk.md
 - name: Tutorials
   items:
-  - name: Build an image processing app
-    href: Tutorials/CSharpTutorial.md
+  - name: Get metadata for Azure images
+    href: Tutorials/storage-lab-tutorial.md
 - name: Concepts
   items:
   - name: Tagging images
     href: concept-tagging-images.md
   - name: Detecting objects
     href: concept-object-detection.md
+  - name: Detecting brands
+    href: concept-brand-detection.md
   - name: Categorizing images
     href: concept-categorizing-images.md
   - name: Describing images
@@ -177,8 +181,12 @@
       href: https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK
 - name: Resources
   items: 
-  - name: Samples
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
+  - name: Samples  
+    items:  
+    - name: Explore an image processing app
+      href: Tutorials/CSharpTutorial.md
+    - name: Other Computer Vision samples
+      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: FAQ
     href: FAQ.md
   - name: Pricing and limits

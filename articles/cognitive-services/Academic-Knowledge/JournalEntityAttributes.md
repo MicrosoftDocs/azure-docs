@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Learn the attributes you can use with the Journal entity in the Academic Knowledge API in Cognitive Services.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
