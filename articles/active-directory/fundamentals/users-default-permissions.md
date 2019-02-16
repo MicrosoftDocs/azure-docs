@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/16/2019
 ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: "it-pro, seodec18"
