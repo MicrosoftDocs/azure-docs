@@ -12,9 +12,9 @@ ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my Android Unity app that can place and locate a 3D object that persists across devices and platforms.
 ---
-# Quickstart: Create an Android Unity app with Azure Spatial Anchors, in C#
+# Quickstart: Create an Android Unity app with Azure Spatial Anchors
 
-This quickstart covers how to create an Android Unity app using [Azure Spatial Anchors](../overview.md) in C#. Azure Spatial Anchors is a cross-platform developer service that allows you to create Mixed Reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an ARCore Android app built with Unity that can save and recall a spatial anchor.
+This quickstart covers how to create an Android Unity app using [Azure Spatial Anchors](../overview.md). Azure Spatial Anchors is a cross-platform developer service that allows you to create Mixed Reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an ARCore Android app built with Unity that can save and recall a spatial anchor.
 
 You'll learn how to:
 
@@ -32,7 +32,7 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-- A Windows or macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.2+</a> and <a href="https://developer.android.com/studio/" target="_blank">Android Studio</a> installed.
+- A Windows or macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3+</a> and <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a> installed.
 - An <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore capable</a> Android device.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]

@@ -46,7 +46,7 @@ There are several sample datasets included with Studio that you can use, or you 
 This dataset includes entries for various individual automobiles, including information such as make, model, technical specifications, and price.
 
 > [!TIP]
-> You can find a working copy of the following experiment in the [Azure AI Gallery](https://gallery.cortanaintelligence.com). Go to **[Your first data science experiment - Automobile price prediction](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
+> You can find a working copy of the following experiment in the [Azure AI Gallery](https://gallery.azure.ai). Go to **[Your first data science experiment - Automobile price prediction](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
 
 Here's how to get the dataset into your experiment.
 

@@ -25,6 +25,8 @@
     href: quickstart-create-data-factory-rest-api.md
   - name: Create data factory - Resource Manager template
     href: quickstart-create-data-factory-resource-manager-template.md
+  - name: Create data flow
+    href: data-flow-create.md
 - name: Tutorials
   items:
   - name: Copy data in cloud
@@ -118,8 +120,10 @@
     href: concepts-integration-runtime.md
   - name: Mapping Data Flows
     items:
-    - name: Mapping Data Flow concepts
+    - name: Mapping data flow concepts
       href: concepts-data-flow-overview.md
+    - name: Data flow datasets
+      href: concepts-data-flow-datasets.md
     - name: Debug Mode
       href: concepts-data-flow-debug-mode.md
     - name: Schema Drift
@@ -407,6 +411,42 @@
       href: control-flow-wait-activity.md
     - name: Web Activity
       href: control-flow-web-activity.md
+  - name: Data flow transformations
+    items:
+    - name: Aggregate
+      href: data-flow-aggregate.md
+    - name: Conditional split
+      href: data-flow-conditional-split.md
+    - name: Derived column
+      href: data-flow-derived-column.md
+    - name: Exists
+      href: data-flow-exists.md
+    - name: Filter
+      href: data-flow-filter.md
+    - name: Join
+      href: data-flow-join.md
+    - name: Lookup
+      href: data-flow-lookup.md
+    - name: New branch
+      href: data-flow-new-branch.md
+    - name: Pivot
+      href: data-flow-pivot.md
+    - name: Select
+      href: data-flow-select.md
+    - name: Sink
+      href: data-flow-sink.md
+    - name: Sort
+      href: data-flow-sort.md
+    - name: Source
+      href: data-flow-source.md
+    - name: Surrogate key
+      href: data-flow-surrogate-key.md
+    - name: Union
+      href: data-flow-union.md
+    - name: Unpivot
+      href: data-flow-unpivot.md
+    - name: Window
+      href: data-flow-window.md
   - name: Parameterize
     items:
     - name: Parameterize linked services

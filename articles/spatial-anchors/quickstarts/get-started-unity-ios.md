@@ -12,7 +12,7 @@ ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
 #Customer intent: As a Mixed Reality developer, I want to learn how to use Azure Spatial Anchors in my iOS Unity app that can place and locate a 3D object that persists across devices and platforms.
 ---
-# Quickstart: Create an iOS Unity app with Azure Spatial Anchors, using C#
+# Quickstart: Create an iOS Unity app with Azure Spatial Anchors
 
 This quickstart covers how to create an iOS Unity app using [Azure Spatial Anchors](../overview.md). Azure Spatial Anchors is a cross-platform developer service that allows you to create Mixed Reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an ARKit iOS app built with Unity that can save and recall a spatial anchor.
 
@@ -32,7 +32,7 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-- A macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.2+</a>, <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 9.4+</a>, and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
+- A macOS machine with <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3+</a>, <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a>, and <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installed.
 - A developer enabled <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit compatible</a> iOS device.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]

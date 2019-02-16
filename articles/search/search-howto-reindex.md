@@ -7,7 +7,7 @@ manager: cgronlun
 
 ms.service: search
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -15,7 +15,7 @@ ms.custom: seodec2018
 
 This article explains how to rebuild an Azure Search index, the circumstances under which rebuilds are required, and recommendations for mitigating the impact of rebuilds on ongoing query requests.
 
-A *rebuild* refers to dropping and recreating the physical data structures associated with an index, including all field-based inverted indexes. In Azure Search, you cannot drop and recreate specific fields. To rebuild an index, all field storage must be deleted, recreated based on an existing or revised index schema, and then repopulated with data pushed to the index or pulled from external sources. It's common to rebuild indexes during development, but you might also need to rebuild a production-level index to accommodate structural changes, such as adding complex types.
+A *rebuild* refers to dropping and recreating the physical data structures associated with an index, including all field-based inverted indexes. In Azure Search, you cannot drop and recreate individual fields. To rebuild an index, all field storage must be deleted, recreated based on an existing or revised index schema, and then repopulated with data pushed to the index or pulled from external sources. It's common to rebuild indexes during development, but you might also need to rebuild a production-level index to accommodate structural changes, such as adding complex types or adding fields to suggesters.
 
 In contrast with rebuilds that take an index offline, *data refresh* runs as a background task. You can add, remove, and replace documents with minimal disruption to query workloads, although queries typically take longer to complete. For more information on updating index content, see [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -23,21 +23,24 @@ In contrast with rebuilds that take an index offline, *data refresh* runs as a b
 
 | Condition | Description |
 |-----------|-------------|
-| Changing a field definition | Revising a name, data type, or specific [index attributes](https://docs.microsoft.com/rest/api/searchservice/create-index) (searchable, filterable, sortable, facetable) requires a full rebuild. |
-| Deleting a field | To physically remove all traces of a field, you have to rebuild the index. When an immediate rebuild is not practice, most developers modify application code to disable access to the "deleted" field. Physically, the field definition and contents remain in the index until the next rebuild, using a schema that omits the field in question. |
+| Changing a field definition | Revising a field name, data type, or specific [index attributes](https://docs.microsoft.com/rest/api/searchservice/create-index) (searchable, filterable, sortable, facetable) requires a full rebuild. |
+| Adding an analyzer to a field | [Analyzers](search-analyzers.md) are defined in an index and then assigned to fields. You can add a new analyzer to an index at any time, but you can only *assign* an analyzer when the field is created. This is true for both the **analyzer** and **indexAnalyzer** properties. The **searchAnalyzer** property is an exception. |
+| Updating or deleting an analyzer construct | You cannot delete or change existing analysis components (analyzer, tokenizer, token filter, or char filter) unless you rebuild the entire index. |
+| Adding a field to a suggester | If a field already exists and you want to add it to a [Suggesters](index-add-suggesters.md) construct, you must rebuild the index. |
+| Deleting a field | To physically remove all traces of a field, you have to rebuild the index. When an immediate rebuild is not practical, you can modify application code to disable access to the "deleted" field. Physically, the field definition and contents remain in the index until the next rebuild, using a schema that omits the field in question. |
 | Switching tiers | If you require more capacity, there is no in-place upgrade. A new service is created at the new capacity point, and indexes must be built from scratch on the new service. |
 
-Any other modification can be made without impacting existing physical structures. Specifically, the following changes do *not* indicate an index rebuild:
+Any other modification can be made without impacting existing physical structures. Specifically, the following changes do *not* require an index rebuild:
 
 + Add a new field
-+ Set the **Retrievable** attribute on an existing field
-+ Set an analyzer on an existing field
++ Set the **retrievable** attribute on an existing field
++ Set a **searchAnalyzer** on an existing field
++ Add a new analyzer construct in an index
 + Add, update, or delete scoring profiles
 + Add, update, or delete CORS settings
-+ Add, update, or delete suggesters
 + Add, update, or delete synonymMaps
 
-When you add a new field, existing indexed documents are given a null value for the new field. On a future data refresh, values from external source data replace the nulls added by Azure Search.
+When you add a new field, existing indexed documents are given a null value for the new field. On a future data refresh, values from external source data replace the nulls added by Azure Search. For more information on updating index content, see [Add, Update or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 ## Partial or incremental indexing
 
@@ -71,7 +74,7 @@ Read-write permissions at the service-level are required for index updates. Prog
 
 5. [Load the index with documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) from an external source. You can also use this API if you are refreshing an existing, unchanged index schema with updated documents.
 
-When you create the index, physical storage is allocated for each field in the index schema, with an inverted index created for each searchable field. Fields are that not searchable can be used in filters or expressions, but do not have inverted indexes and are not full-text searchable. On an index rebuild, these inverted indexes are deleted and recreated based on the index schema you provide.
+When you create the index, physical storage is allocated for each field in the index schema, with an inverted index created for each searchable field. Fields that are not searchable can be used in filters or expressions, but do not have inverted indexes and are not full-text or fuzzy searchable. On an index rebuild, these inverted indexes are deleted and recreated based on the index schema you provide.
 
 When you load the index, each field's inverted index is populated with all of the unique, tokenized words from each document, with a map to corresponding document IDs. For example, when indexing a hotels data set, an inverted index created for a City field might contain terms for Seattle, Portland, and so forth. Documents that include Seattle or Portland in the City field would have their document ID listed alongside the term. On any [Add, Update or Delete](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) operation, the terms and document ID list are updated accordingly.
 

@@ -47,7 +47,7 @@ Alias records remove the complexity associated with this scenario. They help to 
 
 ### Update DNS zones automatically when application IPs change
 
-This scenario is similar to the previous one. Perhaps an application is moved, or the underlying virtual machine is restarted. An alias record then updates automatically when the IP address changes for the underlying public IP resource. To avoid potential security risks, direct users to another application that has the old IP address.
+This scenario is similar to the previous one. Perhaps an application is moved, or the underlying virtual machine is restarted. An alias record then updates automatically when the IP address changes for the underlying public IP resource. This avoids potential security risks of directing users to another application that has the old IP address.
 
 ### Host load-balanced applications at the zone apex
 

@@ -11,9 +11,9 @@ Open **Build Settings** by selecting **File** -> **Build Settings**.
 
 In the **Platform** section, select **Android**. Then, change the **Build System** to **Gradle** and check the **Export Project** option.
 
-Select **Switch Platform** to change the platform to **Android**.
+Select **Switch Platform** to change the platform to **Android**. Unity may ask you to install Android support components if they're missing.
 
-![Unity Build Settings](./media/spatial-anchors-unity/unity-build-settings.png)
+![Unity Build Settings](./media/spatial-anchors-unity/unity-android-build-settings.png)
 
 Close the **Build Settings** window.
 

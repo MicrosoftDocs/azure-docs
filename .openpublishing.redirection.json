@@ -1,6 +1,21 @@
 {
     "redirections": [
         {
+          "source_path": "articles/machine-learning/studio/troubleshooting-retraining-models.md",
+          "redirect_url": "/azure/machine-learning/studio/retrain-classic-web-service",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/machine-learning/studio/retrain-existing-resource-manager-based-web-service.md",
+          "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/service-bus-messaging/service-bus-paired-namespaces.md",
+          "redirect_url": "/azure/service-bus-messaging/service-bus-outages-disasters",
+          "redirect_document_id": false
+        },
+        {
           "source_path": "articles/machine-learning/studio/retrain-models-programmatically.md",
           "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
           "redirect_document_id": false
@@ -9,11 +24,6 @@
           "source_path": "articles/machine-learning/studio/retrain-new-web-service-using-powershell.md",
           "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
           "redirect_document_id": false
-        },
-        {
-          "source_path": "articles/machine-learning/studio/retrain-a-classic-web-service.md",
-          "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
-          "redirect_document_id": true
         },
         {
           "source_path": "articles/machine-learning/studio/walkthrough-develop-predictive-solution.md",
@@ -643,6 +653,71 @@
       "source_path": "articles/cognitive-services/Custom-Speech-Service/CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/emotion-api-how-to-topics/HowtoAnalyzeVideo_Emotion.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/emotion-api-how-to-topics/HowtoCallEmotionForVideo.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/CSharp.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/curl.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/Java.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/JavaScript.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/PHP.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/Python.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/Ruby.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/Tutorials/CSharpTutorial.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/Tutorials/PythonTutorial.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/FAQ.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/Home.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-deploy-to-aks.md",
@@ -2201,7 +2276,7 @@
     },
     {
       "source_path": "articles/virtual-machines/linux/dockerextension-nodejs.md",
-      "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+      "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
       "redirect_document_id": false
     },
     {
@@ -11828,6 +11903,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure/machine-learning/studio/faq.md",
+      "redirect_url": "/azure/machine-learning/studio/what-is-ml-studio",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/studio/whats-new.md",
       "redirect_url": "https://azure.microsoft.com/updates/?product=machine-learning-studio",
       "redirect_document_id": false
@@ -12083,6 +12163,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/how-to-deploy-to-multiple-regions.md",
+      "redirect_url": "/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-data-science-import-data.md",
       "redirect_url": "/azure/machine-learning/studio/import-data",
       "redirect_document_id": false
@@ -12179,12 +12264,12 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-retrain-a-classic-web-service.md",
-      "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
+      "redirect_url": "/azure/machine-learning/studio/retrain-classic-web-service",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/machine-learning/machine-learning-retrain-existing-resource-manager-based-web-service.md",
-      "redirect_url": "/azure/machine-learning/studio/retrain-existing-resource-manager-based-web-service",
+      "redirect_url": "/azure/machine-learning/studio/retrain-machine-learning-model",
       "redirect_document_id": false
     },
     {
@@ -12218,6 +12303,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/studio/scaling-webservice.md",
+      "redirect_url": "/azure/machine-learning/studio/create-endpoint#scaling",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/machine-learning-studio-overview-diagram.md",
       "redirect_url": "/azure/machine-learning/studio/studio-overview-diagram",
       "redirect_document_id": false
@@ -12239,7 +12329,7 @@
     },
     {
       "source_path": "articles/machine-learning/machine-learning-troubleshooting-retraining-models.md",
-      "redirect_url": "/azure/machine-learning/studio/troubleshooting-retraining-models",
+      "redirect_url": "/azure/machine-learning/studio/retrain-classic-web-service",
       "redirect_document_id": false
     },
     {
@@ -17816,7 +17906,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-cli-use-docker.md",
-      "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+      "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
       "redirect_document_id": false
     },
     {
@@ -17946,7 +18036,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-classic-portal-use-docker.md",
-      "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+      "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
       "redirect_document_id": false
     },
     {
@@ -18261,12 +18351,12 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-dockerextension-nodejs.md",
-      "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+      "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-dockerextension.md",
-      "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+      "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
       "redirect_document_id": false
     },
     {
@@ -26839,6 +26929,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/bing-web-search-resource-faq.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/search-responses",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Web-Search/sdk.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/sdk-samples",
       "redirect_document_id": true
@@ -29079,6 +29174,56 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/linux/about-disks-and-vhds.md",
+      "redirect_url": "/azure/virtual-machines/linux/managed-disks-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/about-disks-and-vhds.md",
+      "redirect_url": "/azure/virtual-machines/windows/managed-disks-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/premium-storage.md",
+      "redirect_url": "/azure/virtual-machines/windows/disks-types#premium-ssd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/premium-storage.md",
+      "redirect_url": "/azure/virtual-machines/linux/disks-types#premium-ssd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-standard-ssd.md",
+      "redirect_url": "/azure/virtual-machines/linux/disks-types#standard-ssd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-standard-ssd.md",
+      "redirect_url": "/azure/virtual-machines/windows/disks-types#standard-ssd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/disks-ultra-ssd.md",
+      "redirect_url": "/azure/virtual-machines/windows/disks-types#ultra-disks-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/disks-ultra-ssd.md",
+      "redirect_url": "/azure/virtual-machines/linux/disks-types#ultra-disks-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/standard-storage.md",
+      "redirect_url": "/azure/virtual-machines/windows/disks-types#standard-hdd",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/standard-storage.md",
+      "redirect_url": "/azure/virtual-machines/linux/disks-types#standard-hdd",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/sql/index.md",
       "redirect_url": "/azure/virtual-machines/linux/sql/sql-server-linux-virtual-machines-overview",
       "redirect_document_id": false
@@ -30896,12 +31041,17 @@
     },
     {
       "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
-      "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+      "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/linux/classic/portal-use-docker.md",
-      "redirect_url": "/azure/virtual-machines/linux/dockerextension",
+      "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
+      "redirect_document_id": false
+    },
+	   {
+      "source_path": "articles/virtual-machines/linux/dockerextension.md",
+      "redirect_url": "https://github.com/Azure/azure-docker-extension/blob/master/README.md",
       "redirect_document_id": false
     },
     {
@@ -31336,12 +31486,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-cortana-prebuilt-app.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/cognitive-services/LUIS/luis-reference-cortana-prebuilt.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
+      "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting#does-luis-currently-support-cortana",
       "redirect_document_id": true
     },
     {
@@ -33429,6 +33574,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/data-explorer/spark-integration.md",
+      "redirect_url": "/azure/data-explorer/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/openshift-origin.md",
       "redirect_url": "/azure/virtual-machines/linux/openshift-get-started",
       "redirect_document_id": false
@@ -35329,17 +35479,17 @@
 	"redirect_document_id": true },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-find-region-csharp.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#how-do-i-programmatically-get-the-luis-region-of-a-resource",
+      "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting#how-do-i-programmatically-get-the-luis-region-of-a-resource",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-find-region-nodejs.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#how-do-i-programmatically-get-the-luis-region-of-a-resource",
+      "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting#how-do-i-programmatically-get-the-luis-region-of-a-resource",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-manage-from-cloud-shell.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#is-there-a-powershell-command-to-the-endpoint-quota",
+      "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting#is-there-a-powershell-command-to-the-endpoint-quota",
       "redirect_document_id": true
     },
     {
@@ -35754,6 +35904,15 @@
     {
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-remote-desktop.md",
       "redirect_url": "/azure/hdinsight/hadoop/apache-hadoop-use-pig-ssh",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-reference-faq.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
+      "redirect_document_id": true
+    },{
+      "source_path": "articles/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization.md",
+      "redirect_url": "/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
       "redirect_document_id": false
     }
   ]
