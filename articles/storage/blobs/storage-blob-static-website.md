@@ -105,7 +105,7 @@ Methods available for deploying content to a storage container include the follo
 
 - [AzCopy](../common/storage-use-azcopy.md)
 - [Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
-- [Azure Pipelines](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
+- [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 - [Visual Studio Code extension](https://code.visualstudio.com/tutorials/static-website/getting-started)
 
 In all cases, make sure you copy files to the *$web* container.

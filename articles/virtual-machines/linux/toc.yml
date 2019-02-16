@@ -98,20 +98,13 @@
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Disk storage
-    href: about-disks-and-vhds.md
     items:
-    - name: Managed Disks
+    - name: Introduction to managed disks
       href: managed-disks-overview.md
-    - name: Premium SSDs
-      href: premium-storage.md
-    - name: Standard SSDs
-      href: disks-standard-ssd.md
-    - name: Ultra SSDs
-      href: disks-ultra-ssd.md
-    - name: Premium storage performance
+    - name: Select a disk type for IaaS VMs
+      href: disks-types.md
+    - name: Designing for high performance
       href: premium-storage-performance.md
-    - name: Standard storage
-      href: standard-storage.md
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
@@ -427,6 +420,8 @@
         href: add-disk.md
       - name: Azure portal
         href: attach-disk-portal.md
+    - name: Benchmark a disk
+      href: disks-benchmarks.md
     - name: Detach a disk
       href: detach-disk.md
     - name: Resize a disk
@@ -451,7 +446,7 @@
       href: using-managed-disks-template-deployments.md
     - name: Using write accelerator
       href: how-to-enable-write-accelerator.md
-    - name: Enable Ultra SSD
+    - name: Enable ultra disks
       href: disks-enable-ultra-ssd.md
     - name: Optimize performance
       href: optimization.md
