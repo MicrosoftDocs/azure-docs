@@ -9,10 +9,10 @@ cloud: azure-stack
 
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 09/05/2018
+ms.lastreviewed: 02/15/2019
 ---
 
 # Use the ASDK to validate an Azure Stack backup
@@ -49,11 +49,11 @@ Before starting a cloud recovery deployment of the ASDK, ensure that you have th
 
 |Prerequisite|Description|
 |-----|-----|
-|Backup share path.|The UNC file share path of the latest Azure Stack backup that will be used to recover Azure Stack infrastructure information. This local share will be created during the cloud recovery deployment process.|
-|Backup encryption key.|The encryption key that was used to schedule infrastructure backup to run using the Azure Stack administration portal.|
-|Backup ID to restore.|The backup ID, in the alphanumeric form of "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", that identifies the backup to be restored during cloud recovery.|
-|Time server IP.|A valid time server IP, such as 132.163.97.2, is required for Azure Stack deployment.|
-|External certificate password.|The password for the external certificate used by Azure Stack. The CA backup contains external certificates that need to be restored with this password.|
+|Backup share path|The UNC file share path of the latest Azure Stack backup that will be used to recover Azure Stack infrastructure information. This local share will be created during the cloud recovery deployment process.|
+|Backup encryption key|Optional. Only required if you have upgraded to Azure Stack version 1901 or later from a previous version of Azure Stack with backup enabled.|
+|Backup ID to restore|The backup ID, in the alphanumeric form of "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", that identifies the backup to be restored during cloud recovery.|
+|Time server IP|A valid time server IP, such as 132.163.97.2, is required for Azure Stack deployment.|
+|External certificate password|The password for the self-signed certificate's private key (.pfx) that was used to secure the backup.|
 |     |     | 
 
 ## Prepare the host computer 
@@ -130,11 +130,12 @@ $certPass = Read-Host -AsSecureString
 ## Restore infrastructure data from backup
 After a successful cloud recovery deployment, you need to complete the restore using the **Restore-AzureStack** cmdlet. 
 
-After logging in as the Azure Stack operator, [install Azure Stack PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) and then, substituting your Backup ID for the `Name` parameter, run the following command:
+After logging in as the Azure Stack operator, [install Azure Stack PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) and run the following commands to specify the certificate and password to be used when restoring from backup:
 
 ```powershell
 Restore-AzsBackup -Name "<BackupID>"
 ```
+
 Wait 60 minutes after calling this cmdlet to start verification of backup data on the cloud recovered ASDK.
 
 ## Next steps

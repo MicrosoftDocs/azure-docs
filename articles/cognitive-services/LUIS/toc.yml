@@ -9,6 +9,10 @@
   items:
   - name: Build prebuilt domain app
     href: luis-get-started-create-app.md
+  - name: Use .NET SDK
+    items: 
+    - name: Query prediction endpoint
+      href: sdk-csharp-quickstart-query-prediction-endpoint.md
   - name: Use REST APIs
     items:
     - name: Get intent
@@ -374,8 +378,8 @@
     href: https://aka.ms/luis-roadmap
   - name: Glossary
     href: luis-glossary.md
-  - name: FAQ
-    href: luis-resources-faq.md
+  - name: Troubleshooting
+    href: troubleshooting.md
   - name: Pricing and limits 
     href: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/
   - name: Stack Overflow
