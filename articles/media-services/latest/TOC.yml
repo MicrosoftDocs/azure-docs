@@ -64,9 +64,11 @@
       items:
       - name: Multi-DRM system with access control
         href: design-multi-drm-system-with-access-control.md        
-    - name: Streaming Endpoints/Origins
+    - name: Streaming Endpoints
+      displayName: Origins
       href: streaming-endpoint-concept.md
-    - name: Streaming Locators/URLs
+    - name: Streaming Locators
+      displayName: URLs
       href: streaming-locators-concept.md
     - name: Streaming Policies
       href: streaming-policy-concept.md  
