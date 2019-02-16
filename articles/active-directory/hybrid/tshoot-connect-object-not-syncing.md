@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 # Troubleshoot an object that is not synchronizing with Azure Active Directory
 
@@ -65,7 +66,7 @@ The **Operations** tab in Synchronization Service Manager is where you should st
 
 The top half of the **Operations** tab shows all runs in chronological order. By default, the operations log keeps information about the last seven days, but this setting can be changed with the [scheduler](how-to-connect-sync-feature-scheduler.md). Look for any run that does not show a **success** status. You can change the sorting by clicking the headers.
 
-The **Status** column contains the most important information and shows the most severe problem for a run. Here is a quick summary of the most common statuses in order of investigation priority (where * indicates several possible error strings).
+The **Status** column contains the most important information and shows the most severe problem for a run. Here's a quick summary of the most common statuses in order of investigation priority (where * indicates several possible error strings).
 
 | Status | Comment |
 | --- | --- |
@@ -149,7 +150,7 @@ In the preview you can inspect the object and see which rule applied for a parti
 Next to the **Preview** button, select the **Log** button to open the **Log** page. Here you can see the password sync status and history. For more information, see [Troubleshoot password hash synchronization with Azure AD Connect sync](tshoot-connect-password-hash-synchronization.md).
 
 ## Metaverse object properties
-It is usually better to start a search from the source Active Directory [connector space](#connector-space-object-properties). But you can also start searching from the metaverse.
+It's usually better to start searching from the source Active Directory connector space. But you can also start searching from the metaverse.
 
 ### Searching for an object in the MV
 In Synchronization Service Manager, select **Metaverse Search**, as in the following figure. Create a query that you know finds the user. Search for common attributes, such as **accountName** (**sAMAccountName**) and **userPrincipalName**. For more information, see [Sync Service Manager Metaverse search](how-to-connect-sync-service-manager-ui-mvsearch.md).
@@ -169,7 +170,7 @@ View each rule in the list from above and check the **Scoping filter**. In the f
 
   ![Screenshot of a scoping filter in an inbound synchronization rule search](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
 
-Go to the [CS Import](#cs-import) attribute list and check which filter is blocking the object from moving to the MV. The **Connector Space** attribute list will show only non-null and non-empty attributes. For example, if **isCriticalSystemObject** is not showing up in the list, the value of this attribute is null or empty.
+Go to the [CS Import](#cs-import) attribute list and check which filter is blocking the object from moving to the MV. The **Connector Space** attribute list will show only non-null and non-empty attributes. For example, if **isCriticalSystemObject** doesn't show up in the list, the value of this attribute is null or empty.
 
 ### Object not found in the Azure AD CS
 If the object is not present in the connector space of Azure AD but is present in the MV, look at the scoping filter of the outbound rules of the corresponding connector space, and find out if the object is filtered out because the [MV attributes](#mv-attributes) don't meet the criteria.
@@ -198,11 +199,10 @@ You should have a connector to:
 - Each Active Directory forest the user is represented in. This representation can include **foreignSecurityPrincipals** and **Contact** objects.
 - A connector in Azure AD.
 
-If you are missing the connector to Azure AD, review the section on [MV attributes](#mv-attributes) to verify the criteria for provisioning to Azure AD.
+If you're missing the connector to Azure AD, review the section on [MV attributes](#mv-attributes) to verify the criteria for provisioning to Azure AD.
 
-The **Connectors** tab also allows you to go to the [connector space object](#connector-space-object-properties). Select a row and click **Properties**.
+From the **Connectors** tab you can also go to the [connector space object](#connector-space-object-properties). Select a row and click **Properties**.
 
 ## Next steps
-Learn more about the [Azure AD Connect sync](how-to-connect-sync-whatis.md) configuration.
-
-Learn more about [integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
+- Learn more about [Azure AD Connect sync](how-to-connect-sync-whatis.md).
+- Learn more about [hybrid identity](whatis-hybrid-identity.md).

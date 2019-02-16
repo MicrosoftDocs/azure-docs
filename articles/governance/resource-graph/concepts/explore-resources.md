@@ -39,12 +39,13 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1" | ConvertTo-Json
+Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit 1" | ConvertTo-Json -Depth 100
 ```
 
 > [!NOTE]
 > The Azure PowerShell `Search-AzGraph` cmdlet returns a **PSCustomObject** by default. To have the
-> output look the same as what is returned by Azure CLI, the `ConvertTo-Json` cmdlet is used.
+> output look the same as what is returned by Azure CLI, the `ConvertTo-Json` cmdlet is used. The
+> default value for **Depth** is _2_. Setting it to _100_ should convert all returned levels.
 
 The JSON results are structured similar to the following example:
 

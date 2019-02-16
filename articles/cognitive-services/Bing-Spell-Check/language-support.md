@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: A list of natural languages supported by the Bing Spell Check API.
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-spell-check

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to create a language model with Speech Service. Use this custom language model in conjunction with existing state-of-the-art speech models from Microsoft to add voice interaction to your application.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial

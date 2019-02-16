@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Setup for Visual search SDK Python console application.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search

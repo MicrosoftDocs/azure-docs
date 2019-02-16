@@ -12,10 +12,10 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/07/2019
 ---
 
-# The Azure SQL Database service
+# What is Azure SQL Database service?
 
 SQL Database is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database delivers dynamically scalable performance within two different purchasing models: a vCore-based purchasing model and a DTU-based purchasing model. SQL Database also provides options such as [columnstore indexes](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) for extreme analytic analysis and reporting, and [in-memory OLTP](sql-database-in-memory.md) for extreme transactional processing. Microsoft handles all patching and updating of the SQL code base seamlessly and abstracts away all management of the underlying infrastructure.
 
@@ -62,10 +62,10 @@ Dynamic scalability is different from autoscale. Autoscale is when a service sca
 SQL Database offers two purchasing models:
 
 - The [DTU-based purchasing model](sql-database-service-tiers-dtu.md) offers a blend of compute, memory, IO resources in three service tiers to support lightweight to heavyweight database workloads. Compute sizes within each tier provide a different mix of these resources, to which you can add additional storage resources.
-- The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) lets you choose the number of vCores, the amount or memory, and the amount and speed of storage.
+- The [vCore-based purchasing model](sql-database-service-tiers-vcore.md) lets you choose the number of vCores, the amount or memory, and the amount and speed of storage. The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) to gain cost savings. For more information about the Azure Hybrid Benefit, see [Frequently asked questions](#sql-database-frequently-asked-questions-faq).
 
   > [!IMPORTANT]
-  > The [hyperscale service tier](sql-database-service-tier-hyperscale.md) is currently in public preview. We don't recommend running any production workload in hyperscale databases yet. You can't update a hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database and update the copy to hyperscale service tier.
+  > The [hyperscale service tier](sql-database-service-tier-hyperscale.md) for single databases is currently in public preview. We don't recommend running any production workload in hyperscale databases yet. You can't update a hyperscale database to other service tiers. For test purpose, we recommend you make a copy of your current database and update the copy to hyperscale service tier.
 
 ### Elastic pools to maximize resource utilization
 
@@ -190,6 +190,41 @@ SQL Database makes building and maintaining applications easier and more product
   A free, downloadable, open-source, code editor for Windows, macOS, and Linux that supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and SQL Data Warehouse.
 
 SQL Database supports building applications with Python, Java, Node.js, PHP, Ruby, and .NET on the MacOS, Linux, and Windows. SQL Database supports the same [connection libraries](sql-database-libraries.md) as SQL Server.
+
+## SQL Database frequently asked questions (FAQ)
+
+### What is the current version of SQL Database
+
+The current version of SQL Database is V12. Version V11 has been retired.
+
+### Can I control when patching downtime occurs
+
+No. The impact of patching is generally not noticeable if you [employ retry logic](sql-database-develop-overview.md#resiliency) in your app. For more information about how to prepare for planned maintenance events on your Azure SQL database, see [planning for Azure maintenance events in Azure SQL Database](sql-database-planned-maintenance.md).
+
+### Azure Hybrid Benefit questions
+
+#### Are there dual-use rights with Azure Hybrid Benefit for SQL Server
+
+You have 180 days of dual use rights of the license to ensure migrations are running seamlessly. After that 180-day period, the SQL Server license can only be used in the cloud in SQL Database, and does not have dual use rights on-premises and in the cloud.
+
+#### How does Azure Hybrid Benefit for SQL Server differ from license mobility
+
+Today, we offer license mobility benefits to SQL Server customers with Software Assurance that allows re-assignment of their licenses to third-party shared servers. This benefit can be used on Azure IaaS and AWS EC2.
+Azure Hybrid Benefit for SQL Server differs from license mobility in two key areas:
+
+- It provides economic benefits for moving highly virtualized workloads to Azure. SQL EE customers can get 4 cores in Azure in the General Purpose SKU for every core they own on-premises for highly virtualized applications. License mobility does not allow any special cost benefits for moving virtualized workloads to the cloud.
+- It provides for a PaaS destination on Azure (SQL Database Managed Instance) that is highly compatible with SQL Server on-premises
+
+#### What are the specific rights of the Azure Hybrid Benefit for SQL Server
+
+SQL Database customers will have the following rights associated with Azure Hybrid Benefit for SQL Server:
+
+|License Footprint|What does Azure Hybrid Benefit for SQL Server Get You?|
+|---|---|
+|SQL Server Enterprise Edition core customers with SA|<li>Can pay Base Rate on either General Purpose or Business Critical SKU</li><br><li>1 core on-premises = 4 cores in General Purpose SKU</li><br><li>1 core on-premises = 1 core in Business Critical SKU</li>|
+|SQL Server Standard Edition core customers with SA|<li>Can pay Base Rate on General Purpose SKU only</li><br><li>1 core on-premises = 1 core in General Purpose SKU</li>|
+|||
+
 
 ## Engage with the SQL Server engineering team
 

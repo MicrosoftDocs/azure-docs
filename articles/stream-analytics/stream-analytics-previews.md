@@ -26,14 +26,6 @@ Azure Stream Analytics supports Azure SQL Database as a source of input for refe
 
 You can scale Stream Analytics jobs with Machine Learning (ML) functions. To learn more about how you can use ML functions in your Stream Analytics job, visit [Scale your Stream Analytics job with Azure Machine Learning functions](stream-analytics-scale-with-machine-learning-functions.md). Check out a real-world scenario with [Performing sentiment analysis by using Azure Stream Analytics and Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md).
 
-### Blob output partitioning by custom time
-
-Azure Stream Analytics can output to blob storage based on custom time attributes. For more information, visit [Azure Stream Analytics custom blob output partitioning](stream-analytics-custom-path-patterns-blob-storage-output.md).
-
-### Blob output partitioning by field or attribute
-
-Azure Stream Analytics can output to blob storage based on custom fields or attributes. For more information, visit [Azure Stream Analytics custom blob output partitioning](stream-analytics-custom-path-patterns-blob-storage-output.md).
-
 ### JavaScript user-defined aggregate
 
 Azure Stream Analytics supports user-defined aggregates (UDA) written in JavaScript, which enable you to implement complex stateful business logic. Learn how to use UDAs from the [Azure Stream Analytics JavaScript user-defined aggregates](stream-analytics-javascript-user-defined-aggregates.md) documentation. 

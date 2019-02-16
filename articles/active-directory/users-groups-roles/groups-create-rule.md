@@ -15,6 +15,7 @@ ms.author: curtand
 ms.reviewer: krbain
 
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Create a dynamic group and check status

@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to recognize intents from speech from a file or a microphone by using the Speech SDK for Java.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service

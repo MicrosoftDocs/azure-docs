@@ -14,6 +14,7 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
+ms.collection: M365-identity-device-management
 ---
 
 # Set up my account for two-step verification
@@ -102,4 +103,4 @@ If you want to add an account to the mobile app manually, instead of using the Q
 ## Next steps
 * Change your preferred options and [manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md)
 * Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for native device apps that don't support two-step verification.
-* Check out the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) for fast, secure authentication even when you don't have cell service.
+* Check out the [Microsoft Authenticator app](user-help-auth-app-download-install.md) for fast, secure authentication even when you don't have cell service.
