@@ -242,6 +242,16 @@ This document describes the criteria that are used to validate that Office Add-i
 |14.17|Apps that depend on external accounts or services must provide a clear and simple sign-in/sign-out and sign-up experience. Microsoft Teams apps that depend on authentication to an external service to allow content sharing in channels must clearly state in their help documentation (or similar location) how a user can disconnect or unshare any shared content (if the same feature is supported on the external service). The ability to unshare this content does not have to be present in the Microsoft Teams app, but the process should be clearly documented, and the documentation should be accessible from within the app.|
 |14.18| To help to ensure the security of your app and users, domains outside of your organization's control (including wildcards) and tunneling services cannot be included in the valid domains in your manifest.
 
+## 15. Add-ins with Excel Custom Functions
+<a name="bk_15"> </a>
+
+|Policy number|Description|
+|:-----|:-----|
+|15.1| Your add-in that contains custom functions should contain an add-in command as well.|
+|15.2| Your [custom functions metadata](https://docs.microsoft.com/en-us/office/dev/add-ins/excel/custom-functions-json) should have the `helpUrl` property set.|
+|15.3| To help to ensure the security of your app and users, your custom functions html, javascript and JSON metadata files mst be hosted on the same domain. |
+|15.4| To help to ensure that your end user's Excel workbooks continue to work, if you add the `EquivalentAddins` tag to your manifest, this will cause your Custom Functions to save in XLL-compatiblle mode. Once set, you will not be able to remove this tag on upgrade of your add-in. Doing so will cause your add-in to fail re-submission, unless an exception is explicitly granted. |
+
 ## Conclusion
 <a name="bk_conclusion"> </a>
 
