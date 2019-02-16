@@ -32,10 +32,10 @@ The following code snippet creates the storage account:
 ```cli
 # Create the storage account
 # example: az storage account create -n 'cloudwitness' -g SQLVM-RG -l 'West US' `
-#--sku Standard_LRS --kind StorageV2 --access-tier Hot --https-only true
+#  --sku Standard_LRS --kind StorageV2 --access-tier Hot --https-only true
 
 az storage account create -n <name> -g <resource group name> -l <region ex:eastus> `
---sku Standard_LRS --kind StorageV2 --access-tier Hot --https-only true
+  --sku Standard_LRS --kind StorageV2 --access-tier Hot --https-only true
 ```
 
    >[!TIP]
@@ -55,7 +55,7 @@ The following code snippet defines the metadata for the cluster:
 az sql vm group create -n <cluster name> -l <region ex:eastus> -g <resource group name> `
   --image-offer <SQL2016-WS2016 or SQL2017-WS2016> --image-sku Enterprise --domain-fqdn <FQDN ex: domain.com> `
   --operator-acc <domain account ex: testop@domain.com> --bootstrap-acc <domain account ex:bootacc@domain.com> `
-  --service-acc <service account ex:testservice@domain.com> --sa-key '<PublicKey>' --storage-account '<ex:https://cloudwitness.blob.core.windows.net/>'
+  --service-acc <service account ex: testservice@domain.com> --sa-key '<PublicKey>' --storage-account '<ex:https://cloudwitness.blob.core.windows.net/>'
 ```
 
 ## Add SQL Server VMs to cluster
