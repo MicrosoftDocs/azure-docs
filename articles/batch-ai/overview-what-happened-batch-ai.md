@@ -24,7 +24,7 @@ Along with many other machine learning capabilities, the Azure Machine Learning 
 | March&nbsp;31&#x2c;&nbsp;2019 | After this date, existing Batch AI subscriptions will no longer work. |
 
 ## How does Azure Machine Learning service compare?
-It is a cloud service that you use to train, deploy, automate, and manage machine learning models, all at the broad scale that the cloud provides. Get a high level understanding of the [Azure Machine Learning service in this overview](../machine-learning/service/overview-what-is-azure-ml.md).
+It is a cloud service that you use to train, deploy, automate, and manage machine learning models, all at the broad scale that the cloud provides. Get a high-level understanding of the [Azure Machine Learning service in this overview](../machine-learning/service/overview-what-is-azure-ml.md).
  
 
 A typical model development lifecycle involves Data Preparation, Training & Experimentation and a Deployment phase. This end to end cycle can be orchestrated by using Machine Learning pipelines.
@@ -58,11 +58,11 @@ Azure Machine Learning service brings a great set of new functionalities includi
 |Feature|BatchAI service|Azure Machine Learning service|
 |-------|:-------:|:-------:|
 |VM size choice	|CPU/GPU	|CPU/GPU. Also supports FPGA for inferencing|
-|AI ready Cluster (Drivers, Docker, etc)|	Yes	|Yes|
+|AI ready Cluster (Drivers, Docker, etc.)|	Yes	|Yes|
 |Node Prep|	Yes|	No|
 |OS family Choice	|Partial	|No|
 |Dedicated and LowPriority VMs	|Yes	|Yes|
-|AutoScaling	|Yes	|Yes (by default)|
+|Auto-Scaling	|Yes	|Yes (by default)|
 |Wait time for autoscaling	|No	|Yes|
 |SSH	|Yes|	Yes|
 |Cluster level Mounting	|Yes (FileShares, Blobs, NFS, Custom)	|Yes (mount or download your datastore)|
@@ -101,7 +101,7 @@ This table presents the various programming interfaces available for each servic
 |-------|:-------:|:-------:|
 |SDK	|Java, C#, Python, Nodejs	|Python (both run config based and estimator based for common frameworks)|
 |CLI	|Yes	|No (coming soon)|
-|Azure Portal	|Yes	|Yes (except job submission)|
+|Azure portal	|Yes	|Yes (except job submission)|
 |REST API	|Yes	|Yes but distributed across microservices (coming soon)|
 
 
@@ -109,9 +109,9 @@ This table presents the various programming interfaces available for each servic
 
 ## Why migrate?
 
-Upgrading from the Preview BatchAI service to the GA'ed Azure Machine Learning service gives you a better experience through concepts that are easier to use such as Estimators and Datastores. It also guarantees GA level Azure service SLA’s and customer support.
+Upgrading from the Preview BatchAI service to the GA'ed Azure Machine Learning service gives you a better experience through concepts that are easier to use such as Estimators and Datastores. It also guarantees GA level Azure service SLAs and customer support.
 
-Azure Machine Learning service also brings in new functionality such as Automated ML, Hyperparameter Tuning and ML Pipelines, which are extremely useful in most large scale AI workloads. The ability to operationalize a trained model without switching to a separate service helps complete the data science loop from data preparation (using the Data Prep SDK) all the way to operationalization and model monitoring.
+Azure Machine Learning service also brings in new functionality such as Automated ML, Hyperparameter Tuning, and ML Pipelines, which are useful in most large-scale AI workloads. The ability to operationalize a trained model without switching to a separate service helps complete the data science loop from data preparation (using the Data Prep SDK) all the way to operationalization and model monitoring.
 
 <a name="migrate"></a>
 
@@ -171,7 +171,7 @@ print('Workspace name: ' + ws.name,
       'Resource group: ' + ws.resource_group, sep = '\n')
 ```
 
-In addition you can also create a Workspace directly by specifying the configuration parameters like
+In addition, you can also create a Workspace directly by specifying the configuration parameters like
 from azureml.core import Workspace
 
 ```python
@@ -282,7 +282,7 @@ More information on registering additional storage accounts, or getting a refere
 
 
 #### Downloading and Uploading data 
-In the case of either service you can upload the data into the storage account easily using the datastore reference from above. In the case of BatchAI we also deploy the training script as part of the fileshare, although you will see how you can specify it as part of your job configuration in the case of Azure ML.
+With either service, you can upload the data into the storage account easily using the datastore reference from above. For BatchAI, we also deploy the training script as part of the fileshare, although you will see how you can specify it as part of your job configuration in the case of Azure ML.
 
 For Batch AI, you did it this way:
 
@@ -315,7 +315,7 @@ path_on_datastore = ' mnist_dataset/mnist.npz' ds_data = ds.path(path_on_datasto
 ```
 
 #### Create an experiment
-As mentioned above Azure ML has a concept of an experiment very similar to BatchAI. Each experiment can then have individual runs, similar to how we have jobs in BatchAI. Azure ML also allows you to have hierarchy under each parent run, for individual child runs.
+As mentioned above Azure ML has a concept of an experiment similar to BatchAI. Each experiment can then have individual runs, similar to how we have jobs in BatchAI. Azure ML also allows you to have hierarchy under each parent run, for individual child runs.
 
 For Batch AI, you did it this way:
 
@@ -335,7 +335,7 @@ experiment = Experiment(ws, name=experiment_name)
 
 
 #### Submit a job
-Once you create an experiment, you have a few different ways of submitting a run. In this example we are trying to create a deep learning model using TensorFlow and will use an Azure ML Estimator to do that. An Estimator is simply a wrapper function on the underlying run configuration which makes it easier to submit runs, and is currently supported for Pytorch and TensorFlow only. Through the concept of datastores, you will also see how easy it becomes to specify the mount paths 
+Once you create an experiment, you have a few different ways of submitting a run. In this example, we are trying to create a deep learning model using TensorFlow and will use an Azure ML Estimator to do that. An Estimator is simply a wrapper function on the underlying run configuration, which makes it easier to submit runs, and is currently supported for Pytorch and TensorFlow only. Through the concept of datastores, you will also see how easy it becomes to specify the mount paths 
 
 For Batch AI, you did it this way:
 
@@ -442,7 +442,7 @@ print(run)
 There is another way of specifying parameters for your run, using a run config – especially useful for defining a custom training environment. You can find more details in this notebook example here. 
 
 #### Monitor your run
-Once you submit a run you can either wait for it to complete or monitor it in Azure ML using neat Jupyter widgets that you can invoke directly from your code. You can also pull context of any previous run by simply looping through the various experiments in a workspace, and the individual runs within each experiment.
+Once you submit a run, you can either wait for it to complete or monitor it in Azure ML using neat Jupyter widgets that you can invoke directly from your code. You can also pull context of any previous run by looping through the various experiments in a workspace, and the individual runs within each experiment.
 
 For Batch AI, you did it this way:
 
@@ -472,7 +472,7 @@ Here is a snapshot of how the widget would load in your notebook for looking at 
 
 
 #### Delete a cluster
-Deleting a cluster is pretty straightforward. In addition Azure ML also allows you to update a cluster from within the notebook in case you want to scale it to a higher number of nodes or increase the idle wait time before scaling down the cluster. Note that we don’t allow you to change the VM size of the cluster itself, since it requires a new deployment effectively in the backend.
+Deleting a cluster is straightforward. In addition, Azure ML also allows you to update a cluster from within the notebook in case you want to scale it to a higher number of nodes or increase the idle wait time before scaling down the cluster. We don’t allow you to change the VM size of the cluster itself, since it requires a new deployment effectively in the backend.
 
 For Batch AI, you did it this way:
 ```python
@@ -489,11 +489,11 @@ gpu_cluster.update(min_nodes=2, max_nodes=4, idle_seconds_before_scaledown=600)
 
 ## Support
 
-BatchAI is slated to retire on March 31 and is already blocking new subscriptions from registering against the service unless it is whitelisted by raising an exception through support.  Please reach out to Azure Batch AI Training Preview AzureBatchAITrainingPreview@service.microsoft.com in case of any questions or if you have feedback as you migrate to Azure Machine Learning service.
+BatchAI is slated to retire on March 31 and is already blocking new subscriptions from registering against the service unless it is whitelisted by raising an exception through support.  Reach out to Azure Batch AI Training Preview AzureBatchAITrainingPreview@service.microsoft.com with any questions or if you have feedback as you migrate to Azure Machine Learning service.
 
-Azure Machine Learning service is a generally available service. This means that it comes with a committed SLA and various support plans to choose from.
+Azure Machine Learning service is a generally available service. This means that it comes with a committed SLA and various supports plans to choose from.
 
-Pricing for using Azure infrastructure  either through the BatchAI service or through the Azure Machine Learning service should not vary, as we only charge the price for the underlying compute in both cases. For more information see the [pricing calculator](https://azure.microsoft.com/pricing/details/machine-learning-service/).
+Pricing for using Azure infrastructure  either through the BatchAI service or through the Azure Machine Learning service should not vary, as we only charge the price for the underlying compute in both cases. For more information, see the [pricing calculator](https://azure.microsoft.com/pricing/details/machine-learning-service/).
 
 Regional availability between the two services can be viewed here: https://azure.microsoft.com/global-infrastructure/services/?products=batch-ai,machine-learning-service&regions=all.
 
