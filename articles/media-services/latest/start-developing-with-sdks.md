@@ -40,7 +40,7 @@ Azure Media Services supports the following SDKs/tools
 - [.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)
 - [Java SDK](https://aka.ms/ams-v3-java-sdk)
 - [Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)
-- [Python ref](https://aka.ms/ams-v3-python-ref) 
+- [Python SDK](https://aka.ms/ams-v3-python-sdk)
 - [Go SDK](https://aka.ms/ams-v3-go-sdk)
 - [Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)
 
