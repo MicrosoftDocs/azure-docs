@@ -310,7 +310,7 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 }
 ```
 
-For a complete example, see [C# example](#c-example).
+For a complete example, see C# example.
 
 ## Configuration
 
