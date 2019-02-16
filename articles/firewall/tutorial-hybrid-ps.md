@@ -48,7 +48,7 @@ There are three key requirements for this scenario to work correctly:
 - No UDR is required on the Azure Firewall subnet, as it learns routes from BGP.
 - Make sure to set **AllowGatewayTransit** when peering VNet-Hub to VNet-Spoke and **UseRemoteGateways** when peering VNet-Spoke to VNet-Hub.
 
-See the [Create Routes](#create-routes) section in this tutorial to see how these routes are created.
+See the Create Routes section in this tutorial to see how these routes are created.
 
 >[!NOTE]
 >Azure Firewall must have direct internet connectivity. If you have enabled forced tunneling to on-premises via ExpressRoute or Application Gateway, you need to configure UDR 0.0.0.0/0 with the **NextHopType** value set as **Internet**, and then assign it to **AzureFirewallSubnet**.

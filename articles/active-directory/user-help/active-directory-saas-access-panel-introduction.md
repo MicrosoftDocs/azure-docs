@@ -13,6 +13,7 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
+ms.collection: M365-identity-device-management
 ---
 
 # What is the MyApps portal?

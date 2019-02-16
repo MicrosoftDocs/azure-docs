@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with G Suite
 
@@ -38,7 +39,7 @@ To configure Azure AD integration with G Suite, you need the following items:
 - A Google Apps subscription or Google Cloud Platform subscription.
 
 > [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment. This document was created using the new user Single-Sign-on experience. If you are still using the old one, the setup will look diferent. You can enable the new experience in the Single Sign-on settings of G-Suite application. Go to **Azure AD, Enterprise applications**, select **G Suite**, select **Single Sign-on** and then click on **Try out our new experience**.
+> To test the steps in this tutorial, we do not recommend using a production environment. This document was created using the new user Single-Sign-on experience. If you are still using the old one, the setup will look different. You can enable the new experience in the Single Sign-on settings of G-Suite application. Go to **Azure AD, Enterprise applications**, select **G Suite**, select **Single Sign-on** and then click on **Try out our new experience**.
 
 To test the steps in this tutorial, you should follow these recommendations:
 
@@ -142,7 +143,7 @@ To configure Azure AD single sign-on with G Suite, perform the following steps:
 
     ![G Suite Domain and URLs single sign-on information](common/sp-identifier.png)
 
-    a. In the **Sign-on URL** textbox, type a URL URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
 	| |
@@ -159,7 +160,7 @@ To configure Azure AD single sign-on with G Suite, perform the following steps:
 
     ![G Suite Domain and URLs single sign-on information](common/sp-identifier.png)
 
-    a. In the **Sign-on URL** textbox, type a URL URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com `
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
 	| |

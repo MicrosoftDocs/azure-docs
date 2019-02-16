@@ -11,6 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
+ms.collection: M365-identity-device-management
 ---
 
 # Manage emergency access accounts in Azure AD

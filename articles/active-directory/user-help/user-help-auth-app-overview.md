@@ -12,13 +12,11 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
+ms.collection: M365-identity-device-management
 ---
 
 # What is the Microsoft Authenticator app?
 The Microsoft Authenticator app helps you sign-in to your accounts if you use two-factor verification. Two-factor verification helps you to access your accounts more securely, especially while viewing sensitive information. Because passwords can be forgotten, stolen, or compromised, two-factor verification is an additional security step that helps protect your account by making it harder for other people to break in.
-
->[!Important]
->The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the time-based one-time password (TOTP) standards.
 
 You can use the Microsoft Authenticator app in multiple ways, including:
 
@@ -27,7 +25,11 @@ You can use the Microsoft Authenticator app in multiple ways, including:
 - Providing sign-in without requiring a password, using your username and your mobile device with your fingerprint, face, or PIN.
 
 >[!Important]
->This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).<br><br>If you're having issues signing in to your account, see [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) for help.  Get more info about what to do when you receive the [“That Microsoft account doesn't exist”](https://support.microsoft.com/help/13811) message when you try to sign in to your Microsoft account.
+>The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the time-based one-time password (TOTP) standards.
+
+>This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
+
+>If you're having issues signing in to your account, see [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) for help. Get more info about what to do when you receive the [“That Microsoft account doesn't exist”](https://support.microsoft.com/help/13811) message when you try to sign in to your Microsoft account.
 
 ## Terminology
 |Term|Description|
@@ -53,19 +55,20 @@ If you use a PIN to complete the authentication process, you can set up the Micr
 ## Who decides if you use this feature?
 Depending on your account type, your organization might decide that you must use two-factor verification, or you might be able to decide for yourself.
 
-- **Work or school account.** If you're using a work or school account (for example, alain@contoso.com), it's up to your organization whether you must use two-factor verification, along with the specific verification methods. For more information about adding your work or school account to the Microsoft Authenticator app, see [Add your work or school accounts](microsoft-authenticator-app-add-work-account.md).
+- **Work or school account.** If you're using a work or school account (for example, alain@contoso.com), it's up to your organization whether you must use two-factor verification, along with the specific verification methods. For more information about adding your work or school account to the Microsoft Authenticator app, see [Add your work or school accounts](user-help-auth-app-add-work-school-account.md).
 
-- **Personal Microsoft account.** You can choose to set up two-factor verification for your personal Microsoft accounts (for example, alain@outlook.com). For more information about adding your personal Microsoft account, see 
+- **Personal Microsoft account.** You can choose to set up two-factor verification for your personal Microsoft accounts (for example, alain@outlook.com). For more information about adding your personal Microsoft account, see [Add your personal accounts](user-help-auth-app-add-personal-ms-account.md).
 
-- **Non-Microsoft account.** You can choose to set up two-factor verification for your non-Microsoft accounts (for example, alain@gmail.com). Your non-Microsoft accounts might not use the term, two-factor verification, but you should be able to find the feature within the **Security** or the **Sign-in** settings. The Microsoft Authenticator app works with any accounts that support the TOTP standards.
+- **Non-Microsoft account.** You can choose to set up two-factor verification for your non-Microsoft accounts (for example, alain@gmail.com). Your non-Microsoft accounts might not use the term, two-factor verification, but you should be able to find the feature within the **Security** or the **Sign-in** settings. The Microsoft Authenticator app works with any accounts that support the TOTP standards. For more information about adding your non-Microsoft accounts, see [Add your non-Microsoft accounts](user-help-auth-app-add-non-ms-account.md).
 
 ## In this section
 
 |Article |Description |
 |------|------------|
-|[Download and install the app](user-help-auth-app-download-install.md)|Describes where and how to get and install the Microsoft Authenticator app for devices running Android, iOS, and Windows Phone.|
+|[Download and install the app](user-help-auth-app-download-install.md)|Describes where and how to get and install the Microsoft Authenticator app for devices running Android and iOS.|
 |[Add your work or school accounts](user-help-auth-app-add-work-school-account.md)|Describes how to add your various work or school and personal accounts to the Microsoft Authenticator app.|
-|[Add your personal accounts](user-help-auth-app-add-personal-ms-account.md)|Describes how to add your personal Microsoft and non-Microsoft accounts to the Microsoft Authenticator app.|
+|[Add your personal accounts](user-help-auth-app-add-personal-ms-account.md)|Describes how to add your personal Microsoft accounts to the Microsoft Authenticator app.|
+|[Add your non-Microsoft accounts](user-help-auth-app-add-non-ms-account.md)|Describes how to add your non-Microsoft accounts to the Microsoft Authenticator app.|
 |[Manually add your accounts](user-help-auth-app-add-account-manual.md)|Describes how to manually add your accounts to the Microsoft Authenticator app, if you're unable to scan the provided QR code.|
 |[Sign-in using the app](user-help-auth-app-sign-in.md)|Describes how to sign in to your various accounts, using the Microsoft Authenticator app.|
 |[Backup and recover account credentials](user-help-auth-app-backup-recovery.md)| Provides information about how to back up and recover your account credentials, using the Microsoft Authenticator app.|

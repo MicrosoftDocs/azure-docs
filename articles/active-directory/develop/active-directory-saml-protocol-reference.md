@@ -18,6 +18,7 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
+ms.collection: M365-identity-device-management
 ---
 
 # How Azure AD uses the SAML protocol

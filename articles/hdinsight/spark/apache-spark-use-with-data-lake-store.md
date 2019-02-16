@@ -25,7 +25,7 @@ In this tutorial, you use [Jupyter Notebook](https://jupyter.org/) available wit
 ## Prepare the data
 
 > [!NOTE]  
-> You do not need to perform this step if you have created the HDInsight cluster with Data Lake Storage as default storage. The cluster creation process adds some sample data in the Data Lake Storage account that you specify while creating the cluster. Skip to the section [Use HDInsight Spark cluster with Data Lake Storage](#use-an-hdinsight-spark-cluster-with-data-lake-store).
+> You do not need to perform this step if you have created the HDInsight cluster with Data Lake Storage as default storage. The cluster creation process adds some sample data in the Data Lake Storage account that you specify while creating the cluster. Skip to the section Use HDInsight Spark cluster with Data Lake Storage.
 
 If you created an HDInsight cluster with Data Lake Storage as additional storage and Azure Storage Blob as default storage, you should first copy over some sample data to the Data Lake Storage account. You can use the sample data from the Azure Storage Blob associated with the HDInsight cluster. You can use the [ADLCopy tool](https://aka.ms/downloadadlcopy) to do so. Download and install the tool from the link.
 
@@ -76,7 +76,7 @@ If you created an HDInsight cluster with Data Lake Storage as additional storage
 
 5. Load sample data into a temporary table using the **HVAC.csv** file you copied to the Data Lake Storage account. You can access the data in the Data Lake Storage account using the following URL pattern.
 
-	* If you have Data Lake Storage as default storage, HVAC.csv will be at the path similar to the following URL:
+	* If you have Data Lake Storage Gen1 as default storage, HVAC.csv will be at the path similar to the following URL:
 
 			adl://<data_lake_store_name>.azuredatalakestore.net/<cluster_root>/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv
 

@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: The analyzers REST API provides a list of analyzers that are currently supported by the Linguistic Analysis API.
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: linguistic-analysis
 ms.topic: conceptual

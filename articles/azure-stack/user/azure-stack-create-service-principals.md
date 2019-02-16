@@ -46,7 +46,7 @@ The way you configured Active Directory for Azure Stack determines how you creat
 * Create a service principal for [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad).
 * Create a service principal for [Active Directory Federation Services (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
-The steps for assigning a service principal to a role the same for Azure AD and AD FS. After you create the service principal, you can [delegate permissions](azure-stack-create-service-principals.md#assign-role-to-service-principal) by assigning it to a role.
+The steps for assigning a service principal to a role the same for Azure AD and AD FS. After you create the service principal, you can [delegate permissions](azure-stack-create-service-principals.md) by assigning it to a role.
 
 ## Create service principal for Azure AD
 
@@ -69,7 +69,7 @@ When logging in programmatically, use the ID for your application and an authent
 
 1. From **App registrations** in Active Directory, select your application.
 
-2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) use **client id** when referring to the **Application ID**.
+2. Copy the **Application ID** and store it in your application code. The applications in the sample applications use **client id** when referring to the **Application ID**.
 
      ![Application ID for the application](./media/azure-stack-create-service-principal/image12.png)
 3. To generate an authentication key, select **Keys**.
@@ -81,7 +81,7 @@ After you save the key, the key **VALUE** is displayed. Write down this value be
 
 ![Key value warning for saved key.](./media/azure-stack-create-service-principal/image15.png)
 
-The final step is [assigning your application a role](azure-stack-create-service-principals.md#assign-role-to-service-principal).
+The final step is [assigning your application a role](azure-stack-create-service-principals.md).
 
 ## Create service principal for AD FS
 

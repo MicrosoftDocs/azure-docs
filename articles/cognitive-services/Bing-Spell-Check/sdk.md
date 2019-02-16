@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Bing Spell Check SDK samples for applications that perform contextual grammar and spell checking.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
