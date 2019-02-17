@@ -22,17 +22,23 @@ You can create an index in the portal, [REST API](search-create-index-rest-api.m
 
 Arriving at the right index design is typically achieved through multiple iterations. Using a combination of tools and APIs can help you finalize your design quickly.
 
-1. Determine whether you can use an [indexer](search-indexer-overview.md#supported-data-sources). If your external data is one of the supported data sources, you can prototype and load an index using the [**Import data** wizard](search-import-data-portal.md).
+1. Determine whether you can use an [indexer](search-indexer-overview.md#supported-data-sources). If your external data is one of the supported data sources, you can prototype and load an index using the [**Import data**](search-import-data-portal.md) wizard.
 
-1. If you can't use the wizard, [create an initial index in the portal](search-create-index-portal.md), selecting attributes and data types using controls on the **Add Index** page. When you click **Create**, all of the physical structures supporting your index are created in your search service.
+2. If you can't use **Import data**, you can still [create an initial index in the portal](search-create-index-portal.md), adding fields, data types, and assigning attributes using controls on the **Add Index** page. The portal shows you which attributes are available for different data types. If you're new to index design, this is helpful.
 
-2. Download the index schema using [Get Index REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) and a web testing tool like [Postman](search-fiddler.md). You now have a JSON representation of the index you created in the portal. The portal is no longer useful for iteration because you cannot edit an index that is already created.
+   ![Add index page showing attributes by data type](media/search-create-index-portal/field-attributes.png "Add index page showing attributes by data type")
+  
+   When you click **Create**, all of the physical structures supporting your index are created in your search service.
 
-3. [Load your index with data](search-what-is-data-import.md). Azure Search accepts JSON documents. To load your data programmatically, you can use Postman if your data is JSON documents. If your data is not easily expressed as JSON, this step will be the most labor intensive.
+3. Download the index schema using [Get Index REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) and a web testing tool like [Postman](search-fiddler.md). You now have a JSON representation of the index you created in the portal. 
 
-4. Query your index, examine results, and further iterate on the index schema until you begin to see the results you expect. You can use [**Search explorer**](search-explorer.md) or Postman to query your index.
+   You are switching to a code-based approach at this point. The portal is not well-suited for iteration because you cannot edit an index that is already created. But you can use Postman and REST for the remaining tasksS.
 
-5. Continue using code, perhaps the REST API and Postman, to iterate over your design.  
+4. [Load your index with data](search-what-is-data-import.md). Azure Search accepts JSON documents. To load your data programmatically, you can use Postman with JSON documents in the request payload. If your data is not easily expressed as JSON, this step will be the most labor intensive.
+
+5. Query your index, examine results, and further iterate on the index schema until you begin to see the results you expect. You can use [**Search explorer**](search-explorer.md) or Postman to query your index.
+
+6. Continue using code to iterate over your design.  
 
 Because physical structures are created in the service, [dropping and recreating indexes](search-howto-reindex.md) is necessary whenever you make material changes to ab existing field definition. This means that during development, you should plan on frequent rebuilds. You might consider working with a subset of your data to make rebuilds go faster. 
 

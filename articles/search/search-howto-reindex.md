@@ -66,7 +66,7 @@ You cannot rebuild an index in the portal. Programmatically, you can call [Updat
 
 The following workflow is biased towards the REST API, but applies equally to the .NET SDK.
 
-1. If you are reusing the index name, [drop the existing index](https://docs.microsoft.com/rest/api/searchservice/delete-index). 
+1. When reusing an index name, [drop the existing index](https://docs.microsoft.com/rest/api/searchservice/delete-index). 
 
    Any queries targeting that index are immediately dropped. Deleting an index is irreversible, destroying physical storage for the fields collection and other constructs. Make sure you are clear on the implications of deleting an index before you drop it. 
 
