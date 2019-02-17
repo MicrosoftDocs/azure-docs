@@ -38,7 +38,7 @@
     - name: Azure Backup support matrix
       href: backup-support-matrix.md
     - name: Azure VM backup support matrix
-      href: backup-support-matrix-iaas.vm
+      href: backup-support-matrix-iaas.md
     - name: DPM/Azure Backup Server (MABS) support matrix
       href: backup-support-matrix-mabs-dpm.md
     - name: MARS agent support matrix

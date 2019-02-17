@@ -18,7 +18,7 @@ This article explains how to back up an Azure VM with the [Azure Backup](backup-
 
 ## Before you start
 
-1. [Learn](backup-architecture.md#how-does-azure-backup-work) how backup works, and [verify](backup-support-matrix.md#azure-vms) support requirements. 
+1. [Learn](backup-architecture.md#how-does-azure-backup-work) how backup works, and [verify](backup-support-matrix.md#azure-vm-backup-support) support requirements. 
 2. [Get an overview](backup-azure-vms-introduction.md) of Azure VM backup.
 3. [Prepare](backup-azure-arm-vms-prepare.md) Azure VMs for backup.
 
