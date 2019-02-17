@@ -97,6 +97,8 @@
       href: quickstarts-sdk/csharp-thumb-sdk.md
     - name: Extract text
       href: quickstarts-sdk/csharp-hand-text-sdk.md
+  - name: Using the Python SDK
+    href: quickstarts-sdk/python-sdk.md
 - name: Tutorials
   items:
   - name: Get metadata for Azure images
