@@ -103,10 +103,6 @@ For the following procedures, the starting point is the vault item dashboard.
 
 [!INCLUDE [backup-create-backup-policy-for-vm](../../includes/backup-create-backup-policy-for-vm.md)]
 
-> [!NOTE]
-> While managing backup policies, make sure to follow the [best practices](backup-azure-vms-introduction.md#best-practices) for optimal backup performance
->
->
 
 ## On-demand backup of a virtual machine
 You can take an on-demand backup of a virtual machine once it is configured for protection. If the initial backup is pending, on-demand backup creates a full copy of the virtual machine in the Recovery Services vault. If the initial backup is completed, an on-demand backup will only send changes from the previous snapshot, to the Recovery Services vault. That is, subsequent backups are always incremental.
@@ -131,12 +127,10 @@ To trigger an on-demand backup of a virtual machine:
 ## Stop protecting virtual machines
 If you choose to stop protecting a virtual machine, you are asked if you want to retain the recovery points. There are two ways to stop protecting virtual machines:
 
-* Stop all future backup jobs and delete all recovery points, or
-* Stop all future backup jobs but leave the recovery points
+* stop all future backup jobs and delete all recovery points, or
+* stop all future backup jobs but leave the recovery points
 
 There is a cost associated with leaving the recovery points in storage. However, the benefit of leaving the recovery points is you can restore the virtual machine later, if desired. For information about the cost of leaving the recovery points, see the  [pricing details](https://azure.microsoft.com/pricing/details/backup/). If you choose to delete all recovery points, you cannot restore the virtual machine.
-
-The recovery point will be preserved forever until the Backup Item is reprotected with a retention policy or StopProtection with Delete data. In case of reprotection the new policy which is getting associated will determine the retention of Recovery Points. Similarly if you delete a data source without performing Stop Backup, new backups will start failing and old recovery points will expire as per retention policy but one last recovery point will always be retained till you perform Stop Backup with delete data.
 
 To stop protection for a virtual machine:
 
@@ -212,6 +206,4 @@ To delete backup data on a virtual machine with the *Backup disabled*:
     A notification message lets you know the backup data has been deleted.
 
 ## Next steps
-* For information on re-creating a virtual machine from a recovery point, check out [Restore Azure VMs](backup-azure-arm-restore-vms.md).
-* If you need information on protecting your virtual machines, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md).
-* For information on monitoring events, see [Monitor alerts for Azure virtual machine backups](backup-azure-monitor-vms.md).
+For information on re-creating a virtual machine from a recovery point, check out [Restore Azure VMs](backup-azure-arm-restore-vms.md). If you need information on protecting your virtual machines, see [First look: Back up VMs to a Recovery Services vault](backup-azure-vms-first-look-arm.md). For information on monitoring events, see [Monitor alerts for Azure virtual machine backups](backup-azure-monitor-vms.md).
