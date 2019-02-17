@@ -44,8 +44,10 @@ To complete the steps in this article:
 ## Create a project ZIP file
 
 >[!NOTE]
-> If you downloaded the files in a ZIP file, extract the files first. For example, if you downloaded a ZIP file from GitHub, you cannot deploy that file as-is. GitHub adds additional nested directories, which do not work with App Service. 
->
+> If you downloaded the files in a ZIP file, extract the files first. For example, if you downloaded a ZIP file from GitHub, you cannot deploy that file as-is. GitHub adds additional nested directories, which do not work with App Service.
+
+>[!NOTE]
+> If attempting to deploy a .NET Core Application ZIP, please take note of the underlying Operating System of your App Service Plan (Windows or Linux). This will affect the method used to zip your application.
 
 In a local terminal window, navigate to the root directory of your app project. 
 
