@@ -52,7 +52,7 @@ Here is another view of the same table that will help you visualize things furth
 **Azure Machine Learning service hierarchy**
 ![Flow diagram](./media/overview-what-happened-batch-ai/azure-machine-learning-service-heirarchy.png) 
 
-### Platform Capabilities
+### Platform capabilities
 Azure Machine Learning service brings a great set of new functionalities including an end to end training->deployment stack that you can use for your AI development without having to manage any Azure resources. This table compares feature support for training between the two services.
 
 |Feature|BatchAI service|Azure Machine Learning service|
@@ -70,7 +70,7 @@ Azure Machine Learning service brings a great set of new functionalities includi
 |Job Execution Mode|	VM or Container|	Container|
 |Custom Container Image|	Yes	|Yes|
 |Any Toolkit	|Yes	|Yes (Run Python Script)|
-|JobPreparation|	Yes	|No (coming soon)|
+|JobPreparation|	Yes	|Not yet|
 |Job level mounting	|Yes (FileShares, Blobs, NFS, Custom)	|Yes (FileShares, Blobs)|
 |Job Monitoring 	|via GetJob|	via Run History (Richer information, Custom runtime to push more metrics)|
 |Retrieve Job Logs and Files/Models |	via ListFiles and Storage APIs	|via Artifact service|
@@ -100,9 +100,9 @@ This table presents the various programming interfaces available for each servic
 |Feature|BatchAI service|Azure Machine Learning service|
 |-------|:-------:|:-------:|
 |SDK	|Java, C#, Python, Nodejs	|Python (both run config based and estimator based for common frameworks)|
-|CLI	|Yes	|No (coming soon)|
+|CLI	|Yes	|Not yet|
 |Azure portal	|Yes	|Yes (except job submission)|
-|REST API	|Yes	|Yes but distributed across microservices (coming soon)|
+|REST API	|Yes	|Yes but distributed across microservices|
 
 
 
@@ -186,7 +186,7 @@ ws.get_details()
 
 # write the details of the workspace to a configuration file to the notebook library
 ws.write_config()
-```python
+```
 
 More detailed documentation on the AML Workspace class with the relevant functions is here.
 
@@ -281,7 +281,7 @@ print(ds.datastore_type, ds.account_name, ds.container_name)
 More information on registering additional storage accounts, or getting a reference to another registered datastore can be found here.
 
 
-#### Downloading and Uploading data 
+#### Downloading and uploading data 
 With either service, you can upload the data into the storage account easily using the datastore reference from above. For BatchAI, we also deploy the training script as part of the fileshare, although you will see how you can specify it as part of your job configuration in the case of Azure ML.
 
 For Batch AI, you did it this way:
