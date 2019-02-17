@@ -23,19 +23,19 @@ In contrast with rebuilds that take an index offline, *data refresh* runs as a b
 
 | Condition | Description |
 |-----------|-------------|
-| Changing a field definition | Revising a field name, data type, or specific [index attributes](https://docs.microsoft.com/rest/api/searchservice/create-index) (searchable, filterable, sortable, facetable) requires a full rebuild. |
-| Adding an analyzer to a field | [Analyzers](search-analyzers.md) are defined in an index and then assigned to fields. You can add a new analyzer to an index at any time, but you can only *assign* an analyzer when the field is created. This is true for both the **analyzer** and **indexAnalyzer** properties. The **searchAnalyzer** property is an exception. |
-| Updating or deleting an analyzer construct | You cannot delete or change existing analysis components (analyzer, tokenizer, token filter, or char filter) unless you rebuild the entire index. |
-| Adding a field to a suggester | If a field already exists and you want to add it to a [Suggesters](index-add-suggesters.md) construct, you must rebuild the index. |
-| Deleting a field | To physically remove all traces of a field, you have to rebuild the index. When an immediate rebuild is not practical, you can modify application code to disable access to the "deleted" field. Physically, the field definition and contents remain in the index until the next rebuild, using a schema that omits the field in question. |
-| Switching tiers | If you require more capacity, there is no in-place upgrade. A new service is created at the new capacity point, and indexes must be built from scratch on the new service. |
+| Change a field definition | Revising a field name, data type, or specific [index attributes](https://docs.microsoft.com/rest/api/searchservice/create-index) (searchable, filterable, sortable, facetable) requires a full rebuild. |
+| Assign an analyzer to a field | [Analyzers](search-analyzers.md) are defined in an index and then assigned to fields. You can add a new analyzer definition to an index at any time, but you can only *assign* an analyzer when the field is created. This is true for both the **analyzer** and **indexAnalyzer** properties. The **searchAnalyzer** property is an exception (you can assign this property to an existing field). |
+| Update or delete an analyzer definition in an index | You cannot delete or change an existing analyzer configuration (analyzer, tokenizer, token filter, or char filter) in the index unless you rebuild the entire index. |
+| Add a field to a suggester | If a field already exists and you want to add it to a [Suggesters](index-add-suggesters.md) construct, you must rebuild the index. |
+| Delete a field | To physically remove all traces of a field, you have to rebuild the index. When an immediate rebuild is not practical, you can modify application code to disable access to the "deleted" field. Physically, the field definition and contents remain in the index until the next rebuild, when you apply a schema that omits the field in question. |
+| Switch tiers | If you require more capacity, there is no in-place upgrade. A new service is created at the new capacity point, and indexes must be built from scratch on the new service. |
 
 Any other modification can be made without impacting existing physical structures. Specifically, the following changes do *not* require an index rebuild:
 
 + Add a new field
 + Set the **retrievable** attribute on an existing field
 + Set a **searchAnalyzer** on an existing field
-+ Add a new analyzer construct in an index
++ Add a new analyzer definition in an index
 + Add, update, or delete scoring profiles
 + Add, update, or delete CORS settings
 + Add, update, or delete synonymMaps
@@ -60,23 +60,30 @@ For more information about indexers, see [Indexer overview](search-indexer-overv
 
 Plan on frequent, full rebuilds during active development, when index schemas are in a state of flux. For applications already in production, we recommend creating a new index that runs side by side an existing index to avoid query downtime.
 
-If you have stringent SLA requirements, you might consider provisioning a new service specifically for this work, with development and indexing occurring in full isolation from a production index. A separate service runs on its own hardware, eliminating any possibility of resource contention. When development is complete, you would either leave the new index in place, redirecting queries to the new endpoint and index, or you would run finished code to publish a revised index on your original Azure Search service. There is currently no mechanism for moving a ready-to-use index to another service.
+Read-write permissions at the service-level are required for index updates. 
 
-Read-write permissions at the service-level are required for index updates. Programmatically, you can call [Update Index REST API](https://docs.microsoft.com/rest/api/searchservice/update-index) or .NET APIs for a full rebuild. The request is identical to [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), but has a different context.
+You cannot rebuild an index in the portal. Programmatically, you can call [Update Index REST API](https://docs.microsoft.com/rest/api/searchservice/update-index) or [equivalent .NET APIs](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexesoperations.createorupdatewithhttpmessagesasync?view=azure-dotnet) for a full rebuild. An update index request is identical to [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), but has a different context.
 
-1. If you are reusing the index name, [drop the existing index](https://docs.microsoft.com/rest/api/searchservice/delete-index). Any queries targeting that index are immediately dropped. Deleting an index is irreversible, destroying physical storage for the fields collection and other constructs. Make sure you are clear on the implications of deleting an index before you drop it. 
+The following workflow is biased towards the REST API, but applies equally to the .NET SDK.
 
-2. Provide an index schema with the changed or modified field definitions. Schema requirements are documented in [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+1. If you are reusing the index name, [drop the existing index](https://docs.microsoft.com/rest/api/searchservice/delete-index). 
 
-3. Provide an [admin key](https://docs.microsoft.com/azure/search/search-security-api-keys) on the request.
+   Any queries targeting that index are immediately dropped. Deleting an index is irreversible, destroying physical storage for the fields collection and other constructs. Make sure you are clear on the implications of deleting an index before you drop it. 
 
-4. Send an [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) command to rebuild the physical expression of the index on Azure Search. The request body contains the index schema, as well as constructs for scoring profiles, analyzers, suggesters, and CORS options.
+2. Formulate an [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) request with your service endpoint, API-key, and an [admin key](https://docs.microsoft.com/azure/search/search-security-api-keys). An admin key is required for write operations.
 
-5. [Load the index with documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) from an external source. You can also use this API if you are refreshing an existing, unchanged index schema with updated documents.
+3. In the body of the request, provide an index schema with the changed or modified field definitions. The request body contains the index schema, as well as constructs for scoring profiles, analyzers, suggesters, and CORS options. Schema requirements are documented in [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index).
+
+4. Send an [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index) request to rebuild the physical expression of the index on Azure Search. 
+
+5. [Load the index with documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) from an external source.
 
 When you create the index, physical storage is allocated for each field in the index schema, with an inverted index created for each searchable field. Fields that are not searchable can be used in filters or expressions, but do not have inverted indexes and are not full-text or fuzzy searchable. On an index rebuild, these inverted indexes are deleted and recreated based on the index schema you provide.
 
 When you load the index, each field's inverted index is populated with all of the unique, tokenized words from each document, with a map to corresponding document IDs. For example, when indexing a hotels data set, an inverted index created for a City field might contain terms for Seattle, Portland, and so forth. Documents that include Seattle or Portland in the City field would have their document ID listed alongside the term. On any [Add, Update or Delete](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) operation, the terms and document ID list are updated accordingly.
+
+> [!NOTE]
+> If you have stringent SLA requirements, you might consider provisioning a new service specifically for this work, with development and indexing occurring in full isolation from a production index. A separate service runs on its own hardware, eliminating any possibility of resource contention. When development is complete, you would either leave the new index in place, redirecting queries to the new endpoint and index, or you would run finished code to publish a revised index on your original Azure Search service. There is currently no mechanism for moving a ready-to-use index to another service.
 
 ## View updates
 

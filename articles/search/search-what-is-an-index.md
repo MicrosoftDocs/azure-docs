@@ -20,9 +20,23 @@ You can create an index in the portal, [REST API](search-create-index-rest-api.m
 
 ## Recommended workflow
 
-Because physical structures are created during indexing, you will need to [drop and recreate indexes](search-howto-reindex.md) whenever you make material changes to an existing field definition. This means that during development, you should plan on frequent rebuilds. You might consider working with a subset of your data to make rebuilds go faster. 
+Arriving at the right index design is typically achieved through multiple iterations. Using a combination of tools and APIs can help you finalize your design quickly.
 
-Code rather than portal indexing is also recommended. If you rely on the portal for index definition, you will have to fill out the index definition on each rebuild. As an alternative, using a tool like [Postman and the REST API](search-fiddler.md) are helpful for proof-of-concept testing when development projects are still in early phases. You can make incremental changes to an index definition in a request body, sending the request to your service to recreate an index using an updated schema.
+1. Determine whether you can use an [indexer](search-indexer-overview.md#supported-data-sources). If your external data is one of the supported data sources, you can quickly prototype and load an index using the [**Import data** wizard](search-import-data-portal.md).
+
+1. If you can't use the wizard, [create an initial index in the portal](search-create-index-portal.md), selecting attributes and data types using controls on the **Add Index** page. When you click **Create**, all of the physical structures supporting your index are created in your search service.
+
+2. Download the index schema using [Get Index REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) and a web testing tool like [Postman](search-fiddler.md). You now have a JSON representation of the index you created in the portal. The portal is no longer useful for iteration because you cannot edit an index that is already created.
+
+3. [Load your index with data](search-what-is-data-import.md). Azure Search accepts JSON documents. To load your data programmatically, you can use Postman if your data is JSON documents. If your data is not easily expressed as JSON, this step will be the most labor intensive.
+
+4. Query your index, examine results, and futher iterate on the index schema until you begin to see the results you expect. You can use [**Search explorer**](search-explorer.md) or Postman to query your index.
+
+5. Continue using code, perhaps the REST API and Postman, to iterate over your design.  
+
+Because physical structures are created in the service, [dropping and recreating indexes](search-howto-reindex.md) is necessary whenever you make material changes to ab existing field definition. This means that during development, you should plan on frequent rebuilds. You might consider working with a subset of your data to make rebuilds go faster. 
+
+Code, rather than a portal approch, is recommended for iterative deisgn. If you rely on the portal for index definition, you will have to fill out the index definition on each rebuild. As an alternative, tools like [Postman and the REST API](search-fiddler.md) are helpful for proof-of-concept testing when development projects are still in early phases. You can make incremental changes to an index definition in a request body, and then send the request to your service to recreate an index using an updated schema.
 
 ## Components of an index
 
@@ -138,32 +152,33 @@ You can find more detailed information about Azure Search's [index attributes he
 
 ## Storage implications
 
-The attributes you select have an impact on storage. The following screenshot is an illustration of index storage patterns resulting from various combinations of attributes. The index is based on the [built-in realestate sample](search-get-started-portal.md) data source, which you can index and query in the portal.
+The attributes you select have an impact on storage. The following screenshot illustrates index storage patterns resulting from various combinations of attributes.
 
-Filter and sort operations query on exact matches so documents are stored intact. Searchable fields enable full-text and fuzzy search. Inverted indexes are created for searchable fields and populated with tokenized terms. Marking a field as retrievable has no appreciable impact on index size.
+The index is based on the [built-in realestate sample](search-get-started-portal.md) data source, which you can index and query in the portal. Although the index schemas are not shown, you can infer the attributes based on the index name. For example, *realestate-searchable* index has the **searchable** attribute selected and nothing else, *realestate-retrievable* index has the **retrievable** attribute selected and nothing else, and so forth.
 
 ![Index size based on attribute selection](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
 
-Several of these combinations are artificial, useful for illuminating a point, but would not result in a viable index. In practice, you would never add every single field to a suggester, or create an index that is searchable but not retrievable.
+Although these index variants are artificial, we can refer to them for broad comparisons of how attributes affect stroage. Does setting **retrievable** increase index size? No. Does adding fields to a **Suggester** increase index size? Yes.
 
-Storage architecture is considered an implementation detail of Azure Search and could change without notice. There is no guarantee that current behavior will persist in the future.
+Indexes that support filter and sort are proportionally larger than indexes that support just full text search. The reason is that filter and sort query on exact matches so documents are stored intact. In contrast, searchable fields supporting full-text and fuzzy search use inverted indexes, which are populated with tokenized terms that consume less space than whole documents.
+
+> [!Note]
+> Storage architecture is considered an implementation detail of Azure Search and could change without notice. There is no guarantee that current behavior will persist in the future.
 
 ## Suggesters
-A suggester is a section of the schema that defines which fields in an index are used to support auto-complete or type-ahead queries in searches. Typically partial search strings are sent to the Suggestions (Azure Search Service REST API) while the user is typing a search query, and the API returns a set of suggested phrases. 
+A suggester is a section of the schema that defines which fields in an index are used to support auto-complete or type-ahead queries in searches. Typically, partial search strings are sent to the [Suggestions (REST API)](https://docs.microsoft.com/rest/api/searchservice/suggestions) while the user is typing a search query, and the API returns a set of suggested phrases. 
 
-A suggester that you define in the index determines which fields are used to build the type-ahead search terms. For more information, see [Add suggesters](index-add-suggesters.md) for configuration details.
+Fields added to a suggester are used to build type-ahead search terms. All of the search terms are created during indexing and stored separately. For more information about creating a suggester structure, see [Add suggesters](index-add-suggesters.md).
 
 ## Scoring profiles
 
-A scoring profile is a section of the schema that defines custom scoring behaviors that let you influence which items appear higher in the search results. Scoring profiles are made up of field weights and functions. To use them, you specify a profile by name on the query string.
+A [scoring profile](index-add-scoring-profiles.md) is a section of the schema that defines custom scoring behaviors that let you influence which items appear higher in the search results. Scoring profiles are made up of field weights and functions. To use them, you specify a profile by name on the query string.
 
-A default scoring profile operates behind the scenes to compute a search score for every item in a result set. You can use the internal, unnamed scoring profile. Alternatively, set defaultScoringProfile to use a custom profile as the default, invoked whenever a custom profile is not specified on the query string.
-
-For more information, see [Add scoring profiles](index-add-scoring-profiles.md).
+A default scoring profile operates behind the scenes to compute a search score for every item in a result set. You can use the internal, unnamed scoring profile. Alternatively, set **defaultScoringProfile** to use a custom profile as the default, invoked whenever a custom profile is not specified on the query string.
 
 ## Analyzers
 
-The analyzers element sets the name of the language analyzer to use for the field. For the allowed set of values, see [Language analyzers in Azure Search](index-add-language-analyzers.md). This option can be used only with searchable fields and it can't be set together with either **searchAnalyzer** or **indexAnalyzer**. Once the analyzer is chosen, it cannot be changed for the field.
+The analyzers element sets the name of the language analyzer to use for the field. For more information about the range of analyzers available to you, see [Adding analyzers to an Azure Search index](search-analyzers.md). Analyzers can only be used with searchable fields. Once the analyzer is assigned to a field, it cannot be changed unless you rebuild the index.
 
 ## CORS
 
