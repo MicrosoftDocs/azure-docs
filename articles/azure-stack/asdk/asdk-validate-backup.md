@@ -134,7 +134,8 @@ After logging in as the Azure Stack operator, [install Azure Stack PowerShell](a
 
 **Recovery mode with certificate file**
 
-> [!NOTE] Azure Stack deployment does not persist the decryption certificate for security reasons. You will need to provide the decryption certificate and associated password again.
+> [!NOTE] 
+> Azure Stack deployment does not persist the decryption certificate for security reasons. You will need to provide the decryption certificate and associated password again.
 
 ```powershell
 $decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
