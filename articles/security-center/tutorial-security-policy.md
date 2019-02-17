@@ -14,8 +14,8 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/4/2019
-ms.author: rkarlin
+ms.date: 2/17/2019
+ms.author: monhaber
 ---
 
 # Working with security policies
@@ -95,6 +95,17 @@ You can edit the default security policy for each of your Azure subscriptions an
 For instructions on how to edit a security policy in Azure Policy, see and [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
 
 You can edit security policies through the Azure Policy portal, via REST API or using Windows PowerShell. The following example provides instructions for editing using REST API.
+
+
+## Disable security policies
+You can disable certain parameters of a security policy in the Azure Policy portal. 
+1. In Azure Policy, in the row of the policy that you want to update, click the three dots and click **Edit assignment**.
+
+   ![edit assignment](./media/tutorial-security-policy/edit-assignment.png)
+1. From the list of parameters, select the **Disabled** for the ones that you want to disable.
+
+   ![disable policy](./media/tutorial-security-policy/disable-policy-parameter.png)
+
 
 ### Configure a security policy using the REST API
 
