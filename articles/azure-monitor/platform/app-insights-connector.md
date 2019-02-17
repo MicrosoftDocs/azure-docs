@@ -20,7 +20,7 @@ ms.author: magoedte
 ![Application Insights symbol](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> With the support of [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md), the Application Insights connector management solution is no longer required. It has been deprecated and removed from Azure Marketplace, along with the OMS portal that was officially deprecated on January 15, 2019 for Azure commercial cloud. It will be retired on March 30, 2019 for Azure US Government cloud.
+> With the support of [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md), the Application Insights Connector management solution is no longer required. It has been deprecated and removed from Azure Marketplace, along with the OMS portal that was officially deprecated on January 15, 2019 for Azure commercial cloud. It will be retired on March 30, 2019 for Azure US Government cloud.
 >
 >Existing connections will continue to work until June 30, 2019.  With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. See [Removing the connector with PowerShell](#removing-the-connector-with-powershell) below for a script on using PowerShell to remove existing connections.
 >
@@ -282,7 +282,10 @@ Set-AzureRmContext -SubscriptionId $Subscription_workspace
 Remove-AzureRmOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
 ```
 
-You can retrieve a list of applications using the following PowerShell script. This requires an Azure Active Directory authentication token.
+You can retrieve a list of applications using the following PowerShell script that invokes a REST API call. This requires a bearer authentication token for authentication against Azure Active Directory. One way to retrieve this token is using an article in the [REST API documentation site](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Click **Try It** and log into your Azure subscription. You can copy the bearer token from the **Request Preview** as shown in the following image.
+
+
+![Bearer token](media/app-insights-connector/bearer-token.png)
 
 ```PowerShell
 Connect-AzureRmAccount
