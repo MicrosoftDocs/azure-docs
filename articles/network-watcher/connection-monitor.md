@@ -69,7 +69,7 @@ Complete the steps in [Create the first VM](#create-the-first-vm) again, with th
 
 |Step|Setting|Value|
 |---|---|---|
-| 1 | Select **Ubuntu Server 17.10 VM** |                                                                         |
+| 1 | Select **Ubuntu Server 18.10 VM** |                                                                         |
 | 3 | Name                              | myVm2                                                                   |
 | 3 | Authentication type               | Paste your SSH public key or select **Password**, and enter a password. |
 | 3 | Resource group                    | Select **Use existing** and select **myResourceGroup**.                 |
