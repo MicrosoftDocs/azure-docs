@@ -207,7 +207,7 @@
     items:
     - name: Page-related features
       href: search-pagination-page-layout.md
-  - name: Filtering and sorting data
+  - name: Filter and sort data
     items:
     - name: Filter overview
       href: search-filters.md

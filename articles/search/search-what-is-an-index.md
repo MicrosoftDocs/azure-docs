@@ -32,7 +32,7 @@ Arriving at the right index design is typically achieved through multiple iterat
 
 3. Download the index schema using [Get Index REST API](https://docs.microsoft.com/rest/api/searchservice/get-index) and a web testing tool like [Postman](search-fiddler.md). You now have a JSON representation of the index you created in the portal. 
 
-   You are switching to a code-based approach at this point. The portal is not well-suited for iteration because you cannot edit an index that is already created. But you can use Postman and REST for the remaining tasksS.
+   You are switching to a code-based approach at this point. The portal is not well-suited for iteration because you cannot edit an index that is already created. But you can use Postman and REST for the remaining tasks.
 
 4. [Load your index with data](search-what-is-data-import.md). Azure Search accepts JSON documents. To load your data programmatically, you can use Postman with JSON documents in the request payload. If your data is not easily expressed as JSON, this step will be the most labor intensive.
 
@@ -139,7 +139,7 @@ As you define your schema, you must specify the name, type, and attributes of ea
 | *Edm.Int32* |32-bit integer values. |
 | *Edm.Int64* |64-bit integer values. |
 | *Edm.Double* |Double-precision numeric data. |
-| *Edm.DateTimeOffset* |Date time values represented in the OData V4 format (e.g. `yyyy-MM-ddTHH:mm:ss.fffZ` or `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
+| *Edm.DateTimeOffset* |Date time values represented in the OData V4 format (for example, `yyyy-MM-ddTHH:mm:ss.fffZ` or `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |A point representing a geographic location on the globe. |
 
 You can find more detailed information about Azure Search's [supported data types here](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).

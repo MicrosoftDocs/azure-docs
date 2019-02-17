@@ -1,17 +1,17 @@
 ---
 title: Create an Azure Search index in Azure portal - Azure Search
-description: Learn how to create an index for Azure Search using built-in portal index designers.
+description: Learn how to create an index for Azure Search using a built-in portal index designers.
 manager: cgronlun
 author: heidisteen
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 02/16/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
-# How to create an Azure Search index using the Azure portal
+# Create an Azure Search index in the portal
 
 Azure Search includes a built-in index designer in the portal useful for prototypes or creating a [search index](search-what-is-an-index.md) hosted on your Azure Search service. The tool is used for schema construction. When you save the definition, an empty index becomes fully expressed in Azure Search. How you load it with searchable data is up to you.
 
@@ -25,7 +25,9 @@ This article assumes an [Azure subscription](https://azure.microsoft.com/pricing
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and open the service dashboard. You can click **All services** in the jump bar to search for existing "search services" in the current subscription. 
 
-2.  Click the **Add index** button in the command bar at the top of the page.
+2. Click the **Add index** link in the command bar at the top of the page.
+
+   ![Add index link in the command bar](media/search-create-index-portal/add-index.png "Add index link in the command bar")
 
 3. Name your Azure Search index. Index names are referenced in indexing and query operations. The index name becomes part of the endpoint URL used on connections to the index and for sending HTTP requests in the Azure Search REST API.
 
@@ -37,15 +39,13 @@ This article assumes an [Azure subscription](https://azure.microsoft.com/pricing
 
 Index composition includes a *Fields collection* that defines the searchable data in your index. Altogether, the fields collection specifies the structure of documents that you upload separately. A Fields collection includes required and optional fields, named and typed, with index attributes that determine how the field can be used.
 
-1. In the **Add Index** blade, click **Fields >** to slide open the field definition blade. 
+1. Add fields to fully specify the documents you will upload. If documents consist of a *hotel-id*, *hotel-name*, *address*, *city*, and *region*, create a corresponding field for each one in the index. Review the [design guidance in the section below](#design) for help with setting attributes.
 
-2. Accept the generated *key* field of type Edm.String. By default, the field is named *id* but you can rename it as long as the string satisfies [naming rules](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). A key field is mandatory for every Azure Search index and it must be a string.
+2. Specify a *key* field of type Edm.String. Values for this field must uniquely identify each document. By default, the field is named *id* but you can rename it as long as the string satisfies [naming rules](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). For example, if your fields collection includes *hotel-id*, you would choose that for your key. A key field is mandatory for every Azure Search index and it must be a string.
 
-3. Add fields to fully specify the documents you will upload. If documents consist of an *id*, *hotel name*, *address*, *city*, and *region*, create a corresponding field for each one in the index. Review the [design guidance in the section below](#design) for help in setting attributes.
+4. Set attributes on each field. Review the guidance in the next section to understand what the attributes are for.
 
-4. Optionally, add any fields that are used internally in filter expressions. Attributes on the field can be set to exclude fields from search operations.
-
-5. When finished, click **OK** to save and create the index.
+5. When finished, click **Create** to save and create the index.
 
 ## Tips for adding fields
 
@@ -61,11 +61,9 @@ Creating an index in the portal is keyboard intensive. Minimize steps by followi
 
 Although you can add new fields at any time, existing field definitions are locked in for the lifetime of the index. For this reason, developers typically use the portal for creating simple indexes, testing ideas, or using the portal pages to look up a setting. Frequent iteration over an index design is more efficient if you follow a code-based approach so that you can rebuild the index easily.
 
-Analyzers and suggesters are associated with fields before the index is saved. Be sure to click through each tabbed page to add language analyzers or suggesters to your index definition.
+Analyzers and suggesters are associated with fields before the index is saved. Be sure to add language analyzers or suggesters to your index definition while you are creating it.
 
-String fields are often marked as **Searchable** and **Retrievable**.
-
-Fields used to narrow search results include **Sortable**, **Filterable**, and **Facetable**.
+String fields are often marked as **Searchable** and **Retrievable**. Fields used to narrow search results include **Sortable**, **Filterable**, and **Facetable**.
 
 Field attributes determine how a field is used, such as whether it is used in full text search, faceted navigation, sort operations, and so forth. The following table describes each attribute.
 
@@ -82,9 +80,7 @@ Field attributes determine how a field is used, such as whether it is used in fu
 
 Azure Search API documentation includes code examples featuring a simple *hotels* index. In the screenshots below, you can see the index definition, including the French language analyzer specified during index definition, which you can recreate as a practice exercise in the portal.
 
-![](./media/search-create-index-portal/field-definitions.png)
-
-![](./media/search-create-index-portal/set-analyzer.png)
+![Hotels demo index](media/search-create-index-portal/field-definitions.png "Hotels demo index")
 
 ## Next steps
 
