@@ -53,7 +53,7 @@ To complete this quickstart, install a supported [Java Development Kit (JDK)](ht
 
 5. Once the deployment is complete, click **Settings** > **Access Keys**. Make a note of either primary read-only or primary read-write key connection string. You will use this later to configure your application to communicate with the app configuration store you have just created. The connection string has the following form:
 
-        Endpoint=<service_endpoint>;Id=<hub_id>;Secret=<secret_key>=
+        Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>=
 
     You will need to use the entire string in your application.
 
@@ -149,7 +149,7 @@ You will use the [Spring Initializr](https://start.spring.io/) to create a new S
             azure:
                 config:
                     stores:
-                        connection-string: [your-connection-string]
+                        - connection-string: [your-connection-string]
     ```
 
 ## Build and run the app locally

@@ -17,7 +17,7 @@ ms.author: yegu
 ms.custom: mvc
 ---
 
-# Azure CLI Samples
+# Azure CLI samples
 
 The following table includes links to bash scripts for the Azure App Configuration service using the Azure CLI.
 

@@ -50,6 +50,8 @@ To set up a managed identity in the portal, you will first create an application
 
 3. Within the **System assigned** tab, switch **Status** to **On** and click **Save**.
 
+    ![Set managed identity in App Service](./media/set-managed-identity-app-service.png)
+
 ## Grant access to App Configuration
 
 1. In the [Azure portal](https://aka.ms/azconfig/portal), click **All resources** and the app configuration store that you created in quickstart.
@@ -71,7 +73,7 @@ To set up a managed identity in the portal, you will first create an application
 1. Open *appsettings.json*, add the following and replace *<service_endpoint>* (including brackets) with the URL to your app configuration store:
 
     ```json
-    "AppConfigHub": {
+    "AppConfig": {
         "Url": "<service_endpoint>"
     }
     ```
@@ -84,7 +86,7 @@ To set up a managed identity in the portal, you will first create an application
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(o => o.ConnectWithManagedIdentity(settings["AppConfigHub:Url"]));
+                config.AddAzureAppConfiguration(o => o.ConnectWithManagedIdentity(settings["AppConfig:Url"]));
             })
             .UseStartup<Startup>();
     ```

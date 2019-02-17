@@ -71,15 +71,15 @@ You will use the [.NET Core command-line interface (CLI)](https://docs.microsoft
 
 1. Set an environment variable named **ConnectionString** and set it to the access key to your app configuration store. If you are using Windows Command Prompt, execute the following command and restart the Command Prompt to allow the change to take effect:
 
-        setx ConnectionString "Endpoint=<service_endpoint>;Id=<hub_id>;Secret=<secret_key>"
+        setx ConnectionString "Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>"
 
     If you are using Windows PowerShell, execute the following command:
 
-        $Env:ConnectionString = "Endpoint=<service_endpoint>;Id=<hub_id>;Secret=<secret_key>"
+        $Env:ConnectionString = "Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>"
 
     If you are using macOS or Linux, execute the following command:
 
-        export ConnectionString='Endpoint=<service_endpoint>;Id=<hub_id>;Secret=<secret_key>'
+        export ConnectionString='Endpoint=<service_endpoint>;Id=<store_id>;Secret=<secret_key>'
 
 2. Execute the following command to build the console app:
 

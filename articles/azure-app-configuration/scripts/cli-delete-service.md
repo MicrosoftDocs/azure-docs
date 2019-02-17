@@ -36,8 +36,8 @@ You need to install the Azure App Configuration CLI extension first by executing
 ```azurecli-interactive
 #/bin/bash
 
-# Delete an app configuration store named myTestAppConfigHub from the Resource Group myResourceGroup
-az appconfig delete --name myTestAppConfigHub --resource-group myResourceGroup
+# Delete an app configuration store named myTestAppConfigStore from the Resource Group myResourceGroup
+az appconfig delete --name myTestAppConfigStore --resource-group myResourceGroup
 ```
 
 [!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]
