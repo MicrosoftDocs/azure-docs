@@ -17,11 +17,7 @@ Azure Search includes a built-in index designer in the portal useful for prototy
 
 The index designer is only one approach for creating an index. Programmatically, you can create an index using the [.NET](search-create-index-dotnet.md) or [REST](search-create-index-rest-api.md) APIs.
 
-## Prerequisites
-
-This article assumes an [Azure subscription](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) and [Azure Search service](search-create-service-portal.md).
-
-## Open index designer and name an index
+## Start index designer
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and open the service dashboard. You can click **All services** in the jump bar to search for existing "search services" in the current subscription. 
 
@@ -35,7 +31,7 @@ This article assumes an [Azure subscription](https://azure.microsoft.com/pricing
    * Use only lowercase letters, digits, or dashes ("-").
    * Limit the name to 60 characters.
 
-## Define the fields of your index
+## Add fields
 
 Index composition includes a *Fields collection* that defines the searchable data in your index. Altogether, the fields collection specifies the structure of documents that you upload separately. A Fields collection includes required and optional fields, named and typed, with index attributes that determine how the field can be used.
 
@@ -45,19 +41,15 @@ Index composition includes a *Fields collection* that defines the searchable dat
 
 4. Set attributes on each field. Review the guidance in the next section to understand what the attributes are for.
 
+    Azure Search API documentation includes code examples featuring a simple *hotels* index. In the screenshot below, you can see the index definition, including the French language analyzer specified during index definition, which you can recreate as a practice exercise in the portal.
+
+    ![Hotels demo index](media/search-create-index-portal/field-definitions.png "Hotels demo index")
+
 5. When finished, click **Create** to save and create the index.
-
-## Tips for adding fields
-
-Creating an index in the portal is keyboard intensive. Minimize steps by following this workflow:
-
-1. First, build the field list by entering names and setting data types.
-
-2. Next, use the check boxes at the top of each attribute to bulk enable the setting for all fields, and then selectively clear boxes for the few fields that don't require it. For example, string fields are typically searchable. As such, you might click **Retrievable** and **Searchable** to both return the values of the field in search results, as well as allow full text search on the field. 
 
 <a name="design"></a>
 
-## Design guidance for setting attributes
+## Set attributes
 
 Although you can add new fields at any time, existing field definitions are locked in for the lifetime of the index. For this reason, developers typically use the portal for creating simple indexes, testing ideas, or using the portal pages to look up a setting. Frequent iteration over an index design is more efficient if you follow a code-based approach so that you can rebuild the index easily.
 
@@ -75,12 +67,6 @@ Field attributes determine how a field is used, such as whether it is used in fu
 |**facetable**|Typically used in a presentation of search results that includes a hit count by category (for example, hotels in a specific city). This option cannot be used with fields of type `Edm.GeographyPoint`. Fields of type `Edm.String` that are **filterable**, **sortable**, or **facetable** can be at most 32 kilobytes in length. For details, see [Create Index (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).|  
 |**key**|Unique identifier for documents within the index. Exactly one field must be chosen as the key field and it must be of type `Edm.String`.|  
 |**retrievable**|Determines whether the field can be returned in a search result. This is useful when you want to use a field (such as *profit margin*) as a filter, sorting, or scoring mechanism, but do not want the field to be visible to the end user. This attribute must be `true` for `key` fields.|  
-
-## Create the hotels index used in example API sections
-
-Azure Search API documentation includes code examples featuring a simple *hotels* index. In the screenshots below, you can see the index definition, including the French language analyzer specified during index definition, which you can recreate as a practice exercise in the portal.
-
-![Hotels demo index](media/search-create-index-portal/field-definitions.png "Hotels demo index")
 
 ## Next steps
 
