@@ -12,7 +12,7 @@ manager: carmonm
 
 # Support matrix for backup with the Microsoft Azure Recovery Services (MARS) agent
 
-You can use the [Azure Backup service](backup-overview.md) to back up on-premises machines and apps, and Azure VMs. This article summarizes support settings and limitations for backing up machines running the Microsoft Azure Recovery Services (MARS) agent.
+You can use the [Azure Backup service](backup-overview.md) to back up on-premises machines and apps, and Azure VMs. This article summarizes support settings and limitations for backing up machines with the Microsoft Azure Recovery Services (MARS) agent.
 
 ## About the MARS agent``
 
