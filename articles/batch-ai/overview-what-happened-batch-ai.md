@@ -239,12 +239,12 @@ except ComputeTargetException:
     gpu_cluster = ComputeTarget.create(ws, gpu_cluster_name, compute_config)
 
 gpu_cluster.wait_for_completion(show_output=True)
-```python
+```
 
 More detailed documentation on the AmlCompute class with the relevant functions is here. Note that in the configuration above, only vm_size and max_nodes are mandatory, and the rest of the properties like VNets are for an advanced configuration.
 
 
-Monitoring status of your cluster
+### Monitoring status of your cluster
 This is more straightforward in Azure ML as below.
 
 For Batch AI, you did it this way:
