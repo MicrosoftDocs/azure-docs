@@ -22,7 +22,7 @@ You can create an index in the portal, [REST API](search-create-index-rest-api.m
 
 Arriving at the right index design is typically achieved through multiple iterations. Using a combination of tools and APIs can help you finalize your design quickly.
 
-1. Determine whether you can use an [indexer](search-indexer-overview.md#supported-data-sources). If your external data is one of the supported data sources, you can quickly prototype and load an index using the [**Import data** wizard](search-import-data-portal.md).
+1. Determine whether you can use an [indexer](search-indexer-overview.md#supported-data-sources). If your external data is one of the supported data sources, you can prototype and load an index using the [**Import data** wizard](search-import-data-portal.md).
 
 1. If you can't use the wizard, [create an initial index in the portal](search-create-index-portal.md), selecting attributes and data types using controls on the **Add Index** page. When you click **Create**, all of the physical structures supporting your index are created in your search service.
 
@@ -30,13 +30,13 @@ Arriving at the right index design is typically achieved through multiple iterat
 
 3. [Load your index with data](search-what-is-data-import.md). Azure Search accepts JSON documents. To load your data programmatically, you can use Postman if your data is JSON documents. If your data is not easily expressed as JSON, this step will be the most labor intensive.
 
-4. Query your index, examine results, and futher iterate on the index schema until you begin to see the results you expect. You can use [**Search explorer**](search-explorer.md) or Postman to query your index.
+4. Query your index, examine results, and further iterate on the index schema until you begin to see the results you expect. You can use [**Search explorer**](search-explorer.md) or Postman to query your index.
 
 5. Continue using code, perhaps the REST API and Postman, to iterate over your design.  
 
 Because physical structures are created in the service, [dropping and recreating indexes](search-howto-reindex.md) is necessary whenever you make material changes to ab existing field definition. This means that during development, you should plan on frequent rebuilds. You might consider working with a subset of your data to make rebuilds go faster. 
 
-Code, rather than a portal approch, is recommended for iterative deisgn. If you rely on the portal for index definition, you will have to fill out the index definition on each rebuild. As an alternative, tools like [Postman and the REST API](search-fiddler.md) are helpful for proof-of-concept testing when development projects are still in early phases. You can make incremental changes to an index definition in a request body, and then send the request to your service to recreate an index using an updated schema.
+Code, rather than a portal approach, is recommended for iterative design. If you rely on the portal for index definition, you will have to fill out the index definition on each rebuild. As an alternative, tools like [Postman and the REST API](search-fiddler.md) are helpful for proof-of-concept testing when development projects are still in early phases. You can make incremental changes to an index definition in a request body, and then send the request to your service to recreate an index using an updated schema.
 
 ## Components of an index
 
@@ -127,7 +127,7 @@ As you define your schema, you must specify the name, type, and attributes of ea
 ### Data types
 | Type | Description |
 | --- | --- |
-| *Edm.String* |Text that can optionally be tokenized for full-text search (word-breaking, stemming, etc). |
+| *Edm.String* |Text that can optionally be tokenized for full-text search (word-breaking, stemming, and so forth). |
 | *Collection(Edm.String)* |A list of strings that can optionally be tokenized for full-text search. There is no theoretical upper limit on the number of items in a collection, but the 16 MB upper limit on payload size applies to collections. |
 | *Edm.Boolean* |Contains true/false values. |
 | *Edm.Int32* |32-bit integer values. |
@@ -141,7 +141,7 @@ You can find more detailed information about Azure Search's [supported data type
 ### Index attributes
 | Attribute | Description |
 | --- | --- |
-| *Key* |A string that provides the unique ID of each document, used for document look up. Every index must have one key. Only one field can be the key, and its type must be set to Edm.String. |
+| *Key* |A string that provides the unique ID of each document, used for document lookup. Every index must have one key. Only one field can be the key, and its type must be set to Edm.String. |
 | *Retrievable* |Specifies whether a field can be returned in a search result. |
 | *Filterable* |Allows the field to be used in filter queries. |
 | *Sortable* |Allows a query to sort search results using this field. |
@@ -158,7 +158,7 @@ The index is based on the [built-in realestate sample](search-get-started-portal
 
 ![Index size based on attribute selection](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
 
-Although these index variants are artificial, we can refer to them for broad comparisons of how attributes affect stroage. Does setting **retrievable** increase index size? No. Does adding fields to a **Suggester** increase index size? Yes.
+Although these index variants are artificial, we can refer to them for broad comparisons of how attributes affect storage. Does setting **retrievable** increase index size? No. Does adding fields to a **Suggester** increase index size? Yes.
 
 Indexes that support filter and sort are proportionally larger than indexes that support just full text search. The reason is that filter and sort query on exact matches so documents are stored intact. In contrast, searchable fields supporting full-text and fuzzy search use inverted indexes, which are populated with tokenized terms that consume less space than whole documents.
 
