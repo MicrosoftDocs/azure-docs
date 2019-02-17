@@ -35,17 +35,17 @@ The index designer is only one approach for creating an index. Programmatically,
 
 Index composition includes a *Fields collection* that defines the searchable data in your index. Altogether, the fields collection specifies the structure of documents that you upload separately. A Fields collection includes required and optional fields, named and typed, with index attributes that determine how the field can be used.
 
-1. Add fields to fully specify the documents you will upload. If documents consist of a *hotel-id*, *hotel-name*, *address*, *city*, and *region*, create a corresponding field for each one in the index. Review the [design guidance in the section below](#design) for help with setting attributes.
+1. Add fields to fully specify the documents you will upload, setting a [data type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) for each one. For example, if documents consist of a *hotel-id*, *hotel-name*, *address*, *city*, and *region*, create a corresponding field for each one in the index. Review the [design guidance in the section below](#design) for help with setting attributes.
 
 2. Specify a *key* field of type Edm.String. Values for this field must uniquely identify each document. By default, the field is named *id* but you can rename it as long as the string satisfies [naming rules](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). For example, if your fields collection includes *hotel-id*, you would choose that for your key. A key field is mandatory for every Azure Search index and it must be a string.
 
-4. Set attributes on each field. Review the guidance in the next section to understand what the attributes are for.
+3. Set attributes on each field. The index designer excludes any attributes that are invalid for the data type, but doesn't suggest what to include. Review the guidance in the next section to understand what the attributes are for.
 
     Azure Search API documentation includes code examples featuring a simple *hotels* index. In the screenshot below, you can see the index definition, including the French language analyzer specified during index definition, which you can recreate as a practice exercise in the portal.
 
     ![Hotels demo index](media/search-create-index-portal/field-definitions.png "Hotels demo index")
 
-5. When finished, click **Create** to save and create the index.
+4. When finished, click **Create** to save and create the index.
 
 <a name="design"></a>
 
@@ -72,7 +72,7 @@ Field attributes determine how a field is used, such as whether it is used in fu
 
 After creating an Azure Search index, you can move to the next step: [upload searchable data into the index](search-what-is-data-import.md).
 
-Alternatively, you could also take a deeper look at indexes. In addition to the Fields collection, an index also specifies analyzers, suggesters, scoring profiles, and CORS settings. The portal provides tabbed pages for defining the most common elements: Fields, analyzers, and suggesters. To create or modify other elements, you can use the REST API or .NET SDK.
+Alternatively, you could also take a [deeper look at indexes](search-what-is-an-index.md). In addition to the Fields collection, an index also specifies analyzers, suggesters, scoring profiles, and CORS settings. The portal provides tabbed pages for defining the most common elements: Fields, analyzers, and suggesters. To create or modify other elements, you can use the REST API or .NET SDK.
 
 ## See also
 
