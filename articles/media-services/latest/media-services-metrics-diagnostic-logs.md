@@ -12,22 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2019
+ms.date: 02/17/2019
 ms.author: juliako
 
 ---
 
 # Monitor Media Services metrics and diagnostic logs
 
-[Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. You can monitor Media Services diagnostic logs and create alerts and notifications for the collected metrics and logs. You can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), or use 3rd party services.
+[Azure Monitor](../../azure-monitor/overview.md) enables you to monitor metrics and diagnostic logs that help you understand how your applications are performing. All data collected by Azure Monitor fits into one of two fundamental types, metrics and log. You can monitor Media Services diagnostic logs and create alerts and notifications for the collected metrics and logs. You can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), or use 3rd party services.
 
-For detailed information, see [Azure Monitor Metrics](../../azure-monitor/platform/data-collection.md) and [Azure Monitor Diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md).
+For detailed overview, see [Azure Monitor Metrics](../../azure-monitor/platform/data-collection.md) and [Azure Monitor Diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
 This topic discusses currently available [Media Services Metrics](#media-services-metrics) and [Media Services Diagnostic logs](#media-services-diagnostic-logs).
 
 ## Media Services metrics
 
-Currently, you can view the following metrics:
+Metrics are collected at regular intervals whether or not the value changes. They're useful for alerting because they can be sampled frequently, and an alert can be fired quickly with relatively simple logic.
+
+Currently, the following Media Services [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) metrics are emitted by Azure:
 
 |Name|Description|
 |---|---|
@@ -35,33 +37,11 @@ Currently, you can view the following metrics:
 |Egress|Total number of egress bytes. For example, bytes streamed by streaming endpoint.|
 |Success end to end Latency| Gives information about end to end latency of successful requests.|
 
-### View metrics using portal 
+For example, to get "Egress" metrics with CLI, you would run the following `az monitor metrics` CLI command:
 
-You can view metrics using the Azure portal either from Azure Monitor or from your Media Services account.
-
-#### Azure Monitor - Metrics 
-
-In the Azure portal, navigate to **Monitor** -> **Metrics**.
-
-![Navigate to Monitor -> Metrics](media/media-services-azure-monitor/azure-monitor-metrics1.png)
-
-Add a chart for your Media Services resource.
-
-![Find your Media Services resource](media/media-services-azure-monitor/azure-monitor-metrics2.png)
-
-Add metrics that you want to monitor.
-
-![Add metrics that you want to monitor](media/media-services-azure-monitor/azure-monitor-metrics3.png)
-
-#### Media Services account - Metrics
-
-In the Azure portal, navigate to <*your account*> -> **Metrics**.
-
-![Navigate to Media Services account -> Metrics](media/media-services-azure-monitor/media-services-account-metrics1.png)
-
-Then, add a chart and a metric that you want to monitor.
-
-For more information, see [Monitoring data collected by Azure Monitor](../../azure-monitor/platform/data-collection.md).
+```cli
+az monitor metrics list --resource "/subscriptions/<subscription id>/resourcegroups/<resource group name>/providers/Microsoft.Media/mediaservices/<Media Services account name>/streamingendpoints/<streaming endpoint name>" --metric "Egress"
+```
 
 ## Media Services diagnostic logs
 
@@ -71,10 +51,24 @@ Currently, you can get the following diagnostic logs:
 |---|---|
 |Key delivery service request|Logs that show the key delivery service request information. For more details, see [schemas](media-services-diagnostic-logs-schema.md).|
 
-### Collect and consume log data from your Azure resources
+For example, to enable storage of diagnostic logs in a Storage Account, you would run the following `az monitor diagnostic-settings` CLI command: 
 
-See [How to collect and consume log data from your Azure resources](../../azure-monitor/platform/diagnostic-logs-overview.md).
+```cli
+az monitor diagnostic-settings create --name <diagnostic name> \
+    --storage-account <name or ID of storage account> \
+    --resource <target resource object ID> \
+    --resource-group <storage account resource group> \
+    --logs '[
+    {
+        "category": <KeyDeliveryRequests>,
+        "enabled": true,
+        "retentionPolicy": {
+            "days": <# days to retain>,
+            "enabled": true
+        }
+    }]'
+```
 
 # Next steps 
 
-[Azure Monitor](../../azure-monitor/overview.md)
+[How to collect and consume log data from your Azure resources](../../azure-monitor/platform/diagnostic-logs-overview.md).
