@@ -18,7 +18,7 @@ ms.author: wolfma
 
 Use this guide to create a speech-to-text application using [Unity](https://unity3d.com/) and the Speech SDK for Unity (beta).
 When finished, you can use your computer's microphone to transcribe speech to text in real time.
-If you are not familiar with Unity, it is recommended to study the [Unity user manual](https://docs.unity3d.com/Manual/) before starting your app development.
+If you are not familiar with Unity, it is recommended to study the [Unity User Manual](https://docs.unity3d.com/Manual/UnityManual.html) before starting your app development.
 
 > [!NOTE]
 > The Speech SDK for Unity is currently in beta.
