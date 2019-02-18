@@ -111,9 +111,11 @@
     - name: Access APIs - CLI
       href: access-api-cli-how-to.md
     - name: Scale Media Reserved Units - CLI
-      href: media-reserved-units-cli-how-to.md      
-  - name: Configure Postman
-    href: media-rest-apis-with-postman.md      
+      href: media-reserved-units-cli-how-to.md   
+    - name: Start developing
+      href: developers-guide.md
+    - name: Configure Postman
+      href: media-rest-apis-with-postman.md      
   - name: Upload content
     items:
     - name: From HTTP(s) - .NET

@@ -2476,6 +2476,6 @@ The following table provides a brief description of each built-in role. Click th
 
 ## Next steps
 
-- [Custom roles](custom-roles.md)
-- [Manage roles assignments using the Azure portal](role-assignments-portal.md)
+- [Custom roles for Azure resources](custom-roles.md)
+- [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md)
 - [Permissions in Azure Security Center](../security-center/security-center-permissions.md)
