@@ -113,7 +113,7 @@ As one of the [restore options](#restore-options), you can replace an existing V
    ![Restore configuration wizard Replace Existing](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
    
   
-## Special restore cases
+## Restore VMs with special network configurations
 
 There are a number of common scenarios in which you might need to restore VMs.
 
