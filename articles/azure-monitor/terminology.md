@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor rebranding | Microsoft Docs
-description: Describes the recent branding and name changes recently made to Azure management services.
+title: Azure Monitor terminology updates | Microsoft Docs
+description: Describes recent terminology changes made to Azure monitoring services.
 author: bwren
 manager: carmonm
 editor: tysonn
