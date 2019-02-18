@@ -1,6 +1,6 @@
 ---
 title: Sample - Allowed ExpressRoute bandwidth
-description: This sample policy requires that ExpressRoute use a specified set of bandwidths.
+description: This sample policy definition requires that ExpressRoute use a specified set of bandwidths.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Allowed ExpressRoute bandwidth
+# Sample - Allowed ExpressRoute bandwidth
 
 This policy requires that ExpressRoute use a specified set of bandwidths. You specify an array of SKUs that can be specified for ExpressRoute.
 
