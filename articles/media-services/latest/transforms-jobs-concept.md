@@ -25,6 +25,10 @@ A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to
 
 The Update operation on the [Job](https://docs.microsoft.com/rest/api/media/jobs) entity can be used to modify the *description*, and the *priority* properties after the job has been submitted. A change to the *priority* property is effective only if the job is still in a queued state. If the job has begun processing, or has finished, changing priority has no effect.
 
+The following diagram shows transforms/jobs relationship.
+
+![Transforms](./media/encoding/transforms-jobs.png)
+
 > [!NOTE]
 > Properties of **Transform** and **Job** that are of the Datetime type are always in UTC format.
 
