@@ -265,7 +265,7 @@ A record with a *type* of *ApplicationInsights* is created for each type of inpu
 This solution does not have a set of sample log searches shown on the dashboard. However, sample log search queries with descriptions are shown in the [View Application Insights Connector information](#view-application-insights-connector-information) section.
 
 ## Removing the connector with PowerShell
-With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. You can remove existing connections with the following PowerShell script.
+With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. You can remove existing connections with the following PowerShell script. You must be the owner or contributor of the workspace and reader of Application Insights resource to perform this operation.
 
 ```PowerShell
 $Subscription_app = "App Subscription Name"
