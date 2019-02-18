@@ -19,19 +19,25 @@ ms.author: glenga
 
 # How to use the Azure WebJobs SDK for event-driven background processing
 
-This article provides guidance on how to write code for [the Azure WebJobs SDK](webjobs-sdk-get-started.md). The documentation applies to both version 3.x and 2.x of the WebJobs SDK. Where API differences exist, examples of both are provided. The main change introduced by version 3.x is the use of .NET Core instead of .NET Framework.
+This article provides guidance on how to work with the Azure WebJobs SDK. To get started with WebJobs right away, see [Get started with the Azure WebJobs SDK for event-driven background processing](webjobs-sdk-get-started.md). 
 
->[!NOTE]
+## WebJobs SDK versions
+
+The following are key differences in version 3.x of the WebJobs SDK compared to version 2.x:
+
+* Version 3.x adds support for .NET Core.
+* In version 3.x, you must explicitly install the Storage binding extension required by the WebJobs SDK. In version 2.x, the Storage bindings were included in the SDK.
+* Visual Studio tooling for .NET Core (3.x) projects differs from .NET Framework (2.x) projects. For more information, see [Develop and deploy WebJobs using Visual Studio - Azure App Service](webjobs-dotnet-deploy-vs.md).
+
+When possible, examples are provides for both version 3.x and version 2.x.
+
+[!NOTE]
 > [Azure Functions](../azure-functions/functions-overview.md) is built on the WebJobs SDK, and this article links to Azure Functions documentation for some topics. Note the following differences between Functions and the WebJobs SDK:
 > * Azure Functions version 2.x corresponds to WebJobs SDK version 3.x, and Azure Functions 1.x corresponds to WebJobs SDK 2.x. Source code repositories follow the WebJobs SDK numbering.
 > * Sample code for Azure Functions C# class libraries is like WebJobs SDK code except you don't need a `FunctionName` attribute in a WebJobs SDK project.
 > * Some binding types are only supported in Functions, such as HTTP, webhook, and Event Grid (which is based on HTTP).
-> 
+>
 > For more information, see [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
-
-## Prerequisites
-
-This article assumes you have read and completed the tasks in [Get started with the WebJobs SDK](webjobs-sdk-get-started.md).
 
 ## WebHobs host
 
@@ -39,7 +45,7 @@ The host is a runtime container for functions.  It listens for triggers and call
 
 This is a key difference between using the WebJobs SDK directly and using it indirectly by using Azure Functions. In Azure Functions, the service controls the host, and you can't customize it by writing code. Azure Functions lets you customize host behavior through settings in the *host.json* file. Those settings are strings, not code, which limits the kinds of customizations you can do.
 
-### Host connection strings 
+### Host connection strings
 
 The WebJobs SDK looks for Azure Storage and Azure Service Bus connection strings in the *local.settings.json* file when you run locally, or in the WebJob's environment when you run in Azure. By default, a Storage connection string setting named `AzureWebJobsStorage` is required.  
 
@@ -148,7 +154,20 @@ Functions must be public methods and must have one trigger attribute or the [NoA
 
 ### Automatic trigger
 
-Automatic triggers call a function in response to an event. For an example, see the queue trigger in the [Get started article](webjobs-sdk-get-started.md).
+Automatic triggers call a function in response to an event. Consider the following example of a function triggered by a message added to Azure Queue storage that reads a blob from Azure Blog storage:
+
+```cs
+public static void Run(
+    [QueueTrigger("myqueue-items")] string myQueueItem,
+    [Blob("samples-workitems/{myQueueItem}", FileAccess.Read)] Stream myBlob,
+    ILogger log)
+{
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+}
+```
+
+The `QueueTrigger` attribute tells the runtime to call the function whenever a queue message appears in the `myqueue-items` queue. The `Blob` attribute tells the runtime to use the queue message to read a blob in the *sample-workitems* container. The content of the queue message, passed into the function in the `myQueueItem` parameter, is the name of the blob.
+
 
 ### Manual trigger
 
