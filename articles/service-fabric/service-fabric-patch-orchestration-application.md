@@ -58,6 +58,9 @@ The patch orchestration app is composed of the following subcomponents:
 
 ## Prerequisites
 
+> [!NOTE]
+> Minimum .NET framework version required is 4.6.
+
 ### Enable the repair manager service (if it's not running already)
 
 The patch orchestration app requires the repair manager system service to be enabled on the cluster.
@@ -378,9 +381,6 @@ In such a case, a warning-level health report is generated against the Node Agen
 A faulty Windows update can bring down the health of an application or cluster on a particular node or upgrade domain. The patch orchestration app discontinues any subsequent Windows Update operation until the cluster is healthy again.
 
 An administrator must intervene and determine why the application or cluster became unhealthy due to Windows Update.
-
-### Minimum .NET Framework Requirement
-For POA, minimum .NET Framework version required is 4.6.
 
 ## Release Notes
 
