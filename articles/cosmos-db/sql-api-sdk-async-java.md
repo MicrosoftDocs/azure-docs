@@ -40,18 +40,16 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 ## Release notes
 
 ### <a name="2.4.0"/>2.4.0
-
-* Added support for "Direct Mode" connectivity.
+* Direct mode connectivity is now Generally Available(GA). For a sample that uses direct mode connectivity, see [azure-cosmosdb-java](https://github.com/Azure/azure-cosmosdb-java) GitHub repository.
+* Added support for QueryMetrics.
 * Changed the APIs accepting java.util.Collection for which order is important to accept java.util.List instead. Now ConnectionPolicy#getPreferredLocations(), JsonSerialization, and PartitionKey(.) accept List.
-* Fixed a session bug for document query in gateway mode.
-* Upgraded dependencies (netty 0.4.20 github #79, RxJava 1.3.8).
 
 ### <a name="2.4.0-beta-1"/>2.4.0-beta-1
-* Added support for Direct.
+* Added support for direct mode connectivity.
 * Changed the APIs accepting java.util.Collection for which order is important to accept java.util.List instead.
   Now ConnectionPolicy#getPreferredLocations(), JsonSerialization, and PartitionKey(.) accept List.
 * Fixed a session bug for document query in gateway mode.
-* Upgraded dependencies (netty 0.4.20 [github #79](https://github.com/Azure/azure-cosmosdb-java/issues/79) and RxJava 1.3.8).
+* Upgraded dependencies (netty 0.4.20 [github #79](https://github.com/Azure/azure-cosmosdb-java/issues/79), RxJava 1.3.8).
 
 ### <a name="2.3.1"/>2.3.1
 * Fixes handling very large query responses.
