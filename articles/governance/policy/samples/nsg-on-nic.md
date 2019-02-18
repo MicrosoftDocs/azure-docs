@@ -1,6 +1,6 @@
 ---
 title: Sample - NSG x on every NIC
-description: This sample policy requires that a specific network security group is used with every virtual network interface.
+description: This sample policy definition requires that a specific network security group is used with every virtual network interface.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# NSG x on every NIC
+# Sample - Network security group X on every NIC
 
 This policy requires that a specific network security group is used with every virtual network interface. You specify the ID of the network security group to use.
 

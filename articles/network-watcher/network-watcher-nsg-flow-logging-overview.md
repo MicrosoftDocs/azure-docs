@@ -69,8 +69,6 @@ Flow logs include the following properties:
                     * **Bytes sent - Destination to source - Version 2 Only** The total number of TCP and UDP packet bytes sent from destination to source since last update. Packet bytes include packet header and payload.
 
 ## NSG flow logs version 2
-> [!NOTE] 
-> Flow Logs Version 2 are only available in the West Central US Region. Enabling Version 2 logs in an unsupported region will result in Version 1 logs outputted to your storage account.
 
 Version 2 of the logs introduces flow state. You can configure which version of flow logs you receive. To learn how to enable flow logs, see [Enabling NSG flow logging](network-watcher-nsg-flow-logging-portal.md).
 

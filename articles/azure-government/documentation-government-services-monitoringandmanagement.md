@@ -68,7 +68,7 @@ For more information, see [Azure Government Backup](documentation-government-ser
 ## Policy
 Policy is generally available in Azure Government.
 
-For more information, see [Azure Policy](../azure-policy/azure-policy-introduction.md).
+For more information, see [Azure Policy](../governance/policy/overview.md).
 
 ## Site Recovery
 Azure Site Recovery is generally available in Azure Government.

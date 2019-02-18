@@ -1,6 +1,6 @@
 ---
-title: Create custom roles using Azure CLI | Microsoft Docs
-description: Learn how to create custom roles for role-based access control (RBAC) using Azure CLI. This includes how to list, create, update, and delete custom roles.
+title: Create custom roles for Azure resources using Azure CLI | Microsoft Docs
+description: Learn how to create custom roles with role-based access control (RBAC) for Azure resources using Azure CLI. This includes how to list, create, update, and delete custom roles.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,9 +16,9 @@ ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
-# Create custom roles using Azure CLI
+# Create custom roles for Azure resources using Azure CLI
 
-If the [built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to create and manage custom roles using Azure CLI.
+If the [built-in roles for Azure resources](built-in-roles.md) don't meet the specific needs of your organization, you can create your own custom roles. This article describes how to create and manage custom roles using Azure CLI.
 
 ## Prerequisites
 
@@ -157,6 +157,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## Next steps
 
-- [Tutorial: Create a custom role using Azure CLI](tutorial-custom-role-cli.md)
-- [Custom roles in Azure](custom-roles.md)
+- [Tutorial: Create a custom role for Azure resources using Azure CLI](tutorial-custom-role-cli.md)
+- [Custom roles for Azure resources](custom-roles.md)
 - [Azure Resource Manager resource provider operations](resource-provider-operations.md)
