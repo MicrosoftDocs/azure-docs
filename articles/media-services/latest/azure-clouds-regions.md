@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 02/17/2019
 ms.author: juliako
 ---
 
@@ -62,12 +62,6 @@ For example, for the Azure region West US 2 (displayed below), you will use "wes
 
 ## Endpoints  
 
-| Endpoint|Global Azure | Azure Government|Azure Germany|Azure China 21Vianet|
-| --- | --- | --- | --- | --- |
-| Azure Resource Manager |  `https://management.azure.com/` | `https://management.usgovcloudapi.net/` | `https://management.cloudapi.de/` | `https://management.chinacloudapi.cn/` |
-| Authentication | `https://login.microsoftonline.com/` | `https://login.microsoftonline.us/` | `https://login.microsoftonline.de/` | `https://login.chinacloudapi.cn/` |
-| Token audience | `https://management.core.windows.net/` | `https://management.core.usgovcloudapi.net/` | `https://management.core.cloudapi.de/`| `https://management.core.chinacloudapi.cn/` |
-=======
 The following endpoints are important to know when connecting to Media Services accounts from different national Azure clouds.
 
 ### Global Azure
