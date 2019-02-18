@@ -94,7 +94,7 @@
       href: live-event-states-billing.md
     - name: Latency
       href: live-event-latency.md              
-  - name: Continuous monitoring
+  - name: Monitoring
     items:
     - name: Events with Event Grid
       href: reacting-to-media-services-events.md   
