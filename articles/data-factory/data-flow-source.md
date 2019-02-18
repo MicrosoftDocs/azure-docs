@@ -78,9 +78,9 @@ You can optionally choose to partition the connections based on a query. For thi
 
 When you are using Azure SQL DB or Azure SQL DW as your source, you will have additional options.
 
-1. Query: Enter a SQL query for your source. Setting a query will override any table that you've chosen in the dataset. Note that Order By clauses are not supported here.
+* Query: Enter a SQL query for your source. Setting a query will override any table that you've chosen in the dataset. Note that Order By clauses are not supported here.
 
-2. Batch size: Enter a batch size to chunk large data into batch-sized reads.
+* Batch size: Enter a batch size to chunk large data into batch-sized reads.
 
 > [!NOTE]
 > The file operation settings will only execute when the Data Flow is executed from a pipeline run (pipeline debug or execution run) using the Execute Data Flow activity in a pipeline. File operations do NOT execute in Data Flow debug mode.
