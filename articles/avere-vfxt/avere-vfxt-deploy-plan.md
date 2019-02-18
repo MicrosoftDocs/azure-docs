@@ -63,9 +63,9 @@ If you use Azure Blob storage, it also might require IP addresses from your clus
 
 You have the option to locate network resources and Blob storage (if used) in different resource groups from the cluster.
 
-## vFXT node sizes 
+## vFXT node size
 
-The VMs that serve as cluster nodes determine the request throughput and storage capacity of your cache. You can choose from two instance types, with different memory, processor, and local storage characteristics. 
+The VMs that serve as cluster nodes determine the request throughput and storage capacity of your cache. The instance type offered has been chosen for its memory, processor, and local storage characteristics. <!-- You can choose from two instance types, with different memory, processor, and local storage characteristics. -->
 
 Each vFXT node will be identical. That is, if you create a three-node cluster you will have three VMs of the same type and size. 
 
