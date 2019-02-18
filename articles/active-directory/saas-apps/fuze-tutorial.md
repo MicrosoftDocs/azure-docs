@@ -94,7 +94,7 @@ To configure Azure AD single sign-on with Fuze, perform the following steps:
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set-up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -105,7 +105,7 @@ To configure Azure AD single sign-on with Fuze, perform the following steps:
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://www.thinkingphones.com/jetspeed/portal/`
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+5. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
@@ -176,7 +176,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Fuze test user
 
-Fuze application supports full, Just in time user provision, so users will get created automatically when they sign in. For any other clarification, please contact Fuze [support](https://www.fuze.com/support).
+Fuze application supports just in time user provision, so users will get created automatically when they sign in. For any other clarification, contact Fuze [support](https://www.fuze.com/support).
 
 ### Test single sign-on 
 
