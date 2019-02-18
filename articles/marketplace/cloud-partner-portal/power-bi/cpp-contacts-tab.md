@@ -27,7 +27,7 @@ Use the **Contacts** tab of the **New Offer** page to provide technical and user
 
 ## Contacts fields 
 
-The following table describes the name and purpose of these fields: 
+The following table describes the purpose of each field: 
 
 |   Field               |   Description                                                            |
 |-----------------------|--------------------------------------------------------------------------|
@@ -43,4 +43,4 @@ The following table describes the name and purpose of these fields:
 
 ## Next steps
 
-After you've completed the Power BI App offer, confirm that you've created all the associated [technical assets](./cpp-create-technical-assets.md) for this offer.
+After you've completed your Power BI App offer, confirm that you've created all the associated [technical assets](./cpp-create-technical-assets.md) for the offer.
