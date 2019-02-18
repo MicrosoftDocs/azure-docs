@@ -1,5 +1,5 @@
 ---
-title: Filters int Azure Media Services 
+title: Defining filters in Azure Media Services 
 description: This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming.
 services: media-services
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.date: 02/12/2019
 ms.author: juliako
 
 ---
-# Filters  
+# Define account filters and asset filters  
 
 When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
 
