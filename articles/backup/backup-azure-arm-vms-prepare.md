@@ -66,8 +66,7 @@ Azure VMs you want to back up directly must comply with the setting summarized i
 3. Make sure Azure VMs have required outbound access.
 
 
-### Install the VM agent (if required)
-
+### Install the VM agent 
 If needed, install the agent as follows.
 
 **VM** | **Details**
