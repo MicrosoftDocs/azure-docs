@@ -207,8 +207,8 @@ Use the following query to map the data to the table:
             ResultType = tostring(events["resultType"]),
             ResultSignature = tostring(events["resultSignature"]),
             DurationMs = toint(events["durationMs"]),
-            IdentityAuthorization = events["identity.authorization"],
-            IdentityClaims = events["identity.claims"],
+            IdentityAuthorization = events.identity.authorization,
+            IdentityClaims = events.identity.claims,
             Location = tostring(events["location"]),
             Level = tostring(events["level"])
     }
