@@ -17,7 +17,7 @@ Datasets are a Data Factory construct that define the shape of the data you are 
 
 Datasets in Data Flow Source and Sink transformations are used to define the basic data schema. If you do not have schema in your data, you can set Schema Drift on for your Source and Sink. With schema defined from the dataset, you will have the related data types, data formats, file location, and connection information from the associated Linked Service.
 
-## Dataset Types
+## Dataset types
 
 Currently in data flow, you will find four dataset types:
 
@@ -34,7 +34,7 @@ Data flow datasets separate the source *type* from the Linked Service connection
 
 When creating a new Dataset, there is a checkbox labeled "Data Flow Compatible" on the top right of the panel. Clicking that button will filter only the datasets that can be used with Data Flows. 
 
-## Import Schemas
+## Import schemas
 
 When importing the schema of Data Flow datasets, you will see an Import Schema button. Clicking that button will present you with two options: Import from the source or import from a local file. In most cases, you will import the schema directly from the source. However, if you have an existing schema file (Parquet file or CSV with headers), you can point to that local file and Data Factory will define the schema based upon that schema file.
 
