@@ -84,15 +84,17 @@ Avere vFXT is a clustered appliance made of multiple Azure virtual machines. A P
 
 ### What kind of Azure virtual machines does Avere vFXT run on?  
 
-An Avere vFXT for Azure cluster uses either Microsoft Azure E32s_v3 or D16s_v3 virtual machines. 
+An Avere vFXT for Azure cluster uses Microsoft Azure E32s_v3 virtual machines. 
 
-### Can I mix and match virtual machine types for my cluster?
+<!-- ### Can I mix and match virtual machine types for my cluster?
 
 No, you must choose one virtual machine type or the other.
 	
 ### Can I move between virtual machine types?
 
 Yes, there is a migration path to move from one VM type to the other. [Open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to learn how.
+
+-->
 
 ### Does the Avere vFXT environment scale?
 
