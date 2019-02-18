@@ -15,9 +15,9 @@ ms.topic: conceptual
 ms.date: 1/24/2019
 
 ---
-# Incrementally copy new and changed files only based on LastModifiedDate from Azure Blob storage to Azure Blob storage by using the Copy Data tool
+# Incrementally copy new and changed files only based on their LastModifiedDate from Azure Blob storage to Azure Blob storage by using the Copy Data tool
 
-In this tutorial, you use the Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that incrementally copy new and changed files only based on files' LastModifiedDate from Azure Blob storage to Azure Blob storage. 
+In this tutorial, you use the Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that incrementally copy new and changed files only based on their "LastModifiedDate" from Azure Blob storage to Azure Blob storage. 
 
 > [!NOTE]
 > If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
@@ -82,6 +82,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 1. On the **Let's get started** page, select the **Copy Data** title to launch the Copy Data tool. 
 
    ![Copy Data tool tile](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
+   
 2. On the **Properties** page, take the following steps:
 
 	a. Under **Task name**, enter **DeltaCopyFromBlobPipeline**.
@@ -101,68 +102,95 @@ Prepare your Blob storage for the tutorial by performing these steps.
 3. On the **Source data store** page, complete the following steps:
 
 	a. Click  **+ Create new connection**, to add a connection.
+	
 	![Source data store page](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page.png)
 
-    b. Select **Azure Blob Storage** from the gallery, and then select **Continue**.
+    b. Select **Azure Blob Storage** from the gallery, and then click **Continue**.
+	
 	![Source data store page](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
-	c. On the **New Linked Service** page, select your storage account from the **Storage account name** list, and then select **Finish**.
+	c. On the **New Linked Service** page, select your storage account from the **Storage account name** list, and then click **Finish**.
+	
 	![Source data store page](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-linkedservice.png)
 	
     d. Select the newly created linked service, then click **Next**. 
+	
    ![Source data store page](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
 
 4. On the **Choose the input file or folder** page, do the following steps:
     
-    a. Browse and select the **source** folder.
+    a. Browse and select the **source** folder, then click **Choose**.
+	
     ![Choose the input file or folder](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-input-file-folder.png)
 	
 	b. Under **File loading behavior**, select **Incremental load: LastModifiedDate**.
+	
     ![Choose the input file or folder](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-loading-behavior.png)
 	
 	c. Check **Binary copy** and click **Next**.
+	
 	 ![Choose the input file or folder](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
 	 
-5. On the **Destination data store** page, select the **AzureBlobStorage** which is the same storage account as data source, and then click **Next**.
+5. On the **Destination data store** page, select the **AzureBlobStorage** which is the same storage account as data source store, and then click **Next**.
 
 	![Destination data store page](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/destination-data-store-page-select-linkedservice.png)
 	
-
 6. On the **Choose the output file or folder** page, do the following steps:
     
-    a. Browse and select the **destination** folder.
+    a. Browse and select the **destination** folder, then click **Choose**.
+	
     ![Choose the output file or folder](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
 	
 	b. Click **Next**.
+	
 	 ![Choose the output file or folder](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/click-next-after-output-folder.png)
 	
 7. On the **Settings** page, select **Next**. 
 
     ![Settings page](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/settings-page.png)
+	
 8. On the **Summary** page, review the settings, and then select **Next**.
 
     ![Summary page](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/summary-page.png)
+	
 9. On the **Deployment page**, select **Monitor** to monitor the pipeline (task).
 
     ![Deployment page](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/deployment-page.png)
 	
 10. Notice that the **Monitor** tab on the left is automatically selected. The **Actions** column includes links to view activity run details and to rerun the pipeline. Select **Refresh** to refresh the list, and select the **View Activity Runs** link in the **Actions** column. 
+
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs1.png)
 
-11. There's only one activity (copy activity) in the pipeline, so you see only one entry. For details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. Given that there is no file in **source** container in your blob storage account,  so you will not see any file which has been copied to **destination** container in your blob storage account.
+11. There's only one activity (copy activity) in the pipeline, so you see only one entry. For details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. 
+
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs2.png)
+	
+	Given that there is no file in **source** container in your blob storage account,  so you will not see any file which has been copied to **destination** container in your blob storage account.
+	
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3.png)
 	
 12. Create an empty text file, and name it as file1.txt. Upload the file1.txt file to the **source** container in your storage account. You can use various tools to perform these tasks, such as [Azure Storage Explorer](http://storageexplorer.com/).	
 
+	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3_1.png)
+	
 13. To go back to the **Pipeline Runs** view, select **All Pipelines Runs**, and wait for the same pipeline being triggered again automatically.  
+
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
 
-14. Select **View Activity Run** for the 2nd pipeline run if you see it comes, and do the same to review details.  You will see one file (file1.txt) has been copied from  **source** container to "destination" container of your storage account.
+14. Select **View Activity Run** for the 2nd pipeline run if you see it comes, and do the same to review details.  
+
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs5.png)
+
+	You will see one file (file1.txt) has been copied from the **source** container to the **destination** container of your storage account.
+	
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs6.png)
 	
 15. Create another empty text file, and name it as file2.txt. Upload the file2.txt file to the **source** container in your storage account. You can use various tools to perform these tasks, such as [Azure Storage Explorer](http://storageexplorer.com/).	
 	
-16. Do the same as step 13 and 14, and you will see only the new file (file2.txt) has been copied from **source** container to "destination" container of your storage account in the next pipeline run.  You can also verify the same by using Azure Storage Explorer (http://storageexplorer.com/) to scan the files.	
+16. Do the same as step 13 and 14, and you will see only the new file (file2.txt) has been copied from the **source** container to the **destination** container of your storage account in the next pipeline run.  
 	
+	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs7.png)
+
+	You can also verify the same by using Azure Storage Explorer (http://storageexplorer.com/) to scan the files.
+	
+	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
