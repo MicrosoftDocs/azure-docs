@@ -40,7 +40,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Create a VM
 
 1. Select **+ Create a resource** found on the upper, left corner of the Azure portal.
-2. Select **Compute**, and then select **Windows Server 2016 Datacenter** or **Ubuntu Server 17.10 VM**.
+2. Select **Compute**, and then select **Windows Server 2016 Datacenter** or **Ubuntu Server 18.10 VM**.
 3. Enter, or select, the following information, accept the defaults for the remaining settings, and then select **OK**:
 
     |Setting|Value|
