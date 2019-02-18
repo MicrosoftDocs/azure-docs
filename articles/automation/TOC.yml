@@ -111,7 +111,7 @@
     - name: Start a runbook from a webhook
       href: automation-webhooks.md
     - name: Runbook input parameters
-      href: automation-runbook-input-parameters.md
+      href: runbook-input-parameters.md
       displayName: input,json
     - name: Error handling in graphical runbooks
       href: automation-runbook-graphical-error-handling.md
