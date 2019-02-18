@@ -18,6 +18,7 @@ ms.author: wolfma
 
 Use this guide to create a speech-to-text application using [Unity](https://unity3d.com/) and the Speech SDK for Unity (beta).
 When finished, you can use your computer's microphone to transcribe speech to text in real time.
+If you are not familiar with Unity, it is recommended to study the [Unity user manual](https://docs.unity3d.com/Manual/) before starting your app development.
 
 > [!NOTE]
 > The Speech SDK for Unity is currently in beta.
@@ -46,6 +47,7 @@ To complete this project, you'll need:
 * The Speech SDK for Unity (beta) is packaged as a Unity asset package (.unitypackage).
   Download it from [here](https://aka.ms/csspeech/unitypackage).
 * Import the Speech SDK by selecting **Assets** > **Import Package** > **Custom Package**.
+  Check out the [Unity documentation](https://docs.unity3d.com/Manual/AssetPackages.html) for details.
 * In the file picker, select the Speech SDK .unitypackage file that you downloaded above.
 * Ensure that all files are selected and click **Import**.
 
@@ -53,7 +55,7 @@ To complete this project, you'll need:
 
 We add a minimal UI to our scene, consisting of a button to trigger speech recognition and a text field to display the result.
 
-* In the [Hierarchy Window](https://docs.unity3d.com/Manual/Hierarchy.html), a sample scene is shown that Unity created with the new project.
+* In the [Hierarchy Window](https://docs.unity3d.com/Manual/Hierarchy.html) (by default on the left), a sample scene is shown that Unity created with the new project.
 * Right-click into it, and select **UI** > **Text**.
 * This creates three game objects: a **Text** object nested within a **Canvas** object, and an **EventSystem** object (which we will not need).
 * Click the **Text** object in the Hierarchy Window to make it settings show up in the [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
@@ -63,7 +65,7 @@ We add a minimal UI to our scene, consisting of a button to trigger speech recog
 
 ## Add the sample code
 
-1. In the [Project Window](https://docs.unity3d.com/Manual/ProjectView.html), click the **Create** button and then select **C# script**. Name the script `HelloWorld`.
+1. In the [Project Window](https://docs.unity3d.com/Manual/ProjectView.html) (by default in the left bottom), click the **Create** button and then select **C# script**. Name the script `HelloWorld`.
 
 1. Edit the script by double-clicking it.
 

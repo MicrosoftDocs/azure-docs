@@ -9,7 +9,7 @@ ms.author: wolfma
 | Programming language | Platform | API reference |
 | -------------------- | -------- | ------------- |
 | C/C++ | Windows, Linux | [Browse](https://aka.ms/csspeech/cppref) |
-| C# | Windows, UWP, .NET Framework (Windows), .NET Core | [Browse](https://aka.ms/csspeech/csharpref) |
+| C# | Windows, UWP, .NET Framework (Windows), .NET Core, Unity | [Browse](https://aka.ms/csspeech/csharpref) |
 | Java | Android, Windows, Linux | [Browse](https://aka.ms/csspeech/javaref) |
 | Java\* | [Speech Devices SDK](../articles/cognitive-services/speech-service/speech-devices-sdk.md) | [Browse](https://aka.ms/csspeech/javaref) |
 | JavaScript/Node.js | Browser, Windows, Linux, macOS | [Browse](https://aka.ms/AA434tv) |

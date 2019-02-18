@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Recognize speech, Java (Android) - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in Java on Android by using the Speech Service SDK
+description: Learn how to recognize speech in Java on Android by using the Speech SDK
 services: cognitive-services
 author: fmegen
 manager: nitinme
