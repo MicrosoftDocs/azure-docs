@@ -117,7 +117,7 @@ An on-premises network gateway can exchange routes with an Azure virtual network
 
 When you exchange routes with Azure using BGP, a separate route is added to the route table of all subnets in a virtual network for each advertised prefix. The route is added with *Virtual network gateway* listed as the source and next hop type. 
 
-ER and VPN Gateway route propagation can be disabled on a subnet using a property on a route table. When you exchange routes with Azure using BGP, routes are not added to the route table of all subnets with BGP propagation disabled. Connectivity with VPN connections is achieved using [custom routes](#custom-routes) with a next hop type of *Virtual network gateway*. For details, see [How to disable BGP route propagation](manage-route-table.md#create-a-route-table).
+ER and VPN Gateway(BGP and Non-BGP) route propagation can be disabled on a subnet using a property on a route table. When you exchange routes with Azure using routes(BGP and Non-BGP) are not added to the route table of all subnets with BGP propagation disabled. Also, if you have a Virtual Network with a Point-to-site enabled VPN Gateway, disabling “Bgp Route Propagation” on subnets inside the virtual network will prevent the remote Point-to-site clients from connecting to any Azure VM in the Route table subnet.  Connectivity with VPN connections is achieved using [custom routes](#custom-routes) with a next hop type of *Virtual network gateway*. For details, see [How to disable BGP route propagation](manage-route-table.md#create-a-route-table).
 
 ## How Azure selects a route
 
@@ -249,7 +249,7 @@ The route table for *Subnet2* in the picture contains the following routes:
 
 The route table for *Subnet2* contains all Azure-created default routes and the optional VNet peering and Virtual network gateway optional routes. Azure added the optional routes to all subnets in the virtual network when the gateway and peering were added to the virtual network. Azure removed the  routes for the 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, and 100.64.0.0/10 address prefixes from the *Subnet1* route table when the user-defined route for the 0.0.0.0/0 address prefix was added to *Subnet1*.  
 
-## Next steps::
+## Next steps
 
 - [Create a user-defined route table with routes and a network virtual appliance](tutorial-create-route-table-portal.md)
 - [Configure BGP for an Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
