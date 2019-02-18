@@ -24,6 +24,7 @@ D13_v2 is disabled because this is the current SKU of the cluster. L8 and L16 ar
 
 To change a SKU just click the SKU, you would like to use and click the **Select** button.
 
-[!NOTE] The scale up process can take a few minutes, and during that time your cluster will be suspended. Note that scaling down can harm your cluster performance.
+> [!NOTE]
+> The scale up process can take a few minutes, and during that time your cluster will be suspended. Note that scaling down can harm your cluster performance.
 
 If you need assistance with cluster scaling issues, open a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
