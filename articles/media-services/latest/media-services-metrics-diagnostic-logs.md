@@ -40,7 +40,9 @@ Currently, the following Media Services [Streaming Endpoints](https://docs.micro
 For example, to get "Egress" metrics with CLI, you would run the following `az monitor metrics` CLI command:
 
 ```cli
-az monitor metrics list --resource "/subscriptions/<subscription id>/resourcegroups/<resource group name>/providers/Microsoft.Media/mediaservices/<Media Services account name>/streamingendpoints/<streaming endpoint name>" --metric "Egress"
+az monitor metrics list --resource \
+   "/subscriptions/<subscription id>/resourcegroups/<resource group name>/providers/Microsoft.Media/mediaservices/<Media Services account name>/streamingendpoints/<streaming endpoint name>" \
+   --metric "Egress"
 ```
 
 ## Media Services diagnostic logs
@@ -51,7 +53,7 @@ Currently, you can get the following diagnostic logs:
 |---|---|
 |Key delivery service request|Logs that show the key delivery service request information. For more details, see [schemas](media-services-diagnostic-logs-schema.md).|
 
-For example, to enable storage of diagnostic logs in a Storage Account, you would run the following `az monitor diagnostic-settings` CLI command: 
+To enable storage of diagnostic logs in a Storage Account, you would run the following `az monitor diagnostic-settings` CLI command: 
 
 ```cli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -67,6 +69,16 @@ az monitor diagnostic-settings create --name <diagnostic name> \
             "enabled": true
         }
     }]'
+```
+
+For example:
+
+```cli
+az monitor diagnostic-settings create --name amsv3diagnostic \
+    --storage-account storageaccountforamsv3  \
+    --resource "/subscriptions/00000000-0000-0000-0000-0000000000/resourceGroups/amsv3ResourceGroup/providers/Microsoft.Media/mediaservices/amsv3account" \
+    --resource-group "amsv3ResourceGroup" \
+    --logs '[{"category": "KeyDeliveryRequests",  "enabled": true, "retentionPolicy": {"days": 3, "enabled": true }}]'
 ```
 
 # Next steps 
