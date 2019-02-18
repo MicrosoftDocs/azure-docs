@@ -46,7 +46,7 @@ Azure VMs you want to back up directly must comply with the setting summarized i
 **Data disk limit** | You can't back up VMs with more than 16 data disks.
 **Shared storage** | We don't recommend backing up VMs using CSV or Scale-Out File Server. CSV writers are likely to fail.
 **Linux encryption** | Backing up Linux VMs encrypted with Linux Unified Key Setup (LUKS) isn't supported.
-**File restore for Linux** | You can restore backed up VMs using a [number of methods](backup-azure-arm-restore-vms). In addition you can [restore specific files on a VM](backup-azure-restore-files-from-vm.md).  File restore is supported for [specific Linux operating systems](backup-azure-restore-files-from-vm.md#for-linux-os).
+**File restore for Linux** | You can restore backed up VMs using a [number of methods](backup-azure-arm-restore-vms.md). In addition you can [restore specific files on a VM](backup-azure-restore-files-from-vm.md).  File restore is supported for [specific Linux operating systems](backup-azure-restore-files-from-vm.md#for-linux-os).
 **VM consistency** | Azure Backup doesn't support multi-VM consistency.
 **Network mounted drives** | Backed up data doesn't include network mounted drives attached to a VM.<br/><br/>
 **Write accelerator disks** | Taking snapshots on a write accelerator-enabled disk isn't supported. It blocks Azure Backup from taking an app-consistent snapshot of all VM disks.
