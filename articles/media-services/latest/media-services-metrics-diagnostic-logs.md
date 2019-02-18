@@ -45,6 +45,8 @@ az monitor metrics list --resource \
    --metric "Egress"
 ```
 
+For information on how to create metric alerts, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+
 ## Media Services diagnostic logs
 
 Currently, you can get the following diagnostic logs:
