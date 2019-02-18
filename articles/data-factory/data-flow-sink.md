@@ -56,16 +56,16 @@ If you'd like to reset your columns mappings, press the "Remap" button to reset 
 
 ![Sink options](media/data-flow/sink2.png "Sinks")
 
-1. Allow Schema Drift and Validate Schema options are now available in Sink. This will allow you to instruct ADF to either fully accept flexible schema definitions (Schema Drift) or fail the Sink if the schema changes (Validate Schema).
+* Allow Schema Drift and Validate Schema options are now available in Sink. This will allow you to instruct ADF to either fully accept flexible schema definitions (Schema Drift) or fail the Sink if the schema changes (Validate Schema).
 
-2. Clear the Folder. ADF will truncate the sink folder contents before writing the destination files in that target folder.
+* Clear the Folder. ADF will truncate the sink folder contents before writing the destination files in that target folder.
 
-3. File name options
+* File name options
 
-* Default: Allow Spark to name files based on PART defaults
-* Pattern: Enter a name for your output files
-* Per partition: Enter a file name per partition
-* As data in column: Set the output file to the value of a column
+   * Default: Allow Spark to name files based on PART defaults
+   * Pattern: Enter a name for your output files
+   * Per partition: Enter a file name per partition
+   * As data in column: Set the output file to the value of a column
 
 > [!NOTE]
 > File operations will only execute when you are running the Execute Data Flow activity, not while in Data Flow Debug mode
