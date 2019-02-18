@@ -46,7 +46,7 @@ To configure Service Map integration, do the following:
 
     ![Service Map Overview pane](media/service-map-scom/scom-configuration.png)
 
-2. In the **Connection Configuration** window, enter the tenant name or ID, application ID (also known as the username or clientID), and password of the service principal, and then click **Next**. For more information, go to [Create a service principal](#creating-a-service-principal).
+2. In the **Connection Configuration** window, enter the tenant name or ID, application ID (also known as the username or clientID), and password of the service principal, and then click **Next**. For more information, go to Create a service principal.
 
     ![The Connection Configuration window](media/service-map-scom/scom-config-spn.png)
 

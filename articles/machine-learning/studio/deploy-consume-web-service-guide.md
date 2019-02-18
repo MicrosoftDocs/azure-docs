@@ -26,10 +26,10 @@ The following links provide general Information about how to deploy a new web se
 
 * For an overview about how to deploy a new web service that's based on Azure Resource Manager, see [Deploy a new web service](publish-a-machine-learning-web-service.md).
 * For a walkthrough about how to deploy a web service, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
-* For a full walkthrough about how to create and deploy a web service, see [Walkthrough Step 1: Create a Machine Learning workspace](walkthrough-1-create-ml-workspace.md).
+* For a full walkthrough about how to create and deploy a web service, start with [ Tutorial 1: Predict credit risk](tutorial-part1-credit-risk.md).
 * For specific examples that deploy a web service, see:
 
-  * [Walkthrough Step 5: Deploy the Azure Machine Learning web service](walkthrough-5-publish-web-service.md)
+  * [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md)
   * [How to deploy a web service to multiple regions](how-to-deploy-to-multiple-regions.md)
 
 ### With web services resource provider APIs (Azure Resource Manager APIs)
@@ -80,7 +80,7 @@ You can test your web service from the Azure Machine Learning Web Services porta
 
 * [Deploy a new web service](publish-a-machine-learning-web-service.md)
 * [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md)
-* [Walkthrough Step 5: Deploy the Azure Machine Learning web service](walkthrough-5-publish-web-service.md)
+* [Tutorial 3: Deploy credit risk model](tutorial-part3-credit-risk-deploy.md)
 
 ### From Excel
 You can download an Excel template that consumes the web service:

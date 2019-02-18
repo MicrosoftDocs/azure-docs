@@ -167,7 +167,7 @@ Some common errors when you try to SSH with Azure AD credentials include no RBAC
 
 ### Access denied: RBAC role not assigned
 
-If you see the following error on your SSH prompt, verify that you have [configured RBAC policies](#configure-rbac-policy-for-the-virtual-machine) for the VM that grants the user either the *Virtual Machine Administrator Login* or *Virtual Machine User Login* role:
+If you see the following error on your SSH prompt, verify that you have configured RBAC policies for the VM that grants the user either the *Virtual Machine Administrator Login* or *Virtual Machine User Login* role:
 
 ```bash
 login as: azureuser@contoso.onmicrosoft.com

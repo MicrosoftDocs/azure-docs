@@ -1,6 +1,6 @@
 ---
-title: Copy data to or from Azure Data Lake Storage Gen2 Preview by using Data Factory (Preview) | Microsoft Docs
-description: Learn how to copy data to and from Azure Data Lake Storage Gen2 Preview using Azure Data Factory.
+title: Copy data to or from Azure Data Lake Storage Gen2 by using Data Factory | Microsoft Docs
+description: Learn how to copy data to and from Azure Data Lake Storage Gen2 using Azure Data Factory.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -9,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 02/15/2019
 ms.author: jingwang
 
 ---
-# Copy data to or from Azure Data Lake Storage Gen2 Preview using Azure Data Factory (Preview)
+# Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory
 
-Azure Data Lake Storage Gen2 Preview is a set of capabilities dedicated to big data analytics, built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). It allows you to interface with your data using both file system and object storage paradigms.
+Azure Data Lake Storage Gen2 is a set of capabilities dedicated to big data analytics, built into [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). It allows you to interface with your data using both file system and object storage paradigms.
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data to and from Data Lake Storage Gen2. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
 

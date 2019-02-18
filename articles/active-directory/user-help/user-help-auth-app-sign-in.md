@@ -12,6 +12,7 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
+ms.collection: M365-identity-device-management
 ---
 
 # Sign in to your accounts using the Microsoft Authenticator app
@@ -31,7 +32,7 @@ Before you can use the Microsoft Authenticator app, you must:
 
  1. Download and install the Microsoft Authenticator app. If you haven't done this yet, see [Download and install the app](user-help-auth-app-download-install.md).
 
- 2. Add your work/school, personal, and third-party accounts to the Microsoft Authenticator app. For the detailed steps, see [Add your work or school account](user-help-auth-app-add-work-school-account.md), [Add your personal accounts](user-help-auth-app-add-personal-ms-account.md), and [Add your personal non-Microsoft accounts](user-help-auth-app-add-non-ms-account.md).
+ 2. Add your work/school, personal, and third-party accounts to the Microsoft Authenticator app. For the detailed steps, see [Add your work or school account](user-help-auth-app-add-work-school-account.md), [Add your personal accounts](user-help-auth-app-add-personal-ms-account.md), and [Add your non-Microsoft accounts](user-help-auth-app-add-non-ms-account.md).
 
 ## Turn on and use phone sign-in for your work or school account
 Phone sign-in is a type of two-step verification. You must still verify your identity by providing a thing you know and a thing you have, but phone sign-in lets you skip entering your account password and performs all of your identity verification on your mobile device.

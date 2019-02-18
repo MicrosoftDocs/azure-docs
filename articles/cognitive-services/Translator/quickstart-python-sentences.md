@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to determine sentence lengths (in characters) using Python and the Translator Text REST API.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart

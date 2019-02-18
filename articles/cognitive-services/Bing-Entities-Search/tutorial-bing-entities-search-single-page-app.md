@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Shows how to use the Bing Entity Search API in a single-page Web application.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-entity-search

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Configure BGP on Azure VPN Gateways: Resource Manager: PowerShell | Microsoft Docs'
 description: This article walks you through configuring BGP with Azure VPN Gateways using Azure Resource Manager and PowerShell.
 services: vpn-gateway
@@ -33,7 +33,7 @@ See [Overview of BGP with Azure VPN Gateways](vpn-gateway-bgp-overview.md) for m
 This article walks you through the steps to do the following tasks:
 
 * [Part 1 - Enable BGP on your Azure VPN gateway](#enablebgp)
-* [Part 2 - Establish a cross-premises connection with BGP](#crossprembgp)
+* Part 2 - Establish a cross-premises connection with BGP
 * [Part 3 - Establish a VNet-to-VNet connection with BGP](#v2vbgp)
 
 Each part of the instructions forms a basic building block for enabling BGP in your network connectivity. If you complete all three parts, you build the topology as shown in the following diagram:

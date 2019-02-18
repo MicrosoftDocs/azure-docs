@@ -220,7 +220,7 @@ In the following example, the *Recovering SharePoint item* has been accidentally
 4. Click the SharePoint object shown in the DPM **Recovery** tab to get the content database structure. Right-click the item, and then click **Recover**.
 
     ![DPM SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
-5. At this point, follow the [recovery steps earlier in this article](#restore-a-sharepoint-item-from-disk-using-dpm) to recover a SharePoint content database from disk.
+5. At this point, follow the recovery steps earlier in this article to recover a SharePoint content database from disk.
 
 ## FAQs
 

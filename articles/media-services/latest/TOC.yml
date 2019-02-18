@@ -7,8 +7,10 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Stream video files with .NET
+  - name: Stream video files - .NET
     href: stream-files-dotnet-quickstart.md
+  - name: Stream video files - CLI
+    href: stream-files-cli-quickstart.md
 - name: Tutorials
   expanded: true
   items:
@@ -190,8 +192,6 @@
     href: https://azure.microsoft.com/roadmap/?category=web-mobile
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/media-services/
-  - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=media-services
   - name: OpenAPI Specification (Swagger)

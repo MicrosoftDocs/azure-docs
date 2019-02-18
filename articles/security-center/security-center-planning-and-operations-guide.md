@@ -4,7 +4,7 @@ description: This document helps you to plan before adopting Azure Security Cent
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4

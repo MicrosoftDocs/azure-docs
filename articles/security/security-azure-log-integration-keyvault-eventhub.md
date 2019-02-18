@@ -3,7 +3,7 @@ title: Integrate logs from Azure Key Vault by using Event Hubs | Microsoft Docs
 description: Tutorial that provides the necessary steps to make Key Vault logs available to a SIEM by using Azure Log Integration
 services: security
 author: barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 
 ms.assetid:

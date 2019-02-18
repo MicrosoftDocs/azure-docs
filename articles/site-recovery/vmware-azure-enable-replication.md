@@ -51,7 +51,7 @@ When replicating VMware virtual machines:
     >   * You can select a premium or standard storage account. If you select a premium account, you need to specify an additional standard storage account for ongoing replication logs. Accounts must be in the same region as the Recovery Services vault.
     >   * If you want to use a different storage account, you can [create one](../storage/common/storage-create-storage-account.md). To create a storage account by using Resource Manager, click **Create new**. 
 
-8. Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network, you need to [create one](#set-up-an-azure-network). To create a network by using Resource Manager, click **Create new**. Select a subnet if applicable, and then click **OK**.
+8. Select the Azure network and subnet to which Azure VMs will connect when they're spun up after failover. The network must be in the same region as the Recovery Services vault. Select **Configure now for selected machines** to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. If you don't have a network, you need to create one. To create a network by using Resource Manager, click **Create new**. Select a subnet if applicable, and then click **OK**.
 
     ![Enable replication target setting](./media/vmware-azure-enable-replication/enable-rep3.png)
 9. In **Virtual Machines** > **Select virtual machines**, select each machine you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**. If you are not able to view/select any particular virtual machine, click [here](https://aka.ms/doc-plugin-VM-not-showing) to resolve the issue.
@@ -83,7 +83,7 @@ Next, you verify the properties of the source machine. Remember that the Azure V
 2. In **Properties**, you can view replication and failover information for the VM.
 3. In **Compute and Network** > **Compute properties**, you can change multiple VM propoerties:
 * Azure VM name - Modify the name to comply with Azure requirements if necessary
-* Target VM size or type - The default VM size is chosen based on the source VM size. You can select a different VM size based on the need any time before failover. Note that VM disk size is also based on source disk size and it can only be changed post failover. Learn more on [Standard](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets) and [Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) disk sizes and IOPS.
+* Target VM size or type - The default VM size is chosen based on the source VM size. You can select a different VM size based on the need any time before failover. Note that VM disk size is also based on source disk size and it can only be changed post failover. Learn more on disk sizes and IOPS in our [Scalability targets for disks](../virtual-machines/windows/disk-scalability-targets.md) article.
 
     ![Compute and Network properties](./media/vmware-azure-enable-replication/vmproperties.png)
 

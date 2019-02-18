@@ -28,7 +28,7 @@ This document walks through the various scenarios where you would want to move y
 Customers move the VMs for the following reasons:-
 
 - If you had already deployed in one region and a new region support was added, which is closer to the end users of your application or service then you'd want to **move your VMs as is, to the new region** to reduce latency. The same approach is taken if you want to consolidate subscriptions or there are governance / organization rules that require you to move. 
-- If your VM was deployed as a single instance VM or as part of availability set and you want to increase the availability SLAsm you can **move your VMs an availability set**. 
+- If your VM was deployed as a single instance VM or as part of availability set and you want to increase the availability SLAs you can **move your VMs into an Availability Zone**. 
 
 ## How to move Azure VMs
 Moving VMs involves the following steps:
@@ -46,7 +46,7 @@ Moving VMs involves the following steps:
 > Currently Azure Site Recovery supports moving VMs from on region to another and doesn't support moving within a region. 
 
 > [!NOTE]
-> Detailed guidance on these steps are provided in the documentation for each of the scenario as mentioned here
+> Detailed guidance on these steps are provided in the documentation for each of the scenario as mentioned [here](#next-steps)
 
 ## Typical architectures for a multi-tier deployment
 Below section walks through the most common deployment architectures customers adopt, for a multi-tier application in Azure. The example we are taking here is of a three tiered application with a public IP. Each of the tiers – Web, Application & Database have 2 VMs each, & are connected by a Load Balancer to the other tiers. The Database tier has SQL Always ON replication between the VMs for High Availability (HA).
@@ -92,7 +92,7 @@ Based on the above mentioned [architectures](#typical-architectures-for-a-multi-
 
 2. **VMs in each tier deployed across Availability Set** - You can choose to configure to place your VMs in an Availability set into separate Availability zones, when you choose to enable replication for your VM using Azure Site Recovery. The SLA for availability will be 99.9% once you complete the move operation.
 
-      ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
+     ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
 
 
 ## Next steps

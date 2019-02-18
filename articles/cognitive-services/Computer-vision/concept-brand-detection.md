@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Concepts related to brand/logo detection using the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.component: computer-vision
