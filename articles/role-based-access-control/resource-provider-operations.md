@@ -5802,5 +5802,5 @@ Update an existing person group's name and userData. The properties keep unchang
 
 ## Next steps
 
-- [Custom roles](custom-roles.md)
-- [Built-in roles](built-in-roles.md)
+- [Custom roles for Azure resources](custom-roles.md)
+- [Built-in roles for Azure resources](built-in-roles.md)

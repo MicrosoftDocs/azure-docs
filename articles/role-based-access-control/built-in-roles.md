@@ -19,12 +19,14 @@ ms.reviewer: bagovind
 ms.custom: it-pro
 ---
 # Built-in roles for Azure resources
-[Role-based access control (RBAC)](overview.md) has several built-in role definitions that you can assign to users, groups, and service principals. Role assignments are the way you control access to resources in Azure. If the built-in roles don't meet the specific needs of your organization, you can create your own [custom roles](custom-roles.md).
 
-The built-in roles are always evolving. To get the latest role definitions, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) or [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+[Role-based access control (RBAC)](overview.md) has several built-in roles for Azure resources that you can assign to users, groups, service principals, and managed identities. Role assignments are the way you control access to Azure resources. If the built-in roles don't meet the specific needs of your organization, you can create your own [custom roles for Azure resources](custom-roles.md).
+
+This article lists the built-in roles for Azure resources, which are always evolving. To get the latest roles, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) or [az role definition list](/cli/azure/role/definition#az-role-definition-list). If you are looking for administrator roles for Azure Active Directory, see [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## Built-in role descriptions
-The following table provides brief descriptions of the built-in roles. Click the role name to see the list of `Actions`, `NotActions`, `DataActions`, and `NotDataActions` for each role.
+
+The following table provides a brief description of each built-in role. Click the role name to see the list of `Actions`, `NotActions`, `DataActions`, and `NotDataActions` for each role. For information about what these actions mean and how they apply to the management and data planes, see [Understand role definitions for Azure resources](role-definitions.md).
 
 
 | Built-in role | Description |
@@ -141,6 +143,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Id** | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | **Actions** |  |
 > | * | Create and manage resources of all types |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Contributor
 > [!div class="mx-tableFixed"]
@@ -156,6 +164,10 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Authorization/elevateAccess/Action | Grants the caller User Access Administrator access at the tenant scope |
 > | Microsoft.Blueprint/blueprintAssignments/write | Create or update any blueprint artifacts |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Delete any blueprint artifacts |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Reader
 > [!div class="mx-tableFixed"]
@@ -165,6 +177,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Id** | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | **Actions** |  |
 > | */read | Read resources of all types, except secrets. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## AcrImageSigner
 > [!div class="mx-tableFixed"]
@@ -174,6 +192,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | Push/Pull content trust metadata for a container registry. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## AcrPull
 > [!div class="mx-tableFixed"]
@@ -183,6 +207,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Id** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | Pull or Get images from a container registry. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## AcrPush
 > [!div class="mx-tableFixed"]
@@ -193,6 +223,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/pull/read | Pull or Get images from a container registry. |
 > | Microsoft.ContainerRegistry/registries/push/write | Push or Write images to a container registry. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -202,6 +238,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | Pull or Get quarantined images from container registry |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -212,6 +254,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/quarantineRead/read | Pull or Get quarantined images from container registry |
 > | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Write/Modify quarantine state of quarantined images |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## API Management Service Contributor
 > [!div class="mx-tableFixed"]
@@ -227,6 +275,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## API Management Service Operator Role
 > [!div class="mx-tableFixed"]
@@ -252,6 +306,10 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Support/* | Create and manage support tickets |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Get list of user keys |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## API Management Service Reader Role
 > [!div class="mx-tableFixed"]
@@ -270,6 +328,10 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Support/* | Create and manage support tickets |
 > | **NotActions** |  |
 > | Microsoft.ApiManagement/service/users/keys/read | Get list of user keys |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Application Insights Component Contributor
 > [!div class="mx-tableFixed"]
@@ -286,6 +348,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Application Insights Snapshot Debugger
 > [!div class="mx-tableFixed"]
@@ -300,6 +368,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Automation Job Operator
 > [!div class="mx-tableFixed"]
@@ -321,6 +395,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Automation Operator
 > [!div class="mx-tableFixed"]
@@ -350,6 +430,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Automation/automationAccounts/jobs/output/read | Gets the output of a job |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Automation Runbook Operator
 > [!div class="mx-tableFixed"]
@@ -364,6 +450,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Azure Kubernetes Service Cluster Admin Role
 > [!div class="mx-tableFixed"]
@@ -373,6 +465,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **Actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | List the clusterAdmin credential of a managed cluster |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Azure Kubernetes Service Cluster User Role
 > [!div class="mx-tableFixed"]
@@ -382,6 +480,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Id** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
 > | **Actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | List the clusterUser credential of a managed cluster |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Azure Stack Registration Owner
 > [!div class="mx-tableFixed"]
@@ -393,6 +497,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.AzureStack/registrations/products/listDetails/action | Retrieves extended details for an Azure Stack Marketplace product |
 > | Microsoft.AzureStack/registrations/products/read | Gets the properties of an Azure Stack Marketplace product |
 > | Microsoft.AzureStack/registrations/read | Gets the properties of an Azure Stack registration |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Backup Contributor
 > [!div class="mx-tableFixed"]
@@ -444,6 +554,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Gets Operation Status for a given Operation |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | List all backup Protection Intents |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Backup Operator
 > [!div class="mx-tableFixed"]
@@ -510,6 +626,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Gets Operation Status for a given Operation |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | List all backup Protection Intents |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Backup Reader
 > [!div class="mx-tableFixed"]
@@ -557,6 +679,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Gets Operation Status for a given Operation |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | List all backup Protection Intents |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Billing Reader
 > [!div class="mx-tableFixed"]
@@ -572,6 +700,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
 > | Microsoft.CostManagement/*/read |  |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## BizTalk Contributor
 > [!div class="mx-tableFixed"]
@@ -587,6 +721,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## CDN Endpoint Contributor
 > [!div class="mx-tableFixed"]
@@ -603,6 +743,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## CDN Endpoint Reader
 > [!div class="mx-tableFixed"]
@@ -619,6 +765,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## CDN Profile Contributor
 > [!div class="mx-tableFixed"]
@@ -635,6 +787,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## CDN Profile Reader
 > [!div class="mx-tableFixed"]
@@ -651,6 +809,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Classic Network Contributor
 > [!div class="mx-tableFixed"]
@@ -666,6 +830,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Classic Storage Account Contributor
 > [!div class="mx-tableFixed"]
@@ -681,6 +851,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Classic Storage Account Key Operator Service Role
 > [!div class="mx-tableFixed"]
@@ -691,6 +867,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | Microsoft.ClassicStorage/storageAccounts/listkeys/action | Lists the access keys for the storage accounts. |
 > | Microsoft.ClassicStorage/storageAccounts/regeneratekey/action | Regenerates the existing access keys for the storage account. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Classic Virtual Machine Contributor
 > [!div class="mx-tableFixed"]
@@ -716,6 +898,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Cognitive Services Contributor
 > [!div class="mx-tableFixed"]
@@ -741,6 +929,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Cognitive Services Data Reader (Preview)
 > [!div class="mx-tableFixed"]
@@ -748,8 +942,14 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | --- | --- |
 > | **Description** | Lets you read Cognitive Services data. |
 > | **Id** | b59867f0-fa02-499b-be73-45a86b5b3e1c |
+> | **Actions** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.CognitiveServices/*/read |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Cognitive Services User
 > [!div class="mx-tableFixed"]
@@ -771,8 +971,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/read | Gets the list of subscriptions. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.CognitiveServices/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Cosmos DB Account Reader Role
 > [!div class="mx-tableFixed"]
@@ -788,6 +992,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Insights/Metrics/read | Read metrics |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## CosmosBackupOperator
 > [!div class="mx-tableFixed"]
@@ -798,6 +1008,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | Microsoft.DocumentDB/databaseAccounts/backup/action | Submit a request to configure backup |
 > | Microsoft.DocumentDB/databaseAccounts/restore/action | Submit a restore request |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Cost Management Contributor
 > [!div class="mx-tableFixed"]
@@ -812,6 +1028,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/read | Gets the list of subscriptions. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Cost Management Reader
 > [!div class="mx-tableFixed"]
@@ -826,6 +1048,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/read | Gets the list of subscriptions. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Data Box Contributor
 > [!div class="mx-tableFixed"]
@@ -840,6 +1068,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 > | Microsoft.Databox/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Data Box Reader
 > [!div class="mx-tableFixed"]
@@ -855,6 +1089,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Databox/locations/availableSkus/action | This method returns the list of available skus. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Data Factory Contributor
 > [!div class="mx-tableFixed"]
@@ -871,6 +1111,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Data Lake Analytics Developer
 > [!div class="mx-tableFixed"]
@@ -902,6 +1148,10 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.DataLakeAnalytics/accounts/firewallRules/Delete | Delete a firewall rule. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | Create or update a compute policy. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | Delete a compute policy. |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Data Purger
 > [!div class="mx-tableFixed"]
@@ -914,6 +1164,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Insights/components/purge/action | Purging data from Application Insights |
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | Delete specified data from workspace |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## DevTest Labs User
 > [!div class="mx-tableFixed"]
@@ -954,6 +1210,10 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
 > | **NotActions** |  |
 > | Microsoft.Compute/virtualMachines/vmSizes/read | Lists available sizes the virtual machine can be updated to |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## DNS Zone Contributor
 > [!div class="mx-tableFixed"]
@@ -969,6 +1229,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage Support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## DocumentDB Account Contributor
 > [!div class="mx-tableFixed"]
@@ -984,6 +1250,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## EventGrid EventSubscription Contributor
 > [!div class="mx-tableFixed"]
@@ -1001,6 +1273,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## EventGrid EventSubscription Reader
 > [!div class="mx-tableFixed"]
@@ -1015,6 +1293,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.EventGrid/locations/eventSubscriptions/read | List regional event subscriptions |
 > | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | List regional event subscriptions by topictype |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## HDInsight Domain Services Contributor
 > [!div class="mx-tableFixed"]
@@ -1026,6 +1310,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.AAD/*/read |  |
 > | Microsoft.AAD/domainServices/*/read |  |
 > | Microsoft.AAD/domainServices/oucontainer/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Intelligent Systems Account Contributor
 > [!div class="mx-tableFixed"]
@@ -1041,6 +1331,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Key Vault Contributor
 > [!div class="mx-tableFixed"]
@@ -1058,6 +1354,10 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **NotActions** |  |
 > | Microsoft.KeyVault/locations/deletedVaults/purge/action | Purge a soft deleted key vault |
 > | Microsoft.KeyVault/hsmPools/* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Lab Creator
 > [!div class="mx-tableFixed"]
@@ -1073,6 +1373,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | Get regional availability information for each size category configured under a lab account |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Log Analytics Contributor
 > [!div class="mx-tableFixed"]
@@ -1094,6 +1400,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourcegroups/deployments/* |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Log Analytics Reader
 > [!div class="mx-tableFixed"]
@@ -1108,6 +1420,10 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Support/* | Create and manage support tickets |
 > | **NotActions** |  |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Logic App Contributor
 > [!div class="mx-tableFixed"]
@@ -1136,6 +1452,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Get the properties on an App Service Plan |
 > | Microsoft.Web/sites/functions/listSecrets/action | List Secrets Web Apps Functions. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Logic App Operator
 > [!div class="mx-tableFixed"]
@@ -1160,6 +1482,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Web/connections/*/read | Read Connections. |
 > | Microsoft.Web/customApis/*/read | Read Custom API. |
 > | Microsoft.Web/serverFarms/read | Get the properties on an App Service Plan |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Managed Application Operator Role
 > [!div class="mx-tableFixed"]
@@ -1170,6 +1498,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | */read | Read resources of all types, except secrets. |
 > | Microsoft.Solutions/applications/read | Retrieves a list of applications. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Managed Applications Reader
 > [!div class="mx-tableFixed"]
@@ -1181,6 +1515,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | */read | Read resources of all types, except secrets. |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Solutions/jitRequests/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Managed Identity Contributor
 > [!div class="mx-tableFixed"]
@@ -1197,6 +1537,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Managed Identity Operator
 > [!div class="mx-tableFixed"]
@@ -1212,6 +1558,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Management Group Contributor
 > [!div class="mx-tableFixed"]
@@ -1225,6 +1577,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Management/managementGroups/subscriptions/delete | De-associates subscription from the management group. |
 > | Microsoft.Management/managementGroups/subscriptions/write | Associates existing subscription with the management group. |
 > | Microsoft.Management/managementGroups/write | Create or update a management group. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Management Group Reader
 > [!div class="mx-tableFixed"]
@@ -1234,6 +1592,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Id** | ac63b705-f282-497d-ac71-919bf39d939d |
 > | **Actions** |  |
 > | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Monitoring Contributor
 > [!div class="mx-tableFixed"]
@@ -1266,6 +1630,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Support/* | Create and manage support tickets |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Monitoring Metrics Publisher
 > [!div class="mx-tableFixed"]
@@ -1277,8 +1647,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Insights/Register/Action | Register the Microsoft Insights provider |
 > | Microsoft.Support/* | Create and manage support tickets |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Insights/Metrics/Write | Write metrics |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Monitoring Reader
 > [!div class="mx-tableFixed"]
@@ -1290,6 +1664,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | */read | Read resources of all types, except secrets. |
 > | Microsoft.OperationalInsights/workspaces/search/action | Executes a search query |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Network Contributor
 > [!div class="mx-tableFixed"]
@@ -1305,6 +1685,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## New Relic APM Account Contributor
 > [!div class="mx-tableFixed"]
@@ -1320,6 +1706,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 > | NewRelic.APM/accounts/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Reader and Data Access
 > [!div class="mx-tableFixed"]
@@ -1330,6 +1722,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Redis Cache Contributor
 > [!div class="mx-tableFixed"]
@@ -1345,6 +1743,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Resource Policy Contributor (Preview)
 > [!div class="mx-tableFixed"]
@@ -1359,6 +1763,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Authorization/policysetdefinitions/* | Create and manage policy sets |
 > | Microsoft.PolicyInsights/* |  |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Scheduler Job Collections Contributor
 > [!div class="mx-tableFixed"]
@@ -1374,6 +1784,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Scheduler/jobcollections/* | Create and manage job collections |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Search Service Contributor
 > [!div class="mx-tableFixed"]
@@ -1389,6 +1805,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Search/searchServices/* | Create and manage search services |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Security Admin
 > [!div class="mx-tableFixed"]
@@ -1418,6 +1840,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Security/securityContacts/write | Updates the security contact |
 > | Microsoft.Security/InformationProtectionPolicies/write | Updates the information protection policies for the resource |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Security Manager (Legacy)
 > [!div class="mx-tableFixed"]
@@ -1436,6 +1864,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Security/* | Create and manage security components and policies |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Security Reader
 > [!div class="mx-tableFixed"]
@@ -1452,6 +1886,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Security/*/read | Read security components and policies |
 > | Microsoft.Support/* | Create and manage support tickets |
 > | Microsoft.Management/managementGroups/read | List management groups for the authenticated user. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Site Recovery Contributor
 > [!div class="mx-tableFixed"]
@@ -1487,6 +1927,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Site Recovery Operator
 > [!div class="mx-tableFixed"]
@@ -1552,6 +1998,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Site Recovery Reader
 > [!div class="mx-tableFixed"]
@@ -1591,6 +2043,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Spatial Anchors Account Contributor
 > [!div class="mx-tableFixed"]
@@ -1598,6 +2056,10 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | --- | --- |
 > | **Description** | Lets you manage spatial anchors in your account, but not delete them |
 > | **Id** | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
+> | **Actions** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Create spatial anchors |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Discover nearby spatial anchors |
@@ -1605,6 +2067,8 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate spatial anchors |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit diagnostics data to help improve the quality of the Azure Spatial Anchors service |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Update spatial anchors properties |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Spatial Anchors Account Owner
 > [!div class="mx-tableFixed"]
@@ -1612,6 +2076,10 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | --- | --- |
 > | **Description** | Lets you manage spatial anchors in your account, including deleting them |
 > | **Id** | 70bbe301-9835-447d-afdd-19eb3167307c |
+> | **Actions** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/create/action | Create spatial anchors |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Delete spatial anchors |
@@ -1620,6 +2088,8 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate spatial anchors |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit diagnostics data to help improve the quality of the Azure Spatial Anchors service |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Update spatial anchors properties |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Spatial Anchors Account Reader
 > [!div class="mx-tableFixed"]
@@ -1627,11 +2097,17 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | --- | --- |
 > | **Description** | Lets you locate and read properties of spatial anchors in your account |
 > | **Id** | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
+> | **Actions** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Discover nearby spatial anchors |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Get properties of spatial anchors |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate spatial anchors |
 > | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit diagnostics data to help improve the quality of the Azure Spatial Anchors service |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## SQL DB Contributor
 > [!div class="mx-tableFixed"]
@@ -1668,6 +2144,10 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## SQL Security Manager
 > [!div class="mx-tableFixed"]
@@ -1709,6 +2189,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Create and manage SQL server security alert policies |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## SQL Server Contributor
 > [!div class="mx-tableFixed"]
@@ -1748,6 +2234,10 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Edit SQL server security alert policies |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Storage Account Contributor
 > [!div class="mx-tableFixed"]
@@ -1765,6 +2255,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Storage/storageAccounts/* | Create and manage storage accounts |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Storage Account Key Operator Service Role
 > [!div class="mx-tableFixed"]
@@ -1775,6 +2271,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/listkeys/action | Returns the access keys for the specified storage account. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenerates the access keys for the specified storage account. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Storage Blob Data Contributor (Preview)
 > [!div class="mx-tableFixed"]
@@ -1786,10 +2288,14 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returns the result of deleting a container |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns list of containers |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returns the result of put blob container |
+> | **NotActions** |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returns the result of deleting a blob |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returns the result of writing a blob |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Storage Blob Data Owner (Preview)
 > [!div class="mx-tableFixed"]
@@ -1799,8 +2305,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/* |  |
+> | **NotActions** |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Storage Blob Data Reader (Preview)
 > [!div class="mx-tableFixed"]
@@ -1810,8 +2320,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns list of containers |
+> | **NotActions** |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Storage Queue Data Contributor (Preview)
 > [!div class="mx-tableFixed"]
@@ -1823,10 +2337,14 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Returns the result of deleting a queue |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returns a queue or a list of queues. |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/write | Returns the result of writing a queue |
+> | **NotActions** |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Returns the result of deleting a message |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returns a message |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Returns the result of writing a message |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Storage Queue Data Message Processor (Preview)
 > [!div class="mx-tableFixed"]
@@ -1834,9 +2352,15 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | --- | --- |
 > | **Description** | Allows for peek, receive, and delete access to Azure Storage queue messages |
 > | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
+> | **Actions** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returns a message |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Returns the result of processing a message |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Storage Queue Data Message Sender (Preview)
 > [!div class="mx-tableFixed"]
@@ -1844,8 +2368,14 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | --- | --- |
 > | **Description** | Allows for sending of Azure Storage queue messages |
 > | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
+> | **Actions** |  |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Returns the result of adding a message |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Storage Queue Data Reader (Preview)
 > [!div class="mx-tableFixed"]
@@ -1855,8 +2385,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returns a queue or a list of queues. |
+> | **NotActions** |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Returns a message |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Support Request Contributor
 > [!div class="mx-tableFixed"]
@@ -1868,6 +2402,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Authorization/*/read | Read authorization |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Traffic Manager Contributor
 > [!div class="mx-tableFixed"]
@@ -1883,6 +2423,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## User Access Administrator
 > [!div class="mx-tableFixed"]
@@ -1894,6 +2440,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | */read | Read resources of all Types, except secrets. |
 > | Microsoft.Authorization/* | Manage authorization |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Virtual Machine Administrator Login
 > [!div class="mx-tableFixed"]
@@ -1907,9 +2459,13 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Network/loadBalancers/read | Gets a load balancer definition |
 > | Microsoft.Network/networkInterfaces/read | Gets a network interface definition.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **NotActions** |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Log in to a virtual machine as a regular user |
 > | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Log in to a virtual machine with Windows administrator or Linux root user privileges |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Virtual Machine Contributor
 > [!div class="mx-tableFixed"]
@@ -1956,6 +2512,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 > | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Virtual Machine User Login
 > [!div class="mx-tableFixed"]
@@ -1969,8 +2531,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Network/loadBalancers/read | Gets a load balancer definition |
 > | Microsoft.Network/networkInterfaces/read | Gets a network interface definition.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **NotActions** |  |
+> | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Compute/virtualMachines/login/action | Log in to a virtual machine as a regular user |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Web Plan Contributor
 > [!div class="mx-tableFixed"]
@@ -1986,6 +2552,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 > | Microsoft.Web/serverFarms/* | Create and manage server farms |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Website Contributor
 > [!div class="mx-tableFixed"]
@@ -2006,9 +2578,15 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Get the properties on an App Service Plan |
 > | Microsoft.Web/sites/* | Create and manage websites (site creation also requires write permissions to the associated App Service Plan) |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
 
 ## Next steps
 
-- [Custom roles](custom-roles.md)
-- [Manage roles assignments using the Azure portal](role-assignments-portal.md)
+- [Custom roles for Azure resources](custom-roles.md)
+- [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md)
 - [Permissions in Azure Security Center](../security-center/security-center-permissions.md)
