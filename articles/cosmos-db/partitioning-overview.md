@@ -35,7 +35,7 @@ Consider the following details when you choose a partition key:
 
 * A single logical partition has an upper limit of 10 GB of storage.  
 
-* Partitioned containers have a minimum throughput of 400 RU/s. Requests to the same partition key can't exceed the throughput allocated to a partition. If they exceed the allocated throughput, the requests are rate-limited. So, it's important to pick a partition key that doesn't result in "hot spots" within your application.
+* Partitioned containers have a minimum throughput of 400 request units per second (RU/s). Requests to the same partition key can't exceed the throughput allocated to a partition. If they exceed the allocated throughput, the requests are rate-limited. So, it's important to pick a partition key that doesn't result in "hot spots" within your application.
 
 * Choose a partition key that spreads workload evenly across all partitions and evenly over time.  Your choice of partition key should balance the need for efficient partition queries and transactions against the goal of distributing items across multiple partitions to achieve scalability.
 
