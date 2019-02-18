@@ -11,18 +11,19 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 02/18/2019
 ---
 # Getting started with Azure SQL Database managed instance
 
-The [managed instance](sql-database-managed-instance-index.yml) deployment option create a database with near 100% compatibility with the latest SQL Server on-premises (Enterprise Edition) Database Engine, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. In this section, you will learn how to quickly configure and create a managed instance and migrate your databases.
+The [managed instance](sql-database-managed-instance-index.yml) deployment option creates a database with near 100% compatibility with the latest SQL Server on-premises (Enterprise Edition) database engine, providing a native [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) implementation that addresses common security concerns, and a [business model](https://azure.microsoft.com/pricing/details/sql-database/) favorable for on-premises SQL Server customers. In this article, you will learn how to quickly configure and create a managed instance and migrate your databases.
 
 ## Quickstart overview
 
 The following quickstarts enable you to quickly create a managed instance, configure a virtual machine or point to site VPN connection for client application, and restore a database to your new managed instance using a `.bak` file:
 
-- [Create a managed instance using the Azure portal](sql-database-managed-instance-get-started.md). In the Azure portal, you configure the necessary parameters (username/password, number of cores, max storage), and automatically create Azure network environment without need to know about networking details and infrastructure requirements. You just make sure that you have a [subscription type](sql-database-managed-instance-resource-limits.md#supported-subscription-types) that is allowed to create a managed instance. If you have your own network that you want to use or you want to customize the network, see how to configure network environment for a managed instance.
+- [Create a managed instance using the Azure portal](sql-database-managed-instance-get-started.md). In the Azure portal, you configure the necessary parameters (username/password, number of cores, and max storage amount), and automatically create the Azure network environment without the need to know about networking details and infrastructure requirements. You just make sure that you have a [subscription type](sql-database-managed-instance-resource-limits.md#supported-subscription-types) that is currently allowed to create a managed instance. If you have your own network that you want to use or you want to customize the network, see [configure an existing virtual network for Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vnet-subnet) or [create a virtual network for Azure SQL Database Managed Instance](sql-database-managed-instance-create-vnet-subnet.md).
 - A managed instance is created in own VNet with no public endpoint. For client application access, you can either create a VM in the same VNet (different subnet) or create a point-to-site VPN connection to the VNet from your client computer using one of these quickstarts.
+
   - Create [Azure Virtual Machine in the managed instance VNet](sql-database-managed-instance-configure-vm.md) for client application connectivity, including SQL Server Management Studio.
   - Set up [point-to-site VPN connection to your managed instance](sql-database-managed-instance-configure-p2s.md) from your client computer on which you have SQL Server Management Studio and other client connectivity applications. This is other of two options for connectivity to your managed instance and to its VNet.
 
