@@ -1,6 +1,6 @@
 ---
-title: Manage access using RBAC and Azure PowerShell | Microsoft Docs
-description: Learn how to manage access for users, groups, and applications, using role-based access control (RBAC) and Azure PowerShell. This includes how to list access, grant access, and remove access.
+title: Manage access to Azure resources using RBAC and Azure PowerShell | Microsoft Docs
+description: Learn how to manage access to Azure resoruces for users, groups, and applications using role-based access control (RBAC) and Azure PowerShell. This includes how to list access, grant access, and remove access.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,9 +16,9 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
-# Manage access using RBAC and Azure PowerShell
+# Manage access to Azure resources using RBAC and Azure PowerShell
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, and applications using RBAC and Azure PowerShell.
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. This article describes how you manage access for users, groups, and applications using RBAC and Azure PowerShell.
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
@@ -321,6 +321,6 @@ PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionNam
 
 ## Next steps
 
-- [Tutorial: Grant access for a group using RBAC and Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Tutorial: Create a custom role using Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Tutorial: Grant a group access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Tutorial: Create a custom role for Azure resources using Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Manage resources with Azure PowerShell](../azure-resource-manager/powershell-azure-resource-manager.md)
