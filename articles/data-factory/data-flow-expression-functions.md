@@ -11,6 +11,8 @@ ms.date: 02/15/2019
 
 # Mapping Data Flow Expression Functions
 
+Data Factory Mapping Data Flows have an expression language that can be used to configure data transformations.
+
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 <code>isNull</code>
