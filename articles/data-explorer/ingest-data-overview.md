@@ -7,7 +7,7 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 1/14/2019
+ms.date: 2/18/2019
 ---
 
 # Azure Data Explorer data ingestion
@@ -34,15 +34,21 @@ The Azure Data Explorer data management service, which is responsible for data i
 
 Azure Data Explorer supports several ingestion methods, each with its own target scenarios, advantages, and disadvantages. Azure Data Explorer offers pipelines and connectors to common services, programmatic ingestion using SDKs, and direct access to the engine for exploration purposes.
 
-### Ingestion using pipelines
+### Ingestion using pipelines, connectors, and plugins
 
-Azure Data Explorer currently supports the Event Hub pipeline, which can be managed using the management wizard in the Azure portal. For more information, see [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md).
+Azure Data Explorer currently supports:
 
-### Ingestion using connectors and plugins
+* Event Grid pipeline, which can be managed using the management wizard in the Azure portal. For more information, see [Ingest Azure Blobs into Azure Data Explorer](ingest-data-event-grid.md).
 
-* Azure Data Explorer supports the Logstash plugin. For more information, see [Logstash Output Plugin for Azure Data Explorer](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
+* Event Hub pipeline, which can be managed using the management wizard in the Azure portal. For more information, see [Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md).
 
-* Azure Data Explorer supports the Kafka connector. For more information, see [Quickstart: Ingest data from Kafka into Azure Data Explorer](ingest-data-kafka.md)
+* Logstash plugin, see [Ingest data from Logstash to Azure Data Explorer](ingest-data-logstash.md).
+
+* Kafka connector, see [Ingest data from Kafka into Azure Data Explorer](ingest-data-kafka.md).
+
+### Ingestion using integration services
+
+* Azure Data Factory (ADF), a fully-managed data integration service for analytic workloads in Azure, to simply copy data to and from Azure Data Explorer. For more information see [Copy data to or from Azure Data Explorer using Azure Data Factory](/azure/data-factory/connector-azure-data-explorer).
 
 ### Programmatic ingestion
 
@@ -131,16 +137,22 @@ Schema mapping helps bind source data fields to destination table columns.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md)
+> [Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingest data from Kafka into Azure Data Explorer](ingest-data-kafka.md)
+> [Ingest data using Event Grid subscription into Azure Data Explorer](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)
+> [Ingest data from Kafka into Azure Data Explorer](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingest data using the Azure Data Explorer Node library](node-ingest-data.md)
+> [Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)](net-standard-ingest-data.md)
+> [Ingest data using the Azure Data Explorer Node library](node-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)](net-standard-ingest-data.md)
+
+> [!div class="nextstepaction"]
+> [Ingest data from Logstash to Azure Data Explorer](ingest-data-logstash.md)
