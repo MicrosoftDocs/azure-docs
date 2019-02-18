@@ -76,14 +76,15 @@ After failover of the VM, you need to reprotect it so that it replicates back to
 4. Click **OK** to trigger a reprotect job. This job seeds the target site with the latest data. Then, it replicates the deltas to the primary region. The VM is now in a protected state.
 
 > [!NOTE]
-> Refer ["How to section"](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection)" for more details on re-protection work flow and what happens during re protection.
+> See the ["how to" section](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) for more details about the reprotection work flow and what happens during reprotection.
 
 
 ## Fail back to the primary region
 
-After VMs are reprotected,  you can fail back to the primary region as you need to. To do this, set up a failover from the secondary to primary region, as described in this article.</br>
+After VMs are reprotected, you can fail back to the primary region as you need to. To do this, set up a failover from the secondary region to the primary region, as described in this article.
 
 ![Right-click to reprotect](./media/azure-to-azure-tutorial-failover-failback/failback.png)
 
-If you observe above screen shot, "ContosoWin2016" VM failed over from Central US to East US and failback  from East US to Central US.</br>
-The failover shuts down the VM in the secondary region i.e DR region, and creates and boots VM in the primary region. Please **note** that the DR VMs will remain in the shutdown deallocated state as shown above. This behavior is by design because Azure Site Recovery save the information of the virtual machine which may be useful in failover for primary to secondary region later. You don't get charged for the deallocated virtual machines and hence it should be kept as it is.
+If you see the preceding screenshot, "ContosoWin2016" VM failed over from Central US to East US and failed back from East US to Central US.
+
+The failover shuts down the VM in the secondary region, that is, the disaster recovery region, and creates and boots the VM in the primary region. Please **note** that the DR VMs will remain in the shutdown deallocated state as shown above. This behavior is by design because Azure Site Recovery saves the information of the virtual machine, which may be useful in failover for the primary to the secondary region later. You aren't charged for the deallocated virtual machines, so it should be kept as it is.
