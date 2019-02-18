@@ -60,7 +60,7 @@ DPM/MABS can be deployed as summarized in the table.
 **Deployed as an Azure VM** | Protects Azure VMs, and workloads running on those VMs. | No support for on-premises protection.
 
 
-## Supported DPM/MABS operating system
+## Supported MABS and DPM operating systems
 
 Azure Backup can back up DPM server or MABS running any of the following operating systems.
 
