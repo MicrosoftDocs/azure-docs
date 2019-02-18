@@ -170,7 +170,7 @@ Starting with version 3.x, you must explicitly install the Storage binding exten
 
 ## Create a function
 
-1. Right-click the project, select **Add** > **New Item...**, and name the new C# class file *Functions.cs*.
+1. Right-click the project, select **Add** > **New Item...**, choose **Class**, name the new C# class file *Functions.cs*, and select **Add**.
 
 1. In Functions.cs, replace the generated template with the following code:
 
@@ -196,7 +196,7 @@ Starting with version 3.x, you must explicitly install the Storage binding exten
 
 ## Create a storage account
 
-The Azure Storage emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. So in this section you create a Storage account in Azure and configure the project to use it.
+The Azure Storage emulator that runs locally doesn't have all of the features that the WebJobs SDK needs. So in this section you create a storage account in Azure and configure the project to use it. If you already have a storage account, skip down to step 6.
 
 1. Open **Server Explorer** in Visual studio and sign in to Azure. Right-click the **Azure** node, and then select **Connect to Microsoft Azure Subscription**.
 
@@ -226,7 +226,9 @@ The Azure Storage emulator that runs locally doesn't have all of the features th
 
 The WebJobs SDK looks for the storage connection string in the Application Settings in Azure. When you run locally, it looks for this value in the local configuration file or in environment variables.
 
-1. Create an *appsettings.json* file, or add a `AzureWebJobsStorage` field, as in the following example:
+1. Right-click the project, select **Add** > **New Item...**, choose **JavaScript JSON configuration file**, name the new file *appsettings.json* file, and select **Add**. 
+
+1. In the new file, add a `AzureWebJobsStorage` field, as in the following example:
 
     ```json
     {
@@ -235,7 +237,8 @@ The WebJobs SDK looks for the storage connection string in the Application Setti
     ```
 
 1. Replace *{storage connection string}* with the connection string that you copied earlier.
-1. Select the *appsettings.json* file in Solution Explorer and in the **Properties** window, set the setting **Copy to Output Directory** to **Copy if newer**.
+
+1. Select the *appsettings.json* file in Solution Explorer and in the **Properties** window, set **Copy to Output Directory** to **Copy if newer**.
 
 Later, you'll add the same connection string app setting in your app in Azure App Service.
 
@@ -277,7 +280,7 @@ In this section, you build and run the project locally and trigger the function 
 
    ![Create queue](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-1. In the **Add Message** dialog, enter *Hello World!* as the **Message text**, and then select **OK**.
+1. In the **Add Message** dialog, enter *Hello World!* as the **Message text**, and then select **OK**. There is now a message in the queue.
 
    ![Create queue](./media/webjobs-sdk-get-started/hello-world-text.png)
 
@@ -300,7 +303,9 @@ In this section, you build and run the project locally and trigger the function 
           Executed 'Functions.ProcessQueueMessage' (Succeeded, Id=2c319369-d381-43f3-aedf-ff538a4209b8)
    ```
 
-1. Close the console window.
+1. Close the console window. 
+
+1. Go back to the Queue window and refresh it. The message is gone, since it has been processed by your function running locally. 
 
 ## Add Application Insights logging
 
@@ -427,27 +432,28 @@ In this section, you run locally again to verify that logging data is now going 
 
 1. Close the console window.
 
-## Deploy as a WebJob
+## Deploy to Azure
 
-In this section, you deploy the project as a WebJob. You deploy it to an App Service app that you [created earlier](#create-app-service-app-and-application-insights-instance). To test your code while it runs in Azure, you'll trigger a function invocation by creating a queue message.
+In this section, you publish the console app project to Azure. During deployment, you create an app service instance in which to run your functions. When you publish a .NET Core console app to App Service in Azure, it automatically gets run as a WebJob. To learn more about publishing, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
-1. In **Solution Explorer**, right-click the project, and then select **Publish as Azure WebJob**.
+1. In **Solution Explorer**, right-click the project and select **Publish**.
 
-1. In the **Add Azure WebJob** dialog, select **OK**.
+1. In the **Publish** dialog, select **Microsoft Azure App Service**, choose **Create New**, and then select **Publish**.
 
-   ![Add Azure WebJob](./media/webjobs-sdk-get-started/add-azure-webjob.png)
+   ![Pick publish target](./media/webjobs-sdk-get-started/pick-publish-target.png)
 
-   Visual Studio automatically installs a NuGet package for WebJob publishing.
+1. In the **Create App Service** dialog, use the hosting settings as specified in the table below the image:
 
-1. In the **Profile** step of the **Publish** wizard, select **Microsoft Azure App Service**.
+    ![Create App Service dialog](./media/webjobs-sdk-get-started/app-service-dialog.png)
 
-   ![Publish dialog](./media/webjobs-sdk-get-started/publish-dialog.png)
+    | Setting      | Suggested value  | Description                                |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **App Name** | Globally unique name | Name that uniquely identifies your new function app. |
+    | **Subscription** | Choose your subscription | The Azure subscription to use. |
+    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Name of the resource group in which to create your function app. Choose **New** to create a new resource group.|
+    | **[Hosting Plan](overview-hosting-plans.md)** | App Service plan | An [App Service plan](overview-hosting-plans.md) specifies the location, size, and features of the web server farm that hosts your app. You can save money when hosting multiple apps by configuring the web apps to share a single App Service plan. App Service plans define the region, instance size, scale count, and SKU (Free, Shared, Basic, Standard, or Premium). Choose **New** to create a new App Service plan. |
 
-1. In the **App Service** dialog, select **your resource group > your App Service app**, and then select **OK**.
-
-   ![App Service dialog](./media/webjobs-sdk-get-started/app-service-dialog.png)
-
-1. After the publish profile is generated, select **Publish**.
+1. Click **Create** to create a WebJob and related resources in Azure with these settings and deploy your project code.
 
 ## Trigger the function in Azure
 
@@ -514,7 +520,7 @@ Input bindings simplify code that reads data. For this example, the queue messag
 
    ![Queue message Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
 
-1. Run the project.
+1. Run the project locally.
 
    The queue message triggers the function, which then reads the blob and logs its length. The console output looks like this:
 
@@ -548,15 +554,21 @@ Output bindings simplify code that writes data. This example modifies the previo
 
 1. Create another queue message with *Program.cs* as the text of the message.
 
-1. Run the project.
+1. Run the project locally.
 
    The queue message triggers the function, which then reads the blob, logs its length, and creates a new blob. The console output is the same, but when you go to the blob container window and select **Refresh**, you see a new blob named *copy-Program.cs.*
 
+## Republish the updates to Azure
+
+1. In **Solution Explorer**, right-click the project and select **Publish**.
+
+1. In the **Publish** dialog, make sure that the current profile is selected and then choose **Publish**. Results of the publish are detailed in the **Output** window.
+ 
+1. Verify the function in Azure by again uploading a file to the blob container and adding a message to the queue that is the name of the uploaded file. You see the message get removed from the queue and a copy of the file created in the blob container. 
+
 ## Next steps
 
-This guide has shown how to create, run, and deploy a WebJobs SDK project.
-
-To show everything that goes into a WebJobs SDK project, the instructions had you create a project from scratch. However, when you create your next project, consider using the **Azure WebJob** template in the **Cloud** category. This template creates a project with NuGet packages and sample code already set up. The sample code may need to be changed to use the new logging framework.
+This article showed you how to create, run, and deploy a WebJobs SDK 3.x project.
 
 > [!div class="nextstepaction"]
 > [Learn more about the WebJobs SDK](webjobs-sdk-how-to.md)
