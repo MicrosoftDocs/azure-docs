@@ -7,7 +7,7 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
-ms.date: 2/18/2019
+ms.date: 02/18/2019
 ---
 
 # Manage cluster scale-out to accommodate changing demand
