@@ -43,7 +43,7 @@
       displayName: Presets
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md 
-    - name: Media Encoder standard formats
+    - name: Media Encoder Standard formats
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md      
@@ -64,7 +64,7 @@
         href: filters-concept.md
       - name: Dynamic manifests
         href: filters-dynamic-manifest-overview.md       
-    - name: Content Protection
+    - name: Content protection
       href: content-protection-overview.md  
       items:
       - name: Multi-DRM system with access control
