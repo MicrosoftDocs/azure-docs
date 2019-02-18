@@ -76,7 +76,7 @@ If needed, install the agent as follows.
 **Linux VMs** | Installation using an RPM or a DEB package from your distribution's package repository is the preferred method of installing and upgrading the Azure Linux Agent. All the [endorsed distribution providers](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there.<br/><br/> If you're updating the agent, make sure no backup operation is running, and update the binaries. 
 
 
-## Verify outbound access.
+## Establish network connectivity
 
 The Backup extension running on the VM must have outbound access to Azure public IP addresses.
 
