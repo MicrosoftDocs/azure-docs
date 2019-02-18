@@ -78,6 +78,6 @@ With the SQL sink types, you can set:
 
 ![Field Mapping](media/data-flow/sql001.png "SQL Options")
 
-## Next Steps
+## Next steps
 
-Now that you've created your data flow, add an [Execute Data Flow activity to your pipeline.](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-overview)
+Now that you've created your data flow, add an [Execute Data Flow activity to your pipeline](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview).
