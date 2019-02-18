@@ -80,4 +80,4 @@ With the SQL sink types, you can set:
 
 ## Next Steps
 
-Now that you've created your data flow, add an Execute Data Flow activity to your pipeline.
+Now that you've created your data flow, add an [Execute Data Flow activity to your pipeline.](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-overview)
