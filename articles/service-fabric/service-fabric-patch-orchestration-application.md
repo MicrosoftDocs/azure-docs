@@ -379,6 +379,9 @@ A faulty Windows update can bring down the health of an application or cluster o
 
 An administrator must intervene and determine why the application or cluster became unhealthy due to Windows Update.
 
+### Minimum .NET Framework Requirement
+For POA, minimum .NET Framework version required is 4.6.
+
 ## Release Notes
 
 ### Version 1.1.0
