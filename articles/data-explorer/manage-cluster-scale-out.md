@@ -12,9 +12,9 @@ ms.date: 2/18/2019
 
 # Manage cluster scale out to accommodate changing demand
 
-Sizing a cluster appropriately is critical to the performance of Azure Data Explorer. But demand on a cluster can’t be predicted with 100% accuracy. A static cluster size can lead to under-utilization or over-utilization, neither of which is ideal. A better approach is to *scale* a cluster, adding and removing capacity with changing demand. There are two workflows for scaling, scale up and scale out, and this article explains the scale out  workflow.
+Sizing a cluster appropriately is critical to the performance of Azure Data Explorer. But demand on a cluster can’t be predicted with 100% accuracy. A static cluster size can lead to under-utilization or over-utilization, neither of which is ideal. A better approach is to *scale* a cluster,adding and removing capacity with changing demand. There are two workflows for scaling, scale-up and scale-out, This article explains the scale-out workflow.
 
-This article shows you how to manage cluster scale out, also known as autoscale. Autoscaling allows you to scale out instance count automatically based on predefined rules and schedules. This article helps you determine your Autoscale settings for your cluster in the Azure portal.
+This article shows you how to manage cluster scale-out, also known as autoscale. Autoscaling allows you to scale-out instance count automatically based on predefined rules and schedules. This article helps you determine your autoscale settings for your cluster in the Azure portal.
 
 Navigate to your cluster, and under **Settings** select **Scale out**. Under **Configure**, select **Enable autoscale**.
 
@@ -41,7 +41,7 @@ The following graphic shows the flow of the next several steps. We provide more 
     | **Time grain statistic** | Choose between **Average**, **Minimum**, **Maximum**, and **Sum**. |
     | **Operator** | Choose the appropriate option, such as **Greater than or equal to**. |
     | **Threshold** | Choose an appropriate value. For example, for cache utilization, 80% is a good starting point. |
-    | **Duration (in minutes)** | Choose an appropriate amount of time for the system to look back when calculating metrics. Start with the default of ten minutes. |
+    | **Duration (in minutes)** | Choose an appropriate amount of time for the system to look back when calculating metrics. Start with the default of 10 minutes. |
     |  |  |
 
     **Action**
@@ -59,15 +59,15 @@ The following graphic shows the flow of the next several steps. We provide more 
 
     | Setting | Description and value |
     | --- | --- | --- |
-    | *Minimum* | This is the number of instances that your cluster will not scale below, regardless of utilization. |
-    | *Maximum* | This is the number of instances that your cluster will not scale above, regardless of utilization. |
-    | *Default* | The default number of instances, used if there is a problem reading resource metrics. |
+    | *Minimum* | The number of instances that your cluster won't scale below, regardless of utilization. |
+    | *Maximum* | The number of instances that your cluster won't scale above, regardless of utilization. |
+    | *Default* | The default number of instances, used if there are problems reading resource metrics. |
     |  |  |
 
 1. Select **Save**.
 
 You've now configured a scale-out operation for your Azure Data Explorer cluster. Add another rule for a scale-in operation. This enables your cluster to scale dynamically based on metrics that you specify.
 
-You can also perform [cluster scale up](manage-cluster-scale-up.md) for appropriate sizing of a cluster.
+You can also do [cluster scale up](manage-cluster-scale-up.md) for appropriate sizing of a cluster.
 
 If you need assistance with cluster scaling issues, open a support request in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
