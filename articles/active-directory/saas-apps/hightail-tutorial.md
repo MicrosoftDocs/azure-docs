@@ -239,10 +239,10 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Hightail test user
 
-In this section, a user called Britta Simon is created in Hightail. Hightail supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Hightail, a new one is created after authentication.
+The objective of this section is to create a user called Britta Simon in Hightail. There is no action item for you in this section. Hightail supports just-in-time user provisioning based on the custom claims. If you have configured the custom claims as shown in the section **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** above, a user is automatically created in the application it doesn't exist yet. 
 
-> [!NOTE]
-> If you need to create a user manually, you need to contact the [Hightail support team](mailto:support@hightail.com).
+>[!NOTE]
+>If you need to create a user manually, you need to contact the [Hightail support team](mailto:support@hightail.com). 
 
 ### Test single sign-on
 
