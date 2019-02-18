@@ -1,6 +1,6 @@
 ---
-title: Overview of function types and features in the Durable Functions extension of Azure Functions
-description: Learn about the types of functions and roles that allow function-to-function communication in a Durable Functions orchestration.
+title: Function types and features in the Durable Functions extension of Azure Functions
+description: Learn about the types of functions and roles that support function-to-function communication in a Durable Functions orchestration in Azure Functions.
 services: functions
 author: jeffhollan
 manager: jeconnoc
@@ -10,24 +10,20 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-#Customer intent: As a developer, I want to understand the core concepts and patterns that Azure Durable Functions supports, so I can learn how I can use this technology to solve my application development challenges.
+#Customer intent: As a developer, I want to understand the core concepts and patterns that Azure Durable Functions supports, so I can learn how to use this technology to solve my application development challenges.
 ---
 
 # Durable Functions types and features (Azure Functions)
 
-Durable Functions is an extension of Azure Functions and [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md). You can use Durable Functions for stateful orchestration of function execution. A durable function is a solution that's made up of different Azure functions. Functions can play different roles in a durable function orchestration. 
+Durable Functions is an extension of [Azure Functions](../functions-overview.md) and [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md). You can use Durable Functions for stateful orchestration of function execution. A durable function is a solution that's made up of different Azure functions. Functions can play different roles in a durable function orchestration. 
 
-This article gives you an overview of the types of functions you can use in a durable function orchestration. The article includes some common patterns you can use to connect functions. 
+This article gives you an overview of the types of functions you can use in a Durable Functions orchestration. The article includes some common patterns you can use to connect functions. Learn how Durable Functions can help you solve your app development challenges.
 
-![Types of durable functions][1]  
+![An image that shows the types of durable functions][1]  
 
 ## Types of durable functions
 
-You can use three durable function types in Azure Functions:
-
-* Activity
-* Orchestrator
-* Client
+You can use three durable function types in Azure Functions: activity, orchestrator, and client.
 
 ### Activity functions
 
@@ -35,7 +31,7 @@ Activity functions are the basic unit of work in a durable function orchestratio
 
 Activity functions aren't restricted in the type of work you can do in them. You can write an activity function in any [language that Durable Functions support](durable-functions-overview.md#language-support). The Durable Task Framework guarantees that each called activity function will be executed at least once during an orchestration.
 
-You trigger an activity function by using an [activity trigger](durable-functions-bindings.md#activity-triggers). .NET functions receive a [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) as a parameter. You can also bind the trigger to any other object to pass in inputs to the function. In JavaScript, you can access an input via the `<activity trigger binding name>` property on the [`context.bindings` object](../functions-reference-node.md#bindings).
+Use an [activity trigger](durable-functions-bindings.md#activity-triggers) to trigger an activity function. .NET functions receive a [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) as a parameter. You can also bind the trigger to any other object to pass in inputs to the function. In JavaScript, you can access an input via the `<activity trigger binding name>` property on the [`context.bindings` object](../functions-reference-node.md#bindings).
 
 Your activity function can also return values to the orchestrator. If you send or return a large number of values from an activity function, you can use [tuples or arrays](durable-functions-bindings.md#passing-multiple-parameters). You can trigger an activity function only from an orchestration instance. Although an activity function and another function (like an HTTP-triggered function) might share some code, each function can have only one trigger.
 
@@ -75,7 +71,7 @@ For more information and for examples, see [Sub-orchestrations](durable-function
 
 [Durable Functions](durable-functions-overview.md) provides *durable timers* that you can use in orchestrator functions to implement delays or to set up timeouts on async actions. Use durable timers in orchestrator functions instead of `Thread.Sleep` and `Task.Delay` (C#) or `setTimeout()` and `setInterval()` (JavaScript).
 
-For more information and for examples of durable timers, see [Durable timers](durable-functions-timers.md)
+For more information and for examples, see [Durable timers](durable-functions-timers.md)
 
 ### External events
 
@@ -85,9 +81,9 @@ For more information and for examples, see [External events](durable-functions-e
 
 ### Error handling
 
-You implement Durable Functions orchestrations in code. You can use the error-handling features of the programming language. Patterns like `try`/`catch` work in your orchestration. 
+Use code to implement Durable Functions orchestrations. You can use the error-handling features of the programming language. Patterns like `try`/`catch` work in your orchestration. 
 
-Durable Functions also come with some built-in retry policies. An action can delay and retry activities automatically when an exception occurs. You can use retries to handle transient exceptions without abandoning the orchestration.
+Durable Functions also come with built-in retry policies. An action can delay and retry activities automatically when an exception occurs. You can use retries to handle transient exceptions without abandoning the orchestration.
 
 For more information and for examples, see [Error handling](durable-functions-error-handling.md).
 
@@ -95,7 +91,9 @@ For more information and for examples, see [Error handling](durable-functions-er
 
 Although a durable orchestration generally lives in the context of one function app, you can use patterns to coordinate orchestrations across many function apps. Cross-app communication might occur over HTTP, but using the durable framework for each activity means you can still maintain a durable process across two apps.
 
-The following examples demonstrate cross-function app orchestration in C# and JavaScript. In each example, one activity starts the external orchestration. Another activity retrieves and returns the status. The orchestrator waits for the status to be **Complete** before it continues.
+The following examples demonstrate cross-function app orchestration in C# and JavaScript. In each example, one activity starts the external orchestration. Another activity retrieves and returns the status. The orchestrator waits for the status to be `Complete` before it continues.
+
+Here are some examples of cross-functin app orchestration:
 
 #### C#
 
