@@ -33,7 +33,7 @@ What you can back up depends on where the agent is installed.
 --- | ---
 **Download latest MARS agent** | You can download the latest version of the agent from the vault, or [download it directly](https://aka.ms/azurebackup_agent).
 **Install directly on a machine** | You can install the MARS agent directly on an on-premises Windows server, or Windows Azure VM running any of the [supported operating systems]().
-**Install on a backup server** | When you set up DPM or MABS to back up to Azure, you download and install the MARS agent on the server. The agent can be installed in accordance with the [supported operating systems](backup-support-matrix-mabsdpm.md#supported-dpm-mabs-operating-system) in the backup server support matrix.
+**Install on a backup server** | When you set up DPM or MABS to back up to Azure, you download and install the MARS agent on the server. The agent can be installed in accordance with the [supported operating systems](backup-support-matrix-mabsdpm.md#supported-mabs-and-dpm-operating-systems) in the backup server support matrix.
 
 > [!NOTE]
 > By default Azure VMs enabled for backup have an Azure Backup extension installation. This extension backs up the entire VM. You can install and run the MARS agent on an Azure VM alongside the extension if you want to back up specific folders and files, rather than the complete VM.
@@ -76,7 +76,7 @@ The following table summarizes which operating systems running on on-premises ma
 
 - All operating systems are 64-bit.
 - All operating systems should be running the latest services packs and updates.
-- For details about which DPM and MABS servers can be backed up with the MARS agent, review [this table]((backup-support-matrix-mabs-dpm.md#supported-dpmmabs-operating-system)).
+- For details about which DPM and MABS servers can be backed up with the MARS agent, review [this table](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 
 **Operating system** | **Files/folders** | **System state**
 --- | --- | ---
