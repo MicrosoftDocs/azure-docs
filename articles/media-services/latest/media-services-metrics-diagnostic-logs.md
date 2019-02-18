@@ -62,7 +62,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     --resource-group <storage account resource group> \
     --logs '[
     {
-        "category": <KeyDeliveryRequests>,
+        "category": <category name>,
         "enabled": true,
         "retentionPolicy": {
             "days": <# days to retain>,
