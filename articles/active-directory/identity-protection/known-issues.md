@@ -30,6 +30,8 @@ ms.collection: M365-identity-device-management
 
 **Dismiss user risk** in Identity Protection (refreshed) sets the actor in the user’s risk history in Identity Protection (refreshed) to **\<Admin’s name with a hyperlink pointing to user’s blade\>**.
 
+There is a current known issue causing latencies in the user risk dismissal flow. If you have a "User risk policy", this policy will stop applying to dismissed users within minutes of clicking on "Dismiss user risk". However, there are known delays with the UX refreshing the "Risk state" of dismissed users. As a workaround, refresh the page on the browser level to see the latest user "Risk state".
+
 
 ## Risky users report
 
