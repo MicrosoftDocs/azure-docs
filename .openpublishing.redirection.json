@@ -655,6 +655,71 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Emotion/emotion-api-how-to-topics/HowtoAnalyzeVideo_Emotion.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/emotion-api-how-to-topics/HowtoCallEmotionForVideo.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/CSharp.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/curl.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/Java.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/JavaScript.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/PHP.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/Python.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/Ruby.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/Tutorials/CSharpTutorial.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/Tutorials/PythonTutorial.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/FAQ.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/Home.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-deploy-to-aks.md",
       "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
       "redirect_document_id": false
@@ -29140,12 +29205,12 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/disks-ultra-ssd.md",
-      "redirect_url": "/azure/virtual-machines/windows/disks-types#ultra-ssd-preview",
+      "redirect_url": "/azure/virtual-machines/windows/disks-types#ultra-disks-preview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/disks-ultra-ssd.md",
-      "redirect_url": "/azure/virtual-machines/linux/disks-types#ultra-ssd-preview",
+      "redirect_url": "/azure/virtual-machines/linux/disks-types#ultra-disks-preview",
       "redirect_document_id": false
     },
     {
@@ -31421,12 +31486,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-cortana-prebuilt-app.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/cognitive-services/LUIS/luis-reference-cortana-prebuilt.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#does-luis-currently-support-cortana",
+      "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting#does-luis-currently-support-cortana",
       "redirect_document_id": true
     },
     {
@@ -35419,17 +35479,17 @@
 	"redirect_document_id": true },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-find-region-csharp.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#how-do-i-programmatically-get-the-luis-region-of-a-resource",
+      "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting#how-do-i-programmatically-get-the-luis-region-of-a-resource",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-find-region-nodejs.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#how-do-i-programmatically-get-the-luis-region-of-a-resource",
+      "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting#how-do-i-programmatically-get-the-luis-region-of-a-resource",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-manage-from-cloud-shell.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-resources-faq#is-there-a-powershell-command-to-the-endpoint-quota",
+      "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting#is-there-a-powershell-command-to-the-endpoint-quota",
       "redirect_document_id": true
     },
     {
@@ -35847,6 +35907,10 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-reference-faq.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
+      "redirect_document_id": true
+    },{
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization.md",
       "redirect_url": "/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
       "redirect_document_id": false
