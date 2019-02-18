@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 02/11/2019
 ms.author: diberry
 ---
 
@@ -63,8 +63,8 @@ Container images for Face API are available.
 
 ### Docker pull for the Face container
 
-```Docker
-docker pull mcr.microsoft.com/azure-cognitive-services/face:latest
+```
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 ```
 
 ## How to use the container

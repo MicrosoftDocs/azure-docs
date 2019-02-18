@@ -1,6 +1,6 @@
 ---
 title: Advanced query samples
-description: Use Azure Resource Graph to run some advanced queries.
+description: Use Azure Resource Graph to run some advanced queries, including VMSS capacity, listing all tags used, and matching virtual machines with regular expressions.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte

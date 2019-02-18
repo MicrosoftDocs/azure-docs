@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
-
+ms.lastreviewed: 02/09/2019
 ---
 
 # Azure Stack 1901 update
@@ -66,6 +66,36 @@ This update includes the following new features and improvements for Azure Stack
 
 - Managed images on Azure Stack enable you to create a managed image object on a generalized VM (both unmanaged and managed) that can only create managed disk VMs going forward. For more information, see [Azure Stack Managed Disks](user/azure-stack-managed-disk-considerations.md#managed-images).
 
+- **AzureRm 2.4.0**
+   * **AzureRm.Profile**  
+         Bug fix - `Import-AzureRmContext` to deserialize the saved token correctly.  
+   * **AzureRm.Resources**  
+         Bug fix - `Get-AzureRmResource` to query case insensitively by resource type.  
+   * **Azure.Storage**  
+         AzureRm rollup module now includes the already published version 4.5.0 supporting the **api-version 2017-07-29**.  
+   * **AzureRm.Storage**  
+         AzureRm rollup module now includes the already published version 5.0.4 supporting the **api-version 2017-10-01**.  
+   * **AzureRm.Compute**  
+         Added simple parameter sets in `New-AzureRMVM` and `NewAzureRMVMSS`, `-ImageName` parameter supports specifying user images.  
+   * **AzureRm.Insights**  
+         AzureRm rollup module now includes the already published version 5.1.5 supporting the **api-version 2018-01-01** for metrics, metric definitions resource types.
+
+- **AzureStack 1.7.0**
+   This a breaking change release. For details on the breaking changes, refer to https://aka.ms/azspshmigration170
+   * **Azs.Backup.Admin Module**  
+         Breaking change: Backup changes to cert-based encryption mode. Support for symmetric keys is deprecated.  
+   * **Azs.Fabric.Admin Module**  
+         `Get-AzsInfrastructureVolume` has been deprecated. Use the new cmdlet `Get-AzsVolume`.  
+         `Get-AzsStorageSystem` has been deprecated.  Use the new cmdlet `Get-AzsStorageSubSystem`.  
+         `Get-AzsStoragePool` has been deprecated. The `StorageSubSystem` object contains the capacity property.  
+   * **Azs.Compute.Admin Module**  
+         Bug fix - `Add-AzsPlatformImage`, `Get-AzsPlatformImage`: Calling `ConvertTo-PlatformImageObject` only in the success path.  
+         BugFix - `Add-AzsVmExtension`, `Get-AzsVmExtension`: Calling ConvertTo-VmExtensionObject only in the success path.  
+   * **Azs.Storage.Admin Module**  
+         Bug fix - New Storage Quota uses defaults if none provided.
+
+To review the reference for the updated modules, see [Azure Stack Module Reference](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0).
+
 ## Fixed issues
 
 - Fixed an issue in which the portal showed an option to create policy-based VPN gateways, which are not supported in Azure Stack. This option has been removed from the portal.
@@ -102,7 +132,7 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 - Fixed an issue when setting the value of Managed Disks quotas under [compute quota types](azure-stack-quota-types.md#compute-quota-types) to 0, it is equivalent to the default value of 2048 GiB. The zero quota value now is respected.
 
 <!-- 2724873 - IS --> 
-- Fixed an issue when using the PowerShell cmdlets **Start-AzsScaleUnitNode** or  **Stop-AzsScaleunitNode** to manage scale units, in which the first attempt to start or stop the scale unit might fail.
+- Fixed an issue when using the PowerShell cmdlets **Start-AzsScaleUnitNode** or  **Stop-AzsScaleUnitNode** to manage scale units, in which the first attempt to start or stop the scale unit might fail.
 
 <!-- 2724961- IS ASDK --> 
 - Fixed an issue in which you registered the **Microsoft.Insight** resource provider in the subscription settings, and created a Windows VM with Guest OS Diagnostic enabled, but the CPU Percentage chart in the VM overview page did not show metrics data. The data now correctly displays.
@@ -117,6 +147,9 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
 
 <!-- 3209594, IS ASDK -->
 - Removed the **Effective Security Rules** link from the **Networking Properties** blade as this feature is not supported in Azure Stack. Having the link present gave the impression that this feature was supported but not working. To alleviate confusion, we removed the link.
+
+<!-- 3139614 | IS -->
+- Fixed an issue in which after an update was applied to Azure Stack from an OEM, the **Update available** notification did not appear in the Azure Stack administrator portal.
 
 ## Changes
 
@@ -164,9 +197,13 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
            "autoUpgradeMinorVersion": "true"
    ```
 
-- There is a new consideration for accurately planning Azure Stack capacity. We have set limits on the total number of VMs that can be deployed within Azure Stack, to ensure all of our internal services fulfill the scale at which customers run. The limit is 60 VMs per host, with a maximum of 700 for the entire stamp (if the 60 per host limit is reached). For more information, see the [new release of the capacity planner](http://aka.ms/azstackcapacityplanner).
+- There is a new consideration for accurately planning Azure Stack capacity. With the 1901 update, there is now a limit on the total number of Virtual Machines that can be created.  This limit is intended to be temporary to avoid solution instability. The source of the stability issue at higher numbers of VMs is being addressed but a specific timeline for remediation has not yet been determined. With the 1901 update, there is now a per server limit of 60 VMs with a total solution limit of 700.  For example, an 8 server Azure Stack VM limit would be 480 (8 * 60).  For a 12 to 16 server Azure Stack solution the limit would be 700. This limit has been created keeping all the compute capacity considerations in mind such as the resiliency reserve and the CPU virtual to physical ratio that an operator would like to maintain on the stamp. For more information, see the new release of the capacity planner.  
+In the event that the VM scale limit has been reached, the following error codes would be returned as a result: VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded. 
+ 
 
 - The Compute API version has increased to 2017-12-01.
+
+- Infrastructure backup now requires a certificate with a public key only (.CER) for encryption of backup data. Symmetric encryption key support is deprecated starting in 1901. If infrastructure backup is configured before updating to 1901, the encryption keys will remain in place. You will have at least 2 more updates with backwards compatibility support to update backup settings. For more information, see [Azure Stack infrastructure backup best practices](azure-stack-backup-best-practices.md).
 
 ## Common vulnerabilities and exposures
 

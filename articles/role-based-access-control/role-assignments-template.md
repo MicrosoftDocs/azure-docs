@@ -1,6 +1,6 @@
 ---
-title: Manage access using RBAC and Azure Resource Manager templates | Microsoft Docs
-description: Learn how to manage access for users, groups, and applications using role-based access control (RBAC) and Azure Resource Manager templates.
+title: Manage access to Azure resources using RBAC and Azure Resource Manager templates | Microsoft Docs
+description: Learn how to manage access to Azure resources for users, groups, and applications using role-based access control (RBAC) and Azure Resource Manager templates.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,9 +15,9 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
-# Manage access using RBAC and Azure Resource Manager templates
+# Manage access to Azure resources using RBAC and Azure Resource Manager templates
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. In addition to using Azure PowerShell or the Azure CLI, you can manage access to Azure resources using RBAC and [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). Templates can be helpful if you need to deploy resources consistently and repeatedly. This article describes how you can manage access using RBAC and templates.
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. In addition to using Azure PowerShell or the Azure CLI, you can manage access to Azure resources using RBAC and [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). Templates can be helpful if you need to deploy resources consistently and repeatedly. This article describes how you can manage access using RBAC and templates.
 
 ## Example template to create a role assignment
 
@@ -246,6 +246,6 @@ To deploy the previous template using the Azure CLI, follow these steps.
     
 ## Next steps
 
-- [Create and deploy your first Azure Resource Manager template](../azure-resource-manager/resource-manager-create-first-template.md)
+- [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 - [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
 - [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?term=rbac)

@@ -67,7 +67,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 ### Docker pull for the Recognize Text container
 
-```Docker
+```
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-rocognize-text:latest
 ```
 

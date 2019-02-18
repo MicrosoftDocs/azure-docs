@@ -1364,13 +1364,13 @@ The mathematical functions each perform a calculation, based on input values tha
 | CEILING (num_expr) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
 | FLOOR (num_expr) | Returns the largest integer less than or equal to the specified numeric expression. |
 | EXP (num_expr) | Returns the exponent of the specified numeric expression. |
-| [LOG (num_expr [,base])](#bk_log) | Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base |
+| LOG (num_expr ,base) | Returns the natural logarithm of the specified numeric expression, or the logarithm using the specified base |
 | LOG10 (num_expr) | Returns the base-10 logarithmic value of the specified numeric expression. |
 | ROUND (num_expr) | Returns a numeric value, rounded to the closest integer value. |
 | TRUNC (num_expr) | Returns a numeric value, truncated to the closest integer value. |
 | SQRT (num_expr) | Returns the square root of the specified numeric expression. |
 | SQUARE (num_expr) | Returns the square of the specified numeric expression. |
-| [POWER (num_expr, num_expr)](#bk_power) | Returns the power of the specified numeric expression to the value specified. |
+| POWER (num_expr, num_expr) | Returns the power of the specified numeric expression to the value specified. |
 | SIGN (num_expr) | Returns the sign value (-1, 0, 1) of the specified numeric expression. |
 | ACOS (num_expr) | Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine. |
 | ASIN (num_expr) | Returns the angle, in radians, whose sine is the specified numeric expression. This function is also called arcsine. |
