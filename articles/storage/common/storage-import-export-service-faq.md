@@ -82,8 +82,17 @@ You can ship drives to the Azure datacenter using any known carrier like FedEx, 
 - A FedEx account number in the US and EU, or
 - A DHL account number in the Asia and Australia regions.
 
+Note: India Datacenters require a Declaration letter on customer’s letterhead for returning the drives (Delivery Challan). You must also book the collection of the disks with your selected carrier and share the pickup details with the Datacenter in order to arrange the required entry pass. 
+
 ### Are there any restrictions with shipping my drive internationally?
 Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.
+
+### Are there any special requirements for delivering my disks to a DC?
+
+It depends on some specific Azure Datacenter restrictions.
+There are few Class C sites (e.g. Frankfurt), that require a Microsoft DC Inbound ID number to be written on the parcel for security reasons.
+Please reach out to Azure Data Box Operations alias adbops@microsoft.com to obtain this number before shipping your drives/disks to the DC, otherwise package will be rejected. 
+India Datacenters require the personal details of the driver like Government ID Card or Proof No. (PAN, AADHAR, DL, etcetera), name, contact and the car plate number in order to obtain gate entry pass. Please inform your carrier about this to avoid delivery delays.    
 
 ### When creating a job, the shipping address is a location that is different from my storage account location. What should I do?
 
