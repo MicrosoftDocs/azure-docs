@@ -3,7 +3,7 @@ title: Troubleshoot Azure Backup Agent
 description: Troubleshoot installation and registration of Azure Backup Agent
 services: backup
 author: saurabhsensharma
-manager: shreeshd
+manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
@@ -49,8 +49,7 @@ Here's how to resolve errors you might see during configuration, registration, b
 ## Backups don't run according to the schedule
 If scheduled backups don't get triggered automatically, while manual backups work without issues, try the following actions:
 
-- Go to **Control Panel** > **Administrative Tools** > **Task Scheduler**. Expand **Microsoft**, and select **Online Backup**. Double-click **Microsoft-OnlineBackup**, and go to the **Triggers** tab.
-- Ensure that the status is set to **Enabled**. If it isn't, select **Edit**, and select the **Enabled** check box. On the **General** tab, go to **Security options**. Ensure that the user account selected for running the task is either **SYSTEM** or **Local Administrators' group** on the server.
+- Go to **Control Panel** > **Administrative Tools** > **Task Scheduler**. Expand **Microsoft**, and select **Online Backup**. Double-click **Microsoft-OnlineBackup**, and go to the **Triggers** tab. Ensure that the status is set to **Enabled**. If it isn't, select **Edit**, and select the **Enabled** check box. On the **General** tab, go to **Security options**. Ensure that the user account selected for running the task is either **SYSTEM** or **Local Administrators' group** on the server.
 
 - See if PowerShell 3.0 or later is installed on the server. To check the PowerShell version, run the following command and verify that the *Major* version number is equal to or greater than 3.
 
