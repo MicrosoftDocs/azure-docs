@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 01/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
@@ -88,7 +88,7 @@ As a cloud operator, you can use the admin portal to view the storage capacity o
 1. Sign in to the [admin portal](https://adminportal.local.azurestack.external).
 2. Select **All services** > **Storage** to open the file share list where you can view the usage information. 
 
-  ![Example: Storage file shares](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+    ![Example: Storage file shares](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
   - **TOTAL** is the total space in bytes that are available on the share. This space is used for data and metadata that is maintained by the storage services.
   - **USED** is the amount of data in bytes that is used by the all the extents from the files that store the tenant data and associated metadata.

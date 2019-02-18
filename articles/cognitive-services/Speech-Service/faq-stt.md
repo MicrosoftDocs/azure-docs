@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Get answers to the most popular questions about the Speech to Text service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service

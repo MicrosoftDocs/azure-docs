@@ -4,7 +4,7 @@ description: " Learn how to enable File Integrity Monitoring in Azure Security C
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -84,7 +84,7 @@ To enable FIM on a workspace:
 4. Select **Apply file integrity monitoring** to enable FIM.
 
 > [!NOTE]
-> You can change the settings at any time. See [Edit monitored entities](security-center-file-integrity-monitoring.md#edit-monitored-items) below to learn more.
+> You can change the settings at any time. See Edit monitored entities below to learn more.
 >
 >
 

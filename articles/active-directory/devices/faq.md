@@ -13,10 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory device management FAQ
@@ -155,7 +156,11 @@ Evaluate the conditional access policy rules. Make sure the device meets the cri
 
 **A:** A user might join or register a device with Azure AD by using Multi-Factor Authentication. Then the device itself becomes a trusted second factor for that user. Whenever the same user signs in to the device and accesses an application, Azure AD considers the device as a second factor. It enables that user to seamlessly access applications without additional Multi-Factor Authentication prompts. 
 
-This behavior isn't applicable to any other user who signs in to that device. So all other users who access that device get a Multi-Factor Authentication challenge. Then they can access applications that require Multi-Factor Authentication.
+This behavior:
+
+- Is applicable to Azure AD joined and Azure AD registered devices - but not for hybrid Azure AD joined devices.
+
+- Isn't applicable to any other user who signs in to that device. So all other users who access that device get a Multi-Factor Authentication challenge. Then they can access applications that require Multi-Factor Authentication.
 
 ---
 

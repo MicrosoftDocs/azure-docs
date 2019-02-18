@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: The Computer Vision API provides developers with access to advanced algorithms for processing images and returning information.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision

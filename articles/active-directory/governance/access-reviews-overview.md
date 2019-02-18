@@ -15,6 +15,7 @@ ms.subservice: compliance
 ms.date: 11/19/2018
 ms.author: rolyon
 ms.reviewer: mwahl
+ms.collection: M365-identity-device-management
 ---
 
 # What are Azure AD Access Reviews?

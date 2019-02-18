@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/04/2019
+ms.date: 02/11/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -103,8 +103,23 @@ definition, you can reuse that policy for different scenarios by using different
 > **defaultValue** property. This prevents existing assignments of the policy or initiative from
 > indirectly being made invalid.
 
-As an example, you could define a policy to limit the locations where resources can be deployed.
-You'd declare the following parameters when you create your policy:
+### Parameter properties
+
+A parameter has the following properties that are used in the policy definition:
+
+- **name**: The name of your parameter. Used by the `parameters` deployment function within the policy rule. For more information, see [using a parameter value](#using-a-parameter-value).
+- `type`: Determines if the parameter is a **string** or an **array**.
+- `metadata`: Defines subproperties primarily used by the Azure portal to display user-friendly information:
+  - `description`: The explanation of what the parameter is used for. Can be used to provide examples of acceptable values.
+  - `displayName`: The friendly name shown in the portal for the parameter.
+  - `strongType`: (Optional) Used when assigning the policy definition through the portal. Provides a context aware list. For more information, see [strongType](#strongtype).
+- `defaultValue`: (Optional) Sets the value of the parameter in an assignment if no value is given. Required when updating an existing policy definition that is assigned.
+- `allowedValues`: (Optional) Provides the list of values that the parameter accepts during assignment.
+
+As an example, you could define a policy definition to limit the locations where resources can be
+deployed. A parameter for that policy definition could be **allowedLocations**. This parameter
+would be used by each assignment of the policy definition to limit the accepted values. The use of
+**strongType** provides an enhanced experience when completing the assignment through the portal:
 
 ```json
 "parameters": {
@@ -115,23 +130,17 @@ You'd declare the following parameters when you create your policy:
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2"
+        "defaultValue": "westus2",
+        "allowedValues": [
+            "eastus2",
+            "westus2",
+            "westus"
+        ]
     }
 }
 ```
 
-The type of a parameter can be either string or array. The metadata property is used for tools like
-the Azure portal to display user-friendly information.
-
-Within the metadata property, you can use **strongType** to provide a multi-select list of options
-within the Azure portal. Allowed values for **strongType** currently include:
-
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+### Using a parameter value
 
 In the policy rule, you reference parameters with the following `parameters` deployment value
 function syntax:
@@ -142,6 +151,21 @@ function syntax:
     "in": "[parameters('allowedLocations')]"
 }
 ```
+
+This sample references the **allowedLocations** parameter that was demonstrated in [parameter
+properties](#parameter-properties).
+
+### strongType
+
+Within the `metadata` property, you can use **strongType** to provide a multi-select list of
+options within the Azure portal. Allowed values for **strongType** currently include:
+
+- `"location"`
+- `"resourceTypes"`
+- `"storageSkus"`
+- `"vmSKUs"`
+- `"existingResourceGroups"`
+- `"omsWorkspace"`
 
 ## Definition location
 
@@ -213,7 +237,8 @@ within an **allOf** operation.
 
 ### Conditions
 
-A condition evaluates whether a **field** meets certain criteria. The supported conditions are:
+A condition evaluates whether a **field** or the **value** accessor meets certain criteria. The
+supported conditions are:
 
 - `"equals": "value"`
 - `"notEquals": "value"`
@@ -238,8 +263,8 @@ examples, see [Allow several name patterns](../samples/allow-multiple-name-patte
 
 ### Fields
 
-Conditions are formed by using fields. A field matches properties in the resource request
-payload and describes the state of the resource.
+Conditions are formed by using fields. A field matches properties in the resource request payload
+and describes the state of the resource.
 
 The following fields are supported:
 
@@ -260,7 +285,57 @@ The following fields are supported:
   - This bracket syntax supports tag names that have a period.
   - Where **\<tagName\>** is the name of the tag to validate the condition for.
   - Example: `tags[Acct.CostCenter]` where **Acct.CostCenter** is the name of the tag.
+
 - property aliases - for a list, see [Aliases](#aliases).
+
+### Value
+
+Conditions can also be formed using **value**. **value** checks conditions against
+[parameters](#parameters), [supported template functions](#policy-functions), or literals.
+**value** is paired with any supported [condition](#conditions).
+
+#### Value examples
+
+This policy rule example uses **value** to compare the result of the `resourceGroup()` function and
+the returned **name** property to a **like** condition of `*netrg`. The rule denies any resource
+not of the `Microsoft.Network/*` **type** in any resource group whose name ends in `*netrg`.
+
+```json
+{
+    "if": {
+        "allOf": [{
+                "value": "[resourceGroup().name]",
+                "like": "*netrg"
+            },
+            {
+                "field": "type",
+                "notLike": "Microsoft.Network/*"
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+This policy rule example uses **value** to check if the result of multiple nested functions
+**equals** `true`. The rule denies any resource that doesn't have at least three tags.
+
+```json
+{
+    "mode": "indexed",
+    "policyRule": {
+        "if": {
+            "value": "[less(length(field('tags')), 3)]",
+            "equals": true
+        },
+        "then": {
+            "effect": "deny"
+        }
+    }
+}
+```
 
 ### Effect
 
@@ -309,14 +384,17 @@ For complete details on each effect, order of evaluation, properties, and exampl
 
 ### Policy functions
 
-Several [Resource Manager template
-functions](../../../azure-resource-manager/resource-group-template-functions.md) are available to use
-within a policy rule. The functions currently supported are:
+All [Resource Manager template
+functions](../../../azure-resource-manager/resource-group-template-functions.md) are available to
+use within a policy rule, except the following functions:
 
-- [parameters](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
-- [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
-- [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
-- [subscription](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+- copyIndex()
+- deployment()
+- list*
+- providers()
+- reference()
+- resourceId()
+- variables()
 
 Additionally, the `field` function is available to policy rules. `field` is primarily used with
 **AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being

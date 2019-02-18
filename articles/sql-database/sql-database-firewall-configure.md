@@ -11,7 +11,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/07/2019
 ---
 # Azure SQL Database and SQL Data Warehouse IP firewall rules
 
@@ -86,7 +86,7 @@ To improve performance, server-level IP firewall rules are temporarily cached at
 > [!TIP]
 > You can use [SQL Database Auditing](sql-database-auditing.md) to audit server-level and database-level firewall changes.
 
-## Manage IP firewall rules using the Azure portal
+## Manage server-level IP firewall rules using the Azure portal
 
 To set a server-level IP firewall rule in the Azure portal, you can either go to the Overview page for your Azure SQL database or the Overview page for your SQL Database server.
 
@@ -190,7 +190,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 | [Delete Firewall Rule](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Server |Removes server-level IP firewall rules |
 | [Get Firewall Rules](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | Gets server-level IP firewall rules |
 
-## Server-level IP firewall rule versus a database-level IP firewall rule
+## Server-level versus database-level IP firewall rules
 
 Q. Should users of one database be fully isolated from another database?
   If yes, grant access using database-level IP firewall rules. This avoids using server-level IP firewall rules, which permit access through the firewall to all databases, reducing the depth of your defenses.

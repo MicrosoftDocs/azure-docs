@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/30/2019
+ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
@@ -162,7 +162,7 @@ There are two parts to this scenario:
 
    ```PowerShell
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
-   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
+   Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
    ```
 
    The `-origin` parameter specifies the top level folder that contains all the downloaded products; for example, `"D:\downloadfolder"`.
