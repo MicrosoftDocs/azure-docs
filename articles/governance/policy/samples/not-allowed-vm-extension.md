@@ -1,6 +1,6 @@
 ---
 title: Sample - Not allowed VM extensions 
-description: This sample policy prohibits the use of specified extensions.
+description: This sample policy definition prohibits the use of specified extensions on virtual machines.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Not allowed VM extensions
+# Sample - Not allowed VM extensions
 
 Prohibits the use of specified extensions. You specify an array containing the prohibited extension types.
 
