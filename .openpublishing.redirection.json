@@ -655,6 +655,71 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Emotion/emotion-api-how-to-topics/HowtoAnalyzeVideo_Emotion.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/emotion-api-how-to-topics/HowtoCallEmotionForVideo.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/CSharp.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/curl.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/Java.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/JavaScript.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/PHP.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/Python.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/QuickStarts/Ruby.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/Tutorials/CSharpTutorial.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/Tutorials/PythonTutorial.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/FAQ.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Emotion/Home.md",
+      "redirect_url": "/azure/cognitive-services/face/overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-deploy-to-aks.md",
       "redirect_url": "/azure/machine-learning/service/how-to-deploy-and-where",
       "redirect_document_id": false
@@ -29140,12 +29205,12 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/disks-ultra-ssd.md",
-      "redirect_url": "/azure/virtual-machines/windows/disks-types#ultra-ssd-preview",
+      "redirect_url": "/azure/virtual-machines/windows/disks-types#ultra-disks-preview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/disks-ultra-ssd.md",
-      "redirect_url": "/azure/virtual-machines/linux/disks-types#ultra-ssd-preview",
+      "redirect_url": "/azure/virtual-machines/linux/disks-types#ultra-disks-preview",
       "redirect_document_id": false
     },
     {

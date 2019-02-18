@@ -238,6 +238,9 @@ spec:
           role: frontend
 ```
 
+> [!NOTE]
+> This network policy uses a *namespaceSelector* and a *podSelector* element for the ingress rule. The YAML syntax is important for the ingress rules to be additive or not. In this example, both elements must match for the ingress rule to be applied. Kubernetes versions prior to *1.12* may not interpret these elements correctly and restrict the network traffic as you expect. For more information, see [Behavior of to and from selectors][policy-rules].
+
 Apply the updated network policy using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
 
 ```azurecli-interactive
@@ -438,6 +441,7 @@ To learn more about using policies, see [Kubernetes network policies][kubernetes
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
