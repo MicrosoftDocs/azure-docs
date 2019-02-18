@@ -16,18 +16,16 @@ Sizing a cluster appropriately is critical to the performance of Azure Data Expl
 
 1. Navigate to your cluster, and under **Settings** select **Scale up**.
 
-You're given a list of available SKUs. For instance, in the figure below there's only one available SKU: D14_V2.
+    You're given a list of available SKUs. For instance, in the figure below there's only one available SKU: D14_V2.
 
-![Scale up](media/manage-cluster-scale-up/scale-up.png)
+    ![Scale up](media/manage-cluster-scale-up/scale-up.png)
 
-D13_V2 is disabled since it is the current SKU of the cluster. L8 and L16 are disabled because they not available in the region where the cluster is located.
+    D13_V2 is disabled since it is the current SKU of the cluster. L8 and L16 are disabled because they not available in the region where the cluster is located.
 
 1. To change your SKU, select the SKU you want and press the **Select** button.
 
-[!NOTE] 
-
+[!NOTE]
 * The scale up process can take a few minutes. During that time, your cluster will be suspended.
-
 * Scaling down can harm your cluster performance.
 
 You've now performed a scale-up or scale-down operation for your Azure Data Explorer cluster. You can also do [cluster scale-out](manage-cluster-scale-out.md), also known as autoscale, to scale dynamically based on metrics that you specify.
