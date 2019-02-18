@@ -124,25 +124,25 @@
       href: concepts-data-flow-overview.md
     - name: Data flow datasets
       href: concepts-data-flow-datasets.md
-    - name: Debug Mode
+    - name: Debug mode
       href: concepts-data-flow-debug-mode.md
-    - name: Schema Drift
+    - name: Schema drift
       href: concepts-data-flow-schema-drift.md
-    - name: Inspect Pane
+    - name: Inspect pane
       href: concepts-data-flow-inspect-pane.md
-    - name: Column Patterns
+    - name: Column patterns
       href: concepts-data-flow-column-pattern.md
-    - name: Data Flow Monitoring
+    - name: Data flow monitoring
       href: concepts-data-flow-monitoring.md     
-    - name: Move Nodes
+    - name: Move nodes
       href: concepts-data-flow-move-nodes.md
-    - name: Optimize Tab
+    - name: Optimize tab
       href: concepts-data-flow-optimize-tab.md
-    - name: Expression Builder
+    - name: Expression builder
       href: concepts-data-flow-expression-builder.md
-    - name: Reference Nodes
+    - name: Reference nodes
       href: concepts-data-flow-reference-node.md
-    - name: Expression Language
+    - name: Expression language
       href: data-flow-expression-functions.md
   - name: Roles and permissions
     href: concepts-roles-permissions.md
