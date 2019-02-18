@@ -71,7 +71,7 @@ For more information and for examples, see [Sub-orchestrations](durable-function
 
 [Durable Functions](durable-functions-overview.md) provides *durable timers* that you can use in orchestrator functions to implement delays or to set up timeouts on async actions. Use durable timers in orchestrator functions instead of `Thread.Sleep` and `Task.Delay` (C#) or `setTimeout()` and `setInterval()` (JavaScript).
 
-For more information and for examples, see [Durable timers](durable-functions-timers.md)
+For more information and for examples, see [Durable timers](durable-functions-timers.md).
 
 ### External events
 
@@ -93,7 +93,7 @@ Although a durable orchestration generally lives in the context of one function 
 
 The following examples demonstrate cross-function app orchestration in C# and JavaScript. In each example, one activity starts the external orchestration. Another activity retrieves and returns the status. The orchestrator waits for the status to be `Complete` before it continues.
 
-Here are some examples of cross-functin app orchestration:
+Here are some examples of cross-function app orchestration:
 
 #### C#
 
