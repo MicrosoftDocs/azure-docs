@@ -14,7 +14,7 @@ IO Cache is a data caching service for Azure HDInsight that improves the perform
 
 Most SSDs provide more than 1 GByte per second of bandwidth. This bandwidth, complemented by the operating system in-memory file cache, provides enough bandwidth to load big data compute processing engines, such as Apache Spark. The operating memory is left available for Apache Spark to process heavily memory-dependent tasks, such as shuffles. Having exclusive use of operating memory allows Apache Spark to achieve optimal resource usage.  
 
->[!Note]
+>[!Note]  
 >IO Cache currently uses RubiX as a caching component, but this may change in future versions of the service. Please use IO Cache interfaces and don't take any dependencies directly on the RubiX implementation.
 
 ## Benefits of Azure HDInsight IO Cache
@@ -39,7 +39,7 @@ Azure HDInsight IO Cache is deactivated by default in preview. IO Cache is avail
 
 1. Confirm restart of all the affected services on the cluster.
 
->[!NOTE] 
+>[!NOTE]  
 > Even though the progress bar shows activated, IO Cache isn't actually enabled until you restart the other affected services.
 
 ## Troubleshooting

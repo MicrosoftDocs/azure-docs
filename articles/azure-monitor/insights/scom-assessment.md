@@ -8,14 +8,11 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.component: 
-
 ---
 
 # Optimize your environment with the System Center Operations Manager Health Check (Preview) solution
@@ -53,7 +50,7 @@ Use the following information to install and configure the solution.
 
  To configure the assessment through Operations Manager Operations console, perform the steps below in the following order:
 1. [Set the Run As account for System Center Operations Manager Health Check](#operations-manager-run-as-accounts-for-log-analytics)  
-2. [Configure the System Center Operations Manager Health Check rule](#configure-the-assessment-rule)
+2. Configure the System Center Operations Manager Health Check rule
 
 ## System Center Operations Manager assessment data collection details
 

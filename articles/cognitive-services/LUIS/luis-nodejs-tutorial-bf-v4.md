@@ -1,18 +1,19 @@
-﻿---
-title: LUIS Bot with Node.js - Tutorial - Web app Bot - Bot Framework SDK 4.0
+---
+title: Bot - Node.js - v4 
 titleSuffix: Azure Cognitive Services
 description: Using Node.js, build a chat bot integrated with language understanding (LUIS). This chat bot uses the Human Resources app to quickly implement a bot solution. The bot is built with the Bot Framework version 4 and the Azure Web app bot.
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cjgronlund
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/30/2019
 ms.author: diberry
 ---
 
-# Tutorial: LUIS bot in Node.js
+# Tutorial: LUIS bot in Node.js with the Bot Framework 4.x and the Azure Web app bot
 Using Node.js, you can build a chat bot integrated with language understanding (LUIS). This bot uses the HomeAutomation app to implement a bot solution. The bot is built the Azure [Web app bot](https://docs.microsoft.com/azure/bot-service/) with [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4.
 
 **In this tutorial, you learn how to:**
@@ -27,8 +28,6 @@ Using Node.js, you can build a chat bot integrated with language understanding (
 
 ## Prerequisites
 
-<!--* Samples from 
-https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp-with-luis-->
 * [Bot emulator](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
@@ -110,7 +109,7 @@ In order to develop the web app bot code, download the code and use on your loca
 
 6. Open the bot.js file and look for `const results = await this.luisRecognizer.recognize(context);`. This is where the user utterance entered into the bot is sent to LUIS.
 
-    ```javascript
+   ```javascript
     /**
      * Driver code that does one of the following:
      * 1. Display a welcome card upon startup
@@ -194,7 +193,7 @@ Before changing any code or settings, verify the bot works.
 3. Create a file to hold the environment variables the bot code looks for. Name the file `.env`. Add the following environment variables:
 
     <!--there is no code language that represents an .env file correctly-->
-    ```
+    ```env
     botFilePath=
     botFileSecret=
     ```
@@ -209,7 +208,7 @@ Before changing any code or settings, verify the bot works.
 
 5. When the bot starts up, the terminal window displays the local port the bot is running on:
 
-    ```
+    ```console
     > basic-bot@0.1.0 start C:\Users\pattiowens\repos\BFv4\luis-nodejs-bot-src
     > node ./index.js NODE_ENV=development
 
@@ -243,7 +242,7 @@ In the `bot.js` file, add code to handle the new intents.
 
 1. At the top of the file, find the **Supported LUIS Intents** section, and add constants for the HomeAutomation intents:
 
-    ```javascript
+   ```javascript
     // Supported LUIS Intents
     const GREETING_INTENT = 'Greeting';
     const CANCEL_INTENT = 'Cancel';
@@ -257,7 +256,7 @@ In the `bot.js` file, add code to handle the new intents.
 
 2. Find the **isTurnInterrupted** that receives the LUIS prediction of the utterance and add a line to print out the result to the console.
 
-    ```node
+   ```javascript
     /**
      * Look at the LUIS results and determine if we need to handle
      * an interruptions due to a Help or Cancel intent
@@ -272,7 +271,7 @@ In the `bot.js` file, add code to handle the new intents.
 
     The bot doesn't have the exact same response as a LUIS REST API request so it is important to learn the differences by looking at the response JSON. The text and intents properties are the same but the entities property values have been modified. 
 
-    ```JSON
+    ```json
     {
         "$instance": {
             "HomeAutomation_Device": [
@@ -305,7 +304,7 @@ In the `bot.js` file, add code to handle the new intents.
 
 3. Add the intents to the onTurn method's switch statement for the `DialogTurnStatus.empty` case:
 
-    ```javascript
+   ```javascript
     switch (topIntent) {
         case GREETING_INTENT:
             await dc.begin(GREETING_DIALOG);
@@ -338,7 +337,7 @@ In the `bot.js` file, add code to handle the new intents.
 
 2. The bot responds with:
 
-    ```JSON
+    ```json
     TurnOn intent found, entities included: {"$instance":{“HomeAutomation_Device”:[{“startIndex”:23,“endIndex”:29,“score”:0.9776345,“text”:“lights”,“type”:“HomeAutomation.Device”}],“HomeAutomation_Room”:[{“startIndex”:12,“endIndex”:22,“score”:0.9079433,“text”:“livingroom”,“type”:“HomeAutomation.Room”}]},“HomeAutomation_Device”:[“lights”],“HomeAutomation_Room”:[“livingroom”]}
     ```
 

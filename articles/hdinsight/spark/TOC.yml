@@ -16,7 +16,8 @@
       href: apache-spark-jupyter-spark-sql-use-portal.md
     - name: Create an Apache Spark cluster - PowerShell
       href: apache-spark-jupyter-spark-sql-use-powershell.md
-    - name: Create an Apache Spark cluster - Template
+    - name: Create an Apache Spark cluster - Resource Manager Template
+      displayName: resource manager template, arm template, resource manager group
       href: apache-spark-jupyter-spark-sql.md
 - name: Tutorials
   items:
@@ -41,7 +42,10 @@
         - name: Using Azure Storage
           href: ../hdinsight-hadoop-use-blob-storage.md
           maintainContext: true
-        - name: Using Azure Data Lake Store
+        - name: Using Azure Data Lake Storage Gen2
+          href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md
+          maintainContext: true
+        - name: Using Azure Data Lake Storage Gen1
           href: ../hdinsight-hadoop-use-data-lake-store.md
           maintainContext: true
     - name: Develop
@@ -92,14 +96,16 @@
           href: apache-spark-zeppelin-notebook.md
     - name: Use with other Azure services
       items: 
-        - name: Use with Data Lake Store
+        - name: Use with Data Lake Storage
           href: apache-spark-use-with-data-lake-store.md
         - name: Connect to Azure SQL database
           href: apache-spark-connect-to-sql-database.md
         - name: Implement a lambda architecture using Apache Spark and Cosmos DB
           href: ../../cosmos-db/lambda-architecture.md
+        - name: Run Azure ML workloads with AutoML
+          href: apache-spark-run-machine-learning-automl.md
           maintainContext: true
-    - name: Spark streaming
+    - name: Apache Spark streaming
       items:
         - name: Streaming overview
           href: apache-spark-streaming-overview.md
@@ -243,6 +249,7 @@
           href: ../hdinsight-hadoop-create-linux-clusters-portal.md
           maintainContext: true
         - name: Use Azure Resource Manager templates
+          displayName: resource manager template, arm template, resource manager group
           href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
       - name: Create on-demand clusters
         href: ../hdinsight-hadoop-create-linux-clusters-adf.md
@@ -280,7 +287,7 @@
       - name: Upload data for Apache Hadoop jobs
         href: ../hdinsight-upload-data.md
         maintainContext: true
-      - name: Multiple HDInsight clusters with Data Lake Store
+      - name: Multiple HDInsight clusters with Data Lake Storage
         href: ../hdinsight-multiple-clusters-data-lake-store.md
         maintainContext: true
       - name: Import and export data with Apache Sqoop
@@ -299,7 +306,7 @@
         - name: Run using Azure PowerShell
           href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
           maintainContext: true
-      - name: Use Oozie for workflows
+      - name: Use Apache Oozie for workflows
         href: ../hdinsight-use-oozie-linux-mac.md
         maintainContext: true
       - name: Use time-based Apache Oozie coordinators
@@ -427,12 +434,13 @@
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
-  - name: .NET (Avro)
-    href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST API
     href: /rest/api/hdinsight/
   - name: REST API (Apache Spark)
     href: /rest/api/hdinsightspark/
+  - name: Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
+    href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resources
   items:
     - name: Release notes

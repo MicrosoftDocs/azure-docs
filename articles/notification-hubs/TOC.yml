@@ -4,30 +4,36 @@
   items:
   - name: About Notification Hubs
     href: notification-hubs-push-notification-overview.md
+- name: Quickstarts
+  items:
+  - name: Create a notification hub - Azure portal
+    href: create-notification-hub-portal.md  
+  - name: Configure a notification hub - Azure portal
+    href: configure-notification-hub-portal-pns-settings.md  
 - name: Tutorials
   items:
   - name: 1 - Push notifications to all registered devices
     items:
-    - name: Android (Firebase Cloud Messaging)
+    - name: Android native (Firebase Cloud Messaging)
       href: notification-hubs-android-push-notification-google-fcm-get-started.md
-    - name: Android (Google Cloud Messaging)
+    - name: Android native (Google Cloud Messaging)
       href: notification-hubs-android-push-notification-google-gcm-get-started.md      
+    - name: Android Xamarin
+      href: xamarin-notification-hubs-push-notifications-android-gcm.md
     - name: Baidu
       href: notification-hubs-baidu-china-android-notifications-get-started.md
     - name: Chrome
       href: notification-hubs-chrome-push-notifications-get-started.md
     - name: iOS
       href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+    - name: iOS Xamarin
+      href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md                
     - name: Kindle
       href: notification-hubs-kindle-amazon-adm-push-notification.md
     - name: Windows
       href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
     - name: Windows Phone
       href: notification-hubs-windows-mobile-push-notifications-mpns.md
-    - name: Xamarin.Android
-      href: xamarin-notification-hubs-push-notifications-android-gcm.md
-    - name: Xamarin.iOS
-      href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md        
   - name: 2 - Push notifications to specific devices
     items:
     - name: Android
@@ -55,11 +61,11 @@
   - name: 5 - Push location-based notifications
     items:
     - name: Windows
-      href: notification-hubs-push-bing-spartial-data-geofencing-notification.md
+      href: notification-hubs-push-bing-spatial-data-geofencing-notification.md
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=notification-hubs
+    href: https://github.com/azure/azure-notificationhubs-samples
   - name: PowerShell
     href: samples-powershell.md
 - name: Concepts
@@ -73,14 +79,22 @@
       href: notification-hubs-tags-segment-push-message.md
     - name: Template registrations
       href: notification-hubs-templates-cross-platform-push-messages.md    
+  - name: Security model
+    href: notification-hubs-push-notification-security.md
 - name: How-to guides
   items: 
+  - name: Change pricing tier
+    href: change-pricing-tier.md
   - name: Send cross-platform notifications
     href: notification-hubs-aspnet-cross-platform-notification.md
   - name: Push rich content to devices
     href: notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md
   - name: Send scheduled notifications
-    href: notification-hubs-send-push-notifications-scheduled.md                  
+    href: notification-hubs-send-push-notifications-scheduled.md      
+  - name: Deploy and manage notification hubs using Azure PowerShell
+    href: notification-hubs-deploy-and-manage-powershell.md            
+  - name: Securely push notifications to users
+    href: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
   - name: Create notification hub using SDKs
     items:
     - name: Create notification hub - .NET
@@ -104,13 +118,17 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.notificationhubs
   - name: PowerShell
-    href: /powershell/module/azurerm.notificationhubs
+    href: /powershell/module/az.notificationhubs
   - name: REST API
     href: /rest/api/notificationhubs
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.notificationhubs/allversions
 - name: Resources
   items:
   - name: FAQ
     href: notification-hubs-push-notification-faq.md
+  - name: SDKs
+    href: notification-hubs-sdks.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing

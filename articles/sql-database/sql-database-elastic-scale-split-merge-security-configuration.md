@@ -9,29 +9,34 @@ ms.devlang:
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer:
+ms.reviewer: sstein
 manager: craigg
-ms.date: 12/04/2018
+ms.date: 12/18/2018
 ---
 # Split-merge security configuration
+
 To use the Split/Merge service, you must correctly configure security. The service is part of the Elastic Scale feature of Microsoft Azure SQL Database. For more information, see [Elastic Scale Split and Merge Service Tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 
 ## Configuring certificates
+
 Certificates are configured in two ways. 
 
 1. [To Configure the SSL Certificate](#to-configure-the-ssl-certificate)
 2. [To Configure Client Certificates](#to-configure-client-certificates) 
 
 ## To obtain certificates
+
 Certificates can be obtained from public Certificate Authorities (CAs) or from the [Windows Certificate Service](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). These are the preferred methods to obtain certificates.
 
 If those options are not available, you can generate **self-signed certificates**.
 
 ## Tools to generate certificates
+
 * [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
 * [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### To run the tools
+
 * From a Developer Command Prompt for Visual Studios, see [Visual Studio Command Prompt](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     If installed, go to:
@@ -40,9 +45,11 @@ If those options are not available, you can generate **self-signed certificates*
 * Get the WDK from [Windows 8.1: Download kits and tools](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## To configure the SSL certificate
+
 An SSL certificate is required to encrypt the communication and authenticate the server. Choose the most applicable of the three scenarios below, and execute all its steps:
 
 ### Create a new self-signed certificate
+
 1. [Create a Self-Signed Certificate](#create-a-self-signed-certificate)
 2. [Create PFX file for Self-Signed SSL Certificate](#create-pfx-file-for-self-signed-ssl-certificate)
 3. [Upload SSL Certificate to Cloud Service](#upload-ssl-certificate-to-cloud-service)

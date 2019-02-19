@@ -3,7 +3,7 @@ title: Use Azure Active Directory to authenticate Azure Batch service solutions 
 description: Batch supports Azure AD for authentication from the Batch service.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 04/18/2018
-ms.author: danlep
+ms.author: lahugh
 ---
 
 # Authenticate Batch service solutions with Active Directory
@@ -87,7 +87,7 @@ The tenant ID identifies the Azure AD tenant that provides authentication servic
 
 To authenticate with integrated authentication, you need to grant your application permissions to connect to the Batch service API. This step enables your application to authenticate calls to the Batch service API with Azure AD.
 
-Once you've [registered your application](#register-your-application-with-an-azure-ad-tenant), follow these steps in the Azure portal to grant it access to the Batch service:
+Once you've registered your application, follow these steps in the Azure portal to grant it access to the Batch service:
 
 1. In the left-hand navigation pane of the Azure portal, choose **All services**. Click **App Registrations**.
 2. Search for the name of your application in the list of app registrations:

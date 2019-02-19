@@ -5,10 +5,10 @@ services: active-directory
 keywords: enterprise state roaming, windows cloud, how to enable enterprise state roaming
 documentationcenter: ''
 author: tanning
-manager: mtillman
+manager: daveba
 editor: curtand
 
-ms.component: devices
+ms.subservice: devices
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
 ms.service: active-directory
 ms.workload: identity
@@ -18,6 +18,7 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
 
+ms.collection: M365-identity-device-management
 ---
 # Enable Enterprise State Roaming in Azure Active Directory
 Enterprise State Roaming is available to any organization with an Azure AD Premium or Enterprise Mobility + Security

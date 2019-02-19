@@ -4,7 +4,7 @@ description: Role-based access control (RBAC) enables access management for Azur
 keywords: automation rbac, role based access control, azure rbac
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/17/2018
@@ -422,3 +422,4 @@ When a user, who is assigned to the Automation Operator role on the Runbook scop
 * For information on different ways to configure RBAC for Azure Automation, refer to [manage RBAC with Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * For details on different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md)
 * For information about different runbook types, refer to [Azure Automation runbook types](automation-runbook-types.md)
+

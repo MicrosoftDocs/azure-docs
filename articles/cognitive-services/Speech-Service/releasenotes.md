@@ -1,21 +1,62 @@
 ---
-title: Speech Service SDK Documentation
+title: Release Notes - Speech Services
 titlesuffix: Azure Cognitive Services
-description: Release notes - what has changed in the most recent releases
+description: See a running log of feature releases, improvements, bug fixes, and known issues for Azure Speech Services.
 services: cognitive-services
 author: wolfma61
-manager: cgronlun
-
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/18/2018
 ms.author: wolfma
+ms.custom: seodec18
 ---
 
 # Release notes
 
-## Speech Service SDK 1.1.0
+## Speech SDK 1.2.0: 2018-December release
+
+**New Features**
+
+* Python
+  * The Beta version of Python support (3.5 and above) is available with this release. For more details [see here](quickstart-python.md).
+* JavaScript
+  * The Speech SDK for JavaScript has been open-sourced. The source code is available on [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js).
+  * We now support Node.js, more info can be found [here](quickstart-js-node.md).
+  * The length restriction for audio sessions has been removed, reconnection will happen automatically under the cover.
+* Connection Object
+  * From the Recognizer you can access a Connection object. This object allows you to explicitly initiate the service connection and subscribe to connect and disconnect events.
+    (This is not yet available from JavaScript and Python.)
+* Support for Ubuntu 18.04.
+* Android
+  * Enabled ProGuard support during APK generation.
+
+**Improvements**
+
+* Improvements in the internal thread usage, reducing the number of threads, locks, mutexes.
+* Improved error reporting / information. In several cases error messages have not been propagated all the way out.
+* Updated development dependencies in JavaScript to use up-to-date modules.
+
+**Bug fixes**
+
+* Fixed memory leaks due to a type mismatch in RecognizeAsync.
+* In some cases exceptions were being leaked.
+* Fixing memory leak in translation event arguments.
+* Fixed a locking issue on reconnect in long running sessions.
+* Fixed an issue which could lead to missing final result for failed translations.
+* C#: If an async operation wasn't awaited in the main thread, it was possible the recognizer could be disposed before the async task was completed.
+* Java: Fixed a problem resulting in a crash of the Java VM.
+* Objective-C: Fixed enum mapping; RecognizedIntent was returned instead of RecognizingIntent.
+* JavaScript: Set default output format to 'simple' in SpeechConfig.
+* JavaScript: Removing inconsistency between properties on the config object in JavaScript and other languages.
+
+**Samples**
+
+* Updated and fixed several samples (for example output voices for translation, etc).
+* Added Node.js samples in the [sample repository](https://aka.ms/csspeech/samples).
+
+## Speech SDK 1.1.0
 
 **New Features**
 
@@ -46,7 +87,7 @@ ms.author: wolfma
 
 * Added C++ and C# samplea for pull and push stream usage in the [sample repository](https://aka.ms/csspeech/samples).
 
-## Speech Service SDK 1.0.1
+## Speech SDK 1.0.1
 
 Reliability improvements and bug fixes:
 

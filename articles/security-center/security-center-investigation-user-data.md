@@ -4,7 +4,7 @@ description: " Learn how to manage user data found in Azure Security Center's in
 services: operations-management-suite
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -55,4 +55,4 @@ A Security Center user assigned the role of Owner, Contributor, or Account Admin
 
 ## Next steps
 For more information about managing user data, see [Manage user data in Azure Security Center](security-center-privacy.md).
-To learn more about deleting private data in Log Analytics, see [How to export and delete private data](../log-analytics/log-analytics-personal-data-mgmt.md#how-to-export-and-delete-private-data).
+To learn more about deleting private data in Log Analytics, see [How to export and delete private data](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).

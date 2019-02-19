@@ -3,24 +3,25 @@ title: Azure AD v2.0 ASP.NET Core web app quickstart | Microsoft Docs
 description: Learn how to implement Microsoft Sign-In on an ASP.NET Core Web App using OpenID Connect
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: jmprieur
 manager: mtillman
 editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/09/2018
-ms.author: andret
+ms.date: 12/05/2018
+ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write an ASP.NET Core web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
+ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Add sign-in with Microsoft to an ASP.NET web app
+# Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 

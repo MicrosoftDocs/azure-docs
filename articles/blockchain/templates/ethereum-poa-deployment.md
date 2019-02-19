@@ -1,6 +1,6 @@
 ---
 title: Ethereum Proof-of-Authority Consortium - Azure
-description: Use the Etherereum Proof-of-Authority Consortium solution to deploy and configure a multi-member consortium Ethereum network
+description: Use the Ethereum Proof-of-Authority Consortium solution to deploy and configure a multi-member consortium Ethereum network
 services: azure-blockchain
 keywords:
 author: CodyBorn
@@ -506,8 +506,8 @@ part of the new member deployment.  Once your deployment completes use the [Gove
     -  Choose the same number of validator nodes as the rest of the
         members on the network to ensure fair representation
 
-    -  Use the same Ethereum address that was provided in the [previous
-        step](#step-1-add-the-new-admin)
+    -  Use the same Ethereum address that was provided in the previous
+        step
 
     -  Pass in the provided *Consortium Data Url* on the *Ethereum
         Settings* tab
@@ -959,7 +959,7 @@ $ truffle migrate --network poa
 
 Truffle has a local develop network that is available for debugging
 smart contract. You can find the full tutorial
-[here](http://truffleframework.com/tutorials/debugging-a-smart-contract).
+[here](https://truffleframework.com/tutorials/debugging-a-smart-contract).
 
 ### WebAssembly (WASM) support
 

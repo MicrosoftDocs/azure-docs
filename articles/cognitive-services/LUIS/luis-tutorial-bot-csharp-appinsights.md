@@ -1,18 +1,19 @@
 ---
-title: Application Insights data from LUIS using C# 
+title: Application Insights using C# 
 titleSuffix: Azure Cognitive Services
 description: Build a bot integrated with a LUIS application and Application Insights using C#.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ---
 
-# Add LUIS results to Application Insights
+# Add LUIS results to Application Insights with a Bot in C#
 
 This tutorial adds LUIS response information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or PowerBi to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
 
@@ -33,7 +34,7 @@ In this tutorial, you learn how to:
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
 
-All of the code in this tutorial is available on the [LUIS-Samples github repository](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) and each line associated with this tutorial is commented with `//LUIS Tutorial:`.
+All of the code in this tutorial is available on the [Azure-Samples GitHub repository](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) and each line associated with this tutorial is commented with `//LUIS Tutorial:`.
 
 ## Review LUIS web app bot
 
@@ -121,11 +122,11 @@ The **Application Insights** package is now in the project and configured correc
 
 2. In the **Publish** window, select **Create new profile**.
 
-    ![Publish project to portal](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-1.png)
+    ![As part of publishing, create new profile.](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-1.png)
 
 3. Select **Import profile**, and select **OK**.
 
-    ![Publish project to portal](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
+    ![As part of publishing, import profile](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
 
 4. In the **Import Publish Settings File** windows, navigate to your project folder, navigate to the `PostDeployScripts` folder, select the file that ends in `.PublishSettings`, and select `Open`. You have now configured publishing for this project.
 
@@ -169,7 +170,7 @@ In the Azure portal, find the web app bot and open it. The following steps use t
 
 3. In the console window, enter the following command:
 
-    ```
+    ```console
     cd site\wwwroot && build.cmd
     ```
 
@@ -185,11 +186,12 @@ In the Azure portal, find the web app bot and open it. The following steps use t
 
 3. You should see no difference in the chatbot response. The change is sending data to Application Insights, not in the bot responses. Enter a few more utterances so there is a little more data in Application Insights:
 
-```
-Please deliver a pizza
-Turn off all the lights
-Turn on the hall light
-```
+|Utterances|
+|--|
+|Please deliver a pizza|
+|Turn off all the lights|
+|Turn on the hall light|
+
 
 ## View LUIS entries in Application Insights
 
@@ -197,7 +199,7 @@ Open Application Insights to see the LUIS entries.
 
 1. In the portal, select **All resources** then filter by the web app bot name. Click on the resource with the type **Application Insights**. The icon for Application Insights is a light bulb.
 
-    ![Search for app insights](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
+    ![Search for app insights in the Azure Portal](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
 
 2. When the resource opens, click on the **Search** icon of the magnifying glass in the far right panel. A new panel to the right displays. Depending on how much telemetry data is found, the panel may take a second to display. Search for `LUIS`. The list is narrowed to just LUIS query results added with this tutorial.
 
@@ -226,7 +228,7 @@ Application Insights gives you the power to query the data with the [Kusto](http
 
 3. To pull out the top intent, score, and utterance, add the following just above the last line in the query window:
 
-    ```SQL
+    ```kusto
     | extend topIntent = tostring(customDimensions.LUIS_topScoringIntent)
     | extend score = todouble(customDimensions.LUIS_topScoringIntentScore)
     | extend utterance = tostring(customDimensions.LUIS_query)

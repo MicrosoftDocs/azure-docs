@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: anwestg
+ms.lastreviewed: 09/05/2018
 
 ---
 # How to redistribute Azure App Service on Azure Stack across fault domains

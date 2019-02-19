@@ -7,7 +7,7 @@ manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
-ms.date: 12/07/2017
+ms.date: 01/11/2019
 
 
 ---
@@ -35,9 +35,9 @@ Configure your Genomics account with the following information, as shown in the 
 
  |**Setting**          |  **Suggested value**  | **Field description** |
  |:-------------       |:-------------         |:----------            |
- |Account name         | MyGenomicsAccount     |Choose a unique account identifier. For valid names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Subscription         | Your subscription name|This is the billing unit for your Azure services - For details about your subscription see [Subscriptions](https://account.azure.com/Subscriptions) |      
  |Resource group       | MyResourceGroup       |  Resource groups allow you to group multiple Azure resources (storage account, genomics account, etc.) into a single group for simple management. For more information, see [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). For valid resource group names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |Account name         | MyGenomicsAccount     |Choose a unique account identifier. For valid names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Location                   | West US 2                    |    Service is available in West US 2, West Europe, and Southeast Asia |
 
 
@@ -111,28 +111,22 @@ If you don’t yet have a Microsoft Azure Storage account, you need to create on
 
 ![Storage create blade](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Storage create blade")
 
-Configure your Storage account with the following information, as shown in the preceding image. Use most of the standard options for a storage account, specifying only that the account is blob storage, not general purpose. Blob storage can be 2-5x faster for downloads and uploads. 
+Configure your Storage account with the following information, as shown in the preceding image. Use most of the standard options for a storage account, specifying only that the account is blob storage, not general purpose. Blob storage can be 2-5x faster for downloads and uploads.  The default deployment model, resource manager, is recommended.  
 
 
  |**Setting**          |  **Suggested value**  | **Field description** |
  |:-------------------------       |:-------------         |:----------            |
- |Name         | MyStorageAccount     |Choose a unique account identifier. For valid names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
- |Deployment Model         | Resource Manager| Resource Manager is the recommended deployment model. For more information, see [Understanding Resource Manager deployment](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) |      
- |Account kind       | Blob storage       |  Blob storage can be 2-5x faster than general purpose for downloads and uploads. |
- |Performance                  | Standard                   | The default is standard. For more details on standard and premium storage accounts, see [Introduction to Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
- |Replication                  | Locally redundant storage                  | Locally redundant storage replicates your data within the datacenter in the region you created your storage account. For more information, see [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
- |Secure transfer required                  | Disabled                 | The default is disabled. For more information about data transfer security, see [Require secure transfer](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)    |
- |Access tier                  | Hot                   | Hot access indicates objects in the storage account will be more frequently accessed.    |
  |Subscription         | Your Azure subscription |For details about your subscription see [Subscriptions](https://account.azure.com/Subscriptions) |      
  |Resource group       | MyResourceGroup       |  You can select the same resource group as your genomics account. For valid resource group names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
- |Location                  | West US 2                  | Use the same location as the location of your genomics account, to reduce egress charges, and reduce latency. The Genomics service is available in West US2, West US 2, West Europe, and Southeast Asia    |
- |Virtual networks                | Disabled                   | The default is disabled. For more information, see [Azure Virtual Networks](https://docs.microsoft.com/azure/storage/common/storage-network-security)    |
+ |Storage account name         | MyStorageAccount     |Choose a unique account identifier. For valid names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |Location                  | West US 2                  | Use the same location as the location of your genomics account, to reduce egress charges, and reduce latency.  | 
+ |Performance                  | Standard                   | The default is standard. For more details on standard and premium storage accounts, see [Introduction to Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
+ |Account kind       | Blob storage       |  Blob storage can be 2-5x faster than general purpose for downloads and uploads. |
+ |Replication                  | Locally redundant storage                  | Locally redundant storage replicates your data within the datacenter in the region you created your storage account. For more information, see [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
+ |Access tier                  | Hot                   | Hot access indicates objects in the storage account will be more frequently accessed.    |
 
 
-
-
-
-Then click create to create your storage account. As you did with the creation of your Genomics Account, you can click Notifications in the top menu bar to monitor the deployment process. 
+Then click `Review + create` to create your storage account. As you did with the creation of your Genomics Account, you can click Notifications in the top menu bar to monitor the deployment process. 
 
 
 ## Upload input data to your storage account
@@ -155,6 +149,11 @@ Open the config.txt file that you downloaded from your Genomics account. The sec
 
 
 ![Genomics config](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomics config")
+
+
+If you would like to run GATK4, set the `process_name` parameter to gatk4 or gatk4-promo. For more information about the GATK4 promotion, visit [this page](https://aka.ms/msgatk4).
+
+By default, the Genomics service outputs VCF files. If you would like a gVCF output rather than a VCF output (equivalent to `-emitRefConfidence` in GATK 3.x and `emit-ref-confidence` in GATK 4.x), add the  `emit_ref_confidence` parameter to your `config.txt` and set it to `gvcf`, as shown in the above figure.  To change back to VCF output, either remove it from the `config.txt` file or set the `emit_ref_confidence` parameter to `none`. 
 
 ### Submit your workflow to the Microsoft Genomics service the Microsoft Genomics client
 

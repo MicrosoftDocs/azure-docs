@@ -1,21 +1,14 @@
 ---
-title: 'Link a virtual network to an ExpressRoute circuit: Azure portal | Microsoft Docs'
+title: 'Link a virtual network to a circuit - ExpressRoute: Azure portal | Microsoft Docs'
 description: Connect a VNet to an Azure ExpressRoute Circuit. How-to steps.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: f5cb5441-2fba-46d9-99a5-d1d586e7bda4
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/08/2018
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: cherylmc
+ms.custom: seodec18
 
 ---
 # Connect a virtual network to an ExpressRoute circuit using the portal
@@ -91,6 +84,10 @@ The circuit owner has the power to modify and revoke authorizations at any time.
 **To create a connection authorization**
 
 The circuit owner creates an authorization. This results in the creation of an authorization key that can be used by a circuit user to connect their virtual network gateways to the ExpressRoute circuit. An authorization is valid for only one connection.
+
+> [!NOTE]
+> Each connection requires a separate authorization.
+>
 
 1. In the ExpressRoute page, Click **Authorizations** and then type a **name** for the authorization and click **Save**.
 

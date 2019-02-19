@@ -1,16 +1,16 @@
 ---
-title: Move data to an Azure SQL Database for Azure Machine Learning | Microsoft Docs
-description: Create SQL Table and load data to SQL Table
+title: Move data to an Azure SQL Database - Team Data Science Process
+description: Move data from flat files (CSV or TSV formats) or from data stored in an on-premises SQL Server to an Azure SQL database.
 services: machine-learning
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 5/04/2018
+ms.date: 05/04/2018
 ms.author: tdsp
-ms.custom: "(previous author=deguhath, ms.author=deguhath)"
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # Move data to an Azure SQL Database for Azure Machine Learning
 

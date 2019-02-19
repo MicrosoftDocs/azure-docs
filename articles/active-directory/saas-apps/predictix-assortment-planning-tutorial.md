@@ -1,15 +1,15 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Predictix Assortment Planning | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Predictix Assortment Planning.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.assetid: 37e686ff-f8e5-40b1-9d7e-f64b076917b7
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Predictix Assortment Planning
 
@@ -108,12 +109,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Predictix Assortment Planning Domain and URLs single sign-on information](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern:
+
 	| |
 	|--|--|
 	| `https://<sub-domain>.ap.predictix.com/sso/request`|
 	| `https://<sub-domain>.dev.ap.predictix.com/`|
 
 	b. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|--|
 	| `https://<sub-domain>.ap.predictix.com`|

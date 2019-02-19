@@ -1,36 +1,25 @@
 ---
-title: Add intents in LUIS applications
-titleSuffix: Azure Cognitive Services
+title: Add intents
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Add intents to your LUIS app to identify groups of questions or commands that have the same intentions. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
-ms.component: language-understanding
+manager: nitinme
+ms.custom: seodec18
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ms.service: cognitive-services
 ---
 
-# Add intents 
+# Add intents to determine user intention of utterances
 
 Add [intents](luis-concept-intent.md) to your LUIS app to identify groups of questions or commands that have the same intention. 
 
 Intents are managed from top navigation bar's **Build** section, then from the left panel's **Intents**. 
 
-## Create an app
-
-1. Sign in to the [LUIS](https://www.luis.ai) portal.
-
-1. Select **Create new app**. 
-
-1. Name the new app `MyHumanResourcesApp`. Select the **English** culture. The description is optional. 
-
-1. Select **Done**. 
-
 ## Add intent
-
-1. The app opens to the **Intents** list.
 
 1. On the **Intents** page, select **Create new intent**.
 
@@ -52,7 +41,7 @@ Example utterances are text examples of user questions or commands. To teach Lan
 
 An utterance in an intent might have an intent prediction discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the **Labeled intent** on the row of the example utterance. 
 
-![Screenshot of Intents details page, with utterance highlighted](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+![Screenshot of Intents details page, with utterance prediction discrepancy errors](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
 In the top navigation, select **Train**. The prediction discrepancy is now gone.
 

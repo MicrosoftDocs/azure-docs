@@ -1,21 +1,22 @@
 ---
-title: How to add your custom domain to Azure Active Directory | Microsoft Docs
-description: Learn how to add a custom domain using the Azure Active Directory portal.
+title: Add your custom domain - Azure Active Directory | Microsoft Docs
+description: Instructions about how to add a custom domain using Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
-ms.custom: it-pro
+ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
-# How to: Add your custom domain name using the Azure Active Directory portal
+# Add your custom domain name using the Azure Active Directory portal
 Every new Azure AD tenant comes with an initial domain name, *domainname*.onmicrosoft.com. You can't change or delete the initial domain name, but you can add your organization's names to the list. Adding custom domain names helps you to create user names that are familiar to your users, such as *alain@contoso.com*.
 
 ## Before you begin
@@ -59,7 +60,7 @@ After you create your directory, you can add your custom domain name.
 ## Add your DNS information to the domain registrar
 After you add your custom domain name to Azure AD, you must return to your domain registrar and add the Azure AD DNS information from your copied TXT file. Creating this TXT record for your domain "verifies" ownership of your domain name.
 
--  Go back to your domain registrar, create a new TXT record for your domain based on your copied DNS information, set the **TTL** (time to live) to 60 minutes, and then save the information.
+-  Go back to your domain registrar, create a new TXT record for your domain based on your copied DNS information, set the **TTL** (time to live) to 3600 seconds (60 minutes), and then save the information.
 
     >[!Important]
     >You can register as many domain names as you want. However, each domain gets its own TXT record from Azure AD. Be careful when entering your TXT file information at the domain registrar. If you enter the wrong, or duplicate information by mistake, you'll have to wait until the TTL times out (60 minutes) before you can try again.
@@ -94,10 +95,10 @@ After you register your custom domain name, you need to make sure it's valid in 
 
 ## Next steps
 
-- Add another Global administrator to your directory. For more information, see [How to assign roles and administrators](active-directory-users-assign-role-azure-portal.md)
+- Add another Global administrator to your directory. For more information, see [How to assign roles and administrators](active-directory-users-assign-role-azure-portal.md).
 
-- Add users to your domain, see [How to add or delete users](add-users-azure-active-directory.md)
+- Add users to your domain, see [How to add or delete users](add-users-azure-active-directory.md).
 
-- Manage your domain name information in Azure AD. For more information, see [Managing custom domain names](../users-groups-roles/domains-manage.md)
+- Manage your domain name information in Azure AD. For more information, see [Managing custom domain names](../users-groups-roles/domains-manage.md).
 
 - If you have on-premises versions of Windows Server that you want to use alongside Azure Active Directory, see [Integrate your on-premises directories with Azure Active Directory](../connect/active-directory-aadconnect.md).

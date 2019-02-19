@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Reference documentation for the Translator Speech API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
@@ -45,7 +45,7 @@ Treat your subscription key and the access token as secrets that should be hidde
 ## 5. Process the results
 **Process the results streamed back from the service.** The format of partial results, final results and text-to-speech audio segments are described in the documentation of the `/speech/translate` operation below.
 
-Code samples demonstrating use of the Translator Speech API are available from the [Microsoft Translator Github site](https://github.com/MicrosoftTranslator).
+Code samples demonstrating use of the Translator Speech API are available from the [Microsoft Translator GitHub site](https://github.com/MicrosoftTranslator).
 
 ## Implementation notes
 

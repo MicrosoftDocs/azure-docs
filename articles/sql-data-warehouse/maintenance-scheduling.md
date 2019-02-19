@@ -6,7 +6,7 @@ author: antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
@@ -46,7 +46,7 @@ Even if maintenance scheduling isn't available in your selected region, you can 
 - [Learn more](changing-maintenance-schedule.md) about changing a maintenance schedule.
 - [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage) about creating, viewing, and managing alerts by using Azure Monitor.
 - [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) about webhook actions for log alert rules.
-- [Learn more](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) Creating and managing Action Groups.
+- [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) Creating and managing Action Groups.
 - [Learn more](https://docs.microsoft.com/azure/service-health/service-health-overview) about Azure Service Health.
 
 

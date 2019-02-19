@@ -1,5 +1,5 @@
 ---
-title: "PowerShell for Virtual Network service endpoints and rules in Azure SQL | Microsoft Docs"
+title: "PowerShell for VNet endpoints and rules for single and pooled databases in Azure SQL | Microsoft Docs"
 description: "Provides PowerShell scripts to create and manage Virtual Service endpoints for your Azure SQL Database and SQL Data Warehouse."
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
 ms.service: sql-database
-ms.date: 10/05/2018
+ms.date: 02/11/2019
 ---
 # PowerShell:  Create a Virtual Service endpoint and VNet rule for SQL
 
-Both Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) support Virtual Service endpoints.
+*Virtual network rules* are one firewall security feature that controls whether the database server for your single databases and elastic pool in Azure [SQL Database](sql-database-technical-overview.md) or for your databases in [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepts communications that are sent from particular subnets in virtual networks.
 
-> [!NOTE]
-> This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. This article does *not* apply to **Azure SQL Database Managed Instance** as you do not have a service endpoint associated with a Managed Instance subnet.
+> [!IMPORTANT]
+> This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. This article does *not* apply to a **managed instance** deployment in Azure SQL Database because it does not have a service endpoint associated with it.
 
 This article provides and explains a PowerShell script that takes the following actions:
 
