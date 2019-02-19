@@ -34,24 +34,24 @@ In part one of the series, you learn how to:
 
 To complete this tutorial:
 
-# [.NET] (#tab/dotnet)
+# [.NET](#tab/dotnet)
 
 * Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
   - **Azure development**
 
   ![Azure development (under Web & Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
 
-# [Python] (#tab/python)
+# [Python](#tab/python)
 
 * Install [Python](https://www.python.org/downloads/)
 * Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
 
-# [Java V7 SDK ] (#tab/java-v7)
+# [Java V7 SDK ](#tab/java-v7)
 
 * Install and configure [Maven](http://maven.apache.org/download.cgi) to work from the command line
 * Install and configure a [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-# [Java V10 SDK] (#tab/java-v10)
+# [Java V10 SDK](#tab/java-v10)
 
 * Install and configure [Maven](http://maven.apache.org/download.cgi) to work from the command line
 * Install and configure a [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
