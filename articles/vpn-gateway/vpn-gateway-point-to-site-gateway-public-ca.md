@@ -6,27 +6,29 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 02/15/2019
 ms.author: cherylmc
 
 ---
 # Transition from self-signed to public CA certificates for P2S gateways
 
-Azure VPN Gateway no longer issues self-signed certificates to gateways for P2S connections. Issued certificates are now signed by a public Certificate Authority (CA). However, older gateways may still be using self-signed certificates. These self-signed certificates are near their expiration dates and must transition to public CA certificates.
+Azure VPN Gateway no longer issues Azure-level self-signed certificates to its gateways for P2S connections. Issued certificates are now signed by a public Certificate Authority (CA). However, some of the older gateways may still be using self-signed certificates. These self-signed certificates are near their expiration dates and must transition to public CA certificates.
 
-Previously, self-signed certificate for the gateway needed to be updated every 18 months. VPN client configuration files then had to be generated and redeployed to all P2S clients. Moving to public CA certificates eliminates this limitation. In addition to the transition for certificates, this change also provides platform improvements, better metrics, and improved stability.
+The certificates in this context are an additional Azure-level certificate. They are not the certificate chains that you use when generating your own self-signed root certificates and client certificates for authentication. Those certificates remain unaffected and will expire on the dates that you generated them to do so.
+
+Previously, a self-signed certificate for the gateway (issued behind the scenes by Azure) needed to be updated every 18 months. VPN client configuration files then had to be generated and redeployed to all P2S clients. Moving to public CA certificates eliminates this limitation. In addition to the transition for certificates, this change also provides platform improvements, better metrics, and improved stability.
 
 Only older gateways are affected by this change. If your gateway certificate needs to be transitioned, you will receive communication or toast in the Azure portal. You can check to see if your gateway is affected by using the steps in this article.
 
 >[!IMPORTANT]
->The transition is scheduled for March 09,2019 starting at 18:00 UTC. You can create a support case if you prefer a different time window. You can request one of the following windows:
+>The transition is scheduled for March 12,2019 starting at 18:00 UTC. You can create a support case if you prefer a different time window. Make and finalize your request at least 24 hours in advance.  You can request one of the following windows:
 >
 >* 06:00 UTC on 25 Feb
 >* 18:00 UTC on 25 Feb
 >* 06:00 UTC on 1 Mar
 >* 18:00 UTC on 1 Mar
 >
->**All remaining gateways will transition on March 09, 2019 starting at 18:00 UTC**.
+>**All remaining gateways will transition on March 12, 2019 starting at 18:00 UTC**.
 >
 
 ## 1. Verify your certificate

@@ -1,6 +1,6 @@
 ---
-title: Understand role definitions in Azure RBAC | Microsoft Docs
-description: Learn about role definitions in role-based access control (RBAC) for fine-grained access management of resources in Azure.
+title: Understand role definitions in RBAC for Azure resources | Microsoft Docs
+description: Learn about role definitions in role-based access control (RBAC) for fine-grained access management of Azure resources.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
 ---
-# Understand role definitions
+# Understand role definitions for Azure resources
 
-If you are trying to understand how a role works or if you are creating your own [custom role](custom-roles.md), it's helpful to understand how roles are defined. This article describes the details of role definitions and provides some examples.
+If you are trying to understand how a role works or if you are creating your own [custom role for Azure resources](custom-roles.md), it's helpful to understand how roles are defined. This article describes the details of role definitions and provides some examples.
 
 ## Role definition structure
 
@@ -142,9 +142,11 @@ Storage Blob Data Contributor (Preview)
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Since Alice has a wildcard (`*`) action at a subscription scope, her permissions inherit down to enable her to perform all management actions. However, Alice cannot perform data operations. For example, by default, Alice cannot read the blobs inside a container, but she can read, write, and delete containers.
+Since Alice has a wildcard (`*`) action at a subscription scope, her permissions inherit down to enable her to perform all management actions. Alice can read, write, and delete containers. However, Alice cannot perform data operations without taking additional steps. For example, by default, Alice cannot read the blobs inside a container. To read the blobs, Alice would have to retrieve the storage access keys and use them to access the blobs.
 
 Bob's permissions are restricted to just the `Actions` and `DataActions` specified in the [Storage Blob Data Contributor (Preview)](built-in-roles.md#storage-blob-data-contributor-preview) role. Based on the role, Bob can perform both management and data operations. For example, Bob can read, write, and delete containers in the specified storage account and he can also read, write, and delete the blobs.
+
+For more information about management and data plane security for storage, see the [Azure Storage security guide](../storage/common/storage-security-guide.md).
 
 ### What tools support using RBAC for data operations?
 
@@ -220,10 +222,10 @@ Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root s
 | Role is available for assignment only in the Network resource group | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
 | Role is available for assignment in all scopes | `"/"` |
 
-For information about `AssignableScopes` for custom roles, see [Custom roles](custom-roles.md).
+For information about `AssignableScopes` for custom roles, see [Custom roles for Azure resources](custom-roles.md).
 
 ## Next steps
 
-* [Built-in roles](built-in-roles.md)
-* [Custom roles](custom-roles.md)
+* [Built-in roles for Azure resources](built-in-roles.md)
+* [Custom roles for Azure resources](custom-roles.md)
 * [Azure Resource Manager resource provider operations](resource-provider-operations.md)

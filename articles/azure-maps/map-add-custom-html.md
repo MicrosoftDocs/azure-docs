@@ -63,20 +63,11 @@ This sample shows how to make an HTML marker draggable. HTML markers support `dr
 
 ## Add mouse events to HTML markers
 
-These samples show how to add mouse events to an HTML marker by adding standard JavaScript events to the HTML content of the marker. 
-
-If the `htmlContent` of the marker is a DOM element (div, img...), you can add events directly to them. 
+These samples show how to add mouse and drag events to an HTML marker.
 
 <br/>
 
 <iframe height='500' scrolling='no' title='Adding Mouse Events to HTML Markers' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>Adding Mouse Events to HTML Markers</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-If the `htmlContent` is a string (i.e the like the default), you can create a DOM element and add the string as innerHTML to it, then add the DOM element as the htmlContent. If the `htmlContent` is a templated string, you will need to find/replace `{text}` and `{color}` values in the string first.
-
-<br/>
-
-<iframe height='500' scrolling='no' title='Adding Mouse Events to default HTML Marker' src='//codepen.io/azuremaps/embed/ZmZLBa/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/ZmZLBa/'>Adding Mouse Events to default HTML Marker</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## Next steps

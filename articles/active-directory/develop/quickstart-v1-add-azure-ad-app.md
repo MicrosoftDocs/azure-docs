@@ -18,6 +18,7 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 #Customer intent: As an enterprise developer and software-as-a-service provider, I want to know how to add and register my application with the Azure Active Directory v1.0 endpoint.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Register an app with the Azure Active Directory v1.0 endpoint

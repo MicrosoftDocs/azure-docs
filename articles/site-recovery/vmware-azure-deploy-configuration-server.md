@@ -125,38 +125,42 @@ To avoid interruptions in ongoing replication, ensure that IP address of the con
 
 ## FAQ
 
-1. Can I use the VM, where the configuration server is installed, for different purposes?
+1. How long is the Licence provided on configuration server deployed through OVF is valid? What happens if I do not reactivate the License?
+
+    The licence provided with OVA template is an evaluation licence valid for 180 days. Before expiry, you need to activate the license. Else, this can result in frequent shutdown of configuration server and thus cause hinderance to replication activities.
+
+2. Can I use the VM, where the configuration server is installed, for different purposes?
 
     **No**, we recommend you to use the VM for sole purpose of configuration server. Ensure you follow all the specifications mentioned in [Prerequisites](#prerequisites) for efficient management of disaster recovery.
-2. Can I switch the vault already registered in the configuration server with a newly created vault?
+3. Can I switch the vault already registered in the configuration server with a newly created vault?
 
     **No**, once a vault is registered with configuration server, it cannot be changed.
-3. Can I use the same configuration server for protecting both physical and virtual machines?
+4. Can I use the same configuration server for protecting both physical and virtual machines?
 
     **Yes**, the same configuration server can be used for replicating physical and virtual machines. However, physical machine can be failed back only to a VMware VM.
-4. What is the purpose of a configuration server and where is it used?
+5. What is the purpose of a configuration server and where is it used?
 
     Refer to [VMware to Azure replication architecture](vmware-azure-architecture.md) to learn more about configuration server and its functionalities.
-5. Where can I find the latest version of Configuration server?
+6. Where can I find the latest version of Configuration server?
 
     For steps to upgrade the configuration server through the portal, see [Upgrade the configuration server](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). For detailed instructions on how to upgrade all Site Recovery components, refer [here](https://aka.ms/asr_how_to_upgrade).
-6. Where can I download the passphrase for configuration server?
+7. Where can I download the passphrase for configuration server?
 
     Refer to [this article](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) to download the passphrase.
-7. Can I change the passphrase?
+8. Can I change the passphrase?
 
     **No**, you are **strongly advised to not change the passphrase** of configuration server. Change in passphrase breaks replication of protected machines and leads to critical health state.
-8. Where can I download vault registration keys?
+9. Where can I download vault registration keys?
 
     In the **Recovery Services Vault**, **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**. In Servers, select **Download registration key** to download the vault credentials file.
-9. Can I clone an existing Configuration Server and use it for replication orchestration?
+10. Can I clone an existing Configuration Server and use it for replication orchestration?
 
     **No**, use of a cloned Configuration Server component is not supported.
 
-10. Can I change the IP of configuration server?
+11. Can I change the IP of configuration server?
 
     **No**, it is strongly recommended to not change the IP address of a configuration server. Ensure all IPs assigned to the Configuration Server are STATIC IPs and not DHCP IPs.
-11. Can I set up configuration server on Azure?
+12. Can I set up configuration server on Azure?
 
     It is recommended to set up configuration server on on-premises environment with direct line-of-sight with v-Center and to minimize data transfer latencies. You can take scheduled backups of configuration server for [failback purposes](vmware-azure-manage-configuration-server.md#failback-requirements).
 

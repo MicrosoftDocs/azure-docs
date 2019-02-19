@@ -15,6 +15,7 @@ services: active-directory
 ms.custom: "it-pro;seo-update-azuread-jan"
 
 #As a new Azure AD identity administrator, user management is at the core of my work so I need to understand the user management tools such as groups, administrator roles, and licenses to manage users.
+ms.collection: M365-identity-device-management
 ---
 # Users, groups, licensing, and roles for large organizations
 

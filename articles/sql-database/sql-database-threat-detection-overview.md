@@ -11,7 +11,7 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 02/08/2019
 ---
 # Azure SQL Database threat detection
 
@@ -71,7 +71,7 @@ Click **Threat detection alert** to launch the Azure Security Center alerts page
 
 ## Next steps
 
-- Learn more about [threat detection in standalone and pooled databases](sql-database-threat-detection.md).
+- Learn more about [threat detection in single and pooled databases](sql-database-threat-detection.md).
 - Learn more about [threat detection in managed instance](sql-database-managed-instance-threat-detection.md).
 - Learn more about [advanced data security](sql-database-advanced-data-security.md).
 - Learn more about [Azure SQL Database auditing](sql-database-auditing.md)
