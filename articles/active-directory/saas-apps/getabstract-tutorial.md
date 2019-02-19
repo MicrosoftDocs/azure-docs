@@ -109,7 +109,7 @@ To configure Azure AD single sign-on with Getabstract, perform the following ste
 
 	For Production: `https://www.getabstract.com`
 
-	b. In the **Reply URL** textbox, type the URL:
+	b. In the **Reply URL** textbox, type a URL:
 	
 	For Stage/pre_production: `https://int.getabstract.com/ACS.do`
 	
@@ -118,8 +118,8 @@ To configure Azure AD single sign-on with Getabstract, perform the following ste
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     ![Getabstract Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
-
-	In the **Sign-on URL** textbox, type a URL using the following pattern:
+    
+    In the **Sign-on URL** textbox, type a URL using the following pattern:
 
     For Stage/pre_production: `https://int.getabstract.com/portal/<org_username>`
 	
