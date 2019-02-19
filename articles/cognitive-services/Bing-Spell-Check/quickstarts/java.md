@@ -12,9 +12,9 @@ ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: aahi
 ---
-# Quickstart: Check spelling with the Bing Spell Check REST API and Python
+# Quickstart: Check spelling with the Bing Spell Check REST API and Java
 
-Use this quickstart to make your first call to the Bing Spell Check REST API. This simple Java application sends a request to the API and returns a list of suggested corrections. While this application is written in Java, the API is a RESTful web service compatible with most programming languages.
+Use this quickstart to make your first call to the Bing Spell Check REST API. This simple Java application sends a request to the API and returns a list of suggested corrections. While this application is written in Java, the API is a RESTful web service compatible with most programming languages. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java).
 
 ## Prerequisites
 
