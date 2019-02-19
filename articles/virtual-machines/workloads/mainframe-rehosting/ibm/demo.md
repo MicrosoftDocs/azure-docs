@@ -22,7 +22,7 @@ or [IBM PartnerWorld](https://www-356.ibm.com/partnerworld/wps/servlet/ContentHa
 
 - An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- The zD&T environment previously set up on Azure. This article assumes that you are using the same Ubuntu 16.04 VM image created earlier.
+- The [zD&T environment][ibm-install-z] previously set up on Azure. This article assumes that you are using the same Ubuntu 16.04 VM image created earlier.
 
 - Access to the ADCD media through IBM PartnerWorld or Passport Advantage.
 
