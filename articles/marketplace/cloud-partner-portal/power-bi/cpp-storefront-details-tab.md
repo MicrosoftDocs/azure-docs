@@ -17,37 +17,37 @@ ms.date: 01/30/2019
 ms.author: pbutlerm
 ---
 
-# Power BI Apps Storefront Details tab
+# Power BI app Storefront Details tab
 
-On the **New Offer** page, use the **Storefront Details** tab to provide marketing, sales, and legal information for your prospective customers. Here you can also set up management for leads that the marketplace generates. This long form is divided into six sections: **Offer Details**, **Listing Details**, **Marketing Artifacts**, **Legal**, **Customer Support**, and **Lead Management**.  An asterisk (*) at the end of a field label means the field is required.
+On the **New Offer** page, use the **Storefront Details** tab to provide marketing, sales, and legal information for your prospective customers. On this tab you can also set up management for leads that the Azure Marketplace generates. This long form is divided into six sections: **Offer Details**, **Listing Details**, **Marketing Artifacts**, **Legal**, **Customer Support**, and **Lead Management**.  An asterisk (*) at the end of a field label means the field is required.
 
 
 ## Offer Details section
 
-In the **Offer Details** section, enter general information about your Microsoft AppSource offer.
+In the **Offer Details** section, enter general information about your AppSource offer.
 
 ![Offer Details section of the Storefront Details tab](./media/offer-details-section.png)
 
-Use the following table to complete the fields in this section.
+To complete the fields in this section, use the following table:
 
 |   Field               |   Description                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Offer summary**     | Brief purpose of the app, using up to 100 characters.                             |
-| **Offer description** | Description of the app, using up to 3,000 characters. This field supports simple HTML formatting. |
+| **Offer summary**     | A brief purpose of the app, using up to 100 characters.                             |
+| **Offer description** | A description of the app, using up to 3,000 characters. This field supports simple HTML formatting. |
 |                       |                                                                                         |
 
 
 ## Listing Details section
 
-The **Listing Details** section gathers information on the context of your app: industries where it's typically used, the app category, compatible products, and associated search terms.
+The **Listing Details** section gathers information about the context of your app: industries where it's typically used, the app category, compatible products, and associated search terms.
 
 ![Listing Details section of the Storefront Details tab](./media/listing-details-section.png)
 
-Use the following table to complete the fields in this section.
+To complete the fields in this section, use the following table:
  
 |   Field                                  |   Description                                                        |
 | --------------                           | ---------------------                                                |
-| **Industries**                           | Select the industry where your app fits best. If your app relates to multiple industries, you can leave this field blank.      |
+| **Industries**                           | Select the industry where your app fits best. If your app relates to multiple industries, leave this field blank.      |
 | **Categories**                           | Select up to three categories that relate to your app.     |
 | **Help link for your app**               | Provide a URL to a page that offers online help for your app.           |
 | **Products your app works with (Max 3)** | Select the **New** plus sign to create a text field. In the field, enter the name of a product that your app works with. List up to three products.       |
@@ -61,7 +61,7 @@ In the **Marketing Artifacts** section, upload branding and marketing materials 
 
 ![Marketing Artifacts section of the Storefront Details tab](./media/marketing-artifacts-section.png)
 
-Use the following table to complete the fields in this section.
+To complete the fields in this section, use the following table:
  
 |    Field                             |    Description                                                    |
 |   -----------                        |    -------------                                                  |
@@ -72,10 +72,10 @@ Use the following table to complete the fields in this section.
 | **Name**                             | Enter your app's name or title.                                          |
 | **URL**                              | Enter the URL of a video hosted on YouTube or Vimeo.                              |
 | **Thumbnail**                        | Add a thumbnail image of the app.  AppSource supports only PNG format, with a resolution of 1280 x 720 px.   |
-| *Documents*                          | If desired, add up to three documents to display on AppSource, under the **Learn more** heading.  |
+| *Documents*                          | Add up to three documents to display on AppSource, under the **Learn more** heading.  |
 | **Name**                             | Enter the name or title of a supporting document.                              |
 | **File**                             | Upload a PDF file.                             |
-| *Screenshots*                        | If desired, add up to five screenshots.                        |
+| *Screenshots*                        | Add up to five screenshots.                        |
 | **Name**                             | Enter a name or title of a screenshot.                                       |
 | **Image**                            | Upload a PNG screenshot. Its resolution must be 1280 x 720 px.  | 
 |   |   |
@@ -92,7 +92,7 @@ In the **Legal** section, provide the two legal documents required for each offe
 
 ![Legal section of the Storefront Details tab](./media/legal-section.png)
 
-Use the following table to complete the fields in this section.
+To complete the fields in this section, use the following table:
 
 |   Field                |   Description                           |
 |------------------------|--------------------------------------   |
@@ -108,17 +108,17 @@ In the **Customer Support** section, provide the **Support URL** for your online
 
 ## Lead Management section
 
-In the **Lead Management** section, set up your system to collect the customer leads that your AppSource offers generate. Use the following table to choose your storage options for the leads.
+In the **Lead Management** section, set up your system to collect the customer leads that your AppSource offers generate. To choose your storage options for the leads, use the following table:
 
 |    Field               |   Lead destination                               |
 |------------------------|--------------------------------------            |
-|  **None**              | Leads aren't collected. This is the default option.  |
-| **Azure Blob (deprecated)** | [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) is specified by a container name and a connection string.  This choice is deprecated. Use **Azure Table** instead.  |
-| **Azure Table**        | [Azure Table storage](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) is specified by a connection string.  |
-| **Dynamics CRM Online** | [Microsoft Dynamics 365](https://dynamics.microsoft.com/) is specified by a URL and authentication credentials. |
-| **HTTPS endpoint**     | The HTTPS endpoint is specified as a JSON payload.   |
-| **Marketo**            | A [Marketo](https://www.marketo.com/) instance is specified by server ID, munchkin ID, and form ID.   |
-| **Salesforce**         | A [Salesforce](https://www.salesforce.com/) database is specified by an object identifier. |
+|  **None**              | Collect no leads. This is the default option.  |
+| **Azure Blob (deprecated)** | Specify [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) by using a container name and a connection string.  This choice is deprecated. Use **Azure Table** instead.  |
+| **Azure Table**        | Specify [Azure Table storage](https://docs.microsoft.com/azure/cosmos-db/table-storage-overview) by using a connection string.  |
+| **Dynamics CRM Online** | Specify [Dynamics 365](https://dynamics.microsoft.com/) by using a URL and authentication credentials. |
+| **HTTPS endpoint**     | Specify the HTTPS endpoint by using a JSON payload.   |
+| **Marketo**            | Specify a [Marketo](https://www.marketo.com/) instance by using a server ID, munchkin ID, and form ID.   |
+| **Salesforce**         | Specify [Salesforce](https://www.salesforce.com/) by using an object identifier. |
 |  |  |
 
 After you publish your offer, the lead connection is validated, and a test lead is automatically sent to the specified destination. Continuously manage lead
