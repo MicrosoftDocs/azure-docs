@@ -35940,10 +35940,17 @@
       "source_path": "articles/cognitive-services/LUIS/luis-reference-faq.md",
       "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
       "redirect_document_id": true
-    },{
+    },
+    {
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization.md",
       "redirect_url": "/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-integrate-with-other-services.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-data-scenarios",
+      "redirect_document_id": false
     }
+    
   ]
 }
