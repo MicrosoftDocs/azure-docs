@@ -75,7 +75,7 @@ sections:
   - type: paragraph
     text: 'Learn how to develop applications using the Bing Autosuggest API:'
   - type: paragraph
-    text: <a href="tutorials/autosuggest.md">Single-page web app</a> &#124; <a href="tutorials/autosuggest-source.md">Source code</a>
+    text: <a href="tutorials/autosuggest.md">Single-page web app</a>
 - title: Reference
   items:
   - type: list

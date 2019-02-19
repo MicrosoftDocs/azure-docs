@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Bing Autosuggest API"
+title: "Sending requests to the Bing Autosuggest API"
 titlesuffix: Azure Cognitive Services
-description: Shows how to get started using the Bing Autosuggest API.
+description: Learn how to send requests to Bing Autosuggest API.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -9,29 +9,40 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 04/15/2017
+ms.date: 02/19/2019
 ms.author: scottwhi
 ---
-# Quickstart: Making your first Autosuggest query
 
-Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
+# Sending requests to the Bing Autosuggest API.
 
-To get Web search results, you'd send a GET request to the following endpoint:
+If your application sends queries to any of the Bing Search APIs, you can use the Bing Autosuggest API to improve your users' search experience. The Bing Autosuggest API returns a list of suggested queries based on the partial query string in the search box. As characters are entered into a search box in your application, you can display suggestions in a drop-down list. Use this article to learn more about sending requests to this API.
+
+## Bing Autosuggest API Endpoint
+
+The **Bing Autosuggest API**  includes one endpoint, which returns a list of suggested queries from a partial search term.
+
+To get suggested queries using the Bing API, send a `GET` request to the following endpoint. Use the headers and URL parameters to define further specifications.
+
+**Endpoint:** Returns search suggestions as JSON results that are relevant to the user's input defined by `?q=""`.
 
 ```http
-https://api.cognitive.microsoft.com/bing/v5.0/Suggestions
+GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
 ```
 
+For details about headers, parameters, market codes, response objects, errors, etc., see the [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference) reference.
+
+The **Bing** APIs support search actions that return results according to their type. All search endpoints return results as JSON response objects.
+All endpoints support queries that return a specific language and/or location by longitude, latitude, and search radius.
+
+For complete information about the parameters supported by each endpoint, see the reference pages for each type.
+For examples of basic requests using the Autosuggest API, see [Autosuggest Quickstarts](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest).
+
+## Bing Autosuggest API requests
+
 > [!NOTE]
-> V7 Preview endpoint:
->
-> ```http
-> https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
-> ```
+> Requests to the Bing Autosuggest API must use the HTTPS protocol.
 
-The request must use the HTTPS protocol.
-
-We recommend that all requests originate from a server. Distributing the key as part of a client application provides more opportunity for a malicious third-party to access it. Also, making calls from a server provides a single upgrade point for future versions of the API.
+We recommend that all requests originate from a server. Distributing the key as part of a client application provides more opportunity malicious third-party access. Additionally, making calls from a server provides a single upgrade point for future updates.
 
 The request must specify the [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) query parameter, which contains the user's partial search term. Although it's optional, the request should also specify the [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt) query parameter, which identifies the market where you want the results to come from. For a list of optional query parameters, see [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). All query parameter values must be URL encoded.
 
@@ -46,9 +57,7 @@ The client IP and location headers are important for returning location aware co
 
 For a list of all request and response headers, see [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers).
 
-## The request
-
-The request should include all the suggested query parameters and headers. You'd call this API each time the user types a new character in the search box. The completeness of the query string impacts the relevance of the suggested query terms that the API returns. The more complete the query string, the more relevant that the list of suggested query terms are. For example, the suggestions that the API may return for *s* are likely to be less relevant than the queries it returns for *sailing dinghies*. 
+Requests should include all suggested query parameters and headers. 
 
 The following example shows a request that returns the suggested query strings for *sail*.
 
@@ -81,7 +90,7 @@ The `displayText` field contains the suggested query that you'd use to populate 
 
 If the user selects a query from the drop-down list, you may use the query string in the `query` field to call the [Bing Search API](../bing-web-search/search-the-web.md) and display the results yourself. Or, you could use the URL in the `url` field to send the user to the Bing search results page.
 
-```  
+```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
 X-MSEdge-ClientID: 1C3352B306E669780D58D607B96869
 BingAPIs-Market: en-US
@@ -147,6 +156,6 @@ BingAPIs-Market: en-US
 
 ## Next steps
 
-Try out the API. Go to [Autosuggest API Testing Console](https://dev.cognitive.microsoft.com/docs/services/56c7694ecf5ff801a090fbd1/operations/56c769a2cf5ff801a090fbd2).
-
-For details about consuming the response objects, see [Getting Suggested Search Terms](./get-suggested-search-terms.md).
+- [What is Bing Autosuggest?](../get-suggested-search-terms.md)
+- [Bing Autosuggest API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Getting suggested search terms from the Bing Autosuggest API](get-suggestions.md)
