@@ -79,7 +79,7 @@ A managed identity for Azure resources lets a pod authenticate itself against an
 
 With a managed identity, your application code doesn't need to include credentials to access a service, such as Azure Storage. As each pod authenticates with its own identity, so you can audit and review access. If your application connects with other Azure services, use managed identities to limit credential reuse and risk of exposure.
 
-For more information about pod identities, see [Configure an AKS cluster to use pod managed identities][aad-pod-identity] and [Assign and use pod managed identities in your code][aad-pod-identity].
+For more information about pod identities, see [Configure an AKS cluster to use pod managed identities][aad-pod-identity].
 
 ### Use Azure Key Vault with FlexVol
 
