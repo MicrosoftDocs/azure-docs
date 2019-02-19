@@ -102,7 +102,7 @@ To configure Azure AD single sign-on with Fuze, perform the following steps:
 
     ![Fuze Domain and URLs single sign-on information](common/sp-signonurl.png)
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL:
     `https://www.thinkingphones.com/jetspeed/portal/`
 
 5. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
