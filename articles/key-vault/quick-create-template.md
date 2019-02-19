@@ -17,7 +17,7 @@ ms.author: barclayn
 ---
 # Quickstart: Set and retrieve a secret from Azure Key Vault using Resource Manager template
 
-Azure Key Vault is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets. In this quickstart, you create a key vault, and use the key vault to store a secret using a Resource Manager template. For more information on Key Vault, review the [Overview](key-vault-overview.md). This quickstart focuses on deploying a Resource Manager template. For more information on developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/).
+[Azure Key Vault](./key-vault-overview.md) is a cloud service that provides a secure store for secrets, such as keys, passwords, certificates, and other secrets. This quickstart focuses on the process of deploying a Resource Manager template to create a key vault and a secret. For more information on developing Resource Manager templates, see [Resource Manager documentation](/azure/azure-resource-manager/) and the [template reference](/azure/templates/microsoft.keyvault/allversions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -27,12 +27,12 @@ To complete this article, you need:
 
 * Your Azure AD user object ID is needed by the template to configure permissions. The following procedure gets the object ID (GUID).
 
-    1. Run the following Azure PowerShell or Azure CLI command by select **Try it**, and then paste the script into the shell pane.  
+    1. Run the following Azure PowerShell or Azure CLI command by select **Try it**, and then paste the script into the shell pane. To paste the script, right-click the shell, and then select **Paste**. 
     
         ```azurecli-interactive
         echo "Enter your email address that is associated with your Azure subscription):" &&
         read upn &&
-        az ad user show --upn-or-object-id $upn --query "objectId" &&
+        az ad user show --upn-or-object-id $upn --query "objectId" 
         ```
         ```azurepowershell-interactive
         $upn = Read-Host -Prompt "Input your user principal name (email address) used to sign in to Azure"
@@ -55,13 +55,13 @@ To complete this article, you need:
 
 2. Select or enter the following values.  Don't select **Purchase** after you enter the values.
 
-    ![Resource Manager template Key Vault integration deploy portal](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-key-vault-portal.png)
+    ![Resource Manager template Key Vault integration deploy portal](./media/quick-create-template/create-key-vault-using-template-portal.png)
 
     Unless it is specified, use the default value to create the key vault and a secret.
 
     * **Subscription**: select an Azure subscription.
-    * **Resource group**: select **Create new**, and then enter a unique name for the resource group.
-    * **Location**: select a location.  The default location is **Central US**.
+    * **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**. 
+    * **Location**: select a location.  For example, **Central US**.
     * **Key Vault Name**: enter a unique name for the key vault.  
     * **Tenant Id**: the template function automatically retrieve your tenant id.  Don't change the default value
     * **Ad User Id**: enter your Azure AD user object ID that you retrieved from [Prerequisites](#prerequisites).
@@ -69,6 +69,20 @@ To complete this article, you need:
     * **Secret Value**: enter the secret value.  If you store a password, it is recommended to use the generated password you created in [Prerequisite](#prerequisite).
     * **I agree to the terms and conditions state above**: Select.
 3. Select **Purchase**.
+
+## Validate the deployment
+
+Use the following Azure CLI and Azuer PowerShell script to list the secret created.
+
+```azurecli-interactive
+echo "Enter your key vault name):" &&
+read keyVaultName &&
+az keyvault secret list --vault-name $keyVaultName
+```
+```azurepowershell-interactive
+$keyVaultName = Read-Host -Prompt "Enter your key vault name"
+Get-AzKeyVaultSecret -vaultName $keyVaultName
+```
 
 ## Clean up resources
 
@@ -81,7 +95,7 @@ When no longer needed, delete the resource group, which deletes the Key Vault an
 
 ## Next steps
 
-In this quickstart, you have created a Key Vault and stored a secret. To learn more about Key Vault and how you can use it with your applications, continue to the tutorial for web applications working with Key Vault.
-
-> [!div class="nextstepaction"]
-> To learn how to read a secret from Key Vault from a web application using managed identities for Azure resources, continue with the following tutorial [Configure an Azure web application to read a secret from Key vault](quick-create-net.md).
+* [Azure Key Vault Home Page](https://azure.microsoft.com/services/key-vault/)
+* [Azure Key Vault Documentation](https://docs.microsoft.com/azure/key-vault/)
+* [Azure SDK For Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
+* [Azure REST API Reference](https://docs.microsoft.com/rest/api/keyvault/)
