@@ -28,13 +28,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-- A Xamarin workload for Visual Studio (see [Installing Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
+- The Xamarin workload for Visual Studio (see [Installing Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
 - An iOS or Android emulator for Visual Studio
 - The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (optional)
 
 ## Get the source code
 
-If you want to use the provided web app, clone or download the app's source code from the [AI Visual Provision](https://github.com/Microsoft/AIVisualProvision) repository on GitHub. Open the **Source/VisualProvision.sln** file in Visual Studio. Later on, you'll edit some of the project files so you can run the app.
+If you want to use the provided web app, clone or download the app's source code from the [AI Visual Provision](https://github.com/Microsoft/AIVisualProvision) repository on GitHub. Open the *Source/VisualProvision.sln* file in Visual Studio. Later on, you'll edit some of the project files so you can run the app.
 
 ## Create an object detector
 
@@ -50,11 +50,11 @@ After you upload the training images, select the first one on the display. This 
 
 ![Logo tagging on the Custom Vision website](media/azure-logo-tutorial/tag-logos.png)
 
-The app is configured to work with specific tag strings. You'll find the definitions in the Source\VisualProvision\Services\Recognition\RecognitionService.cs file:
+The app is configured to work with specific tag strings. You'll find the definitions in the *Source\VisualProvision\Services\Recognition\RecognitionService.cs* file:
 
 [!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?range=18-33)]
 
-After you tag an image, tag the next one to the right. Close the tagging window when you finish.
+After you tag an image, go to the right to tag the next one. Close the tagging window when you finish.
 
 ## Train the object detector
 
@@ -68,13 +68,13 @@ After your model is trained, you're ready to integrate it into your app. To do t
 
 ![The Custom Vision website, showing a Prediction API window that displays a URL address and API key](media/azure-logo-tutorial/cusvis-endpoint.png)
 
-Copy the image file URL and the **Prediction-Key** value to the appropriate fields in the **Source\VisualProvision\AppSettings.cs** file:
+Copy the image file URL and the **Prediction-Key** value to the appropriate fields in the *Source\VisualProvision\AppSettings.cs* file:
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=22-26)]
 
 ## Examine Custom Vision usage
 
-Open the **Source/VisualProvision/Services/Recognition/CustomVisionService.cs** file to see how the app uses your Custom Vision key and endpoint URL. The **PredictImageContentsAsync** method takes a byte stream of an image file along with a cancellation token (for asynchronous task management), calls the Custom Vision prediction API, and returns the result of the prediction. 
+Open the *Source/VisualProvision/Services/Recognition/CustomVisionService.cs* file to see how the app uses your Custom Vision key and endpoint URL. The **PredictImageContentsAsync** method takes a byte stream of an image file along with a cancellation token (for asynchronous task management), calls the Custom Vision prediction API, and returns the result of the prediction. 
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/CustomVisionService.cs?range=12-28)]
 
@@ -82,17 +82,17 @@ This result takes the form of a **PredictionResult** instance, which itself cont
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?range=3-12)]
 
-To learn more about how the app handles this data, start with the **GetResourcesAsync** method. This method is defined in the Source/VisualProvision/Services/Recognition/RecognitionService.cs file.  
+To learn more about how the app handles this data, start with the **GetResourcesAsync** method. This method is defined in the *Source/VisualProvision/Services/Recognition/RecognitionService.cs* file.  
 
 ## Add Computer Vision
 
-The Custom Vision portion of the tutorial is complete. If you want to run the app, you'll need to integrate the Computer Vision service as well. The app uses the Computer Vision text-recognition feature to supplement the logo detection process. An Azure logo can be recognized by its appearance *or* by the text printed near it. Unlike Custom Vision models, Computer Vision is pretrained to perform certain operations on images or videos.
+The Custom Vision portion of the tutorial is complete. If you want to run the app, you'll need to integrate the Computer Vision service as well. The app uses the Computer Vision text recognition feature to supplement the logo detection process. An Azure logo can be recognized by its appearance *or* by the text printed near it. Unlike Custom Vision models, Computer Vision is pretrained to perform certain operations on images or videos.
 
 Subscribe to the Computer Vision service to get a key and endpoint URL. For help on this step, see [How to obtain subscription keys](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
 
 ![The Computer Vision service in the Azure portal, with the Quick start menu selected. A link for keys is outlined, as is the API endpoint URL](media/azure-logo-tutorial/comvis-keys.png)
 
-Next, open the **Source\VisualProvision\AppSettings.cs** file and populate the **ComputerVisionEndpoint** and **ComputerVisionKey** variables with the correct values.
+Next, open the *Source\VisualProvision\AppSettings.cs* file and populate the **ComputerVisionEndpoint** and **ComputerVisionKey** variables with the correct values.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
 
@@ -126,7 +126,7 @@ Upon successful completion, you should see the following JSON output, including 
   ...
 }
 ```
-Take note of the `clientId` and `tenantId` values. Add them to the appropriate fields in the **Source\VisualProvision\AppSettings.cs** file.
+Take note of the `clientId` and `tenantId` values. Add them to the appropriate fields in the *Source\VisualProvision\AppSettings.cs* file.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
 
@@ -147,7 +147,7 @@ Follow these steps to run the app:
 1. On the first screen, enter your service principal client ID, tenant ID, and password. Select the **Login** button.
 
     > [!NOTE]
-    > On some emulators, the **Login** button might not be activated at this step. If this happens, stop the app, open the **Source/VisualProvision/Pages/LoginPage.xaml** file, find the **Button** element labeled **LOGIN BUTTON**, remove the following line, and then run the app again.
+    > On some emulators, the **Login** button might not be activated at this step. If this happens, stop the app, open the *Source/VisualProvision/Pages/LoginPage.xaml* file, find the `Button` element labeled **LOGIN BUTTON**, remove the following line, and then run the app again.
     >  ```xaml
     >  IsEnabled="{Binding IsValid}"
     >  ```
