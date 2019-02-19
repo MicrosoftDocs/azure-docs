@@ -58,7 +58,7 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 For a detailed look at the issue, review the following [github link](https://github.com/moby/moby/issues/22920).
 
 ## How do I resolve Azure Active Directory errors when I enable live logs? 
-You may see the following error **The reply url specified in the request does not match the reply urls configured for the application: '60b4dec7-5a69-4165-a211-12c40b5c0435'**. The fix for this can be found in the article [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
+You may see the following error: **The reply url specified in the request does not match the reply urls configured for the application: '60b4dec7-5a69-4165-a211-12c40b5c0435'**. The fix for this can be found in the article [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
 
 ## Next steps
 To begin monitoring your AKS cluster, review [How to onboard the Azure Monitor for containers](container-insights-onboard.md) to understand the requirements and available methods to enable monitoring. 
