@@ -22,10 +22,12 @@ sections:
     style: icon48
     items:
     - image:
+        alt: Azure CLI
         src: ./media/cli.svg
       text: Azure CLI
       href: first-query-azurecli.md
     - image:
+        alt: Azure PowerShell
         src: ./media/powershell.svg
       text: Azure PowerShell
       href: first-query-powershell.md

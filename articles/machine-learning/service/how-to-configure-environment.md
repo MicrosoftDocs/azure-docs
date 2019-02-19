@@ -354,6 +354,6 @@ You can create the configuration file in three ways:
 
 ## Next steps
 
-- [Train a model](tutorial-train-models-with-aml.md) on Azure Machine Learning with the MNIST dataset]
+- [Train a model](tutorial-train-models-with-aml.md) on Azure Machine Learning with the MNIST dataset
 - View the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) reference
 - Learn about the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
