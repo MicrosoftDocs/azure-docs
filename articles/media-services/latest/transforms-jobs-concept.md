@@ -50,6 +50,10 @@ Suppose you wanted to extract the first frame of all your videos as a thumbnail 
 
 A **Transform** helps you create the recipe once (Step 1), and submit Jobs using that recipe (Step 2).
 
+## Job error codes
+
+See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+
 ## Paging
 
 See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
