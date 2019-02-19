@@ -133,7 +133,7 @@ The following illustration shows the messages that Azure Active Directory sends 
 *Figure 4: User provisioning and de-provisioning sequence*
 
 ### Group provisioning and de-provisioning
-The following illustration shows the messages that Azure AD sends to a SCIM service to manage the lifecycle of a group in your application's identity store.  Those messages differ from the messages pertaining to users in two ways: 
+Group provisioning and de-provisioning is optional. When implemented and enabled, the following illustration shows the messages that Azure AD sends to a SCIM service to manage the lifecycle of a group in your application's identity store.  Those messages differ from the messages pertaining to users in two ways: 
 
 * Requests to retrieve groups stipulate that the members attribute is to be excluded from any resource provided in response to the request.  
 * Requests to determine whether a reference attribute has a certain value are requests about the members attribute.  
