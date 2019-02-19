@@ -21,7 +21,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
 
 * [Node.js 6](https://nodejs.org/en/download/) or later
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Autosuggest API v7**. The [free trial](https://azure.microsoft.com/try/cognitive-services/#search) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
 ## Create a new application
 
@@ -33,7 +33,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
     let https = require ('https');
     ```
 
-2. Create variables for the API endpoint host and path, your subscription key, and a search term.
+2. Create variables for the API endpoint host and path, your subscription key, [market code](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes), and a search term.
 
     ```javascript
     // Replace the subscriptionKey string value with your valid subscription key.

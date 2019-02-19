@@ -23,7 +23,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
 * The [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 * The [Gson library](https://github.com/google/gson)
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Autosuggest API v7**. The [free trial](https://azure.microsoft.com/try/cognitive-services/#search) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
 ## Create and initialize a project
 
@@ -40,7 +40,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
     import com.google.gson.JsonParser;
     ```
 
-2. Create variables for your subscription key, the API host and path, your market value, and a search query.
+2. Create variables for your subscription key, the API host and path, your [market code](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes), and a search query.
     
     ```java
     static String subscriptionKey = "enter key here";
@@ -53,17 +53,17 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ## Format the response
 
-1. Create a method named `prettify()` to format the response returned from the Bing Video API. Use the Gson library's `JsonParser` to take in a JSON string and convert it into an object. Then use `GsonBuilder()` and `toJson()` to create the formatted string. 
+Create a method named `prettify()` to format the response returned from the Bing Video API. Use the Gson library's `JsonParser` to take in a JSON string and convert it into an object. Then use `GsonBuilder()` and `toJson()` to create the formatted string.
 
-    ```java
-    // pretty-printer for JSON; uses GSON parser to parse and re-serialize
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-    ```
+```java
+// pretty-printer for JSON; uses GSON parser to parse and re-serialize
+public static String prettify(String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonObject json = parser.parse(json_text).getAsJsonObject();
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+}
+```
 
 ## Construct and send the search request
 

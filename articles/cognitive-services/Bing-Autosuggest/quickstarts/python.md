@@ -20,8 +20,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
 
 * [Python 3.x](https://www.python.org/downloads/) 
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Autosuggest API v7**. The [free trial](https://azure.microsoft.com/try/cognitive-services/#search) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
-
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
 ## Create a new application
 
@@ -31,11 +30,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
     import http.client, urllib.parse, json
     ```
 
-2. Create variables for your:
-
-    * API host and path.
-    * [market code](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes).
-    * partial search query.
+2. Create variables for your API host and path, [market code](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes), and a partial search query.
 
     ```python
     subscriptionKey = 'enter key here'

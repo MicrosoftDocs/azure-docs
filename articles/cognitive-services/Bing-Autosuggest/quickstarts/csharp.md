@@ -21,7 +21,7 @@ Use this quickstart to begin making calls to the Bing Autosuggest API and gettin
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Autosuggest API v7**. The [free trial](https://azure.microsoft.com/try/cognitive-services/#search) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
 ## Create a Visual Search Solution
 
@@ -35,10 +35,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
     using System.Text;
     ```
 
-2. In a new class, create variables for your:
-    * API host and path.
-    * [market code](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes).
-    * partial search query.
+2. In a new class, create variables for your API host and path, [market code](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes), and a partial search query.
 
     ```csharp
     static string host = "https://api.cognitive.microsoft.com";

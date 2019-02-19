@@ -61,18 +61,6 @@ Requests should include all suggested query parameters and headers.
 
 The following example shows a request that returns the suggested query strings for *sail*.
 
-```http
-GET https://api.cognitive.microsoft.com/bing/v5.0/suggestions?q=sail&mkt=en-us HTTP/1.1  
-Ocp-Apim-Subscription-Key: 123456789ABCDE  
-X-MSEdge-ClientIP: 999.999.999.999  
-X-Search-Location: lat:47.60357;long:-122.3295;re:100  
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
-Host: api.cognitive.microsoft.com  
-```
-
-> [!NOTE]
-> V7 Preview request:
-
 > ```http
 > GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
 > Ocp-Apim-Subscription-Key: 123456789ABCDE
