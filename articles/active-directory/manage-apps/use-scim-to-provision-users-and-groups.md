@@ -28,7 +28,7 @@ ms.custom: aaddev;it-pro;seohack1
 
 SCIM is standardized protocol and schema that aims to drive greater consistency in how identities are managed across systems. When an application supports a SCIM endpoint for user management, the Azure AD user provisioning service can send requests to create, modify, or delete assigned users and groups to this endpoint. 
 
-Many of the applications for which that Azure AD supports [pre-integrated automatic user provisioning](saas-apps/tutorial-list.md) implement SCIM as the means to receive user change notifications.  In addition, customers can connect other applications that support a specific profile of the [SCIM 2.0 protocol specification](https://tools.ietf.org/html/rfc7644) using the generic "non-gallery" integration option in the Azure portal. 
+Many of the applications for which Azure AD supports [pre-integrated automatic user provisioning](saas-apps/tutorial-list.md) implement SCIM as the means to receive user change notifications.  In addition to these, customers can connect applications that support a specific profile of the [SCIM 2.0 protocol specification](https://tools.ietf.org/html/rfc7644) using the generic "non-gallery" integration option in the Azure portal. 
 
 The main focus of this document is on the profile of SCIM 2.0 that Azure AD implements as part of its generic SCIM connector for non-gallery apps. However, successful testing of an application that supports SCIM with the generic Azure AD connector is a step to getting an app listed in the Azure AD gallery as supporting user provisioning. For more information on getting your application listed in the Azure AD application gallery, see the [Microsoft Application Network](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx).
  
@@ -113,7 +113,7 @@ Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specif
 * Supports querying groups by ID and by member as per section 3.4.2 of the SCIM protocol.  
 * Accepts a single bearer token for authorization.
 
-In addition, please follow these general guidelines when implementing a SCIM endpoint in accordance with the SCIM 2.0 specification, to ensure compatibility with Azure AD.
+In addition, please follow these general guidelines when implementing a SCIM endpoint to ensure compatibility with Azure AD:
 
 * `id` is a required property for all the resources; except for `ListResponse` with zero members.
 * Response to a query/filter request should always be a `ListResponse`.
