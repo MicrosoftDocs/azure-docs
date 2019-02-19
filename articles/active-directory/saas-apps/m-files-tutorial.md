@@ -119,7 +119,7 @@ To configure Azure AD single sign-on with M-Files, perform the following steps:
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
