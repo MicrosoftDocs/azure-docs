@@ -30,12 +30,12 @@ The Agents on the on-premise machines that Azure AD Connect Health monitors peri
 > [!IMPORTANT] 
 > This alert follows Connect Health [data retention policy](reference-connect-health-user-privacy.md#data-retention-policy)
 
-* Make sure that Azure AD Connect Health Agents services are running on the machine. For example, Connect Health for AD FS should have 3 services.  
+* Make sure that Azure AD Connect Health Agents services are running on the machine. For example, Connect Health for AD FS should have three services.  
   ![Verify Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
 
 * Make sure to go over and meet the [requirements section](how-to-connect-health-agent-install.md#requirements).
 * Use [test connectivity tool](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) to discover connectivity issues.
-* If you have HTTP Proxy, please follow [configuration steps here](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). 
+* If you have an HTTP Proxy, follow these [configuration steps](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). 
 
 The alert detail blade lists out missing data element(s) from a server. The following table will help narrow down the problem further. 
 ### Connect Health for Sync
