@@ -29,6 +29,6 @@ Understanding resource limits for Azure NetApp Files helps you manage your volum
 - Each volume can have a maximum of 255 snapshots.
 - Each Azure Virtual Network (Vnet) can have only one subnet delegated to Azure NetApp Files.
 
-## Next steps
+**Next steps**
 
 [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
