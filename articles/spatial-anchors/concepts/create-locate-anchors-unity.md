@@ -14,6 +14,14 @@ ms.service: azure-spatial-anchors
 ---
 # Create and locate anchors using Azure Spatial Anchors in Unity
 
+> [!div  class="op_single_selector"]
+> * [Unity](create-locate-anchors-unity.md)
+> * [Objective-C](create-locate-anchors-objc.md)
+> * [Swift](create-locate-anchors-swift.md)
+> * [Android Java](create-locate-anchors-java.md)
+> * [C++/NDK](create-locate-anchors-cpp-ndk.md)
+> * [C++/WinRT](create-locate-anchors-cpp-winrt.md)
+
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 
 ```csharp
