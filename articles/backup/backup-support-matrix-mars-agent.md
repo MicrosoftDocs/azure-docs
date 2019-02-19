@@ -23,7 +23,7 @@ The MARS agent is used by Azure Backup to back up data from on-premises machines
 
 What you can back up depends on where the agent is installed.
 
-- [Learn more](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-files-folders) about backup architecture using the MARS agent.
+- [Learn more](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vmfilesfolders) about backup architecture using the MARS agent.
 - [Learn more]() about MABS/DPM [backup architecture](backup-architecture.md#architecture-back-up-to-dpmmabs)and [requirements](backup-support-matrix-mabs-dpm.md).
 
 
@@ -148,7 +148,7 @@ Azure Backup supports "offline seeding" to transfer initial backup data to Azure
 
 
 ## Next steps
-- [Learn more](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-files-folders) about backup architecture with the MARS agent.
+- [Learn more](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-machinesazure-vm-filesfolders) about backup architecture with the MARS agent.
 - [Learn](backup-support-matrix-mabs-dpm.md) what's supported when you run the MARS agent on Microsoft Azure Backup Server (MABS) or System Center DPM.
 
 
