@@ -20,7 +20,7 @@ ms.author: cynthn
 
 # Download a Linux VHD from Azure
 
-In this article, you learn how to download a [Linux virtual hard disk (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) file from Azure using the Azure CLI and Azure portal. 
+In this article, you learn how to download a Linux virtual hard disk (VHD) file from Azure using the Azure CLI and Azure portal. 
 
 If you haven't already done so, install [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2).
 

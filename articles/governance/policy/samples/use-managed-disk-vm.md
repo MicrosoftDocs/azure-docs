@@ -1,6 +1,6 @@
 ---
 title: Sample - Create VM using managed disk
-description: This sample policy requires that virtual machines use managed disks.
+description: This sample policy definition requires that virtual machines use managed disks.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Create VM using managed disk
+# Sample - Create VM using managed disk
 
 Requires that virtual machines use managed disks.
 
