@@ -39,7 +39,15 @@ When possible, examples are provides for both version 3.x and version 2.x.
 >
 > For more information, see [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
 
+<<<<<<< HEAD
 ## WebHobs host
+=======
+## Prerequisites
+
+This article assumes you have read and completed the tasks in [Get started with the WebJobs SDK](webjobs-sdk-get-started.md).
+
+## WebJobs host
+>>>>>>> 841ac6c68e6e65dd30d937bae0c761ac980021ce
 
 The host is a runtime container for functions.  It listens for triggers and calls functions. In version 3.x, the host is an implementation of `IHost`, and in version 2.x you use the `JobHost` object. You create a host instance in your code and write code to customize its behavior.
 

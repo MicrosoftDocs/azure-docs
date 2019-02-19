@@ -123,7 +123,7 @@ For more information about *function.json* file properties, see the [Configurati
 Here's C# script code that binds to a `Stream`:
 
 ```cs
-public static void Run(Stream myBlob, ILogger log)
+public static void Run(Stream myBlob, string name, ILogger log)
 {
    log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }

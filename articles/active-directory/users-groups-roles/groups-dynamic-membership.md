@@ -15,6 +15,7 @@ ms.author: curtand
 ms.reviewer: krbain
 
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Dynamic membership rules for groups in Azure Active Directory

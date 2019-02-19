@@ -3,8 +3,8 @@ title: Publish Remote Desktop with Azure AD App Proxy | Microsoft Docs
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,9 +12,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: barbkess
+ms.author: celested
 ms.custom: it-pro
 ms.reviewer: harshja
+ms.collection: M365-identity-device-management
 ---
 
 # Publish Remote Desktop with Azure AD Application Proxy
