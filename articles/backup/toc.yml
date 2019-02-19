@@ -191,10 +191,14 @@
       href: backup-azure-arm-userestapi-restoreazurevms.md
     - name: Manage Azure Backup jobs
       href: backup-azure-arm-userestapi-managejobs.md
-  - name: SQL on Azure VMs
+  - name: Backup SQL Server databases on Azure VMs
     items:
-    - name: Back up SQL database in Azure
+    - name: Back up SQL Server databases on Azure VMs
       href: backup-azure-sql-database.md
+    - name: Restore backed up SQL Server databases
+      href: restore-sql-database-azure-vm.md
+    - name: Manage backed up SQL Server databases
+      href: manage-monitor-sql-database-backups.md
   - name: Windows Server
     items:
     - name: Back up Windows Server files and folders
