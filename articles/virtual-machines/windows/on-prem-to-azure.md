@@ -3,8 +3,8 @@ title: Migrate from AWS and other platforms to Managed Disks in Azure | Microsof
 description: Create VMs in Azure using VHDs uploaded from other clouds like AWS or other virtualization platforms and take advantage of Azure Managed Disks.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2017
-ms.author: cynthn
+ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -43,12 +43,8 @@ You can upload either generalized and specialized VHDs.
 
 ## Overview of Managed Disks
 
-Azure Managed Disks simplifies VM management by removing the need to manage storage accounts. Managed Disks also benefit from better reliability of VMs in an Availability Set. It ensures that the disks of different VMs in an Availability Set are sufficiently isolated from each other to avoid a single point of failure. It automatically places disks of different VMs in an Availability Set in different Storage scale units (stamps) which limits the impact of single Storage scale unit failures caused due to hardware and software failures. 
-Based on your needs, you can choose from two types of storage options: 
- 
-- [Premium Managed Disks](premium-storage.md) are Solid State Drive (SSD) based storage media, which delivers high performance, low-latency disk support for virtual machines running I/O-intensive workloads. You can take advantage of the speed and performance of these disks by migrating to Premium Managed Disks.  
-
-- [Standard Managed Disks](standard-storage.md) use Hard Disk Drive (HDD) based storage media and are best suited for Dev/Test and other infrequent access workloads that are less sensitive to performance variability.  
+Azure Managed Disks simplifies VM management by removing the need to manage storage accounts. Managed Disks also benefit from better reliability of VMs in an Availability Set. It ensures that the disks of different VMs in an Availability Set are sufficiently isolated from each other to avoid a single point of failure. It automatically places disks of different VMs in an Availability Set in different Storage scale units (stamps) which limits the impact of single Storage scale unit failures caused due to hardware and software failures.
+Based on your needs, you can choose from four types of storage options. To learn about the available disk types, see our article [Select a disk type](disks-types.md).
 
 ## Plan for the migration to Managed Disks
 

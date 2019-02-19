@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova 
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 02/18/2019
 ---
 # Azure SQL Database managed instance T-SQL differences from SQL Server
 
@@ -401,7 +401,6 @@ Cross-instance service broker is not supported:
   - `allow polybase export`
   - `allow updates`
   - `filestream_access_level`
-  - `max text repl size`
   - `remote data archive`
   - `remote proc trans`
 - `sp_execute_external_scripts` is not supported. See [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).

@@ -21,7 +21,6 @@ Yes. You can create up to 500 Recovery Services vaults, per supported region of 
 ### Are there limits on the number of servers/machines that can be registered against each vault?
 You can register up to 1000 Azure Virtual machines per vault. If you are using the Microsoft Azure Backup Agent, you can register up to 50 MAB agents per vault. And you can register 50 MAB servers/DPM servers to a vault.
 
-
 ### If my organization has one vault, how can I isolate data from different servers in the vault when restoring data?
 Server data that you want to recover together should use the same passphrase when you set up backup. If you want to isolate recovery to a specific server or servers, use a passphrase for that server or servers only. For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.
 
@@ -71,10 +70,8 @@ No. A DPM or Azure Backup server can be registered to only one vault.
 ### Can I use Azure Backup Server to create a Bare Metal Recovery (BMR) backup for a physical server? <br/>
 Yes.
 
-
 ### Can I use DPM to back up apps in Azure Stack?
 No. You can use Azure Backup to protect Azure Stack, Azure Backup doesn't support using DPM to back up apps in Azure Stack.
-
 
 ### If I've installed Azure Backup agent to protect my files and folders, can I install System Center DPM to back up on-premises workloads to Azure?
 Yes. But you should set up DPM first, and then install the Azure Backup agent.  Installing components in this order ensures that the Azure Backup agent works with DPM. Installing the agent before installing DPM isn't advised or supported.
@@ -133,14 +130,8 @@ SharePoint | Sum of the content and configuration databases within a SharePoint 
 Exchange |Sum of all Exchange databases in an Exchange server being backed up.
 BMR/System state |Each individual copy of BMR or system state of the machine being backed up.
 
-
 ### Is there a limit on the amount of data backed up using a Recovery Services vault?
 There is no limit on the amount of data you can back up using a Recovery Services vault.
-
-### If I cancel a backup job once it has started, is the transferred backup data deleted?
-No. All data transferred into the vault, before the backup job was canceled, stays in the vault. Azure Backup uses a checkpoint mechanism to occasionally add checkpoints to the backup data during the backup. Because there are checkpoints in the backup data, the next backup process can validate the integrity of the files. The next backup job will be incremental to the data previously backed up. Incremental backups only transfer new or changed data, which equates to better utilization of bandwidth.
-
-If you cancel a backup job for an Azure VM, any transferred data is ignored. The next backup job transfers incremental data from the last successful backup job.
 
 ### Why is the size of the data transferred to the Recovery Services vault smaller than the data selected for backup?
  Data backed up from Azure Backup Agent, DPM, and Azure Backup Server is compressed and encrypted before being transferred. With compression and encryption is applied, the data in the vault is 30-40% smaller.
@@ -148,13 +139,14 @@ If you cancel a backup job for an Azure VM, any transferred data is ignored. The
 ### Can I delete individual files from a recovery point in the vault?
 No, Azure Backup doesn't support deleting or purging individual items from stored backups.
 
-
 ### If I cancel a backup job after it starts, is the transferred backup data deleted?
 No. All data that was transferred into the vault before the backup job was canceled remains in the vault.
 
 - Azure Backup uses a checkpoint mechanism to occasionally add checkpoints to the backup data during the backup.
 - Because there are checkpoints in the backup data, the next backup process can validate the integrity of the files.
 - The next backup job will be incremental to the data previously backed up. Incremental backups only transfer new or changed data, which equates to better utilization of bandwidth.
+
+If you cancel a backup job for an Azure VM, any transferred data is ignored. The next backup job transfers incremental data from the last successful backup job.
 
 ## Retention and recovery
 
@@ -202,7 +194,7 @@ When a new policy is applied, schedule and retention of the new policy is follow
 ## Encryption
 
 ### Is the data sent to Azure encrypted?
-Yes. Data is encrypted on the on-premises machine using AES256. The data is sent over a secure HTTPS link. The data is transmitted in cloud is protected by HTTPS link only between storage and recovery service. iSCSI protocol secures the data transmitted between recovery service and user machine. Secure tunneling is used to protect the iSCSI channel.
+Yes. Data is encrypted on the on-premises machine using AES256. The data is sent over a secure HTTPS link. The data transmitted in cloud is protected by HTTPS link only between storage and recovery service. iSCSI protocol secures the data transmitted between recovery service and user machine. Secure tunneling is used to protect the iSCSI channel.
 
 ### Is the backup data on Azure encrypted as well?
 Yes. The data in Azure is encrypted-at-rest.
