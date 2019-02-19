@@ -1,21 +1,13 @@
 ---
-title: Azure Backup troubleshooting guide for SQL Server VMs | Microsoft Docs
-description: Troubleshooting information for backing up SQL Server VMs to Azure.
+title: Troubleshooting SQL Server database backup with Azure Backup | Microsoft Docs
+description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
 services: backup
-documentationcenter: ''
-author: rayne-wiselman
-manager: carmonm
-editor: ''
-keywords:
-
-ms.assetid:
+author: anuragm
+manager: shivamg
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 02/19/2019
 ms.author: anuragm
-ms.custom:
 ---
 
 # Troubleshoot Back up SQL Server on Azure
@@ -24,11 +16,11 @@ This article provides troubleshooting information for protecting SQL Server VMs 
 
 ## Public Preview limitations
 
-To view the Public Preview limitations, see the article, [Back up SQL Server database in Azure](backup-azure-sql-database.md#public-preview-limitations).
+To view the Public Preview limitations, see the article, [Back up SQL Server database in Azure](backup-azure-sql-database.md#preview-limitations).
 
 ## SQL Server permissions
 
-To configure protection for a SQL Server database on a virtual machine, the **AzureBackupWindowsWorkload** extension must be installed on that virtual machine. If you receive the error, **UserErrorSQLNoSysadminMembership**, it means your SQL Instance doesn't have the required backup permissions. To fix this error, follow the steps in [Set permissions for non-marketplace SQL VMs](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms).
+To configure protection for a SQL Server database on a virtual machine, the **AzureBackupWindowsWorkload** extension must be installed on that virtual machine. If you receive the error, **UserErrorSQLNoSysadminMembership**, it means your SQL Instance doesn't have the required backup permissions. To fix this error, follow the steps in [Set permissions for non-marketplace SQL VMs](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ## Troubleshooting Errors
 
@@ -52,13 +44,13 @@ The following tables are organized by error code.
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 | This SQL database does not support the requested backup type. | Occurs when the database recovery model doesn't allow the requested backup type. The error can happen in the following situations: <br/><ul><li>A database using a simple recovery model does not allow log backup.</li><li>Differential and log backups are not allowed for a Master database.</li></ul>For more detail, see the [SQL Recovery models](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) documentation. | If the log backup fails for the DB in simple recovery model, try one of these options:<ul><li>If the database is in simple recovery mode, disable log backups.</li><li>Use the [SQL documentation](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) to change the database recovery model to Full or Bulk Logged. </li><li> If you don't want to change the recovery model, and you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full and differential backups will work per schedule. The log backups will be skipped, which is expected in this case.</li></ul>If it's a Master database and you have configured differential or log backup, use any of the following steps:<ul><li>Use the portal to change the backup policy schedule for the Master database, to Full.</li><li>If you have a standard policy to back up multiple databases that can't be changed, ignore the error. Your full backup will work per schedule. Differential or log backups won't happen, which is expected in this case.</li></ul> |
-| Operation canceled as a conflicting operation was already running on the same database. | See the [blog entry about back up and restore limitations](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) that run concurrently.| [Use SQL Server Management Studio (SSMS) to monitor the backup jobs.](backup-azure-sql-database.md#manage-azure-backup-operations-for-sql-on-azure-vms) Once the conflicting operation fails, restart the operation.|
+| Operation canceled as a conflicting operation was already running on the same database. | See the [blog entry about back up and restore limitations](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) that run concurrently.| [Use SQL Server Management Studio (SSMS) to monitor the backup jobs.](manage-monitor-sql-database-backup.md) Once the conflicting operation fails, restart the operation.|
 
 ### UserErrorSQLPODoesNotExist
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| SQL database does not exist. | The database was either deleted or renamed. | <ul><li>Check if the database was accidentally deleted or renamed.</li><li>If the database was accidentally deleted, to continue backups, restore the database to the original location.</li><li>If you deleted the database and do not need future backups, then in the Recovery Services vault, click [stop backup with "Delete/Retain data"](backup-azure-sql-database.md#manage-azure-backup-operations-for-sql-on-azure-vms).</li>|
+| SQL database does not exist. | The database was either deleted or renamed. | Check if the database was accidentally deleted or renamed.<br/><br/> If the database was accidentally deleted, to continue backups, restore the database to the original location.<br/><br/> If you deleted the database and do not need future backups, then in the Recovery Services vault, click [stop backup with "Delete/Retain data"](manage-monitor-sql-database-backups.md).
 
 ### UserErrorSQLLSNValidationFailure
 
