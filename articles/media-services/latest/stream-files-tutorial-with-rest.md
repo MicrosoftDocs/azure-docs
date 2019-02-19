@@ -38,10 +38,6 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
-
-    Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
-
 - [Create a Media Services account](create-account-cli-how-to.md).
 
     Make sure to remember the values that you used for the resource group name and Media Services account name
@@ -226,7 +222,7 @@ The job takes some time to complete and when it does you want to be notified. To
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
-### Job error codes
+#### Job error codes
 
 See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
