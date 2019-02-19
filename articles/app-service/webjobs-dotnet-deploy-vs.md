@@ -22,6 +22,8 @@ ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
 
 This topic explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](overview.md) as an [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure portal](https://portal.azure.com), see [Run Background tasks with WebJobs](webjobs-create.md).
 
+You can publish multiple WebJobs to a single web app. Make sure that each WebJob in a web app has a unique name.
+
 Version 3.x of the [Azure WebJobs SDK](webjobs-sdk-how-to.md) lets you develop WebJobs that run as .NET Core apps, while version 2.x supports only the .NET Framework. The way that you deploy a WebJobs project is different .NET Core projects versus .NET Framework ones.
 
 ## WebJobs as .NET Core Console apps
@@ -29,7 +31,7 @@ Version 3.x of the [Azure WebJobs SDK](webjobs-sdk-how-to.md) lets you develop W
 When using version 3.x of the WebJobs, you can create and publish WebJobs as .NET Core console apps. For step-by-step instructions to create and publish a .NET Core console application to Azure as a WebJob, see [Get started with the Azure WebJobs SDK for event-driven background processing](webjobs-sdk-get-started.md).
 
 > [!NOTE]
-> .NET Core WebJobs cannot be linked with web projects. This means that you need to create an App Service instance for each WebJob you publish. If you need to deploy your WebJob with a web app, you should [create your WebJob as a .NET Framework console app](#webjobs-as-net-framework-console-apps).  
+> .NET Core WebJobs cannot be linked with web projects. If you need to deploy your WebJob with a web app, you should [create your WebJob as a .NET Framework console app](#webjobs-as-net-framework-console-apps).  
 
 ### Deploy to Azure App Service
 
@@ -37,7 +39,13 @@ Publishing a .NET Core WebJob to App Service from Visual Studio uses the same to
 
 [!INCLUDE [webjobs-publish-netcore](../../includes/webjobs-publish-netcore.md)] 
 
-### Scheduled execution
+### WebJob types
+
+By default, a WebJob published from a .NET Core console project runs only when triggered or on demand. You can also update the project to [run on a schedule](#scheduled-execution) or run continuously.
+
+[!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-alwayson-note.md)]
+
+#### Scheduled execution
 
 When you publish a .NET Core console application to Azure, a new *settings.job* file is added to the project. Use this file to set an execution schedule for your WebJob. The following example runs every hour from 9 AM to 5 PM:
 
@@ -47,7 +55,23 @@ When you publish a .NET Core console application to Azure, a new *settings.job* 
 }
 ```
 
-WebJobs uses the same scheduling as Azure Functions timer trigger. To learn more about scheduling and supported CRON expressions, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#usage).
+WebJobs uses the same CRON expressions for scheduling as the timer trigger in Azure Functions. To learn more about CRON support, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#cron-expressions).
+
+#### Continuous execution
+
+You can use Visual Studio to change the WebJob to run continuously when Always On is enabled in Azure.
+
+1. If you haven't already done so, [publish the project to Azure](#deploy-to-azure-app-service).
+
+1. In **Solution Explorer**, right-click the project and select **Publish**.
+
+1. In the **Publish** tab, choose **Settings**. 
+
+1. In the **Profile Settings** dialog, choose **Continuous** for **WebJob Type**, and choose **Save**.
+
+    ![Publish Settings dialog for a WebJob](./media/webjobs-dotnet-deploy-vs/publish-settings.png)
+
+1. Select **Publish** to republish the WebJob with the updated settings.
 
 ## WebJobs as .NET Framework Console apps  
 
@@ -61,13 +85,13 @@ A WebJobs-enabled project has the following items added to it:
 * The [Microsoft.Web.WebJobs.Publish](https://www.nuget.org/packages/Microsoft.Web.WebJobs.Publish/) NuGet package.
 * A [webjob-publish-settings.json](#publishsettings) file that contains deployment and scheduler settings. 
 
-![Diagram showing what is added to a Console App to enable deployment as a WebJob](./media/websites-dotnet-deploy-webjobs/convert.png)
+![Diagram showing what is added to a Console App to enable deployment as a WebJob](./media/webjobs-dotnet-deploy-vs/convert.png)
 
 You can add these items to an existing Console Application project or use a template to create a new WebJobs-enabled Console Application project. 
 
 You can deploy a project as a WebJob by itself, or link it to a web project so that it automatically deploys whenever you deploy the web project. To link projects, Visual Studio includes the name of the WebJobs-enabled project in a [webjobs-list.json](#webjobslist) file in the web project.
 
-![Diagram showing WebJob project linking to web project](./media/websites-dotnet-deploy-webjobs/link.png)
+![Diagram showing WebJob project linking to web project](./media/webjobs-dotnet-deploy-vs/link.png)
 
 ### Prerequisites
 
@@ -91,18 +115,18 @@ You have two options:
 
 1. Right-click the web project in **Solution Explorer**, and then click **Add** > **Existing Project as Azure WebJob**.
    
-    ![Existing Project as Azure WebJob](./media/websites-dotnet-deploy-webjobs/eawj.png)
+    ![Existing Project as Azure WebJob](./media/webjobs-dotnet-deploy-vs/eawj.png)
    
     The [Add Azure WebJob](#configure) dialog box appears.
 2. In the **Project name** drop-down list, select the Console Application project to add as a WebJob.
    
-    ![Selecting project in Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw1.png)
+    ![Selecting project in Add Azure WebJob dialog](./media/webjobs-dotnet-deploy-vs/aaw1.png)
 3. Complete the [Add Azure WebJob](#configure) dialog, and then click **OK**. 
 
 #### <a id="convertnolink"></a> Enable WebJobs deployment without a web project
 1. Right-click the Console Application project in **Solution Explorer**, and then click **Publish as Azure WebJob...**. 
    
-    ![Publish as Azure WebJob](./media/websites-dotnet-deploy-webjobs/paw.png)
+    ![Publish as Azure WebJob](./media/webjobs-dotnet-deploy-vs/paw.png)
    
     The [Add Azure WebJob](#configure) dialog box appears, with the project selected in the **Project name** box.
 2. Complete the [Add Azure WebJob](#configure) dialog box, and then click **OK**.
@@ -127,13 +151,13 @@ To create a new WebJobs-enabled project, you can use the Console Application pro
 #### <a id="createnolink"></a> Use the WebJobs new-project template for an independent WebJob
 1. Click **File** > **New Project**, and then in the **New Project** dialog box click **Cloud** > **Azure WebJob (.NET Framework)**.
    
-    ![New Project dialog showing WebJob template](./media/websites-dotnet-deploy-webjobs/np.png)
+    ![New Project dialog showing WebJob template](./media/webjobs-dotnet-deploy-vs/np.png)
 2. Follow the directions shown earlier to [make the Console Application project an independent WebJobs project](#convertnolink).
 
 #### <a id="createlink"></a> Use the WebJobs new-project template for a WebJob linked to a web project
 1. Right-click the web project in **Solution Explorer**, and then click **Add** > **New Azure WebJob Project**.
    
-    ![New Azure WebJob Project menu entry](./media/websites-dotnet-deploy-webjobs/nawj.png)
+    ![New Azure WebJob Project menu entry](./media/webjobs-dotnet-deploy-vs/nawj.png)
    
     The [Add Azure WebJob](#configure) dialog box appears.
 2. Complete the [Add Azure WebJob](#configure) dialog box, and then click **OK**.
@@ -141,7 +165,7 @@ To create a new WebJobs-enabled project, you can use the Console Application pro
 ### <a id="configure"></a>The Add Azure WebJob dialog
 The **Add Azure WebJob** dialog lets you enter the WebJob name and run mode setting for your WebJob. 
 
-![Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw2.png)
+![Add Azure WebJob dialog](./media/webjobs-dotnet-deploy-vs/aaw2.png)
 
 The fields in this dialog correspond to fields on the **Add WebJob** dialog of the Azure portal. For more information, see [Run Background tasks with WebJobs](webjobs-create.md).
 
@@ -190,7 +214,7 @@ A WebJobs project that you have linked to a web project deploys automatically wi
 
 To deploy a WebJobs project by itself, right-click the project in **Solution Explorer** and click **Publish as Azure WebJob...**. 
 
-![Publish as Azure WebJob](./media/websites-dotnet-deploy-webjobs/paw.png)
+![Publish as Azure WebJob](./media/webjobs-dotnet-deploy-vs/paw.png)
 
 For an independent WebJob, the same **Publish Web** wizard that is used for web projects appears, but with fewer settings available to change.
 

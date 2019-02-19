@@ -45,8 +45,7 @@ The following table describes the differences between *continuous* and *triggere
 | Runs on all instances that the web app runs on. You can optionally restrict the WebJob to a single instance. |Runs on a single instance that Azure selects for load balancing.|
 | Supports remote debugging. | Doesn't support remote debugging.|
 
-> [!NOTE]
-> A web app can time out after 20 minutes of inactivity. Only requests to the actual web app reset the timer. Viewing the app's configuration in the Azure portal or making requests to the advanced tools site (https://<app_name>.scm.azurewebsites.net) don't reset the timer. If your app runs continuous or scheduled WebJobs, enable **Always On** to ensure that the WebJobs run reliably. This feature is available only in the Basic, Standard, and Premium [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+[!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-alwayson-note.md)]
 
 ## <a name="acceptablefiles"></a>Supported file types for scripts or programs
 
