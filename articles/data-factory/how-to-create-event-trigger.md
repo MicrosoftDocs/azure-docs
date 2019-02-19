@@ -82,7 +82,7 @@ This section provides examples of event-based trigger settings.
 | **Blob path begins with** | `/containername/blobs/foldername/` | Receives events for any blobs in the `containername` container and `foldername` folder. |
 | **Blob path begins with** | `/containername/blobs/foldername/subfoldername/` | You can also reference a subfolder. |
 | **Blob path begins with** | `/containername/blobs/foldername/file.txt` | Receives events for a blob named `file.txt` in the `foldername` folder under the `containername` container. |
-| **Blob path ends with** | `file.txt` | Receives events for a blob named `file.txt` i any path. |
+| **Blob path ends with** | `file.txt` | Receives events for a blob named `file.txt` in any path. |
 | **Blob path ends with** | `/containername/blobs/file.txt` | Receives events for a blob named `file.txt` under container `containername`. |
 | **Blob path ends with** | `foldername/file.txt` | Receives events for a blob named `file.txt` in `foldername` folder under any container. |
 
