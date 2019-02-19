@@ -15,39 +15,31 @@ You can use the [Azure Backup service](backup-overview.md) to back up on-premise
 
 Other support matrices:
 
+- [General support matrix](backup-support-matrix.md) for Azure Backkup
+- [Support matrix](backup-support-matrix-mabs-dpm.md) for Microsoft Azure Backup server/DOM backup
+- [Support matrix](backup-support-matrix-mars-agent.md) for backup with the MARS agent
+
 
 
 ## Supported scenarios
 
-Here's what's supported if you want to back up Azure VMs.
+Here's how you can back up and restore Azure VMs with the Azure Backup service.
 
-**Scenario** | **Backup** | **Restore** |**Agent** 
+
+**Scenario** | **Backup** | **Agent** |**Restore** 
 --- | --- | --- | ---
-**Direct backup of Azure VMs** | Back up the entire VM  |- **Create a basic VM**. This is useful if the VM has no special configuration such as mutiple IP addresses.<br/><br/> - **Restore the VM disk**. After it's restored you can attach the disk to an existing VM or create a new VM from the restored disk using PowerShell.<br/><br/> - **Replace VM disk**. If a VM exists and it uses managed disks (unencrypted), you can restore a disk and use it to replace an existing disk on the VM.<br/><br/> - **Restore specific files/folders**. You can restore files/folders from a VM, instead of the entire VM. | No agent is needed on the Azure VM. Azure Backup installs and uses an extension to the [Azure VM agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) running on the VM.  |  
-**Direct backup of Azure VMs (Windows only)** | Back up specific files/folders/volume/system state/bare metal. | Restore specific folders/files or system state/bare metal files. | Install the [Microsoft Azure Recovery Services (MARS) agent](backup-azure-file-folder-backup-faq.md).<br/><br/> You can run the MARS agent alongside the backup extension for the Azure VM agent to back up the VM at file/folder level.
-**Back up Azure VM to backup server** |  Back up files/folders/volumes; system state/bare metal files; app data to System Center DPM or Microsoft Azure Backup Server (MAB server).<br/><br/> DPM/MABS then backs up to the backup vault | Restore files/folders/volumes; system state/bare metal files; app data. | No specific Azure Backup agent on the VM.<br/><br/> The DPM/MABS agent is installed on the VM. The MARS agent is installed on DPM/MABS).
+**Direct backup of Azure VMs** | Back up the entire VM  | No agent is needed on the Azure VM. Azure Backup installs and uses an extension to the [Azure VM agent](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) running on the VM. | Restore as follows:<br/><br/> - **Create a basic VM**. This is useful if the VM has no special configuration such as mutiple IP addresses.<br/><br/> - **Restore the VM disk**. Restore the disk. Then attach it to an existing VM, or create a new VM from the disk using PowerShell.<br/><br/> - **Replace VM disk**. If a VM exists and it uses managed disks (unencrypted), you can restore a disk and use it to replace an existing disk on the VM.<br/><br/> - **Restore specific files/folders**. You can restore files/folders from a VM, instead of the entire VM.  
+**Direct backup of Azure VMs (Windows only)** | Back up specific files/folders/volume | Install the [Microsoft Azure Recovery Services (MARS) agent](backup-azure-file-folder-backup-faq.md).<br/><br/> You can run the MARS agent alongside the backup extension for the Azure VM agent to back up the VM at file/folder level. | Restore specific folders/files.
+**Back up Azure VM to backup server** |  Back up files/folders/volumes; system state/bare metal files; app data to System Center DPM or Microsoft Azure Backup Server (MAB server).<br/><br/> DPM/MABS then backs up to the backup vault | Install the MABS/DPM protection agent on the VM. The MARS agent is installed on DPM/MABS.| Restore files/folders/volumes; system state/bare metal files; app data. 
 
-- **System state backup**: Backs up guest Windows operating system files, enabling you to recover when a machine starts but you've lost system files and registry. A system state backup includes:
-- **Bare metal backup**: Backs up operating system files and all data except user data on critical volumes. Includes a system state backup.
-- [Learn more](https://docs.microsoft.com/system-center/dpm/back-up-system-state-and-bare-metal?view=sc-dpm-1807) about system state and bare metal backup.
+Learn more about backup using a backup server(backup-architecture.md#architecture-back-up-to-dpmmabs), and [support requirements](backup-support-matrix-mabs-dpm.md).
 
-
-## Back up servers
-
-You can use a backup server as part of your Azure VM backup strategy.
-
-**Backup server** | **Details** | **Support**
---- | --- | ---
-**DPM** | Back up the Azure VM to a local disk on the DPM server for short-term. Then back up the DPM server data to Azure for long-term storage. | DPM must be running on an Azure VM to back up Azure VMs.<br/><br/> The DPM server must be in the same VNet as the Azure VMs.
-**MABS** | Back up the Azure VM to local disk on the MABS for short-term. Then back up the MABS data to Azure for long-term storage. | MABS must be running on an Azure VM to back up Azure VMs.<br/><br/> The MABS must be in the same VNet as the Azure VMs.<br/><br/> MABS provides similar functionality to DPM, except that you can't back up to tape using MABS. MABS doesn't require a System Center license.
-
-Learn more about what you can back up using DPM/MABS in the support matrix.
 
 ## Supported backup actions
 
 **Action** | **Support**
 --- | ---
-Enable backup when you create a Windows Azure VM | Supported for:<br/><br/> Windows Server 2016 Datacenter/Datacenter Core<br/><br/> Windows Server 2012 R2 DataCenter<br/><br/> Windows Server 2008 R2 SP1
+Enable backup when you create a Windows Azure VM | Supported for:  Windows Server 2016 (Datacenter/Datacenter Core); Windows Server 2012 R2 DataCenter; Windows Server 2008 R2 SP1
 Enable backup when you create a Linux VM | Supported for:<br/><br/> - Ubuntu Server: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3<br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Back up a VM that's shutdown/offline/seeking VM | Supported.<br/><br/> Snapshot is crash-consistent only, not app-consistent.
 Back up disks after migrating to managed disks. | Supported.<br/><br/> Backup will continue to work. No action is required.
@@ -63,6 +55,17 @@ Automatic clock adjustment | Not supported.<br/><br/> Azure Backup doesn't take 
 [Security features for hybrid backup](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |	Disabling the features isn't supported.
 
 
+
+## Operating system support (Windows)
+
+The table summarizes the supported operating systems when backing up Windows Azure VMs.
+
+**Scenario** | **OS support** 
+--- | ---
+Back up with Azure VM agent extension | Windows Client: Not supported<br/><br/> Windows Server: Windows Server 2008 R2 or later 
+Back up with MARS agent | [Supported](backup-support-matrix-mars-agent.md#support-for-direct-backups) operating systems.
+Back up via DPM/MABS | Supported operating systems for backup with [MABS](backup-mabs-protection-matrix.md) and [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
+
 ## Support for Linux backup
 
 Here's what's supported if you want to back up Linux machines.
@@ -72,6 +75,16 @@ Here's what's supported if you want to back up Linux machines.
 Back up Linux Azure VMs with the Linux Azure VM agent | File consistent backup.<br/><br/> App-consistent backup using [custom scripts](backup-azure-linux-app-consistent.md).<br/><br/> During restore you can create a new VM, restore a disk and use that to create a VM, or restore a disk and use it to replace a disk on an existing VM. You can also restore individual files and folders.
 Back up Linux Azure VMs with MARS agent | Not supported.<br/><br/> The MARS agent can only be installed on Windows machines.
 Back up Linux Azure VMs with DPM/MABS | Not supported.
+
+## Operating system support (Linux)
+
+For Azure VM Linux backups, Azure Backup supports the list of Linux [distributions endorsed by Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros). Note that:
+
+- Azure Backup doesn't support Core OS Linux.
+- Azure Backup doesn't support 32-bit operating systems.
+- Other bring-your-own Linux distributions might work as long as the [Azure VM agent for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) is available on the VM, and Python is supported.
+
+
 
 ## Backup frequency and retention
 
@@ -108,7 +121,9 @@ Restoring files on VMs using Windows Storage Spaces | Restore not supported on s
 Restore files on Linux VM using LVM/raid arrays | Restore not supported on same VM.<br/><br/> Restore on a compatible VM.
 Restore files with special network settings | Restore not supported on same VM. <br/><br/> Restore on a compatible VM.
 
-## Support for new VM/disk restore/replace disk
+## Support for VM management
+
+The table summarizes support for backup during VM management tasks, such as adding or replacing VM disks.
 
 **Restore** | **Supported** 
 --- | --- 
@@ -125,30 +140,12 @@ Restore a domain controller (DC) VM that is part of a multi-DC configuration thr
 Restore VM in different VNet |	Supported.<br/><br/> The VNet must be in the same subscription and region.
 
 
-## Operating system support (Windows)
 
-Here's the supported operating system when backing up Azure VMs directly using the Azure VM agent extension or the MARS agent, and backing up to DPM/MABS.
-
-**Scenario** | **OS support** 
---- | ---
-Back up with Azure VM agent extension | Windows Client: Not supported<br/><br/> Windows Server: Windows Server 2008 R2 or later 
-Back up with MARS agent | ADD A LINK TO MARS MATRIX
-Back up via DPM/MABS | Supported backup for [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807) and [MABS](backup-mabs-protection-matrix.md)
-
-
-
-## Operating system support (Linux)
-
-For Azure VM Linux backups, Azure Backup supports the list of Linux [distributions endorsed by Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros). Note that:
-
-- Azure Backup doesn't support Core OS Linux.
-- Azure Backup doesn't support 32-bit operating systems.
-- Other bring-your-own Linux distributions might work as long as the [Azure VM agent for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) is available on the VM, and Python is supported.
 
 ## VM compute support
 
-**Compute** | **Support** | **Details**
---- | --- | ---
+**Compute** | **Support** 
+--- | --- 
 VM size |	Any Azure VM size with at least 2 CPU cores and 1-GB RAM.<br/><br/> [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) 
 Back up VMs in [availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability#availability-sets) | Supported.<br/><br/> You can't restore a VM in an available set using the option to quickly create a VM. Instead, when you restore the VM you need to either restore the disk and use it to deploy a VM, or restore a disk and use it to replace an existing disk. 
 Back up VMs in [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview) |	Not supported.	
@@ -156,7 +153,7 @@ Back up VMs deployed with [Hybrid Use Benefit (HUB)](https://docs.microsoft.com/
 Back up VMs deployed in a [scale set](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |	Not supported	
 Back up VMs deployed from the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Published by Microsoft, third-party) |	Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS).
 Back up VMs deployed from a custom image (third-party) |	Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS).
-Back up VMs migrated to Azure	| Supported	| To back on the VM, the VM agent must be installed on the migrated machine. 
+Back up VMs migrated to Azure	| Supported.<br/><br/> To back up the VM, the VM agent must be installed on the migrated machine. 
 
 
 
