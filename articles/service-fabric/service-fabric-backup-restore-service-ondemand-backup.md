@@ -32,7 +32,7 @@ The on-demand backup features are helpful for capturing the state of the service
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-- Make sure that Cluster is connected using the `Connect-SFCluster` command before making any configuration request.
+- Make sure that Cluster is connected using the `Connect-SFCluster` command before making any configuration request using Microsoft.ServiceFabric.Powershell.Http Module.
 
 ```powershell
 
@@ -55,7 +55,7 @@ The following case is the continuation of the scenario in [Enabling periodic bac
 
 ```powershell
 
-    Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' 
+Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' 
 
 ```
 
@@ -80,7 +80,7 @@ You can request on-demand backup for a partition of a Reliable Stateful service 
 
 ```powershell
 
-    Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlobStore -ConnectionString  'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlobStore -ConnectionString  'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
 
 ```
 
@@ -118,7 +118,7 @@ Different partitions can trigger on-demand backup requests at a same time.
 
 ```powershell
 
-     Get-SFPartitionBackupProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
+Get-SFPartitionBackupProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
 
 ```
 #### Rest Call using Powershell

@@ -59,7 +59,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-* Make sure that Cluster is connected using the `Connect-SFCluster` command before making any configuration request.
+* Make sure that Cluster is connected using the `Connect-SFCluster` command before making any configuration request using Microsoft.ServiceFabric.Powershell.Http Module.
 
 ```powershell
 
@@ -123,7 +123,6 @@ First step is to create backup policy describing backup schedule, target storage
 
 For backup storage, create file share and give ReadWrite access to this file share for all Service Fabric Node machines. This example assumes the share with name `BackupStore` is present on `StorageServer`.
 
-Execute following PowerShell script for invoking required REST API to create new policy.
 
 #### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
 
@@ -133,6 +132,8 @@ New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrem
 
 ```
 #### Rest Call using Powershell
+
+Execute following PowerShell script for invoking required REST API to create new policy.
 
 ```powershell
 $ScheduleInfo = @{
@@ -170,15 +171,15 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ### Enable periodic backup
 After defining policy to fulfill data protection requirements of the application, the backup policy should be associated with the application. Depending on requirement, the backup policy can be associated with an application, service, or a partition.
 
-Execute following PowerShell script for invoking required REST API to associate backup policy with name `BackupPolicy1` created in above step with application `SampleApp`.
 
 #### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
 
 ```powershell
-
-    Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
+Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
 ```
+
 #### Rest Call using Powershell
+Execute following PowerShell script for invoking required REST API to associate backup policy with name `BackupPolicy1` created in above step with application `SampleApp`.
 
 ```powershell
 $BackupPolicyReference = @{
@@ -193,16 +194,13 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 ### Verify that periodic backups are working
 
-After enabling backup for the application, all partitions belonging to Reliable Stateful services and Reliable Actors under the application will start getting backed-up periodically as per the associated backup policy. 
+After enabling backup for the application, all partitions belonging to Reliable Stateful services and Reliable Actors under the application will start getting backed-up periodically as per the associated backup policy.
 
 ![Partition BackedUp Health Event][0]
 
 ### List Backups
 
 Backups associated with all partitions belonging to Reliable Stateful services and Reliable Actors of the application can be enumerated using _GetBackups_ API. Depending on requirement, the backups can be enumerated for application, service, or a partition.
-
-Execute following PowerShell script to invoke the HTTP API to enumerate the backups created for all partitions inside the `SampleApp` application.
-
 
 #### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
 
@@ -211,6 +209,9 @@ Execute following PowerShell script to invoke the HTTP API to enumerate the back
 ```
 
 #### Rest Call using Powershell
+
+Execute following PowerShell script to invoke the HTTP API to enumerate the backups created for all partitions inside the `SampleApp` application.
+
 ```powershell
 $url = "http://localhost:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"
 

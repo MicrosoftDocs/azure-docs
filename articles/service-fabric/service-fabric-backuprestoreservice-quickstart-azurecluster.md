@@ -62,7 +62,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
 ```
 
-* Make sure that Cluster is connected using the `Connect-SFCluster` command before making any configuration request.
+* Make sure that Cluster is connected using the `Connect-SFCluster` command before making any configuration request using Microsoft.ServiceFabric.Powershell.Http Module.
 
 ```powershell
 
@@ -73,6 +73,10 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 ## Enabling backup and restore service
 
 ### Using Azure Portal
+
+Enable `Include backup restore service` check box under `+ Show optional settings` in `Cluster Configuration` tab.
+
+![Enable Backup Restore Service With Portal][0]
 
 
 ### Using Resource Manager Template
@@ -132,9 +136,9 @@ First step is to create backup policy describing backup schedule, target storage
 
 For backup storage, use the Azure Storage account created above. Container `backup-container` is configured to store backups. A container with this name is created, if it does not already exist, during backup upload. Populate `ConnectionString` with a valid connection string for the Azure Storage account, replacing `account-name` with your storage account name, and `account-key` with your storage account key.
 
-Execute following PowerShell script for invoking required REST API to create new policy. Replace `account-name` with your storage account name, and `account-key` with your storage account key.
-
 #### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
+
+Execute following PowerShell cmdlets for creating new backup policy. Replace `account-name` with your storage account name, and `account-key` with your storage account key.
 
 ```powershell
 
@@ -143,6 +147,8 @@ New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrem
 ```
 
 #### Rest Call using Powershell
+
+Execute following PowerShell script for invoking required REST API to create new policy. Replace `account-name` with your storage account name, and `account-key` with your storage account key.
 
 ```powershell
 $StorageInfo = @{
@@ -182,17 +188,16 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ### Enable periodic backup
 After defining backup policy to fulfill data protection requirements of the application, the backup policy should be associated with the application. Depending on requirement, the backup policy can be associated with an application, service, or a partition.
 
-Execute following PowerShell script for invoking required REST API to associate backup policy with name `BackupPolicy1` created in above step with application `SampleApp`.
-
 #### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
 
 ```powershell
 
-    Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
+Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
 
 ```
-
 #### Rest Call using Powershell
+
+Execute following PowerShell script for invoking required REST API to associate backup policy with name `BackupPolicy1` created in above step with application `SampleApp`.
 
 ```powershell
 $BackupPolicyReference = @{
@@ -215,18 +220,16 @@ After enabling backup at the application level, all partitions belonging to Reli
 
 Backups associated with all partitions belonging to Reliable Stateful services and Reliable Actors of the application can be enumerated using _GetBackups_ API. Backups can be enumerated for an application, service, or a partition.
 
-Execute following PowerShell script to invoke the HTTP API to enumerate the backups created for all partitions inside the `SampleApp` application.
-
-
 #### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
 
 ```powershell
     
-    Get-SFApplicationBackupList -ApplicationId WordCount     
-    
+Get-SFApplicationBackupList -ApplicationId WordCount
 ```
 
 #### Rest Call using Powershell
+
+Execute following PowerShell script to invoke the HTTP API to enumerate the backups created for all partitions inside the `SampleApp` application.
 
 ```powershell
 $url = "https://mysfcluster.southcentralus.cloudapp.azure.com:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"
