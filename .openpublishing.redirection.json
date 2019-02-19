@@ -14718,6 +14718,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/backup/backup-upgrade-backup-vault.md",
+      "redirect_url": "/azure/backup/backup-azure-backup-faq",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/backup-azure-vms-first-look.md",
       "redirect_url": "/azure/backup/backup-azure-vms-first-look-arm",
       "redirect_document_id": false
