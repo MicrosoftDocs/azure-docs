@@ -57,6 +57,8 @@ Blank sign in dialogs are most often caused by ADFS asking Storage Explorer to p
 4. Click the "Sign" In button.
 5. Follow the instructions on the next panel.
 
+Note: this feature is currently only available in 1.7.0 Preview.
+
 If you find yourself having issues signing into the account you want to use because your default browser is already signed into a different account you can either:
 1. Manually copy the link and code into a private session of your browser.
 2. Manually copy the link and code into a different browser.

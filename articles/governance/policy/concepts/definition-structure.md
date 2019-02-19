@@ -87,7 +87,7 @@ backwards compatibility.
 required, it prevents resources that don't support tags and locations from showing up as
 non-compliant in the compliance results. The exception is **resource groups**. Policies that
 enforce location or tags on a resource group should set **mode** to `all` and specifically target
-the `Microsoft.Resources/subscriptions/resourceGroup` type. For an example, see [Enforce resource
+the `Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource
 group tags](../samples/enforce-tag-rg.md).
 
 ## Parameters
