@@ -1,6 +1,6 @@
 ---
-title: Analyze Azure Active Directory activity logs using Log Analytics workspace  | Microsoft Docs
-description: Learn how to analyze Azure Active Directory activity logs using Log Analytics workspace
+title: Analyze Azure Active Directory activity logs using Azure Monitor logs (preview) | Microsoft Docs
+description: Learn how to analyze Azure Active Directory activity logs using Azure Monitor logs (preview)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -21,9 +21,9 @@ ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ---
 
-# Analyze Azure AD activity logs with Log Analytics workspace
+# Analyze Azure AD activity logs with Azure Monitor logs (preview)
 
-After you [integrate Azure AD activity logs with Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md), you can use the power of Log Analytics workspace to gain insights into your environment. You can also install the [Log analytics views for Azure AD activity logs](howto-install-use-log-analytics-views.md) to get access to pre-built reports around audit and sign-in events in your environment.
+After you [integrate Azure AD activity logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md), you can use the power of Azure Monitor logs to gain insights into your environment. You can also install the [Log analytics views for Azure AD activity logs](howto-install-use-log-analytics-views.md) to get access to pre-built reports around audit and sign-in events in your environment.
 
 In this article, you learn how to analyze the Azure AD activity logs in your Log Analytics workspace. 
 
@@ -101,6 +101,6 @@ Learn how to [install and use log analytics views for Azure AD activity logs](ho
 
 ## Next steps
 
-* [Get started with Azure Monitor log queries](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
+* [Get started with queries in Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)
 * [Create and manage alert groups in the Azure portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)
 * [Install and use the log analytics views for Azure Active Directory](howto-install-use-log-analytics-views.md)

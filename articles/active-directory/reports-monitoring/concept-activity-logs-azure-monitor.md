@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory activity logs in Azure Monitor | Microsoft Docs
-description: Introduction to Azure Active Directory activity logs in Azure Monitor
+title: Azure Active Directory activity logs in Azure Monitor (preview) | Microsoft Docs
+description: Introduction to Azure Active Directory activity logs in Azure Monitor (preview)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -21,7 +21,7 @@ ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD activity logs in Azure Monitor logs
+# Azure AD activity logs in Azure Monitor (preview)
 
 You can now route Azure Active Directory (Azure AD) activity logs to several endpoints for long term retention and data insights. The public preview of Azure AD logs in Azure Monitor allows you to:
 
@@ -93,7 +93,7 @@ The following table contains estimated costs per month for a basic event hub in 
 
 ### Azure Monitor logs cost considerations
 
-To review costs related to managing the Log Analytics workspace, see [Manage cost by controlling data volume and retention in Log Analytics workspace](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
+To review costs related to managing the Azure Monitor logs, see [Manage cost by controlling data volume and retention in Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 
 ## Frequently asked questions
 
@@ -174,4 +174,4 @@ This section answers frequently asked questions and discusses known issues with 
 
 * [Archive activity logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Route activity logs to an event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md)
-* [Integrate Azure AD logs with Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)
+* [Integrate activity logs with Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)
