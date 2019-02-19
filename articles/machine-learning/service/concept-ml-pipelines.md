@@ -36,7 +36,7 @@ The Azure cloud provides several other pipelines, each with a different purpose.
 | Pipeline | Use case | Primary user | Canonical pipe |
 | ---- | ---- | ---- | ---- |
 | Azure Machine Learning pipelines | Machine learning model orchestration | Data scientist | Data -> model |
-| [Azure Data Factory pipelines](https://docs.microsoft.com/en-us/azure/data-factory/concepts-pipelines-activities) | Data orchestration | Data engineer | Data -> data |
+| [Azure Data Factory pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Data orchestration | Data engineer | Data -> data |
 | [Azure pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops) | Code and app orchestration | DevOps | Code -> app/service |
 
 ## Why build pipelines with Azure Machine Learning?
