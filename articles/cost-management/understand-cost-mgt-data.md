@@ -57,7 +57,7 @@ The following table shows unsupported offers.
 | **Support Plans** | Azure Government Pro-Direct Support | MS-AZR-USGOV-0042P |
 | **Support Plans** | Azure Government Developer Support | MS-AZR-USGOV-0043P |
 
-For customers with Pay-As-You-Go, MSDN, and Visual Studio offers categories, data is available in Cost Management from 10/02/2018 and later.
+For customers with Pay-As-You-Go, MSDN, and Visual Studio offer categories, data is available in Cost Management starting from 10/02/2018.
 
 If you don't see data for a subscription and you want to determine if your subscription falls under the supported offers, you can validate that your subscription is supported. To validate that an Azure subscription is supported, sign-in to the [Azure portal](https://portal.azure.com). Then select **All Services** in the left menu pane. In the list of services, select **Subscriptions**. In the subscription list menu, click on the subscription that you want to verify. Your subscription is shown on the Overview tab and you can see the **Offer** and **Offer ID**. The following image shows an example.
 
