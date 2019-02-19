@@ -12,9 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 01/14/2019
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
+ms.reviewer: anajod
+ms.lastreviewed: 01/14/2019
 
 ---
 
@@ -304,7 +305,7 @@ Creating a release definition is the final step in the application build process
 
 3.  On **Select a Template**, choose **Azure App Service Deployment**, and then select **Apply**.
 
-4.  On **Add artifact**, from the **Source (Build definition) select the Azure Cloud build app.
+4.  On **Add artifact**, from the **Source (Build definition)** select the Azure Cloud build app.
 
 5.  On the **Pipeline** tab, select the **1 Phase**, **1 Task** link to **View environment tasks**.
 
@@ -320,7 +321,7 @@ Creating a release definition is the final step in the application build process
 
 11. Save all changes and go back to **Pipeline**.
 
-12. On the **Pipeline** tab, select **Add artifact**, and choose the **NorthwindCloud Traders-Vessel** from the **Source (Build Definition) ** list.
+12. On the **Pipeline** tab, select **Add artifact**, and choose the **NorthwindCloud Traders-Vessel** from the **Source (Build Definition)** list.
 
 13. On **Select a Template**, add another environment. Pick **Azure App Service Deployment** and then select **Apply**.
 

@@ -11,7 +11,7 @@ ms.assetid: 37724021-f55f-4e85-9206-6d4a48bda3d8
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
@@ -233,7 +233,7 @@ For best practices on parameterizing, see [Best practices for creating Azure Res
 * Settings vary by environment (example: development, test, and production)
 * Secrets (such as passwords)
 
-If you need to pull secrets from [Azure Key Vault](../../key-vault/key-vault-get-started.md) when deploying Azure Data Factory entities using templates, specify the **key vault** and **secret name** as shown in the following example:
+If you need to pull secrets from [Azure Key Vault](../../key-vault/key-vault-overview.md) when deploying Azure Data Factory entities using templates, specify the **key vault** and **secret name** as shown in the following example:
 
 ```JSON
 "parameters": {

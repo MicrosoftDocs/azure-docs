@@ -2,19 +2,11 @@
 title: 'About Azure Point-to-Site VPN connections | Microsoft Docs'
 description: This article helps you understand Point-to-Site connections and helps you decide which P2S VPN gateway authentication type to use.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.topic: conceptual
+ms.date: 01/18/2019
 ms.author: cherylmc
 
 ---
@@ -26,7 +18,7 @@ A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection
 
 Point-to-site VPN can use one of the following protocols:
 
-* OpenVPN, an SSL/TLS based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which SSL uses. OpenVPN can be used to connect from Android, iOS, Linux and Mac devices (OSX versions 10.11 and above).
+* OpenVPN, an SSL/TLS based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which SSL uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Linux and Mac devices (OSX versions 10.13 and above).
 
 * Secure Socket Tunneling Protocol (SSTP), a proprietary SSL-based VPN protocol. An SSL VPN solution can penetrate firewalls, since most firewalls open TCP port 443, which SSL uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP (Windows 7 and later).
 
@@ -80,13 +72,11 @@ The zip file also provides the values of some of the important settings on the A
 >[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-## <a name="gwsku"></a>Which Gateway SKUs Support P2S VPN?
+## <a name="gwsku"></a>Which gateway SKUs support P2S VPN?
 
-[!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
+[!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
-* Aggregate Throughput Benchmark is based on measurements of multiple tunnels aggregated through a single gateway. It is not a guaranteed throughput due to internet traffic conditions and your application behaviors.
-* Pricing information can be found on the Pricing page 
-* SLA (Service Level Agreement) information can be found on the SLA page.
+* For Gateway SKU recommendations, see [About VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 >[!NOTE]
 >The Basic SKU does not support IKEv2 or RADIUS authentication.
@@ -99,6 +89,8 @@ A P2S configuration requires quite a few specific steps. The following articles 
 * [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md)
 
 * [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md)
+
+* [Configure OpenVPN](vpn-gateway-howto-openvpn.md)
 
 ## <a name="faqcert"></a>FAQ for native Azure certificate authentication
 

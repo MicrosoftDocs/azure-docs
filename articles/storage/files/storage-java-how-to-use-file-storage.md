@@ -8,7 +8,7 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
-ms.component: files
+ms.subservice: files
 ---
 
 # Develop for Azure Files with Java

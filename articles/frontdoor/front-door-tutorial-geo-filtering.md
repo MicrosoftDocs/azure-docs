@@ -43,7 +43,7 @@ Install-Module -Name AzureRM.FrontDoor -AllowPrerelease
 
 ## 2. Define geo-filtering match condition(s)
 First create a sample match condition that selects requests not coming from "US". Refer to PowerShell [guide](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject) on parameters when creating a match condition. 
-Two letter country code to country mapping is provided [here](/Protection/GeoFiltering).
+Two letter country code to country mapping is provided [here](front-door-geo-filtering.md).
 
 ```
 $nonUSGeoMatchCondition = New-AzureRmFrontDoorMatchConditionObject -MatchVariable RemoteAddr -OperatorProperty GeoMatch -NegateCondition $true -MatchValue "US"

@@ -1,5 +1,5 @@
 ---
-title: Configure and manage Azure Notebook projects | Microsoft Docs 
+title: Configure and manage Azure Notebook projects
 description: How to manage project metadata, project files, the project's environment and setup steps through both the Azure Notebooks UI and direct terminal access.
 services: app-service
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: kraigb
 ---
 
@@ -20,15 +20,40 @@ ms.author: kraigb
 
 A project in Azure Notebooks is essentially a configuration of the underlying Linux virtual machine in which Jupyter notebooks run, along with a file folder and descriptive metadata. The project dashboard in Azure Notebooks allows you to manage files and otherwise configure the project's characteristics:
 
-- Project metadata includes a name, description, an identifier that's used when sharing the project, and whether the project is public or private.
-- You manage the project's notebook, data, and other files as you do with any other file system.
-- You configure a project's environment either through startup scripts or directly through the terminal.
-- Through the terminal, you have access to logs.
+- The compute tier on which the project runs, which can be the free tier or an Azure virtual machine.
+- Project metadata, which includes a name, description, an identifier that's used when sharing the project, and whether the project is public or private.
+- The project's notebook, data, and other files, which you manage like any other file system.
+- A project's environment, which you manage either through startup scripts or directly through the terminal.
+- Logs, which you access through the terminal.
 
 > [!Note]
-> You cannot manage project you don't own unless the project owner has made you a collaborator. Otherwise the management and configuration features described here are not available to you.
+> The management and configuration features described here are available only to the project owner who created the project initially. You can, however, clone the project into your own account, in which case you become the owner and can configure the project as desired.
 
 Azure Notebooks starts the underlying virtual machine whenever you run a notebook or other file. The server automatically saves files and shuts down after 60 minutes of inactivity. You can also stop the server at any time with the **Shutdown** command (keyboard shortcut: h).
+
+## Compute tier
+
+The **Run** drop-down list on the project dashboard is where you select the compute tier on which the project runs. By default, projects run on the **Free Compute** tier, which is limited to 4GB of memory and 1GB of data to prevent abuse:
+
+![Compute tier drop-down list on the project dashboard](media/project-compute-tier-list.png)
+
+You can bypass these limitations by using a different virtual machine that you've provisioned in an Azure subscription. You must  install and run JupyterHub on that virtual machine. The Data Science Virtual Machine images (any operating system) are good choices because they include JupyterHub by default.
+
+Once you have a suitably configured Azure virtual machine, select the **Direct Compute** option in the drop-down list, which prompts you for a name (to show in the list), the VM's IP address and port (typically 8000, the default port to which JupyterHub listens), and the VM credentials:
+
+![Prompt to collect server information for the Direct Compute option](media/project-compute-tier-direct.png)
+
+If the following conditions are true, the drop-down list also shows [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine) instances. (If any of these conditions aren't met, you can still connect to the DSVM using the Direct Compute option and entering the values obtained from the Azure portal.)
+
+- You're signed into Azure Notebooks with an account that uses Azure Active Directory (AAD), such as a company account.
+- Your account is connected to an Azure subscription.
+- You have one or more virtual machines in that subscription, with at least Reader access, that use the Data Science Virtual Machine for Linux (Ubuntu) image.)
+
+![Data Science Virtual Machine instances in the drop-down list on the project dashboard](media/project-compute-tier-dsvm.png)
+
+When you select a DSVM instance, Azure Notebooks may prompt you for the specific machine credentials used when you created the VM.
+
+To create a new DSVM instance, follow the instructions on [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Use the **Data Science Virtual Machine for Linux (Ubuntu)** image if you want the DSVM to appear in the drop-down list in Azure Notebooks.  If for other reasons you need to use the Windows or CentOS image, you can use the **Direct Compute** option to connect to the DSVM manually.
 
 ## Edit project metadata
 

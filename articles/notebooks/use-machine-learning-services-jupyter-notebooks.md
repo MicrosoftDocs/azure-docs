@@ -1,6 +1,6 @@
 ---
-title: Use Azure Machine Learning Services in Azure Notebooks | Microsoft Docs 
-description: An overview of the sample notebooks for Azure Machine Learning Services that you can use with Azure Notebooks. 
+title: Use Azure Machine Learning Services in Azure Notebooks
+description: An overview of the sample notebooks for Azure Machine Learning Services that you can use with Azure Notebooks.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -16,16 +16,16 @@ ms.date: 12/04/2018
 ms.author: kraigb
 ---
 
-# Use Azure Machine Learning Services in a notebook
+# Use Azure Machine Learning service in a notebook
 
-Azure Notebooks comes pre-configured with the necessary environment to work with [Azure Machine Learning Services](/azure/machine-learning/service/). You can easily clone a sample project into your Notebooks account to explore a variety of Machine Learning scenarios.
+Azure Notebooks comes pre-configured with the necessary environment to work with [Azure Machine Learning service](/azure/machine-learning/service/). You can easily clone a sample project into your Notebooks account to explore a variety of Machine Learning scenarios.
 
 ## Clone the sample into your account
 
 1. Sign into [Azure Notebooks](https://notebooks.azure.com/).
 1. Select **My Projects** to navigate to the projects dashboard.
-1. Select the **Upload GitHub Repo** (the up arrow) button open the **Upload Github Repository** popup.
-1. In the popup, enter `Azure/MachineLearningNotebooks` in **GitHub repository**, provide a name for the project in **Project Name** like "Azure ML Services", provide an identifier in **Project ID**, clear **Public** if you want, then select **Import**.
+1. Select the **Upload GitHub Repo** (the up arrow) button open the **Upload GitHub Repository** popup.
+1. In the popup, enter `Azure/MachineLearningNotebooks` in **GitHub repository**, provide a name for the project in **Project Name** like "Azure Machine Learning service", provide an identifier in **Project ID**, clear **Public** if you want, then select **Import**.
 
     ![Import Azure Machine Learning Notebook sample into your Notebooks account](media/azureml-import-project.png)
 
@@ -43,9 +43,9 @@ Azure Notebooks comes pre-configured with the necessary environment to work with
 
 The Azure Machine Learning Services documentation contains a variety of other resources that guide you through working with Machine Learning Service within notebooks:
 
-- [Quickstart: Use Python to get started with Azure Machine Learning](/azure/machine-learning/service/quickstart-create-workspace-with-python.md)
-- [Tutorial #1: Train an image classification model with Azure Machine Learning service](/azure/machine-learning/service/tutorial-train-models-with-aml.md)
-- [Tutorial #2: Deploy an image classification model in Azure Container Instance (ACI)](/azure/machine-learning/service/tutorial-deploy-models-with-aml.md)
-- [Tutorial: Train a classification model with automated machine learning in Azure Machine Learning service](/azure/machine-learning/service/tutorial-auto-train-models.md)
+- [Quickstart: Use Python to get started with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
+- [Tutorial #1: Train an image classification model with Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+- [Tutorial #2: Deploy an image classification model in Azure Container Instance (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
+- [Tutorial: Train a classification model with automated machine learning in Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
-Also see the documentation for the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro.md?view=azure-ml-py).
+Also see the documentation for the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

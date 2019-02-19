@@ -1,5 +1,5 @@
 ---
-title: How to create and clone Jupyter notebooks on Azure | Microsoft Docs 
+title: Create and clone Jupyter notebooks on Azure
 description: Azure Notebooks projects manage a collection of notebooks and related files, which you can create new or clone from another source.
 services: app-service
 documentationcenter: ''
@@ -26,7 +26,7 @@ A project also maintains metadata and other configuration settings that affect t
 
 Your **My Projects** dashboard at `https://notebooks.azure.com/<userID>/projects` is where you view, manage, and create projects:
 
-[![](media/my-projects-dashboard.png "My Projects dashboard in Azure Notebooks")](media/my-projects-dashboard.png#lightbox)
+[![My Projects dashboard in Azure Notebooks](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 What you can do on the dashboard depends on whether you're signed in with the account that owns the user ID:
 
@@ -38,14 +38,14 @@ What you can do on the dashboard depends on whether you're signed in with the ac
 | **Delete** | Owner | Deletes the selected project. This operation cannot be undone. |
 | **Terminal** | Owner | Starts the project server, then opens a new browser window with the bash terminal for that server. |
 | **+ New Project** | Owner | Creates a new project. See [Create a new project](#create-a-new-project). |
-| **Upload Github Repo** | Owner | Imports a project from GitHub. [Import a project from GitHub](#import-a-project-from-github). |
+| **Upload GitHub Repo** | Owner | Imports a project from GitHub. [Import a project from GitHub](#import-a-project-from-github). |
 | **Clone** | Anyone | Copies a selected project into your own account. Prompts you to sign in if not already. See [Clone a project](#clone-a-project). |
 
 ### Obtain a launch badge
 
 When you use the **Share** command and select the **Embed** tab, you can copy either HTML code or Markdown that creates a "launch notebook" badge:
 
-    ![Launch notebook badge ](https://notebooks.azure.com/launch.png)
+![Launch notebook badge ](https://notebooks.azure.com/launch.png)
 
 If you don't have an Azure Notebooks project, you can create a link that clones from GitHub directly using the following templates, substituting the appropriate username and repository names:
 

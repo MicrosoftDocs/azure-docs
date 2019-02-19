@@ -5,7 +5,7 @@ description: Azure Security and Compliance Blueprint - IaaS Web Application for 
 services: security
 documentationcenter: na
 author: jomolesk
-manager: mbaldwin
+manager: barbkess
 editor: tomsh
 
 ms.assetid: 8fe47cff-9c24-49e0-aa11-06ff9892a468
@@ -170,7 +170,7 @@ Additionally, the following monitoring solutions are installed as a part of this
 ## Threat model
 The data flow diagram for this reference architecture is available for [download](https://aka.ms/fedrampWAdfd) or can be found below. This model can help customers understand the points of potential risk in the system infrastructure when making modifications.
 
-![IaaS Web Application for FedRAMP threat model](images/fedramp-iaaswa-threat-model.png?raw=true "IaaS Web Applicaiton for FedRAMP threat model")
+![IaaS Web Application for FedRAMP threat model](images/fedramp-iaaswa-threat-model.png?raw=true "IaaS Web Application for FedRAMP threat model")
 
 ## Compliance documentation
 

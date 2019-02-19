@@ -1,5 +1,5 @@
 ---
-title: 'ExpressRoute Overview: Extend your on-premises network to Azure over a private connection | Microsoft Docs'
+title: 'Extend your on-premises network to Azure over a private connection - ExpressRoute Overview : Azure | Microsoft Docs'
 description: The ExpressRoute Technical Overview explains how an ExpressRoute connection works to extend your on-premises network to Azure over a private connection.
 services: expressroute
 author: mialdrid
@@ -8,14 +8,15 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/18/2018
 ms.author: mialdrid
+ms.custom: seodec18
 
 ---
 # ExpressRoute overview
-Microsoft Azure ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and Dynamics 365.
+ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection facilitated by a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure, Office 365, and Dynamics 365.
 
 Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a co-location facility. ExpressRoute connections do not go over the public Internet. This allows ExpressRoute connections to offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet. For information on how to connect your network to Microsoft using ExpressRoute, see [ExpressRoute connectivity models](expressroute-connectivity-models.md).
 
-![](./media/expressroute-introduction/expressroute-connection-overview.png)
+![ExpressRoute connection overview](./media/expressroute-introduction/expressroute-connection-overview.png)
 
 ## Key benefits
 

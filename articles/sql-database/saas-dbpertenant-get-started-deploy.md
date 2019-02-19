@@ -11,7 +11,7 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 10/29/2018
+ms.date: 01/25/2019
 ---
 # Deploy and explore a multitenant SaaS app that uses the database-per-tenant pattern with SQL Database
 
@@ -123,7 +123,7 @@ The Wingtip application uses [*Azure Traffic Manager*](../traffic-manager/traff
 
     | URL part        | Description       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | The events parts of the Wingtip app.<br /><br /> *-dpt* distinguishes the *database-per-tenant* implementation of Wingtip Tickets from other implementations. Examples are the *standalone* app-per-tenant (*-sa*) or *multitenant database* (*-mt*) implementations. |
+    | http://events.wingtip-dpt | The events parts of the Wingtip app.<br /><br /> *-dpt* distinguishes the *database-per-tenant* implementation of Wingtip Tickets from other implementations. Examples are the *single* app-per-tenant (*-sa*) or *multitenant database* (*-mt*) implementations. |
     | .*&lt;user&gt;* | *af1* in the example. |
     | .trafficmanager.net/ | Traffic Manager, base URL. |
     | fabrikamjazzclub | Identifies the tenant named Fabrikam Jazz Club. |
@@ -242,7 +242,7 @@ Browse to the server **tenants1-dpt-&lt;user&gt;**, and select **Pool1** to vi
 - The first chart, labeled **Resource utilization**, shows pool eDTU utilization.
 - The second chart shows eDTU utilization of the five most active databases in the pool.
 
-The two charts illustrate that elastic pools and SQL Database are well suited to unpredictable SaaS application workloads. The charts show that four databases are each bursting to as much as 40 eDTUs, and yet all the databases are comfortably supported by a 50-eDTU pool. The 50-eDTU pool can support even heavier workloads. If the databases are provisioned as single databases, each one needs to be an S2 (50 DTU) to support the bursts. The cost of four standalone S2 databases is nearly three times the price of the pool. In real-world situations, SQL Database customers run up to 500 databases in 200 eDTU pools. For more information, see the [Performance monitoring tutorial](saas-dbpertenant-performance-monitoring.md).
+The two charts illustrate that elastic pools and SQL Database are well suited to unpredictable SaaS application workloads. The charts show that four databases are each bursting to as much as 40 eDTUs, and yet all the databases are comfortably supported by a 50-eDTU pool. The 50-eDTU pool can support even heavier workloads. If the databases are provisioned as single databases, each one needs to be an S2 (50 DTU) to support the bursts. The cost of four single S2 databases is nearly three times the price of the pool. In real-world situations, SQL Database customers run up to 500 databases in 200 eDTU pools. For more information, see the [Performance monitoring tutorial](saas-dbpertenant-performance-monitoring.md).
 
 ## Additional resources
 

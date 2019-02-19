@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.component: 
 ---
 
 # Connect Azure to ITSM tools using IT Service Management Connector
@@ -40,7 +39,7 @@ With ITSMC, you can
 You can start using the ITSM Connector using the following steps:
 
 1.	[Add the ITSM Connector Solution](#adding-the-it-service-management-connector-solution)
-2.	[Create an ITSM connection](#creating-an-itsm-connection)
+2.	Create an ITSM connection
 3.	[Use the connection](#using-the-solution)
 
 
@@ -255,7 +254,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## Output data for a ServiceNow change request
 
-| Log Analytics | ServieNow field |
+| Log Analytics | ServiceNow field |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
 | CreatedBy_s | Requested by |

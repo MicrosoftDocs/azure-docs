@@ -1,21 +1,15 @@
 ---
-title: Quickstart tutorial for R language for Machine Learning Studio - Azure | Microsoft Docs
+title: Quickstart tutorial for R language
+titleSuffix: Azure Machine Learning Studio
 description: Use this R programming tutorial to get started quickly using the R language with Azure Machine Learning Studio to create a forecasting solution.
-keywords: quickstart,r language,r programming language,r programming tutorial
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/06/2017
 ---
 # Quickstart tutorial for the R programming language for Azure Machine Learning Studio
@@ -27,7 +21,7 @@ This quickstart tutorial helps you quickly start extending Azure Machine Learnin
 
 Microsoft Azure Machine Learning contains many powerful machine learning and data manipulation modules. The powerful R language has been described as the lingua franca of analytics. Happily, analytics and data manipulation in Azure Machine Learning can be extended by using R. This combination provides the scalability and ease of deployment of Azure Machine Learning with the flexibility and deep analytics of R.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### Forecasting and the dataset
 Forecasting is a widely employed and quite useful analytical method. Common uses range from predicting sales of seasonal items, determining optimal inventory levels, to predicting macroeconomic variables. Forecasting is typically done with time series models.
@@ -746,7 +740,7 @@ The `ts.detrend()` function shown below performs both of these operations. The f
 
 There is quite a bit happening in the `ts.detrend()` function. Most of this code is checking for potential problems with the arguments or dealing with exceptions, which can still arise during the computations. Only a few lines of this code actually do the computations.
 
-We have already discussed an example of defensive programming in [Value transformations](#valuetransformations). Both computation blocks are wrapped in `tryCatch()`. For some errors it makes sense to return the original input vector, and in other cases, I return a vector of zeros.  
+We have already discussed an example of defensive programming in Value transformations. Both computation blocks are wrapped in `tryCatch()`. For some errors it makes sense to return the original input vector, and in other cases, I return a vector of zeros.  
 
 Note that the linear regression used for de-trending is a time series regression. The predictor variable is a time series object.  
 

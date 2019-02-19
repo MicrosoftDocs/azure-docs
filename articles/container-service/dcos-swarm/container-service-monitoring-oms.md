@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure DC/OS cluster - Operations Management
+title: (DEPRECATED) Monitor Azure DC/OS cluster - Operations Management
 description: Monitor an Azure Container Service DC/OS cluster with Log Analytics.
 services: container-service
 author: keikhara
@@ -12,7 +12,9 @@ ms.author: keikhara
 ms.custom: mvc
 ---
 
-# Monitor an Azure Container Service DC/OS cluster with Log Analytics
+# (DEPRECATED) Monitor an Azure Container Service DC/OS cluster with Log Analytics
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Log Analytics is Microsoft's cloud-based IT
 management solution that helps you manage and protect your on-premises
@@ -37,7 +39,7 @@ have deployed simple web container applications on the cluster.
 ### Pre-requisite
 - [Microsoft Azure Subscription](https://azure.microsoft.com/free/) - You can get a subscription for free.  
 - Log Analytics Workspace Setup - see "Step 3" below
-- [DC/OS CLI](https://dcos.io/docs/1.8/usage/cli/install/) installed.
+- [DC/OS CLI](http://docs.mesosphere.com/1.12/cli) installed.
 
 1. In the DC/OS dashboard, click on Universe and search
 for ‘OMS’ as shown below.

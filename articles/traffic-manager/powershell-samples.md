@@ -4,6 +4,7 @@ description: Azure PowerShell samples for Traffic Manager
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
+manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article

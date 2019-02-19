@@ -3,7 +3,7 @@ title: Schedules in Azure Automation
 description: Automation schedules are used to schedule runbooks in Azure Automation to start automatically. Describes how to create and manage a schedule in so that you can automatically start a runbook at a particular time or on a recurring schedule.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
@@ -124,3 +124,4 @@ Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
 ## Next steps
 
 * To get started with runbooks in Azure Automation, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md)
+

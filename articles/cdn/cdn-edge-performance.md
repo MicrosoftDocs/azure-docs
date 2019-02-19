@@ -51,7 +51,7 @@ This dashboard consists of:
     ![CDN profile blade manage button](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     The CDN management portal opens.
-2. Hover over the **Analytics** tab, then hover over the **Edge Perfomance Analytics** flyout.  Click on **Dashboard**.
+2. Hover over the **Analytics** tab, then hover over the **Edge Performance Analytics** flyout.  Click on **Dashboard**.
    
     The edge node analytics dashboard is displayed.
 
@@ -139,7 +139,7 @@ Each report in this module contains a chart and statistics on bandwidth and traf
     ![CDN profile blade manage button](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     The CDN management portal opens.
-2. Hover over the **Analytics** tab, then hover over the **Edge Perfomance Analytics** flyout.  Click on **HTTP Large Object**.
+2. Hover over the **Analytics** tab, then hover over the **Edge Performance Analytics** flyout.  Click on **HTTP Large Object**.
    
     The edge node analytics reports screen is displayed.
 

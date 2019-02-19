@@ -1,17 +1,11 @@
 ---
-title: Monitor access logs, performance logs, back-end health, and metrics for Application Gateway
-description: Learn how to enable and manage access logs and performance logs for Application Gateway
+title: Monitor access logs, performance logs, back-end health, and metrics for Azure Application Gateway
+description: Learn how to enable and manage access logs and performance logs for Azure Application Gateway
 services: application-gateway
-author: amitsriva
-manager: rossort
-tags: azure-resource-manager
-
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 1/11/2019
 ms.author: amitsriva
 
 ---
@@ -94,7 +88,7 @@ The following snippet shows an example of the response:
 You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
 * **Activity log**: You can use [Azure activity logs](../monitoring-and-diagnostics/insights-debugging-with-events.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
-* **Access log**: You can use this log to view Application Gateway access patterns and analyze important information, including the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 300 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance can be identified by the instanceId property.
+* **Access log**: You can use this log to view Application Gateway access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 300 seconds. This log contains one record per instance of Application Gateway. The Application Gateway instance is identified by the instanceId property.
 * **Performance log**: You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy back-end instance count. A performance log is collected every 60 seconds.
 * **Firewall log**: You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall.
 
@@ -213,7 +207,7 @@ The performance log is generated only if you have enabled it on each Application
 |healthyHostCount     | Number of healthy hosts in the back-end pool.        |
 |unHealthyHostCount     | Number of unhealthy hosts in the back-end pool.        |
 |requestCount     | Number of requests served.        |
-|latency | Latency (in milliseconds) of requests from the instance to the back end that serves the requests. |
+|latency | Average latency (in milliseconds) of requests from the instance to the back end that serves the requests. |
 |failedRequestCount| Number of failed requests.|
 |throughput| Average throughput since the last log, measured in bytes per second.|
 
@@ -339,7 +333,7 @@ In the following image, you see an example with three metrics displayed for the 
 
 [![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
-To see a current list of metrics, see [Supported metrics with Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+To see a current list of metrics, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
 ### Alert rules
 
@@ -371,7 +365,7 @@ A list of alerts appears after you create a metric alert. It provides an overvie
 
 To learn more about alert notifications, see [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
-To understand more about webhooks and how you can use them with alerts, visit [Configure a webhook on an Azure metric alert](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+To understand more about webhooks and how you can use them with alerts, visit [Configure a webhook on an Azure metric alert](../azure-monitor/platform/alerts-webhooks.md).
 
 ## Next steps
 

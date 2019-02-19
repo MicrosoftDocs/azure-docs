@@ -4,15 +4,11 @@ description: Use Azure Advisor to optimize your Azure deployments.
 services: advisor
 documentationcenter: NA
 author: kasparks
-manager: 
-
-
-ms.assetid: 
 ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2016
+ms.date: 02/01/2019
 ms.author: kasparks
 ---
 
@@ -60,7 +56,7 @@ You can access Advisor recommendations as *Owner*, *Contributor*, or *Reader* of
 
 ### What resources does Advisor provide recommendations for?
 
-Advisor provides recommendations for virtual machines, availability sets, application gateways, App Services, SQL servers, and Redis Cache.
+Advisor provides recommendations for virtual machines, availability sets, application gateways, App Services, SQL servers, and Azure Cache for Redis.
 
 ### Can I postpone or dismiss a recommendation?
 

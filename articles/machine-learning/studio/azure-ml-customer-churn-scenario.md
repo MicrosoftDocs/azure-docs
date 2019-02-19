@@ -1,23 +1,18 @@
 ---
-title: Analyzing customer churn with Azure Machine Learning Studio | Microsoft Docs
+title: Analyze customer churn
+titleSuffix: Azure Machine Learning Studio
 description: Case study of developing an integrated model for analyzing and scoring customer churn using Azure Machine Learning Studio.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
 ms.date: 12/18/2017
 ---
-# Analyzing Customer Churn using Azure Machine Learning Studio
+# Analyze Customer Churn using Azure Machine Learning Studio
 ## Overview
 This article presents a reference implementation of a customer churn analysis project that is built by using Azure Machine Learning. In this article, we discuss associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models that are built by using Machine Learning, and assess directions for further development.  
 
@@ -25,11 +20,11 @@ This article presents a reference implementation of a customer churn analysis pr
 This experiment was developed and tested by Serge Berger, Principal Data Scientist at Microsoft, and Roger Barga, formerly Product Manager for Microsoft Azure Machine Learning. The Azure documentation team gratefully acknowledges their expertise and thanks them for sharing this white paper.
 
 > [!NOTE]
-> The data used for this experiment is not publicly available. For an example of how to build a machine learning model for churn analysis, see: [Retail churn model template](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1) in [Azure AI Gallery](http://gallery.cortanaintelligence.com/)
+> The data used for this experiment is not publicly available. For an example of how to build a machine learning model for churn analysis, see: [Retail churn model template](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) in [Azure AI Gallery](http://gallery.azure.ai/)
 > 
 > 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## The problem of customer churn
 Businesses in the consumer market and in all enterprise sectors have to deal with churn. Sometimes churn is excessive and influences policy decisions. The traditional solution is to predict high-propensity churners and address their needs via a concierge service, marketing campaigns, or by applying special dispensations. These approaches can vary from industry to industry. They can even vary from a particular consumer cluster to another within one industry (for example, telecommunications).
@@ -106,8 +101,8 @@ The following diagrams illustrate the data that was used.
  
 
 > Note that this data is private and therefore the model and data cannot be shared.
-> However, for a similar model using publicly available data, see this sample experiment in the [Azure AI Gallery](http://gallery.cortanaintelligence.com/):
-> [Telco Customer Churn](http://gallery.cortanaintelligence.com/Experiment/31c19425ee874f628c847f7e2d93e383).
+> However, for a similar model using publicly available data, see this sample experiment in the [Azure AI Gallery](http://gallery.azure.ai/):
+> [Telco Customer Churn](http://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
 > To learn more about how you can implement a churn analysis model using Cortana Intelligence Suite, we also recommend [this video](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) by Senior Program Manager Wee Hyong Tok. 
 > 
@@ -220,7 +215,7 @@ This paper describes a sensible approach to tackling the common problem of custo
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco churn model template](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) in [Azure AI Gallery](http://gallery.cortanaintelligence.com/) 
+[5] [Telco churn model template](http://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) in [Azure AI Gallery](http://gallery.azure.ai/) 
  
 
 ## Appendix

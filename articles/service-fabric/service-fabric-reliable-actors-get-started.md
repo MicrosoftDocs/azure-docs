@@ -50,7 +50,7 @@ The solution contains three projects:
 
 * **The interface project (HelloWorld.Interfaces)**. This project contains the interface definition for the actor. Actor interfaces can be defined in any project with any name.  The interface defines the actor contract that is shared by the actor implementation and the clients calling the actor.  Because client projects may depend on it, it typically makes sense to define it in an assembly that is separate from the actor implementation.
 
-* **The actor service project (HelloWorld)**. This project defines the Service Fabric service that is going to host the actor. It contains the implementation of the actor, *HellowWorld.cs*. An actor implementation is a class that derives from the base type `Actor` and implements the interfaces defined in the *MyActor.Interfaces* project. An actor class must also implement a constructor that accepts an `ActorService` instance and an `ActorId` and passes them to the base `Actor` class.
+* **The actor service project (HelloWorld)**. This project defines the Service Fabric service that is going to host the actor. It contains the implementation of the actor, *HelloWorld.cs*. An actor implementation is a class that derives from the base type `Actor` and implements the interfaces defined in the *MyActor.Interfaces* project. An actor class must also implement a constructor that accepts an `ActorService` instance and an `ActorId` and passes them to the base `Actor` class.
     
     This project also contains *Program.cs*, which registers actor classes with the Service Fabric runtime using `ActorRuntime.RegisterActorAsync<T>()`. The `HelloWorld` class is already registered. Any additional actor implementations added to the project must also be registered in the `Main()` method.
 

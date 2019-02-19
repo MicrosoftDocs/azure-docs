@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
-ms.component: common
+ms.subservice: common
 ---
 # List Azure Storage resources in C++
 Listing operations are key to many development scenarios with Azure Storage. This article describes how to most efficiently enumerate objects in Azure Storage using the listing APIs provided in the Microsoft Azure Storage Client Library for C++.
@@ -71,7 +71,7 @@ do
     }
     else
     {
-        process_diretory(it->as_directory());
+        process_directory(it->as_directory());
     }
 }
 

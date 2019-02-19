@@ -12,9 +12,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 02/15/2019
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: unknown
+ms.lastreviewed: 11/16/2018
 
 ---
 # Add Linux images to Azure Stack
@@ -31,9 +32,9 @@ Note that there are frequent updates to these images, so check Marketplace Manag
 
 ## Prepare your own image
 
-Wherever possible, download the images available through Marketplace Management which have been prepared and tested for Azure Stack. 
- 
-The Azure Linux Agent (typically called `WALinuxAgent` or `walinuxagent`) is required, and not all versions of the agent will work on Azure Stack. You should use version 2.2.18 or later if you create your own image. Note that [cloud-init](https://cloud-init.io/) is not supported on Azure Stack at this time.
+Wherever possible, download the images available through Marketplace Management which have been prepared and tested for Azure Stack.
+
+The Azure Linux agent (typically called `WALinuxAgent` or `walinuxagent`) is required, and not all versions of the agent work on Azure Stack. You should use version 2.2.20 or later if you create your own image. Note that [cloud-init](https://cloud-init.io/) is not supported on Azure Stack at this time.
 
 You can prepare your own Linux image using the following instructions:
 
@@ -43,9 +44,8 @@ You can prepare your own Linux image using the following instructions:
 * [SLES & openSUSE](../virtual-machines/linux/suse-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu Server](../virtual-machines/linux/create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-    
 ## Add your image to the marketplace
- 
+
 Follow [Add the image to the Marketplace](azure-stack-add-vm-image.md). Make sure that the `OSType` parameter is set to `Linux`.
 
 After you've added the image to the Marketplace, a Marketplace item is created and users can deploy a Linux virtual machine.

@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 10/25/2018
+ ms.date: 02/13/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -19,6 +19,4 @@ This article uses PowerShell cmdlets. To run the cmdlets, you can use Azure Clou
 | Click the **Cloud Shell** button on the menu in the upper right of the Azure portal. | [![Cloud Shell in the portal](./media/vpn-gateway-cloud-shell-powershell/cloud-shell-menu.png)](https://portal.azure.com) |
 |  |  |
 
-If you don't want to use Azure Cloud Shell, you can install PowerShell locally instead. If you choose to install and use PowerShell locally, be sure to install the latest version of the Azure Resource Manager PowerShell cmdlets to get the latest feature functionality.
-
-To find the version of PowerShell that you are running locally, use the 'Get-Module -ListAvailable AzureRM' cmdlet. To update, see [Install the Azure PowerShell module](/powershell/azure/install-azurerm-ps). For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
+If you don't want to use Azure Cloud Shell, you can install PowerShell locally instead. If you choose to install and use PowerShell locally, be sure to install the latest version of the Azure Resource Manager PowerShell cmdlets to get the latest feature functionality. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).

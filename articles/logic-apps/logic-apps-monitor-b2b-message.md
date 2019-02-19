@@ -22,12 +22,12 @@ with [Azure Log Analytics](../log-analytics/log-analytics-overview.md).
 This service monitors your cloud and on-premises environments, 
 help you maintain their availability and performance, and collects 
 runtime details and events for richer debugging. You can also 
-[use this data with other services](#extend-diagnostic-data) 
+use this data with other services 
 such as Azure Storage and Azure Event Hubs.
 
 > [!NOTE]
 > This page might still have references to Microsoft Operations Management Suite (OMS), 
-> which is [retiring in January 2019](../log-analytics/log-analytics-oms-portal-transition.md), 
+> which is [retiring in January 2019](../azure-monitor/platform/oms-portal-transition.md), 
 > but replaces those steps with Azure Log Analytics where possible. 
 
 ## Prerequisites
@@ -39,7 +39,7 @@ and [how to set up logging for that logic app](../logic-apps/logic-apps-monitor-
 * After you meet the previous requirements, you also need a Log Analytics workspace, 
 which you use for monitoring and tracking B2B communication through Log Analytics. 
 If you don't have a Log Analytics workspace, learn 
-[how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
+[how to create a Log Analytics workspace](../azure-monitor/learn/quick-create-workspace.md).
 
 * An integration account that's linked to your logic app. Learn 
 [how to create an integration account with a link to your logic app](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
@@ -150,13 +150,13 @@ select your Log Analytics workspace and the data you want to log.
 Along with Azure Log Analytics, you can extend how you use your logic app's 
 diagnostic data with other Azure services, for example: 
 
-* [Archive Azure Diagnostics Logs in Azure Storage](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
-* [Stream Azure Diagnostics Logs to Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
+* [Archive Azure Diagnostics Logs in Azure Storage](../azure-monitor/platform/archive-diagnostic-logs.md)
+* [Stream Azure Diagnostics Logs to Azure Event Hubs](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
 
 You can then get real-time monitoring by using telemetry 
 and analytics from other services, like 
 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 
-and [Power BI](../log-analytics/log-analytics-powerbi.md). For example:
+and [Power BI](../azure-monitor/platform/powerbi.md). For example:
 
 * [Stream data from Event Hubs to Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analyze streaming data with Stream Analytics and create a real-time analytics dashboard in Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

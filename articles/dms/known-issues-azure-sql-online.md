@@ -4,13 +4,13 @@ description: Learn about known issues/migration limitations with online migratio
 services: database-migration
 author: pochiraju
 ms.author: rajpo
-manager: 
-ms.reviewer: 
-ms.service: database-migration
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 01/11/2019
 ---
 
 # Known issues/migration limitations with online migrations to Azure SQL DB
@@ -79,7 +79,7 @@ You may see a SQL Exception suggesting “ntext is incompatible with hierarchyid
 If the length of Large Object (LOB) column is bigger than 32 KB, data might get truncated at the target. You can check the length of LOB column using the query below: 
 
 ``` 
-SELECT max(len(ColumnName)) as LEN from TableName
+SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 ```
 
 **Workaround**

@@ -22,7 +22,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-* **A Log Analytics workspace**. You can think of this workspace as a unique Log Analytics environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace).
+* **A Log Analytics workspace**. You can think of this workspace as a unique Log Analytics environment with its own data repository, data sources, and solutions. For the instructions, see [Create a Log Analytics workspace](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
 * **An Azure HDInsight cluster**. Currently, you can use Log Analytics with the following HDInsight cluster types:
 
@@ -35,16 +35,26 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
   For the instructions on how to create an HDInsight cluster, see [Get started with Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-> [!NOTE]
+> [!NOTE]  
 > It is recommended to place both the HDInsight cluster and the Log Analytics workspace in the same region for better performance. Azure Log Analytics is not available in all Azure regions.
 
 ## Enable Log Analytics by using the portal
 
 In this section, you configure an existing HDInsight Hadoop cluster to use an Azure Log Analytics workspace to monitor jobs, debug logs, etc.
 
-1. Open an HDInsight cluster in the Azure portal.
-2. In the left pane, select **Monitoring**.
-3. In the right pane, select **Enable**, select an existing Log Analytics workspace, and then select **Save**.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. From the left menu, select **All services**.
+
+3. Under **ANALYTICS**, select **HDInsight clusters**.
+
+4. From the left, under **Monitoring**, select **Operations Management Suite**.
+
+5. From the main view, under **OMS Monitoring**, select **Enable**.
+
+6. From the **Select a workspace** drop-down list, select an existing Log Analytics workspace.
+
+7. Select **Save**.
 
     ![Enable monitoring for HDInsight clusters](./media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-enable-monitoring.png "Enable monitoring for HDInsight clusters")
 
@@ -87,7 +97,7 @@ These are the available HDInsight solutions:
 * HDInsight Spark Monitoring
 * HDInsight Storm Monitoring
 
-For the instructions to install a management solution, see [Management solutions in Azure](../azure-monitor/insights/solutions.md#install-a-management-solution). To experiment, install a HDInsight Hadoop Monotiring solution. When it is done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
+For the instructions to install a management solution, see [Management solutions in Azure](../azure-monitor/insights/solutions.md#install-a-monitoring-solution). To experiment, install a HDInsight Hadoop Monotiring solution. When it is done, you see an **HDInsightHadoop** tile listed under **Summary**. Select the **HDInsightHadoop** tile. The HDInsightHadoop solution looks like:
 
 ![HDInsight monitoring solution view](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 

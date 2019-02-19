@@ -13,8 +13,9 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/11/2018
 ms.author: anwestg
+ms.lastreviewed: 12/11/2018
 
 ---
 
@@ -149,6 +150,12 @@ The certificate for identity must contain a subject that matches the following f
 | Format | Example |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
+
+
+### Validate certificates
+Before deploying the app service resource provider, you should [validate the certificates to be used](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation) by using the Azure Stack Readiness Checker tool available from the [PowerShell Gallery](https://aka.ms/AzsReadinessChecker). The Azure Stack Readiness Checker Tool validates that the generated PKI certificates are suitable for app services deployment. 
+
+As a best practice, when working with any of the necessary [Azure Stack PKI certificates](azure-stack-pki-certs.md), you should plan to leave enough time to test and reissue certificates if necessary. 
 
 ## Virtual network
 
@@ -318,11 +325,11 @@ Administrators must configure SSO to:
 Follow these steps:
 
 1. Open a PowerShell instance as azurestack\AzureStackAdmin.
-2. Go to the location of the scripts that you downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Go to the location of the scripts that you downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 4. Run the **Create-AADIdentityApp.ps1** script. When you're prompted, enter the Azure AD tenant ID that you're using for your Azure Stack deployment. For example, enter **myazurestack.onmicrosoft.com**.
 5. In the **Credential** window, enter your Azure AD service admin account and password. Select **OK**.
-6. Enter the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
+6. Enter the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
 7. The script creates a new application in the tenant Azure AD instance. Make note of the application ID that's returned in the PowerShell output. You need this information during installation.
 8. Open a new browser window, and sign in to the [Azure portal](https://portal.azure.com) as the Azure Active Directory service admin.
 9. Open the Azure AD resource provider.
@@ -362,11 +369,11 @@ Administrators must configure SSO to:
 Follow these steps:
 
 1. Open a PowerShell instance as azurestack\AzureStackAdmin.
-2. Go to the location of the scripts that you downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Go to the location of the scripts that you downloaded and extracted in the [prerequisite step](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 4. Run the **Create-ADFSIdentityApp.ps1** script.
 5. In the **Credential** window, enter your AD FS cloud admin account and password. Select **OK**.
-6. Provide the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
+6. Provide the certificate file path and certificate password for the [certificate created earlier](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started). The certificate created for this step by default is **sso.appservice.local.azurestack.external.pfx**.
 
 ```PowerShell
     Create-ADFSIdentityApp.ps1

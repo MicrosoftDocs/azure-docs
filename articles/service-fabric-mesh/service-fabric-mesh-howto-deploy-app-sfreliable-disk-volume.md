@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location eastus
 The following command deploys a Linux application using the [counter.sfreliablevolume.linux.json template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json). To deploy a Windows application, use the [counter.sfreliablevolume.windows.json template](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.windows.json). Be aware that larger container images may take longer to deploy.
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json
+az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/counter/counter.sfreliablevolume.linux.json
 ```
 
 You can also see the state of the deployment with the command
