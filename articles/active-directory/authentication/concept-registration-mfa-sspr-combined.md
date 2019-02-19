@@ -121,17 +121,6 @@ A user who has previously set up at least one method navigates to [https://aka.m
 
 A user who has previously set up at least one method that can be used for MFA navigates to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). The user changes their current default method to a different default method. When finished, the user sees their new default method on the security info page.
 
-### Set up all enabled methods
-
-From My Profile or during sign in, the user adds all methods available to them from the following list:
-
-* Authenticator app (Microsoft Authenticator or any other authenticator app)
-* Phone
-* Alternate phone
-* Email
-* Security questions
-* App password
-
 ## Next steps
 
 [Enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
