@@ -20,13 +20,14 @@ ms.collection: M365-identity-device-management
 
 ## Overview
 The Agents on the on-premise machines that Azure AD Connect Health monitors periodically uploads data to Azure AD Connect Health Service. If the service does not receive data from an agent, the information presented in portal will be stale. To highlight the issue, the service will raise **Health service data is not up to date** alert. This is generated when the service has not received data in the last two hours.  
-<li>The **Warning** status alert fires if Connect Health does not receive partial data elements sent from server for two hours. Warning status alert does not trigger email notifications to the tenant admin. </li>
-<li>The **Error** status alert fires if Connect Health does not receive any data elements sent from server for two hours. Error status alert triggers email notifications to the tenant admin. </li>
+
+* The **Warning** status alert fires if Connect Health does not receive partial data elements sent from server for two hours. Warning status alert does not trigger email notifications to the tenant admin.
+* The **Error** status alert fires if Connect Health does not receive any data elements sent from server for two hours. Error status alert triggers email notifications to the tenant admin.
 
 
 ## Troubleshooting steps 
 
->[!IMPORTANT] 
+> [!IMPORTANT] 
 > This alert follows Connect Health [data retention policy](reference-connect-health-user-privacy.md#data-retention-policy)
 
 * Make sure that Azure AD Connect Health Agents services are running on the machine. For example, Connect Health for AD FS should have 3 services.  
