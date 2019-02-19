@@ -29,7 +29,9 @@ Only older gateways are affected by this change. If your gateway certificate nee
 >* 18:00 UTC on 1 Mar
 >
 >**All remaining gateways will transition on March 12, 2019 starting at 18:00 UTC**.
->
+> 
+>Note: The gateway transition process will take up to 2 hours to complete, and customers will receive an email once their gateway completes the transition process.
+> 
 
 ## 1. Verify your certificate
 
