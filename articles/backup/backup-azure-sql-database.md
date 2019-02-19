@@ -172,12 +172,11 @@ Configure backup as follows:
     ![Select SQL Server in Azure VM for the backup](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
     
-5. In **Backup Goal** menu, select **Configure Backup**.
+5. In **Backup Goal** select **Configure Backup**.
 
     ![Select Configure Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-
-      ![Displaying all SQL Server instances with standalone databases](./media/backup-azure-sql-database/list-of-sql-databases.png)
+    ![Displaying all SQL Server instances with standalone databases](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
 6. Select all the databases you want to protect > **OK**.
 
@@ -247,6 +246,7 @@ To create a backup policy:
 6. In the **Full Backup policy** menu, select **OK** to accept the settings.
 7. To add a differential backup policy, select **Differential Backup**. 
 
+   ![Retention range interval settings](./media/backup-azure-sql-database/retention-range-interval.png)
    ![Open the differential backup policy menu](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
 8. In **Differential Backup policy**, select **Enable** to open the frequency and retention controls. 
@@ -259,17 +259,17 @@ To create a backup policy:
 
 9. Select **OK** to save the policy and return to the main **Backup policy** menu.
 
-10. To add a transactional log backup policy, select **Log Backup**. 
+10. To add a transactional log backup policy, select **Log Backup**.
 11. In **Log Backup**, select **Enable**, and then set the frequency and retention controls. Log backups can occur as often as every 15 minutes, and can be retained for up to 35 days.
 12. Select **OK** to save the policy and return to the main **Backup policy** menu.
 
    ![Edit the log backup policy](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-8. On the **Backup policy** menu, choose whether to enable **SQL Backup Compression**.
+13. On the **Backup policy** menu, choose whether to enable **SQL Backup Compression**.
     - Compression is disabled by default.
     - On the back end, Azure Backup uses SQL native backup compression.
 
-9. After you complete the edits to the backup policy, select **OK**.
+14. After you complete the edits to the backup policy, select **OK**.
 
 
 
@@ -287,7 +287,7 @@ Enable auto-protection as follows:
 
     ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
- 3. Backup is configured for all the databases together and can be tracked in **Backup Jobs**.
+3. Backup is configured for all the databases together and can be tracked in **Backup Jobs**.
 
 
 If you need to disable auto-protection, click the instance name under **Configure Backup**, and select **Disable Autoprotect** for the instance. All databases will continue to back up. But future databases won't be automatically protected.
@@ -327,8 +327,7 @@ If you need to fix permissions because of an **UserErrorSQLNoSysadminMembership*
 
 Alternatively, you can enable [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) on the entire instance or Always On Availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The [auto-protection](backup-azure-sql-database.md#auto-protect-sql-server-in-azure-vm) feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
 
-      ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
-
+   ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
 ## Next steps
 
