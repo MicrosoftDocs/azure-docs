@@ -190,8 +190,6 @@
     href: https://azure.microsoft.com/roadmap/?category=web-mobile
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/media-services/
-  - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=media-services
   - name: OpenAPI Specification (Swagger)

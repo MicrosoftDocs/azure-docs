@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed:  01/24/2019
+ms.lastreviewed: 01/24/2019
 
 ---
 # Use API version profiles with Azure CLI in Azure Stack
@@ -111,7 +111,12 @@ Before you can create virtual machines by using CLI, you must contact the Azure 
 
 Use the following steps to connect to Azure Stack:
 
-1. Register your Azure Stack environment by running the `az cloud register` command.
+1. Register your Azure Stack environment by running the `az cloud register` command. In some scenarios, direct outbound internet connectivity is routed through a proxy or firewall, which enforces SSL interception. In these cases, the `az cloud register` command can fail with an error such as "Unable to get endpoints from the cloud." To work around this error, you can set the following environment variables:
+
+   ```shell
+   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
    
     a. To register the *cloud administrative* environment, use:
 

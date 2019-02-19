@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 01/25/2019
+ms.date: 02/08/2019
 ---
 # Use CLI to scale an elastic pool in Azure SQL Database
 
@@ -44,7 +44,7 @@ This script uses the following commands to create a resource group, SQL Database
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Creates a SQL Database server that hosts single databases and elastic pools. |
 | [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create) | Creates an elastic pool. |
-| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) | Creates a standalone or pooled database. |
+| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create) | Creates a single or pooled database. |
 | [az sql elastic-pools update](https://docs.microsoft.com/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) | Updates an elastic pool, in this example changes the assigned eDTU. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
 

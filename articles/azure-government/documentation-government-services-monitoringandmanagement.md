@@ -3,17 +3,12 @@ title: Azure Government Monitoring + Management | Microsoft Docs
 description: This provides a comparison of features and guidance on developing applications for Azure Government.
 services: azure-government
 cloud: gov
-documentationcenter: ''
 author: gsacavdm
-manager: pathuff
-
 ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: azure-government
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 12/05/2018
+ms.date: 02/13/2019
 ms.author: gsacavdm
 
 ---
@@ -32,14 +27,21 @@ The following Advisor recommendations are not currently available in Azure Gover
   * Configure your VPN gateway to active-active for connection resilience
   * Create Azure Service Health alerts to be notified when Azure issues affect you
   * Configure Traffic Manager endpoints for resiliency
+  * Use soft delete for your Azure Storage Account
 * Performance
   * Improve App Service performance and reliability
   * Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
   * Improve SQL Datawarehouse performance
+  * Use Premium Storage
+  * Migrate your Storage Account to Azure Resource Manager
 * Cost
   * Buy reserved virtual machines instances to save money over pay-as-you-go costs
   * Eliminate unprovisioned ExpressRoute circuits
   * Delete or reconfigure idle virtual network gateways
+
+The calculation used to recommend that you should right-size or shutdown underutilized virtual machines is as follows in Azure Government:
+
+Advisor monitors your virtual machine usage for 7 days and identifies low-utilization virtual machines. Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2% or if the current workload can be accommodated by a smaller virtual machine size. If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
 
 ## Automation
 Automation is generally available in Azure Government.
@@ -107,7 +109,7 @@ Action Groups are generally available in Azure Government with no differences fr
 Activity Log Alerts are generally available in Azure Government with no differences from commercial Azure.
 
 #### Alerts Experience
-The unified alerts UI experience is not available in Azure Government.
+The unified alerts UI experience is available for metric and log alerts in Azure Government.
 
 #### Autoscale
 Autoscale is generally available in Azure Government.
@@ -127,16 +129,21 @@ If you are interested in implementing autoscale on your resources, use PowerShel
 
 For more information on using PowerShell, see [public documentation](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples#create-and-manage-autoscale-settings).
 
-#### Diagnostic Logs
-Diagnostic Logs are generally available in Azure Government with no differences from commercial Azure.
-
 #### Metrics
 Metrics are generally available in Azure Government. However, multi-dimensional metrics are supported only via the REST API. The ability to [show multi-dimensional metrics](../azure-monitor/platform/metrics-charts.md) is in preview in the Azure Government portal.
 
 #### Metric Alerts
-The first generation of metrics alerts is generally available in both Azure Government and commercial Azure. The first generation is called *Alerts (Classic)*.  A second generation of alerts is available only in commercial Azure.  
+The first generation of metrics alerts is generally available in both Azure Government and commercial Azure. The first generation is called *Alerts (Classic)*.  The second generation of metric alerts (also called the [unified alerts experience](../azure-monitor/platform/alerts-overview.md)) is now also available, but with a reduced set of resource providers [compared to the public cloud](../azure-monitor/platform/alerts-metric-near-real-time.md). More will be added over time. 
 
-When using PowerShell/ARM/Rest calls to create Metric Alerts, you will need to set the "Location" of the metric alert to "USGov Virginia" or "USGov Iowa". An example of the setting is below:
+The resources currently supported in the second generation alerts experience are:
+- Microsoft.Compute/virtualMachines
+- Microsoft.OperationalInsights/workspaces
+- Microsoft.PowerBIDedicated/capacities
+- Microsoft.Storage/accounts
+
+You can still use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md) for resources not yet available in the second generation of alerts. 
+
+When using PowerShell/ARM/Rest calls to create metric alerts, you will need to set the "Location" of the metric alert to "USGov Virginia" or "USGov Iowa". An example of the setting is below:
 
 ```PowerShell
 $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
@@ -145,6 +152,19 @@ Add-AzureRmMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -Resource
 ```
 
 For more information on using PowerShell, see [public documentation](../azure-monitor/platform/powershell-quickstart-samples.md).
+
+## Application Insights
+The Azure Application Insights service uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
+
+> [!NOTE]
+> Although these addresses are static, it's possible that we will need to change them from time to time. All Application Insights traffic represents outbound traffic with the exception of availability monitoring and webhooks, which require inbound firewall rules.
+
+### Outgoing ports
+You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK and/or Status Monitor to send data to the portal:
+
+| Purpose | URL | IP | Ports |
+| --- | --- | --- | --- |
+| Telemetry | dc.applicationinsights.us | 23.97.4.113 | 443 |
 
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
@@ -178,9 +198,9 @@ The URLs for Log Analytics are different in Azure Government:
 | \*.ods.opinsights.azure.com |\*.ods.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.oms.opinsights.azure.com |\*.oms.opinsights.azure.us |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
 | \*.blob.core.windows.net |\*.blob.core.usgovcloudapi.net |Agent communication - [configuring firewall settings](../log-analytics/log-analytics-proxy-firewall.md) |
-| portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md#log-analytics-page) |
-| api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md#log-analytics-page) |
-| docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md#log-analytics-page) |
+| portal.loganalytics.io |portal.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
+| api.loganalytics.io |api.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
+| docs.loganalytics.io |docs.loganalytics.us |Advanced Analytics Portal - [configuring firewall settings](../azure-monitor/log-query/portals.md) |
 | \*.azure-automation.net |\*.azure-automation.us |Azure Automation - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) |
 | N/A | *.usgovtrafficmanager.net | Azure Traffic Manager - [configuring firewall settings](../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements) |
 

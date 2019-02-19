@@ -55,7 +55,7 @@ Then add the following plugin definition inside the `<build>` element of the `po
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.4.0</version>
+        <version>1.5.3</version>
         <configuration>
    
             <!-- App information -->

@@ -39,7 +39,7 @@ With ITSMC, you can
 You can start using the ITSM Connector using the following steps:
 
 1.	[Add the ITSM Connector Solution](#adding-the-it-service-management-connector-solution)
-2.	[Create an ITSM connection](#creating-an-itsm-connection)
+2.	Create an ITSM connection
 3.	[Use the connection](#using-the-solution)
 
 

@@ -36,7 +36,7 @@ HTTP/2 protocol support is available to clients connecting to application gatewa
 
 By default, HTTP/2 support is disabled. The following Azure PowerShell code snippet example shows how you can enable it:
 
-```
+```powershell
 $gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
 $gw.EnableHttp2 = $true
 Set-AzureRmApplicationGateway -ApplicationGateway $gw

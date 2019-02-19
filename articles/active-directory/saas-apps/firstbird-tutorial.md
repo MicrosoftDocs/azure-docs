@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Firstbird
 

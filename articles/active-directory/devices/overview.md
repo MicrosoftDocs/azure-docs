@@ -19,6 +19,7 @@ ms.author: markvi
 ms.reviewer: jairoc
 #Customer intent: As a IT admin, I want to learn how to bring the devices that are accessing my resources under control, so that I can ensure that my users are accessing my resources from devices that meet my standards for security and compliance.
 
+ms.collection: M365-identity-device-management
 ---
 # What is device management in Azure Active Directory?
 

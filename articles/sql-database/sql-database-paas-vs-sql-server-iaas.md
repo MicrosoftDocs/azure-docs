@@ -158,6 +158,6 @@ For **SQL Server running on Azure VMs**, Microsoft provides an availability SLA 
 
 ## Next steps
 
-- See [Your first Azure SQL Database](sql-database-get-started-portal.md) to get started with SQL Database.
+- See [Your first Azure SQL Database](sql-database-single-database-get-started.md) to get started with SQL Database.
 - See [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 - See [Provision a SQL Server virtual machine in Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) to get started with SQL Server on Azure VMs.

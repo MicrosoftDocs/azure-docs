@@ -566,7 +566,7 @@ Contains information when a contract function is invoked, such as the function n
 | contractLedgerIdentifier    | Unique identifier for the contract on the ledger |
 | functionName                | Name of the function |
 | parameters                  | [Parameter information](#parameter-information) |
-| transaction                 | [Transaction information](#eventmessage-transaction-information) |
+| transaction                 | Transaction information |
 | inTransactionSequenceNumber | The sequence number of the transaction in the block |
 | connectionId                | Unique identifier for the connection |
 | messageSchemaVersion        | Messaging schema version |
