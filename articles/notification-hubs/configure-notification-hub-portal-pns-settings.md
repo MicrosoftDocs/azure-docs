@@ -32,7 +32,7 @@ If you select the **Certificate** authentication mode, follow these steps:
     
 1. Select **Sandbox** mode. Or, to send push notifications to users who purchased your app from the store, select **Production** mode.
 
-        ![Screenshot of APNS certificate configuration in Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+    ![Screenshot of APNS certificate configuration in Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
 If you select the **Token** authentication mode, follow these steps:
 
@@ -40,7 +40,7 @@ If you select the **Token** authentication mode, follow these steps:
 
 1. Select **Sandbox** mode. Or, to send push notifications to users who purchased your app from the store, select **Production** mode.
 
-        ![Screenshot of APNS token configuration in Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+    ![Screenshot of APNS token configuration in Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
 
 For for more information about how to push notifications to iOS devices by using Notification Hubs and APNS, see [Push notifications to iOS by using Azure Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md).
 
