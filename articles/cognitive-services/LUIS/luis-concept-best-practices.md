@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/19/2019
 ms.author: diberry
 ---
 # Best practices for building a language understanding app with Cognitive Services
@@ -71,7 +71,7 @@ For more information:
 * Concept: [Authoring cycle for your LUIS app](luis-concept-app-iteration.md)
 
 ## Do add phrase lists and patterns in later iterations
-[Phrase lists](luis-concept-feature.md) allow you to define dictionaries of words related to your app domain. Seed your phrase list with a few words then use the suggest feature so LUIS knows about more words in the vocabulary specific to your app. Don't add every word to the vocabulary since the phrase list isn't an exact match. 
+[Phrase lists](luis-concept-feature.md) allow you to define dictionaries of words related to your app domain. Seed your phrase list with a few words then use the suggest feature so LUIS knows about more words in the vocabulary specific to your app. A Phrase List improves intent detection and entity classification by boosting the signal associated with words or phrases that are significant to your app. Don't add every word to the vocabulary since the phrase list isn't an exact match. 
 
 Real user utterances from the endpoint, very similar to each other, may reveal patterns of word choice and placement. The [pattern](luis-concept-patterns.md) feature takes this word choice and placement along with regular expressions to improve your prediction accuracy. A regular expression in the pattern allows for words and punctuation you intend to ignore while still matching the pattern. 
 
