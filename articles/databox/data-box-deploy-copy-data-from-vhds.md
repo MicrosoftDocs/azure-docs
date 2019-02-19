@@ -28,10 +28,10 @@ Before you begin, make sure that:
 
 1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
 2. You've received your Data Box and the order status in the portal is **Delivered**.
-3. You're connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds will be impacted.
+3. You're connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds are affected.
 4. You've reviewed the:
 
-    - Supported [managed disk sizes in Azure object size limits](data-box-system-requirements.md#azure-object-size-limits).
+    - Supported [managed disk sizes in Azure object size limits](data-box-limits.md#azure-object-size-limits).
     - [Introduction to Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview.md). 
 
 ## Connect to Data Box
@@ -55,7 +55,7 @@ The following table shows the UNC paths to the shares on your Data Box.
 | SMB |`\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Premium SSD>\file1.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Standard HDD>\file2.vhd`<br> `\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Standard SSD>\file3.vhd`<br>`\\<DeviceIPAddress>\<ResourceGroupName_MDisk>\<Ultra SSD>\file4.vhd` |  
 | NFS |`//<DeviceIPAddress>/<ResourceGroup1_MDisk>/<Premium SSD>/file1.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Standard HDD>/file2.vhd`<br> `//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Standard SSD>/file3.vhd`<br>`//<DeviceIPAddress>/<ResourceGroupName_MDisk>/<Ultra SSD>/file4.vhd` |
 
-Based on whether use SMB or NFS to connect to Data Box shares, the steps to connect are different.
+Based on whether you use SMB or NFS to connect to Data Box shares, the steps to connect are different.
 
 > [!NOTE]
 > Connecting via REST is not supported for this feature.
@@ -64,7 +64,7 @@ Based on whether use SMB or NFS to connect to Data Box shares, the steps to conn
 
 If using a Windows Server host computer, follow these steps to connect to the Data Box.
 
-1. The first step is to authenticate and start a session. Go to **Connect and copy**. Click **Get credentials** to get the access credentials for the shares associated with your resource group.
+1. The first step is to authenticate and start a session. Go to **Connect and copy**. Click **Get credentials** to get the access credentials for the shares associated with your resource group. You can also get the access credentials from the **Device details** in the Azure portal.
 
     > [!NOTE]
     > The credentials for all the shares for managed disks are identical.
@@ -148,7 +148,7 @@ Wait for the copy jobs to finish. Make sure that the copy jobs have finished wit
 
 If there are errors during the copy process, download the logs from the **Connect and copy** page.
 
-- If you copied a file that is not 512 bytes aligned, the file will not be uploaded as page blob to your staging storage account. You will see an error in the logs. You will need to remove the file and copy a file that is 512 bytes aligned.
+- If you copied a file that is not 512 bytes aligned, the file isn't uploaded as page blob to your staging storage account. You will see an error in the logs. Remove the file and copy a file that is 512 bytes aligned.
 
 - If you copied a VHDX (these files are not supported) with a long name, you will see an error in the logs.
 
