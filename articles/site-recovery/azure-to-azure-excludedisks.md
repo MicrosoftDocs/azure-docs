@@ -34,7 +34,7 @@ Excluding disks from replication is often necessary because:
 
 ## How to exclude disks from replication?
 
-In the example in this article, a virtual machine in the East US region will be replicated to West US 2 region. The virtual machine being replicated is a virtual machine with an OS disk and a single data disk and the second data disk would be excluded. The name of the virtual machine used in the example is AzureDemoVM.
+In the example in this article, a virtual machine in the East US region will be replicated to West US 2 region. The virtual machine being replicated is a virtual machine with an OS disk and a two data disk and the third data disk would be excluded. The name of the virtual machine used in the example is AzureDemoVM.
 
 ## Get details of the virtual machine(s) to be replicated
 
@@ -71,7 +71,7 @@ $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 
 ## Replicate Azure virtual machine
 
-In the below example we have assumed you already have a cache storage account, replication policy and mappings.
+In the below example we have assumed that you already have a cache storage account, replication policy and mappings.
 
 
 Replicate the Azure virtual machine with **managed disks**.
@@ -92,7 +92,7 @@ $OSDiskReplicationConfig = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplica
          -DiskId $OSdiskId -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType
 
-# Data disk
+# Data disk 1
 $datadiskId1  = $vm.StorageProfile.DataDisks[0].ManagedDisk.id
 $RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0]. StorageAccountType
 $RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0]. StorageAccountType
@@ -101,9 +101,19 @@ $DataDisk1ReplicationConfig  = New-AzureRmRecoveryServicesAsrAzureToAzureDiskRep
          -DiskId $datadiskId1 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
 
+# Data Disk 2
+
+$datadiskId2  = $vm.StorageProfile.DataDisks[1].ManagedDisk.id
+$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[1]. StorageAccountType
+$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[1]. StorageAccountType
+
+$DataDisk2ReplicationConfig  = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
+         -DiskId $datadiskId2 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
+
 #Create a list of disk replication configuration objects for the disks of the virtual machine that are to be replicated.
 $diskconfigs = @()
-$diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
+$diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig, $DataDisk2ReplicationConfig
 
 
 #Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
