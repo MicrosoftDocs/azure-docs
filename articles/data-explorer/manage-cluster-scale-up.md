@@ -25,10 +25,7 @@ Sizing a cluster appropriately is critical to the performance of Azure Data Expl
 1. To change your SKU, select the SKU you want and press the **Select** button.
 
 > [!NOTE]
-> The scale up process can take a few minutes. During that time, your cluster will be suspended.
->
-> Scaling down can harm your cluster performance.
->
+> The scale up process can take a few minutes, and during that time your cluster will be suspended. Note that scaling down can harm your cluster performance.
 
 You've now performed a scale-up or scale-down operation for your Azure Data Explorer cluster. You can also do [cluster scale-out](manage-cluster-scale-out.md), also known as autoscale, to scale dynamically based on metrics that you specify.
 
