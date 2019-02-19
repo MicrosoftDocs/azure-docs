@@ -342,6 +342,12 @@ You are now ready to connect to your secure cluster.
 
 The **Service Fabric** PowerShell module provides many cmdlets for managing Service Fabric clusters, applications, and services.  Use the [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) cmdlet to connect to the secure cluster. The certificate SHA1 thumbprint and connection endpoint details are found in the output from the previous step.
 
+If you previously set up AAD client authentication, run the following: 
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10
+```
+
+If you did not setup AAD client authentication, run the following:
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
