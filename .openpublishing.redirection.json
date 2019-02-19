@@ -1,6 +1,11 @@
 {
     "redirections": [
-        {
+      {
+        "source_path": "articles/machine-learning/studio/consume-web-service-with-web-app-template.md",
+        "redirect_url": "/azure/machine-learning/studio/consume-web-services",
+        "redirect_document_id": false
+      },
+      {
           "source_path": "articles/machine-learning/studio/troubleshooting-retraining-models.md",
           "redirect_url": "/azure/machine-learning/studio/retrain-classic-web-service",
           "redirect_document_id": false
@@ -14718,6 +14723,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/backup/backup-upgrade-backup-vault.md",
+      "redirect_url": "/azure/backup/backup-azure-backup-faq",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/backup-azure-vms-first-look.md",
       "redirect_url": "/azure/backup/backup-azure-vms-first-look-arm",
       "redirect_document_id": false
@@ -29230,12 +29240,12 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/disks-ultra-ssd.md",
-      "redirect_url": "/azure/virtual-machines/windows/disks-types#ultra-disks-preview",
+      "redirect_url": "/azure/virtual-machines/windows/disks-types#ultra-ssd-preview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/disks-ultra-ssd.md",
-      "redirect_url": "/azure/virtual-machines/linux/disks-types#ultra-disks-preview",
+      "redirect_url": "/azure/virtual-machines/linux/disks-types#ultra-ssd-preview",
       "redirect_document_id": false
     },
     {
@@ -35097,7 +35107,12 @@
       "source_path":  "articles/azure-monitor/platform/dashboards.md",
       "redirect_url":  "/azure/azure-monitor/learn/tutorial-logs-dashboards",
       "redirect_document_id":  false
-    },    
+    },
+    {
+      "source_path":  "articles/azure-monitor/azure-monitor-rebrand.md",
+      "redirect_url":  "/azure/azure-monitor/terminology",
+      "redirect_document_id":  false
+    },
     {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
