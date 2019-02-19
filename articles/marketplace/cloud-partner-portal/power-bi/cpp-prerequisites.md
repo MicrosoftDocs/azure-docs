@@ -1,5 +1,5 @@
 ---
-title: Power BI app prerequisites - Azure Marketplace | Microsoft Docs
+title: Power BI App offer prerequisites - Azure Marketplace | Microsoft Docs
 description: Provides the prerequisites for publishing a Power BI app to AppSource.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 documentationcenter:
@@ -17,16 +17,16 @@ ms.date: 01/29/2019
 ms.author: pbutlerm
 ---
 
-# Power BI app prerequisites
+# Power BI App offer prerequisites
 
-This article provides the technical and business requirements that you need to meet before you can publish a Power BI app offer to the Microsoft AppSource marketplace.
+This article provides the technical and business requirements that you need to meet before you can publish a Power BI App offer to the AppSource marketplace.
 
 ## Technical requirements
 
 The main technical asset you'll need for this offer type is a [Power BI app](https://go.microsoft.com/fwlink/?linkid=2028636). For more
 information, see [Create Power BI technical assets](./cpp-create-technical-assets.md).
 
-After your service application is created and tested in Power BI, you should save the application installation URL that Power BI generates. You'll need it to [create a Power BI app offer](./cpp-create-offer.md).
+After your service application is created and tested in Power BI, you should save the application installation URL that Power BI generates. You'll need it to [create a Power BI App offer](./cpp-create-offer.md).
 
 ## Business requirements
 
@@ -44,4 +44,4 @@ The business requirements include procedural, contractual, and legal obligations
 
 ## Next steps
 
-After you've met all the requirements, you're ready to [create a Power BI app offer](./cpp-create-offer.md) in the Cloud Partner Portal.
+After you've met all the requirements, you're ready to [create a Power BI App offer](./cpp-create-offer.md) in the Cloud Partner Portal.

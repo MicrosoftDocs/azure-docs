@@ -1,5 +1,5 @@
 ---
-title: Power BI application offer - Azure Marketplace | Microsoft Docs
+title: Power BI App offer - Azure Marketplace | Microsoft Docs
 description: How to publish a Power BI app to the Microsoft AppSource marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 documentationcenter:
@@ -17,29 +17,29 @@ ms.date: 01/29/2019
 ms.author: pbutlerm
 ---
 
-# Power BI app offer
+# Power BI App offer
 
 |              |                                |
 |-|--------------------------------|
-| This section explains how to publish a Power BI app to the Microsoft [AppSource marketplace](https://appsource.microsoft.com/). A Power BI app packages Power BI content and uses dataflows to connect reports and dashboards to data in common data storage. The app can be then deployed to other tenants via AppSource. | ![Power BI icon](./media/powerbi-icon.png) |
+| This article explains how to publish a Power BI app to the Microsoft [AppSource marketplace](https://appsource.microsoft.com/). A Power BI app packages Power BI content and uses dataflows to connect reports and dashboards to data in common data storage. You can then deploy the app to other tenants via AppSource. | ![Power BI icon](./media/powerbi-icon.png) |
 
 
-This section is divided into these main parts:
+This article is divided into three main parts:
 
--   [Prerequisites](./cpp-prerequisites.md). The technical and business requirements for creating and publishing a Power BI app offer.
--   [Create a Power BI app offer](./cpp-create-offer.md). How to create a Power BI app offer entry by using the [Cloud Partner Portal](https://cloudpartner.azure.com).
--   [Publish a Power BI app offer](./cpp-publish-offer.md). How to submit a new offer to AppSource for publishing, and how to update an existing offer.
+-   [Prerequisites](./cpp-prerequisites.md). The technical and business requirements for creating and publishing a Power BI App offer.
+-   [Create a Power BI App offer](./cpp-create-offer.md). How to create a Power BI App offer entry by using the [Cloud Partner Portal](https://cloudpartner.azure.com).
+-   [Publish a Power BI App offer](./cpp-publish-offer.md). How to submit a new offer to AppSource for publishing, and how to update an existing offer.
 
 
 ## Publishing steps
 
-These are the high-level steps for publishing a Power BI app offer:
+Here are the high-level steps for publishing a Power BI App offer:
 
-![Power BI app publishing steps](media/publishing-steps.png)
+![Power BI App offer publishing steps](media/publishing-steps.png)
 
-This is the Power BI apps publishing process:
+Here's the Power BI App offer publishing process:
 
-1. Create a service application in Power BI. This generates a package installation URL, which represents the technical assets for the offer. For more information, see [What is Power BI?](https://go.microsoft.com/fwlink/?linkid=2028636).
+1. Create a service application in Power BI. This action generates a package installation URL, which represents the technical assets for the offer. For more information, see [What is Power BI?](https://go.microsoft.com/fwlink/?linkid=2028636).
 2. Collect or create the business assets, including:
     - Marketing materials.
     - Legal and support documents.
@@ -48,8 +48,8 @@ This is the Power BI apps publishing process:
     - The AppSource onboarding team tests, validates, and certifies your application. 
     - After the offer is certified, review it in its test environment and release it.
 
-After all these steps are performed, your app will go live on AppSource.
+After you've completed these steps, your Power BI App offer goes live on AppSource.
 
 ## Next steps
 
-Before you begin these steps, you must meet the [requirements](./cpp-prerequisites.md) for publishing a Power BI app to AppSource.
+Before you create your Power BI App offer and publish it to AppSource, you must meet the [requirements](./cpp-prerequisites.md) for publishing a Power BI app to AppSource.
