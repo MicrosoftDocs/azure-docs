@@ -9,7 +9,7 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 01/14/2019
+ms.date: 02/18/2019
 ms.author: cshoe
 ---
 
@@ -25,16 +25,16 @@ Here's a *function.json* file for this scenario.
 {
   "bindings": [
     {
-      "name": "order",
       "type": "queueTrigger",
       "direction": "in",
+      "name": "order",
       "queueName": "myqueue-items",
       "connection": "MY_STORAGE_ACCT_APP_SETTING"
     },
     {
-      "name": "$return",
       "type": "table",
       "direction": "out",
+      "name": "$return",
       "tableName": "outTable",
       "connection": "MY_TABLE_STORAGE_ACCT_APP_SETTING"
     }
@@ -79,7 +79,7 @@ public class Person
 }
 ```
 
-The same function.json file can be used with a JavaScript function:
+The same *function.json* file can be used with a JavaScript function:
 
 ```javascript
 // From an incoming queue message that is a JSON object, add fields and write to Table Storage
@@ -125,6 +125,9 @@ public class Person
 }
 ```
 
+You now have a working function that is triggered by Azure Table storage which outputs data to a queue.
+
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Azure Functions binding expression patterns](./functions-bindings-expressions-patterns.md)

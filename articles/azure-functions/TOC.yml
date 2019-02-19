@@ -78,14 +78,6 @@
       href: functions-triggers-bindings.md
     - name: Binding example
       href: functions-bindings-example.md
-    - name: Register binding extensions
-      href: functions-bindings-register.md
-    - name: Binding expression patterns
-      href: functions-bindings-expressions-patterns.md
-    - name: Use return values
-      href: functions-bindings-return-value.md
-    - name: Handle binding errors
-      href: functions-bindings-errors.md
   - name: Languages
     items:
     - name: Supported languages 
@@ -118,6 +110,14 @@
     items: 
      - name: Developer guide
        href: functions-reference.md
+     - name: Register binding extensions
+       href: functions-bindings-register.md
+     - name: Binding expression patterns
+       href: functions-bindings-expressions-patterns.md
+     - name: Use return values
+       href: functions-bindings-return-value.md
+     - name: Handle binding errors
+       href: functions-bindings-errors.md
      - name: Testing functions
        href: functions-test-a-function.md
      - name: Develop and debug locally
