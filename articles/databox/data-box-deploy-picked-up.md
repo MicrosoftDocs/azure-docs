@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 02/19/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -64,13 +64,17 @@ Verify that your data is uploaded to Azure before you delete it from the source.
 
     Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
 
-- Your managed disk resource group (s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation. You can go to the **Order details** in the Azure portal and make a note of the resource groups specified for managed disks.
+- Your managed disk resource group (s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation. 
 
-    ![Identify managed disk resource groups](media/data-box-deploy-copy-data-from-vhds/order-details-mananged-disk-res-groups.png)
+    - If your copy to managed disks in Azure was successful, you can go to the **Order details** in the Azure portal and make a note of the resource groups specified for managed disks.
 
-    You can then navigate to the resource group and locate your managed disks.
+        ![Identify managed disk resource groups](media/data-box-deploy-copy-data-from-vhds/order-details-mananged-disk-res-groups.png)
 
-    ![Managed disk attached to resource groups](media/data-box-deploy-copy-data-from-vhds/managed-disks-in-res-group.png)
+        Go to the noted resource group and locate your managed disks.
+
+        ![Managed disk attached to resource groups](media/data-box-deploy-copy-data-from-vhds/managed-disks-in-res-group.png)
+
+    - If you uploaded a VHDX, or a dynamic or differencing VHD, then the VHDX/VHD will be copied to the staging storage account but the conversion of VHD to managed disk will fail. Go to your staging **Storage account > Blobs** and then select the appropriate container - Standard SSD, Standard HDD, Premium SSD, or Ultra SSD. The VHDs are uploaded as page blobs in your staging storage account.
 
 ## Erasure of data from Data Box
  

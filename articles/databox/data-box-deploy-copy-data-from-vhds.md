@@ -1,18 +1,18 @@
 ---
-title: Copy data to  your Microsoft Azure Data Box from VHDs| Microsoft Docs
+title: Import data from VHDs and copy to managed disks with Microsoft Azure Data Box| Microsoft Docs
 description: Learn how to copy data from VHDs from on-premises VM workloads to your Azure Data Box
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/01/2019
+ms.date: 02/19/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises VM data from my server onto Azure.
 ---
-# Tutorial: Use Data Box to migrate on-premises VHDs to Azure
+# Tutorial: Use Data Box to migrate data to managed disks in Azure
 
-This tutorial describes how to use the Azure Data Box to migrate you on-premises VHDs to Azure. The VHDs from on-premises VMs are copied to Data Box as page blobs and are uploaded into Azure as managed disks. These managed disks can then be attached to Azure VMs.
+This tutorial describes how to use the Azure Data Box to migrate you on-premises VHDs to managed disks in Azure. The VHDs from on-premises VMs are copied to Data Box as page blobs and are uploaded into Azure as managed disks. These managed disks can then be attached to Azure VMs.
 
 In this tutorial, you learn how to:
 
@@ -29,6 +29,10 @@ Before you begin, make sure that:
 1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
 2. You've received your Data Box and the order status in the portal is **Delivered**.
 3. You're connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds will be impacted.
+4. You've reviewed the :
+
+    - Supported [managed disk sizes in Azure object size limits](data-box-system-reuirements.md#azure-object-size-limits).
+    - [Introduction to Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview.md) 
 
 ## Connect to Data Box
 
@@ -123,7 +127,9 @@ If you are using a Linux host computer, perform the following steps to configure
 
 ## Copy data to Data Box
 
-After you're connected to the data server, the next step is to copy data. Review the following considerations before you begin data copy:
+After you're connected to the data server, the next step is to copy data. The VHD file is copied to the staging storage account as page blob. The page blob is then converted to a managed disk and moved to a resource group.
+
+Review the following considerations before you begin data copy:
 
 - Always copy the VHDs to one of the precreated folders. If you copy the VHDs outside of these folders or in a folder that you created, the VHDs will be uploaded to Azure Storage account as page blobs and not managed disks.
 - Only the fixed VHDs can be uploaded to create managed disks. VHDX files or dynamic and differencing VHDs are not supported.
@@ -136,9 +142,19 @@ Depending on whether you are connecting via SMB or NFS, you can use:
 - [Copy data via SMB](data-box-deploy-copy-data.md#copy-data-to-data-box)
 - [Copy data via NFS](data-box-deploy-copy-data-via-nfs.md#copy-data-to-data-box)
 
-Wait for the copy jobs to finish. As some errors are only logged in the **Connect and copy** page, make sure that the copy jobs have finished with no errors before you go to the next step.
+Wait for the copy jobs to finish. Make sure that the copy jobs have finished with no errors before you go to the next step.
 
 ![No errors on **Connect and copy** page](media/data-box-deploy-copy-data-from-vhds/verify-no-errors-on-connect-and-copy.png)
+
+If there are errors during the copy process, download the logs from the **Connect and copy** page.
+
+- If you copied a file that is not 512 bytes aligned, the file will not be uploaded as page blob to your staging storage account. You will see an error in the logs. You will need to remove the file and copy a file that is 512 bytes aligned. 
+
+- If you copied a VHDX (these are not supported) with a long name, you will see an error in the logs.
+
+    ![Error in the logs from **Connect and copy** page](media/data-box-deploy-copy-data-from-vhds/errors-on-connect-and-copy.png)
+
+    Resolve the errors before you proceed to the next step.
 
 To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
     
