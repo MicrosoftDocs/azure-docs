@@ -2,7 +2,7 @@
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 2/19/2019
+ms.date: 2/20/2019
 ms.author: wolfma
 ---
 

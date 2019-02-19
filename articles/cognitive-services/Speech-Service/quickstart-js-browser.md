@@ -5,11 +5,10 @@ description: Learn how to recognize speech in JavaScript in a browser using the 
 services: cognitive-services
 author: fmegen
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/19/2019
+ms.date: 2/20/2019
 ms.author: fmegen
 ---
 

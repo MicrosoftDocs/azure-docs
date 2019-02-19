@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/19/2019
+ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
 ---
@@ -55,7 +55,7 @@ For stereo audio streams, the Batch transcription API splits the left and right 
 
 ### Configuration
 
-Parameters for the batch transcription are supplied in JSON formatted:
+Parameters for the batch transcription are supplied in JSON format:
 
 ```json
 {
@@ -89,75 +89,11 @@ The complete sample is available in the [GitHub sample repository](https://aka.m
 
 You have to customize the sample code with your subscription information, the service region, the SAS URI pointing to the audio file to transcribe, and model IDs in case you want to use a custom acoustic or language model. 
 
-  ```cs
-  // Replace with your subscription key
-  private const string SubscriptionKey = "<YourSubscriptionKey>";
-
-  // Update with your service region
-  private const string HostName = "<YourServiceRegion>.cris.ai";
-  private const int Port = 443;
-
-  // recordings and locale
-  private const string Locale = "en-US";
-  private const string RecordingsBlobUri = "URI pointing to an audio file stored Azure blob";
-
-  // For usage of baseline models, no acoustic and language model needs to be specified.
-  private static Guid[] modelList = new Guid[0];
-
-  // For use of specific acoustic and language models:
-  // - comment the previous line
-  // - uncomment the next lines and create an array containing the guids of your required model(s)
-  // private static Guid AdaptedAcousticId = new Guid("<id of the custom acoustic model>");
-  // private static Guid AdaptedLanguageId = new Guid("<id of the custom language model>");
-  // private static Guid[] modelList = new[] { AdaptedAcousticId, AdaptedLanguageId };
-  ```
+[!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 
 The sample code will setup the client and submit the transcription request. It will then poll for status information and print details about the transcription progress.
 
-  ```cs
-  // get all transcriptions for the user
-  transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
-
-  // for each transcription in the list we check the status
-  foreach (var transcription in transcriptions)
-  {
-      switch(transcription.Status)
-      {
-          case "Failed":
-          case "Succeeded":
-              // we check to see if it was one of the transcriptions we created from this client.
-              if (!createdTranscriptions.Contains(transcription.Id))
-              {
-                  // not created from here, continue
-                  continue;
-              }
-
-              completed++;
-
-              // if the transcription was successful, check the results
-              if (transcription.Status == "Succeeded")
-              {
-                  var resultsUri = transcription.ResultsUrls["channel_0"];
-                  WebClient webClient = new WebClient();
-                  var filename = Path.GetTempFileName();
-                  webClient.DownloadFile(resultsUri, filename);
-                  var results = File.ReadAllText(filename);
-                  Console.WriteLine("Transcription succeeded. Results: ");
-                  Console.WriteLine(results);
-              }
-              break;
-
-          case "Running":
-              running++;
-              break;
-
-          case "NotStarted":
-              notStarted++;
-              break;
-          }
-      }
-  }
-  ```
+[!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchstatus)]
 
 For full details about the preceding calls, see our [Swagger document](https://westus.cris.ai/swagger/ui/index). For the full sample shown here, go to [GitHub](https://aka.ms/csspeech/samples) in the `samples/batch` subdirectory.
 
@@ -174,7 +110,7 @@ Currently, the only storage supported is Azure Blob storage.
 
 ## Download the sample
 
-You can find the sample in the `sample/batch` directory in the [GitHub sample repository](https://aka.ms/csspeech/samples).
+You can find the sample in the `samples/batch` directory in the [GitHub sample repository](https://aka.ms/csspeech/samples).
 
 > [!NOTE]
 > Batch transcription jobs are scheduled on a best effort basis, there is no time estimate when a job will change into the running state. Once in running state, the actual transcription is processed faster than the audio real time.
