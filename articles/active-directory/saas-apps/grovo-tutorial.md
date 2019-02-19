@@ -94,7 +94,7 @@ To configure Azure AD single sign-on with Grovo, perform the following steps:
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set-up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -154,7 +154,7 @@ To configure Azure AD single sign-on with Grovo, perform the following steps:
 
 	g. Click **Save**.
 
-8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+8. On the **Set-up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
@@ -170,7 +170,7 @@ To configure Azure AD single sign-on with Grovo, perform the following steps:
 
 ### Configure Grovo Single Sign-On
 
-1. In a different web browser window, log in to Grovo as Administrator.
+1. In a different web browser window, sign in to Grovo as Administrator.
 
 2. Go to **Admin** > **Integrations**.
  
