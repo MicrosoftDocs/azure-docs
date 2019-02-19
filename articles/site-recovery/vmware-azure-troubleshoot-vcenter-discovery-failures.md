@@ -11,11 +11,11 @@ ms.author: v-doglov
 ---
 # Troubleshoot vCenter discovery failures
 
-This article helps you troubleshoot issues that occur due to VMware vCenter discovery failures.
+This article helps you to troubleshoot issues that occur because of VMware vCenter discovery failures.
 
 ## vCenter disconnected due non-numeric values in the  snapshot.maxSnapShots property
 
-On versions prior to 9.20, vCenter disconnects when it retrieves a non-numeric values for the property  `snapshot.maxSnapShots` property on a VM.
+On versions prior to 9.20, vCenter disconnects when it retrieves a non-numeric value for the property  `snapshot.maxSnapShots` property on a VM.
 
 This issue is identified by error ID 95126.
 
@@ -35,14 +35,14 @@ Or
 
 ## Proxy configuration issues for vCenter connectivity
 
-vCenter Discovery honors the System default proxy settings configured by the System user. The DRA service honors proxy settings provided by the user during the installation of configuration server using the unified setup installer or OVA template. 
+vCenter Discovery honors the System default proxy settings configured by the System user. The DRA service honors the proxy settings provided by the user during the installation of configuration server using the unified setup installer or OVA template. 
 
-In general, the proxy is used to communicate to public networks; such as communicating with Azure. If the proxy is configured and vCenter is in a local environment, it will not be able to communicate with DRA.
+In general, the proxy is used to communicate to public networks; such as communicating with Azure. If the proxy is configured and vCenter is in a local environment, it won't be able to communicate with DRA.
 
-he following situations occur when this issue is encountered:
+The following situations occur when this issue is encountered:
 
-- The vCenter server <vCenter> is not reachable due to the error: The remote server returned an error: (503) Server Unavailable
-- The vCenter server <vCenter> is not reachable due to the error: The remote server returned an error: Unable to connect to the remote server.
+- The vCenter server <vCenter> is not reachable because of the error: The remote server returned an error: (503) Server Unavailable
+- The vCenter server <vCenter> is not reachable because of the error: The remote server returned an error: Unable to connect to the remote server.
 - Unable to connect to vCenter/ESXi server.
 
 To resolve the issue:
@@ -70,7 +70,7 @@ For DRA proxy configuration:
    
    **DRCONFIGURATOR.EXE /configure /AddBypassUrls [IP Address/FQDN of vCenter Server provided at the time of add vCenter]**
 
-4. Restart the DRA (Microsoft Azure Site Recovery Service) service.
+4. Restart the DRA provider service.
 
 Next steps
 
