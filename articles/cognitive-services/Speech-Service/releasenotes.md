@@ -17,12 +17,40 @@ ms.custom: seodec18
 
 ## Speech SDK 1.3.0: 2019-February release
 
-TODO
+**New Features**
 
+* The Speech SDK supports selection of the input microphone through the AudioConfig class. This allows to stream audio data to the Speech Service from a non-default microphone. For more details see the documentation describing [audio input device selection](https://aka.ms/csspeech/microphone-selection). This is not yet available from JavaScript.
+* The Speech SDK now supports Unity in a beta version. Please provide feedback through the issue section in the [GitHub sample repository](https://aka.ms/csspeech/samples). This release supports Unity on Windows x86 and x64 (desktop or Universal Windows Platform applications), and Android (ARM32/64, x86). More information is available in our [Unity quickstart](quickstart-csharp-unity.md).
+
+**Samples**
+
+The following new content is available in our [sample repository](https://aka.ms/csspeech/samples):
+
+* Additional samples for AudioConfig.FromMicrophoneInput.
+* Additional Python samples for intent recognition and translation.
+* Additional samples for using the Connection object in iOS.
+* Additional Java samples for translation with audio output.
+* New sample for use of the [Batch Transcription REST API](batch-transcription.md).
+
+**Improvements / Changes**
+
+* Windows DLLs do now contain a version resource.
 * Python
-  * The Speech SDK for Python, in beta since version 1.2.0, is now considered stable.
-  * Support for 32-bit Python on Windows has been added.
-  * etc.
+  * Improved parameter verification and error messages in SpeechConfig.
+  * Expose the Connection object.
+  * Support for 32-bit Python (x86) on Windows.
+  * The Speech SDK for Python is out of beta.
+* iOS
+  * The SDK is now built against the iOS SDK version 12.1.
+  * The SDK now supports iOS versions 9.2 and later.
+  * Improve reference documentation and fix several property names.
+
+**Bug fixes**
+
+* Empty proxy username and proxy password were not handled correctly. With this release, if you set proxy username and proxy password to an empty string, they will not be submitted when connecting to the proxy.
+* SessionId's created by the SDK were not always truly random for some languages&nbsp;/ environments. Added random generator initialization to fix this.
+* Improve handling of authorization token. If you want to use an authorization token, specify in the SpeechConfig and leave the subscription key empty. Then create the recognizer as usual.
+* In some cases the Connection object wasn't released correctly. This has been fixed.
 
 ## Speech SDK 1.2.1
 

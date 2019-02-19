@@ -169,7 +169,7 @@ sections:
         - href:
         - href: quickstart-js-node
         - href:
-      - title: Devices SDK (ARM64)
+      - title: Devices SDK (ARM32)
         values:
         - href:
         - href:
