@@ -78,7 +78,7 @@ Back up Linux Azure VMs with DPM/MABS | Not supported.
 
 ## Operating system support (Linux)
 
-For Azure VM Linux backups, Azure Backup supports the list of Linux [distributions endorsed by Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros). Note that:
+For Azure VM Linux backups, Azure Backup supports the list of Linux [distributions endorsed by Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). Note that:
 
 - Azure Backup doesn't support Core OS Linux.
 - Azure Backup doesn't support 32-bit operating systems.
