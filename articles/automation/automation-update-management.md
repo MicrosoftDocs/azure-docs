@@ -183,7 +183,7 @@ A scan is performed every 3 hours for each managed Linux computer.
 
 It can take between 30 minutes and 6 hours for the dashboard to display updated data from managed computers.
 
-The average Log Analytics data usage for a machine using Update Management is approximately 25MB per month. This value is only an approximation, and is subject to change based on your environment. It's recommended that you monitor your environment to see the exact usage that you have.
+The average Log Analytics data usage for a machine using Update Management is approximately 25MB per month. This value is only an approximation and is subject to change based on your environment. It's recommended that you monitor your environment to see the exact usage that you have.
 
 ## <a name="viewing-update-assessments"></a>View update assessments
 
