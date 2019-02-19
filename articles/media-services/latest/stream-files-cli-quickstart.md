@@ -178,8 +178,8 @@ You get a response similar to this:
 
 In Media Services v3, when you submit Jobs to process your videos, you have to tell Media Services where to find the input video. One of the options is to specify an HTTPS URL as a job input (as shown in this example). 
 
-When you run `az ams job start`, you can set a label on the job's output. The label is used to identify what is this output asset for. This information could be useful in post "media processing" steps. 
- 
+When you run `az ams job start`, you can set a label on the job's output. The label can later be used to identify what this output asset is for. 
+
 - If you assign a value to the label, set ‘--output-assets’ to “assetname=label”
 - If you do not assign a value to the label, set ‘--output-assets’ to “assetname=”.
   Notice that you add "=" to the `output-assets`. 
