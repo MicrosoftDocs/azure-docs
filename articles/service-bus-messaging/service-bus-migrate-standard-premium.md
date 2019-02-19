@@ -95,8 +95,10 @@ To migrate your Service Bus Standard namespace to Premium using the CLI or Power
 
     The migration is considered complete when
     1. MigrationState = "Active"
+
     2. pendingReplicationsOperationsCount = 0
-    3. provisioningState = Succeeded
+
+    3. provisioningState = "Succeeded"
     
     This command also displays the migration configuration. Please double check to ensure that the values are set as previous declared.
     
@@ -104,18 +106,38 @@ To migrate your Service Bus Standard namespace to Premium using the CLI or Power
 
 5. Commit the migration by executing the Complete command below
    ```
-   az servicebus migration complete --resource-group $resourceGroup --name $standardMamespace
+   az servicebus migration complete --resource-group $resourceGroup --name $standardNamespace
    ```
 
 ### Migrate using Azure Portal
 
 ## FAQs
 
+#### What happens when the migration is committed?
+
+After the migration is committed, the connection string that pointed to the Standard namespace will point to the Premium namespace.
+
+The sender and receiver applications will disconnect from the Standard Namespace and reconnect to the Premium namespace automatically.
+
 #### What do I do after the Standard to Premium migration is complete?
+
+The Standard to Premium migration ensures that the entity metadata (topics, subscriptions, filters, et al.) are copied over from the Standard to Premium namespace. The message data that was committed to the Standard namespace is not copied over from the Standard to Premium namespace.
+
+Due to this, the Standard namespace may have some messages that were sent and committed while the migration was underway. These messages must be manually drained from the Standard Namespace and sent over to the Premium Namespace manually.
+
+To do this, you ***must*** use a console app or script that drain the Standard namespace entities using the **Post Migration DNS name** that you specified in the migration commands and then send these messages on the Premium Namespace, so that they can be processed by the receivers.
+
+Once the messages have been drained, please proceed to delete the Standard namespace.
+
+>[!IMPORTANT]
+> Please note that once the messages from the Standard namespace have been drained, you **must** delete the Standard namespace.
+>
+> This is important because the connection string that initially referred to the Standard namespace now actually refers to the Premium namespace. You won't be needing this Standard Namespace anymore.
+>
+> Deleting the Standard namespace that you migrated helps reduces the confusion at a later date. 
 
 #### How much downtime do I expect?
 
 #### Do I have to make any configuration changes while performing the migration?
 
 #### I don't want to have to drain the messages. What do I do?
-
