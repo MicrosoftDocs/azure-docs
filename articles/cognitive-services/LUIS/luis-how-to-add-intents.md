@@ -8,7 +8,7 @@ manager: cgronlun
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 02/19/2019
 ms.author: diberry
 ms.service: cognitive-services
 ---
@@ -44,6 +44,9 @@ An utterance in an intent might have an intent prediction discrepancy between th
 ![Screenshot of Intents details page, with utterance prediction discrepancy errors](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
 In the top navigation, select **Train**. The prediction discrepancy is now gone.
+
+> [!Note]
+> When a red line is under a word or phrase in the example utterance, an [entity prediction descrepancy error](luis-how-to-add-example-utterances.md#entity-status-predictions) has occurred. You need to correct it. 
 
 ## Add a custom entity
 

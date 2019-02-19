@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 02/19/2019
 ms.author: diberry
 ---
 
@@ -113,6 +113,8 @@ Select the words that are underlined in red in the utterance.
 
 The entity box displays the **Entity status** with a red exclamation mark if there is a prediction discrepancy. To see the Entity status with information about the difference between labeled and predicted entities, select **Entity status** then select the item to the right.
 
+![Screenshot of Entity status selection](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
+
 The red-line can appear at any of the following times:
 
    * When an utterance is entered but before the entity is labeled
@@ -128,6 +130,9 @@ The following solutions help resolve the entity prediction discrepancy:
 |Unlabeled text|red underline|Incorrect prediction|The current utterances using this incorrect entity need to be reviewed across all intents. The current utterances have mistaught LUIS that this text is the predicted entity.
 |Correctly labeled text|blue entity highlight, red underline|Incorrect prediction|Provide more utterances with the correctly labeled entity in a variety of places and usages. The current utterances are either not sufficient to teach LUIS that this is the entity is or similar entities appear in the same context. Similar entity should be combined into a single entity so LUIS isn't confused. Another solution is to add a phrase list to boost the significance of the words. |
 |Incorrectly labeled text|blue entity highlight, red underline|Correct prediction| Provide more utterances with the correctly labeled entity in a variety of places and usages. 
+
+> [!Note]
+> When a red box is around the labeled intent in the row of the example utterance, an [intent prediction descrepancy error](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) has occurred. You need to correct it. 
 
 ## Other actions
 
