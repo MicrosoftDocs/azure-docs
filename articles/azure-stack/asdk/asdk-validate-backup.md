@@ -91,16 +91,20 @@ Next, copy your latest Azure Stack backup files to the newly created share. The 
 Finally, copy the decryption certificate (.pfx) to the certificate directory: `C:\CloudDeployment\Setup\Certificates\` and rename the file to `BackupDecryptionCert.pfx`.
 
 ## Deploy the ASDK in cloud recovery mode
-The **InstallAzureStackPOC.ps1** script is used to initiate cloud recovery. 
 
 > [!IMPORTANT]
-> ASDK installation supports exactly one network interface card (NIC) for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script.
+> 1. The current installer UI only supports encryption key. You can only validate backups from systems that continue to use encryption key. If the backup was encrypted on an integrated system or ASDK using certificate, you must use the PowerShell installer (**InstallAzureStackPOC.ps1**). 
+> 2. The PowerShell installer (**InstallAzureStackPOC.ps1**) supports encryption key or certificate.
+> 3. ASDK installation supports exactly one network interface card (NIC) for networking. If you have multiple NICs, make sure that only one is enabled (and all others are disabled) before running the deployment script.
 
-### Use the installer to deploy the ASDK in recovery mode
+### Use the installer UI to deploy the ASDK in recovery mode
 The steps in this section show you how to deploy the ASDK using a graphical user interface (GUI) provided by downloading and running the **asdk-installer.ps1** PowerShell script.
 
 > [!NOTE]
 > The installer user interface for the Azure Stack Development Kit is an open-sourced script based on WCF and PowerShell.
+
+> [!IMPORTANT]
+> The current installer UI only supports encryption key.
 
 1. After the host computer successfully boots into the CloudBuilder.vhdx image, sign in using the administrator credentials specified when you [prepared the development kit host computer](asdk-prepare-host.md) for ASDK installation. This should be the same as the development kit host local administrator credentials.
 2. Open an elevated PowerShell console and run the **&lt;drive letter>\AzureStack_Installer\asdk-installer.ps1** PowerShell script. The script might now be on a different drive than C:\ in the CloudBuilder.vhdx image. Click **Recover**.
@@ -133,17 +137,41 @@ The steps in this section show you how to deploy the ASDK using a graphical user
 
 
 ### Use PowerShell to deploy the ASDK in recovery mode
+
 Modify the following PowerShell commands for your environment and run them to deploy the ASDK in cloud recovery mode:
+
+**Use the InstallAzureStackPOC.ps1 script to initiate cloud recovery with encryption key.**
 
 ```powershell
 cd C:\CloudDeployment\Setup     
-$adminPass = Get-Credential Administrator
-$key = ConvertTo-SecureString "<Your backup encryption key>" -AsPlainText -Force ` 
-$certPass = Read-Host -AsSecureString  
+$adminpass = Read-Host -AsSecureString -Prompt "Local Administrator password"
+$certPass = Read-Host -AsSecureString -Prompt "Password for the external certificate"
+$backupstorecredential = Read-Host -AsSecureString -Prompt "Credential for backup share"
+$key = Read-Host -AsSecureString -Prompt "Your backup encryption key"
 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -BackupStorePath ("\\" + $env:COMPUTERNAME + "\AzSBackups") `
--BackupEncryptionKeyBase64 $key -BackupStoreCredential $adminPass -BackupId "<Backup ID to restore>" `
--TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass `
+ -BackupStorePath ("\\" + $env:COMPUTERNAME + "\AzSBackups") `
+ -BackupEncryptionKeyBase64 $key `
+ -BackupStoreCredential $backupstorecredential `
+ -BackupId "<Backup ID to restore>" `
+ -TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
+```
+
+**Use the InstallAzureStackPOC.ps1 script to initiate cloud recovery with decryption certificate.**
+
+```powershell
+cd C:\CloudDeployment\Setup     
+$adminpass = Read-Host -AsSecureString -Prompt "Local Administrator password"
+$certPass = Read-Host -AsSecureString -Prompt "Password for the external certificate"
+$backupstorecredential = Read-Host -AsSecureString -Prompt "Credential for backup share"
+$decryptioncertpassword  = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
+
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass `
+ -BackupStorePath ("\\" + $env:COMPUTERNAME + "\AzSBackups") `
+ -BackupDecryptionCertPassword $decryptioncertpassword `
+ -BackupStoreCredential $backupstorecredential `
+ -BackupId "<Backup ID to restore>" `
+ -TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
 ```
 
 ## Complete cloud recovery 
