@@ -124,8 +124,11 @@ $TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -N
 
 Once the start replication operation succeeds, virtual machine data is replicated to the recovery region.
 
+You can go to the Azure portal and under replicated items you can see the virtual machines getting replicated.
 The replication process starts by initially seeding a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the initial replication phase.
 
-Once initial replication completes, replication moves to the differential synchronization phase. At this point, the virtual machine is protected and a test failover operation can be performed on it. The replication state of the replicated item representing the virtual machine goes to the "Protected" state after initial replication completes.
+Once initial replication completes, replication moves to the differential synchronization phase. At this point, the virtual machine is protected. Click on the protected virtual machine> disks to see that if the disk is excluded or not.
 
-Monitor the replication state and replication health for the virtual machine by getting details of the replication protected item corresponding to it.
+## Next steps
+
+[Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.
