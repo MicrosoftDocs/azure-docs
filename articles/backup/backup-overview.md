@@ -83,10 +83,10 @@ Learn more about [how backup works](backup-architecture.md#architecture-back-up-
 **Machine** | **Backup method** | **Back up**
 --- | --- | ---
 **On-premises Windows VMs** | Run MARS agent | Back up files, folders, system state.<br/><br/> Linux machines not supported.
-**On-premises machines** | Back up to DPM/MABS | Back up anything that's protected by [DPM](backup-support-matrix-mabs-dpm.md#supported-backup-to-dpm) or [MABS](backup-support-matrix-mabs-dpm.md#supported-backup-to-mabs), including files/folders/shares/volumes, and app-specific data. 
+**On-premises machines** | Back up to DPM/MABS | Back up anything that's protected by [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) or [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs), including files/folders/shares/volumes, and app-specific data. 
 **Azure VMs** | Run Azure VM agent backup extension | Back up entire VM
 **Azure VMs** | Run MARS agent | Back up files, folders, system state.<br/><br/> Linux machines not supported.
-**Azure VMs** | Back up to MABS/DPM running in Azure | Back up anything that's protected by [MABS](backup-support-matrix-mabs-dpm.md#supported-backup-to-mabs) or [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807) including files/folders/shares/volumes, and app-specific data.
+**Azure VMs** | Back up to MABS/DPM running in Azure | Back up anything that's protected by [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) or [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807) including files/folders/shares/volumes, and app-specific data.
 
 ## What backup agents do I need?
 
