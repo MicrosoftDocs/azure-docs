@@ -5,7 +5,7 @@
  author: curtand
  ms.service: active-directory
  ms.topic: include
- ms.date: 11/06/2018
+ ms.date: 02/19/2019
  ms.author: curtand
  ms.custom: include file
 ---
@@ -22,3 +22,4 @@ Here are the usage constraints and other service limits for the Azure Active Dir
 | Access Panel |<ul><li>There is no limit to the number of applications that can be seen in the Access Panel per end user, for users assigned licenses for Azure AD Premium or the Enterprise Mobility Suite.</li><li>A maximum of 10 app tiles (examples: Box, Salesforce, or Dropbox) can be seen in the Access Panel for each end user for users assigned licenses for Free or Azure AD Basic editions of Azure Active Directory. This limit does not apply to Administrator accounts.</li></ul> |
 | Reports | A maximum of 1,000 rows can be viewed or downloaded in any report. Any additional data is truncated. |
 | Administrative units | An object can be a member of no more than 30 administrative units. |
+| Admin roles and permissions | <li>A group cannot be added as an owner<li>A group cannot be assigned to a role<li>Cannot change default user permissions beyond tenant switches (user settings in Azure AD) |
