@@ -46,7 +46,7 @@ An utterance in an intent might have an intent prediction discrepancy between th
 In the top navigation, select **Train**. The prediction discrepancy is now gone.
 
 > [!Note]
-> When a red line is under a word or phrase in the example utterance, an [entity prediction descrepancy error](luis-how-to-add-example-utterances.md#entity-status-predictions) has occurred. You need to correct it. 
+> When a red line is under a word or phrase in the example utterance, an [entity prediction error](luis-how-to-add-example-utterances.md#entity-status-predictions) has occurred. You need to correct it. 
 
 ## Add a custom entity
 
@@ -68,7 +68,7 @@ For information, see [Prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-
 
 ## Using the contextual toolbar
 
-When one or more example utterances is selected in the list, by checking the box to the left of an utterance, the toolbar above the utterance list allows you to perform the following actions:
+When one or more example utterances are selected in the list, by checking the box to the left of an utterance, the toolbar above the utterance list allows you to perform the following actions:
 
 * Reassign intent: move utterance(s) to different intent
 * Delete utterance(s)

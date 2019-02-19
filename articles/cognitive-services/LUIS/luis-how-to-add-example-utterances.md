@@ -66,7 +66,7 @@ Composite entities are created from existing **Entities** into a parent entity.
 
 Assuming the utterance, `Does John Smith work in Seattle?`, a composite utterance can return entity information of the employee name `John Smith`, and the location `Seattle` in a composite entity. The child entities must already exist in the app and be marked in the example utterance before creating the composite entity.
 
-1. To wrap the child entities into a composite entity, select the **first** labeled entity (left-most) in the utterance for the composite entity. A drop-down list appears showing the choices for this selection.
+1. To wrap the child entities into a composite entity, select the **first** labeled entity (left-most) in the utterance for the composite entity. A drop-down list appears to show the choices for this selection.
 
 1. Select **Wrap in composite entity** from the drop-down list. 
 
@@ -86,7 +86,7 @@ Assuming the utterance, `Does John Smith work in Seattle?`, a composite utteranc
 
 ## Add hierarchical entity
 
-A hierarchical entity is a category of contextually learned and conceptually-related entities. In the following example, the entity contains origin and destination locations. 
+A hierarchical entity is a category of contextually learned and conceptually related entities. In the following example, the entity contains origin and destination locations. 
 
 In the utterance `Move John Smith from Seattle to Cairo`, Seattle is the origin location and Cairo is the destination location. Each location is contextually different and learned from word order and word choice in the utterance.
 
@@ -132,7 +132,7 @@ The following solutions help resolve the entity prediction discrepancy:
 |Incorrectly labeled text|blue entity highlight, red underline|Correct prediction| Provide more utterances with the correctly labeled entity in a variety of places and usages. 
 
 > [!Note]
-> When a red box is around the labeled intent in the row of the example utterance, an [intent prediction descrepancy error](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) has occurred. You need to correct it. 
+> When a red box is around the labeled intent in the row of the example utterance, an [intent prediction error](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) has occurred. You need to correct it. 
 
 ## Other actions
 
