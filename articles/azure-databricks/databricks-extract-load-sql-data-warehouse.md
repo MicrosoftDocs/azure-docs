@@ -50,9 +50,9 @@ Complete these tasks before you begin this tutorial:
 
    There's a couple of specific things that you'll have to do as you perform the steps in that article.
 
-   :heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Blob Storage Contributor Role** to the service principal in the scope of the Data Lake Storage Gen2 storage account.
+   * When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Blob Storage Contributor Role** to the service principal in the scope of the Data Lake Storage Gen2 storage account.
 
-   :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, application ID, and authentication key values into a text file. You'll need those soon.
+   * When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, application ID, and authentication key values into a text file. You'll need those soon.
 
 * Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -62,12 +62,17 @@ Complete these tasks before you begin this tutorial:
 
    Before you begin, you should have these items of information:
 
-   :white_check_mark: The database name, database server name, user name, and password of your Azure SQL Data warehouse.
-   :white_check_mark: The access key of your blob storage account.
-   :white_check_mark: The name of your Data Lake Storage Gen2 storage account.
-   :white_check_mark: The tenant ID of your subscription.
-   :white_check_mark: The application ID of the app that you registered with Azure Active Directory (Azure AD).
-   :white_check_mark: The authentication key for the app that you registered with Azure AD.
+   :heavy_check_mark:  The database name, database server name, user name, and password of your Azure SQL Data warehouse.
+
+   :heavy_check_mark:  The access key of your blob storage account.
+
+   :heavy_check_mark:  The name of your Data Lake Storage Gen2 storage account.
+
+   :heavy_check_mark:  The tenant ID of your subscription.
+
+   :heavy_check_mark:  The application ID of the app that you registered with Azure Active Directory (Azure AD).
+
+   :heavy_check_mark:  The authentication key for the app that you registered with Azure AD.
 
 ## Create an Azure Databricks service
 
