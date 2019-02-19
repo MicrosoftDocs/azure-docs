@@ -2,14 +2,14 @@
 title: Upgrade to the latest generation of Azure SQL Data Warehouse | Microsoft Docs
 description: Upgrade Azure SQL Data Warehouse to latest generation of Azure hardware and storage architecture.
 services: sql-data-warehouse
-author: kevinvngo
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 11/26/2018
-ms.author: kevin
-ms.reviewer: igorstan
+ms.date: 02/19/2019
+ms.author: martinle
+ms.reviewer: jrasnick
 ---
 
 # Optimize performance by upgrading SQL Data Warehouse
@@ -26,7 +26,7 @@ This upgrade applies to Compute Optimized Gen1 tier data warehouses in [supporte
 ## Before you begin
 
 1. Check if your [region](gen2-migration-schedule#automated-schedule-and-region-availability-table) is supported for GEN1 to GEN2 migration. Note the automatic migration dates. To avoid conflicts with the automated process, plan your manual migration prior to the automated process start date.
-2. If you are in a region that is not uet supported, continue to check for your region to be added or  [upgrade using restore](#Upgrade-from-an-Azure-geographical-region-using-restore-through-the-Azure-portal) to a supported region.
+2. If you are in a region that is not yet supported, continue to check for your region to be added or  [upgrade using restore](#Upgrade-from-an-Azure-geographical-region-using-restore-through-the-Azure-portal) to a supported region.
 3. If your region is supported, [upgrade through the Azure portal](#Upgrade-in-a-supported-region-using-the-Azure-portal)
 4. **Select the suggested performance level** for the data warehouse based on your current performance level on Compute Optimized Gen1 tier by using the mapping below:
 
@@ -121,11 +121,12 @@ Sign in to the [Azure portal](https://portal.azure.com/).
    The second step of the upgrade process is data migration ("Upgrading - Online"). Data migration is an online trickle background process. This process slowly moves columnar data from the old storage architecture to the new storage architecture using a local SSD cache. During this time, your data warehouse will be online for querying and loading. Your data will be available to query regardless of whether it has been migrated or not. The data migration happens at varying rates depending on your data size, your performance level, and the number of your columnstore segments. 
 
 5. **Optional Recommendation:** 
-  Once the scaling operation is complete, you can speed up the data migration background process. You can force data movement by running [Alter Index rebuild](sql-data-warehouse-tables-index) on all primary columnstore tables you'd be querying at a larger SLO and resource class. This operation is **offline** compared to the trickle background process, which can take hours to complete depending on the number and sizes of your tables. However, once complete data migration will be much quicker due to the new enhanced storage architecture with high-quality rowgroups. 
+  Once the scaling operation is complete, you can speed up the data migration background process. You can force data movement by running [Alter Index rebuild](sql-data-warehouse-tables-index.md) on all primary columnstore tables you'd be querying at a larger SLO and resource class. This operation is **offline** compared to the trickle background process, which can take hours to complete depending on the number and sizes of your tables. However, once complete, data migration will be much quicker due to the new enhanced storage architecture with high-quality rowgroups.
+ 
 > [!NOTE]
 > Alter Index rebuild is an offline operation and the tables will not be available until the rebuild completes.
 
-The following query generates the required Alter Index Rebuild commands to expedite the data migration process:
+The following query generates the required Alter Index Rebuild commands to expedite data migration:
 
 ```sql
 SELECT 'ALTER INDEX [' + idx.NAME + '] ON [' 
