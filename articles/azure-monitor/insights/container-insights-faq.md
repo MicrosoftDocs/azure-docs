@@ -32,7 +32,7 @@ RBAC enabled AKS clusters are currently not supported by the solution. The solut
 The log collection from containers in the kube-system namespace is disabled by default. Log collection can be enabled by setting an environment variable on the omsagent. For more information see the [Azure Monitor for containers](https://github.com/helm/charts/tree/master/incubator/azuremonitor-containers) GitHub page. 
 
 ## How do I update the omsagent to the latest released version?
-To learn how to upgrade the agent, see [Agent management](container-insights-manage-agent.md)
+To learn how to upgrade the agent, see [Agent management](container-insights-manage-agent.md).
 
 ## How do I enable multi-line logging?
 Currently Azure Monitor for containers doesn’t support multi-line logging, but there are workarounds available. You can configure all the services to write in JSON format and then Docker/Moby will write them as a single line.
