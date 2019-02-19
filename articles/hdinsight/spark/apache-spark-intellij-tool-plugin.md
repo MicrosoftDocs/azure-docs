@@ -113,7 +113,7 @@ Perform the following steps to install the Scala plugin:
     
         }
 
-    The code reads the data from HVAC.csv (available on all HDInsight Spark clusters), retrieves the rows that have only one digit in the seventh column in the CSV file, and writes the output to **/HVACOut** under the default storage container for the cluster.
+    The code reads the data from HVAC.csv (available on all HDInsight Spark clusters), retrieves the rows that have only one digit in the seventh column in the CSV file, and writes the output to `/HVACOut` under the default storage container for the cluster.
 
 ## Connect to your HDInsight cluster
 User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscription), or [link a HDInsight cluster](#link-a-cluster) using Ambari username/password or domain joined credential to connect to your HDInsight cluster.
@@ -157,11 +157,11 @@ You can link an HDInsight cluster by using the Apache Ambari managed username. S
   
         |Property |Value |
         |----|----|
-        |**Link Resource Type**|Select **HDInsight Cluster** from the drop-down list.|
-        |**Cluster Name/URL**| Enter cluster name.|
-        |**Authentication Type**| Leave as **Basic Authentication**|
-        |**User Name**| Enter cluster user name, default is admin.|
-        |**Password**| Enter password for user name.|
+        |Link Resource Type|Select **HDInsight Cluster** from the drop-down list.|
+        |Cluster Name/URL| Enter cluster name.|
+        |Authentication Type| Leave as **Basic Authentication**|
+        |User Name| Enter cluster user name, default is admin.|
+        |Password| Enter password for user name.|
     
         ![link hdinsight cluster dialog](./media/apache-spark-intellij-tool-plugin/link-hdinsight-cluster-dialog.png)
 
@@ -169,13 +169,13 @@ You can link an HDInsight cluster by using the Apache Ambari managed username. S
   
         |Property |Value |
         |----|----|
-        |**Link Resource Type**|Select **Livy Service** from the drop-down list.|
-        |**Livy Endpoint**| Enter Livy Endpoint|
-        |**Cluster Name**| Enter cluster name.|
-        |**Yarn Endpoint**|Optional.|
-        |**Authentication Type**| Leave as **Basic Authentication**|
-        |**User Name**| Enter cluster user name, default is admin.|
-        |**Password**| Enter password for user name.|
+        |Link Resource Type|Select **Livy Service** from the drop-down list.|
+        |Livy Endpoint| Enter Livy Endpoint|
+        |Cluster Name| Enter cluster name.|
+        |Yarn Endpoint|Optional.|
+        |Authentication Type| Leave as **Basic Authentication**|
+        |User Name| Enter cluster user name, default is admin.|
+        |Password| Enter password for user name.|
 
         ![link livy cluster dialog](./media/apache-spark-intellij-tool-plugin/link-livy-cluster-dialog.png)
 
@@ -200,17 +200,17 @@ After creating a Scala application, you can submit it to the cluster.
 
     |Property |Value |
     |----|----|
-    |**Spark clusters (Linux only)**|Select the HDInsight Spark cluster on which you want to run your application.|
-    |**Select an Artifact to submit**|Leave default setting.|
-    |**Main class name**|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**)  and choosing another class.|
-    |**Job configurations**|You can change the default keys and/or values. For more information, see [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
-    |**Command line arguments**|You can enter arguments separated by space for the main class if needed.|
-    |**Referenced Jars** and **Referenced Files**|You can enter the paths for the referenced Jars and files if any. For more information: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  See also, [How to upload resources to cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
-    |**Job Upload Storage**|Expand to reveal additional options.|
-    |**Storage Type**|Select **Use Azure Blob to upload** from the drop-down list.|
-    |**Storage Account**|Enter your storage account.|
-    |**Storage Key**|Enter your storage key.|
-    |**Storage Container**|Select your storage container from the drop-down list once **Storage Account** and **Storage Key** has been entered.|
+    |Spark clusters (Linux only)|Select the HDInsight Spark cluster on which you want to run your application.|
+    |Select an Artifact to submit|Leave default setting.|
+    |Main class name|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**)  and choosing another class.|
+    |Job configurations|You can change the default keys and/or values. For more information, see [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
+    |Command line arguments|You can enter arguments separated by space for the main class if needed.|
+    |Referenced Jars and Referenced Files|You can enter the paths for the referenced Jars and files if any. For more information: [Apache Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment).  See also, [How to upload resources to cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer).|
+    |Job Upload Storage|Expand to reveal additional options.|
+    |Storage Type|Select **Use Azure Blob to upload** from the drop-down list.|
+    |Storage Account|Enter your storage account.|
+    |Storage Key|Enter your storage key.|
+    |Storage Container|Select your storage container from the drop-down list once **Storage Account** and **Storage Key** has been entered.|
 
     ![The Spark Submission dialog box](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
 
@@ -272,11 +272,11 @@ Ensure you have satisfied the WINUTILS.EXE prerequisite.
 
 1. From the menu bar, navigate to **Run** > **Edit Configurations...**.
 
-2. From the left pane, navigate to **Apache Spark on HDInsight** > **[Spark on HDInsight] myApp**.
+2. From the **Run/Debug Configurations** window, in the left pane, navigate to **Apache Spark on HDInsight** > **[Spark on HDInsight] myApp**.
 
 3. From the main window, select the **Locally Run** tab.
 
-4. In the **Run/Debug Configuration** window, provide the following values, and then select **OK**:
+4. Provide the following values, and then select **OK**:
 
     |Property |Value |
     |----|----|
@@ -306,16 +306,16 @@ It is only supported on IntelliJ 2018.2 and 2018.3.
 
 1. From the menu bar, navigate to **Run** > **Edit Configurations...**.
 
-2. From the left pane, navigate to **Apache Spark on HDInsight** > **[Spark on HDInsight] myApp**.
+2. From the **Run/Debug Configurations** window, in the left pane, navigate to **Apache Spark on HDInsight** > **[Spark on HDInsight] myApp**.
 
 3. From the main window, select the **Remotely Run in Cluster** tab.
 
-4. Provide the following values and then select **OK**:
+4. Provide the following values, and then select **OK**:
 
     |Property |Value |
     |----|----|
-    |**Spark clusters (Linux only)**|Select the HDInsight Spark cluster on which you want to run your application.|
-    |**Main class name**|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**)  and choosing another class.|
+    |Spark clusters (Linux only)|Select the HDInsight Spark cluster on which you want to run your application.|
+    |Main class name|The default value is the main class from the selected file. You can change the class by selecting the ellipsis(**...**)  and choosing another class.|
 
     ![Interactive Console Set Configuration](./media/apache-spark-intellij-tool-plugin/interactive-console-configuration.png)
 
