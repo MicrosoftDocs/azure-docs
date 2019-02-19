@@ -19,7 +19,7 @@ terminals.
 
 ## Prerequisites
 
-- A VM with Enterprise Developer. See Set up Enterprise Server 4.0 and Enterprise Developer 4.0 on Azure. Keep in mind that Enterprise Developer has a complete instance of Enterprise Server on it for development and test purposes. This is the instance of Enterprise Server used for the demo.
+- A VM with [Enterprise Developer](set-up-micro-focus-on-azure.md). Keep in mind that Enterprise Developer has a complete instance of Enterprise Server on it for development and test purposes. This is the instance of Enterprise Server used for the demo.
 
 - [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express). Download and install it on the Enterprise Developer VM. Enterprise Server requires a database for the management of CICS regions, and the BankDemo application also uses a SQL Server database called BANKDEMO. This demo assumes you are using SQL Server Express for both databases. When installing, select the basic installation.
 
