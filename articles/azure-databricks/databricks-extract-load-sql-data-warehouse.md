@@ -57,6 +57,19 @@ Complete these tasks before you begin this tutorial:
 
 * Sign in to the [Azure portal](https://portal.azure.com/).
 
+## Gather the information that you need
+
+1. Make sure that you complete the prerequisites of this tutorial.
+
+   Before you begin, you should have these items of information:
+
+   :white_check_mark: The database name, database server name, user name, and password of your Azure SQL Data warehouse.
+   :white_check_mark: The access key of your blob storage account.
+   :white_check_mark: The name of your Data Lake Storage Gen2 storage account.
+   :white_check_mark: The tenant ID of your subscription.
+   :white_check_mark: The application ID of the app that you registered with Azure Active Directory (Azure AD).
+   :white_check_mark: The authentication key for the app that you registered with Azure AD.
+
 ## Create an Azure Databricks service
 
 In this section, you create an Azure Databricks service by using the Azure portal.
@@ -132,7 +145,13 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
-6. In this code block, replace the `application-id`, `authentication-id`, and `tenant-id` placeholder values in this code block with the values that you collected when you completed the steps in the Set aside storage account configuration. Replace the `storage-account-name` placeholder value with the name of your storage account. Set the `file-system-name` placeholder value to whatever name you want to give the file system.
+6. In this code block, replace the `application-id`, `authentication-id`, `tenant-id`, and `storage-account-name` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `file-system-name` placeholder value with whatever name you want to give the file system.
+
+   * The `application-id`, and `authentication-id` are from the app that you registered with active directory as part of creating a service principal.
+
+   * The `tenant-id` is from your subscription.
+
+   * The `storage-account-name` is the name of your Azure Data Lake Storage Gen2 storage account.
 
 7. Press the **SHIFT + ENTER** keys to run the code in this block.
 
@@ -299,8 +318,8 @@ As mentioned earlier, the SQL Data Warehouse connector uses Azure Blob storage a
    val dwPass = "<password>"
    val dwJdbcPort =  "1433"
    val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
-   val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
-   val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
+   val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ":" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
+   val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ":" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
    ```
 
 5. Run the following snippet to load the transformed dataframe, **renamedColumnsDF**, as a table in a SQL data warehouse. This snippet creates a table called **SampleTable** in the SQL database.
