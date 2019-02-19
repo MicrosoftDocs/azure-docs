@@ -16,16 +16,16 @@ ms.reviewer: jrasnick
 Upgrade Azure SQL Data Warehouse to latest generation of Azure hardware and storage architecture.
 
 ## Why upgrade?
-You can now seamlessly upgrade to the SQL Data Warehouse Compute Optimized Gen2 tier in the Azure portal for [supported regions](gen2-migration-schedule#automated-schedule-and-region-availability-table). If your region does not support self-upgrade, you can upgrade to a supported region or wait for self-upgrade to be available in your region. Upgrade now to take advantage of the latest generation of Azure hardware and enhanced storage architecture including faster performance, higher scalability, and unlimited columnar storage. 
+You can now seamlessly upgrade to the SQL Data Warehouse Compute Optimized Gen2 tier in the Azure portal for [supported regions](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). If your region does not support self-upgrade, you can upgrade to a supported region or wait for self-upgrade to be available in your region. Upgrade now to take advantage of the latest generation of Azure hardware and enhanced storage architecture including faster performance, higher scalability, and unlimited columnar storage. 
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## Applies to
-This upgrade applies to Compute Optimized Gen1 tier data warehouses in [supported regions](gen2-migration-schedule#automated-schedule-and-region-availability-table).
+This upgrade applies to Compute Optimized Gen1 tier data warehouses in [supported regions](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
 ## Before you begin
 
-1. Check if your [region](gen2-migration-schedule#automated-schedule-and-region-availability-table) is supported for GEN1 to GEN2 migration. Note the automatic migration dates. To avoid conflicts with the automated process, plan your manual migration prior to the automated process start date.
+1. Check if your [region](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) is supported for GEN1 to GEN2 migration. Note the automatic migration dates. To avoid conflicts with the automated process, plan your manual migration prior to the automated process start date.
 2. If you are in a region that is not yet supported, continue to check for your region to be added or [upgrade using restore](#Upgrade-from-an-Azure-geographical-region-using-restore-through-the-Azure-portal) to a supported region.
 3. If your region is supported, [upgrade through the Azure portal](#Upgrade-in-a-supported-region-using-the-Azure-portal)
 4. **Select the suggested performance level** for the data warehouse based on your current performance level on Compute Optimized Gen1 tier by using the mapping below:
@@ -237,7 +237,7 @@ $GeoRestoredDatabase.status
 The recovered database will be TDE-enabled if the source database is TDE-enabled.
 
 
-If you experience any issues with your data warehouse, create a [support request](sql-data-warehouse-get-started-create-support-ticket) and reference “Gen2 upgrade” as the possible cause.
+If you experience any issues with your data warehouse, create a [support request](sql-data-warehouse-get-started-create-support-ticket.md) and reference “Gen2 upgrade” as the possible cause.
 
 ## Next steps
 Your upgraded data warehouse is online. To take advantage of the enhanced architecture, see [Resource classes for Workload Management](resource-classes-for-workload-management.md).
