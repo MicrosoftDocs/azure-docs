@@ -60,7 +60,7 @@ Verify that your data is uploaded to Azure before you delete it from the source.
 
     Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
 
-- Your managed disk resource group (s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation. 
+- Your managed disk resource group(s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation. 
 
     - If your copy to managed disks in Azure was successful, you can go to the **Order details** in the Azure portal and make a note of the resource groups specified for managed disks.
 
@@ -74,7 +74,7 @@ Verify that your data is uploaded to Azure before you delete it from the source.
 
 ## Erasure of data from Data Box
  
-Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi). 
+Once the upload to Azure is complete, the Data Box erases the data on its disks as per the [NIST SP 800-88 Revision 1 guidelines](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi).
 
 ## Next steps
 
