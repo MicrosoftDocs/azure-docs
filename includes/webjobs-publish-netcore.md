@@ -17,7 +17,7 @@ ms.custom: include file
 
 1. In the **Create App Service** dialog, use the hosting settings as specified in the table below the image:
 
-    ![Create App Service dialog](./media/webjobs-sdk-get-started/app-service-dialog.png)
+    ![Create App Service dialog](./media/webjobs-publish-netcore/app-service-dialog.png)
 
     | Setting      | Suggested value  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
