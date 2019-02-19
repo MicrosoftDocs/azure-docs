@@ -34,11 +34,6 @@ To enable converged registration, complete the following steps:
 
 ![Enable the combined security info preview experience for All users in the Azure AD portal](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
-> [!IMPORTANT]
-> If a user is enabled for both the non-refreshed and refreshed combined registration experience, they will see the new experience. Users who are enabled for both experiences will only see the new My Profile experience. The new My Profile aligns with the look and feel of combined registration and provides a seamless experience for users. Users can see My Profile by going to [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
-
-![My Profile interface showing Security info and ability for user to setup SSPR or other additional security verification methods.](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
-
 > [!NOTE]
 > Once you enable combined registration, users who register or confirm their phone number or mobile app through the new experience can use them for MFA and SSPR, if those methods are enabled in the MFA and SSPR policies. If you then disable this experience, users who go to the previous SSPR registration page at [https:/aka.ms/ssprsetup](https:/aka.ms/ssprsetup) will be required to perform multi-factor authentication before they can access the page.
 

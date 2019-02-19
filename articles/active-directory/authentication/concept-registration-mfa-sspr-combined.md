@@ -28,21 +28,26 @@ Before enabling the new experience, review this administrator-focused documentat
 | Combined security information registration for Azure Multi-Factor Authentication and Azure AD self-service password reset is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
+> [!IMPORTANT]
+> If a user is enabled for both the original preview and the enhanced combined registration experience, they will see the new experience. Users who are enabled for both experiences will only see the new My Profile experience. The new My Profile aligns with the look and feel of combined registration and provides a seamless experience for users. Users can see My Profile by going to [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
+
+![My Profile interface showing Security info and ability for user to setup SSPR or other additional security verification methods.](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
+
 ## Methods available in converged registration
 
 At this time, combined registration supports the following methods and actions for those methods:
 
-|   | Register | Change | Delete | View |
-| --- | --- | --- | --- | --- |
-| Microsoft Authenticator | Yes (max 5) | No | Yes | Yes |
-| Other authenticator app | Yes (max 5) | No | Yes | Yes |
-| Hardware token | No | No | Yes | Yes |
-| Phone | Yes | Yes | Yes | Yes |
-| Alternate phone | Yes | Yes | Yes | Yes |
-| Office phone | No | No | No | Yes |
-| Email | Yes | Yes | Yes | Yes |
-| Security questions | Yes | No | Yes | Yes |
-| App passwords | Yes | No | Yes | Yes |
+|   | Register | Change | Delete |
+| --- | --- | --- | --- |
+| Microsoft Authenticator | Yes (max 5) | No | Yes |
+| Other authenticator app | Yes (max 5) | No | Yes |
+| Hardware token | No | No | Yes |
+| Phone | Yes | Yes | Yes |
+| Alternate phone | Yes | Yes | Yes |
+| Office phone | No | No | No |
+| Email | Yes | Yes | Yes |
+| Security questions | Yes | No | Yes |
+| App passwords | Yes | No | Yes |
 
 > [!NOTE]
 > App passwords are only available to users who have been enforced for MFA. App passwords are not available to users who are enabled for MFA via a conditional access policy.
