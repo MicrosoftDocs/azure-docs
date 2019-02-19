@@ -155,7 +155,7 @@
       href: text-analytics-module-tutorial.md
     - name: Migrate analytics from Excel to Studio
       href: linear-regression-in-azure.md
-  - name: Delete and/or export customer data
+  - name: Delete & export customer data
     items:
     - name: Studio data
       displayName: export
