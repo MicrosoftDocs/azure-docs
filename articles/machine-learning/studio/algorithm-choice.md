@@ -16,6 +16,10 @@ ms.date: 12/18/2017
 
 The answer to the question "What machine learning algorithm should I use?" is always "It depends." It depends on the size, quality, and nature of the data. It depends on what you want to do with the answer. It depends on how the math of the algorithm was translated into instructions for the computer you are using. And it depends on how much time you have. Even the most experienced data scientists can't tell which algorithm will perform best before trying them.
 
+Machine Learning Studio provides state-of-the-art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages, like Vowpal Wabbit, are also included. Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the complete list of [Machine Learning Modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/index).
+The documentation provides some information about each algorithm and how to tune parameters to optimize the algorithm for your use.  
+
+
 ## The Machine Learning Algorithm Cheat Sheet
 
 The **Microsoft Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Azure Machine Learning Studio library of algorithms.
@@ -40,10 +44,10 @@ rule-of-thumb recommendations, so don't worry about it being exact.
 Several data scientists I talked with said that the only sure way to
 find the very best algorithm is to try all of them.
 
-Here's an example from the [Azure AI Gallery](http://gallery.cortanaintelligence.com/) of an experiment that tries
+Here's an example from the [Azure AI Gallery](http://gallery.azure.ai/) of an experiment that tries
 several algorithms against the same data and compares the results:
 [Compare Multi-class Classifiers: Letter
-recognition](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92).
+recognition](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > To download an easy-to-understand infographic overview of machine learning basics to learn about popular algorithms used to answer common machine learning questions, see [Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md).
@@ -457,8 +461,6 @@ several languages.
 * For a list by category of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) in the Machine Learning Studio Algorithm and Module Help.
 
 * For a complete alphabetical list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list) in Machine Learning Studio Algorithm and Module Help.
-
-* You can download and print a diagram that gives an overview of the capabilities of Machine Learning Studio: [Microsoft Azure Machine Learning Studio Capabilities Overview (PDF)](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf).
 
 <!-- Media -->
 

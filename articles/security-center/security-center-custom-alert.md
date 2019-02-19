@@ -4,7 +4,7 @@ description: This document helps you to create custom alert rules in Azure Secur
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: f335d8c4-0234-4304-b386-6f1ecda07833

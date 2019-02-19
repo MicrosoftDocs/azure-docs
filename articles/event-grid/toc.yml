@@ -154,6 +154,8 @@
       href: event-schema-resource-groups.md
     - name: Service Bus
       href: event-schema-service-bus.md
+    - name: Azure Maps
+      href: event-schema-azure-maps.md
   - name: Template resources
     items:
     - name: Event subscriptions

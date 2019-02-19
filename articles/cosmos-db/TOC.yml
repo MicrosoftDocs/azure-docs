@@ -195,7 +195,7 @@
         href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
-  - name: Multi-model APIs
+  - name: Cassandra, MongoDB, and other APIs
     expanded: true
     items:
     - name: Azure Cosmos DB's API for MongoDB
@@ -416,8 +416,12 @@
       href: how-to-manage-database-account.md
     - name: Global distribution
       items:
+      - name: Configure multi-master
+        href: how-to-multi-master.md
       - name: Manage consistency levels
         href: how-to-manage-consistency.md
+      - name: Implement custom synchronization
+        href: how-to-custom-synchronization.md
       - name: Configure conflict resolution policies
         href: how-to-manage-conflicts.md
     - name: Provisioned throughput

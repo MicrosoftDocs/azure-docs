@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: The version 1 endpoint and authoring APIs are deprecated. Use this guide to understand how to migrate to version 2 endpoint  and authoring APIs. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding

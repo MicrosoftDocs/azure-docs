@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Shows how to get started using the Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 27B4B51A-D017-44C8-8E4E-9684DC553886
 ms.service: cognitive-services
 ms.subservice: bing-web-search

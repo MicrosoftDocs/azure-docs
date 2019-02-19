@@ -1,6 +1,6 @@
 ---
 title: Azure Data Lake Storage Gen2 Introduction
-description: Provides an overview of Azure Data Lake Storage Gen2
+description: Provides an overview of Azure Data Lake Storage Gen2 
 services: storage
 author: jamesbak
 
@@ -73,10 +73,10 @@ Several open source platforms support Data Lake Storage Gen2. Those platforms ap
 | Platform |  Supported Version(s) | More Information |
 | --- | --- | --- |
 | [HDInsight](https://azure.microsoft.com/services/hdinsight/) | 3.6+ | [What are the Apache Hadoop components and versions available with HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fazure%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
-| [Hadoop](https://hadoop.apache.org/) | 2.7+ | [Apache Hadoop releases archive](https://hadoop.apache.org/release.html) |
+| [Hadoop](https://hadoop.apache.org/) | 3.2+ | [Apache Hadoop releases archive](https://hadoop.apache.org/release.html) |
 | [Cloudera](https://www.cloudera.com/) | 6.1+ | [Cloudera Enterprise 6.x release notes](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
-| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 4.2+ | [Databricks Runtime versions](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
-|[Hortonworks](https://hortonworks.com/)| 2.6+ | [Hortonworks documentation](https://docs.hortonworks.com/) |
+| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1+ | [Databricks Runtime versions](https://docs.databricks.com/release-notes/runtime/databricks-runtime-ver.html) |
+|[Hortonworks](https://hortonworks.com/)| 3.1.x++ | [Configuring cloud data access](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
 ## Next steps
 
@@ -84,5 +84,4 @@ The following articles describe some of the main concepts of Data Lake Storage G
 
 -   [Hierarchical namespace](data-lake-storage-namespace.md)
 -   [Create a storage account](data-lake-storage-quickstart-create-account.md)
--   [Create an HDInsight cluster with Data Lake Storage Gen2](data-lake-storage-quickstart-create-connect-hdi-cluster.md)
 -   [Use a Data Lake Storage Gen2 account in Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md)

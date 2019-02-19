@@ -3,8 +3,8 @@ title: Problem signing in to the access panel website | Microsoft Docs
 description: Guidance to troubleshoot issues you may encounter while trying to sign in to use the Access Panel
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: daveba
+author: CelesteDG
+manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
@@ -14,8 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: celested
 ms.reviwer: japere,asteen
+ms.collection: M365-identity-device-management
 ---
 
 # Problem signing in to the access panel website

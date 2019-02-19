@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: The Speech service allows you to use a single request to receive audio and return LUIS prediction JSON objects. In this article, you download and use a C# project in Visual Studio to speak an utterance into a microphone and receive LUIS prediction information. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
