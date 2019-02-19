@@ -10,7 +10,7 @@ Here you will find the resources for PowerShell modules targeting Windows Virtua
 
 The Windows Virtual Desktop module is not yet located in the PowerShell Gallery. To download the Windows Virtual Desktop module:
 
-1. Download the [Windows Virtual Desktop module]() and save the package in a known location on your computer.
+1. Download the [Windows Virtual Desktop module](https://rdmipreview.blob.core.windows.net/preview/RDPowershell.zip?st=2019-02-18T19%3A04%3A00Z&se=2019-04-01T07%3A04%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=LY8yuQzKIMkaCFl0wgi0XboKefQHMW6lW1ZID%2BifqNw%3D) and save the package in a known location on your computer.
 2. Find the downloaded package. Right-click the zip file, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the module.
 3. Right-click the zip file, select **Extract all...**, choose a file location, then select **Extract**.
 
