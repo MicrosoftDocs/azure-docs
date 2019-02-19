@@ -146,7 +146,7 @@ You can install an IoT Edge module from either Azure Marketplace or the Azure po
 
 1. Choose whether to add the module to a new deployment or to a clone of an existing deployment; if cloning, select the existing deployment from the list.
 
-1. Select **Create** to continue the process of creating a deployment at scale. You'll be able to specify the same details as you would for any deployment, although details such as image URI, create options, and desired properties for the new module are predefined and can't be changed.
+1. Select **Create** to continue the process of creating a deployment at scale. You'll be able to specify the same details as you would for any deployment.
 
 ## Monitor a deployment
 

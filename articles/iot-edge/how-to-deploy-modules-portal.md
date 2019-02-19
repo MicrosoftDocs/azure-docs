@@ -100,7 +100,7 @@ You can install an IoT Edge module from either Azure Marketplace or the Azure po
 
 1. Enter the name of the device or select **Find Device** to browse among the devices registered with the hub.
 
-1. Select **Create** to continue the standard process of configuring a deployment manifest. You'll be able to edit container registry settings, add other modules, and specify routes, but details such as image URI, create options, and desired properties for the new module are predefined and can't be changed.
+1. Select **Create** to continue the standard process of configuring a deployment manifest, including adding other modules if desired. Details for the new module such as image URI, create options, and desired properties are predefined but can be changed.
 
 ## Next steps
 
