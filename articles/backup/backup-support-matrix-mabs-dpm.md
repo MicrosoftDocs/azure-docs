@@ -45,7 +45,7 @@ Backup works as follows:
 ## Supported scenarios 
 
 **Scenario** | **Agent** | **Location**
---- | --- | --- | ---
+--- | --- | ---
 **Back up of on-premises machines/workloads** | DPM/MABS protection agent on protected machine<br/><br/> MARS agent on MABS server | DPM server/MABS must be running on-premises
 **Back up of Azure VMs/workloads** | DPM/MABS protection agent on protected machine<br/><br/> MARS agent on DPM server/MABS | DPM server/MABS must be running on an Azure VM.
 
