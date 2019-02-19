@@ -186,9 +186,9 @@ To configure Azure AD single sign-on with Grovo, perform the following steps:
 
 	a. In the **Entity id** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
 
-	b. In the **Single sign on service endpoint** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+	b. In the **Single sign-on service endpoint** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
-	c. Select **Single sign on service endpoint binding** as `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`.
+	c. Select **Single sign-on service endpoint binding** as `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect`.
 	
 	d. Open the downloaded **Base64 encoded certificate** from Azure portal in notepad, paste it into the **Public key** textbox.
 
