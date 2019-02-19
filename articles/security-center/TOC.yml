@@ -94,8 +94,6 @@
     items:
     - name: Security alerts
       href: security-center-managing-and-responding-alerts.md
-    - name: Exporting alert logs to Log Analytics
-      href: security-center-alert-export.md
     - name: Security incidents
       href: security-center-incident.md
     - name: Understanding security alerts
