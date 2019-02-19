@@ -42,18 +42,35 @@ The following scenario **is not** supported when validating backups on the ASDK:
 ## Cloud recovery deployment
 Infrastructure backups from your integrated systems deployment can be validated by performing a cloud recovery deployment of the ASDK. In this type of deployment, specific service data is restored from backup after the ASDK is installed on the host computer.
 
-
-
 ### <a name="prereqs"></a>Cloud recovery prerequisites
 Before starting a cloud recovery deployment of the ASDK, ensure that you have the following information:
+
+**UI installer requirements**
+
+*Current UI installer only supports encryption key*
 
 |Prerequisite|Description|
 |-----|-----|
 |Backup share path|The UNC file share path of the latest Azure Stack backup that will be used to recover Azure Stack infrastructure information. This local share will be created during the cloud recovery deployment process.|
-|Backup encryption key|Optional. Only required if you have upgraded to Azure Stack version 1901 or later from a previous version of Azure Stack with backup enabled.|
 |Backup ID to restore|The backup ID, in the alphanumeric form of "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", that identifies the backup to be restored during cloud recovery.|
 |Time server IP|A valid time server IP, such as 132.163.97.2, is required for Azure Stack deployment.|
-|External certificate password|The password for the self-signed certificate's private key (.pfx) that was used to secure the backup.|
+|External certificate password|The password for the external certificate used by Azure Stack. The CA backup contains external certificates that need to be restored with this password.|
+|Backup encryption key|Required if you have upgraded to Azure Stack version 1901 or later and backup settings is still configured in with an encryption key. Encryption key is deprecated starting in 1901. The installer will support encryption key in backwards compatibility mode for at least 3 releases. Once you update backup settings to use a certificate, refer to the next table for required information.|
+
+|     |     | 
+
+**PowerShell installer requirements**
+
+*Current PowerShell installer supports encryption key or decryption certificate*
+
+|Prerequisite|Description|
+|-----|-----|
+|Backup share path|The UNC file share path of the latest Azure Stack backup that will be used to recover Azure Stack infrastructure information. This local share will be created during the cloud recovery deployment process.|
+|Backup ID to restore|The backup ID, in the alphanumeric form of "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", that identifies the backup to be restored during cloud recovery.|
+|Time server IP|A valid time server IP, such as 132.163.97.2, is required for Azure Stack deployment.|
+|External certificate password|The password for the external certificate used by Azure Stack. The CA backup contains external certificates that need to be restored with this password.|
+|Decryption certification password|Optional. Required only if the backup is encrypted using a certificate. The password is for the self-signed certificate's (.pfx) that contains the private key necessary to decrypt backup data.|
+|Backup encryption key|Optional. Required if you have upgraded to Azure Stack version 1901 or later and backup settings is still configured in with an encryption key. The installer will support encryption key in backwards compatibility mode for at least 3 releases. Once you update backup settings to use a certificate, you must provide the password for the decryption certificate.|
 |     |     | 
 
 ## Prepare the host computer 
@@ -70,6 +87,8 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 ```
 
 Next, copy your latest Azure Stack backup files to the newly created share. The folder structure within the share should be: `\\<ComputerName>\AzSBackups\MASBackup\<BackupID>\`.
+
+Finally, copy the decryption certificate (.pfx) to the certificate directory: `C:\CloudDeployment\Setup\Certificates\` and rename the file to `BackupDecryptionCert.pfx`.
 
 ## Deploy the ASDK in cloud recovery mode
 The **InstallAzureStackPOC.ps1** script is used to initiate cloud recovery. 
@@ -127,13 +146,27 @@ $certPass = Read-Host -AsSecureString
 -TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
 ```
 
-## Restore infrastructure data from backup
+## Complete cloud recovery 
 After a successful cloud recovery deployment, you need to complete the restore using the **Restore-AzureStack** cmdlet. 
 
 After logging in as the Azure Stack operator, [install Azure Stack PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) and run the following commands to specify the certificate and password to be used when restoring from backup:
 
+**Recovery mode with certificate file**
+
+> [!NOTE] 
+> Azure Stack deployment does not persist the decryption certificate for security reasons. You will need to provide the decryption certificate and associated password again.
+
 ```powershell
-Restore-AzsBackup -Name "<BackupID>"
+$decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
+Restore-AzsBackup -ResourceId "<BackupID>" `
+ -DecryptionCertPath "<path to decryption certificate with file name (.pfx)>" `
+ -DecryptionCertPassword $decryptioncertpassword
+```
+
+**Recovery mode with encryption key**
+```powershell
+$decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
+Restore-AzsBackup -ResourceId "<BackupID>"
 ```
 
 Wait 60 minutes after calling this cmdlet to start verification of backup data on the cloud recovered ASDK.

@@ -4440,6 +4440,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/automation/automation-runbook-input-parameters.md",
+      "redirect_url": "/azure/automation/runbook-input-parameters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-creating-importing-runbook.md",
+      "redirect_url": "/azure/automation/manage-runbooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-testing-runbook.md",
+      "redirect_url": "/azure/automation/manage-runbooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-starting-a-runbook.md",
+      "redirect_url": "/azure/automation/start-runbooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-pass-json-string.md",
+      "redirect_url": "/azure/automation/runbook-input-parameters",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/automation-scenario-source-control-integration-with-github-ent.md",
       "redirect_url": "/azure/automation/source-control-integration",
       "redirect_document_id": false
@@ -29205,12 +29230,12 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/disks-ultra-ssd.md",
-      "redirect_url": "/azure/virtual-machines/windows/disks-types#ultra-ssd-preview",
+      "redirect_url": "/azure/virtual-machines/windows/disks-types#ultra-disks-preview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/disks-ultra-ssd.md",
-      "redirect_url": "/azure/virtual-machines/linux/disks-types#ultra-ssd-preview",
+      "redirect_url": "/azure/virtual-machines/linux/disks-types#ultra-disks-preview",
       "redirect_document_id": false
     },
     {
