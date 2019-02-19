@@ -14,7 +14,7 @@ manager: carmonm
 
 You can use the [Azure Backup service](backup-overview.md) to back up on-premises machines and apps, and Azure VMs. This article summarizes support settings and limitations for backing up machines with the Microsoft Azure Recovery Services (MARS) agent.
 
-## About the MARS agent``
+## About the MARS agent
 
 The MARS agent is used by Azure Backup to back up data from on-premises machines and Azure VMs to a backup Recovery Services vault in Azure. The MARS agent can be used as follows:
 - Run the agent on on-premises Windows machines so that they can back up directly to a backup Recovery Services vault in Azure.
