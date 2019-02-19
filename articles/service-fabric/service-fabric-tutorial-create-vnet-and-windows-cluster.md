@@ -152,7 +152,11 @@ The [azuredeploy.parameters.json][parameters] parameters file declares many valu
 |sourceVaultValue||<p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the source vault value. For example, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
 ## Set up Azure Active Directory client authentication
-For clusters running on Azure, Azure Active Directory (Azure AD) client authentication is optional but recommended to secure access to management endpoints.  Setting up Azure AD to authenticate clients for a Service Fabric cluster must be done before [creating the cluster](#createvaultandcert).  Azure AD enables organizations (known as tenants) to manage user access to applications. 
+For Service Fabric clusters deployed in a public network hosted on Azure, the recommendation for client-to-node mutual authentication is:
+* Use Azure Active Directory for client identity
+* A certificate for server identity and SSL encryption of http communication
+
+Setting up Azure AD to authenticate clients for a Service Fabric cluster must be done before [creating the cluster](#createvaultandcert).  Azure AD enables organizations (known as tenants) to manage user access to applications. 
 
 A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) and [Visual Studio](service-fabric-manage-application-in-visual-studio.md). As a result, you create two Azure AD applications to control access to the cluster: one web application and one native application.  After the applications are created, you assign users to read-only and admin roles.
 
