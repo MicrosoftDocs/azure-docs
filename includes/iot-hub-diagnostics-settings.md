@@ -41,6 +41,7 @@
    * Twin operations
    * Job operations
    * Direct methods  
+   * Distributed tracing (preview)
 
 6. Save the new settings. 
 
