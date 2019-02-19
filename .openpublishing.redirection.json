@@ -35797,6 +35797,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/expressroute/expressroute-global-reach-app-scenario.md",
+      "redirect_url": "/azure/expressroute/expressroute-global-reach",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/classic/index.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/index",
       "redirect_document_id": false
