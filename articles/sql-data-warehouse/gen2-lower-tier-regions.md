@@ -28,22 +28,7 @@ Watch Azure SQL Data Warehouse Gen2 in action in this [Microsoft Mechanics video
 
 ## Supported regions for lower compute tiers
 
-- East US1 
-- East US2
-- West Europe
-- North Europe
-- West US2
-- Southeast Asia
-- Southcentral US
-- Central US 
-- East Asia
-- Japan East
-- India Central
-- Australia East
-- Australia Southeast
-- Canada Central
-- Japan West 
-- Canada Central
+[Supported region availability table](gen2-migration-schedule#automated-schedule-and-region-availability-table)
 
 ## Next steps
 
