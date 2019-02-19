@@ -117,7 +117,7 @@ Azure Machine Learning service also brings in new functionality such as Automate
 
 ## How do I migrate?
 
-Before you follow the steps in this migration guide that help map commands between the two services, we recommend that you spend some time getting familiar with the Azure Machine Learning service through its documentation](../machine-learning/service/overview-what-is-azure-ml.md) including the [tutorial in Python](../machine-learning/service/tutorial-train-models-with-aml.md).
+Before you follow the steps in this migration guide that help map commands between the two services, we recommend that you spend some time getting familiar with the Azure Machine Learning service through its [documentation](../machine-learning/service/overview-what-is-azure-ml.md) including the [tutorial in Python](../machine-learning/service/tutorial-train-models-with-aml.md).
 
 To avoid disruptions to your applications and to benefit from the latest features, take the following steps before March 31, 2019:
 
@@ -130,7 +130,7 @@ To avoid disruptions to your applications and to benefit from the latest feature
 1. Update your scripts to use the Azure Machine Learning Compute.
 
 
-### SDK
+### SDK migration
 
 Current SDK support in Azure Machine Learning service is through several Python SDKs. The main SDK gets updated roughly every two weeks and can be installed from PyPi using the following command:
 
@@ -143,10 +143,10 @@ Set up your environment and install the SDK using these [quickstart instructions
 Once you open a jupyter notebook with the kernel pointing to the relevant conda environment, here is how the commands in the two services map:
 
 
-### Create a workspace
+#### Create a workspace
 The concept of initializing a workspace using a configuration.json in BatchAI maps similarly to using a config file in Azure ML.
 
-For Batch AI, you did it this way:
+For **Batch AI**, you did it this way:
 
 ```python
 sys.path.append('../../..')
@@ -159,7 +159,7 @@ utils.config.create_resource_group(cfg)
 _ = client.workspaces.create(cfg.resource_group, cfg.workspace, cfg.location).result()
 ```
 
-Azure Machine Learning service:
+**Azure Machine Learning service**, try:
 
 ```python
 from azureml.core.workspace import Workspace
@@ -172,9 +172,9 @@ print('Workspace name: ' + ws.name,
 ```
 
 In addition, you can also create a Workspace directly by specifying the configuration parameters like
-from azureml.core import Workspace
 
 ```python
+from azureml.core import Workspace
 # Create the workspace using the specified parameters
 ws = Workspace.create(name = workspace_name,
                       subscription_id = subscription_id,
@@ -188,13 +188,13 @@ ws.get_details()
 ws.write_config()
 ```
 
-More detailed documentation on the AML Workspace class with the relevant functions is here.
+Learn more about the AML Workspace class in the [SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py).
 
 
 #### Create a compute cluster
-Azure Machine Learning supports multiple compute targets, some of which are managed by the service and others that can be attached to your workspace (eg. An HDInsight cluster or a remote VM, more information is available here). The concept of creating a BatchAI compute cluster maps to creating an AmlCompute cluster in Azure ML. The Amlcompute creation takes in a compute configuration similar to how you pass parameters in BatchAI. One thing to note is that autoscaling is on by default on your AmlCompute cluster whereas it is turned off by default in BatchAI.
+Azure Machine Learning supports multiple compute targets, some of which are managed by the service and others that can be attached to your workspace (eg. An HDInsight cluster or a remote VM. Read more about various [compute targets](../machine-learning/service/how-to-set-up-training-targets.md). The concept of creating a BatchAI compute cluster maps to creating an AmlCompute cluster in Azure ML. The Amlcompute creation takes in a compute configuration similar to how you pass parameters in BatchAI. One thing to note is that autoscaling is on by default on your AmlCompute cluster whereas it is turned off by default in BatchAI.
 
-For Batch AI, you did it this way:
+For **Batch AI**, you did it this way:
 
 ```python
 nodes_count = 2
@@ -214,7 +214,7 @@ parameters = models.ClusterCreateParameters(
 _ = client.clusters.create(cfg.resource_group, cfg.workspace, cluster_name, parameters).result()
 ```
 
-For Azure Machine Learning service, try:
+For **Azure Machine Learning service**, try:
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -241,20 +241,20 @@ except ComputeTargetException:
 gpu_cluster.wait_for_completion(show_output=True)
 ```
 
-More detailed documentation on the AmlCompute class with the relevant functions is here. Note that in the configuration above, only vm_size and max_nodes are mandatory, and the rest of the properties like VNets are for an advanced configuration.
+Learn more about the AMLCompute class in the [SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py). Note that in the configuration above, only vm_size and max_nodes are mandatory, and the rest of the properties like VNets are for advanced cluster setup only.
 
 
-### Monitoring status of your cluster
-This is more straightforward in Azure ML as below.
+#### Monitoring status of your cluster
+This is more straightforward in Azure ML as you will see below.
 
-For Batch AI, you did it this way:
+For **Batch AI**, you did it this way:
 
 ```python
 cluster = client.clusters.get(cfg.resource_group, cfg.workspace, cluster_name)
 utils.cluster.print_cluster_status(cluster)
 ```
 
-For Azure Machine Learning service, try:
+For **Azure Machine Learning service**, try:
 
 ```python
 gpu_cluster.get_status().serialize()
@@ -263,7 +263,7 @@ gpu_cluster.get_status().serialize()
 #### Getting reference to a Storage account
 The concept of a data storage like blob, gets simplified in Azure ML using the DataStore object. By default your Azure ML workspace creates a storage account, but you can attach your own storage also as part of workspace creation. 
 
-For Batch AI, you did it this way:
+For **Batch AI**, you did it this way:
 
 ```python
 azure_blob_container_name = 'batchaisample'
@@ -271,20 +271,20 @@ blob_service = BlockBlobService(cfg.storage_account_name, cfg.storage_account_ke
 blob_service.create_container(azure_blob_container_name, fail_on_exist=False)
 ```
 
-For Azure Machine Learning service, try:
+For **Azure Machine Learning service**, try:
 
 ```python
 ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 ```
 
-More information on registering additional storage accounts, or getting a reference to another registered datastore can be found here.
+Learn more about registering additional storage accounts, or getting a reference to another registered datastore in the [Azure ML service documentation](../machine-learning/service/how-to-access-data#create-a-datastore).
 
 
 #### Downloading and uploading data 
 With either service, you can upload the data into the storage account easily using the datastore reference from above. For BatchAI, we also deploy the training script as part of the fileshare, although you will see how you can specify it as part of your job configuration in the case of Azure ML.
 
-For Batch AI, you did it this way:
+For **Batch AI**, you did it this way:
 
 ```python
 mnist_dataset_directory = 'mnist_dataset'
@@ -300,7 +300,7 @@ blob_service.create_blob_from_path(azure_blob_container_name,
 ```
 
 
-For Azure Machine Learning service, try:
+For **Azure Machine Learning service**, try:
 
 ```python
 import os
@@ -317,14 +317,14 @@ path_on_datastore = ' mnist_dataset/mnist.npz' ds_data = ds.path(path_on_datasto
 #### Create an experiment
 As mentioned above Azure ML has a concept of an experiment similar to BatchAI. Each experiment can then have individual runs, similar to how we have jobs in BatchAI. Azure ML also allows you to have hierarchy under each parent run, for individual child runs.
 
-For Batch AI, you did it this way:
+For **Batch AI**, you did it this way:
 
 ```python
 experiment_name = 'tensorflow_experiment'
 experiment = client.experiments.create(cfg.resource_group, cfg.workspace, experiment_name).result()
 ```
 
-For Azure Machine Learning service, try:
+For **Azure Machine Learning service**, try:
 
 ```python
 from azureml.core import Experiment
@@ -335,9 +335,9 @@ experiment = Experiment(ws, name=experiment_name)
 
 
 #### Submit a job
-Once you create an experiment, you have a few different ways of submitting a run. In this example, we are trying to create a deep learning model using TensorFlow and will use an Azure ML Estimator to do that. An Estimator is simply a wrapper function on the underlying run configuration, which makes it easier to submit runs, and is currently supported for Pytorch and TensorFlow only. Through the concept of datastores, you will also see how easy it becomes to specify the mount paths 
+Once you create an experiment, you have a few different ways of submitting a run. In this example, we are trying to create a deep learning model using TensorFlow and will use an Azure ML Estimator to do that. An [Estimator](../machine-learning/service/how-to-train-ml-models) is simply a wrapper function on the underlying run configuration, which makes it easier to submit runs, and is currently supported for Pytorch and TensorFlow only. Through the concept of datastores, you will also see how easy it becomes to specify the mount paths 
 
-For Batch AI, you did it this way:
+For **Batch AI**, you did it this way:
 
 ```python
 azure_file_share = 'afs'
@@ -405,9 +405,9 @@ job = client.jobs.create(cfg.resource_group, cfg.workspace, experiment_name, job
 print('Created Job {0} in Experiment {1}'.format(job.name, experiment.name))
 ```
 
-The full information for this training code snippet (including the mnist_replica.py file that we had uploaded to the file share above) can be found in the BatchAI sample notebook github repo here.
+The full information for this training code snippet (including the mnist_replica.py file that we had uploaded to the file share above) can be found in the [BatchAI sample notebook github repo](https://github.com/Azure/BatchAI/tree/2238607d5a028a0c5e037168aefca7d7bb165d5c/recipes/TensorFlow/TensorFlow-GPU-Distributed).
 
-For Azure Machine Learning service, try:
+For **Azure Machine Learning service**, try:
 
 ```python
 from azureml.train.dnn import TensorFlow
@@ -430,7 +430,7 @@ estimator = TensorFlow(source_directory=project_folder,
                        use_gpu=True)
 ```
 
-The full information for this training code snippet (including the tf_mnist_replica.py file) can be found in the Azure ML sample notebook github repo here. The datastore itself can either be mounted on the individual nodes, or the training data can be downloaded on the node itself. More details on referencing the datastore in your estimator are here. 
+The full information for this training code snippet (including the tf_mnist_replica.py file) can be found in the [Azure ML sample notebook github repo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). The datastore itself can either be mounted on the individual nodes, or the training data can be downloaded on the node itself. More details on referencing the datastore in your estimator is in the [Azure ML service documentation](../machine-learning/service/how-to-access-data#access-datastores-for-training). 
 
 Submitting a run in Azure ML is through the submit function.
 
@@ -439,12 +439,12 @@ run = experiment.submit(estimator)
 print(run)
 ```
 
-There is another way of specifying parameters for your run, using a run config – especially useful for defining a custom training environment. You can find more details in this notebook example here. 
+There is another way of specifying parameters for your run, using a run config – especially useful for defining a custom training environment. You can find more details in this [sample AmlCompute notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-amlcompute/train-on-amlcompute.ipynb). 
 
 #### Monitor your run
 Once you submit a run, you can either wait for it to complete or monitor it in Azure ML using neat Jupyter widgets that you can invoke directly from your code. You can also pull context of any previous run by looping through the various experiments in a workspace, and the individual runs within each experiment.
 
-For Batch AI, you did it this way:
+For **Batch AI**, you did it this way:
 
 ```python
 utils.job.wait_for_job_completion(client, cfg.resource_group, cfg.workspace, 
@@ -457,7 +457,7 @@ for f in list(files):
 ```
 
 
-For Azure Machine Learning service, try:
+For **Azure Machine Learning service**, try:
 
 ```python
 run.wait_for_completion(show_output=True)
@@ -471,15 +471,15 @@ Here is a snapshot of how the widget would load in your notebook for looking at 
 
 
 
-#### Delete a cluster
+#### Editing a cluster
 Deleting a cluster is straightforward. In addition, Azure ML also allows you to update a cluster from within the notebook in case you want to scale it to a higher number of nodes or increase the idle wait time before scaling down the cluster. We don’t allow you to change the VM size of the cluster itself, since it requires a new deployment effectively in the backend.
 
-For Batch AI, you did it this way:
+For **Batch AI**, you did it this way:
 ```python
 _ = client.clusters.delete(cfg.resource_group, cfg.workspace, cluster_name)
 ```
 
-For Azure Machine Learning service, try:
+For **Azure Machine Learning service**, try:
 
 ```python
 gpu_cluster.delete()
@@ -489,13 +489,13 @@ gpu_cluster.update(min_nodes=2, max_nodes=4, idle_seconds_before_scaledown=600)
 
 ## Support
 
-BatchAI is slated to retire on March 31 and is already blocking new subscriptions from registering against the service unless it is whitelisted by raising an exception through support.  Reach out to Azure Batch AI Training Preview AzureBatchAITrainingPreview@service.microsoft.com with any questions or if you have feedback as you migrate to Azure Machine Learning service.
+BatchAI is slated to retire on March 31 and is already blocking new subscriptions from registering against the service unless it is whitelisted by raising an exception through support.  Reach out to us at [Azure Batch AI Training Preview](mailto:AzureBatchAITrainingPreview@service.microsoft.com) with any questions or if you have feedback as you migrate to Azure Machine Learning service.
 
-Azure Machine Learning service is a generally available service. This means that it comes with a committed SLA and various supports plans to choose from.
+Azure Machine Learning service is a generally available service. This means that it comes with a committed SLA and various support plans to choose from.
 
 Pricing for using Azure infrastructure  either through the BatchAI service or through the Azure Machine Learning service should not vary, as we only charge the price for the underlying compute in both cases. For more information, see the [pricing calculator](https://azure.microsoft.com/pricing/details/machine-learning-service/).
 
-Regional availability between the two services can be viewed here: https://azure.microsoft.com/global-infrastructure/services/?products=batch-ai,machine-learning-service&regions=all.
+View the regional availability between the two services on the [Azure portal](https://azure.microsoft.com/global-infrastructure/services/?products=batch-ai,machine-learning-service&regions=all).
 
 
 ## Next steps
@@ -504,4 +504,4 @@ Regional availability between the two services can be viewed here: https://azure
 
 + [Configure a compute target for model training](../machine-learning/service/how-to-set-up-training-targets.md) with Azure Machine Learning service.
 
-+ Review the [Azure roadmap](https://azure.microsoft.com/updates/) to learn of other  Azure service updates.
++ Review the [Azure roadmap](https://azure.microsoft.com/updates/) to learn of other Azure service updates.
