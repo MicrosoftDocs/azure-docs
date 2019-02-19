@@ -100,7 +100,7 @@ To configure Azure AD single sign-on with Gra-Pe, perform the following steps:
 
     ![Gra-Pe Domain and URLs single sign-on information](common/sp-signonurl.png)
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, type a URL:
     `https://btm.tts.co.jp/portal/apl/SSOLogin.aspx`
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
