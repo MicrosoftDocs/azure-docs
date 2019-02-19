@@ -74,7 +74,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
      Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MySecureRg' -VMName 'MySecureVM'
      ```
     
-- **Disable disk encryption:** To disable the encryption, use the [Disable-Azure​RmVMDisk​Encryption](/powershell/module/azurerm.compute/disable-azurermvmdiskencryption) cmdlet. Disabling data disk encryption on Windows VM when both OS and data disks have been encrypted doesn’t work as expected. Disable encryption on all disks using the -VolumeType "All" parameter for PowerShell, otherwise the disable command will fail.
+- **Disable disk encryption:** To disable the encryption, use the [Disable-AzVMDiskEncryption](/powershell/module/az.compute/Disable-AzVMDiskEncryption) cmdlet. Disabling data disk encryption on Windows VM when both OS and data disks have been encrypted doesn’t work as expected. Disable encryption on all disks using the -VolumeType "All" parameter for PowerShell, otherwise the disable command will fail.
 
      ```azurepowershell-interactive
       Disable-AzVMDiskEncryption -ResourceGroupName 'MySecureRG' -VMName 'MySecureVM' -VolumeType "all"
