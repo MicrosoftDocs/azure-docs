@@ -262,8 +262,9 @@
           href: mongodb-time-to-live.md
         - name: Manage data indexing
           href: mongodb-indexing.md
-        - name: Use the Spring Data MongoDB API
+        - name: Store and manage Spring Data 
           href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
+          maintainContext: true
     - name: Gremlin API
       items: 
       - name: Introduction
@@ -294,8 +295,9 @@
           href: bulk-executor-graph-dotnet.md
         - name: Graph data partitioning
           href: graph-partitioning.md
-        - name: Use the Spring Data Gremlin Starter
+        - name: Store and manage Spring Data 
           href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
+          maintainContext: true
     - name: Cassandra API
       items: 
       - name: Introduction
@@ -324,8 +326,9 @@
           href: cassandra-import-data.md
       - name: How-to guides
         items:
-        - name: Use the Spring Data Apache Cassandra API
+        - name: Store and manage Spring Data 
           href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db 
+          maintainContext: true
         - name: Cassandra & Spark
           items:
           - name: Introduction
@@ -547,7 +550,8 @@
       - name: Azure Event Hubs and Azure Storage
         href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
       - name: Use Spring Boot Starter
-        href: https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json
+        href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
+        maintainContext: true
       - name: Lambda architecture
         href: lambda-architecture.md 
       - name: Azure Databricks(Spark connector)
