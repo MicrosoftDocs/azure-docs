@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/19/2019
 ms.author: alkohli
 ---
 # Azure Data Box Disk limits
@@ -62,7 +62,8 @@ Here are the sizes of the Azure objects that can be written. Make sure that all 
 | Azure object type | Default limit                                             |
 |-------------------|-----------------------------------------------------------|
 | Block Blob        | ~ 4.75 TiB                                                 |
-| Page Blob         | 8 TiB <br> (Every file uploaded in Page Blob format must be 512 bytes aligned (an integral multiple), else the upload fails. <br> The VHD and VHDX are 512 bytes aligned.) |
+| Page Blob         | 8 TiB <br> (Every file uploaded in Page Blob format must be 512 bytes aligned, else the upload fails. <br> Both the VHD and VHDX are 512 bytes aligned.) |
+| Managed disks     |4 TiB <br> For more information on size and limits, see: <li>[Scalability targets of Standard SSDs](/azure/virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets)</li><li>[Scalability targets of Premium SSDs](/azure/virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)</li><li>[Scalability targets of Ultra SSDs](/azure/virtual-machines/windows/disks-ultra-ssd#scalability-and-performance-targets)</li><li>[Pricing and billing of managed disks](/azure/virtual-machines/windows/managed-disks-overview.md#pricing-and-billing) |
 
 
 ## Azure block blob and page blob naming conventions

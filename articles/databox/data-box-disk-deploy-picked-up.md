@@ -62,7 +62,29 @@ Once the copy is complete, order status updates to **Completed**.
 
 ![Data copy completed](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
 
-Verify that your data is in the storage account(s) before you delete it from the source. To verify that the data has uploaded into Azure, perform the following steps:
+Verify that your data is in the storage account(s) before you delete it from the source. Your data can be in:
+
+- Your Azure Storage account(s). When you copy the data to Data Box, depending on the type, the data is uploaded to one of the following paths in your Azure Storage account.
+
+    - For block blobs and page blobs: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+    - For Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+
+    Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
+
+- Your managed disk resource group(s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation.
+
+    - If your copy to managed disks in Azure was successful, you can go to the **Order details** in the Azure portal and make a note of the resource groups specified for managed disks.
+
+        ![Identify managed disk resource groups](media/data-box-deploy-copy-data-from-vhds/order-details-mananged-disk-res-groups.png)
+
+        Go to the noted resource group and locate your managed disks.
+
+        ![Managed disk attached to resource groups](media/data-box-deploy-copy-data-from-vhds/managed-disks-in-res-group.png)
+
+    - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a page blob but the conversion of VHD to managed disk fails. Go to your staging **Storage account > Blobs** and then select the appropriate container - Standard SSD, Standard HDD, Premium SSD, or Ultra SSD. The VHDs are uploaded as page blobs in your staging storage account.
+
+
+ To verify that the data has uploaded into Azure, perform the following steps:
 
 1. Go to the storage account associated with your disk order.
 2. Go to **Blob service > Browse blobs**. The list of containers is presented. Corresponding to the subfolder that you created under *BlockBlob* and *PageBlob* folders, containers with the same name are created in your storage account.
