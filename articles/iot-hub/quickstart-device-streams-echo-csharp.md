@@ -34,8 +34,7 @@ You can verify the current version of C# on your development machine using the f
 dotnet --version
 ```
 
-Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive. You will need it both device-side and service-side.
-
+Download the sample C# project from https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip and extract the ZIP archive. You will need it on both.
 
 ## Create an IoT hub
 
@@ -81,7 +80,6 @@ A device must be registered with your IoT hub before it can connect. In this qui
     Make a note of the returned value, which looks like this:
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
-    
 
 ## Communicate between device and service via device streams
 
@@ -91,8 +89,8 @@ Navigate to `iot-hub/Quickstarts/device-streams-echo/service` in your unzipped p
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
-| `ServiceConnectionString` | The service connection string of your IoT Hub. Replace ServiceConnectionString |
-| `DeviceId` | The identifier of the device you created earlier. Replace MyDevice |
+| `ServiceConnectionString` | Provide the service connection string of your IoT Hub. |
+| `DeviceId` | Provide the ID of the device you created earlier, e.g. MyDevice. |
 
 Compile and run the code as follows:
 
@@ -104,10 +102,10 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run "ServiceConnectionString" "MyDevice"
+dotnet run "<ServiceConnectionString>" "<MyDevice>"
 
 # In Windows
-dotnet run ServiceConnectionString MyDevice
+dotnet run <ServiceConnectionString> <MyDevice>
 ```
 
 *Note*: A timeout will occur if the device-side application does not respond in time.
@@ -118,7 +116,7 @@ Navigate to `iot-hub/Quickstarts/device-streams-echo/device` directory in your u
 
 | Parameter name | Parameter value |
 |----------------|-----------------|
-| `DeviceConnectionString` | The connection string of the device you created earlier. Replace DeviceConnectionString |
+| `DeviceConnectionString` | Provide the device connection string of your IoT Hub. |
 
 Compile and run the code as follows:
 
@@ -130,10 +128,10 @@ dotnet build
 
 # Run the application
 # In Linux/MacOS
-dotnet run "DeviceConnectionString"
+dotnet run "<DeviceConnectionString>"
 
 # In Windows
-dotnet run DeviceConnectionString
+dotnet run <DeviceConnectionString>
 ```
 
 At the end of the last step, the service-side program will initiate a stream to your device and once established will send a string buffer to the service over the stream. In this sample, the service-side program simply echos back the same data to the device, demonstrating successful bidirectional communication between the two applications. See figure below.
@@ -141,19 +139,14 @@ At the end of the last step, the service-side program will initiate a stream to 
 Console output on the device-side:
 ![alt text](./media/quickstart-device-streams-echo-csharp/device-console-output.png "Console output on the device-side")
 
-
 Console output on the service-side:
 ![alt text](./media/quickstart-device-streams-echo-csharp/service-console-output.png "Console output on the service-side")
 
-
-
 The traffic being sent over the stream will be tunneled through IoT Hub rather than being sent directly. This provides [these benefits](./iot-hub-device-streams-overview.md#benefits).
-
 
 ## Clean up resources
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
-
 
 ## Next steps
 
