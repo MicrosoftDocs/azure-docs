@@ -116,7 +116,7 @@ Customers can submit the request of listing an application by clicking **App req
 
 Below is the flow of customer requested applications-
 
-![Customer requested apps flow](./media/howto-app-gallery-listing/request-by-customer.png)
+![Customer requested apps flow](./media/howto-app-gallery-listing/customer-request.png)
 
 ## Timelines
 
