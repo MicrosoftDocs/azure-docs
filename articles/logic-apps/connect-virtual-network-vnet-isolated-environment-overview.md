@@ -51,6 +51,11 @@ For on-premises systems that aren't connected to a virtual network or
 don't have ISE-version connectors, you can connect to those systems 
 by [setting up and using the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md).
 
+> [!IMPORTANT]
+> Logic apps, built-in actions, and connectors that run in your ISE use 
+> a different pricing plan, not the consumption-based pricing plan. 
+> For more information, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
+
 <a name="difference"></a>
 
 ## Isolated versus global
@@ -93,10 +98,17 @@ while the other version runs in the global Logic Apps service.
 * Connectors that run in an ISE are also 
 available in the global Logic Apps service.
 
-> [!IMPORTANT]
-> Logic apps, built-in actions, and connectors that run in your ISE use 
-> a different pricing plan, not the consumption-based pricing plan. 
-> For more information, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
+<a name="vnet-access"></a>
+
+## Permissions for virtual network access
+
+Before you can select an Azure virtual network for injecting 
+your environment, you must set up Role-Based Access Control (RBAC) 
+permissions in your virtual network for the Azure Logic Apps service. 
+This task requires that you assign the **Network Contributor** and 
+**Classic Contributor** roles to the Azure Logic Apps service.
+To set up these permissions, see 
+[Connect to Azure virtual networks from logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#vnet-access).
 
 <a name="create-integration-account-environment"></a>
 

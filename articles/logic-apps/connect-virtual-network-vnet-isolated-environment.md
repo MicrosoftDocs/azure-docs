@@ -35,6 +35,9 @@ This article shows how to complete these tasks:
 can travel through your integration service environment 
 (ISE) across subnets in your virtual network.
 
+* Set up permissions on your Azure virtual network so the 
+private Logic Apps instance can access your virtual network.
+
 * Create your integration service environment (ISE).
 
 * Create a logic app that can run in your ISE.
@@ -117,6 +120,52 @@ minimize complexity when creating security rules.
 | Dependency from Log to Event Hub policy and monitoring agent | Outbound | * <br>5672 | VIRTUAL_NETWORK <br>EventHub |
 | Access Azure Cache for Redis Instances between Role Instances | Inbound <br>Outbound | * <br>6381-6383 | VIRTUAL_NETWORK <br>VIRTUAL_NETWORK |
 |||||
+
+<a name="vnet-access"></a>
+
+## Set virtual network permissions
+
+When you create an integration service environment (ISE), 
+you select an Azure virtual network into where you *inject* 
+your environment. However, before you can select a virtual 
+network for injecting your environment, you must set up 
+Role-Based Access Control (RBAC) permissions in your 
+virtual network. To set up permissions, assign these 
+specific roles to the Azure Logic Apps service:
+
+1. In the [Azure portal](https://portal.azure.com), 
+find and select your virtual network.
+
+1. On your virtual network's menu, select **Access control (IAM)**.
+
+1. Under **Access control (IAM)**, choose **Add role assignment**.
+
+   ![Add roles](./media/connect-virtual-network-vnet-isolated-environment/set-up-role-based-access-control-vnet.png)
+
+1. On the **Add role assignment** pane, add the necessary role 
+to the Azure Logic Apps service as described.
+
+   1. Under **Role**, select **Network Contributor**.
+
+   1. Under **Assign access to**, select 
+   **Azure AD user, group, or service principal**.
+
+   1. Under **Select**, enter **Azure Logic Apps**.
+
+   1. After the member list appears, select **Azure Logic Apps**.
+
+      > [!TIP]
+      > If you can't find this service, enter the 
+      > Logic Apps service's app ID: `7cd684f4-8a78-49b0-91ec-6a35d38739ba`
+
+   1. When you're done, choose **Save**.
+
+   For example:
+
+   ![Add role assignment](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
+
+For more information, see 
+[Permissions for virtual network access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 <a name="create-environment"></a>
 
