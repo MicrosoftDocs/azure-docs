@@ -48,7 +48,7 @@ This article is split into four sections:
 * **[User and group schema reference](#user-and-group-schema-reference)** - Describes the user and group schema supported by the Azure AD SCIM implementation for non-gallery apps. 
 
 ## Provisioning users and groups to applications that support SCIM
-Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). the specifics of the profile are documented in [Understanding the Azure AD SCIM implementation](#implementing-a-scim-endpoint-that-works-with-azure-ad-user-provisioning).
+Azure AD can be configured to automatically provision assigned users and groups to applications that implement a specific profile of the [SCIM 2.0 protocol](https://tools.ietf.org/html/rfc7644). The specifics of the profile are documented in [Understanding the Azure AD SCIM implementation](#implementing-a-scim-endpoint-that-works-with-azure-ad-user-provisioning).
 
 Check with your application provider, or your application provider's documentation for statements of compatibility with these requirements.
 
@@ -111,7 +111,7 @@ Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specif
 * Supports querying groups by ID and by member as per section 3.4.2 of the SCIM protocol.  
 * Accepts a single bearer token for authorization.
 
-In addition, please follow these general guidelines when implementing a SCIM endpoint to ensure compatibility with Azure AD:
+In addition, follow these general guidelines when implementing a SCIM endpoint to ensure compatibility with Azure AD:
 
 * `id` is a required property for all the resources; except for `ListResponse` with zero members.
 * Response to a query/filter request should always be a `ListResponse`.
@@ -131,7 +131,7 @@ The following illustration shows the messages that Azure Active Directory sends 
 *Figure 4: User provisioning and de-provisioning sequence*
 
 ### Group provisioning and de-provisioning
-Group provisioning and de-provisioning is optional. When implemented and enabled, the following illustration shows the messages that Azure AD sends to a SCIM service to manage the lifecycle of a group in your application's identity store.  Those messages differ from the messages pertaining to users in two ways: 
+Group provisioning and de-provisioning are optional. When implemented and enabled, the following illustration shows the messages that Azure AD sends to a SCIM service to manage the lifecycle of a group in your application's identity store.  Those messages differ from the messages pertaining to users in two ways: 
 
 * Requests to retrieve groups stipulate that the members attribute is to be excluded from any resource provided in response to the request.  
 * Requests to determine whether a reference attribute has a certain value are requests about the members attribute.  
@@ -192,7 +192,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client,
 
 ### User Operations
 
-* Users can be queried by `userName` or `email[type eq "work"]` attributes. For queries using another attribute, please contact [anchheda@microsoft.com](mailto:anchheda@microsoft.com). 
+* Users can be queried by `userName` or `email[type eq "work"]` attributes.  
 
 #### Create User
 
@@ -1289,9 +1289,9 @@ Developers using the CLI libraries provided by Microsoft for building a SCIM ser
 ## User and group schema reference
 Azure Active Directory can provision two types of resources to SCIM web services.  Those types of resources are users and groups.  
 
-User resources are identified by the schema identifier, "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User", which is included in this protocol specification: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  The default mapping of the attributes of users in Azure Active Directory to the attributes of user resources is provided in table 1 below.  
+User resources are identified by the schema identifier, `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`, which is included in this protocol specification: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  The default mapping of the attributes of users in Azure Active Directory to the attributes of user resources is provided in table 1 below.  
 
-Group resources are identified by the schema identifier, "urn:ietf:params:scim:schemas:core:2.0:Group".  Table 2 below shows the default mapping of the attributes of groups in Azure Active Directory to the attributes of group resources.  
+Group resources are identified by the schema identifier, `urn:ietf:params:scim:schemas:core:2.0:Group`.  Table 2 below shows the default mapping of the attributes of groups in Azure Active Directory to the attributes of group resources.  
 
 ### Table 1: Default user attribute mapping
 | Azure Active Directory user | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
