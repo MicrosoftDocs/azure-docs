@@ -16,7 +16,7 @@ ms.author: bwren
 ---
 
 # Azure Monitor log queries
-Azure Monitor logs are built on Azure Data Explorer, and Azure Monitor log queries use a version of the same Kusto query language. The [Azure Data Explorer query language documentation](/azure/kusto/query) has all of the details for the language and should be your primary resource for writing Azure Monitor log queries. This page provides links to other resources for learning how to write queries and on differences with the Azure Monitor implementation of the language.
+Azure Monitor logs are built on Azure Data Explorer, and Azure Monitor log queries use a version of the same Kusto query language. The [Kusto query language documentation](/azure/kusto/query) has all of the details for the language and should be your primary resource for writing Azure Monitor log queries. This page provides links to other resources for learning how to write queries and on differences with the Azure Monitor implementation of the language.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
