@@ -4,7 +4,7 @@ description: Introduction to the WebJobs SDK for event-driven background process
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: 
 
 ms.service: app-service-web
@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 02/18/2019
 ms.author: glenga
 #Customer intent: As an App Services developer, I want use the Azure portal to add scheduled tasks to my web app in Azure.
 ---
@@ -434,26 +434,9 @@ In this section, you run locally again to verify that logging data is now going 
 
 ## Deploy to Azure
 
-In this section, you publish the console app project to Azure. During deployment, you create an app service instance in which to run your functions. When you publish a .NET Core console app to App Service in Azure, it automatically gets run as a WebJob. To learn more about publishing, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
+During deployment, you create an app service instance in which to run your functions. When you publish a .NET Core console app to App Service in Azure, it automatically gets run as a WebJob. To learn more about publishing, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
-1. In **Solution Explorer**, right-click the project and select **Publish**.
-
-1. In the **Publish** dialog, select **Microsoft Azure App Service**, choose **Create New**, and then select **Publish**.
-
-   ![Pick publish target](./media/webjobs-sdk-get-started/pick-publish-target.png)
-
-1. In the **Create App Service** dialog, use the hosting settings as specified in the table below the image:
-
-    ![Create App Service dialog](./media/webjobs-sdk-get-started/app-service-dialog.png)
-
-    | Setting      | Suggested value  | Description                                |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **App Name** | Globally unique name | Name that uniquely identifies your new function app. |
-    | **Subscription** | Choose your subscription | The Azure subscription to use. |
-    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Name of the resource group in which to create your function app. Choose **New** to create a new resource group.|
-    | **[Hosting Plan](overview-hosting-plans.md)** | App Service plan | An [App Service plan](overview-hosting-plans.md) specifies the location, size, and features of the web server farm that hosts your app. You can save money when hosting multiple apps by configuring the web apps to share a single App Service plan. App Service plans define the region, instance size, scale count, and SKU (Free, Shared, Basic, Standard, or Premium). Choose **New** to create a new App Service plan. |
-
-1. Click **Create** to create a WebJob and related resources in Azure with these settings and deploy your project code.
+[!INCLUDE [webjobs-publish-netcore](../../includes/webjobs-publish-netcore.md)]
 
 ## Trigger the function in Azure
 

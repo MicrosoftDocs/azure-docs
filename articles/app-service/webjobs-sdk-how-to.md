@@ -4,7 +4,7 @@ description: Learn more about how to write code for the WebJobs SDK. Create  eve
 services: app-service\web, storage
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: 
 
 ms.service: app-service-web
@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/19/2019
+ms.date: 02/18/2019
 ms.author: glenga
 #Customer intent: As an App Services developer, I want use the WebJobs SDK to be able to execute event-driven code in Azure.
 ---
