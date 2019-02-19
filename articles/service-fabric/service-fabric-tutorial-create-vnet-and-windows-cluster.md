@@ -185,7 +185,7 @@ You can find your *TenantId*, or directory ID, in the [Azure portal](https://por
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
-You are prompted to sign in to an account that has administrative privileges for the Azure AD tenant. After you sign in, the script creates the web and native applications to represent your Service Fabric cluster. If you look at the tenant's applications in the [Azure portal][azure-portal], you should see two new entries:
+You are prompted to sign in to an account that has administrative privileges for the Azure AD tenant. After you sign in, the script creates the web and native applications to represent your Service Fabric cluster. If you look at the tenant's applications in the [Azure portal](https://portal.azure.com), you should see two new entries:
 
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client
@@ -344,7 +344,10 @@ The **Service Fabric** PowerShell module provides many cmdlets for managing Serv
 
 If you previously set up AAD client authentication, run the following: 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10
+Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.southcentralus.cloudapp.azure.com:19000 `
+        -KeepAliveIntervalInSec 10 `
+        -AzureActiveDirectory `
+        -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10
 ```
 
 If you did not setup AAD client authentication, run the following:
