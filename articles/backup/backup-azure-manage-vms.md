@@ -63,7 +63,7 @@ You can manage backups using the dashboard, and by drilling down to individual V
      ![Virtual machine backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
 
-## Run an on-demand backup o
+## Run an on-demand backup
 You can take an on-demand backup of a VM once it is configured for protection.
 - If the initial backup is pending, on-demand backup creates a full copy of the virtual machine in the Recovery Services vault.
 - If the initial backup is completed, an on-demand backup will only send changes from the previous snapshot, to the Recovery Services vault. That is, subsequent backups are always incremental.
