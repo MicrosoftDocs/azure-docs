@@ -70,13 +70,13 @@ After the deployment completes successfully, review the resources created and re
 
    ![Managed instance resources](./media/sql-database-managed-instance-get-started/resources.png)
 
-2. Select the route table to review the user-defined route UDR) table.
+2. Select the route table to review the user-defined route UDR) table that was created for you.
 
    ![Route table](./media/sql-database-managed-instance-get-started/route-table.png)
 
-3. In the route table, notice in particular the entry to route traffic from the managed instance subnet to the virtual network. If you are creating or configuring your route table manually, you must be sure to create this entry in the route table.
+3. In the route table, review the entries to route traffic from and within the managed instance virtual network. If you are creating or configuring your route table manually, you must be sure to create these entries in the route table.
 
-   ![Entry for MI subnet to local](./media/sql-database-managed-instance-get-started/mi-subnet2local.png)
+   ![Entry for MI subnet to local](./media/sql-database-managed-instance-get-started/udr.png)
 
 4. Return to the resource group and select the network security group to review the security rules.
 
