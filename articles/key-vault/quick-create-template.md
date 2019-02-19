@@ -40,14 +40,9 @@ To complete this article, you need:
         ```
     2. Write down the object ID. You need it later in the tutorial.
 
-* To increase security, use a generated password for the virtual machine administrator account. Here is a sample for generating a password:
-
-    ```azurecli-interactive
-    openssl rand -base64 32
-    ```
-    Verify the generated password meets the virtual machine password requirements. Each Azure service has specific password requirements. For the VM password requirements, see [What are the password requirements when creating a VM?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
-
 ## Create a vault and a secret
+
+The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-key-vault-create/). More Azure Key Vault template samples can be found [here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Keyvault).
 
 1. Select the following image to sign in to Azure and open a template. The template creates a key vault and a secret.
 
@@ -72,7 +67,7 @@ To complete this article, you need:
 
 ## Validate the deployment
 
-Use the following Azure CLI and Azuer PowerShell script to list the secret created.
+Use the following Azure CLI or Azure PowerShell script to list the secret created.
 
 ```azurecli-interactive
 echo "Enter your key vault name):" &&
