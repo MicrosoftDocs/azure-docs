@@ -123,7 +123,7 @@ Before you move forward towards building your application, follow the steps belo
 
     public class MainActivity extends AppCompatActivity {
         
-        static{
+        static {
             AzureMaps.setSubscriptionKey("{subscription-key}");
         }
 
