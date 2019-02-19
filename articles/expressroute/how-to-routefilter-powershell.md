@@ -21,7 +21,7 @@ ms.custom: seodec18
 
 Route filters are a way to consume a subset of supported services through Microsoft peering. The steps in this article help you configure and manage route filters for ExpressRoute circuits.
 
-Dynamics 365 services, and Office 365 services such as Exchange Online, SharePoint Online, and Skype for Business, and Azure public services, such as storage and SQL DB are accessible through Microsoft peering. Azure public services are selectable on a per region basis and cannot be defined per public service. 
+Dynamics 365 services, and Office 365 services such as Exchange Online, SharePoint Online, and Skype for Business, and Azure public services, such as storage and SQL DB are accessible through Microsoft peering. Azure public services are selectable on a per region basis and cannot be defined per public service.
 
 When Microsoft peering is configured on an ExpressRoute circuit and a route filter is attached, all prefixes that are selected for these services are advertised through the BGP sessions that are established. A BGP community value is attached to every prefix to identify the service that is offered through the prefix. For a list of the BGP community values and the services they  map to, see [BGP communities](expressroute-routing.md#bgp).
 
