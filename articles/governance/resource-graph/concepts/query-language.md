@@ -1,6 +1,6 @@
 ---
 title: Understand the query language
-description: Describes how the query language for Azure Resource Graph works.
+description: Describes how the Kusto query language used by Azure Resource Graph works.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte

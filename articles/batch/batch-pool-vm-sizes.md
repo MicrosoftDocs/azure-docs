@@ -40,14 +40,16 @@ Batch pools in the Virtual Machine configuration support all VM sizes ([Linux](.
 | B-series | All |
 | DC-series | All |
 | Extreme memory optimized | All |
-| Hb-series<sup>1</sup> | All |
-| Hc-series<sup>1</sup> | All |
+| Hb-series<sup>1,2</sup> | All |
+| Hc-series<sup>1,2</sup> | All |
 | Lsv2-series | All |
-| NDv2-series<sup>1</sup> | All |
-| NVv2-series | All |
+| NDv2-series<sup>1,2</sup> | All |
+| NVv2-series<sup>1</sup> | All |
 | SAP HANA | All |
 
-<sup>1</sup> Can be used by Batch accounts in user subscription mode; the user subscription mode Batch account needs to have the core quota set. See [configuration for user subscription mode](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) for more information.
+
+<sup>1</sup> Planned for support.  
+<sup>2</sup> Can be used by Batch accounts in user subscription mode; the user subscription mode Batch account needs to have the core quota set. See [configuration for user subscription mode](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) for more information.
 
 The following VM sizes are supported only for low-priority nodes:
 

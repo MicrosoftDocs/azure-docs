@@ -50,11 +50,7 @@ Using Data Lake Storage Gen1 as an additional storage account does not affect pe
 
 ## Use Data Lake Storage Gen1 as default storage
 
-When HDInsight is deployed with Data Lake Storage Gen1 as default storage, the cluster-related files are stored in the following location:
-
-	adl://mydatalakestore/<cluster_root_path>/
-
-where `<cluster_root_path>` is the name of a folder you create in Data Lake Storage. By specifying a root path for each cluster, you can use the same Data Lake Storage account for more than one cluster. So, you can have a setup where:
+When HDInsight is deployed with Data Lake Storage Gen1 as default storage, the cluster-related files are stored in `adl://mydatalakestore/<cluster_root_path>/`, where `<cluster_root_path>` is the name of a folder you create in Data Lake Storage. By specifying a root path for each cluster, you can use the same Data Lake Storage account for more than one cluster. So, you can have a setup where:
 
 * Cluster1 can use the path `adl://mydatalakestore/cluster1storage`
 * Cluster2 can use the path `adl://mydatalakestore/cluster2storage`

@@ -1,6 +1,6 @@
 ---
 title: Sample - NSG x on every subnet
-description: This sample policy requires that a specific network security group is used with every virtual subnet.
+description: This sample policy definition requires that a specific network security group is used with every virtual subnet.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# NSG x on every subnet
+# Sample - Network security group x on every subnet
 
 This policy requires that a specific network security group is used with every virtual subnet. You specify the ID of the network security group to use.
 
