@@ -278,7 +278,7 @@ ds = ws.get_default_datastore()
 print(ds.datastore_type, ds.account_name, ds.container_name)
 ```
 
-Learn more about registering additional storage accounts, or getting a reference to another registered datastore in the [Azure ML service documentation](../machine-learning/service/how-to-access-data#create-a-datastore).
+Learn more about registering additional storage accounts, or getting a reference to another registered datastore in the [Azure ML service documentation](../machine-learning/service/how-to-access-data.md#create-a-datastore).
 
 
 #### Downloading and uploading data 
@@ -335,7 +335,7 @@ experiment = Experiment(ws, name=experiment_name)
 
 
 #### Submit a job
-Once you create an experiment, you have a few different ways of submitting a run. In this example, we are trying to create a deep learning model using TensorFlow and will use an Azure ML Estimator to do that. An [Estimator](../machine-learning/service/how-to-train-ml-models) is simply a wrapper function on the underlying run configuration, which makes it easier to submit runs, and is currently supported for Pytorch and TensorFlow only. Through the concept of datastores, you will also see how easy it becomes to specify the mount paths 
+Once you create an experiment, you have a few different ways of submitting a run. In this example, we are trying to create a deep learning model using TensorFlow and will use an Azure ML Estimator to do that. An [Estimator](../machine-learning/service/how-to-train-ml-models.md) is simply a wrapper function on the underlying run configuration, which makes it easier to submit runs, and is currently supported for Pytorch and TensorFlow only. Through the concept of datastores, you will also see how easy it becomes to specify the mount paths 
 
 For **Batch AI**, you did it this way:
 
@@ -430,7 +430,7 @@ estimator = TensorFlow(source_directory=project_folder,
                        use_gpu=True)
 ```
 
-The full information for this training code snippet (including the tf_mnist_replica.py file) can be found in the [Azure ML sample notebook github repo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). The datastore itself can either be mounted on the individual nodes, or the training data can be downloaded on the node itself. More details on referencing the datastore in your estimator is in the [Azure ML service documentation](../machine-learning/service/how-to-access-data#access-datastores-for-training). 
+The full information for this training code snippet (including the tf_mnist_replica.py file) can be found in the [Azure ML sample notebook github repo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/distributed-tensorflow-with-parameter-server). The datastore itself can either be mounted on the individual nodes, or the training data can be downloaded on the node itself. More details on referencing the datastore in your estimator is in the [Azure ML service documentation](../machine-learning/service/how-to-access-data.md#access-datastores-for-training). 
 
 Submitting a run in Azure ML is through the submit function.
 
