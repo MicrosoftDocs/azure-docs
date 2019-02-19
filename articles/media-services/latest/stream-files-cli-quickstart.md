@@ -178,8 +178,8 @@ You get a response similar to this:
 
 In Media Services v3, when you submit Jobs to process your videos, you have to tell Media Services where to find the input video. One of the options is to specify an HTTPS URL as a job input (as shown in this example). 
 
-When you run `az ams job start`, you can set a label on the job's output. The label is used to identify what is this output asset for. This information could be useful in post "media processing" steps. 
- 
+When you run `az ams job start`, you can set a label on the job's output. The label can later be used to identify what this output asset is for. 
+
 - If you assign a value to the label, set ‘--output-assets’ to “assetname=label”
 - If you do not assign a value to the label, set ‘--output-assets’ to “assetname=”.
   Notice that you add "=" to the `output-assets`. 
@@ -318,7 +318,7 @@ Copy the `hostName` value. In this case: `amsaccount-usw22.streaming.media.azure
 
 `https://amsaccount-usw22.streaming.media.azure.net/7f19e783-927b-4e0a-a1c0-8a140c49856c/ignite.ism/manifest(format=m3u8-aapl)`
 
-## Play back with Azure Media Player
+## Test playback with Azure Media Player
 
 To test the stream, this article uses Azure Media Player. 
 
@@ -327,6 +327,8 @@ To test the stream, this article uses Azure Media Player.
 
 1. Open a web browser and navigate to [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. In the **URL:** box, paste the URL that you built in the previous section. 
+
+  You can paste the URL in HLS, Dash, or Smooth format and Azure Media Player will switch to an appropriate streaming protocol for playback on your device automatically.
 3. Press **Update Player**.
 
 Azure Media Player can be used for testing but should not be used in a production environment. 
