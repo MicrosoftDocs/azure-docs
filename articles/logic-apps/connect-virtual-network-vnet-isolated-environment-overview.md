@@ -26,7 +26,7 @@ When you create an ISE, Azure deploys a private and isolated
 instance of the Logic Apps service into your Azure virtual network. 
 This private instance uses dedicated resources such as storage, 
 and runs separately from the public "global" Logic Apps service. 
-Separting your isolated private instance and the public global 
+Separating your isolated private instance and the public global 
 instance also helps reduce the impact that other Azure tenants 
 might have on your apps' performance, which is also known as the 
 ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
