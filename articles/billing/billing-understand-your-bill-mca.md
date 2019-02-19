@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2019
+ms.date: 02/19/2019
 ms.author: banders
 
 ---
@@ -26,12 +26,9 @@ To understand your Azure charges, compare your invoice with the detailed daily u
 
 ## Option 1: Compare usage and costs with usage file
 
-The detailed usage CSV file shows your charges by billing
-period and daily usage. To get the file, see
-[Get your Azure billing invoice and daily usage
-data](billing-download-azure-invoice-daily-usage-date.md).
+The detailed usage CSV file shows your charges by billing period and daily usage. To get the file, see [Get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md).
 
-Your usage charges are displayed at the meter level. The screenshots and tables below map information from the invoice PDF to the detailed usage CSV.
+Your usage charges are displayed at the meter level. The screenshots and tables below map example information from the invoice PDF to the detailed usage CSV.
 
 ### Invoice Summary
 
@@ -65,19 +62,19 @@ To learn more, see:
 - [Understand your Azure invoice](billing-understand-your-invoice-mca.md)
 - [Understand your Azure detailed usage](billing-understand-your-invoice.md)
 
-## Option 2: Compare the usage and costs with the Azure portal
+## Option 2: Compare the usage and costs in the Azure portal
 
 The Azure portal can also help you verify the charges in your invoice.
-1. In the Azure portal, search on **Cost Management + Billing**.
+1. In the Azure portal, search for **Cost Management + Billing**.
 2. Select the Billing profile of the invoice.
 3. Under Billing, select **All transactions**.
 4. Search for the invoice ID to view all transactions for the invoice.
 
 ## Resources billed by usage meters
 
-Azure doesn't directly bill based on the resource cost. Charges for a resource are calculated by using one or more meters. These meters are used to track a resource’s usage throughout its lifetime. These meters are then used to calculate the bill.
+Azure doesn't directly bill based on the resource cost. Charges for a resource are calculated by using one or more meters. Meters are used to track a resource's usage throughout its lifetime. Meters are then used to calculate the bill.
 
-For example, when you create a single Azure resource, like a virtual machine, it has one or more meter instances created. These meters are used to track the usage of the resource over time. Each meter emits usage records that are used by Azure to calculate the bill.
+For example, when you create a single Azure resource, like a virtual machine, it has one or more meter instances created. The meters are used to track the usage of the resource over time. Each meter emits usage records that are used by Azure to calculate the bill.
 
 For example, a single virtual machine (VM) created in Azure may have the following meters created to track its usage:
 
@@ -92,11 +89,11 @@ For example, a single virtual machine (VM) created in Azure may have the followi
 - Standard IO-Block Blob Write
 - Standard IO-Block Blob Delete
 
-When the VM is created, each one of those meters begins emitting usage records. This usage and the meter's price is tracked in the Azure metering system.
+When the VM is created, each of the meters begins emitting usage records. This usage and the meter's price is tracked in the Azure metering system.
 
 ## <a name="payment"></a>Pay your bill
 
-Instructions for paying your bill are listed at the bottom of the invoice. [Learn how to pay](billing-understand-your-invoice-mca.md#how-to-pay).
+Instructions for paying your bill are shown at the bottom of the invoice. [Learn how to pay](billing-understand-your-invoice-mca.md#how-to-pay).
 
 If you've already paid your bill and want to check the status of the payment, [create a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 

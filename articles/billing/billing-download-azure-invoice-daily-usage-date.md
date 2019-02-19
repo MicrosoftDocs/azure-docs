@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/16/2018
+ms.date: 02/19/2019
 ms.author: banders
 
 ---
@@ -45,18 +45,18 @@ If you have a Microsoft Customer Agreement, you can opt in to get your invoice i
 
 If you don't have a Microsoft Customer Agreement, you can opt in and configure additional recipients to receive your Azure invoice in an email. This feature may not be available for certain subscriptions such as support offers, Enterprise Agreements, or Azure in Open.
 
-1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Opt in for each subscription you own. Click **Invoices** then **Email my invoice**. 
+1. Select your subscription from the [Subscriptions page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Opt in for each subscription you own. Click **Invoices** then **Email my invoice**.
 
     ![Screenshot that shows the opt-in flow](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
-    
+
 2. Click **Opt in** and accept the terms.
 
     ![Screenshot that shows the opt-in flow step 2](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
- 
+
 3. Once you've accepted the agreement, you can configure additional recipients. When a recipient is removed, the email address is no longer stored. If you change your mind, you need to re-add them.
 
     ![Screenshot that shows the opt-in flow step 3](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
-    
+
 If you don't get an email after following the steps, make sure your email address is correct in the [communication preferences on your profile](https://account.windowsazure.com/profile).
 
 ### Opt out of getting your invoice in email
@@ -98,7 +98,7 @@ If you don't have a Microsoft Customer Agreement, you can download the invoice P
 
 For more information about your invoice, see [Understand your bill for Microsoft Azure](billing-understand-your-bill.md). For help managing your costs, see [Prevent unexpected costs with Azure billing and cost management](billing-getting-started.md).
 
-### <a name="noinvoice"></a> Why don't I see an invoice for the last billing period?
+### <a name="noinvoice"></a> If you don't see an invoice for the last billing period
 
 There could be several reasons that you don't see an invoice:
 
@@ -112,7 +112,7 @@ There could be several reasons that you don't see an invoice:
 
 ## Download usage
 
- For most subscriptions, find your  daily usage file in the [Azure Account Center](https://account.azure.com/Subscriptions). If you are an EA customer or have a Microsoft Customer Agreement, you can download usage in the [Azure portal](https://portal.azure.com/).
+ For most subscriptions, find your  daily usage file in the [Azure Account Center](https://account.azure.com/Subscriptions). If you're an EA customer or have a Microsoft Customer Agreement, you can download usage in the [Azure portal](https://portal.azure.com/).
 
 ### Download usage from the Account Center (.csv)
 
@@ -120,11 +120,11 @@ There could be several reasons that you don't see an invoice:
 
 2. Select the subscription for which you want the invoice and usage information.
 
-3. Select **BILLING HISTORY**. 
+3. Select **BILLING HISTORY**.
 
     ![Screenshot that shows billing history option](./media/billing-download-azure-invoice-daily-usage-date/Billinghisotry.png)
 
-4. You can see your statements for the last six billing periods and the current unbilled period. 
+4. You can see your statements for the last six billing periods and the current unbilled period.
 
     ![Screenshot that shows billing periods, options to download invoice and daily usage, and total charges for each billing period](./media/billing-download-azure-invoice-daily-usage-date/billingSum.png)
 
@@ -144,10 +144,10 @@ For more information about your daily usage, see [Understand your bill for Micro
 
 ### Download usage for EA customers
 
-To view and download usage data as a EA customer, you must be an Enterprise Administrator, or Account Owner or Department Admin with the view charges policy enabled.
+To view and download usage data as a EA customer, you must be an Enterprise Administrator, Account Owner, or Department Admin with the view charges policy enabled.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search on **Cost Management + Billing**.
+1. Search for *Cost Management + Billing*.
 
     ![Screenshot that shows Azure portal search](./media/billing-download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
 
@@ -162,7 +162,7 @@ To view and download usage data for a billing profile, you must be an Owner, Con
 2. Select a billing profile.
 3. Select **Invoices**.
 4. In the invoice grid, find the row of the invoice you want to download.
-5. Click on the ellipsis at the end of the row.
+5. Click the ellipsis `...` at the end of the row.
 6. In the download context menu, select **Azure usage and charges**.
 
 ## Need help? Contact us.
