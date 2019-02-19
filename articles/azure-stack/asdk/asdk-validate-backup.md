@@ -146,13 +146,27 @@ $certPass = Read-Host -AsSecureString
 -TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
 ```
 
-## Restore infrastructure data from backup
+## Complete cloud recovery 
 After a successful cloud recovery deployment, you need to complete the restore using the **Restore-AzureStack** cmdlet. 
 
 After logging in as the Azure Stack operator, [install Azure Stack PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) and run the following commands to specify the certificate and password to be used when restoring from backup:
 
+**Recovery mode with certificate file**
+
+> [!NOTE] 
+> Azure Stack deployment does not persist the decryption certificate for security reasons. You will need to provide the decryption certificate and associated password again.
+
 ```powershell
-Restore-AzsBackup -Name "<BackupID>"
+$decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
+Restore-AzsBackup -ResourceId "<BackupID>" `
+ -DecryptionCertPath "<path to decryption certificate with file name (.pfx)>" `
+ -DecryptionCertPassword $decryptioncertpassword
+```
+
+**Recovery mode with encryption key**
+```powershell
+$decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
+Restore-AzsBackup -ResourceId "<BackupID>"
 ```
 
 Wait 60 minutes after calling this cmdlet to start verification of backup data on the cloud recovered ASDK.
