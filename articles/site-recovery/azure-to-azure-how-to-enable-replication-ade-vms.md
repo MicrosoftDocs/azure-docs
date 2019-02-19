@@ -41,7 +41,7 @@ To enable replication of ADE VMs from portal, the user should have the below per
     - Encrypt
     - Decrypt
 
-You can manage the permissions by navigating to key vault resource in portal and adding the required permissions to the user. For example: below step by step guide shows how to enable it for the Key vault "ContosoWeb2Keyvault" which is in the source region.
+You can manage the permissions by navigating to key vault resource in portal and adding the required permissions to the user. For example: below step by step guide shows how to enable it for the Key vault "ContosoWeb2Keyvault" ,which is in the source region.
 
 
 -  Navigate to "Home> Keyvaults> ContosoWeb2KeyVault> Access policies"
@@ -132,8 +132,8 @@ You can modify the default target settings used by Site Recovery.
 
 ## Update target VM encryption settings
 In the below scenarios, you will be required to update the target VM encryption settings.
-  - You enabled Site recovery replication on the VM and enabled Azure Disk Encryption (ADE) on the source VM at a later date
-  - You enabled Site recovery replication on the VM and changed the disk encryption key and/or key encryption key on the source VM at a later date
+  - You enabled Site Recovery replication on the VM and enabled Azure Disk Encryption (ADE) on the source VM at a later date
+  - You enabled Site Recovery replication on the VM and changed the disk encryption key and/or key encryption key on the source VM at a later date
 
 You can use [the script](#copy-ade-keys-to-dr-region-using-powershell-script) to copy the encryption keys to target region and then update the target encryption settings in **Recovery services vault -> replicated item -> Properties -> Compute and Network.**
 
@@ -142,16 +142,16 @@ You can use [the script](#copy-ade-keys-to-dr-region-using-powershell-script) to
 ## <a name="trusted-root-certificates-error-code-151066"></a>Troubleshoot Key vault permission issues during  Azure-to-Azure VM replication
 
 **Cause 1:** You may have selected an already created Keyvault from the Target region which doesn't have required permissions.
-If you are selecting an already created Keyvault in the target region rather than let ASR create it. Make sure  the Key vault has require permissions as mentioned above.</br>
+If you are selecting an already created Keyvault in the target region rather than let Azure Site Recovery create it. Make sure  the Key vault has require permissions as mentioned above.</br>
 *For example*: A user try to replicate a VM which has a key vault on source region say "ContososourceKeyvault".
 User has all the permission on the source region key vault but during protection he  selects an already created key vault "ContosotargetKeyvault" which doesn't has permission then protection will throws an error.</br>
-**How to fix** : Got to "Home> Keyvaults> ContososourceKeyvault> Access policies" and add permissions as shown above 
+**How to fix:** Got to "Home> Keyvaults> ContososourceKeyvault> Access policies" and add permissions as shown above 
 
 **Cause 2:** You may have selected an already created Keyvault from the Target region which  doesn't have decry pt-encrypt permissions.
-If you are selecting an already created Keyvault in the target region rather than let ASR create it. Make sure  the user has decrypt-encrypt permissions in case you are encrypting the key too on the source region .</br>
+If you are selecting an already created Keyvault in the target region rather than let Azure Site Recovery create it. Make sure  the user has decrypt-encrypt permissions in case you are encrypting the key too on the source region .</br>
 *For example*: A user try to replicate a VM which has a key vault on source region say "ContososourceKeyvault".
-User has all the permission on the source region key vault but during protection he  selects an already created key vault "ContosotargetKeyvault" which doesn't has permission to decrpt and encrypt</br>
-**How to fix** : Got to "Home> Keyvaults> ContososourceKeyvault> Access policies" and add permissions under Key permissions> Cryptographic Operations.
+User has all the permission on the source region key vault but during protection he  selects an already created key vault "ContosotargetKeyvault" which doesn't has permission to decrypt and encrypt</br>
+**How to fix:** Got to "Home> Keyvaults> ContososourceKeyvault> Access policies" and add permissions under Key permissions> Cryptographic Operations.
 
 ## Next steps
 
