@@ -130,6 +130,7 @@ The following list provides a general summary of Azure services that can't be mo
 * Azure Firewall
 * Azure Migrate
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
+* Classic Applications
 * Container Instances
 * Container Service
 * Data Box
