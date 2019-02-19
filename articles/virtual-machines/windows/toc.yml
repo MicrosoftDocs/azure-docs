@@ -348,7 +348,7 @@
       href: using-managed-disks-template-deployments.md
     - name: Enable write accelerator
       href: how-to-enable-write-accelerator.md
-    - name: Enable ultra disks
+    - name: Enable ultra SSDs
       href: disks-enable-ultra-ssd.md
     - name: Migrate to Managed Disks
       href: migrate-to-managed-disks.md
