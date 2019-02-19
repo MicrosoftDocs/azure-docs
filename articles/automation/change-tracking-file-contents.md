@@ -69,5 +69,5 @@ Visit the tutorial on Change Tracking to learn more about using the solution:
 > [!div class="nextstepaction"]
 > [Troubleshoot changes in your environment](automation-tutorial-troubleshoot-changes.md)
 
-* Use [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
+* Use [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
 

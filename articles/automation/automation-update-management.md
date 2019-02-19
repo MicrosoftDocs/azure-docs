@@ -33,7 +33,7 @@ Update Management can be used to natively onboard machines in multiple subscript
 
 Once a CVE is release, it takes 2-3 hours for the patch to show up for Linux machines for assessment.  For Windows machines, it takes 12-15 hours for the patch to show up for assessment after it has been released.
 
-After a computer completes a scan for update compliance, the agent forwards the information in bulk to Azure Log Analytics. On a Windows computer, the compliance scan is run every 12 hours by default.
+After a computer completes a scan for update compliance, the agent forwards the information in bulk to Azure Monitor logs. On a Windows computer, the compliance scan is run every 12 hours by default.
 
 In addition to the scan schedule, the scan for update compliance is initiated within 15 minutes of the MMA being restarted, before update installation, and after update installation.
 
@@ -52,7 +52,7 @@ Updates are installed by runbooks in Azure Automation. You can't view these runb
 
 At the date and time specified in the update deployment, the target computers execute the deployment in parallel. Before installation, a scan is run to verify that the updates are still required. For WSUS client computers, if the updates aren't approved in WSUS, the update deployment fails.
 
-Having a machine registered for Update Management in more than one Log Analytics Workspaces (multi-homing) isn't supported.
+Having a machine registered for Update Management in more than one Log Analytics workspaces (multi-homing) isn't supported.
 
 ## Clients
 
@@ -114,7 +114,7 @@ If your System Center Operations Manager management group is connected to a Log 
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * Update Deployment MP
 
-For more information about how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../azure-monitor/platform/om-agents.md).
+For more information about how solution management packs are updated, see [Connect Operations Manager to Azure Monitor logs](../azure-monitor/platform/om-agents.md).
 
 > [!NOTE]
 > For systems with the Operations Manger Agent, to be able to be fully managed by Update Management, the agent needs to be updated to the Microsoft Monitoring Agent. To learn how to update the agent, see [How to upgrade an Operations Manager agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
@@ -130,7 +130,7 @@ To begin patching systems, you need to enable the Update Management solution. Th
   
 ### Confirm that non-Azure machines are onboarded
 
-To confirm that directly connected machines are communicating with Log Analytics, after a few minutes, you can run one the following log searches.
+To confirm that directly connected machines are communicating with Azure Monitor logs, after a few minutes, you can run one the following log searches.
 
 #### Linux
 

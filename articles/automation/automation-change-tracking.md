@@ -253,7 +253,7 @@ Clicking on a change or event brings up the detailed information about that chan
 
 ## Search logs
 
-In addition to the details that are provided in the portal, searches can be done against the logs. With the **Change Tracking** page open, click **Log Analytics**, this opens the **Log Search** page.
+In addition to the details that are provided in the portal, searches can be done against the logs. With the **Change Tracking** page open, click **Log Analytics**, this opens the **Logs** page.
 
 ### Sample queries
 
@@ -306,5 +306,5 @@ Visit the tutorial on Change Tracking to learn more about using the solution:
 > [!div class="nextstepaction"]
 > [Troubleshoot changes in your environment](automation-tutorial-troubleshoot-changes.md)
 
-* Use [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
+* Use [Log searches in Azure Monitor logs](../log-analytics/log-analytics-log-searches.md) to view detailed change tracking data.
 
