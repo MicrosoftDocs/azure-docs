@@ -70,6 +70,52 @@ To migrate your Service Bus Standard namespace to Premium using the CLI or Power
 
 1. Create a new Service Bus Premium namespace - you can reference the [resource manager templates](service-bus-resource-manager-namespace.md) or [use the portal](service-bus-create-namespace-portal.md), but be sure to pick "Premium" for **serviceBusSku** parameter.
 
+2. Set the below environment variables to simplify the migration commands.
+   ```
+   resourceGroup = <resource group for the standard namespace>
+   standardNamespace = <standard namespace to migrate>
+   premiumNamespaceArmId = <ARM ID of the Premium namespace to migrate to>
+   postMigrationDnsName = <post migration DNS name entry to access the Standard namespace>
+   ```
+
+>[!IMPORTANT]
+> The Post-migration name (post_migration_dns_name) will be used to access the old Standard namespace post migration. You must use this to drain the queues and the subscriptions and then delete the namespace.
+
+3. **Pair** the Standard and Premium namespaces and **Start Sync** using the below command -
+
+    ```
+    az servicebus migration start --resource-group $resourceGroup --name $standardNamespace --target-namespace $premiumNamespaceArmId --post-migration-name $postMigrationDnsName
+    ```
+
+
+4. Check status of the migration using the below command -
+    ```
+    az servicebus migration show --resource-group $resourceGroup --name $standardNamespace
+    ```
+
+    The migration is considered complete when
+    1. MigrationState = "Active"
+    2. pendingReplicationsOperationsCount = 0
+    3. provisioningState = Succeeded
+    
+    This command also displays the migration configuration. Please double check to ensure that the values are set as previous declared.
+    
+    Additionally, also check the Premium namespace in the portal to ensure that all the queues and topics have been created, and that they match what existed on the Standard namespace.
+
+5. Commit the migration by executing the Complete command below
+   ```
+   az servicebus migration complete --resource-group $resourceGroup --name $standardMamespace
+   ```
+
 ### Migrate using Azure Portal
 
 ## FAQs
+
+#### What do I do after the Standard to Premium migration is complete?
+
+#### How much downtime do I expect?
+
+#### Do I have to make any configuration changes while performing the migration?
+
+#### I don't want to have to drain the messages. What do I do?
+
