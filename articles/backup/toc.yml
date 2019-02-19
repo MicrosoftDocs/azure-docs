@@ -198,7 +198,7 @@
     - name: Restore backed up SQL Server databases
       href: restore-sql-database-azure-vm.md
     - name: Manage backed up SQL Server databases
-      href: manage-monitor-sql-database-backups.md
+      href: manage-monitor-sql-database-backup.md
   - name: Windows Server
     items:
     - name: Back up Windows Server files and folders
