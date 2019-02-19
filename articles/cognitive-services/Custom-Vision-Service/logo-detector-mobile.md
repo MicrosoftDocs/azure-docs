@@ -14,7 +14,7 @@ ms.author: pafarley
 ---
 # Tutorial: Recognize Azure service logos in camera pictures
 
-In this tutorial, you'll create a sample app that uses Microsoft Azure Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms app for mobile platforms, analyzes camera pictures of Azure service logos and then deploys the actual services to the user's Azure account. Here you'll learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. Run the whole app scenario for yourself, or simply complete the Custom Vision part of the setup and explore how the app uses it.
+In this tutorial, you'll explore a sample app that uses Microsoft Azure Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms app for mobile platforms, analyzes camera pictures of Azure service logos and then deploys the actual services to the user's Azure account. Here you'll learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. Run the whole app scenario for yourself, or simply complete the Custom Vision part of the setup and explore how the app uses it.
 
 This tutorial will show you how to:
 
