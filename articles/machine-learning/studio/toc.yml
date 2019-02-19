@@ -63,7 +63,7 @@
     - name: Use data from on-premises SQL
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
-  - name: Create and train models
+  - name: Train models
     items:
     - name: Experiment lifecycle management
       href: version-control.md
@@ -86,6 +86,12 @@
         href: interpret-model-results.md
       - name: Debug
         href: debug-models.md
+    - name: Retrain models
+      items:
+      - name: '"New" web services'
+        href: retrain-machine-learning-model.md
+      - name: Classic web services
+        href: retrain-classic-web-service.md
     - name: Use R and Python
       items:
       - name: Get started in R
@@ -131,12 +137,6 @@
     - name: Create endpoints
       displayName: scale, scaling
       href: create-endpoint.md
-  - name: Retrain models
-    items:
-    - name: Retrain and deploy a new web service
-      href: retrain-machine-learning-model.md
-    - name: Retrain and deploy a classic web service
-      href: retrain-classic-web-service.md
   - name: Consume models
     items:
     - name: Overview
