@@ -123,9 +123,9 @@
       items:
       - name: Enable backup when you create an Azure VM
         href: backup-during-vm-creation.md
-      - name: Back up an Azure VM from VM settings or the vault
+      - name: Back up an Azure VM from VM settings
         href: backup-azure-vms-first-look-arm.md
-      - name: Set up a vault for Azure VM backup
+      - name: Set up a vault and enable backup for Azure VMs
         href: backup-azure-arm-vms-prepare.md
       - name: Back up encrypted Azure VMs
         href: backup-azure-vms-encryption.md
