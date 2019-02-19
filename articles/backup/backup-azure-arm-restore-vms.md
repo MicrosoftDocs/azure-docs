@@ -16,7 +16,9 @@ This article describes how to restore Azure VM data from the recovery points sto
 
 ### Restore options
 
-**Option** | **Details**
+Azure Backup provides a number of ways to restore a VM.
+
+**Restore option** | **Details**
 --- | ---
 **Create a new VM** | Quickly creates and gets a basic VM up and running from a restore point.<br/><br/> You can specify a name for the VM, select the resource group and virtual network (VNet) in which it will be placed, and specify a storage type.
 **Restore disk** | Restores a VM disk which can then be used to create a new VM.<br/><br/> Azure Backup provides a template to help you customize and create a VM. <br/><br/> This option copies VHDs to the storage account you specify. The restore job generates a template that you can download and use to specify custom VM settings, and create a VM.<br/><br/> - The storage account should be in the same location as the vault. Create a storage account if you don't have one.<br/><br/> The storage account replication type is displayed. Zone redundant storage (ZRS) isn't supported.<br/><br/> Alternatively, you can attach the disk to an existing VM, or create a new VM using PowerShell.<br/><br/> This option is useful if you want to customize the VM, add configuration settings that weren't there at the time of backup, or add settings that must be configured using the template or PowerShell.
@@ -50,7 +52,7 @@ This article describes how to restore Azure VM data from the recovery points sto
 
 ## Create new-Create a VM
 
-As one of the [restore options](#restore-options), you can create a VM quickly with basic settings from a restore point. [Review](#restore-options) other restore options.
+As one of the [restore options](#restore-options), you can create a VM quickly with basic settings from a restore point. 
 
 1. In **Restore configuration** > **Create new** > **Restore Type**, select **Create a virtual machine**.
 2. In **Virtual machine name**, specify a VM which doesn’t exist in the subscription.
@@ -131,7 +133,9 @@ There are a number of common scenarios in which you might need to restore VMs.
 ## Track the restore operation
 After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. If they aren't visible, click on the **Notifications** symbol to see them.
 
-    ![Restore triggered](./media/backup-azure-arm-restore-vms/restore-notification1.png)
+![Restore triggered](./media/backup-azure-arm-restore-vms/restore-notification1.png)
+ 
+ Track restore as follows:
 
 1. To view operations for the job, click the notifications hyperlink. Alternatively, in the vault, click **Backup jobs**, and then click the relevant VM.
 
