@@ -32,7 +32,7 @@ The following tools are included in a DSVM:
 * Anaconda Python distribution
 * Jupyter Notebook with R, Python, and PySpark kernels
 * Microsoft Visual Studio Community
-* Microsoft Power BI desktop
+* Microsoft Power BI Desktop
 * Microsoft SQL Server 2017 Developer edition
 * A standalone Apache Spark instance for local development and testing
 * [JuliaPro](https://juliacomputing.com/products/juliapro.html)
@@ -185,7 +185,7 @@ Several Azure tools are installed on the VM:
 
 ### Power BI
 
-The DSVM comes with **Power BI Desktop** installed to help you build dashboards and visualizations. Use this tool to pull data from different sources, to author your dashboards and reports, and to publish them to the cloud. For more information, see the [Power BI](https://powerbi.microsoft.com) site. You can find the Power BI desktop on the **Start** menu.
+The DSVM comes with **Power BI Desktop** installed to help you build dashboards and visualizations. Use this tool to pull data from different sources, to author your dashboards and reports, and to publish them to the cloud. For more information, see the [Power BI](https://powerbi.microsoft.com) site. You can find Power BI Desktop on the **Start** menu.
 
 > [!NOTE]
 > You need a Microsoft Office 365 account to access Power BI.
