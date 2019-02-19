@@ -53,6 +53,19 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 * Service Fabric cluster with Fabric version 6.2 and above. The cluster should be set up on Windows Server. Refer to this [article](service-fabric-cluster-creation-for-windows-server.md) for steps to download required package.
 * X.509 Certificate for encryption of secrets needed to connect to storage to store backups. Refer [article](service-fabric-windows-cluster-x509-security.md) to know how to acquire or to Create a self-signed X.509 certificate.
 * Service Fabric Reliable Stateful application built using Service Fabric SDK version 3.0 or above. For applications targeting .Net Core 2.0, application should be built using Service Fabric SDK version 3.1 or above.
+* Install Microsoft.ServiceFabric.Powershell.Http Module for making configuration calls.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+* Make sure that Cluster is connected using the `Connect-SFCluster` command before making any configuration request.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
 
 ## Enabling backup and restore service
 First you need to enable the _backup and restore service_ in your cluster. Get the template for the cluster that you want to deploy. You can use the [sample templates](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples). Enable the _backup and restore service_ with the following steps:
@@ -112,6 +125,15 @@ For backup storage, create file share and give ReadWrite access to this file sha
 
 Execute following PowerShell script for invoking required REST API to create new policy.
 
+#### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
+
+```powershell
+
+New-SFBackupPolicy -Name 'BackupPolicy1' -AutoRestoreOnDataLoss $true -MaxIncrementalBackups 20 -FrequencyBased -Interval 00:15:00 -FileShare -Path '\\StorageServer\BackupStore' -Basic -RetentionDuration '10.00:00:00'
+
+```
+#### Rest Call using Powershell
+
 ```powershell
 $ScheduleInfo = @{
     Interval = 'PT15M'
@@ -150,6 +172,14 @@ After defining policy to fulfill data protection requirements of the application
 
 Execute following PowerShell script for invoking required REST API to associate backup policy with name `BackupPolicy1` created in above step with application `SampleApp`.
 
+#### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
+
+```powershell
+
+    Enable-SFApplicationBackup -ApplicationId 'SampleApp' -BackupPolicyName 'BackupPolicy1'
+```
+#### Rest Call using Powershell
+
 ```powershell
 $BackupPolicyReference = @{
     BackupPolicyName = 'BackupPolicy1'
@@ -173,6 +203,14 @@ Backups associated with all partitions belonging to Reliable Stateful services a
 
 Execute following PowerShell script to invoke the HTTP API to enumerate the backups created for all partitions inside the `SampleApp` application.
 
+
+#### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
+
+```powershell
+    Get-SFApplicationBackupList -ApplicationId WordCount     
+```
+
+#### Rest Call using Powershell
 ```powershell
 $url = "http://localhost:19080/Applications/SampleApp/$/GetBackups?api-version=6.4"
 
@@ -181,6 +219,7 @@ $response = Invoke-WebRequest -Uri $url -Method Get
 $BackupPoints = (ConvertFrom-Json $response.Content)
 $BackupPoints.Items
 ```
+
 Sample output for the above run:
 
 ```
@@ -227,7 +266,7 @@ FailureError            :
 - Backup Restore service fails to come up on cluster secured with gMSA based security.
 
 ## Limitation/ caveats
-- No Service Fabric built in PowerShell cmdlets.
+- Service Fabric PowerShell cmdlets are in preview mode.
 - No support for Service Fabric clusters on Linux.
 
 ## Next steps

@@ -34,6 +34,20 @@ For example, you can configure a service to back up its data to protect against 
 - To trigger a restore, the _Fault Analysis Service (FAS)_ must be enabled for the cluster.
 - The _Backup Restore Service (BRS)_ created the backup.
 - The restore can only be triggered at a partition.
+- Install Microsoft.ServiceFabric.Powershell.Http Module for making configuration calls.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+- Make sure that Cluster is connected using the `Connect-SFCluster` command before making any configuration request.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
+
 
 ## Triggered restore
 
@@ -49,6 +63,13 @@ If an entire Service Fabric cluster is lost, you can recover the data for the pa
 For the following example, assume that the lost cluster is the same cluster that's referred to in [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). In this case, `SampleApp` is deployed with backup policy enabled, and the backups are configured to Azure Storage.
 
 Execute a PowerShell script to use the REST API to return a list of the backups created for all partitions inside the `SampleApp` application. The API requires the backup storage information to list the available backups.
+#### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
+
+```powershell
+    Get-SFBackupsFromBackupLocation-Application -ApplicationName 'fabric:/SampleApp' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'                  -ContainerName 'backup-container'
+```
+
+#### Rest Call using Powershell
 
 ```powershell
 $StorageInfo = @{
@@ -141,10 +162,26 @@ For _Named Partitioning_, the name value is compared to identify the target part
 
 You request the restore against the backup cluster partition by using the following [Restore API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition):
 
+
+#### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
+
 ```powershell
+    Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip' -AzureBlobStore -ConnectionString 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+```
+
+#### Rest Call using Powershell
+
+```powershell
+$StorageInfo = @{
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
+    ContainerName = 'backup-container'
+    StorageKind = 'AzureBlobStore'
+}
+
 $RestorePartitionReference = @{
     BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4'
     BackupLocation = 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+    BackupStorage  = $StorageInfo
 }
 
 $body = (ConvertTo-Json $RestorePartitionReference) 
@@ -181,6 +218,14 @@ FailureError            :
 
 For the restore API, provide the _BackupId_ and _BackupLocation_ details. The cluster has backup enabled so the Service Fabric _Backup Restore Service (BRS)_ identifies the correct storage location from the associated backup policy.
 
+
+#### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
+
+```powershell
+        Restore-SFPartition  -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -BackupId 'b0035075-b327-41a5-a58f-3ea94b68faa4' -BackupLocation 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip'
+```
+#### Rest Call using Powershell
+
 ```powershell
 $RestorePartitionReference = @{
     BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4',
@@ -198,6 +243,14 @@ You can track the restore progress by using TrackRestoreProgress.
 ## Track restore progress
 
 A partition of a Reliable Stateful service or Reliable Actor accepts only one restore request at a time. A partition only accepts another request after the current restore request is completed. Multiple restore requests can be triggered on different partitions at the same time.
+
+#### Powershell using Microsoft.ServiceFabric.Powershell.Http Module
+
+```powershell
+    Get-SFPartitionRestoreProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
+```
+
+#### Rest Call using Powershell
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4"
