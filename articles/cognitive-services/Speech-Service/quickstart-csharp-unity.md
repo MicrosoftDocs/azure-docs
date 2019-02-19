@@ -59,10 +59,13 @@ We add a minimal UI to our scene, consisting of a button to trigger speech recog
 
 * In the [Hierarchy Window](https://docs.unity3d.com/Manual/Hierarchy.html) (by default on the left), a sample scene is shown that Unity created with the new project.
 * Right-click into it, and select **UI** > **Button**.
-* This creates three game objects: a **Button** object nested within a **Canvas** object, and an **EventSystem** object (which we will not need).
+* This creates three game objects that you can see in the Hierarchy Window: a **Button** object nested within a **Canvas** object, and an **EventSystem** object.
+* [Navigate the Scene View](https://docs.unity3d.com/Manual/SceneViewNavigation.html) so you a good view of the canvas and the button in the [Scene View](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
+* Click the **Button** object in the Hierarchy Window to display its settings in the [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
+* Set the **Pos X** and **Pos Y** properties to **0**, so the button is centered in the middle of the canvas.
 * Right-click again into the Hierarchy Window, and select **UI** > **Text** to create a text field.
 * Click the **Text** object in the Hierarchy Window to display its settings in the [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
-* Set the **Pos Y** and **Height** properties to **120** and the **Width** property to **240** to ensure that the text field and the button do not overlap.
+* Set the **Pos X** and **Pos Y** properties to **0** and **120**, and set the **Width** and **Height** properties to **240** and **120** to ensure that the text field and the button do not overlap.
 
 When you're done, your UI should look similar to this screenshot:
 
