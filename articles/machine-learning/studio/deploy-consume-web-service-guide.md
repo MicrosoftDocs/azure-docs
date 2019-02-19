@@ -1,7 +1,7 @@
 ---
 title: Deployment and consumption
 titleSuffix: Azure Machine Learning Studio
-description: You can use Azure Machine Learning to deploy machine learning workflows and models as web services. These web services can then be used to call the machine learning models from applications over the internet to do predictions in real time or in batch mode. 
+description: You can use Azure Machine Learning Studio to deploy machine learning workflows and models as web services. These web services can then be used to call the machine learning models from applications over the internet to do predictions in real time or in batch mode. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -13,14 +13,14 @@ ms.custom: seodec18
 ms.date: 04/19/2017
 ---
 # Azure Machine Learning Studio Web Services: Deployment and consumption
-You can use Azure Machine Learning to deploy machine learning workflows and models as web services. These web services can then be used to call the machine learning models from applications over the Internet to do predictions in real time or in batch mode. Because the web services are RESTful, you can call them from various programming languages and platforms, such as .NET and Java, and from applications, such as Excel.
+You can use Azure Machine Learning Studio to deploy machine learning workflows and models as web services. These web services can then be used to call the machine learning models from applications over the Internet to do predictions in real time or in batch mode. Because the web services are RESTful, you can call them from various programming languages and platforms, such as .NET and Java, and from applications, such as Excel.
 
 The next sections provide links to walkthroughs, code, and documentation to help get you started.
 
 ## Deploy a web service
 
 ### With Azure Machine Learning Studio
-Machine Learning Studio and the Microsoft Azure Machine Learning Web Services portal help you deploy and manage a web service without writing code.
+The Studio portal and the Microsoft Azure Machine Learning Web Services portal help you deploy and manage a web service without writing code.
 
 The following links provide general Information about how to deploy a new web service:
 
@@ -33,14 +33,14 @@ The following links provide general Information about how to deploy a new web se
   * [How to deploy a web service to multiple regions](how-to-deploy-to-multiple-regions.md)
 
 ### With web services resource provider APIs (Azure Resource Manager APIs)
-The Azure Machine Learning resource provider for web services enables deployment and management of web services by using REST API calls. For additional details, see the
+The Azure Machine Learning Studio resource provider for web services enables deployment and management of web services by using REST API calls. For additional details, see the
 [Machine Learning Web Service (REST)](/rest/api/machinelearning/index) reference.
 
 <!-- [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference. -->
 
 
 ### With PowerShell cmdlets
-Azure Machine Learning resource provider for web services enables deployment and management of web services by using PowerShell cmdlets.
+Azure Machine Learning Studio resource provider for web services enables deployment and management of web services by using PowerShell cmdlets.
 
 To use the cmdlets, you must first sign in to your Azure account from within the PowerShell environment by using the [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet. If you are unfamiliar with how to call PowerShell commands that are based on Resource Manager, see [Using Azure PowerShell with Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
 
