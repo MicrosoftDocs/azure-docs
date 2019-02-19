@@ -144,7 +144,7 @@ To run the sample, do the following steps:
 
 ## Examine the response
 
-A successful response displays the most relevant caption for each image. You can change the `DisplayResults` method to output different image data. See the [AnalyzeLocalAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions.analyzeimageinstreamasync?view=azure-dotnet) method to learn more.
+A successful response displays the most relevant caption for each image. You can change the `DisplayResults` method to output different image data. See the [AnalyzeLocalAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions.analyzeimageinstreamasync?view=azure-dotnet) method to learn more.
 
 See [API Quickstarts: Analyze a local image with C#](../QuickStarts/CSharp-analyze.md#examine-the-response) for an example of a raw JSON output.
 

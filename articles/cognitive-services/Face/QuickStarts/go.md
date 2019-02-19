@@ -101,7 +101,7 @@ You may also wish to change the `imageUrl` field to point to your own input imag
 
 ## Run the script
 
-1. Open a command prompt and build the program with the following command: 
+Open a command prompt and build the program with the following command:
 
 ```shell
 go build faceDetection.go
@@ -112,6 +112,7 @@ Then run the program:
 ```shell
 detect-face
 ```
+
 You should see a JSON string of detected face data printed to the console. The following is an example of a successful JSON response.
 
 ```json
