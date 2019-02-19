@@ -1,6 +1,11 @@
 {
     "redirections": [
-        {
+      {
+        "source_path": "articles/machine-learning/studio/consume-web-service-with-web-app-template.md",
+        "redirect_url": "/azure/machine-learning/studio/consume-web-services",
+        "redirect_document_id": false
+      },
+      {
           "source_path": "articles/machine-learning/studio/troubleshooting-retraining-models.md",
           "redirect_url": "/azure/machine-learning/studio/retrain-classic-web-service",
           "redirect_document_id": false
