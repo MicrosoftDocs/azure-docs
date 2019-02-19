@@ -210,7 +210,7 @@ Discover VMs in the subscription, and configure backup.
 
 3. In **Backup policy**, select the policy that you want to associate with the vault. Then click **OK**.
     - The details of the default policy are listed under the drop-down menu.
-    - Click **Create New** to create a policy. [Learn more](backup-azure-vms-prepare.md#defineconfigure-a-backup-policy) about defining a policy.
+    - Click **Create New** to create a policy. [Learn more](backup-azure-vms-prepare.md#configure-a-backup-policy) about defining a policy.
 
     !["Backup" and "Backup policy" panes](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
 
