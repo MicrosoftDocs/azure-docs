@@ -174,7 +174,7 @@ New-AzureRmOperationalInsightsWindowsPerformanceCounterDataSource -ResourceGroup
 # Custom Logs
 New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -CustomLogRawJson "$CustomLog" -Name "Example Custom Log Collection"
 ```
-In the above example regexDelimiter was defined as "\\n" for newline. The log delimeter may also be a timestamp.  These are the supported formats:
+In the above example regexDelimiter was defined as "\\n" for newline. The log delimiter may also be a timestamp.  These are the supported formats:
 
 | Format | Json RegEx format uses two \\ for every \ in a standard RegEx so if testing in a RegEx app reduce \\ to \ |
 | --- | --- |
@@ -226,7 +226,7 @@ $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUP
 Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
-You can also use the preceding cmdlet to collect logs from resources that are in different subscriptions. The cmdlet is able to work across subscriptions since you are providing the ID of both the resource creating logs and the workspace the logs are sent to.
+You can also use the preceding cmdlet to collect logs from resources that are in different subscriptions. The cmdlet is able to work across subscriptions since you're providing the ID of both the resource creating logs and the workspace the logs are sent to.
 
 
 ## Configuring Log Analytics to index Azure diagnostics from storage
