@@ -102,7 +102,7 @@ To configure Azure AD single sign-on with GaggleAMP, perform the following steps
 
     ![GaggleAMP Domain and URLs single sign-on information](common/idp-identifier.png)
 
-    In the **Identifier** text box, type a URL using the following pattern:
+    In the **Identifier** text box, type a URL:
     `https://accounts.gaggleamp.com/auth/saml/callback`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
@@ -113,7 +113,7 @@ To configure Azure AD single sign-on with GaggleAMP, perform the following steps
     `https://gaggleamp.com/i/<customerid>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Sign-on URL. Contact [GaggleAMP Client support team](mailto:sales@gaggleamp.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The value is not real. Update the value with the actual Sign-on URL. Contact [GaggleAMP Client support team](mailto:sales@gaggleamp.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
