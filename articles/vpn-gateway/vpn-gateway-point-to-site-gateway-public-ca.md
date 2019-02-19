@@ -6,11 +6,11 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/19/2019
 ms.author: cherylmc
 
 ---
-# Transition to a public CA certificates for P2S gateways
+# Transition to a public CA gateway certificate for P2S
 
 Azure VPN Gateway no longer issues Azure-level self-signed certificates to its gateways for P2S connections. Issued certificates are now signed by a public Certificate Authority (CA). However, some of the older gateways may still be using self-signed certificates. These self-signed certificates are near their expiration dates and must transition to public CA certificates.
 
