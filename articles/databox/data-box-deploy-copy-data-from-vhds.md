@@ -31,8 +31,8 @@ Before you begin, make sure that:
 3. You're connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, use a 1-GbE data link but the copy speeds will be impacted.
 4. You've reviewed the:
 
-    - Supported [managed disk sizes in Azure object size limits](data-box-system-reuirements.md#azure-object-size-limits).
-    - [Introduction to Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview.md) 
+    - Supported [managed disk sizes in Azure object size limits](data-box-system-requirements.md#azure-object-size-limits).
+    - [Introduction to Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview.md). 
 
 ## Connect to Data Box
 
