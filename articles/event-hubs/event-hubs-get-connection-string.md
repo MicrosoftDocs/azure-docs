@@ -3,14 +3,14 @@ title: Get connection string - Azure Event Hubs | Microsoft Docs
 description: This article provides instructions for getting a connection string that clients can use to connect to Azure Event Hubs. 
 services: event-hubs
 documentationcenter: na
-author: ShubhaVijayasarathy
+author: spelluru
 manager: timlt
 
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
-ms.author: shvija
+ms.date: 02/19/2019
+ms.author: spelluru
 
 ---
 
@@ -35,18 +35,19 @@ An example connection string might look like
 This article walks you through various ways of obtaining the connection string.
 
 ## Get connection string from the portal
+1. Sign in to [Azure portal](https://portal.azure.com). 
+2. Select **All services** on the left navigational menu. 
+3. Select **Event Hubs** in the **Analytics** section. 
+4. In the list of event hubs, select your event hub.
+6. On the **Event Hubs Namespace** page, select **Shared Access Policies** on the left menu.
 
-Once you have the Event Hubs namespace, the overview section of the portal can give you the connection string as shown below:
+    ![Shared Access Policies menu item](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
+7. Select a **shared access policy** in the list of policies. The default one is named: **RootManageSharedAccessPolicy**. You can add a policy with appropriate permisions (read, write, etc.), and use that policy. 
 
-![Event Hubs Connection String](./media/event-hubs-get-connection-string/event-hubs-get-connection-string1.png)
+    ![Event Hubs shared access policies](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
+8. Select the **copy** button next to the **Connection string-primary key** field. 
 
-When you click on the connection string link in the overview section, it opens the SAS policies tab as shown in the figure below:
-
-![Event Hubs SAS Polices](./media/event-hubs-get-connection-string/event-hubs-get-connection-string2.png)
-
-You can either add a new SAS policy and get the connection string or use the default policy that is already created for you. When the policy is opened, the connection string is obtained as shown in the below figure:
-
-![Event Hubs get connection string](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
+    ![Event Hubs get connection string](./media/event-hubs-get-connection-string/event-hubs-get-connection-string3.png)
 
 ## Getting the connection string with Azure PowerShell
 
