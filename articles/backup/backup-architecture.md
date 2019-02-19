@@ -125,7 +125,7 @@ Note that Azure VMs need internet access for control commands. If you're backing
 
 ![Backup of Azure VMs](./media/backup-architecture/architecture-azure-vm.png)
 
-## Architecture: Direct backup of on-premises Windows machines/Azure VMs
+## Architecture: Direct backup of on-premises Windows machines/Azure VM files/folders
 
 1. To set up the scenario, you download and install the Microsoft Azure Recovery Services (MARS) agent on the machine, select what to back up, when backups will run, and how long they'll be kept in Azure.
 2. The initial backup runs in accordance with your backup settings.
