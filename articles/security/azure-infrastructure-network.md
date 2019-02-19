@@ -74,18 +74,10 @@ Filtering routers at the edge and access layer of the Azure network provide well
 - **Edge routers.** These segregate the application environment from the internet. Edge routers are designed to provide anti-spoof protection and limit access by using ACLs.
 - **Distribution (access) routers.** These allow only Microsoft approved IP addresses, provide anti-spoofing, and establish connections by using ACLs.
 
-### A10 DDOS mitigation architecture
-Denial of service attacks continue to present a real threat to the reliability of online services. As attacks become more targeted and sophisticated, and as the services Microsoft provides become more geographically diverse, identifying and minimizing the impact of these attacks is a high priority. The following details explain how the A10 DDOS mitigation system is implemented from a network architecture perspective.
+### DDOS mitigation
+Distributed denial of service (DDoS) attacks continue to present a real threat to the reliability of online services. As attacks become more targeted and sophisticated, and as the services Microsoft provides become more geographically diverse, identifying and minimizing the impact of these attacks is a high priority.
 
-Azure uses A10 network devices at the datacenter router (DCR) that provide automated detection and mitigation. The A10 solution uses Azure Network Monitoring to sample flow packets and determine if there is an attack. If the attack is detected, A10 devices scrub to mitigate attacks. Only then is clean traffic is allowed into the Azure datacenter directly from the DCR. Microsoft uses the A10 solution to protect the Azure network infrastructure.
-
-DDoS protections in the A10 solution include:
-
-- UDP IPv4 and IPv6 flood protection
-- ICMP IPv4 and IPv6 flood protection
-- TCP IPv4 and IPv6 flood protection
-- TCP SYN attack protection for IPv4 and IPv6
-- Fragmentation attack
+[Azure DDoS Protection Standard](../virtual-network/ddos-protection-overview.md) provides defense against DDoS attacks. See [Azure DDoS Protection: Best practices and reference architectures](azure-ddos-best-practices.md) to learn more.
 
 > [!NOTE]
 > Microsoft provides DDoS protection by default for all Azure customers.
