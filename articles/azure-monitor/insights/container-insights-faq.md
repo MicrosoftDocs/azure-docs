@@ -23,7 +23,7 @@ You may have reached the default 500 MB limit or specified a daily cap to contro
 The ContainerInventory table contains information about both stopped and running containers. The table is populated by a workflow inside the agent that queries the docker for all the containers (running and stopped), and forwards that data the Log Analytics workspace.
  
 ## How do I resolve errors related to **Missing Subscription registration for Microsoft.OperationsManagement**?
-To resolve the error, register the resource provider **Microsoft.OperationsManagement** in the subscription where the workspace is defined. The documentation for how to do this can be found [here](../../azure-resource-manager/resource-manager-register-provider-errors.md)
+To resolve the error, register the resource provider **Microsoft.OperationsManagement** in the subscription where the workspace is defined. The documentation for how to do this can be found [here](../../azure-resource-manager/resource-manager-register-provider-errors.md).
 
 ## Does Azure Monitor for containers include support for RBAC enabled AKS clusters?
 RBAC enabled AKS clusters are currently not supported by the solution. The solution details page may not show the right information in the blades that show data for these clusters.
