@@ -76,7 +76,7 @@ The following shows the response to the preceding request. The response includes
 
 The `displayText` field contains the suggested query that you'd use to populate your search box's drop-down list. You must display all suggestions that the response includes, and in the given order.  
 
-If the user selects a query from the drop-down list, you may use the query string in the `query` field to call the [Bing Search API](../bing-web-search/search-the-web.md) and display the results yourself. Or, you could use the URL in the `url` field to send the user to the Bing search results page.
+If the user selects a query from the drop-down list, you can use it to call the one of the [Bing Search APIs](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) and display the results yourself, or send the user to the Bing results page using the returned `url` field. The following example uses the Bing Web Search API.
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
