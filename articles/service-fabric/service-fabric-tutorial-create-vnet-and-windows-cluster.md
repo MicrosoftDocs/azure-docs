@@ -151,8 +151,8 @@ The [azuredeploy.parameters.json][parameters] parameters file declares many valu
 |certificateUrlValue|| <p>Value should be empty if creating a self-signed certificate or providing a certificate file. </p><p>To use an existing certificate previously uploaded to a key vault, fill in the certificate URL. For example, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Value should be empty if creating a self-signed certificate or providing a certificate file.</p><p>To use an existing certificate previously uploaded to a key vault, fill in the source vault value. For example, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
-## Set up Azure Active Directory for client authentication
-For clusters running on Azure, Azure Active Directory (Azure AD) is recommended to secure access to management endpoints.  Setting up Azure AD to authenticate clients for a Service Fabric cluster must be done before [creating the cluster](#createvaultandcert).  Azure AD enables organizations (known as tenants) to manage user access to applications. 
+## Set up Azure Active Directory client authentication
+For clusters running on Azure, Azure Active Directory (Azure AD) client authentication is optional but recommended to secure access to management endpoints.  Setting up Azure AD to authenticate clients for a Service Fabric cluster must be done before [creating the cluster](#createvaultandcert).  Azure AD enables organizations (known as tenants) to manage user access to applications. 
 
 A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) and [Visual Studio](service-fabric-manage-application-in-visual-studio.md). As a result, you create two Azure AD applications to control access to the cluster: one web application and one native application.  After the applications are created, you assign users to read-only and admin roles.
 
@@ -161,13 +161,9 @@ A Service Fabric cluster offers several entry points to its management functiona
 
 In this article, we assume that you have already created a tenant. If you have not, start by reading [How to get an Azure Active Directory tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
-To simplify some of the steps involved in configuring Azure AD with a Service Fabric cluster, we have created a set of Windows PowerShell scripts.
+To simplify some of the steps involved in configuring Azure AD with a Service Fabric cluster, we have created a set of Windows PowerShell scripts. [Download the scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) to your computer.
 
-1. [Download the scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) to your computer.
-2. Right-click the zip file, select **Properties**, select the **Unblock** check box, and then click **Apply**.
-3. Extract the zip file.
-
-### Create Azure AD applications and asssign users to roles
+### Create Azure AD applications and assign users to roles
 Create two Azure AD applications to control access to the cluster: one web application and one native application. After you have created the applications to represent your cluster, assign your users to the [roles supported by Service Fabric](service-fabric-cluster-security-roles.md): read-only and admin.
 
 Run `SetupApplications.ps1`, and provide the tenant ID, cluster name, and web application reply URL as parameters.  Also specify usernames and passwords for the users.  For example:
@@ -181,7 +177,7 @@ $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysf
 > [!NOTE]
 > For national clouds (for example Azure Government, Azure China, Azure Germany), you should also specify the `-Location` parameter.
 
-You can find your *TenantId* by executing the PowerShell command `Get-AzureSubscription`. Executing this command displays the TenantId for every subscription.
+You can find your *TenantId*, or directory ID, in the [Azure portal](https://portal.azure.com). Select **Azure Active Directory -> Properties** and copy the the **Directory ID** value.
 
 *ClusterName* is used to prefix the Azure AD applications that are created by the script. It does not need to match the actual cluster name exactly. It is intended only to make it easier to map Azure AD artifacts to the Service Fabric cluster that they're being used with.
 
@@ -213,7 +209,7 @@ In the [azuredeploy.json][template], configure Azure AD in the **Microsoft.Servi
   "contentVersion": "1.0.0.0",
   "parameters": {
     ...
-    
+
     "aadTenantId": {
       "type": "string",
       "defaultValue": "0e3d2646-78b3-4711-b8be-74a381d9890c"
@@ -244,9 +240,11 @@ In the [azuredeploy.json][template], configure Azure AD in the **Microsoft.Servi
     },
     ...
   }
-}```
+}
+```
 
 Add the parameter values in the [azuredeploy.parameters.json][parameters] parameters file.  For example:
+
 ```json
 "aadTenantId": {
 "value": "0e3d2646-78b3-4711-b8be-74a381d9890c"
@@ -265,7 +263,7 @@ Add the parameter values in the [azuredeploy.parameters.json][parameters] parame
 
 Next, set up the network topology and deploy the Service Fabric cluster. The [azuredeploy.json][template] Resource Manager template creates a virtual network (VNET) and also a subnet and network security group (NSG) for Service Fabric. The template also deploys a cluster with certificate security enabled.  For production clusters, use a certificate from a certificate authority (CA) as the cluster certificate. A self-signed certificate can be used to secure test clusters.
 
-The template in this article deploys a cluster that uses the certificate thumbprint to identify the cluster certificate.  No two certificates can have the same thumbprint, which makes certificate managment more difficult. Switching a deployed cluster from using certificate thumbprints to using certificate common names makes certificate management much simpler.  To learn how to update the cluster to use certificate common names for certificate management, read [change cluster to certificate common name management](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
+The template in this article deploys a cluster that uses the certificate thumbprint to identify the cluster certificate.  No two certificates can have the same thumbprint, which makes certificate management more difficult. Switching a deployed cluster from using certificate thumbprints to using certificate common names makes certificate management much simpler.  To learn how to update the cluster to use certificate common names for certificate management, read [change cluster to certificate common name management](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 ### Create a cluster using an existing certificate
 
