@@ -58,7 +58,7 @@ You can manage backups using the dashboard, and by drilling down to individual V
 3. From the **Choose backup policy** menu:
 
    * To change policies, select a different policy and click **Save**. The new policy is immediately applied to the vault.
-   * To create a policy, select **Create New**. [Learn more](backup-azure-vms-prepare.md#configure-a-backup-policy)
+   * To create a policy, select **Create New**. [Learn more](backup-azure-arm-vms-prepare.md#configure-a-backup-policy)
 
      ![Virtual machine backup](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
