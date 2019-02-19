@@ -34,7 +34,6 @@ The Read API works with images that meet the following requirements:
 - The image must be presented in JPEG, PNG, BMP, PDF, or TIFF format.
 - The dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels. PDF pages must be 17 x 17 inches or smaller.
 - The file size of the image must be less than 20 megabytes (MB).
-- For PDF and TIFF files, the document must be less than 200 pages.
 
 ### Limitations
 
@@ -46,7 +45,7 @@ Computer Vision's optical character recognition (OCR) API is similar to the Read
 
 OCR supports 25 languages: Arabic, Chinese Simplified, Chinese Traditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, Serbian (Cyrillic and Latin), Slovak, Spanish, Swedish, and Turkish. OCR automatically detects the language of the detected text.
 
-If necessary, OCR corrects the rotation of the recognized text by returning the rotational offset in degrees about the horizontal image axis. OCR also provides the frame coordinates of each word as seen in the following illustration.
+If necessary, OCR corrects the rotation of the recognized text by returning the rotational offset in degrees about the horizontal image axis. OCR also provides the frame coordinates of each word, as seen in the following illustration.
 
 ![A diagram depicting an image being rotated and its text being read and delineated](./Images/vision-overview-ocr.png)
 
@@ -81,7 +80,7 @@ The Recognize Text API works with images that meet the following requirements:
 
 ## Improve results
 
-The accuracy of text recognition operations depends on the quality of the images. An inaccurate reading may be caused by the following factors:
+The accuracy of text recognition operations depends on the quality of the images. The following factors may cause an inaccurate reading:
 
 * Blurry images.
 * Handwritten or cursive text.
@@ -93,4 +92,4 @@ The accuracy of text recognition operations depends on the quality of the images
 
 ## Next steps
 
-Follow the [Extract handwritten text](./quickstarts-sdk/csharp-hand-text-sdk.md) quickstart to implement text recognition in a simple C# app.
+Follow the [Extract printed text (OCR)](./quickstarts/csharp-print-text.md) quickstart to implement text recognition in a simple C# app.
