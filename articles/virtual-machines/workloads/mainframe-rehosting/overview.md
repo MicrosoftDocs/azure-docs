@@ -91,7 +91,7 @@ To get started, download [Microsoft Azure Government cloud for mainframe applica
 
 ## Learn more
 
-If you are considering a mainframe migration, our extensive partner ecosystem is available to help you. For detailed guidance about choosing a partner solution,
+If you are considering a mainframe migration, our extensive [partner](partner-workloads.md) ecosystem is available to help you. For detailed guidance about choosing a partner solution,
 refer to the [Platform Modernization Alliance](https://www.platformmodernization.org/pages/mainframe.aspx).
 
 See also:
