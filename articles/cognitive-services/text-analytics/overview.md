@@ -32,7 +32,7 @@ Automatically [extract key phrases](how-tos/text-analytics-how-to-keyword-extrac
 ## Language Detection
 You can [detect which language the input text is written in](how-tos/text-analytics-how-to-language-detection.md) and report a single language code for every document submitted on the request for up to 120 languages. The language code is paired with a score indicating the strength of the score. You can use the  [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) API or the [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK.
 
-## Entity Recognition (Preview)
+## Entity Recognition
 [Identify and categorize entities](how-tos/text-analytics-how-to-entity-linking.md) in your text as people, places, organizations, date/time, quantities, percentages, currencies, and more. Well-known entities are also recognized and linked to more information on the web. You can use the  [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) API.
 
 ## Use containers

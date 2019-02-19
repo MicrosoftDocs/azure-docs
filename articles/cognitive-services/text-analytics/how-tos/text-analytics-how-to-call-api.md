@@ -59,7 +59,7 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
 2. Set the three request headers:
 
@@ -77,10 +77,10 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
 
 5. Paste in some JSON documents in a format that is valid for the intended analysis. For more information about a particular analysis, see the topics below:
 
-   + [Language detection](text-analytics-how-to-language-detection.md)  
-   + [Key phrase extraction](text-analytics-how-to-keyword-extraction.md)  
-   + [Sentiment analysis](text-analytics-how-to-sentiment-analysis.md)  
-   + [Entity recognition (Preview)](text-analytics-how-to-entity-linking.md)  
+  + [Language detection](text-analytics-how-to-language-detection.md)  
+  + [Key phrase extraction](text-analytics-how-to-keyword-extraction.md)  
+  + [Sentiment analysis](text-analytics-how-to-sentiment-analysis.md)  
+  + [Entity recognition](text-analytics-how-to-entity-linking.md)  
 
 
 6. Click **Send** to submit the request. You can submit up to 100 requests per minute. 
