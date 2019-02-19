@@ -14,20 +14,8 @@
   items:
   - name: Create an account
     href: cognitive-services-apis-create-account.md
-- name: Tutorials
-  items:
-  - name: Develop an app using Computer Vision
-    href: ./Computer-vision/tutorials/csharptutorial.md
-  - name: Recognize intents using Speech SDK and LUIS
-    href: ./speech-service/how-to-recognize-intents-from-speech-csharp.md
-  - name: Build a LUIS app
-    href: ./luis/luis-quickstart-intents-only.md
-  - name: Use Text Analytics with Power BI
-    href: ./Text-Analytics/tutorials/tutorial-power-bi-key-phrases.md
-  - name: Create a Bing Web Search app
-    href: ./bing-web-search/tutorial-bing-web-search-single-page-app.md
-  - name: Create a Bing Image Search app
-    href: ./bing-image-search/tutorial-bing-image-search-single-page-app.md
+  - name: Authentication
+    href: authentication.md
 - name: Resources
   items:
   - name: Azure Roadmap

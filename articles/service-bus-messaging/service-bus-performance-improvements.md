@@ -3,13 +3,14 @@ title: Best practices for improving performance using Azure Service Bus | Micros
 description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 # Best Practices for performance improvements using Service Bus Messaging
@@ -32,7 +33,7 @@ AMQP and SBMP are more efficient, because they maintain the connection to Servic
 
 ## Reusing factories and clients
 
-Service Bus client objects, such as [QueueClient][QueueClient] or [MessageSender][MessageSender], are created through a [MessagingFactory][MessagingFactory] object, which also provides internal management of connections. It is recommended that you do not close messaging factories or queue, topic, and subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service, and a new connection is established when recreating the factory. Establishing a connection is an expensive operation that you can avoid by reusing the same factory and client objects for multiple operations. You can safely use the [QueueClient][QueueClient] object for sending messages from concurrent asynchronous operations and multiple threads. 
+Service Bus client objects, such as [QueueClient][QueueClient] or [MessageSender][MessageSender], are created through a [MessagingFactory][MessagingFactory] object, which also provides internal management of connections. It is recommended that you do not close messaging factories or queue, topic, and subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service, and a new connection is established when recreating the factory. Establishing a connection is an expensive operation that you can avoid by reusing the same factory and client objects for multiple operations. You can safely use these client objects for concurrent asynchronous operations and from multiple threads. 
 
 ## Concurrent operations
 
@@ -123,38 +124,9 @@ The time-to-live (TTL) property of a message is checked by the server at the tim
 
 Prefetching does not affect the number of billable messaging operations, and is available only for the Service Bus client protocol. The HTTP protocol does not support prefetching. Prefetching is available for both synchronous and asynchronous receive operations.
 
-## Express queues and topics
-
-Express entities enable high throughput and reduced latency scenarios, and are supported only in the Standard messaging tier. Entities created in [Premium namespaces](service-bus-premium-messaging.md) do not support the express option. With express entities, if a message is sent to a queue or topic, the message is not immediately stored in the messaging store. Instead, it is cached in memory. If a message remains in the queue for more than a few seconds, it is automatically written to stable storage, thus protecting it against loss due to an outage. Writing the message into a memory cache increases throughput and reduces latency because there is no access to stable storage at the time the message is sent. Messages that are consumed within a few seconds are not written to the messaging store. The following example creates an express topic.
-
-```csharp
-TopicDescription td = new TopicDescription(TopicName);
-td.EnableExpress = true;
-namespaceManager.CreateTopic(td);
-```
-
-If a message containing critical information that must not be lost is sent to an express entity, the sender can force Service Bus to immediately persist the message to stable storage by setting the [ForcePersistence][ForcePersistence] property to **true**.
-
-> [!NOTE]
-> Express entities do not support transactions.
-
-## Partitioned queues or topics
-
-Internally, Service Bus uses the same node and messaging store to process and store all messages for a messaging entity (queue or topic). A [partitioned queue or topic](service-bus-partitioning.md), on the other hand, is distributed across multiple nodes and messaging stores. Partitioned queues and topics not only yield a higher throughput than regular queues and topics, they also exhibit superior availability. To create a partitioned entity, set the [EnablePartitioning][EnablePartitioning] property to **true**, as shown in the following example. For more information about partitioned entities, see [Partitioned messaging entities][Partitioned messaging entities].
-
-> [!NOTE]
-> Partitioned entities are not supported in the [Premium SKU](service-bus-premium-messaging.md). 
-
-```csharp
-// Create partitioned queue.
-QueueDescription qd = new QueueDescription(QueueName);
-qd.EnablePartitioning = true;
-namespaceManager.CreateQueue(qd);
-```
-
 ## Multiple queues
 
-If it is not possible to use a partitioned queue or topic, or the expected load cannot be handled by a single partitioned queue or topic, you must use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.
+If the expected load cannot be handled by a single partitioned queue or topic, you must use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.
 
 ## Development and testing features
 

@@ -1,6 +1,6 @@
 ---
-title: Manage access using RBAC and the Azure portal | Microsoft Docs
-description: Learn how to manage access for users, groups, service principals, and managed identities, using role-based access control (RBAC) and the Azure portal. This includes how to list access, grant access, and remove access.
+title: Manage access to Azure resoruces using RBAC and the Azure portal | Microsoft Docs
+description: Learn how to manage access to Azure resources for users, groups, service principals, and managed identities using role-based access control (RBAC) and the Azure portal. This includes how to list access, grant access, and remove access.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -17,9 +17,9 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
-# Manage access using RBAC and the Azure portal
+# Manage access to Azure resources using RBAC and the Azure portal
 
-[Role-based access control (RBAC)](overview.md) is the way that you manage access to resources in Azure. This article describes how you manage access for users, groups, service principals, and managed identities using RBAC and the Azure portal.
+[Role-based access control (RBAC)](overview.md) is the way that you manage access to Azure resources. This article describes how you manage access for users, groups, service principals, and managed identities using RBAC and the Azure portal.
 
 ## Open Access control (IAM)
 
@@ -37,7 +37,7 @@ The **Access control (IAM)** blade, also known as identity and access management
 
 ## View roles and permissions
 
-A role definition is a collection of permissions that you use for role assignments. Azure has over 70 [built-in roles](built-in-roles.md). Follow these steps to view the roles and permissions that can be performed on the management and data plane.
+A role definition is a collection of permissions that you use for role assignments. Azure has over 70 [built-in roles for Azure resources](built-in-roles.md). Follow these steps to view the roles and permissions that can be performed on the management and data plane.
 
 1. Open **Access control (IAM)** at a scope, such as management group, subscription, resource group, or resource, where you want to view roles and permissions.
 
@@ -161,7 +161,7 @@ In RBAC, to remove access, you remove a role assignment. Follow these steps to r
 
 ## Next steps
 
-* [Tutorial: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
-* [Tutorial: Grant access for a user using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Built-in roles](built-in-roles.md)
-* [Organize your resources with Azure management groups](../azure-resource-manager/management-groups-overview.md)
+* [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](quickstart-assign-role-user-portal.md)
+* [Tutorial: Grant a user access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+* [Troubleshoot RBAC for Azure resources](troubleshooting.md)
+* [Organize your resources with Azure management groups](../governance/management-groups/index.md)

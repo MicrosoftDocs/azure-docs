@@ -1,20 +1,15 @@
 ---
-title: Extend your experiment with R - Azure Machine Learning Studio | Microsoft Docs
+title: Extend your experiment with R
+titleSuffix: Azure Machine Learning Studio
 description: How to extend the functionality of Azure Machine Learning Studio through the R language by using the Execute R Script module.
 services: machine-learning
-documentationcenter: ''
-author: ericlicoding
-ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
-ms.author: amlstudiodocs
-manager: hjerez
-editor: cgronlun
-ms.assetid: 2c038a45-ba4d-42ea-9a88-e67391ef8c0a
 ms.service: machine-learning
-ms.component: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: studio
 ms.topic: article
+
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ---
 # Azure Machine Learning Studio: Extend your experiment with R 
@@ -52,7 +47,7 @@ You can import packages that are not already installed by using the following co
 
 where the `my_favorite_package.zip` file contains your package.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 
 <!-- Module References -->

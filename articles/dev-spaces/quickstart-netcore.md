@@ -4,7 +4,7 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: "09/26/2018"
 ms.topic: "quickstart"
@@ -31,7 +31,7 @@ In this guide, you will learn how to:
 
     ```cmd
     az group create --name MyResourceGroup --location <region>
-    az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing --generate-ssh-keys
+    az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
     ```
 
 ## Set up Azure Dev Spaces
@@ -141,4 +141,4 @@ Refresh the web app in the browser, and go to the About page. You should see you
 Learn how Azure Dev Spaces helps you develop more complex apps across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces. 
 
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](team-development-netcore.md)
+> [Working with multiple containers and team development](multi-service-netcore.md)

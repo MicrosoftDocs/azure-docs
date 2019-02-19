@@ -4,7 +4,7 @@ description: This article provides information on pricing for Azure Security Cen
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
+ms.date: 12/11/2018
 ms.author: rkarlin
 
 ---
@@ -29,8 +29,8 @@ Security Center is offered in two tiers:
 
 For more information, see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-## Try Standard free for 60 days
-The Standard tier is offered free for the first 60 days. At the end of 60 days, should you choose to continue using the service, we will automatically start charging for usage.
+## Try Standard free for 30 days
+The Standard tier is offered free for the first 30 days. At the end of 30 days, should you choose to continue using the service, we will automatically start charging for usage.
 
 You can upgrade an entire Azure subscription to the Standard tier, which is inherited by all resources within the subscription.
 

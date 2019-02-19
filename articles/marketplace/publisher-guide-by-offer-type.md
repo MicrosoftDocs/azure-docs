@@ -46,7 +46,7 @@ Azure Marketplace offer types are listed in the table below.
 
 Finally, see [**Azure AD requirements**](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) by listing options and offer types for more information on single sign-on requirements.
 
-## Next Steps
+## Next steps
 
 *	Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
 *	Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.

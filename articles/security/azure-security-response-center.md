@@ -4,7 +4,7 @@ description: The article provides a curated list of Microsoft Security Response 
 services: security
 documentationcenter: na
 author: barclayn
-manager: Mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 6293b13f-55d0-4d85-a993-4f1cd3c103c0

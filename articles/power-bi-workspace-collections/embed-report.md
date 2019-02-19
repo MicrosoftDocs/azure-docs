@@ -36,13 +36,13 @@ When using the .NET SDK, you need to create a token credential that is based on 
 
 **NuGet package install**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Api
 ```
 
 **C# code**
 
-```
+```csharp
 using Microsoft.PowerBI.Api.V1;
 using Microsoft.Rest;
 
@@ -57,7 +57,7 @@ var reports = (IList<Report>)client.Reports.GetReports(workspaceCollectionName, 
 
 ### Calling the REST API directly
 
-```
+```csharp
 System.Net.WebRequest request = System.Net.WebRequest.Create("https://api.powerbi.com/v1.0/collections/{collectionName}/workspaces/{workspaceId}/Reports") as System.Net.HttpWebRequest;
 
 request.Method = "GET";
@@ -78,19 +78,19 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 
 Power BI Workspace Collections use embed tokens, which are HMAC signed JSON Web Tokens. The tokens are signed with the access key from your Power BI Workspace Collection. Embed tokens, by default, are used to provide read-only access to a report to embed into an application. Embed tokens are issued for a specific report and should be associated with an embed URL.
 
-Access tokens should be created on the server as the access keys are used to sign/encrypt the tokens. For information on how to create an access token, see [Authenticating and authorizing with Power BI Workspace Collections](app-token-flow.md). You can also review the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) method. Here is an example of what this would look like using the .NET SDK for Power BI.
+Access tokens should be created on the server as the access keys are used to sign/encrypt the tokens. For information on how to create an access token, see [Authenticating and authorizing with Power BI Workspace Collections](app-token-flow.md). You can also review the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) method. Here is an example of what this would look like using the .NET SDK for Power BI.
 
 You use the report ID that you retrieved earlier. Once the embed token is created, you will then use the access key to generate the token that you can use from the javascript perspective. The *PowerBIToken class* requires that you install the [Power BI Core NuGut Package](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
 **NuGet package install**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Core
 ```
 
 **C# code**
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername, roles and scopes are optional.
@@ -112,16 +112,17 @@ After you have the access token and the report ID, we can embed the report using
 
 **NuGet package install**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
 **JavaScript code**
 
-```
+```html
 <script src="/scripts/powerbi.js"></script>
 <div id="reportContainer"></div>
 
+<script>
 var embedConfiguration = {
     type: 'report',
     accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
@@ -131,6 +132,7 @@ var embedConfiguration = {
 
 var $reportContainer = $('#reportContainer');
 var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
+</script>
 ```
 
 ### Set the size of embedded elements
@@ -141,7 +143,7 @@ The report will automatically be embedded based on the size of its container. To
 
 [Get started with sample](get-started-sample.md)  
 [Authenticating and authorizing in Power BI Workspace Collections](app-token-flow.md)  
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Power BI JavaScript package](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 [Power BI API NuGet package](https://www.nuget.org/profiles/powerbi)

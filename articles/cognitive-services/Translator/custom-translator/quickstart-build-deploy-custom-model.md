@@ -5,7 +5,7 @@ description: In this quickstart you go through step-by-step process of building 
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: quickstart

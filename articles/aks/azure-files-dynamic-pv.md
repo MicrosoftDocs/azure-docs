@@ -22,32 +22,20 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 You also need the Azure CLI version 2.0.46 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-## Create a storage account
+## Create a storage class
 
-When you dynamically create an Azure Files share as a Kubernetes volume, any storage account can be used as long as it is in the AKS **node** resource group. This group is the one with the *MC_* prefix that was created by the provisioning of the resources for the AKS cluster. Get the resource group name with the [az aks show][az-aks-show] command.
+A storage class is used to define how an Azure file share is created. A storage account is automatically created in the *_MC* resource group for use with the storage class to hold the Azure file shares. Choose of the following [Azure storage redundancy][storage-skus] for *skuName*:
 
-```azurecli
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
-
-MC_myResourceGroup_myAKSCluster_eastus
-```
-
-Use the [az storage account create][az-storage-account-create] command to create the storage account.
-
-Update `--resource-group` with the name of the resource group gathered in the last step, and `--name` to a name of your choice. Provide your own unique storage account name:
-
-```azurecli
-az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --sku Standard_LRS
-```
+* *Standard_LRS* - standard locally redundant storage (LRS)
+* *Standard_GRS* - standard geo-redundant storage (GRS)
+* *Standard_RAGRS* - standard read-access geo-redundant storage (RA-GRS)
 
 > [!NOTE]
 > Azure Files currently only work with Standard storage. If you use Premium storage, the volume fails to provision.
 
-## Create a storage class
+For more information on Kubernetes storage classes for Azure Files, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
-A storage class is used to define how an Azure file share is created. A storage account can be specified in the class. If a storage account is not specified, a *skuName* and *location* must be specified, and all storage accounts in the associated resource group are evaluated for a match. For more information on Kubernetes storage classes for Azure Files, see [Kubernetes Storage Classes][kubernetes-storage-classes].
-
-Create a file named `azure-file-sc.yaml` and copy in the following example manifest. Update the *storageAccount* value with the name of your storage account created in the previous step. For more information on *mountOptions*, see the [Mount options][mount-options] section.
+Create a file named `azure-file-sc.yaml` and copy in the following example manifest. For more information on *mountOptions*, see the [Mount options][mount-options] section.
 
 ```yaml
 kind: StorageClass
@@ -62,7 +50,6 @@ mountOptions:
   - gid=1000
 parameters:
   skuName: Standard_LRS
-  storageAccount: mystorageaccount
 ```
 
 Create the storage class with the [kubectl apply][kubectl-apply] command:
@@ -180,7 +167,7 @@ Create the pod with the [kubectl apply][kubectl-apply] command.
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-You now have a running pod with your Azure disk mounted in the */mnt/azure* directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`. The following condensed example output shows the volume mounted in the container:
+You now have a running pod with your Azure Files share mounted in the */mnt/azure* directory. This configuration can be seen when inspecting your pod via `kubectl describe pod mypod`. The following condensed example output shows the volume mounted in the container:
 
 ```
 Containers:
@@ -291,3 +278,4 @@ Learn more about Kubernetes persistent volumes using Azure Files.
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
+[storage-skus]: ../storage/common/storage-redundancy.md

@@ -1,6 +1,6 @@
 ---
 title: Manage access to Azure billing | Microsoft Docs
-description: 
+description: Learn how to give access to your Azure billing information for members of your team.
 services: ''
 documentationcenter: ''
 author: vikramdesai01
@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
-ms.author: cwatson
-
+ms.author: banders
+ms.custom: seodec18
 ---
 # Manage access to billing information for Azure
 

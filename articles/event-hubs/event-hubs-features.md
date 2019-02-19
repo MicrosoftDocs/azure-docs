@@ -1,6 +1,6 @@
 ---
-title: Azure Event Hubs features overview | Microsoft Docs
-description: Overview and details about Azure Event Hubs features
+title: Overview of features - Azure Event Hubs | Microsoft Docs
+description: This article provides details about features and terminology of Azure Event Hubs. 
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -9,14 +9,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 12/06/2018
 ms.author: shvija
 
 ---
 
-# Event Hubs features overview
+# Features and terminology in Azure Event Hubs
 
 Azure Event Hubs is a scalable event processing service that ingests and processes large volumes of events and data, with low latency and high reliability. See [What is Event Hubs?](event-hubs-what-is-event-hubs.md) for a high-level overview.
 
@@ -165,7 +166,7 @@ Throughput units are pre-purchased and are billed per hour. Once purchased, thro
 
 You can purchase more throughput units in blocks of 20, up to 100 throughput units, by contacting Azure support. Beyond that limit, you can purchase blocks of 100 throughput units.
 
-We recommend that you balance throughput units and partitions to achieve optimal scale. A single partition has a maximum scale of one throughput unit. The number of throughput units should be less than or equal to the number of partitions in an event hub.
+We recommend that you balance throughput units and partitions to achieve optimal scale. A single partition has a minimum scale of one throughput unit. The number of throughput units should be less than or equal to the number of partitions in an event hub.
 
 For detailed Event Hubs pricing information, see [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
 

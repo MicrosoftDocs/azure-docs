@@ -229,7 +229,7 @@ ms.author: sedusch
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure networking)
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Storage: Microsoft Azure Storage and data disks)
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/network-overview.md
@@ -248,7 +248,7 @@ ms.author: sedusch
 [storage-azure-cli-copy-blobs]:../../../storage/common/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../../../storage/common/storage-introduction.md
 [storage-powershell-guide-full-copy-vhd]:../../../storage/common/storage-powershell-guide-full.md#how-to-copy-blobs-from-one-storage-container-to-another
-[storage-premium-storage-preview-portal]:../../windows/premium-storage.md
+[storage-premium-storage-preview-portal]:../../windows/disks-types.md
 [storage-redundancy]:../../../storage/common/storage-redundancy.md
 [storage-scalability-targets]:../../../storage/common/storage-scalability-targets.md
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
@@ -430,7 +430,7 @@ The wizard guides you through setting the required parameters to create the virt
   * **Storage**
     * **Disk Type**: Select the disk type of the OS disk. If you want to use Premium Storage for your data disks, we recommend using Premium Storage for the OS disk as well.
     * **Use managed disks**: If you want to use Managed Disks, select Yes. For more information about Managed Disks, see chapter [Managed Disks][planning-guide-managed-disks] in the planning guide.
-    * **Storage account**: Select an existing storage account or create a new one. Not all storage types work for running SAP applications. For more information about storage types, see [Microsoft Azure Storage][dbms-guide-2.3] in [Azure Virtual Machines DBMS deployment for SAP NetWeaver][dbms-guide].
+    * **Storage account**: Select an existing storage account or create a new one. Not all storage types work for running SAP applications. For more information about storage types, see [Storage structure of a VM for RDBMS Deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
   * **Network**
     * **Virtual network** and **Subnet**: To integrate the virtual machine with your intranet, select the virtual network that is connected to your on-premises network.
     * **Public IP address**: Select the public IP address that you want to use, or enter parameters to create a new public IP address. You can use a public IP address to access your virtual machine over the Internet. Make sure that you also create a network security group to help secure access to your virtual machine.
@@ -486,7 +486,7 @@ In the Azure portal, enter the following parameters for the template:
 
     For larger systems, we highly recommend using Azure Premium Storage. For more information about storage types, see these resources:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
-      * [Microsoft Azure Storage][dbms-guide-2.3] in [Azure Virtual Machines DBMS deployment for SAP NetWeaver][dbms-guide]
+      * [Storage structure of a VM for RDBMS Deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Premium Storage: High-performance storage for Azure Virtual Machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
   * **Admin username** and **Admin password**: A username and password.
@@ -623,7 +623,7 @@ In the Azure portal, enter the following parameters for the template:
 
     For larger systems, we highly recommend using Azure Premium Storage. For more information about storage types, see the following resources:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
-      * [Microsoft Azure Storage][dbms-guide-2.3] in [Azure Virtual Machines DBMS deployment for SAP NetWeaver][dbms-guide]
+      * [Storage structure of a VM for RDBMS Deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Premium Storage: High-performance storage for Azure virtual machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
   * **User image VHD URI** (unmanaged disk image template only): The URI of the private OS image VHD, for example, https://&lt;accountname>.blob.core.windows.net/vhds/userimage.vhd.
@@ -716,7 +716,7 @@ In the Azure portal, enter the following parameters for the template:
 
     For larger systems, we highly recommend using Azure Premium Storage. For more information about storage types, see the following resources:
       * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
-      * [Microsoft Azure Storage][dbms-guide-2.3] in [Azure Virtual Machine DBMS deployment for SAP NetWeaver][dbms-guide]
+      * [Storage structure of a VM for RDBMS Deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64)
       * [Premium Storage: High-performance storage for Azure Virtual Machine workloads][storage-premium-storage-preview-portal]
       * [Introduction to Microsoft Azure Storage][storage-introduction]
   * **OS disk VHD URI** (unmanaged disk template only): The URI of the private OS disk, for example, https://&lt;accountname>.blob.core.windows.net/vhds/osdisk.vhd.

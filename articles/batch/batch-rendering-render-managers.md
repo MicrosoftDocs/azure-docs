@@ -1,5 +1,5 @@
 ---
-title: Azure Batch render manager support
+title: Render manager support - Azure Batch
 description: Using Azure for rendering using Azure Batch render manager integration
 services: batch
 author: mscurrell

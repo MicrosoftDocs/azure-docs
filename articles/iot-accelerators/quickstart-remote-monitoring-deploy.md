@@ -1,5 +1,5 @@
 ---
-title: Try a cloud-based IoT remote monitoring solution on Azure | Microsoft Docs
+title: Try a cloud-based IoT remote monitoring solution - Azure | Microsoft Docs
 description: In this quickstart, you deploy the Remote Monitoring Azure IoT solution accelerator, and sign in to and use the solution dashboard.
 author: dominicbetts
 manager: timlt

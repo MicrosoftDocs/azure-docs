@@ -73,7 +73,7 @@ From the SysRq Admin Guide above:
 |``u``  |    Will attempt to remount all mounted filesystems read-only.
 |``v``  |    Forcefully restores framebuffer console
 |``v``  |    Causes ETM buffer dump [ARM-specific]
-|``w``  |    Dumps tasks that are in uninterruptable (blocked) state.
+|``w``  |    Dumps tasks that are in uninterruptible (blocked) state.
 |``x``  |    Used by xmon interface on ppc/powerpc platforms. Show global PMU Registers on sparc64. Dump all TLB entries on MIPS.
 |``y``  |    Show global CPU Registers [SPARC-64 specific]
 |``z``  |    Dump the ftrace buffer

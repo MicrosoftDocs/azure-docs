@@ -1,16 +1,17 @@
 ---
-title: "Tutorial: Computer Vision API JavaScript"
+title: "Tutorial: Perform image operations - JavaScript"
 titlesuffix: Azure Cognitive Services
 description: Explore a basic JavaScript app that uses the Computer Vision API in Azure Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
+ms.custom: seodec18
 ---
 
 # Tutorial: Computer Vision API JavaScript
@@ -414,7 +415,7 @@ Copy and paste the following **getThumbnail** function to just underneath the **
  * @param {boolean} smartCropping Set to true to use the smart cropping feature which crops to the
  *                                more interesting area of an image; false to crop for the center
  *                                of the image.
- * @param {<img> element} imageElement The img element in the DOM which will display the thumnail image.
+ * @param {<img> element} imageElement The img element in the DOM which will display the thumbnail image.
  * @param {<textarea> element} responseTextArea - The text area to display the Response Headers returned
  *                             from the REST API call, or to display the error message if there was 
  *                             an error.
@@ -630,7 +631,7 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
         "handwriting": "true",
     };
 
-    // This operation requrires two REST API calls. One to submit the image for processing,
+    // This operation requires two REST API calls. One to submit the image for processing,
     // the other to retrieve the text found in the image. 
     //
     // Perform the first REST API call to submit the image for processing.

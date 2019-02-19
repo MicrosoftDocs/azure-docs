@@ -126,20 +126,20 @@
 ### [Handle long-running operations](media-services-dotnet-long-operations.md)
 ### [Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
 
-## [Clip content](media-services-azure-media-clipper-overview.md)
+<!-- ## [Clip content](media-services-azure-media-clipper-overview.md)
 ### [Getting started](media-services-azure-media-clipper-getting-started.md)
 ### [Load videos](media-services-azure-media-clipper-load-assets.md)
 ### [Configure keyboard shortcuts](media-services-azure-media-clipper-keyboard-shortcuts.md)
 ### [Configure localization](media-services-azure-media-clipper-localization.md)
 ### [Submit clipping jobs](media-services-azure-media-clipper-submit-job.md)
-### [Azure portal](media-services-azure-media-clipper-portal.md)
+### [Azure portal](media-services-azure-media-clipper-portal.md) -->
 
 ## [Protect content](media-services-content-protection-overview.md)
 ### [Storage encryption](media-services-rest-storage-encryption.md)
 ### [AES-128 encryption](media-services-protect-with-aes128.md)
 ### [PlayReady/Widevine for Streaming](media-services-protect-with-playready-widevine.md)
 ### [FairPlay for Streaming](media-services-protect-hls-with-fairplay.md)
-### [Offline PlayReady for Windows 10](https://blogs.msdn.microsoft.com/playready4/2016/10/26/does-azure-media-services-support-offline-mode/)
+### [Offline PlayReady for Windows 10](offline-playready-streaming-windows-10.md)
 ### [Offline Fairplay for iOS](media-services-protect-hls-with-offline-fairplay.md)
 ### [Offline Widevine for Android](offline-widevine-for-android.md)
 ### [Configure in Azure portal](media-services-portal-protect-content.md)
@@ -177,8 +177,8 @@
 ### [Process with Content Moderator](media-services-content-moderation.md)
 
 ## [Configure telemetry](media-services-telemetry-overview.md)
-###[.NET](media-services-dotnet-telemetry.md)
-###[REST](media-services-rest-telemetry.md)
+### [.NET](media-services-dotnet-telemetry.md)
+### [REST](media-services-rest-telemetry.md)
 
 ## Scale
 ### [Media Processing](media-services-scale-media-processing-overview.md)

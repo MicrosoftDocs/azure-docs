@@ -11,7 +11,7 @@ ms.assetid: c0538b90-2695-4c4c-a6c8-82f59111f4ab
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo

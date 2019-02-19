@@ -41,7 +41,7 @@ A backup policy consists of the following configurations:
 
 * **Backup schedule**: The time or frequency at which to take periodic backups. One can schedule backups to be recurring at specified interval or at a fixed time daily/ weekly.
 
-    1. **Frequency-based backup schedule**: This schedule type should be used if the need is to take data backup at fixed intervals. Desired time interval between two consecutive backups is defined using ISO8601 format. Frequency-based backup schedule supports interval resolution upto minute.
+    1. **Frequency-based backup schedule**: This schedule type should be used if the need is to take data backup at fixed intervals. Desired time interval between two consecutive backups is defined using ISO8601 format. Frequency-based backup schedule supports interval resolution to the minute.
         ```json
         {
             "ScheduleKind": "FrequencyBased",
@@ -134,6 +134,9 @@ A backup policy consists of the following configurations:
         }
         ```
 
+> [!IMPORTANT]
+> Due to an issue in the runtime, ensure that the retention duration in the retention policy is configured to be less than 24 days or else it would result in Backup Restore service to go into quorum loss post replica failover.
+
 ## Enable periodic backup
 After defining backup policy to fulfill data backup requirements, the backup policy should be appropriately associated either with an _application_, or _service_, or a _partition_.
 
@@ -210,6 +213,11 @@ Once the need for suspension is over, then the periodic data backup can be resto
 * If suspension was applied at a _Service_, then it should be resumed using [Resume Service Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup) API.
 
 * If suspension was applied at a _Partition_, then it should be resumed using [Resume Partition Backup](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
+
+### Difference between Suspend and Disable backups
+Disable backup should be used when backups are no longer required for a particular application, service or partition. One can invoke disable backup request along with clean backups parameter to be true which would mean all existing backups are deleted as well. However, suspend is to be used in scenarios where one wants to turn off backups temporarily like when local disk becomes full or uploading backup is failing due to known network issue etc. 
+
+While disable can be invoked only at a level which was earlier enabled for backup explicitly however suspension can be applied at any level which is currently enabled for backup either directly or via inheritance/ hierarchy. For example, if backup is enabled at an application level, one can invoke disable only at the application level however suspend can be invoked at application, any service or partition under that application. 
 
 ## Auto restore on data loss
 The service partition may lose data due to unexpected failures. For example, the disk for two out of three replicas for a partition (including the primary replica) gets corrupted or wiped.

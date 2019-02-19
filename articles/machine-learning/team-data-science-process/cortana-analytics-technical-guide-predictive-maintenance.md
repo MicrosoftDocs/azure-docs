@@ -1,18 +1,18 @@
 ---
-title: Predictive maintenance in aerospace with Azure - Cortana Intelligence Solution technical guide | Microsoft Docs
+title: Guide to predictive maintenance for aerospace - Team Data Science Process
 description: A technical guide to the Solution Template with Microsoft Cortana Intelligence for predictive maintenance in aerospace, utilities, and transportation.
 services: machine-learning
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: "(previous author=fboylu, ms.author=fboylu)"
+ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
 ---
-# Technical guide to the Cortana Intelligence Solution Template for predictive maintenance in aerospace and other businesses
+# Technical guide to the Cortana Intelligence Solution Template for predictive maintenance in aerospace
 
 >[!Important]
 This article has been deprecated. The discussion about Predictive Maintenance in Aerospace is still relevant, but for current information, refer to [Solution Overview for Business Audiences](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace).
@@ -321,7 +321,7 @@ containing data (for example, prediction results) for visualization.
    * Select the subscription you're using for deploying the solution, and
      then select **'YourSolutionName\_ResourceGroup'**.
    * In the new pop out panel, click the  ![SQL icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) icon to access your
-     database. Your database name is next to this icon (for example, **'pmaintenancedb'**), and  the **database server name** is listed under the Server name property and should look similar to **YourSoutionName.database.windows.net**.
+     database. Your database name is next to this icon (for example, **'pmaintenancedb'**), and  the **database server name** is listed under the Server name property and should look similar to **YourSolutionName.database.windows.net**.
    * Your database **username** and **password** are the same as
      the username and password previously recorded during deployment of the solution.
 2. Update the data source of the cold path report file with Power
@@ -338,7 +338,7 @@ containing data (for example, prediction results) for visualization.
    * In the pop out window, replace **'Server'** and **'Database'** with
      your own server and database names, and then click **'OK'**. For server
      name, make sure you specify the port 1433
-     (**YourSoutionName.database.windows.net, 1433**). Leave the Database field as **pmaintenancedb**. Ignore the warning
+     (**YourSolutionName.database.windows.net, 1433**). Leave the Database field as **pmaintenancedb**. Ignore the warning
      messages that appear on the screen.
    * In the next pop out window, you'll see two options on the left pane
      (**Windows** and **Database**). Click **'Database'**, fill in your

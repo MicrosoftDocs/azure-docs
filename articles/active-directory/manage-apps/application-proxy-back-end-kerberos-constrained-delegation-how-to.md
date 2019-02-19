@@ -3,20 +3,21 @@ title: Troubleshoot Kerberos constrained delegation configurations for Applicati
 description: Troubleshoot Kerberos Constrained Delegation configurations for Application Proxy
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: asteen
 
+ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot Kerberos constrained delegation configurations for Application Proxy
@@ -29,7 +30,7 @@ This article provides a single point of reference that helps troubleshoot and se
 
 This article makes the following assumptions:
 
--   Deployment of Azure AD Application Proxy per [Get started with Application Proxy](application-proxy-enable.md) and general access to non-KCD applications work as expected.
+-   Deployment of Azure AD Application Proxy per [Get started with Application Proxy](application-proxy-add-on-premises-application.md) and general access to non-KCD applications work as expected.
 
 -   The published target application is based on Internet Information Services (IIS) and the Microsoft implementation of Kerberos.
 

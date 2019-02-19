@@ -6,9 +6,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: overview
-ms.date: 11/19/2018
+ms.date: 01/03/2019
 ms.author: tamram
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Introduction to Azure Blob storage
@@ -29,7 +29,7 @@ The following diagram shows the relationship between these resources.
 
 ### Storage accounts
 
-A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage service endpoint forms the endpoints for your storage account.
+A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage blob endpoint forms the base address for the objects in your storage account.
 
 For example, if your storage account is named *mystorageaccount*, then the default endpoint for Blob storage is:
 
@@ -52,7 +52,7 @@ Azure Storage supports three types of blobs:
 
 * **Block blobs** store text and binary data, up to about 4.7 TB. Block blobs are made up of blocks of data that can be managed individually.
 * **Append blobs** are made up of blocks like block blobs, but are optimized for append operations. Append blobs are ideal for scenarios such as logging data from virtual machines.
-* **Page blobs** store random access files up to 8 TB in size. Page blobs store the virtual hard drive (VHD) files serve as disks for Azure virtual machines. Fore more information about page blobs, see (../articles/storage/blobs/storage-blob-pageblob-overview.md)
+* **Page blobs** store random access files up to 8 TB in size. Page blobs store the virtual hard drive (VHD) files serve as disks for Azure virtual machines. For more information about page blobs, see [Overview of Azure page blobs](storage-blob-pageblob-overview.md)
 
 For more information about the different types of blobs, see [Understanding Block Blobs, Append Blobs, and Page Blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 

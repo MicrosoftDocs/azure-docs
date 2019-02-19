@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager request limits | Microsoft Docs
+title: Request limits and throttling - Azure Resource Manager
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits have been reached.
 services: azure-resource-manager
 documentationcenter: na
@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-
+ms.custom: seodec18
 ---
 # Throttling Resource Manager requests
+
 For each Azure subscription and tenant, Resource Manager allows up to 12,000 read requests per hour and 1,200 write requests per hour. These limits are scoped to the principal ID making the requests and the subscription ID or tenant ID. If your requests come from more than one principal ID, your limit across the subscription or tenant is greater than 12,000 and 1,200 per hour.
 
 Requests are applied to either your subscription or your tenant. Subscription requests are ones the involve passing your subscription ID, such as retrieving the resource groups in your subscription. Tenant requests don't include your subscription ID, such as retrieving valid Azure locations.
@@ -25,6 +26,8 @@ These limits apply to each Azure Resource Manager instance. There are multiple i
 If your application or script reaches these limits, you need to throttle your requests. This article shows you how to determine the remaining requests you have before reaching the limit, and how to respond when you have reached the limit.
 
 When you reach the limit, you receive the HTTP status code **429 Too many requests**.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Remaining requests
 You can determine the number of remaining requests by examining response headers. Each request includes values for the number of remaining read and write requests. The following table describes the response headers you can examine for those values:
@@ -61,7 +64,7 @@ For a complete PowerShell example, see [Check Resource Manager Limits for a Subs
 If you want to see the remaining requests for debugging, you can provide the **-Debug** parameter on your **PowerShell** cmdlet.
 
 ```powershell
-Get-AzureRmResourceGroup -Debug
+Get-AzResourceGroup -Debug
 ```
 
 Which returns many values, including the following response value:
@@ -80,7 +83,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 To get write limits, use a write operation: 
 
 ```powershell
-New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 Which returns many values, including the following values:

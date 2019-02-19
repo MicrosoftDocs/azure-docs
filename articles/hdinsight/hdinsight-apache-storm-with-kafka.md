@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Apache Kafka with Apache Storm on HDInsight - Azure '
+title: 'Tutorial: Use Apache Storm to read and write data with Apache Kafka - Azure HDInsight'
 description: Learn how to create a streaming pipeline using Apache Storm and Apache Kafka on HDInsight. In this tutorial, you use the KafkaBolt and KafkaSpout components to stream data from Kafka.
 services: hdinsight
 author: hrasheed-msft
@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 05/21/2018
+ms.date: 12/06/2018
 #Customer intent: As a developer, I want to learn how to build a streaming pipeline that uses Storm and Kafka to process streaming data.
 ---
 # Tutorial: Use Apache Storm with Apache Kafka on HDInsight
@@ -32,9 +32,9 @@ In this tutorial, you learn how to:
 
 * Familiarity with creating Kafka topics. For more information, see the [Kafka on HDInsight quickstart](./kafka/apache-kafka-get-started.md) document.
 
-* Familiarity with building and deploying Storm solutions (topologies). Specifically, topologies that use the [Flux](https://storm.apache.org/releases/current/flux.html) framework. For more information, see the [Create a Storm topology in Java](./storm/apache-storm-develop-java-topology.md) document.
+* Familiarity with building and deploying Storm solutions (topologies). Specifically, topologies that use [Apache Storm Flux](https://storm.apache.org/releases/current/flux.html) framework. For more information, see the [Create an Apache Storm topology in Java](./storm/apache-storm-develop-java-topology.md) document.
 
-* [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) or higher. HDInsight 3.5 or higher require Java 8.
+* [Java JDK 1.8](https://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) or higher. HDInsight 3.5 or higher require Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -49,7 +49,7 @@ The following environment variables may be set when you install Java and the JDK
     * `JAVA_HOME\bin` (or the equivalent path).
     * The directory where Maven is installed.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > The steps in this document require an Azure resource group that contains both a Storm on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Storm cluster to directly communicate with the Kafka cluster.
 > 
 > For your convenience, this document links to a template that can create all the required Azure resources. 
@@ -119,7 +119,7 @@ There are two topologies provided with this tutorial:
 
 * Kafka-reader: Reads data from Kafka and then stores it to the HDFS compatible file store for the Storm cluster.
 
-    > [!WARNING] 
+    > [!WARNING]  
     > To enable the Storm to work with the HDFS compatible storage used by HDInsight, a script action is required. The script installs several jar files to the `extlib` path for Storm. The template in this tutorial automatically uses the script during cluster creation.
     >
     > If you do not use the template in this document to create the Storm cluster, then you must manually apply the script action to your cluster.
@@ -136,7 +136,7 @@ The following parameters are set at run time for these topologies:
 
 * `${kafka.zookeeper.hosts}`: The hosts that Zookeeper runs on in the Kafka cluster.
 
-* `${hdfs.url}`: The file system URL for the HDFSBolt component. Indicates whether the data is written to an Azure Storage account or Azure Data Lake Store.
+* `${hdfs.url}`: The file system URL for the HDFSBolt component. Indicates whether the data is written to an Azure Storage account or Azure Data Lake Storage.
 
 * `${hdfs.write.dir}`: The directory that data is written to.
 
@@ -368,7 +368,7 @@ The project contains a file named `dev.properties` that is used to pass paramete
 | `kafka.broker.hosts` | The Kafka broker hosts (worker nodes). |
 | `kafka.topic` | The Kafka topic that the topologies use. |
 | `hdfs.write.dir` | The directory that the Kafka-reader topology writes to. |
-| `hdfs.url` | The file system used by the Storm cluster. For Azure Storage accounts, use a value of `wasb:///`. For Azure Data Lake Store, use a value of `adl:///`. |
+| `hdfs.url` | The file system used by the Storm cluster. For Azure Storage accounts, use a value of `wasb:///`. For Azure Data Lake Storage Gen2, use a value of `abfs:///`. For Azure Data Lake Storage Gen1, use a value of `adl:///`. |
 
 ## Create the clusters
 
@@ -378,7 +378,7 @@ The following diagram shows how communication flows between Storm and Kafka:
 
 ![Diagram of Storm and Kafka clusters in an Azure virtual network](./media/hdinsight-apache-storm-with-kafka/storm-kafka-vnet.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Other services on the cluster such as SSH and [Apache Ambari](https://ambari.apache.org/) can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 To create an Azure Virtual Network, and then create the Kafka and Storm clusters within it, use the following steps:
@@ -395,7 +395,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
     * Kafka on HDInsight version 3.6 (three worker nodes)
     * Storm on HDInsight version 3.6 (three worker nodes)
 
-  > [!WARNING]
+  > [!WARNING]  
   > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
 
 2. Use the following guidance to populate the entries on the **Custom deployment** section:
@@ -420,7 +420,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 
 4. Finally, check **Pin to dashboard** and then select **Purchase**.
 
-> [!NOTE]
+> [!NOTE]  
 > It can take up to 20 minutes to create the clusters.
 
 ## Build the topology
@@ -458,7 +458,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
     ($brokerHosts -join ":9092,") + ":9092"
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > The following Bash example assumes that `$CLUSTERNAME` contains the name of the __Kafka__ cluster name. It also assumes that [jq](https://stedolan.github.io/jq/) version 1.5 or greater is installed. When prompted, enter the password for the cluster login account.
 
     ```bash
@@ -469,7 +469,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 
         wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > While there may be more than two broker hosts for your cluster, you do not need to provide a full list of all hosts to clients. One or two is enough.
 
 2. Use one of the following methods to discover the Zookeeper hosts for the __Kafka__ on HDInsight cluster:
@@ -485,7 +485,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
     ($zookeeperHosts -join ":2181,") + ":2181"
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > The following Bash example assumes that `$CLUSTERNAME` contains the name of the __Kafka__ cluster. It also assumes that [jq](https://stedolan.github.io/jq/) is installed. When prompted, enter the password for the cluster login account.
 
     ```bash
@@ -496,7 +496,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 
         zk0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181,zk2-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:2181
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > While there are more than two Zookeeper nodes, you do not need to provide a full list of all hosts to clients. One or two is enough.
 
     Save this value, as it is used later.
@@ -507,8 +507,8 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
         kafka.broker.hosts: wn0-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092,wn1-kafka.53qqkiavjsoeloiq3y1naf4hzc.ex.internal.cloudapp.net:9092
         kafka.topic: stormtopic
 
-    > [!IMPORTANT]
-    > The `hdfs.url` entry is configured for a cluster that uses an Azure Storage account. To use this topology with a Storm cluster that uses Data Lake Store, change this value from `wasb` to `adl`.
+    > [!IMPORTANT]  
+    > The `hdfs.url` entry is configured for a cluster that uses an Azure Storage account. To use this topology with a Storm cluster that uses Data Lake Storage, change this value from `wasb` to `adl`.
 
 4. Save the `dev.properties` file and then use the following command to upload it to the **Storm** cluster:
 
@@ -625,7 +625,7 @@ To remove the resource group using the Azure portal:
 2. Locate the resource group to delete, and then right-click the __More__ button (...) on the right side of the listing.
 3. Select __Delete resource group__, and then confirm.
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use.
 > 
 > Deleting a Kafka on HDInsight cluster deletes any data stored in Kafka.

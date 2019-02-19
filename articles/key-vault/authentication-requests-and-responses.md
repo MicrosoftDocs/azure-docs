@@ -4,16 +4,15 @@ description: Authenticate to AD for using Key Vault
 services: key-vault
 documentationcenter:
 author: bryanla
-manager: mbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
 ms.assetid: 4c321939-8a5b-42ca-83c4-2f5f647ca13e
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 01/07/2019
 ms.author: bryanla
 
 ---

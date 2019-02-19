@@ -1,6 +1,6 @@
 ---
-title: How To Configure Azure ExpressRoute Direct | Microsoft Docs
-description: This page helps you configure ExpressRoute Direct (Preview)
+title: Configure ExpressRoute Direct - Azure | Microsoft Docs
+description: This page helps you configure ExpressRoute Direct (Preview).
 services: expressroute
 author: jaredr80
 
@@ -8,6 +8,7 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: jaredro
+ms.custom: seodec18
 
 ---
 
@@ -65,7 +66,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
 3. Determine if a location listed above has available bandwidth
 
   ```powershell
-  Get-AzureRMExpressRoutePortsLocations -Name "Equinix-San-Jose-SV1"
+  Get-AzureRmExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
   ```
 
   **Example output**
@@ -95,7 +96,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
   > 
  
   ```powershell 
-  $ERDirect = New-AzureRMExpressRoutePort -Name $Name -ResourceGroupName -$RGName -PeeringLocation $PeeringLocationName -BandwidthInGbps 100.0 -Encapsulation QinQ | Dot1Q -Location $AzureRegion
+  $ERDirect = New-AzureRMExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName -PeeringLocation $PeeringLocationName -BandwidthInGbps 100.0 -Encapsulation QinQ | Dot1Q -Location $AzureRegion
   ```
 
   > [!NOTE]

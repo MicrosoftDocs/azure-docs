@@ -1,11 +1,8 @@
 ---
-title: 'Azure Database for PostgreSQL Server vnet services endpoint overview | Microsoft Docs'
-description: 'Describes how vnet service endpoints work for your Azure Database for PostgreSQL server.'
-services: postgresql
+title: Azure Database for PostgreSQL Server vnet services endpoint overview
+description: Learn how VNET service endpoints work for your Azure Database for PostgreSQL server.
 author: mbolz
 ms.author: mbolz
-manager: jhubbard
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
@@ -20,6 +17,7 @@ To create a virtual network rule, there must first be a [virtual network][vm-vir
 
 > [!NOTE]
 > This feature is available in all regions of Azure public cloud where Azure Database for PostgreSQL is deployed for General Purpose and Memory Optimized servers.
+> In case of VNet peering, if traffic is flowing through a common VNet Gateway with service endpoints and is supposed to flow to the peer, please create an ACL/VNet rule to allow Azure Virtual Machines in the Gateway VNet to access the Azure Database for PostgreSQL server.
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -139,7 +137,7 @@ For articles on creating VNet rules, see:
 - [Create and manage Azure Database for PostgreSQL VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)
 
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

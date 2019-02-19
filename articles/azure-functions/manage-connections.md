@@ -8,6 +8,7 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: glenga
+#Customer intent: As a developer, I want to know how to write my Azure Functions code so that I efficiently use connections and avoid potential bottlenecks.
 ---
 
 # How to manage connections in Azure Functions
@@ -45,7 +46,7 @@ private static HttpClient httpClient = new HttpClient();
 
 public static async Task Run(string input)
 {
-    var response = await httpClient.GetAsync("http://example.com");
+    var response = await httpClient.GetAsync("https://example.com");
     // Rest of function
 }
 ```

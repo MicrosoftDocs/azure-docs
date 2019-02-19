@@ -3,7 +3,7 @@ title: SAP HANA infrastructure configurations and operations on Azure | Microsof
 description: Operations guide for SAP HANA systems that are deployed on Azure virtual machines.
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
-author: juergent
+author: msjuergent
 manager: patfilot
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/04/2018
-ms.author: msjuergent
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -65,10 +65,10 @@ Deploy the VMs in Azure by using:
 You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com/). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h) or with the automation released [here](https://github.com/AzureCAT-GSI/SAP-HANA-ARM).
 
 ### Choose Azure Storage type
-Azure provides two types of storage that are suitable for Azure VMs that are running SAP HANA:
+Azure provides two types of storage that are suitable for Azure VMs that are running SAP HANA: Standard hard disk drives (HDD) and premium solid state drives (SSD). To learn about these disk types, see our article [Select a disk type](../../windows/disks-types.md)
 
-- [Azure Standard Storage](https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage)
-- [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Standard hard disk drives (HDD)
+- Premium solid state drives (SSD)
 
 Azure offers two deployment methods for VHDs on Azure Standard and Premium Storage. If the overall scenario permits, take advantage of [Azure managed disk](https://azure.microsoft.com/services/managed-disks/) deployments.
 
@@ -158,10 +158,10 @@ The following table shows a configuration of VM types that customers commonly us
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data and /hana/log<br /> striped with LVM or MDADM | /hana/shared | /root volume | /usr/sap | hana/backup |
 | --- | --- | --- | --- | --- | --- | --- | -- |
-| DS14v2 | 128 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
+| DS14v2 | 112 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
 | E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
 | E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| E64v3 | 443 GiB | 1200 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| E64v3 | 432 GiB | 1200 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
 | GS5 | 448 GiB | 2000 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
 | M32ts | 192 GiB | 500 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
 | M32ls | 256 GiB | 500 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
@@ -314,7 +314,7 @@ Related to the vNIC of a HANA scale-out VM that should route the **/hana/shared*
 - Eventually, for the traffic to **/hana/shared**, deploy a third subnet in the VNet you deploy the SAP HANA scale-out configuration and assign a third vNIC that is hosted in that subnet. Use the third vNIC and associated IP address for the traffic to the NFS share. You then can apply separate access and routing rules.
 
 >[!IMPORTANT]
->Network traffic between the VMs that have SAP HANA in a scale-out manner deployed and the highly available NFS may under no circumstances be routed through an [NVA](https://azure.microsoft.com/solutions/network-appliances/) or similar virtual appliances. Whereas Azure NSGs are no such devices. Check your routing rules in order to make sure that NVAs or similiar virtual appliances are detoured when access the highly available NFS share from the VMs running SAP HANA.
+>Network traffic between the VMs that have SAP HANA in a scale-out manner deployed and the highly available NFS may under no circumstances be routed through an [NVA](https://azure.microsoft.com/solutions/network-appliances/) or similar virtual appliances. Whereas Azure NSGs are no such devices. Check your routing rules in order to make sure that NVAs or similar virtual appliances are detoured when access the highly available NFS share from the VMs running SAP HANA.
 > 
 
 If you want to share the highly available NFS cluster between SAP HANA configurations, move all those HANA configurations into the same VNet. 
@@ -414,7 +414,7 @@ Azure VM types, which are supported for DT 2.0 one will see the maximum disk IO 
 It is required to attach multiple Azure disks to the DT 2.0 VM and create a software raid (striping) on OS level to achieve the max limit of disk throughput 
 per VM. A single Azure disk cannot provide the throughput to reach the max VM limit in this regard. Azure Premium storage is mandatory to run DT 2.0. 
 
-- Details about available Azure disk types can be found [here](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Details about available Azure disk types can be found [here](../../windows/disks-types.md)
 - Details about creating software raid via mdadm can be found [here](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
 - Details about configuring LVM to create a striped volume for max throughput can be found [here](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
 

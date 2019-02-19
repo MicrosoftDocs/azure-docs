@@ -22,13 +22,13 @@ This article explains how to send email by using [SendGrid](https://sendgrid.com
 
 ## Packages - Functions 1.x
 
-The SendGrid bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.SendGrid/) GitHub repository.
+The SendGrid bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet package, version 2.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.SendGrid/) GitHub repository.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## Packages - Functions 2.x
 
-The SendGrid bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SendGrid](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub repository.
+The SendGrid bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub repository.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -44,17 +44,21 @@ See the language-specific example:
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that uses a Service Bus queue trigger and a SendGrid output binding.
 
+#### Synchronous C# example:
+
 ```cs
 [FunctionName("SendEmail")]
 public static void Run(
-    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] OutgoingEmail email,
+    [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
     [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] out SendGridMessage message)
 {
-    message = new SendGridMessage();
-    message.AddTo(email.To);
-    message.AddContent("text/html", email.Body);
-    message.SetFrom(new EmailAddress(email.From));
-    message.SetSubject(email.Subject);
+var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+
+message = new SendGridMessage();
+message.AddTo(emailObject.To);
+message.AddContent("text/html", emailObject.Body);
+message.SetFrom(new EmailAddress(emailObject.From));
+message.SetSubject(emailObject.Subject);
 }
 
 public class OutgoingEmail
@@ -63,6 +67,33 @@ public class OutgoingEmail
     public string From { get; set; }
     public string Subject { get; set; }
     public string Body { get; set; }
+}
+```
+#### Asynchronous C# example:
+
+```cs
+[FunctionName("SendEmail")]
+public static async void Run(
+ [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] Message email,
+ [SendGrid(ApiKey = "CustomSendGridKeyAppSettingName")] IAsyncCollector<SendGridMessage> messageCollector)
+{
+ var emailObject = JsonConvert.DeserializeObject<OutgoingEmail>(Encoding.UTF8.GetString(email.Body));
+
+ var message = new SendGridMessage();
+ message.AddTo(emailObject.To);
+ message.AddContent("text/html", emailObject.Body);
+ message.SetFrom(new EmailAddress(emailObject.From));
+ message.SetSubject(emailObject.Subject);
+ 
+ await messageCollector.AddAsync(message);
+}
+
+public class OutgoingEmail
+{
+ public string To { get; set; }
+ public string From { get; set; }
+ public string Subject { get; set; }
+ public string Body { get; set; }
 }
 ```
 
@@ -78,13 +109,19 @@ Here's the binding data in the *function.json* file:
 {
     "bindings": [
         {
-            "name": "message",
-            "type": "sendGrid",
-            "direction": "out",
-            "apiKey" : "MySendGridKey",
-            "to": "{ToEmail}",
-            "from": "{FromEmail}",
-            "subject": "SendGrid output bindings"
+          "type": "queueTrigger",
+          "name": "mymsg",
+          "queueName": "myqueue",
+          "connection": "AzureWebJobsStorage",
+          "direction": "in"
+        },
+        {
+          "type": "sendGrid",
+          "name": "$return",
+          "direction": "out",
+          "apiKey": "SendGridAPIKeyAsAppSetting",
+          "from": "{FromEmail}",
+          "to": "{ToEmail}"
         }
     ]
 }
@@ -96,27 +133,28 @@ Here's the C# script code:
 
 ```csharp
 #r "SendGrid"
+
 using System;
 using SendGrid.Helpers.Mail;
-using Microsoft.Extensions.Logging;
+using Microsoft.Azure.WebJobs.Host;
 
-public static void Run(ILogger log, string input, out Mail message)
+public static SendGridMessage Run(Message mymsg, ILogger log)
 {
-     message = new Mail
-    {        
-        Subject = "Azure news"          
-    };
-
-    var personalization = new Personalization();
-    personalization.AddTo(new Email("recipient@contoso.com"));   
-
-    Content content = new Content
+    SendGridMessage message = new SendGridMessage()
     {
-        Type = "text/plain",
-        Value = input
+        Subject = $"{mymsg.Subject}"
     };
-    message.AddContent(content);
-    message.AddPersonalization(personalization);
+    
+    message.AddContent("text/plain", $"{mymsg.Content}");
+
+    return message;
+}
+public class Message
+{
+    public string ToEmail { get; set; }
+    public string FromEmail { get; set; }
+    public string Subject { get; set; }
+    public string Content { get; set; }
 }
 ```
 

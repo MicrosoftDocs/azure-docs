@@ -11,10 +11,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
-ms.date: 06/21/2018
+ms.subservice: compliance
+ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
+ms.collection: M365-identity-device-management
 ---
 
 # Manage guest access with Azure AD access reviews
@@ -34,15 +35,15 @@ You also can easily ensure that guest users have appropriate access. You can ask
 
 Access reviews are available with the Premium P2 edition of Azure AD, which is included in Microsoft Enterprise Mobility + Security, E5. For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md). Each user who interacts with this feature, including to create a review, fill out a review or confirm their access, requires a license. 
 
-If you plan to ask guest users to review their own access, read about guest user licensing. For more information, see [Azure AD B2B collaboration licensing](../b2b/licensing-guidance.md).
+You can also ask guest users to review their own access. For each paid Azure AD Premium P2 license that you assign to one of your own organization's users, you can use B2B to invite up to five guest users under the External User Allowance. These guest users can also use Azure AD Premium P2 features. For more information, see [Azure AD B2B collaboration licensing](../b2b/licensing-guidance.md).
 
 ## Create and perform an access review for guests
 
-First, enable access reviews to appear on a reviewer's access panels. As a global administrator or user account administrator, go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/). 
+First, as a global administrator or user account administrator, go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) to ensure that access reviews is ready for your organization. 
 
 Azure AD enables several scenarios for reviewing guest users.
 
-Select one of the following:
+You can review either:
 
  - A group in Azure AD that has one or more guests as members.
  - An application connected to Azure AD that has one or more guest users assigned to it. 
@@ -61,7 +62,7 @@ You can use access reviews to ensure that users who were invited and added to a 
 
 3. After the reviewers give input, stop the access review and apply the changes. For more information, see [Complete an access review](complete-access-review.md).
 
-4. In addition to users who denied their own need for continued access, you can also remove users who didn't respond. Non-responding users potentially no longer receive email.
+4. In addition to those users who denied their own need for continued access, you can also remove users who didn't respond. Non-responding users potentially no longer receive email.
 
 5. If the group isn't used for access management, you also can remove users who weren't selected to participate in the review because they didn't accept their invitation. Not accepting might indicate that the invited user's email address had a typo. If a group is used as a distribution list, perhaps some guest users weren't selected to participate because they're contact objects.
 
@@ -82,7 +83,7 @@ You can use access reviews to ensure that users who were invited for a particula
 1. To start an access review for the application, select the review to include guests only and that users review their own access. For more information, see
  [Create an access review](create-access-review.md).
 
-2. Ask each guest to review their own access to the application. By default, each guest who accepted an invitation receives an email from Azure AD with a link to the access review in your organization's access panel. Azure AD has instructions for guests on how to [review their access](perform-access-review.md).
+2. Ask each guest to review their own access to the application. By default, each guest who accepted an invitation receives an email from Azure AD. That email has a link to the access review in your organization's access panel. Azure AD has instructions for guests on how to [review their access](perform-access-review.md).
 
 3. After the reviewers give input, stop the access review and apply the changes. For more information, see [Complete an access review](complete-access-review.md).
 
@@ -105,7 +106,7 @@ In some organizations, guests might not be aware of their group memberships.
 > [!NOTE]
 > Earlier versions of the Azure portal didn't permit administrative access by users with the UserType of Guest. In some cases, an administrator in your directory might have changed a guest's UserType value to Member by using PowerShell. If this change previously occurred in your directory, the previous query might not include all guest users who historically had administrative access rights. In this case, you need to either change the guest's UserType or manually include the guest in the group membership.
 
-1. Create a security group in Azure AD with the guests as members, if a suitable group doesn't already exist. For example, you can create a group with a manually maintained membership of guests. Or, you can create a dynamic group with a name such as "Guests of Contoso" for users in the Contoso tenant who have the UserType attribute value of Guest.  For efficiency, ensure the group is predominately guests - don't select a group that has users who don't need to be reviewed.
+1. Create a security group in Azure AD with the guests as members, if a suitable group doesn't already exist. For example, you can create a group with a manually maintained membership of guests. Or, you can create a dynamic group with a name such as "Guests of Contoso" for users in the Contoso tenant who have the UserType attribute value of Guest.  For efficiency, ensure the group is predominately guests - don't select a group that has member users, as member users don't need to be reviewed.  Also, keep in mind that a guest user who is a member of the group can see the other members of the group.
 
 2. To start an access review for that group, select the reviewers to be the members themselves. For more information, see [Create an access review](create-access-review.md).
 

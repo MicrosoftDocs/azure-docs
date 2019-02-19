@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure diagnostic logs | Microsoft Docs
 description: Customer can enable log analysis for Azure CDN.
 services: cdn
@@ -138,24 +138,26 @@ For more information about log data delays, see [Log data delays](#log-data-dela
 
 The following example shows how to enable diagnostic logs via the Azure PowerShell Cmdlets.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ### Enabling diagnostic logs in a storage account
 
 1. Log in and select a subscription:
 
-    Connect-AzureRmAccount 
+    Connect-AzAccount 
 
     Select-AzureSubscription -SubscriptionId 
 
 2. To enable Diagnostic Logs in a Storage account, enter this command:
 
     ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
+    Set-AzDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
     ```
 
 3. To enable diagnostics logs in a Log Analytics workspace, enter this command:
 
     ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
+    Set-AzDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
     .<subscriptionName>" -WorkspaceId "/subscriptions/<workspaceId>.<workspaceName>" -Enabled $true -Categories CoreAnalytics 
     ```
 
@@ -199,7 +201,7 @@ To make it easy to access core analytics, sample code for a tool is provided. Th
 
 Here's how you can use the tool:
 
-1.	Visit the github link: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+1.	Visit the GitHub link: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.	Download the code.
 3.	Follow the instructions to compile and configure.
 4.	Run the tool.
@@ -287,7 +289,7 @@ Follow these steps to add a Log Analytics Management Solution:
 
 ### Offers and pricing tiers
 
-You can see offers and pricing tiers for management solutions [here](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+You can see offers and pricing tiers for management solutions [here](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).
 
 ### Customizing views
 

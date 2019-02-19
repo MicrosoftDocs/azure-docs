@@ -1,6 +1,6 @@
 ---
 title: View Azure pricing for your Enterprise | Microsoft Docs
-description: 
+description: Learn how to view and download pricing or estimate costs with your Enterprise Agreement pricing.
 services: ''
 documentationcenter: ''
 author: adpick
@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: cwatson
+ms.author: banders
+ms.custom: seodec18
 
 ---
 # View your organization's Azure Enterprise Agreement pricing 

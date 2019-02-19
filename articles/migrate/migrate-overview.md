@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/28/2018
+ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -25,15 +25,21 @@ Azure Migrate helps you to:
 
 ## Current limitations
 
-- You can only assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, or 6.5).
+- You can only assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, 6.5 or 6.7).
 - If you want to assess Hyper-VMs and physical servers, use the [Azure Site Recovery Deployment Planner](https://aka.ms/asr-dp-hyperv-doc) for Hyper-V, and our [partner tools](https://azure.microsoft.com/migration/partners/) for physical machines.
 - You can discover up to 1500 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 1500 VMs in a single assessment.
 - If you want to discover a larger environment, you can split the discovery and create multiple projects. [Learn more](how-to-scale-assessment.md). Azure Migrate supports up to 20 projects per subscription.
 - Azure Migrate only supports managed disks for migration assessment.
--  You can only create an Azure Migrate project in the United States geography. However, you can plan a migration to any target Azure location.
-    - Only metadata discovered from the on-premises environment is stored in the migration project region.
-    - Metadata is stored in one of the regions in the selected geography: West Central US/East US.
-    - If you use dependency visualization by creating a new Log Analytics workspace, the workspace is created in the same region as the project.
+-  You can only create an Azure Migrate project in the following geographies. However, this does not restrict your ability to create assessments for other target Azure locations.
+    **Geography** | **Storage location**
+    --- | ---
+    Azure Government | US Gov Virginia
+    Asia | Southeast Asia
+    Europe | North Europe or West Europe
+    United States | East US or West Central US
+
+    The geography associated with the migration project is used to store the metadata discovered from the on-premises environment. Metadata is stored in one of the regions based on the geography specified for the migration project. If you use dependency visualization by creating a new Log Analytics workspace, the workspace is created in the same region as the project.
+- The dependency visualization functionality is not available in Azure Government.
 
 
 ## What do I need to pay for?
@@ -47,7 +53,7 @@ Assessment settings can be customized based on your needs. Assessment properties
 
 **Property** | **Details**
 --- | ---
-**Target location** | The Azure location to which you want to migrate.<br/><br/>Azure Migrate currently supports 33 regions as migration target locations. [Check regions](https://azure.microsoft.com/global-infrastructure/services/). By default, the target region is set to West US 2.
+**Target location** | The Azure location to which you want to migrate.<br/><br/>Azure Migrate currently supports 33 regions as migration target locations. [Check regions](https://azure.microsoft.com/global-infrastructure/services/). By default, the target region is set to East US.
 **Storage type** | The type of managed disks you want to allocate for all VMs that are part of the assessment. If the sizing criterion is *as on-premises sizing* you can specify the target disk type either as premium disks (the default), standard SSD disks or standard HDD disks. For *performance-based sizing*, along with the above options, you also have the option to select Automatic which will ensure that the disk sizing recommendation is automatically done based on the performance data of the VMs. For example, if you want to achieve a [single instance VM SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), you may want to specify the storage type as Premium managed disks which will ensure that all disks in the assessment will be recommended as Premium managed disks. Note that Azure Migrate only supports managed disks for migration assessment.
 **Reserved Instances** |  Whether you have [reserved instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure. Azure Migrate estimates the cost accordingly.
 **Sizing criterion** | Sizing can be based on **performance history** of the on-premises VMs (the default), or **as on-premises**, without considering performance history.

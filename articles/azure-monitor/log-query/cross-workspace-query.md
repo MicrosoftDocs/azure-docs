@@ -1,5 +1,5 @@
 ---
-title: Search across resources with Azure Log Analytics  | Microsoft Docs
+title: Query across resources with Azure Monitor  | Microsoft Docs
 description: This article describes how you can query against resources from multiple workspaces and App Insights app in your subscription.
 services: log-analytics
 documentationcenter: ''
@@ -13,14 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.component: 
 ---
 
-# Perform cross-resource log searches in Log Analytics  
+# Perform cross-resource log queries in Azure Monitor  
 
-Previously with Azure Log Analytics, you could only analyze data from within the current workspace, and it limited your ability to query across multiple workspaces defined in your subscription.  Additionally, you could only search telemetry items collected from your web-based application with Application Insights directly in Application Insights or from Visual Studio.  This also made it a challenge to natively analyze operational and application data together.   
+Previously with Azure Monitor, you could only analyze data from within the current workspace, and it limited your ability to query across multiple workspaces defined in your subscription.  Additionally, you could only search telemetry items collected from your web-based application with Application Insights directly in Application Insights or from Visual Studio.  This also made it a challenge to natively analyze operational and application data together.   
 
-Now you can query not only across multiple Log Analytics workspaces, but also data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data.  You can only perform these types of queries in [Log Analytics](portals.md#log-analytics-page). The number of resources (Log Analytics workspaces and Application Insights app) that you can include in a single query is limited to 100. 
+Now you can query not only across multiple Log Analytics workspaces, but also data from a specific Application Insights app in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data.  You can only perform these types of queries in [Log Analytics](portals.md). The number of resources (Log Analytics workspaces and Application Insights app) that you can include in a single query is limited to 100. 
 
 ## Querying across Log Analytics workspaces and from Application Insights
 To reference another workspace in your query, use the [*workspace*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression) identifier, and for an app from Application Insights, use the [*app*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression) identifier.  
@@ -97,9 +96,9 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ```
 
 ## Using cross-resource query for multiple resources
-When using cross-resource queries to correlate data from multiple Log Analytics and Application Insights resources, the query can become complex and difficult to maintain. You should leverage [functions in Log Analytics](../../azure-monitor/log-query/functions.md) to separate the query logic from the scoping of the query resources, which simplifies the query structure. The following example demonstrates how you can monitor multiple Application Insights resources and visualize the count of failed requests by application name. 
+When using cross-resource queries to correlate data from multiple Log Analytics workspaces and Application Insights resources, the query can become complex and difficult to maintain. You should leverage [functions in Azure Monitor log queries](functions.md) to separate the query logic from the scoping of the query resources, which simplifies the query structure. The following example demonstrates how you can monitor multiple Application Insights resources and visualize the count of failed requests by application name. 
 
-Create a query like the following that references the scope of Application Insights resources. The `withsource= SourceApp` command adds a column that designates the application name that sent the log. [Save the query as function](../../azure-monitor/log-query/functions.md#create-a-function) with the alias _applicationsScoping_.
+Create a query like the following that references the scope of Application Insights resources. The `withsource= SourceApp` command adds a column that designates the application name that sent the log. [Save the query as function](functions.md#create-a-function) with the alias _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -121,11 +120,11 @@ applicationsScoping
 | where success == 'False'
 | parse SourceApp with * '(' applicationName ')' * 
 | summarize count() by applicationName, bin(timestamp, 1h) 
-| sort by count_ desc 
 | render timechart
 ```
 ![Timechart](media/cross-workspace-query/chart.png)
 
 ## Next steps
 
-Review the [Log Analytics log search reference](https://docs.microsoft.com/azure/log-analytics/query-language/kusto) to view all of the query syntax options available in Log Analytics.    
+- Review [Analyze log data in Azure Monitor](log-query-overview.md) for an overview of log queries and how Azure Monitor log data is structured.
+- Review [Azure Monitor log queries](query-language.md) to view all of the resources for Azure Monitor log queries.

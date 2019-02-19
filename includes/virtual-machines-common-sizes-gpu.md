@@ -13,6 +13,11 @@
 GPU optimized VM sizes are specialized virtual machines available with single or multiple NVIDIA GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads. This article provides information about the number and type of GPUs, vCPUs, data disks, and NICs. Storage throughput and network bandwidth are also included for each size in this grouping. 
 
 * **NC, NCv2, NCv3, ND, and NDv2** sizes are optimized for compute-intensive and network-intensive applications and algorithms. Some examples are CUDA- and OpenCL-based applications and simulations, AI, and Deep Learning. The NCv3-series is focused on high-performance computing workloads featuring NVIDIA’s Tesla V100 GPU.  The ND-series is focused on training and inference scenarios for deep learning. It uses the NVIDIA Tesla P40 GPU.
+
+* The **NC-series** features an	Intel Xeon® E5-2690 v3 2.60GHz processor.
+
+* The **NCSv3**, **NCSv2**, and **ND** sizes feature an	Intel Xeon® E5-2690 v4 2.60GHz processor.
+                      
 * **NV and NVv2** sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios using frameworks such as OpenGL and DirectX.  These VMs are backed by the NVIDIA Tesla M60 GPU.
 
 
@@ -22,7 +27,7 @@ Premium Storage:  Not Supported
 
 Premium Storage Caching:  Not Supported
 
-NC-series VMs are powered by the [NVIDIA Tesla K80](https://images.nvidia.com/content/technologies/volta/pdf/tesla-volta-v100-datasheet-letter-fnl-web.pdf) card. Users can crunch through data faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning, and more. The NC24r configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
+NC-series VMs are powered by the [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) card. Users can crunch through data faster by leveraging CUDA for energy exploration applications, crash simulations, ray traced rendering, deep learning, and more. The NC24r configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
@@ -98,9 +103,9 @@ NDv2-series virtual machine is a new addition to the GPU family designed for the
 <br>
 
 
-| Size              | vCPU’s | GPU              | Memory  | NICs (Max) | Max. disk size           | Max. data disks (1023 GB each) | Max network bandwidth | 
-|-------------------|-------------|-------------------|--------|------------------|---------|------------|--------------------------|--------------------|--------------------------------|-----------------------------------------|-----------------------|------------|
-| Standard_ND40s_v2 | 40     | 8 V100 (NVlilnk) | 672 GiB | 8          | Temporary 1344 / 2948XIO | 32    | 24,000 Mbps             | 
+| Size              | vCPU | GPU              | Memory  | NICs (Max) | Max. disk size           | Max. data disks (1023 GB each) | Max network bandwidth | 
+|-------------------|------|------------------|---------|------------|--------------------------|--------------------------------|-----------------------|
+| Standard_ND40s_v2 | 40   | 8 V100 (NVlilnk) | 672 GiB | 8          | Temporary 1344 / 2948XIO | 32                             | 24,000 Mbps           |
 
 ## ND-series
 

@@ -5,7 +5,7 @@ description: A dictionary is an aligned document that specifies a list of phrase
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article

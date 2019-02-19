@@ -54,8 +54,10 @@ After the app copy operation succeeds, you  can go to the new application that w
 
 ### Delete an application
 
-Use the **Delete** button to permanently delete your IoT Central application. 
-Doing this will permanently delete all data that's associated with that application. To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+> [!Note]
+> To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+
+Use the **Delete** button to permanently delete your IoT Central application. Doing this will permanently delete all data that's associated with that application.
 
 ## Manage users
 
@@ -134,15 +136,15 @@ To complete this self-service process, follow these steps:
 
 ## Export data
 
-You can enable **Continuous data export** to export measurements, devices, and device templates data to your Azure Blob storage account. Learn more about [how to export your data](#howto-export-data).
+You can enable **Continuous data export** to export measurements, devices, and device templates data to your Azure Blob storage account. Learn more about how to export your data.
 
 ## Manage device connection
 
-Connect devices at scale in your application using the keys and certificates here. Learn more about [connecting devices](#concepts-connectivity).
+Connect devices at scale in your application using the keys and certificates here. Learn more about connecting devices.
 
 ## Use access tokens
 
-Generate access tokens to use them in developer tools. Currently there is one developer tool available which is the IoT Central explorer for monitoring device messages and changes in propreties and settings. Learn more about the [IoT Central explorer](#howto-use-iotc-explorer). 
+Generate access tokens to use them in developer tools. Currently there is one developer tool available which is the IoT Central explorer for monitoring device messages and changes in propreties and settings. Learn more about the IoT Central explorer. 
 
 ## Use the Azure SDKs for control plane operations
 

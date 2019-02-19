@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Configure a custom domain name for your Azure storage account
@@ -52,7 +52,7 @@ The second method also uses CNAME records. To avoid downtime, however, it first 
 
 Mapping your custom domain to a blob endpoint can cause a brief period of downtime while you are registering the domain in the [Azure portal](https://portal.azure.com). If the domain currently supports an application with a service-level agreement (SLA) that requires zero downtime, use the Azure *asverify* subdomain as an intermediate registration step. This step ensures that users can access your domain while the DNS mapping takes place.
 
-The intermediary method is covered in [Register a custom domain by using the *asverify* subdomain](#register-a-custom-domain-using-the-asverify-subdomain).
+The intermediary method is covered in Register a custom domain by using the *asverify* subdomain.
 
 ## Register a custom domain
 Register the domain by using the procedure in this section if the following statements apply:
@@ -61,7 +61,7 @@ Register the domain by using the procedure in this section if the following stat
 
 You can use Azure DNS to configure a custom DNS name for your Azure Blob store. For more information, see [Use Azure DNS to provide custom domain settings for an Azure service](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage).
 
-If your custom domain currently supports an application that cannot have any downtime, use the procedure in [Register a custom domain by using the *asverify* subdomain](#register-a-custom-domain-using-the-asverify-subdomain).
+If your custom domain currently supports an application that cannot have any downtime, use the procedure in Register a custom domain by using the *asverify* subdomain.
 
 To configure a custom domain name, create a new CNAME record in DNS. The CNAME record specifies an alias for a domain name. In our example, it maps the address of your custom domain to your storage account's Blob storage endpoint.
 
@@ -150,7 +150,7 @@ After the custom domain has been removed successfully, you will see a portal not
 
 ### Azure CLI
 
-To remove a custom domain registration, use the [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) CLI command, and then specify an empty string (`""`) for the `--custom-domain` argument value.
+To remove a custom domain registration, use the [az storage account update](https://docs.microsoft.com/cli/azure/storage/account) CLI command, and then specify an empty string (`""`) for the `--custom-domain` argument value.
 
 * Command format:
 
@@ -172,12 +172,14 @@ To remove a custom domain registration, use the [az storage account update](http
 
 ### PowerShell
 
-To remove a custom domain registration, use the [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount) PowerShell cmdlet, and then specify an empty string (`""`) for the `-CustomDomainName` argument value.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+To remove a custom domain registration, use the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) PowerShell cmdlet, and then specify an empty string (`""`) for the `-CustomDomainName` argument value.
 
 * Command format:
 
   ```powershell
-  Set-AzureRmStorageAccount `
+  Set-AzStorageAccount `
       -ResourceGroupName "<resource-group-name>" `
       -AccountName "<storage-account-name>" `
       -CustomDomainName ""
@@ -186,7 +188,7 @@ To remove a custom domain registration, use the [Set-AzureRmStorageAccount](/pow
 * Command example:
 
   ```powershell
-  Set-AzureRmStorageAccount `
+  Set-AzStorageAccount `
       -ResourceGroupName "myresourcegroup" `
       -AccountName "mystorageaccount" `
       -CustomDomainName ""

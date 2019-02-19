@@ -61,6 +61,8 @@
       href: concept-password-ban-bad.md
     - name: Eliminate weak passwords on-premises
       href: concept-password-ban-bad-on-premises.md
+  - name: Resilient access controls
+    href: concept-resilient-controls.md
 - name: How-to guides
   items:
   - name: Self-service password reset
@@ -112,6 +114,8 @@
       - name: Configure Azure AD password protection
         href: howto-password-ban-bad-on-premises-operations.md
       - name: Monitor Azure AD password protection
+        href: howto-password-ban-bad-on-premises-monitor.md
+      - name: Troubleshoot Azure AD password protection
         href: howto-password-ban-bad-on-premises-troubleshoot.md
       - name: Frequently asked questions
         href: howto-password-ban-bad-on-premises-faq.md

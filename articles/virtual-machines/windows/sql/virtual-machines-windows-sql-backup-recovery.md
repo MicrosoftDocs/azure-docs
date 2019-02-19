@@ -34,7 +34,7 @@ The following table provides information on various backup and restore options f
 
 The following sections describe each option in more detail. The final section of this article provides a summary in the form of a feature matrix.
 
-## <a id="autoamted"></a> Automated Backup
+## <a id="automated"></a> Automated Backup
 
 Automated Backup provides an automatic backup service for SQL Server Standard and Enterprise editions running in a Windows VM in Azure. This service is provided by the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md), which is automatically installed on SQL Server Windows virtual machine images in the Azure portal.
 

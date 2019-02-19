@@ -1,20 +1,21 @@
 ---
-title: Troubleshoot errors using Azure Blueprints
-description: Learn how to troubleshoot issues creating and assigning blueprints
+title: Troubleshoot common errors
+description: Learn how to troubleshoot issues creating, assigning, and removing blueprints.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
-ms.topic: conceptual
+ms.date: 12/11/2018
+ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
+ms.custom: seodec18
 ---
 # Troubleshoot errors using Azure Blueprints
 
 You may run into errors when creating or assigning blueprints. This article describes various
 errors that may occur and how to resolve them.
 
-## Finding Error Details
+## Finding error details
 
 Many errors will be the result of assigning a blueprint to a scope. When an assignment fails, the
 blueprint provides details about the failed deployment. This information indicates the issue so
@@ -32,7 +33,7 @@ It's common for the error to be caused by an artifact and not the blueprint as a
 artifact creates a Key Vault and Azure Policy prevents Key Vault creation, the entire assignment
 will fail.
 
-## General Errors
+## General errors
 
 ### <a name="policy-violation"></a>Scenario: Policy Violation
 
@@ -52,6 +53,25 @@ A policy may conflict with the deployment for a number of reasons:
 Change the blueprint so it doesn't conflict with the policies in the error details. If this change
 isn't possible, an alternative option is to have the scope of the policy assignment changed so the
 blueprint is no longer in conflict with the policy.
+
+### <a name="escape-function-parameter"></a>Scenario: Blueprint parameter is a function
+
+#### Issue
+
+Blueprint parameters that are functions are processed before being passed to artifacts.
+
+#### Cause
+
+Passing a blueprint parameter that uses a function, such as `[resourceGroup().tags.myTag]`, to an
+artifact results in the processed outcome of the function being set on the artifact instead of the
+dynamic function.
+
+#### Resolution
+
+To pass a function through as a parameter, escape the entire string with `[` such that the
+blueprint parameter looks like `[[resourceGroup().tags.myTag]`. The escape character causes
+Blueprints to treat the value as a string when processing the blueprint. Blueprints then places the
+function on the artifact allowing it to be dynamic as expected.
 
 ## Next steps
 

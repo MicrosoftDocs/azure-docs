@@ -5,7 +5,7 @@ description: Provides a general overview of Azure Active Directory monitoring.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk  
 
 # Customer intent: As an Azure AD administrator, I want to understand what monitoring solutions are available for Azure AD activity data and how they can help me manage my tenant.
+ms.collection: M365-identity-device-management
 ---
 
 # What is Azure Active Directory monitoring? (preview)

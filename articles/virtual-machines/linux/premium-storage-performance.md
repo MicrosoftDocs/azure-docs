@@ -8,6 +8,6 @@ ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: aungoo
-ms.component: disks
+ms.subservice: disks
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]

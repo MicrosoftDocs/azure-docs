@@ -19,6 +19,8 @@ This article describes how, as an operator, to manage devices in your Azure IoT 
 - Keep your device metadata up-to-date by changing the values stored in the device properties.
 - Control the behavior of your devices by updating a setting on a specific device from the **Settings** page.
 
+[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
+
 ## View your devices
 
 To view an individual device:

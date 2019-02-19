@@ -23,7 +23,7 @@ This article explains how to work with [Azure Event Hubs](../event-hubs/event-hu
 
 ## Packages - Functions 1.x
 
-For Azure Functions version 1.x, the Event Hubs bindings are provided in the [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet package, version 2.x.
+For Azure Functions version 1.x, the Event Hubs bindings are provided in the [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet package, version 2.x.
 Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) GitHub repository.
 
 
@@ -31,7 +31,7 @@ Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azu
 
 ## Packages - Functions 2.x
 
-For Functions 2.x, use the [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) package, version 3.x.
+For Functions 2.x, use the [Microsoft.Azure.WebJobs.Extensions.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) package, version 3.x.
 Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs) GitHub repository.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
@@ -419,6 +419,7 @@ The following table explains the binding configuration properties that you set i
 |**consumerGroup** |**ConsumerGroup** | An optional property that sets the [consumer group](../event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
 |**cardinality** | n/a | For Javascript. Set to `many` in order to enable batching.  If omitted or set to `one`, single message passed to function. |
 |**connection** |**Connection** | The name of an app setting that contains the connection string to the event hub's namespace. Copy this connection string by clicking the **Connection Information** button for the [namespace](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), not the event hub itself. This connection string must have at least read permissions to activate the trigger.|
+|**path**|**EventHubName**|The name of the event hub. Can be referenced via app settings `%eventHubName%`|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -448,7 +449,7 @@ The [host.json](functions-host-json.md#eventhub) file contains settings that con
 
 Use the Event Hubs output binding to write events to an event stream. You must have send permission to an event hub to write events to it.
 
-Ensure the required package references are in place: [Functions 1.x](#packages---functions-1.x) or [Functions 2.x](#packages---functions-2.x)
+Ensure the required package references are in place: Functions 1.x or Functions 2.x
 
 ## Output - example
 
@@ -655,7 +656,7 @@ public String sendTime(
  }
  ```
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@EventHubOutput` annotation on parameters whose value would be poublished to Event Hub.  The parameter should be of type `OutputBinding<T>` , where T is a POJO or any native Java type.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@EventHubOutput` annotation on parameters whose value would be published to Event Hub.  The parameter should be of type `OutputBinding<T>` , where T is a POJO or any native Java type.
 
 ## Output - attributes
 
