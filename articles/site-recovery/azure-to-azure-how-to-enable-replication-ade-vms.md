@@ -41,18 +41,18 @@ To enable replication of ADE VMs from portal, the user should have the below per
     - Encrypt
     - Decrypt
 
-You can manage the permissions by navigating to key vault resource in portal and adding the required permissions to the user. For example:below step by step guide shows how to enable it for the Key vault ContosoWeb2Keyvault" which is in the source region
+You can manage the permissions by navigating to key vault resource in portal and adding the required permissions to the user. For example: below step by step guide shows how to enable it for the Key vault "ContosoWeb2Keyvault" which is in the source region.
 
 
 -  Navigate to "Home> Keyvaults> ContosoWeb2KeyVault> Access policies"
 
-![keyvaultpermissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/keyvaultpermission1.png)
+![keyvault permissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/keyvaultpermission1.png)
 
 
 
 - You can see there is no user persimmon hence add the above mentioned permission by clicking on "ADD new" and  the user and the permissions
 
-![keyvaultpermissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/keyvaultpermission2.png)
+![keyvault permissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/keyvaultpermission2.png)
 
 If the user enabling disaster recovery (DR) does not have the required permissions to copy the keys, the below script can be given to the security administrator with appropriate permissions to copy the encryption secrets and keys to the target region.
 
