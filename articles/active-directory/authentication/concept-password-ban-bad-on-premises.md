@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 Azure AD password protection is a new feature in public preview powered by Azure Active Directory (Azure AD) to enhance password policies in an organization. The on-premises deployment of Azure AD password protection uses both the global and custom banned password lists stored in Azure AD, and performs the same checks on-premises as Azure AD cloud-based changes.
 
-# Design principles
+## Design principles
 
 Azure AD Password Protection for Active Directory is designed with the following principles in mind:
 
@@ -37,7 +37,7 @@ Azure AD Password Protection for Active Directory is designed with the following
 * Incremental deployment is supported with the tradeoff that password policy is only enforced where the domain controller agent is installed.
 * It is recommended to install the DC agent on all DCs to ensure ubiquitous password protection security enforcement.
 
-# Architectural diagram
+## Architectural diagram
 
 It is important to have an understanding of the underlying design and functional concepts before deploying Azure AD Password Protection in an on-premises Active Directory environment. The following diagram shows how the components of Azure AD Password Protection work together:
 
@@ -49,7 +49,7 @@ The above diagram shows the three basic software components that make up Azure A
 * The Azure AD Password Protection DC Agent password filter dll receives user password validation requests from the operating system and forwards them to the Azure AD Password Protection DC Agent service running locally on the domain controller.
 * The Azure AD Password Protection DC Agent service receives password validation requests from the DC Agent password filter dll, processes them using the current (locally available) password policy, and returns the result (pass\fail).
 
-# Theory of operations
+## Theory of operations
 
 So given the above diagram and design principles, how does Azure AD Password Protection actually work?
 
@@ -71,11 +71,11 @@ The Azure AD Password Protection DC Agent service will only ever evaluate a user
 
 Azure AD Password Protection is not a real-time policy application engine. There may be a delay in the time between a password policy configuration change is made in Azure AD and the time it reaches and is enforced on all domain controllers.
 
-# Forest\tenant binding for Azure AD Password Protection
+## Forest\tenant binding for Azure AD Password Protection
 
 Deployment of Azure AD Password Protection in an Active Directory forest requires registration of the Active Directory forest, and any deployed Azure AD Password Protection Proxy services, with Azure AD. Both such registrations (forest and proxies) are associated with a specific Azure AD tenant which is identified implicitly via the credentials used during registration. Anytime an Azure AD Password Protection password policy is downloaded, it is always specific to this tenant (i.e., that policy will always be a combination of the Microsoft global banned password list and the per-tenant custom banned password list). It is not supported to configure different domains or proxies in a forest to be bound to different Azure AD tenants.
 
-# License requirements
+## License requirements
 
 The benefits of the global banned password list apply to all users of Azure Active Directory (Azure AD).
 
