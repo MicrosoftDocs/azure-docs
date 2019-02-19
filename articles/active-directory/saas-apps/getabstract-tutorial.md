@@ -103,13 +103,13 @@ To configure Azure AD single sign-on with Getabstract, perform the following ste
 
     ![Getabstract Domain and URLs single sign-on information](common/idp-intiated.png)
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type a URL:
 
     For Stage/pre_production: `https://int.getabstract.com`
 
 	For Production: `https://www.getabstract.com`
 
-	b. In the **Reply URL** textbox, type the URL:
+	b. In the **Reply URL** textbox, type a URL:
 	
 	For Stage/pre_production: `https://int.getabstract.com/ACS.do`
 	
