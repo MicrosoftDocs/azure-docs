@@ -14723,6 +14723,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/backup/backup-upgrade-backup-vault.md",
+      "redirect_url": "/azure/backup/backup-azure-backup-faq",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/backup-azure-vms-first-look.md",
       "redirect_url": "/azure/backup/backup-azure-vms-first-look-arm",
       "redirect_document_id": false
@@ -35102,7 +35107,12 @@
       "source_path":  "articles/azure-monitor/platform/dashboards.md",
       "redirect_url":  "/azure/azure-monitor/learn/tutorial-logs-dashboards",
       "redirect_document_id":  false
-    },    
+    },
+    {
+      "source_path":  "articles/azure-monitor/azure-monitor-rebrand.md",
+      "redirect_url":  "/azure/azure-monitor/terminology",
+      "redirect_document_id":  false
+    },
     {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
