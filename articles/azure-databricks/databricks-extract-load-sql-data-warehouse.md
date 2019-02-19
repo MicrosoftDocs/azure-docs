@@ -58,7 +58,7 @@ Complete these tasks before you begin this tutorial:
 
 ## Gather the information that you need
 
-1. Make sure that you complete the prerequisites of this tutorial.
+Make sure that you complete the prerequisites of this tutorial.
 
    Before you begin, you should have these items of information:
 
