@@ -53,8 +53,6 @@
       href: backup-azure-file-folder-backup-faq.md
     - name: FAQ-Back up Azure Files
       href: backup-azure-files-faq.md
-    - name: FAQ-Automatic upgrade of backup vault
-      href: backup-upgrade-backup-vault.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Role-Based Access Control
