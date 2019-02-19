@@ -47,7 +47,7 @@ The emulation environment on Azure can host a variety of Z instances through App
 
 To get started, see the following articles:
 
--   [Set up IBM zD&T 12.0 on Azure](./ibm/get-started.md)
+-   [Set up IBM zD&T 12.0 on Azure](./ibm/install-ibm-z-environment.md)
 -   [Set up ADCD on zD&T](./ibm/demo.md)
 
 ## Migrate IBM DB2 pureScale to Azure
@@ -105,4 +105,5 @@ See also:
 [microfocus-setup]: /microfocus/set-up-micro-focus-on-azure.md
 [microfocus-demo]: /microfocus/demo.md
 [ibm-get-started]: /ibm/get-started.md
+[ibm-install-z]: /ibm/install-ibm-z-environment.md
 [ibm-demo]: /ibm/demo.md
