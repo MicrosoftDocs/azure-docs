@@ -139,5 +139,7 @@ This procedure assumes the Backup job for the VM has been stopped or disabled.
     A notification message lets you know the backup data has been deleted.
 
 ## Next steps
-[Learn about](backup-azure-arm-restore-vms.md) restoring VMs. 
+- [Learn about](backup-azure-vms-first-look-arm.md) backing up Azure VMs from VM settings.
+- [Learn about](backup-azure-arm-restore-vms.md) restoring VMs. 
+- [Learn about](backup-azure-monitor-vms.md) monitoring Azure VM backups.
  
