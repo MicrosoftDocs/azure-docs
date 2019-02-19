@@ -895,14 +895,14 @@ At this point, the application is ready to be deployed to a local Service Fabric
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox
     ``` 
-    See more detailed instructions in the [OS X setup guide.](service-fabric-get-started-mac)
+    See more detailed instructions in the [OS X setup guide.](service-fabric-get-started-mac.md)
 
     If you are running on a Linux machine, you start the local cluster with the following command: 
 
     ```bash 
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
-    See more detailed instructions in the [Linux setup guide.](service-fabric-get-started-linux)
+    See more detailed instructions in the [Linux setup guide.](service-fabric-get-started-linux.md)
 
 4. In the Package Explorer for Eclipse, right click on the **Voting** project and click **Service Fabric -> Publish Application ...** 
 5. In the **Publish Application** window, select **Local.json** from the dropdown, and click **Publish**.
