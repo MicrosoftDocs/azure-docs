@@ -27,6 +27,8 @@ You'll learn how to:
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
+It's worth noticing that, although you'll be using Unity and Azure Cosmos DB in this Tutorial, it is only to show an example on how to share Azure Spatial Anchor identifiers across other devices. You can user other languages and back-end technologies to achieve the same goal.
+
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## Create a database account
