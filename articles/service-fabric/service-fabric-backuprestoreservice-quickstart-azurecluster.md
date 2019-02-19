@@ -76,7 +76,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 
 Enable `Include backup restore service` check box under `+ Show optional settings` in `Cluster Configuration` tab.
 
-![Enable Backup Restore Service With Portal][0]
+![Enable Backup Restore Service With Portal][1]
 
 
 ### Using Resource Manager Template
@@ -293,4 +293,5 @@ FailureError            :
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png
+[1]: ./media/service-fabric-backuprestoreservice/EnableBackupRestoreServiceWithPortal.png
 
