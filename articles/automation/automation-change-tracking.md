@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/29/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
@@ -174,6 +174,8 @@ The following table shows the tracked item limits per machine for Change Trackin
 |Linux packages|1250||
 |Services|250||
 |Daemon|250||
+
+The average Log Analytics data usage for a machine using Change Tracking and Inventory is approximately 40MB per month. This value is only an approximation and is subject to change based on your environment. It's recommended that you monitor your environment to see the exact usage that you have.
 
 ### Windows service tracking
 
