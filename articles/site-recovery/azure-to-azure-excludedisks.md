@@ -67,7 +67,7 @@ Get disk details for the disks of the virtual machine. Disk details will be used
 ```azurepowershell
 $OSDiskVhdURI = $VM.StorageProfile.OsDisk.Vhd
 $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
-
+```
 
 ## Replicate Azure virtual machine
 
