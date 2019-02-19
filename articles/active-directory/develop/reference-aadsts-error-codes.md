@@ -132,6 +132,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS53001 | DeviceNotDomainJoined - Conditional access policy requires a domain joined device, and the device is not domain joined. Have the user use a domain joined device. |
 | AADSTS53002 | ApplicationUsedIsNotAnApprovedApp - The app used is not an approved app for conditional access. User needs to use one of the apps from the list of approved apps to use in order to get access. |
 | AADSTS53003 | BlockedByConditionalAccess - Access has been blocked by conditional access policies. The access policy does not allow token issuance. |
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - Blocked by security policy
 | AADSTS53004 | ProofUpBlockedDueToRisk - User needs to complete the multi-factor authentication registration process before accessing this content. User should register for multi-factor authentication. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - The user or administrator has not consented to use the application with ID X. Send an interactive authorization request for this user and resource. |
