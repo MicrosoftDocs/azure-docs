@@ -11,7 +11,7 @@ ms.date: 02/15/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sahenry, michmcla
+ms.reviewer: sahenry
 
 ms.collection: M365-identity-device-management
 ---
@@ -42,7 +42,6 @@ To enable converged registration, complete the following steps:
 > [!NOTE]
 > Once you enable combined registration, users who register or confirm their phone number or mobile app through the new experience can use them for MFA and SSPR, if those methods are enabled in the MFA and SSPR policies. If you then disable this experience, users who go to the previous SSPR registration page at [https:/aka.ms/ssprsetup](https:/aka.ms/ssprsetup) will be required to perform multi-factor authentication before they can access the page.
 
-#
 ## Next steps
 
 [Available methods for MFA and SSPR](concept-authentication-methods.md)

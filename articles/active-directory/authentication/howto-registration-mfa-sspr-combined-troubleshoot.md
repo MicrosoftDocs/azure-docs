@@ -11,11 +11,13 @@ ms.date: 08/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sahenry, michmcla
+ms.reviewer: sahenry
 
 ms.collection: M365-identity-device-management
 ---
 # Troubleshooting combined security information registration
+
+The information provided in this article can guide administrators who are troubleshooting issues with the combined registration experience reported by their end-users.
 
 ## Audit logs
 
