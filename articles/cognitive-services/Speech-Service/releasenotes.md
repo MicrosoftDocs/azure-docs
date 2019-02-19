@@ -34,16 +34,21 @@ The following new content is available in our [sample repository](https://aka.ms
 
 **Improvements / Changes**
 
-* Windows DLLs do now contain a version resource.
 * Python
   * Improved parameter verification and error messages in SpeechConfig.
-  * Expose the Connection object.
+  * Add support for the Connection object.
   * Support for 32-bit Python (x86) on Windows.
   * The Speech SDK for Python is out of beta.
 * iOS
   * The SDK is now built against the iOS SDK version 12.1.
   * The SDK now supports iOS versions 9.2 and later.
   * Improve reference documentation and fix several property names.
+* JavaScript
+  * Add support for the Connection object.
+  * Add type definition files for bundled JavaScript
+  * Initial support and implementation for phrase hints.
+  * Return properties collection with service JSON for recognition
+* Windows DLLs do now contain a version resource.
 
 **Bug fixes**
 
