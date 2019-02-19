@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 02/19/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -18,9 +18,31 @@ ms.custom: seodec18
 
 Computer Vision provides a number of services that detect and extract printed or handwritten text that appears in images. This is useful in a variety of scenarios such as notetaking, medical records, security, and banking. The following three sections detail three different text recognition APIs, each optimized for different use cases.
 
+## Read API
+
+The Read API detects text content in an image using our latest recognition models and converts the identified text into a machine-readable character stream. It is optimized for text-heavy images (such as documents that have been digitally scanned) and for images with a lot of visual noise. It executes asynchronously because larger documents can take several minutes to return a result.
+
+The Read operation maintains the original line groupings of recognized words in its output. Each line comes with bounding box coordinates, and each word within the line also has its own coordinates. If a word was recognized with low confidence, that information is conveyed as well. See the [Read API reference docs](https://westus.api.cognitive.microosft.com/vision/v2.0/read/core/asyncBatchAnalyze) to learn more.
+
+> [!NOTE]
+> This feature is currently in preview and is only available for English text.
+
+### Image requirements
+
+The Read API works with images that meet the following requirements:
+
+- The image must be presented in JPEG, PNG, BMP, PDF, or TIFF format.
+- The dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels. PDF pages must be 17 x 17 inches or smaller.
+- The file size of the image must be less than 20 megabytes (MB).
+- For PDF and TIFF files, the document must be less than 200 pages.
+
+### Limitations
+
+If you are using a free-tier subscription, the Read API will only process the first two pages of a PDF or TIFF document. With a paid subscription, it will process up to 200 pages. Also note that the API will detect a maximum of 300 lines per page.
+
 ## OCR (optical character recognition) API
 
-Computer Vision's optical character recognition (OCR) feature detects text content in an image and converts the identified text into a machine-readable character stream.
+Computer Vision's optical character recognition (OCR) API is similar to the Read API, but it executes synchronously and is not optimized for large documents. It uses an earlier recognition model but works with more languages.
 
 OCR supports 25 languages: Arabic, Chinese Simplified, Chinese Traditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Romanian, Russian, Serbian (Cyrillic and Latin), Slovak, Spanish, Swedish, and Turkish. OCR automatically detects the language of the detected text.
 
@@ -34,9 +56,9 @@ See the [OCR reference docs](https://westus.dev.cognitive.microsoft.com/docs/ser
 
 The OCR API works on images that meet the following requirements:
 
-* The image must be presented in JPEG, PNG, GIF, or BMP format
-* The size of the input image must be between 50 x 50 and 4200 x 4200 pixels
-* The text in the image can be rotated by any multiple of 90 degrees plus a small angle of up to 40 degrees
+* The image must be presented in JPEG, PNG, GIF, or BMP format.
+* The size of the input image must be between 50 x 50 and 4200 x 4200 pixels.
+* The text in the image can be rotated by any multiple of 90 degrees plus a small angle of up to 40 degrees.
 
 ### Limitations
 
@@ -44,27 +66,18 @@ On photographs where text is dominant, false positives may come from partially r
 
 ## Recognize Text API
 
-The Recognize Text API is very similar to optical character recognition, but unlike OCR it executes asynchronously and uses updated recognition models. See the [Recognize Text API reference docs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) to learn more.
-
 > [!NOTE]
-> This feature is currently in preview and is only available for English text.
+> The Recognize Text API is being deprecated in favor of the Read API. The Read API has similar capabilities and is updated to handle PDF, TIFF, and multi-page files.
 
-### Requirements
+The Recognize Text API is similar to OCR, but it executes asynchronously and uses updated recognition models. See the [Recognize Text API reference docs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) to learn more.
 
-The RecognizeText API works with images that meet the following requirements:
+### Image requirements
 
-- The image must be presented in JPEG, PNG, or BMP format
-- The file size of the image must be less than 4 megabytes (MB)
-- The dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels
+The Recognize Text API works with images that meet the following requirements:
 
-## Read API
-
-The Read API is similar to optical character recognition but is optimized for text-heavy images (such as documents that have been digitally scanned). It executes asynchronously because larger documents can take several minutes to return a result.
-
-The Read operation maintains the original line groupings of recognized words in its output. Each line comes with bounding box coordinates, and each word within the line also has its own coordinates. If a word was recognized with low confidence, that information is conveyed as well. See the [Read API reference docs](https://westus.api.cognitive.microosft.com/vision/v2.0/read/core/asyncBatchAnalyze) to learn more.
-
-> [!NOTE]
-> This feature is currently in preview and is only available for English text.
+- The image must be presented in JPEG, PNG, or BMP format.
+- The dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels.
+- The file size of the image must be less than 4 megabytes (MB).
 
 ## Improve results
 
