@@ -442,7 +442,7 @@ This section provides example SCIM requests emitted by the Azure AD SCIM client,
 ##### Response
 *HTTP/1.1 204 No Content*
 
-## Group Operations
+### Group Operations
 
 * Groups shall always be created with an empty members list.
 * Groups can be queried by the `displayName` attribute.
