@@ -14,7 +14,7 @@ ms.author: pafarley
 ---
 # Tutorial: Recognize Azure service logos in camera pictures
 
-In this tutorial, you'll explore a sample app that uses Microsoft Azure Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms app for mobile platforms, analyzes camera pictures of Azure service logos and then deploys the actual services to the user's Azure account. Here you'll learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. Run the whole app scenario for yourself, or simply complete the Custom Vision part of the setup and explore how the app uses it.
+In this tutorial, you'll explore a sample app that uses Azure Custom Vision as part of a larger scenario. The AI Visual Provision app, a Xamarin.Forms app for mobile platforms, analyzes camera pictures of Azure service logos and then deploys the actual services to the user's Azure account. Here you'll learn how it uses Custom Vision in coordination with other components to deliver a useful end-to-end application. Run the whole app scenario for yourself, or simply complete the Custom Vision part of the setup and explore how the app uses it.
 
 This tutorial will show you how to:
 
@@ -92,7 +92,7 @@ Subscribe to the Computer Vision service to get a key and endpoint URL. For help
 
 ![The Computer Vision service in the Azure portal, with the Quick start menu selected. A link for keys is outlined, as is the API endpoint URL](media/azure-logo-tutorial/comvis-keys.png)
 
-Next, open the *Source\VisualProvision\AppSettings.cs* file and populate the **ComputerVisionEndpoint** and **ComputerVisionKey** variables with the correct values.
+Next, open the *Source\VisualProvision\AppSettings.cs* file and populate the `ComputerVisionEndpoint` and `ComputerVisionKey` variables with the correct values.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
 
