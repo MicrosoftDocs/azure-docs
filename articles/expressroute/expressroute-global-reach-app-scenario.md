@@ -3,14 +3,14 @@ title: 'Azure ExpressRoute Global Reach Application Scenario | Microsoft Docs'
 description: This page provides an application scenario for Global Reach.
 documentationcenter: na
 services: networking
-author: rambk
+author: cherylmc
 manager: tracsman
 
 ms.service: expressroute,global reach
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/14/2019
-ms.author: rambala
+ms.author: cherylmc
 
 ---
 
