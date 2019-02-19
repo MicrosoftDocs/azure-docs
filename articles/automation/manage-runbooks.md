@@ -120,7 +120,7 @@ Publish-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName `
 -Name $runbookName -ResourceGroupName $RGName
 ```
 
-## Next Steps
+## Next steps
 
 * To learn about how you can benefit from the Runbook and PowerShell Module Gallery, see  [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md)
 * To learn more about editing PowerShell and PowerShell Workflow runbooks with a textual editor, see [Editing textual runbooks in Azure Automation](automation-edit-textual-runbook.md)

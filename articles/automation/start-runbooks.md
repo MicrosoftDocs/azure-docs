@@ -14,7 +14,7 @@ manager: carmonm
 
 The following table helps you determine the method to start a runbook in Azure Automation that is most suitable to your particular scenario. This article includes details on starting a runbook with the Azure portal and with Windows PowerShell. Details on the other methods are provided in other documentation that you can access from the links below.
 
-| **METHOD** | **CHARACTERISTICS** |
+| **Method** | **Characteristics** |
 | --- | --- |
 | [Azure portal](#starting-a-runbook-with-the-azure-portal) |<li>Simplest method with interactive user interface.<br> <li>Form to provide simple parameter values.<br> <li>Easily track job state.<br> <li>Access authenticated with Azure sign in. |
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Call from command line with Windows PowerShell cmdlets.<br> <li>Can be included in automated solution with multiple steps.<br> <li>Request is authenticated with certificate or OAuth user principal / service principal.<br> <li>Provide simple and complex parameter values.<br> <li>Track job state.<br> <li>Client required to support PowerShell cmdlets. |

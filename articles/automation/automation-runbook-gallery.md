@@ -108,7 +108,7 @@ Python Runbooks are available in the [Script Center gallery](https://gallery.tec
 
 You can send requests to [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  If you need help with writing a runbook or have a question about PowerShell, post a question to our [forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).
 
-## Next Steps
+## Next steps
 
 * To get started with runbooks, see [Manage runbook in Azure Automation](manage-runbooks.md)
 * To understand the differences between PowerShell and PowerShell Workflow with runbooks, see [Learning PowerShell workflow](automation-powershell-workflow.md)

@@ -18,7 +18,7 @@ Runbook input parameters increase the flexibility of runbooks by allowing you to
 
 Input parameters can be configured in PowerShell, PowerShell Workflow, Python, and graphical runbooks. A runbook can have multiple parameters with different data types, or no parameters at all. Input parameters can be mandatory or optional, and you can have a default value for optional parameters. You assign values to the input parameters for a runbook when you start it through one of the available methods. These methods include starting a runbook from the Azure portal, a web service, or PowerShell. You can also start one as a child runbook that is called inline in another runbook.
 
-## Configure input parameters in PowerShell and PowerShell Workflow runbooks
+## Configure input parameters in PowerShell runbooks
 
 PowerShell and PowerShell Workflow runbooks in Azure Automation support input parameters that are defined through the following attributes:  
 
