@@ -60,7 +60,7 @@ To learn more about some of our other partners, see [Data Integration partners][
 <!--Website links -->
 [birst_website]:https://www.birst.com/
 [clearstory_website]:http://www.clearstorydata.com/
-[dell_statistica_website]:http://software.dell.com/MSFT_Stat_ref/
+[dell_statistica_website]:http://www.statsoft.com/Products/STATISTICA-Features
 [dundas_bi_website]:http://www.dundas.com/dundas-bi
 [jinfonet_website]:http://www.jinfonet.com/product/jreport-designer
 [logianalytics_website]:http://www.logianalytics.com/
