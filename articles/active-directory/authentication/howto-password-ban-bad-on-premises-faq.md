@@ -104,11 +104,13 @@ To summarize: deployment of the Azure AD Password Protection DC Agent service on
 
 No.
 
-# Additional content
+## Additional content
 
 The following links are not part of the core Azure AD Password Protection documentation but may be a useful source of additional information on the feature.
 
 [Email Phishing Protection Guide – Part 15: Implement the Microsoft Azure AD Password Protection Service (for On-Premises too!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
+
+[Azure AD Password Protection and Smart Lockout are now in Public Preview!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529)
 
 ## Next steps
 

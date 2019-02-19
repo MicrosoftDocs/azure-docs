@@ -39,7 +39,7 @@ Azure AD Password Protection for Active Directory is designed with the following
 
 # Architectural diagram
 
-It is important to have an understanding of the underlying design and functional concepts before deploying Azure AD Password Protection in an on-premises Active Directory environment. The following diagram shows how the components of Azure AD Password Protection work together in an on-premises Active Directory environment:
+It is important to have an understanding of the underlying design and functional concepts before deploying Azure AD Password Protection in an on-premises Active Directory environment. The following diagram shows how the components of Azure AD Password Protection work together:
 
 ![How Azure AD password protection components work together](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
 
@@ -61,9 +61,7 @@ The Azure AD Password Protection DC Agent service is responsible for initiating 
 
 The Azure AD Password Protection DC Agent service will always request a new policy on service startup. After the DC Agent service is started, it will periodically (once every hour) check the age of the current locally available policy; if the current policy is older than one hour the DC agent service will request a new policy from Azure AD as described above, otherwise the DC agent will continue to use the current policy.
 
-When a new password policy is downloaded from Azure AD, it 
-
-The Azure AD Password Protection DC Agent service communicates with the Azure AD Password Protection Proxy service using RPC (Remote Procedure Call) over TCP. The Proxy service listens for these calls on either a dynamic or static RPC port as configured.
+The Azure AD Password Protection DC Agent service communicates with the Azure AD Password Protection Proxy service using RPC (Remote Procedure Call) over TCP. The Proxy service listens for these calls on either a dynamic or static RPC port (as configured).
 
 The Azure AD Password Protection DC Agent never listens on a network-available port and the Proxy service never attempts to call the DC agent service.
 
