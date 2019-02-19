@@ -56,6 +56,7 @@ You can manage the permissions by navigating to key vault resource in portal and
 
 If the user enabling disaster recovery (DR) does not have the required permissions to copy the keys, the below script can be given to the security administrator with appropriate permissions to copy the encryption secrets and keys to the target region.
 
+Refer [this article](#trusted-root-certificates-error-code-151066)** troubleshooting permission issues check **
 >[!NOTE]
 >To enable replication of ADE VM from portal, you at least need "List" permissions on the key vaults, secrets and keys
 >
@@ -138,10 +139,19 @@ You can use [the script](#copy-ade-keys-to-dr-region-using-powershell-script) to
 
 ![update-ade-settings](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 
-## Troubleshoot Key vault permission issues during  Azure-to-Azure VM replication
+## <a name="trusted-root-certificates-error-code-151066"></a>Troubleshoot Key vault permission issues during  Azure-to-Azure VM replication
 
-**Cause 1:** You may have selected the already created Keyvault from the Target region which doesn't have required permissions.
-If you are selecting an already created Keyvault in the target region rather than let ASR create it then make sure  the Key vault has require permissions as mentioned above.
+**Cause 1:** You may have selected an already created Keyvault from the Target region which doesn't have required permissions.
+If you are selecting an already created Keyvault in the target region rather than let ASR create it. Make sure  the Key vault has require permissions as mentioned above.</br>
+*For example*: A user try to replicate a VM which has a key vault on source region say "ContososourceKeyvault".
+User has all the permission on the source region key vault but during protection he  selects an already created key vault "ContosotargetKeyvault" which doesn't has permission then protection will throws an error.</br>
+**How to fix** : Got to "Home> Keyvaults> ContososourceKeyvault> Access policies" and add permissions as shown above 
+
+**Cause 2:** You may have selected an already created Keyvault from the Target region which  doesn't have decry pt-encrypt permissions.
+If you are selecting an already created Keyvault in the target region rather than let ASR create it. Make sure  the user has decrypt-encrypt permissions in case you are encrypting the key too on the source region .</br>
+*For example*: A user try to replicate a VM which has a key vault on source region say "ContososourceKeyvault".
+User has all the permission on the source region key vault but during protection he  selects an already created key vault "ContosotargetKeyvault" which doesn't has permission to decrpt and encrypt</br>
+**How to fix** : Got to "Home> Keyvaults> ContososourceKeyvault> Access policies" and add permissions under Key permissions> Cryptographic Operations.
 
 ## Next steps
 
