@@ -71,6 +71,9 @@ $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 
 ## Replicate Azure virtual machine
 
+In the below example we have assumed you already have a cache storage account, replication policy and mappings.
+
+
 Replicate the Azure virtual machine with **managed disks**.
 
 ```azurepowershell
@@ -105,7 +108,7 @@ $diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
 
 #Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
 $TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
-
+```
 
 Once the start replication operation succeeds, virtual machine data is replicated to the recovery region.
 

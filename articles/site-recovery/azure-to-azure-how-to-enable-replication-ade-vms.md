@@ -138,6 +138,11 @@ You can use [the script](#copy-ade-keys-to-dr-region-using-powershell-script) to
 
 ![update-ade-settings](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 
+## Troubleshoot Key vault permission issues during  Azure-to-Azure VM replication
+
+**Cause 1:** You may have selected the already created Keyvault from the Target region which doesn't have required permissions.
+If you are selecting an already created Keyvault in the target region rather than let ASR create it then make sure  the Key vault has require permissions as mentioned above.
+
 ## Next steps
 
 [Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.
