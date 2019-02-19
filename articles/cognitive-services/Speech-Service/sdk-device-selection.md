@@ -1,5 +1,5 @@
 ---
-title: 'Audio input device selection with the Speech SDK - Speech Services'
+title: 'Audio input device selection in the Speech SDK - Speech Services'
 titleSuffix: Azure Cognitive Services
 description: Learn about selecting audio input device in the Speech SDK.
 services: cognitive-services
@@ -12,13 +12,11 @@ ms.date: 2/20/2019
 ms.author: chlandsi
 ---
 
-# Audio input device selection with the Speech SDK
+# Audio input device selection in the Speech SDK
 
-Version 1.3.0 of the Speech SDK introduces an API to select the audio input.
+Version 1.3.0 of the Speech SDK introduces an API to select the audio input (note: this is not yet available from JavaScript).
 This article describes how to obtain the IDs of the audio devices connected to a system.
-These can then be passed to the Speech SDK.
-
-On all platforms, the audio device can be configured through the `AudioConfig` object:
+These can then be used in the Speech SDK by configuring the audio device through the `AudioConfig` object:
 
 ```C++
 audioConfig = AudioConfig.FromMicrophoneInput("<device id>");
@@ -43,7 +41,7 @@ audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ## Audio device IDs on Windows for Desktop applications
 
 Audio device [endpoint ID strings](/windows/desktop/CoreAudio/endpoint-id-strings) can be retrieved from the [`IMMDevice`](/windows/desktop/api/mmdeviceapi/nn-mmdeviceapi-immdevice) object in Windows for Desktop applications.
-The following code sample illustrates how to use it to enumerate audio devices.
+The following code sample illustrates how to use it to enumerate audio devices in C++:
 
 ```cpp
 #include <cstdio>
@@ -138,7 +136,7 @@ Exit:
 }
 ```
 
-The C# sample uses the [NAudio](https://github.com/naudio/NAudio) library to access the CoreAudio API.
+In C#, the [NAudio](https://github.com/naudio/NAudio) library can be used to access the CoreAudio API and enumerate devices as follows:
 
 ```cs
 using System;
@@ -162,12 +160,12 @@ namespace ConsoleApp
 }
 ```
 
-The device IDs are strings like `"{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414013aac8}"`.
+A sample device ID is `{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414013aac8}`.
 
 ## Audio device IDs on UWP
 
-On Windows UWP, audio input devices can be obtained using the `Id()` property of the corresponding [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) object.
-The following code samples show how to do this in C++ and C#.
+On the Universal Windows Platform (UWP), audio input devices can be obtained using the `Id()` property of the corresponding [`DeviceInformation`](/uwp/api/windows.devices.enumeration.deviceinformation) object.
+The following code samples show how to do this in C++ and C#:
 
 ```cpp
 #include <winrt/Windows.Foundation.h>
@@ -180,7 +178,8 @@ void enumerateDeviceIds()
     auto promise = DeviceInformation::FindAllAsync(DeviceClass::AudioCapture);
 
     promise.Completed(
-        [](winrt::Windows::Foundation::IAsyncOperation<DeviceInformationCollection> const& sender, winrt::Windows::Foundation::AsyncStatus /* asyncStatus */ ) {
+        [](winrt::Windows::Foundation::IAsyncOperation<DeviceInformationCollection> const& sender,
+           winrt::Windows::Foundation::AsyncStatus /* asyncStatus */ ) {
         auto info = sender.GetResults();
         auto num_devices = info.Size();
 
@@ -211,7 +210,7 @@ namespace helloworld {
 }
 ```
 
-A sample ID is `"\\\\?\\SWD#MMDEVAPI#{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414013aac8}#{2eef81be-33fa-4800-9670-1cd474972c3f}"`.
+A sample device ID is `\\\\?\\SWD#MMDEVAPI#{0.0.1.00000000}.{5f23ab69-6181-4f4a-81a4-45414013aac8}#{2eef81be-33fa-4800-9670-1cd474972c3f}`.
 
 ## Audio device IDs on Linux
 
@@ -339,18 +338,25 @@ CFArrayRef CreateInputDeviceArray()
     audioDevices = NULL;
 
     // Return a non-mutable copy of the array
-    CFArrayRef copy = CFArrayCreateCopy(kCFAllocatorDefault, inputDeviceArray);
+    CFArrayRef immutableInputDeviceArray = CFArrayCreateCopy(kCFAllocatorDefault, inputDeviceArray);
     CFRelease(inputDeviceArray);
     inputDeviceArray = NULL;
 
-    return copy;
+    return immutableInputDeviceArray;
 }
 ```
 
-For example, the UID for the built-in microphone is "BuiltInMicrophoneDevice".
+For example, the UID for the built-in microphone is `BuiltInMicrophoneDevice`.
 
 ## Audio device IDs on iOS
 
 Audio device selection with the Speech SDK is not supported on iOS.
 However, apps using the SDK can influence audio routing through the [`AVAudioSession`](https://developer.apple.com/documentation/avfoundation/avaudiosession?language=objc) Framework.
-For example, the instruction `[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryRecord withOptions:AVAudioSessionCategoryOptionAllowBluetooth error:NULL];` enables the use of a Bluetooth headset for a speech-enabled app.
+For example, the instruction
+
+```objc
+[[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryRecord
+    withOptions:AVAudioSessionCategoryOptionAllowBluetooth error:NULL];
+```
+
+enables the use of a Bluetooth headset for a speech-enabled app.
