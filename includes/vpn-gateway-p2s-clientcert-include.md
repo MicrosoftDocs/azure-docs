@@ -26,4 +26,8 @@ You can generate client certificates by using the following methods:
   * [MakeCert instructions](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): Use MakeCert if you don't have access to a Windows 10 computer for generating certificates. Although MakeCert is deprecated, you can still use it to generate certificates. You can install the generated certificates on any supported P2S client.
   * [Linux instructions](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md)
 
-  When you generate a client certificate from a self-signed root certificate, it's automatically installed on the computer that you used to generate it. If you want to install a client certificate on another client computer, export it as a .pfx file, along with the entire certificate chain. Doing so will create a .pfx file that contains the root certificate information required for the client to authenticate. For steps to export a certificate, see [Generate and export certificates for Point-to-Site using PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).
+  When you generate a client certificate from a self-signed root certificate, it's automatically installed on the computer that you used to generate it. If you want to install a client certificate on another client computer, export it as a .pfx file, along with the entire certificate chain. Doing so will create a .pfx file that contains the root certificate information required for the client to authenticate. 
+
+**To export the certificate**
+
+For steps to export a certificate, see [Generate and export certificates for Point-to-Site using PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).

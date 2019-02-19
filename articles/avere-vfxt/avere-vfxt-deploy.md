@@ -34,11 +34,11 @@ For more information about cluster deployment steps and planning, read [Plan you
 
 ## Create the Avere vFXT for Azure
 
-Access the creation template in the Azure portal by searching for Avere and selecting "Avere vFXT for Azure Deployment". <!-- xxx update if that name changes xxx --> 
+Access the creation template in the Azure portal by searching for Avere and selecting "Avere vFXT ARM Deployment". 
 
-<!-- **[XXX need production image of template deploy in search and/or entry page of template deploy XXX]** -->
+![Browser window showing the Azure portal with bread crumbs "New > Marketplace > Everything". In the Everything page, the search field has the term "avere" and the second result, "Avere vFXT ARM Deployment" is outlined in red to highlight it.](media/avere-vfxt-template-choose.png)
 
-Click **Create** to begin. 
+After reading the details on the Avere vFXT ARM Deployment page, click **Create** to begin. 
 
 ![Azure marketplace with the first page of the deployment template showing](media/avere-vfxt-deploy-first.png)
 
@@ -75,7 +75,7 @@ Fill in the following information:
 
 * **Subscription** - Select the subscription for the Avere vFXT. 
 
-* **Resource group** - Select the resource group for the Avere vFXT cluster, or click "Create new" and enter a new resource group name. 
+* **Resource group** - Select an existing empty resource group for the Avere vFXT cluster, or click "Create new" and enter a new resource group name. 
 
 * **Location** - Select the Azure location for your cluster and resources.
 
@@ -118,9 +118,11 @@ The second page of the deployment template allows you to set the cluster size, n
 
 * **Subnet** - Choose a subnet from your existing virtual network, or create a new one. 
 
-* **Use blob storage** - Choose whether or not to create a new Azure Blob container and configure it as back-end storage for the new Avere vFXT cluster. If you choose to create a new container, you must supply the storage account for that container. If you choose not to create a new blob container, you must attach storage after creating the cluster (read [Configure storage](avere-vfxt-add-storage.md) for instructions). Set this field to **false** if you do not want to create a new container.
+* **Use blob storage** - Choose **true** to create a new Azure Blob container and configure it as back-end storage for the new Avere vFXT cluster. This option also creates a new storage account within the same resource group as the cluster. 
 
-* **Storage account** - If creating a new Azure Blob container, enter the storage account name. The storage account must be a standard general-purpose V2 account configured with locally redundant storage and the hot access tier. The [Configure storage](avere-vfxt-add-storage.md#azure-storage-cloud-core-filer) article has more details about the storage account requirements.
+  Set this field to **false** if you do not want to create a new container. In this case, you must attach and configure storage after creating the cluster. Read [Configure storage](avere-vfxt-add-storage.md) for instructions. 
+
+* **Storage account** - If creating a new Azure Blob container, enter a name for the new storage account. 
 
 ## Validation and purchase
 
@@ -156,7 +158,7 @@ To find this information, follow this procedure:
 
 ## Create a storage endpoint (if using Azure Blob)
 
-If you are using Azure Blob storage for your back-end data storage, you should create a storage service endpoint in your virtual network. This [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) keeps Azure Blob traffic local instead of routing it through the internet.
+If you are using Azure Blob storage for your back-end data storage, you should create a storage service endpoint in your virtual network. This [service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) keeps Azure Blob traffic local instead of routing it outside the virtual network.
 
 1. From the portal, click **Virtual networks** on the left.
 1. Select the vnet for your controller. 

@@ -21,7 +21,7 @@ ms.reviewer: bagovind
 
 This article lists the operations available for each Azure Resource Manager resource provider. These operations can be used in [custom roles](custom-roles.md) to provide granular [role-based access control (RBAC)](overview.md) to resources in Azure. Operation strings have the following format: `{Company}.{ProviderName}/{resourceType}/{action}`
 
-The resource provider operations are always evolving. To get the latest operations, use [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
+The resource provider operations are always evolving. To get the latest operations, use [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) or [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -5686,5 +5686,5 @@ The resource provider operations are always evolving. To get the latest operatio
 
 ## Next steps
 
-- [Custom roles](custom-roles.md)
-- [Built-in roles](built-in-roles.md)
+- [Custom roles for Azure resources](custom-roles.md)
+- [Built-in roles for Azure resources](built-in-roles.md)

@@ -2,30 +2,23 @@
 title: Create and Manage Azure VPN gateway using PowerShell | Microsoft Docs
 description: Tutorial - Create and Manage VPN gateway with the Azure PowerShell module
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: infrastructure
-ms.date: 05/14/2018
+ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
 #Customer intent: I want to create a VPN gateway for my virtual network so that I can connect to my VNet and communicate with resources remotely.
 ---
 
-# Create and Manage VPN gateway with the Azure PowerShell module
+# Tutorial: Create and manage a VPN gateway using PowerShell
 
 Azure VPN gateways provide cross-premises connectivity between customer premises and Azure. This tutorial covers basic Azure VPN gateway deployment items such as creating and managing a VPN gateway. You learn how to:
 
 > [!div class="checklist"]
 > * Create a VPN gateway
+> * View the public IP address
 > * Resize a VPN gateway
 > * Reset a VPN gateway
 
@@ -37,13 +30,11 @@ The following diagram shows the virtual network and the VPN gateway created as p
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [working with cloudshell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
-
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 5.3 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-Az-ps). If you are running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure. 
+[!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
 ## Common network parameter values
 
-Change the values below based on your environment and network setup.
+Change the values below based on your environment and network setup, then copy and paste to set the variables for this tutorial. If your Cloud Shell session times out, or you need to use a different PowerShell window, copy and paste the variables to your new session and continue the tutorial.
 
 ```azurepowershell-interactive
 $RG1         = "TestRG1"
@@ -63,7 +54,7 @@ $GwIP1       = "VNet1GWIP"
 $GwIPConf1   = "gwipconf1"
 ```
 
-## Create resource group
+## Create a resource group
 
 Create a resource group with the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. A resource group must be created first. In the following example, a resource group named *TestRG1* is created in the *East US* region:
 
@@ -103,7 +94,7 @@ $gwipconf = New-AzVirtualNetworkGatewayIpConfig -Name $GwIPConf1 `
               -Subnet $subnet -PublicIpAddress $gwpip
 ```
 
-## Create VPN gateway
+## Create a VPN gateway
 
 A VPN gateway can take 45 minutes or more to create. Once the gateway creation has completed, you can create a connection between your virtual network and another VNet. Or create a connection between your virtual network and an on-premises location. Create a VPN gateway using the [New-AzVirtualNetworkGateway](/powershell/module/az.network/New-azVirtualNetworkGateway) cmdlet.
 
@@ -118,9 +109,22 @@ Key parameter values:
 * VpnType: Use **RouteBased** to interact with wider range of VPN devices and more routing features
 * GatewaySku: **VpnGw1** is the default; change it to VpnGw2 or VpnGw3 if you need higher throughputs or more connections. For more information, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
+If you are using the TryIt, your session may time out. That's OK. The gateway will still create.
+
 Once the gateway creation has completed, you can create a connection between your virtual network and another VNet, or create a connection between your virtual network and an on-premises location. You can also configure a P2S connection to your VNet from a client computer.
 
-## Resize VPN gateway
+## View the gateway public IP address
+
+If you know the name of the public IP address, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azurermps-6.8.1) to show the public IP address assigned to the gateway.
+
+If your session timed out, copy the common network parameters from the beginning of this tutorial into your new session and proceed, then proceed.
+
+```azurepowershell-interactive
+$myGwIp = Get-AzPublicIpAddress -Name $GwIP1 -ResourceGroup $RG1
+$myGwIp.IpAddress
+```
+
+## Resize a gateway
 
 You can change the VPN gateway SKU after the gateway is created. Different gateway SKUs support different specifications such as throughputs, number of connections, etc. The following example uses [Resize-AzVirtualNetworkGateway](/powershell/module/az.network/Resize-azVirtualNetworkGateway) to resize your gateway from VpnGw1 to VpnGw2. For more information, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
@@ -131,7 +135,7 @@ Resize-AzVirtualNetworkGateway -GatewaySku VpnGw2 -VirtualNetworkGateway $gatewa
 
 Resizing a VPN gateway also takes about 30 to 45 minutes, although this operation will **not** interrupt or remove existing connections and configurations.
 
-## Reset VPN gateway
+## Reset a gateway
 
 As part of the troubleshooting steps, you can reset your Azure VPN gateway to force the VPN gateway to restart the IPsec/IKE tunnel configurations. Use [Reset-AzVirtualNetworkGateway](/powershell/module/az.network/Reset-azVirtualNetworkGateway) to reset your gateway.
 
@@ -142,20 +146,11 @@ Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway
 
 For more information, see [Reset a VPN gateway](vpn-gateway-resetgw-classic.md).
 
-## Get the gateway public IP address
+## Clean up resources
 
-If you know the name of the public IP address, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azurermps-6.8.1) to show the public IP address assigned to the gateway.
+If you advancing to the [next tutorial](vpn-gateway-tutorial-vpnconnection-powershell.md), you will want to keep these resources because they are the prerequisite.
 
-```azurepowershell-interactive
-$myGwIp = Get-AzPublicIpAddress -Name $GwIP1 -ResourceGroup $RG1
-$myGwIp.IpAddress
-```
-
-## Delete VPN gateway
-
-A complete configuration of cross-premises and VNet-to-VNet connectivity requires multipel resource types in addition to VPN gateway. Delete the connections associated with the VPN gateway before deleting the gateway itself. Once the gateway is deleted, you can then delete the public IP address(es) for the gateway. See [Delete a VPN gateway](vpn-gateway-delete-vnet-gateway-powershell.md) for the detailed steps.
-
-If the gateway is part of a protype or proof-of-conceopt deployment, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, the VPN gateway, and all related resources.
+However, if the gateway is part of a prototype, test, or proof-of-concept deployment, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, the VPN gateway, and all related resources.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $RG1
@@ -167,6 +162,7 @@ In this tutorial, you learned about basic VPN gateway creation and management su
 
 > [!div class="checklist"]
 > * Create a VPN gateway
+> * View the public IP address
 > * Resize a VPN gateway
 > * Reset a VPN gateway
 

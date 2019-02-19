@@ -4,7 +4,7 @@ description: " Learn how to onboard to Azure Security Center Standard for enhanc
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075

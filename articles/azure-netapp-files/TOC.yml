@@ -24,8 +24,12 @@
 # - name: Samples
 - name: Concepts
   items:
+  - name: Service levels for Azure NetApp Files
+    href: azure-netapp-files-service-levels.md
   - name: Resource limits for Azure NetApp Files
     href: azure-netapp-files-resource-limits.md
+  - name: Metrics for Azure NetApp Files
+    href: azure-netapp-files-metrics.md
 #  - name: FAQ for networking and security
 #    href: azure-netapp-files-faq-for-networking-security.md
 - name: How-to guides
@@ -38,6 +42,10 @@
     href: azure-netapp-files-manage-snapshots.md
   - name: Resize a capacity pool or a volume
     href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+  - name: Develop
+    items:
+    - name: REST
+      href: azure-netapp-files-develop-with-rest-api.md
 - name: Reference
   items:
   - name: REST

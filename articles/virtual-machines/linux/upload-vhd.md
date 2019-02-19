@@ -27,8 +27,8 @@ This article shows you how to upload a customized virtual hard disk (VHD), and h
 To create multiple VMs from your customized disk, first create an image from your VM or VHD. For more information, see [Create a custom image of an Azure VM by using the CLI](tutorial-custom-images.md).
 
 You have two options to create a custom disk:
-* [Upload a VHD](#option-1-upload-a-specialized-vhd)
-* [Copy an existing Azure VM](#option-2-copy-an-existing-azure-vm)
+* Upload a VHD
+* Copy an existing Azure VM
 
 ## Quick commands
 
@@ -96,7 +96,7 @@ az group create \
 
 ### Create a storage account
 
-Create a storage account for your custom disk and VMs with [az storage account create](/cli/azure/storage/account#az-storageaccount-create). The following example creates a storage account named *mystorageaccount* in the resource group previously created:
+Create a storage account for your custom disk and VMs with [az storage account create](/cli/azure/storage/account). The following example creates a storage account named *mystorageaccount* in the resource group previously created:
 
 ```azurecli
 az storage account create \

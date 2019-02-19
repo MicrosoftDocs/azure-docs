@@ -16,6 +16,7 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk 
 
+ms.collection: M365-identity-device-management
 ---
 
 # Find activity reports in the Azure portal
@@ -47,8 +48,6 @@ The audit logs report consolidates the following reports:
 
 You can use advanced filtering in the audit report to access a specific category of audit data, by specifying it in the **Activity category** filter. For example, to view all activities related to self-service password reset, select the **Self-service password management** category. 
 
-    ![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
-
 Activity categories include:
 
 - Core Directory
@@ -60,8 +59,6 @@ Activity categories include:
 ## Sign-ins report 
 
 The **Sign-ins** view includes all user sign-ins, as well as the **Application Usage** report. You also can view application usage information in the **Manage** section of the **Enterprise applications** overview.
-
-    ![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
 
 To access the sign-ins report:
 

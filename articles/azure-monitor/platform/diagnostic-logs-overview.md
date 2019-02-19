@@ -34,7 +34,9 @@ Here are some of the things you can do with diagnostic logs:
 
 * Save them to a [**Storage Account**](../../azure-monitor/platform/archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using **resource diagnostic settings**.
 * [Stream them to **Event Hubs**](diagnostic-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
-* Analyze them with [Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md), where the data is written immediately to Log Analytics with no need to first write the data to storage.  
+* Analyze them with [Azure Monitor](../../azure-monitor/platform/collect-azure-metrics-logs.md), where the data is written immediately to Azure Monitor with no need to first write the data to storage.  
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 You can use a storage account or Event Hubs namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
 
@@ -50,7 +52,7 @@ You can use a storage account or Event Hubs namespace that is not in the same su
 
 Resource diagnostic logs are configured using resource diagnostic settings. Tenant diagnostic logs are configured using a tenant diagnostic setting. **Diagnostic settings** for a service control:
 
-* Where diagnostic logs and metrics are sent (Storage Account, Event Hubs, and/or Log Analytics).
+* Where diagnostic logs and metrics are sent (Storage Account, Event Hubs, and/or Azure Monitor).
 * Which log categories are sent and whether metric data is also sent.
 * How long each log category should be retained in a storage account
     - A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
@@ -229,5 +231,4 @@ Adding a diagnostic setting brings up the Diagnostic Settings view, where you ca
 
 * [Stream resource diagnostic logs to **Event Hubs**](diagnostic-logs-stream-event-hubs.md)
 * [Change resource diagnostic settings using the Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/)
-* [Analyze logs from Azure storage with Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-
+* [Analyze logs from Azure storage with Azure Monitor](collect-azure-metrics-logs.md)

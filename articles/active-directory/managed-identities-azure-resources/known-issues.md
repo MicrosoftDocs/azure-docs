@@ -15,6 +15,7 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # FAQs and known issues with managed identities for Azure resources
@@ -149,8 +150,8 @@ As a workaround once the subscription has been moved, you can disable system-ass
 
 ## Known issues with user-assigned managed identities
 
-- Creating a user-assigned managed identity with special characters (i.e. underscore) in the name, is not supported.
-- User-assigned identity names are restricted to 24 characters. If the name is longer than 24 characters, the identity will fail to be assigned to a resource (i.e. Virtual Machine.)
+- User-assigned identity names are restricted to a minimum of 3 characters and a maximum of 128 characters. If the name is longer than 128 characters, the identity will fail to be assigned to a resource (i.e. Virtual Machine.)
+- User-assigned identity names can contain the following characters: a-z, A-Z, -, \_, 0-9. Creating a user-assigned managed identity with characters outside this character set (i.e. asterisk) in the name, is not supported.
 - If using the managed identity virtual machine extension (planned for deprecation in January 2019), the supported limit is 32 user-assigned managed identities. Without the managed identity virtual machine extension, the supported limit is 512.  
 - Moving a user-assigned managed identity to a different resource group will cause the identity to break. As a result, you will not be able to request tokens for that identity. 
 - Transferring a subscription to another directory will break any existent user-assigned managed identities. 

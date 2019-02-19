@@ -18,6 +18,7 @@ ms.date: 01/07/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Federation metadata

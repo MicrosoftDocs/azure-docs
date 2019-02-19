@@ -39,12 +39,8 @@ Before you begin, make sure:
 ## Ship Data Box back
 
 1. Ensure that the device is powered off and cables are removed. Spool and securely place the power cord that was provided with device in the back of the device.
-2. If the device is shipping in US, ensure that the shipping label is displayed on the E-ink display and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device.
-
-    If the device is shipping in Europe, the E-ink display does not show the shipping label. Instead the return shipping label is included in the clear pouch under the forward shipping label. Remove the old shipping label and ensure that the shipping label is clearly visible.
-    
+2. Ensure that the shipping label is displayed on the E-ink display and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, contact Microsoft Support. If the Support suggests, then you can go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device. 
 3. Schedule a pickup with UPS if returning the device. To schedule a pickup, call the local UPS (country-specific toll free number) or drop off the Data Box at the nearest drop-off location.
-
 4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
 ## Verify data upload to Azure
@@ -74,7 +70,7 @@ Verify that your data is uploaded to Azure before you delete it from the source.
 
         ![Managed disk attached to resource groups](media/data-box-deploy-copy-data-from-vhds/managed-disks-in-res-group.png)
 
-    - If you uploaded a VHDX, or a dynamic or differencing VHD, then the VHDX/VHD will be copied to the staging storage account but the conversion of VHD to managed disk will fail. Go to your staging **Storage account > Blobs** and then select the appropriate container - Standard SSD, Standard HDD, Premium SSD, or Ultra SSD. The VHDs are uploaded as page blobs in your staging storage account.
+    - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a page blob but the conversion of VHD to managed disk fails. Go to your staging **Storage account > Blobs** and then select the appropriate container - Standard SSD, Standard HDD, Premium SSD, or Ultra SSD. The VHDs are uploaded as page blobs in your staging storage account.
 
 ## Erasure of data from Data Box
  

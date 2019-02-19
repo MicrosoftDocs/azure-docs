@@ -5,9 +5,12 @@
   items:
     - name: What is Bing Image Search?
       href: overview.md
+    - name: Compare the Bing Search APIs
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Quickstarts
   items:
-  - name: "Send search queries using the REST API"
+  - name: REST API
     items:
     - name: "Using C#"
       href: quickstarts/csharp.md
@@ -21,7 +24,7 @@
       href: quickstarts/python.md
     - name: "Using Ruby"
       href: quickstarts/ruby.md
-  - name: "Search for images using the SDK"
+  - name: SDK
     items:
     - name: "Using C#"
       href: image-search-sdk-quickstart.md
@@ -83,6 +86,9 @@
         href: https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/imagesearch?view=azure-node-latest
       - name: Go
         href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/imagesearch
+  - name: Bing use and display requirements
+    href: ../Bing-Web-Search/use-display-requirements.md
+    maintainContext: true
 - name: Resources
   items:
   - name: FAQ
@@ -107,7 +113,5 @@
     href: image-search-endpoint.md
   - name: Language and region support
     href: language-support.md
-  - name: Use and display requirements
-    href: UseAndDisplayRequirements.md
   - name: Analytics for Bing Image Search API
     href: bing-image-stats.md

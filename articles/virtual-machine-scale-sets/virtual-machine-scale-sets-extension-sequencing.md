@@ -25,7 +25,7 @@ When using multiple extensions on a virtual machine, it's important to ensure th
 
 This article details how you can sequence extensions to be configured for the VM instances in virtual machine scale sets.
 
-## Pre-requisites
+## Prerequisites
 This article assumes that you're familiar with:
 -	Azure virtual machine [extensions](../virtual-machines/extensions/overview.md)
 -	[Modifying](virtual-machine-scale-sets-upgrade-scale-set.md) virtual machine scale sets

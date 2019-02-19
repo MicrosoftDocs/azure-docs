@@ -7,7 +7,7 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
+ms.date: 02/05/2019
 ms.custom: seodec18 
 ---
 # Set up alerts for Azure Stream Analytics jobs
@@ -40,17 +40,17 @@ The following example demonstrates how to set up alerts for when your job enters
 
    ![Setting up an alert for an Azure Streaming Analytics job](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. The **RESOURCE**, **CONDITION**, and **ACTION GROUPS** should each have an entry.
+7. The **RESOURCE**, **CONDITION**, and **ACTION GROUPS** should each have an entry. Note that in order for the alerts to fire, the conditions defined need to be met. For example, you can measure a metric's average value of over the last 15 minutes, every 5 minutes.
 
    ![Create Stream Analytics alert rule](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
    Add an **Alert rule name**, **Description**, and your **Resource Group** to the **ALERT DETAILS** and click **Create alert rule** to create the rule for your Stream Analytics job.
 
    ![Create Stream Analytics alert rule](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
-
+   
 ## Scenarios to monitor
 
-The following alerts are recommended for monitoring the performance of your Stream Analytics job. These metrics should be evaluated every minute over the last 5-minute period. If your job suffers from performance issues, you can use query parallelization to make it more optimal and try increasing the number of streaming units.
+The following alerts are recommended for monitoring the performance of your Stream Analytics job. These metrics should be evaluated every minute over the last 5-minute period.
 
 |Metric|Condition|Time Aggregation|Threshold|Corrective Actions|
 |-|-|-|-|-|

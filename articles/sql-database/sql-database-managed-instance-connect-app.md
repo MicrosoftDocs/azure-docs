@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 11/09/2018
 ---
 
 # Connect your application to Azure SQL Database Managed Instance

@@ -14,6 +14,7 @@ ms.subservice: pim
 ms.date: 01/18/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
+ms.collection: M365-identity-device-management
 ---
 
 # Roles you cannot manage in PIM
@@ -39,6 +40,5 @@ Roles within Exchange Online or SharePoint Online, except for Exchange Administr
 
 ## Next steps
 
-- [Start using PIM](pim-getting-started.md)
 - [Assign Azure AD directory roles in PIM](pim-how-to-add-role-to-user.md)
 - [Assign Azure resource roles in PIM](pim-resource-roles-assign-roles.md)

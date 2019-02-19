@@ -8,7 +8,9 @@ metadata:
   services: sql-database
   author: jovanpop-msft
   manager: craigg
+  requires-business-manager-approval: false
   ms.service: sql-database
+  ms.subservice: single-database
   ms.tgt_pltfrm: na
   ms.devlang:
   ms.topic: overview
@@ -74,6 +76,7 @@ sections:
     - html: (Preview) New SQL Server 2019 <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">intelligent query processing</a> features, such as <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation">table variable deferred compilation</a>, <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore">batch mode on rowstore tables</a>, and <a href="https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json">scalar UDF inlining</a>. 
     - html: (Preview) New Transact-SQL language functionalities, such as <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">APPROX_COUNT_DISTINCT aggregate</a> and <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">bulk import from Azure Blob storage</a>. 
     - html: (Preview) New SQL Server 2019 Online <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">build</a> and rebuild clustered columnstore index operations.
+    - html: (Preview) New <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">Azure SQL Database Machine Learning Services (with R)</a>.
 - title: Five-minute quickstarts 
   items:
   - type: paragraph
@@ -96,13 +99,13 @@ sections:
     rows:
       - title: Create a database
         values:
-          - href: /azure/sql-database/sql-database-get-started-portal
+          - href: /azure/sql-database/sql-database-single-database-get-started
           - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
           - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
-          - href:
+          - href: https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create
       - title: Create an elastic pool
         values:
-          - href: 
+          - href: /azure/sql-database/sql-database-elastic-pool-manage
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create

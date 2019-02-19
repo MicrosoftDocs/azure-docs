@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: How to initiate moderation jobs using Azure Content Moderator SDK for .NET.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
