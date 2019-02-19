@@ -37,7 +37,8 @@ No. Successful backup jobs don't generate alerts. Alerts are sent only for backu
 
 ## Can I see details for scheduled backup jobs in the Jobs menu?
 
-No. The **Backup Jobs** menu shows on-demand job details, but not scheduled backup jobs. If any scheduled backup jobs fail, the details are available in the failed job alerts. To monitor all scheduled and adhoc backup jobs, use [SQL Server Management Studio](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs).
+No. The **Backup Jobs** menu shows on-demand job details, but not scheduled backup jobs. If any scheduled backup jobs fail, the details are available in the failed job alerts. To monitor all scheduled and adhoc backup jobs, use [SQL Server Management Studio](manage-monitor-sql-database-backup.md#monitor-backup-jobs-with-sql-server-anagement-studio
+).
 
 ## When I select a SQL Server instance are future databases automatically added?
 
