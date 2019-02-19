@@ -29,13 +29,23 @@ The following diagram shows an example pipeline:
 
 ![Machine learning pipelines in Azure Machine Learning service](./media/concept-ml-pipelines/pipelines.png)
 
+### What about other Azure pipelines?
+
+The Azure cloud provides several other pipelines, each with a different purpose. The following table lists the different pipelines and what they are used for:
+
+| Pipeline | Use case | Primary user | Canonical pipe |
+| ---- | ---- | ---- | ---- |
+| Azure Machine Learning pipelines | Machine learning model orchestration | Data scientist | Data -> model |
+| [Azure Data Factory pipelines](https://docs.microsoft.com/en-us/azure/data-factory/concepts-pipelines-activities) | Data orchestration | Data engineer | Data -> data |
+| [Azure pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=azure-devops) | Code and app orchestration | DevOps | Code -> app/service |
+
 ## Why build pipelines with Azure Machine Learning?
 
 You can use the [Azure Machine Learning SDK for Python](#the-python-sdk-for-pipelines) to create ML pipelines, as well as to submit and track individual pipeline runs.
 
 With pipelines, you can optimize your workflow with simplicity, speed, portability, and reuse. When building pipelines with Azure Machine Learning, you can focus on your expertise, machine learning, rather than on infrastructure.
 
-Using distinct steps makes it possible to rerun only the steps you need, as you tweak and test your workflow. A step is a computational unit in the pipeline. As shown in the preceding diagram, the task of preparing data can involve many steps. These include, but aren't limited to, normalization, transformation, validation, and featurization. Data sources and intermediate data are reused across the pipeline, which saves compute time and resources. 
+Using distinct steps makes it possible to rerun only the steps you need, as you tweak and test your workflow. A step is a computational unit in the pipeline. As shown in the preceding diagram, the task of preparing data can involve many steps. These steps include, but aren't limited to, normalization, transformation, validation, and featurization. Data sources and intermediate data are reused across the pipeline, which saves compute time and resources. 
 
 After the pipeline is designed, there is often more fine-tuning around the training loop of the pipeline. When you rerun a pipeline, the run jumps to the steps that need to be rerun, such as an updated training script, and skips what hasn't changed. The same paradigm applies to unchanged scripts used for the execution of the step. 
 
