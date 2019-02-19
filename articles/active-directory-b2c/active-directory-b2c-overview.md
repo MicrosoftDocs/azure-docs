@@ -15,9 +15,9 @@ ms.subservice: B2C
 
 # What is Azure Active Directory B2C?
 
-Azure Active Directory (Azure AD) B2C is an identity management service that enables you to customize and control how users securely interact with your web, desktop, mobile, or single-page applications. Using Azure AD B2C, users can sign up, sign in, reset passwords, and edit profiles. Azure AD B2C implements a form of the OpenID Connect and OAuth 2.0 protocols. The important key in the implementation of these protocols is the security tokens and their claims that enable you to provide secure access to resources.
+Azure Active Directory (Azure AD) B2C is an identity management service. This service enables you to customize and control how users securely interact with your web, desktop, mobile, or single-page applications. Using Azure AD B2C, users can sign up, sign in, reset passwords, and edit profiles. Azure AD B2C implements a form of the OpenID Connect and OAuth 2.0 protocols. The important key in the implementation of these protocols is the security tokens and their claims that enable you to provide secure access to resources.
 
-A *user journey* is a request that specifies a policy, which controls the behavior of how the user and your application interacts with Azure AD B2C. Two paths are available to you for defining user journeys in Azure AD B2C. If you're an application developer with or without identity expertise, you might choose to define common identity user flows using the Azure portal. If you are an identity professional, systems integrator, consultant, or on an in-house identity team, are comfortable with OpenID Connect flows, and understand identity providers and claims-based authentication, you might choose XML-based custom policies.
+A *user journey* is a request that specifies a policy, which controls the behavior of how the user and your application interact with Azure AD B2C. Two paths are available to you for defining user journeys in Azure AD B2C. If you're an application developer with or without identity expertise, you might choose to define common identity user flows using the Azure portal. If you are an identity professional, systems integrator, consultant, or on an in-house identity team, are comfortable with OpenID Connect flows, and understand identity providers and claims-based authentication, you might choose XML-based custom policies.
 
 Before you start defining a user journey, you need to create an Azure AD B2C tenant and register your application and API in the tenant. After you’ve completed these tasks, you can get started defining a user journey with either user flows or custom policies. You can also optionally, add or change identity providers, or customize the way the user experiences the journey.
 
@@ -25,7 +25,7 @@ Before you start defining a user journey, you need to create an Azure AD B2C ten
 
 Azure AD B2C supports the [OpenID Connect and OAuth 2.0 protocols](active-directory-b2c-reference-protocols.md) for user journeys. In the Azure AD B2C implementation of OpenID Connect, your application starts the user journey by issuing authentication requests to Azure AD B2C. 
 
-The result of requests to Azure AD B2C are security tokens, such as [ID tokens and access tokens](active-directory-b2c-reference-tokens.md). These security tokens define the user's identity. Tokens are received from Azure AD B2C endpoints, such as a `/token` or `/authorize` endpoint. From these tokens, you can access claims that can be used to validate an identity and allow access to secure resources.
+The result of a request to Azure AD B2C is a security token, such as an [ID token or access token](active-directory-b2c-reference-tokens.md). This security token defines the user's identity. Tokens are received from Azure AD B2C endpoints, such as a `/token` or `/authorize` endpoint. From these tokens, you can access claims that can be used to validate an identity and allow access to secure resources.
 
 ## Tenants and applications
 
@@ -113,7 +113,7 @@ If you are a single-page application developer using Node.js, set up your applic
 
 ### JavaScript
 
-You can add your own JavaScript client-side code to your Azure Active Directory (Azure AD) B2C applications. To do this, you define a [page contract](page-contract.md) and enable [JavaScript](javascript-samples.md) in your user flows or custom policies.
+You can add your own JavaScript client-side code to your Azure Active Directory (Azure AD) B2C applications. To set up JavaScript in your application, you define a [page contract](page-contract.md) and enable [JavaScript](javascript-samples.md) in your user flows or custom policies.
 
 ### User accounts
 
