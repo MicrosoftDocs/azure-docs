@@ -12,6 +12,34 @@
     href: workloads/oracle/oracle-considerations.md
   - name: SAP
     href: workloads/sap/get-started.md
+  - name: Mainframe Rehosting
+    items:
+    - name: Overview
+      items:
+      - name: Get started
+        href: workloads/mainframe-rehosting/overview.md
+      - name: Workloads
+        href: workloads/mainframe-rehosting/partner-workloads.md
+    - name: Micro Focus
+      items:
+      - name: Get started
+        href: workloads/mainframe-rehosting/microfocus/get-started.md
+      - name: Install Micro Focus Enterprise Server
+        href: workloads/mainframe-rehosting/microfocus/set-up-micro-focus-on-azure.md
+      - name: Demo
+        href: workloads/mainframe-rehosting/microfocus/demo.md
+    - name: TmaxSoft OpenFrame
+      href: https://azure.microsoft.com/en-us/resources/install-tmaxsoft-openframe-on-azure/
+    - name: IBM
+      items:
+      - name: Get started
+        href: workloads/mainframe-rehosting/get-started.md
+      - name: Install IBM zD&T
+        href: workloads/mainframe-rehosting/install-ibm-z-environment.md
+      - name: Set up ADCD in zD&T
+        href: workloads/mainframe-rehosting/demo.md
+      - name: IBM Db2 pureScale
+        href: https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure
 - name: Classic deployments
   items:
   - name: Linux VMs using classic deployment
