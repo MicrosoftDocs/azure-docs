@@ -253,9 +253,6 @@ To create a backup policy:
 
     - At most, you can trigger one differential backup per day.
     - Differential backups can be retained for a maximum of 180 days. If you need longer retention, you must use full backups.
-   
-
-   ![Edit the differential backup policy](./media/backup-azure-sql-database/enable-differential-backup-policy.png)
 
 9. Select **OK** to save the policy and return to the main **Backup policy** menu.
 
