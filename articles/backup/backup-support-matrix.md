@@ -85,6 +85,11 @@ Here's what's supported if you want to back up Linux machines.
 **Back up on-premises or Azure VM running Linux using DPM** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/><br/> VM restore of Hyper-V and VMWare Linux Guest VMs</br></br> File-consistent backup not available for Azure VMs
 **Back up on-premises machine/Azure VM running Linux using MABS** | File-consistent backup of Linux Guest VMs on Hyper-V and VMWare<br/><br/> VM restore of Hyper-V and VMWare Linux guest VMs</br></br> File-consistent backup not available for Azure VMs.
 
+## Daylight saving support
+
+Azure Backup doesn't support automatic clock adjustment for daylight-saving changes for Azure VM backups. Modify backup policies manually as required.
+
+
 ## Disk deduplication support
 
 Disk deduplication support is as follows:
