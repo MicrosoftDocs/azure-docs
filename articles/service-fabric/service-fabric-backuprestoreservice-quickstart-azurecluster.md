@@ -293,5 +293,5 @@ FailureError            :
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png
-[1]: ./media/service-fabric-backuprestoreservice/EnableBackupRestoreServiceWithPortal.png
+[1]: ./media/service-fabric-backuprestoreservice/EnableBackupRestoreServiceWithPortal.PNG
 
