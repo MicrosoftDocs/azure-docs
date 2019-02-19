@@ -100,7 +100,7 @@ To configure Azure AD single sign-on with GetThere, perform the following steps:
 
     ![GetThere Domain and URLs single sign-on information](common/idp-intiated.png)
 
-    a. In the **Identifier** text box, type a URL using the following pattern:
+    a. In the **Identifier** text box, type a URL:
 	| |
 	|--|
 	| `getthere.com` |
