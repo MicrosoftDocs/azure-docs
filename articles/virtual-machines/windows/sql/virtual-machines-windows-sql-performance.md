@@ -82,13 +82,9 @@ The temporary storage drive, labeled as the **D**: drive, is not persisted to Az
 
 For D-series, Dv2-series, and G-series VMs, the temporary drive on these VMs is SSD-based. If your workload makes heavy use of TempDB (such as temporary objects or complex joins), storing TempDB on the **D** drive could result in higher TempDB throughput and lower TempDB latency. For an example scenario, see the TempDB discussion in the following blog post: [Storage Configuration Guidelines for SQL Server on Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm).
 
-<<<<<<< HEAD
-For VMs that support premium SSDs (DS-series, DSv2-series, and GS-series), we recommend storing TempDB on a disk that supports premium SSDs with read caching enabled. There is one exception to this recommendation; if your TempDB usage is write-intensive, you can achieve higher performance by storing TempDB on the local **D** drive, which is also SSD-based on these machine sizes.
-=======
-For VMs that support Premium Storage (DS-series, DSv2-series, and GS-series), we recommend storing TempDB on a disk that supports Premium Storage with read caching enabled. 
+For VMs that support premium SSDs (DS-series, DSv2-series, and GS-series), we recommend storing TempDB on a disk that supports premium SSDs with read caching enabled.
 
-There is one exception to this recommendation: _if your TempDB usage is write-intensive, you can achieve higher performance by storing TempDB on the local **D** drive, which is also SSD-based on these machine sizes._ 
->>>>>>> 4326ed494fad7ef7be29e2f4ba3301ec496acf76
+There is one exception to this recommendation: _if your TempDB usage is write-intensive, you can achieve higher performance by storing TempDB on the local **D** drive, which is also SSD-based on these machine sizes._
 
 ### Data disks
 
