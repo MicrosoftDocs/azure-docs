@@ -60,7 +60,7 @@ Azure Backup can back up both on-premises machines, and Azure VMs.
 
 **Machine** | **Back up scenario**
 --- | ---
-**On-premises machines (physical/virtual)** |  1) Run the Azure Backup Microsoft Azure Recovery Services (MARS) agent on on-premises Windows machines to back up individual files and system state. <br/><br/>2) Back up on-premises machines to a backup server (System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server (MABS)), and then configure the backup server to backup to  Azure Backup Recovery Services vault in Azure.
+**On-premises backup** |  1) Run the Azure Backup Microsoft Azure Recovery Services (MARS) agent on on-premises Windows machines to back up individual files and system state. <br/><br/>2) Back up on-premises machines to a backup server (System Center Data Protection Manager (DPM) or Microsoft Azure Backup Server (MABS)), and then configure the backup server to backup to an Azure Backup Recovery Services vault in Azure.
 **Azure VMs** | 1) Enable backup for individual Azure VMs. When you enable backup, Azure Backup installs an extension to the Azure VM agent that's running on the VM. The agent backs up the entire VM.<br/><br/> 2) Run the MARS agent on an Azure VM. This is useful if you want to back up individual files and folders on the VM.<br/><br/> 3) Back up an Azure VM to a DPM server or MABS running in Azure. Then back up the DPM server/MABS to a vault using Azure Backup. 
 
 
@@ -69,10 +69,10 @@ Azure Backup can back up both on-premises machines, and Azure VMs.
 
 
 
-The advantages of backing up machines and apps to DPM/MABS and then, in turning backing up DPM/MABS to a vault are as follows:
+The advantages of backing up machines and apps to MABS/DPM storage , and then backing up DPM/MABS storage to a vault are as follows:
 
-- Backing up to DPM/MAB provides app-aware backups optimized for common apps such as SQL Server, Exchange, and SharePoint, in additional to file/folder/volume backups, and machine state backups (bare-metal, system state).
-- You don't need to install the Azure Backup agent on each machine you want to back up. Each machines runs the DPM/MABS protection agent, and the Azure Backup Microsoft Azure Recovery Services agent runs on the DPM server/MABS only.
+- Backing up to MABS/DPM provides app-aware backups optimized for common apps such as SQL Server, Exchange, and SharePoint, in additional to file/folder/volume backups, and machine state backups (bare-metal, system state).
+- For on-premises mahines, you don't need to install the MARS agent on each machine you want to back up. Each machines runs the DPM/MABS protection agent, and the MARS agent runs on the MABS/DPM only.
 - You have more flexibility and granular scheduling options for running backups.
 - You can manage backups for multiple machines that you gather into protection groups in a single console. This is particularly useful when apps are tiered over multiple machines and you want to back them up together.
 
@@ -86,29 +86,27 @@ Learn more about [how backup works](backup-architecture.md#architecture-back-up-
 **On-premises machines** | Back up to DPM/MABS | Back up anything that's protected by [DPM](backup-support-matrix-mabs-dpm.md#supported-backup-to-dpm) or [MABS](backup-support-matrix-mabs-dpm.md#supported-backup-to-mabs), including files/folders/shares/volumes, and app-specific data. 
 **Azure VMs** | Run Azure VM agent backup extension | Back up entire VM
 **Azure VMs** | Run MARS agent | Back up files, folders, system state.<br/><br/> Linux machines not supported.
-**Azure VMs** | Back up to MABS running in Azure | Back up anything that's protected by [MABS](backup-support-matrix-mabs-dpm.md#supported-backup-to-mabs), including files/folders/shares/volumes, and app-specific data.<br/><br/> DPM can't be used to back up Azure VMs.
-
+**Azure VMs** | Back up to MABS/DPM running in Azure | Back up anything that's protected by [MABS](backup-support-matrix-mabs-dpm.md#supported-backup-to-mabs) or [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807) including files/folders/shares/volumes, and app-specific data.
 
 ## What backup agents do I need?
 
 **Scenario** | **Agent** 
 --- | --- 
-**Direct backup on-premises Windows machines** | Download, install and run the MARS agent directly on the machine. 
-**Back up on-premises machines to DPM/MABS** | The DPM or MABS protection agent runs on the machines you want to protect. The MARS agent runs on the DPM server/MABS to back up to Azure.
-**Direct backup of Azure VMs (no backup server)** | No explicit agent required. Azure VM extension for backup is installed on the Azure VM when you run the first Azure VM backup.<br/><br/> Support for Windows and Linux support.
-**Direct backup of Azure VMs with MARS agent** | Download, install, and run the MARS agent directly on the machine. The MARS agent can run alongside the backup extension.
-**Back up Azure VMs to MABS** | The MABS protection agent runs on the Azure VMs you want to protect. The MARS agent runs on the Azure VM running MABS, and backs up to the vault. 
+**Back up Azure VMs** | No agent needed. Azure VM extension for backup is installed on the Azure VM when you run the first Azure VM backup.<br/><br/> Support for Windows and Linux support.
+**Back up of on-premises Windows machines** | Download, install and run the MARS agent directly on the machine. 
+**Backup Azure VMs with the MARS agent** | Download, install, and run the MARS agent directly on the machine. The MARS agent can run alongside the backup extension.
+**Back up on-premises machines and Azure VMs to DPM/MABS** | The DPM or MABS protection agent runs on the machines you want to protect. The MARS agent runs on the DPM server/MABS to back up to Azure.
 
 ## Which backup agent should I use?
 
 **Backup** | **Solution** | **Limitation**
 --- | --- | ---
+**I want to back up an entire Azure VM** | Enable backup for the VM. The backup extension will automatically be configured on the Windows or Linux Azure VM. | Entire VM is backed up <br/><br/> For Windows VMs the backup is app-consistent. for Linux the backup is file-consistent. If you need app-aware for Linux VMs you have to configure this with custom scripts.
+**I want to back up specific files/folders on Azure VM** | Deploy the MARS agent on the VM.
 **I want to directly back on-premises Windows machines** | Install the MARS agent on the machine. | You can back up files, folders, and system state to Azure. Backups aren't app-aware.
 **I want to directly back up on-premises Linux machines** | You need to deploy DPM or MABS to back up to Azure.
 **I want to back up apps running on on-premises** | For app-aware backups machines must be protected by DPM or MABS.
-**I want to back up an entire Azure VM** | Enable backup for the VM. The backup extension will automatically be configured on the Windows or Linux Azure VM. | Entire VM is backed up <br/><br/> For Windows VMs the backup is app-consistent. for Linux the backup is file-consistent. If you need app-aware for Linux VMs you have to configure this with custom scripts.
-**I want to back up specific files/folders on Azure VM** | Deploy the MARS agent on the VM.
-**I want granular and flexible backup and recovery settings for Azure VMs** | Protect Azure VMs with MABS running in Azure for additional flexibility in backup scheduling, and full flexibility for protecting and restoring files, folder, volumes, apps, and system state.
+**I want granular and flexible backup and recovery settings for Azure VMs** | Protect Azure VMs with MABS/DPM running in Azure for additional flexibility in backup scheduling, and full flexibility for protecting and restoring files, folder, volumes, apps, and system state.
 
 
 ## Next steps
