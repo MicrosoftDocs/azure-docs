@@ -25,7 +25,7 @@ In the **Project** pane, navigate to `Assets/AzureSpatialAnchorsPlugin/Examples`
 
 Also, in the **Inspector** pane, enter the `Sharing Anchors Service url` (from your ASP.NET web app Azure deployment) as the value for `Base Sharing Url`, replacing `index.html` with `api/anchors`. So, it should look like: `https://<app_name>.azurewebsites.net/api/anchors`.
 
-Save the scene by selecting **File** -> **Save Scene**.
+Save the scene by selecting **File** -> **Save**.
 
 ## To deploy to an Android device
 
@@ -35,7 +35,7 @@ Open **Build Settings** by selecting **File** -> **Build Settings**.
 
 Under **Scenes In Build**, place a check mark next to the `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo` scene and clear check marks from all other scenes.
 
-Click **Build And Run**. You'll be asked to save your `.apk` file, you can pick any name for it.
+Ensure the **Export Project** checkbox does not have a check mark. Click **Build And Run**. You'll be asked to save your `.apk` file, you can pick any name for it.
 
 Follow the instructions in the app. You can choose to **Create & Share Anchor**, or **Locate Shared Anchor**. The first option allows you to create an Anchor that can be later on located on the same device or a different one. The second option, if you have previously run the app, either on the same device or a different one, allows you to locate previously shared anchors.
 
