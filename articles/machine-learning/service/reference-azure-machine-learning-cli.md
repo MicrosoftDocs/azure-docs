@@ -257,7 +257,7 @@ dataReferences: {}
 sourceDirectoryDataStore:
 # AmlCompute details.
 amlcompute:
-# VM size of the Cluster to be created.Allowed values are Azure vm sizes.The list of vm sizes is available in 'https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-sizes-specs
+# VM size of the Cluster to be created.Allowed values are Azure vm sizes. The list of vm sizes is available in 'https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs
   vmSize:
 # VM priority of the Cluster to be created.Allowed values are "dedicated" , "lowpriority".
   vmPriority:
