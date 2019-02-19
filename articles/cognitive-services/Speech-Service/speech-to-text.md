@@ -24,20 +24,24 @@ Speech recognition is available through the Speech SDK and REST APIs.
 
 ## Core features
 
+< TODO ERIK - Provide introduction >
+
 | Use case | SDK | REST |
 |----------|-----|------|
 | Transcribe short utterances, less than 15 seconds in length. Final results only. | Yes | Yes |
 | Continuous transcription of long utterances, more than 15 seconds in length. | Yes | No |
 | Transcribe streaming audio with optional interim results | Yes | No |
 | Derive intents from recognition results with [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Yes | No\* |
-| Run batch transcription on large volumes of audio data. | No | Yes |
-| Create accuracy tests to measure the accuracy of baseline versus custom model. | No | Yes |
-| Upload datasets for model customization and adaptation. | No | Yes |
-| Create and manage speech models. | No | Yes |
-| Create and manage custom model deployments. | No | Yes |
-| Manage subscriptions. | No | Yes |
+| Run batch transcription on large volumes of audio data. | No | Yes\** |
+| Create accuracy tests to measure the accuracy of baseline versus custom models. | No | Yes\** |
+| Upload datasets for model customization and adaptation. | No | Yes\** |
+| Create and manage speech models. | No | Yes\** |
+| Create and manage custom model deployments. | No | Yes\** |
+| Manage subscriptions. | No | Yes\** |
 
 \* *LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK can call LUIS for you and provide entity and intent results as well as speech transcriptions. With the REST API, you can call LUIS yourself to derive intents and entities with your LUIS subscription.*
+
+\** *The services are avaialbe using the cris.ai endpoint. For more information, see [Swagger reference](https://westus.cris.ai/swagger/ui/index).*
 
 ## Get started with speech recognition
 
@@ -67,56 +71,25 @@ After you've had a chance to use the Speech Services, try our tutorial that teac
 
 Sample code for the Speech SDK is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models.
 
-* [Speech Recognition and Translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Speech recognition samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
 ## Customization
 
+In addition to the baseline models available for speech recognition, you can create custom acoustic, language, and pronunciation models.
+
+| Model | Description |
+|----------------|-------|-------------|
+| [Acoustic model](how-to-customize-acoustic-models.md) | Creating a custom acoustic model is helpful if your application, tools, or devices are used in a particular environment, like a car or factory floor, with specific recording conditions. Examples involve accented speech, specific background noises, or using a specific microphone for recording. |
+| [Language model](how-to-customize-language-model.md) | Create a custom language model to improve transcription of field-specific vocabulary and grammar, such as medical terminology, or IT jargon. |
+| [Pronunciation model](how-to-customize-pronunciation.md) | With a custom pronunciation model, you can define the phonetic form and display of a word or term. It's useful for handling customized terms, such as product names or acronyms. All you need to get started is a pronunciation file -- a simple .txt file. |
+
+Customization options vary by language.
+
+[!INCLUDE [Customization options for supported languages](../../../includes/cognitive-services-speech-service-stt-language-list.md)]
+
 ## Migration guides
 
-## Sample code and API reference
-
-# About the Speech to Text API
-
-The **Speech to Text** API *transcribes* audio streams into text that your application can display to the user or act upon as command input. The APIs can be used either with an SDK client library (for supported platforms and languages) or a REST API.
-
-The **Speech to Text** API offers the following features:
-
-- Advanced speech recognition technology from Microsoft—the same used by Cortana, Office, and other Microsoft products.
-
-- Real-time continuous recognition. **Speech to Text** allows users to transcribe audio into text in real time. It also supports receiving intermediate results of the words that have been recognized so far. The service automatically recognizes the end of speech. Users can also choose additional formatting options, including capitalization and punctuation, profanity masking, and inverse text normalization.
-
-- Results returned in both Lexical and Display forms (for Lexical results, see DetailedSpeechRecognitionResult in the examples or API).
-
-- Support for many spoken languages and dialects. For the full list of supported languages in each recognition mode, see [Supported languages](language-support.md#speech-to-text).
-
-- Customized language and acoustic models, so you can tailor your application to your users' specialized domain vocabulary, speaking environment and way of speaking.
-
-- Natural-language understanding. Through integration with [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS), you can derive intents and entities from speech. Users don't have to know your app's vocabulary, but can describe what they want in their own words.
-
-- Confidence score is returned back from the service if you specify a detailed output on the speech configuration object (SpeechConfig.OutputFormat property). Then you can use either Best() method on the result or get it the score directly from JSON returned from the service (something like result.Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult)).
-
-## API capabilities
-
-Some of the capabilities of the **Speech to Text** API, especially around customization, are available via REST. The following table summarizes the capabilities of each method of accessing the API. For a full list of capabilities and API details, see [Swagger reference](https://westus.cris.ai/swagger/ui/index).
-
-| Use case | REST | SDKs |
-|-----|-----|-----|----|
-| Transcribe a short utterance, such as a command (length < 15 s); no interim results | Yes | Yes |
-| Transcribe a longer utterance (> 15 s) | No | Yes |
-| Transcribe streaming audio with optional interim results | No | Yes |
-| Understand speaker intents via LUIS | No\* | Yes |
-| Create Accuracy Tests | Yes | No |
-| Upload datasets for model adaptation | Yes | No |
-| Create & manage speech models | Yes | No |
-| Create & manage model deployments | Yes | No |
-| Manage Subscriptions | Yes | No |
-| Create & manage model deployments | Yes | No |
-| Create & manage model deployments | Yes | No |
-
-> [!NOTE]
-> The REST API implements throttling that limits the API requests to 25 per 5 second. Message headers will inform of the limits
-
-\* *LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK can call LUIS for you and provide entity and intent results as well as speech transcriptions. With the REST API, you can call LUIS yourself to derive intents and entities with your LUIS subscription.*
+< Add info for migration from shut down services. >
 
 ## Next steps
 
