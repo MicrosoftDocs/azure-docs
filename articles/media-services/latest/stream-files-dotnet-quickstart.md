@@ -98,7 +98,7 @@ For explanations about what each function in the sample does, examine the code a
 
 The [upload, encode, and stream files](stream-files-tutorial-with-api.md) tutorial gives you a more advanced streaming example with detailed explanations. 
 
-## Job error codes
+### Job error codes
 
 See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
