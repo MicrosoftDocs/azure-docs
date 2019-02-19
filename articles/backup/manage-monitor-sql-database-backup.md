@@ -14,14 +14,14 @@ ms.author: raynew
 # Manage and monitor backed up SQL Server databases 
 
 
-This article shows you how to manage and monitor SQL Server databases running on an Azure VM and backed up to an Azure Backup Recovery Services vault by the [Azure Backup](backup-overview.md) service. Tasks including monitoring jobs and alerts, stopping and resuming database protection, running backup jobs, and unregistering a VM from backup.
+This article describes common tasks for managing and monitoring SQL Server databases running on an Azure VM that are backed up to an Azure Backup Recovery Services vault by the [Azure Backup](backup-overview.md) service. Tasks including monitoring jobs and alerts, stopping and resuming database protection, running backup jobs, and unregistering a VM from backup.
 
 
 > [!NOTE]
 > Backup of SQl Server databases running on an Azure VM with Azure Backup is currently in public preview.
 
 
-This article should be used for SQL Server databases running on Azure VMs that are being backed up by Azure Backup. If you haven't configured backup for the databases, follow the instructions in [this article](backup-azure-sql-database.md)
+TIf you haven't yet configured backup for the SQL Server databases, follow the instructions in [this article](backup-azure-sql-database.md)
 
 ## Monitor backup jobs
 
@@ -80,21 +80,21 @@ To monitor backup alerts:
 
    ![Select Alerts and Events](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
 
-4. In **Alerts and Events**, select **Backup Alerts** to view the list of alerts.
+4. In **Alerts and Events**, select **Backup Alerts**.
 
    ![Select Backup Alerts](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
 
 ## Stop protection for a SQL Server database
 
-You can stop backing up a SQL Server database as follows: 
+You can stop backing up a SQL Server database in a couple of ways:
 
-* Stop all future backup jobs and delete all recovery points.
-* Stop all future backup jobs, but leave the recovery points.
+* Stop all future backup jobs, and delete all recovery points.
+* Stop all future backup jobs, but leave the recovery points intact.
 
 Note that:
 
-If you leave the recovery points, the points will be cleaned up in accordance with backup policy. You incurs charges for the protected instance, and the storage consumed, until all recovery points are cleaned. [Learn more](https://azure.microsoft.com/pricing/details/backup/) about pricing.
-- When you leave recovery points, although they expire as per the retention policy, Azure Backup always keeps one last recovery point until you explicitly delete backup data.
+If you leave the recovery points, the points will be cleaned up in accordance with backup policy. You incur charges for the protected instance and the consumed storage, until all recovery points are cleaned up. [Learn more](https://azure.microsoft.com/pricing/details/backup/) about pricing.
+- When you leave recovery points intact, although they expire as per the retention policy, Azure Backup always keeps one last recovery point until you explicitly delete backup data.
 - If you delete a data source without stopping backup, new backups will start failing. Again, old recovery points will expire according to policy, but one last recovery point will always be retained until you stop backup and delete the data.
 - You can't stop backup for a database enabled for auto-protection, until auto-protection is disabled.
 
@@ -139,7 +139,7 @@ If the **Retain Backup Data** option was selected when protection for the SQL da
 
 ## Run an on-demand backup
 
-Trigger adhoc backups as needed. There are four types of adhoc backups:
+You can run different types of on-demand backups:
 
 * Full backup
 * Copy-only full backup
@@ -152,18 +152,18 @@ Trigger adhoc backups as needed. There are four types of adhoc backups:
 
 Unregister a SQL Server instance after you've disabled protection, but before you delete the vault:
 
-1, On the vault dashboard, under  **Manage**, select **Backup Infrastructure**.  
+1. On the vault dashboard, under  **Manage**, select **Backup Infrastructure**.  
 
    ![Select Backup Infrastructure](./media/backup-azure-sql-database/backup-infrastructure-button.png)
 
-3. Under **Management Servers**, select **Protected Servers**.
+2. Under **Management Servers**, select **Protected Servers**.
 
    ![Select Protected Servers](./media/backup-azure-sql-database/protected-servers.png)
 
 
-4. In **Protected Servers**, select the server to unregister. To delete the vault, you must unregister all servers.
+3. In **Protected Servers**, select the server to unregister. To delete the vault, you must unregister all servers.
 
-5. Right-click the protected server > **Delete**.
+4. Right-click the protected server > **Delete**.
 
    ![Select Delete](./media/backup-azure-sql-database/delete-protected-server.png)
 
