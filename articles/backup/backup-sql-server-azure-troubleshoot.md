@@ -50,7 +50,7 @@ The following tables are organized by error code.
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| SQL database does not exist. | The database was either deleted or renamed. | Check if the database was accidentally deleted or renamed.<br/><br/> If the database was accidentally deleted, to continue backups, restore the database to the original location.<br/><br/> If you deleted the database and do not need future backups, then in the Recovery Services vault, click [stop backup with "Delete/Retain data"](manage-monitor-sql-database-backups.md).
+| SQL database does not exist. | The database was either deleted or renamed. | Check if the database was accidentally deleted or renamed.<br/><br/> If the database was accidentally deleted, to continue backups, restore the database to the original location.<br/><br/> If you deleted the database and do not need future backups, then in the Recovery Services vault, click [stop backup with "Delete/Retain data"](manage-monitor-sql-database-backup.md).
 
 ### UserErrorSQLLSNValidationFailure
 
