@@ -19,7 +19,7 @@ A downloadable client is available that provides access to Windows Virtual Deskt
 
 To install and deploy the client to your local PC:
 
-1. [Download the client](https://go.microsoft.com/fwlink/?linkid=2068602) 
+1. [Download the client](https://go.microsoft.com/fwlink/?linkid=2068602). 
 2. Run the MSI to install the client. This requires admin rights.
 
 ## Subscribe to a feed
