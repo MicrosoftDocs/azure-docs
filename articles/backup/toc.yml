@@ -54,7 +54,7 @@
     - name: FAQ-Back up Azure Files
       href: backup-azure-files-faq.md
     - name: FAQ-Back up SQL Server databases on Azure VMs
-      href: backup-azure-sql-database.md
+      href: faq-backup-sql-server.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Role-Based Access Control
