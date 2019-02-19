@@ -115,7 +115,6 @@ Get the connection information you need to connect to the Azure SQL database. Yo
        "context"
        "log"
        "fmt"
-       "errors"
    )
 
    var db *sql.DB
