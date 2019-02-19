@@ -72,7 +72,7 @@ PS C:\> Install-Module WindowsVirtualDesktop
 
 ## Next steps
 
-Once you've created your app groups, you should set up a file share for your users. To learn how to convert a virtual machine into a file share, see the tutorial for how to manage user storage in Windows Virtual Desktop.
+Once you've created your app groups, you should set up a file share for your users. To learn how to convert a virtual machine into a file share, see the tutorial for how to set up a user profile in Windows Virtual Desktop.
 
 > [!div class="nextstepaction"]
-> [Manage user storage tutorial](./manage-user-storage.md)
+> [Set up user profiles for a host pool](create-host-pools-user-profile-disk.md)
