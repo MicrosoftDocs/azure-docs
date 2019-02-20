@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 To troubleshoot the sign-in issues below, we recommend you follow these suggestion to get better diagnosis and automate the resolution steps:
 
-- Install the [My Apps Secure Browser Extension](access-panel-extension-problem-installing.md) to help Azure ACtive Directory (Azure AD) to provide better diagnosis and resolutions when using the testing experience in the Azure portal.
+- Install the [My Apps Secure Browser Extension](access-panel-extension-problem-installing.md) to help Azure Active Directory (Azure AD) to provide better diagnosis and resolutions when using the testing experience in the Azure portal.
 - Reproduce the error using the testing experience in the app configuration page in the Azure portal. Learn more on [Debug SAML-based single sign-on applications](../develop/howto-v1-debug-saml-sso-issues.md)
 
 
