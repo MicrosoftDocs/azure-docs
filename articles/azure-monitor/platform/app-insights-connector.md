@@ -282,10 +282,7 @@ Set-AzureRmContext -SubscriptionId $Subscription_workspace
 Remove-AzureRmOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
 ```
 
-You can retrieve a list of applications using the following PowerShell script that invokes a REST API call. This requires a bearer authentication token for authentication against Azure Active Directory. One way to retrieve this token is using an article in the [REST API documentation site](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Click **Try It** and log into your Azure subscription. You can copy the bearer token from the **Request Preview** as shown in the following image.
-
-
-![Bearer token](media/app-insights-connector/bearer-token.png)
+You can retrieve a list of applications using the following PowerShell script that invokes a REST API call. 
 
 ```PowerShell
 Connect-AzureRmAccount
@@ -306,8 +303,13 @@ $Headers = @{
 $Connections = Invoke-RestMethod -Method "GET" -Uri "https://management.azure.com$($LAWorkspace.ResourceId)/dataSources/?%24filter=kind%20eq%20'ApplicationInsights'&api-version=2015-11-01-preview" -Headers $Headers
 $ConnectionsJson = $Connections | ConvertTo-Json
 ```
+This script requires a bearer authentication token for authentication against Azure Active Directory. One way to retrieve this token is using an article in the [REST API documentation site](https://docs.microsoft.com/rest/api/loganalytics/datasources/createorupdate). Click **Try It** and log into your Azure subscription. You can copy the bearer token from the **Request Preview** as shown in the following image.
 
-You can also retrieve a list of applications use a log query.
+
+![Bearer token](media/app-insights-connector/bearer-token.png)
+
+
+You can also retrieve a list of applications use a log query:
 
 ```Kusto
 ApplicationInsights | summarize by ApplicationName
