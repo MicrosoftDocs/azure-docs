@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ---
 # Use SQL Database advanced data security with virtual networks and near 100% compatibility
 

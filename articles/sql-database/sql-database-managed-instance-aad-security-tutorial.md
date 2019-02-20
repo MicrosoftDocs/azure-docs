@@ -9,7 +9,7 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ---
 # Tutorial: Managed instance security in Azure SQL Database using Azure AD server principals (logins)
 
