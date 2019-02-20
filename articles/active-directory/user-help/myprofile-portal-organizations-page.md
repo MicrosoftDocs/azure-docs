@@ -15,14 +15,14 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Manage your primary (Home) and associated organizations from the My Profile (preview) portal
-You can manage the organizations connected to your work or school account from the **Organizations** page of the **My Profile** portal.
+# Manage your organizations from the My Profile (preview) portal
+You can manage your organizations from the **Organizations** page of the **My Profile** portal.
 
 There are two types of organizations shown on the **Organizations** page:
 
 - **Home organization.** Your home organization is the organization that owns your work or school account. You can't leave your home organization.
 
-- **Other organizations.** The other organizations are any group that you've signed in to previously. You can leave any of these organizations at any time.
+- **Other organizations.** The other organizations are any group that you've signed in to previously using your work or school account. You can leave any of these organizations at any time.
 
 ## To view your organizations
 1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.

@@ -27,8 +27,9 @@ You can view all of your recent sign-in activity using your work or school accou
 
 3. Expand and review each of the sign-in items, making sure that you recognize each one. If you find an sign-in item that doesn't look familiar, we highly recommend you change your password to help protect your account if it was compromised.
 
-    If you believe your account was compromised, see [How to access a compromised Microsoft account](https://support.microsoft.com/help/10494/microsoft-account-how-to-access-a-compromised-account) for more help with resetting your password or unblocking your account.
-
     ![Recent activity page with expanded sign-in details](media/myprofile-portal/myprofile-portal-recent-activity-page.png)
+
+    >[!Note]
+    >If you believe your account was compromised, see [How to access a compromised Microsoft account](https://support.microsoft.com/help/10494/microsoft-account-how-to-access-a-compromised-account) for more help with resetting your password or unblocking your account.
 
 
