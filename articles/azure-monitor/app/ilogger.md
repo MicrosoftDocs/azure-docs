@@ -25,7 +25,7 @@ Packages installed:
 <ItemGroup>
   <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.0" />
   <PackageReference Include="Microsoft.Extensions.Logging" Version="2.1.0" />
-  <PackageReference Include="Microsoft.Extensions.Logging.ApplicationInsights" Version="2.9.0-beta3" />
+  <PackageReference Include="Microsoft.Extensions.Logging.ApplicationInsights" Version="2.9.1" />
   <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.1.0" />
 </ItemGroup>
 ```
@@ -174,7 +174,7 @@ as shown in example below.
 Install this additional package:
 
 ```xml
-<PackageReference Include="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel" Version="2.9.0-beta3" />
+<PackageReference Include="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel" Version="2.9.1" />
 ```
 
 The following section shows how to override the default `TelemetryConfiguration`. This example configures `ServerTelemetryChannel`, sampling, and a custom `ITelemetryInitializer`.
@@ -205,7 +205,7 @@ While the above approach can be used in an ASP.NET Core application, a more comm
 Install additional package
 
 ```xml
-<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.6.0-beta3" />
+<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.6.1" />
 ```
 
 Add the following to the `ConfigureServices` method. This code will enable regular application monitoring with default configuration (ServerTelemetryChannel, LiveMetrics, Request/Dependencies, Correlation etc.)
