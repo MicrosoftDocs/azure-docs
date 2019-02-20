@@ -3,10 +3,10 @@ title: CREATE TABLE AS SELECT (CTAS) in Azure SQL Data Warehouse | Microsoft Doc
 description: Tips for coding with the CREATE TABLE AS SELECT (CTAS) statement in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
@@ -271,7 +271,7 @@ WHERE NOT EXISTS
 ;
 
 RENAME OBJECT dbo.[DimProduct]          TO [DimProduct_old];
-RENAME OBJECT dbo.[DimpProduct_upsert]  TO [DimProduct];
+RENAME OBJECT dbo.[DimProduct_upsert]  TO [DimProduct];
 
 ```
 

@@ -336,7 +336,7 @@ function cdnDelete() {
 We can now execute our Node.js program using our favorite debugger or at the console.
 
 > [!TIP]
-> If you're using Visual Studio Code as your debugger, you'll need to set up your environment to pass in the command-line parameters.  Visual Studio Code does this in the **lanuch.json** file.  Look for a property named **args** and add an array of string values for your parameters, so that it looks similar to this:  `"args": ["list", "profiles"]`.
+> If you're using Visual Studio Code as your debugger, you'll need to set up your environment to pass in the command-line parameters.  Visual Studio Code does this in the **launch.json** file.  Look for a property named **args** and add an array of string values for your parameters, so that it looks similar to this:  `"args": ["list", "profiles"]`.
 > 
 > 
 

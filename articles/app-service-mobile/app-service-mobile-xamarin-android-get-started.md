@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 09/24/2018
 ms.author: crdun
 
 ---
@@ -64,6 +64,11 @@ project for a simple "todo list" backend and publish it to Azure.
    > You can review the code that accesses your mobile app backend to query and insert data, which is found in the ToDoActivity.cs C# file.
    >
    >
+
+## Troubleshooting
+If you have problems building the solution, run the NuGet package manager and update the `Xamarin.Android` support packages. Quickstart projects might not always include the latest versions.
+
+Please note that all the support packages referenced in your project must have the same version. The [Azure Mobile Apps NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) has `Xamarin.Android.Support.CustomTabs` dependency for Android platform, so if your project uses newer support packages you need to install this package with required version directly to avoid conflicts.
 
 ## Next steps
 * [Add Offline Sync to your app](app-service-mobile-xamarin-android-get-started-offline-data.md)

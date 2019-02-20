@@ -1,18 +1,13 @@
 ---
-title: Scale cluster sizes - Azure HDInsight | Microsoft Docs
+title: Scale cluster sizes - Azure HDInsight 
 description: Scale an HDInsight cluster to your workload.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
 
@@ -29,11 +24,13 @@ For example, if you have some batch processing that happens once a day or once a
     Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
     ```
     
-* To scale your cluster through the [Azure CLI](hdinsight-administer-use-command-line.md):
+* To scale your cluster through the [Azure Classic CLI](hdinsight-administer-use-command-line.md):
 
     ```
     azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
     ```
+
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
     
 * To scale your cluster through the [Azure portal](https://portal.azure.com), open your HDInsight cluster pane, select **Scale cluster** on the left-hand menu, then on the Scale cluster pane, type in the number of worker nodes, and select Save.
 
@@ -76,7 +73,7 @@ For example:
 yarn application -kill "application_1499348398273_0003"
 ```
 
-## Rebalancing an HBase cluster
+## Rebalancing an Apache HBase cluster
 
 Region servers are automatically balanced within a few minutes after completion of the scaling operation. To manually balance region servers, use the following steps:
 
@@ -98,11 +95,11 @@ As mentioned previously, any pending or running jobs are terminated at the compl
 
 ![Scale cluster](./media/hdinsight-scaling-best-practices/scale-cluster.png)
 
-If you shrink your cluster down to the minimum of one worker node, as shown in the previous image,  HDFS may become stuck in safe mode when worker nodes are rebooted due to patching, or immediately after the scaling operation.
+If you shrink your cluster down to the minimum of one worker node, as shown in the previous image,  Apache HDFS may become stuck in safe mode when worker nodes are rebooted due to patching, or immediately after the scaling operation.
 
 The primary cause of this is that Hive uses a few `scratchdir` files, and by default expects three replicas of each block, but there is only one replica possible if you scale down to the minimum one worker node. As a consequence, the files in the `scratchdir` become *under-replicated*. This could cause HDFS to stay in safe mode when the services are restarted after the scale operation.
 
-When a scale down attempt happens, HDInsight relies upon the Ambari management interfaces to first decommission the extra unwanted worker nodes, which replicates their HDFS blocks to other online worker nodes, and then safely scale the cluster down. HDFS goes into a safe mode during the maintenance window, and is supposed to come out once the scaling is finished. It is at this point that HDFS can become stuck in safe mode.
+When a scale down attempt happens, HDInsight relies upon the Apache Ambari management interfaces to first decommission the extra unwanted worker nodes, which replicates their HDFS blocks to other online worker nodes, and then safely scale the cluster down. HDFS goes into a safe mode during the maintenance window, and is supposed to come out once the scaling is finished. It is at this point that HDFS can become stuck in safe mode.
 
 HDFS is configured with a `dfs.replication` setting of 3. Thus, the blocks of the scratch files are under-replicated whenever there are fewer than three worker nodes online, because there are not the expected three copies of each file block available.
 
@@ -154,8 +151,8 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 
 ![Safe mode off](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
-> [!NOTE]
-> The `-D` switch is necessary because the default file system in HDInsight is either Azure Storage or Azure Data Lake Store. `-D` specifies that the commands execute against the local HDFS file system.
+> [!NOTE]  
+> The `-D` switch is necessary because the default file system in HDInsight is either Azure Storage or Azure Data Lake Storage. `-D` specifies that the commands execute against the local HDFS file system.
 
 Next, you can view a report that shows the details of the HDFS state:
 
@@ -254,7 +251,7 @@ To clean up the scratch files, which removes the block replication errors, SSH i
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > This command can break Hive if some jobs are still running.
 
 ### How to prevent HDInsight from getting stuck in safe mode due to under-replicated blocks
@@ -330,4 +327,4 @@ The final option is to watch for the rare occasion in which HDFS enters safe mod
 
 * [Introduction to Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Scale clusters](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Manage HDInsight clusters by using the Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
+* [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)

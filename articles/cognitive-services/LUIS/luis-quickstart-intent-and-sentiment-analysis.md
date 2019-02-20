@@ -1,160 +1,169 @@
 ---
-title: Tutorial to create a LUIS app that returns sentiment analysis - Azure | Microsoft Docs 
-description: In this tutorial, learn how to add sentiment analysis to your LUIS app to analyze utterances for positive, negative, and neutral feelings. 
+title: Sentiment analysis
+titleSuffix: Azure Cognitive Services
+description: In this tutorial, create an app that demonstrates how to get positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb 
-
+author: diberry
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: luis
+ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 05/07/2018
-ms.author: v-geberr
+ms.date: 12/21/2018
+ms.author: diberry
 #Customer intent: As a new user, I want to understand what sentiment is conveyed in a user's utterances. 
 
 --- 
 
-# Tutorial: Create app that returns sentiment along with intent prediction
-In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances.
+# Tutorial:  Get sentiment of utterance
+
+In this tutorial, create an app that demonstrates how to determine positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
+
+**In this tutorial, you learn how to:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Understand hierarchical entities and contextually learned children 
-> * Create new LUIS app for travel domain with Bookflight intent
-> * Add _None_ intent and add example utterances
-> * Add location hierarchical entity with origin and destination children
-> * Train, and publish app
-> * Query endpoint of app to see LUIS JSON response including hierarchical children 
+> * Create a new app
+> * Add sentiment analysis as publish setting
+> * Train app
+> * Publish app
+> * Get sentiment of utterance from endpoint
 
-For this article, you need a free [LUIS][LUIS] account in order to author your LUIS application.
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Sentiment analysis
-Sentiment analysis is the ability to determine if a user's utterance is positive, negative, or neutral. 
+## Sentiment analysis is a publish setting
 
 The following utterances show examples of sentiment:
 
-|Sentiment and score|Utterance|
-|:--|--|
-|positive - 0.89 |The soup and salad combo was great.|
-|negative - 0.07 |I didn't like the appetizer during the dinner service.|
+|Sentiment|Score|Utterance|
+|:--|:--|:--|
+|positive|0.91 |John W. Smith did a great job on the presentation in Paris.|
+|positive|0.84 |The Seattle engineers did fabulous work on the Parker sales pitch.|
 
-Sentiment analysis is as app setting that applies to every utterance. You do not have to find the words indicating sentiment in utterance and label them. LUIS will do that for you.
+Sentiment analysis is a publish setting that applies to every utterance. You do not have to find the words indicating sentiment in the utterance and mark them. 
+
+Because it is a publish setting, you do not see it on the intents or entities pages. You can see it in the [interactive test](luis-interactive-test.md#view-sentiment-results) pane or when testing at the endpoint URL. 
+
 
 ## Create a new app
-1. Log in to the [LUIS][LUIS] website. Make sure to log into the [region][LUIS-regions] where you need the LUIS endpoints published.
 
-2. On the [LUIS][LUIS] website, select **Create new app**. 
+[!INCLUDE [Follow these steps to create a new LUIS app](../../../includes/cognitive-services-luis-create-new-app-steps.md)]
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/app-list.png "Screenshot of App lists page")](media/luis-quickstart-intent-and-sentiment-analysis/app-list.png#lightbox)
+## Add PersonName prebuilt entity 
 
-3. On the **Create new app** dialog box, name the app `Restaurant Reservations With Sentiment` and select **Done**. 
 
-    ![Image of Create new app dialog box](./media/luis-quickstart-intent-and-sentiment-analysis/create-app-ddl.png)
+1. Select **Entities** from the left navigation menu.
 
-    When the app creation process completes, LUIS displays the intents list containing the None intent.
+1. Select **Add prebuilt entity** button.
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/intents-list.png "Screenshot of Intents lists page")](media/luis-quickstart-intent-and-sentiment-analysis/intents-list.png#lightbox)
+1. Select the following entity from the list of prebuilt entities then select **Done**:
 
-## Add a prebuilt domain
-Add a prebuilt domain to quickly add intents, entities, and labeled utterances.
+    * **[PersonName](luis-reference-prebuilt-person.md)** 
 
-1. Select **Prebuilt Domains** from the left menu.
+    ![Screenshot of number select in prebuilt entities dialog](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
 
-    [ ![Screenshot of Prebuilt Domain button](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-button-expanded.png#lightbox)
+## Create an intent to determine employee feedback
 
-2. Select **Add domain** for the **RestaurantReservation** prebuilt domain. Wait until the domain is added.
+Add a new intent to capture employee feedback from members of the company. 
 
-    [ ![Screenshot of Prebuilt Domain list](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-expanded.png#lightbox)
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-3. Select **Intents** in the left navigation. This prebuilt domain has one intent.
+2. Select **Create new intent**.
 
-    [ ![Screenshot of Prebuilt domain list with Intents highlighted in left navigation](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-domain-added-expanded.png)](./media/luis-quickstart-intent-and-sentiment-analysis/prebuilt-domains-list-domain-added-expanded.png#lightbox)
+3. Name the new intent  name `EmployeeFeedback`.
 
-4.  Select the **RestaurantReservation.Reserve** intent. 
+    ![Create new intent dialog box with EmployeeFeedback as name](./media/luis-quickstart-intent-and-sentiment-analysis/hr-create-new-intent-ddl.png)
 
-    [ ![Screenshot of Intents list with RestaurantReservation.Reserve highlighted](./media/luis-quickstart-intent-and-sentiment-analysis/select-intent.png)](./media/luis-quickstart-intent-and-sentiment-analysis/select-intent.png#lightbox)
+4. Add several utterances that indicate an employee doing something well or an area that needs improvement:
 
-5. Toggle the **Entities View** to see the many utterances provided with domain-specific entities labeled.
+    |Utterances|
+    |--|
+    |John Smith did a nice job of welcoming back a co-worker from maternity leave|
+    |Jill Jones did a great job of comforting a co-worker in her time of grief.|
+    |Bob Barnes didn't have all the required invoices for the paperwork.|
+    |Todd Thomas turned in the required forms a month late with no signatures|
+    |Katherine Kelly didn't make it to the important marketing off-site meeting.|
+    |Denise Dillard missed the meeting for June reviews.|
+    |Mark Mathews rocked the sales pitch at Harvard|
+    |Walter Williams did a great job on the presentation at Stanford|
 
-    [ ![Screenshot of RestaurantReservation.Reserve intent with Entities View toggled to Token view highlighted](./media/luis-quickstart-intent-and-sentiment-analysis/utterance-list-inline.png)](./media/luis-quickstart-intent-and-sentiment-analysis/utterance-list-expanded.png#lightbox)
+    [ ![Screenshot of LUIS app with example utterances in EmployeeFeedback intent](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png)](./media/luis-quickstart-intent-and-sentiment-analysis/hr-utterance-examples.png#lightbox)
 
-## Train the LUIS app
-LUIS doesn't know about the changes to the intents and entities (the model), until it is trained. 
+## Add example utterances to the None intent 
 
-1. In the top right side of the LUIS website, select the **Train** button.
+[!INCLUDE [Follow these steps to add the None intent to the app](../../../includes/cognitive-services-luis-create-the-none-intent.md)]
 
-    ![Screenshot of Train button hightlighted](./media/luis-quickstart-intent-and-sentiment-analysis/train-button-expanded.png)
+## Train the app so the changes to the intent can be tested 
 
-2. Training is complete when you see the green status bar at the top of the website confirming success.
-
-    ![Screenshot of Training success notification bar ](./media/luis-quickstart-intent-and-sentiment-analysis/trained-expanded.png)
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## Configure app to include sentiment analysis
-Sentiment analysis is enabled on the **Publish** page. 
 
-1. Select **Publish** in the top right navigation.
+1. Select **Manage** in the top right navigation, then select **Publish settings** from the left menu.
 
-    ![Screenshot of Intent page with Publish button expanded ](./media/luis-quickstart-intent-and-sentiment-analysis/publish-expanded.png)
+1. Select **Sentiment Analysis** to enable this setting. 
 
-2. Select **Enable Sentiment Analysis**.
+    ![Turn on Sentiment Analysis as publishing setting](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
-    ![Screenshot of Publish page with Enable Sentiment Analysis highlighted ](./media/luis-quickstart-intent-and-sentiment-analysis/enable-sentiment-expanded.png)
+## Publish the app so the trained model is queryable from the endpoint
 
-3. Select the Production slot and the **Publish** button.
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/publish-to-production-inline.png "Screenshot of Publish page with Publish to production slot button highlighted")](media/luis-quickstart-intent-and-sentiment-analysis/publish-to-production-expanded.png#lightbox)
+## Get the sentiment of an utterance from the endpoint
 
-4. Publishing is complete when you see the green status bar at the top of the website confirming success.
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-## Query the endpoint with an utterance
-
-1. On the **Publish** page, select the **endpoint** link at the bottom of the page. This action opens another browser window with the endpoint URL in the address bar. 
-
-    !["Screenshot of Publish page with endpoint URL highlighted](media/luis-quickstart-intent-and-sentiment-analysis/endpoint-url-inline.png)
-
-2. Go to the end of the URL in the address and enter `Reserve table for  10 on upper level away from kitchen`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `RestaurantReservation.Reserve` intent with the sentiment analysis extracted.
-
-```
-{
-  "query": "Reserve table for 10 on upper level away from kitchen",
-  "topScoringIntent": {
-    "intent": "RestaurantReservation.Reserve",
-    "score": 0.9926384
-  },
-  "intents": [
+1. Go to the end of the URL in the address and enter `Jill Jones work with the media team on the public portal was amazing`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `EmployeeFeedback` intent with the sentiment analysis extracted.
+    
+    ```json
     {
-      "intent": "RestaurantReservation.Reserve",
-      "score": 0.9926384
-    },
-    {
-      "intent": "None",
-      "score": 0.00961109251
+      "query": "Jill Jones work with the media team on the public portal was amazing",
+      "topScoringIntent": {
+        "intent": "EmployeeFeedback",
+        "score": 0.9616192
+      },
+      "intents": [
+        {
+          "intent": "EmployeeFeedback",
+          "score": 0.9616192
+        },
+        {
+          "intent": "None",
+          "score": 0.09347677
+        }
+      ],
+      "entities": [
+        {
+          "entity": "jill jones",
+          "type": "builtin.personName",
+          "startIndex": 0,
+          "endIndex": 9
+        }
+      ],
+      "sentimentAnalysis": {
+        "label": "positive",
+        "score": 0.8694164
+      }
     }
-  ],
-  "entities": [],
-  "sentimentAnalysis": {
-    "label": "neutral",
-    "score": 0.5
-  }
-}
-```
+    ```
 
-## What has this LUIS app accomplished?
-This app, with sentiment analysis enabled, identified a natural language query intention and returned the extracted data including the overall sentiment as a score. 
-
-Your chatbot now has enough information to determine the next step in the conversation. 
-
-## Where is this LUIS data used? 
-LUIS is done with this request. The calling application, such as a chatbot, can take the topScoringIntent result and the sentiment data from the utterance to take the next step. LUIS doesn't do that programmatic work for the bot or calling application. LUIS only determines what the user's intention is. 
+    The sentimentAnalysis is positive with a score of 86%. 
 
 ## Clean up resources
-When no longer needed, delete the LUIS app. To do so, select the three dot menu (...) to the right of the app name in the app list, select **Delete**. On the pop-up dialog **Delete app?**, select **Ok**.
+
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## Related information
+
+* Sentiment analysis is provided by Cognitive Service [Text Analytics](../Text-Analytics/index.yml). The feature is restricted to Text Analytics [supported languages](luis-language-support.md##languages-supported).
+* [How to train](luis-how-to-train.md)
+* [How to publish](luis-how-to-publish-app.md)
+* [How to test in LUIS portal](luis-interactive-test.md)
+
 
 ## Next steps
+This tutorial adds sentiment analysis as a publish setting to extract sentiment values from the utterance as a whole.
 
 > [!div class="nextstepaction"] 
-> [Call LUIS endpoint API with C#](luis-get-started-cs-get-intent.md) 
+> [Review endpoint utterances in the HR app](luis-tutorial-review-endpoint-utterances.md) 
 
-<!--References-->
-[LUIS]:luis-reference-regions.md#luis-website
-[LUIS-regions]:luis-reference-regions.md#publishing-regions

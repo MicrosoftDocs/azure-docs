@@ -4,7 +4,7 @@ description: This topic lists existing players that you can use to playback your
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 7e9fcf89-0fb6-4fa4-96cb-666320684d69
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 02/10/2019
 ms.author: juliako
 
 ---
@@ -44,8 +44,6 @@ Use [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.htm
 [http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
 ### Silverlight Players
-#### Monitoring
-[http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
 
 #### PlayReady with Token
 [http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)

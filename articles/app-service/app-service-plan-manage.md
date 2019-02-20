@@ -1,5 +1,5 @@
 ---
-title: Manage an App Service plan in Azure | Microsoft Docs
+title: Manage App Service plan - Azure | Microsoft Docs
 description: Learn how to perform different tasks to manage an App Service plan.
 keywords: app service, azure app service, scale, app service plan, change, create, manage, management
 services: app-service
@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Manage an App Service plan in Azure
 
-An [Azure App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) provides the resources that an App Service app needs to run. This guide shows how to manage an App Service plan.
+An [Azure App Service plan](overview-hosting-plans.md) provides the resources that an App Service app needs to run. This guide shows how to manage an App Service plan.
 
 ## Create an App Service plan
 
@@ -53,26 +54,23 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
 You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group and geographical region_.
 
+> [!NOTE]
+> Azure deploys each new App Service plan into a deployment unit, internally called a webspace. Each region can have many webspaces, but your app can only move between plans that are created in the same webspace. An App Service Environment is an isolated webspace, so apps can be moved between plans in the same App Service Environment, but not between plans in different App Service Environments.
+>
+> You can’t specify the webspace you want when creating a plan, but it’s possible to ensure that a plan is created in the same webspace as an existing plan. In brief, all plans created with the same resource group and region combination are deployed into the same webspace. For example, if you created a plan in resource group A and region B, then any plan you subsequently create in resource group A and region B is deployed into the same webspace. Note that plans can’t move webspaces after they’re created, so you can’t move a plan into “the same webspace” as another plan by moving it to another resource group.
+> 
+
 1. In the [Azure portal](https://portal.azure.com), browse to the app that you want to move.
 
-2. On the menu, look for the **App Service Plan** section.
+1. On the menu, look for the **App Service Plan** section.
 
-3. Select **Change App Service plan** to open the **App Service plan** selector.
+1. Select **Change App Service plan** to open the **App Service plan** selector.
 
    ![App Service plan selector.][change] 
 
-4. In the **App Service plan** selector, select an existing plan to move this app into.   
+1. In the **App Service plan** selector, select an existing plan to move this app into.   
 
-> [!IMPORTANT]
-> The **Select App Service plan** page is filtered by the following criteria: 
-> - Exists in the same resource group 
-> - Exists in the same geographical region 
-> - Exists in the same webspace  
-> 
-> A _webspace_ is a logical construct in App Service that defines a grouping of server resources. A geographical region (such as West US) contains many webspaces in order to allocate customers who use App Service. Currently, you can't move App Service resources between webspaces. 
-> 
-
-[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+The **Select App Service plan** page shows only plans that are in the same resource group and geographical region as the current app's App Service plan.
 
 Each plan has its own pricing tier. For example, moving a site from a **Free** tier to a **Standard** tier enables all apps assigned to it to use the features and resources of the **Standard** tier. However, moving an app from a higher-tiered plan to a lower-tiered plan means that you no longer have access to certain features. If your app uses a feature that is not available in the target plan, you get an error that shows which feature is in use that is not available. 
 

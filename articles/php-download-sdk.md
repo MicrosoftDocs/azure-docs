@@ -79,15 +79,15 @@ For more information, see the [PHP Developer Center](https://azure.microsoft.com
 
 [install-php]: http://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer
-[composer-phar]: http://getcomposer.org/composer.phar
-[nodejs-org]: http://nodejs.org/
+[composer-phar]: https://getcomposer.org/composer.phar
+[nodejs-org]: https://nodejs.org/
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
-[download-wpi]: http://go.microsoft.com/fwlink/?LinkId=253447
-[mac-installer]: http://go.microsoft.com/fwlink/?LinkId=252249
-[blob-service]: http://go.microsoft.com/fwlink/?LinkId=252714
-[table-service]: http://go.microsoft.com/fwlink/?LinkId=252715
-[queue-service]: http://go.microsoft.com/fwlink/?LinkId=252716
-[azure cli]: http://go.microsoft.com/fwlink/?LinkId=252717
-[powershell-tools]: http://go.microsoft.com/fwlink/?LinkId=252718
-[php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
-[install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
+[download-wpi]: https://go.microsoft.com/fwlink/?LinkId=253447
+[mac-installer]: https://go.microsoft.com/fwlink/?LinkId=252249
+[blob-service]: https://go.microsoft.com/fwlink/?LinkId=252714
+[table-service]: https://go.microsoft.com/fwlink/?LinkId=252715
+[queue-service]: https://go.microsoft.com/fwlink/?LinkId=252716
+[azure cli]: https://go.microsoft.com/fwlink/?LinkId=252717
+[powershell-tools]: https://go.microsoft.com/fwlink/?LinkId=252718
+[php-sdk-github]: https://go.microsoft.com/fwlink/?LinkId=252719
+[install-git]: https://git-scm.com/book/en/Getting-Started-Installing-Git

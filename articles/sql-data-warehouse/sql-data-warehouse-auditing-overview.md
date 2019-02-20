@@ -2,11 +2,11 @@
 title: Auditing in Azure SQL Data Warehouse  | Microsoft Docs
 description: Learn about auditing, and how to set up auditing in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kavithaj
-manager: craigg-msft
+author: KavithaJonnakuti
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
@@ -47,8 +47,9 @@ An auditing policy can be defined for a specific database or as a default server
 > * You want to use a different *storage account* or *retention period* for a specific database.
 > * You want to audit event types or categories for a specific database that differ from the rest of the databases on the server. For example, you might have table inserts that need to be audited only for a specific database.
 > * You want to use Threat Detection, which is currently only supported with database-level auditing.
->
 
+> [!IMPORTANT]
+>Enabling auditing on an Azure SQL Data Warehouse, or on a server that has an Azure SQL Data Warehouse on it, **will result in the Data Warehouse being resumed**, even in the case where it was previously paused. **Please make sure to pause the Data Warehouse again after enabling auditing**.
 
 ## <a id="subheading-5"></a>Set up server-level auditing for all databases
 
@@ -68,10 +69,13 @@ The following section describes the configuration of auditing using the Azure po
     ![Navigation pane][8]
 
     > [!IMPORTANT]
-    > Server-level audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription.
+    > Audit logs are written to **Append Blobs** in Azure Blob storage on your Azure subscription.
     >
-    > * **Premium Storage** is currently **not supported** by Append Blobs.
-    > * **Storage in VNet** is currently **not supported**.
+    > - All storage kinds (v1, v2, blob) are supported.
+    > - All storage replication configurations are supported.
+    > - **Premium storage** is currently **not supported**.
+    > - **Storage in VNet** is currently **not supported**.
+    > - **Storage behind a Firewall** is currently **not supported**
 
 8. Click **Save**.
 
@@ -101,12 +105,12 @@ Before setting up audit auditing check if you are using a ["Downlevel Client"](s
 
 5. Click the **OK** button to save the storage details configuration.
 6. Under **LOGGING BY EVENT**, click **SUCCESS** and **FAILURE** to log all events, or choose individual event categories.
-7. If you are configuring Auditing for a database, you may need to alter the connection string of your client to ensure data auditing is correctly captured. Check the [Modify Server FDQN in the connection string](sql-data-warehouse-auditing-downlevel-clients.md) topic for downlevel client connections.
+7. If you are configuring Auditing for a database, you may need to alter the connection string of your client to ensure data auditing is correctly captured. Check the [Modify Server FQDN in the connection string](sql-data-warehouse-auditing-downlevel-clients.md) topic for downlevel client connections.
 8. Click **OK**.
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
 
-###Server-level policy audit logs
+### Server-level policy audit logs
 Server-level audit logs are written to **Append Blobs** in an Azure Blob storage on your Azure subscription. They are saved as a collection of blob files within a container named **sqldbauditlogs**.
 
 For further details about the hierarchy of the storage folder, naming conventions, and log format, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
@@ -142,10 +146,10 @@ There are several methods you can use to view blob auditing logs:
 
 
 <br>
-###Database-level policy audit logs
+### Database-level policy audit logs
 Database-level audit logs are aggregated in a collection of Store Tables with a **SQLDBAuditLogs** prefix in the Azure storage account you chose during setup. You can view log files using a tool such as [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com).
 
-A preconfigured dashboard report template is available as a [downloadable Excel spreadsheet](http://go.microsoft.com/fwlink/?LinkId=403540) to help you quickly analyze log data. To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can [download here](http://www.microsoft.com/download/details.aspx?id=39379).
+A preconfigured dashboard report template is available as a [downloadable Excel spreadsheet](https://go.microsoft.com/fwlink/?LinkId=403540) to help you quickly analyze log data. To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can [download here](https://www.microsoft.com/download/details.aspx?id=39379).
 
 The template has fictional sample data in it, and you can set up Power Query to import your audit log directly from your Azure storage account.
 
@@ -191,7 +195,7 @@ A partial list of "Downlevel clients" includes:
 * JDBC (while JDBC does support TDS 7.4, the TDS redirection feature is not fully supported)
 * Tedious (for Node.JS)
 
-**Remark:** The preceding server FDQN modification may be useful also for applying a SQL Server Level Auditing policy without a need for a configuration step in each database (Temporary mitigation).     
+**Remark:** The preceding server FQDN modification may be useful also for applying a SQL Server Level Auditing policy without a need for a configuration step in each database (Temporary mitigation).     
 
 
 

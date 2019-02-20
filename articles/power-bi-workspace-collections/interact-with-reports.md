@@ -2,22 +2,14 @@
 title: Interact with reports using the JavaScript API | Microsoft Docs
 description: The Power BI JavaScript API enables you to easily embed Power BI reports into your applications.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
-
 ROBOTS: NOINDEX
 ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
 ms.service: power-bi-embedded
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
+ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-
 ---
 # Interact with Power BI reports using the JavaScript API
 
@@ -65,7 +57,7 @@ The JavaScript API provides basic and advanced filtering capabilities for embedd
 #### Basic filters
 A basic filter is placed on a column or hierarchy level and contains a list of values to include or exclude.
 
-```
+```typescript
 const basicFilter: pbi.models.IBasicFilter = {
   $schema: "http://powerbi.com/product/schema#basic",
   target: {
@@ -94,7 +86,7 @@ Advanced filters use the logical operator AND or OR, and accept one or two condi
 * IsBlank
 * IsNotBlank
 
-```
+```typescript
 const advancedFilter: pbi.models.IAdvancedFilter = {
   $schema: "http://powerbi.com/product/schema#advanced",
   target: {

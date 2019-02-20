@@ -2,15 +2,15 @@
 title: Overview of prerequisites for using the Azure Database Migration Service | Microsoft Docs
 description: Learn about an overview of the prerequisites for using the Azure Database Migration Service to perform database migrations.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
-manager: 
-ms.reviewer: 
-ms.service: database-migration
+author: pochiraju
+ms.author: rajpo
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 10/09/2018
 ---
 
 # Overview of prerequisites for using the Azure Database Migration Service
@@ -58,4 +58,4 @@ When using the Azure Database Migration Service to perform SQL Server to Azure S
    > For a complete listing of the prerequisites required to use the Azure Database Migration Service to perform migrations from SQL Server to Azure SQL Database Managed Instance, see the tutorial [Migrate SQL Server to Azure SQL Database Managed Instance](https://aka.ms/migratetomiusingdms).
 
 ## Next steps
-For an overview of the Azure Database Migration Service and regional availability during Public Preview, see the article [What is the Azure Database Migration Service Preview](dms-overview.md). 
+For an overview of the Azure Database Migration Service and regional availability, see the article [What is the Azure Database Migration Service](dms-overview.md). 

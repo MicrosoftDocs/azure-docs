@@ -13,15 +13,18 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 12/19/2018
 ms.author: ryanwi
 
 ---
 # Service Fabric application and service manifests
-This article describes how Service Fabric applications and services are defined and versioned using the ApplicationManifest.xml and ServiceManifest.xml files.  The XML schema for these manifest files is documented in [ServiceFabricServiceModel.xsd schema documentation](service-fabric-service-model-schema.md).
+This article describes how Service Fabric applications and services are defined and versioned using the ApplicationManifest.xml and ServiceManifest.xml files.  For more detailed examples, see [application and service manifest examples](service-fabric-manifest-examples.md).  The XML schema for these manifest files is documented in [ServiceFabricServiceModel.xsd schema documentation](service-fabric-service-model-schema.md).
+
+> [!WARNING]
+> The manifest XML file schema enforces correct ordering of child elements.  As a partial workaround, open "C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd" in Visual Studio while authoring or modifying any of the Service Fabric manifests. This will allow you to check the ordering of child elements and provides intelli-sense.
 
 ## Describe a service in ServiceManifest.xml
-The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. A service manifest can contain multiple code, configuration, and data packages, which can be versioned independently. Here is a service manifest for the ASP.NET Core web front end service of the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart):
+The service manifest declaratively defines the service type and version. It specifies service metadata such as service type, health properties, load-balancing metrics, service binaries, and configuration files.  Put another way, it describes the code, configuration, and data packages that compose a service package to support one or more service types. A service manifest can contain multiple code, configuration, and data packages, which can be versioned independently. Here is a service manifest for the ASP.NET Core web front-end service of the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (and here are some [more detailed examples](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -46,7 +49,7 @@ The service manifest declaratively defines the service type and version. It spec
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -72,7 +75,7 @@ Typical scenarios for using **SetupEntryPoint** are when you run an executable b
 * Setting up and initializing environment variables that the service executable needs. This is not limited to only executables written via the Service Fabric programming models. For example, npm.exe needs some environment variables configured for deploying a node.js application.
 * Setting up access control by installing security certificates.
 
-For more details on how to configure the **SetupEntryPoint**, see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)
+For more information on how to configure the SetupEntryPoint, see [Configure the policy for a service setup entry point](service-fabric-application-runas-security.md)
 
 **EnvironmentVariables** (not set in the preceding example) provides a list of environment variables that are set for this code package. Environment variables can be overridden in the `ApplicationManifest.xml` to provide different values for different service instances. 
 
@@ -89,7 +92,7 @@ For more details on how to configure the **SetupEntryPoint**, see [Configure the
 </Settings>
 ```
 
-**Resources**, such as endpoints, that are used by the service to be declared/changed without changing the compiled code.  Access to the resources that are specified in the service manifest can be controlled through the **SecurityGroup** in the application manifest.  When an **Endpoint** resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly.  Read more about [specifying or overriding endpoint resources](service-fabric-service-manifest-resources.md).
+A Service Fabric Service **Endpoint** is an example of an Service Fabric Resource; A Service Fabric Resource can be declared/changed without changing the compiled code. Access to the Service Fabric Resources that are specified in the service manifest can be controlled through the **SecurityGroup** in the application manifest. When an Endpoint Resource is defined in the service manifest, Service Fabric assigns ports from the reserved application port range when a port isn't specified explicitly. Read more about [specifying or overriding endpoint resources](service-fabric-service-manifest-resources.md).
 
 
 <!--
@@ -104,7 +107,7 @@ For more information about other features supported by service manifests, refer 
 ## Describe an application in ApplicationManifest.xml
 The application manifest declaratively describes the application type and version. It specifies service composition metadata such as stable names, partitioning scheme, instance count/replication factor, security/isolation policy, placement constraints, configuration overrides, and constituent service types. The load-balancing domains into which the application is placed are also described.
 
-Thus, an application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here is the application manifest for the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart):
+Thus, an application manifest describes elements at the application level and references one or more service manifests to compose an application type. Here is the application manifest for the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (and here are some [more detailed examples](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -148,7 +151,7 @@ Thus, an application manifest describes elements at the application level and re
 
 Like service manifests, **Version** attributes are unstructured strings and are not parsed by the system. Version attributes are also used to version each component for upgrades.
 
-**Parameters** defines the parameters used throughout the application manifest. The values of these parameters can be supplied when the application is instatiated and can override application or service configuration settings.  The default parameter value is used if the value is not changed during application instantiation. To learn how to maintain different application and service parameters for individual environments, see [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
+**Parameters** defines the parameters used throughout the application manifest. The values of these parameters can be supplied when the application is instantiated and can override application or service configuration settings.  The default parameter value is used if the value is not changed during application instantiation. To learn how to maintain different application and service parameters for individual environments, see [Managing application parameters for multiple environments](service-fabric-manage-multiple-environment-app-configuration.md).
 
 **ServiceManifestImport** contains references to service manifests that compose this application type. An application manifest can contain multiple service manifest imports, each one can be versioned independently. Imported service manifests determine what service types are valid within this application type. 
 Within the ServiceManifestImport, you override configuration values in Settings.xml and environment variables in ServiceManifest.xml files. **Policies** (not set in the preceding example) for end-point binding, security and access, and package sharing can be set on imported service manifests.  For more information, see [Configure security policies for your application](service-fabric-application-runas-security.md).

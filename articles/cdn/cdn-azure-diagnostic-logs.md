@@ -1,10 +1,10 @@
-﻿---
+---
 title: Azure diagnostic logs | Microsoft Docs
 description: Customer can enable log analysis for Azure CDN.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
-ms.author: v-deasim
+ms.author: magattus
 ---
 
 
@@ -92,17 +92,23 @@ To use Log Analytics to store the logs, follow these steps:
 
 2. Select **Configure** to configure Log Analytics logging. 
 
-   The **OMS Workspaces** page appears.
+   The **Log Analytics workspaces** page appears.
+
+    >[!NOTE] 
+    >OMS workspaces are now referred to as Log Analytics workspaces.
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
 3. Select **Create New Workspace**.
 
-    The **OMS Workspace** page appears.
+    The **Log Analytics workspace** page appears.
+
+    >[!NOTE] 
+    >OMS workspaces are now referred to as Log Analytics workspaces.
 
     ![portal - Diagnostics logs](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. For **OMS Workspace**, enter an OMS Workspace name. The OMS Workspace name must be unique and contain only letters, numbers, and hyphens; spaces and underscores are not allowed. 
+4. For **Log Analytics workspace**, enter a Log Analytics workspace name. The Log Analytics workspace name must be unique and contain only letters, numbers, and hyphens; spaces and underscores are not allowed. 
 
 5. For **Subscription**, select an existing subscription from the drop-down list. 
 
@@ -132,24 +138,26 @@ For more information about log data delays, see [Log data delays](#log-data-dela
 
 The following example shows how to enable diagnostic logs via the Azure PowerShell Cmdlets.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ### Enabling diagnostic logs in a storage account
 
 1. Log in and select a subscription:
 
-    Connect-AzureRmAccount 
+    Connect-AzAccount 
 
     Select-AzureSubscription -SubscriptionId 
 
 2. To enable Diagnostic Logs in a Storage account, enter this command:
 
     ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
+    Set-AzDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
     ```
 
 3. To enable diagnostics logs in a Log Analytics workspace, enter this command:
 
     ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
+    Set-AzDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
     .<subscriptionName>" -WorkspaceId "/subscriptions/<workspaceId>.<workspaceName>" -Enabled $true -Categories CoreAnalytics 
     ```
 
@@ -163,17 +171,16 @@ Before you can access the core analytics data from an Azure storage account, you
 2.	Locate the storage account
 3.	Expand the **Blob Containers** node under this storage account.
 4.	Select the container named *insights-logs-coreanalytics*.
-5.	Results show up on the right-hand pane, starting with the first level, as *resourceId=*. Continue selecting each level until you find the file *PT1H.json*. See the following *Blob path format* note for an explanation of the path.
+5.	Results show up on the right-hand pane, starting with the first level, as *resourceId=*. Continue selecting each level until you find the file *PT1H.json*. For an explanation of the path, see [Blob path format](cdn-azure-diagnostic-logs.md#blob-path-format).
 6.	Each blob *PT1H.json* file represents the analytics logs for one hour for a specific CDN endpoint or its custom domain.
 7.	The schema of the contents of this JSON file is described in the section schema of the core analytics logs.
 
 
-> [!NOTE]
-> **Blob path format**
-> 
-> Core analytics logs are generated every hour and the data is collected and stored inside a single Azure blob as a JSON payload. Because the Storage explorer tool interprets '/' as a directory separator and shows the hierarchy, the path to the Azure blob appears as if there is a hierarchical structure and represents the blob name. The name of the blob follows the following naming convention:	
-	
-	resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json
+#### Blob path format
+
+Core analytics logs are generated every hour and the data is collected and stored inside a single Azure blob as a JSON payload. Because the Storage explorer tool interprets '/' as a directory separator and shows the hierarchy, the path to the Azure blob appears as if there is a hierarchical structure and represents the blob name. The name of the blob follows the following naming convention:	
+
+```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
 
 **Description of fields:**
 
@@ -194,7 +201,7 @@ To make it easy to access core analytics, sample code for a tool is provided. Th
 
 Here's how you can use the tool:
 
-1.	Visit the github link: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
+1.	Visit the GitHub link: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
 2.	Download the code.
 3.	Follow the instructions to compile and configure.
 4.	Run the tool.
@@ -282,7 +289,7 @@ Follow these steps to add a Log Analytics Management Solution:
 
 ### Offers and pricing tiers
 
-You can see offers and pricing tiers for management solutions [here](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+You can see offers and pricing tiers for management solutions [here](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).
 
 ### Customizing views
 

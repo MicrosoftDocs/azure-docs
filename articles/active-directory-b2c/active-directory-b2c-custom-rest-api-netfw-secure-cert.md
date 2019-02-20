@@ -3,14 +3,14 @@ title: Secure your RESTful service by using client certificates in Azure Active 
 description: Secure your custom REST API claims exchanges in your Azure AD B2C by using client certificates
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Secure your RESTful service by using client certificates
@@ -34,21 +34,13 @@ This article details how to:
 * Get a valid certificate (a .pfx file with a private key).
 
 ## Step 1: Configure a web app for client certificate authentication
-To set up **Azure App Service** to require client certificates, set the web app `clientCertEnabled` site setting to *true*. To make this change, you must use the REST API. The setting is available through the management experience in the Azure portal. To locate the setting, on your RESTful application's **Settings** menu, under **Development tools**, select **Resource Explorer**.
+To set up **Azure App Service** to require client certificates, set the web app `clientCertEnabled` site setting to *true*. To make this change, in the Azure portal, open your web app page. In the left navigation, under **Settings** select **SSL Settings**. In the **Client Certificates** section, turn on the **Incoming client certificate** option.
 
 >[!NOTE]
->Make sure that your Azure App Service plan is Standard or greater. For more information, see [Azure App Service plans in-depth overview](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
-
-
-Use [Azure Resource Explorer (Preview)](https://resources.azure.com) to set the **clientCertEnabled** property to *true*, as shown in the following image:
-
-![Setting clientCertEnabled through Azure Resource Explorer](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-resource-explorer.png)
+>Make sure that your Azure App Service plan is Standard or greater. For more information, see [Azure App Service plans in-depth overview](https://docs.microsoft.com/azure/app-service/overview-hosting-plans).
 
 >[!NOTE]
 >For more information about setting the **clientCertEnabled** property, see [Configure TLS mutual authentication for web apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
-
->[!TIP]
->Alternatively, to make it easier to craft the REST API call, you can use the [ARMClient](https://github.com/projectkudu/ARMClient) tool.
 
 ## Step 2: Upload your certificate to Azure AD B2C policy keys
 After you set `clientCertEnabled` to *true*, the communication with your RESTful API requires a client certificate. To obtain, upload, and store the client certificate in your Azure AD B2C tenant, do the following: 
@@ -140,7 +132,7 @@ To support client certificate authentication in your custom policy, change the t
      "exp": 1507125903,
      "nbf": 1507122303,
      "ver": "1.0",
-     "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+     "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
      "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
      "acr": "b2c_1a_signup_signin",
      "nonce": "defaultNonce",
@@ -156,7 +148,7 @@ To support client certificate authentication in your custom policy, change the t
    >If you receive the error message, *The name is not valid, please provide a valid name*, it means that Azure AD B2C successfully called your RESTful service while it presented the client certificate. The next step is to validate the certificate.
 
 ## Step 6: Add certificate validation
-The client certificate that Azure AD B2C sends to your RESTful service does not undergo validation by the Azure Web Apps platform, except to check whether the certificate exists. Validating the certificate is the responsibility of the web app. 
+The client certificate that Azure AD B2C sends to your RESTful service does not undergo validation by the Azure App Service platform, except to check whether the certificate exists. Validating the certificate is the responsibility of the web app. 
 
 In this section, you add sample ASP.NET code that validates the certificate properties for authentication purposes.
 

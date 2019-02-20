@@ -1,19 +1,16 @@
 ---
-title: Azure Virtual Network peering | Microsoft Docs
+title: Azure Virtual Network peering
+titlesuffix: Azure Virtual Network
 description: Learn about virtual network peering in Azure.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-
-ms.assetid: eb0ba07d-5fee-4db0-b1cb-a569b7060d2a
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 08/16/2018
 ms.author: jdial
 
 ---
@@ -71,9 +68,16 @@ To confirm a virtual network peering, you can [check effective routes](diagnose-
 
 You can also troubleshoot connectivity to a virtual machine in a peered virtual network using Network Watcher's [connectivity check](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Connectivity check lets you see how traffic is routed from a source virtual machine's network interface to a destination virtual machine's network interface.
 
+You can also try the [Troubleshooter for virtual network peering issues](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues).
+
 ## Requirements and constraints
 
-To learn about requirements and constraints, see [Virtual network peering requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). To learn about the limits for the number of peerings you can create for a virtual network, see [Azure networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
+The following constraints apply when virtual networks are globally peered:
+- The virtual networks can exist in any Azure public cloud region and Azure China cloud regions, but not in Azure Government clouds.
+- Resources in one virtual network cannot communicate with the frontend IP address of an Azure internal load balancer in the globally peered virtual network. The load balancer and the resources that communicate with it must be in the same region.
+- You cannot use remote gateways or allow gateway transit. To use remote gateways or allow gateway transit, peered virtual networks in  must be in the same region.
+
+To learn more about requirements and constraints, see [Virtual network peering requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). To learn about the limits for the number of peerings you can create for a virtual network, see [Azure networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
 ## Permissions
 
@@ -81,7 +85,9 @@ To learn about permissions required to create a virtual network peering, see [Vi
 
 ## Pricing
 
-There is a nominal charge for ingress and egress traffic that utilizes a virtual network peering connection. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
+There is a nominal charge for ingress and egress traffic that utilizes a virtual network peering connection. For more information on VNet Peering and Global VNet peering pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/virtual-network).
+
+Gateway transit is a peering property that enables a virtual network to utilize a VPN gateway in a peered virtual network for cross premises or VNet-to-VNet connectivity. Traffic passing through a remote gateway in this scenario is subject to [VPN gateway charges](https://azure.microsoft.com/pricing/details/vpn-gateway/) and does not incur [VNet peering charges.](https://azure.microsoft.com/pricing/details/virtual-network) For example, If VNetA has a VPN gateway for on-premise connectivity and VNetB is peered to VNetA with appropriate properties configured, traffic from VNetB to on-premises is only charged egress per VPN gateway pricing. VNet peering charges do not apply. Learn how to [configure VPN gateway transit for virtual network peering.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## Next steps
 
@@ -96,3 +102,4 @@ There is a nominal charge for ingress and egress traffic that utilizes a virtual
 
 * Learn how to create a [hub and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Learn about all [virtual network peering settings and how to change them](virtual-network-manage-peering.md).
+* Get answers to common VNet Peering and Global VNet Peering questions through our [VNet Peering FAQ](virtual-networks-faq.md#vnet-peering)

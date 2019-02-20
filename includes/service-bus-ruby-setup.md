@@ -1,3 +1,10 @@
+---
+author: spelluru
+ms.service: service-bus
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: spelluru
+---
 ## Create a Ruby application
 For instructions, see [Create a Ruby Application on Azure](../articles/virtual-machines/linux/classic/ruby-rails-web-app.md).
 

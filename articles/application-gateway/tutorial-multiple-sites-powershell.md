@@ -7,10 +7,10 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 3/22/2018
+ms.date: 7/13/2018
 ms.author: victorh
 ms.custom: mvc
-#Customer intent: As an IT administrator, I want to use Azure PowerShell to configure Application Gateway to host multiple web sites , so I can ensure my customers can acess the web information they need.
+#Customer intent: As an IT administrator, I want to use Azure PowerShell to configure Application Gateway to host multiple web sites , so I can ensure my customers can access the web information they need.
 ---
 # Create an application gateway that hosts multiple web sites using Azure PowerShell
 
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. To find the version, run ` Get-Module -ListAvailable AzureRM` . If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, this tutorial requires the Azure PowerShell module version 3.6 or later. To find the version, run ` Get-Module -ListAvailable AzureRM` . If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -222,6 +222,7 @@ for ($i=1; $i -le 2; $i++)
     -ImageReferenceOffer WindowsServer `
     -ImageReferenceSku 2016-Datacenter `
     -ImageReferenceVersion latest
+    -OsDiskCreateOption FromImage
 
   Set-AzureRmVmssOsProfile $vmssConfig `
     -AdminUsername azureuser `
@@ -244,7 +245,7 @@ for ($i=1; $i -le 2; $i++)
 ### Install IIS
 
 ```azurepowershell-interactive
-$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1"); 
+$publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
 for ($i=1; $i -le 2; $i++)

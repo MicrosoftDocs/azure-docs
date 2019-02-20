@@ -1,12 +1,14 @@
 ---
-title: Project Answer Search reference - Microsoft Cognitive Services | Microsoft Docs
+title: Project Answer Search reference
+titlesuffix: Azure Cognitive Services
 description: Reference for Project Answer Search endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: nitinme
+
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.subservice: answer-search
+ms.topic: reference
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
 ---
@@ -23,10 +25,10 @@ The JSON response can be parsed for facts and entities that contain details abou
 To request Answer Search results, send a request to the following endpoint. Use the headers and URL parameters to define further specifications.
 
 Endpoint GET: 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=<searchTerm>&subscription-key=0123456789ABCDEF&mkt=en-us
 
-````
+```
 
 The request must use the HTTPS protocol and include following query parameter:
 -  q=<URL> - The query that identifies the object of search
@@ -59,7 +61,7 @@ The following are the headers that a request and response may include.
 |Header|Description|  
 |------------|-----------------|  
 |Accept|Optional request header.<br /><br /> The default media type is application/json. To specify that the response use [JSON-LD](http://json-ld.org/), set the Accept header to application/ld+json.|  
-|<a name="acceptlanguage" />Accept-Language|Optional request header.<br /><br /> A comma-delimited list of languages to use for user interface strings. The list is in decreasing order of preference. For more information, including expected format, see [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> This header and the [setLang](#setlang) query parameter are mutually exclusive&mdash;do not specify both.<br /><br /> If you set this header, you must also specify the [cc](#cc) query parameter. To determine the market to return results for, Bing uses the first supported language it finds from the list and combines it with the `cc` parameter value. If the list does not include a supported language, Bing finds the closest language and market that supports the request or it uses an aggregated or default market for the results. To determine the market that Bing used, see the BingAPIs-Market header.<br /><br /> Use this header and the `cc` query parameter only if you specify multiple languages. Otherwise, use the [mkt](#mkt) and [setLang](#setlang) query parameters.<br /><br /> A user interface string is a string that's used as a label in a user interface. There are few user interface strings in the JSON response objects. Any links to Bing.com properties in the response objects apply the specified language.|  
+|<a name="acceptlanguage" />Accept-Language|Optional request header.<br /><br /> A comma-delimited list of languages to use for user interface strings. The list is in decreasing order of preference. For more information, including expected format, see [RFC2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> This header and the [setLang](#setlang) query parameter are mutually exclusive&mdash;do not specify both.<br /><br /> If you set this header, you must also specify the cc query parameter. To determine the market to return results for, Bing uses the first supported language it finds from the list and combines it with the `cc` parameter value. If the list does not include a supported language, Bing finds the closest language and market that supports the request or it uses an aggregated or default market for the results. To determine the market that Bing used, see the BingAPIs-Market header.<br /><br /> Use this header and the `cc` query parameter only if you specify multiple languages. Otherwise, use the [mkt](#mkt) and [setLang](#setlang) query parameters.<br /><br /> A user interface string is a string that's used as a label in a user interface. There are few user interface strings in the JSON response objects. Any links to Bing.com properties in the response objects apply the specified language.|  
 |<a name="market" />BingAPIs-Market|Response header.<br /><br /> The market used by the request. The form is \<languageCode\>-\<countryCode\>. For example, en-US.|  
 |<a name="traceid" />BingAPIs-TraceId|Response header.<br /><br /> The ID of the log entry that contains the details of the request. When an error occurs, capture this ID. If you are not able to determine and resolve the issue, include this ID along with the other information that you provide the Support team.|  
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Required request header.<br /><br /> The subscription key that you received when you signed up for this service in [Cognitive Services](https://www.microsoft.com/cognitive-services/).|  
@@ -79,7 +81,7 @@ The request may include the following query parameters. See the Required column 
   
 |Name|Value|Type|Required|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|The market where the results come from. <br /><br />For a list of possible market values, see [Market Codes](#market-codes).<br /><br /> **NOTE:** The URL Preview API currently only supports en-us market and language.<br /><br />|String|Yes|  
+|<a name="mkt" />mkt|The market where the results come from. <br /><br />For a list of possible market values, see Market Codes.<br /><br /> **NOTE:** The URL Preview API currently only supports en-us market and language.<br /><br />|String|Yes|  
 |<a name="query" />q|The URL to preview|String|Yes|  
 |<a name="responseformat" />responseFormat|The media type to use for the response. The following are the possible case-insensitive values.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> The default is JSON. For information about the JSON objects that the response contains, see [Response Objects](#response-objects).<br /><br />  If you specify JsonLd, the response body includes JSON-LD objects that contain the search results. For information about the JSON-LD, see [JSON-LD](http://json-ld.org/).|String|No|  
 |<a name="safesearch" />safeSearch|A filter used to filter adult content. The following are the possible case-insensitive filter values.<br /><ul><li>Off&mdash;Return webpages with adult text, images, or videos.<br /><br/></li><li>Moderate&mdash;Return webpages with adult text, but not adult images or videos.<br /><br/></li><li>Strict&mdash;Do not return webpages with adult text, images, or videos.</li></ul><br /> The default is Moderate.<br /><br /> **NOTE:** If the request comes from a market that Bing's adult policy requires that `safeSearch` is set to Strict, Bing ignores the `safeSearch` value and uses Strict.<br/><br/>**NOTE:** If you use the `site:` query operator, there is the chance that the response may contain adult content regardless of what the `safeSearch` query parameter is set to. Use `site:` only if you are aware of the content on the site and your scenario supports the possibility of adult content. |String|No|  
@@ -116,7 +118,7 @@ The top-level object that the response includes when the request fails.
 |Name|Value|Type|  
 |----------|-----------|----------|  
 |_type|Type hint.|String|  
-|<a name="errors" />errors|A list of errors that describe the reasons why the request failed.|[Error](#error)[]|  
+|<a name="errors" />errors|A list of errors that describe the reasons why the request failed.|[Error](#error)|  
 
   
   
@@ -194,7 +196,7 @@ Defines information about a the Web page in preview.
 |----------|-----------|----------|
 |name|The page title, not necessarily the HTML title|String|
 |url|The URL that was actually crawled (request may have followed redirects)|String|  
-|description|Brief description of the the page and content|String|  
+|description|Brief description of the page and content|String|  
 |isFamilyFriendly|Most accurate for items in the web index; realtime fetches do this detection based solely on the URL and not the page content|boolean|
 |primaryImageOfPage/contentUrl|The URL to a representative image to include in the preview|String| 
   

@@ -1,5 +1,5 @@
 ---
-title: Use Draft with Azure Container Service and Azure Container Registry
+title: (DEPRECATED) Use Draft with Azure Container Service and Azure Container Registry
 description: Create an ACS Kubernetes cluster and an Azure Container Registry to create your first application in Azure with Draft.
 services: container-service
 author: squillace
@@ -11,10 +11,12 @@ ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
 ---
+# (DEPRECATED) Use Draft with Azure Container Service and Azure Container Registry to build and deploy an application to Kubernetes
 
-# Use Draft with Azure Container Service and Azure Container Registry to build and deploy an application to Kubernetes
+> [!TIP]
+> For the updated version this article that uses Azure Kubernetes Service, see [Use Draft with Azure Kubernetes Service (AKS)](../../aks/kubernetes-draft.md).
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 [Draft](https://aka.ms/draft) is a new open-source tool that makes it easy to develop container-based applications and deploy them to Kubernetes clusters without knowing much about Docker and Kubernetes -- or even installing them. Using tools like Draft let you and your teams focus on building the application with Kubernetes, not paying as much attention to infrastructure.
 
@@ -29,7 +31,7 @@ You can easily [create a new Azure Container Registry](../../container-registry/
       az group create --name draft --location eastus
       ```
 
-2. Create an ACR image registry using [az acr create](/cli/azure/acr#az_acr_create) and ensure that the `--admin-enabled` option is set to `true`.
+2. Create an ACR image registry using [az acr create](/cli/azure/acr#az-acr-create) and ensure that the `--admin-enabled` option is set to `true`.
       ```azurecli
       az acr create --resource-group draft --name draftacs --sku Basic
       ```
@@ -37,7 +39,7 @@ You can easily [create a new Azure Container Registry](../../container-registry/
 
 ## Create an Azure Container Service with Kubernetes
 
-Now you're ready to use [az acs create](/cli/azure/acs#az_acs_create) to create an ACS cluster using Kubernetes as the `--orchestrator-type` value.
+Now you're ready to use [az acs create](/cli/azure/acs#az-acs-create) to create an ACS cluster using Kubernetes as the `--orchestrator-type` value.
 ```azurecli
 az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes --generate-ssh-keys
 ```
@@ -91,7 +93,7 @@ waiting for AAD role to propagate.done
 }
 ```
 
-Now that you have a cluster, you can import the credentials by using the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) command. Now you have a local configuration file for your cluster, which is what Helm and Draft need to get their work done.
+Now that you have a cluster, you can import the credentials by using the [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes) command. Now you have a local configuration file for your cluster, which is what Helm and Draft need to get their work done.
 
 ## Install and configure draft
 
@@ -184,7 +186,7 @@ stable/traefik	1.3.0  	A Traefik based Kubernetes ingress controller w...
 
 $ helm install stable/traefik --name ingress
 ```
-Now set a watch on the `ingress` controller to capture the external IP value when it is deployed. This IP address will be the one [mapped to your deployment domain](#wire-up-deployment-domain) in the next section.
+Now set a watch on the `ingress` controller to capture the external IP value when it is deployed. This IP address will be the one mapped to your deployment domain in the next section.
 
 ```bash
 $ kubectl get svc -w
@@ -217,7 +219,7 @@ Your own domain provider has their own way to assign DNS servers; to [delegate y
     ```
 
 2. Create a DNS zone for your domain.
-Use the [az network dns zone create](/cli/azure/network/dns/zone#az_network_dns_zone_create) command to obtain the nameservers to delegate DNS control to Azure DNS for your domain.
+Use the [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) command to obtain the nameservers to delegate DNS control to Azure DNS for your domain.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {

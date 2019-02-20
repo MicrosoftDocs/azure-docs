@@ -181,7 +181,7 @@ To specify values for the resource parameters that are defined in the template, 
 
 ### Create the authorization file
 
-Before you can deploy a template, make sure that you have access to an [Active Directory service principal](../../resource-group-authenticate-service-principal.md). From the service principal, you acquire a token for authenticating requests to Azure Resource Manager. You should also record the application ID, the authentication key, and the tenant ID that you need in the authorization file.
+Before you can deploy a template, make sure that you have access to an [Active Directory service principal](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). From the service principal, you acquire a token for authenticating requests to Azure Resource Manager. You should also record the application ID, the authentication key, and the tenant ID that you need in the authorization file.
 
 1. In Solution Explorer, right-click *myDotnetProject* > **Add** > **New Item**, and then select **Text File** in *Visual C# Items*. Name the file *azureauth.properties*, and then click **Add**.
 2. Add these authorization properties:

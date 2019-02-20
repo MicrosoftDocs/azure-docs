@@ -1,20 +1,14 @@
-﻿---
+---
 title: Perform Azure Table storage operations with PowerShell | Microsoft Docs
 description: Perform Azure Table storage operations with PowerShell.
 services: cosmos-db
-documentationcenter: storage
-author: robinsh
-manager: timlt
-editor: tysonn
+author: roygara
 
-ms.assetid: 
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: robinsh
+ms.author: rogarana
+ms.subservice: cosmosdb-table
 ---
 
 # Perform Azure Table storage operations with Azure PowerShell 
@@ -34,7 +28,9 @@ This how-to article covers common Azure Table storage operations. You learn how 
 
 This how-to article shows you how to create a new Azure Storage account in a new resource group so you can easily remove it when you're done. If you'd rather use an existing Storage account, you can do that instead.
 
-The examples require Azure PowerShell module version 4.4.0 or later. In a PowerShell window, run `Get-Module -ListAvailable AzureRM` to find the version. If nothing is displayed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+The examples require Azure PowerShell module `AzureRM` version 4.4.0 or later. In a PowerShell window, run `Get-Module -ListAvailable AzureRM` to find the version. If nothing is displayed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
+
+[!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
 After Azure PowerShell is installed or updated, you must install module **AzureRmStorageTable**, which has the commands for managing the entities. To install this module, run PowerShell as an administrator and use the **Install-Module** command.
 

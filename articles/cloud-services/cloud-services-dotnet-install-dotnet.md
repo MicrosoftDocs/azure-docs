@@ -3,7 +3,7 @@ title: Install .NET on Azure Cloud Services roles | Microsoft Docs
 description: This article describes how to manually install the .NET Framework on your cloud service web and worker roles
 services: cloud-services
 documentationcenter: .net
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2018
-ms.author: adegeo
+ms.date: 06/22/2018
+ms.author: jeconnoc
 ---
 
 # Install .NET on Azure Cloud Services roles
@@ -30,7 +30,7 @@ To install .NET on your web and worker roles, include the .NET web installer as 
 ## Add the .NET installer to your project
 To download the web installer for the .NET Framework, choose the version that you want to install:
 
-* [.NET 4.7.2 web installer](http://go.microsoft.com/fwlink/?LinkId=863262)
+* [.NET 4.7.2 web installer](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [.NET 4.6.2 web installer](https://www.microsoft.com/download/details.aspx?id=53345)
 
 To add the installer for a *web* role:
@@ -43,7 +43,7 @@ To add the installer for a *worker* role:
 When files are added in this way to the role content folder, they're automatically added to your cloud service package. The files are then deployed to a consistent location on the virtual machine. Repeat this process for each web and worker role in your cloud service so that all roles have a copy of the installer.
 
 > [!NOTE]
-> You should install .NET 4.6.2 on your cloud service role even if your application targets .NET 4.6. The Guest OS includes the Knowledge Base [update 3098779](https://support.microsoft.com/kb/3098779) and [update 3097997](https://support.microsoft.com/kb/3097997). Issues can occur when you run your .NET applications if .NET 4.6 is installed on top of the Knowledge Base updates. To avoid these issues, install .NET 4.6.2 rather than version 4.6. For more information, see the [Knowledge Base article 3118750](https://support.microsoft.com/kb/3118750).
+> You should install .NET 4.6.2 on your cloud service role even if your application targets .NET 4.6. The Guest OS includes the Knowledge Base [update 3098779](https://support.microsoft.com/kb/3098779) and [update 3097997](https://support.microsoft.com/kb/3097997). Issues can occur when you run your .NET applications if .NET 4.6 is installed on top of the Knowledge Base updates. To avoid these issues, install .NET 4.6.2 rather than version 4.6. For more information, see the [Knowledge Base article 3118750](https://support.microsoft.com/kb/3118750) and [4340191](https://support.microsoft.com/kb/4340191).
 > 
 > 
 
@@ -105,7 +105,7 @@ You can use startup tasks to perform operations before a role starts. Installing
    set "log=install.cmd started %timestamp%."
    
    REM ***** Exit script if running in Emulator *****
-   if %ComputeEmulatorRunning%=="true" goto exit
+   if "%ComputeEmulatorRunning%"=="true" goto exit
    
    REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
    set TMP=%PathToNETFXInstall%
@@ -179,10 +179,11 @@ You can use startup tasks to perform operations before a role starts. Installing
        if %ERRORLEVEL%== 3010 goto restart
        if %ERRORLEVEL%== 1641 goto restart
        echo .NET (%netfx%) install failed with Error Code %ERRORLEVEL%. Further logs can be found in %netfxinstallerlog% >> %startuptasklog%
-   
+       goto exit
+       
    :restart
    echo Restarting to complete .NET (%netfx%) installation >> %startuptasklog%
-   EXIT /B %ERRORLEVEL%
+   shutdown.exe /r /t 5 /c "Installed .NET framework" /f /d p:2:4
    
    :installed
    echo .NET (%netfx%) is installed >> %startuptasklog%

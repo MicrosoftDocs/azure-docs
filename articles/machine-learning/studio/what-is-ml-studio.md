@@ -1,23 +1,21 @@
 ---
-title: What is Azure Machine Learning Studio? | Microsoft Docs
-description: Overview of Azure ML Studio, a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
+title: What is
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio is a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
-manager: hjerez
-editor: cgronlun
-
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 03/28/2018
-
 ---
 # What is Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Machine Learning Studio publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
@@ -33,12 +31,7 @@ To develop a predictive analysis model, you typically use data from one or more 
 
 There is no programming required, just visually connecting datasets and modules to construct your predictive analysis model.
 
-> [!TIP]
-> To download and print a diagram that gives an overview of the capabilities of Machine Learning Studio, see [Overview diagram of Azure Machine Learning Studio capabilities](studio-overview-diagram.md).
-> 
-> 
-
-![Azure ML Studio diagram: Create experiments, read data for many sources, write scored data, write models.][ml-studio-overview]
+![Azure Machine Learning studio diagram: Create experiments, read data for many sources, write scored data, write models.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 ## Get started with Machine Learning Studio
 When you first enter [Machine Learning Studio](https://studio.azureml.net) you see the **Home** page. From here you can view documentation, videos, webinars, and find other valuable resources.
@@ -62,7 +55,7 @@ Click **Studio** and you'll be taken to the **Azure Machine Learning Studio**. F
 * **SETTINGS** - A collection of settings that you can use to configure your account and resources.
 
 ### Gallery
-Click **Gallery** and you'll be taken to the **[Azure AI Gallery](http://gallery.cortanaintelligence.com/)**. The Gallery is a place where a community of data scientists and developers share solutions created using components of the Cortana Intelligence Suite.
+Click **Gallery** and you'll be taken to the **[Azure AI Gallery](http://gallery.azure.ai/)**. The Gallery is a place where a community of data scientists and developers share solutions created using components of the Cortana Intelligence Suite.
 
 For more information about the Gallery, see [Share and discover solutions in the Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
 
@@ -79,7 +72,7 @@ You can create an experiment from scratch, or you can use an existing sample exp
 
 For an example of creating a simple experiment, see [Create a simple experiment in Azure Machine Learning Studio](create-experiment.md).
 
-For a more complete walkthrough of creating a predictive analytics solution, see [Develop a predictive solution with Azure Machine Learning](walkthrough-develop-predictive-solution.md).
+For a more complete walkthrough of creating a predictive analytics solution, see [Develop a predictive solution with Azure Machine Learning](tutorial-part1-credit-risk.md).
 
 ### Datasets
 A dataset is data that has been uploaded to Machine Learning Studio so that it can be used in the modeling process. A number of sample datasets are included with Machine Learning Studio for you to experiment with, and you can upload more datasets as you need them. Here are some examples of included datasets:
@@ -100,7 +93,7 @@ A module is an algorithm that you can perform on your data. Machine Learning Stu
 * [Linear Regression][linear-regression] - Creates an online gradient descent-based linear regression model.
 * [Score Model][score-model] - Scores a trained classification or regression model.
 
-As you build an experiment you can choose from the list of modules available to the left of the canvas.  
+As you build an experiment you can choose from the list of modules available to the left of the canvas.
 
 A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the **Properties** pane to the right of the canvas. You can modify the parameters in that pane to tune your model.
 
@@ -108,9 +101,6 @@ For some help navigating through the large library of machine learning algorithm
 
 ## Deploying a predictive analytics web service
 Once your predictive analytics model is ready, you can deploy it as a web service right from Machine Learning Studio. For more details on this process, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
-
-[ml-studio-overview]:./media/what-is-ml-studio/azure-ml-studio-diagram.jpg
-
 
 
 ## Key machine learning terms and concepts
@@ -158,7 +148,7 @@ Once you have a trained model, evaluate the model using the remaining test data.
 * **sample**: A part of a data set intended to be representative of the whole. Samples can be selected randomly or based on specific features of the data set.
 
 ## Next steps
-You can learn the basics of predictive analytics and machine learning using a [step-by-step tutorial](create-experiment.md) and by [building on samples](sample-experiments.md).  
+You can learn the basics of predictive analytics and machine learning using a [step-by-step quickstart](create-experiment.md) and by [building on samples](sample-experiments.md).
 
 
 <!-- Module References -->

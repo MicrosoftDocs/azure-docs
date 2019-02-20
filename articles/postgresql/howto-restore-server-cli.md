@@ -1,14 +1,11 @@
 ---
-title: 'How to backup and restore a server in Azure Database for PostgreSQL | Microsoft Docs'
+title: 'How to backup and restore a server in Azure Database for PostgreSQL'
 description: Learn how to backup and restore a server in Azure Database for PostgreSQL by using the Azure CLI.
-services: postgresql
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 04/01/2018
 ---
 
@@ -26,33 +23,7 @@ To complete this how-to guide, you need:
  
 
 > [!IMPORTANT]
-> This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
-
-## Add the extension
-Add the updated Azure Database for PostgreSQL management extension using the following command:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Check you have the correct extension version installed. 
-```azurecli-interactive
-az extension list
-```
-
-The return JSON should include the following: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-If version 0.0.5 is not returned, run the following to update the extension: 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
+> This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Set backup configuration
 
@@ -81,7 +52,7 @@ The backup retention period governs how far back in time a point-in-time restore
 ## Server point-in-time restore
 You can restore the server to a previous point in time. The restored data is copied to a new server, and the existing server is left as is. For example, if a table is accidentally dropped at noon today, you can restore to the time just before noon. Then, you can retrieve the missing table and data from the restored copy of the server. 
 
-To restore the server, use the Azure CLI [az postgres server restore](/cli/azure/postgres/server#az_postgres_server_restore) command.
+To restore the server, use the Azure CLI [az postgres server restore](/cli/azure/postgres/server) command.
 
 ### Run the restore command
 
@@ -104,6 +75,8 @@ When you restore a server to an earlier point in time, a new server is created. 
 The location and pricing tier values for the restored server remain the same as the original server. 
 
 After the restore process finishes, locate the new server and verify that the data is restored as expected.
+
+The new server created during a restore does not have the firewall rules that existed on the original server. Firewall rules need to be set up separately for this new server.
 
 ## Geo restore
 If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for PostgreSQL is available.  
@@ -128,7 +101,7 @@ az postgres server georestore --resource-group newresourcegroup --name mydemoser
 
 ```
 
-The `az postgres server georestore` command requies the following parameters:
+The `az postgres server georestore` command requires the following parameters:
 | Setting | Suggested value | Description  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | The name of the resource group the new server will belong to.|
@@ -142,6 +115,8 @@ The `az postgres server georestore` command requies the following parameters:
 >When creating a new server by a geo restore, it inherits the same storage size and pricing tier as the source server. These values cannot be changed during creation. After the new server is created, its storage size can be scaled up.
 
 After the restore process finishes, locate the new server and verify that the data is restored as expected.
+
+The new server created during a restore does not have the firewall rules that existed on the original server. Firewall rules need to be set up separately for this new server.
 
 ## Next steps
 - Learn more about the service's [backups](concepts-backup.md).

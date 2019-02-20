@@ -3,19 +3,15 @@ title: Triggers and bindings in Azure Functions
 description: Learn how to use triggers and bindings in Azure Functions to connect your code execution to online events and cloud-based services.
 services: functions
 documentationcenter: na
-author: tdykstra
-manager: cfowler
-editor: ''
-tags: ''
+author: craigshoemaker
+manager: jeconnoc
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 05/24/2018
-ms.author: tdykstra
+ms.date: 09/24/2018
+ms.author: cshoe
 ---
 
 # Azure Functions triggers and bindings concepts
@@ -28,62 +24,11 @@ A *trigger* defines how a function is invoked. A function must have exactly one 
 
 Input and output *bindings* provide a declarative way to connect to data from within your code. Bindings are optional and a function can have multiple input and output bindings. 
 
-Triggers and bindings let you avoid hardcoding the details of the services that you're working with. Your function receives data (for example, the content of a queue message) in function parameters. You send data (for example, to create a queue message) by using the return value of the function, an `out` parameter, or a [collector object](functions-reference-csharp.md#writing-multiple-output-values).
+Triggers and bindings let you avoid hardcoding the details of the services that you're working with. Your function receives data (for example, the content of a queue message) in function parameters. You send data (for example, to create a queue message) by using the return value of the function. In C# and C# script, alternative ways to send data are `out` parameters and [collector objects](functions-reference-csharp.md#writing-multiple-output-values).
 
 When you develop functions by using the Azure portal, triggers and bindings are configured in a *function.json* file. The portal provides a UI for this configuration but you can edit the file directly by changing to the **Advanced editor**.
 
 When you develop functions by using Visual Studio to create a class library, you configure triggers and bindings by decorating methods and parameters with attributes.
-
-## Supported bindings
-
-[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
-
-For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
-
-## Register binding extensions
-
-In version 2.x of the Azure Functions runtime, you have to explicitly register the binding extensions (binding types) that you use in your function app. 
-
-Version 2.x of the Functions runtime is currently in preview. For information about how to set a function app to use version 2.x of the Functions runtime, see [How to target Azure Functions runtime versions](set-runtime-version.md).
-
-There is a core set of bindings in version 2.x that are automatically registered, so you don't have to register them explicitly: HTTP, timer, and Azure Storage (blobs, queues, and tables). 
-
-Extensions are delivered as NuGet packages, where the package name typically starts with [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  The way you register binding extensions depends on how you develop your functions: 
-
-+ [Locally in C# using Visual Studio or VS Code](#local-c-development-using-visual-studio-or-vs-code)
-+ [Locally using Azure Functions Core Tools](#local-development-azure-functions-core-tools)
-+ [In the Azure portal](#azure-portal-development) 
-
-The package versions shown in this section are provided only as examples. Check the [NuGet.org site](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) to determine which version of a given extension is required by the other dependencies in your function app.    
-
-### <a name="local-csharp"></a>Local C# development using Visual Studio or VS Code
-
-When you use Visual Studio or Visual Studio Code to locally develop functions in C#, install the NuGet package for the extension. 
-
-+ **Visual Studio**: Use the NuGet Package Manager tools. The following [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command installs the Azure Cosmos DB extension from the Package Manager Console:
-
-    ```powershell
-    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
-    ```
-
-+ **Visual Studio Code**: You can install packages from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET CLI, as follows:
-
-    ```terminal
-    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
-    ```
-
-### Local development Azure Functions Core Tools
-
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
-
-### Azure portal development
-
-When you create a function or add a binding to an existing function, you are prompted when the extension for the trigger or binding being added requires registration.   
-
-After a warning appears for the specific extension being installed, click **Install** to register the extension. You need only install each extension one time for a given function app. 
-
->[!Note] 
->The in-portal installation process can take up to 10 minutes on a consumption plan.
 
 ## Example trigger and binding
 
@@ -126,11 +71,12 @@ Here's C# script code that works with this trigger and binding. Notice that the 
 ```cs
 #r "Newtonsoft.Json"
 
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
 // From an incoming queue message that is a JSON object, add fields and write to Table storage
 // The method return value creates a new row in Table Storage
-public static Person Run(JObject order, TraceWriter log)
+public static Person Run(JObject order, ILogger log)
 {
     return new Person() { 
             PartitionKey = "Orders", 
@@ -169,30 +115,90 @@ function generateRandomId() {
 In a class library, the same trigger and binding information &mdash; queue and table names, storage accounts, function parameters for input and output &mdash; is provided by attributes instead of a function.json file. Here's an example:
 
 ```csharp
- public static class QueueTriggerTableOutput
- {
-     [FunctionName("QueueTriggerTableOutput")]
-     [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
-     public static Person Run(
-         [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order, 
-         TraceWriter log)
-     {
-         return new Person() {
-                 PartitionKey = "Orders",
-                 RowKey = Guid.NewGuid().ToString(),
-                 Name = order["Name"].ToString(),
-                 MobileNumber = order["MobileNumber"].ToString() };
-     }
- }
+public static class QueueTriggerTableOutput
+{
+    [FunctionName("QueueTriggerTableOutput")]
+    [return: Table("outTable", Connection = "MY_TABLE_STORAGE_ACCT_APP_SETTING")]
+    public static Person Run(
+        [QueueTrigger("myqueue-items", Connection = "MY_STORAGE_ACCT_APP_SETTING")]JObject order,
+        ILogger log)
+    {
+        return new Person() {
+                PartitionKey = "Orders",
+                RowKey = Guid.NewGuid().ToString(),
+                Name = order["Name"].ToString(),
+                MobileNumber = order["MobileNumber"].ToString() };
+    }
+}
 
- public class Person
- {
-     public string PartitionKey { get; set; }
-     public string RowKey { get; set; }
-     public string Name { get; set; }
-     public string MobileNumber { get; set; }
- }
+public class Person
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Name { get; set; }
+    public string MobileNumber { get; set; }
+}
 ```
+
+## Supported bindings
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+For information about which bindings are in preview or are approved for production use, see [Supported languages](supported-languages.md).
+
+## Register binding extensions
+
+In some development environments, you have to explicitly *register* a binding that you want to use. Binding extensions are provided in NuGet packages, and to register an extension you install a package. The following table indicates when and how you register binding extensions.
+
+|Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 2.x  |
+|---------|---------|---------|
+|Azure portal|Automatic|[Automatic with prompt](#azure-portal-development)|
+|Local using Azure Functions Core Tools|Automatic|[Use Core Tools CLI commands](#local-development-azure-functions-core-tools)|
+|C# class library using Visual Studio 2017|[Use NuGet tools](#c-class-library-with-visual-studio-2017)|[Use NuGet tools](#c-class-library-with-visual-studio-2017)|
+|C# class library using Visual Studio Code|N/A|[Use .NET Core CLI](#c-class-library-with-visual-studio-code)|
+
+The following binding types are exceptions that don't require explicit registration because they are automatically registered in all versions and environments: HTTP and timer.
+
+### Azure portal development
+
+This section applies only to Functions 2.x. Binding extensions don't have to be explicitly registered in Functions 1.x.
+
+When you create a function or add a binding, you are prompted when the extension for the trigger or binding requires registration. Respond to the prompt by clicking **Install** to register the extension. Installation can take up to 10 minutes on a consumption plan.
+
+You need only install each extension one time for a given function app. For supported bindings that are not available in the portal or to update the an installed extension, you can also [manually install or update Azure Functions binding extensions from the portal](install-update-binding-extensions-manual.md).  
+
+### Local development Azure Functions Core Tools
+
+This section applies only to Functions 2.x. Binding extensions don't have to be explicitly registered in Functions 1.x.
+
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+
+<a name="local-csharp"></a>
+### C# class library with Visual Studio 2017
+
+In **Visual Studio 2017**, you can install packages from the Package Manager Console using the [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command, as shown in the following example:
+
+```powershell
+Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <target_version>
+```
+
+The name of the package to use for a given binding is provided in the reference article for that binding. For an example, see the [Packages section of the Service Bus binding reference article](functions-bindings-service-bus.md#packages---functions-1x).
+
+Replace `<target_version>` in the example with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
+
+### C# class library with Visual Studio Code
+
+In **Visual Studio Code**, you can install packages from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET Core CLI, as shown in the following example:
+
+```terminal
+dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version <target_version>
+```
+
+The .NET Core CLI can only be used for Azure Functions 2.x development.
+
+The name of the package to use for a given binding is provided in the reference article for that binding. For an example, see the [Packages section of the Service Bus binding reference article](functions-bindings-service-bus.md#packages---functions-1x).
+
+Replace `<target_version>` in the example with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
 
 ## Binding direction
 
@@ -211,14 +217,17 @@ In languages that have a return value, you can bind an output binding to the ret
 * In a C# class library, apply the output binding attribute to the method return value.
 * In other languages, set the `name` property in *function.json* to `$return`.
 
-If you need to write more than one item, use a [collector object](functions-reference-csharp.md#writing-multiple-output-values) instead of the return value. If there are multiple output bindings, use the return value for only one of them.
+If there are multiple output bindings, use the return value for only one of them.
 
-See the language-specific example:
+In C# and C# script, alternative ways to send data to an output binding are `out` parameters and [collector objects](functions-reference-csharp.md#writing-multiple-output-values).
+
+See the language-specific example showing use of the return value:
 
 * [C#](#c-example)
 * [C# script (.csx)](#c-script-example)
 * [F#](#f-example)
 * [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 ### C# example
 
@@ -227,10 +236,10 @@ Here's C# code that uses the return value for an output binding, followed by an 
 ```cs
 [FunctionName("QueueTrigger")]
 [return: Blob("output-container/{id}")]
-public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+public static string Run([QueueTrigger("inputqueue")]WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return json;
 }
 ```
@@ -238,10 +247,10 @@ public static string Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter
 ```cs
 [FunctionName("QueueTrigger")]
 [return: Blob("output-container/{id}")]
-public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, TraceWriter log)
+public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return Task.FromResult(json);
 }
 ```
@@ -262,19 +271,19 @@ Here's the output binding in the *function.json* file:
 Here's the C# script code, followed by an async example:
 
 ```cs
-public static string Run(WorkItem input, TraceWriter log)
+public static string Run(WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return json;
 }
 ```
 
 ```cs
-public static Task<string> Run(WorkItem input, TraceWriter log)
+public static Task<string> Run(WorkItem input, ILogger log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
-    log.Info($"C# script processed queue message. Item={json}");
+    log.LogInformation($"C# script processed queue message. Item={json}");
     return Task.FromResult(json);
 }
 ```
@@ -295,9 +304,9 @@ Here's the output binding in the *function.json* file:
 Here's the F# code:
 
 ```fsharp
-let Run(input: WorkItem, log: TraceWriter) =
+let Run(input: WorkItem, log: ILogger) =
     let json = String.Format("{{ \"id\": \"{0}\" }}", input.Id)   
-    log.Info(sprintf "F# script processed queue message '%s'" json)
+    log.LogInformation(sprintf "F# script processed queue message '%s'" json)
     json
 ```
 
@@ -322,6 +331,29 @@ module.exports = function (context, input) {
     context.log('Node.js script processed queue message', json);
     context.done(null, json);
 }
+```
+
+### Python example
+
+Here's the output binding in the *function.json* file:
+
+```json
+{
+    "name": "$return",
+    "type": "blob",
+    "direction": "out",
+    "path": "output-container/{id}"
+}
+```
+Here's the Python code:
+
+```python
+def main(input: azure.functions.InputStream) -> str:
+    return json.dumps({
+        'name': input.name,
+        'length': input.length,
+        'content': input.read().decode('utf-8')
+    })
 ```
 
 ## Binding dataType property
@@ -390,9 +422,9 @@ You can use the same approach in class libraries:
 [FunctionName("QueueTrigger")]
 public static void Run(
     [QueueTrigger("%input-queue-name%")]string myQueueItem, 
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 }
 ```
 
@@ -434,9 +466,9 @@ Function code has access to this same value by using `filename` as a parameter n
 
 ```csharp
 // C# example of binding to {filename}
-public static void Run(Stream image, string filename, Stream imageSmall, TraceWriter log)  
+public static void Run(Stream image, string filename, Stream imageSmall, ILogger log)  
 {
-    log.Info($"Blob trigger processing: {filename}");
+    log.LogInformation($"Blob trigger processing: {filename}");
     // ...
 } 
 ```
@@ -452,9 +484,9 @@ public static void Run(
     [BlobTrigger("sample-images/{filename}")] Stream image,
     [Blob("sample-images-sm/{filename}", FileAccess.Write)] Stream imageSmall,
     string filename,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"Blob trigger processing: {filename}");
+    log.LogInformation($"Blob trigger processing: {filename}");
     // ...
 }
 
@@ -517,7 +549,7 @@ The following example shows the *function.json* file for a webhook function that
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+      "path": "strings/{BlobName}",
       "connection": "AzureWebJobsStorage"
     },
     {
@@ -533,17 +565,20 @@ For this to work in C# and F#, you need a class that defines the fields to be de
 
 ```csharp
 using System.Net;
+using Microsoft.Extensions.Logging;
 
 public class BlobInfo
 {
     public string BlobName { get; set; }
 }
   
-public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents)
+public static HttpResponseMessage Run(HttpRequestMessage req, BlobInfo info, string blobContents, ILogger log)
 {
     if (blobContents == null) {
         return req.CreateResponse(HttpStatusCode.NotFound);
     } 
+
+    log.LogInformation($"Processing: {info.BlobName}");
 
     return req.CreateResponse(HttpStatusCode.OK, new {
         data = $"{blobContents}"
@@ -574,9 +609,10 @@ module.exports = function (context, info) {
 If some of the properties in your JSON payload are objects with properties, you can refer to those directly by using dot notation. For example, suppose your JSON looks like this:
 
 ```json
-{"BlobName": {
-  "FileName":"HelloWorld",
-  "Extension":"txt"
+{
+  "BlobName": {
+    "FileName":"HelloWorld",
+    "Extension":"txt"
   }
 }
 ```
@@ -635,6 +671,10 @@ In C# and other .NET languages, you can use an imperative binding pattern, as op
 
 The *function.json* file schema is available at [http://json.schemastore.org/function](http://json.schemastore.org/function).
 
+## Testing bindings
+
+When developing functions locally, you can test your bindings using either Visual Studio 2017 or Visual Studio Code. To learn more, see [Strategies for testing your code in Azure Functions](functions-test-a-function.md). You can also invoke non-HTTP bindings using REST APIs. To learn more, see [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md).
+
 ## Handling binding errors
 
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
@@ -658,4 +698,3 @@ For more information on a specific binding, see the following articles:
 - [Twilio](functions-bindings-twilio.md)
 - [Notification Hubs](functions-bindings-notification-hubs.md)
 - [Mobile Apps](functions-bindings-mobile-apps.md)
-- [External file](functions-bindings-external-file.md)

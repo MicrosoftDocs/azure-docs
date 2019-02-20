@@ -1,24 +1,17 @@
 ﻿---
-title: 'Move ExpressRoute circuits from classic to Resource Manager: PowerShell: Azure | Microsoft Docs'
+title: 'Move circuits from classic to Resource Manager - ExpressRoute: PowerShell: Azure | Microsoft Docs'
 description: This page describes how to move a classic circuit to the Resource Manager deployment model using PowerShell.
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/03/2017
+ms.topic: conceptual
+ms.date: 01/07/2019
 ms.author: ganesr;cherylmc
+ms.custom: seodec18
 
 ---
-# Move ExpressRoute circuits from the classic to the Resource Manager deployment model using PowerShell
+# Move ExpressRoute circuits from classic to Resource Manager deployment model using PowerShell
 
 To use an ExpressRoute circuit for both the classic and Resource Manager deployment models, you must move the circuit to the Resource Manager deployment model. The following sections help you move your circuit by using PowerShell.
 
@@ -51,8 +44,8 @@ Sign in to the Azure classic environment and gather the service key.
 3. Import the PowerShell modules for Azure and ExpressRoute.
 
   ```powershell
-  Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
-  Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
+  Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+  Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
   ```
 
 4. Use the cmdlet below to get the service keys for all of your ExpressRoute circuits. After retrieving the keys, copy the **service key** of the circuit that you want to move to the Resource Manager deployment model.
@@ -92,6 +85,8 @@ To move your circuit, modify and run the following snippet:
 ```powershell
 Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
+
+In classic mode, an ExpressRoute circuit does not have the concept of being tied to a region. However, in Resource Manager, every resource needs to be mapped to an Azure region. The region specified in the Move-AzureRmExpressRouteCircuit cmdlet can technically be any region. For organizational purposes, you may want to choose a region that closely represents your peering location.
 
 > [!NOTE]
 > After the move has finished, the new name that is listed in the previous cmdlet will be used to address the resource. The circuit will essentially be renamed.

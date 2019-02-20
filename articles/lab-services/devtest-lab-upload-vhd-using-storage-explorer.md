@@ -22,7 +22,7 @@ ms.author: spelluru
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
 In Azure DevTest Labs, VHD files can be used to create custom images, which are used to provision virtual machines. 
-This article illustrates how to use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload a VHD file to a lab's storage account. Once you've uploaded your VHD file, the [Next steps section](#next-steps) lists some articles that illustrate how to create a custom image from the uploaded VHD file. For more information about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](../virtual-machines/linux/about-disks-and-vhds.md)
+This article illustrates how to use [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload a VHD file to a lab's storage account. Once you've uploaded your VHD file, the [Next steps section](#next-steps) lists some articles that illustrate how to create a custom image from the uploaded VHD file. For more information about disks and VHDs in Azure, see [Introduction to managed disks](../virtual-machines/linux/managed-disks-overview.md)
 
 ## Step-by-step instructions
 
@@ -32,7 +32,7 @@ The following steps walk you through uploading a VHD file to DevTest Labs using 
 
 1. Get the name of the lab's storage account using the Azure portal:
 
-	1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+	1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 	
 	1. Select **All services**, and then select **DevTest Labs** from the list.
 	

@@ -1,23 +1,18 @@
 ---
 title: AS2 messages for B2B enterprise integration - Azure Logic Apps | Microsoft Docs
-description: Exchange AS2 messages for B2B enterprise integration with Azure Logic Apps
+description: Exchange AS2 messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor:
-
-ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.date: 06/08/2017
-ms.author: LADocs; divswa
-
 ---
-# Exchange AS2 messages for enterprise integration with logic apps
+
+# Exchange AS2 messages for B2B enterprise integration in Azure Logic Apps with Enterprise Integration Pack
 
 Before you can exchange AS2 messages for Azure Logic Apps, 
 you must create an AS2 agreement and 

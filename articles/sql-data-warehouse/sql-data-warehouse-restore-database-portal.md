@@ -3,10 +3,10 @@ title: Restore Azure SQL Data Warehouse (Azure portal) | Microsoft Docs
 description: Azure portal tasks for restoring Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan

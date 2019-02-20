@@ -10,18 +10,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 02/01/2019
 ms.author: jingwang
 
 ---
 # Copy data from Azure Database for MySQL using Azure Data Factory
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Azure Database for MySQL. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [MySQL connector in V1](v1/data-factory-onprem-mysql-connector.md).
 
 ## Supported capabilities
 
@@ -42,7 +39,7 @@ The following properties are supported for Azure Database for MySQL linked servi
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzureMySql** | Yes |
-| connectionString | Specify information needed to connect to the Azure Database for MySQL instance. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| connectionString | Specify information needed to connect to the Azure Database for MySQL instance. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 A typical connection string is `Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. More properties you can set per your case:
@@ -61,8 +58,37 @@ A typical connection string is `Server=<server>.mysql.database.azure.com;Port=<p
         "type": "AzureMySql",
         "typeProperties": {
             "connectionString": {
+                "type": "SecureString",
+                "value": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Example: store password in Azure Key Vault**
+
+```json
+{
+    "name": "AzureDatabaseForMySQLLinkedService",
+    "properties": {
+        "type": "AzureMySql",
+        "typeProperties": {
+            "connectionString": {
                  "type": "SecureString",
-                 "value": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+                 "value": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -155,13 +181,14 @@ When copying data from Azure Database for MySQL, the following mappings are used
 |:--- |:--- |
 | `bigint` |`Int64` |
 | `bigint unsigned` |`Decimal` |
-| `bit` |`Decimal` |
+| `bit` |`Boolean` |
+| `bit(M), M>1`|`Byte[]`|
 | `blob` |`Byte[]` |
-| `bool` |`Boolean` |
+| `bool` |`Int16` |
 | `char` |`String` |
 | `date` |`Datetime` |
 | `datetime` |`Datetime` |
-| `decimal` |`Decimal` |
+| `decimal` |`Decimal, String` |
 | `double` |`Double` |
 | `double precision` |`Double` |
 | `enum` |`String` |
@@ -192,7 +219,6 @@ When copying data from Azure Database for MySQL, the following mappings are used
 | `tinytext` |`String` |
 | `varchar` |`String` |
 | `year` |`Int32` |
-
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

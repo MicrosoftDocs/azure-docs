@@ -1,15 +1,12 @@
 ---
-title: "Tutorial: Load Balancer VMs within a zone--Azure portal | Microsoft Docs"
+title: "Tutorial: Load Balancer VMs within a zone--Azure portal"
+titlesuffix: Azure Load Balancer
 description: This tutorial demonstrates how to create a Standard Load Balancer with zonal frontend to load balance VMs within an availability zone by using Azure portal
 services: load-balancer
 documentationcenter: na
-author: KumudD 
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
+author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region. 
-
-ms.assetid:
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -17,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
+ms.custom: seodec18
 ---
 
 # Tutorial: Load balance VMs within an availability zone with Standard Load Balancer by using the Azure portal
@@ -49,7 +46,7 @@ Standard Load Balancer only supports a standard public IP address. When you crea
 2. In the **Create load balancer** page, enter these values for the load balancer:
     - **myLoadBalancer**, for the name of the load balancer.
     - **Public**, for the type of the load balancer.
-     - **myPublicIPZonal**, for the new public IP address that you create. Select **Choose a public IP address**. Then select **Create new**. For name, enter **myPublicIP**. SKU is standard by default. For **Availability zone**, select **Zone 1**.
+      - **myPublicIPZonal**, for the new public IP address that you create. Select **Choose a public IP address**. Then select **Create new**. For name, enter **myPublicIP**. SKU is standard by default. For **Availability zone**, select **Zone 1**.
     - **myResourceGroupZLB**, for the name of the new resource group that you create.
     - **westeurope**, for the location.
 3. Select **Create** to create the load balancer.
@@ -77,7 +74,7 @@ In this section, you create a virtual network. You also create two virtual machi
     - **myNetworkSecurityGroup**, for the name of the network security group.
     - **myResourceGroupLBAZ**, for the name of the existing resource group.
    
-    ![Create a network security group](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
+     ![Create a network security group](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 
 ### Create NSG rules
 
@@ -96,7 +93,7 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
     - **Allow HTTP**, for **Description**.
 4. Select **OK**.
  
- ![Create NSG rules](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Create NSG rules](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 
 5. Repeat steps 2 to 4 to create another rule named **myRDPRule**. This rule allows for an inbound RDP connection that uses port 3389, with the following values:
     - **Service Tag**, for **Source**.
@@ -108,7 +105,7 @@ In this section, you create NSG rules to allow inbound connections that use HTTP
     - **myRDPRule**, for **Name**.
     - **Allow RDP**, for **Description**.
 
-    ![Create a RDP rule](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
+      ![Create a RDP rule](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
 
 ### Create virtual machines
 

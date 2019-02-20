@@ -3,7 +3,7 @@ title: Azure Service Fabric Docker Compose Deployment Preview
 description: Azure Service Fabric accepts Docker Compose format to make it easier to orchestrate existing containers using Service Fabric. This support is currently in preview.
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
+ms.author: twhitney, subramar
 ---
 # Docker Compose deployment support in Azure Service Fabric (Preview)
 
@@ -59,6 +59,12 @@ To start a Compose deployment upgrade through PowerShell, use the following comm
 Start-ServiceFabricComposeDeploymentUpgrade -DeploymentName TestContainerApp -Compose docker-compose-v2.yml -Monitored -FailureAction Rollback
 ```
 
+To rollback the Compose deployment upgrade through PowerShell, use the following command:
+
+```powershell
+Start-ServiceFabricComposeDeploymentRollback -DeploymentName TestContainerApp
+```
+
 After upgrade is accepted, the upgrade progress could be tracked using the following command:
 
 ```powershell
@@ -79,7 +85,7 @@ After you've created the deployment, you can check its status by using the follo
 sfctl compose status --deployment-name TestContainerApp [ --timeout ]
 ```
 
-To delete the compose deployment, use the following command:
+To delete the Compose deployment, use the following command:
 
 ```azurecli
 sfctl compose remove  --deployment-name TestContainerApp [ --timeout ]
@@ -89,6 +95,12 @@ To start a Compose deployment upgrade, use the following command:
 
 ```azurecli
 sfctl compose upgrade --deployment-name TestContainerApp --file-path docker-compose-v2.yml [ [ --user --encrypted-pass ] | [ --user --has-pass ] ] [--upgrade-mode Monitored] [--failure-action Rollback] [ --timeout ]
+```
+
+To rollback the Compose deployment upgrade, use the following command:
+
+```azurecli
+sfctl compose upgrade-rollback --deployment-name TestContainerApp [ --timeout ]
 ```
 
 After upgrade is accepted, the upgrade progress could be tracked using the following command:
@@ -117,6 +129,15 @@ This preview supports a subset of the configuration options from the Compose ver
 * Volume & Deploy > Volume
 
 Set up the cluster for enforcing resource limits, as described in [Service Fabric resource governance](service-fabric-resource-governance.md). All other Docker Compose directives are unsupported for this preview.
+
+### Ports section
+
+Specify either the http or https protocol in the Ports section that will be used by the Service Fabric service listener. This will ensure that the endpoint protocol is published correctly with the naming service to allow reverse proxy to forward the requests:
+* To route to unsecure Service Fabric Compose services, specify **/http**. For example, - **"80:80/http"**.
+* To route to secure Service Fabric Compose services, specify **/https**. For example, - **"443:443/https"**.
+
+> [!NOTE]
+> The /http and /https Ports section syntax is specific to Service Fabric to register the correct Service Fabric listener URL.  If the Docker compose file syntax is programmatically validated, it may cause a validation error.
 
 ## ServiceDnsName computation
 

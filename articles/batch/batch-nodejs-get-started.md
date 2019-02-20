@@ -16,13 +16,6 @@ ms.author: shwetams
 
 # Get started with Batch SDK for Node.js
 
-> [!div class="op_single_selector"]
-> * [.NET](batch-dotnet-get-started.md)
-> * [Python](batch-python-tutorial.md)
-> * [Node.js](batch-nodejs-get-started.md)
->
->
-
 Learn the basics of building a Batch client in Node.js using [Azure Batch Node.js SDK](/javascript/api/overview/azure/batch). We take a step by step approach of understanding a scenario for a batch application and then setting it up using a Node.js client.  
 
 ## Prerequisites
@@ -38,7 +31,7 @@ The following diagram depicts how we can scale the Python script using Azure Bat
 
 ![Azure Batch Scenario](./media/batch-nodejs-get-started/BatchScenario.png)
 
-The node.js client deploys a batch job with a preparation task (explained in detail later) and a set of tasks depending on the number of containers in the storage account. You can download the scripts from the github repository.
+The node.js client deploys a batch job with a preparation task (explained in detail later) and a set of tasks depending on the number of containers in the storage account. You can download the scripts from the GitHub repository.
 
 * [Node.js client](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
 * [Preparation task shell scripts](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)

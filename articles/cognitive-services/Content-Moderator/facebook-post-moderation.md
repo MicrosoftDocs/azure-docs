@@ -1,19 +1,22 @@
 ---
-title: Facebook content moderation with Azure Content Moderator | Microsoft Docs
-description: Moderate Facebook pages with machine-learning based Content Moderator
+title: "Tutorial: Facebook content moderation - Azure Content Moderator"
+titlesuffix: Azure Cognitive Services
+description: In this tutorial, you will learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: content-moderator
-ms.topic: article
-ms.date: 09/18/2017
+ms.subservice: content-moderator
+ms.topic: tutorial
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
-# Facebook content moderation with Content Moderator
+# Tutorial: Facebook content moderation with Content Moderator
 
-In this tutorial, we learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
+In this tutorial, you will learn how to use machine-learning-based Content Moderator to help moderate Facebook posts and comments.
 
 The tutorial guides you through these steps:
 
@@ -29,7 +32,7 @@ The following figure shows the building blocks of the solution.
 
 ## Create a Content Moderator team
 
-Refer to the [Quickstart](quick-start.md) page to sign up for Content Moderator and create a team.
+Refer to the [Try Content Moderator on the web](quick-start.md) quickstart to sign up for Content Moderator and create a team.
 
 ## Configure image moderation workflow (threshold)
 
@@ -62,7 +65,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
 | App Setting | Description   | 
 | -------------------- |-------------|
 | cm:TeamId   | Your Content Moderator TeamId  | 
-| cm:SubscriptionKey | Your Content Moderator subscription key - See [Credentials](/review-tool-user-guide/credentials.md) | 
+| cm:SubscriptionKey | Your Content Moderator subscription key - See [Credentials](review-tool-user-guide/credentials.md) | 
 | cm:Region | Your Content Moderator region name, without the spaces. See preceding note. |
 | cm:ImageWorkflow | Name of the workflow to run on Images |
 | cm:TextWorkflow | Name of the workflow to run on Text |
@@ -80,7 +83,7 @@ Sign in to the [Azure Management Portal](https://portal.azure.com/) to create yo
     6. Click **Create**.
     7. Replace the contents of the **run.csx** with the contents from [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx).
 
-6. Create a new **HttpTrigger-CSharp** function named **CMListener**. This function receives events from Facebook. Follow these steps to create this function.
+6. Create a new **HttpTrigger-CSharp** function named **CMListener**. This function receives events from Content Moderator. Follow these steps to create this function.
 
     1. Keep the [Azure Functions Creation](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) page open for reference.
     2. Click the **+** add to create new function.
@@ -147,14 +150,10 @@ The solution sends all images and text posted on your Facebook page to Content M
 
 All Microsoft Cognitive Services SDKs and samples are licensed with the MIT License. For more details, see [LICENSE](https://microsoft.mit-license.org/).
 
-## Developer Code of Conduct
-
-Developers using Cognitive Services, including this client library & sample, are expected to follow the “Developer Code of Conduct for Microsoft Cognitive Services”, found at http://go.microsoft.com/fwlink/?LinkId=698895.
-
 ## Next steps
 
 1. [Watch a demo (video)](https://channel9.msdn.com/Events/Build/2017/T6033) of this solution from Microsoft Build 2017.
-1. [The Facebook sample on Github](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
+1. [The Facebook sample on GitHub](https://github.com/MicrosoftContentModerator/samples-fbPageModeration)
 1. https://docs.microsoft.com/azure/azure-functions/functions-create-github-webhook-triggered-function
 2. http://ukimiawz.github.io/facebook/2015/08/12/webhook-facebook-subscriptions/
 3. http://stackoverflow.com/questions/17197970/facebook-permanent-page-access-token

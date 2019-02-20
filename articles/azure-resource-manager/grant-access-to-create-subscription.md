@@ -2,8 +2,8 @@
 title: Grant access to create Azure Enterprise subscriptions| Microsoft Docs
 description: Learn how to give a user or service principal the ability to programmatically create Azure Enterprise subscriptions.
 services: azure-resource-manager
-author: jlian
-manager: jlian
+author: adpick
+manager: adpick
 editor: ''
 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
-ms.author: jlian
+ms.author: adpick
 ---
 
 # Grant access to create Azure Enterprise subscriptions (preview)
 
-As an Azure customer on [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), you can give another user or service principal permission to create subscriptions billed to your account. In this article, you learn how to use [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) to share the ability to create subscriptions, and how to audit subscription creations.
+As an Azure customer on [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), you can give another user or service principal permission to create subscriptions billed to your account. In this article, you learn how to use [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md) to share the ability to create subscriptions, and how to audit subscription creations. You must have the Owner role on the account you wish to share.
 
 To create a subscription, see [Programmatically create Azure Enterprise subscriptions (preview)](programmatically-create-subscription.md).
 
@@ -38,6 +38,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   }
 }
 ```
+
 When the Owner role is successfully assigned at the enrollment account scope, Azure responds with information of the role assignment:
 
 ```json
@@ -59,10 +60,12 @@ When the Owner role is successfully assigned at the enrollment account scope, Az
 
 # [PowerShell](#tab/azure-powershell)
 
-Use the [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) to give another user Owner access to your enrollment account.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Use the [New-AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) to give another user Owner access to your enrollment account.
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 # [Azure CLI](#tab/azure-cli)

@@ -1,19 +1,13 @@
-﻿---
+---
 title: Using Azure PowerShell with Azure Storage | Microsoft Docs
 description: Learn how to use the Azure PowerShell cmdlets for Azure Storage.
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-
-ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 08/16/2018
 ms.author: rogarana
+ms.subservice: common
 ---
 
 # Using Azure PowerShell with Azure Storage
@@ -35,7 +29,9 @@ This article provides links to several other PowerShell articles for Storage, su
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-This exercise requires the Azure PowerShell module version 4.4 or later. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+This exercise requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). 
 
 For this exercise, you can type the commands into a regular PowerShell window, or you can use the [Windows PowerShell Integrated Scripting Environment (ISE)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-) and type the commands into an editor, then test one or more commands at a time as you go through the examples. You can highlight the rows you want to execute and click Run Selected to just run those commands.
 
@@ -43,18 +39,18 @@ For more information about storage accounts, see [Introduction to Storage](stora
 
 ## Log in to Azure
 
-Log in to your Azure subscription with the `Connect-AzureRmAccount` command and follow the on-screen directions.
+Log in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ## List the storage accounts in the subscription
 
-Run the [Get-AzureRMStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount) cmdlet to retrieve the list of storage accounts in the current subscription. 
+Run the [Get-AzStorageAccount](/powershell/module/az.storage/Get-azStorageAccount) cmdlet to retrieve the list of storage accounts in the current subscription. 
 
 ```powershell
-Get-AzureRMStorageAccount | Select StorageAccountName, Location
+Get-AzStorageAccount | Select StorageAccountName, Location
 ```
 
 ## Get a reference to a storage account
@@ -63,13 +59,13 @@ Next, you need a reference to a storage account. You can either create a new sto
 
 ### Use an existing storage account 
 
-To retrieve an existing storage account, you need the name of the resource group and the name of the storage account. Set the variables for those two fields, then use the [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount) cmdlet. 
+To retrieve an existing storage account, you need the name of the resource group and the name of the storage account. Set the variables for those two fields, then use the [Get-AzStorageAccount](/powershell/module/az.storage/Get-azStorageAccount) cmdlet. 
 
 ```powershell
 $resourceGroup = "myexistingresourcegroup"
 $storageAccountName = "myexistingstorageaccount"
 
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName 
 ```
 
@@ -77,23 +73,23 @@ Now you have $storageAccount, which points to an existing storage account.
 
 ### Create a storage account 
 
-The following script shows how to create a general-purpose storage account using [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). After you create the account, retrieve its context, which can be used in subsequent commands rather than specifying the authentication with each call.
+The following script shows how to create a general-purpose storage account using [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount). After you create the account, retrieve its context, which can be used in subsequent commands rather than specifying the authentication with each call.
 
 ```powershell
 # Get list of locations and select one.
-Get-AzureRmLocation | select Location 
+Get-AzLocation | select Location 
 $location = "eastus"
 
 # Create a new resource group.
 $resourceGroup = "teststoragerg"
-New-AzureRmResourceGroup -Name $resourceGroup -Location $location 
+New-AzResourceGroup -Name $resourceGroup -Location $location 
 
 # Set the name of the storage account and the SKU name. 
 $storageAccountName = "testpshstorage"
 $skuName = "Standard_LRS"
     
 # Create the storage account.
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
+$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
   -SkuName $skuName
@@ -104,11 +100,11 @@ $ctx = $storageAccount.Context
 
 The script uses the following PowerShell cmdlets: 
 
-*   [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) -- retrieves a list of the valid locations. The example uses `eastus` for location.
+*   [Get-AzLocation](/powershell/module/az.resources/get-azlocation) -- retrieves a list of the valid locations. The example uses `eastus` for location.
 
-*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) -- creates a new resource group. A resource group is a logical container into which your Azure resources are deployed and managed. Ours is called `teststoragerg`. 
+*   [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) -- creates a new resource group. A resource group is a logical container into which your Azure resources are deployed and managed. Ours is called `teststoragerg`. 
 
-*   [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) -- creates the storage account. The example uses `testpshstorage`.
+*   [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) -- creates the storage account. The example uses `testpshstorage`.
 
 The SKU name indicates the type of replication for the storage account, such as LRS (Locally Redundant Storage). For more information about replication, see [Azure Storage Replication](storage-redundancy.md).
 
@@ -124,7 +120,7 @@ Now that you have a reference to a new storage account or an existing storage ac
 
 ### Storage account properties
 
-To change the settings for a storage account, use [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount). While you can't change the location of a storage account, or the resource group in which it resides, you can change many of the other properties. The following lists some of the properties you can change using PowerShell.
+To change the settings for a storage account, use [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount). While you can't change the location of a storage account, or the resource group in which it resides, you can change many of the other properties. The following lists some of the properties you can change using PowerShell.
 
 * The **custom domain** assigned to the storage account.
 
@@ -138,19 +134,19 @@ To change the settings for a storage account, use [Set-AzureRmStorageAccount](/p
 
 ### Manage the access keys
 
-An Azure Storage account comes with two account keys. To retrieve the keys, use [Get-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/Get-AzureRmStorageAccountKey). This example retrieves the first key. To retrieve the other one, use `Value[1]` instead of `Value[0]`.
+An Azure Storage account comes with two account keys. To retrieve the keys, use [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey). This example retrieves the first key. To retrieve the other one, use `Value[1]` instead of `Value[0]`.
 
 ```powershell
 $storageAccountKey = `
-    (Get-AzureRmStorageAccountKey `
+    (Get-AzStorageAccountKey `
     -ResourceGroupName $resourceGroup `
     -Name $storageAccountName).Value[0]
 ```
 
-To regenerate the key, use [New-AzureRmStorageAccountKey](/powershell/module/AzureRM.Storage/New-AzureRmStorageAccountKey). 
+To regenerate the key, use [New-AzStorageAccountKey](/powershell/module/az.Storage/New-azStorageAccountKey). 
 
 ```powershell
-New-AzureRmStorageAccountKey -ResourceGroupName $resourceGroup `
+New-AzStorageAccountKey -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -KeyName key1 
 ```
@@ -160,15 +156,15 @@ To regenerate the other key, use `key2` as the key  name instead of `key1`.
 Regenerate one of your keys and then retrieve it again to see the new value.
 
 > [!NOTE] 
-> You should perform careful planning before regenerating the key for a production storage account. Regenerating one or both keys will invalidate the access for any application using the key that was regenerated. For more information, please see [Regenerate storage access keys](storage-create-storage-account.md#regenerate-storage-access-keys).
+> You should perform careful planning before regenerating the key for a production storage account. Regenerating one or both keys will invalidate the access for any application using the key that was regenerated. For more information, see [Access keys](storage-account-manage.md#access-keys).
 
 
 ### Delete a storage account 
 
-To delete a storage account, use [Remove-AzureRmStorageAccount](/powershell/module/azurerm.storage/Remove-AzureRmStorageAccount).
+To delete a storage account, use [Remove-AzStorageAccount](/powershell/module/az.storage/Remove-azStorageAccount).
 
 ```powershell
-Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
+Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccountName
 ```
 
 > [!IMPORTANT]
@@ -180,9 +176,9 @@ Remove-AzureRmStorageAccount -ResourceGroup $resourceGroup -AccountName $storage
 By default, all storage accounts are accessible by any network that has access to the internet. However, you can configure network rules to only allow applications from specific virtual networks to access a storage account. For more information, see [Configure Azure Storage Firewalls and Virtual Networks](storage-network-security.md). 
 
 The article shows how to manage these settings using the following PowerShell cmdlets:
-* [Add-AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
-* [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
-* [Remove-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
+* [Add-AzStorageAccountNetworkRule](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
+* [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
+* [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
 
 ## Use storage analytics  
 
@@ -200,7 +196,7 @@ You can configure monitoring using the [Azure portal](https://portal.azure.com),
 
 * To learn how to enable and view Storage Metrics data using PowerShell, see [Enabling Azure Storage metrics and viewing metrics data](storage-enable-and-view-metrics.md#how-to-enable-metrics-using-powershell).
 
-* To learn how to enable and retrieve Storage Logging data using PowerShell, see [How to enable Storage Logging using PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#how-to-enable-storage-logging-using-powershell) and [Finding your Storage Logging log data](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data#finding-your-storage-logging-log-data).
+* To learn how to enable and retrieve Storage Logging data using PowerShell, see [How to enable Storage Logging using PowerShell](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data) and [Finding your Storage Logging log data](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data).
 
 * For detailed information on using Storage Metrics and Storage Logging to troubleshoot storage issues, see [Monitoring, Diagnosing, and Troubleshooting Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
@@ -216,7 +212,6 @@ Now that you understand how to manage your storage account with PowerShell, you 
 Azure Cosmos DB Table API provides premium features for table storage such as turnkey global distribution, low latency reads and writes, automatic secondary indexing, and dedicated throughput. 
 
 * For more information, see [Azure Cosmos DB Table API](../../cosmos-db/table-introduction.md). 
-* To learn how to use PowerShell to perform Azure Cosmos DB Table API operations, see [Perform Azure Cosmos DB Table API operations with PowerShell](../../cosmos-db/table-powershell.md).
 
 ## Independent cloud deployments of Azure
 
@@ -233,7 +228,7 @@ For information about how to access these clouds and their storage with PowerShe
 If you created a new resource group and a storage account for this exercise, yous can remove all of the assets you created by removing the resource group. This also deletes all resources contained within the group. In this case, it removes the storage account created and the resource group itself.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 ## Next steps
 
@@ -250,6 +245,6 @@ This how-to article covers common operations using the management plane cmdlets 
 
 This article also provided references to several other articles, such as how to manage the data objects, how to enable the Storage Analytics, and how to access the Azure independent clouds such as China Cloud, German Cloud, and Government Cloud. Here are some more related articles and resources for reference:
 
-* [Azure Storage control plane PowerShell cmdlets](/powershell/module/AzureRM.Storage/)
+* [Azure Storage control plane PowerShell cmdlets](/powershell/module/az.storage/)
 * [Azure Storage data plane PowerShell cmdlets](/powershell/module/azure.storage/)
 * [Windows PowerShell Reference](https://msdn.microsoft.com/library/ms714469.aspx)

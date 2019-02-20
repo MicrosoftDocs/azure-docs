@@ -4,15 +4,16 @@ description: This document provides guidance around using Azure MFA with Azure a
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
-ms.topic: article
-ms.date: 06/15/2017
+ms.subservice: authentication
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
+manager: daveba
+ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Security guidance for using Azure Multi-Factor Authentication with Azure AD accounts
 
@@ -104,5 +105,5 @@ Use this list for additional considerations and guidance for each component that
 While this article highlights some best practices for Azure MFA, there are other resources that you can also use while planning your MFA deployment. The list below has some key articles that can assist you during this process:
 
 * [Reports in Azure Multi-Factor Authentication](howto-mfa-reporting.md)
-* [The two-step verification registration experience](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
+* [The two-step verification registration experience](../user-help/multi-factor-authentication-end-user-first-time.md)
 * [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)

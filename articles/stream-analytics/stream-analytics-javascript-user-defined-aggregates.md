@@ -2,16 +2,16 @@
 title: JavaScript user-defined aggregates in Azure Stream Analytics
 description: This article describes how to perform advanced query mechanics with JavaScript user-defined aggregates in Azure Stream Analytics.
 services: stream-analytics
-author: minhe-msft
-ms.author: minhe
-manager: santoshb
-ms.reviewer: jasonh
+author: rodrigoamicrosoft
+ms.author: rodrigoa
+manager: kfile
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ---
 # Azure Stream Analytics JavaScript user-defined aggregates (Preview)
-
+ 
 Azure Stream Analytics supports user-defined aggregates (UDA) written in JavaScript, it enables you to implement complex stateful business logic. Within UDA you have full control of the state data structure, state accumulation, state decumulation, and aggregate result computation. The article introduces the two different JavaScript UDA interfaces, steps to create a UDA, and how to use UDA with window-based operations in Stream Analytics query.
 
 ## JavaScript user-defined aggregates
@@ -22,7 +22,7 @@ A user-defined aggregate is used on top of a time window specification to aggreg
 
 AccumulateOnly aggregates can only accumulate new events to its state, the algorithm does not allow deaccumulation of values. Choose this aggregate type when deaccumulate an event information from the state value is impossible to implement. Following is the JavaScript template for AccumulatOnly aggregates:
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can only be accumulated.
 function main() {
     this.init = function () {
@@ -37,13 +37,13 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ### AccumulateDeaccumulate aggregates
 
 AccumulateDeaccumulate aggregates allow deaccumulation of a previous accumulated value from the state, for example, remove a key-value pair from a list of event values, or subtract a value from a state of sum aggregate. Following is the JavaScript template for AccumulateDeaccumulate aggregates:
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can be accumulated and deaccumulated.
 function main() {
     this.init = function () {
@@ -66,7 +66,7 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ## UDA - JavaScript function declaration
 
@@ -74,7 +74,7 @@ Each JavaScript UDA is defined by a Function object declaration. Following are t
 
 ### Function alias
 
-Function alias is the UDA identifier. When called in Stream Analytics query, always use UDA alias together with a “uda.” prefix.
+Function alias is the UDA identifier. When called in Stream Analytics query, always use UDA alias together with a "uda." prefix.
 
 ### Function type
 
@@ -123,7 +123,7 @@ Now let’s create a JavaScript UDA under an existing ASA job by following steps
 1. On the New Function view, select **JavaScript UDA** as the Function Type, then you see a default UDA template show up in the editor.
 1. Fill in "TWA" as the UDA alias and change the function implementation as the following:
 
-    ````JavaScript
+    ```JavaScript
     // Sample UDA which calculate Time-Weighted Average of incoming values.
     function main() {
         this.init = function () {
@@ -161,17 +161,17 @@ Now let’s create a JavaScript UDA under an existing ASA job by following steps
             return result;
         }
     }
-    ````
+    ```
 
-1. Once you click the “Save” button, your UDA shows up on the function list.
+1. Once you click the "Save" button, your UDA shows up on the function list.
 
-1. Click on the new function “TWA”, you can check the function definition.
+1. Click on the new function "TWA", you can check the function definition.
 
 ## Calling JavaScript UDA in ASA query
 
-In Azure portal and open your job, edit the query and call TWA() function with a mandate prefix “uda.”. For example:
+In Azure portal and open your job, edit the query and call TWA() function with a mandate prefix "uda.". For example:
 
-````SQL
+```SQL
 WITH value AS
 (
     SELECT
@@ -185,13 +185,13 @@ SELECT
     uda.TWA(value) as NoseDoseTWA
 FROM value
 GROUP BY TumblingWindow(minute, 5)
-````
+```
 
 ## Testing query with UDA
 
 Create a local JSON file with below content, upload the file to Stream Analytics job, and test above query.
 
-````JSON
+```JSON
 [
   {"EntryTime": "2017-06-10T05:01:00-07:00", "NoiseLevelDB": 80, "DurationSecond": 22.0},
   {"EntryTime": "2017-06-10T05:02:00-07:00", "NoiseLevelDB": 81, "DurationSecond": 37.8},
@@ -217,7 +217,7 @@ Create a local JSON file with below content, upload the file to Stream Analytics
   {"EntryTime": "2017-06-10T05:20:00-07:00", "NoiseLevelDB": 113, "DurationSecond": 25.1},
   {"EntryTime": "2017-06-10T05:22:00-07:00", "NoiseLevelDB": 110, "DurationSecond": 5.3}
 ]
-````
+```
 
 ## Get help
 

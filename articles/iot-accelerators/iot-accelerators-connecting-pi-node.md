@@ -14,7 +14,9 @@ ms.author: dobett
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-This tutorial shows you how to connect a physical device to the Remote Monitoring solution accelerator. In this tutorial, you use Node.js, which is a good option for environments with minimal resource constraints.
+This tutorial shows you how to connect a real device to the Remote Monitoring solution accelerator. In this tutorial, you use Node.js, which is a good option for environments with minimal resource constraints.
+
+If you prefer to simulate a device, see [Create and test a new simulated device](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 ### Required hardware
 
@@ -31,7 +33,7 @@ A desktop computer to enable you to connect remotely to the command line on the 
 
 You need SSH client on your desktop machine to enable you to remotely access the command line on the Raspberry Pi.
 
-- Windows does not include an SSH client. We recommend using [PuTTY](http://www.putty.org/).
+- Windows does not include an SSH client. We recommend using [PuTTY](https://www.putty.org/).
 - Most Linux distributions and Mac OS include the command-line SSH utility. For more information, see [SSH Using Linux or Mac OS](https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md).
 
 ### Required Raspberry Pi software
@@ -58,7 +60,7 @@ If you haven't done so already, install Node.js version 4.0.0 or later on your R
 
     ```sh
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
-    sudo apt-get install nodejs -y
+    sudo apt-get install nodejs npm
     ```
 
 1. Use the following command to verify you have installed Node.js v6.11.4 successfully:
@@ -82,32 +84,29 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
 1. To download and install the packages you need to complete the sample app, run the following commands:
 
     ```sh
-    npm init
-    npm install async azure-iot-device azure-iot-device-mqtt --save
+    npm install async azure-iot-device azure-iot-device-mqtt
     ```
 
 1. In the `remotemonitoring` folder, create a file called **remote_monitoring.js**. Open this file in a text editor. On the Raspberry Pi, you can use the `nano` or `vi` text editors.
 
 1. In the **remote_monitoring.js** file, add the following `require` statements:
 
-    ```nodejs
+    ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     var Client = require('azure-iot-device').Client;
-    var ConnectionString = require('azure-iot-device').ConnectionString;
     var Message = require('azure-iot-device').Message;
     var async = require('async');
     ```
 
 1. Add the following variable declarations after the `require` statements. Replace the placeholder value `{device connection string}` with value you noted for the device you provisioned in the Remote Monitoring solution:
 
-    ```nodejs
+    ```javascript
     var connectionString = '{device connection string}';
-    var deviceId = ConnectionString.parse(connectionString).DeviceId;
     ```
 
 1. To define some base telemetry data, add the following variables:
 
-    ```nodejs
+    ```javascript
     var temperature = 50;
     var temperatureUnit = 'F';
     var humidity = 50;
@@ -118,12 +117,9 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
 
 1. To define some property values, add the following variables:
 
-    ```nodejs
-    var temperatureSchema = 'chiller-temperature;v1';
-    var humiditySchema = 'chiller-humidity;v1';
-    var pressureSchema = 'chiller-pressure;v1';
-    var interval = "00:00:05";
-    var deviceType = "Chiller";
+    ```javascript
+    var schema = "real-chiller;v1";
+    var deviceType = "RealChiller";
     var deviceFirmware = "1.0.0";
     var deviceFirmwareUpdateStatus = "";
     var deviceLocation = "Building 44";
@@ -132,49 +128,13 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
     var deviceOnline = true;
     ```
 
-1. Add the following variable to define the reported properties to send to the solution. These properties include metadata to describe the methods and telemetry the device uses:
+1. Add the following variable to define the reported properties to send to the solution. These properties include metadata to display in the Web UI:
 
-    ```nodejs
+    ```javascript
     var reportedProperties = {
-      "Protocol": "MQTT",
       "SupportedMethods": "Reboot,FirmwareUpdate,EmergencyValveRelease,IncreasePressure",
       "Telemetry": {
-        "TemperatureSchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"temperature\":${temperature},\"temperature_unit\":\"${temperature_unit}\"}",
-          "MessageSchema": {
-            "Name": temperatureSchema,
-            "Format": "JSON",
-            "Fields": {
-              "temperature": "Double",
-              "temperature_unit": "Text"
-            }
-          }
-        },
-        "HumiditySchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"humidity\":${humidity},\"humidity_unit\":\"${humidity_unit}\"}",
-          "MessageSchema": {
-            "Name": humiditySchema,
-            "Format": "JSON",
-            "Fields": {
-              "humidity": "Double",
-              "humidity_unit": "Text"
-            }
-          }
-        },
-        "PressureSchema": {
-          "Interval": interval,
-          "MessageTemplate": "{\"pressure\":${pressure},\"pressure_unit\":\"${pressure_unit}\"}",
-          "MessageSchema": {
-            "Name": pressureSchema,
-            "Format": "JSON",
-            "Fields": {
-              "pressure": "Double",
-              "pressure_unit": "Text"
-            }
-          }
-        }
+        [schema]: ""
       },
       "Type": deviceType,
       "Firmware": deviceFirmware,
@@ -188,7 +148,7 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
 
 1. To print operation results, add the following helper function:
 
-    ```nodejs
+    ```javascript
     function printErrorFor(op) {
         return function printError(err) {
             if (err) console.log(op + ' error: ' + err.toString());
@@ -198,7 +158,7 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
 
 1. Add the following helper function to use to randomize the telemetry values:
 
-    ```nodejs
+    ```javascript
     function generateRandomIncrement() {
         return ((Math.random() * 2) - 1);
     }
@@ -206,7 +166,7 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
 
 1. Add the following generic function to handle direct method calls from the solution. The function displays information about the direct method that was invoked, but in this sample does not modify the device in any way. The solution uses direct methods to act on devices:
 
-    ```nodejs
+    ```javascript
     function onDirectMethod(request, response) {
       // Implement logic asynchronously here.
       console.log('Simulated ' + request.methodName);
@@ -221,7 +181,7 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
 
 1. Add the following function to handle the **FirmwareUpdate** direct method calls from the solution. The function verifies the parameters passed in the direct method payload and then asynchronously runs a firmware update simulation:
 
-    ```node.js
+    ```javascript
     function onFirmwareUpdate(request, response) {
       // Get the requested firmware version from the JSON request body
       var firmwareVersion = request.payload.Firmware;
@@ -250,7 +210,7 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
 
 1. Add the following function to simulate a long-running firmware update flow that reports progress back to the solution:
 
-    ```node.js
+    ```javascript
     // Simulated firmwareUpdate flow
     function runFirmwareUpdateFlow(firmwareVersion, firmwareUri) {
       console.log('Simulating firmware update flow...');
@@ -328,15 +288,14 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
 
 1. Add the following code to send telemetry data to the solution. The client app adds properties to the message to identify the message schema:
 
-    ```node.js
+    ```javascript
     function sendTelemetry(data, schema) {
       if (deviceOnline) {
         var d = new Date();
         var payload = JSON.stringify(data);
         var message = new Message(payload);
-        message.properties.add('$$CreationTimeUtc', d.toISOString());
-        message.properties.add('$$MessageSchema', schema);
-        message.properties.add('$$ContentType', 'JSON');
+        message.properties.add('iothub-creation-time-utc', d.toISOString());
+        message.properties.add('iothub-message-schema', schema);
 
         console.log('Sending device message data:\n' + payload);
         client.sendEvent(message, printErrorFor('send event'));
@@ -348,7 +307,7 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
 
 1. Add the following code to create a client instance:
 
-    ```nodejs
+    ```javascript
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
 
@@ -360,7 +319,7 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
     * Register handlers for the direct methods. The sample uses a separate handler for the firmware update direct method.
     * Start sending telemetry.
 
-    ```nodejs
+    ```javascript
     client.open(function (err) {
       if (err) {
         printErrorFor('open')(err);
@@ -394,31 +353,19 @@ Complete the following steps using the `ssh` connection to your Raspberry Pi:
         });
 
         // Start sending telemetry
-        var sendTemperatureInterval = setInterval(function () {
+        var sendDeviceTelemetry = setInterval(function () {
           temperature += generateRandomIncrement();
-          var data = {
-            'temperature': temperature,
-            'temperature_unit': temperatureUnit
-          };
-          sendTelemetry(data, temperatureSchema)
-        }, 5000);
-
-        var sendHumidityInterval = setInterval(function () {
+          pressure += generateRandomIncrement();
           humidity += generateRandomIncrement();
           var data = {
+            'temperature': temperature,
+            'temperature_unit': temperatureUnit,
             'humidity': humidity,
-            'humidity_unit': humidityUnit
-          };
-          sendTelemetry(data, humiditySchema)
-        }, 5000);
-
-        var sendPressureInterval = setInterval(function () {
-          pressure += generateRandomIncrement();
-          var data = {
+            'humidity_unit': humidityUnit,
             'pressure': pressure,
             'pressure_unit': pressureUnit
           };
-          sendTelemetry(data, pressureSchema)
+          sendTelemetry(data, schema)
         }, 5000);
 
         client.on('error', function (err) {

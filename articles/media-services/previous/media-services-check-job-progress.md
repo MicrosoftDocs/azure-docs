@@ -4,7 +4,7 @@ description: Learn how to use event handler code to track job progress and send 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: ee720ed6-8ce5-4434-b6d6-4df71fca224e
@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 02/08/2019
 ms.author: juliako
 
 ---
-# Monitor Job Progress using .NET
+
+# Monitor Job Progress using .NET 
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)

@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -195,7 +195,7 @@ ms.custom: H1Hack27Feb2017
 > ![Windows][Logo_Windows] Windows
 >
 
-In September 2016, Microsoft released a feature where you can manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview]. This functionality already exists in the Azure external load balancer.
+You can manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview]. 
 
 If you have an SAP deployment, you can use an internal load balancer to create a Windows cluster configuration for SAP Central Services (ASCS/SCS) instances.
 
@@ -209,8 +209,10 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 >
 >The maximum number of SAP ASCS/SCS instances in one WSFC cluster is equal to the maximum number of private front-end IPs for each Azure internal load balancer.
 >
+> The configuration introduced in this documentation is not yet supported to be used for [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview)
+> 
 
-For more information about load-balancer limits, see the "Private front-end IP per load balancer" section in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager].
+For more information about load-balancer limits, see the "Private front-end IP per load balancer" section in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager]. Also consider using the [Azure Standard Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) instead of the basic SKU of the Azure load balancer.
 
 ## Prerequisites
 
@@ -223,6 +225,7 @@ _**Figure 1:** An SAP ASCS/SCS instance and SOFS deployed in two clusters_
 > [!IMPORTANT]
 > The setup must meet the following conditions:
 > * The SAP ASCS/SCS instances must share the same WSFC cluster.
+> * Different SAP Global Hosts file shares belonging to different SAP SIDs must share the same SOFS cluster.
 > * Each database management system (DBMS) SID must have its own dedicated WSFC cluster.
 > * SAP application servers that belong to one SAP system SID must have their own dedicated VMs.
 

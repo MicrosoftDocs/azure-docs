@@ -28,8 +28,10 @@ Cloud-init also works across distributions. For example, you don't use **apt-get
 
  We are actively working with our endorsed Linux distro partners in order to have cloud-init enabled images available in the Azure marketplace. These images will make your cloud-init deployments and configurations work seamlessly with VMs and VM Scale Sets (VMSS). The following table outlines the current cloud-init enabled images availability on the Azure platform:
 
-| Publisher | Offer | SKU | Version | cloud-init ready
-|:--- |:--- |:--- |:--- |:--- |:--- |
+| Publisher | Offer | SKU | Version | cloud-init ready |
+|:--- |:--- |:--- |:--- |:--- |
+|Canonical |UbuntuServer |18.04-LTS |latest |yes | 
+|Canonical |UbuntuServer |17.10 |latest |yes | 
 |Canonical |UbuntuServer |16.04-LTS |latest |yes | 
 |Canonical |UbuntuServer |14.04.5-LTS |latest |yes |
 |CoreOS |CoreOS |Stable |latest |yes |
@@ -48,7 +50,7 @@ WALA configurations of VMs are time-constrained to work within the maximum VM pr
 ## Deploying a cloud-init enabled Virtual Machine
 Deploying a cloud-init enabled virtual machine is as simple as referencing a cloud-init enabled distribution during deployment.  Linux distribution maintainers have to choose to enable and integrate cloud-init into their base Azure published images. Once you have confirmed the image you want to deploy is cloud-init enabled, you can use the Azure CLI to deploy the image. 
 
-The first step in deploying this image is to create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
+The first step in deploying this image is to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. 
 
 The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
@@ -65,7 +67,7 @@ packages:
 ```
 Press `ctrl-X` to exit the file, type `y` to save the file and press `enter` to confirm the file name on exit.
 
-The final step is to create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command. 
+The final step is to create a VM with the [az vm create](/cli/azure/vm) command. 
 
 The following example creates a VM named *centos74* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. The following example creates a VM named *centos74*:
 

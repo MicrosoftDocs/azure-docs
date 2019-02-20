@@ -3,8 +3,8 @@ title: Improve performance by compressing files in Azure CDN | Microsoft Docs
 description: Learn how to improve file transfer speed and increase page-load performance by compressing your files in Azure CDN.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
@@ -13,8 +13,8 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
-ms.author: v-deasim
+ms.date: 09/13/2018
+ms.author: magattus
 
 ---
 # Improve performance by compressing files in Azure CDN
@@ -62,6 +62,10 @@ The standard and premium CDN tiers provide the same compression functionality, b
    > [!TIP]
    > Although it is possible, it is not recommended to apply compression to compressed formats. For example, ZIP, MP3, MP4, or JPG.
    > 
+   
+   > [!NOTE]
+   > Modifying the default list of MIME types is currently not supported in Azure CDN Standard from Microsoft.
+   > 
  
 5. After making your changes, select **Save**.
 
@@ -94,13 +98,16 @@ The standard and premium CDN tiers provide the same compression functionality, b
 
 ### Azure CDN Standard from Microsoft profiles
 
-For **Azure CDN Standard from Microsoft** profiles, all files are eligible for compression. However, a file must be of a MIME type that has been [configured for compression](#enabling-compression).
+For **Azure CDN Standard from Microsoft** profiles, only eligible files are compressed. To be eligible for compression, a file must:
+-Be of a MIME type that has been [configured for compression](#enabling-compression).
+-Be larger than 1 KB
+-Be smaller than 8 MB
 
 These profiles support the following compression encodings:
 - gzip (GNU zip)
 - brotli 
  
-If the request supports more than one compression type, those compression types take precedence over brotli compression.
+If the request supports more than one compression type, brotli compression takes precedence.
 
 When a request for an asset specifies gzip compression and the request results in a cache miss, Azure CDN performs gzip compression of the asset directly on the POP server. Afterward, the compressed file is served  from the cache.
 

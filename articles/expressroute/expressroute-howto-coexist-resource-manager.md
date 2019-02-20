@@ -1,36 +1,34 @@
 ---
-title: 'Configure ExpressRoute and Site-to-Site VPN connections that can coexist: Resource Manager: Azure | Microsoft Docs'
-description: This article walks you through configuring ExpressRoute and a Site-to-Site VPN connection that can coexist for Resource Manager model.
-documentationcenter: na
+title: 'Configure ExpressRoute and Site-to-Site VPN connections - coexist: PowerShell: Azure | Microsoft Docs'
+description: Configure ExpressRoute and a Site-to-Site VPN connection that can coexist for the Resource Manager model using PowerShell.
 services: expressroute
 author: charwen
-manager: rossort
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: c7717b14-3da3-4a6d-b78e-a5020766bc2c
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/05/2018
-ms.author: charwen,cherylmc
+ms.topic: conceptual
+ms.date: 01/07/2019
+ms.author: charwen
+ms.custom: seodec18
 
 ---
-# Configure ExpressRoute and Site-to-Site coexisting connections
+# Configure ExpressRoute and Site-to-Site coexisting connections using PowerShell
 > [!div class="op_single_selector"]
 > * [PowerShell - Resource Manager](expressroute-howto-coexist-resource-manager.md)
 > * [PowerShell - Classic](expressroute-howto-coexist-classic.md)
 > 
 > 
 
+
+This article helps you configure ExpressRoute and Site-to-Site VPN connections that coexist. Having the ability to configure Site-to-Site VPN and ExpressRoute has several advantages. You can configure Site-to-Site VPN as a secure failover path for ExpressRoute, or use Site-to-Site VPNs to connect to sites that are not connected through ExpressRoute. We will cover the steps to configure both scenarios in this article. This article applies to the Resource Manager deployment model.
+
 Configuring Site-to-Site VPN and ExpressRoute coexisting connections has several advantages:
 
 * You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute. 
 * Alternatively, you can use Site-to-Site VPNs to connect to sites that are not connected through ExpressRoute. 
 
-The steps to configure both scenarios are covered in this article. This article applies to the Resource Manager deployment model and uses PowerShell. This configuration is not available in the Azure portal.
+The steps to configure both scenarios are covered in this article. This article applies to the Resource Manager deployment model and uses PowerShell. You can also configure these scenarios using the Azure portal, although documentation is not yet available. You can configure either gateway first. Typically, you will incur no downtime when adding a new gateway or gateway connection.
+
+
 
 >[!NOTE]
 >If you want to create a Site-to-Site VPN over an ExpressRoute circuit, please see [this article](site-to-site-vpn-over-microsoft-peering.md).
@@ -41,6 +39,7 @@ The steps to configure both scenarios are covered in this article. This article 
 * **Basic SKU gateway is not supported.** You must use a non-Basic SKU gateway for both the [ExpressRoute gateway](expressroute-about-virtual-network-gateways.md) and the [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Only route-based VPN gateway is supported.** You must use a route-based [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 * **Static route should be configured for your VPN gateway.** If your local network is connected to both ExpressRoute and a Site-to-Site VPN, you must have a static route configured in your local network to route the Site-to-Site VPN connection to the public Internet.
+* **VPN Gateway defaults to ASN 65515 if not specified.** Azure VPN Gateway supports the BGP routing protocol. You can specify ASN (AS Number) for a virtual network by adding the -Asn switch. If you don't specify this parameter, the default AS number is 65515. You can use any ASN for the configuration, but if you select something other than 65515, you must reset the gateway for the setting to take effect.
 
 ## Configuration designs
 ### Configure a Site-to-Site VPN as a failover path for ExpressRoute
@@ -71,23 +70,23 @@ There are two different sets of procedures to choose from. The configuration pro
     If you don’t already have a virtual network, this procedure walks you through creating a new virtual network using Resource Manager deployment model and creating new ExpressRoute and Site-to-Site VPN connections. To configure a virtual network, follow the steps in [To create a new virtual network and coexisting connections](#new).
 * I already have a Resource Manager deployment model VNet.
   
-    You may already have a virtual network in place with an existing Site-to-Site VPN connection or ExpressRoute connection. In this scenario if the gateway subnet mask is /28 or bigger, you have to delete the existing gateway. The [To configure coexisting connections for an already existing VNet](#add) section walks you through deleting the gateway, and then creating new ExpressRoute and Site-to-Site VPN connections.
+    You may already have a virtual network in place with an existing Site-to-Site VPN connection or ExpressRoute connection. In this scenario if the gateway subnet mask is /28 or smaller (/28, /29, etc.), you have to delete the existing gateway. The [To configure coexisting connections for an already existing VNet](#add) section walks you through deleting the gateway, and then creating new ExpressRoute and Site-to-Site VPN connections.
   
     If you delete and recreate your gateway, you will have downtime for your cross-premises connections. However, your VMs and services will still be able to communicate out through the load balancer while you configure your gateway if they are configured to do so.
 
 ## <a name="new"></a>To create a new virtual network and coexisting connections
 This procedure walks you through creating a VNet and Site-to-Site and ExpressRoute connections that will coexist.
 
-1. Install the latest version of the Azure PowerShell cmdlets. For information about installing the cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). The cmdlets that you use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions.
+1. Install the latest version of the Azure PowerShell cmdlets. For information about installing the cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/azurerm/overview). The cmdlets that you use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions.
 
-2. Log in to your account and set up the environment.
+1. Sign in to your account and set up the environment.
 
   ```powershell
   Connect-AzureRmAccount
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "Central US"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
-  $VNetASN = 65010
+  $VNetASN = 65515
   ```
 3. Create a virtual network including Gateway Subnet. For more information about creating a virtual network, see [Create a virtual network](../virtual-network/manage-virtual-network.md#create-a-virtual-network). For more information about creating subnets, see [Create a subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)
    
@@ -179,14 +178,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
   ```
 
 ## <a name="add"></a>To configure coexisting connections for an already existing VNet
-If you have an existing virtual network, check the gateway subnet size. If the gateway subnet is /28 or /29, you have to first delete the virtual network gateway and increase the gateway subnet size. The steps in this section show you how to do that.
-
-If the gateway subnet is /27 or larger and the virtual network is connected via ExpressRoute, you can skip the steps below and proceed to ["Step 4 - Create a Site-to-Site VPN gateway"](#vpngw) in the previous section. 
-
-> [!NOTE]
-> When you delete the existing gateway, your local premises will lose the connection to your virtual network while you are working on this configuration. 
-> 
-> 
+If you have a virtual network that has only one virtual network gateway (let's say, Site-to-Site VPN gateway) and you want to add another gateway of a different type (let's say, ExpressRoute gateway), check the gateway subnet size. If the gateway subnet is /27 or larger, you can skip the steps below and follow the steps in the previous section to add either a Site-to-Site VPN gateway or an ExpressRoute gateway. If the gateway subnet is /28 or /29, you have to first delete the virtual network gateway and increase the gateway subnet size. The steps in this section show you how to do that.
 
 1. You'll need to install the latest version of the Azure PowerShell cmdlets. For more information about installing cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). The cmdlets that you use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions. 
 2. Delete the existing ExpressRoute or Site-to-Site VPN gateway.
@@ -216,10 +208,10 @@ If the gateway subnet is /27 or larger and the virtual network is connected via 
   ```powershell
   $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-5. At this point, you have a VNet with no gateways. To create new gateways and complete your connections, you can proceed with [Step 4 - Create a Site-to-Site VPN gateway"](#vpngw), found in the preceding set of steps.
+5. At this point, you have a virtual network with no gateways. To create new gateways and set up the connections, follow the steps in the previous section.
 
 ## To add point-to-site configuration to the VPN gateway
-You can follow the steps below to add Point-to-Site configuration to your VPN gateway in a co-existence setup.
+You can follow the steps below to add Point-to-Site configuration to your VPN gateway in a coexistence setup.
 
 1. Add VPN Client address pool.
 
@@ -234,7 +226,8 @@ You can follow the steps below to add Point-to-Site configuration to your VPN ga
   $p2sCertMatchName = "RootErVpnCoexP2S" 
   $p2sCertToUpload=get-childitem Cert:\CurrentUser\My | Where-Object {$_.Subject -match $p2sCertMatchName} 
   if ($p2sCertToUpload.count -eq 1){write-host "cert found"} else {write-host "cert not found" exit} 
-  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
+  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
+  Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
   ```
 
 For more information on Point-to-Site VPN, see [Configure a Point-to-Site connection](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md).

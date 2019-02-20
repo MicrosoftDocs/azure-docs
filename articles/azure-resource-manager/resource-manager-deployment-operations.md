@@ -5,8 +5,6 @@ services: azure-resource-manager,virtual-machines
 documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
 ms.assetid: 
 ms.service: azure-resource-manager
@@ -14,17 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
-ms.date: 04/23/2018
+ms.date: 09/28/2018
 ms.author: tomfitz
 
 ---
 # View deployment operations with Azure Resource Manager
 
-You can view the operations for a deployment through the Azure portal. You may be most interested in viewing the operations when you have received an error during deployment so this article focuses on viewing operations that have failed. The portal provides an interface that enables you to easily find the errors and determine potential fixes.
+You can view the operations for a deployment through the Azure portal. You may be most interested in viewing the operations when you've received an error during deployment so this article focuses on viewing operations that have failed. The portal provides an interface that enables you to easily find the errors and determine potential fixes.
 
 You can troubleshoot your deployment by looking at either the audit logs, or the deployment operations. This article shows both methods. For help with resolving particular deployment errors, see [Resolve common errors when deploying resources to Azure with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Portal
+
 To see the deployment operations, use the following steps:
 
 1. For the resource group involved in the deployment, notice the status of the last deployment. You can select this status to get more details.
@@ -33,7 +34,7 @@ To see the deployment operations, use the following steps:
 2. You see the recent deployment history. Select the deployment that failed.
    
     ![deployment status](./media/resource-manager-deployment-operations/select-deployment.png)
-3. Select the link to see a description of why the deployment failed. In the image below, the DNS record is not unique.  
+3. Select the link to see a description of why the deployment failed. In the image below, the DNS record isn't unique.  
    
     ![view failed deployment](./media/resource-manager-deployment-operations/view-error.png)
    
@@ -51,22 +52,28 @@ To see the deployment operations, use the following steps:
     ![see events](./media/resource-manager-deployment-operations/see-all-events.png)
 
 ## PowerShell
-1. To get the overall status of a deployment, use the **Get-AzureRmResourceGroupDeployment** command. 
+1. To get the overall status of a deployment, use the **Get-AzResourceGroupDeployment** command. 
 
   ```powershell
-  Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup
+  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
   ```
 
    Or, you can filter the results for only those deployments that have failed.
 
   ```powershell
-  Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
+  Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
-2. Each deployment includes multiple operations. Each operation represents a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the deployment operations. You can see the status of the operations with **Get-AzureRmResourceGroupDeploymentOperation**.
+2. To get the correlation ID, use:
+
+  ```powershell
+  (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+  ```
+
+3. Each deployment includes multiple operations. Each operation represents a step in the deployment process. To discover what went wrong with a deployment, you usually need to see details about the deployment operations. You can see the status of the operations with **Get-AzResourceGroupDeploymentOperation**.
 
   ```powershell 
-  Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
+  Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
   ```
 
     Which returns multiple operations with each one in the following format:
@@ -81,10 +88,10 @@ To see the deployment operations, use the following steps:
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
   ```
 
-3. To get more details about failed operations, retrieve the properties for operations with **Failed** state.
+4. To get more details about failed operations, retrieve the properties for operations with **Failed** state.
 
   ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
   ```
    
     Which returns all the failed operations with each one in the following format:
@@ -104,10 +111,10 @@ To see the deployment operations, use the following steps:
   ```
 
     Note the serviceRequestId and the trackingId for the operation. The serviceRequestId can be helpful when working with technical support to troubleshoot a deployment. You will use the trackingId in the next step to focus on a particular operation.
-4. To get the status message of a particular failed operation, use the following command:
+5. To get the status message of a particular failed operation, use the following command:
 
   ```powershell
-  ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
+  ((Get-AzResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
   ```
 
     Which returns:
@@ -117,14 +124,14 @@ To see the deployment operations, use the following steps:
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-4. Every deployment operation in Azure includes request and response content. The request content is what you sent to Azure during deployment (for example, create a VM, OS disk, and other resources). The response content is what Azure sent back from your deployment request. During deployment, you can use **DeploymentDebugLogLevel** parameter to specify that the request and/or response are retained in the log. 
+6. Every deployment operation in Azure includes request and response content. The request content is what you sent to Azure during deployment (for example, create a VM, OS disk, and other resources). The response content is what Azure sent back from your deployment request. During deployment, you can use **DeploymentDebugLogLevel** parameter to specify that the request and/or response are retained in the log. 
 
   You get that information from the log, and save it locally by using the following PowerShell commands:
 
   ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.request | ConvertTo-Json |  Out-File -FilePath <PathToFile>
 
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
+  (Get-AzResourceGroupDeploymentOperation -DeploymentName "TestDeployment" -ResourceGroupName "Test-RG").Properties.response | ConvertTo-Json |  Out-File -FilePath <PathToFile>
   ```
 
 ## Azure CLI
@@ -135,13 +142,13 @@ To see the deployment operations, use the following steps:
   az group deployment show -g ExampleGroup -n ExampleDeployment
   ```
   
-1. One of the returned values is the **correlationId**. This value is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment.
+2. One of the returned values is the **correlationId**. This value is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment.
 
   ```azurecli
   az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
   ```
 
-1. To see the operations for a deployment, use:
+3. To see the operations for a deployment, use:
 
   ```azurecli
   az group deployment operation list -g ExampleGroup -n ExampleDeployment
@@ -149,7 +156,7 @@ To see the deployment operations, use the following steps:
 
 ## REST
 
-1. Get information about a deployment with the [Get information about a template deployment](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_Get) operation.
+1. Get information about a deployment with the [Get information about a template deployment](https://docs.microsoft.com/rest/api/resources/deployments) operation.
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -165,14 +172,14 @@ To see the deployment operations, use the following steps:
       "correlationId":"d5062e45-6e9f-4fd3-a0a0-6b2c56b15757",
       ...
       "error":{
-        "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see http://aka.ms/arm-debug for usage details.",
+        "code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.",
         "details":[{"code":"Conflict","message":"{\r\n  \"error\": {\r\n    \"message\": \"Conflict\",\r\n    \"code\": \"Conflict\"\r\n  }\r\n}"}]
       }  
     }
   }
   ```
 
-2. Get information about deployments with [List all template deployment operations](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_List). 
+2. Get information about deployments with [List all template deployment operations](https://docs.microsoft.com/rest/api/resources/deployments). 
 
   ```http
   GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

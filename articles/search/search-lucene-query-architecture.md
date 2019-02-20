@@ -1,5 +1,5 @@
 ---
-title: Full text search engine (Lucene) architecture in Azure Search | Microsoft Docs
+title: Full text search engine (Lucene) architecture - Azure Search
 description: Explanation of Lucene query processing and document retrieval concepts for full text search, as related to Azure Search.
 manager: jlembicz
 author: yahnoosh
@@ -9,6 +9,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
+ms.custom: seodec2018
 ---
 
 # How full text search works in Azure Search
@@ -180,7 +181,7 @@ The standard analyzer breaks the input text into the following two tokens, annot
 
 ### Exceptions to lexical analysis 
 
-Lexical analysis applies only to query types that require complete terms – either a term query or a phrase query. It doesn’t apply to query types with incomplete terms – prefix query, wildcard query, regex query – or to a fuzzy query. Those query types, including the prefix query with term *air-condition\** in our example, are added directly to the query tree, bypassing the analysis stage. The only transformation performed on query terms of those types is lowercasing.
+Lexical analysis applies only to query types that require complete terms – either a term query or a phrase query. It doesn’t apply to query types with incomplete terms – prefix query, wildcard query, regex query – or to a fuzzy query. Those query types, including the prefix query with term `air-condition*` in our example, are added directly to the query tree, bypassing the analysis stage. The only transformation performed on query terms of those types is lowercasing.
 
 <a name="stage3"></a>
 
@@ -379,7 +380,7 @@ This article explored full text search in the context of Azure Search. We hope i
 
 + Build the sample index, try out different queries and review results. For instructions, see [Build and query an index in the portal](search-get-started-portal.md#query-index).
 
-+ Try additional query syntax from the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples) example section or from [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in the portal.
++ Try additional query syntax from the [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) example section or from [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Search explorer in the portal.
 
 + Review [scoring profiles](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) if you want to tune ranking in your search application.
 
@@ -387,7 +388,7 @@ This article explored full text search in the context of Azure Search. We hope i
 
 + [Configure custom analyzers](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) for either minimal processing or specialized processing on specific fields.
 
-+ [Compare standard and English analyzers](http://alice.unearth.ai/)) side by side on this demo web site. 
++ [Compare standard and English analyzers](https://alice.unearth.ai/)) side by side on this demo web site. 
 
 ## See also
 

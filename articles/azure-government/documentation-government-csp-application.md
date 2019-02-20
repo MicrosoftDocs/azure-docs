@@ -60,7 +60,7 @@ The application process includes:
  * Estimation of potential revenue
  * Company validation via Dun and Bradstreet
  * Email Verification
- * Accepting [Terms and Conditions](http://download.microsoft.com/download/2/C/8/2C8CAC17-FCE7-4F51-9556-4D77C7022DF5/MCA2017_NAOC_USGCC_ENG_Sep20172_CR.pdf)
+ * Accepting [Terms and Conditions](https://download.microsoft.com/download/2/C/8/2C8CAC17-FCE7-4F51-9556-4D77C7022DF5/MCA2017_NAOC_USGCC_ENG_Sep20172_CR.pdf)
 
 After the validation has been completed and terms have been signed, you are Ready to Transact. At this point, you can create customers, spin up resources, and  get billed as per regular CSP Terms. To learn more about CSP Billing, you can visit [this](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-billing-overview) page.
 
@@ -69,7 +69,7 @@ After the validation has been completed and terms have been signed, you are Read
  * Once you are a CSP and have an MPN ID, you can review all incentives by signing up and reviewing the [Partner Incentives](https://partner.microsoft.com/membership/partner-incentives) page.
  * All agreements for end customers and partners  in the CSP program are located on the [CSP Resources](https://msdn.microsoft.com/partner-center/csp-documents-and-learning-resources) page. The customer agreement to be flown down is the MCA or [Microsoft Cloud Agreement](https://msdn.microsoft.com/partner-center/agreements). 
  * A list of the Azure Services can be found on the [Azure Services Availability on CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services) page.
- * To learn about the most frequently asked questions related to the US Government CSP Program, visit the [FAQ](https://partnercenter.microsoft.com/partner/frequently-asked-questions-about-government-cloud) page.
+ * To learn about the most frequently asked questions related to the US Government CSP Program, visit the [FAQ](https://docs.microsoft.com/partner-center/faq-for-us-govt-cloud) page.
  * If you are still unclear about CSP or are looking to apply for the commercial side of the program, review the [CSP Programs for Commercial](https://partnercenter.microsoft.com/partner/cloud-solution-provider), once you have elected a program that suits your business needs, apply for the one that meets your profile. 
 
 ## Next steps

@@ -23,7 +23,7 @@ ms.author: kumud
 Disaster recovery focuses on recovering from a severe loss of application functionality. In order to choose a disaster recovery solution, business and technology owners must first determine the level of functionality that is required during a disaster, such as - unavailable, partially available via reduced functionality, or delayed availability, or fully available.
 Most enterprise customers are choosing a multi-region architecture for resiliency against an application or infrastructure level failover. Customers can choose several approaches in the quest to achieve failover and high availability via redundant architecture. Here are some of the popular approaches:
 
-- **Active-passive with cold standby**: In this failover solution, the VMs and other appliances that running in the standby region are not active until there is a need for failover. However, the production environment is replicated in the form of backups, VM images, or Resource Manager templates, to a different region. This failover mechanism is cost-effective but takes a longer time to undertake a complete failover.
+- **Active-passive with cold standby**: In this failover solution, the VMs and other appliances that are running in the standby region are not active until there is a need for failover. However, the production environment is replicated in the form of backups, VM images, or Resource Manager templates, to a different region. This failover mechanism is cost-effective but takes a longer time to undertake a complete failover.
  
     ![Active/Passive with cold standby](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
     
@@ -55,7 +55,7 @@ DNS is one of the most efficient mechanisms to divert network traffic because DN
 
 It is important to understand few concepts in DNS that are extensively used to discuss the solutions provided in this article:
 - **DNS A Record** – A Records are pointers that point a domain to a IPv4 address. 
-- **CNAME or Canonical name** - This record type is used to point to another DNS record. CNAME doesn’t respond with an IP response but rather the pointer to the record that contains the IP address. 
+- **CNAME or Canonical name** - This record type is used to point to another DNS record. CNAME doesn’t respond with an IP address but rather the pointer to the record that contains the IP address. 
 - **Weighted Routing** – one can choose to associate a weight to service endpoints and then distribute the traffic based on the assigned weights. This routing method is one of the four traffic routing mechanisms available within Traffic Manager. For more information, see [Weighted routing method](../traffic-manager/traffic-manager-routing-methods.md#weighted).
 - **Priority Routing** – Priority routing is based on health checks of endpoints. By default, Azure Traffic manager sends all traffic to the highest priority endpoint, and upon a failure or disaster, Traffic Manager routes the traffic to the secondary endpoint. For more information, see [Priority routing method](../traffic-manager/traffic-manager-routing-methods.md#priority).
 

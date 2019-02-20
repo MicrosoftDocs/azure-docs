@@ -3,14 +3,14 @@ title: REST API claims exchanges as an orchestration step in Azure Active Direct
 description: A topic on Azure Active Directory B2C custom policies that integrate with an API.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step
@@ -93,6 +93,7 @@ A technical profile is the full configuration of the exchange desired with the R
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==</Item>
                 <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
                 <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="email" />
@@ -242,7 +243,7 @@ If everything is set up correctly, the token will include the new claim `city`, 
   "exp": 1493053292,
   "nbf": 1493049692,
   "ver": "1.0",
-  "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
   "sub": "a58e7c6c-7535-4074-93da-b0023fbaf3ac",
   "aud": "4e87c1dd-e5f5-4ac8-8368-bc6a98751b8b",
   "acr": "b2c_1a_trustframeworkprofileedit",

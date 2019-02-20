@@ -3,19 +3,19 @@ title: 'Azure Active Directory Domain Services: Deploy Azure Active Directory Ap
 description: Use Azure AD Application Proxy on Azure Active Directory Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
-manager: mtillman
+author: eringreenlee
+manager: daveba
 editor: curtand
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
-ms.component: domains
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/15/2017
-ms.author: maheshu
+ms.topic: conceptual
+ms.date: 06/22/2018
+ms.author: ergreenl
 
 ---
 
@@ -25,6 +25,7 @@ Azure Active Directory (AD) Application Proxy helps you support remote workers b
 If you're new to the Azure AD Application Proxy, learn more about this feature with the following article:
 [How to provide secure remote access to on-premises applications](../active-directory/manage-apps/application-proxy.md).
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## Before you begin
 To perform the tasks listed in this article, you need:
@@ -39,7 +40,7 @@ To perform the tasks listed in this article, you need:
 ## Task 1 - Enable Azure AD Application Proxy for your Azure AD directory
 Perform the following steps to enable the Azure AD Application Proxy for your Azure AD directory.
 
-1. Sign in as an administrator in the [Azure portal](http://portal.azure.com).
+1. Sign in as an administrator in the [Azure portal](https://portal.azure.com).
 
 2. Click **Azure Active Directory** to bring up the directory overview. Click **Enterprise applications**.
 

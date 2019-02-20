@@ -3,10 +3,10 @@ title: Analyze your workload - Azure SQL Data Warehouse | Microsoft Docs
 description: Techniques for analyzing query prioritization for your workload in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan

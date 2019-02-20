@@ -3,7 +3,7 @@ title: Design and implement an Oracle database on Azure | Microsoft Docs
 description: Design and implement an Oracle database in your Azure environment.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: v-shiuma
+author: romitgirdhar
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -13,10 +13,9 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 6/22/2017
-ms.author: rclaus
+ms.date: 08/02/2018
+ms.author: rogirdh
 ---
-
 
 # Design and implement an Oracle database in Azure
 
@@ -155,8 +154,6 @@ Keep in mind that not all available disks are shown in the drop-down menu. After
 
 ![Screenshot of the managed disk page](./media/oracle-design/premium_disk01.png)
 
-For more information, see [High-performance Premium Storage and managed disks for VMs](https://docs.microsoft.com/azure/storage/storage-premium-storage).
-
 After you configure your storage on a VM, you might want to load test the disks before creating a database. Knowing the I/O rate in terms of both latency and throughput can help you determine if the VMs support the expected throughput with latency targets.
 
 There are a number of tools for application load testing, such as Oracle Orion, Sysbench, and Fio.
@@ -196,8 +193,6 @@ There are three options for host caching:
 **Recommendations**
 
 To maximize the throughput, we recommend that you  start with **None** for host caching. For Premium Storage, keep in mind that you must disable the "barriers" when you mount the file system with the **ReadOnly** or **None** options. Update the /etc/fstab file with the UUID to the disks.
-
-For more information, see [Premium Storage for Linux VMs](https://docs.microsoft.com/azure/storage/storage-premium-storage#premium-storage-for-linux-vms).
 
 ![Screenshot of the managed disk page](./media/oracle-design/premium_disk02.png)
 

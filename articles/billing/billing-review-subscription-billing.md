@@ -1,10 +1,10 @@
 ---
-title: Review subscription billing data with REST API | Microsoft Docs
+title: Review Azure subscription billing data with REST API | Microsoft Docs
 description: Learn how to use Azure REST APIs to review subscription billing details.
 services: billing
 documentationcenter: na
 author: lleonard-msft
-manager: MBaldwin
+manager: 
 editor: ''
 
 ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: alleonar
+ms.author: erikre
 
 # As an administrator or developer, I want to use REST APIs to review subscription billing data for a specified period.
 

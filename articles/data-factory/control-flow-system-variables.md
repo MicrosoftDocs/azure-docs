@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
@@ -18,10 +18,6 @@ ms.author: shlo
 ---
 # System variables supported by Azure Data Factory
 This article describes system variables supported by Azure Data Factory. You can use these variables in expressions when defining Data Factory entities.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [functions and variables in Data Factory version 1](v1/data-factory-functions-variables.md).
-
 
 ## Pipeline scope
 These system variables can be referenced anywhere in the pipeline JSON.

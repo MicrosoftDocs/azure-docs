@@ -1,19 +1,17 @@
 ---
-title: Azure PowerShell Samples | Microsoft Docs
+title: Azure PowerShell Samples
+titlesuffix: Azure Load Balancer
 description: Azure PowerShell Samples
 services: virtual-network
 documentationcenter: load-balancer
 author: KumudD
-manager: jeconnoc
-editor: tysonn
-tags:
-ms.assetid:
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: infrastructure
-ms.date: 04/17/2018
+ms.date: 12/10/2018
 ms.author: kumud
 
 ---

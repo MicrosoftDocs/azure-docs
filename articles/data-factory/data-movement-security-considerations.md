@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
@@ -19,13 +19,11 @@ ms.author: abnarain
 
 #  Security considerations for data movement in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-data-movement-security-considerations.md)
-> * [Version 2 - Preview](data-movement-security-considerations.md)
+>
+> * [Version 1](v1/data-factory-data-movement-security-considerations.md)
+> * [Current version](data-movement-security-considerations.md)
 
 This article describes basic security infrastructure that data movement services in Azure Data Factory use to help secure your data. Data Factory management resources are built on Azure security infrastructure and use all possible security measures offered by Azure.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you're using version 1 of the Data Factory service, which is generally available (GA), see [Data movement security considerations for Data Factory version 1](v1/data-factory-data-movement-security-considerations.md).
 
 In a Data Factory solution, you create one or more data [pipelines](concepts-pipelines-activities.md). A pipeline is a logical grouping of activities that together perform a task. These pipelines reside in the region where the data factory was created. 
 
@@ -33,13 +31,19 @@ Even though Data Factory is only available in few regions, the data movement ser
 
 Azure Data Factory does not store any data except for linked service credentials for cloud data stores, which are encrypted by using certificates. With Data Factory, you create data-driven workflows to orchestrate movement of data between [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats), and processing of data by using [compute services](compute-linked-services.md) in other regions or in an on-premises environment. You can also monitor and manage workflows by using SDKs and Azure Monitor.
 
-Data movement by using Data Factory has been certified for:
--	[HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA) 
--	[ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
--	[ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
--	[CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+Data Factory has been certified for:
+| **[CSA STAR Certification](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
+| :----------------------------------------------------------- |
+| **[ISO 20000-1:2011](https://www.microsoft.com/trustcenter/Compliance/ISO-20000-1)** |
+| **[ISO 22301:2012](https://www.microsoft.com/trustcenter/compliance/iso-22301)** |
+| **[ISO 27001:2013](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001)** |
+| **[ISO 27017:2015](https://www.microsoft.com/trustcenter/compliance/iso-iec-27017)** |
+| **[ISO 27018:2014](https://www.microsoft.com/trustcenter/compliance/iso-iec-27018)** |
+| **[ISO 9001:2015](https://www.microsoft.com/trustcenter/compliance/iso-9001)** |
+| **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
+| **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-If you're interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
+If you're interested in Azure compliance and how Azure secures its own infrastructure, visit the [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). For the latest list of all Azure Compliance offerings check -  http://aka.ms/AzureCompliance.
 
 In this article, we review security considerations in the following two data movement scenarios: 
 
@@ -54,10 +58,18 @@ In this article, we review security considerations in the following two data mov
 - **Store credentials in Azure Key Vault**. You can also store the data store's credential in [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory retrieves the credential during the execution of an activity. For more information, see [Store credential in Azure Key Vault](store-credentials-in-key-vault.md).
 
 ### Data encryption in transit
-If the cloud data store supports HTTPS or TLS, all data transfers between data movement services in Data Factory and a cloud data store are via secure channel HTTPS or TLS.
+If the cloud data store supports HTTPS or TLS, all data transfers between data movement services in Data Factory and a cloud data store are via secure channel HTTPS or TLS .
 
 > [!NOTE]
 > All connections to Azure SQL Database and Azure SQL Data Warehouse require encryption (SSL/TLS) while data is in transit to and from the database. When you're authoring a pipeline by using JSON, add the encryption property and set it to **true** in the connection string. For Azure Storage, you can use **HTTPS** in the connection string.
+
+> [!NOTE]
+> To enable encryption in transit while moving data from Oracle follow one of the below options:
+> 1. In Oracle server, go to Oracle Advanced Security (OAS) and configure the encryption settings, which supports Triple-DES Encryption (3DES) and Advanced Encryption Standard (AES), refer [here](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759) for details. ADF automatically negotiates the encryption method to use the one you configure in OAS when establishing connection to Oracle.
+> 2. In ADF, you can add EncryptionMethod=1 in the connection string (in the Linked Service). This will use SSL/TLS as the encryption method. To use this, you need to disable non-SSL encryption settings in OAS on the Oracle server side to avoid encryption conflict.
+
+> [!NOTE]
+> TLS version used is 1.2.
 
 ### Data encryption at rest
 Some data stores support encryption of data at rest. We recommend that you enable the data encryption mechanism for those data stores. 
@@ -144,8 +156,9 @@ The following table provides outbound port and domain requirements for corporate
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.servicebus.windows.net`    | 443            | Required by the self-hosted integration runtime to connect to data movement services in Data Factory. |
-| `*.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to the Azure storage account when you use the [staged copy](copy-activity-performance.md#staged-copy) feature. |
 | `*.frontend.clouddatahub.net` | 443            | Required by the self-hosted integration runtime to connect to the Data Factory service. |
+| `download.microsoft.com`    | 443            | Required by the self-hosted integration runtime for downloading the updates. If you have disabled auto-update then you may skip this. |
+| `*.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to the Azure storage account when you use the [staged copy](copy-activity-performance.md#staged-copy) feature. |
 | `*.database.windows.net`      | 1433           | (Optional) Required when you copy from or to Azure SQL Database or Azure SQL Data Warehouse. Use the staged copy feature to copy data to Azure SQL Database or Azure SQL Data Warehouse without opening port 1433. |
 | `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Optional) Required when you copy from or to  Azure Data Lake Store. |
 
@@ -158,7 +171,7 @@ The following table provides inbound port requirements for Windows Firewall:
 | ------------- | ---------------------------------------- |
 | 8050 (TCP)    | Required by the PowerShell encryption cmdlet as described in [Encrypt credentials for on-premises data stores in Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md), and by the credential manager application to securely set credentials for on-premises data stores on the self-hosted integration runtime. |
 
-![Gateway port requirements](media\data-movement-security-considerations/gateway-port-requirements.png) 
+![Gateway port requirements](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
 #### IP configurations and whitelisting in data stores
 Some data stores in the cloud also require that you whitelist the IP address of the machine accessing the store. Ensure that the IP address of the self-hosted integration runtime machine is whitelisted or configured in the firewall appropriately.
@@ -179,7 +192,7 @@ We do not support this feature yet. We are actively working on it.
 
 **What are the port requirements for the self-hosted integration runtime to work?**
 
-The self-hosted integration runtime makes HTTP-based connections to access the internet. The outbound ports 443 and 80 must be opened for the self-hosted integration runtime to make this connection. Open inbound port 8050 only at the machine level (not the corporate firewall level) for credential manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as the source or the destination, you need to open port 1433 as well. For more information, see the [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of-gateway) section. 
+The self-hosted integration runtime makes HTTP-based connections to access the internet. The outbound ports 443 must be opened for the self-hosted integration runtime to make this connection. Open inbound port 8050 only at the machine level (not the corporate firewall level) for credential manager application. If Azure SQL Database or Azure SQL Data Warehouse is used as the source or the destination, you need to open port 1433 as well. For more information, see the [Firewall configurations and whitelisting IP addresses](#firewall-configurations-and-whitelisting-ip-address-of-gateway) section. 
 
 
 ## Next steps

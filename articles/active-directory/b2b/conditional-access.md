@@ -4,15 +4,16 @@ description: Azure Active Directory B2B collaboration supports multi-factor auth
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
-ms.topic: article
+ms.subservice: B2B
+ms.topic: conceptual
 ms.date: 09/11/2017
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Conditional access for B2B collaboration users

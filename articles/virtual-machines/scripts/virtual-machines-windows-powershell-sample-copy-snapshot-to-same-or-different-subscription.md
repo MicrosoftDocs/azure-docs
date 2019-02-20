@@ -20,11 +20,13 @@ ms.author: ramankum
 
 # Copy snapshot of a managed disk in same subscription or different subscription with PowerShell
 
-This script creates a copy of a snapshot in the same same subscription or different subscription. Use this script to move a snapshot to different subscription for data retention. Storing snapshots in different subscription protect you from accidental deletion of snapshots in your main subscription. 
+This script creates a copy of a snapshot in the same subscription or different subscription. Use this script to move a snapshot to different subscription for data retention. Storing snapshots in different subscription protect you from accidental deletion of snapshots in your main subscription. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## Sample script
 
@@ -37,8 +39,8 @@ This script uses following commands to create a snapshot in the target subscript
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmSnapshotConfig](/powershell/module/azurerm.compute/New-AzureRmSnapshotConfig) | Creates snapshot configuration that is used for snapshot creation. It includes the resource Id of the parent snapshot and location that is same as the parent snapshot.  |
-| [New-AzureRmSnapshot](/powershell/module/azurerm.compute/New-AzureRmDisk) | Creates a snapshot using snapshot configuration, snapshot name, and resource group name passed as parameters. |
+| [New-AzSnapshotConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzSnapshotConfig) | Creates snapshot configuration that is used for snapshot creation. It includes the resource Id of the parent snapshot and location that is same as the parent snapshot.  |
+| [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | Creates a snapshot using snapshot configuration, snapshot name, and resource group name passed as parameters. |
 
 
 ## Next steps

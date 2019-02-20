@@ -4,15 +4,16 @@ description: This is the Azure Multi-Factor authentication page that describes h
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
-ms.topic: get-started-article
-ms.date: 08/25/2017
+ms.subservice: authentication
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
+manager: daveba
+ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Getting started with Azure Multi-Factor Authentication and Active Directory Federation Services
 

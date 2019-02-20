@@ -20,15 +20,15 @@ ms.author: jingwang
 This article describes how to invoke an SSIS package from an Azure Data Factory pipeline by using a stored procedure activity. 
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available. If you are using version 2 of the Data Factory service, which is in Public Preview, see [Invoke SSIS packages using stored procedure activity in version 2](../how-to-invoke-ssis-package-stored-procedure-activity.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Invoke SSIS packages using stored procedure activity in](../how-to-invoke-ssis-package-stored-procedure-activity.md).
 
 ## Prerequisites
 
 ### Azure SQL Database 
-The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Managed Instance (Preview).
+The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Database Managed Instance.
 
 ### Create an Azure-SSIS integration runtime
-Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](../tutorial-create-azure-ssis-runtime-portal.md). You must create a data factory of version 2 to create an Azure-SSIS integration runtime. 
+Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](../tutorial-create-azure-ssis-runtime-portal.md). You cannot use Data Factory version 1 to create an Azure-SSIS integration runtime. 
 
 ## Azure portal
 In this section you use the Azure portal to create a Data Factory pipeline with a stored procedure activity that invokes an SSIS package.
@@ -161,7 +161,7 @@ For more information about monitoring pipelines, see [Monitor and manage Azure D
 ## Azure PowerShell
 In this section you use Azure PowerShell to create a Data Factory pipeline with a stored procedure activity that invokes an SSIS package.
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ### Create a data factory
 The following procedure provides steps to create a data factory. You create a pipeline with a stored procedure activity in this data factory. The stored procedure activity executes a stored procedure in the SSISDB database to run your SSIS package.
@@ -232,7 +232,7 @@ Create a linked service to link your Azure SQL database that hosts the SSIS cata
 ### Create an output dataset
 This output dataset is a dummy dataset that drives the schedule of the pipeline. Notice that the frequency is set to Hour and interval is set to 1. Therefore, the pipeline runs once an hour within the pipeline start and end times. 
 
-1. Create an OuputDataset.json file with the following content: 
+1. Create an OutputDataset.json file with the following content: 
     
     ```json
     {

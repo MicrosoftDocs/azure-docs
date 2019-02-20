@@ -1,4 +1,4 @@
-﻿---
+---
 title: Route network traffic Azure PowerShell | Microsoft Docs
 description: In this article, learn how to route network traffic with a route table using PowerShell.
 services: virtual-network
@@ -36,7 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. 
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure. 
 
 ## Create a route table
 
@@ -244,7 +244,7 @@ New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 
 Though trace route is used to test routing in this article, allowing ICMP through the Windows Firewall for production deployments is not recommended.
 
-You enabled IP forwarding within Azure for the VM's network interface in [Enable IP fowarding](#enable-ip-forwarding). Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. Enable IP forwarding within the operating system of the *myVmNva*.
+You enabled IP forwarding within Azure for the VM's network interface in Enable IP forwarding. Within the VM, the operating system, or an application running within the VM, must also be able to forward network traffic. Enable IP forwarding within the operating system of the *myVmNva*.
 
 From a command prompt on the *myVmPrivate* VM, remote desktop to the *myVmNva*:
 

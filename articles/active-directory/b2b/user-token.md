@@ -4,15 +4,16 @@ description: User token reference for Azure Active Directory B2B collaboration
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
-ms.topic: article
+ms.subservice: B2B
+ms.topic: conceptual
 ms.date: 02/28/2018
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Understand user tokens in Azure AD B2B collaboration

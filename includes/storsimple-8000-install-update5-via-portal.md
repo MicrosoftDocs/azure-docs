@@ -1,4 +1,10 @@
-<!--author=alkohli last changed: 08/04/17-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 #### To install an update from the Azure portal
 

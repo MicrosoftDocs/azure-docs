@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/21/2018
+ms.date: 08/02/2018
 ms.author: alkohli
 ---
 # Introduction to the StorSimple Virtual Array
@@ -71,7 +71,7 @@ A summary of supported StorSimple workloads is tabulated below.
 
 |Scenario     |Workload     |Supported      |Restrictions               |
 |-------------|-------------|---------------|---------------------------|
-|ROBO  |File sharing     |Yes      |See [maximum limits for file server](storsimple-ova-limits.md).<br></br>See [system requirements for supported SMB versions](storsimple-ova-system-requirements.md).| All versions     |
+|Remote Office/Branch Office (ROBO)  |File sharing     |Yes      |See [maximum limits for file server](storsimple-ova-limits.md).<br></br>See [system requirements for supported SMB versions](storsimple-ova-system-requirements.md).| All versions     |
 |Cloud archiving  |Archival file sharing     |Yes      |See [maximum limits for file server](storsimple-ova-limits.md).<br></br>See [system requirements for supported SMB versions](storsimple-ova-system-requirements.md).| All versions     |
 
 The StorSimple Virtual Array is best suited for infrequently accessed data. While the virtual array has a local cache to boost performance, users should assume that the device services files at the lowest tier of storage (the cloud). Each virtual array can write and read to Azure storage at approximately 100 Mbps. That link is shared across all the requests coming into the device and can become a bottleneck as shown in the diagram below.
@@ -164,7 +164,7 @@ In addition to the virtual array and other components, the StorSimple solution u
 
 * [Automatic storage tiering](#automatic-storage-tiering) 
 * [Locally pinned shares and volumes](#locally-pinned-shares-and-volumes)
-* [Deduplication and compression for data tiered or backed up to the cloud](#deduplication-and-compression-for-data-tiered/backed-up-to-the-cloud) 
+* Deduplication and compression for data tiered or backed up to the cloud 
 * [Scheduled and on-demand backups](#scheduled-and-on-demand-backups)
 
 ### Automatic storage tiering

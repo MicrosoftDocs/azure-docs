@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps of creating a Channel tha
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 6f4acd95-cc64-4dd9-9e2d-8734707de326
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 02/10/2019
 ms.author: juliako
 
 ---
@@ -46,7 +46,7 @@ The following steps describe tasks involved in creating common live streaming ap
 >[!NOTE]
 >Make sure the streaming endpoint from which you want to stream content is in the **Running** state. 
 	
-1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that outputs a multi-bitrate RTMP or Fragmented MP4 stream. For more information, see [Azure Media Services RTMP Support and Live Encoders](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connect a video camera to a computer. Launch and configure an on-premises live encoder that outputs a multi-bitrate RTMP or Fragmented MP4 stream. For more information, see [Azure Media Services RTMP Support and Live Encoders](https://go.microsoft.com/fwlink/?LinkId=532824).
    
     This step could also be performed after you create your Channel.
 2. Create and start a pass-through Channel.

@@ -20,6 +20,8 @@ ms.author: apimpm
 # How to delegate user registration and product subscription
 Delegation allows you to use your existing website for handling developer sign-in/sign-up and subscription to products as opposed to using the built-in functionality in the developer portal. This enables your website to own the user data and perform the validation of these steps in a custom way.
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## <a name="delegate-signin-up"> </a>Delegating developer sign in and sign-up
 To delegate developer sign-in and sign-up to your existing website, you will need to create a special delegation endpoint on your site that acts as the entry-point for any such request initiated from the API Management developer portal.
 
@@ -171,7 +173,7 @@ For more information on delegation, see the following video:
 [Delegating product subscription]: #delegate-product-subscription
 [request a single-sign-on (SSO) token]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [create a user]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[calling the REST API for product subscription]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[calling the REST API for product subscription]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
 [example code provided below]: #delegate-example-code
 

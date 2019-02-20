@@ -1,4 +1,13 @@
-# Container Service frequently asked questions
+---
+author: dlepow
+ms.service: container-service
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+---
+# (DEPRECATED) Container Service frequently asked questions
+
+[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 ## Orchestrators
 
@@ -17,7 +26,7 @@ Currently Linux containers are supported with all orchestrators. Support for Win
 ### Do you recommend a specific orchestrator in Azure Container Service? 
 Generally we do not recommend a specific orchestrator. If you have experience with one of the supported orchestrators, you can apply that experience in Azure Container Service. Data trends suggest, however, that DC/OS is production proven for Big Data and IoT workloads, Kubernetes is suited for cloud-native workloads, and Docker Swarm is known for its integration with Docker tools and easy learning curve.
 
-Depending on your scenario, you can also build and manage custom container solutions with other Azure services. These services include [Virtual Machines](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Web Apps](../articles/app-service/app-service-web-overview.md), and [Batch](../articles/batch/batch-technical-overview.md).  
+Depending on your scenario, you can also build and manage custom container solutions with other Azure services. These services include [Virtual Machines](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Web Apps](../articles/app-service/overview.md), and [Batch](../articles/batch/batch-technical-overview.md).  
 
 ### What is the difference between Azure Container Service and ACS Engine? 
 Azure Container Service is an SLA-backed Azure service with features in the Azure portal, Azure command-line tools, and Azure APIs. The service enables you to quickly implement and manage clusters running standard container orchestration tools with a relatively small number of configuration choices. 
@@ -32,13 +41,13 @@ For additional details please refer to our [support policy for containers](https
 
 You can use standard tools on your operating system to create an SSH RSA public and private key pair for authentication against the Linux virtual machines for your cluster. For steps, see the [OS X and Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) or [Windows](../articles/virtual-machines/linux/ssh-from-windows.md) guidance. 
 
-If you use [Azure CLI 2.0 commands](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) to deploy a container service cluster, SSH keys can be automatically generated for your cluster.
+If you use [Azure CLI commands](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) to deploy a container service cluster, SSH keys can be automatically generated for your cluster.
 
 ### How do I create a service principal for my Kubernetes cluster?
 
 An Azure Active Directory service principal ID and password are also needed to create a Kubernetes cluster in Azure Container Service. For more information, see [About the service principal for a Kubernetes cluster](../articles/container-service/kubernetes/container-service-kubernetes-service-principal.md).
 
-If you use [Azure CLI 2.0 commands](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) to deploy a Kubernetes cluster, service principal credentials can be automatically generated for your cluster.
+If you use [Azure CLI commands](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) to deploy a Kubernetes cluster, service principal credentials can be automatically generated for your cluster.
 
 ### How large a cluster can I create?
 You can create a cluster with 1, 3, or 5 master nodes. You can choose up to 100 agent nodes.
@@ -64,13 +73,13 @@ You can find commonly used URLs for your cluster in the Azure portal, the Azure 
 
 ### How do I tell which orchestrator version is running in my cluster?
 
-* DC/OS: See the [Mesosphere documentation](https://support.mesosphere.com/hc/en-us/articles/207719793-How-to-get-the-DCOS-version-from-the-command-line-)
+* DC/OS: See the [Mesosphere documentation](https://docs.mesosphere.com/1.7/usage/cli/command-reference/)
 * Docker Swarm: Run `docker version`
 * Kubernetes: Run `kubectl version`
 
 ### How do I upgrade the orchestrator after deployment?
 
-Currently, Azure Container Service doesn't provide tools to upgrade the version of the orchestrator you deployed on your cluster. If Container Service supports a later version, you can deploy a new cluster. Another option is to use orchestrator-specific tools if they are available to upgrade a cluster in-place. For example, see [DC/OS Upgrading](https://dcos.io/docs/1.8/administration/upgrading/).
+Currently, Azure Container Service doesn't provide tools to upgrade the version of the orchestrator you deployed on your cluster. If Container Service supports a later version, you can deploy a new cluster. Another option is to use orchestrator-specific tools if they are available to upgrade a cluster in-place. For example, see [DC/OS Upgrading](http://docs.mesosphere.com/1.12/installing/production/upgrading).
  
 ### Where do I find the SSH connection string to my cluster?
 
@@ -105,4 +114,4 @@ There are some known DNS issues on Windows whose fixes are still actively being 
 ## Next steps
 
 * [Learn more](../articles/container-service/kubernetes/container-service-intro-kubernetes.md) about Azure Container Service.
-* Deploy a container service cluster using the [portal](../articles/container-service/dcos-swarm/container-service-deployment.md) or [Azure CLI 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).
+* Deploy a container service cluster using the [portal](../articles/container-service/dcos-swarm/container-service-deployment.md) or the [Azure CLI](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).

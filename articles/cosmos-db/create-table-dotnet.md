@@ -1,20 +1,23 @@
 ---
-title: 'Quickstart: Table API with .NET - Azure Cosmos DB | Microsoft Docs'
+title: 'Quickstart: Table API with .NET - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Table API to create an application with the Azure portal and .NET 
-services: cosmos-db
 author: SnehaGunda
-manager: kfile
-
 ms.service: cosmos-db
-ms.component: cosmosdb-table
-ms.custom: quickstart connect, mvc
+ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 08/17/2018
 ms.author: sngun
 
 ---
 # Quickstart: Build a Table API app with .NET and Azure Cosmos DB 
+
+> [!div class="op_single_selector"]
+> * [.NET](create-table-dotnet.md)
+> * [Java](create-table-java.md)
+> * [Node.js](create-table-nodejs.md)
+> * [Python](create-table-python.md)
+>  
 
 This quickstart shows how to use .NET and the Azure Cosmos DB [Table API](table-introduction.md) to build an app by cloning an example from GitHub. This quickstart also shows you how to create an Azure Cosmos DB account and how to use Data Explorer to create tables and entities in the web-based Azure portal.
 
@@ -77,7 +80,7 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. This enables your app to communicate with your hosted database. 
 
-1. In the [Azure portal](http://portal.azure.com/), click **Connection String**. 
+1. In the [Azure portal](https://portal.azure.com/), click **Connection String**. 
 
     Use the copy button on the right side of the window to copy the **PRIMARY CONNECTION STRING**.
 
@@ -113,7 +116,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 1. In Visual Studio, right-click on the **TableStorage** project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
    ![Manage NuGet Packages](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
-2. In the NuGet **Browse** box, type *Microsoft.Azure.CosmosDB.Table*. This will find the Cosmos DB Table API client library.
+2. In the NuGet **Browse** box, type *Microsoft.Azure.CosmosDB.Table*. This will find the Cosmos DB Table API client library. Note that this library is currently available for .NET Standard only, it's not yet available for .NET Core.
    
    ![NuGet Browse tab](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 

@@ -1,18 +1,22 @@
 ---
-title: Prebuilt domain reference | Microsoft Docs
+title: Prebuilt domain reference
+titleSuffix: Azure
 description: Reference for the prebuilt domains, which are prebuilt collections of intents and entities from Language Understanding Intelligent Services (LUIS).
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/13/2017
-ms.author: v-geberr
+ms.date: 12/07/2018
+ms.author: diberry
 ---
 
-# Prebuilt domain reference
-This reference provides information about the prebuilt domains, which are prebuilt collections of intents and entities that LUIS offers.
+# Prebuilt domain reference for your LUIS app
+This reference provides information about the [prebuilt domains](luis-how-to-use-prebuilt-domains.md), which are prebuilt collections of intents and entities that LUIS offers.
+
+[Custom domains](luis-how-to-start-new-app.md), by contrast, start with no intents and models. You can add any prebuilt domain intents and entities to a custom model.
 
 ## List of prebuilt domains
 LUIS offers 20 prebuilt domains. 
@@ -146,7 +150,7 @@ The Entertainment domain provides intents and entities related to searching for 
 | ContentRating | Media content rating like G, or R for movies.|Kids video.<br/>PG rated.|
 | Genre | The genre of a movie, game, app or song.|Comedies<br/>Dramas<br/>Funny|
 | Keyword| A generic search keyword specifying an attribute the doesn't exist in the more specific media slots.|Soundtracks<br/>Moon River<br/>Amelia Earhart|
-| Language | Media content rating like G, or R for movies.|French<br/>English<br/>Korean|
+| Language | Language used in media, such as spoken language of movie or song.|French<br/>English<br/>Korean|
 | MediaFormat | The additional special technical type in which the media is formatted.|HD Movies<br/>3D movies<br/>Downloadable|
 | MediaSource | The store or marketplace for acquiring the media.|Netflix<br/>Prime|
 | MediaSubTypes| Media types smaller than movies and games.|Demos<br/>Dlc<br/>Trailers|
@@ -233,11 +237,12 @@ The HomeAutomation domain provides intents and entities related to controlling s
 The MovieTickets domain provides intents and entities related to booking tickets to movies at a movie theater.
 
 ### Examples
-```
-Book me two tickets for Captain Omar and the two Musketeers
-Cancel tickets
-When is Captain Omar showing?
-```
+
+|Examples|
+|--|
+|Book me two tickets for Captain Omar and the two Musketeers|
+|Cancel tickets|
+|When is Captain Omar showing?|
 
 ### Intents
 | Intent name | Description | Examples |
@@ -258,11 +263,12 @@ When is Captain Omar showing?
 The Music domain provides intents and entities related to playing music on a music player.
 
 ### Examples
-```
-play Beethoven
-Increase track volume
-Skip to the next song
-```
+
+|Examples|
+|--|
+|play Beethoven|
+|Increase track volume|
+|Skip to the next song|
 
 ### Intents
 | Intent name | Description | Examples |
@@ -289,11 +295,12 @@ Skip to the next song
 The Note domain provides intents and entities related to creating, editing, and finding notes.
 
 ### Examples
-```
-Add to my groceries note lettuce tomato bread coffee
-Check off bananas from my grocery list
-Remove all items from my vacation list
-```
+
+|Examples|
+|--|
+|Add to my groceries note lettuce tomato bread coffee|
+|Check off bananas from my grocery list|
+|Remove all items from my vacation list|
 
 ### Intents
 | Intent name | Description | Examples |
@@ -322,11 +329,13 @@ Remove all items from my vacation list
 The OnDevice domain provides intents and entities related to controlling the device.
 
 ### Examples
-```
-Close video player
-Cancel playback
-Can you make the screen brighter?
-```
+
+|Examples|
+|--|
+|Close video player|
+|Cancel playback|
+|Can you make the screen brighter?|
+
 
 ### Intents
 | Intent name | Description | Examples |
@@ -373,20 +382,22 @@ Can you make the screen brighter?
 The Places domain provides intents for handling queries related to places like businesses, institution, restaurants, public spaces and addresses.
 
 ### Examples
-```
-Save this location to my favorites
-How far away is Holiday Inn?
-At what time does Safeway close?
-```
+
+|Examples|
+|--|
+|Save this location to my favorites|
+|How far away is Holiday Inn?|
+|At what time does Safeway close?|
+
 
 ### Intents
 | Intent name | Description | Examples |
 | ---------------- |-----------------------|----|
-| AddFavoritePlace | Add a location to the the user's favorites list.|Save this location to my favorites<br/>Add this address to my favorites|
+| AddFavoritePlace | Add a location to the user's favorites list.|Save this location to my favorites<br/>Add this address to my favorites|
 |CheckAccident|Ask whether there is an accident on a specified road.|Is there an accident on 880?<br/>Show me accident information|
 |CheckAreaTraffic|Check the traffic for a general area or highway, not on a specified route.|Traffic in Seattle<br/>What's the traffic like in Seattle?|
 |CheckIntoPlace|Check in to a place using social media.|Check me in on Foursquare<br/>Check in here|
-|CheckRouteTraffic| Check the traffic of a specific route specified by the user.|How is the traffic to Mashiko?<br/>Show me the traffice to Kirkland<br/>How is the traffic to Seattle?| 
+|CheckRouteTraffic| Check the traffic of a specific route specified by the user.|How is the traffic to Mashiko?<br/>Show me the traffic to Kirkland<br/>How is the traffic to Seattle?| 
 |Confirm|Confirm an action relating to a place.|Confirm my restaurant reservation.|
 |Exit|Action to exit a task relating to a place.|Quit please<br/>Quit giving me directions|
 |FindPlace|Search for a place (business, institution, restaurant, public space, address).|Where's the nearest library?<br/>Find me a good Italian restaurant in Mountain View|
@@ -442,11 +453,13 @@ restart|
 The reminder domain provides intents and entities for creating, editing, and finding reminders.
 
 ### Examples
-```
-Change my interview to 9 am tomorrow
-Remind me to buy milk on my way back home
-Can you check if I have a reminder about Christine's birthday?
-```
+
+|Examples|
+|--|
+|Change my interview to 9 am tomorrow|
+|Remind me to buy milk on my way back home|
+|Can you check if I have a reminder about Christine's birthday?|
+
 
 ### Intents
 | Intent name | Description | Examples |
@@ -465,11 +478,12 @@ Can you check if I have a reminder about Christine's birthday?
 The RestaurantReservation domain provides intents and entities related to managing restaurant reservations.
 
 ### Examples
-```
-Reserve at Zucca for two for tonight
-Book a table at BJ's for tomorrow
-Table for 3 in Palo Alto at 7
-```
+
+|Examples|
+|--|
+|Reserve at Zucca for two for tonight|
+|Book a table at BJ's for tomorrow|
+|Table for 3 in Palo Alto at 7|
 
 ### Intents
 | Intent name | Description | Examples |
@@ -494,11 +508,12 @@ Table for 3 in Palo Alto at 7
 The Taxi domain provides intents and entities for creating and managing taxi bookings.
 
 ### Examples
-```
-Get me a cab at 3 pm
-How much longer do I have to wait for my taxi?
-Cancel my Uber
-```
+
+|Examples|
+|--|
+|Get me a cab at 3 pm|
+|How much longer do I have to wait for my taxi?|
+|Cancel my Uber|
 
 ### Intents
 | Intent name | Description | Examples |
@@ -523,11 +538,13 @@ Cancel my Uber
 The Translate domain provides intents and entities related to translating text to a target language.
 
 ### Examples
-```
-Translate to French
-Translate hello to German
-Translate this sentence to English
-```
+
+|Examples|
+|--|
+|Translate to French|
+|Translate hello to German|
+|Translate this sentence to English|
+
 
 ### Intents
 | Intent name | Description | Examples |
@@ -546,11 +563,12 @@ Translate this sentence to English
 The TV domain provides intents and entities for controlling TVs.
 
 ### Examples
-```
-Switch channel to BBC
-Show TV guide
-Watch National Geographic
-```
+
+|Examples|
+|--|
+|Switch channel to BBC|
+|Show TV guide|
+|Watch National Geographic|
 
 ### Intents
 | Intent name | Description | Examples |
@@ -568,11 +586,13 @@ Watch National Geographic
 The Utilities domain provides intents for tasks that are common to many tasks, such as greetings, cancellation, confirmation, help, repetition, navigation, starting and stopping.
 
 ### Examples
-```
-Go back to Twitter
-Please help
-Repeat last question please
-```
+
+|Examples|
+|--|
+|Go back to Twitter|
+|Please help|
+|Repeat last question please|
+
 
 ### Intents
 | Intent name | Description | Examples |
@@ -592,11 +612,13 @@ Repeat last question please
 The Weather domain provides intents and entities for getting weather reports and forecasts.
 
 ### Examples
-```
-weather in London in september
-What?s the 10 day forecast?
-What's the average temperature in India in september?
-```
+
+|Examples|
+|--|
+|weather in London in september|
+|What?s the 10 day forecast?|
+|What's the average temperature in India in september?|
+
 
 ### Intents
 | Intent name | Description | Examples |
@@ -613,11 +635,12 @@ What's the average temperature in India in september?
 The Web domain provides an intent for navigating to a website.
 
 ### Examples
-```
-Navigate to facebook.com
-Go to www.twitter.com
-Navigate to www.bing.com
-```
+
+|Examples|
+|--|
+|Navigate to facebook.com|
+|Go to www.twitter.com|
+|Navigate to www.bing.com|
 
 ### Intents
 | Intent name | Description | Examples |

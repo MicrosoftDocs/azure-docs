@@ -36,5 +36,5 @@ The following table includes links to bash scripts built using the Azure CLI tha
 |**Secure virtual machines**||
 | [Encrypt a VM and data disks](./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an Azure Key Vault, encryption key, and service principal, then encrypts a VM. |
 |**Monitor virtual machines**||
-| [Monitor a VM with Operations Management Suite](./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a virtual machine, installs the Operations Management Suite agent, and enrolls the VM in an OMS Workspace.  |
+| [Monitor a VM with Log Analytics](./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Creates a virtual machine, installs the Log Analytics agent, and enrolls the VM in a Log Analytics workspace.  |
 | | |

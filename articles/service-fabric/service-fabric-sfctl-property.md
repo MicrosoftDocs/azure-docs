@@ -13,10 +13,11 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 12/06/2018
 ms.author: bikang
 
 ---
+
 # sfctl property
 Store and query properties under Service Fabric names.
 
@@ -111,7 +112,7 @@ Creates or updates the specified Service Fabric property under a given name.
 | --name-id       [Required] | The Service Fabric name, without the 'fabric\:' URI scheme. |
 | --property-name [Required] | The name of the Service Fabric property. |
 | --value         [Required] | Describes a Service Fabric property value. This is a JSON string. <br><br> The json string has two fields, the 'Kind' of the data, and the 'Value' of the data. The 'Kind' value must be the first item to appear in the JSON string, and can be values 'Binary', 'Int64', 'Double', 'String', or 'Guid'. The value should be serialize-able to the given types. Both 'Kind' and 'Data' values should be provided as strings. |
-| --custom-id-type | The property's custom type ID. Using this property, the user is able to tag the type of the value of the property. |
+| --custom-id-type | The property's custom type id. Using this property, the user is able to tag the type of the value of the property. |
 | --timeout -t | Server timeout in seconds.  Default\: 60. |
 
 ### Global Arguments
@@ -123,6 +124,7 @@ Creates or updates the specified Service Fabric property under a given name.
 | --output -o | Output format.  Allowed values\: json, jsonc, table, tsv.  Default\: json. |
 | --query | JMESPath query string. See http\://jmespath.org/ for more information and examples. |
 | --verbose | Increase logging verbosity. Use --debug for full debug logs. |
+
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.

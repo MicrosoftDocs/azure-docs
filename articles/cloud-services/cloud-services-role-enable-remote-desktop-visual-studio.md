@@ -7,8 +7,9 @@ manager: douge
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
+ms.custom: vs-azure
 ms.topic: conceptual
-ms.workload: azure
+ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
 
@@ -24,7 +25,7 @@ Remote Desktop enables you to access the desktop of a role running in Azure. You
 
 The publish wizard that Visual Studio provides for cloud services includes an option to enable Remote Desktop during the publishing process, using credentials that you provide. Using this option is suitable when using Visual Studio 2017 version 15.4 and earlier.
 
-With Visual Studio 2017 version 15.5 and later, however, it's recommended that you avoid enabling Remote Desktop through the publish wizard unless you're working only as a single developer. For any situation in which the project might be opened by other developers, you instead enable Remote Desktop through the Azure portal, through PowerShell, or from a release definition in a continuous deployment workflow. This recommendation is due to a change in how Visual Studio communicates with Remote Desktop on the cloud service VM, as is explained in this article.
+With Visual Studio 2017 version 15.5 and later, however, it's recommended that you avoid enabling Remote Desktop through the publish wizard unless you're working only as a single developer. For any situation in which the project might be opened by other developers, you instead enable Remote Desktop through the Azure portal, through PowerShell, or from a release pipeline in a continuous deployment workflow. This recommendation is due to a change in how Visual Studio communicates with Remote Desktop on the cloud service VM, as is explained in this article.
 
 ## Configure Remote Desktop through Visual Studio 2017 version 15.4 and earlier
 
@@ -76,9 +77,9 @@ If you're sharing the project with a team, then, it's best to clear the option i
 
 ### Deploying from a build server with Visual Studio 2017 version 15.5 and later
 
-You can deploy a cloud service project from a build server (for example, with Visual Studio Team Services) on which Visual Studio 2017 version 15.5 or later is installed in the build agent. With this arrangement, deployment happens from the same computer on which the encryption certificate is available.
+You can deploy a cloud service project from a build server (for example, with Azure DevOps Services) on which Visual Studio 2017 version 15.5 or later is installed in the build agent. With this arrangement, deployment happens from the same computer on which the encryption certificate is available.
 
-To use the RDP extension from Visual Studio Team Services, include the following details in your build definition:
+To use the RDP extension from Azure DevOps Services, include the following details in your build pipeline:
 
 1. Include `/p:ForceRDPExtensionOverPlugin=true` in your MSBuild arguments to make sure the deployment works with the RDP extension rather than the RDP plugin. For example:
 

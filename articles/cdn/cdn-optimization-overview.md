@@ -3,8 +3,8 @@ title: Optimize Azure CDN for the type of content delivery
 description: Optimize Azure CDN for the type of content delivery
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
-ms.author: v-deasim
+ms.author: magattus
 ---
 # Optimize Azure CDN for the type of content delivery
 
@@ -78,7 +78,7 @@ General web delivery is the most common optimization option. It's designed for g
 A typical website contains static and dynamic content. Static content includes images, JavaScript libraries, and style sheets that can be cached and delivered to different users. Dynamic content is personalized for an individual user, such as news items that are tailored to a user profile. Dynamic content, such as shopping cart contents, isn't cached because it's unique to each user. General web delivery can optimize your entire website. 
 
 > [!NOTE]
-> If you are using an **Azure CDN Standard from Akamai** profile, select this optimization type if your average file size is smaller than 10 MB. Othewise, if your average file size is larger than 10 MB, select **Large file download** from the **Optimized for** drop-down list.
+> If you are using an **Azure CDN Standard from Akamai** profile, select this optimization type if your average file size is smaller than 10 MB. Otherwise, if your average file size is larger than 10 MB, select **Large file download** from the **Optimized for** drop-down list.
 
 ### General media streaming
 

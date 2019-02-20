@@ -1,23 +1,17 @@
 ---
-title: SCP.NET programming guide | Microsoft Docs
-description: Learn how to use SCP.NET to create .NET-based Storm topologies for use with Storm on HDInsight.
+title: SCP.NET programming guide for Storm in Azure HDInsight
+description: Learn how to use SCP.NET to create .NET-based Storm topologies for use with Storm running in Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: raviperi
-manager: jhubbard
-editor: cgronlun
-
-ms.assetid: 34192ed0-b1d1-4cf7-a3d4-5466301cf307
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/16/2016
-ms.author: raviperi
-
 ---
 # SCP programming guide
-SCP is a platform to build real time, reliable, consistent, and high-performance data processing application. It is built on top of [Apache Storm](http://storm.incubator.apache.org/) -- a stream processing system designed by the OSS communities. Storm is designed by Nathan Marz and was open sourced by Twitter. It leverages [Apache ZooKeeper](http://zookeeper.apache.org/), another Apache project to enable highly reliable distributed coordination and state management. 
+SCP is a platform to build real time, reliable, consistent, and high-performance data processing application. It is built on top of [Apache Storm](https://storm.incubator.apache.org/) -- a stream processing system designed by the OSS communities. Storm is designed by Nathan Marz and was open sourced by Twitter. It leverages [Apache ZooKeeper](https://zookeeper.apache.org/), another Apache project to enable highly reliable distributed coordination and state management. 
 
 Not only the SCP project ported Storm on Windows but also the project added extensions and customization for the Windows ecosystem. The extensions include .NET developer experience, and libraries, the customization includes Windows-based deployment. 
 
@@ -207,7 +201,7 @@ For non-transactional bolt supporting ack, it should explicitly `Ack()` or `Fail
 ### StateStore
 `StateStore` provides metadata services, monotonic sequence generation, and wait-free coordination. Higher-level distributed concurrency abstractions can be built on `StateStore`, including distributed locks, distributed queues, barriers, and transaction services.
 
-SCP applications may use the `State` object to persist some information in ZooKeeper, especially for transactional topology. Doing so, if transactional spout crashes and restart, it can retrieve the necessary information from ZooKeeper and restart the pipeline.
+SCP applications may use the `State` object to persist some information in [Apache ZooKeeper](https://zookeeper.apache.org/), especially for transactional topology. Doing so, if transactional spout crashes and restart, it can retrieve the necessary information from ZooKeeper and restart the pipeline.
 
 The `StateStore` object mainly has these methods:
 
@@ -228,7 +222,7 @@ The `StateStore` object mainly has these methods:
     /// <summary>
     /// Retrieve all states that were previously uncommitted, excluding all aborted states 
     /// </summary>
-    /// <returns>Uncommited States</returns>
+    /// <returns>Uncommitted States</returns>
     public IEnumerable<State> GetUnCommitted();
 
     /// <summary>
@@ -249,7 +243,7 @@ The `StateStore` object mainly has these methods:
     /// List all the committed states
     /// </summary>
     /// <returns>Registries contain the Committed State </returns> 
-    public IEnumerable<Registry> Commited();
+    public IEnumerable<Registry> Committed();
 
     /// <summary>
     /// List all the Aborted State in the StateStore
@@ -346,7 +340,7 @@ Generally speaking, the SCP plugins may run in two modes here:
         }
 
 ## Topology Specification Language
-SCP Topology Specification is a domain-specific language for describing and configuring SCP topologies. It is based on Storm’s Clojure DSL (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) and is extended by SCP.
+SCP Topology Specification is a domain-specific language for describing and configuring SCP topologies. It is based on Storm’s Clojure DSL (<https://storm.incubator.apache.org/documentation/Clojure-DSL.html>) and is extended by SCP.
 
 Topology specifications can be submitted directly to storm cluster for execution via the ***runspec*** command.
 
@@ -642,9 +636,9 @@ This topology contains a Java Spout and a C\# Bolt. It uses the default serializ
 This example is the same as HelloWorld in essence. The only difference is that the user code is compiled as DLL and the topology is submitted by using SCPHost.exe. See the section "SCP Host Mode" for more detailed explanation.
 
 ## Next Steps
-For examples of Storm topologies created using SCP, see the following documents:
+For examples of Apache Storm topologies created using SCP, see the following documents:
 
 * [Develop C# topologies for Apache Storm on HDInsight using Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
-* [Process events from Azure Event Hubs with Storm on HDInsight](apache-storm-develop-csharp-event-hub-topology.md)
-* [Process vehicle sensor data from Event Hubs using Storm on HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
-* [Extract, Transform, and Load (ETL) from Azure Event Hubs to HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
+* [Process events from Azure Event Hubs with Apache Storm on HDInsight](apache-storm-develop-csharp-event-hub-topology.md)
+* [Process vehicle sensor data from Event Hubs using Apache Storm on HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
+* [Extract, Transform, and Load (ETL) from Azure Event Hubs to Apache HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)

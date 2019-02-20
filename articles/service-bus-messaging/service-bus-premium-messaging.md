@@ -3,9 +3,9 @@ title: Azure Service Bus Premium and Standard Messaging pricing tiers overview |
 description: Service Bus Premium and Standard Messaging tiers
 services: service-bus-messaging
 documentationcenter: .net
-author: djrosanova
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.assetid: e211774d-821c-4d79-8563-57472d746c58
 ms.service: service-bus-messaging
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/30/2018
-ms.author: sethm
+ms.date: 08/30/2018
+ms.author: aschhab
 
 ---
 # Service Bus Premium and Standard messaging tiers
@@ -53,7 +53,7 @@ If you have code running under Standard messaging and want to port it to the Pre
 
 ## Get started with Premium Messaging
 
-Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md) in the [Azure portal](https://portal.azure.com). Make sure you select **Premium** under **Choose your pricing tier**.
+Getting started with Premium Messaging is straightforward and the process is similar to that of Standard Messaging. Begin by [creating a namespace](service-bus-create-namespace-portal.md) in the [Azure portal](https://portal.azure.com). Make sure you select **Premium** under **Pricing tier**. Click **View full pricing details** to see more information about each tier.
 
 ![create-premium-namespace][create-premium-namespace]
 
@@ -61,9 +61,9 @@ You can also create [Premium namespaces using Azure Resource Manager templates](
 
 ## Next steps
 
-To learn more about Service Bus Messaging, see the following topics.
+To learn more about Service Bus Messaging, see the following links:
 
-* [Introducing Azure Service Bus Premium Messaging (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Introducing Azure Service Bus Premium Messaging (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introducing Azure Service Bus Premium Messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Service Bus Messaging overview](service-bus-messaging-overview.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)

@@ -2,19 +2,13 @@
 title: Develop for Azure Files with Java | Microsoft Docs
 description: Learn how to develop Java applications and services that use Azure Files to store file data.
 services: storage
-documentationcenter: java
 author: wmgries
-manager: aungoo
-editor: tamram
-
-ms.assetid: 3bfbfa7f-d378-4fb4-8df3-e0b6fcea5b27
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
+ms.subservice: files
 ---
 
 # Develop for Azure Files with Java
@@ -232,6 +226,6 @@ If you would like to learn more about other Azure storage APIs, follow these lin
 * [Azure Storage SDK for Android](https://github.com/azure/azure-storage-android)
 * [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)
 * [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md)
 * [Troubleshooting Azure Files problems - Windows](storage-troubleshoot-windows-file-connection-problems.md)

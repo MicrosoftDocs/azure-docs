@@ -1,3 +1,10 @@
+---
+author: spelluru
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: spelluru
+---
 ## What are Service Bus topics and subscriptions?
 Service Bus topics and subscriptions support a *publish/subscribe* messaging communication model. When using topics and subscriptions, components of a distributed application do not communicate directly with each other; instead they exchange messages via a topic, which acts as an intermediary.
 
@@ -15,7 +22,7 @@ To begin using Service Bus topics and subscriptions in Azure, you must first cre
 
 To create a namespace:
 
-1. Log on to the [Azure portal][Azure portal].
+1. Sign in to the [Azure portal][Azure portal].
 2. In the left navigation pane of the portal, click **Create a resource**, then click **Enterprise Integration**, and then click **Service Bus**.
 3. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
 4. After making sure the namespace name is available, choose the pricing tier (Basic, Standard, or Premium).

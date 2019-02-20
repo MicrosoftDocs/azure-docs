@@ -3,10 +3,9 @@ title: Azure Desired State Configuration Extension Handler | Microsoft Docs
 description: Upload and apply a PowerShell DSC configuration on an Azure VM using DSC Extension
 services: virtual-machines-windows 
 documentationcenter: ''
-author: eshaparmar 
-manager: jeconnoc 
+author: bobbytreed 
+manager: carmonm 
 editor: ''
-
 ms.assetid: 
 ms.service: virtual-machines-windows 
 ms.devlang: na
@@ -14,8 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: 
 ms.date: 03/26/2018
-ms.author: esparmar
-
+ms.author: robreed
 ---
 # PowerShell DSC Extension
 
@@ -126,7 +124,7 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration. A sample Resource Manager template that includes the OMS Agent VM extension can be found on the [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
+Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration. A sample Resource Manager template that includes the Log Analytics agent VM extension can be found on the [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/dsc-extension-iis-server-windows-vm). 
 
 The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. 
 
@@ -135,7 +133,7 @@ When nesting the extension resource, the JSON is placed in the `"resources": []`
 
 ## Azure CLI deployment
 
-The Azure CLI can be used to deploy the OMS Agent VM extension to an existing virtual machine. Replace the OMS key and OMS ID with those from your OMS workspace. 
+The Azure CLI can be used to deploy the Log Analytics agent VM extension to an existing virtual machine. Replace the Log Analytics key and Log Analytics ID with those from your Log Analytics workspace. 
 
 ```azurecli
 az vm extension set \

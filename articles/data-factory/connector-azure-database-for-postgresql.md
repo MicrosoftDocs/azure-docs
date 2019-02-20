@@ -10,18 +10,15 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 02/01/2019
 ms.author: jingwang
 
 ---
-# Copy data from Azure Database for PostgreSQL using Azure Data Factory 
+# Copy data from Azure Database for PostgreSQL using Azure Data Factory
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Azure Database for PostgreSQL. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
 
 ## Supported capabilities
 
@@ -42,10 +39,10 @@ The following properties are supported for Azure Database for PostgreSQL linked 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **AzurePostgreSql** | Yes |
-| connectionString | An ODBC connection string to connect to Azure Database for PostgreSQL. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| connectionString | An ODBC connection string to connect to Azure Database for PostgreSQL.<br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
-A typical connection string is `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>@admstest;Password=<Password>`. More properties you can set per your case:
+A typical connection string is `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. More properties you can set per your case:
 
 | Property | Description | Options | Required |
 |:--- |:--- |:--- |:--- |:--- |
@@ -61,8 +58,33 @@ A typical connection string is `Server=<server>.postgres.database.azure.com;Data
         "type": "AzurePostgreSql",
         "typeProperties": {
             "connectionString": {
+                "type": "SecureString",
+                "value": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
+            }
+        }
+    }
+}
+```
+
+**Example: store password in Azure Key Vault**
+
+```json
+{
+    "name": "AzurePostgreSqlLinkedService",
+    "properties": {
+        "type": "AzurePostgreSql",
+        "typeProperties": {
+            "connectionString": {
                  "type": "SecureString",
-                 "value": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>@admstest;Password=<Password>"
+                 "value": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;"
+            },
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         }
     }
@@ -73,7 +95,12 @@ A typical connection string is `Server=<server>.postgres.database.azure.com;Data
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Azure Database for PostgreSQL dataset.
 
-To copy data from Azure Database for PostgreSQL, set the type property of the dataset to **AzurePostgreSqlTable**. There is no additional type-specific property in this type of dataset.
+To copy data from Azure Database for PostgreSQL, set the type property of the dataset to **AzurePostgreSqlTable**. The following properties are supported:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the dataset must be set to: **AzurePostgreSqlTable** | Yes |
+| tableName | Name of the table. | No (if "query" in activity source is specified) |
 
 **Example**
 
@@ -85,7 +112,8 @@ To copy data from Azure Database for PostgreSQL, set the type property of the da
         "linkedServiceName": {
             "referenceName": "<AzurePostgreSql linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -94,14 +122,14 @@ To copy data from Azure Database for PostgreSQL, set the type property of the da
 
 For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Azure Database for PostgreSQL source.
 
-### AzurePostgreSqlSource as source
+### Azure Database for PostgreSql as source
 
 To copy data from Azure Database for PostgreSQL, set the source type in the copy activity to **AzurePostgreSqlSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **AzurePostgreSqlSource** | Yes |
-| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | Yes |
+| query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
 
 **Example:**
 

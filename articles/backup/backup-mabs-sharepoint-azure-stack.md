@@ -1,24 +1,24 @@
 ---
-title: Back up a SharePoint farm on Azure Stack to Azure
+title: Back up a SharePoint farm on Azure Stack
 description: Use Azure Backup Server to back up and restore your SharePoint data on Azure Stack. This article provides the information to configure your SharePoint farm so that desired data can be stored in Azure. You can restore protected SharePoint data from disk or from Azure.
 services: backup
-author: pvrk
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: pullabhk
+ms.author: adigan
 ---
 
-# Back up a SharePoint farm on Azure Stack to Azure
+# Back up a SharePoint farm on Azure Stack
 You back up a SharePoint farm on Azure Stack to Microsoft Azure by using Microsoft Azure Backup Server (MABS) in much the same way that you back up other data sources. Azure Backup provides flexibility in the backup schedule to create daily, weekly, monthly, or yearly backup points and gives you retention policy options for various backup points. It also provides the capability to store local disk copies for quick recovery-time objectives (RTO) and to store copies to Azure for economical, long-term retention.
 
 ## SharePoint supported versions and related protection scenarios
-Azure Backup for DPM supports the following scenarios:
+Azure Backup for MABS supports the following scenarios:
 
 | Workload | Version | SharePoint deployment | Protection and recovery |
-| --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint deployed as a physical server or Hyper-V/VMware virtual machine <br> -------------- <br> SQL AlwaysOn | Protect SharePoint Farm recovery options: Recovery farm, database, and file or list item from disk recovery points.  Farm and database recovery from Azure recovery points. |
+| --- | --- | --- | --- |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |SharePoint deployed as a Azure Stack virtual machine <br> -------------- <br> SQL AlwaysOn | Protect SharePoint Farm recovery options: Recovery farm, database, and file or list item from disk recovery points.  Farm and database recovery from Azure recovery points. |
 
 ## Before you start
 There are a few things you need to confirm before you back up a SharePoint farm to Azure.
@@ -36,9 +36,6 @@ For every 10 million items in the farm, there must be at least 2 GB of space on 
 Azure Backup Server runs as a LocalSystem account. To back up SQL Server databases, MABS needs sysadmin privileges on that account for the server that's running SQL Server. Set NT AUTHORITY\SYSTEM to *sysadmin* on the server that's running SQL Server before you back it up.
 
 If the SharePoint farm has SQL Server databases that are configured with SQL Server aliases, install the SQL Server client components on the front-end Web server that MABS will protect.
-
-### SharePoint Server
-While performance depends on many factors such as size of SharePoint farm, as general guidance one MABS can protect a 25 TB SharePoint farm.
 
 ### What's not supported
 * MABS that protects a SharePoint farm does not protect search indexes or application service databases. You will need to configure the protection of these databases separately.
@@ -217,7 +214,7 @@ In the following example, the *Recovering SharePoint item* has been accidentally
 4. Click the SharePoint object shown in the MABS **Recovery** tab to get the content database structure. Right-click the item, and then click **Recover**.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
-5. At this point, follow the [recovery steps earlier in this article](#restore-a-sharepoint-item-from-disk-using-dpm) to recover a SharePoint content database from disk.
+5. At this point, follow the recovery steps earlier in this article to recover a SharePoint content database from disk.
 
 ## FAQs
 Q: Can I recover a SharePoint item to the original location if SharePoint is configured by using SQL AlwaysOn (with protection on disk)?<br>

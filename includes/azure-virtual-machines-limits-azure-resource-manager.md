@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: cynthn
+---
 | Resource | Default Limit |
 | --- | --- |
 | Virtual machines per availability set | 200 |

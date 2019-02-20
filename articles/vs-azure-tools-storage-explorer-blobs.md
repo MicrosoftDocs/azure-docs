@@ -3,7 +3,7 @@ title: Manage Azure Blob Storage resources with Storage Explorer | Microsoft Doc
 description: Manage Azure Blob Containers and Blobs with Storage Explorer
 services: storage
 documentationcenter: na
-author: cawa
+author: cawaMS
 manager: paulyuk
 editor: ''
 
@@ -26,7 +26,7 @@ to work with blob containers and blobs.
 ## Prerequisites
 To complete the steps in this article, you'll need the following:
 
-* [Download and install Storage Explorer](http://www.storageexplorer.com)
+* [Download and install Storage Explorer](https://www.storageexplorer.com)
 * [Connect to a Azure storage account or service](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## Create a blob container
@@ -215,7 +215,7 @@ The following steps illustrate how to manage the blobs (and folders) within a bl
      3. Select **Yes** to the confirmation dialog.
 
 ## Next steps
-* View the [latest Storage Explorer release notes and videos](http://www.storageexplorer.com).
+* View the [latest Storage Explorer release notes and videos](https://www.storageexplorer.com).
 * Learn how to [create applications using Azure blobs, tables, queues, and files](https://azure.microsoft.com/documentation/services/storage/).
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

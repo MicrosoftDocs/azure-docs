@@ -1,11 +1,13 @@
 ---
-title: Frequently Asked Questions about the Bing Spell Check API - Azure Cognitive Services | Microsoft Docs
+title: Frequently Asked Questions about the Bing Spell Check API
+titlesuffix: Azure Cognitive Services
 description: Get answers to common questions about the Bing Spell Check API on Azure.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist

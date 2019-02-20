@@ -1,22 +1,21 @@
 ---
-title: Quickstart - Use the Azure portal to send and receive messages from Azure Service Bus | Microsoft Docs
-description: In this quickstart, you learn to send and receive Service Bus messages using Azure portal
+title: Quickstart - Use the Azure portal to create a Service Bus queue | Microsoft Docs
+description: In this quickstart, you learn how to create a Service Bus queue by using the Azure portal. Then, you use a sample client application to send messages to and receive messages from the queue.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/22/2018
-ms.author: sethm
+ms.date: 01/12/2019
+ms.author: spelluru
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 
 ---
 
-# Quickstart: Send and receive messages using the Azure portal and .NET
-
+# Quickstart: Use Azure portal to create a Service Bus queue
 Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the client app sends to and receives messages from a Service Bus queue.  
 
 ![queue](./media/service-bus-quickstart-portal/quick-start-queue.png)
@@ -29,7 +28,7 @@ If you don't have an Azure subscription, you can create a [free account][] befor
 
 To complete this tutorial, make sure you have installed:
 
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 ## Log on to the Azure portal
@@ -75,7 +74,7 @@ To create a Service Bus queue, specify the namespace under which you want it cre
 
 ## Send and receive messages
 
-After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/quickstarts-and-tutorials/quickstart-jms).
+After the namespace and queue are provisioned, and you have the necessary credentials, you are ready to send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 To run the code, do the following:
 
@@ -87,7 +86,7 @@ To run the code, do the following:
 
 3. Navigate to the sample folder `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
 
-4. Copy the the connection string and queue name you obtained in the [Obtain the management credentials](#obtain-the-management-credentials) section.
+4. Copy the connection string and queue name you obtained in the [Obtain the management credentials](#obtain-the-management-credentials) section.
 
 5.	At a command prompt, type the following command:
 

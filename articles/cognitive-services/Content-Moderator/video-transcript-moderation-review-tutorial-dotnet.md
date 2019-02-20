@@ -1,21 +1,24 @@
 ---
-title: Azure Content Moderator - Moderate videos and transcripts in .NET | Microsoft Docs
-description: How to use Content Moderator to moderate videos and transcripts in .NET.
+title: "Tutorial: Moderate videos and transcripts in .NET - Content Moderator"
+titlesuffix: Azure Cognitive Services
+description: This tutorial helps you understand how to build a complete video and transcript moderation solution with machine-assisted moderation and human-in-the-loop review creation.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: content-moderator
-ms.topic: article
-ms.date: 1/27/2018
+ms.subservice: content-moderator
+ms.topic: tutorial
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
-# Video and transcript moderation tutorial
+# Tutorial: Video and transcript moderation
 
 Content Moderator's video APIs allow you to moderate videos and create video reviews in the human review tool. 
 
-This detailed tutorial helps to understand how to build a complete video and transcript moderation solution with machine-assisted moderation and human-in-the-loop review creation.
+This tutorial helps you understand how to build a complete video and transcript moderation solution with machine-assisted moderation and human-in-the-loop review creation.
 
 Download the [C# console application](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) for this tutorial. The console application uses the SDK and related packages to perform the following tasks:
 
@@ -29,7 +32,7 @@ Download the [C# console application](https://github.com/MicrosoftContentModerat
 
 ## Sample program outputs
 
-Before going further, let's look at the follwing sample outputs from the program:
+Before going further, let's look at the following sample outputs from the program:
 
 - [Console output](#program-output)
 - [Video review](#video-review-default-view)
@@ -235,7 +238,7 @@ The code performs the following steps:
 
 - Checks to make sure the configuration in `App.config` contains all necessary data
 - Checks to make sure the `ffmpeg` binary is present
-- Builds the output filename by appending `_c.mp4` to the base name of the file (such as `Example.mp4` -> `E>xample_c.mp4`)
+- Builds the output filename by appending `_c.mp4` to the base name of the file (such as `Example.mp4` -> `Example_c.mp4`)
 - Builds a command-line string to perform the conversion
 - Starts an `ffmpeg` process using the command line
 - Waits for the video to be processed
@@ -414,7 +417,7 @@ The result of the video moderation job (See [video moderation quickstart](video-
 A transcription of the audio from the video is also produced when the `GenerateVTT` flag is set.
 
 > [!NOTE]
-> The console application uses the [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) to generate transcripts from the the uploaded video's audio track. The results are provided in WebVTT format. For more information on this format, see [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
+> The console application uses the [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) to generate transcripts from the uploaded video's audio track. The results are provided in WebVTT format. For more information on this format, see [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
 
 ## Creating the human-in-the-loop review
@@ -524,7 +527,7 @@ The transcript is published as an AMS asset. To scan the transcript for objectio
     	}
     	catch
     	{   //TODO:  Logging
-        	Console.WriteLine("Exception occured while generating index for video.");
+        	Console.WriteLine("Exception occurred while generating index for video.");
         	throw;
     	}
 	}

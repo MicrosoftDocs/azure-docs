@@ -4,10 +4,6 @@ description: Using powershell for Load Balancer with Azure Resource Manager. Usi
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: tysonn
-
-ms.assetid: d0394f11-ee5a-4407-9d86-79c936297265
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -49,15 +45,15 @@ For Quickstart templates using Azure Load Balancer, see the [GitHub repository](
 
 Examples of templates:
 
-* [2 VMs in a Load Balancer and load balancing rules](http://go.microsoft.com/fwlink/?LinkId=544799)
-* [2 VMs in a VNET with an Internal Load Balancer and Load Balancer rules](http://go.microsoft.com/fwlink/?LinkId=544800)
-* [2 VMs in a Load Balancer and configure NAT rules on the LB](http://go.microsoft.com/fwlink/?LinkId=544801)
+* [2 VMs in a Load Balancer and load balancing rules](https://go.microsoft.com/fwlink/?LinkId=544799)
+* [2 VMs in a VNET with an Internal Load Balancer and Load Balancer rules](https://go.microsoft.com/fwlink/?LinkId=544800)
+* [2 VMs in a Load Balancer and configure NAT rules on the LB](https://go.microsoft.com/fwlink/?LinkId=544801)
 
 ## Setting up Azure Load Balancer with a PowerShell or CLI
 
 Get started with Azure Resource Manager cmdlets, command line tools, and REST APIs
 
-* [Azure Networking Cmdlets](https://msdn.microsoft.com/library/azure/mt163510.aspx) can be used to create a Load Balancer.
+* [Azure Networking Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.network#networking) can be used to create a Load Balancer.
 * [How to create a load balancer using Azure Resource Manager](load-balancer-get-started-ilb-arm-ps.md)
 * [Using the Azure CLI with Azure Resource Management](../xplat-cli-azure-resource-manager.md)
 * [Load Balancer REST APIs](https://msdn.microsoft.com/library/azure/mt163651.aspx)

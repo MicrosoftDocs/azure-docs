@@ -13,9 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/05/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
-ms.reviewer: 
+ms.reviewer: quying
+ms.lastreviewed: 11/05/2018
 ms.custom: mvc
 
 ---
@@ -30,7 +31,7 @@ As an Azure Stack cloud administrator, you can create offers that let your users
 
 ## Deploy the SQL Server resource provider
 
-The deployment process is described in detail in the [Use SQL databases on Azure Stack article](azure-stack-sql-resource-provider-deploy.md), and consists of the following primary steps:
+The deployment process is described in detail in the [use SQL databases on Azure Stack article](azure-stack-sql-resource-provider-deploy.md), and consists of the following primary steps:
 
 1. [Deploy the SQL resource provider](azure-stack-sql-resource-provider-deploy.md).
 2. [Verify the deployment](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
@@ -55,7 +56,7 @@ Now that you've deployed the SQL Server resource provider and created an offer, 
 1. Sign in to the Azure Stack portal (https://portal.local.azurestack.external) as a tenant.
 2. Select **Get a subscription** and then enter  **TestSQLServerSubscription** under **Display Name**.
 3. Select **Select an offer** > **TestSQLServerOffer** > **Create**.
-4. Select **More services** > **Subscriptions** > **TestSQLServerSubscription** > **Resource providers**.
+4. Select **All services** > **Subscriptions** > **TestSQLServerSubscription** > **Resource providers**.
 5. Select **Register** next to the **Microsoft.SQLAdapter** provider.
 
 ### Create a SQL database

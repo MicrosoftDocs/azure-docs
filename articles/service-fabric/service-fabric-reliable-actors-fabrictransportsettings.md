@@ -1,5 +1,5 @@
 ---
-title: Change FabricTransport settings in Azure microservices | Microsoft Docs
+title: Change FabricTransport settings in Azure Service Fabric actors | Microsoft Docs
 description: Learn about configuring Azure Service Fabric actor communication settings.
 services: Service-Fabric
 documentationcenter: .net
@@ -23,14 +23,14 @@ ms.author: suchiagicha
 Here are the settings that you can configure:
 - C#:
 [FabricTransportRemotingSettings](
-https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
-- Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
+https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
+- Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 
 You can modify the default configuration of FabricTransport in following ways.
 
 ## Assembly attribute
 
-The [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) attribute needs to be applied on the actor client and actor service assemblies.
+The [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN) attribute needs to be applied on the actor client and actor service assemblies.
 
 The following example shows how to change the default value of FabricTransport OperationTimeout settings:
 
@@ -49,6 +49,10 @@ The following example shows how to change the default value of FabricTransport O
 ## Config package
 
 You can use a [config package](service-fabric-application-and-service-manifests.md) to modify the default configuration.
+
+> [!IMPORTANT]
+> On Linux nodes, certificates must be PEM-formatted. To learn more about locating and configuring certificates for Linux, see [Configure certificates on Linux](./service-fabric-configure-certificates-linux.md). 
+> 
 
 ### Configure FabricTransport settings for the actor service
 
