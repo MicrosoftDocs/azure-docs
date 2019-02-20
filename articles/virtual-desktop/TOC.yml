@@ -16,18 +16,10 @@
     href: manage-user-storage.md
   - name: 5. Create service principals and role assignments with PowerShell (Preview)
     href: create-service-principal-role-powershell.md
-<<<<<<< HEAD
-=======
-  - name: 6. Connect to Windows Virtual Desktop (Preview)
-    href: connect.md
->>>>>>> 1426f1ad356... Updated metadata and TOC to reflect titles more accurately.
 - name: How-to
   items:
-<<<<<<< HEAD
   - name: Connect to a Remote Desktop environment
     href: tenant-setup-remote-desktop.md
-<<<<<<< HEAD
-=======
   - name: Connect to Windows Virtual Desktop resources (Preview)
     items:
       - name: Windows 7 and Windows 10
@@ -36,11 +28,7 @@
         href: connect-web.md
       - name: macOS
         href: connect-macOS.md
->>>>>>> 68a969fbcb2... Add new "connect" articles, remove duplicate section
   - name: Create a host pool with an Azure Resource Manager template
-=======
-  - name: Create a host pool with an Azure Resource Manager template (Preview)
->>>>>>> 1426f1ad356... Updated metadata and TOC to reflect titles more accurately.
     href: create-host-pools-arm-template.md
   - name: Create a host pool with PowerShell (Preview)
     href: create-host-pools-powershell.md
