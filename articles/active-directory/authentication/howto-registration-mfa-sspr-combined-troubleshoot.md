@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 02/20/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,9 +15,14 @@ ms.reviewer: sahenry
 
 ms.collection: M365-identity-device-management
 ---
-# Troubleshooting combined security information registration
+# Troubleshooting combined security information registration (preview)
 
 The information provided in this article can guide administrators who are troubleshooting issues with the combined registration experience reported by their end-users.
+
+|     |
+| --- |
+| Combined security information registration for Azure Multi-Factor Authentication and Azure AD self-service password reset is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+|     |
 
 ## Audit logs
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 02/20/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -44,3 +44,5 @@ To enable converged registration, complete the following steps:
 [Configure self-service password reset](howto-sspr-deployment.md)
 
 [Configure Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+
+[Troubleshooting combined security info registration](howto-registration-mfa-sspr-combined-troubleshoot.md)
