@@ -38,7 +38,8 @@ audioConfig = AudioConfiguration.FromMicrophoneInput("<device id>");
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
 
-> [!NOTE] This functionality is not yet available from JavaScript.
+> [!NOTE]
+> This functionality is not yet available from JavaScript.
 
 ## Audio device IDs on Windows for Desktop applications
 
