@@ -115,8 +115,10 @@
     items:
     - name: Build real-time apps with Azure Functions
       href: signalr-concept-azure-functions.md
-    - name: SignalR Service bindings for Azure Functions
-      href: https://docs.microsoft.com/azure/azure-functions/functions-bindings-signalr-service
+    - name: Develop and configure serverless SignalR Service apps
+      href: signalr-concept-serverless-development-config.md
+    - name: SignalR Service bindings for Azure Functions reference
+      href: ../azure-functions/functions-bindings-signalr-service.md
   - name: High availability
     items:
     - name: Resiliency and disaster recovery

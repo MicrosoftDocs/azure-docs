@@ -42,14 +42,16 @@ See the language-specific example:
 * [2.x C#](#2x-c-input-example)
 * [2.x JavaScript](#2x-javascript-input-example)
 
+For more information on how this binding is used to create a "negotiate" function that can be consumed by a SignalR client SDK, see the [Azure Functions development and configuration article](../azure-signalr/signalr-concept-serverless-development-config.md) in the SignalR Service concepts documentation.
+
 ### 2.x C# input example
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that acquires SignalR connection information using the input binding and returns it over HTTP.
 
 ```cs
-[FunctionName("GetSignalRInfo")]
-public static SignalRConnectionInfo GetSignalRInfo(
-    [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req, 
+[FunctionName("negotiate")]
+public static SignalRConnectionInfo Negotiate(
+    [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req,
     [SignalRConnectionInfo(HubName = "chat")]SignalRConnectionInfo connectionInfo)
 {
     return connectionInfo;
@@ -64,8 +66,8 @@ If the function is triggered by an authenticated client, you can add a user ID c
 App Service Authentication sets HTTP headers named `x-ms-client-principal-id` and `x-ms-client-principal-name` that contain the authenticated user's client principal ID and name, respectively. You can set the `UserId` property of the binding to the value from either header using a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`. 
 
 ```cs
-[FunctionName("GetSignalRInfo")]
-public static SignalRConnectionInfo GetSignalRInfo(
+[FunctionName("negotiate")]
+public static SignalRConnectionInfo Negotiate(
     [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req, 
     [SignalRConnectionInfo
         (HubName = "chat", UserId = "{headers.x-ms-client-principal-id}")]
@@ -177,8 +179,8 @@ public static Task SendMessage(
         {
             // the message will only be sent to this user ID
             UserId = "userId1",
-            Target = "newMessage", 
-            Arguments = new [] { message } 
+            Target = "newMessage",
+            Arguments = new [] { message }
         });
 }
 ```
