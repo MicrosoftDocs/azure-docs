@@ -58,8 +58,8 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. If the Compute Optimized Gen1 tier data warehouse to be upgraded is paused, [resume the data warehouse](pause-and-resume-compute-portal.md).
 
-> [!NOTE]
-> Azure SQL Data Warehouse must be running to migrate to Gen2.
+   > [!NOTE]
+   > Azure SQL Data Warehouse must be running to migrate to Gen2.
 
 2. Be prepared for a few minutes of downtime. 
 
