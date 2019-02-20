@@ -179,8 +179,8 @@ public static Task SendMessage(
         {
             // the message will only be sent to this user ID
             UserId = "userId1",
-            Target = "newMessage", 
-            Arguments = new [] { message } 
+            Target = "newMessage",
+            Arguments = new [] { message }
         });
 }
 ```
