@@ -24,16 +24,18 @@ Previously, a self-signed certificate for the gateway (issued behind the scenes 
 
 Only older gateways are affected by this change. If your gateway certificate needs to be transitioned, you will receive communication or toast in the Azure portal. You can check to see if your gateway is affected by using the steps in this article.
 
->[!IMPORTANT]
->The transition is scheduled for March 12,2019 starting at 18:00 UTC. You can create a support case if you prefer a different time window. Make and finalize your request at least 24 hours in advance.  You can request one of the following windows:
+> [!IMPORTANT]
+> The transition is scheduled for March 12, 2019 starting at 18:00 UTC. You can create a support case if you prefer a different time window. Make and finalize your request at least 24 hours in advance.  You can request one of the following windows:
 >
->* 06:00 UTC on 25 Feb
->* 18:00 UTC on 25 Feb
->* 06:00 UTC on 1 Mar
->* 18:00 UTC on 1 Mar
+> * 06:00 UTC on February 25
+> * 18:00 UTC on February 25
+> * 06:00 UTC on March 1
+> * 18:00 UTC on March 1
 >
->**All remaining gateways will transition on March 12, 2019 starting at 18:00 UTC**.
+> **All remaining gateways will transition on March 12, 2019 starting at 18:00 UTC**.
 >
+> The gateway transition process will take up to 2 hours to complete. Customers will receive an email when their gateway completes the transition process.
+> 
 
 ## 1. Verify your certificate
 
