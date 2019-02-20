@@ -86,8 +86,8 @@ Registering the virtual machines to a Windows Virtual Desktop host pool is as si
 To register the Windows Virtual Desktop agents, do the following on each virtual machine:
 
 1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
-2. Download the [Windows Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv) and run the installer. When asked for the registration token, enter the value you obtained from the **Export-RdsRegistrationInfo** command.
-3. Download the [Windows Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH) and run the installer to completion.
+2. Download the [Windows Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv) and run the installer. When the installer asks you for the registration token, enter the value you got from the **Export-RdsRegistrationInfo** cmdlet.
+3. Download the [Windows Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH) and run the installer.
 
 ## Next steps
 
