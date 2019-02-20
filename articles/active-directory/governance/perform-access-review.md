@@ -59,7 +59,7 @@ If the request is to review your own access, the page will look different. For m
 
 There are two ways that you can approve or deny access:
 
-- You can approve and deny each request individually, or
+- You can approve or deny each request individually, or
 - You can accept the system recommendations, which is the easiest and quickest way.
 
 ### Approve or deny access for each request

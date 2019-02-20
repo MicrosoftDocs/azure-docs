@@ -42,13 +42,13 @@ You can have one or more users as reviewers in an access review.
 
 3. As a global administrator or user account administrator, go to the [access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-4. Create the access review. For more information, see [Create an access review](create-access-review.md).
+4. Create the access review. For more information, see [Create an access review of groups or applications](create-access-review.md).
 
-5. When the access review starts, ask the reviewers to give input. By default, they each receive an email from Azure AD with a link to the access panel, where they [start an access review](perform-access-review.md).
+5. When the access review starts, ask the reviewers to give input. By default, they each receive an email from Azure AD with a link to the access panel, where they [review access to groups or applications](perform-access-review.md).
 
 6. If the reviewers haven't given input, you can ask Azure AD to send them a reminder. By default, Azure AD automatically sends a reminder halfway to the end date to reviewers who haven't yet responded.
 
-7. After the reviewers give input, stop the access review and apply the changes. For more information, see [Complete an access review](complete-access-review.md).
+7. After the reviewers give input, stop the access review and apply the changes. For more information, see [Complete an access review of groups or applications](complete-access-review.md).
 
 
 ## Next steps

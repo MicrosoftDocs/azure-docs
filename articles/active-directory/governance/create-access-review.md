@@ -95,7 +95,7 @@ This article describes how to create a new access review for group members or ap
 
 Once you have specified the settings for an access review, click **Start**.
 
-By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [start an access review](perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review your own access](review-your-access.md).
+By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access to groups or applications](perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review access for yourself to groups or applications](review-your-access.md).
 
 If some of the reviewers are guests, guests are notified via email only if they've already accepted their invitation.
 
@@ -103,7 +103,7 @@ If some of the reviewers are guests, guests are notified via email only if they'
 
 You can track the progress as the reviewers complete their reviews in the Azure AD dashboard in the **Access Reviews** section. No access rights are changed in the directory until [the review is completed](complete-access-review.md).
 
-If this is a one-time review, then after the access review period is over or the administrator stops the access review, follow the steps in [Complete an access review](complete-access-review.md) to see and apply the results.  
+If this is a one-time review, then after the access review period is over or the administrator stops the access review, follow the steps in [Complete an access review of groups or applications](complete-access-review.md) to see and apply the results.  
 
 To manage a series of access reviews, navigate to the access review from **Controls**, and you will find upcoming occurrences in Scheduled reviews, and edit the end date or add/remove reviewers accordingly. 
 
@@ -115,6 +115,6 @@ You can also create access reviews using APIs. What you do to manage access revi
 
 ## Next steps
 
-- [Start an access review of groups or applications](perform-access-review.md)
-- [Review your own access to groups or applications](review-your-access.md)
+- [Review access to groups or applications](perform-access-review.md)
+- [Review access for yourself to groups or applications](review-your-access.md)
 - [Complete an access review of groups or applications](complete-access-review.md)

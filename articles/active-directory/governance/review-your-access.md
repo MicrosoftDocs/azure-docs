@@ -55,7 +55,7 @@ Once you have opened the access review, you can see your access.
 
 1. Review your access and decide whether you still need access.
 
-    If the request is to review access for others, the page will look different. For more information, see [Review access](perform-access-review.md).
+    If the request is to review access for others, the page will look different. For more information, see [Review access to groups or applications](perform-access-review.md).
 
     ![Perform access review](./media/review-your-access/perform-access-review.png)
 
