@@ -3,7 +3,8 @@ title: Using Azure AD Connect Health with AD FS | Microsoft Docs
 description: This is the Azure AD Connect Health page how to monitor your on-premises AD FS infrastructure.
 services: active-directory
 documentationcenter: ''
-author: zhiweiwangmsft
+ms.reviewer: zhiweiwangmsft
+author: billmath
 manager: daveba
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
@@ -12,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 02/20/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
