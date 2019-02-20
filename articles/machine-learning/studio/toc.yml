@@ -145,11 +145,9 @@
       href: consuming-from-excel.md
     - name: Use Excel add-in
       href: excel-add-in-for-web-services.md
-    - name: Use web app template
-      href: consume-web-service-with-web-app-template.md
     - name: Use Batch Pool
       href: dedicated-capacity-for-bes-jobs.md
-  - name: Examples
+  - name: Use cases
     items: 
     - name: Customer churn
       href: azure-ml-customer-churn-scenario.md
@@ -157,12 +155,14 @@
       href: text-analytics-module-tutorial.md
     - name: Migrate analytics from Excel to Studio
       href: linear-regression-in-azure.md
-  - name: View and delete Studio data
-    displayName: export
-    href: export-delete-personal-data-dsr.md
-  - name: View and delete Gallery data
-    displayName: export
-    href: ai-gallery-control-personal-data-dsr.md 
+  - name: Delete & export customer data
+    items:
+    - name: Studio data
+      displayName: export
+      href: export-delete-personal-data-dsr.md
+    - name: Gallery data
+      displayName: export
+      href: ai-gallery-control-personal-data-dsr.md 
 - name: Reference
   items:
   - name: Algorithm & module reference
