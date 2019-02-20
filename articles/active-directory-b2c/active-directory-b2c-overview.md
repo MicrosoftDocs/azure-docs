@@ -8,7 +8,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/19/2019
+ms.date: 02/20/2019
 ms.author: davidmu
 ms.subservice: B2C
 ---
@@ -17,7 +17,9 @@ ms.subservice: B2C
 
 Azure Active Directory (Azure AD) B2C is an identity management service. This service enables you to customize and control how users securely interact with your web, desktop, mobile, or single-page applications. Using Azure AD B2C, users can sign up, sign in, reset passwords, and edit profiles. Azure AD B2C implements a form of the OpenID Connect and OAuth 2.0 protocols. The important key in the implementation of these protocols is the security tokens and their claims that enable you to provide secure access to resources.
 
-A *user journey* is a request that specifies a policy, which controls the behavior of how the user and your application interact with Azure AD B2C. Two paths are available to you for defining user journeys in Azure AD B2C. If you're an application developer with or without identity expertise, you might choose to define common identity user flows using the Azure portal. If you are an identity professional, systems integrator, consultant, or on an in-house identity team, are comfortable with OpenID Connect flows, and understand identity providers and claims-based authentication, you might choose XML-based custom policies.
+A *user journey* is a request that specifies a policy, which controls the behavior of how the user and your application interact with Azure AD B2C. Two paths are available to you for defining user journeys in Azure AD B2C. 
+
+If you're an application developer with or without identity expertise, you might choose to define common identity user flows using the Azure portal. If you are an identity professional, systems integrator, consultant, or on an in-house identity team, are comfortable with OpenID Connect flows, and understand identity providers and claims-based authentication, you might choose XML-based custom policies.
 
 Before you start defining a user journey, you need to create an Azure AD B2C tenant and register your application and API in the tenant. After you’ve completed these tasks, you can get started defining a user journey with either user flows or custom policies. You can also optionally, add or change identity providers, or customize the way the user experiences the journey.
 
@@ -56,9 +58,11 @@ User journeys allow you to control behaviors by configuring the following settin
 - Look and feel of pages
 - Information returned to the application
 
-Custom policies are configuration files that define the behavior of the [Identity Experience Framework](trustframeworkpolicy.md) in your Azure AD B2C tenant. Custom policies can be changed to complete many tasks. A custom policy is one or several XML-formatted files that refer to each other in a hierarchical chain. A [starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) is available for custom policies to enable common identity tasks.
+Custom policies are configuration files that define the behavior of the [Identity Experience Framework](trustframeworkpolicy.md) in your Azure AD B2C tenant. The Identity Experience Framework is the underlying platform that establishes multi-party trust and completes the steps in a user journey. 
 
-The Identity Experience Framework is the underlying platform that establishes multi-party trust and completes the steps in a user journey. Custom policies or user flows of different types are used in your Azure AD B2C tenant as needed and can be reused across applications. This flexibility enables you to define and modify user identity experiences with minimal or no changes to your code. Policies are used by adding a special query parameter to HTTP authentication requests. To create your own custom policy, see [Get started with custom policies in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+Custom policies can be changed to complete many tasks. A custom policy is one or several XML-formatted files that refer to each other in a hierarchical chain. A [starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) is available for custom policies to enable common identity tasks. 
+
+Custom policies or user flows of different types are used in your Azure AD B2C tenant as needed and can be reused across applications. This flexibility enables you to define and modify user identity experiences with minimal or no changes to your code. Policies are used by adding a special query parameter to HTTP authentication requests. To create your own custom policy, see [Get started with custom policies in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
 ## Identity providers 
 
@@ -113,7 +117,7 @@ If you are a single-page application developer using Node.js, set up your applic
 
 ### JavaScript
 
-You can add your own JavaScript client-side code to your Azure Active Directory (Azure AD) B2C applications. To set up JavaScript in your application, you define a [page contract](page-contract.md) and enable [JavaScript](javascript-samples.md) in your user flows or custom policies.
+You can add your own JavaScript client-side code to your applications in Azure AD B2C. To set up JavaScript in your application, you define a [page contract](page-contract.md) and enable [JavaScript](javascript-samples.md) in your user flows or custom policies.
 
 ### User accounts
 
