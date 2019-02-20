@@ -96,28 +96,15 @@ To configure Azure AD single sign-on with Netop Portal, perform the following st
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
+4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-	a. Click **Upload metadata file**.
+    ![Netop Portal Domain and URLs single sign-on information](common/preintegrated.png)
 
-    ![image](common/upload-metadata.png)
-
-	b. Click on **folder logo** to select the metadata file and click **Upload**.
-
-	![image](common/browse-upload-metadata.png)
-
-	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section:
-
-	![image](common/idp-intiated.png)
-
-	> [!Note]
-	> If the **Identifier** and **Reply URL** values are not getting auto polulated, then fill in the values manually according to your requirement.
-
-5. Netop Portal application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+5. Your Netop Portal application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
 	![image](common/edit-attribute.png)
 
-6. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps: 
+6. In addition to above, Netop Portal application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
 	| Name |  Source Attribute|
 	| ---------------| --------- |
