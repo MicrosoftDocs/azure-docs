@@ -28,7 +28,7 @@ This article explains potential causes for these errors.
 
 The [Train Model][train-model] Module expects two inputs:
 
-1. The type of machine learning model from the collection of models provided by Azure Machine Learning.
+1. The type of machine learning model from the collection of models provided by Azure Machine Learning Studio.
 2. The training data with a specified Label column that specifies the variable to predict (the other columns are assumed to be Features).
 
 This module can produce an error in the following cases:
