@@ -107,9 +107,9 @@ You need to be part of the Public Preview program and whitelisted for accessing 
         * Click **OK** to create the Vnet.
     6. In subnet, select the newly created Vnet (**myvnet1**) as the delegate subnet.
 
-    ![Creat a volume window](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)  
+    ![Create a volume window](../media/azure-netapp-files/azure-netapp-files-create-volume-window.png)  
 
-    ![Creat virtual network window](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
+    ![Create virtual network window](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
 4. Click **Review + create**.
 
