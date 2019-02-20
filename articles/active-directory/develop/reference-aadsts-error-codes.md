@@ -132,7 +132,6 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS53001 | DeviceNotDomainJoined - Conditional access policy requires a domain joined device, and the device is not domain joined. Have the user use a domain joined device. |
 | AADSTS53002 | ApplicationUsedIsNotAnApprovedApp - The app used is not an approved app for conditional access. User needs to use one of the apps from the list of approved apps to use in order to get access. |
 | AADSTS53003 | BlockedByConditionalAccess - Access has been blocked by conditional access policies. The access policy does not allow token issuance. |
-| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - Blocked by security policy
 | AADSTS53004 | ProofUpBlockedDueToRisk - User needs to complete the multi-factor authentication registration process before accessing this content. User should register for multi-factor authentication. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - The user or administrator has not consented to use the application with ID X. Send an interactive authorization request for this user and resource. |
@@ -252,6 +251,7 @@ Looking for info about the AADSTS error codes that are returned from the Azure A
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - The resource is not configured to accept device-only tokens. |
 | AADSTS240001 | BulkAADJTokenUnauthorized - The user isn't authorized to register devices in Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing - The id_token can't be used as `urn:ietf:params:oauth:grant-type:jwt-bearer` grant.|
+| AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy - The tenant admin has configured a security policy that blocks this request. Check the security policies that are defined on the tenant level to determine if your request meets the policy requirements. |
 | AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - The application wasn't found in the directory/tenant. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You might have misconfigured the identifier value for the application or sent your authentication request to the wrong tenant. |
 | AADSTS700020 | InteractionRequired - The access grant requires interaction. |
 | AADSTS700022 | InvalidMultipleResourcesScope - The provided value for the input parameter scope isn't valid because it contains more than one resource. |
