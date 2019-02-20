@@ -104,14 +104,16 @@ You can use Azure CLI to change your licensing model.  Be sure that your SQL Ser
 
 The following code snippet switches your pay-per-usage license model to BYOL (or using Azure Hybrid Benefit):
 ```azurecli
-az resource update -g <resource_group_name> -n <sql_virtual_machine_name> --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=AHUB
-# example: az resource update -g AHBTest -n AHBTest --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=AHUB
+# example: az sql vm update -n AHBTest -g AHBTest --license-type AHUB
+
+az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
 ```
 
 The following code snippet switches your BYOL model to pay-per-usage: 
 ```azurecli
-az resource update -g <resource_group_name> -n <sql_virtual_machine_name> --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=PAYG
-# example: az resource update -g AHBTest -n AHBTest --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=PAYG
+# example: az sql vm update -n AHBTest -g AHBTest --license-type PAYG
+
+az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 ```
 
 ### With the Azure portal
@@ -132,6 +134,7 @@ You can use PowerShell to change your licensing model.  Be sure that your SQL Se
 The following code snippet switches your pay-per-usage license model to BYOL (or using Azure Hybrid Benefit): 
 ```PowerShell
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
+
 $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 $SqlVm.Properties.sqlServerLicenseType="AHUB"
 <# the following code snippet is only necessary if using Azure Powershell version > 4
@@ -144,6 +147,7 @@ $SqlVm | Set-AzResource -Force
 The following code snippet switches your BYOL model to pay-per-usage:
 ```PowerShell
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
+
 $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 $SqlVm.Properties.sqlServerLicenseType="PAYG"
 <# the following code snippet is only necessary if using Azure Powershell version > 4
@@ -161,6 +165,7 @@ The following code snippet allows you to view your current licensing model for y
 ```PowerShell
 # View current licensing model for your SQL Server VM
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
+
 $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 $SqlVm.Properties.sqlServerLicenseType
 ```
