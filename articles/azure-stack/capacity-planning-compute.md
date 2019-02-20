@@ -40,7 +40,7 @@ If a server fails, VMs hosted on the failed server will be restarted on remainin
 
 The following calculation results in the total, available memory that can be used for tenant VM placement. This memory capacity is for the entirety of the Azure Stack Scale Unit.
 
-  Available Memory for VM placement = Total Server Memory – Resiliency Reserve – Azure Stack Infrastructure Overhead <sup>1</sup>
+  Available Memory for VM placement = Total Server Memory – Resiliency Reserve – Memory used by running VMs - Azure Stack Infrastructure Overhead <sup>1</sup>
 
   Resiliency reserve = H + R * (N-1) + V * (N-2)
 
