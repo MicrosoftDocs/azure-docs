@@ -28,7 +28,7 @@ Watch Azure SQL Data Warehouse Gen2 in action in this [Microsoft Mechanics video
 
 ## Supported regions for lower compute tiers
 
-[Supported region availability table](gen2-migration-schedule#automated-schedule-and-region-availability-table)
+[Supported region availability table](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)
 
 ## Next steps
 
