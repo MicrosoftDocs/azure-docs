@@ -82,7 +82,7 @@ Integrating your Azure Firewall with Log Analytics is very useful when first get
 The following information is only required if you wish to configure a firewall appliance other than Azure Firewall. 
 
 - Service Endpoint capable services should be configured with service endpoints.
-- IP Address dependencies are for non-HTTP/S traffic
+- IP Address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic)
 - FQDN HTTP/HTTPS endpoints can be placed in your firewall device.
 - Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your ASE based on a number of qualifiers. 
 - Linux dependencies are only a concern if you are deploying Linux apps into your ASE. If you are not deploying Linux apps into your ASE, then these addresses do not need to be added to your firewall. 
