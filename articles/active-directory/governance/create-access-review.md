@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 11/15/2018
+ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -21,14 +21,14 @@ ms.collection: M365-identity-device-management
 
 Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create access reviews for group members or application access. If you need to routinely review access, you can also create recurring access reviews. For more information about these scenarios, see [Manage user access](manage-user-access-with-access-reviews.md) and [Manage guest access](manage-guest-access-with-access-reviews.md).
 
-This article describes how to create a new access review for group members or application access.
+This article describes how to create one or more access reviews for group members or application access.
 
 ## Prerequisites
 
 - [Access reviews enabled](access-reviews-overview.md)
 - Global Administrator or Account Administrator
 
-## Create an access review
+## Create one or more access reviews
 
 1. Sign-in to the Azure portal and open the [Access Reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
@@ -53,6 +53,20 @@ This article describes how to create a new access review for group members or ap
 1. In the **Users** section, specify the users that access review applies to. Access reviews can be for the members of a group or for users who were assigned to an application. You can further scope the access review to review only the guest users who are members (or assigned to the application), rather than reviewing all the users who are members or who have access to the application.
 
     ![Create an access review - Users](./media/create-access-review/users.png)
+
+1. In the **Groups** section, select one or more groups that you would like to review membership of.
+
+    > [!NOTE]
+    > Selecting more than one group will create multiple access reviews. For example, selecting five groups will create five separate access reviews.
+    
+    ![Create an access review - Select group](./media/create-access-review/select-group.png)
+
+1. In the **Applications** section (if you selected **Assigned to an application** in step 8), select the applications that you would like to review access to.
+
+    > [!NOTE]
+    > Selecting more than one application will create multiple access reviews. For example, selecting five applications will create five separate access reviews.
+    
+    ![Create an access review - Select application](./media/create-access-review/select-application.png)
 
 1. In the **Reviewers** section, select either one or more people to review all the users in scope. Or you can select to have the members review their own access. If the resource is a group, you can ask the group owners to review. You also can require that the reviewers supply a reason when they approve access.
 
