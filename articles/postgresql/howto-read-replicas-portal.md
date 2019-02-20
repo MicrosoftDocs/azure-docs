@@ -95,10 +95,10 @@ To stop replication between a master server and a read replica from the Azure po
  
 
 ## Delete a master server
-To delete a master server, you use the same steps as to a delete a standalone Azure Database for PostgreSQL server. 
+To delete a master server, you use the same steps as to delete a standalone Azure Database for PostgreSQL server. 
 
 > [!IMPORTANT]
-> When you delete a master server, replication to all read replicas is stopped. The read replicas become standalone servers that now support both read and writes.
+> When you delete a master server, replication to all read replicas is stopped. The read replicas become standalone servers that now support both reads and writes.
 
 To delete a server from the Azure portal, follow these steps:
 
@@ -124,7 +124,7 @@ You can also delete the read replica from the **Replication** window by followin
 
 1.	In the Azure portal, select your master Azure Database for PostgreSQL server.
 
-2.	On the server menu, select **SETTINGS** > **Replication**.
+2.	On the server menu, under **SETTINGS**, select **Replication**.
 
 3.	Select the read replica to delete.
 
