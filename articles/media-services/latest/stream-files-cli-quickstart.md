@@ -44,7 +44,7 @@ az group create -n amsResourceGroup -l westus2
 
 In this example, we create a General Purpose v2, Standard LRS account.
 
-If you want to experiment with storage accounts, use `--sku Standard_LRS`. However, pick another SKU for production, for example, `--sku Standard_RAGRS`. For more information, see [storage accounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
+If you want to experiment with storage accounts, use `--sku Standard_LRS`. However, when picking a SKU for production you should consider, `--sku Standard_RAGRS`, which provides geographic replication for business continuity. For more information, see [storage accounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
  
 ```azurecli
 az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
