@@ -33,7 +33,7 @@ Here are the features available via the Speech SDK and REST APIs:
 | Batch transcription of audio files asynchronously. | No | Yes\** |
 | Create and manage speech models. | No | Yes\** |
 | Create and manage custom model deployments. | No | Yes\** |
-| Create accuracy tests to measure the accuracy of baseline versus custom models. | No | Yes\** |
+| Create accuracy tests to measure the accuracy of the baseline model versus custom models. | No | Yes\** |
 | Manage subscriptions. | No | Yes\** |
 
 \* *LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK can call LUIS for you and provide entity and intent results as well as speech transcriptions. With the REST API, you can call LUIS yourself to derive intents and entities with your LUIS subscription.*
