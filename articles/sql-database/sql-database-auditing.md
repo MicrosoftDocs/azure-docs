@@ -8,7 +8,7 @@ ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: vainolo
-ms.author: vainolo
+ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
@@ -37,8 +37,11 @@ You can use SQL database auditing to:
 > [!IMPORTANT]
 > Audit logs are written to **Append Blobs** in Azure Blob storage on your Azure subscription.
 >
-> - **Premium storage** is currently **not supported** by Append Blobs.
+> - All storage kinds (v1, v2, blob) are supported.
+> - All storage replication configurations are supported.
+> - **Premium storage** is currently **not supported**.
 > - **Storage in VNet** is currently **not supported**.
+> - **Storage behind a Firewall** is currently **not supported**
 
 ## <a id="subheading-8"></a>Define server-level vs. database-level auditing policy
 

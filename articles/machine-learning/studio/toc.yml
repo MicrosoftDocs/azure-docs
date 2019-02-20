@@ -63,7 +63,7 @@
     - name: Use data from on-premises SQL
       displayName: on-premises
       href: use-data-from-an-on-premises-sql-server.md
-  - name: Create and train models
+  - name: Train models
     items:
     - name: Experiment lifecycle management
       href: version-control.md
@@ -86,6 +86,12 @@
         href: interpret-model-results.md
       - name: Debug
         href: debug-models.md
+    - name: Retrain models
+      items:
+      - name: '"New" web services'
+        href: retrain-machine-learning-model.md
+      - name: Classic web services
+        href: retrain-classic-web-service.md
     - name: Use R and Python
       items:
       - name: Get started in R
@@ -108,7 +114,7 @@
   - name: Deploy models
     items:
     - name: Deploy a web service
-      displayName: publish
+      displayName: publish, multiple regions
       href: publish-a-machine-learning-web-service.md
     - name: How it works
       href: model-progression-experiment-to-web-service.md
@@ -117,9 +123,6 @@
     - name: Use external data
       displayName: import, export
       href: web-services-that-use-import-export-modules.md
-    - name: Deploy in multi-regions
-      displayName: multiple regions
-      href: how-to-deploy-to-multiple-regions.md
     - name: Use web service parameters
       href: web-service-parameters.md
     - name: Enable logging
@@ -132,17 +135,8 @@
       displayName: endpoint, endpoints
       href: manage-web-service-endpoints-using-api-management.md
     - name: Create endpoints
+      displayName: scale, scaling
       href: create-endpoint.md
-    - name: Scaling
-      href: scaling-webservice.md
-  - name: Retrain models
-    items:
-    - name: Overview
-      href: retrain-machine-learning-model.md
-    - name: Retrain an existing web service
-      href: retrain-existing-resource-manager-based-web-service.md
-    - name: Troubleshoot
-      href: troubleshooting-retraining-models.md
   - name: Consume models
     items:
     - name: Overview
@@ -151,11 +145,9 @@
       href: consuming-from-excel.md
     - name: Use Excel add-in
       href: excel-add-in-for-web-services.md
-    - name: Use web app template
-      href: consume-web-service-with-web-app-template.md
     - name: Use Batch Pool
       href: dedicated-capacity-for-bes-jobs.md
-  - name: Examples
+  - name: Use cases
     items: 
     - name: Customer churn
       href: azure-ml-customer-churn-scenario.md
@@ -163,12 +155,14 @@
       href: text-analytics-module-tutorial.md
     - name: Migrate analytics from Excel to Studio
       href: linear-regression-in-azure.md
-  - name: View and delete Studio data
-    displayName: export
-    href: export-delete-personal-data-dsr.md
-  - name: View and delete Gallery data
-    displayName: export
-    href: ai-gallery-control-personal-data-dsr.md 
+  - name: Delete & export customer data
+    items:
+    - name: Studio data
+      displayName: export
+      href: export-delete-personal-data-dsr.md
+    - name: Gallery data
+      displayName: export
+      href: ai-gallery-control-personal-data-dsr.md 
 - name: Reference
   items:
   - name: Algorithm & module reference
