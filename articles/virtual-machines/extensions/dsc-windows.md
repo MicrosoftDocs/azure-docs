@@ -47,7 +47,7 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
   "properties": {
     "publisher": "Microsoft.Powershell",
     "type": "DSC",
-    "typeHandlerVersion": "2.76",
+    "typeHandlerVersion": "2.77",
     "autoUpgradeMinorVersion": true,
     "settings": {
     	"wmfVersion": "latest",
@@ -98,7 +98,7 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
 | apiVersion | 2018-10-01 | date |
 | publisher | Microsoft.Powershell.DSC | string |
 | type | DSC | string |
-| typeHandlerVersion | 2.76 | int |
+| typeHandlerVersion | 2.77 | int |
 
 ### Settings Property values
 
