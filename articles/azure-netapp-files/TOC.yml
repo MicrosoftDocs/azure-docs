@@ -8,7 +8,7 @@
     href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Quickstarts
   items:
-  - Set up Azure NetApp Files and create a volume
+  - name: Set up Azure NetApp Files and create a volume
     href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 # - name: Tutorials
 # - name: Samples
