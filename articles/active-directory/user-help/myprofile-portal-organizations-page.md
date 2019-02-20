@@ -51,3 +51,6 @@ You can leave any organization that isn't your Home organization.
 
     ![Organizations page with highlighted leave organization link](media/myprofile-portal/myprofile-portal-organizations-leave.png)
 
+## Next steps
+
+- After viewing your recent sign-in activity, you can select to view or manage your [security info](user-help-security-info-overview.md), [recent sign-in activity](myprofile-portal-recent-activity-page.md), connected [devices](myprofile-portal-devices-page.md), or to view how your organization [uses your data](myprofile-portal-privacy-page.md).

@@ -42,3 +42,7 @@ You can disable any of your connected devices at any time. This is especially im
     ![Device page with highlighted Disable link](media/myprofile-portal/myprofile-portal-devices-disable.png)
 
 2. Select **Yes** to confirm you want to disable the device.
+
+## Next steps
+
+- After viewing your recent sign-in activity, you can select to view or manage your [security info](user-help-security-info-overview.md), [recent sign-in activity](myprofile-portal-recent-activity-page.md), your connected [organizations](myprofile-portal-organizations-page.md), or to view how your organization [uses your data](myprofile-portal-privacy-page.md).

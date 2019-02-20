@@ -32,3 +32,7 @@ You can view how your organization uses your data from the **Privacy** page of t
     - **Services.** A list of online services you're connected to using your work or school account.
 
     - **Terms of use**. Your organization's terms of use.
+
+## Next steps
+
+- After viewing your recent sign-in activity, you can select to view or manage your [security info](user-help-security-info-overview.md), [recent sign-in activity](myprofile-portal-recent-activity-page.md), connected [devices](myprofile-portal-devices-page.md) or [organizations](myprofile-portal-organizations-page.md).

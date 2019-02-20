@@ -34,4 +34,8 @@ You can view all of your recent sign-in activity using your work or school accou
     >[!Note]
     >If you believe your account was compromised, see [How to access a compromised Microsoft account](https://support.microsoft.com/help/10494/microsoft-account-how-to-access-a-compromised-account) for more help with resetting your password or unblocking your account.
 
+## Next steps
+
+- After viewing your recent sign-in activity, you can select to view or manage your [security info](user-help-security-info-overview.md), connected [devices](myprofile-portal-devices-page.md) or [organizations](myprofile-portal-organizations-page.md), or to view how your organization [uses your data](myprofile-portal-privacy-page.md).
+
 
