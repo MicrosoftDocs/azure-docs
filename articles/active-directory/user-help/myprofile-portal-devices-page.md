@@ -39,4 +39,4 @@ You can disable any of your connected devices at any time. This is especially im
 
 2. Select **Yes** to confirm you want to disable the device.
 
-    ![Device page with highlighted Disable link](media/myprofile-portal/myprofile-portal-organizations-disable.png)
+    ![Device page with highlighted Disable link](media/myprofile-portal/myprofile-portal-devices-disable.png)
