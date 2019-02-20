@@ -24,6 +24,8 @@ There are two types of organizations shown on the **Organizations** page:
 
 - **Other organizations.** The other organizations are any group that you've signed in to previously using your work or school account. You can leave any of these organizations at any time.
 
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
+
 ## To view your organizations
 1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
 

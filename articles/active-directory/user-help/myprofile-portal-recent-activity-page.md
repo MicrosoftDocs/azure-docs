@@ -18,6 +18,8 @@ ms.collection: M365-identity-device-management
 # View your recent sign-in activity on the My Profile (preview) portal
 You can view all of your recent sign-in activity using your work or school account, from the **Recent activity** page of the **My Profile** portal.
 
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
+
 ## To view your recent sign-in activity
 1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
 

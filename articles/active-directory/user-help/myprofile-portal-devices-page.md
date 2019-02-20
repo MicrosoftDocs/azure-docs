@@ -18,6 +18,8 @@ ms.collection: M365-identity-device-management
 # Manage your connected devices from the My Profile (preview) portal
 You can manage the devices you're connected to using your work or school account, disabling any that you no longer own, from the **Devices** page of the **My Profile** portal.
 
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
+
 ## To view your connected devices
 1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
 
