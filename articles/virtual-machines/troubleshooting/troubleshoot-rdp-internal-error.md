@@ -88,7 +88,9 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
 1.	In a PowerShell instance, run the following commands one by one to renew the RDP self-signed certificate:
 
-        Import-Module PKI Set-Location Cert:\LocalMachine 
+        Import-Module PKI 
+    
+        Set-Location Cert:\LocalMachine 
         
         $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) 
         
@@ -198,6 +200,7 @@ To enable dump log and Serial Console, run the following script.
         Md F:\temp
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt
+        
         takeown /f "F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
         icacls F:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
