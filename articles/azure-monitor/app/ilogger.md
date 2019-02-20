@@ -13,7 +13,7 @@ ms.author: cithomas
 
 # ILogger
 
-To learn more about ILogger based logging, see [this article](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+ASP.NET Core supports a logging API that works with a variety of built-in and third-party logging providers. This article shows how to handle logging with the Application Insights ILogger implementation in both console and ASP.NET Core applications. To learn more about ILogger based logging, see [this article](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
 ## Console application
 
