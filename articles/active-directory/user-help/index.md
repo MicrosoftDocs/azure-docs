@@ -49,7 +49,7 @@ We've created this content to help you set up and use security info, two-step ve
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>MyProfile (preview) portal help</h3>
+                        <h3>My Profile (preview) portal help</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/myprofile-portal-overview">Overview</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-security-info-overview">Manage your security info</a><br/>

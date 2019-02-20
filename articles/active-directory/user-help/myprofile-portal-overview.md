@@ -1,6 +1,6 @@
 ---
-title: MyProfile (preview) portal overview - Azure Active Directory | Microsoft Docs
-description: A high-level overview about the MyProfile portal, including links to other articles about the feature.
+title: My Profile (preview) portal overview - Azure Active Directory | Microsoft Docs
+description: A high-level overview about the My Profile portal, including links to other articles about the feature.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -15,11 +15,11 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# MyProfile (preview) portal overview
+# My Profile (preview) portal overview
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
-You can use the **MyProfile** (preview) portal to manage your work or school account to:
+You can use the **My Profile** (preview) portal to manage your work or school account to:
 
 - Set up and manage your two-factor verification and password resets.
 
@@ -32,8 +32,8 @@ You can use the **MyProfile** (preview) portal to manage your work or school acc
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
 
-## Access the MyProfile portal
-You can get to the **MyProfile** portal by going to https://myprofile.microsoft.com, from the current version of any of the following browsers:
+## Access the My Profile portal
+You can get to the **My Profile** portal by going to https://myprofile.microsoft.com, from the current version of any of the following browsers:
 
 - Chrome
 - Microsoft Edge
@@ -41,10 +41,10 @@ You can get to the **MyProfile** portal by going to https://myprofile.microsoft.
 - Firefox
 - Internet Explorer 11
 
-![MyProfile portal, Overview page](media/myprofile-portal/myprofile-portal-overview-page.png)
+![My Profile portal, Overview page](media/myprofile-portal/myprofile-portal-overview-page.png)
 
 ## In this section
-You can find more information about the**MyProfile** portal and its pages, in the following articles.
+You can find more information about the**My Profile** portal and its pages, in the following articles.
 
 |Article |Description |
 |------|------------|
