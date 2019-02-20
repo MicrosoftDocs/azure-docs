@@ -16,7 +16,7 @@ ms.author: mbullwin
 
 ---
 # Explore .NET trace logs in Application Insights
-If you use ILogger, NLog, log4Net or System.Diagnostics.Trace for diagnostic tracing in your ASP.NET application, you can have your logs sent to [Azure Application Insights][start], where you can explore and search them. Your logs will be merged with the other telemetry coming from your application, so that you can identify the traces associated with servicing each user request, and correlate them with other events and exception reports.
+If you use ILogger, NLog, log4Net, or System.Diagnostics.Trace for diagnostic tracing in your ASP.NET application, you can have your logs sent to [Azure Application Insights][start], where you can explore and search them. Your logs will be merged with the other telemetry coming from your application, so that you can identify the traces associated with servicing each user request, and correlate them with other events and exception reports.
 
 > [!NOTE]
 > Do you need the log capture module? It's a useful adapter for 3rd-party loggers, but if you aren't already using NLog, log4Net or System.Diagnostics.Trace, consider just calling [Application Insights TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) directly.
@@ -74,7 +74,7 @@ The NuGet package installs the necessary assemblies, and where applicable modifi
 
 ## ILogger
 
-For examples of using the Application Insights ILogger implementation with Console applications and ASP.NET Core checkout this [article](ilogger.md).
+For examples of using the Application Insights ILogger implementation with Console applications and ASP.NET Core check out this [article](ilogger.md).
 
 ## Insert diagnostic log calls
 If you use System.Diagnostics.Trace, a typical call would be:
@@ -191,7 +191,7 @@ Use the [Java log adapters](../../azure-monitor/app/java-trace-logs.md).
 ### <a name="emptykey"></a>I get an error "Instrumentation key cannot be empty"
 Looks like you installed the logging adapter Nuget package without installing Application Insights.
 
-In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You'll get a dialog that invites you to sign in to Azure and either create an Application Insights resource, or re-use an existing one. That should fix it.
+In Solution Explorer, right-click `ApplicationInsights.config` and choose **Update Application Insights**. You'll get a dialog that invites you to sign in to Azure and either create an Application Insights resource, or reuse an existing one. That should fix it.
 
 ### I can see traces in diagnostic search, but not the other events
 It can sometimes take a while for all the events and requests to get through the pipeline.

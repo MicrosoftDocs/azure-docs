@@ -157,9 +157,9 @@ public class ValuesController : ControllerBase
 	// and all have ("MyKey", "MyValue") in Properties.
 	using (_logger.BeginScope(new Dictionary<string, object> { { "MyKey", "MyValue" } }))
         {			
-	    _logger.LogInformation("This is an information trace..");
-	    _logger.LogWarning("This is a warning trace..");
-	    _logger.LogTrace("this is a Trace level message");
+	    _logger.LogInformation("An example of a Information trace..");
+	    _logger.LogWarning("An example of a Warning trace..");
+	    _logger.LogTrace("An example of a Trace level message");
         }
 
         return new string[] { "value1", "value2" };
@@ -167,7 +167,7 @@ public class ValuesController : ControllerBase
 }
 ```
 
-In both the examples above, the standalone package Microsoft.Extensions.Logging.ApplicationInsights is used. This, by default, would be using a bare minimum `TelemetryConfiguration` for sending data to
+In both the examples above, the standalone package Microsoft.Extensions.Logging.ApplicationInsights is used. By default, this configuration uses the bare minimum `TelemetryConfiguration` for sending data to
 Application Insights. Bare minimum means the channel used will be `InMemoryChannel`, no sampling, and no standard TelemetryInitializers. This behavior can be overridden for a console application
 as shown in example below.
 
@@ -208,15 +208,15 @@ Install additional package
 <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.6.0-beta3" />
 ```
 
-Add the following to `ConfigureServices` method. This will enable regular application monitoring with default configuration (ServerTelemetryChannel, LiveMetrics, Request/Dependencies, Correlation etc.)
+Add the following to the `ConfigureServices` method. This code will enable regular application monitoring with default configuration (ServerTelemetryChannel, LiveMetrics, Request/Dependencies, Correlation etc.)
 
 ```csharp
 services.AddApplicationInsightsTelemetry("ikeyhere");
 ```
 
-In this example, the configuration used by `ApplicationInsightsLoggerProvider` is the same as used by regular application monitoring. This means that both `ILogger` traces and other telemetry (Requests, Dependencies etc.) will be running the same set of `TelemetryInitializers`, `TelemetryProcessors`, and `TelemetryChannel`. They will be correlated and sampled/not sampled in the same way.
+In this example, the configuration used by `ApplicationInsightsLoggerProvider` is the same as used by regular application monitoring. Therefore both `ILogger` traces and other telemetry (Requests, Dependencies etc.) will be running the same set of `TelemetryInitializers`, `TelemetryProcessors`, and `TelemetryChannel`. They will be correlated and sampled/not sampled in the same way.
 
-There is an exception to this, however. The default `TelemetryConfiguration` is not fully set up when logging something from `Program.cs` or `Startup.cs` itself, so those logs will not have the default configuration. However, every other log (for example, logs from Controllers, Models etc.) would share the configuration.
+However, there is an exception to this behavior. The default `TelemetryConfiguration` is not fully set up when logging something from `Program.cs` or `Startup.cs` itself, so those logs will not have the default configuration. However, every other log (for example, logs from Controllers, Models etc.) would share the configuration.
 
 ## Next steps
 
