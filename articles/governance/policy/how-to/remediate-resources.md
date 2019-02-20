@@ -86,7 +86,7 @@ SQL DB transparent data encryption**, sets the target resource group, and then c
 assignment.
 
 ```azurepowershell-interactive
-# Login first with Connect-Azccount if not using Cloud Shell
+# Login first with Connect-AzAccount if not using Cloud Shell
 
 # Get the built-in "Deploy SQL DB transparent data encryption" policy definition
 $policyDef = Get-AzPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
@@ -139,7 +139,7 @@ To add a role to the assignment's managed identity, follow these steps:
 
 1. Find the **Assignment ID** property on the edit page. The assignment ID will be something like:
 
-   ```
+   ```output
    /subscriptions/{subscriptionId}/resourceGroups/PolicyTarget/providers/Microsoft.Authorization/policyAssignments/2802056bfc094dfb95d4d7a5
    ```
 
