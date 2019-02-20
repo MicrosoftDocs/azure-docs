@@ -35,27 +35,25 @@ For more information, see [Azure Spatial Anchors overview](https://review.docs.m
 
 **A:** The time required to create and locate anchors is dependent on many factors such as the network connection, the device's processing and load, and the specific environment. We have customers building applications in many industries including manufacturing, retail and gaming indicating that the service enables agreat user experience for their scenarios.
 
-# Privacy FAQ
+## Privacy FAQ
 
 **Q: When my application places a Spatial Anchor somewhere do all apps have access to it?**
 
 **A:** Anchors are isolated by Azure account. Only apps to which you grant access to your account will be able to access anchors within the account.
 
-**Q: What information about an environment is transmitted and stored on the service when using Azure Spatial Anchors? Are pictures of the environment transmitted and stored?  **
+**Q: What information about an environment is transmitted and stored on the service when using Azure Spatial Anchors? Are pictures of the environment transmitted and stored?**
 
-A: When creating or locating anchors, pictures of the environment are processed on the device into a derived format which is transmitted to and stored on the service.
+**A**: When creating or locating anchors, pictures of the environment are processed on the device into a derived format which is transmitted to and stored on the service.
 
 Azure Spatial Anchors adheres to the [Azure service agreement]() and this information is treated as customer data.
 
 To provide transparency about the data that's transmitted and stored, below is an image of an environment and the derived sparse point cloud that's transmitted and stored on the service.
 
-![Environment image on left and sparse point cloud on right](./media/sparce-point-cloud1.png)
-
-![Environment image on left and sparse point cloud on right](./media/sparce-point-cloud2.png)
+![Environment image on left and sparse point cloud on right](./media/sparce-point-cloud.png)
  
-Azure Spatial Anchors does however have a diagnostics mode API which allows apps to explicitly opt-in to submit environment data including pictures that the product team can use to diagnose issues. This is useful when you encounter an environment where you are unable to create and locate anchors predictability. For more information see **Submitting Diagnostics in Azure Spatial Anchors**.
+Azure Spatial Anchors does however have a diagnostics mode API which allows apps to explicitly opt-in to submit environment data including pictures that the product team can use to diagnose issues. This is useful when you encounter an environment where you are unable to create and locate anchors predictability. For more information see [**Submitting Diagnostics in Azure Spatial Anchors**]().
 
-# Availability and Pricing FAQs
+## Availability and Pricing FAQs
 
 **Q: Do you provide an SLA?**
 
@@ -67,13 +65,14 @@ Azure Spatial Anchors does however have a diagnostics mode API which allows apps
 
 We will announce our General Availability (GA) dates in the near future.
 
+**Q: Do you have any throttling limits in place?**
+ 
+**A**: Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we are ready to support our customers’ high-scale requirements. Please contact us at <TBD> . During this phase of Public Preview we have not yet published our tiering and pricing structure but we expect to do that in the near future.
+
+
 **Q: In what regions is Azure Spatial Anchors available?**
 
 **A:** You can get your own Azure Spatial Anchors today in the Azure East US 2 region. What this means is that both compute and storage powering this service are located in this region. That said, there are no restrictions on where your clients are located. Going forward, we will expand regional availability of the service to all primary Azure regions.
-
-**Q: Do you have any throttling limits in place?**
-
-**A:** Yes,we have throttling limits in place and we will be continuously experimenting with them during Public Preview.
 
 **Q: Do you charge for Azure Spatial Anchors? Will you ever charge?**
 
@@ -81,7 +80,7 @@ We will announce our General Availability (GA) dates in the near future.
 
 As we get closer to General Availability (GA), we will have more to share about pricing. For more information and to stay up to date, visit our [pricing page](http://azure.microsoft.com/pricing/details/azure-spatial-anchors).
 
-# Technical FAQs
+## Technical FAQs
 
 **Q: How does Azure Spatial Anchors work?**
 
@@ -117,4 +116,3 @@ Get started with [development here](https://review.docs.microsoft.com/en-us/azur
 **Q: Does it work with Xamarin?**
 
 **A:** We do not have a supported Xamarin SDK today but are committed to making Azure Spatial Anchors work where developers need it. We'd love to have your feedback on this.
-
