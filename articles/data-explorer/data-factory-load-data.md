@@ -54,7 +54,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 1. After creation is complete, go to your data factory. You see the **Data Factory** home page as shown in the following image:
 
-   ![Data factory home page](/media/data-factory-load-data/data-factory-home-page.png)
+   ![Data factory home page](media/data-factory-load-data/data-factory-home-page.png)
 
 1. Select the **Author & Monitor** tile to launch the application in a separate tab.
 
@@ -64,19 +64,19 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 1. In the **Let's get started** page, select the **Copy Data** tile to launch the Copy Data tool:
 
-   ![Copy Data tool tile](/media/data-factory-load-data/copy-data-tool-tile.png)
+   ![Copy Data tool tile](media/data-factory-load-data/copy-data-tool-tile.png)
 
 1. In the **Properties** page, specify: **CopyFromAmazonS3ToADX** for the **Task name** field, and select **Next**:
 
-    ![Properties page](/media/data-factory-load-data/copy-data-tool-properties-pane.png)
+    ![Properties page](media/data-factory-load-data/copy-data-tool-properties-pane.png)
 
 1. In the **Source data store** page, click **+ Create new connection**:
 
-    ![Source data store page](/media/data-factory-load-data/source-data-store-pane.png)
+    ![Source data store page](media/data-factory-load-data/source-data-store-pane.png)
 
 1. Select **Amazon S3**, and then select **Continue**
 
-    ![Source data store s3 new linked service](/media/data-factory-load-data/source-data-store-s3.png)
+    ![Source data store s3 new linked service](media/data-factory-load-data/source-data-store-s3.png)
 
 1. In the **New Linked Service (Amazon S3)** pane, do the following steps:
 
@@ -85,7 +85,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
     1. Specify the **Secret Access Key** value.
     1. Select **Finish**.
 
-    ![Specify Amazon S3 linked service](/media/data-factory-load-data/amazon-s3-linked-service.png)
+    ![Specify Amazon S3 linked service](media/data-factory-load-data/amazon-s3-linked-service.png)
 
 1. You will see a new connection. Select **Next**.
 
@@ -96,11 +96,11 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
     1. Browse to the folder/file that you want to copy. Select the folder/file.
     1. Select **Choose**, and then select **Next**.
 
-    ![Choose input file or folder](/media/data-factory-load-data/choose-input-folder.png)
+    ![Choose input file or folder](media/data-factory-load-data/choose-input-folder.png)
 
 1. Select the copy behavior by selecting the **Copy files recursively** and **Binary copy** (copy files as-is) options. Select **Next**.
 
-    ![Specify output folder](/media/data-factory-load-data/specify-binary-copy.png)
+    ![Specify output folder](media/data-factory-load-data/specify-binary-copy.png)
 
 ## Create a service principal
 
@@ -165,7 +165,7 @@ Create a service principal as described in [Create an Azure service principal wi
 
 1. In the **Choose the output file or folder** page, enter **copyfroms3** as the output folder name, and select **Next**.
 
-    ![Specify output folder](/media/data-factory-load-data/specify-path.png)
+    ![Specify output folder](media/data-factory-load-data/specify-path.png)
 
 1. In the **Settings** page, select **Next**.
 
