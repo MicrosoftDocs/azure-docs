@@ -65,7 +65,7 @@ A.  To get Azure Data Box, sign into the Azure portal and create a Data Box orde
 ### Q. I was not able to create a Data Box order in the Azure portal. Why would this be?
 A. If you were not able to create a Data Box order, there is a problem with either your subscription type or access. 
 
-Check your subscription. Data Box is only available for Enterprise Agreement (EA), Cloud solution provider (CSP), or Pay-as-you-go subscription offers. If your subscription does not fall in any of the above types, contact Microsoft Support to upgrade your subscription.
+Check your subscription. Data Box is only available for Enterprise Agreement (EA) and Cloud solution provider (CSP) subscription offers. If your subscription does not fall in any of the above types, contact Microsoft Support to upgrade your subscription.
 
 If you have a supported offer type for the subscription, check your subscription access level. You need to be a contributor or owner in your subscription to create an order.
 

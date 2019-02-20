@@ -1,6 +1,6 @@
 ---
 title: Sample - Require encryption for Data Lake Store
-description: This sample policy requires encryption for Data Lake Store.
+description: This sample policy definition requires Data Lake Store encryption to be enabled.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Require Data Lake Store encryption
+# Sample - Require Data Lake Store encryption
 
 This built-in policy denies any Data Lake Store accounts that don't have encryption enabled.
 
@@ -45,7 +45,7 @@ When assigning a policy, select **Enforce encryption on DataLakeStore accounts**
 
 ## Deploy with PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
 $definition = Get-AzPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/a7ff3161-0087-490a-9ad9-ad6217f4f43a
