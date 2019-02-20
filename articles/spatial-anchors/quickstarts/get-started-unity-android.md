@@ -57,11 +57,11 @@ Save the scene by selecting **File** -> **Save**.
 
 Select **Export** to open a dialog. Then, select a folder to export the Android Studio project.
 
-When the export is complete, a folder will be displayed containing the exported Android Studio project.
+When the export is complete, a folder will be displayed containing the exported Android Studio project, with a subfolder called **HelloAR U3D**.
 
 ## Deploy the Android application
 
-Open Android Studio and select **Open an existing Android Studio project**. Then, select the exported Android Studio project and click **OK**.
+Open Android Studio and select **Open an existing Android Studio project**. Then, select the **HelloAR U3D** subfolder from the exported Android Studio project, and click **OK**.
 
 Upon opening, a prompt will appear asking to use the Gradle wrapper. Select **OK** to use the Gradle wrapper and to open the project.
 
