@@ -75,7 +75,7 @@ To create a custom role, first construct a role definition JSON file specifying 
         "Microsoft.Authorization/*/Write"
     ],
     "AssignableScopes":  [
-        "/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft. MachineLearningServices/workspaces/<workspace_name>"
+        "/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.MachineLearningServices/workspaces/<workspace_name>"
     ]
 }
 ```
