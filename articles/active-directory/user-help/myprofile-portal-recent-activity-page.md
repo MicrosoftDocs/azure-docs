@@ -1,6 +1,6 @@
 ---
-title: View recent sign-in activity on the My Profile (preview) portal - Azure Active Directory | Microsoft Docs
-description: A high-level overview about the My Profile portal, including links to other articles about the feature.
+title: View recent sign-in activity from the My Profile (preview) portal - Azure Active Directory | Microsoft Docs
+description: A high-level overview about the Recent activity page of the My Profile portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -16,6 +16,19 @@ ms.collection: M365-identity-device-management
 ---
 
 # View your recent sign-in activity on the My Profile (preview) portal
-You can view all of your recent work or school account sign-in activity from the Recent activity page of the My Profile portal.
+You can view all of your recent sign-in activity using your work or school account, from the **Recent activity** page of the **My Profile** portal.
 
 ## To view your recent sign-in activity
+1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+
+    ![My Profile page, showing highlighted Recent activity links](media/myprofile-portal/myprofile-portal-recent-activity-links.png)
+
+2. Select **Recent activity** from the left navigation pane or from the link in the **Recent activity** block.
+
+3. Expand and review each of the sign-in items, making sure that you recognize each one. If you find an sign-in item that doesn't look familiar, we highly recommend you change your password to help protect your account if it was compromised.
+
+    If you believe your account was compromised, see [How to access a compromised Microsoft account](https://support.microsoft.com/help/10494/microsoft-account-how-to-access-a-compromised-account) for more help with resetting your password or unblocking your account.
+
+    ![Recent activity page with expanded sign-in details](media/myprofile-portal/myprofile-portal-recent-activity-page.png)
+
+

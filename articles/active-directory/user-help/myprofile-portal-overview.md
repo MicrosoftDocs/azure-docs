@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 You can use the **My Profile** (preview) portal to manage your work or school account to:
 
-- Set up and manage your two-factor verification and password resets.
+- Set up and manage your security info for two-step verification and password reset.
 
 - View your sign-in activity.
 

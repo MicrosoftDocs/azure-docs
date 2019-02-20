@@ -38,7 +38,7 @@ If you use security questions, we recommend using them in conjunction with anoth
 
     ![My Profile page, showing highlighted Security info links](media/security-info/securityinfo-myprofile.png)
 
-2. Select **Security info** from the left navigation pane or one of the links in the **Security info** block, and then select **Add method** from the **Security info** page.
+2. Select **Security info** from the left navigation pane or from the link in the **Security info** block, and then select **Add method** from the **Security info** page.
 
     ![Security info page with highlighted Add method option](media/security-info/securityinfo-myprofile-addmethod.png)
 
