@@ -137,7 +137,7 @@ when the data set is large.
 Lots of machine learning algorithms make use of linearity. Linear
 classification algorithms assume that classes can be separated by a
 straight line (or its higher-dimensional analog). These include logistic
-regression and support vector machines (as implemented in Azure Machine Learning Studiod).
+regression and support vector machines (as implemented in Azure Machine Learning Studio).
 Linear regression algorithms assume that data trends follow a straight
 line. These assumptions aren't bad for some problems, but on others they
 bring accuracy down.
