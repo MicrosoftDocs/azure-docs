@@ -29,9 +29,9 @@ There are two types of organizations shown on the **Organizations** page:
 ## To view your organizations
 1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
 
-    ![My Profile page, showing highlighted Organizations links](media/myprofile-portal/myprofile-portal-organizations-links.png)
-
 2. Select **Organizations** from the left navigation pane or select the **Manage organizations** link from the **Organizations** block.
+
+    ![My Profile page, showing highlighted Organizations links](media/myprofile-portal/myprofile-portal-organizations-links.png)
 
 3. Review the information for your **Home organization**. 
 
