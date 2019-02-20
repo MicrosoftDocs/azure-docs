@@ -49,7 +49,9 @@ Azure Spatial Anchors adheres to the [Azure service agreement]() and this inform
 
 To provide transparency about the data that's transmitted and stored, below is an image of an environment and the derived sparse point cloud that's transmitted and stored on the service.
 
-![images]()
+![Environment image on left and sparse point cloud on right](./media/sparce-point-cloud1.png)
+
+![Environment image on left and sparse point cloud on right](./media/sparce-point-cloud2.png)
  
 Azure Spatial Anchors does however have a diagnostics mode API which allows apps to explicitly opt-in to submit environment data including pictures that the product team can use to diagnose issues. This is useful when you encounter an environment where you are unable to create and locate anchors predictability. For more information see **Submitting Diagnostics in Azure Spatial Anchors**.
 
