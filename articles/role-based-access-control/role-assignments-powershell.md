@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -76,9 +76,9 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-### List a specific role in JSON format
+### List a role definition in JSON format
 
-To list a specific role in JSON format, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+To list a role definition in JSON format, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role name> | ConvertTo-Json
