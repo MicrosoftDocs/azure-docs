@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/15/2019
+ms.date: 02/20/2019
 ms.author: jeedes
 
 ---
@@ -110,7 +110,7 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
     `https://app.periscopedata.com/<SITENAME>/sso`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Periscope Data Client support team](mailto:support@periscopedata.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Sign on URL value is not real. Update the values with the actual Sign on URL. Contact [Periscope Data Client support team](mailto:support@periscopedata.com) to get this value and the Identifier value you will get from the **Configure Periscope Data Single Sign-On** section which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
@@ -118,7 +118,31 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
 
 ### Configure Periscope Data Single Sign-On
 
-To configure single sign-on on **Periscope Data** side, you need to send the **App Federation Metadata Url** to [Periscope Data support team](mailto:support@periscopedata.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. In a different web browser window, sign in to Periscope Data as an Administrator.
+
+2. open the gear menu in the bottom left and open the **Billing** > **Security** menu and perform the following steps. Only admins have access to these settings.
+
+    ![Periscope Data Configure information](./media/periscope-data-tutorial/configure01.png)
+
+    a. Copy the **App Federation Metadata URL** from step #5 **SAML Signing Certificate** and open it in a browser. This will open up an XML document.
+
+    b. In the **Single Sign-On** textbox, select **Azure Active Directory**.
+
+    c. find the tag **SingleSignOnService** and paste the **Location** value in the **SSO URL** textbox.
+
+    d. find the tag **SingleLogoutService** and paste the **Location** value in the **SLO URL** textbox.
+
+    e. Copy the **Identifier** value for your instance and paste it in **Identifier (Entity ID)** textbox of **Basic SAML Configuration** section on Azure portal.
+
+    f. The first tag of the XML file, copy the value of **entityID** and paste it in the **Issuer** textbox.
+
+    g. Find the tag **IDPSSODescriptor** with SAML protocol. Within that section, find the tag **KeyDescriptor** with **use=signing**. copy the value of **X509Certificate** and paste it in the **Certificate** textbox.
+
+    h. Sites with multiple spaces can choose the default space from the **Default Space** drop down. This will be the space new users get added to when they log in to Periscope Data for the first time and are provisioned through the Active Directory Single Sign On.
+
+    i. Finally, click **Save** and **confirm** the SSO settings change by typing **Logout**.
+
+    ![Periscope Data Configure information](./media/periscope-data-tutorial/configure02.png)
 
 ### Create an Azure AD test user 
 
@@ -173,7 +197,27 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Periscope Data test user
 
-In this section, you create a user called Britta Simon in Periscope Data. Work with [Periscope Data support team](mailto:support@periscopedata.com) to add the users in the Periscope Data platform. Users must be created and activated before you use single sign-on.
+To enable Azure AD users to log in to Periscope Data, they must be provisioned into Periscope Data. In Periscope Data, provisioning is a manual task.
+
+**To provision a user account, perform the following steps:**
+
+1. Log in to Periscope Data as an Administrator.
+
+2. Click on the **Settings** icon on the left bottom of the menu and navigate to **Permissions**.
+
+    ![Periscope Data Configure information](./media/periscope-data-tutorial/configure03.png)
+
+3. Click on the **ADD USER** and perform the following steps:
+
+      ![Periscope Data Configure information](./media/periscope-data-tutorial/configure04.png)
+
+    a. In **First Name** text box, enter the first name of user like **Britta**.
+
+    b. In **Last Name** text box, enter the last name of user like **Simon**.
+
+    c. In **Email** text box, enter the email of user like **brittasimon@contoso.com**.
+
+    d. Click **ADD**.
 
 ### Test single sign-on 
 
