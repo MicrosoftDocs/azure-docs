@@ -15,7 +15,7 @@ ms.author: rosh
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Go
 
-Use this quickstart to call to the Bing Visual Search API and view the search results. This Go application uploads an image to the API, and displays the information returned about it.
+Use this quickstart to call to the Bing Visual Search API and view the results. This Go application uploads an image to the API and displays URLs to similar images and descriptive information about the images.
 
 ## Prerequisites
 * [Go binaries](https://golang.org/dl/)
@@ -128,7 +128,7 @@ func main() {
 
 ```
 
-## Create buffer to hold image bytes and add to form data for upload.
+## Create buffer to hold image bytes and add to form data
 
 Get the image from path and filename.  Read the bytes into a buffer. Copy the bytes to the request form.
 
@@ -144,7 +144,7 @@ Get the image from path and filename.  Read the bytes into a buffer. Copy the by
 
 ```
 
-## Create Post request and add image bytes to Post body.
+## Create Post request and add image bytes to Post body
 
 Create the Post request that contains image data in the Post body.  Set the headers.
 
