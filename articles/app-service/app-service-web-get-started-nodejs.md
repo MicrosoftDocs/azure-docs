@@ -18,6 +18,8 @@ ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
 ms.custom: seodec18
 
+experimental: true
+experiment_id: a231f2b4-2625-4d
 ---
 # Create a Node.js web app in Azure
 
