@@ -34,31 +34,24 @@ The Machine Learning service needs a storage account to store data. You can use 
 
 After the new Machine Learning Studio workspace is created, you can sign in to Machine Learning Studio by using the Microsoft account you used to create the workspace. If you encounter the error message, “Workspace Not Found” (similar to the following screenshot), please use the following steps to delete your browser cookies.
 
-![Workspace not found][screen3]
+![Workspace not found](media/troubleshooting-creating-ml-workspace/screen3.png)
 
 **To delete browser cookies**
 
 1. If you use Internet Explorer, click the **Tools** button in the upper-right corner and select **Internet options**.  
 
-   ![Internet options][screen4]
+   ![Internet options](media/troubleshooting-creating-ml-workspace/screen4.png)
 
 2. Under the **General** tab, click **Delete…**
 
-   ![General tab][screen5]
+   ![General tab](media/troubleshooting-creating-ml-workspace/screen5.png)
 
 3. In the **Delete Browsing History** dialog box, make sure **Cookies and website data** is selected, and click **Delete**.
 
-   ![Delete cookies][screen6]
+   ![Delete cookies](media/troubleshooting-creating-ml-workspace/screen6.png)
 
 After the cookies are deleted, restart the browser and then go to the [Microsoft Azure Machine Learning](https://studio.azureml.net) page. When you are prompted for a user name and password, enter the same Microsoft account you used to create the workspace.
 
 ## Comments
 
 Our goal is to make the Machine Learning experience as seamless as possible. Please post any comments and issues at the [Azure Machine Learning forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) to help us serve you better.
-
-[screen1]:media/troubleshooting-creating-ml-workspace/screen1.png
-[screen2]:media/troubleshooting-creating-ml-workspace/screen2.png
-[screen3]:media/troubleshooting-creating-ml-workspace/screen3.png
-[screen4]:media/troubleshooting-creating-ml-workspace/screen4.png
-[screen5]:media/troubleshooting-creating-ml-workspace/screen5.png
-[screen6]:media/troubleshooting-creating-ml-workspace/screen6.png
