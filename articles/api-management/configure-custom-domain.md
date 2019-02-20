@@ -61,7 +61,7 @@ To perform the steps described in this article, you must have:
     >The process of assigning the certificate may take 15 minutes or more depending on size of deployment. Developer SKU has downtime, Basic and higher SKU's do not have downtime.
 
 > [!TIP]
-> You can use Azure Key Vault to manage the custom domain SSL certificate. In this case, make sure the certificate is inserted into Key Vault [as a *certificate*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), not a *secret*. If the certificate is set to autorotate, API Management will pick up the latest version automatically.
+> You can use Azure Key Vault to manage the custom domain SSL certificate. Make sure the certificate is inserted into Key Vault [as a *certificate*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), not a *secret*. If the certificate is set to autorotate, API Management will pick up the latest version automatically.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
