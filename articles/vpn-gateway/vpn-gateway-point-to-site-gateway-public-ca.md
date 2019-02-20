@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 02/20/2019
 ms.author: cherylmc
 
 ---
@@ -37,6 +37,8 @@ Only older gateways are affected by this change. If your gateway certificate nee
 
 ## 1. Verify your certificate
 
+### Resource Manager
+
 1. Check to see if you are affected by this update. Download your current VPN client configuration using the steps in [this article](point-to-site-vpn-client-configuration-azure-cert.md).
 
 2. Open or extract the zip file and browse to the “Generic” folder. In the Generic folder, you will see two files, one of which is *VPNSettings.xml*.
@@ -44,7 +46,12 @@ Only older gateways are affected by this change. If your gateway certificate nee
 
   * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
   * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
-4. If *ServerCertRotCn* and *ServerCertIssuerCn* are “DigiCert Global Root CA”, you are not affected by this update and you don't need to proceed with steps in this article. However, if they show something else, your gateway certificate is part of the update and will be transitioned.
+4. If *ServerCertRotCn* and *ServerCertIssuerCn* are "DigiCert Global Root CA", you are not affected by this update and you don't need to proceed with steps in this article. However, if they show something else, your gateway certificate is part of the update and will be transitioned.
+
+### Classic
+
+1. On a client computer, navigate to path %appdata%/Microsoft/Network/Connections/Cm/<gatewayID>. In the Gateway ID folder, you can view the certificate.
+2. On the General tab for the certificate, verify that the issuing authority is "DigiCert Global Root CA". If you have anything other than this issuing authority, your gateway certificate is part of the update and will be transitioned.
 
 ## 2. Check certificate transition schedule
 
