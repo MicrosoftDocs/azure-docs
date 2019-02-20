@@ -48,17 +48,31 @@ The following presets are currently supported:
 - **EncoderNamedPreset.H264MultipleBitrate720p** - produces a set of 6 GOP-aligned MP4 files, ranging from 3400 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 720p and goes down to 360p.
 - **EncoderNamedPreset.H264MultipleBitrateSD** - produces a set of 5 GOP-aligned MP4 files, ranging from 1600kbps to 400 kbps, and stereo AAC audio. Resolution starts at 480p and goes down to 360p.<br/><br/>For more information, see [Uploading, encoding, and streaming files](stream-files-tutorial-with-api.md).
 
-### StandardEncoderPreset preset
+## Custom presets
 
-[StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) describes settings to be used when encoding the input video with the Standard Encoder. Use this preset when customizing Transform presets. 
+Media Services fully supports customizing all values in presets to meet your specific encoding needs and requirements. You use the [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) preset when customizing Transform presets. StandardEncoderPreset describes settings to be used when encoding the input video with the Standard Encoder. For more information, see [How to customize encoder presets](customize-encoder-presets-how-to.md).
 
-#### Custom presets
+## Typical Transforms/Jobs workflow
 
-Media Services fully supports customizing all values in presets to meet your specific encoding needs and requirements. You use the **StandardEncoderPreset** preset when customizing Transform presets. For a detailed explanations and example, see [How to customize encoder presets](customize-encoder-presets-how-to.md).
+1. Create a Transform 
+2. Submit Jobs under that Transform 
+3. List Transforms 
+4. Delete a Transform, if you are not planning to use it in the future. 
+
+### Example
+
+Suppose you wanted to extract the first frame of all your videos as a thumbnail image – the steps you would take are: 
+
+1. Define the recipe, or the rule for processing your videos - "use the first frame of the video as the thumbnail". 
+2. For each video you would tell the service: 
+    1. Where to find that video,  
+    2. Where to write the output thumbnail image. 
+
+A **Transform** helps you create the recipe once (Step 1), and submit Jobs using that recipe (Step 2).
 
 ## Scaling encoding in v3
 
-Currently, customers have to use the Azure portal or Media Services v2 APIs to set RUs (as described in [Scaling media processing](../previous/media-services-scale-media-processing-overview.md). 
+You can use CLI to scale media processing in v3, see [Scale media processing with CLI](media-reserved-units-cli-how-to.md).
 
 ## Next steps
 
