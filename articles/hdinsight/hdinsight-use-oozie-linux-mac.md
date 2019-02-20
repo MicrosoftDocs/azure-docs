@@ -8,7 +8,7 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 02/15/2019
 ---
 # Use Apache Oozie with Apache Hadoop to define and run a workflow on Linux-based Azure HDInsight
 
@@ -295,7 +295,7 @@ The job definition describes where to find the workflow.xml. It also describes w
     ```
 
     > [!NOTE]  
-    > If the HDInsight cluster uses Azure Storage as the default storage, the `<value>` element contents begin with `wasb://`. If Azure Data Lake Storage is used instead, it begins with `adl://`.
+    > If the HDInsight cluster uses Azure Storage as the default storage, the `<value>` element contents begin with `wasb://`. If Azure Data Lake Storage Gen1 is used instead, it begins with `adl://`. If Azure Data Lake Storage Gen2 is used, it begins with `abfs://`.
 
     Save the contents of the `<value>` element, as it's used in the next steps.
 

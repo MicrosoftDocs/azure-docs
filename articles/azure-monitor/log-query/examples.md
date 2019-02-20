@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor Azure Monitor log query examples | Microsoft Docs
-description: Examples of log queries in Azure Monitor using the Data Explorer query language.
+title: Azure Monitor log query examples | Microsoft Docs
+description: Examples of log queries in Azure Monitor using the Kusto query language.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -17,7 +17,7 @@ ms.author: bwren
 
 
 # Azure Monitor log query examples
-This article includes various examples of [queries](log-query-overview.md) using the [Data Explorer query language](https://docs.microsoft.com/azure/kusto/query/) to retrieve different types of log data from Azure Monitor. Different methods are used to consolidate and analyze data, so you can use these samples to identify different strategies that you might use for your own requirements.  
+This article includes various examples of [queries](log-query-overview.md) using the [Kusto query language](/azure/kusto/query/) to retrieve different types of log data from Azure Monitor. Different methods are used to consolidate and analyze data, so you can use these samples to identify different strategies that you might use for your own requirements.  
 
 See the [Kusto language reference](https://docs.microsoft.com/azure/kusto/query/) for details on the different keywords used in these samples. Go through a [lesson on creating queries](get-started-queries.md) if you're new to Azure Monitor.
 
@@ -34,7 +34,7 @@ Event
 ```
 
 ### Search events related to unmarshaling
-Search tables **Event** and **SecurityEvents** for records that mention _unmashaling_.
+Search tables **Event** and **SecurityEvents** for records that mention _unmarshaling_.
 
 ```Kusto
 search in (Event, SecurityEvent) "unmarshaling"

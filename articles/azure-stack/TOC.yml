@@ -206,6 +206,8 @@
       href: azure-stack-rotate-secrets.md
     - name: Update antivirus
       href: azure-stack-security-av.md
+    - name: Log collection and data handling
+      href: azure-stack-data-collection.md
   - name: Populate the marketplace
     items:
     - name: Marketplace overview

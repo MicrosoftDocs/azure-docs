@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/20/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/09/2019
@@ -197,7 +197,9 @@ Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for
            "autoUpgradeMinorVersion": "true"
    ```
 
-- There is a new consideration for accurately planning Azure Stack capacity. We have set limits on the total number of VMs that can be deployed within Azure Stack, to ensure all of our internal services fulfill the scale at which customers run. The limit is 60 VMs per host, with a maximum of 700 for the entire stamp (if the 60 per host limit is reached). For more information, see the [new release of the capacity planner](http://aka.ms/azstackcapacityplanner).
+- There is a new consideration for accurately planning Azure Stack capacity. With the 1901 update, there is now a limit on the total number of Virtual Machines that can be created.  This limit is intended to be temporary to avoid solution instability. The source of the stability issue at higher numbers of VMs is being addressed but a specific timeline for remediation has not yet been determined. With the 1901 update, there is now a per server limit of 60 VMs with a total solution limit of 700.  For example, an 8 server Azure Stack VM limit would be 480 (8 * 60).  For a 12 to 16 server Azure Stack solution the limit would be 700. This limit has been created keeping all the compute capacity considerations in mind such as the resiliency reserve and the CPU virtual to physical ratio that an operator would like to maintain on the stamp. For more information, see the new release of the capacity planner.  
+In the event that the VM scale limit has been reached, the following error codes would be returned as a result: VMsPerScaleUnitLimitExceeded, VMsPerScaleUnitNodeLimitExceeded. 
+ 
 
 - The Compute API version has increased to 2017-12-01.
 
@@ -288,7 +290,7 @@ The following are post-installation known issues for this build version.
 
    - If the subscription was created before the 1808 update, deploying a VM with Managed Disks might fail with an internal error message. To resolve the error, follow these steps for each subscription:
       1. In the Tenant portal, go to **Subscriptions** and find the subscription. Select **Resource Providers**, then select **Microsoft.Compute**, and then click **Re-register**.
-      2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
+      2. Under the same subscription, go to **Access Control (IAM)**, and verify that **AzureStack-DiskRP-Client** is listed.
    - If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 - An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
