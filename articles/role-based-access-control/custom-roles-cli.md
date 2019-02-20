@@ -27,7 +27,7 @@ For a step-by-step tutorial on how to create a custom role, see [Tutorial: Creat
 To create custom roles, you need:
 
 - Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
-- [Azure CLI](/cli/azure/install-azure-cli) installed locally
+- [Azure Cloud Shell](../cloud-shell/overview.md) or [Azure CLI](/cli/azure/install-azure-cli)
 
 ## List custom roles
 
@@ -58,7 +58,7 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 ...
 ```
 
-### List a custom role definition
+## List a custom role definition
 
 To list a custom role definition, use [az role definition list](/cli/azure/role/definition#az-role-definition-list). This is the same command you would use for a built-in role.
 

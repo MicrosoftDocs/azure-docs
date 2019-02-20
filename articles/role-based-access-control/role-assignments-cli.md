@@ -84,7 +84,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### List a role definition
+## List a role definition
 
 To list a role definition, use [az role definition list](/cli/azure/role/definition#az-role-definition-list):
 

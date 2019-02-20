@@ -29,7 +29,7 @@ For a step-by-step tutorial on how to create a custom role, see [Tutorial: Creat
 To create custom roles, you need:
 
 - Permissions to create custom roles, such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator)
-- [Azure PowerShell](/powershell/azure/install-az-ps) installed locally
+- [Azure Cloud Shell](../cloud-shell/overview.md) or [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## List custom roles
 
@@ -64,7 +64,7 @@ Virtual Machine Operator     True
 
 If the selected subscription isn't in the `AssignableScopes` of the role, the custom role won't be listed.
 
-### List a custom role definition
+## List a custom role definition
 
 To list a custom role definition, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition). This is the same command as you use for a built-in role.
 

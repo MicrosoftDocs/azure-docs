@@ -76,6 +76,8 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
+## List a role definition
+
 ### List a role definition in JSON format
 
 To list a role definition in JSON format, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
