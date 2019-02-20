@@ -66,7 +66,7 @@ For more information, please see the following articles:
 
 **Q: How much disk space does the feature require on the domain sysvol share?**
 
-The precise space usage varies since it depends on factors such as the number and length of the banned password tokens in the Microsoft global banned password list and the per-tenant custom banned password list, plus encryption overhead. The contents of these lists are likely to grow in the future. With that in mind, a reasonable current rule of thumb is that the feature will need at least five (5) megabytes of space on the domain sysvol share.
+The precise space usage varies since it depends on factors such as the number and length of the banned tokens in the Microsoft global banned list and the per-tenant custom list, plus encryption overhead. The contents of these lists are likely to grow in the future. With that in mind, a reasonable expectation is that the feature will need at least five (5) megabytes of space on the domain sysvol share.
 
 **Q: Why is a reboot required to install or upgrade the DC agent software?**
 
@@ -84,7 +84,7 @@ Yes. The Azure AD Password Protection Proxy service and Azure AD Connect should 
 
 The Azure AD Password Protection DC Agent service shouldn't significantly impact domain controller performance in an existing healthy Active Directory deployment.
 
-It is useful to note that for most Active Directory deployments password change operations are a small proportion of the overall workload on any given domain controller. As an example, imagine an Active Directory domain with 10000 user accounts and a MaxPasswordAge policy set to 30 days. On average, this domain will see 10000/30=~333 password change operations each day, which is a minor number of operations for even a single domain controller. Let's consider a potential worst case scenario: suppose those ~333 password changes on a single DC were done over a single hour. For example, this scenario may occur when many employees all come to work on a Monday morning. Even in that case, we're still looking at ~333/60 minutes = six password changes per minute, which again is not a significant load.
+For most Active Directory deployments password change operations are a small proportion of the overall workload on any given domain controller. As an example, imagine an Active Directory domain with 10000 user accounts and a MaxPasswordAge policy set to 30 days. On average, this domain will see 10000/30=~333 password change operations each day, which is a minor number of operations for even a single domain controller. Consider a potential worst case scenario: suppose those ~333 password changes on a single DC were done over a single hour. For example, this scenario may occur when many employees all come to work on a Monday morning. Even in that case, we're still looking at ~333/60 minutes = six password changes per minute, which again is not a significant load.
 
 However if your current domain controllers are already running at performance-limited levels (for example, maxed out with respect to CPU, disk space, disk I/O, etc.), it is advisable to add additional domain controllers or expand available disk space, before deploying this feature. Also see question above about sysvol disk space usage above.
 
@@ -92,13 +92,13 @@ However if your current domain controllers are already running at performance-li
 
 No. The Windows client OS controls which domain controller is used when a user changes their password. The domain controller is selected based on factors such as Active Directory site and subnet assignments, environment-specific network configuration, etc. Azure AD Password Protection does not control these factors and cannot influence which domain controller is selected to change a user's password.
 
-One technique that partially accomplishes this goal would be to deploy Azure AD Password Protection on all of the domain controllers in a given Active Directory site. This approach will provide reasonably ubiquitous coverage for the Windows clients that are assigned to that site, and therefore also for the users that are logging into those clients and changing their passwords.
+One way to partially reach this goal would be to deploy Azure AD Password Protection on all of the domain controllers in a given Active Directory site. This approach will provide reasonable coverage for the Windows clients that are assigned to that site, and therefore also for the users that are logging into those clients and changing their passwords.
 
 **Q: If I install the Azure AD Password Protection DC Agent service on just the Primary Domain Controller (PDC), will all other domain controllers in the domain also be protected?**
 
-No. When a user's password is changed on a given non-PDC domain controller, the clear-text password is never sent to the PDC (this idea is a common mis-perception). Once a new password is accepted on a given DC, that DC uses that password to create the various authentication-protocol-specific hashes of that password and then persists those hashes in the directory. The clear-text password is not persisted. The updated hashes are then replicated to the PDC - but Azure AD Password Protection is not involved in that process. User passwords may in some cases be changed directly on the PDC, again depending on various factors such as network topology and Active Directory site design. (See the previous question.)
+No. When a user's password is changed on a given non-PDC domain controller, the clear-text password is never sent to the PDC (this idea is a common mis-perception). Once a new password is accepted on a given DC, that DC uses that password to create the various authentication-protocol-specific hashes of that password and then persists those hashes in the directory. The clear-text password is not persisted. The updated hashes are then replicated to the PDC. User passwords may in some cases be changed directly on the PDC, again depending on various factors such as network topology and Active Directory site design. (See the previous question.)
 
-To summarize: deployment of the Azure AD Password Protection DC Agent service on the PDC is required to reach 100% security coverage of the feature across the domain. Deploying the feature on the PDC only does not provide Azure AD Password Protection security benefits for any other DCs in the domain.
+In summary, deployment of the Azure AD Password Protection DC Agent service on the PDC is required to reach 100% security coverage of the feature across the domain. Deploying the feature on the PDC only does not provide Azure AD Password Protection security benefits for any other DCs in the domain.
 
 **Q: Is a System Center Operations Manager management pack available for Azure AD Password Protection?**
 
@@ -114,7 +114,7 @@ The following links are not part of the core Azure AD Password Protection docume
 
 ## Microsoft Premier\Unified support training available
 
-If you are interested in learning more about Azure AD Password Protection and deploying it in your environment, you can take advantage of a Microsoft proactive service available to those customers with a Premier or Unified support contract. The service is called Azure Active Directory: Password Protection. Contact your Technical Account Manager for more information.
+If you're interested in learning more about Azure AD Password Protection and deploying it in your environment, you can take advantage of a Microsoft proactive service available to those customers with a Premier or Unified support contract. The service is called Azure Active Directory: Password Protection. Contact your Technical Account Manager for more information.
 
 ## Next steps
 
