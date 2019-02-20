@@ -81,13 +81,29 @@ To successfully domain-join, do the following things on each virtual machine:
 
 ## Register the virtual machines to the Windows Virtual Desktop host pool
 
-Registering the virtual machines to a Windows Virtual Desktop host pool is as simple as installing the Windows Virtual Desktop agents.
-
+Registering the virtual machines to a Windows Virtual Desktop host pool is as simple as installing the Windows Virtual Desktop agents. 
 To register the Windows Virtual Desktop agents, do the following on each virtual machine:
 
 1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
-2. Download the [Windows Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv) and run the installer. When the installer asks you for the registration token, enter the value you got from the **Export-RdsRegistrationInfo** cmdlet.
-3. Download the [Windows Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH) and run the installer.
+2. Download and install the Windows Virtual Desktop Agent.
+  - Download the [Windows Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
+  - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
+  - Run the installer. When the installer asks you for the registration token, enter the value you got from the **Export-RdsRegistrationInfo** cmdlet.
+3. Download and install the Windows Virtual Desktop Agent Bootloader.
+  - Download the [Windows Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
+  - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
+  - Run the installer.
+4. Install or activate the Windows Virtual Desktop side-by-side stack. The steps will be different depending on which OS version the virtual machine uses.
+   - If your virtual machine's OS is Windows Server 2016:
+     - Download the [Windows Virtual Desktop side-by-side stack](https://rdmipreview.blob.core.windows.net/preview/Microsoft.RDInfra.StackSxS.Installer-x64.msi?st=2019-02-20T22%3A57%3A33Z&se=2019-03-31T20%3A58%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=zKnZjQhu4CKCmXLbkIqcK%2FXNliAbmhxt89LRUjUA9bE%3D)
+     - Right-click the downloaded installer, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the installer.
+     - Ru the installer.
+   - If your virtual machine's OS is Windows 10 1809 or later or Windows Server 2019 or later:
+     - Download the [script](https://rdmipreview.blob.core.windows.net/preview/enablesxsstackrc.ps1?st=2019-02-20T22%3A13%3A33Z&se=2019-04-01T06%3A13%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=b1io9a32CsqWXY6LlZBPnZ9VEqzJcPI4ZZx%2Ftq9TcY8%3D) to activate the side-by-side stack.
+     - Right-click the downloaded script, select **Properties**, select **Unblock**, then select **OK**. This will allow your system to trust the script.
+     - From the **Start** menu, search for Windows PowerShell ISE, right-click it, then select **Run as administrator**.
+     - Select **File**, then **Open…**, find the PowerShell script from the downloaded files and open it.
+     - Select the green play button to run the script.
 
 ## Next steps
 
