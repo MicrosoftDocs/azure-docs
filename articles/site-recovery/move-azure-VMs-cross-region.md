@@ -35,7 +35,7 @@ This tutorial shows you how to move Azure VMs to another region using Azure Site
 - Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
 - Review the [support limitations and requirements](azure-to-azure-support-matrix.md).
 - Verify account permissions. If you just created your free Azure account, *you* are the administrator of your subscription. If you aren't the administrator, work with the administrator to get the permissions that you need:
-  -  To enable replication for a VM and copy data to the target by using Site Recovery, you must have permissions to create a VM in your Azure resources. The Virtual Machine Contributor built-in role has these permissions. With the permissons, you can:
+  -  To enable replication for a VM and copy data to the target by using Site Recovery, you must have permissions to create a VM in your Azure resources. The Virtual Machine Contributor built-in role has these permissions. With the permissions, you can:
         - Create a VM in the selected resource group.
         - Create a VM in the selected virtual network.
         - Write to the selected storage account.
