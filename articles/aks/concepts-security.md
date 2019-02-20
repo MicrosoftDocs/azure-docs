@@ -20,7 +20,7 @@ This article introduces the core concepts that secure your applications in AKS:
 - [Node security](#node-security)
 - [Cluster upgrades](#cluster-upgrades)
 - [Network security](#network-security)
-- Kubernetes Secrets
+- [Kubernetes Secrets](#kubernetes-secrets)
 
 ## Master security
 
