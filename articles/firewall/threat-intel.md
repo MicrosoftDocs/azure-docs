@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 2/15/2019
+ms.date: 2/20/2019
 ms.author: victorh
 ---
 
@@ -15,6 +15,8 @@ Threat intelligence-based filtering can be enabled for your firewall to alert an
 
 > [!IMPORTANT]
 > Threat intelligence based filtering is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+>
+>The currently supported regions are X,Y, and Z.
 
 If threat intelligence-based filtering is enabled, the associated rules are processed before any of the NAT rules, network rules, or application rules. During the preview, only highest confidence records are included.
 
@@ -33,7 +35,7 @@ The following log excerpt shows a triggered rule:
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
     "operationName": "AzureFirewallThreatIntelLog",
     "properties": {
-         "msg": "HTTP request from 10.0.0.5:54074 to newdatastatsserv.com:80. Action: Alert. ThreatIntel: Bot Networks"
+         "msg": "HTTP request from 10.0.0.5:54074 to somemaliciousdomain.com:80. Action: Alert. ThreatIntel: Bot Networks"
     }
 }
 ```
