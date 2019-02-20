@@ -1,6 +1,6 @@
 ---
-title: Azure Quickstart - Set and retrieve a secret from Key Vault using Azure portal | Microsoft Docs
-description: Quickstart showing how to set and retrieve a secret from Azure Key Vault using the Azure portal
+title: Azure Quickstart - Create an Azure key vault and a secret by using Azure Resource Manager template | Microsoft Docs
+description: Quickstart showing how to create Azure key vaults, and add secrets to the vaults by using Azure Resource Manager template.
 services: key-vault
 author: barclayn
 manager: barbkess
@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/19/2019
+ms.date: 02/20/2019
 ms.author: barclayn
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -30,15 +30,15 @@ To complete this article, you need:
     1. Run the following Azure PowerShell or Azure CLI command by select **Try it**, and then paste the script into the shell pane. To paste the script, right-click the shell, and then select **Paste**. 
     
         ```azurecli-interactive
-        echo "Enter your email address that is associated with your Azure subscription):" &&
+        echo "Enter your email address that is used to sign in to Azure:" &&
         read upn &&
         az ad user show --upn-or-object-id $upn --query "objectId" 
         ```
         ```azurepowershell-interactive
-        $upn = Read-Host -Prompt "Input your user principal name (email address) used to sign in to Azure"
+        $upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
         (Get-AzADUser -UserPrincipalName $upn).Id
         ```
-    2. Write down the object ID. You need it later in the tutorial.
+    2. Write down the object ID. You need it in the next section of this quickstart.
 
 ## Create a vault and a secret
 
@@ -67,10 +67,10 @@ The template used in this quickstart is from [Azure Quickstart templates](https:
 
 ## Validate the deployment
 
-Use the following Azure CLI or Azure PowerShell script to list the secret created.
+You can either use the Azure portal to check the key vault and the secret, or use the following Azure CLI or Azure PowerShell script to list the secret created.
 
 ```azurecli-interactive
-echo "Enter your key vault name):" &&
+echo "Enter your key vault name:" &&
 read keyVaultName &&
 az keyvault secret list --vault-name $keyVaultName
 ```
