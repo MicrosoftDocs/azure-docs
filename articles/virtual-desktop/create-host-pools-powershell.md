@@ -83,22 +83,11 @@ To successfully domain-join, do the following things on each virtual machine:
 
 Registering the virtual machines to a Windows Virtual Desktop host pool is as simple as installing the Windows Virtual Desktop agents.
 
-To download the Windows Virtual Desktop agents, do the following on each virtual machine:
+To register the Windows Virtual Desktop agents, do the following on each virtual machine:
 
 1. [Connect to the virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) with the credentials you provided when creating the virtual machine.
-2. Launch an internet browser and navigate to the following [link]() to download the Windows Virtual Desktop agents.
-
-To install the Windows Virtual Desktop agents, do the following on each virtual machine:
-
-1. Run the **RDInfraAgentInstall** msi from the downloaded files and progress through the installation. When asked for the registration token, enter the value you obtained from the **Export-RdsRegistrationInfo** command.
-2. Run the **RDAgentBootLoaderInstall** msi from the downloaded files and complete the installation.
-3. Install or activate the Side-by-Side stack. The steps will be different depending on which OS version the virtual machine uses.
-   - If your virtual machine's OS is Windows Server 2016:
-     - From the **Start** menu, search for Windows PowerShell ISE, right-click it, then select **Run as administrator**.
-     - Select **File**, then **Open…**, find the enablesxsstackrc.ps1 PowerShell script from the downloaded files and open it.
-     - Select the green play button to run the script.
-   - If your virtual machine's OS is Windows 10 1809 or later or Windows Server 2019 or later:
-     - Run the **RDInfraSxSStackInstall** msi from the downloaded files and complete the installation.
+2. Download the [Windows Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv) and run the installer. When asked for the registration token, enter the value you obtained from the **Export-RdsRegistrationInfo** command.
+3. Download the [Windows Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH) and run the installer to completion.
 
 ## Next steps
 
