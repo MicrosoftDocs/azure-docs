@@ -96,5 +96,4 @@ If your applications, tools, or products are using the Bing Speech APIs or Custo
 ## Next steps
 
 * [Get a Speech Services subscription key for free](get-started.md)
-* [Quickstart: recognize speech in C#](quickstart-csharp-dotnet-windows.md)
 * [Get the Speech SDK](speech-sdk.md)
