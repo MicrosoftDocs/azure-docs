@@ -70,7 +70,7 @@ All triggers and bindings have a `direction` property in the [function.json](./f
 
 - For triggers, the direction is always `in`
 - Input and output bindings use `in` and `out`
-- Some bindings support a special direction `inout`. If you use `inout`, only the **Advanced editor** is available in the **Integrate** tab.
+- Some bindings support a special direction `inout`. If you use `inout`, only the **Advanced editor** is available via the **Integrate** tab in the portal.
 
 When you use [attributes in a class library](functions-dotnet-class-library.md) to configure triggers and bindings, the direction is provided in an attribute constructor or inferred from the parameter type.
 
