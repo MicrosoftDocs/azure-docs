@@ -76,10 +76,12 @@ AuditLogs
 
 You can also set up alerts on your query. For example, to configure an alert when more than 10 applications have been used in the last week:
 
-1. From the workspace, select **Set alert** to open the **Create rule** page. 
+1. From the workspace, select **Set alert** to open the **Create rule** page.
+
     ![Set alert](./media/howto-analyze-activity-logs-log-analytics/setalert.png)
 
-2. Select the default **alert criteria** created in the alert and update the **Threshold** in the default metric to 10. 
+2. Select the default **alert criteria** created in the alert and update the **Threshold** in the default metric to 10.
+
     ![Alert criteria](./media/howto-analyze-activity-logs-log-analytics/alertcriteria.png)
 
 3. Enter a name and description for the alert, and choose the severity level. For our example, we could set it to **Informational**.
