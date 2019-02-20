@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/11/2019
+ms.date: 02/19/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -87,7 +87,7 @@ backwards compatibility.
 required, it prevents resources that don't support tags and locations from showing up as
 non-compliant in the compliance results. The exception is **resource groups**. Policies that
 enforce location or tags on a resource group should set **mode** to `all` and specifically target
-the `Microsoft.Resources/subscriptions/resourceGroup` type. For an example, see [Enforce resource
+the `Microsoft.Resources/subscriptions/resourceGroups` type. For an example, see [Enforce resource
 group tags](../samples/enforce-tag-rg.md).
 
 ## Parameters
@@ -237,14 +237,17 @@ within an **allOf** operation.
 
 ### Conditions
 
-A condition evaluates whether a **field** meets certain criteria. The supported conditions are:
+A condition evaluates whether a **field** or the **value** accessor meets certain criteria. The
+supported conditions are:
 
 - `"equals": "value"`
 - `"notEquals": "value"`
 - `"like": "value"`
 - `"notLike": "value"`
 - `"match": "value"`
+- `"matchInsensitively": "value"`
 - `"notMatch": "value"`
+- `"notMatchInsensitively": "value"`
 - `"contains": "value"`
 - `"notContains": "value"`
 - `"in": ["value1","value2"]`
@@ -257,13 +260,14 @@ When using the **like** and **notLike** conditions, you provide a wildcard `*` i
 The value shouldn't have more than one wildcard `*`.
 
 When using the **match** and **notMatch** conditions, provide `#` to match a digit, `?` for a
-letter, `.` to match all characters, and any other character to match that actual character. For
-examples, see [Allow several name patterns](../samples/allow-multiple-name-patterns.md).
+letter, `.` to match all characters, and any other character to match that actual character.
+**match** and **notMatch** are case-sensitive. Case-insensitive alternatives are available in
+**matchInsensitively** and **notMatchInsensitively**. For examples, see [Allow several name patterns](../samples/allow-multiple-name-patterns.md).
 
 ### Fields
 
-Conditions are formed by using fields. A field matches properties in the resource request
-payload and describes the state of the resource.
+Conditions are formed by using fields. A field matches properties in the resource request payload
+and describes the state of the resource.
 
 The following fields are supported:
 
@@ -277,14 +281,94 @@ The following fields are supported:
 - `identity.type`
   - Returns the type of [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) enabled on the resource.
 - `tags`
-- `tags.<tagName>`
+- `tags['<tagName>']`
+  - This bracket syntax supports tag names that have punctuation such as a hyphen, period, or space.
   - Where **\<tagName\>** is the name of the tag to validate the condition for.
-  - Example: `tags.CostCenter` where **CostCenter** is the name of the tag.
-- `tags[<tagName>]`
-  - This bracket syntax supports tag names that have a period.
-  - Where **\<tagName\>** is the name of the tag to validate the condition for.
-  - Example: `tags[Acct.CostCenter]` where **Acct.CostCenter** is the name of the tag.
+  - Examples: `tags['Acct.CostCenter']` where **Acct.CostCenter** is the name of the tag.
+- `tags['''<tagName>''']`
+  - This bracket syntax supports tag names that have apostrophes in it by escaping with double apostrophes.
+  - Where **'\<tagName\>'** is the name of the tag to validate the condition for.
+  - Example: `tags['''My.Apostrophe.Tag''']` where **'\<tagName\>'** is the name of the tag.
 - property aliases - for a list, see [Aliases](#aliases).
+
+> [!NOTE]
+> `tags.<tagName>`, `tags[tagName]`, and `tags[tag.with.dots]` are still acceptable ways of declaring a tags field.
+> However, the preferred expressions are those listed above.
+
+#### Use tags with parameters
+
+A parameter value can be passed to a tag field. Passing a parameter to a tag field increases the
+flexibility of the policy definition during policy assignment.
+
+In the following example, `concat` is used to create a tags field lookup for the tag named the
+value of the **tagName** parameter. If that tag doesn't exist, the **append** effect is used to add
+the tag using the value of the same named tag set on the audited resources parent resource group by
+using the `resourcegroup()` lookup function.
+
+```json
+{
+    "if": {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "[concat('tags[', parameters('tagName'), ']')]",
+            "value": "[resourcegroup().tags[parameters('tagName')]]"
+        }]
+    }
+}
+```
+
+### Value
+
+Conditions can also be formed using **value**. **value** checks conditions against
+[parameters](#parameters), [supported template functions](#policy-functions), or literals.
+**value** is paired with any supported [condition](#conditions).
+
+#### Value examples
+
+This policy rule example uses **value** to compare the result of the `resourceGroup()` function and
+the returned **name** property to a **like** condition of `*netrg`. The rule denies any resource
+not of the `Microsoft.Network/*` **type** in any resource group whose name ends in `*netrg`.
+
+```json
+{
+    "if": {
+        "allOf": [{
+                "value": "[resourceGroup().name]",
+                "like": "*netrg"
+            },
+            {
+                "field": "type",
+                "notLike": "Microsoft.Network/*"
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+This policy rule example uses **value** to check if the result of multiple nested functions
+**equals** `true`. The rule denies any resource that doesn't have at least three tags.
+
+```json
+{
+    "mode": "indexed",
+    "policyRule": {
+        "if": {
+            "value": "[less(length(field('tags')), 3)]",
+            "equals": true
+        },
+        "then": {
+            "effect": "deny"
+        }
+    }
+}
+```
 
 ### Effect
 
@@ -333,21 +417,24 @@ For complete details on each effect, order of evaluation, properties, and exampl
 
 ### Policy functions
 
-Several [Resource Manager template
-functions](../../../azure-resource-manager/resource-group-template-functions.md) are available to use
-within a policy rule. The functions currently supported are:
+All [Resource Manager template
+functions](../../../azure-resource-manager/resource-group-template-functions.md) are available to
+use within a policy rule, except the following functions:
 
-- [parameters](../../../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
-- [concat](../../../azure-resource-manager/resource-group-template-functions-array.md#concat)
-- [resourceGroup](../../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
-- [subscription](../../../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+- copyIndex()
+- deployment()
+- list*
+- providers()
+- reference()
+- resourceId()
+- variables()
 
 Additionally, the `field` function is available to policy rules. `field` is primarily used with
 **AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being
 evaluated. An example of this use can be seen in the [DeployIfNotExists
 example](effects.md#deployifnotexists-example).
 
-#### Policy function examples
+#### Policy function example
 
 This policy rule example uses the `resourceGroup` resource function to get the **name** property,
 combined with the `concat` array and object function to build a `like` condition that enforces the
@@ -363,26 +450,6 @@ resource name to start with the resource group name.
     },
     "then": {
         "effect": "deny"
-    }
-}
-```
-
-This policy rule example uses the `resourceGroup` resource function to get the **tags** property
-array value of the **CostCenter** tag on the resource group and append it to the **CostCenter** tag
-on the new resource.
-
-```json
-{
-    "if": {
-        "field": "tags.CostCenter",
-        "exists": "false"
-    },
-    "then": {
-        "effect": "append",
-        "details": [{
-            "field": "tags.CostCenter",
-            "value": "[resourceGroup().tags.CostCenter]"
-        }]
     }
 }
 ```

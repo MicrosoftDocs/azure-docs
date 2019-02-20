@@ -122,6 +122,8 @@
       href: supported-search-categories.md
   - name: REST
     items:
+    - name: Data service
+      href: https://docs.microsoft.com/rest/api/maps/data
     - name: Geolocation service
       href: https://docs.microsoft.com/rest/api/maps/geolocation
     - name: Render service
@@ -130,6 +132,8 @@
       href: https://docs.microsoft.com/rest/api/maps/route
     - name: Search service
       href: https://docs.microsoft.com/rest/api/maps/search
+    - name: Spatial service
+      href: https://docs.microsoft.com/rest/api/maps/spatial
     - name: Timezone service
       href: https://docs.microsoft.com/rest/api/maps/timezone
     - name: Traffic service

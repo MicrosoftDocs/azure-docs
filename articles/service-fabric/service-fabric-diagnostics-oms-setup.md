@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2018
+ms.date: 02/20/2019
 ms.author: srrengar
 
 ---
@@ -96,7 +96,7 @@ You can also deploy your Log Analytics resource via PowerShell by using the `New
 
 ```PowerShell
 
-$SubscriptionName = "<Name of your subscription>"
+$SubID = "<subscription ID>"
 $ResourceGroup = "<Resource group name>"
 $Location = "<Resource group location>"
 $WorkspaceName = "<Log Analytics workspace name>"

@@ -19,7 +19,7 @@ ms.custom: seodec18
 ---
 # Buy and configure an SSL certificate for Azure App Service
 
-This tutorial shows you how to secure your web app by creating (purchasing) an App Service certificate in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) and then bind it to an App Service app.
+This tutorial shows you how to secure your [App Service app](https://docs.microsoft.com/azure/app-service/) or [function app](https://docs.microsoft.com/azure/azure-functions/) by creating (purchasing) an App Service certificate in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) and then bind it to an App Service app.
 
 > [!TIP]
 > App Service Certificates can be used for any Azure or non-Azure Services and is not limited to App Services. To do so, you need to create a local PFX copy of an App Service certificate that you can use it anywhere you want. For more information, see [Creating a local PFX copy of an App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
@@ -30,7 +30,7 @@ This tutorial shows you how to secure your web app by creating (purchasing) an A
 To follow this how-to guide:
 
 - [Create an App Service app](/azure/app-service/)
-- [Map a domain name to your web app](app-service-web-tutorial-custom-domain.md) or [buy and configure it in Azure](manage-custom-dns-buy-domain.md)
+- [Map a domain name to your app](app-service-web-tutorial-custom-domain.md) or [buy and configure it in Azure](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 

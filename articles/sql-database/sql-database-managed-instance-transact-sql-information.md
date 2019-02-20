@@ -13,6 +13,7 @@ ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 02/20/2019
 ---
+
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server
 
 The Managed Instance deployment option provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server database engine features are supported in a Managed Instance.
@@ -436,7 +437,6 @@ Cross-instance service broker isn't supported:
   - `allow polybase export`
   - `allow updates`
   - `filestream_access_level`
-  - `max text repl size`
   - `remote data archive`
   - `remote proc trans`
 - `sp_execute_external_scripts` isn't supported. See [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).

@@ -16,6 +16,7 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: celested
 ms.reviewer: paulgarn
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Configure Azure AD SAML token encryption (Preview)

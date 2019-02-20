@@ -13,6 +13,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Office 365 external sharing and Azure Active Directory B2B collaboration
