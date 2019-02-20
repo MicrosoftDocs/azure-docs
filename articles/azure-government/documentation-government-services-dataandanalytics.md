@@ -24,7 +24,7 @@ The following HDInsight features are not currently available in Azure Government
 * HDInsight is not available on Windows.
 * Azure Data Lake Store is not currently available in Azure Government. Azure Blob Storage is the only available storage option currently.
 
-The URLs for Log Analytics are different in Azure Government:
+The URLs for Azure Monitor logs are different in Azure Government:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
