@@ -30,7 +30,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 1. In the left pane of the Azure portal, select **Virtual machines**.
 2. In the list of virtual machines, select a virtual machine.
 3. On the **Resource** menu, under **Operations**, select **Inventory**.
-4. Select a log analytics workspace for storing your data logs.
+4. Select a Log Analytics workspace for storing your data logs.
     If no workspace is available to you for that region, you are prompted to create a default workspace and automation account.
 5. To start onboarding your computer, select **Enable**.
 
@@ -85,7 +85,7 @@ The following tables provide information about each property that can be configu
 
 ## Manage machine groups
 
-Inventory allows you to create and view machine groups in Log Analytics. Machine groups are collections of machines defined by a query in Log Analytics.
+Inventory allows you to create and view machine groups in Azure Monitor logs. Machine groups are collections of machines defined by a query in Azure Monitor logs.
 
 To view your machine groups select the **Machine groups** tab on the Inventory page.
 

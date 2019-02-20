@@ -53,7 +53,7 @@ A [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fauto
 The workspace provides a single location to review and analyze data from multiple sources.
 
 Enabling the solution can take up to 15 minutes. During this time, you shouldn't close the browser window.
-After the solution is enabled, information about installed software and changes on the VM flows to Log Analytics.
+After the solution is enabled, information about installed software and changes on the VM flows to Azure Monitor logs.
 It can take between 30 minutes and 6 hours for the data to be available for analysis.
 
 ## Onboard a VM
@@ -95,7 +95,7 @@ For instance, searching for "Contoso" returns all software with a name, publishe
 
 ## Search inventory logs for installed software
 
-Inventory generates log data that is sent to Log Analytics. To search the logs by running queries, select **Log Analytics** at the top of the **Inventory** window.
+Inventory generates log data that is sent to Azure Monitor logs. To search the logs by running queries, select **Log Analytics** at the top of the **Inventory** window.
 
 Inventory data is stored under the type **ConfigurationData**.
 The following sample Log Analytics query returns the inventory results where the Publisher equals "Microsoft Corporation".
@@ -107,11 +107,11 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md).
+To learn more about running and searching log files in Azure Monitor logs, see [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
 
 ### Single machine inventory
 
-To see the software inventory for a single machine, you can access Inventory from the Azure VM resource page or use Log Analytics to filter down to the corresponding machine.
+To see the software inventory for a single machine, you can access Inventory from the Azure VM resource page or use Azure Monitor logs to filter down to the corresponding machine.
 The following example Log Analytics query returns the list of software for a machine named ContosoVM.
 
 ```loganalytics
