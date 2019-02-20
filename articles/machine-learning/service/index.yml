@@ -35,7 +35,7 @@ sections:
     style: unordered
     items:
     - html: '<a href="quickstart-get-started">Azure portal quickstart</a>: get a workspace and run experiments without installing anything.'
-    - html: '<a href="quickstart-create-workspace-with-python">Python quickstart</a>: install the main SDK, create a workspace, and experiment in a local notebook server.'
+    - html: '<a href="quickstart-create-workspace-with-python">Python quickstart</a>: install main SDK, create a workspace, and experiment in a local notebook server.'
 
 - title: Step-by-Step Tutorials
   items:
