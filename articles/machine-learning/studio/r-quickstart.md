@@ -49,7 +49,7 @@ I will use RStudio to develop, test and debug R code on a small scale. This code
 ### The Execute R Script module
 Within Machine Learning Studio, R scripts are run within the [Execute R Script][execute-r-script] module. An example of the [Execute R Script][execute-r-script] module in Machine Learning Studio is shown in Figure 1.
 
- ![R programming language: The Execute R Script module selected in Machine Learning Studio][1]
+ ![R programming language: The Execute R Script module selected in Machine Learning Studio](./media/r-quickstart/fig1.png)
 
 *Figure 1. The Machine Learning Studio environment showing the Execute R Script module selected.*
 
@@ -85,7 +85,7 @@ For example, I ran the following R code, with an undefined variable y, in an [Ex
 
 This code fails to execute, resulting in an error condition. Clicking on **View error log** on the **properties pane** produces the display shown in Figure 2.
 
-  ![Error message pop up][2]
+  ![Error message pop up](./media/r-quickstart/fig2.png)
 
 *Figure 2. Error message pop-up.*
 
@@ -152,14 +152,14 @@ Now that we have some data in Machine Learning Studio, we need to create an expe
 
 At this point your experiment should look something like Figure 3.
 
-![The CA Dairy Analysis experiment with dataset and Execute R Script module][3]
+![The CA Dairy Analysis experiment with dataset and Execute R Script module](./media/r-quickstart/fig3.png)
 
 *Figure 3. The CA Dairy Analysis experiment with dataset and Execute R Script module.*
 
 #### Check on the data
 Let's have a look at the data we have loaded into our experiment. In the experiment, click on the output of the **cadairydata.csv dataset** and select **visualize**. You should see something like Figure 4.  
 
-![Summary of the cadairydata.csv dataset][4]
+![Summary of the cadairydata.csv dataset](./media/r-quickstart/fig4.png)
 
 *Figure 4. Summary of the cadairydata.csv dataset.*
 
@@ -222,7 +222,7 @@ We already discussed loading datasets in [Loading the dataset](#loading). Once y
 
 Once these steps are complete, the [Execute R Script][execute-r-script] module will execute the R script in the zip file when the experiment is run. At this point your experiment should look something like Figure 5.
 
-![Experiment using zipped R script][6]
+![Experiment using zipped R script](./media/r-quickstart/fig6.png)
 
 *Figure 5. Experiment using zipped R script.*
 
@@ -284,7 +284,7 @@ You can output the contents of an R dataframe as a rectangular table through the
 
 After running the experiment, click on the Result Dataset1 output port and then click on **Visualize**. You should see something like Figure 6.
 
-![The visualization of the output of the California dairy data][7]
+![The visualization of the output of the California dairy data](./media/r-quickstart/fig7.png)
 
 *Figure 6. The visualization of the output of the California dairy data.*
 
@@ -295,13 +295,13 @@ The Device output of the [Execute R Script][execute-r-script] module contains me
 
 To view the R Device output, click on the port and then on **Visualize**. We see the standard output and standard error from the R script in Figure 7.
 
-![Standard output and standard error from the R Device port][8]
+![Standard output and standard error from the R Device port](./media/r-quickstart/fig8.png)
 
 *Figure 7. Standard output and standard error from the R Device port.*
 
 Scrolling down we see the graphics output from our R script in Figure 8.  
 
-![Graphics output from the R Device port][9]
+![Graphics output from the R Device port](./media/r-quickstart/fig9.png)
 
 *Figure 8. Graphics output from the R Device port.*  
 
@@ -684,7 +684,7 @@ Let's explore some of the variables in this dataset. A scatterplot matrix is a g
 
 Run this code and see what happens. The plot produced at the R Device port should look like Figure 16.
 
-![Scatterplot matrix of selected variables][17]
+![Scatterplot matrix of selected variables](./media/r-quickstart/fig17.png)
 
 *Figure 16. Scatterplot matrix of selected variables.*
 
@@ -748,7 +748,7 @@ Once `ts.detrend()` is defined we apply it to the variables of interest in our d
 
 The final line of code creates a pairwise scatterplot. After running the R code, the results of the scatterplot are shown in Figure 17.
 
-![Pairwise scatterplot of de-trended and standardized time series][18]
+![Pairwise scatterplot of de-trended and standardized time series](./media/r-quickstart/fig18.png)
 
 *Figure 17. Pairwise scatterplot of de-trended and standardized time series.*
 
@@ -865,7 +865,7 @@ Note that the row names are in a column of the dataframe. Doing so preserves the
 
 Running the code produces the output shown in Figure 19 when I **Visualize** the output at the Result Dataset port. The row names are in the first column, as intended.
 
-![Results output from the correlation analysis][20]
+![Results output from the correlation analysis](./media/r-quickstart/fig20.png)
 
 *Figure 19. Results output from the correlation analysis.*
 
@@ -879,7 +879,7 @@ The complete R code for this section is in the zip file you downloaded earlier.
 ### Creating the dataframe for analysis
 Start by adding a **new** [Execute R Script][execute-r-script] module to your experiment. Connect the **Result Dataset** output of the existing [Execute R Script][execute-r-script] module to the **Dataset1** input of the new module. The result should look something like Figure 20.
 
-![The experiment with the new Execute R Script module added][21]
+![The experiment with the new Execute R Script module added](./media/r-quickstart/fig21.png)
 
 *Figure 20. The experiment with the new Execute R Script module added.*
 
@@ -1193,7 +1193,7 @@ Equipped with a function to measure the RMS error, let's build and output a data
 
 Running this code produces the output shown in Figure 27 at the Result Dataset output port.
 
-![Comparison of RMS errors for the models][26]
+![Comparison of RMS errors for the models](./media/r-quickstart/fig26.png)
 
 *Figure 27. Comparison of RMS errors for the models.*
 
@@ -1241,31 +1241,6 @@ Some great internet resources:
 * A quick R tutorial by Kelly Black from Clarkson University http://www.cyclismo.org/tutorial/R/
 * 60+ R resources listed at http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
-<!--Image references-->
-[1]: ./media/r-quickstart/fig1.png
-[2]: ./media/r-quickstart/fig2.png
-[3]: ./media/r-quickstart/fig3.png
-[4]: ./media/r-quickstart/fig4.png
-[5]: ./media/r-quickstart/fig5.png
-[6]: ./media/r-quickstart/fig6.png
-[7]: ./media/r-quickstart/fig7.png
-[8]: ./media/r-quickstart/fig8.png
-[9]: ./media/r-quickstart/fig9.png
-[10]: ./media/r-quickstart/fig10.png
-[11]: ./media/r-quickstart/fig11.png
-[12]: ./media/r-quickstart/fig12.png
-[13]: ./media/r-quickstart/fig13.png
-[14]: ./media/r-quickstart/fig14.png
-[15]: ./media/r-quickstart/fig15.png
-[16]: ./media/r-quickstart/fig16.png
-[17]: ./media/r-quickstart/fig17.png
-[18]: ./media/r-quickstart/fig18.png
-[19]: ./media/r-quickstart/fig19.png
-[20]: ./media/r-quickstart/fig20.png
-[21]: ./media/r-quickstart/fig21.png
-[22]: ./media/r-quickstart/fig22.png
-
-[26]: ./media/r-quickstart/fig26.png
 
 <!--links-->
 [appendixa]: #appendixa
