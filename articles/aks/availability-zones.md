@@ -94,5 +94,5 @@ az aks create \
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[az-aks-create]: cli/azure/aks#az-aks-create
+[az-aks-create]: /cli/azure/aks#az-aks-create
 [az-overview]: ../availability-zones/az-overview.md
