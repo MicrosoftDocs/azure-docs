@@ -148,6 +148,26 @@ This can be assumed to be ***under 5 minutes***.
 No, there are no code/configuration changes needed to perform this migration. The connection string that sender and receiver applications use to access the Standard Namespace is automatically mapped to act as an **alias** for the Premium Namespace.
 
 #### What happens when I abort the migration?
+Migration can be aborted either by using the 'Abort' command or via the portal - 
+
+CLI/Powershell
+
+    az servicebus migration abort --resource-group $resourceGroup --name $standardNamespace
+    
+
+Portal
+    
+    Insert screenshot here
+    
+When the migration process is aborted, it actually aborts the process of copying over the entities(topics, subscriptions, and filters) from Standard to Premium namespace and breaks the pairing.
+
+The connection string **is not** updated to point to the Premium namespace. Your existing applications continue to work as they did before you started the migration.
+
+However, it **does not** delete the entities on the Premium namespace or delete the Premium namespace itself. This has to be done manually if you had decided to not move forward with the migration after all.
+
+>[!IMPORTANT]
+> If you decide to abort the migration, please delete the Premium Namespace that you had provisioned for the migration, so that you are not charged for the resources.
+
 
 #### I don't want to have to drain the messages. What do I do?
 There may be messages that are sent by the sender applications and committed to the storage on the Standard Namespace while the migration is taking place, and right before the migration is committed.
