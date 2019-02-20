@@ -143,8 +143,8 @@ Discover databases running on the VM.
     - Azure Backup register the VM with the vault for workload backup. All databases on the registered VM can only be backed up to this vault.
     - Azure Backup installs the **AzureBackupWindowsWorkload** extension on the VM. No agent is installed on the SQL database.
     - Azure Backup creates the service account **NT Service\AzureWLBackupPluginSvc** on the VM.
-        - All backup and restore operations use the service account.
-        - **NT Service\AzureWLBackupPluginSvc** needs SQL sysadmin permissions. All SQL Server VMs created in the Azure Markplace come with the **SqlIaaSExtension** installed. The **AzureBackupWindowsWorkload** extension uses the **SQLIaaSExtension** to automatically get the required permissions.
+      - All backup and restore operations use the service account.
+      - **NT Service\AzureWLBackupPluginSvc** needs SQL sysadmin permissions. All SQL Server VMs created in the Azure Marketplace come with the **SqlIaaSExtension** installed. The **AzureBackupWindowsWorkload** extension uses the **SQLIaaSExtension** to automatically get the required permissions.
     - If you didn't create the VM from the marketplace, then the VM doesn't have the **SqlIaaSExtension** installed, and the discovery operation fails with the error message **UserErrorSQLNoSysAdminMembership**. Follow the instructions in [#fix-sql-sysadmin-permissions] to fix this issue.
 
         ![Select the VM and database](./media/backup-azure-sql-database/registration-errors.png)
