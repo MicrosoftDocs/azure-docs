@@ -102,7 +102,7 @@ If you don't have a system account proxy, set one up as follows:
 1. Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
 
 2. Run **PsExec.exe -i -s cmd.exe** to run the command prompt under a system account.
-3. Run the browser in system context. For example: **PROGRAMFILES%\Internet Explorer\iexplore.exe** for Internet Explorer.  
+3. Run the browser in system context. For example: **%PROGRAMFILES%\Internet Explorer\iexplore.exe** for Internet Explorer.  
 4. Define the proxy settings.
     - On Linux machines:
         - Add this line to the **/etc/environment** file:
@@ -111,7 +111,7 @@ If you don't have a system account proxy, set one up as follows:
             - **HttpProxy.Host=proxy IP address**
             - **HttpProxy.Port=proxy port**
     - On Windows machines, in the browser settings, specify that a proxy should be used. If you're currently using a proxy on a user account, you can use this script to apply the setting at the system account level.
-        ```
+        ```powershell
        $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
        Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
        Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
@@ -139,7 +139,7 @@ On the NSG **NSF-lockdown**, allow traffic from any port on 10.0.0.5 to any inte
 - The following PowerShell script provides an example for allowing traffic.
 - Instead of allowing outbound to all public internet addresses, you can specify an IP address range (-DestinationPortRange), or use the storage.region service tag.   
 
-    ```
+    ```powershell
     Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
     Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
     ```
@@ -231,7 +231,7 @@ Discover VMs in the subscription, and configure backup.
 
 After enabling backup:
 
-- An initial backup backup runs in accordance with your backup schedule.
+- An initial backup runs in accordance with your backup schedule.
 - The Backup service installs the backup extension whether or not the VM is running.
     - A running VM provides the greatest chance of getting an application-consistent recovery point.
     -  However, the VM is backed up even if it's turned off and the extension can't be installed. This is known as *offline VM*. In this case, the recovery point will be *crash consistent*.
