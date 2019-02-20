@@ -17,7 +17,7 @@ ms.date: 1/24/2019
 ---
 # Incrementally copy new and changed files only based on their LastModifiedDate from Azure Blob storage to Azure Blob storage by using the Copy Data tool
 
-In this tutorial, you use the Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that incrementally copy new and changed files only based on their "LastModifiedDate" from Azure Blob storage to Azure Blob storage. 
+In this tutorial, you use the Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that incrementally copies new and changed files only based on their "LastModifiedDate" from Azure Blob storage to Azure Blob storage. 
 
 > [!NOTE]
 > If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
@@ -177,7 +177,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs4.png)
 
-14. Select **View Activity Run** for the 2nd pipeline run if you see it comes, and do the same to review details.  
+14. Select **View Activity Run** for the second pipeline run if you see it comes, and do the same to review details.  
 
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs5.png)
 
