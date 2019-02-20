@@ -49,19 +49,20 @@ To perform the steps described in this article, you must have:
 
     >[!NOTE]
     > You can update all of the endpoints or some of them. Commonly, customers update **Proxy** (this URL is used to call the API exposed through API Management) and **Portal** (the developer portal URL). **Management** and **SCM** endpoints are used internally by APIM customers and thus are less frequently assigned a custom domain name.
+
 1. Select the endpoint that you want to update. 
 1. In the window on the right, click **Custom**.
 
-    + In the **Custom domain name**, specify the name you want to use. For example, `api.contoso.com`. <br/>Wildcard domain names (for example, *.domain.com) are also supported.
-    + In the **Certificate**, specify a valid .PFX file that you want to upload. 
-    + If the certificate has a password, enter it in the **Password** field.
+    + In the **Custom domain name**, specify the name you want to use. For example, `api.contoso.com`. Wildcard domain names (for example, *.domain.com) are also supported.
+    + In the **Certificate**, select a certificate from Key Vault. You can also upload a valid .PFX file and provide its **Password**, if the certificate is protected with a password.
+
+    > [!TIP]
+    > If you use Azure Key Vault to manage the custom domain SSL certificate, make sure the certificate is inserted into Key Vault [as a *certificate*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), not a *secret*. If the certificate is set to autorotate, API Management will pick up the latest version automatically.
+
 1. Click Apply.
 
     >[!NOTE]
     >The process of assigning the certificate may take 15 minutes or more depending on size of deployment. Developer SKU has downtime, Basic and higher SKU's do not have downtime.
-
-> [!TIP]
-> You can use Azure Key Vault to manage the custom domain SSL certificate. Make sure the certificate is inserted into Key Vault [as a *certificate*](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), not a *secret*. If the certificate is set to autorotate, API Management will pick up the latest version automatically.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
