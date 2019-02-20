@@ -14,7 +14,7 @@ ms.custom: MVC
 
 Azure grows along with the customer base and adds support for new regions with rising demands. New capabilities are also added monthly across services. You may want to move your virtual machines (VMs) to a different region or into Availability Zones to increase availability.
 
-This document describes different scenarios where you would want to move your VMs. It also describes how to configure the architecture in the target region to achieve higher availability.
+This document describes different scenarios in which you'd want to move your VMs. It also describes how to configure the architecture in the target region to achieve higher availability.
 > [!div class="checklist"]
 
 > * [Why move Azure VMs](#why-would-you-move-azure-vms)
@@ -28,7 +28,7 @@ This document describes different scenarios where you would want to move your VM
 
 You might move VMs for the following reasons:
 
-- You already deployed in one region, and a new region support was added, which is closer to the end users of your application or service. In this scenario, you'd want to move your VMs as is to the new region to reduce latency. Use the same approach if you want to consolidate subscriptions or there are governance or organization rules that require you to move.
+- You already deployed in one region, and a new region support was added which is closer to the end users of your application or service. In this scenario, you'd want to move your VMs as is to the new region to reduce latency. Use the same approach if you want to consolidate subscriptions or if there are governance or organization rules that require you to move.
 - Your VM was deployed as a single instance VM or as part of an availability set. If you want to increase the availability SLAs, you can move your VMs into an Availability Zone.
 
 ## How to move Azure VMs
@@ -44,24 +44,24 @@ Moving VMs involves the following steps:
 7. Discard the resources in the source region.
 
 > [!NOTE]
-> Details for these steps are provided in the following sections.
+> Details about these steps are provided in the following sections.
 
 > [!IMPORTANT]
-> Currently, Azure Site Recovery supports moving VMs from one region to another and doesn't support moving within a region.
+> Currently, Azure Site Recovery supports moving VMs from one region to another but doesn't support moving within a region.
 
 
 ## Typical architectures for a multi-tier deployment
 
-This section describes the most common deployment architectures for a multi-tier application in Azure. The example is a three-tiered application with a public IP. Each of the tiers (eb, Application, and Database) has two VMs each, and are connected by an Azure Load Balancer to the other tiers. The Database tier has SQL Always ON replication between the VMs for high availability.
+This section describes the most common deployment architectures for a multi-tier application in Azure. The example is a three-tiered application with a public IP. Each of the tiers (web, application, and database) has two VMs each, and they are connected by an Azure Load Balancer to the other tiers. The database tier has SQL Always ON replication between the VMs for high availability.
 
-* **Single instance VMs deployed across various tiers:** Each VM in a tier is configured as a single instance VM and is connected by load balancers to the other tiers. This configuration is the simplest  to adopt.
+* **Single instance VMs deployed across various tiers**: Each VM in a tier is configured as a single instance VM and is connected by load balancers to the other tiers. This configuration is the simplest  to adopt.
 
        ![single-VMs](media/move-vm-overview/regular-deployment.PNG)
-* **VMs in each tier deployed across availability set:** Each VM in a tier is configured in an availability set. [Availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. This ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are impacted and your overall solution remains available and operational.
+* **VMs in each tier deployed across availability set**: Each VM in a tier is configured in an availability set. [Availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. This ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are impacted, and your overall solution remains available and operational.
    
       ![avset](media/move-vm-overview/AVset.PNG)
 
-* **VMs in each tier deployed across Availability Zone:** Each VM in a tier is configured across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). An Availability Zone in an Azure region is a combination of a fault domain and an update domain. For example, if you create three or more VMs across three zones in an Azure region, your VMs are effectively distributed across three fault domains and three update domains. The Azure platform recognizes this distribution across update domains to make sure that VMs in different zones are not updated at the same time.
+* **VMs in each tier deployed across Availability Zone**: Each VM in a tier is configured across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). An Availability Zone in an Azure region is a combination of a fault domain and an update domain. For example, if you create three or more VMs across three zones in an Azure region, your VMs are effectively distributed across three fault domains and three update domains. The Azure platform recognizes this distribution across update domains to make sure that VMs in different zones are not updated at the same time.
 
       ![zone-deployment](media/move-vm-overview/zone.PNG)
 
@@ -88,11 +88,11 @@ Based on the [architectures](#typical-architectures-for-a-multi-tier-deployment)
 
 ## Move VMs to increase availability
 
-* **Single instance VMs deployed across various tiers** 
+* **Single instance VMs deployed across various tiers**
 
      ![single-zone.PNG](media/move-vm-overview/single-zone.PNG)
 
-* **VMs in each tier deployed across availability sets:** You can configure your VMs in an availability set into separate Availability Zones when you enable replication for your VM using Azure Site Recovery. The SLA for availability will be 99.9% once you complete the move operation.
+* **VMs in each tier deployed across availability sets**: You can configure your VMs in an availability set into separate Availability Zones when you enable replication for your VM by using Azure Site Recovery. The SLA for availability will be 99.9% after you complete the move operation.
 
      ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
 
