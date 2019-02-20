@@ -16,6 +16,10 @@ Azure VPN Gateway no longer issues Azure-level self-signed certificates to its g
 
 The certificates in this context are an additional Azure-level certificate. They are not the certificate chains that you use when generating your own self-signed root certificates and client certificates for authentication. Those certificates remain unaffected and will expire on the dates that you generated them to do so.
 
+>[!NOTE]
+> Self-signed certificates used for P2S client authentication are not affected by this Azure-level certificate change. You can continue to issue and use self-signed certificates as normal.
+>
+
 Previously, a self-signed certificate for the gateway (issued behind the scenes by Azure) needed to be updated every 18 months. VPN client configuration files then had to be generated and redeployed to all P2S clients. Moving to public CA certificates eliminates this limitation. In addition to the transition for certificates, this change also provides platform improvements, better metrics, and improved stability.
 
 Only older gateways are affected by this change. If your gateway certificate needs to be transitioned, you will receive communication or toast in the Azure portal. You can check to see if your gateway is affected by using the steps in this article.
