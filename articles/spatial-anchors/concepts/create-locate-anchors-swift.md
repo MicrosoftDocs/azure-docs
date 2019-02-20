@@ -270,3 +270,5 @@ ms.service: azure-spatial-anchors
 ```swift
     _cloudSession = nil
 ```
+
+[!INCLUDE [Next Steps](../../../includes/spatial-anchors-create-locate-anchors-next-steps.md)]

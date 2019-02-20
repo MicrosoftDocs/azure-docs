@@ -291,3 +291,5 @@ ms.service: azure-spatial-anchors
 ```csharp
     this.cloudSession.Dispose();
 ```
+
+[!INCLUDE [Next Steps](../../../includes/spatial-anchors-create-locate-anchors-next-steps.md)]

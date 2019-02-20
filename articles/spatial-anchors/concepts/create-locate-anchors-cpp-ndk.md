@@ -299,3 +299,5 @@ ms.service: azure-spatial-anchors
 ```cpp
     cloudSession_ = nullptr;
 ```
+
+[!INCLUDE [Next Steps](../../../includes/spatial-anchors-create-locate-anchors-next-steps.md)]
