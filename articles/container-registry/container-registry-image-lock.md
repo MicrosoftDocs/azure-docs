@@ -1,6 +1,6 @@
 ---
 title: Lock an image in Azure Container Registry 
-description: Configure a container image or repository in an Azure container registry to be immutable, so that it can't be deleted or overwritten.
+description: Configure a container image or repository so it can't be deleted or overwritten in an Azure container registry.
 services: container-registry
 author: dlepow
 
@@ -12,79 +12,128 @@ ms.author: danlep
 
 # Lock a container image in an Azure container registry
 
-In an Azure container registry, you can lock one or more image versions in a repository, so that the images can't be deleted or updated. To lock one or more image versions, use the Azure CLI command [az acr repository update][az-acr-repository-update] to update the repository properties. 
+In an Azure container registry, you can lock an image version or a repository so that it can't be deleted or updated. To lock an image or a repository, update its attributes using the Azure CLI command [az acr repository update][az-acr-repository-update]. 
 
 This article requires that you run the Azure CLI in Azure Cloud Shell or locally (version 2.0.55 or later recommended). Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
 ## Scenarios
 
-By default, a tagged image in Azure Container Registry is *mutable*, so if you have appropriate permissions you can repeatedly update and push an image with the same tag to a registry. Also, by default, container images can be [delete](container-registry-delete.md) as needed. This can be useful for some development scenarios and to maintain a size for your registry.
+By default, a tagged image in Azure Container Registry is *mutable*, so with appropriate permissions you can repeatedly update and push an image with the same tag to a registry. Container images can also be [deleted](container-registry-delete.md) as needed. This behavior is useful when you develop images and need to maintain a size for your registry.
 
-However, when you deploy a container image to production, you might need an *immutable* container image so you don't accidentally delete it or overwrite it. Use the [az acr repository update][az-acr-repository-update] command to set properties for a repository or one or more images in the following scenarios:
+However, when you deploy a container image to production, you might need an *immutable* container image. An immutable image is one that you can't accidentally delete or overwrite. Use the [az acr repository update][az-acr-repository-update] command to set repository attributes so you can:
 
 * Lock an image version, or an entire repository
 
-* Protect a repository from deletion, but allow individual image versions to be deleted
+* Protect an image version or repository from deletion, but allow updates
 
-* Protect an image version from deletion, but allow updates
+* Prevent read (pull) operations on an image version, or an entire repository
 
-## Lock an image or repository with the Azure CLI
+See the following sections for examples.
+
+## Lock an image or repository 
 
 ### Lock an image by tag
 
 To lock the *myrepo/myimage:tag* image in *myregistry*, run the following [az acr repository update][az-acr-repository-update] command:
 
 ```azurecli
-az acr repository update --name myregistry --image myrepo/myimage:tag --delete-enabled false --write-enabled false
+az acr repository update \
+    --name myregistry --image myrepo/myimage:tag \
+    --write-enabled false
 ```
 
 ### Lock an image by manifest digest
 
 To lock a *myrepo/myimage* image identified by manifest digest (SHA-256 hash, represented as `sha256:...`), run the following command. (To find the manifest digest associated with one or more image tags, run the [az acr repository show-manifests][az-acr-repository-show-manifests] command.)
 
-
 ```azurecli
-az acr repository update --name myregistry --image myrepo/myimage@sha256:123456abcdefg --delete-enabled false --write-enabled false
+az acr repository update \
+    --name myregistry --image myrepo/myimage@sha256:123456abcdefg \
+    --write-enabled false
 ```
+
+When you lock by manifest digest, all image tags referenced by the manifest are locked.
 
 ### Lock a repository
 
 To lock the *myrepo/myimage* repository and all images in it, run the following command:
 
 ```azurecli
-az acr repository update --name myregistry --repository myrepo/myimage --write-enabled false
+az acr repository update \
+    --name myregistry --repository myrepo/myimage \
+    --write-enabled false
+```
+
+## Protect an image or repository from deletion
+
+### Protect an image from deletion
+
+To allow the *myrepo/myimage:tag* image to be updated but not deleted, run the following command:
+
+```azurecli
+az acr repository update \
+    --name myregistry --image myrepo/myimage:tag \
+    --delete-enabled false --write-enabled true
 ```
 
 ### Protect a repository from deletion
 
-The following command locks the *myrepo/myimage* repository, but allows individual images to be deleted:
-
-
-
-
-### Allow image update but not deletion
-
-To set the *myrepo/myimage:tag* image so that it can be updated but not deleted, run the following command:
-
+The following command sets the *myrepo/myimage* repository so it can't be deleted. Individual images can still be updated or deleted.
 
 ```azurecli
-az acr repository update --name myregistry --repository myrepo/myimage --delete-enabled false --write-enabled true
+az acr repository update \
+    --name myregistry --repository myrepo/myimage \
+    --delete-enabled false --write-enabled true
 ```
 
-## Unlock an image with the Azure CLI
+## Prevent read operations on an image or repository
 
-To restore the default behavior of an image so that it can be deleted and updated, run a command similar to the following:
+To prevent read (pull) operations on the *myrepo/myimage:tag* image, run the following command:
 
 ```azurecli
-az acr repository update --image myrepo/myimage:tag --delete-enabled true --write-enabled true
+az acr repository update \
+    --name myregistry --image myrepo/myimage:tag \
+    --read-enabled false
+```
+
+To prevent read operations on all images in the *myrepo/myimage* repository, run the following command:
+
+```azurecli
+az acr repository update \
+    --name myregistry --repository myrepo/myimage \
+    --read-enabled false
+```
+
+## Unlock an image or repository
+
+To restore the default behavior of the *myrepo/myimage:tag* image so that it can be deleted and updated, run the following command:
+
+```azurecli
+az acr repository update \
+    --name myregistry --image myrepo/myimage:tag \
+    --delete-enabled true --write-enabled true
+```
+
+To restore the default behavior of the *myrepo/myimage* repository and all images so that they can be deleted and updated, run the following command:
+
+```azurecli
+az acr repository update \
+    --name myregistry --repository myrepo/myimage \
+    --delete-enabled true --write-enabled true
 ```
 
 ## Next steps
 
-In this article you learned about using the [az acr repository update][az-acr-repository-update] command to prevent deletion or updating of image versions in a repository. To set additional properties, see the [az acr repository update][az-acr-repository-update] command reference.
+In this article, you learned about using the [az acr repository update][az-acr-repository-update] command to prevent deletion or updating of image versions in a repository. To set additional attributes, see the [az acr repository update][az-acr-repository-update] command reference.
+
+To see the attributes set for an image version or repository, use the [az acr repository show][az-acr-repository-show] command.
+
+For details about delete operations, see [Delete container images in Azure Container Registry][container-registry-delete].
 
 <!-- LINKS - Internal -->
 [az-acr-repository-update]: /cli/azure/acr/repository#az-acr-repository-update
+[az-acr-repository-show]: /cli/azure/acr/repository#az-acr-repository-show
 [az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests
 [azure-cli]: /cli/azure/install-azure-cli
+[container-registry-delete]: container-registry-delete.md
 
