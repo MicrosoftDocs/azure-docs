@@ -117,13 +117,13 @@
       href: how-to-migrate-from-translator-speech-api.md
 - name: Concepts
   items:
-  - name: Speech to Text
+  - name: Speech recognition
     href: speech-to-text.md
     displayName: recognize speech, speech recognition, speech to text, stt
-  - name: Text to Speech
+  - name: Speech synthesis
     href: text-to-speech.md
     displayName: synthesize speech, speech synthesis, text to speech, tts
-  - name: Speech Translation
+  - name: Speech translation
     href: speech-translation.md
     displayName: translate speech, speech translation, translator, s2s, speech to speech
 - name: Reference
