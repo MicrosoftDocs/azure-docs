@@ -87,7 +87,7 @@ Perform the following steps in the [Azure portal](https://aka.ms/azuredataboxfro
 
     |Setting  |Value  |
     |---------|---------|
-    |Resource groups     | Create new resource groups if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created previously when creating a Data Box Disk order for managed disk by Data Box service. <br> Specify multiple resource groups separated by semi-colons. A maximum of 10 resource groups are supported.|
+    |Resource group     | Create a new resource group if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created previously when creating a Data Box Disk order for managed disk by Data Box service. <br> Only one resource group is supported.|
 
     ![Data Box Disk order for managed disk](media/data-box-disk-deploy-ordered/order-for-managed-disks.png)
 

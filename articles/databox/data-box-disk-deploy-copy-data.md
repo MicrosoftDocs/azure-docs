@@ -38,7 +38,7 @@ Perform the following steps to connect and copy data from your computer to the D
 
     ![View drive content](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
-2. Copy the data that needs to be imported as block blobs in to BlockBlob folder. Similarly, copy data such as VHD/VHDX to PageBlob folder. 
+2. Copy the data that needs to be imported as block blobs in to *BlockBlob* folder. Similarly, copy data such as VHD/VHDX to *PageBlob* folder and data in to *AzureFile* folder.
 
     A container is created in the Azure storage account for each subfolder under BlockBlob and PageBlob folders. All files under BlockBlob and PageBlob folders are copied into a default container `$root` under the Azure Storage account. Any files in the `$root` container are always uploaded as block blobs.
 
@@ -169,6 +169,7 @@ This optional procedure may be used when you are using multiple disks and have a
 
 >[!IMPORTANT]
 > Data Box Split Copy tool also validates your data. If you use Data Box Split Copy tool to copy data, you can skip the [validation step](#validate-data).
+> Split Copy tool is not supported with managed disks.
 
 1. On your Windows computer, ensure that you have the Data Box Split Copy tool downloaded and extracted in a local folder. This tool was downloaded when you downloaded the Data Box Disk toolset for Windows.
 2. Open File Explorer. Make a note of the data source drive and drive letters assigned to Data Box Disk. 

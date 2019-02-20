@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 02/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
@@ -66,13 +66,13 @@ This step takes roughly 5 minutes.
 
 The time to complete this operation depends upon your data size. 
 
-1. The drive contains *PageBlob*, *BlockBlob*, *DataBoxDiskImport* folders. Drag and drop to copy the data that needs to be imported as block blobs in to *BlockBlob* folder. Similarly, drag and drop data such as VHD/VHDX to *PageBlob* folder.
+1. The drive contains *PageBlob*, *BlockBlob*, *AzureFile*, and *DataBoxDiskImport* folders. Drag and drop to copy the data that needs to be imported as block blobs in to *BlockBlob* folder. Similarly, drag and drop data such as VHD/VHDX to *PageBlob* folder, and appropriate data to *AzureFile*.
 
     A container is created in the Azure storage account for each sub-folder under *BlockBlob* and *PageBlob* folder. All files under *BlockBlob* and *PageBlob* folders are copied into a default container `$root` under the Azure Storage account.
 
     > [!NOTE] 
     > - All the containers and blobs should conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). If these rules are not followed, the data upload to Azure will fail.
-    > - Ensure that files do not exceed ~4.75 TiB for block blobs and ~8 TiB for page blobs.
+    > - Ensure that files do not exceed ~4.75 TiB for block blobs, ~8 TiB for page blobs, and ~1 TiB for Azure Files.
 
 2. (Optional) After the copy is complete, we recommend that you run the `DataBoxDiskValidation.cmd` provided in the *DataBoxDiskImport* folder to generate checksums for validation. Depending upon the data size, this step may take time. 
 3. Unplug the drive. 
