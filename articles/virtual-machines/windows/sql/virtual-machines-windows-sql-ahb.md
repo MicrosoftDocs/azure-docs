@@ -48,6 +48,13 @@ The ability to switch between licensing models is a feature provided by the new 
 
 To register your SQL Server VM with the SQL resource provider, you must register the resource provider to your subscription. You can do so with PowerShell, or with the Azure portal. 
 
+#### With Azure CLI
+The following code snippet will register the SQL resource provider with your Azure susbcription. 
+
+```cli
+# Register the new SQL resource provider for your subscription 
+az provider register --namespace Microsoft.SqlVirtualMachine 
+```
 
 #### With PowerShell
 The following code snippet will register the SQL resource provider with your Azure subscription. 
@@ -71,7 +78,18 @@ The following steps will register the SQL resource provider with your Azure subs
 ### Register SQL Server VM with SQL resource provider
 Once the SQL resource provider has been registered with your subscription, you can use PowerShell to register your SQL Server VM with the SQL resource provider. 
 
+#### With Azure CLI
 
+Register SQL Server VM using Azure CLI with the following code snippet: 
+
+```cli
+# Register your existing SQL Server VM with the new resource provider
+az sql vm create -n <VMName> -g <ResourceGroupName> -l <VMLocation>
+```
+
+#### With PowerShell
+
+Register SQL Server VM using PowerShell with the following code snippet: 
 ```powershell
 # Register your existing SQL Server VM with the new resource provider
 # example: $vm=Get-AzureRmVm -ResourceGroupName AHBTest -Name AHBTest
@@ -81,6 +99,21 @@ New-AzureRmResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupN
 
 
 ## Change licensing model
+
+### With Azure CLI
+You can use Azure CLI to change your licensing model.  Be sure that your SQL Server VM has already been registered with the new SQL resource provider before switching the licensing model. 
+
+The following code snippet switches your pay-per-usage license model to BYOL (or using Azure Hybrid Benefit):
+```azurecli
+az resource update -g <resource_group_name> -n <sql_virtual_machine_name> --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=AHUB
+# example: az resource update -g AHBTest -n AHBTest --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=AHUB
+```
+
+The following code snippet switches your BYOL model to pay-per-usage: 
+```azurecli
+az resource update -g <resource_group_name> -n <sql_virtual_machine_name> --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=PAYG
+# example: az resource update -g AHBTest -n AHBTest --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=PAYG
+```
 
 ### With the Azure portal
 You can modify the licensing model directly from the portal. 
@@ -121,20 +154,6 @@ $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new() #>
 $SqlVm | Set-AzResource -Force 
 ``` 
 
-### With Azure CLI
-You can use Azure CLI to change your licensing model.  Be sure that your SQL Server VM has already been registered with the new SQL resource provider before switching the licensing model. 
-
-The following code snippet switches your pay-per-usage license model to BYOL (or using Azure Hybrid Benefit):
-```azurecli
-az resource update -g <resource_group_name> -n <sql_virtual_machine_name> --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=AHUB
-# example: az resource update -g AHBTest -n AHBTest --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=AHUB
-```
-
-The following code snippet switches your BYOL model to pay-per-usage: 
-```azurecli
-az resource update -g <resource_group_name> -n <sql_virtual_machine_name> --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=PAYG
-# example: az resource update -g AHBTest -n AHBTest --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=PAYG
-```
 
 ## View current licensing 
 

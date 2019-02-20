@@ -130,8 +130,8 @@ The following code snippet will create the availability group listener:
 
 az sql vm group ag-listener create -n <listener name> -g <resource group name> `
   --ag-name <availability group name> --group-name <cluster name> --ip-address <ag listener IP address> `
-  --load-balancer {lbname} --probe-port <Load Balancer probe port, default 59999>  `
-  --subnet {subnet resource id} `
+  --load-balancer <lbname> --probe-port <Load Balancer probe port, default 59999>  `
+  --subnet <subnet resource id> `
   --sqlvms <names of SQL VM’s hosting AG replicas ex: sqlvm1 sqlvm2>
 ```
 
