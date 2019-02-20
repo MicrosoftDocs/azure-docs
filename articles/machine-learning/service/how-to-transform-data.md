@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Transform data with the Azure Machine Learning Data Prep SDK
 
-In this article, you learn different methods of loading data using the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk). The SDK offers functions make it simple to add columns, filter out unwanted rows or columns, and impute missing values.
+In this article, you learn different methods of loading data using the Azure Machine Learning Data Prep SDK. The SDK offers functions that make it simple to add columns, filter out unwanted rows or columns, and impute missing values. To see reference documentation for the SDK, see the [overview](https://aka.ms/data-prep-sdk).
 
 Currently there are functions for the following tasks:
 
@@ -71,14 +71,7 @@ case_id = dataflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',
                               expression=substring_expression2)
 case_id = case_id.to_number('Case Id')
-case_id.head(3)
 ```
-
-||ID|Case Number|Case Id|Date|Block|IUCR|Primary Type|Description|Location Description|Arrest|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitude|Longitude|Location|
-|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|------|
-|0|10140490|HY329907|329907.0|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|THEFT|$500 AND UNDER|STREET|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 |12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
-|1|10139776|HY329265|329265.0|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|BATTERY|SIMPLE|STREET|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017, -87.65955018)|
-|2|10140270|HY329253|329253.0|07/05/2015 11:20:00 PM|121XX S FRONT AVE|0486|BATTERY|DOMESTIC BATTERY SIMPLE|STREET|false|true|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
 
 ## Impute missing values
 
@@ -91,7 +84,7 @@ import azureml.dataprep as dprep
 df = dprep.read_csv(r'data\crime0-10.csv')
 df = df.keep_columns(['ID', 'Arrest', 'Latitude', 'Longitude'])
 df = df.to_number(['Latitude', 'Longitude'])
-df.head(5)
+df.head(3)
 ```
 
 ||ID|Arrest|Latitude|Longitude|
@@ -99,8 +92,6 @@ df.head(5)
 |0|10140490|false|41.973309|-87.800175|
 |1|10139776|false|42.008124|-87.659550|
 |2|10140270|false|NaN|NaN|
-|3|10139885|false|41.902152|-87.754883|
-|4|10140379|false|41.885610|-87.657009|
 
 The third record is missing latitude and longitude values. To impute those missing values, you use `ImputeMissingValuesBuilder` to learn a fixed expression. It can impute the columns with either a calculated `MIN`, `MAX`, `MEAN` value, or a `CUSTOM` value. When `group_by_columns` is specified, missing values will be imputed by group with `MIN`, `MAX`, and `MEAN` calculated per group.
 
@@ -133,13 +124,10 @@ impute_custom = dprep.ImputeColumnArguments(column_id='Longitude',
 # get instance of ImputeMissingValuesBuilder
 impute_builder = df.builders.impute_missing_values(impute_columns=[impute_mean, impute_custom],
                                                    group_by_columns=['Arrest'])
-# call learn() to learn a fixed program to impute missing values
-impute_builder.learn()
-# call to_dataflow() to get a data flow with impute step added
-df_imputed = impute_builder.to_dataflow()
 
-# check impute result
-df_imputed.head(5)
+impute_builder.learn()
+df_imputed = impute_builder.to_dataflow()
+df_imputed.head(3)
 ```
 
 ||ID|Arrest|Latitude|Longitude|
@@ -147,8 +135,6 @@ df_imputed.head(5)
 |0|10140490|false|41.973309|-87.800175|
 |1|10139776|false|42.008124|-87.659550|
 |2|10140270|false|41.878961|42.000000|
-|3|10139885|false|41.902152|-87.754883|
-|4|10140379|false|41.885610|-87.657009|
 
 As shown in the result above, the missing latitude was imputed with the `MEAN` value of `Arrest=='false'` group. The missing longitude was imputed with 42.
 
@@ -164,7 +150,7 @@ One of the more advanced tools in the Azure Machine Learning Data Prep SDK is th
 ```python
 import azureml.dataprep as dprep
 dataflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
-dataflow.head(10)
+dataflow.head(4)
 ```
 
 ||DATE|REPORTTPYE|HOURLYDRYBULBTEMPF|HOURLYRelativeHumidity|HOURLYWindSpeed|
@@ -173,19 +159,14 @@ dataflow.head(10)
 |1|1/1/2015 1:00|FM-12|22|50|10|
 |2|1/1/2015 1:54|FM-15|22|50|10|
 |3|1/1/2015 2:54|FM-15|22|50|11|
-|4|1/1/2015 3:54|FM-15|24|46|13|
-|5|1/1/2015 4:00|FM-12|24|46|13|
-|6|1/1/2015 4:54|FM-15|22|52|15|
-|7|1/1/2015 5:54|FM-15|23|48|17|
-|8|1/1/2015 6:54|FM-15|23|50|14|
-|9|1/1/2015 7:00|FM-12|23|50|14|
 
 Assume that you need to join this file with a dataset where date and time are in a format 'Mar 10, 2018 | 2AM-4AM'.
 
 ```python
 builder = dataflow.builders.derive_column_by_example(source_columns=['DATE'], new_column_name='date_timerange')
 builder.add_example(source_data=df.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
-builder.preview() 
+
+builder.preview(count=5) 
 ```
 
 ||DATE|date_timerange|
@@ -195,20 +176,15 @@ builder.preview()
 |2|1/1/2015 1:54|Jan 1, 2015 12AM-2AM|
 |3|1/1/2015 2:54|Jan 1, 2015 2AM-4AM|
 |4|1/1/2015 3:54|Jan 1, 2015 2AM-4AM|
-|5|1/1/2015 4:00|Jan 1, 2015 4AM-6AM|
-|6|1/1/2015 4:54|Jan 1, 2015 4AM-6AM|
-|7|1/1/2015 5:54|Jan 1, 2015 4AM-6AM|
-|8|1/1/2015 6:54|Jan 1, 2015 6AM-8AM|
-|9|1/1/2015 7:00|Jan 1, 2015 6AM-8AM|
 
 The code above first creates a builder for the derived column. You provide an array of source columns to consider (`DATE`), and a name for the new column to be added. As the first example, you pass in the second row (index 1) and give an expected value for the derived column.
 
-Finally, you call `builder.preview()` and can see the derived column next to the source column. The format seems correct, but you only see values for the same date "Jan 1, 2015".
+Finally, you call `builder.preview(count=5)` and can see the derived column next to the source column. The format seems correct, but you only see values for the same date "Jan 1, 2015".
 
 Now, pass in the number of rows you want to `skip` from the top to see rows further down.
 
-```
-builder.preview(skip=30)
+```python
+builder.preview(skip=30, count=5)
 ```
 
 ||DATE|date_timerange|
@@ -218,17 +194,12 @@ builder.preview(skip=30)
 |32|1/1/2015 23:59|Jan 1, 2015 10PM-12AM|
 |33|1/2/2015 0:54|Feb 1, 2015 12AM-2AM|
 |34|1/2/2015 1:00|Feb 1, 2015 12AM-2AM|
-|35|1/2/2015 1:54|Feb 1, 2015 12AM-2AM|
-|36|1/2/2015 2:54|Feb 1, 2015 2AM-4AM|
-|37|1/2/2015 3:54|Feb 1, 2015 2AM-4AM|
-|38|1/2/2015 4:00|Feb 1, 2015 4AM-6AM|
-|39|1/2/2015 4:54|Feb 1, 2015 4AM-6AM|
 
-Here you see an issue with the generated program. Based solely on the one example you provided above, the derive program chose to parse the date as "Day/Month/Year", which is not what you want in this case. To fix this issue, provide another example using the `add_example()` function on the `builder` variable.
+Here you see an issue with the generated program. Based solely on the one example you provided above, the derive program chose to parse the date as "Day/Month/Year", which is not what you want in this case. To fix this issue, target a specific record index and provide another example using the `add_example()` function on the `builder` variable.
 
 ```python
 builder.add_example(source_data=preview_df.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
-builder.preview(skip=30, count=10)
+builder.preview(skip=30, count=5)
 ```
 
 ||DATE|date_timerange|
@@ -238,37 +209,28 @@ builder.preview(skip=30, count=10)
 |32|1/1/2015 23:59|Jan 1, 2015 10PM-12AM|
 |33|1/2/2015 0:54|Jan 2, 2015 12AM-2AM|
 |34|1/2/2015 1:00|Jan 2, 2015 12AM-2AM|
-|35|1/2/2015 1:54|Jan 2, 2015 12AM-2AM|
-|36|1/2/2015 2:54|Jan 2, 2015 2AM-4AM|
-|37|1/2/2015 3:54|Jan 2, 2015 2AM-4AM|
-|38|1/2/2015 4:00|Jan 2, 2015 4AM-6AM|
-|39|1/2/2015 4:54|Jan 2, 2015 4AM-6AM|
 
 Now rows correctly handle '1/2/2015' as 'Jan 2, 2015', but if you look further down the derived column, you see that values at the end have nothing in derived column. To fix that, you need to provide another example for row 66.
 
 ```python
 builder.add_example(source_data=preview_df.iloc[66], example_value='Jan 29, 2015 8PM-10PM')
-builder.preview(count=10)
+builder.preview(skip=64, count=5)
 ```
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|0|1/1/2015 22:54|Jan 1, 2015 10PM-12AM|
-|1|1/1/2015 23:54|Jan 1, 2015 10PM-12AM|
-|2|1/1/2015 23:59|Jan 1, 2015 10PM-12AM|
-|3|1/2/2015 0:54|Jan 2, 2015 12AM-2AM|
-|4|1/2/2015 1:00|Jan 2, 2015 12AM-2AM|
-|5|1/2/2015 1:54|Jan 2, 2015 12AM-2AM|
-|6|1/2/2015 2:54|Jan 2, 2015 2AM-4AM|
-|7|1/2/2015 3:54|Jan 2, 2015 2AM-4AM|
-|8|1/2/2015 4:00|Jan 2, 2015 4AM-6AM|
-|9|1/2/2015 4:54|Jan 2, 2015 4AM-6AM|
+|64|1/1/2015 22:54|Jan 1, 2015 10PM-12AM|
+|65|1/1/2015 23:54|Jan 1, 2015 10PM-12AM|
+|66|1/1/2015 23:59|Jan 1, 2015 10PM-12AM|
+|67|1/2/2015 0:54|Jan 2, 2015 12AM-2AM|
+|68|1/2/2015 1:00|Jan 2, 2015 12AM-2AM|
+
 
 To separate date and time with '|', you add another example. This time, instead of passing in a row from the preview, construct a dictionary of column name to value for the `source_data` parameter.
 
 ```python
 builder.add_example(source_data={'DATE': '11/11/2015 0:54'}, example_value='Nov 11, 2015 | 12AM-2AM')
-builder.preview(count=10)
+builder.preview(count=5)
 ```
 
 ||DATE|date_timerange|
@@ -278,11 +240,6 @@ builder.preview(count=10)
 |2|1/1/2015 23:59|None|
 |3|1/2/2015 0:54|None|
 |4|1/2/2015 1:00|None|
-|5|1/2/2015 1:54|None|
-|6|1/2/2015 2:54|None|
-|7|1/2/2015 3:54|None|
-|8|1/2/2015 4:00|None|
-|9|1/2/2015 4:54|None|
 
 This clearly had negative effects, as now the only rows that have any values in derived column are the ones that match exactly with the examples we provided. Call `list_examples()` on the builder object to see a list of current example derivations.
 
