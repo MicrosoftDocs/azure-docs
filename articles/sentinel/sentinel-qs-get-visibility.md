@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/4/2019
+ms.date: 2/28/2019
 ms.author: rkarlin
 ---
 
@@ -120,6 +120,5 @@ You can create different dashboards based on role of person looking at the data 
 ## Next steps
 In this quickstart, you learned how to get started using Azure Sentinel. Continue to the tutorial for [how to write a playbook](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
-> [Create custom alerts](sentinel-write-custom-alerts.md) to keep up to date with the latest anomalies and threats in your environment.
 > [Create playbooks](tutorial-respond-threats-playbook.md) to automate your responses to threats.
 
