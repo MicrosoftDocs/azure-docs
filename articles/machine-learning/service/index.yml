@@ -54,13 +54,18 @@ sections:
     
 - title: Reference
   items:
+  
   - type: list
-    style: unordered
+    style: cards
+    className: cardsD
     items:
-    - html: <a href="https://aka.ms/aml-sdk">Main SDK (Python)</a>
-    - html: <a href="https://aka.ms/data-prep-sdk">Data Prep SDK (Python)</a>
-    - html: <a href="https://aka.ms/aml-monitoring-sdk">Monitoring SDK (Python)</a>
-
+    - title: Core, Pipelines, Automated ML
+      html: <a href="https://aka.ms/aml-sdk">Python SDK</a>
+    - title: Data Preparation
+      html: <a href="https://aka.ms/data-prep-sdk">Python SDK</a>
+    - title: Monitoring
+      html: <a href="https://aka.ms/aml-monitoring-sdk">Python SDK</a>
+  
 - title: Other Azure Machine Learning technologies
   items:
   - type: list
