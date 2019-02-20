@@ -6,7 +6,6 @@ documentationcenter: ''
 author: jeffgilb
 manager: femila
 editor: ''
-
 ms.assetid:
 ms.service: azure-stack
 ms.workload: na
