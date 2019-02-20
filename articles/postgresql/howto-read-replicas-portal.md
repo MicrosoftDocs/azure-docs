@@ -1,14 +1,14 @@
 ---
-title: Manage read replicas in the Azure portal for Azure Database for PostgreSQL
-description: Learn how to manage Azure Database for PostgreSQL read replicas in the Azure portal.
+title: Manage read replicas for Azure Database for PostgreSQL from the Azure portal
+description: Learn how to manage Azure Database for PostgreSQL read replicas from the Azure portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 02/19/2019
 ---
 
-# Create and manage read replicas in the Azure portal
+# Create and manage read replicas from the Azure portal
 
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure portal. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
@@ -19,11 +19,9 @@ In this article, you learn how to create and manage read replicas in Azure Datab
 An [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md) to be the master server.
 
 ## Prepare the master server
-These steps can be used to prepare a master server in the General Purpose or Memory Optimized tiers only.
+These steps must be used to prepare a master server in the General Purpose or Memory Optimized tiers.
 
 The `azure.replication_support` parameter must be set to **REPLICA** on the master server. When this parameter is changed, a server restart is required for the change to take effect.
-
-To prepare a server as a master server, follow these steps:
 
 1. In the Azure portal, select the existing Azure Database for PostgreSQL server to use as a master.
 
@@ -49,7 +47,7 @@ To create a read replica, follow these steps:
 
 1.	Select the existing Azure Database for PostgreSQL server to use as the master server. 
 
-2.	On the server menu, select **SETTINGS** > **Replication**.
+2.	On the server menu, under **SETTINGS**, select **Replication**.
 
    If you haven't set the `azure.replication_support` parameter to **REPLICA** on a General Purpose or Memory Optimized master server and restarted the server, you receive a notification. Complete those steps before you create the replica.
 
@@ -81,7 +79,7 @@ To stop replication between a master server and a read replica from the Azure po
 
 1.	In the Azure portal, select your master Azure Database for PostgreSQL server.
 
-2.	On the server menu, select **SETTINGS** > **Replication**.
+2.	On the server menu, under **SETTINGS**, select **Replication**.
 
 3.	Select the replica server for which to stop replication.
 
@@ -97,7 +95,7 @@ To stop replication between a master server and a read replica from the Azure po
  
 
 ## Delete a master server
-The steps to delete a master server are similar to how you delete a standalone Azure Database for PostgreSQL server. 
+To delete a master server, you use the same steps as to a delete a standalone Azure Database for PostgreSQL server. 
 
 > [!IMPORTANT]
 > When you delete a master server, replication to all read replicas is stopped. The read replicas become standalone servers that now support both read and writes.
