@@ -112,6 +112,10 @@ The following links are not part of the core Azure AD Password Protection docume
 
 [Azure AD Password Protection and Smart Lockout are now in Public Preview!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529)
 
+## Premier\Unified support training available
+
+If you are interested in learning more about Azure AD Password Protection and deploying it in your environment, you can take advantage of a Microsoft proactive service available to those with a Premier or Unified support contract. The service is called Azure Active Directory: Password Protection. Please contact your Technical Account Manager for more information.
+
 ## Next steps
 
 If you have an on-premises Azure AD Password Protection question that isn't answered here, submit a Feedback item below - thank you!
