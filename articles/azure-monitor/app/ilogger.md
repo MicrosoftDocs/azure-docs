@@ -202,7 +202,7 @@ The following section shows how to override the default `TelemetryConfiguration`
 
 While the above approach can be used in an ASP.NET Core application, a more common approach would be to combine regular application monitoring (Requests, Dependencies etc.) with ILogger capture as shown below.
 
-Install additional package
+Install this additional package:
 
 ```xml
 <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.6.1" />
