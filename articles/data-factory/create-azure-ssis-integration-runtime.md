@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 02/20/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -545,7 +545,7 @@ In this section, you use the Azure Resource Manager template to create Azure-SSI
     	"variables": {},
     	"resources": [{
     		"name": "<Specify a name for your data factory>",
-    		"apiVersion": "2017-09-01-preview",
+    		"apiVersion": "2018-06-01",
     		"type": "Microsoft.DataFactory/factories",
     		"location": "East US",
     		"properties": {},
@@ -553,7 +553,7 @@ In this section, you use the Azure Resource Manager template to create Azure-SSI
     			"type": "integrationruntimes",
     			"name": "<Specify a name for your Azure-SSIS IR>",
     			"dependsOn": [ "<The name of the data factory you specified at the beginning>" ],
-    			"apiVersion": "2017-09-01-preview",
+    			"apiVersion": "2018-06-01",
     			"properties": {
     				"type": "Managed",
     				"typeProperties": {

@@ -41,7 +41,7 @@ Before you start, verify the following:
 This public preview has a number of limitations.
 
 - The VM running SQL Server requires internet connectivity to access Azure public IP addresses. 
-- You can back up up to 2000 SQL Server databases in a vault. If you have more, create another vault. 
+- You can back up to 2000 SQL Server databases in a vault. If you have more, create another vault. 
 - Backups of [distributed availability groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) don't fully work.
 - SQL Server Always On Failover Cluster Instances (FCIs) aren't supported for backup.
 - SQL Server backup should be configured in the portal. You can't currently configure backup with Azure PowerShell, CLI, or the REST APIs.
@@ -54,7 +54,7 @@ Please refer to [FAQ section](https://docs.microsoft.com/azure/backup/backup-azu
 
 **Support** | **Details**
 --- | ---
-**Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server manuallly installed) VMs are supported.
+**Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server manually installed) VMs are supported.
 **Supported geos** | Australia South East (ASE); Brazil South (BRS); Canada Central (CNC); Canada East (CE); Central US (CUS); East Asia (EA); East Australia (AE); East US (EUS); East US 2 (EUS2); India Central (INC); India South (INS); Japan East (JPE); Japan West (JPW); Korea Central (KRC); Korea South (KRS); North Central US (NCUS); North Europe (NE); South Central US (SCUS); South East Asia (SEA); UK South (UKS); UK West (UKW); West Central US (WCUS); West Europe (WE); West US (WUS); West US 2 (WUS 2)
 **Supported operating systems** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux isn't currently supported.
 **Supported SQL Server versions** | SQL Server 2017; SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
@@ -143,8 +143,8 @@ Discover databases running on the VM.
     - Azure Backup register the VM with the vault for workload backup. All databases on the registered VM can only be backed up to this vault.
     - Azure Backup installs the **AzureBackupWindowsWorkload** extension on the VM. No agent is installed on the SQL database.
     - Azure Backup creates the service account **NT Service\AzureWLBackupPluginSvc** on the VM.
-        - All backup and restore operations use the service account.
-        - **NT Service\AzureWLBackupPluginSvc** needs SQL sysadmin permissions. All SQL Server VMs created in the Azure MArkplace come with the **SqlIaaSExtension** installed. The **AzureBackupWindowsWorkload** extension uses the **SQLIaaSExtension** to automatically get the required permissions.
+      - All backup and restore operations use the service account.
+      - **NT Service\AzureWLBackupPluginSvc** needs SQL sysadmin permissions. All SQL Server VMs created in the Azure Marketplace come with the **SqlIaaSExtension** installed. The **AzureBackupWindowsWorkload** extension uses the **SQLIaaSExtension** to automatically get the required permissions.
     - If you didn't create the VM from the marketplace, then the VM doesn't have the **SqlIaaSExtension** installed, and the discovery operation fails with the error message **UserErrorSQLNoSysAdminMembership**. Follow the instructions in [#fix-sql-sysadmin-permissions] to fix this issue.
 
         ![Select the VM and database](./media/backup-azure-sql-database/registration-errors.png)
@@ -156,7 +156,7 @@ Discover databases running on the VM.
 To optimize backup loads, Azure Backup sets a maximum number of databases in one backup job to 50.
 
 - To protect more than 50 databases, configure multiple backups.
-- Alternatily, you can enable auto-protection. Auto-protection protects existing databases in one go, and automatically protects new databases added to the instance of availability group.
+- Alternately, you can enable auto-protection. Auto-protection protects existing databases in one go, and automatically protects new databases added to the instance of availability group.
 
 
 Configure backup as follows:
@@ -274,7 +274,7 @@ To create a backup policy:
 
 Enable auto-protection to automatically back up all existing databases, and databases that are added in the future to a standalone SQL Server instance or a SQL Server Always On Availability group. 
 
-- When you turn on auto-protection and select a policy, the pexisting protected databases will continue to use previous policy.
+- When you turn on auto-protection and select a policy, the existing protected databases will continue to use previous policy.
 - There's no limit on the number of databases you can select for auto-protection in one go.
 
 Enable auto-protection as follows:

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: quickstart
-ms.date: 11/28/2018
+ms.date: 02/20/2019
 ms.author: douglasl
 ---
 # Tutorial: Create an Azure data factory using Azure Resource Manager template
@@ -133,7 +133,7 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 	},
 	"resources": [{
 		"name": "[parameters('dataFactoryName')]",
-		"apiVersion": "2017-09-01-preview",
+		"apiVersion": "2018-06-01",
 		"type": "Microsoft.DataFactory/factories",
 		"location": "[parameters('dataFactoryLocation')]",
 		"identity": {
@@ -145,7 +145,7 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 				"dependsOn": [
 					"[parameters('dataFactoryName')]"
 				],
-				"apiVersion": "2017-09-01-preview",
+				"apiVersion": "2018-06-01",
 				"properties": {
 					"type": "AzureStorage",
 					"description": "Azure Storage linked service",
@@ -164,7 +164,7 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 					"[parameters('dataFactoryName')]",
 					"[variables('azureStorageLinkedServiceName')]"
 				],
-				"apiVersion": "2017-09-01-preview",
+				"apiVersion": "2018-06-01",
 				"properties": {
 					"type": "AzureBlob",
 					"typeProperties": {
@@ -184,7 +184,7 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 					"[parameters('dataFactoryName')]",
 					"[variables('azureStorageLinkedServiceName')]"
 				],
-				"apiVersion": "2017-09-01-preview",
+				"apiVersion": "2018-06-01",
 				"properties": {
 					"type": "AzureBlob",
 					"typeProperties": {
@@ -206,7 +206,7 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 					"[variables('inputDatasetName')]",
 					"[variables('outputDatasetName')]"
 				],
-				"apiVersion": "2017-09-01-preview",
+				"apiVersion": "2018-06-01",
 				"properties": {
 					"activities": [{
 						"type": "Copy",
@@ -240,7 +240,7 @@ Create a JSON file named **ADFTutorialARM.json** in **C:\ADFTutorial** folder wi
 					"[variables('outputDatasetName')]",
 					"[variables('pipelineName')]"
 				],
-				"apiVersion": "2017-09-01-preview",
+				"apiVersion": "2018-06-01",
 				"properties": {
 					"type": "ScheduleTrigger",
 					"typeProperties": {
@@ -490,7 +490,7 @@ The AzureStorageLinkedService links your Azure storage account to the data facto
     "dependsOn": [
         "[parameters('dataFactoryName')]"
     ],
-    "apiVersion": "2017-09-01-preview",
+    "apiVersion": "2018-06-01",
     "properties": {
         "type": "AzureStorage",
         "description": "Azure Storage linked service",
@@ -518,7 +518,7 @@ The Azure storage linked service specifies the connection string that Data Facto
         "[parameters('dataFactoryName')]",
         "[variables('azureStorageLinkedServiceName')]"
     ],
-    "apiVersion": "2017-09-01-preview",
+    "apiVersion": "2018-06-01",
     "properties": {
         "type": "AzureBlob",
         "typeProperties": {
@@ -545,7 +545,7 @@ You specify the name of the folder in the Azure Blob Storage that holds the copi
         "[parameters('dataFactoryName')]",
         "[variables('azureStorageLinkedServiceName')]"
     ],
-    "apiVersion": "2017-09-01-preview",
+    "apiVersion": "2018-06-01",
     "properties": {
         "type": "AzureBlob",
         "typeProperties": {
@@ -574,7 +574,7 @@ You define a pipeline that copies data from one Azure blob dataset to another Az
         "[variables('inputDatasetName')]",
         "[variables('outputDatasetName')]"
     ],
-    "apiVersion": "2017-09-01-preview",
+    "apiVersion": "2018-06-01",
     "properties": {
         "activities": [{
             "type": "Copy",
@@ -615,7 +615,7 @@ You define a trigger that runs the pipeline once an hour. The deployed trigger i
         "[variables('outputDatasetName')]",
         "[variables('pipelineName')]"
     ],
-    "apiVersion": "2017-09-01-preview",
+    "apiVersion": "2018-06-01",
     "properties": {
         "type": "ScheduleTrigger",
         "typeProperties": {
