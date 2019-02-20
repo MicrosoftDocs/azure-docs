@@ -137,7 +137,30 @@ Once the messages have been drained, please proceed to delete the Standard names
 > Deleting the Standard namespace that you migrated helps reduces the confusion at a later date. 
 
 #### How much downtime do I expect?
+The migration process described above is meant to reduce the expected downtime for the applications. 
+This is done by utilizing the connection string that the sender and receiver applications use to point to the new Premium namespace.
+
+The downtime experienced by the application is limited to the amount of time it takes to update the DNS entry to point to the Premium namespace.
+
+This can be assumed to be ***under 5 minutes***.
 
 #### Do I have to make any configuration changes while performing the migration?
+No, there are no code/configuration changes needed to perform this migration. The connection string that sender and receiver applications use to access the Standard Namespace is automatically mapped to act as an **alias** for the Premium Namespace.
+
+#### What happens when I abort the migration?
 
 #### I don't want to have to drain the messages. What do I do?
+There may be messages that are sent by the sender applications and committed to the storage on the Standard Namespace while the migration is taking place, and right before the migration is committed.
+
+Given that during migration, the actual message data/payload is not copied over from Standard to Premium, these have to be manually drained and then sent to the Premium namespace.
+
+However, if you can migrate during a planned maintenance/housekeeping window and don't want to manually drain and send the messages, please follow the below steps - 
+1. Stop the sender applications, and allow the receivers to process the messages that are currently in the Standard namespace and drain the queue.
+2. Once the queues and subscriptions in the Standard Namespace are empty, follow the procedure described above to execute the migration from Standard to Premium namespace.
+3. Once the migration is complete, you can restart the sender applications.
+4. The senders and receivers will now automatically connect with the Premium namespace.
+
+    >[!NOTE]
+    > The receiver need not be stopped for the migration.
+    >
+    > Once the migration is complete, the receivers will disconnect from the Standard namespace and automatically connect to the Premium namespace.
