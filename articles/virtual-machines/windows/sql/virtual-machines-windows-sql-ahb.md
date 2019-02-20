@@ -38,17 +38,16 @@ The use of the SQL VM resource provider requires the SQL IaaS extension. As such
 - A *pay-as-you-go* [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) with the [SQL IaaS extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) installed. 
 
 
-## Register existing SQL Server VM with SQL resource provider
+## Register SQL resource provider with your subscription 
+
 The ability to switch between licensing models is a feature provided by the new SQL VM resource provider (Microsoft.SqlVirtualMachine). SQL Server VMs deployed after December 2018 are automatically registered with the new resource provider. However, existing VMs that were deployed prior to this date need to be manually registered with the resource provider before they are able to switch their licensing model. 
 
   > [!NOTE] 
   > If you drop your SQL Server VM resource, you will go back to the hard coded license setting of the image. 
 
-### Register SQL resource provider with your subscription 
+To register your SQL Server VM with the SQL resource provider, you must register the resource provider to your subscription. You can do so with Azure CLI, PowerShell, or with the Azure portal. 
 
-To register your SQL Server VM with the SQL resource provider, you must register the resource provider to your subscription. You can do so with PowerShell, or with the Azure portal. 
-
-#### With Azure CLI
+### With Azure CLI
 The following code snippet will register the SQL resource provider with your Azure susbcription. 
 
 ```cli
@@ -56,7 +55,7 @@ The following code snippet will register the SQL resource provider with your Azu
 az provider register --namespace Microsoft.SqlVirtualMachine 
 ```
 
-#### With PowerShell
+### With PowerShell
 The following code snippet will register the SQL resource provider with your Azure subscription. 
 
 ```powershell
@@ -64,7 +63,7 @@ The following code snippet will register the SQL resource provider with your Azu
 Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
 
-#### With the Azure portal
+### With the Azure portal
 The following steps will register the SQL resource provider with your Azure subscription using the Azure portal. 
 
 1. Open the Azure portal and navigate to **All Services**. 
@@ -75,8 +74,8 @@ The following steps will register the SQL resource provider with your Azure subs
 
   ![Modify the provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
-### Register SQL Server VM with SQL resource provider
-Once the SQL resource provider has been registered with your subscription, you can use PowerShell to register your SQL Server VM with the SQL resource provider. 
+## Register SQL Server VM with SQL resource provider
+Once the SQL resource provider has been registered with your subscription, you can then register your SQL Server VM with the resource provider. You can do so using Azure CLI, and PowerShell. 
 
 #### With Azure CLI
 
