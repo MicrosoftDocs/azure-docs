@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 In this article, you learn different methods of loading data using the Azure Machine Learning Data Prep SDK. The SDK offers functions that make it simple to add columns, filter out unwanted rows or columns, and impute missing values. To see reference documentation for the SDK, see the [overview](https://aka.ms/data-prep-sdk).
 
-Currently there are functions for the following tasks:
+This how-to shows examples for the following tasks:
 
 - Add column using an expression
 - [Impute missing values](#impute-missing-values)
@@ -93,9 +93,9 @@ df.head(3)
 |1|10139776|false|42.008124|-87.659550|
 |2|10140270|false|NaN|NaN|
 
-The third record is missing latitude and longitude values. To impute those missing values, you use `ImputeMissingValuesBuilder` to learn a fixed expression. It can impute the columns with either a calculated `MIN`, `MAX`, `MEAN` value, or a `CUSTOM` value. When `group_by_columns` is specified, missing values will be imputed by group with `MIN`, `MAX`, and `MEAN` calculated per group.
+The third record is missing latitude and longitude values. To impute those missing values, you use [`ImputeMissingValuesBuilder`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) to learn a fixed expression. It can impute the columns with either a calculated `MIN`, `MAX`, `MEAN` value, or a `CUSTOM` value. When `group_by_columns` is specified, missing values will be imputed by group with `MIN`, `MAX`, and `MEAN` calculated per group.
 
-Check the `MEAN` value of the latitude column using the `summarize()` function. This function accepts an array of columns in the `group_by_columns` parameter to specify the aggregation level. The `summary_columns` parameter accepts a `SummaryColumnsValue` call. This function call specifies the current column name, the new calculated field name, and the `SummaryFunction` to perform.
+Check the `MEAN` value of the latitude column using the [`summarize()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) function. This function accepts an array of columns in the `group_by_columns` parameter to specify the aggregation level. The `summary_columns` parameter accepts a `SummaryColumnsValue` call. This function call specifies the current column name, the new calculated field name, and the `SummaryFunction` to perform.
 
 ```python
 df_mean = df.summarize(group_by_columns=['Arrest'],
@@ -265,7 +265,7 @@ builder.delete_example(example_row=examples.iloc[2])
 builder.add_example(examples.iloc[0], 'Jan 1, 2015 | 12AM-2AM')
 builder.add_example(examples.iloc[1], 'Jan 2, 2015 | 12AM-2AM')
 builder.add_example(examples.iloc[2], 'Jan 29, 2015 | 8PM-10PM')
-builder.preview()
+builder.preview(count=5)
 ```
 
 | | DATE | date_timerange |
@@ -275,11 +275,7 @@ builder.preview()
 | 2 | 1/1/2015 1:54 | Jan 1, 2015 \| 12AM-2AM |
 | 3 | 1/1/2015 2:54 | Jan 1, 2015 \| 2AM-4AM |
 | 4 | 1/1/2015 3:54 | Jan 1, 2015 \| 2AM-4AM |
-| 5 | 1/1/2015 4:00 | Jan 1, 2015 \| 4AM-6AM|
-| 6 | 1/1/2015 4:54 | Jan 1, 2015 \| 4AM-6AM|
-| 7 | 1/1/2015 5:54 | Jan 1, 2015 \| 4AM-6AM|
-| 8 | 1/1/2015 6:54 | Jan 1, 2015 \| 6AM-8AM|
-| 9 | 1/1/2015 7:00 | Jan 1, 2015 \| 6AM-8AM|
+
 
 Now the data looks correct and you call `to_dataflow()` on the builder, which will return a data flow with the desired derived columns added.
 
@@ -290,7 +286,7 @@ df = dataflow.to_pandas_dataframe()
 
 ## Filtering
 
-The SDK includes the methods `Dataflow.drop_columns` and `Dataflow.filter` to let you filter out columns or rows.
+The SDK includes the methods [`Dataflow.drop_columns()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#drop-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow) and [`Dataflow.filter()`]((https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#filter-expression--azureml-dataprep-api-expressions-expression-----azureml-dataprep-api-dataflow-dataflow)) to let you filter out columns or rows.
 
 ### Initial setup
 
@@ -311,7 +307,7 @@ dataflow.head(5)
 
 ### Filtering columns
 
-To filter columns, use `Dataflow.drop_columns`. This method takes a list of columns to drop or a more complex argument called `ColumnSelector`.
+To filter columns, use `Dataflow.drop_columns()`. This method takes a list of columns to drop or a more complex argument called [`ColumnSelector`](https://docs.microsoft.com/en-us/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py).
 
 #### Filtering columns with list of strings
 
@@ -319,16 +315,13 @@ In this example, `drop_columns` takes a list of strings. Each string should exac
 
 ```python
 dataflow = dataflow.drop_columns(['Store_and_fwd_flag', 'RateCodeID'])
-dataflow.head(5)
+dataflow.head(2)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Pickup_longitude|Pickup_latitude|Dropoff_longitude|Dropoff_latitude|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |0|None|None|None|None|None|None|None|None|None|None|None|
 |1|2013-08-01 08:14:37|2013-08-01 09:09:06|0|0|0|0|1|.00|0|0|21.25|
-|2|2013-08-01 09:13:00|2013-08-01 11:38:00|0|0|0|0|2|.00|0|0|75|
-|3|2013-08-01 09:48:00|2013-08-01 09:49:00|0|0|0|0|1|.00|0|1|2.1|
-|4|2013-08-01 10:38:35|2013-08-01 10:38:51|0|0|0|0|1|.00|0|0|3.25|
 
 #### Filtering columns with regex
 
@@ -336,20 +329,17 @@ Alternatively, use the `ColumnSelector` expression to drop columns that match a 
 
 ```python
 dataflow = dataflow.drop_columns(dprep.ColumnSelector('Column*|.*longitud|.*latitude', True, True))
-dataflow.head(5)
+dataflow.head(2)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |0|None|None|None|None|None|None|None|
 |1|2013-08-01 08:14:37|2013-08-01 09:09:06|1|.00|0|0|21.25|
-|2|2013-08-01 09:13:00|2013-08-01 11:38:00|2|.00|0|0|75|
-|3|2013-08-01 09:48:00|2013-08-01 09:49:00|1|.00|0|1|2.1|
-|4|2013-08-01 10:38:35|2013-08-01 10:38:51|1|.00|0|0|3.25|
 
 ## Filtering rows
 
-To filter rows, use `DataFlow.filter`. This method takes an Azure Machine Learning Data Prep SDK expression as an argument, and returns a new data flow with the rows that the expression evaluates as True. Expressions are built using expression builders (`col`, `f_not`, `f_and`, `f_or`) and regular operators (>, <, >=, <=, ==, !=).
+To filter rows, use `DataFlow.filter()`. This method takes an Azure Machine Learning Data Prep SDK expression as an argument, and returns a new data flow with the rows that the expression evaluates as True. Expressions are built using expression builders (`col`, `f_not`, `f_and`, `f_or`) and regular operators (>, <, >=, <=, ==, !=).
 
 ### Filtering rows with simple Expressions
 
@@ -363,36 +353,30 @@ In this example, `dataflow.filter(col('Tip_amount') > 0)` returns a new data flo
 ```python
 dataflow = dataflow.to_number(['Tip_amount'])
 dataflow = dataflow.filter(dprep.col('Tip_amount') > 0)
-dataflow.head(5)
+dataflow.head(2)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |0|2013-08-01 19:33:28|2013-08-01 19:35:21|5|.00|0.08|0|4.58|
 |1|2013-08-05 13:16:38|2013-08-05 13:18:24|1|.00|0.30|0|3.8|
-|2|2013-08-05 14:11:42|2013-08-05 14:12:47|1|.00|1.05|0|4.55|
-|3|2013-08-05 14:15:56|2013-08-05 14:18:04|5|.00|2.22|0|5.72|
-|4|2013-08-05 14:42:14|2013-08-05 14:42:38|1|.00|0.88|0|4.38|
 
 ### Filtering rows with complex expressions
 
 To filter using complex expressions, combine one or more simple expressions with the expression builders `f_not`, `f_and`, or `f_or`.
 
-In this example, `Dataflow.filter` returns a new data flow with the rows where `'Passenger_count'` is less than 5 and `'Tolls_amount'` is greater than 0.
+In this example, `Dataflow.filter()` returns a new data flow with the rows where `'Passenger_count'` is less than 5 and `'Tolls_amount'` is greater than 0.
 
 ```python
 dataflow = dataflow.to_number(['Passenger_count', 'Tolls_amount'])
 dataflow = dataflow.filter(dprep.f_and(dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
-dataflow.head(5)
+dataflow.head(2)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |0|2013-08-08 12:16:00|2013-08-08 12:16:00|1.0|.00|2.25|5.00|19.75|
 |1|2013-08-12 14:43:53|2013-08-12 15:04:50|1.0|5.28|6.46|5.33|32.29|
-|2|2013-08-12 19:48:12|2013-08-12 20:03:42|1.0|5.50|1.00|10.66|30.66|
-|3|2013-08-13 06:11:06|2013-08-13 06:30:28|1.0|9.57|7.47|5.33|44.8|
-|4|2013-08-16 20:33:50|2013-08-16 20:48:50|1.0|5.63|3.00|5.33|27.83|
 
 It is also possible to filter rows combining more than one expression builder to create a nested expression.
 
@@ -411,16 +395,13 @@ dataflow = dataflow.filter(
         dprep.f_and(
             dprep.col('Total_amount') > 40,
             dprep.col('Trip_distance') < 10)))
-dataflow.head(5)
+dataflow.head(2)
 ```
 
 ||lpep_pickup_datetime|Lpep_dropoff_datetime|Passenger_count|Trip_distance|Tip_amount|Tolls_amount|Total_amount|
 |-----|-----|-----|-----|-----|-----|-----|-----|
 |0|2013-08-13 06:11:06+00:00|2013-08-13 06:30:28+00:00|1.0|9.57|7.47|5.33|44.80|
 |1|2013-08-23 12:28:20+00:00|2013-08-23 12:50:28+00:00|2.0|8.22|8.08|5.33|40.41|
-|2|2013-08-25 09:12:52+00:00|2013-08-25 09:34:34+00:00|1.0|8.80|8.33|5.33|41.66|
-|3|2013-08-25 16:46:51+00:00|2013-08-25 17:13:55+00:00|2.0|9.66|7.37|5.33|44.20|
-|4|2013-08-25 17:42:11+00:00|2013-08-25 18:02:57+00:00|1.0|9.60|6.87|5.33|41.20|
 
 ## Custom Python transforms
 
@@ -441,51 +422,42 @@ import azureml.dataprep as dprep
 col = dprep.col
 
 df = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
-df.head(5)
+df.head(2)
 ```
 
 | |stnam|fipst|leaid|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|------|-----|
 |0|ALABAMA|1|101710|Hale County|10171002158| |
 |1|ALABAMA|1|101710|Hale County|10171002162| |
-|2|ALABAMA|1|101710|Hale County|10171002156| |
-|3|ALABAMA|1|101710|Hale County|10171000588|2|
-|4|ALABAMA|1|101710|Hale County|10171000589| |
 
-Trim down the data set and do some basic transforms.
+Trim down the data set and do some basic transforms including removing columns, replacing values and converting types.
 
 ```python
 df = df.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
 df = df.replace_na(columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
 df = df.to_number(['ncessch', 'MAM_MTH00numvalid_1011'])
-df.head(5)
+df.head(2)
 ```
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Hale County|1.017100e+10|None|
 |1|ALABAMA|Hale County|1.017100e+10|None|
-|2|ALABAMA|Hale County|1.017100e+10|None|
-|3|ALABAMA|Hale County|1.017100e+10|2|
-|4|ALABAMA|Hale County|1.017100e+10|None|
 
 Look for null values using the following filter.
 
 ```python
-df.filter(col('MAM_MTH00numvalid_1011').is_null()).head(5)
+df.filter(col('MAM_MTH00numvalid_1011').is_null()).head(2)
 ```
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Hale County|1.017100e+10|None|
 |1|ALABAMA|Hale County|1.017100e+10|None|
-|2|ALABAMA|Hale County|1.017100e+10|None|
-|3|ALABAMA|Hale County|1.017100e+10|None|
-|4|ALABAMA|Hale County|1.017100e+10|None|
 
 ### Transform partition
 
-Use a pandas function to replace all null values with a 0. This code will be run by partition, not on the entire data set at one time. This means that on a large data set, this code may run in parallel as the runtime processes the data, partition by partition.
+Use [`transform_partition()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#transform-partition-script--str-----azureml-dataprep-api-dataflow-dataflow)  to replace all null values with a 0. This code will be run by partition, not on the entire data set at one time. This means that on a large data set, this code may run in parallel as the runtime processes the data, partition by partition.
 
 The Python script must define a function called `transform()` that takes two arguments, `df` and `index`. The `df` argument will be a pandas dataframe that contains the data for the partition and the `index` argument is a unique identifier of the partition. The transform function can fully edit the passed in dataframe, but must return a dataframe. Any libraries that the Python script imports must exist in the environment where the dataflow is run.
 
@@ -495,20 +467,17 @@ def transform(df, index):
     df['MAM_MTH00numvalid_1011'].fillna(0,inplace=True)
     return df
 """)
-df.head(5)
+df.head(2)
 ```
 
 ||stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Hale County|1.017100e+10|0.0|
 |1|ALABAMA|Hale County|1.017100e+10|0.0|
-|2|ALABAMA|Hale County|1.017100e+10|0.0|
-|3|ALABAMA|Hale County|1.017100e+10|2.0|
-|4|ALABAMA|Hale County|1.017100e+10|0.0|
 
 ### New script column
 
-You can use Python code to create a new column that has the county name and the state name, and also to capitalize the state name. To do this, use the `new_script_column()` method on the data flow.
+You can use a Python script to create a new column that has the county name and the state name, and also to capitalize the state name. To do this, use the [`new_script_column()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-column-new-column-name--str--insert-after--str--script--str-----azureml-dataprep-api-dataflow-dataflow) method on the data flow.
 
 The Python script must define a function called `newvalue()` that takes a single argument `row`. The `row` argument is a dict (`key`:column name, `val`: current value) and will be passed to this function for each row in the data set. This function must return a value to be used in the new column. Any libraries that the Python script imports must exist in the environment where the dataflow is run.
 
@@ -517,20 +486,17 @@ df = df.new_script_column(new_column_name='county_state', insert_after='leanm10'
 def newvalue(row):
     return row['leanm10'] + ', ' + row['stnam'].title()
 """)
-df.head(5)
+df.head(2)
 ```
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
 |1|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
-|2|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
-|3|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|2.0|
-|4|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
 
 ### New Script Filter
 
-Build a Python expression to filter the data set to only rows where 'Hale' is not in the new `county_state` column. The expression returns `True` if we want to keep the row, and `False` to drop the row.
+Build a Python expression using [`new_script_filter()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#new-script-filter-script--str-----azureml-dataprep-api-dataflow-dataflow) to filter the data set to only rows where 'Hale' is not in the new `county_state` column. The expression returns `True` if we want to keep the row, and `False` to drop the row.
 
 ```python
 df = df.new_script_filter("""
@@ -538,13 +504,15 @@ def includerow(row):
     val = row['county_state']
     return 'Hale' not in val
 """)
-df.head(5)
+df.head(2)
 ```
 
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
 |0|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|1.0|
 |1|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|0.0|
-|2|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|0.0|
-|3|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|0.0|
-|4|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|0.0|
+
+## Next Steps
+
+* See the SDK [overview](https://aka.ms/data-prep-sdk) for design patterns and usage examples
+* See the Azure Machine Learning Data Prep SDK [tutorial](tutorial-data-prep.md) for an example of solving a specific scenario
