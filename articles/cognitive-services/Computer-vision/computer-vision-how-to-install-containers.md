@@ -68,7 +68,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 ### Docker pull for the Recognize Text container
 
 ```
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-rocognize-text:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
 ```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
