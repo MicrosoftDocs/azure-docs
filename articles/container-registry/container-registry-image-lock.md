@@ -1,6 +1,6 @@
 ---
 title: Lock an image in Azure Container Registry 
-description: Configure a container image or repository so it can't be deleted or overwritten in an Azure container registry.
+description: Set attributes for a container image or repository so it can't be deleted or overwritten in an Azure container registry.
 services: container-registry
 author: dlepow
 
@@ -51,8 +51,6 @@ az acr repository update \
     --name myregistry --image myrepo/myimage@sha256:123456abcdefg \
     --write-enabled false
 ```
-
-When you lock by manifest digest, all image tags referenced by the manifest are locked.
 
 ### Lock a repository
 
