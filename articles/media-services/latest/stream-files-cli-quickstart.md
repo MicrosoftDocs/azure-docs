@@ -12,7 +12,7 @@ ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: 
-ms.date: 02/15/2019
+ms.date: 02/19/2019
 ms.author: juliako
 #Customer intent: As a developer, I want to create a Media Services account so that I can store, encrypt, encode, manage, and stream media content in Azure.
 ---
@@ -40,10 +40,14 @@ The Media Services account and all associated storage accounts must be in the sa
 az group create -n amsResourceGroup -l westus2
 ```
 
-### Create an azure storage account, General Purpose v2, Standard RAGRS
+### Create an azure storage account
 
+In this example, we create a General Purpose v2, Standard LRS account.
+
+If you want to experiment with storage accounts, use `--sku Standard_LRS`. However, pick another SKU for production, for example, `--sku Standard_RAGRS`. For more information, see [storage accounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
+ 
 ```azurecli
-az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_RAGRS -l westus2 -g amsResourceGroup
+az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
 ```
 
 ### Create an azure media service account
@@ -346,7 +350,6 @@ az group delete --name amsResourceGroup
 ## See also
 
 See [Job error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
-
 
 ## Next steps
 
