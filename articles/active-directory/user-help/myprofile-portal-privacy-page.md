@@ -19,3 +19,14 @@ ms.collection: M365-identity-device-management
 You can view how your organization uses your data from the **Privacy** page of the **My Profile** portal.
 
 ## To view your privacy-related info
+1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+
+2. Select **Privacy** from the left navigation pane or select the **Review privacy** link from the **Privacy** block.
+
+    ![My Profile page, showing highlighted Privacy links](media/myprofile-portal/myprofile-portal-privacy-links.png)
+
+3. Review the information, including:
+
+    - **Services.** A list of online services you're connected to using your work or school account.
+
+    - **Terms of use**. Your organization's terms of use.

@@ -19,3 +19,24 @@ ms.collection: M365-identity-device-management
 You can manage the devices you're connected to using your work or school account, disabling any that you no longer own, from the **Devices** page of the **My Profile** portal.
 
 ## To view your connected devices
+1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
+
+    ![My Profile page, showing highlighted Devices links](media/myprofile-portal/myprofile-portal-devices-links.png)
+
+2. Select **Devices** from the left navigation pane or select the **Manage devices** link from the **Devices** block.
+
+3. Review the information for your connected devices, making sure you recognize them all. 
+
+    ![Device page, showing connected devices](media/myprofile-portal/myprofile-portal-devices-page.png)
+
+## To disable a device
+You can disable any of your connected devices at any time. This is especially important if a device isn't familiar to you or if a device is lost or stolen.
+
+>[!Important]
+>If you disable a device by mistake, there's no way to undo it. You'll have to contact your organization's administrator to add the device again.
+
+1. Select **Disable** from the device you want to remove.
+
+2. Select **Yes** to confirm you want to disable the device.
+
+    ![Device page with highlighted Disable link](media/myprofile-portal/myprofile-portal-organizations-disable.png)
