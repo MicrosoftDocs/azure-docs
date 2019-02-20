@@ -37,7 +37,7 @@ As managed instance is a platform-as-a-services (PaaS) offering, Microsoft manag
 
 Some SQL Server operations initiated by the end users or applications may require managed instances to interact with the platform. One case is the creation of a managed instance database - a resource that is exposed through the Azure portal, PowerShell, Azure CLI, and the REST API.
 
-managed instance depends on other Azure Services for its proper functioning (such as Azure Storage for backups, Azure Service Bus for telemetry, Azure AD for authentication, Azure Key Vault for TDE, and so forth) and initiates connections to them accordingly.
+Managed instance depends on other Azure Services for its proper functioning (such as Azure Storage for backups, Azure Service Bus for telemetry, Azure AD for authentication, Azure Key Vault for TDE, and so forth) and initiates connections to them accordingly.
 
 All communications, stated above, are encrypted and signed using certificates. To make sure that communicating parties are trusted, managed instance constantly verifies these certificates by contacting Certificate Authority. If the certificates are revoked or managed instance could not verify them, it closes the connections to protect the data.
 
