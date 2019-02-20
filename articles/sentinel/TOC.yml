@@ -1,0 +1,63 @@
+- name: Azure Sentinel Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure Sentinel
+    href: sentinel-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Onboarding Azure Sentinel
+    href: sentinel-qs-onboard.md
+  - name: Get visibility into alerts
+    href: sentinel-qs-get-visibility.md
+  
+- name: Tutorials
+  items:
+  - name: Detect suspicious threats
+    href: tutorial-detect-threats.md
+  - name: Respond to threats
+    href: tutorial-respond-threats-playbook.md  
+
+- name: How-to guides
+  items:
+  - name: Hunting
+    href: sentinel-hunting.md
+    items:
+    - name: Use notebooks to hunt
+      href: sentinel-notebooks.md
+    - name: Use bookmarks to hunt
+      href: sentinel-bookmarks.md
+
+  - name: Connect Cloud App Security
+    href: sentinel-connect-mcas.md
+  - name: Connect Azure Activity Log
+    href: sentinel-connect-azure-activity.md
+  - name: Connect Azure Information Protection
+    href: sentinel-connect-aip.md
+  - name: Connect Azure ATP
+    href: sentinel-connect-aatp.md
+  - name: Connect Azure Security Center
+    href: sentinel-connect-asc.md
+  - name: Connect CEF
+    href: sentinel-connect-cef.md
+  - name: Connect Syslog
+    href: sentinel-connect-syslog.md
+  - name: Connect Azure AD
+    href: sentinel-connect-aad.md
+  - name: Connect Office 365
+    href: sentinel-connect-o365.md
+  - name: Connect AWS
+    href: sentinel-connect-aws.md
+  
+
+- name: Resources
+  items:
+  - name: Useful resources
+    href: sentinel-resources.md
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Azure Security, Privacy, & Compliance blog
+    href: http://blogs.msdn.com/b/azuresecurity/
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
