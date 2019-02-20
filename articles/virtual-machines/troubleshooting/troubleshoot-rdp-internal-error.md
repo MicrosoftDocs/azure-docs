@@ -74,9 +74,9 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
             Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
 
-            Stop-Service -Name Termservice 
+            Stop-Service -Name Termservice -Force
             
-            Start-Service -Name Termservice -Force
+            Start-Service -Name Termservice 
 
     2. Set the firewall for the new port:
 
