@@ -72,7 +72,7 @@ Follow these steps to set up your security info for your work or school account 
 
     Your security info is updated to use the Microsoft Authenticator app by default to verify your identity when using two-step verification or password reset.
 
-9. On the **Phone** set up page, choose whether you want to recieve a text message or a phone call, and then select **Next**. For the purposes of this example, we're using text messages, so you must use a phone number for a device that can accept text messages.
+9. On the **Phone** set up page, choose whether you want to receive a text message or a phone call, and then select **Next**. For the purposes of this example, we're using text messages, so you must use a phone number for a device that can accept text messages.
 
     ![Begin setting up your phone number for text messaging](media/security-info/securityinfo-prompt-text-msg.png)
 
