@@ -20,7 +20,7 @@ ms.author: jonor;sivae
 # Example 2: Build a perimeter network to protect applications with a firewall and NSGs
 [Return to the Microsoft cloud services and network security page][HOME]
 
-This example shows how to create a perimeter network (also known as *DMZ*, *demilitarized zone*, and *screened subnet*) with a firewall, four Windows Server computers, and Network Security Groups (NSGs). It includes details about each of the relevant commands to provide a deeper understanding of each step. The "Traffic scenarios" section provides a step-by-step explanation of how traffic proceeds through the layers of defense in the perimeter network. Finally, the "References" section provides the complete code and instructions about how to build this environment to test and experiment with different scenarios.
+This example shows how to create a perimeter network (also known as *DMZ*, *demilitarized zone*, and *screened subnet*) with a firewall, four Windows Server computers, and Network Security Groups (NSGs). It includes details about each of the relevant commands to provide a deeper understanding of each step. The "Traffic scenarios" section provides a step-by-step explanation of how traffic proceeds through the layers of defense in the perimeter network. Finally, the "References" section provides the complete code and instructions for how to build this environment to test and experiment with different scenarios.
 
 ![Inbound perimeter network with NVA and NSGs][1]
 
@@ -28,7 +28,7 @@ This example shows how to create a perimeter network (also known as *DMZ*, *demi
 This example is based on a scenario with an Azure subscription that contains these items:
 
 * Two cloud services: FrontEnd001 and BackEnd001.
-* A virtual network named CorpNetwork that has two subnets: FrontEnd and BackEnd
+* A virtual network named CorpNetwork that has two subnets: FrontEnd and BackEnd.
 * A single NSG that's applied to both subnets.
 * A network virtual appliance: A Barracuda NextGen Firewall connected to the FrontEnd subnet.
 * A Windows Server computer that represents an application web server: IIS01.
@@ -45,11 +45,11 @@ The PowerShell script in the "References" section of this article builds most of
 To build the environment:
 
 1. Save the network config XML file included in the "References" section (updated with names, locations, and IP addresses to match your scenario).
-2. Update the user-defined variables in the PowerShell script to match the environment the script will be run against (subscriptions, service names, and so on).
+2. Update the user-defined variables in the PowerShell script to match the environment the script will run against (subscriptions, service names, and so on).
 3. Run the script in PowerShell.
 
 > [!NOTE]
-> The region signified in the PowerShell script must match the region signified in the network config XML file.
+> The region specified in the PowerShell script must match the region specified in the network config XML file.
 >
 >
 
@@ -64,7 +64,7 @@ The next section explains most of the script's statements that relate to NSGs.
 In this example, an NSG group is built and then loaded with six rules.
 
 > [!TIP]
-> In general, you should create your specific “Allow” rules first and the more generic “Deny” rules last. The assigned priority controls which rules are evaluated first. After traffic is found to apply to a specific rule, no further rules are evaluated. NSG rules can apply in either the inbound or the outbound direction (from the perspective of the subnet).
+> In general, you should create your specific “Allow” rules first and the more generic “Deny” rules last. The assigned priority controls which rules are evaluated first. After traffic is found that applies to a specific rule, no further rules are evaluated. NSG rules can apply in either the inbound or the outbound direction (from the perspective of the subnet).
 > 
 > 
 
@@ -77,16 +77,16 @@ Declaratively, these rules are built for inbound traffic:
 5. All traffic (all ports) from the internet to the entire virtual network (both subnets) is denied.
 6. All traffic (all ports) from the FrontEnd subnet to the BackEnd subnet is denied.
 
-With these rules bound to each subnet, if an HTTP request was inbound from the internet to the web server, both rules 3 (allow) and 5 (deny) would seem to apply, but because rule 3 has a higher priority, only it would apply. Rule 5 wouldn't come into play. So the HTTP request would be allowed to the firewall.
+With these rules bound to each subnet, if an HTTP request were inbound from the internet to the web server, both rule 3 (allow) and rule 5 (deny) would seem to apply, but because rule 3 has a higher priority, only it will apply. Rule 5 won't come into play. So the HTTP request will be allowed to the firewall.
 
-If that same traffic was trying to reach the DNS01 server, rule 5 (deny) would be the first to apply, so the traffic wouldn't be allowed to pass to the server. Rule 6 (deny) blocks the FrontEnd subnet from communicating with the BackEnd subnet (except for traffic allowed in rules 1 and 4). This protects the BackEnd network in case an attacker compromises the web application on the FrontEnd. In that case, the attacker would have limited access to the BackEnd “protected” network. (The attacker would be able to access only the resources exposed on the AppVM01 server).
+If that same traffic was trying to reach the DNS01 server, rule 5 (deny) would be the first to apply, so the traffic wouldn't be allowed to pass to the server. Rule 6 (deny) blocks the FrontEnd subnet from communicating with the BackEnd subnet (except for traffic allowed in rules 1 and 4). This protects the BackEnd network in case an attacker compromises the web application on the FrontEnd. In that case, the attacker would have limited access to the BackEnd “protected” network. (The attacker would be able to access only the resources exposed on the AppVM01 server.)
 
 There's a default outbound rule that allows traffic out to the internet. In this example, we’re allowing outbound traffic and not modifying any outbound rules. To lock down traffic in both directions, you need user-defined routing. You can learn about this technique in a different example in the [main security boundary document][HOME].
 
 The NSG rules described here are similar to the NSG rules in [Example 1 - Build a simple DMZ with NSGs][Example1]. Review the NSG description in that article for a detailed look at each NSG rule and its attributes.
 
 ## Firewall rules
-You need to install a management client on a computer to manage the firewall and create the configurations needed. See the documentation from your firewall (or other NVA) vendor about how to manage the device. The remainder of this section describes the configuration of the firewall itself, through the vendor's management client (not the Azure portal or PowerShell).
+You need to install a management client on a computer to manage the firewall and create the configurations needed. See the documentation from your firewall (or other NVA) vendor about how to manage the device. The rest of this section describes the configuration of the firewall itself, through the vendor's management client (not the Azure portal or PowerShell).
 
 See [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin) for instructions for client download and connecting to the Barracuda firewall used in this example.
 
@@ -124,7 +124,7 @@ Now that the rule is added to the ruleset, you need to upload the ruleset to the
 
 In the upper-right corner of the management client, you'll see a group of buttons. Select **Send Changes** to send the modified ruleset to the firewall, and then select **Activate**.
 
-Now that you've activated the firewall ruleset, the environment is complete. If you want, you can run the sample application scripts in the "References" section to add an application to the environment. Adding an application enables you to test the following traffic scenarios.
+Now that you've activated the firewall ruleset, the environment is complete. If you want, you can run the sample application scripts in the "References" section to add an application to the environment. If you add an application, you can test the traffic scenarios described in the next section.
 
 > [!IMPORTANT]
 > You should realize that you won't hit the web server directly. When a browser requests an HTTP page from FrontEnd001.CloudApp.Net, the HTTP endpoint (port 80) passes the traffic to the firewall, not to the web server. The firewall then, because of the rule you created earlier, uses NAT to map the request to the web server.
@@ -132,7 +132,7 @@ Now that you've activated the firewall ruleset, the environment is complete. If 
 > 
 
 ## Traffic scenarios
-#### (Allowed) Web to web server through firewall
+#### (Allowed) Web to web server through the firewall
 1. An internet user requests an HTTP page from FrontEnd001.CloudApp.Net (an internet-facing cloud service).
 2. The cloud service passes traffic through an open endpoint on port 80 to the firewall's local interface on 10.0.1.4:80.
 3. The FrontEnd subnet starts inbound rule processing:
@@ -140,7 +140,7 @@ Now that you've activated the firewall ruleset, the environment is complete. If 
    2. NSG rule 2 (RDP) doesn’t apply. Move to the next rule.
    3. NSG rule 3 (internet to firewall) does apply. Allow traffic. Stop rule processing.
 4. Traffic hits the internal IP address of the firewall (10.0.1.4).
-5. A firewall forwarding rule sees that this is port 80 traffic and redirects it to web server IIS01.
+5. A firewall forwarding rule determines that this is port 80 traffic and redirects it to web server IIS01.
 6. IIS01 is listening for web traffic, receives the request, and starts processing the request.
 7. IIS01 requests information from the SQL Server instance on AppVM01.
 8. There are no outbound rules on the FrontEnd subnet, so traffic is allowed.
@@ -167,7 +167,7 @@ Now that you've activated the firewall ruleset, the environment is complete. If 
    2. NSG rule 2 (RDP) does apply. Allow traffic. Stop rule processing.
 4. Because there are no outbound rules, the default rules apply and return traffic is allowed.
 5. The RDP session is enabled.
-6. AppVM01 prompts for user name and password.
+6. AppVM01 prompts for a user name and password.
 
 #### (Allowed) Web server DNS lookup on DNS server
 1. The web server, IIS01, needs a data feed at www.data.gov but needs to resolve the address.
@@ -209,15 +209,15 @@ Because the web server IIS01 and the firewall are in the same cloud service, the
 2. Because there are no endpoints open for file sharing, this won't pass the cloud service and won't reach the server.
 3. If the endpoints are open for some reason, NSG rule 5 (internet to virtual network) blocks the traffic.
 
-#### (Denied) Web DNS lookup on DNS server
+#### (Denied) Web DNS lookup on the DNS server
 1. An internet user tries to look up an internal DNS record on DNS01 through the BackEnd001.CloudApp.Net service.
 2. Because there are no endpoints open for DNS, this won't pass the cloud service and won’t reach the server.
-3. If the endpoints are open for some reason, NSG rule 5 (internet to virtual network) blocks the traffic. (Rule 1 [DNS] doesn't apply for two reasons. First, the source address is the internet, and this rule applies only when the local virtual network is the source. Second, this is an Allow rule, so it will never deny traffic.)
+3. If the endpoints are open for some reason, NSG rule 5 (internet to virtual network) blocks the traffic. (Rule 1 [DNS] doesn't apply for two reasons. First, the source address is the internet, and this rule applies only when the local virtual network is the source. Second, this rule is an Allow rule, so it never denies traffic.)
 
 #### (Denied) Web to SQL access through the firewall
 1. An internet user requests SQL data from FrontEnd001.CloudApp.Net (an internet-facing cloud service).
 2. Because there are no endpoints open for SQL, this won't pass the cloud service and won't reach the firewall.
-3. If endpoints are open for some reason, the FrontEnd subnet starts inbound rule processing:
+3. If the endpoints are open for some reason, the FrontEnd subnet starts inbound rule processing:
    1. NSG rule 1 (DNS) doesn’t apply. Move to the next rule.
    2. NSG rule 2 (RDP) doesn’t apply. Move to the next rule.
    3. NSG rule 3 (internet to firewall) does apply. Allow traffic. Stop rule processing.
@@ -231,7 +231,7 @@ You can find more examples and an overview of network security boundaries [here]
 
 ## References
 ### Full script and network config
-Save the full script in a PowerShell script file. Save the network config in a file named NetworkConf2.xml.
+Save the full script in a PowerShell script file. Save the network config script in a file named NetworkConf2.xml.
 Change the user defined-variables as needed. Run the script, and then follow the instructions in the "Firewall rules" section of this article.
 
 #### Full script
@@ -241,15 +241,15 @@ This script, based on the user-defined variables, will complete the following st
 2. Create a storage account.
 3. Create a virtual network and two subnets, as defined in the network config file.
 4. Build four Windows Server VMs.
-5. Configure NSG. This configuration completes these steps:
+5. Configure NSG. Configuration completes these steps:
    * Creates an NSG.
    * Populates the NSG with rules.
    * Binds the NSG to the appropriate subnets.
 
-You should run this PowerShell script run locally on an internet-connected computer or server.
+You should run this PowerShell script locally on an internet-connected computer or server.
 
 > [!IMPORTANT]
-> When you run this script, warnings or other informational messages might appear in PowerShell. You only need to be concerned about error messages that appear in red.
+> When you run this script, warnings and other informational messages might appear in PowerShell. You only need to be concerned about error messages that appear in red.
 > 
 > 
 
