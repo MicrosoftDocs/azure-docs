@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with AnswerHub
 
-In this tutorial, you will learn how to integrate AnswerHub with Azure Active Directory (Azure AD).
+In this tutorial, you learn how to integrate AnswerHub with Azure Active Directory (Azure AD).
 Integrating AnswerHub with Azure AD provides these benefits:
 
 * You can use Azure AD to control who has access to AnswerHub.
@@ -39,7 +39,7 @@ To configure Azure AD integration with AnswerHub, you need the following:
 
 ## Scenario description
 
-In this tutorial, you will configure and test Azure AD single sign-on in a test environment.
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * AnswerHub supports SP-initiated SSO.
 
@@ -47,7 +47,7 @@ In this tutorial, you will configure and test Azure AD single sign-on in a test 
 
 To set up the integration of AnswerHub into Azure AD, you need to add AnswerHub from the gallery to your managed SaaS apps.
 
-**To add AnswerHub from the gallery, perform the following steps:**
+**To add AnswerHub from the gallery:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, in the left panel, select **Azure Active Directory**.
 
@@ -67,7 +67,7 @@ To set up the integration of AnswerHub into Azure AD, you need to add AnswerHub 
 
 ## Set up and test Azure AD single sign-on
 
-In this section, you will configure and test Azure AD single sign-on with AnswerHub by using a test user named Britta Simon.
+In this section, you configure and test Azure AD single sign-on with AnswerHub by using a test user named Britta Simon.
 For single sign-on, you need to establish a link between an Azure AD user and the corresponding user in AnswerHub.
 
 To configure and test Azure AD single sign-on with AnswerHub, you need to complete these tasks:
@@ -81,9 +81,9 @@ To configure and test Azure AD single sign-on with AnswerHub, you need to comple
 
 ### Configure Azure AD single sign-on
 
-In this section, you will enable Azure AD single sign-on in the Azure portal.
+In this section, you set up Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with AnswerHub, perform the following steps:**
+**To configure Azure AD single sign-on with AnswerHub:**
 
 1. In the [Azure portal](https://portal.azure.com/), on the **AnswerHub** application integration page, select **Single sign-on**.
 
@@ -97,7 +97,7 @@ In this section, you will enable Azure AD single sign-on in the Azure portal.
 
 	![Set up Single Sign-On with SAML page](common/edit-urls.png)
 
-4. In the **Basic SAML Configuration** section, perform the following steps:
+4. In the **Basic SAML Configuration** section, complete the following steps:
 
     ![Basic SAML Configuration section](common/sp-identifier.png)
 
@@ -127,9 +127,9 @@ In this section, you will enable Azure AD single sign-on in the Azure portal.
 
 ### Configure AnswerHub single sign-on
 
-In this section, you will set up single sign-on for AnswerHub.  
+In this section, you set up single sign-on for AnswerHub.  
 
-**To configure AnswerHub single sign-on, perform the following steps:**
+**To configure AnswerHub single sign-on:**
 
 1. In a different web browser window, sign in to your AnswerHub company site as an admin.
 
@@ -138,9 +138,9 @@ In this section, you will set up single sign-on for AnswerHub.
 
 2. Go to **Administration**.
 
-3. On the **User and Groups** tab, in the navigation pane on the left side, in the **Social Settings** section, select **SAML Setup**.
+3. On the **User and Groups** tab, in the left navigation pane, in the **Social Settings** section, select **SAML Setup**.
 
-4. On the **IDP Config** tab, perform these steps:
+4. On the **IDP Config** tab, complete these steps:
 
     ![Users & Groups tab](./media/answerhub-tutorial/ic785172.png "SAML Setup")  
   
@@ -148,11 +148,11 @@ In this section, you will set up single sign-on for AnswerHub.
   
     b. In the **IDP Logout URL** box, paste the **Logout URL** that you copied from the Azure portal.
 
-    c. In the **IDP Name Identifier Format** box, enter the User Identifier value selected in the **User Attributes** section on the Azure portal.
+    c. In the **IDP Name Identifier Format** box, enter the **Identifier** value selected in the **User Attributes** section on the Azure portal.
   
     d. Select **Keys and Certificates**.
 
-5. In the **Keys and Certificates** section, perform these steps:
+5. In the **Keys and Certificates** section, complete these steps:
 
     ![Keys and Certificates section](./media/answerhub-tutorial/ic785173.png "Keys and Certificates")  
 
@@ -164,9 +164,9 @@ In this section, you will set up single sign-on for AnswerHub.
 
 ### Create an Azure AD test user
 
-In this section, you will create a test user named Britta Simon in the Azure portal.
+In this section, you create a test user named Britta Simon in the Azure portal.
 
-**To create an Azure AD test user, perform the following steps:**
+**To create an Azure AD test user:**
 
 1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
@@ -176,7 +176,7 @@ In this section, you will create a test user named Britta Simon in the Azure por
 
     ![New user button](common/new-user.png)
 
-3. In the user properties, perform these steps.
+3. In the user properties, complete these steps.
 
     ![User properties](common/user-properties.png)
 
@@ -191,9 +191,9 @@ In this section, you will create a test user named Britta Simon in the Azure por
 
 ### Assign the Azure AD test user
 
-In this section, you will enable Britta Simon to use Azure AD single sign-on by granting her access to AnswerHub.
+In this section, you set up Britta Simon to use Azure AD single sign-on by granting her access to AnswerHub.
 
-**To assign the Azure AD test user, perform the following steps:**
+**To assign the Azure AD test user:**
 
 1. In the Azure portal, select **Enterprise applications**, select **All applications**, and then select **AnswerHub**.
 
@@ -223,7 +223,7 @@ In this section, you will enable Britta Simon to use Azure AD single sign-on by 
 
 To enable Azure AD users to sign in to AnswerHub, you need to add them in AnswerHub. In AnswerHub, this task is done manually.
 
-**To set up a user account, perform the following steps:**
+**To set up a user account:**
 
 1. Sign in to your **AnswerHub** company site as an admin.
 
@@ -231,7 +231,7 @@ To enable Azure AD users to sign in to AnswerHub, you need to add them in Answer
 
 3. Select the **Users & Groups** tab.
 
-4. In the navigation pane on the left side, in the **Manage Users** section, select **Create or import users**, and then select **Users & Groups**.
+4. In the left navigation pane, in the **Manage Users** section, select **Create or import users**, and then select **Users & Groups**.
 
    ![Users & Groups tab](./media/answerhub-tutorial/ic785175.png "Users & Groups")
 
@@ -242,7 +242,7 @@ To enable Azure AD users to sign in to AnswerHub, you need to add them in Answer
 
 ### Test single sign-on
 
-In this section, you will test your Azure AD single sign-on configuration by using the access panel.
+In this section, you test your Azure AD single sign-on configuration by using the access panel.
 
 When you select the AnswerHub tile in the access panel, you should be automatically signed in to the AnswerHub for which you set up SSO. For more information about the access panel, see [Introduction to the access panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
