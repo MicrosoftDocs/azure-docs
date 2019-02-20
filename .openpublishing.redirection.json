@@ -23313,6 +23313,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/user-help/security-info-manage-settings.md",
+      "redirect_url": "/azure/active-directory/user-help/security-info-add-update-methods-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-conditional-access-device-remediation.md",
       "redirect_url": "/azure/active-directory/user-help/user-help-device-remediation",
       "redirect_document_id": true
