@@ -1,12 +1,10 @@
 - name: Spatial Anchors Documentation
   href: index.yml
 - name: Overview
-  expanded: true
   items:
   - name: About Spatial Anchors
     href: overview.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Create HoloLens app
     href: quickstarts/get-started-hololens.md
@@ -25,14 +23,18 @@
     - name: iOS
       href: quickstarts/get-started-unity-ios.md
 - name: Tutorials
-  expanded: true
   items:
   - name: Sharing in Unity
     href: tutorials/tutorial-share-anchors-across-devices.md
   - name: Sharing in Unity with Azure Cosmos DB
     href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+- name: Samples
+  items:
+  - name: Azure Spatial Anchor Samples (GitHub)
+    href: https://github.com/Azure/azure-spatial-anchors-samples
+  - name: MR+IOT--SmartHotel 360
+    href: https://github.com/Microsoft/SmartHotel360-MixedReality
 - name: Concepts
-  expanded: true
   items:
   - name: Create and locate anchors
     href: create-locate-anchors-overview.md
@@ -51,7 +53,6 @@
     - name: In C++/WinRT
       href: concepts/create-locate-anchors-cpp-winrt.md
 - name: References
-  expanded: true
   items:
   - name: SDK for Unity
     href: https://docs.microsoft.com/dotnet/api/spatial-anchors/
@@ -63,3 +64,14 @@
     href: https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/
   - name: SDK for HoloLens C++/WinRT
     href: https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/
+- name: Resources
+  items:
+  - name: FAQ
+    href: spatial-anchor-faq.md
+  - name: Provide Product Feedback
+    href: https://feedback.azure.com/forums/34192--general-feedback
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-spatial-anchors
+  - name: Support
+    href: spatial-anchor-support.md
+  
