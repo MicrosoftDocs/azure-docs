@@ -69,7 +69,6 @@ To create a custom role, first construct a role definition JSON file specifying 
     "Description": "Can run experiment but can't create or delete compute.",
     "Actions": ["*"],
     "NotActions": [
-        "Microsoft.MachineLearningServices/workspaces/*/write",
         "Microsoft.MachineLearningServices/workspaces/*/delete",
         "Microsoft.MachineLearningServices/workspaces/computes/*/write",
         "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
@@ -87,8 +86,7 @@ This role allows you to do everything in the workspace except for the following 
 1. It cannot create or update a compute resource.
 2. It cannot delete a compute resource.
 3. It cannot add, delete user, or alter any user's role assignments.
-4. It cannot update the workspace.
-5. It cannot delete the workspace.
+4. It cannot delete the workspace.
 
 To deploy this custom role, use the following Azure-CLI command:
 
