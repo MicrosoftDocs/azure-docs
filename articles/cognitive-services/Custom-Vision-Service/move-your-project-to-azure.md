@@ -28,31 +28,31 @@ As Custom Vision Service is now in Azure Preview, support for Limited Trial proj
 > When you move your Custom Vision projects to an Azure resource, if you delete the Azure resource your project is in, your project will also be deleted. 
 
 
-For a basic introduction to the concepts of Azure subscriptions and Azure resources, refer to the [get started guide for Azure developers.](https://docs.microsoft.com/en-us/azure/guides/developer/azure-developer-guide#manage-your-subscriptions)
+For an introduction to the Azure concepts of subscriptions and resources, refer to the [get started guide for Azure developers.](https://docs.microsoft.com/en-us/azure/guides/developer/azure-developer-guide#manage-your-subscriptions)
 
 
 ## Prerequisites
 
 You will need a valid Azure subscription associated with the same Microsoft account or Azure Active Directory (AAD) account (“work or school”) account you use to log into CustomVision.ai. 
 
-If you not have an Azure account, [create an account](https://azure.microsoft.com/free/) for free.
+If you do not have an Azure account, [create an account](https://azure.microsoft.com/free/) for free.
 
 
-## Create a Custom Vision resources in the Azure Portal
+## Create Custom Vision resources in the Azure portal
 To use Custom Vision Service with Azure, you will need to create Custom Vision Training and Prediction resources in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). This will create both a Training and Prediction resource. 
 
 > [!NOTE]
 > To move your project using this CustomVision.ai website experience, you must create your resources in the South Central US region, because all Limited Trial projects are hosted in South Central US. 
 
-Multiple projects can be associated to a single resource. More detail about [Pricing and Limits](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/limits-and-quotas) is available. To continue to use Custom Vision Service for free, you can select the F0 tier in the Azure Portal. 
+Multiple projects can be associated to a single resource. More detail about [Pricing and Limits](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/limits-and-quotas) is available. To continue to use Custom Vision Service for free, you can select the F0 tier in the Azure portal. 
 
 
 ## Move your Limited Trial project to an Azure resource
 
 -	In your web browser, navigate to the [Custom Vision web page](https://customvision.ai) and select __Sign in__. Open the project you wish to migrate to an Azure account. 
--	Open the Settings page for your project by clicking on the gear icon on the top right hand corner of the screen. 
+-	Open the Settings page for your project by clicking on the gear icon on the top-right-hand corner of the screen. 
 
-    ![Project settings is the gear icon at the top right of the project page.](./media/move-your-project-to-azure/settings-icon.png)
+    ![Project settings is the gear icon at the top-right of the project page.](./media/move-your-project-to-azure/settings-icon.png)
 
 
 -	Click on __Move to Azure__.
@@ -70,16 +70,16 @@ Multiple projects can be associated to a single resource. More detail about [Pri
 ## Move your Limited Trial project to an Azure resource in another directory 
 
 > [!NOTE]
-> In both the Azure Portal and CustomVision.ai, you can select your directory from the drop-down User menu at the top right corner of the screen.   
+> In both the Azure portal and CustomVision.ai, you can select your directory from the drop-down User menu at the top-right corner of the screen.   
 
 
--	Identify which directory your Azure resource is in. You can find the directory listed under your user name at the top right of the Azure Portal menu bar. 
+-	Identify which directory your Azure resource is in. You can find the directory listed under your user name at the top-right of the Azure portal menu bar. 
 
 ![Find your current directory.](./media/move-your-project-to-azure/identify_directory.jpg)
 
 -	Find the Resource ID of your Custom Vision Training resource. You can find this in the Azure directory by opening your Custom Vision Training resource and selecting “Properties” under the “Resource Management” section. Your Resource ID will be there. 
 
-![Find your ResourceID in the Azure Portal.](./media/move-your-project-to-azure/resource_ID_azure_portal.jpg)
+![Find your ResourceID in the Azure portal.](./media/move-your-project-to-azure/resource_ID_azure_portal.jpg)
 
 
 -	Alternatively, you can find the Resource ID of your Custom Vision Resource directly in the Custom Vision website [Settings page]( https://www.customvision.ai/projects#/settings). You will need to switch to the same directory your Azure resource is in.
@@ -93,6 +93,6 @@ Multiple projects can be associated to a single resource. More detail about [Pri
 
 
 
--	Remember, your project is now in a different directory. To find your project, you will need to switch to the same directory on the Custom Vision web portal that your project is in. In both the Azure Portal and [customvision.ai](https://customvision.ai), you can select your directory from the drop-down account menu at the top right corner of the screen. 
+-	Remember, your project is now in a different directory. To find your project, you will need to switch to the same directory on the Custom Vision web portal that your project is in. In both the Azure portal and [customvision.ai](https://customvision.ai), you can select your directory from the drop-down account menu at the top-right corner of the screen. 
 
 
