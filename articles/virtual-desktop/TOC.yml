@@ -8,31 +8,31 @@
   items:
   - name: 1. Create a tenant in Windows Virtual Desktop
     href: tenant-setup-azure-active-directory.md
-  - name: 2. Create a host pool with Azure Marketplace (Preview)
+  - name: 2. Create a host pool with Azure Marketplace
     href: create-host-pools-azure-marketplace.md
   - name: 3. Manage app groups
     href: manage-app-groups.md
   - name: 4. Manage user storage
     href: manage-user-storage.md
-  - name: 5. Create service principals and role assignments with PowerShell (Preview)
+  - name: 5. Create service principals and role assignments with PowerShell
     href: create-service-principal-role-powershell.md
 - name: How-to
   items:
   - name: Connect to a Remote Desktop environment
     href: tenant-setup-remote-desktop.md
-  - name: Connect to Windows Virtual Desktop resources (Preview)
+  - name: Connect to Windows Virtual Desktop resources
     items:
-      - name: Connect with Windows 7 and Windows 10 (Preview)
+      - name: Connect with Windows 7 and Windows 10
         href: connect-windows-7-and-10.md
-      - name: Connect with the web client (Preview)
+      - name: Connect with the web client
         href: connect-web.md
-      - name: Connect with Microsoft Remote Desktop for macOS (Preview)
+      - name: Connect with Microsoft Remote Desktop for macOS
         href: connect-macOS.md
-  - name: Create a host pool with an Azure Resource Manager template (Preview)
+  - name: Create a host pool with an Azure Resource Manager template
     href: create-host-pools-arm-template.md
-  - name: Create a host pool with PowerShell (Preview)
+  - name: Create a host pool with PowerShell
     href: create-host-pools-powershell.md
-  - name: Create a User Profile Disk share for a host pool (Preview)
+  - name: Create a User Profile Disk share for a host pool
     href: create-host-pools-user-profile-disk.md
   - name: Configure the Windows Virtual Desktop load-balancing method
     href: configure-host-pool-load-balancing.md
