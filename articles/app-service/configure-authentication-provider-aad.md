@@ -18,7 +18,7 @@ ms.author: mahender
 ms.custom: seodec18
 
 ---
-# Configure your App Service app to use Azure Active Directory login
+# Configure your App Service app to use Azure Active Directory sign-in
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
@@ -44,7 +44,7 @@ You can also provide configuration settings manually. This is the preferred solu
 
 ### <a name="register"> </a>Register your App Service app with Azure Active Directory
 
-1. Log on to the [Azure portal], and navigate to your App Service app. Copy your app **URL**. You will use this to configure your Azure Active Directory app registration.
+1. Sign in to the [Azure portal], and navigate to your App Service app. Copy your app **URL**. You will use this to configure your Azure Active Directory app registration.
 2. Navigate to **Active Directory**, then select the **App registrations**, then click **New application registration** at the top to start a new app registration. 
 3. In the **Create** page, enter a **Name** for your app registration, select the  **Web App / API** type, in the **Sign-on URL** box paste the application URL (from step 1). Then click to **Create**.
 4. In a few seconds, you should see the new app registration you just created.
@@ -65,7 +65,7 @@ You can also provide configuration settings manually. This is the preferred solu
 You are now ready to use Azure Active Directory for authentication in your App Service app.
 
 ## Configure a native client application
-You can register native clients, which provides greater control over permissions mapping. You need this if you wish to perform logins using a client library such as the **Active Directory Authentication Library**.
+You can register native clients, which provides greater control over permissions mapping. You need this if you wish to perform sign-ins using a client library such as the **Active Directory Authentication Library**.
 
 1. Navigate to **Azure Active Directory** in the [Azure portal].
 2. In the left navigation, select **App registrations**. Click **New app registration** at the top.
