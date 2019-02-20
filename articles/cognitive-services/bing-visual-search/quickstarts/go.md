@@ -15,18 +15,18 @@ ms.author: rosh
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Go
 
-Use this quickstart to call to the Bing Visual Search API and view the results. This Go application uploads an image to the API and displays URLs to similar images and descriptive information about the images.
+Use this quickstart to call to the Bing Visual Search API and view results. This Go application uses a Post request to upload an image to the API. Then it displays results including URLs to similar images and descriptive information about the images.
 
 ## Prerequisites
-* [Go binaries](https://golang.org/dl/)
-* The go-spew deep pretty printer
+* Install the [Go binaries](https://golang.org/dl/)
+* The go-spew deep pretty printer is useful for display of results
     * Install this libarary: `$ go get -u https://github.com/davecgh/go-spew`
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Create a project and import libraries
 
-Create a new Go project in your IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, and `encoding/json` to handle the JSON.  
+Create a new Go project in your IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, and `encoding/json` to handle the JSON text of results.  
 
 ```
 package main
