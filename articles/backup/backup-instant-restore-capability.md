@@ -46,7 +46,7 @@ Snapshots are retained for seven days. This feature allows restores operation fr
 * You get an ability to configure the snapshot retention based on the restore needs. Depending on the requirement, you can set the snapshot retention to a minimum of one day in the backup policy blade as explained below. This can help you save cost for snapshot retention if you don’t perform restores frequently.
 
 >
->[NOTE]
+>[!NOTE]
 With this instant restore upgrade, the snapshot retention duration of all the customers (**new and existing both included**) will be set to a default value of two days. However, you can set the duration as per your requirement to any value between 1 to 5 days.
 
 
