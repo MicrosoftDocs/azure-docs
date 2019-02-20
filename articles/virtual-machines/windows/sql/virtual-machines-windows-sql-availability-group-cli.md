@@ -1,6 +1,6 @@
 ---
-title: Use Azure SQL VM CLI to create WSFC, listener, and ILB for an Always On availability group on a SQL Server VM in Azure
-description: "Use Azure CLI to simplify the deployment of availability groups to SQL Server VMs in Azure by using Azure CLI to create the Windows Failover Cluster, create the listener once the availability gropu has been deployed, and configure the Internal Load Balancer. "
+title: Use Azure SQL VM CLI to simplify the deployment of an Always On availability group 
+description: "Use Azure CLI to create the Windows Failover Cluster, the availability group listener, and the Internal Load Balancer on a SQL Server VM in Azure. "
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT

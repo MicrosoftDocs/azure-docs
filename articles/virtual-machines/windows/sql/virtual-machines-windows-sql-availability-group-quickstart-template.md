@@ -1,6 +1,6 @@
 ---
-title: Use Azure Quickstart Template to create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM
-description: "Use Azure Quickstart Templates to simplify the process of creating availability groups for SQL Server VMs in Azure by using a template to create the cluster, join SQL VMs to the cluster, create the listener, and configure the ILB."
+title: Use Azure Quickstart Template to simplify the deployment of an Always On availability group 
+description: "Use Azure Quickstart Templates to create the Windows Failover cluster, join SQL Server VMs to the cluster, create the listener, and configure the Internal Load Balancer in Azure."
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -33,7 +33,7 @@ Other parts of the availability group configuration must be done manually, such 
 To automate the setup of an Always On availability group using quickstart templates, you must already have the following prerequisites: 
 - An [Azure Subscription](https://azure.microsoft.com/free/).
 - A resource group with a domain controller. 
-- One or more domain-joined [VMs in Azure running SQL Server 2016 (or greater) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the same availability set or availability zone that have been [registered with the SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider).  
+- One or more domain-joined [VMs in Azure running SQL Server 2016 (or greater) Enterprise edition](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) in the same availability set or availability zone that have been [registered with the SQL VM resource provider](virtual-machines-windows-sql-ahb.md#register-existing-sql-server-vm-with-sql-resource-provider).  
 
 
 ## Step 1 - Create the WSFC and join SQL Server VMs to the cluster using quickstart template 
