@@ -1,5 +1,5 @@
 ---
-title: 'Transition from self-signed to public CA certificates for P2S gateways| Azure VPN Gateway | Microsoft Docs'
+title: 'Transition to public CA certificates for P2S gateways| Azure VPN Gateway | Microsoft Docs'
 description: This article helps you successfully transition to the new public CA certificates for P2S gateways.
 services: vpn-gateway
 author: cherylmc
