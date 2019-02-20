@@ -73,7 +73,7 @@ After the read replica is created, it can be viewed from the **Replication** win
 You can stop replication between a master server and a read replica.
 
 > [!IMPORTANT]
-> After you stop replication to a master server and a read replica, it can't be undone. The read replica becomes a standalone server that supports both read and writes. The standalone server can't be made into a replica again.
+> After you stop replication to a master server and a read replica, it can't be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
 
 To stop replication between a master server and a read replica from the Azure portal, follow these steps:
 
