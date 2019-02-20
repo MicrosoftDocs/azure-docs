@@ -62,11 +62,11 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
     1. Stop the service for the application that is using the 3389 service:
 
-        Stop-Service -Name <ServiceName>
+            Stop-Service -Name <ServiceName>
 
     2. Start the terminal service:
 
-        Start-Service -Name Termservice
+            Start-Service -Name Termservice
 
 2. If the application cannot be stopped, or if this method does not apply to you, change the port for RDP:
 
@@ -86,7 +86,11 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
 1.	In a PowerShell instance, run the following commands one by one to renew the RDP self-signed certificate:
 
-        Import-Module PKI Set-Location Cert:\LocalMachine $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) Remove-Item -Path $RdpCertThumbprint
+        Import-Module PKI Set-Location Cert:\LocalMachine 
+        
+        $RdpCertThumbprint = 'Cert:\LocalMachine\Remote Desktop\'+((Get-ChildItem -Path 'Cert:\LocalMachine\Remote Desktop\').thumbprint) 
+        
+        Remove-Item -Path $RdpCertThumbprint
 
         Stop-Service -Name "SessionEnv"
 
@@ -109,7 +113,9 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
         md c:\temp
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\BeforeScript_permissions.txt 
+        
+        takeown /f "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys" /a /r
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "NT AUTHORITY\System:(F)"
 
@@ -117,7 +123,9 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
         icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c /grant "BUILTIN\Administrators:(F)"
 
-        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt Restart-Service TermService -Force
+        icacls C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys /t /c > c:\temp\AfterScript_permissions.txt 
+        
+        Restart-Service TermService -Force
 
 4. Restart the VM, and then try Start a Remote Desktop connection to the VM. If the error still occurs, go to the next step.
 
