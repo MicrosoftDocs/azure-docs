@@ -69,7 +69,12 @@ A Service Fabric cluster offers several entry points to its management functiona
 For clusters running on Azure, you also can secure access to management endpoints by using Azure Active Directory (Azure AD). To learn how to create the required Azure AD artifacts and how to populate them when you create the cluster, see [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
 
 ## Security recommendations
-For Azure clusters, for node-to-node security, we recommend that you use Azure AD security to authenticate clients and certificates.
+For Service Fabric clusters deployed in a public network hosted on Azure, the recommendation for client-to-node mutual authentication is:
+*	Use Azure Active Directory for client identity
+*	A certificate for server identity and SSL encryption of http communication
+
+For Service Fabric clusters deployed in a public network hosted on Azure, the recommendation for node-to-node security is to use a Cluster certificate to authenticate nodes. 
+
 
 For standalone Windows Server clusters, if you have Windows Server 2012 R2 and Windows Active Directory, we recommend that you use Windows security with group Managed Service Accounts. Otherwise, use Windows security with Windows accounts.
 

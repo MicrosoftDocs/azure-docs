@@ -153,7 +153,7 @@ To view your diagnostic data, in Log Analytics workspace, open **Logs**  from th
 
 ![Log Search options in the Azure portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-In the query builder, expand **LogManagement** > **AzureDiagnostics**. AzureDiagnostics includes Engine and Service events. Notice a query is created on-the-fly. The EventClass\_s field contains xEvent names, which may look familiar if you've used xEvents for on-premises logging. Click **EventClass\_s** or one of the event names and Log Analytics continues constructing a query. Be sure to save your queries to reuse later.
+In the query builder, expand **LogManagement** > **AzureDiagnostics**. AzureDiagnostics includes Engine and Service events. Notice a query is created on-the-fly. The EventClass\_s field contains xEvent names, which may look familiar if you've used xEvents for on-premises logging. Click **EventClass\_s** or one of the event names and Log Analytics workspace continues constructing a query. Be sure to save your queries to reuse later.
 
 ### Example query
 This query calculates and returns CPU for each query end/refresh end event for a model database and server:
