@@ -27,7 +27,7 @@ Some example use-cases you can enable with connected anchors include:
 
 ## Way-finding
 
-In these scenarios, the app is using "line-of-sight" direction and distance between anchors to provide guidance hints to users. We refer to this overall scenario as way-finding. It's important to note way-finding is different from turn-by-turn navigation in which users are guided around walls, through doors, and between floors. With way-finding, the user is provided hints about the general direction of the destination, but the user's inference or knowledge of the space also helps to navigate through the structure to the destination.
+In these scenarios, the app is using "line-of-sight" direction and distance between anchors to provide guidance hints to users. We refer to this overall scenario as way-finding. It's important to note way-finding is different from turn-by-turn navigation in which users are guided around walls, through doors, and between floors. With way-finding, the user is provided hints about the general direction of the destination. However, the user's inference or knowledge of the space also helps to navigate through the structure to the destination.
 
 Building a way-finding experience involves preparing a space for the experience and developing an app that end users will interact with. The conceptual steps involved include:
 
@@ -35,14 +35,14 @@ Building a way-finding experience involves preparing a space for the experience 
 2. Connecting anchors: Someone visits the chosen locations and creates spatial anchors there. This task can be done with an admin mode of the end-user app or a different app entirely. Through this process, each anchor is connected or related to the others. These relationships are maintained in the service.
 3. Starting the end-user experience: The first step for end users is to locate one of the anchors using the app, which can be in any one of the chosen locations. Determining the locations where end users can enter the experience is part of designing the overall experience.
 4. Finding nearby anchors: Once the user has located one anchor, the app can request nearby anchors. This procedure returns a pose between the device and these anchors.
-5. Guiding the user: The app can leverage the pose to each of these anchors to render useful guidance hints about their general direction and distance. For instance, there might be an icon and arrow on a camera feed in a mobile app representing each potential destination as in the image below.
+5. Guiding the user: The app can take advantage of the pose to each of these anchors to render useful guidance hints about their general direction and distance. For instance, there might be an icon and arrow on a camera feed in a mobile app representing each potential destination as in the image below.
 6. Refining the guidance: As the user walks, the app can periodically calculate a new pose between the device and the destination anchor. The app continues to refine the guidance hints that help the user arrive at the destination.
 
 ![Meeting Spot](./media/meeting-spot.png)
 
 ## Connecting Anchors
 
-To build a way-finding experience, you need to place connected anchors in the chosen locations for the experience. We'll assume below this work is done by an admin of the app.
+To build a way-finding experience, you need to place connected anchors in the chosen locations for the experience. Below, we'll assume this work is done by an admin of the app.
 
 ### Connecting Anchors in a single session
 
