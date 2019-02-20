@@ -30,7 +30,7 @@ This article describes how to restore SQL Server databases. If you haven't confi
 Azure Backup can restore SQL Server databases running on Azure VMs as follows:
 
 - Restore to a specific date or time (to the second), using transaction log backups. Azure Backup automatically determines the appropriate full differential backup, and the chain of log backups, that are required to restore based on the selected time.
-- Restore a a specific full or differential backup to restore to a specific recovery point, rather than a specific time.
+- Restore a specific full or differential backup to restore to a specific recovery point, rather than a specific time.
 
 
 ### Prerequisites
