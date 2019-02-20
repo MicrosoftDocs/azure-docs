@@ -27,7 +27,7 @@ Some example use-cases you can enable with connected anchors include:
 
 ## Way-finding
 
-In these scenarios, the app is using "line-of-sight" direction and distance between anchors to provide guidance hints to users. We refer to this overall scenario as way-finding. It's important to note way-finding is different from turn-by-turn navigation in which users are guided around walls, through doors, and between floors. With way-finding, the user is provided hints about the general direction of the destination. However, the user's inference or knowledge of the space also helps to navigate through the structure to the destination.
+Imagine the app is using "line-of-sight" direction and distance between anchors to provide guidance hints to users. We refer to this overall scenario as way-finding. It's important to note way-finding is different from turn-by-turn navigation. In turn-by-turn navigation the users are guided around walls, through doors, and between floors. With way-finding, the user is provided hints about the general direction of the destination. However, the user's inference or knowledge of the space also helps to navigate through the structure to the destination.
 
 Building a way-finding experience involves preparing a space for the experience and developing an app that end users will interact with. The conceptual steps involved include:
 
@@ -42,7 +42,7 @@ Building a way-finding experience involves preparing a space for the experience 
 
 ## Connecting Anchors
 
-To build a way-finding experience, you need to place connected anchors in the chosen locations for the experience. Below, we'll assume this work is done by an admin of the app.
+To build a way-finding experience, you need to place connected anchors in the chosen locations for the experience. Below we'll assume this work is done by an admin of the app.
 
 ### Connecting Anchors in a single session
 
@@ -72,4 +72,4 @@ The app can verify that two anchors are connected by issuing a query for nearby 
 
 ### Sample code
 
-To see sample code that shows you how to connect anchors and do nearby queries, you can refer to the Azure Spatial Anchors sample apps on GitHub.
+You can see sample code that shows you how to connect anchors and do nearby queries. Please refer to the Azure Spatial Anchors sample apps on GitHub.
