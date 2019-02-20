@@ -62,7 +62,7 @@ To open a screen for upgrading to Instant Restore, select the banner.
 
 ![Backup job in VM backup stack Resource Manager deployment model--support notification](./media/backup-azure-vms/instant-rp-banner.png)
 
-Click **Upgrade** as shown in the screenshot below:
+Click on **Upgrade** as shown in the screenshot below:
 
 ![Backup job in VM backup stack Resource Manager deployment model--upgrade](./media/backup-azure-vms/instant-rp.png)
 
