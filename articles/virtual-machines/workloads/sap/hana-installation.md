@@ -66,7 +66,7 @@ Specifically, check the following parameters and eventually adjust to:
 
 Starting with SLES12 SP1 and RHEL 7.2, these parameters must be set in a configuration file in the /etc/sysctl.d directory. For example, a configuration file with the name 91-NetApp-HANA.conf must be created. For older SLES and RHEL releases, these parameters must be set in/etc/sysctl.conf.
 
-For all RHEL releases starting with SLES12, keep in mind the following: 
+For all RHEL releases starting with RHEL 6.3, keep in mind the following: 
 - The sunrpc.tcp_slot_table_entries = 128 parameter must be set in/etc/modprobe.d/sunrpc-local.conf. If the file does not exist, you need to create it first by adding the following entry: 
     - options sunrpc tcp_max_slot_table_entries=128
 
