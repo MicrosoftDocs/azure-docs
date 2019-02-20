@@ -182,6 +182,8 @@ You see your web app's Overview page. Here, you can perform basic management tas
 
 The left menu provides different pages for configuring your app. 
 
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]
