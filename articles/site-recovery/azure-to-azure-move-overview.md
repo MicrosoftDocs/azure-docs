@@ -12,7 +12,7 @@ ms.custom: MVC
 
 # Move Azure VMs to another region
 
-Azure grows along with the customer base and adds support for new regions with rising demands. New capabilities are also added monthly across services. You may want to move your virtual machines (VMs) to a different region or into Availability Zones to increase availability.
+Azure grows along with the customer base and adds support for new regions with rising demands. New capabilities are also added monthly across services. You may want to move your virtual machines (VMs) to a different region or into Availability Zones to increase availability. 
 
 This document describes different scenarios in which you'd want to move your VMs. It also describes how to configure the architecture in the target region to achieve higher availability.
 > [!div class="checklist"]
