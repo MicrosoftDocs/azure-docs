@@ -41,7 +41,7 @@ To perform the steps described in this article, you must have:
 1. Navigate to your APIM instance in the [Azure portal](https://portal.azure.com/).
 1. Select **Custom domains and SSL**.
     
-    There is a number of endpoints to which you can assign a custom domain name. Currently, the following endpoints are available: 
+    There are a number of endpoints to which you can assign a custom domain name. Currently, the following endpoints are available: 
     + **Proxy** (default is: `<apim-service-name>.azure-api.net`), 
     + **Portal** (default is: `<apim-service-name>.portal.azure-api.net`),     
     + **Management** (default is: `<apim-service-name>.management.azure-api.net`), 
