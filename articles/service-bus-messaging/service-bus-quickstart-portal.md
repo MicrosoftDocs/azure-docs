@@ -31,50 +31,11 @@ To complete this tutorial, make sure you have installed:
 - [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
-## Log on to the Azure portal
-
-First, go to the [Azure portal][Azure portal] and log on using your Azure subscription. The first step is to create a Service Bus namespace of type **Messaging**.
-
-## Create a Service Bus namespace
-
-A Service Bus messaging namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more queues, topics, and subscriptions. The following example creates a Service Bus messaging namespace in a new or existing [resource group](/azure/azure-resource-manager/resource-group-portal):
-
-1. In the left navigation pane of the portal, select **+ Create a resource**, point to **Integration**, and then select **Service Bus**.
-2. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
-3. After making sure the namespace name is available, choose the pricing tier (Standard or Premium).
-4. In the **Subscription** field, choose an Azure subscription in which to create the namespace.
-5. In the **Resource group** field, choose an existing resource group in which the namespace will live, or create a new one.      
-6. In **Location**, choose the country or region in which your namespace should be hosted.
-7. Click **Create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
-
-    ![namespace](./media/service-bus-quickstart-portal/create-namespace.png)
-
-### Obtain the management credentials
-
-Creating a new namespace automatically generates an initial Shared Access Signature (SAS) rule with an associated pair of primary and secondary keys that each grant full control over all aspects of the namespace. To copy the initial rule, follow these steps: 
-
-1.  Select **All resources** on the left menu.
-2. Select the newly created namespace name. To filter the list, select **Service Bus Namespaces** for the **Resource type**, and then select the namespace. 
-3. In the **Service Bus Namespace** window, select **Shared access policies** from the left menu.
-4. In the **Shared access policies** screen, select **RootManageSharedAccessKey**.
-5. In the **SAS Policy: RootManageSharedAccessKey** window, select the **Copy** button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location. 
-
-    ![connection-string](./media/service-bus-quickstart-portal/connection-string.png)
-5. Repeat the previous step, copying and pasting the value of **Primary Key** to a temporary location for later use.
+## Create a Service Bus namespace 
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Create a queue
-
-To create a Service Bus queue, specify the namespace under which you want it created. The following example shows how to create a queue on the portal:
-
-1. In the left navigation pane of the portal, select **All Services** on the left menu, and select **Service Bus** in the **Integration** category. If you select **star** (`*`) next to **Service Bus**, it's added to the **FAVORITES** section of the left navigational menu.
-2. Select the namespace in which you would like to create the queue.
-3. On the **Service Bus Namespace** page, select **Queues** in the **Entities** section of the left menu. 
-4. On the **Queues** page, select **+ Queue**.
-5. Enter the queue **Name** and leave the other values with their defaults.
-6. At the bottom of the window, click **Create**.
-7. Make a note of the queue name.
-
-    ![Create queue in service bus namespace](./media/service-bus-quickstart-portal/create-queue.png)
+[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## Send and receive messages
 
