@@ -9,9 +9,9 @@ ms.topic: article
 ms.date: 02/18/2019
 ms.author: asgang
 ---
-# Exclude disks from replication of Azure VMs to Azure using Azure powershell
+# Exclude disks from replication of Azure VMs to Azure using Azure PowerShell
 
-This article describes how to exclude disks when replicating Azure VMs. This exclusion can optimize the consumed replication bandwidth or optimize the target-side resources that such disks utilize. Currently this capability is exposed only through Azure powershell.
+This article describes how to exclude disks when replicating Azure VMs. This exclusion can optimize the consumed replication bandwidth or optimize the target-side resources that such disks utilize. Currently this capability is exposed only through Azure PowerShell.
 
 ## Prerequisites
 
