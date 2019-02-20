@@ -34,7 +34,7 @@ For example, you can configure a service to back up its data to protect against 
 - To trigger a restore, the _Fault Analysis Service (FAS)_ must be enabled for the cluster.
 - The _Backup Restore Service (BRS)_ created the backup.
 - The restore can only be triggered at a partition.
-- Install Microsoft.ServiceFabric.Powershell.Http Module for making configuration calls.
+- Install Microsoft.ServiceFabric.Powershell.Http Module [In Preview] for making configuration calls.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease

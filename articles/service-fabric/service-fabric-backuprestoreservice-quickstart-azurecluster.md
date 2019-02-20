@@ -56,7 +56,7 @@ Service Fabric provides a set of APIs to achieve the following functionality rel
 * X.509 Certificate for encryption of secrets needed to connect to storage to store backups. Refer [article](service-fabric-cluster-creation-via-arm.md) to know how to get or create an X.509 certificate.
 * Service Fabric Reliable Stateful application built using Service Fabric SDK version 3.0 or above. For applications targeting .Net Core 2.0, application should be built using Service Fabric SDK version 3.1 or above.
 * Create Azure Storage account for storing application backups.
-* Install Microsoft.ServiceFabric.Powershell.Http Module for making configuration calls.
+* Install Microsoft.ServiceFabric.Powershell.Http Module [In Preview] for making configuration calls.
 
 ```powershell
     Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
@@ -79,7 +79,7 @@ Enable `Include backup restore service` check box under `+ Show optional setting
 ![Enable Backup Restore Service With Portal][1]
 
 
-### Using Resource Manager Template
+### Using Azure Resource Manager (ARM) Template
 First you need to enable the _backup and restore service_ in your cluster. Get the template for the cluster that you want to deploy. You can either use the [sample templates](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype) or create a Resource Manager template. Enable the _backup and restore service_ with the following steps:
 
 1. Check that the `apiversion` is set to **`2018-02-01`** for the `Microsoft.ServiceFabric/clusters` resource, and if not, update it as shown in the following snippet:
