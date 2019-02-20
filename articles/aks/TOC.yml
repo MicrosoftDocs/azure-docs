@@ -120,6 +120,8 @@
       href: virtual-kubelet.md
     - name: Use Cluster Autoscaler (preview)
       href: cluster-autoscaler.md
+    - name: Use Availability Zones (preview)
+      href: availability-zones.md
     - name: Deploy AKS with Terraform
       href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
       maintainContext: true
