@@ -15,9 +15,9 @@ ms.custom: seodec18
 
 # What is speech recognition?
 
-Speech recognition from Azure Speech Services, also known as speech-to-text, enables real time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products, and works seamlessly with the translation and speech synthesis.
+Speech recognition from Azure Speech Services, also known as speech-to-text, enables real-time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products, and works seamlessly with the translation and speech synthesis.
 
-By default, the speech recognition service uses the Universal model, which has been trained using Microsoft-owned data and is deployed the cloud. The Universal model is optimal for conversational and dictation scenarios. If you are using speech services in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry specific vocabulary.
+By default, the speech recognition service uses the Universal model. This model is was trained using Microsoft-owned data and is deployed the cloud. It's optimal for conversational and dictation scenarios. If you are using speech recognition in a unique environment, you can create and train custom acoustic, language, and pronunciation models to address ambient noise or industry-specific vocabulary.
 
 You can easily capture audio from a microphone, read from a stream, or access audio files from storage with the Speech SDK and REST APIs. The Speech SDK supports WAV/PCM 16-bit, 16 kHz, single-channel audio for speech recognition. Additional audio formats are supported using the [speech-to-text REST endpoint](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-formats) or the [batch transcription service](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
