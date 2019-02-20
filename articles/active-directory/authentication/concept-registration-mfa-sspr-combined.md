@@ -61,7 +61,7 @@ Users can set the following options as their default method for MFA:
 
 As we continue to add more authentication methods such to Azure AD, those methods will be available in combined registration.
 
-## Combined Registration Modes
+## Combined registration Modes
 
 There are two “modes” of combined registration: interrupt and manage. 
 
@@ -71,7 +71,7 @@ Manage mode is part of the user’s profile and allows them to manage their secu
 
 For both modes, if a user has previously registered a method that can be used for MFA, they will need to perform MFA before they can access their security info.
 
-### Interrupt Mode
+### Interrupt mode
 
 Combined registration respects both MFA and SSPR policies, if both are enabled for your tenant. These policies control, whether a user is interrupted to register during sign in, and which methods are available to register.
 

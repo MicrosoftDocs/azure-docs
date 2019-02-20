@@ -26,7 +26,9 @@ Before enabling the new experience, review the article [Combined security inform
 | Combined security information registration for Azure Multi-Factor Authentication and Azure AD self-service password reset is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-To enable converged registration, complete the following steps:
+## Enable combined registration
+
+Complete the following steps to enable combined registration:
 
 1. Sign in to the Azure portal as a user administrator or global administrator.
 2. Browse to **Azure Active Directory** > **User settings** > **Manage settings for access panel preview features**.
