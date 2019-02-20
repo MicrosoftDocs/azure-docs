@@ -22,16 +22,16 @@ In this article, you learn how to add users to an Azure Machine Learning workspa
 ## Built-in roles
 Azure Machine Learning workspace is an Azure resource. And like any Azure resource, when a new Azure Machine Learning workspace is created, it comes with three default roles. You can add users to the workspace and assign them to one of these built-in roles.
 
-1. Reader
-
+1. **Reader**
+    
     This role allows read-only actions in the workspace. With this role, you can list and view assets in a workspace, such as experiments, runs, compute, models, web services, published pipelines and so on. But you are not allowed to create or update these assets.
 
-2. Contributor
-
+2. **Contributor**
+    
     This role allows users to view, create, edit, or delete (where applicable) assets in a workspace. For example, with this role you can create an experiment, create or attach a compute cluster, submit a run, register a model and deploy a web service.
 
-3. Owner
-
+3. **Owner**
+    
     This role gives you full access to the workspace, allowing you to view, create, edit, or delete (where applicable) assets in a workspace. Additionally, you can also add or remove users, and change their role assignments.
 
 ## Add or remove users
@@ -40,17 +40,17 @@ If you are an Owner of a workspace, you can add users to or remove users from th
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
 - [REST API](/azure/role-based-access-control/role-assignments-rest)
--  [Azure Resource Management templates](/azure/role-based-access-control/role-assignments-template).
+- [Azure Resource Management templates](/azure/role-based-access-control/role-assignments-template).
 
 Alternatively, if you have installed [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md), you can also use a convenient CLI command to add user to the workspace.
 
-```Azure CLI
+```azurecli-interactive 
 az ml workspace share -n <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
 ```
 
 Note the `user` field is the email address of an existing user in the same Azure Active Directory where the parent Azure subscription of the workspace lives. Below is an example of using this command:
 
-```Azure CLI
+```azurecli-interactive 
 az ml workspace share -n my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
 ```
 
@@ -87,7 +87,7 @@ This role allows you to do everything in the workspace except for the following 
 
 To deploy this custom role, use the following Azure-CLI command:
 
-```Azure CLI
+```azurecli-interactive 
 az role definition create --role-definition data_scientist_role.json
 ```
 
@@ -101,6 +101,3 @@ Follow the full-length tutorial to learn how to use a workspace to build, train,
 
 > [!div class="nextstepaction"]
 > [Tutorial: Train models](tutorial-train-models-with-aml.md)
-×
-Drag and Drop
-The image will be downloaded by Fatkun
