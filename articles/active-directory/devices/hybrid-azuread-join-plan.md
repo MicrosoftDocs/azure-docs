@@ -112,6 +112,7 @@ If your Windows 10 domain joined devices are already [Azure AD registered](https
  - Any existing Azure AD registered state would be automatically removed after the device is Hybrid Azure AD joined. 
  - You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001
 
+FIPS compliant TPMs are not supported for Hybrid Azure AD join. If your devices have FIPS compliant TPMs, you will need to disabled them before proceeding with Hybrid Azure AD join.
 
 ## Review how to control the hybrid Azure AD join of your devices
 
