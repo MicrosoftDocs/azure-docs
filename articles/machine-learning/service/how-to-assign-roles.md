@@ -48,15 +48,18 @@ Alternatively, if you have installed [Azure Machine Learning CLI](reference-azur
 az ml workspace share -n <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
 ```
 
-Note the `user` field is the email address of an existing user in the same Azure Active Directory where the parent Azure subscription of the workspace lives. Below is an example of using this command:
+> [!NOTE]
+> The `user` field is the email address of an existing user in the same Azure Active Directory where the parent Azure subscription of the workspace lives. Below is an example of using this command:
 
 ```azurecli-interactive 
 az ml workspace share -n my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
 ```
 
-
 ## Create custom role
-If the built-in roles are insufficient for your needs, you can also create custom roles. The custom roles can have read, write or delete permissions on the workspace and/or the compute resource in that workspace. And you can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. Note you must be an owner of the resource at that level in order to create custom roles within that resource.
+If the built-in roles are insufficient for your needs, you can also create custom roles. The custom roles may have read, write, or delete permissions on the workspace and the compute resource in that workspace. And you can make the role available at a specific workspace level, a specific resource group level, or a specific subscription level. 
+
+> [!NOTE]
+> You must be an owner of the resource at that level in order to create custom roles within that resource.
 
 To create a custom role, first construct a role definition JSON file specifying the permission and scope you want for the role. For example, below is a role definition file for a custom role named "Data Scientist" scoped at a particular workspace level.
 
