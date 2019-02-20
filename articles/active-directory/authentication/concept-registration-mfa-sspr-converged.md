@@ -75,7 +75,7 @@ Audit logs for this new experience exist under the Authentication Methods catego
 
 **Default MFA method is set to phone call when a user registers a phone by using text message**
 
-   * Some users might notice that their default MFA method is set to phone call after they register their phone number by using text message. Users can resolve this issue by changing their default method by following the instructions in the article [Manage your security info (preview)](../user-help/security-info-manage-settings.md#change-your-info).
+   * Some users might notice that their default MFA method is set to phone call after they register their phone number by using text message. Users can resolve this issue by changing their default method by following the instructions in the articles referenced by [Overview about changing your security info (preview)](../user-help/security-info-add-update-methods-overview.md).
 
 **User can't access the new registration experience after an admin disables their default method**
 
