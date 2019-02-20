@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 02/19/2019
 ms.author: danlep
 ---
 
@@ -18,17 +18,17 @@ This article requires that you run the Azure CLI in Azure Cloud Shell or locally
 
 ## Scenarios
 
-By default, a tagged image in Azure Container Registry is *mutable*, so you can repeatedly update and push an image with the same tag to a registry. Also, by default, you can [delete](container-registry-delete.md) container images as needed. This can be useful for some development scenarios and to maintain a size for your registry.
+By default, a tagged image in Azure Container Registry is *mutable*, so if you have appropriate permissions you can repeatedly update and push an image with the same tag to a registry. Also, by default, container images can be [delete](container-registry-delete.md) as needed. This can be useful for some development scenarios and to maintain a size for your registry.
 
-However, when you deploy a container image to production, you might need an *immutable* container image so you don't accidentally delete it or introduce changes to a production system. Use the [az acr repository update][az-acr-repository-update] command to set properties for one or more repository images in the following scenarios:
+However, when you deploy a container image to production, you might need an *immutable* container image so you don't accidentally delete it or overwrite it. Use the [az acr repository update][az-acr-repository-update] command to set properties for a repository or one or more images in the following scenarios:
 
-* To lock an image version in a repository, set both the `--delete-enabled` and `write-enabled` parameters to `false`. 
+* Lock an image version, or an entire repository
 
-* To protect an image version from deletion, but allow updates, set `delete-enabled` to `false` and set `write-enabled` to `true`.
+* Protect a repository from deletion, but allow individual image versions to be deleted
 
-* To allow an image version to be deleted, but prevent updates, set `delete-enabled` to `true` and set `write-enabled` to `false`.
+* Protect an image version from deletion, but allow updates
 
-## Lock an image with the Azure CLI
+## Lock an image or repository with the Azure CLI
 
 ### Lock an image by tag
 
@@ -47,15 +47,22 @@ To lock a *myrepo/myimage* image identified by manifest digest (SHA-256 hash, re
 az acr repository update --name myregistry --image myrepo/myimage@sha256:123456abcdefg --delete-enabled false --write-enabled false
 ```
 
-### Lock all images in a repository
+### Lock a repository
 
-To lock all images in the *myrepo/myimage* repository, run the following command:
+To lock the *myrepo/myimage* repository and all images in it, run the following command:
 
 ```azurecli
-az acr repository update --name myregistry --repository myrepo/myimage --delete-enabled false --write-enabled false
+az acr repository update --name myregistry --repository myrepo/myimage --write-enabled false
 ```
 
-### Allow image updates but not deletion
+### Protect a repository from deletion
+
+The following command locks the *myrepo/myimage* repository, but allows individual images to be deleted:
+
+
+
+
+### Allow image update but not deletion
 
 To set the *myrepo/myimage:tag* image so that it can be updated but not deleted, run the following command:
 
@@ -64,18 +71,9 @@ To set the *myrepo/myimage:tag* image so that it can be updated but not deleted,
 az acr repository update --name myregistry --repository myrepo/myimage --delete-enabled false --write-enabled true
 ```
 
-### Allow image deletion but not updates
-
-To set the *myrepo/myimage:tag* image so that it can be deleted but not updated, run the following command:
-
-
-```azurecli
-az acr repository update --name myregistry --repository myrepo/myimage --delete-enabled true --write-enabled false
-```
-
 ## Unlock an image with the Azure CLI
 
-If you want to restore the default behavior of an image so that it can be deleted and updated, run a command similar to the following:
+To restore the default behavior of an image so that it can be deleted and updated, run a command similar to the following:
 
 ```azurecli
 az acr repository update --image myrepo/myimage:tag --delete-enabled true --write-enabled true
