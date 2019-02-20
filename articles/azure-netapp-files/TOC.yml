@@ -8,18 +8,8 @@
     href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Quickstarts
   items:
-  - name: Register for Azure NetApp Files
-    href: azure-netapp-files-register.md
-  - name: Create a NetApp account
-    href: azure-netapp-files-create-netapp-account.md
-  - name: Set up a capacity pool
-    href: azure-netapp-files-set-up-capacity-pool.md
-  - name: Delegate a subnet to Azure NetApp Files
-    href: azure-netapp-files-delegate-subnet.md
-  - name: Create a volume for Azure NetApp Files
-    href: azure-netapp-files-create-volumes.md
-  - name: Configure export policy for a volume (optional)
-    href: azure-netapp-files-configure-export-policy.md
+  - Set up Azure NetApp Files and create a volume
+    href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 # - name: Tutorials
 # - name: Samples
 - name: Concepts
@@ -34,6 +24,18 @@
 #    href: azure-netapp-files-faq-for-networking-security.md
 - name: How-to guides
   items:
+  - name: Register for Azure NetApp Files
+    href: azure-netapp-files-register.md
+  - name: Create a NetApp account
+    href: azure-netapp-files-create-netapp-account.md
+  - name: Set up a capacity pool
+    href: azure-netapp-files-set-up-capacity-pool.md
+  - name: Delegate a subnet to Azure NetApp Files
+    href: azure-netapp-files-delegate-subnet.md
+  - name: Create a volume for Azure NetApp Files
+    href: azure-netapp-files-create-volumes.md
+  - name: Configure export policy for a volume
+    href: azure-netapp-files-configure-export-policy.md
   - name: Manage volumes
     href: azure-netapp-files-manage-volumes.md
   - name: Mount or unmount a volume for virtual machines
