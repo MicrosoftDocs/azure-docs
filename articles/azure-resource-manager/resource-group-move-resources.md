@@ -85,13 +85,13 @@ The following list provides a general summary of Azure services that can be move
 * IoT Hubs
 * Key Vault - Key Vaults used for disk encryption can't be moved to resource groups in the same subscription or across subscriptions.
 * Load Balancers - Basic SKU Load Balancer can be moved. Standard SKU Load Balancer can't be moved.
-* Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.
 * Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)
 * Managed Identity - user-assigned
 * Media Services
 * Monitor - make sure moving to new subscription doesn't exceed [subscription quotas](../azure-subscription-service-limits.md#monitor-limits)
+* Azure Monitor logs
 * Notification Hubs
 * Operational Insights
 * Operations Management

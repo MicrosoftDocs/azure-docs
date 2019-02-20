@@ -1,6 +1,6 @@
 ---
-title: Log Analytics data model for Azure Backup
-description: This article talks about Log Analytics data model details for Azure Backup data.
+title: Azure Monitor logs data model for Azure Backup
+description: This article talks about Azure Monitor logs data model details for Azure Backup data.
 services: backup
 author: adigan
 manager: shivamg
@@ -9,8 +9,8 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ---
-# Log Analytics data model for Azure Backup data
-Use the Log Analytics data model to create reports. With the data model, you can create custom queries and dashboards, or customize Azure Backup data, however you like.
+# Azure Monitor logs data model for Azure Backup data
+Use the Azure Monitor logs data model to create reports. With the data model, you can create custom queries and dashboards, or customize Azure Backup data, however you like.
 
 ## Using Azure Backup data model
 You can use the following fields provided as part of the data model to create visuals, custom queries, and dashboard as per your requirements.
@@ -31,7 +31,7 @@ This table provides details about alert related fields.
 | State_s |Text |Current state of the alert object, for example, Active, Deleted |
 | BackupManagementType_s |Text |Provider type for performing backup, for example, IaaSVM, FileFolder to which this alert belongs to |
 | OperationName |Text |Name of the current operation, for example, Alert |
-| Category |Text |Category of diagnostics data pushed to Log Analytics. Always AzureBackupReport |
+| Category |Text |Category of diagnostics data pushed to Azure Monitor logs. Always AzureBackupReport |
 | Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
 | ProtectedServerUniqueId_s |Text |Unique identifier of the protected server associated with the alert |
 | VaultUniqueId_s |Text |Unique identifier of the protected vault associated with the alert |
@@ -59,7 +59,7 @@ This table provides details about backup item-related fields.
 | State_s |Text |State of the backup item object, for example, Active, Deleted |
 | BackupManagementType_s |Text |Provider type for performing backup, for example, IaaSVM, FileFolder to which this backup item belongs to |
 | OperationName |Text |Name of the operation, for example, BackupItem |
-| Category |Text |Category of diagnostics data pushed to Log Analytics. Always AzureBackupReport |
+| Category |Text |Category of diagnostics data pushed to Azure Monitor logs. Always AzureBackupReport |
 | Resource |Text |Resource for which data is collected, for example, Recovery Services vault name |
 | SourceSystem |Text |Source system of the current data - Azure |
 | ResourceId |Text |Resource id for data being collected, for example, Recovery Services vault resource id |
@@ -79,7 +79,7 @@ This table provides details about backup item associations with various entities
 | State_s |Text |Current state of the backup item association object, for example, Active, Deleted |
 | BackupManagementType_s |Text |Provider type for server doing backup job, for example, IaaSVM, FileFolder |
 | OperationName |Text |This field represents name of the current operation - BackupItemAssociation |
-| Category |Text |This field represents category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
+| Category |Text |This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
 | Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
 | PolicyUniqueId_g |Text |Unique identifier for the policy associated with the backup item |
 | ProtectedServerUniqueId_s |Text |Unique identifier of the protected server associated with the backup item |
@@ -102,7 +102,7 @@ This table provides details about job-related fields.
 | State_s |Text |Current state of the job object, for example, Active, Deleted |
 | BackupManagementType_s |Text |Provider type for server doing backup job, for example, IaaSVM, FileFolder |
 | OperationName |Text |This field represents name of the current operation - Job |
-| Category |Text |This field represents category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
+| Category |Text |This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
 | Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
 | ProtectedServerUniqueId_s |Text |Unique identifier of the protected server associated the job |
 | VaultUniqueId_s |Text |Unique identifier of the protected vault |
@@ -131,7 +131,7 @@ This table provides details about policy-related fields.
 | State_s |Text |Current state of the policy object, for example, Active, Deleted |
 | BackupManagementType_s |Text |Provider type for server doing backup job, for example, IaaSVM, FileFolder |
 | OperationName |Text |This field represents name of the current operation - Policy |
-| Category |Text |This field represents category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
+| Category |Text |This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
 | Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
 | PolicyUniqueId_g |Text |Unique Id to identify the policy |
 | PolicyName_s |Text |Name of the policy defined |
@@ -171,7 +171,7 @@ This table provides details about policy associations with various entities.
 | State_s |Text |Current state of the policy object, for example, Active, Deleted |
 | BackupManagementType_s |Text |Provider type for server doing backup job, for example, IaaSVM, FileFolder |
 | OperationName |Text |This field represents name of the current operation - PolicyAssociation |
-| Category |Text |This field represents category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
+| Category |Text |This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
 | Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
 | PolicyUniqueId_g |Text |Unique Id to identify the policy |
 | VaultUniqueId_s |Text |Unique Id of the vault to which this policy belongs to |
@@ -193,7 +193,7 @@ This table provides details about protected server-related fields.
 | State_s |Text |Current state of the protected server object, for example, Active, Deleted |
 | BackupManagementType_s |Text |Provider type for server doing backup job, for example, IaaSVM, FileFolder |
 | OperationName |Text |This field represents name of the current operation - ProtectedServer |
-| Category |Text |This field represents category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
+| Category |Text |This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
 | Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
 | ProtectedServerUniqueId_s |Text |Unique Id of the protected server |
 | RegisteredContainerId_s |Text |Id of container registered for backup |
@@ -217,7 +217,7 @@ This table provides details about protected server associations with other entit
 | State_s |Text |Current state of the protected server association object, for example, Active, Deleted |
 | BackupManagementType_s |Text |Provider type for server doing backup job, for example, IaaSVM, FileFolder |
 | OperationName |Text |This field represents name of the current operation - ProtectedServerAssociation |
-| Category |Text |This field represents category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
+| Category |Text |This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
 | Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
 | ProtectedServerUniqueId_s |Text |Unique Id of the protected server |
 | VaultUniqueId_s |Text |Unique Id of the vault to which this protected server belongs to |
@@ -240,7 +240,7 @@ This table provides details about storage-related fields.
 | State_s |Text |Current state of the storage object, for example, Active, Deleted |
 | BackupManagementType_s |Text |Provider type for server doing backup job, for example, IaaSVM, FileFolder |
 | OperationName |Text |This field represents name of the current operation - Storage |
-| Category |Text |This field represents category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
+| Category |Text |This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
 | Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
 | ProtectedServerUniqueId_s |Text |Unique Id of the protected server for which storage is calculated |
 | VaultUniqueId_s |Text |Unique Id of the vault for storage is calculated |
@@ -260,7 +260,7 @@ This table provides details about vault-related fields.
 | SchemaVersion_s |Text |This field denotes current version of the schema, it is **V1** |
 | State_s |Text |Current state of the vault object, for example, Active, Deleted |
 | OperationName |Text |This field represents name of the current operation - Vault |
-| Category |Text |This field represents category of diagnostics data pushed to Log Analytics, it is AzureBackupReport |
+| Category |Text |This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
 | Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
 | VaultUniqueId_s |Text |Unique Id of the vault |
 | VaultName_s |Text |Name of the vault |
@@ -274,4 +274,4 @@ This table provides details about vault-related fields.
 | ResourceType |Text |Resource type for which data is collected. For example, Vaults |
 
 ## Next steps
-Once you review the data model for creating Azure Backup reports, you can start [creating dashboard](../azure-monitor/learn/tutorial-logs-dashboards.md) in Log Analytics.
+Once you review the data model for creating Azure Backup reports, you can start [creating dashboard](../azure-monitor/learn/tutorial-logs-dashboards.md) in Azure Monitor logs.
