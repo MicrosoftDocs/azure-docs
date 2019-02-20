@@ -41,7 +41,7 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 
 In the Cloud Shell, create a quickstart directory and then change to it.
 
-```bash
+```azurecli-interactive
 mkdir quickstart
 
 cd quickstart
@@ -49,7 +49,7 @@ cd quickstart
 
 Next, run the following command to clone the sample app repository to your quickstart directory.
 
-```bash
+```azurecli-interactive
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
@@ -98,34 +98,13 @@ When the web app has been created, the Azure CLI shows output similar to the fol
 }
 ```
 
-## Deploy ZIP file
-
-In the Cloud Shell, navigate to your application's root directory, create a new ZIP file for your sample project.
-
-```
-#Bash
-cd nodejs-docs-hello-world  
-
-zip -r myUpdatedAppFiles.zip *.*
-```
-
-Deploy the ZIP file to your web app by using the [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) command.  
-
-The following example deploys the sample ZIP file you uploaded.
-
-```azurecli-interactive
-az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src myUpdatedAppFiles.zip
-```
-
-This command deploys the files and directories from the ZIP file to your default App Service application folder (`\home\site\wwwroot`) and restarts the app. If any additional custom build process is configured, it is run as well. For more information, see [Kudu documentation](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
-
 ### Set Node.js runtime
 
-Set the Node runtime to 8.11.1. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
+Set the Node runtime to 10.14.1. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
 
 ```azurecli-interactive
 # Bash and Powershell
-az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
+az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=10.14.1
 ```
 
 Browse to your newly created web app. Replace `<app_name>` with a unique app name.
@@ -135,8 +114,25 @@ http://<app_name>.azurewebsites.net
 ```
 
 Here is what your new web app should look like:
-
 ![Empty web app page](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
+
+## Deploy ZIP file
+
+In the Cloud Shell, navigate to your application's root directory, create a new ZIP file for your sample project.
+
+```azurecli-interactive
+cd nodejs-docs-hello-world  
+
+zip -r myUpdatedAppFiles.zip *.*
+```
+
+Deploy the ZIP file to your web app by using the [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) command.  
+
+```azurecli-interactive
+az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src myUpdatedAppFiles.zip
+```
+
+This command deploys the files and directories from the ZIP file to your default App Service application folder (`\home\site\wwwroot`) and restarts the app. If any additional custom build process is configured, it is run as well. For more information, see [Kudu documentation](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
 ## Browse to the app
 
@@ -158,9 +154,9 @@ In the Cloud Shell, type `code index.js` to open the Cloud Shell editor.
 
 ![Code index.js](media/app-service-web-get-started-nodejs-poc/code-indexjs.png)
 
-Using the Cloud Shell editor, open the `index.js` file in the Node.js app, and make a small change to the text in the call to `response.end`:
+Make a small change to the text in the call to `response.end`:
 
-```nodejs
+```javascript
 response.end("Hello Azure!");
 ```
 
@@ -168,7 +164,7 @@ Save your changes and exit the editor. Use the command `^S` to save and `^Q` to 
 
 In the Cloud Shell, navigate to your application's root directory. Create a ZIP file and deploy it using the [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) command. 
 
-```
+```azurecli-interactive
 # Bash
 zip -r myUpdatedAppFiles.zip *.*
 
@@ -192,14 +188,6 @@ You see your web app's Overview page. Here, you can perform basic management tas
 ![App Service page in Azure portal](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
 The left menu provides different pages for configuring your app.
-
-## Video
-
-Watch the video to see this quickstart in action and then follow the steps yourself to publish your first Node.js app on Azure.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-Node-Developers/Create-a-Nodejs-app-in-Azure-Quickstart/player]
-
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
 
