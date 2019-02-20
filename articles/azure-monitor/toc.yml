@@ -389,6 +389,8 @@
           href: app/proactive-cloud-services.md
         - name: Manage smart detection rules
           href: app/proactive-arm-config.md
+        - name: E-mail notification
+          href: app/proactive-email-notification.md
       - name: Create a resource
         href: app/create-new-resource.md 
       - name: Troubleshoot
