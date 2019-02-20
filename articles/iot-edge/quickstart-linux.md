@@ -57,6 +57,8 @@ IoT Edge device:
    ```
 
    It may take a few minutes to create and start the new virtual machine. 
+   
+* You may get a `MarketplacePurchaseEligibilityFailed` error at this point, if this happens you need to accept the terms by going to [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) and clicking `Get It Now`, sign in and accept the terms there before retrying the command.
 
    When you create a new virtual machine, make a note of the **publicIpAddress**, which is provided as part of the create command output. You will use this public IP address to connect to the virtual machine later in the quickstart.
 
