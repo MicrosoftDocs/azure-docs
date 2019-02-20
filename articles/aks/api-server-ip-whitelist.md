@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/20/2019
 ms.author: iainfou
 ---
 
@@ -32,9 +32,6 @@ To use the API server IP address whitelist, you need the *aks-preview* Azure CLI
 ```azurecli-interactive
 az extension add --name aks-preview
 ```
-
-> [!NOTE]
-> When you install the *aks-preview* extension, every AKS cluster you create uses the scale set preview deployment model. To opt out and create regular, fully supported clusters, remove the extension using `az extension remove --name aks-preview`.
 
 ### Register feature flag for your subscription
 
@@ -66,7 +63,9 @@ For more information about the API server and other cluster components, see [Kub
 
 ## Enable IP address whitelisting
 
-To enable the API server IP address whitelist, you use [az aks update][az-aks-update] command and specify the *--api-server-authorized-ip-ranges* to allow. These IP address ranges are usually address ranges used by your on-premises networks. The following example enables the API server IP address whitelist on the cluster named *myAKSCluster* in the resource group named *myResourceGroup*. The IP address ranges to add to the whitelist are *172.0.0.10/16* and *168.10.0.10/18*:
+To enable the API server IP address whitelist, you use [az aks update][az-aks-update] command and specify the *--api-server-authorized-ip-ranges* to allow. These IP address ranges are usually address ranges used by your on-premises networks.
+
+The following example enables the API server IP address whitelist on the cluster named *myAKSCluster* in the resource group named *myResourceGroup*. The IP address ranges to add to the whitelist are *172.0.0.10/16* and *168.10.0.10/18*:
 
 ```azurecli-interactive
 az aks update \
@@ -88,7 +87,9 @@ az aks update \
 
 ## Next steps
 
-In this article, you enabled the API server IP address whitelist. This approach is one part of how you can run a secure AKS cluster. For more information, see [Security concepts for applications and clusters in AKS][concepts-security] and [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
+In this article, you enabled the API server IP address whitelist. This approach is one part of how you can run a secure AKS cluster.
+
+For more information, see [Security concepts for applications and clusters in AKS][concepts-security] and [Best practices for cluster security and upgrades in AKS][operator-best-practices-cluster-security].
 
 <!-- LINKS - external -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
@@ -98,6 +99,10 @@ In this article, you enabled the API server IP address whitelist. This approach 
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-extension-add]: /cli/azure/extension#az-extension-add
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
 [concepts-clusters-workloads]: concepts-clusters-workloads.md
 [concepts-security]: concepts-security.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
