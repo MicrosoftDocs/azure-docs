@@ -39,7 +39,7 @@ First, go to the [Azure portal][Azure portal] and log on using your Azure subscr
 
 A Service Bus messaging namespace provides a unique scoping container, referenced by its [fully qualified domain name][], in which you create one or more queues, topics, and subscriptions. The following example creates a Service Bus messaging namespace in a new or existing [resource group](/azure/azure-resource-manager/resource-group-portal):
 
-1. In the left navigation pane of the portal, click **+ Create a resource**, then click **Enterprise Integration**, and then click **Service Bus**.
+1. In the left navigation pane of the portal, select **+ Create a resource**, point to **Integration**, and then select **Service Bus**.
 2. In the **Create namespace** dialog, enter a namespace name. The system immediately checks to see if the name is available.
 3. After making sure the namespace name is available, choose the pricing tier (Standard or Premium).
 4. In the **Subscription** field, choose an Azure subscription in which to create the namespace.
@@ -47,30 +47,34 @@ A Service Bus messaging namespace provides a unique scoping container, reference
 6. In **Location**, choose the country or region in which your namespace should be hosted.
 7. Click **Create**. The system now creates your namespace and enables it. You might have to wait several minutes as the system provisions resources for your account.
 
-![namespace](./media/service-bus-quickstart-portal/create-namespace.png)
+    ![namespace](./media/service-bus-quickstart-portal/create-namespace.png)
 
 ### Obtain the management credentials
 
 Creating a new namespace automatically generates an initial Shared Access Signature (SAS) rule with an associated pair of primary and secondary keys that each grant full control over all aspects of the namespace. To copy the initial rule, follow these steps: 
 
-1.  Click **All resources**, then click the newly created namespace name.
-2. In the namespace window, click **Shared access policies**.
-3. In the **Shared access policies** screen, click **RootManageSharedAccessKey**.
-4. In the **Policy: RootManageSharedAccessKey** window, click the **Copy** button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location. 
+1.  Select **All resources** on the left menu.
+2. Select the newly created namespace name. To filter the list, select **Service Bus Namespaces** for the **Resource type**, and then select the namespace. 
+3. In the **Service Bus Namespace** window, select **Shared access policies** from the left menu.
+4. In the **Shared access policies** screen, select **RootManageSharedAccessKey**.
+5. In the **SAS Policy: RootManageSharedAccessKey** window, select the **Copy** button next to **Primary Connection String**, to copy the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location. 
 
-    ![connection-string][connection-string]
+    ![connection-string](./media/service-bus-quickstart-portal/connection-string.png)
 5. Repeat the previous step, copying and pasting the value of **Primary Key** to a temporary location for later use.
 
 ## Create a queue
 
 To create a Service Bus queue, specify the namespace under which you want it created. The following example shows how to create a queue on the portal:
 
-1. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **More services**).
-2. Click the namespace in which you would like to create the queue.
-3. In the namespace window, click **Queues**, then in the **Queues** window, click **+ Queue**.
-4. Enter the queue **Name** and leave the other values with their defaults.
-5. At the bottom of the window, click **Create**.
-6. Make a note of the queue name.
+1. In the left navigation pane of the portal, select **All Services** on the left menu, and select **Service Bus** in the **Integration** category. If you select **star** (`*`) next to **Service Bus**, it's added to the **FAVORITES** section of the left navigational menu.
+2. Select the namespace in which you would like to create the queue.
+3. On the **Service Bus Namespace** page, select **Queues** in the **Entities** section of the left menu. 
+4. On the **Queues** page, select **+ Queue**.
+5. Enter the queue **Name** and leave the other values with their defaults.
+6. At the bottom of the window, click **Create**.
+7. Make a note of the queue name.
+
+    ![Create queue in service bus namespace](./media/service-bus-quickstart-portal/create-queue.png)
 
 ## Send and receive messages
 
@@ -80,28 +84,22 @@ To run the code, do the following:
 
 1. Clone the [Service Bus GitHub repository](https://github.com/Azure/azure-service-bus/) by issuing the following command:
 
-   ```shell
+   ```
    git clone https://github.com/Azure/azure-service-bus.git
    ```
-
 3. Navigate to the sample folder `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
-
 4. Copy the connection string and queue name you obtained in the [Obtain the management credentials](#obtain-the-management-credentials) section.
-
 5.	At a command prompt, type the following command:
 
-   ```shell
-   dotnet build
-   ```
-
+    ```
+    dotnet build
+    ```
 6.	Navigate to the `bin\Debug\netcoreapp2.0` folder.
-
 7.	Type the following command to run the program. Be sure to replace `myConnectionString` with the value you previously obtained, and `myQueueName` with the name of the queue you created:
 
-   ```shell
-   dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
-   ``` 
-
+    ```shell
+    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
+    ``` 
 8. Observe 10 messages being sent to the queue, and subsequently received from the queue:
 
    ![program output](./media/service-bus-quickstart-portal/dotnet.png)
@@ -255,5 +253,4 @@ In this article, you created a Service Bus namespace and other resources require
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 
-[connection-string]: ./media/service-bus-quickstart-portal/connection-string.png
 [service-bus-flow]: ./media/service-bus-quickstart-portal/service-bus-flow.png
