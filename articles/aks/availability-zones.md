@@ -54,7 +54,9 @@ While this feature is in preview, the following limitations apply when you creat
 
 ### Azure disks limitations
 
-Volumes that use Azure managed disks are currently not zonal resources. Pods rescheduled in a different zone from their original zone can't reattach their previous disk(s). During preview, it's recommended to run stateless workloads that don't require persistent storage that may come across zonal issues. If you must run stateful workloads, use taints and tolerations in your pod specs to tell the Kubernetes scheduler to create pods in the same zone as your disks. Alternatively, use network-based storage such as Azure Files that can attach to pods as they're scheduled between zones.
+Volumes that use Azure managed disks are currently not zonal resources. Pods rescheduled in a different zone from their original zone can't reattach their previous disk(s). During preview, it's recommended to run stateless workloads that don't require persistent storage that may come across zonal issues.
+
+If you must run stateful workloads, use taints and tolerations in your pod specs to tell the Kubernetes scheduler to create pods in the same zone as your disks. Alternatively, use network-based storage such as Azure Files that can attach to pods as they're scheduled between zones.
 
 ## Overview of Availability Zones for AKS clusters
 
@@ -62,9 +64,9 @@ Availability Zones are unique physical locations within an Azure region. Each zo
 
 For more information, see [What are Availability Zones in Azure?][az-overview].
 
-AKS clusters that are deployed using availability zones can distribute cluster agent nodes across multiple zones within a single region. For example, a  cluster in the *West US* region can create nodes in all three availability zones in *West US*. This distribution of AKS cluster resources improves cluster availability as they're resilient to failure of a specific zone.
+AKS clusters that are deployed using availability zones can distribute cluster agent nodes across multiple zones within a single region. For example, a  cluster in the *East US 2* region can create nodes in all three availability zones in *East US 2*. This distribution of AKS cluster resources improves cluster availability as they're resilient to failure of a specific zone.
 
-**-- GRAPHIC --**
+![AKS node distribution across availability zones](media/availability-zones/aks-availability-zones.png)
 
 In a zone outage, the nodes can be rebalanced manually or using the cluster autoscaler. If a single zone becomes unavailable, your applications continue to run.
 
@@ -75,16 +77,20 @@ When you create a cluster using the [az aks create][az-aks-create] command, the 
 The following example creates a cluster named *myAKSCluster* in the resource group named *myResourceGroup*. A total of *3* nodes are created - one agent in zone *1*, one in *2*, and then one in *3*:
 
 ```azurecli-interactive
+az group create --name myResourceGroup --location eastus2
+
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --kubernetes-version 1.12.4 \
+    --kubernetes-version 1.12.5 \
     --generate-ssh-keys \
     --node-count 3 \
     --agent-zones 1 2 3
 ```
 
 ## Next steps
+
+This article detailed how to create an AKS cluster that uses availability zones. For more considerations on highly available clusters, see [Best practices for business continuity and disaster recovery in AKS][best-practices-bc-dr].
 
 <!-- LINKS - external -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
@@ -96,3 +102,4 @@ az aks create \
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-overview]: ../availability-zones/az-overview.md
+[best-practices-bc-dr]: operator-best-practices-multi-region.md
