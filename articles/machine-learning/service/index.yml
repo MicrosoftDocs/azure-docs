@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 2/15/2019
+  ms.date: 2/19/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -20,7 +20,7 @@ abstract:
   aside:
     image:
       alt: 
-      height: 110
+      height: 130
       src: media/index/video.png
       width: 250  
     title: Azure Machine Learning service (9:58)
