@@ -36,13 +36,8 @@ This tutorial covers the following steps:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## Create a namespace using the Azure portal
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-> [!NOTE] 
-> You can also create a Service Bus namespace and messaging entities using [PowerShell](/powershell/azure/get-started-azureps). For more information, see [Use PowerShell to manage Service Bus resources](service-bus-manage-with-ps.md).
-
-## Create a queue using the Azure portal
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 

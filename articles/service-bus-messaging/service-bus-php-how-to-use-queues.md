@@ -24,7 +24,6 @@ This guide shows you how to use Service Bus queues. The samples are written in P
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## Create a Service Bus namespace
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## Create a PHP application

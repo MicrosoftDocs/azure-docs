@@ -25,7 +25,6 @@ This article describes how to use Service Bus queues with Node.js. The samples a
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## Create a Service Bus namespace using Azure portal
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 

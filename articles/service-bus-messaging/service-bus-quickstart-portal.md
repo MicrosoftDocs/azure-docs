@@ -31,10 +31,8 @@ To complete this tutorial, make sure you have installed:
 - [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
-## Create a Service Bus namespace 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## Create a queue
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## Send and receive messages

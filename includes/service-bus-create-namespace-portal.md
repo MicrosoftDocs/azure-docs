@@ -10,6 +10,7 @@
  ms.custom: include file
 ---
 
+## Create a Service Bus namespace in the Azure portal
 To begin using Service Bus messaging entities in Azure, you must first create a namespace with a name that is unique across Azure. A namespace provides a scoping container for addressing Service Bus resources within your application.
 
 To create a namespace:
@@ -40,7 +41,7 @@ To create a namespace:
 
     ![Home page for your service bus namespace](./media/service-bus-create-namespace-portal/service-bus-namespace-home-page.png)
 
-### Get the management credentials
+## Get the management credentials for the namespace
 Creating a new namespace automatically generates an initial Shared Access Signature (SAS) rule with an associated pair of primary and secondary keys that each grant full control over all aspects of the namespace. See [Service Bus authentication and authorization](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) for information about how to create rules with more constrained rights for regular senders and receivers. To copy the primary and secondary keys for your namespace, follow these steps: 
 
 1. Click **All resources**, then click the newly created namespace name.

@@ -46,29 +46,7 @@ If you have already created a Service Bus Messaging namespace, jump to the [Crea
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## 2. Create a topic using the Azure portal
-
-1. Sign in to the [Azure portal][azure-portal].
-2. In the left navigation pane of the portal, click **Service Bus** (if you don't see **Service Bus**, click **All services**, or click on **All resources**). Click the namespace in which you would like to create the topic. 
-3. The namespace overview window opens. Click **Topics**:
-   
-    ![Create a topic][createtopic1]
-4. Click **+ Topic**.
-   
-    ![Select Topics][createtopic2]
-5. Enter a name for the topic. Leave the other options with their default values.
-   
-    ![Select New][createtopic3]
-6. At the bottom of the dialog, click **Create**.
-
-## 3. Create a subscription to the topic
-
-1. In the portal resources pane, click the namespace you created in step 1, then click **Topics**, and then click name of the topic you created in step 2.
-2. At the top of the overview pane, click **+ Subscription** to add a subscription to this topic.
-
-    ![Create subscription][createtopic4]
-
-3. Enter a name for the subscription. Leave the other options with their default values.
+[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
 
 ## 4. Send messages to the topic
 
