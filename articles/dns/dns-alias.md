@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 2/11/2019
+ms.date: 2/20/2019
 ms.author: victorh
 ---
 
@@ -28,9 +28,6 @@ An alias record set is supported for the following record types in an Azure DNS 
 
 - **Point to a Traffic Manager profile from a DNS A/AAAA/CNAME record set.** You can create an A/AAAA or CNAME record set and use alias records to point it to a Traffic Manager profile. It is especially useful when you need to route traffic at a zone apex, as traditional CNAME records are not supported for a zone apex. For example, say your Traffic Manager profile is myprofile.trafficmanager.net and your business DNS zone is contoso.com. You can create an alias record set of type A/AAAA for contoso.com (the zone apex) and point to myprofile.trafficmanage.net.
 
-   > [!NOTE]
-   > Alias records for the A or AAAA record types for Traffic Manager are supported only for external endpoint types. You must provide the IPv4 or IPv6 address, as appropriate, for external endpoints in Traffic Manager. Ideally, use static IPs for the address.
-  
 - **Point to another DNS record set within the same zone.** Alias records can reference other record sets of the same type. For example, a DNS CNAME record set can be an alias to another CNAME record set. This arrangement is useful if you want some record sets to be aliases and some non-aliases.
 
 ## Scenarios
