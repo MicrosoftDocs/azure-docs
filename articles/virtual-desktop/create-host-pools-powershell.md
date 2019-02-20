@@ -14,7 +14,8 @@ ms.author: helohr
 Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
 ## Use your PowerShell client to create a host pool
-First, [download and import the Windows Virtual Desktop PowerShell module](powershell-get-started.md) to use in your PowerShell session if you haven't already.
+
+First, [download and import the Windows Virtual Desktop PowerShell module](https://rdmipreview.blob.core.windows.net/preview/Windows%20Virtual%20Destkop%20-%20PowerShell%20Reference.pdf?st=2019-02-18T19%3A03%3A00Z&se=2019-03-31T19%3A03%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=n4Wb3v%2Bc0xbzWmlljPJqVuXZMCoqQ1C%2F6uA7DfAsOQY%3D) to use in your PowerShell session if you haven't already.
 
 Run the following cmdlet to sign in to the Windows Virtual Desktop environment
 

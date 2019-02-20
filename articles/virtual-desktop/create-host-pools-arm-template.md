@@ -47,7 +47,7 @@ For guidance about which parameters you should enter for your scenario, see the 
 
 After the GitHub Azure Resource Manager template completes, assign user access before you start testing the full session desktops on your virtual machines.
 
-First, [download and import the Windows Virtual Desktop PowerShell module](powershell-get-started.md) to use in your PowerShell session if you haven't already.
+First, [download and import the Windows Virtual Desktop PowerShell module](https://rdmipreview.blob.core.windows.net/preview/Windows%20Virtual%20Destkop%20-%20PowerShell%20Reference.pdf?st=2019-02-18T19%3A03%3A00Z&se=2019-03-31T19%3A03%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=n4Wb3v%2Bc0xbzWmlljPJqVuXZMCoqQ1C%2F6uA7DfAsOQY%3D) to use in your PowerShell session if you haven't already.
 
 To assign users to the desktop application group, open a PowerShell window and run this cmdlet to sign in to the Windows Virtual Desktop environment:
 
