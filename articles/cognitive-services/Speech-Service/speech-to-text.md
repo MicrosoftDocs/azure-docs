@@ -15,22 +15,14 @@ ms.custom: seodec18
 
 # What is speech recognition?
 
-Speech recognition from Azure Speech Services (speech-to-text), transcribes audio streams in real time to text that your applications, tools, or devices can consume, display, and act on. It's powered by Microsoft's recognition technology used in Cortana and Office products.
+Speech recognition from Azure Speech Services (speech-to-text), enables real time transcription of audio streams to text, that your applications, tools, or devices can consume, display, and act on. Speech recognition is available as part of the Speech SDK and via REST APIs.
 
-Speech recognition is available through the Speech SDK and REST APIs.
-
-> [!IMPORTANT]
-> Batch transcription is only available via REST and requires an S0 subscription. Batch transcription will not work with the an Azure free trial.
-
-## Core features
-
-< TODO ERIK - Provide introduction >
+Here are a few things that you can do with speech recognition:
 
 | Use case | SDK | REST |
 |----------|-----|------|
-| Transcribe short utterances, less than 15 seconds in length. Final results only. | Yes | Yes |
-| Continuous transcription of long utterances, more than 15 seconds in length. | Yes | No |
-| Transcribe streaming audio with optional interim results | Yes | No |
+| Transcribe short utterances; less than 15 seconds in length. Only provides the final transcription result. | Yes | Yes |
+| Continuous transcription of long utterances and streaming audio; more than 15 seconds in length. Supports interim transcription results. | Yes | No |
 | Derive intents from recognition results with [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Yes | No\* |
 | Run batch transcription on large volumes of audio data. | No | Yes\** |
 | Create accuracy tests to measure the accuracy of baseline versus custom models. | No | Yes\** |
@@ -39,9 +31,12 @@ Speech recognition is available through the Speech SDK and REST APIs.
 | Create and manage custom model deployments. | No | Yes\** |
 | Manage subscriptions. | No | Yes\** |
 
+> [!IMPORTANT]
+> Batch transcription requires an S0 subscription and will not work with the an Azure free trial.
+
 \* *LUIS intents and entities can be derived using a separate LUIS subscription. With this subscription, the SDK can call LUIS for you and provide entity and intent results as well as speech transcriptions. With the REST API, you can call LUIS yourself to derive intents and entities with your LUIS subscription.*
 
-\** *The services are avaialbe using the cris.ai endpoint. For more information, see [Swagger reference](https://westus.cris.ai/swagger/ui/index).*
+\** *These services are available using the cris.ai endpoint. For more information, see [Swagger reference](https://westus.cris.ai/swagger/ui/index).*
 
 ## Get started with speech recognition
 
@@ -75,7 +70,7 @@ Sample code for the Speech SDK is available on GitHub. These samples cover commo
 
 ## Customization
 
-In addition to the baseline models available for speech recognition, you can create custom acoustic, language, and pronunciation models.
+In addition to the baseline models provided by the Speech Services, you can create custom acoustic, language, and pronunciation models specific to your experience.
 
 | Model | Description |
 |----------------|-------|-------------|
@@ -83,16 +78,22 @@ In addition to the baseline models available for speech recognition, you can cre
 | [Language model](how-to-customize-language-model.md) | Create a custom language model to improve transcription of field-specific vocabulary and grammar, such as medical terminology, or IT jargon. |
 | [Pronunciation model](how-to-customize-pronunciation.md) | With a custom pronunciation model, you can define the phonetic form and display of a word or term. It's useful for handling customized terms, such as product names or acronyms. All you need to get started is a pronunciation file -- a simple .txt file. |
 
-Customization options vary by language.
+Customization options vary by language. Use this table to learn what's available for each language/locale:
 
 [!INCLUDE [Customization options for supported languages](../../../includes/cognitive-services-speech-service-stt-language-list.md)]
 
 ## Migration guides
 
-< Add info for migration from shut down services. >
+If your applications, tools, or products are using the Bing Speech APIs or Custom Speech, we've created guides to help you migrate to Speech Services.
+
+> [!WARNING]
+> Bing Speech will be decommissioned on October 15, 2019.
+
+* [Migrate from Bing Speech to the Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-bing-speech)
+* [Migrate from Custom Speech to the Speech Services](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-migrate-from-custom-speech-service)
 
 ## Next steps
 
-* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
+* [Get a Speech Services subscription key for free](get-started.md)
 * [Quickstart: recognize speech in C#](quickstart-csharp-dotnet-windows.md)
-* [See how to recognize intents from speech in C#](how-to-recognize-intents-from-speech-csharp.md)
+* [Get the Speech SDK](speech-sdk.md)
