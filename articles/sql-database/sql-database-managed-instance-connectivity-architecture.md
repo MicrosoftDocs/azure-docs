@@ -84,47 +84,8 @@ When connections are initiated from inside the managed instance (backup, audit l
 You deploy a managed instance in a dedicated subnet (the managed instance subnet) inside the virtual network that conforms to the following requirements:
 
 - **Dedicated subnet**: The managed instance subnet must not contain any other cloud service associated with it, and it must not be a Gateway subnet. You won’t be able to create a managed instance in a subnet that contains resources other than the managed instance, and you can not later add other resources in the subnet.
-- **Compatible Network Security Group (NSG)**: An NSG associated with a managed instance subnet must contain rules shown in the following tables (Mandatory inbound security rules and Mandatory outbound security rules) in front of any other rules. You can use an NSG to fully control access to the managed instance data endpoint by filtering traffic on port 1433.
-- **Compatible user-defined route table (UDR)**: The managed instance virtual network must have the following entries in a user-defined route table:
-
-  |Name|Address prefix|Net Hop|
-  |----|--------------|-------|
-  |mi-0-5-next-hop-internet|0.0.0.0/5|Internet|
-  |mi-11-8-nexthop-internet|11.0.0.0/8|Internet|
-  |mi-12-6-nexthop-internet|12.0.0.0/6|Internet|
-  |mi-128-3-nexthop-internet|128.0.0.0/3|Internet|
-  |mi-16-4-nexthop-internet|16.0.0.0/4||Internet|
-  |mi-160-5-nexthop-internet|160.0.0.0/5|Internet|
-  |mi-168-6-nexthop-internet|168.0.0.0/6|Internet|
-  |mi-172-12-nexthop-internet|172.0.0.0/12||Internet|
-  |mi-172-128-9-nexthop-internet|172.128.0.0/9|Internet|
-  |mi-172-32-11-nexthop-internet|172.32.0.0/11|Internet|
-  |mi-172-64-10-nexthop-internet|172.64.0.0/10|Internet|
-  |mi-173-8-nexthop-internet|173.0.0.0/8|Internet|
-  |mi-174-7-nexthop-internet|174.0.0.0/7|Internet|
-  |mi-176-4-nexthop-internet|176.0.0.0/4|Internet|
-  |mi-192-128-11-nexthop-internet|192.128.0.0/11|Internet|
-  |mi-192-160-13-nexthop-internet|192.160.0.0/13|Internet|
-  |mi-192-169-16-nexthop-internet|192.169.0.0/16|Internet|
-  |mi-192-170-15-nexthop-internet|192.170.0.0/15|Internet|
-  |mi-192-172-14-nexthop-internet|192.172.0.0/14|Internet|
-  |mi-192-176-12-nexthop-internet|192.176.0.0/12|Internet|
-  |mi-192-192-10-nexthop-internet|192.192.0.0/10|Internet|
-  |mi-192-9-nexthop-internet|192.0.0.0/9|Internet|
-  |mi-193-8-nexthop-internet|193.0.0.0/8|Internet|
-  |mi-194-7-nexthop-internet|194.0.0.0/7|Internet|
-  |mi-196-6-nexthop-internet|196.0.0.0/6|Internet|
-  |mi-200-5-nexthop-internet|200.0.0.0/5|Internet|
-  |mi-208-4-nexthop-internet|208.0.0.0/4|Internet|
-  |mi-224-3-nexthop-internet|224.0.0.0/3|Internet|
-  |mi-32-3-nexthop-internet|32.0.0.0/3|Internet|
-  |mi-64-2-nexthop-internet|64.0.0.0/2|Internet|
-  |mi-8-7-nexthop-internet|8.0.0.0/7|Internet|
-  |subnet_to_vnetlocal|10.0.0.0/24|Virtual network|
-  ||||
-
-  In addition, you can add entries to the route table routes traffic that has on-premises private IP ranges as a destination through virtual network gateway or virtual network appliance (NVA). 
-- **Optional custom DNS**: If a custom DNS is specified on the virtual network, Azure's recursive resolver IP address (such as 168.63.129.16) must be added to the list. For more information, see [Configuring Custom DNS](sql-database-managed-instance-custom-dns.md). The custom DNS server must be able to resolve host names in the following domains and their subdomains: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, and *microsoftonline-p.com*. 
+- **Network Security Group (NSG)**: An NSG associated with the virtual network must contain these defined mandatory [inbound security rules](#mandatory-inbound-security-rules) and [outbound security rules](#mandatory-outbound-security-rules) in front of any other rules. You can use an NSG to fully control access to the managed instance data endpoint by filtering traffic on port 1433.
+- **User-defined route table (UDR)**: A user-defined route table associated with the virtual network must these [routes](#user-defined-routes).
 - **No service endpoints**: The managed instance subnet must not have a service endpoint associated to it. Make sure that service endpoints option is disabled when creating the virtual network.
 - **Sufficient IP addresses**: The managed instance subnet must have the bare minimum of 16 IP addresses (recommended minimum is 32 IP addresses). For more information, see [determine the size of subnet for managed instances](sql-database-managed-instance-determine-size-vnet-subnet.md). You can deploy managed instances in [the existing network](sql-database-managed-instance-configure-vnet-subnet.md) once you configure it to satisfy [managed instance networking requirements](#network-requirements), or create a [new network and subnet](sql-database-managed-instance-create-vnet-subnet.md).
 
@@ -152,7 +113,49 @@ You deploy a managed instance in a dedicated subnet (the managed instance subnet
 > Although mandatory inbound security rules allow traffic from _Any_ source on ports 9000, 9003, 1438, 1440, 1452 these ports are protected by built-in firewall. This [article](sql-database-managed-instance-find-management-endpoint-ip-address.md) shows how you can discover management endpoint IP address and verify firewall rules.
 > [!NOTE]
 > If you are using transactional replication in a managed instance and any instance database is used as a publisher or a distributor, port 445 (TCP outbound) also needs to be open in the security rules of the subnet to access the Azure file share.
-  
+
+### User-defined routes
+
+|Name|Address prefix|Net Hop|
+|----|--------------|-------|
+|subnet_to_vnetlocal|[mi_subnet]|Virtual network|
+|mi-0-5-next-hop-internet|0.0.0.0/5|Internet|
+|mi-11-8-nexthop-internet|11.0.0.0/8|Internet|
+|mi-12-6-nexthop-internet|12.0.0.0/6|Internet|
+|mi-128-3-nexthop-internet|128.0.0.0/3|Internet|
+|mi-16-4-nexthop-internet|16.0.0.0/4|Internet|
+|mi-160-5-nexthop-internet|160.0.0.0/5|Internet|
+|mi-168-6-nexthop-internet|168.0.0.0/6|Internet|
+|mi-172-12-nexthop-internet|172.0.0.0/12|Internet|
+|mi-172-128-9-nexthop-internet|172.128.0.0/9|Internet|
+|mi-172-32-11-nexthop-internet|172.32.0.0/11|Internet|
+|mi-172-64-10-nexthop-internet|172.64.0.0/10|Internet|
+|mi-173-8-nexthop-internet|173.0.0.0/8|Internet|
+|mi-174-7-nexthop-internet|174.0.0.0/7|Internet|
+|mi-176-4-nexthop-internet|176.0.0.0/4|Internet|
+|mi-192-128-11-nexthop-internet|192.128.0.0/11|Internet|
+|mi-192-160-13-nexthop-internet|192.160.0.0/13|Internet|
+|mi-192-169-16-nexthop-internet|192.169.0.0/16|Internet|
+|mi-192-170-15-nexthop-internet|192.170.0.0/15|Internet|
+|mi-192-172-14-nexthop-internet|192.172.0.0/14|Internet|
+|mi-192-176-12-nexthop-internet|192.176.0.0/12|Internet|
+|mi-192-192-10-nexthop-internet|192.192.0.0/10|Internet|
+|mi-192-9-nexthop-internet|192.0.0.0/9|Internet|
+|mi-193-8-nexthop-internet|193.0.0.0/8|Internet|
+|mi-194-7-nexthop-internet|194.0.0.0/7|Internet|
+|mi-196-6-nexthop-internet|196.0.0.0/6|Internet|
+|mi-200-5-nexthop-internet|200.0.0.0/5|Internet|
+|mi-208-4-nexthop-internet|208.0.0.0/4|Internet|
+|mi-224-3-nexthop-internet|224.0.0.0/3|Internet|
+|mi-32-3-nexthop-internet|32.0.0.0/3|Internet|
+|mi-64-2-nexthop-internet|64.0.0.0/2|Internet|
+|mi-8-7-nexthop-internet|8.0.0.0/7|Internet|
+||||
+
+In addition, you can add entries to the route table routes traffic that has on-premises private IP ranges as a destination through virtual network gateway or virtual network appliance (NVA).
+
+- **Optional custom DNS**: If a custom DNS is specified on the virtual network, Azure's recursive resolver IP address (such as 168.63.129.16) must be added to the list. For more information, see [Configuring Custom DNS](sql-database-managed-instance-custom-dns.md). The custom DNS server must be able to resolve host names in the following domains and their subdomains: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, and *microsoftonline-p.com*.
+
 ## Next steps
 
 - For an overview, see [what is a managed instance](sql-database-managed-instance.md)
