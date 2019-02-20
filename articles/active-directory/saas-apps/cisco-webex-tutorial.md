@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/14/2019
+ms.date: 02/20/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -135,7 +135,7 @@ To configure Azure AD single sign-on with Cisco Webex Meetings, perform the foll
 	|   firstname    | user.givenname |
 	|   lastname    | user.surname |
 	|   email       | user.mail |
-	|   uid    | user.mail |
+	|   UID    | user.mail |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -184,16 +184,16 @@ To configure Azure AD single sign-on with Cisco Webex Meetings, perform the foll
 
 	a. In the Federation Protocol textbox, type the name of your protocol.
 
-	b. Click on **Import SAML Metadata** link to upload the metadata file which you have downloaded from Azure portal.
+	b. Click on **Import SAML Metadata** link to upload the metadata file, which you have downloaded from Azure portal.
 
 	c. Click on **Export** button to download the Service Provider Metadata file and upload it in the **Basic SAML Configuration** section on Azure portal.
 
-	d. In the **AuthContextClassRef** textbox, type the two values like `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport` and `urn:oasis:names:tc:SAML:2.0:ac:classes:X509` to enable the MFA using Azure AD.
+	d. In the **AuthContextClassRef** textbox, type `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified` and if you want to enable the MFA using Azure AD type the two values like `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport` and `urn:oasis:names:tc:SAML:2.0:ac:classes:X509`.
 
 	e. Select **Auto Account Creation** and **Auto Account Update**.
 
 	>[!NOTE]
-	>For enabling just-in-time user provisioning you need check the **Auto Account Creation** and **Auto Account Update**. In addition to that SAML token attributes need to be passed in the SAML response.
+	>For enabling **just-in-time** user provisioning you need check the **Auto Account Creation** and **Auto Account Update**. In addition to that SAML token attributes need to be passed in the SAML response.
 
 	f. Click **Save**. 
 
@@ -250,7 +250,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Cisco Webex Meetings test user
 
-The objective of this section is to create a user called Britta Simon in Cisco Webex Meetings. Cisco Webex Meetings supports just-in-time provisioning and automatic user provisioning, which is by default enabled. There is no action item for you in this section. If a user doesn't already exist in Cisco Webex Meetings, a new one is created when you attempt to access Cisco Webex Meetings.
+The objective of this section is to create a user called Britta Simon in Cisco Webex Meetings. Cisco Webex Meetings supports **just-in-time** provisioning and automatic user provisioning, which is by default enabled. There is no action item for you in this section. If a user doesn't already exist in Cisco Webex Meetings, a new one is created when you attempt to access Cisco Webex Meetings.
 
 ### Test single sign-on
 
