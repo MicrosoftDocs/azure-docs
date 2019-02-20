@@ -26,23 +26,18 @@ If you use NLog, log4Net or System.Diagnostics.Trace for diagnostic tracing in y
 ## Install logging on your app
 Install your chosen logging framework in your project. This should result in an entry in app.config or web.config.
 
-If you're using System.Diagnostics.Trace, you need to add an entry to web.config:
-
 ```XML
-
     <configuration>
-     <system.diagnostics>
-       <trace autoflush="false" indentsize="4">
-         <listeners>
-           <add name="myListener"
-             type="System.Diagnostics.TextWriterTraceListener"
-             initializeData="TextWriterOutput.log" />
-           <remove name="Default" />
-         </listeners>
-       </trace>
-     </system.diagnostics>
+      <system.diagnostics>
+    <trace autoflush="true" indentsize="0">
+      <listeners>
+        <add name="myAppInsightsListener" type="Microsoft.ApplicationInsights.TraceListener.ApplicationInsightsTraceListener, Microsoft.ApplicationInsights.TraceListener" />
+      </listeners>
+    </trace>
+  </system.diagnostics>
    </configuration>
 ```
+
 ## Configure Application Insights to collect logs
 **[Add Application Insights to your project](../../azure-monitor/app/asp-net.md)** if you haven't done that yet. You'll see an option to include the log collector.
 

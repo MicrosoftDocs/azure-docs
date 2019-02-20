@@ -170,16 +170,7 @@ Since the activity logs structure isn't tabular, you'll need to manipulate the d
 Use the following query to map the data to the table:
 
 ```kusto
-.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[
-{"column":"Timestamp","path":"$.time"},
-{"column":"ResourceId","path":"$.resourceId"},
-{"column":"MetricName","path":"$.metricName"},
-{"column":"Count","path":"$.count"},
-{"column":"Total","path":"$.total"},
-{"column":"Minimum","path":"$.minimum"},
-{"column":"Maximum","path":"$.maximum"},
-{"column":"Average","path":"$.average"},
-{"column":"TimeGrain","path":"$.timeGrain"}]'
+.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
 ```
 
 #### Activity logs table mapping
@@ -187,8 +178,7 @@ Use the following query to map the data to the table:
 Use the following query to map the data to the table:
 
 ```kusto
-.create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[
-{"column":"Records","path":"$.records"}]'
+.create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
 ### Create update policy
