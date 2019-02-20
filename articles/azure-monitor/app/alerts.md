@@ -90,29 +90,56 @@ Don't forget that [proactive failure rate diagnostics](../../azure-monitor/app/p
 
 In this section we will go through how to set a query based exception alert. For this example let's say we want an alert when the failed rate is greater than 10% in the last 24 hours.
 
-1. Go to your application insight resource in Azure portal.
-2. On the left under configure click on "alert".
+1. Go to your Application Insight resource in the Azure portal.
+2. On the left under configure click on **Alert**.
+
     ![On the left under configure click alert](./media/alerts/1appinsightalert.png)
-3.  At the top of the alert tab select "New alert rule".
+
+3. At the top of the alert tab select **New alert rule**.
+
      ![At the top of the alert tab click new alert rule](./media/alerts/2createalert.png)
-4. Your resource should be auto selected. To set a condition click "Add condition".
+
+4. Your resource should be auto selected. To set a condition click **Add condition**.
+
     ![Click add condition](./media/alerts/3addcondition.png)
-5. In the configure signal logic tab select "Custom log search"
+
+5. In the configure signal logic tab select **Custom log search**
+
     ![Click custom log search](./media/alerts/4customlogsearch.png)
+
 6. In the custom log search tab enter your query in the "Search query" box. For this example we will use the below Kusto query.
 	```kusto
-     exceptions | where timestamp >ago(24h) | summarize exceptionsCount = sum(itemCount) | extend t = "" | join (requests | where timestamp >ago(24h) | summarize requestsCount = sum(itemCount) | extend t = "") on t | project isPassed = 1.0 * exceptionsCount / requestsCount > 0.1 | project iff(isPassed, "PASSED", "FAILED") | where Column1 == "FAILED"
+     exceptions 
+    | where timestamp >ago(24h) 
+    | summarize exceptionsCount = sum(itemCount) 
+    | extend t = "" 
+    | join (requests 
+    | where timestamp >ago(24h) 
+    | summarize requestsCount = sum(itemCount) 
+    | extend t = "") on t 
+    | project isPassed = 1.0 * exceptionsCount / requestsCount > 0.1 | project iff(isPassed, "PASSED", "FAILED") 
+    | where Column1 == "FAILED"
     ```
+
     ![Type query in search query box](./media/alerts/5searchquery.png)
 	
-	- You can also apply these steps to other types of query-based alerts. You can learn more about the Kusto query language from this  [Kusto getting started doc](https://docs.microsoft.com/azure/kusto/concepts/) or this [SQL to Kusto cheat sheet](https://docs.microsoft.com/azure/kusto/query/sqlcheatsheet)
-7. Under "Alert logic" choose whether it's based on number of results or metric measurement. Then pick the condition ( greater than, equal to less than) and a threshold. While you are changing these values you may notice the  condition preview sentence changes.  
+    > [!NOTE]
+    > You can also apply these steps to other types of query-based alerts. You can learn more about the Kusto query language from this  [Kusto getting started doc](https://docs.microsoft.com/azure/kusto/concepts/) or this [SQL to Kusto cheat sheet](https://docs.microsoft.com/azure/kusto/query/sqlcheatsheet)
+
+7. Under "Alert logic" choose whether it's based on number of results or metric measurement. Then pick the condition ( greater than, equal to, less than) and a threshold. While you are changing these values you may notice the condition preview sentence changes.  
+
     ![Under Alert logic choose from the options provided for based on and condition, then type a threshold](./media/alerts/6alertlogic.png)
-8. Under "Evaluated based on" set the period and frequency. Then click "done".
+
+8. Under "Evaluated based on" set the period and frequency. Then click **done**.
+
     ![Set period and frequency at the bottom and then click done](./media/alerts/7evaluate.png)
-9. We now see the condition we just created with the estimated monthly cost.  Below this under "Action Groups" you can create a new group or select an existing one. If you want you can customize the actions.
+
+9. We now see the condition we just created with the estimated monthly cost. Below this under ["Action Groups"](../platform/action-groups.md) you can create a new group or select an existing one. If you want you can customize the actions.
+
     ![click on the select or create buttons under action group](./media/alerts/8actiongroup.png)
-10. Finally add your alert details ( alert rule name, description, severity). When you are done click "Create alert rule" at the bottom.
+
+10. Finally add your alert details ( alert rule name, description, severity). When you are done click **Create alert rule** at the bottom.
+
     ![Under alert detail type your alert rule name, write a description and pick a severity ](./media/alerts/9alertdetails.png)
 
 ## Who receives the (classic) alert notifications?
