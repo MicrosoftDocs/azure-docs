@@ -128,6 +128,8 @@ You can also convert a managed disks from standard to premium in Azure Protal.
 6. Change the **Account type** from **Standard HDD** to **Premium SSD**
 7. Click **Save** and close the disk blade
 
+The update of disk type is effective instantaneous. You can restart your VM after the conversion.
+
 ## Convert a managed disk from standard HDD to standard SSD
 
 The following example shows how to switch a single disk of a VM from standard HDD to standard SSD, and vice versa:
