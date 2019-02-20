@@ -47,14 +47,14 @@ The family of the host OS must always match the family of the guest OS used insi
 
 ### Tier 1
 Generally available
-| Operating System | AMD64 | ARM32 |
+| Operating System | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Raspbian-stretch | No | Yes|
 | Ubuntu Server 16.04 | Yes | No |
 | Ubuntu Server 18.04 | Yes | No |
 
 Public preview
-| Operating System | AMD64 | ARM32 |
+| Operating System | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Windows 10 IoT Core build 17763 | Yes | No |
 | Windows 10 IoT Enterprise build 17763 | Yes | No |
@@ -64,7 +64,7 @@ The Windows OSes above are the requirements for devices which run Windows contai
 
 ### Tier 2
 
-| Operating System | AMD64 | ARM32 |
+| Operating System | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | CentOS 7.5 | Yes | Yes |
 | Debian 8 | Yes | Yes |

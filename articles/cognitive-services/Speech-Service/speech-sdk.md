@@ -75,13 +75,13 @@ To consume the package from your Android Studio project, make the following chan
 
 * In the project-level build.gradle file, add the following to the `repository` section:
 
-  ```text
+  ```gradle
   maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
   ```
 
 * In the module-level build.gradle file, add the following to the `dependencies` section:
 
-  ```text
+  ```gradle
   implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.2.0'
   ```
 
