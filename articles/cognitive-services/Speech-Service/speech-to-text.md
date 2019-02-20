@@ -1,5 +1,5 @@
 ---
-title: Speech Recognition with Azure Speech Services
+title: Speech recognition with Azure Speech Services
 titleSuffix: Azure Cognitive Services
 description: Speech recognition from Azure Speech Services, also known as speech-to-text, enables real time transcription of audio streams into text that your applications, tools, or devices can consume, display, and take action on as command input. This service is powered by the same recognition technology that Microsoft uses for Cortana and Office products, and works seamlessly with the translation and speech synthesis.
 services: cognitive-services
