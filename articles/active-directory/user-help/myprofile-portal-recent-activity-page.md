@@ -20,7 +20,7 @@ You can view all of your recent sign-in activity using your work or school accou
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
-## To view your recent sign-in activity
+## View your recent sign-in activity
 1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
 
 2. Select **Recent activity** from the left navigation pane or select the **Review activity** link from the **Recent activity** block.

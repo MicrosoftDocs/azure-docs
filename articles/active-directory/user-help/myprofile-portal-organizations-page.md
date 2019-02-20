@@ -26,7 +26,7 @@ There are two types of organizations shown on the **Organizations** page:
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
-## To view your organizations
+## View your organizations
 1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
 
 2. Select **Organizations** from the left navigation pane or select the **Manage organizations** link from the **Organizations** block.
@@ -39,7 +39,7 @@ There are two types of organizations shown on the **Organizations** page:
 
 3. Review your other associated organizations, making sure you recognize all of the organizations connected to your account.
 
-## To leave an organization
+## Leave an organization
 You can leave any organization that isn't your Home organization.
 
 >[!Important]

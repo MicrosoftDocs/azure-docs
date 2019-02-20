@@ -20,7 +20,7 @@ You can manage the devices you're connected to using your work or school account
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
-## To view your connected devices
+## View your connected devices
 1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
 
 2. Select **Devices** from the left navigation pane or select the **Manage devices** link from the **Devices** block.
@@ -31,7 +31,7 @@ You can manage the devices you're connected to using your work or school account
 
     ![Device page, showing connected devices](media/myprofile-portal/myprofile-portal-devices-page.png)
 
-## To disable a device
+## Disable a device
 You can disable any of your connected devices at any time. This is especially important if a device isn't familiar to you or if a device is lost or stolen.
 
 >[!Important]
