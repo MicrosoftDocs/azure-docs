@@ -34,7 +34,7 @@ DSCForLinux Extension is published and supported by Microsoft. The extension ins
 
 ### Operating system
 
-The DSC Linux extension supports all the [Linux distributions endorsed on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros) except:
+The DSC Linux extension supports all the [Linux distributions endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) except:
 
 | Distribution | Version |
 |---|---|

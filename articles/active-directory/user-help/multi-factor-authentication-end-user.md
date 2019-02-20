@@ -13,6 +13,7 @@ ms.topic: overview
 ms.date: 06/15/2017
 ms.author: lizross
 ms.reviewer: richagi
+ms.collection: M365-identity-device-management
 ---
 
 # What does Azure Multi-Factor Authentication mean for me?

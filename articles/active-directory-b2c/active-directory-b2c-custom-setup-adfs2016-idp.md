@@ -165,7 +165,7 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
 
     | LDAP attrubute | Outgoing claim type |
     | -------------- | ------------------- |
-    | User-Principal-Name | userPricipalName |
+    | User-Principal-Name | userPrincipalName |
     | Surname | family_name |
     | Given-Name | given_name |
     | E-Mail-Address | email |

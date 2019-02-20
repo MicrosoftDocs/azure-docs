@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/04/2019
+ms.date: 02/14/2019
 ms.author: tomfitz
 
 ---
 # Outputs section in Azure Resource Manager templates
 
-In the Outputs section, you specify values that are returned from deployment. For example, you could return the URI to access a deployed resource.
+In the Outputs section, you specify values that are returned from deployment. For example, you could return the URI to access a deployed resource. Use the optional `condition` property to specify whether the output value is returned.
 
 ## Define and use output values
 
@@ -27,6 +27,18 @@ The following example shows how to return the resource ID for a public IP addres
 ```json
 "outputs": {
   "resourceID": {
+    "type": "string",
+    "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
+  }
+}
+```
+
+The next example shows how to conditionally return the resource ID for a public IP address based on whether a new one was deployed:
+
+```json
+"outputs": {
+  "resourceID": {
+    "condition": "[equals(parameters('publicIpNewOrExisting'), 'new')]",
     "type": "string",
     "value": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_name'))]"
   }
@@ -66,6 +78,7 @@ The following example shows the structure of an output definition:
 ```json
 "outputs": {
     "<outputName>" : {
+        "condition": "<boolean-value-whether-to-output-value>",
         "type" : "<type-of-output-value>",
         "value": "<output-value-expression>"
     }
@@ -75,6 +88,7 @@ The following example shows the structure of an output definition:
 | Element name | Required | Description |
 |:--- |:--- |:--- |
 | outputName |Yes |Name of the output value. Must be a valid JavaScript identifier. |
+| condition |No | Boolean value that indicates whether this output value is returned. When `true`, the value is included in the output for the deployment. When `false`, the output value is skipped for this deployment. When not specified, the default value is `true`. |
 | type |Yes |Type of the output value. Output values support the same types as template input parameters. |
 | value |Yes |Template language expression that is evaluated and returned as output value. |
 

@@ -18,6 +18,7 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 
+ms.collection: M365-identity-device-management
 ---
 # Configurable token lifetimes in Azure Active Directory (Preview)
 

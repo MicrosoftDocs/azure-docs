@@ -14,6 +14,7 @@ ms.subservice: pim
 ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: 
+ms.collection: M365-identity-device-management
 ---
 
 # Deploy Azure AD Privileged Identity Management (PIM)

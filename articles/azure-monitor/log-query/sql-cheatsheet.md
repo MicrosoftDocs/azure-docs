@@ -17,7 +17,7 @@ ms.author: bwren
 
 # SQL to Azure Monitor log query cheat sheet 
 
-The table below helps users who are familiar with SQL to learn the Data Explorer query language to write log queries in Azure Monitor. Have a look at the T-SQL command for solving a common scenarios and the equivalent in an Azure Monitor log query.
+The table below helps users who are familiar with SQL to learn the Kusto query language to write log queries in Azure Monitor. Have a look at the T-SQL command for solving a common scenarios and the equivalent in an Azure Monitor log query.
 
 ## SQL to Azure Monitor
 

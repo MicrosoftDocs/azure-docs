@@ -4,7 +4,7 @@ description: Learn about Azure Security, its services, and how it works.
 services: security
 documentationcenter: na
 author: UnifyCloud
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid:
