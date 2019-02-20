@@ -1,6 +1,6 @@
 ---
-title: Review your own access to groups or applications in Azure AD Access Reviews | Microsoft Docs
-description: Learn how to review your own access to groups or applications in Azure AD Access Reviews.
+title: Review access for yourself to groups or applications in Azure AD Access Reviews | Microsoft Docs
+description: Learn how to review your own access to groups or applications in Azure Active Directory Access Reviews.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/14/2019
+ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Review your own access to groups or applications in Azure AD Access Reviews
+# Review access for yourself to groups or applications in Azure AD Access Reviews
 
-Azure Active Directory (Azure AD) simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services with a feature called Azure AD Access Reviews. Perhaps you received an email from Microsoft that asks you to review your access.
+Azure Active Directory (Azure AD) simplifies how enterprises manage access to groups or applications in Azure AD and other Microsoft Online Services with a feature called Azure AD Access Reviews.
 
 This article describes how to review your own access to a group or an application.
 
@@ -27,7 +27,7 @@ This article describes how to review your own access to a group or an applicatio
 
 The first step to perform an access review is to find and open the access review.
 
-1. Open your email and look for an email from Microsoft that asks you to review access. Here is an example email to review your access to a group.
+1. Open your inbox and look for an email from Microsoft that asks you to review access. Here is an example email to review your access to a group.
 
     ![Review access email](./media/review-your-access/access-review-email.png)
 
@@ -55,7 +55,7 @@ Once you have opened the access review, you can see your access.
 
 1. Review your access and decide whether you still need access.
 
-    If the request is to review access for others, the page will look different. For more information, see [Start an access review](perform-access-review.md).
+    If the request is to review access for others, the page will look different. For more information, see [Review access](perform-access-review.md).
 
     ![Perform access review](./media/review-your-access/perform-access-review.png)
 

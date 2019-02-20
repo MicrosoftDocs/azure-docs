@@ -1,6 +1,6 @@
 ---
-title: Start an access review of groups or applications in Azure AD Access Reviews | Microsoft Docs
-description: Learn how to start an access review of group members or application access in Azure AD Access Reviews.
+title: Review access to groups or applications in Azure AD Access Reviews | Microsoft Docs
+description: Learn how to review access of group members or application access in Azure Active Directory Access Reviews.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/14/2019
+ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
-# Start an access review of groups or applications in Azure AD Access Reviews
+# Review access to groups or applications in Azure AD Access Reviews
 
-Azure Active Directory (Azure AD) simplifies how enterprises manage access to applications and members of groups in Azure AD and other Microsoft Online Services with a feature called Azure AD Access Reviews. Perhaps you received an email from Microsoft that asks you to review access.
+Azure Active Directory (Azure AD) simplifies how enterprises manage access to groups and applications in Azure AD and other Microsoft Online Services with a feature called Azure AD Access Reviews.
 
 This article describes how to perform an access review for members of a group or users with access to an application.
 
@@ -27,7 +27,7 @@ This article describes how to perform an access review for members of a group or
 
 The first step to perform an access review is to find and open the access review.
 
-1. Open your email and look for an email from Microsoft that asks you to review access. Here is an example email to review the access for a group.
+1. Open your inbox and look for an email from Microsoft that asks you to review access. Here is an example email to review the access for a group.
 
     ![Review access email](./media/perform-access-review/access-review-email.png)
 
@@ -53,7 +53,7 @@ If you don't have the email, you can open your access reviews by following these
 
 Once you have opened the access review, you see the names of users who need to be reviewed.
 
-If the request is to review your own access, the page will look different. For more information, see [Review your own access](review-your-access.md).
+If the request is to review your own access, the page will look different. For more information, see [Review access for yourself](review-your-access.md).
 
 ![Perform access review](./media/perform-access-review/perform-access-review.png)
 
@@ -62,7 +62,7 @@ There are two ways that you can approve or deny access:
 - You can approve and deny each request individually, or
 - You can accept the system recommendations, which is the easiest and quickest way.
 
-### Review each request
+### Approve or deny access for each request
 
 1. Review the list of users to decide whether to approve or deny their continued access.
 
@@ -81,7 +81,7 @@ There are two ways that you can approve or deny access:
     > [!NOTE]
     > If a user is denied access, they aren't removed immediately. They are removed when the review is finished or when an administrator stops the review.
 
-### Review the easy way
+### Approve or deny access based on recommendations
 
 To make access reviews easier and faster for you, we also provide recommended actions that you can accept with a single click. The recommended actions are generated based on your sign-in and the user's activity, so you can have confidence in the recommendations.
 
