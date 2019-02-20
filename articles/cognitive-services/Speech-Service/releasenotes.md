@@ -56,6 +56,7 @@ The following new content is available in our [sample repository](https://aka.ms
 * SessionId's created by the SDK were not always truly random for some languages&nbsp;/ environments. Added random generator initialization to fix this.
 * Improve handling of authorization token. If you want to use an authorization token, specify in the SpeechConfig and leave the subscription key empty. Then create the recognizer as usual.
 * In some cases the Connection object wasn't released correctly. This has been fixed.
+* The JavaScript sample was fixed to support audio output for translation synthesis also on Safari.
 
 ## Speech SDK 1.2.1
 
