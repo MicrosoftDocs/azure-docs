@@ -298,8 +298,6 @@ If you use network security groups, you must allow traffic from the Azure health
 
 For more information, see the [Controlling network traffic](#networktraffic) section.
 
-For outbound NSG rules, allow traffic from Any source inside the VNET to reach the above addresses as "Desitnation IP addresses".
-
 If you are using user-defined routes(UDRs), you should specify a route and allow outbound traffic from the VNET to the above IPs with the next hop set to "Internet".
     
 ## <a id="hdinsight-ports"></a> Required ports
