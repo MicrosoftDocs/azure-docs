@@ -50,7 +50,7 @@ After the new Machine Learning Studio workspace is created, you can sign in to M
 
    ![Delete cookies](media/troubleshooting-creating-ml-workspace/screen6.png)
 
-After the cookies are deleted, restart the browser and then go to the [Microsoft Azure Machine Learning](https://studio.azureml.net) page. When you are prompted for a user name and password, enter the same Microsoft account you used to create the workspace.
+After the cookies are deleted, restart the browser and then go to the [Microsoft Azure Machine Learning Studio](https://studio.azureml.net) page. When you are prompted for a user name and password, enter the same Microsoft account you used to create the workspace.
 
 ## Comments
 
