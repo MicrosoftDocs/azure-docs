@@ -35797,6 +35797,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/expressroute/expressroute-global-reach-app-scenario.md",
+      "redirect_url": "/azure/expressroute/expressroute-global-reach",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/classic/index.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/index",
       "redirect_document_id": false
@@ -35950,10 +35955,17 @@
       "source_path": "articles/cognitive-services/LUIS/luis-reference-faq.md",
       "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
       "redirect_document_id": true
-    },{
+    },
+    {
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization.md",
       "redirect_url": "/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-integrate-with-other-services.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-data-scenarios",
+      "redirect_document_id": false
     }
+    
   ]
 }
