@@ -41,6 +41,7 @@ ms.author: sedusch
 
 [suse-ha-guide]:https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
 [suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
+[suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
 
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
@@ -74,6 +75,7 @@ Read the following SAP Notes and papers first
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
 * [SUSE SAP HA Best Practice Guides][suse-ha-guide]
   The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
+* [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
 
 ## Overview
 
