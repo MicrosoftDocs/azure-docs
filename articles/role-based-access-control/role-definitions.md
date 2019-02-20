@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2019
+ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
@@ -142,7 +142,7 @@ Storage Blob Data Contributor (Preview)
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Since Alice has a wildcard (`*`) action at a subscription scope, her permissions inherit down to enable her to perform all management actions. However, Alice cannot perform data operations. For example, by default, Alice cannot read the blobs inside a container, but she can read, write, and delete containers.
+Since Alice has a wildcard (`*`) action at a subscription scope, her permissions inherit down to enable her to perform all management actions. Alice can read, write, and delete containers. However, Alice cannot perform data operations without taking additional steps. For example, by default, Alice cannot read the blobs inside a container. To read the blobs, Alice would have to retrieve the storage access keys and use them to access the blobs.
 
 Bob's permissions are restricted to just the `Actions` and `DataActions` specified in the [Storage Blob Data Contributor (Preview)](built-in-roles.md#storage-blob-data-contributor-preview) role. Based on the role, Bob can perform both management and data operations. For example, Bob can read, write, and delete containers in the specified storage account and he can also read, write, and delete the blobs.
 

@@ -38,7 +38,7 @@ The benefits of accelerated networking only apply to the VM that it is enabled o
 
 ## Supported operating systems
 The following distributions are supported out of the box from the Azure Gallery: 
-* **Ubuntu 16.04** 
+* **Ubuntu 16.04+** 
 * **SLES 12 SP3** 
 * **RHEL 7.4**
 * **CentOS 7.4**

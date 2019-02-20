@@ -10,7 +10,7 @@ ms.date: 01/23/19
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/23/19
-keywords:
+
 ---
 
 # Azure Stack datacenter integration - Identity

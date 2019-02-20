@@ -59,7 +59,7 @@ The following table compares options for storing logs and adding in-depth monito
 | [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Logged events and query metrics, based one the schemas below. Events are logged to a Blob container and stored in JSON files. Use a JSON editor to view file contents.|
 | [Event Hub](https://docs.microsoft.com/azure/event-hubs/) | Logged events and query metrics, based on the schemas documented in this article. Choose this as an alternative data collection service for very large logs. |
 
-Both Log Analytics and Blob storage are available as a Free shared service so that you can try it out at no charge for the lifetime of your Azure subscription. Application Insights is free to sign up and use as long as application data size is under certain limits (see the [pricing page](https://azure.microsoft.com/ricing/details/monitor/) for details).
+Both Log Analytics and Blob storage are available as a Free shared service so that you can try it out at no charge for the lifetime of your Azure subscription. Application Insights is free to sign up and use as long as application data size is under certain limits (see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details).
 
 The next section walks you through the steps of enabling and using Azure Blob storage to collect and access log data created by Azure Search operations.
 

@@ -50,7 +50,7 @@ Azure Migrate currently supports Europe, United States, and Azure Government as 
 Azure Government | US Gov Virginia
 Asia | Southeast Asia
 Europe | North Europe or West Europe
-Unites States | East US of West Central US
+Unites States | East US or West Central US
 
 ### How does the on-premises site connect to Azure Migrate?
 

@@ -50,7 +50,7 @@ For more information about activity logs, see [View events in activity log](/azu
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-To view activity logs with Azure PowerShell, use the [Get-AzLog](/powershell/module/az.insights/get-azlog) command.
+To view activity logs with Azure PowerShell, use the [Get-AzLog](/powershell/module/Az.Monitor/Get-AzLog) command.
 
 This command lists all role assignment changes in a subscription for the past seven days:
 

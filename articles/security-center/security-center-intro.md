@@ -4,7 +4,7 @@ description: Learn about Azure Security Center, its key capabilities, and how it
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa

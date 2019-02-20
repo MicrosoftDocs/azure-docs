@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn concepts related to the image categorization feature of the Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision

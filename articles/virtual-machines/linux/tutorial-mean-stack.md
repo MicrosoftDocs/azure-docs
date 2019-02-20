@@ -40,7 +40,7 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create a Linux VM
 
-Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) command and create a Linux VM with the [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a resource group with the [az group create](https://docs.microsoft.com/cli/azure/group) command and create a Linux VM with the [az vm create](https://docs.microsoft.com/cli/azure/vm) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 The following example uses the Azure CLI to create a resource group named *myResourceGroupMEAN* in the *eastus* location. A VM is created named *myVM* with SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the --ssh-key-value option.
 
@@ -132,7 +132,7 @@ sudo apt-get install -y nodejs
 
 6. Create a folder named *Books* and add a file to it named *server.js* that contains the configuration for the web server.
 
-    ```node.js
+    ```javascript
     var express = require('express');
     var bodyParser = require('body-parser');
     var app = express();
@@ -157,7 +157,7 @@ sudo apt-get install -y nodejs
 
 2. In the *Books* folder, create a folder named *apps* and add a file named *routes.js* with the express routes defined.
 
-    ```node.js
+    ```javascript
     var Book = require('./models/book');
     module.exports = function(app) {
       app.get('/book', function(req, res) {
@@ -199,7 +199,7 @@ sudo apt-get install -y nodejs
 
 3. In the *apps* folder, create a folder named *models* and add a file named *book.js* with the book model configuration defined.  
 
-    ```node.js
+    ```javascript
     var mongoose = require('mongoose');
     var dbHost = 'mongodb://localhost:27017/test';
     mongoose.connect(dbHost);
@@ -221,7 +221,7 @@ sudo apt-get install -y nodejs
 
 1. Change the directory back up to *Books* (`cd ../..`), and then create a folder named *public* and add a file named *script.js* with the controller configuration defined.
 
-    ```node.js
+    ```javascript
     var app = angular.module('myApp', []);
     app.controller('myCtrl', function($scope, $http) {
       $http( {

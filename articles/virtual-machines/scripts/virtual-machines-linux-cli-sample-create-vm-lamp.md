@@ -52,13 +52,13 @@ This script uses the following commands to create a resource group, virtual mach
 | Command | Notes |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Creates a resource group in which all resources are stored. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az_vmss_create) | Creates a virtual machine scale set |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | Add a load-balanced endpoint |
-| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | Create the extension that runs the custom script on deployment of a VM |
-| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | Run the custom script on the VM instances that were deployed before the extension was applied to the scale set. |
-| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | Scale up the scale set by adding more VM instances. The custom script is run on these when they are deployed. |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | Creates a virtual machine scale set |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule) | Add a load-balanced endpoint |
+| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension) | Create the extension that runs the custom script on deployment of a VM |
+| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss) | Run the custom script on the VM instances that were deployed before the extension was applied to the scale set. |
+| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss) | Scale up the scale set by adding more VM instances. The custom script is run on these when they are deployed. |
 | [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) | Get the IP addresses of the VMs created by the sample. |
-| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | Get the frontend and backend ports used by the load balancer. |
+| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb) | Get the frontend and backend ports used by the load balancer. |
 
 ## Next steps
 

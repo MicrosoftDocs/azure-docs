@@ -5,7 +5,7 @@ description: Use the pattern.any entity to extract data from utterances where th
 services: cognitive-services
 ms.custom: seodec18
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial

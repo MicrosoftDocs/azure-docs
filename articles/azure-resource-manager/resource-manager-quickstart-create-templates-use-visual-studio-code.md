@@ -25,8 +25,6 @@ Learn how to use Visual Studio code and the Azure Resource Manager Tools extensi
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Prerequisites
 
 To complete this article, you need:
@@ -92,6 +90,9 @@ To experience how to edit a template using Visual Studio Code, you add one more 
 
 There are many methods for deploying templates.  In this quickstart, you use the Azure Cloud shell. The Cloud shell is a web application, which doesn't require any configuration. It supports both Azure CLI and Azure PowerShell.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+
 1. Sign in to the [Azure Cloud shell](https://shell.azure.com)
 
     ![Azure portal Cloud shell CLI](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
@@ -127,23 +128,20 @@ There are many methods for deploying templates.  In this quickstart, you use the
     ```azurecli
     echo "Enter the Resource Group name:" &&
     read resourceGroupName &&
-    echo "Enter the name for this deployment:" &&
-    read deploymentName &&
     echo "Enter the location (i.e. centralus):" &&
     read location &&
     az group create --name $resourceGroupName --location $location &&
-    az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file "azuredeploy.json"
+    az group deployment create --resource-group $resourceGroupName --template-file "azuredeploy.json"
     ```
    
     # [PowerShell](#tab/PowerShell)
     
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     
     New-AzResourceGroup -Name $resourceGroupName -Location $location
-    New-AzResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
     ```
     
     ---

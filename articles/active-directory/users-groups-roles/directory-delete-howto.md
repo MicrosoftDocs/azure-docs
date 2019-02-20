@@ -16,6 +16,7 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 # Delete an Azure Active Directory tenant
 

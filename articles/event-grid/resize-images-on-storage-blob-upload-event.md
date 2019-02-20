@@ -100,7 +100,7 @@ Now you must configure the function app to connect to the Blob storage account y
 
 ## Configure the function app
 
-The function needs the connection string to connect to the Blob storage account. The function code that you deploy to Azure in the following step looks for the connection string in the app setting myblobstorage_STORAGE, and it looks for the thumbnail image container name in app setting myContainerName. Get the connection string with the [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) command. Set application settings with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#set) command.
+The function needs the connection string to connect to the Blob storage account. The function code that you deploy to Azure in the following step looks for the connection string in the app setting myblobstorage_STORAGE, and it looks for the thumbnail image container name in app setting myContainerName. Get the connection string with the [az storage account show-connection-string](/cli/azure/storage/account) command. Set application settings with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) command.
 
 In the following CLI commands, `<blob_storage_account>` is the name of the Blob storage account you created in the previous tutorial.
 
@@ -123,7 +123,7 @@ You can now deploy a function code project to this function app.
 
 # [\.NET](#tab/dotnet)
 
-The sample C# script (.csx) resize is available on [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) command. 
+The sample C# script (.csx) resize is available on [GitHub](https://github.com/Azure-Samples/function-image-upload-resize). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) command. 
 
 In the following command, `<function_app>` is the name of the function app you created earlier.
 
@@ -132,7 +132,7 @@ az functionapp deployment source config --name $functionapp --resource-group $re
 ```
 
 # [Node.js](#tab/nodejs)
-The sample Node.js resize function is available on [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) command.
+The sample Node.js resize function is available on [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Deploy this Functions code project to the function app by using the [az functionapp deployment source config](/cli/azure/functionapp/deployment/source) command.
 
 In the following command, `<function_app>` is the name of the function app you created earlier.
 

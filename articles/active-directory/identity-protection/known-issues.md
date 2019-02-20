@@ -18,6 +18,7 @@ ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: raluthra
 
+ms.collection: M365-identity-device-management
 ---
 # FAQs and known issues with identity protection (refreshed) in Azure Active Directory
 

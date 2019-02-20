@@ -14,6 +14,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: mal
 
+ms.collection: M365-identity-device-management
 ---
 
 # How users in your organization can invite guest users to an app

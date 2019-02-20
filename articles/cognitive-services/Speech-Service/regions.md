@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Reference for regions of the Speech Service.
 services: cognitive-services
 author: mahilleb-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
