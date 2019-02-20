@@ -67,7 +67,7 @@ For nodes running Windows, the following versions are supported.
 For nodes running Linux, the following distros/versions are supported.
 
 The DSC Linux extension supports all the Linux distributions
-[endorsed on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/endorsed-distros)
+[endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
 except:
 
 Distribution | Version
@@ -78,9 +78,9 @@ Ubuntu	| 18.04
 ### DSC requirements
 
 For all Windows nodes running in Azure,
-[WMF 5.1](https://docs.microsoft.com/en-us/powershell/wmf/5.1/install-configure)
+[WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure)
 will be installed during onboarding.  For nodes running Windows Server 2012 and Windows 7,
-[WinRM will be enabled](https://docs.microsoft.com/en-us/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+[WinRM will be enabled](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
 For all Linux nodes running in Azure,
 [PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux)
@@ -134,7 +134,7 @@ State Configuration was first announced.
 > Configuration has progressed a lot since this video was recorded. It is now generally available,
 > has a much more extensive UI in the Azure portal, and supports many additional capabilities.
 
-[!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
+![VIDEO](https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player)
 
 ## Next steps
 
