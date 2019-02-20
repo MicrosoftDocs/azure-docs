@@ -20,9 +20,9 @@ For example, let's say you own a global bike rental franchise business. You want
 
 You could train your model once using a merged version of all the datasets across all locations. But, each of your locations has a unique environment. So a better approach would be to train your regression model separately using the dataset for each location. That way, each trained model could take into account the different store sizes, volume, geography, population, bike-friendly traffic environment, and more.
 
-That may be the best approach, but you don't want to create 1,000 training experiments in Azure Machine Learning with each one representing a unique location. Besides being an overwhelming task, it also seems inefficient since each experiment would have all the same components except for the training dataset.
+That may be the best approach, but you don't want to create 1,000 training experiments in Azure Machine Learning Studio with each one representing a unique location. Besides being an overwhelming task, it also seems inefficient since each experiment would have all the same components except for the training dataset.
 
-Fortunately, you can accomplish this by using the [Azure Machine Learning retraining API](retrain-models-programmatically.md) and automating the task with [Azure Machine Learning PowerShell](powershell-module.md).
+Fortunately, you can accomplish this by using the [Azure Machine Learning Studio retraining API](retrain-models-programmatically.md) and automating the task with [Azure Machine Learning Studio PowerShell](powershell-module.md).
 
 > [!NOTE]
 > To make your sample run faster, reduce the number of locations from 1,000 to 10. But the same principles and procedures apply to 1,000 locations. However, if you do want to train from 1,000 datasets you might want to run the following PowerShell scripts in parallel. How to do that is beyond the scope of this article, but you can find examples of PowerShell multi-threading on the Internet.  
