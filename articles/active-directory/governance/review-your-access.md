@@ -27,13 +27,13 @@ This article describes how to review your own access to a group or an applicatio
 
 The first step to perform an access review is to find and open the access review.
 
-1. Open your inbox and look for an email from Microsoft that asks you to review access. Here is an example email to review your access to a group.
+1. Look for an email from Microsoft that asks you to review access. Here is an example email to review your access to a group.
 
     ![Review access email](./media/review-your-access/access-review-email.png)
 
-1. Click the **Review access >** link to open the access review.
+1. Click the **Review access** link to open the access review.
 
-If you don't have the email, you can open your access reviews by following these steps.
+If you don't have the email, you can find your pending access reviews by following these steps.
 
 1. Sign in to the MyApps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
@@ -69,10 +69,10 @@ Once you have opened the access review, you can see your access.
 
     Your selection is submitted and you returned to the MyApps portal.
 
-    If you want to change your response, re-open the access reviews page and update your response. You can do this step until the access review is finished.
+    If you want to change your response, re-open the access reviews page and update your response. You can change your response at any time until the access review is ended.
 
     > [!NOTE]
-    > If you indicated that you no longer need access, you aren't removed immediately. You are removed when the review is finished or when an administrator stops the review.
+    > If you indicated that you no longer need access, you aren't removed immediately. You are removed when the review is ended or when an administrator stops the review.
 
 ## Next steps
 

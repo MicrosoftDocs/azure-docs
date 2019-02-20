@@ -21,19 +21,19 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) simplifies how enterprises manage access to groups and applications in Azure AD and other Microsoft Online Services with a feature called Azure AD Access Reviews.
 
-This article describes how to perform an access review for members of a group or users with access to an application.
+This article describes how a designated reviewer performs an access review for members of a group or users with access to an application.
 
 ## Open the access review
 
 The first step to perform an access review is to find and open the access review.
 
-1. Open your inbox and look for an email from Microsoft that asks you to review access. Here is an example email to review the access for a group.
+1. Look for an email from Microsoft that asks you to review access. Here is an example email to review the access for a group.
 
     ![Review access email](./media/perform-access-review/access-review-email.png)
 
-1. Click the **Start review >** link to open the access review.
+1. Click the **Start review** link to open the access review.
 
-If you don't have the email, you can open your access reviews by following these steps.
+If you don't have the email, you can find your pending access reviews by following these steps.
 
 1. Sign in to the MyApps portal at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
@@ -53,7 +53,7 @@ If you don't have the email, you can open your access reviews by following these
 
 Once you have opened the access review, you see the names of users who need to be reviewed.
 
-If the request is to review your own access, the page will look different. For more information, see [Review access for yourself](review-your-access.md).
+If the request is to review your own access, the page will look different. For more information, see [Review access for yourself to groups or applications](review-your-access.md).
 
 ![Perform access review](./media/perform-access-review/perform-access-review.png)
 
@@ -68,22 +68,22 @@ There are two ways that you can approve or deny access:
 
 1. To approve or deny each request, click the row to open the window to specify the action to take.
 
-1. Click **Approve** or **Deny**. (If you don't know the user, you can indicate that too.)
+1. Click **Approve** or **Deny**. If you unsure, you can click **Don't know**. Doing so will result in the user maintaining his/her access but the selection will be reflected in the audit logs.
 
     ![Perform access review](./media/perform-access-review/approve-deny.png)
 
-    The reviewer might require that you supply a reason for approving continued access or group membership.
+    The administrator of the access review might require that you supply a reason for approving continued access or group membership.
 
 1. Once you have specified the action to take, click **Save**.
 
-    If you want to change your response, for example, and approve a previously denied user or deny a previously approved user, select the row and update the response. You can do this step until the access review is finished. If there are multiple reviewers, the last submitted response would be recorded.
+    If you want to change your response, select the row and update the response. For example, you can approve a previously denied user or deny a previously approved user. You can change your response at any time until the access review is ended. If there are multiple reviewers, the last submitted response would be recorded.
 
     > [!NOTE]
-    > If a user is denied access, they aren't removed immediately. They are removed when the review is finished or when an administrator stops the review.
+    > If a user is denied access, they aren't removed immediately. They are removed when the review is ended or when an administrator stops the review.
 
 ### Approve or deny access based on recommendations
 
-To make access reviews easier and faster for you, we also provide recommended actions that you can accept with a single click. The recommended actions are generated based on your sign-in and the user's activity, so you can have confidence in the recommendations.
+To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. The recommendations are generated based on the user's sign-in activity.
 
 1. In the blue bar at the bottom of the page, click **Accept recommendations**.
 
