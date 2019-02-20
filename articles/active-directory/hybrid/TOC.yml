@@ -232,6 +232,8 @@
       href: how-to-connect-health-operations.md
     - name: Use Azure AD Connect Health with AD FS
       href: how-to-connect-health-adfs.md
+    - name: Risky IP report for Azure AD Connect Health with AD FS
+      href: how-to-connect-health-adfs-risky-ip.md
     - name: Use Azure AD Connect Health for sync
       href: how-to-connect-health-sync.md
     - name: Use Azure AD Connect Health with AD DS
