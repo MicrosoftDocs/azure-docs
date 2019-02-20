@@ -6,7 +6,7 @@
 
     ![Create topic](./media/service-bus-create-topics-subscriptions-portal/create-topic.png)
 
-## Create a subscription to the topic
+## Create subscriptions to the topic
 1. Select the **topic** that you created in the previous section. 
     
     ![Select topic](./media/service-bus-create-topics-subscriptions-portal/select-topic.png)
