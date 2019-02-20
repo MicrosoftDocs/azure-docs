@@ -54,6 +54,7 @@ This section describes the most common deployment architectures for a multi-tier
 * **Single instance VMs deployed across various tiers**: Each VM in a tier is configured as a single instance VM and is connected by load balancers to the other tiers. This configuration is the simplest  to adopt.
 
      ![single-VMs](media/move-vm-overview/regular-deployment.PNG)
+
 * **VMs in each tier deployed across availability set**: Each VM in a tier is configured in an availability set. [Availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. This ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are impacted, and your overall solution remains available and operational.
 
      ![avset](media/move-vm-overview/AVset.PNG)
