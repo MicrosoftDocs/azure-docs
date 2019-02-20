@@ -41,10 +41,10 @@ You can get to the **My Profile** portal by going to https://myprofile.microsoft
 - Firefox
 - Internet Explorer 11
 
-![My Profile portal, Overview page](media/myprofile-portal/myprofile-portal-overview-page.png)
+    ![My Profile portal, Overview page](media/myprofile-portal/myprofile-portal-overview-page.png)
 
 ## In this section
-You can find more information about the**My Profile** portal and its pages, in the following articles.
+You can find more information about the **My Profile** portal and its pages, in the following articles.
 
 |Article |Description |
 |------|------------|
