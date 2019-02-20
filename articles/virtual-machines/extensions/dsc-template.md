@@ -47,7 +47,7 @@ For more information, see
   "properties": {
     "publisher": "Microsoft.Powershell",
     "type": "DSC",
-    "typeHandlerVersion": "2.76",
+    "typeHandlerVersion": "2.77",
     "autoUpgradeMinorVersion": true,
     "protectedSettings": {
       "Items": {
@@ -98,7 +98,7 @@ see [VirtualMachineScaleSetExtension class](/dotnet/api/microsoft.azure.manageme
         "properties": {
           "publisher": "Microsoft.Powershell",
           "type": "DSC",
-          "typeHandlerVersion": "2.76",
+          "typeHandlerVersion": "2.77",
           "autoUpgradeMinorVersion": true,
           "protectedSettings": {
             "Items": {
