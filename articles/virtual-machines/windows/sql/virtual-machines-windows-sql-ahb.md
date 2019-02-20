@@ -118,6 +118,7 @@ You can use Azure CLI to change your licensing model.
 
 The following code snippet switches your pay-as-you-go license model to BYOL (or using Azure Hybrid Benefit):
 ```azurecli
+# Switch  your SQL Server VM license from pay-as-you-go to bring-your-own
 # example: az sql vm update -n AHBTest -g AHBTest --license-type AHUB
 
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
@@ -125,6 +126,7 @@ az sql vm update -n <VMName> -g <ResourceGroupName> --license-type AHUB
 
 The following code snippet switches your BYOL model to pay-as-you-go: 
 ```azurecli
+# Switch  your SQL Server VM license from bring-your-own to pay-as-you-go
 # example: az sql vm update -n AHBTest -g AHBTest --license-type PAYG
 
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
@@ -135,6 +137,7 @@ You can use PowerShell to change your licensing model.
 
 The following code snippet switches your pay-as-you-go license model to BYOL (or using Azure Hybrid Benefit): 
 ```PowerShell
+# Switch  your SQL Server VM license from pay-as-you-go to bring-your-own
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
 
 $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
@@ -148,6 +151,7 @@ $SqlVm | Set-AzResource -Force
 
 The following code snippet switches your BYOL model to pay-as-you-go:
 ```PowerShell
+# Switch  your SQL Server VM license from bring-your-own to pay-as-you-go
 #example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
 
 $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
