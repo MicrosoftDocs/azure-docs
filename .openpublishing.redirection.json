@@ -30110,12 +30110,12 @@
     },
     {
       "source_path": "articles/cognitive-services/Bing-Spell-Check/bing-spell-check-resource-faq.md",
-      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/using-spell-check",
+      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/concepts/using-spell-check",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Bing-Spell-Check/quick-start.md",
-      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/sending-requests",
+      "redirect_url": "/azure/cognitive-services/Bing-Spell-Check/concepts/sending-requests",
       "redirect_document_id": true
     },
     {
