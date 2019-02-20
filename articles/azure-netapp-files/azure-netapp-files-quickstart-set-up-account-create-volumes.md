@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstarts 
-ms.date: 12/17/2018
+ms.date: 2/20/2019
 ms.author: b-juche
 ---
 # Set up Azure NetApp Files and create a volume 
@@ -26,7 +26,7 @@ You need to be part of the Public Preview program and whitelisted for accessing 
 
 ## Register for Azure NetApp Files and NetApp Resource Provider
 
-1. From the Azure portal, click the Azure Cloud Shell icon on the upper right-hand corner:
+1. From the Azure portal, click the Azure Cloud Shell icon on the upper right-hand corner.
 
       ![Azure Cloud Shell icon](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
 
@@ -36,11 +36,13 @@ You need to be part of the Public Preview program and whitelisted for accessing 
 
 3. Register the Azure Resource Provider: 
     
-        az provider register --namespace Microsoft.NetApp --wait
+        az provider register --namespace Microsoft.NetApp --wait  
+
+    The registration process can take some time to complete.
 
 ## Create a NetApp account
 
-1. In the Azure portal’s search box, enter **Azure NetApp Files** and then select **Azure NetApp Files** from the list that appears.
+1. In the Azure portal’s search box, enter **Azure NetApp Files** and then select **Azure NetApp Files (preview)** from the list that appears.
 
       ![Select Azure NetApp Files](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 
@@ -94,7 +96,7 @@ You need to be part of the Public Preview program and whitelisted for accessing 
 3. In the Create a Volume window, provide information for the volume: 
     1. Enter **myvol1** as the volume name. 
     2. Enter **myfilepath1** as the file path that will be used to create the export path for the volume.
-    3. Select your capacity pool, **mypool1**.
+    3. Select your capacity pool (**mypool1**).
     4. Use the default value for quota. 
     5. Under virtual network, click **Create new** to create a new Azure virtual network (Vnet).  Then fill in the following information:
         * Enter **myvnet1** as the Vnet name.
