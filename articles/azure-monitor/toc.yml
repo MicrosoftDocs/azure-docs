@@ -314,6 +314,8 @@
           href: app/asp-net-exceptions.md
         - name: Log traces
           href: app/asp-net-trace-logs.md
+        - name: ILogger
+          href: app/ilogger.md
         - name: Performance counters
           href: app/performance-counters.md
         - name: Dependencies
