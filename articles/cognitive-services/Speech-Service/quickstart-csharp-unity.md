@@ -12,11 +12,11 @@ ms.date: 2/20/2019
 ms.author: wolfma
 ---
 
-# Quickstart: Recognize speech with the Speech SDK for Unity (beta)
+# Quickstart: Recognize speech with the Speech SDK for Unity (Beta)
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Use this guide to create a speech-to-text application using [Unity](https://unity3d.com/) and the Speech SDK for Unity (beta).
+Use this guide to create a speech-to-text application using [Unity](https://unity3d.com/) and the Speech SDK for Unity (Beta).
 When finished, you can use your computer's microphone to transcribe speech to text in real time.
 If you are not familiar with Unity, it is recommended to study the [Unity User Manual](https://docs.unity3d.com/Manual/UnityManual.html) before starting your application development.
 
@@ -44,7 +44,7 @@ To complete this project, you'll need:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-* The Speech SDK for Unity (beta) is packaged as a Unity asset package (.unitypackage).
+* The Speech SDK for Unity (Beta) is packaged as a Unity asset package (.unitypackage).
   Download it from [here](https://aka.ms/csspeech/unitypackage).
 * Import the Speech SDK by selecting **Assets** > **Import Package** > **Custom Package**.
   Check out the [Unity documentation](https://docs.unity3d.com/Manual/AssetPackages.html) for details.

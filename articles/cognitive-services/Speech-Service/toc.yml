@@ -135,6 +135,9 @@
     href: prepare-transcription.md
   - name: Use custom audio streams
     href: how-to-use-audio-input-streams.md
+  - name: Select an audio input device
+    href: how-to-select-audio-input-devices.md
+    displayName: audio, microphone, input, device
   - name: Migrate
     items:
     - name: From Bing Speech
@@ -176,9 +179,6 @@
   - name: Speech synthesis markup
     href: speech-synthesis-markup.md
     displayName: synthesize speech, speech synthesis, text to speech, tts
-  - name: Audio input device selection in the Speech SDK
-    href: sdk-device-selection.md
-    displayName: audio, microphone, input, device
 - name: Resources
   items:
   - name: FAQ

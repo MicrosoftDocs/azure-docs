@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 **New Features**
 
-* The Speech SDK supports selection of the input microphone through the AudioConfig class. This allows to stream audio data to the Speech Service from a non-default microphone. For more details see the documentation describing [audio input device selection](sdk-device-selection.md). This is not yet available from JavaScript.
+* The Speech SDK supports selection of the input microphone through the AudioConfig class. This allows to stream audio data to the Speech Service from a non-default microphone. For more details see the documentation describing [audio input device selection](how-to-select-audio-input-devices.md). This is not yet available from JavaScript.
 * The Speech SDK now supports Unity in a beta version. Please provide feedback through the issue section in the [GitHub sample repository](https://aka.ms/csspeech/samples). This release supports Unity on Windows x86 and x64 (desktop or Universal Windows Platform applications), and Android (ARM32/64, x86). More information is available in our [Unity quickstart](quickstart-csharp-unity.md).
 
 **Samples**

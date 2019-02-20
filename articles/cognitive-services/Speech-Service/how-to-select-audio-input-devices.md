@@ -1,7 +1,7 @@
 ---
-title: 'Audio input device selection in the Speech SDK - Speech Services'
+title: How to select an audio input device with the Speech SDK - Speech Services
 titleSuffix: Azure Cognitive Services
-description: Learn about selecting audio input device in the Speech SDK.
+description: Learn about selecting audio input devices in the Speech SDK.
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 2/20/2019
 ms.author: chlandsi
 ---
 
-# Audio input device selection in the Speech SDK
+# How to select an audio input device with the Speech SDK 
 
-Version 1.3.0 of the Speech SDK introduces an API to select the audio input (note: this is not yet available from JavaScript).
+Version 1.3.0 of the Speech SDK introduces an API to select the audio input
 This article describes how to obtain the IDs of the audio devices connected to a system.
 These can then be used in the Speech SDK by configuring the audio device through the `AudioConfig` object:
 
@@ -37,6 +37,8 @@ audioConfig = AudioConfiguration.FromMicrophoneInput("<device id>");
 ```Java
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
+
+> [!NOTE] This functionality is not yet available from JavaScript.
 
 ## Audio device IDs on Windows for Desktop applications
 
