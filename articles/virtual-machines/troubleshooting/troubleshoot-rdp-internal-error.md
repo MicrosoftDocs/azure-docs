@@ -62,7 +62,7 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
     1. Stop the service for the application that is using the 3389 service:
 
-            Stop-Service -Name <ServiceName>
+            Stop-Service -Name <ServiceName> -Force
 
     2. Start the terminal service:
 
@@ -72,13 +72,15 @@ Connect to [Serial Console and open PowerShell instance](./serial-console-window
 
     1. Change the port:
 
-        Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
+            Set-ItemProperty -Path 'HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name PortNumber -value <Hexportnumber>
 
-        Stop-Service -Name Termservice Start-Service -Name Termservice
+            Stop-Service -Name Termservice 
+            
+            Start-Service -Name Termservice -Force
 
     2. Set the firewall for the new port:
 
-        Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
+            Set-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP" -LocalPort <NEW PORT (decimal)>
 
     3. [Update the network security group for the new port](../../virtual-network/security-overview.md) in the Azure portal RDP port.
 
