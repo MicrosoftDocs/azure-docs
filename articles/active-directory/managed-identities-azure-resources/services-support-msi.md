@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: daveba
+ms.collection: M365-identity-device-management
 ---
 
 # Services that support managed identities for Azure resources

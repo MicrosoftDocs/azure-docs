@@ -17,6 +17,7 @@ ms.date: 01/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Accounts and permissions
 
@@ -84,7 +85,7 @@ The following is a summary of the express installation wizard pages, the credent
 
 | Wizard Page | Credentials Collected | Permissions Required | Used For |
 | --- | --- | --- | --- |
-| N/A |User running the installation wizard |Administrator of the local server |<li>Creates the ADSync service account account that is used as to run the synchronization service. |
+| N/A |User running the installation wizard |Administrator of the local server |<li>Creates the ADSync service account that is used as to run the synchronization service. |
 | Connect to Azure AD |Azure AD directory credentials |Global administrator role in Azure AD |<li>Enabling sync in the Azure AD directory.</li>  <li>Creation of the Azure AD Connector account that is used for on-going sync operations in Azure AD.</li> |
 | Connect to AD DS |On-premises Active Directory credentials |Member of the Enterprise Admins (EA) group in Active Directory |<li>Creates the AD DS Connector account in Active Directory and grants permissions to it. This created account is used to read and write directory information during synchronization.</li> |
 

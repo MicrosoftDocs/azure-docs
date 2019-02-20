@@ -12,6 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
+ms.collection: M365-identity-device-management
 ---
 # Integrate RADIUS authentication with Azure Multi-Factor Authentication Server
 

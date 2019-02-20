@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Learn the attributes you can use with the Affiliation entity in the Academic Knowledge API.
 services: cognitive-services
 author: alch-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: academic-knowledge

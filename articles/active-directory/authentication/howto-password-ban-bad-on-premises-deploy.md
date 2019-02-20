@@ -12,6 +12,7 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
+ms.collection: M365-identity-device-management
 ---
 
 # Preview: Deploy Azure AD Password Protection
@@ -49,15 +50,18 @@ This is preferably accomplished by fully patching the machine via Windows Update
     |`https://login.microsoftonline.com`|Authentication requests|
     |`https://enterpriseregistration.windows.net`|Azure AD Password Protection functionality|
 
+* All machines hosting the Azure AD Password Protection Proxy service must be configured to allow outbound TLS 1.2 HTTP traffic.
 * A global administrator account to register the Azure AD Password Protection Proxy service and forest with Azure AD.
 * An account with Active Directory domain administrator privileges in the forest root domain to register the Windows Server Active Directory forest with Azure AD.
 * Any Active Directory domain running the DC agent service software must use DFSR for sysvol replication.
 
 ## Single forest deployment
 
-The following diagram shows how the basic components of Azure AD Password Protection work together in an on-premises Active Directory environment.  
+The following diagram shows how the basic components of Azure AD Password Protection work together in an on-premises Active Directory environment.
 
 ![How Azure AD Password Protection components work together](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
+
+Prior to deployment it is a good idea to review how the software works; please see [Conceptual overview of Azure AD password protection](concept-password-ban-bad-on-premises.md).
 
 ### Download the software
 
@@ -167,7 +171,7 @@ There are two required installers for Azure AD Password Protection that can be d
       The examples above will only succeed if the currently logged in user is also an Active Directory domain administrator for the root domain. If this is not the case, you may supply alternative domain credentials via the -ForestCredential parameter.
 
    > [!NOTE]
-   > If multiple proxy servers are installed in your environment, it does not matter which proxy server is uses to register the forest.
+   > If multiple proxy servers are installed in your environment, it does not matter which proxy server is used to register the forest.
 
    > [!TIP]
    > There may be a considerable delay (many seconds) the first time this cmdlet is run for a given Azure tenant before the cmdlet completes execution. Unless a failure is reported this delay should not be considered alarming.

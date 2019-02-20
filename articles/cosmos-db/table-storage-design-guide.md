@@ -727,6 +727,9 @@ The following patterns and guidance may also be relevant when implementing this 
 ### Log tail pattern
 Retrieve the *n* entities most recently added to a partition by using a **RowKey** value that sorts in reverse date and time order.  
 
+> [!NOTE]
+> Query results returned by the Azure Table API in Azure Cosmso DB aren't sorted by partition key or row key. Thus, this pattern is suitable for Azure Table Storage and not Azure Cosmos DB. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+
 #### Context and problem
 A common requirement is to be able to retrieve the most recently created entities, for example the ten most recent expense claims submitted by an employee. Table queries support a **$top** query operation to return the first *n* entities from a set: there is no equivalent query operation to return the last n entities in a set.  
 

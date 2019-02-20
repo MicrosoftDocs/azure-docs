@@ -346,7 +346,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic, Xamarin  |
 | **Attributes**              | N/A  |
-| **References**              | [Manage settings and features on your devices with Microsoft Intune policies](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies#create-a-configuration-policy), [Keychain Valet](https://components.xamarin.com/view/square.valet) |
+| **References**              | [Manage settings and features on your devices with Microsoft Intune policies](https://docs.microsoft.com/intune/deploy-use/manage-settings-and-features-on-your-devices-with-microsoft-intune-policies), [Keychain Valet](https://components.xamarin.com/view/square.valet) |
 | **Steps** | <p>If the application writes sensitive information like user's PII (email, phone number, first name, last name, preferences etc.)- on mobile's file system, then it should be encrypted before writing to the local file system. If the application is an enterprise application, then explore the possibility of publishing application using Windows Intune.</p>|
 
 ### Example

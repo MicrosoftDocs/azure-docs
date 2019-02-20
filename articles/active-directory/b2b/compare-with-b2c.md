@@ -14,6 +14,7 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Compare B2B collaboration and B2C in Azure Active Directory

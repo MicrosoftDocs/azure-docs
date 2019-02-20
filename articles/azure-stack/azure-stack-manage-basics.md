@@ -13,19 +13,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
 
 ---
 # Azure Stack administration basics
-There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your role as an Azure Stack operator, and what you need to tell your users for them to become productive quickly.
+There are several things you need to know if you're new to Azure Stack administration. This article provides an overview of your role as an Azure Stack operator, and what you need to tell your users for them to become productive quickly.
 
 ## Understand the builds
 
 ### Integrated systems
 
-If you're using an Azure Stack integrated system, updated versions of Azure Stack are distributed through update packages. You can import these packages and apply them by using the Updates tile in the administrator portal.
+If you're using an Azure Stack integrated system, updated versions of Azure Stack are distributed through update packages. You can import these packages and apply them by using the Updates tile in the administrator portal. It is not supported to update ASDK installations. 
  
 ### Development kit
 

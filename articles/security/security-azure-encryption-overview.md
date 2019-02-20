@@ -4,7 +4,7 @@ description: Learn about various encryption options in Azure
 services: security
 documentationcenter: na
 author: Barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 
 ms.assetid:

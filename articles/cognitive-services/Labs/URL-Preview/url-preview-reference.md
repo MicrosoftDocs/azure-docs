@@ -4,7 +4,7 @@ titlesuffix: Azure Cognitive Services
 description: Reference for Project URL Preview endpoint.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: url-preview

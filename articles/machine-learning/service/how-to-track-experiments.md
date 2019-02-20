@@ -239,6 +239,12 @@ if r.get_status() not in ['Complete', 'Failed']:
 ```
 Please note that currently only ScriptRun and PipelineRun types support cancel operation.
 
+Additionally, you can cancel a run through the CLI using the following command:
+```shell
+az ml run cancel -r <run_id> -p <project_path>
+```
+
+
 ## View run details
 
 ### Monitor run with Jupyter notebook widgets
