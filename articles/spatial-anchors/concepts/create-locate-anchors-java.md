@@ -332,3 +332,5 @@ ms.service: azure-spatial-anchors
 ```java
     mCloudSession.close();
 ```
+
+[!INCLUDE [Next Steps](../../../includes/spatial-anchors-create-locate-anchors-next-steps.md)]

@@ -258,3 +258,5 @@ ms.service: azure-spatial-anchors
 ```objc
     _cloudSession = NULL;
 ```
+
+[!INCLUDE [Next Steps](../../../includes/spatial-anchors-create-locate-anchors-next-steps.md)]

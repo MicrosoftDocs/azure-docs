@@ -50,6 +50,8 @@
       href: concepts/create-locate-anchors-cpp-ndk.md
     - name: In C++/WinRT
       href: concepts/create-locate-anchors-cpp-winrt.md
+  - name: Anchor relationships
+    href: concepts/anchor-relationships-way-finding.md
 - name: References
   expanded: true
   items:
