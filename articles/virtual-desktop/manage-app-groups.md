@@ -19,11 +19,7 @@ In this tutorial, learn how to:
 > * Create a RemoteApp group.
 > * Grant access to RemoteApps.
 
-You need the Windows Virtual Desktop PowerShell module to follow the instructions in this article. Install the Windows Virtual Desktop PowerShell module from the PowerShell Gallery by running this cmdlet:
-
-```powershell
-PS C:\> Install-Module WindowsVirtualDesktop
-```
+Before you begin, [download and import](powershell-get-started.md) the Windows Virtual Desktop module to use in your PowerShell session if you haven't already.
 
 ## Create a RemoteApp group
 
