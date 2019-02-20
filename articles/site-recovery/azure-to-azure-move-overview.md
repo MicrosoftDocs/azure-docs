@@ -12,7 +12,7 @@ ms.custom: MVC
 
 # Move Azure VMs to another region
 
-Azure grows along with the customer base and adds support for new regions with rising demands. New capabilities are also added monthly across services. You may want to move your virtual machines (VMs) to a different region or into Availability Zones to increase availability. 
+Azure grows along with the customer base and adds support for new regions with rising demands. New capabilities are also added monthly across services. You may want to move your virtual machines (VMs) to a different region or into Availability Zones to increase availability.
 
 This document describes different scenarios in which you'd want to move your VMs. It also describes how to configure the architecture in the target region to achieve higher availability.
 > [!div class="checklist"]
@@ -45,10 +45,8 @@ Moving VMs involves the following steps:
 
 > [!NOTE]
 > Details about these steps are provided in the following sections.
-
 > [!IMPORTANT]
 > Currently, Azure Site Recovery supports moving VMs from one region to another but doesn't support moving within a region.
-
 
 ## Typical architectures for a multi-tier deployment
 
@@ -58,21 +56,18 @@ This section describes the most common deployment architectures for a multi-tier
 
        ![single-VMs](media/move-vm-overview/regular-deployment.PNG)
 * **VMs in each tier deployed across availability set**: Each VM in a tier is configured in an availability set. [Availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. This ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are impacted, and your overall solution remains available and operational.
-   
+
       ![avset](media/move-vm-overview/AVset.PNG)
 
 * **VMs in each tier deployed across Availability Zone**: Each VM in a tier is configured across [Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). An Availability Zone in an Azure region is a combination of a fault domain and an update domain. For example, if you create three or more VMs across three zones in an Azure region, your VMs are effectively distributed across three fault domains and three update domains. The Azure platform recognizes this distribution across update domains to make sure that VMs in different zones are not updated at the same time.
 
       ![zone-deployment](media/move-vm-overview/zone.PNG)
 
-
-
- ## Move VMs as is to a target region
+## Move VMs as is to a target region
 
 Based on the [architectures](#typical-architectures-for-a-multi-tier-deployment) mentioned earlier, here's what the deployments will look like after you perform the move as is to the target region.
 
-
-* **Single instance VMs deployed across various tiers** 
+* **Single instance VMs deployed across various tiers**
 
      ![single-zone.PNG](media/move-vm-overview/single-zone.PNG)
 
@@ -80,9 +75,7 @@ Based on the [architectures](#typical-architectures-for-a-multi-tier-deployment)
 
      ![crossregionAset.PNG](media/move-vm-overview/crossregionAset.PNG)
 
-
 * **VMs in each tier deployed across Availability Zones**
-      
 
      ![AzoneCross.PNG](media/move-vm-overview/AzoneCross.PNG)
 
@@ -96,10 +89,10 @@ Based on the [architectures](#typical-architectures-for-a-multi-tier-deployment)
 
      ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
 
-
 ## Next steps
 
 > [!div class="nextstepaction"]
+
 > * [Move Azure VMs to another region](azure-to-azure-tutorial-migrate.md)
 
 > * [Move Azure VMs into Availability Zones](move-azure-VMs-AVset-Azone.md)

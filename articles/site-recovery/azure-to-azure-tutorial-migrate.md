@@ -72,11 +72,11 @@ This tutorial shows you how to move Azure VMs to another region by using Azure S
     - [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     - [Public IP ](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    
+
     For any other networking components, see the [networking documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 
 4. Manually [create a non-production network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) in the target region if you want to test the configuration before you perform the final move to the target region. This step is recommended and ensures minimal interference with the production network.
-    
+
 ## Copy data to the target region
 The following steps show you how to use Azure Site Recovery to copy data to the target region.
 
@@ -105,12 +105,9 @@ Site Recovery retrieves a list of the VMs that are associated with the subscript
 
     ![enable replication](media/tutorial-migrate-azure-to-azure/settings.png)
 
- 
-
 ## Test the configuration
 
-
-1. Navigate to the vault. In **Settings** > **Replicated items**, select the VM that you want to move to the target region, and then select **+Test Failover**.
+1. Go to the vault. In **Settings** > **Replicated items**, select the VM that you want to move to the target region, and then select **+Test Failover**.
 2. In **Test Failover**, select a recovery point to use for the failover:
 
    - **Latest processed**: Fails the VM over to the latest recovery point that was processed by the
@@ -121,10 +118,8 @@ Site Recovery retrieves a list of the VMs that are associated with the subscript
    - **Custom**: Select any recovery point.
 
 3. Select the target Azure virtual network to which you want to move the Azure VMs to test the configuration.
-
 > [!IMPORTANT]
 > We recommend that you use a separate Azure VM network for the test failure as mentioned earlier in step 4 of [Prepare the target region](#prepare-the-target-region). Use a non-production network in the target VM into which you want to move your VM instead of the production network that was set up when you enabled replication.
-
 4. To start testing the move, select **OK**. To track progress, select the VM to open its properties. Or,
    you can select the **Test Failover** job in the vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
 5. After the failover finishes, the replica Azure VM appears in the Azure portal > **Virtual Machines**. Make sure that the VM is running, is sized appropriately, and is connected to the appropriate network.
@@ -132,15 +127,15 @@ Site Recovery retrieves a list of the VMs that are associated with the subscript
 
 ## Perform the move to the target region and confirm
 
-1. Navigate to the vault. In **Settings** > **Replicated items**, select the VM, and then select **Failover**.
+1. Go to the vault. In **Settings** > **Replicated items**, select the VM, and then select **Failover**.
 2. In **Failover**, select **Latest**.
 3. Select **Shut down machine before beginning failover**. Site Recovery attempts to shut down the source VM before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
-4. Once the job is complete, check that the VM appears in the target Azure region as expected.
+4. After the job is complete, check that the VM appears in the target Azure region as expected.
 5. In **Replicated items**, right-click the VM > **Commit**. This step finishes the move process to the target region. Wait until the commit job completes.
 
 ## Delete the resource in the source region
 
-Navigate to the VM. Select **Disable Replication**. This step stops the process from copying the data for the VM.
+Go to the VM. Select **Disable Replication**. This step stops the process from copying the data for the VM.
 
 > [!IMPORTANT]
 > It's important to perform this step to avoid being charged for ASR replication.
@@ -149,8 +144,6 @@ If you have no plans to reuse any of the source resources, follow these steps:
 
 1. Delete all the relevant network resources in the source region that you listed out as part of step 4 in [Prepare the source VMs](#prepare-the-source-vms).
 2. Delete the corresponding storage account in the source region.
-
-
 
 ## Next steps
 
