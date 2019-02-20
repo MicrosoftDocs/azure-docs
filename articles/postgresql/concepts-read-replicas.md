@@ -113,7 +113,7 @@ A replica is created by using the same server configuration as the master. After
 > [!IMPORTANT]
 > Before a master server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the master.
 
-PostgreSQL requires the value of the `max_connections` parameter on the read replica to be greater than or equal to the master value; otherwise, the replica won't start. In Azure Database for PostgreSQL, the `max_connections` parameter value is based on the sku. For more information, see [Limits in Azure Database for PostgreSQL](concepts-limits.md). 
+PostgreSQL requires the value of the `max_connections` parameter on the read replica to be greater than or equal to the master value; otherwise, the replica won't start. In Azure Database for PostgreSQL, the `max_connections` parameter value is based on the SKU. For more information, see [Limits in Azure Database for PostgreSQL](concepts-limits.md). 
 
 If you try to update the server values, but don't adhere to the limits, you receive an error.
 
