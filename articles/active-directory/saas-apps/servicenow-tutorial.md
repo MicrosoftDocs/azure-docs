@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: a5a1a264-7497-47e7-b129-a1b5b1ebff5b
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with ServiceNow
 

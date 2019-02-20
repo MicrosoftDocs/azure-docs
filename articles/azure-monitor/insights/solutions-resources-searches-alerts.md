@@ -17,6 +17,9 @@ ms.custom: H1Hack27Feb2017
 
 # Adding Log Analytics saved searches and alerts to management solution (Preview)
 
+> [!IMPORTANT]
+> The details here for creating an alert using a Resource Manager template are out of date now that [Log Analytics alerts have been extended to Azure Monitor](../platform/alerts-extend.md). For details on creating a log alert with a Resource Manager template, see [Managing log alerts using Azure Resource Template](../platform/alerts-log.md#managing-log-alerts-using-azure-resource-template).
+
 > [!NOTE]
 > This is preliminary documentation for creating management solutions which are currently in preview. Any schema described below is subject to change.
 
@@ -442,6 +445,7 @@ The sample uses [standard solution parameters]( solutions-solution-file.md#param
 ```
 
 The following parameter file provides samples values for this solution.
+
 ```json
 {
 	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",

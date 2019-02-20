@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Breaks down the process of uploading an image to Bing to get insights about it and then parsing and displaying the response.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi

@@ -9,7 +9,7 @@ metadata:
   author: noellelacharite
   manager: nolachar
   ms.service: cognitive-services
-  ms.component: bing-spell-check
+  ms.subservice: bing-spell-check
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page

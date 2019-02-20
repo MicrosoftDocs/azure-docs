@@ -4,7 +4,7 @@ description: This document addresses recommendations in Security Center that hel
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
@@ -42,7 +42,7 @@ Under **Compute & apps**, there are the following tabs:
 - **Containers (Preview)**: list of your containers hosted on IaaS Linux machines and security assessment of their Docker configurations.
 - **Compute resources (Preview)**: list of recommendations for your compute resources, such as Service Fabric clusters and Event hubs.
 
-To continue, select **Compute & apps** under **Resource security hygeine**.
+To continue, select **Compute & apps** under **Resource security hygiene**.
 
 ![Compute](./media/security-center-virtual-machine-recommendations/compute.png)
 
@@ -199,8 +199,8 @@ If you want to set all existing scale sets to install the Microsoft Monitoring A
 |Compute resources (event hub)|5|Enable diagnostics logs in Event Hub|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
 |Compute resources (logic apps)|5|Enable diagnostics logs in Logic Apps|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
 |Compute resources (service fabric)|15|Set the ClusterProtectionLevel property to EncryptAndSign in Service Fabric|Service Fabric provides three levels of protection (None, Sign and EncryptAndSign) for node-to-node communication using a primary cluster certificate.  Set the protection level to ensure that all node-to-node messages are encrypted and digitally signed. |
-|Compute resources (service bus)|1|Remove all authorization rules except RootManageSharedAccessKey from Service Bus namespace |Service Bus clients should not use a namespace level access policy that provides access to all queues and topics in a namespace. To align with the least privilege security model, you shoud create access policies at the entity level for queues and topics to provide access to only the specific entity.|
-|Compute resources (event hub)|1|Remove all authorization rules except RootManageSharedAccessKey from Event Hub namespace |Event Hub clients should not use a namespace level access policy that provides access to all queues and topics in a namespace. To align with the least privilege security model, you shoud create access policies at the entity level for queues and topics to provide access to only the specific entity.|
+|Compute resources (service bus)|1|Remove all authorization rules except RootManageSharedAccessKey from Service Bus namespace |Service Bus clients should not use a namespace level access policy that provides access to all queues and topics in a namespace. To align with the least privilege security model, you should create access policies at the entity level for queues and topics to provide access to only the specific entity.|
+|Compute resources (event hub)|1|Remove all authorization rules except RootManageSharedAccessKey from Event Hub namespace |Event Hub clients should not use a namespace level access policy that provides access to all queues and topics in a namespace. To align with the least privilege security model, you should create access policies at the entity level for queues and topics to provide access to only the specific entity.|
 |Compute resources (event hub)|5|Define authorization rules on the Event Hub entity|Audit authorization rules on the Event Hub entity to grant least-privileged access.|
 |Machine|50|Install monitoring agent on your machines|Install the Monitoring agent to enable data collection, updates scanning, baseline scanning, and endpoint protection on each machine.|
 |Machine|50|Enable automatic provisioning and data collection for your subscriptions |Enable automatic provisioning and data collection for machines in your subscriptions to enable data collection, updates scanning, baseline scanning, and endpoint protection on each machine added to your subscriptions.|
@@ -220,7 +220,7 @@ If you want to set all existing scale sets to install the Microsoft Monitoring A
 |Machine|15|Add a web application firewall| Deploy a web application firewall (WAF) solution to secure your web applications. |
 |Machine|30|Remediate vulnerabilities using a vulnerability assessment solution|Virtual machines for which a vulnerability assessment 3rd party solution is deployed are being continuously assessed against application and OS vulnerabilities. Whenever such vulnerabilities are found, these are available for more information as part of the recommendation.|
 |Machine|30|Install a vulnerability assessment solution on your virtual machines|Install a vulnerability assessment solution on your virtual machines|
-|Machine|1|Migrate virtual machines to new Azure Resource Manager resources|Use  Azure Resource Manager for your virutal machines to provide security enhancements such as: stronger access control (RBAC), better auditing, Resource Manager-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication and support for tags and resource groups for easier security management. |
+|Machine|1|Migrate virtual machines to new Azure Resource Manager resources|Use  Azure Resource Manager for your virtual machines to provide security enhancements such as: stronger access control (RBAC), better auditing, Resource Manager-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication and support for tags and resource groups for easier security management. |
 |Machine|30|Remediate vulnerabilities using a vulnerability assessment solution|Virtual machines for which a vulnerability assessment 3rd party solution is deployed are being continuously assessed against application and OS vulnerabilities. Whenever such vulnerabilities are found, these are available for more information as part of the recommendation.|
 
  

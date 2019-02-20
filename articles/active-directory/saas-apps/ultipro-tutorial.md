@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: afc0f2b9-2eac-47ec-af04-65ed0fb0ca5a
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with UltiPro
 

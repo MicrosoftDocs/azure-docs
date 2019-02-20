@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: f0db4fb0-7eec-48c2-9c7a-beab1ab49bc2
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Samanage
 

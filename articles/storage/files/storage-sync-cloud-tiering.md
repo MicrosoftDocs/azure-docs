@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
-ms.component: files
+ms.subservice: files
 ---
 
 # Cloud Tiering Overview

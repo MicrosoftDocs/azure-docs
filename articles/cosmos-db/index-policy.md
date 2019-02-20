@@ -8,7 +8,7 @@ ms.date: 11/10/2018
 ms.author: mjbrown
 ---
 
-# Indexing policy in Azure Cosmos DB
+# Index policy in Azure Cosmos DB
 
 You can override the default indexing policy on an Azure Cosmos container by configuring the following parameters:
 

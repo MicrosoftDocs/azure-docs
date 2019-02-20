@@ -10,10 +10,11 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 # Configure security alerts for Azure AD directory roles in PIM
 

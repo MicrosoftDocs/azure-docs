@@ -73,7 +73,7 @@ Though effective security rules were viewed through the VM, you can also view ef
 
 ## Diagnose using PowerShell
 
-You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the *AzureRM* PowerShell module, version 6.0.1 or later. Run `Get-Module -ListAvailable AzureRM` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions)].
+You can run the commands that follow in the [Azure Cloud Shell](https://shell.azure.com/powershell), or by running PowerShell from your computer. The Azure Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account. If you run PowerShell from your computer, you need the *AzureRM* PowerShell module, version 6.0.1 or later. Run `Get-Module -ListAvailable AzureRM` on your computer, to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to log into Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions)].
 
 Get the effective security rules for a network interface with [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup). The following example gets the effective security rules for a network interface named *myVMVMNic*, that is in a resource group named *myResourceGroup*:
 
@@ -177,7 +177,7 @@ After you create the rule, port 80 is allowed inbound from the internet, because
 
 When Azure processes inbound traffic, it processes rules in the NSG associated to the subnet (if there is an associated NSG), and then it processes the rules in the NSG associated to the network interface. If there is an NSG associated to the network interface and the subnet, the port must be open in both NSGs, for the traffic to reach the VM. To ease administration and communication problems, we recommend that you associate an NSG to a subnet, rather than individual network interfaces. If VMs within a subnet need different security rules, you can make the network interfaces members of an application security group (ASG), and specify an ASG as the source and destination of a security rule. Learn more about [application security groups](security-overview.md#application-security-groups).
 
-If you're still having communication problems, see [Considerations](#considerations) and [Additional diagnosis](#additional-dignosis).
+If you're still having communication problems, see [Considerations](#considerations) and Additional diagnosis.
 
 ## Considerations
 

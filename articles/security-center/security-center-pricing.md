@@ -4,7 +4,7 @@ description: This article provides information on pricing for Azure Security Cen
 services: security-center
 documentationcenter: na
 author: monhaber
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78

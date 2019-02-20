@@ -11,9 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: sijuman
+ms.lastreviewed: 01/24/2019
 
 ---
 # Use API version profiles with Azure CLI in Azure Stack
@@ -110,7 +111,12 @@ Before you can create virtual machines by using CLI, you must contact the Azure 
 
 Use the following steps to connect to Azure Stack:
 
-1. Register your Azure Stack environment by running the `az cloud register` command.
+1. Register your Azure Stack environment by running the `az cloud register` command. In some scenarios, direct outbound internet connectivity is routed through a proxy or firewall, which enforces SSL interception. In these cases, the `az cloud register` command can fail with an error such as "Unable to get endpoints from the cloud." To work around this error, you can set the following environment variables:
+
+   ```shell
+   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
+   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   ```
    
     a. To register the *cloud administrative* environment, use:
 
@@ -196,7 +202,7 @@ Use the following steps to connect to Azure Stack:
       ```
 
       > [!NOTE]
-      > If your user account has multi-factor authentication enabled, you can use the `az login command` without providing the `-u` parameter. Running this command gives you a URL and a code that you must use to authenticate.
+      > If your user account has multi-factor authentication enabled, you can use the `az login` command without providing the `-u` parameter. Running this command gives you a URL and a code that you must use to authenticate.
    
       * Sign in as a *service principal*: Before you sign in, [create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, sign in by using the following command:
 
@@ -209,16 +215,13 @@ Use the following steps to connect to Azure Stack:
       ```
     * AD FS environments
 
-        * Sign in as a user using a web browser:  
-              ```azurecli  
-              az login
-              ```
         * Sign in as a user using a web browser with a device code:  
-              ```azurecli  
-              az login --use-device-code
-              ```
-        > [!Note]  
-        >Running the command gives you a URL and a code that you must use to authenticate.
+           ```azurecli  
+           az login --use-device-code
+           ```
+
+           > [!NOTE]  
+           >Running the command gives you a URL and a code that you must use to authenticate.
 
         * Sign in as a service principal:
         

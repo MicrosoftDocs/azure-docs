@@ -3,18 +3,19 @@ title: How to create and delete a user-assigned managed identity using Azure Res
 description: Step by step instructions on how to create and delete user-assigned managed identities using Azure Resource Manager.
 services: active-directory
 documentationcenter: 
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: 
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
-ms.author: daveba
+ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # Create, list and delete a user-assigned managed identity using Azure Resource Manager
@@ -67,7 +68,7 @@ To create a user-assigned managed identity, use the following template. Replace 
     {
       "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
       "name": "[parameters('resourceName')]",
-      "apiVersion": "2015-08-31-PREVIEW",
+      "apiVersion": "2018-11-30",
       "location": "[resourceGroup().location]"
     }
   ],

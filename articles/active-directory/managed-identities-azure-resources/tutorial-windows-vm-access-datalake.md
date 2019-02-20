@@ -1,20 +1,21 @@
-﻿---
+---
 title: How to use a Windows VM system-assigned managed identity to access Azure Data Lake Store
 description: A tutorial that shows you how to use a Windows VM system-assigned managed identity to access Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: 
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2018
-ms.author: daveba
+ms.author: priyamo
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Data Lake Store

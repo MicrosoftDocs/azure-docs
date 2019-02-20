@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/11/2019
+ms.date: 02/14/2019
 ms.topic: quickstart
 ms.author: jgao
 
@@ -49,6 +49,7 @@ The template used in this quickstart is called [Create a standard storage accoun
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
+
 3. Select **Open** to open the file.
 4. Select **File**>**Save As** to save the file as **azuredeploy.json** to your local computer.
 
@@ -90,6 +91,9 @@ To experience how to edit a template using Visual Studio Code, you add one more 
 
 There are many methods for deploying templates.  In this quickstart, you use the Azure Cloud shell. The Cloud shell is a web application, which doesn't require any configuration. It supports both Azure CLI and Azure PowerShell.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+
 1. Sign in to the [Azure Cloud shell](https://shell.azure.com)
 
     ![Azure portal Cloud shell CLI](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
@@ -125,28 +129,28 @@ There are many methods for deploying templates.  In this quickstart, you use the
     ```azurecli
     echo "Enter the Resource Group name:" &&
     read resourceGroupName &&
-    echo "Enter the name for this deployment:" &&
-    read deploymentName &&
     echo "Enter the location (i.e. centralus):" &&
     read location &&
     az group create --name $resourceGroupName --location $location &&
-    az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file "azuredeploy.json"
+    az group deployment create --resource-group $resourceGroupName --template-file "azuredeploy.json"
     ```
    
     # [PowerShell](#tab/PowerShell)
     
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
     ```
     
     ---
 
-    Update the template file name if you save the file to a name other than **azuredeploy.json**.
+    > [!NOTE]
+    > There is a file IO issue with using Azure PowerShell in the Cloud shell.  The error message is *Cannot retrieve the dynamic parameters for the cmdlet. Cannot find path 'Azure:/azuredeploy.json' because it does not exist.*  A temporary workaround is not to include the **-TemplateFile** switch in the `New-AzResourceGroupDeploy` command. The command will prompt you to enter the file name.
+
+    Update the template file name if you save the file to a name other than **azuredeploy.json**. 
 
     The following screenshot shows a sample deployment:
 
@@ -178,7 +182,7 @@ There are many methods for deploying templates.  In this quickstart, you use the
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
-    Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+    Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
     ```
     
     ---

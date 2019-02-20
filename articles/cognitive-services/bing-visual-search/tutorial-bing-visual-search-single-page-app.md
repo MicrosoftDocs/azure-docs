@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to integrate the Bing Visual Search API into a single-page Web application.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: aahi

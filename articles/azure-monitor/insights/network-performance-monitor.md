@@ -47,14 +47,14 @@ NPM can monitor connectivity between networks and applications in any part of th
 * South UK
 * US Government Virginia
 
-The list of supported regions for ExpressRoute Monitor is available in the [documentation](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions).
+The list of supported regions for ExpressRoute Monitor is available in the [documentation](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
 
 
 ## Set up and configure
 
 ### Install and configure agents 
 
-Use the basic processes to install agents at [Connect Windows computers to Azure Log Analytics](../../azure-monitor/platform/om-agents.md) and [Connect Operations Manager to Log Analytics](../../azure-monitor/platform/om-agents.md).
+Use the basic processes to install agents at [Connect Windows computers to Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) and [Connect Operations Manager to Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ### Where to install the agents 
 

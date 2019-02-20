@@ -23,7 +23,7 @@ This article helps you configure ExpressRoute Global Reach using PowerShell. For
 
 Before you start configuration, confirm the following:
 
-* That you've installed the latest version of Azure PowerShell. For more information, see [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* That you've installed the latest version of Azure PowerShell. For more information, see [Install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 * That you understand ExpressRoute circuit provisioning [workflows](expressroute-workflows.md).
 * That your ExpressRoute circuits are in a provisioned state.
 * That Azure private peering is configured on your ExpressRoute circuits.  

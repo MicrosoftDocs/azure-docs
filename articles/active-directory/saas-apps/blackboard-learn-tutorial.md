@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 0b8ca505-61ea-487c-9a3e-fa50c936df0c
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Blackboard Learn
 
@@ -209,7 +210,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Blackboard Learn test user
 
-In this section, you create a user called Britta Simon in Blackboard Learn. Blackboard Learn application support just in time user provisioning. Make sure that you have configured the claims as described in the section **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**
+In this section, you create a user called Britta Simon in Blackboard Learn. Blackboard Learn application support just in time user provisioning. Make sure that you have configured the claims as described in the section **Configuring Azure AD Single Sign-On**
 
 ### Test single sign-on
 

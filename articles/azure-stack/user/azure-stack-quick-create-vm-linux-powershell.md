@@ -15,6 +15,7 @@ ms.topic: quickstart
 ms.date: 12/03/2018
 ms.author: mabrigg
 ms.custom: mvc
+ms.lastreviewed: 12/03/2018
 ---
 
 # Quickstart: Create a Linux server virtual machine by using PowerShell in Azure Stack

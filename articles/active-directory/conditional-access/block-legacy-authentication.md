@@ -1,28 +1,30 @@
 ---
 title: How to block legacy authentication to Azure Active Directory (Azure AD) with conditional access| Microsoft Docs
-description: Learn how to configure a conditional access policy in Azure Active Directory (Azure AD) for access attempts from untrusted networks.
+description: Learn how to improve your security posture by blocking legacy authentication using Azure AD conditional access.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2018
+ms.date: 02/01/2019
 ms.author: markvi
 ms.reviewer: calebb
 
+ms.collection: M365-identity-device-management
 ---
 # How to: Block legacy authentication to Azure AD with conditional access   
 
 To give your users easy access to your cloud apps, Azure Active Directory (Azure AD) supports a broad variety of authentication protocols including legacy authentication. However, legacy protocols don’t support multi-factor authentication (MFA). MFA is in many environments a common requirement to address identity theft. 
+
 
 If your environment is ready to block legacy authentication to improve your tenant's protection, you can accomplish this goal with conditional access. This article explains how you can configure conditional access policies that block legacy authentication for your tenant.
 
@@ -115,7 +117,15 @@ It can take up to 24 hours for the policy to go into effect.
 
 You can select all available grant controls for the other clients condition; however, the end-user experience is always the same - blocked access.
 
-You can configure all other conditions next to the other clients condition.
+If you block legacy authentication using the other clients condition, you can also set the device platform and location condition. For example, if you only want to block legacy authentication for mobile devices, set the **device platforms** condition by selecting:
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+![Policy configuration not supported](./media/block-legacy-authentication/06.png)
 
 
 

@@ -10,6 +10,7 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
+#Customer intent: As a developer, I want to understand the options provided for managing my Durable Functions orchestration instances so that can keep my orchestrations running efficiently and make improvements.
 ---
 
 # Manage instances in Durable Functions in Azure
@@ -185,7 +186,7 @@ public static async Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
     ILogger log)
 {
-    IList<DurableOrchestrationStatus> instances = await starter.GetStatusAsync(); // You can pass CancellationToken as a parameter.
+    IList<DurableOrchestrationStatus> instances = await client.GetStatusAsync(); // You can pass CancellationToken as a parameter.
     foreach (var instance in instances)
     {
         log.LogInformation(JsonConvert.SerializeObject(instance));

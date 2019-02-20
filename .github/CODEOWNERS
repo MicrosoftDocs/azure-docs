@@ -1,4 +1,4 @@
-# Testing the new code owners feature in GitHub. Please contact Tyson if you have questions.
+# Testing the new code owners feature in GitHub. Please contact Cory Fowler if you have questions.
 # articles/storage/  @tamram @robinsh
 # articles/virtual-machines/  @iainfoulds @cynthn
 # articles/virtual-machines/linux/  @iainfoulds @cynthn
@@ -23,3 +23,7 @@ articles/ansible/ @TomArcherMsft
 articles/chef/ @TomArcherMsft
 articles/jenkins/ @TomArcherMsft
 articles/terraform/ @TomArcherMsft
+
+# Governance
+
+articles/governance/ @DCtheGeek

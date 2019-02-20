@@ -4,12 +4,12 @@ description: Learn how to configure hybrid Azure Active Directory join for feder
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.subservice: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.reviewer: sandeo
 
 #Customer intent: As a IT admin, I want to setup hybrid Azure AD joined devices for federated domains so that I can automatically bring AD domain-joined devices under control
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Configure hybrid Azure Active Directory join for federated domains
 
@@ -71,11 +72,11 @@ The configuration steps in this article are based on this wizard. If you have an
 
 Hybrid Azure AD join requires the devices to have access to the following Microsoft resources from inside your organization's network:  
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
+- https\://enterpriseregistration.windows.net
+- https\://login.microsoftonline.com
+- https\://device.login.microsoftonline.com
 - Your organization's STS (federated domains)
-- https://autologon.microsoftazuread-sso.com (If you are using or planning to use Seamless SSO)
+- https\://autologon.microsoftazuread-sso.com (If you are using or planning to use Seamless SSO)
 
 Beginning with Windows 10 1803, if the instantaneous Hybrid Azure AD join for federated domain like AD FS fails, we rely on Azure AD Connect to sync the computer object in Azure AD that is subsequently used to complete the device registration for Hybrid Azure AD join.
 
