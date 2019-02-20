@@ -215,8 +215,6 @@ Network traffic in an Azure Virtual Networks can be controlled using the followi
 
 As a managed service, HDInsight requires unrestricted access to the HDinsight health and management services both for incoming and outgoing traffic from the VNET. When using NSGs and UDRs, you must ensure that these services can still communicate with HDInsight cluster.
 
-HDInsight exposes services on several ports. When using a virtual appliance firewall, you must allow traffic on the ports used for these services. For more information, see the [Required ports] section.
-
 ### <a id="hdinsight-ip"></a> HDInsight with network security groups and user-defined routes
 
 If you plan on using **network security groups** or **user-defined routes** to control network traffic, perform the following actions before installing HDInsight:
