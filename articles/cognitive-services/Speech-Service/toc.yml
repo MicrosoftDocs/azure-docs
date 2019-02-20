@@ -6,8 +6,15 @@
   items:
   - name: What are the Speech Services?
     href: overview.md
-  - name: Try the Speech Service for free
-    href: get-started.md
+  - name: Speech recognition
+    href: speech-to-text.md
+    displayName: recognize speech, speech recognition, speech to text, stt
+  - name: Speech synthesis
+    href: text-to-speech.md
+    displayName: synthesize speech, speech synthesis, text to speech, tts
+  - name: Speech translation
+    href: speech-translation.md
+    displayName: translate speech, speech translation, translator, s2s, speech to speech
 - name: Quickstarts
   items:
   - name: Speech SDK
@@ -115,17 +122,6 @@
       href: how-to-migrate-from-custom-speech-service.md
     - name: From the Translator Speech API
       href: how-to-migrate-from-translator-speech-api.md
-- name: Concepts
-  items:
-  - name: Speech recognition
-    href: speech-to-text.md
-    displayName: recognize speech, speech recognition, speech to text, stt
-  - name: Speech synthesis
-    href: text-to-speech.md
-    displayName: synthesize speech, speech synthesis, text to speech, tts
-  - name: Speech translation
-    href: speech-translation.md
-    displayName: translate speech, speech translation, translator, s2s, speech to speech
 - name: Reference
   items:
   - name: PowerShell
@@ -150,6 +146,8 @@
     displayName: synthesize speech, speech synthesis, text to speech, tts
 - name: Resources
   items:
+  - name: Try the Speech Service for free
+    href: get-started.md
   - name: FAQ
     items:
     - name: Speech to Text FAQ
