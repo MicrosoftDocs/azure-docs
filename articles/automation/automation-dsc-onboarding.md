@@ -85,7 +85,7 @@ cmdlet can be used to onboard virtual machines in the Azure portal via PowerShel
 The best way to register virtual machines from other Azure subscriptions is to use the DSC extension
 in an Azure Resource Manager deployment template.
 Examples are provided in
-[Desired State Configuration extension with Azure Resource Manager templates]https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-template).
+[Desired State Configuration extension with Azure Resource Manager templates](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-template).
 To find the registration key and registration URL to use as parameters in the template,
 see the following [**Secure registration**](#secure-registration) section.
 
