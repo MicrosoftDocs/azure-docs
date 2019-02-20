@@ -111,7 +111,7 @@ The cluster administrator deploying and configuring the cluster must have admini
 > 
 > 
 
-### Step 1C: Create an offline (internet-disconnected) cluster
+### Step 1: Create an offline (internet-disconnected) cluster
 The Service Fabric runtime package is automatically downloaded at cluster creation. When deploying a cluster to machines not connected to the internet, you will need to download the Service Fabric runtime package separately, and provide the path to it at cluster creation.
 The runtime package can be downloaded separately, from another machine connected to the internet, at [Download Link - Service Fabric Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Copy the runtime package to where you are deploying the offline cluster from, and create the cluster by running `CreateServiceFabricCluster.ps1` with the `-FabricRuntimePackagePath` parameter included, as shown in this example: 
 
