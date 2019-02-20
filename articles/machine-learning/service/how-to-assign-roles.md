@@ -42,7 +42,7 @@ If you are an Owner of a workspace, you can add users to or remove users from th
 - [REST API](/azure/role-based-access-control/role-assignments-rest)
 -  [Azure Resource Management templates](/azure/role-based-access-control/role-assignments-template).
 
-Alternatively, if you have installed [Azure Machine Learning CLI](reference-azure-machine-learning-cli), you can also use a convenient CLI command to add user to the workspace.
+Alternatively, if you have installed [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md), you can also use a convenient CLI command to add user to the workspace.
 
 ```azure-cli
 az ml workspace share -n <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
@@ -68,7 +68,7 @@ To create a custom role, first construct a role definition JSON file specifying 
     "Id":  "<unique GUID>",
     "IsCustom":  true,
     "Description":  "Can run experiment but can't create or delete compute.",
-    "Actions":  [""],
+    "Actions":  ["*"],
     "NotActions":  [
         "Microsoft.MachineLearningServices/workspaces/computes/*/write",
         "Microsoft.MachineLearningServices/workspaces/computes/*/delete", 
