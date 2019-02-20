@@ -128,7 +128,7 @@ az vm extension set \
   --vm-name myVM \
   --name Microsoft.Powershell.DSC \
   --publisher Microsoft.Powershell \
-  --version 2.76 --protected-settings '{}' \
+  --version 2.77 --protected-settings '{}' \
   --settings '{}'
 ```
 
