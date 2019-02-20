@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: overview
-ms.date: 02/19/2019
+ms.date: 02/20/2019
 ms.author: aahi
 ---
 
