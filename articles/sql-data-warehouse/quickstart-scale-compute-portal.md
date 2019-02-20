@@ -27,7 +27,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 You can scale a data warehouse that you already have, or use [Quickstart: create and connect - portal](create-data-warehouse-portal.md) to create a data warehouse named **mySampleDataWarehouse**.  This quickstart scales **mySampleDataWarehouse**.
 
 >[!Note]
->Your data warehouse must be online to scale.
+>Your data warehouse must be online to scale. 
 
 ## Scale compute
 
