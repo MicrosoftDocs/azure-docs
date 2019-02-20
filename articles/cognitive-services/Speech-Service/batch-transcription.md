@@ -39,7 +39,7 @@ The Batch Transcription API offers asynchronous speech-to-text transcription, al
 1. Downloading transcriptions
 
 > [!NOTE]
-> The Batch Transcription API is ideal for call centers, which typically accumulate thousands of hours of audio. It make it easy to transcribe large volumes of audio recordings.
+> The Batch Transcription API is ideal for call centers, which typically accumulate thousands of hours of audio. It makes it easy to transcribe large volumes of audio recordings.
 
 ### Supported formats
 
@@ -51,11 +51,11 @@ The Batch Transcription API supports the following formats:
 | MP3 | PCM | 16-bit | 8 or 16 kHz, mono, stereo |
 | OGG | OPUS | 16-bit | 8 or 16 kHz, mono, stereo |
 
-For stereo audio streams, the Batch transcription API splits the left and right channel during the transcription. The two JSON files with the result are each created from a single channel. The timestamps per utterance enable the developer to create an ordered final transcript. The following JSON shows a sample request, including properties for setting up the profanity filter, the punctuation model, and word level timestamps.
+For stereo audio streams, the Batch transcription API splits the left and right channel during the transcription. The two JSON files with the result are each created from a single channel. The timestamps per utterance enable the developer to create an ordered final transcript. This sample request includes properties for profanity filtering, punctuation, and word level timestamps. 
 
 ### Configuration
 
-Parameters for the batch transcription are supplied in JSON format:
+Configuration parameters are provided as JSON:
 
 ```json
 {
@@ -81,7 +81,7 @@ Parameters for the batch transcription are supplied in JSON format:
 |-----------|-------------|---------------------|
 | `ProfanityFilterMode` | Specifies how to handle profanity in recognition results. Accepted values are `none` which disables profanity filtering, `masked` which replaces profanity with asterisks, `removed` which removes all profanity from the result, or `tags` which adds "profanity" tags. The default setting is `masked`. | Optional |
 | `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `none` which disables punctuation, `dictated` which implies explicit punctuation, `automatic` which lets the decoder deal with punctuation, or `dictatedandautomatic` which implies dictated punctuation marks or automatic. | Optional |
- | `AddWordLevelTimestamps` | Specify if word level timestamps should be added to the output. Accepted values are `true` which enables word level timestamps and `false` (the default value) to disable it. | Optional |
+ | `AddWordLevelTimestamps` | Specifies if word level timestamps should be added to the output. Accepted values are `true` which enables word level timestamps and `false` (the default value) to disable it. | Optional |
 
 ## Sample code
 
@@ -102,18 +102,18 @@ Take note of the asynchronous setup for posting audio and receiving transcriptio
 The current sample code doesn't specify a custom model. The service uses the baseline models for transcribing the file or files. To specify the models, you can pass on the same method as the model IDs for the acoustic and the language model.
 
 > [!NOTE]
-> For baseline transcriptions, you don't have to declare the ID of the baseline models. If you specify only a language model id (and no acoustic model id), we will pick automatically a matching acoustic model. If you only specify an acoustic model, we will pick a matching language model.
+> For baseline transcriptions, you don't need to declare the ID for the baseline models. If you only specify a language model ID (and no acoustic model ID), a matching acoustic model is automatically selected. If you only specify an acoustic model ID, a matching language model is automatically selected.
 
 ### Supported storage
 
-Currently, the only storage supported is Azure Blob storage.
+Currently, only Azure Blob storage is supported.
 
 ## Download the sample
 
 You can find the sample in the `samples/batch` directory in the [GitHub sample repository](https://aka.ms/csspeech/samples).
 
 > [!NOTE]
-> Batch transcription jobs are scheduled on a best effort basis, there is no time estimate when a job will change into the running state. Once in running state, the actual transcription is processed faster than the audio real time.
+> Batch transcription jobs are scheduled on a best effort basis, there is no time estimate for when a job will change into the running state. Once in running state, the actual transcription is processed faster than the audio real time.
 
 ## Next steps
 

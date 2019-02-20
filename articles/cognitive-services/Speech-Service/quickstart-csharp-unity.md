@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Recognize speech, Unity - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to create a speech-to-text application with Unity and the Speech SDK for Unity (beta). When finished, you can use your computer's microphone to transcribe speech to text in real time.
+description: Use this guide to create a speech-to-text application with Unity and the Speech SDK for Unity (Beta). When finished, you can use your computer's microphone to transcribe speech to text in real time.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -67,7 +67,7 @@ We add a minimal UI to our scene, consisting of a button to trigger speech recog
 * Click the **Text** object in the Hierarchy Window to display its settings in the [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
 * Set the **Pos X** and **Pos Y** properties to **0** and **120**, and set the **Width** and **Height** properties to **240** and **120** to ensure that the text field and the button do not overlap.
 
-When you're done, your UI should look similar to this screenshot:
+When you're done, the UI should look similar to this screenshot:
 
 [ ![Screenshot of the quickstart user interface in the Unity Editor](media/sdk/qs-csharp-unity-02-ui-inline.png) ](media/sdk/qs-csharp-unity-02-ui-expanded.png#lightbox)
 
@@ -94,8 +94,8 @@ When you're done, your UI should look similar to this screenshot:
 
   * Click on the **Canvas** object in the Hierarchy Window. This opens up its setting in the [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
   * Click the **Add Component** button in the Inspector Window, then search for the HelloWorld script we create above and add it.
-  * You will note that the Hello World component has two uninitialized properties in it, **Output Text** and **Start Reco Button**, matching public properties of the HelloWorld class.
-    To wire them up, click the Object Picker (the small circle icon to the right of the property), and choose text and button object you created earlier.
+  * Note that the Hello World component has two uninitialized properties, **Output Text** and **Start Reco Button**, that match public properties of the `HelloWorld` class.
+    To wire them up, click the Object Picker (the small circle icon to the right of the property), and choose the text and button objects you created earlier.
 
     > [!NOTE]
     > The button also has a nested text object. Make sure you do not accidentally pick it for text output (or
@@ -106,17 +106,17 @@ When you're done, your UI should look similar to this screenshot:
 
 * Press the **Play** button in the Unity Editor toolbar (below the menu bar).
 
-* After the app has been launched, click the button and speak an English phrase or sentence into your computer's microphone. Your speech is transmitted to the Speech service and transcribed to text, which appears in the window:
+* After the app launches, click the button and speak an English phrase or sentence into your computer's microphone. Your speech is transmitted to the Speech service and transcribed to text, which appears in the window.
 
   [ ![Screenshot of the running quickstart in the Unity Game Window](media/sdk/qs-csharp-unity-03-output-inline.png) ](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 
-* Check also the [Console Window](https://docs.unity3d.com/Manual/Console.html) for debug messages.
+* Check the [Console Window](https://docs.unity3d.com/Manual/Console.html) for debug messages.
 
-* When you're done recognizing speech, click the **Play** button in the Unity Editor toolbar to stop running the app.
+* When you're done recognizing speech, click the **Play** button in the Unity Editor toolbar to stop the app.
 
 ## Additional options to run this application
 
-This application can also be deployed to Android, or as a Windows stand-alone or UWP application.
+This application can also be deployed to Android, as a Windows stand-alone app, or UWP application.
 Refer to our [sample repository](https://aka.ms/csspeech/samples) in the quickstart/csharp-unity folder that describes the configuration for these additional targets.
 
 ## Next steps
