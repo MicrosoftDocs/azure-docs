@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot common errors
-description: Learn how to troubleshoot issues creating and assigning blueprints
+description: Learn how to troubleshoot issues creating, assigning, and removing blueprints.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
