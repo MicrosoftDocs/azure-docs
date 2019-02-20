@@ -37,3 +37,11 @@ To assign users to the Monitoring Reader or Monitoring Contributor roles via the
 > Specific recipients of Smart Detection notifications, configured using the _Additional email recipients_ option in the rule settings, will not be affected by this change. These recipients will continue receiving the email notifications.
 
 If you have any questions or concerns about this change, don’t hesitate to [contact us](mailto:smart-alert-feedback@microsoft.com).
+
+## Next steps
+
+Learn more about Smart Detection:
+
+- [Failure anomalies](../../azure-monitor/app/proactive-failure-diagnostics.md)
+- [Memory Leaks](../../azure-monitor/app/proactive-potential-memory-leak.md)
+- [Performance anomalies](../../azure-monitor/app/proactive-performance-diagnostics.md)
