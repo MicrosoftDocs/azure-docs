@@ -31,7 +31,7 @@ Follow these guidelines when planning your Avere vFXT system's network infrastru
 
 * Locate your client compute systems close to the vFXT cluster. Back-end storage can be more remote.  
 
-* The vFXT cluster and the cluster controller VM should be located in the same virtual network (vnet) and in the same resource group, and use the same storage account. The automated cluster creation template handles this for most situations.
+* The vFXT cluster and the cluster controller VM should be located in the same virtual network (vnet), in the same resource group, and use the same storage account. The automated cluster creation template handles this for most situations.
 
 * The cluster must be located in its own subnet to avoid IP address conflicts with clients or compute resources. 
 
@@ -41,7 +41,7 @@ Follow these guidelines when planning your Avere vFXT system's network infrastru
   |----------|-----------|----------|
   | Resource group | Yes, if empty | Must be empty| 
   | Storage account | Yes if connecting an existing Blob container after cluster creation <br/>  No if creating a new Blob container during cluster creation | Existing Blob container must be empty <br/> &nbsp; |
-  | Virtual network | Yes | Must include a storage service endpoint if using Azure Blob | 
+  | Virtual network | Yes | Must include a storage service endpoint if creating a new Azure Blob container | 
   | Subnet | Yes |   |
 
 ## IP address requirements 
@@ -59,13 +59,13 @@ The Avere vFXT cluster uses the following IP addresses:
 If you use Azure Blob storage, it also might require IP addresses from your cluster's vnet:  
 
 * An Azure Blob storage account requires at least five IP addresses. Keep this requirement in mind if you locate Blob storage in the same vnet as your cluster.
-* If you use Azure Blob storage that is outside the virtual network for your cluster, you should create a storage service endpoint inside the vnet. This endpoint does not use an IP address. 
+* If you use Azure Blob storage that is outside the virtual network for your cluster, you should create a storage service endpoint inside the vnet. This endpoint does not use an IP address.
 
 You have the option to locate network resources and Blob storage (if used) in different resource groups from the cluster.
 
 ## vFXT node size
 
-The VMs that serve as cluster nodes determine the request throughput and storage capacity of your cache. The instance type offered has been chosen for its memory, processor, and local storage characteristics. <!-- You can choose from two instance types, with different memory, processor, and local storage characteristics. -->
+The VMs that serve as cluster nodes determine the request throughput and storage capacity of your cache. <!-- The instance type offered has been chosen for its memory, processor, and local storage characteristics. You can choose from two instance types, with different memory, processor, and local storage characteristics. -->
 
 Each vFXT node will be identical. That is, if you create a three-node cluster you will have three VMs of the same type and size. 
 

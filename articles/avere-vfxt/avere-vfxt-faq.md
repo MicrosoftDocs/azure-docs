@@ -59,7 +59,7 @@ Avere vFXT is a cache. It doesn't specifically store data. It uses a combination
 
 ### What regions are supported?
 
-As of November 1, 2018, Avere vFXT for Azure is supported in all regions except for sovereign regions (China, Germany) and government regions. Make sure that the region you want to use can support the large quantity of compute cores and the VM instances needed to create the Avere vFXT cluster.
+Avere vFXT for Azure is supported in all regions except for sovereign regions (China, Germany). Make sure that the region you want to use can support the large quantity of compute cores and the VM instances needed to create the Avere vFXT cluster.
 
 ### How do I get help with Avere vFXT?
 
@@ -173,7 +173,7 @@ Yes, you can create your Avere vFXT system in a different virtual network. Read 
 
 ### Does Avere vFXT require its own subnet?
 
-Yes. Avere vFXT runs strictly as an HA cluster and requires multiple IP addresses to operate. If the cluster is in its own subnet, you avoid the risk of IP address conflicts, which can cause problems for installation and normal operation. The cluster's subnet can be within the existing virtual network as long as no IP addresses overlap.
+Yes. Avere vFXT runs strictly as a high availability (HA) cluster and requires multiple IP addresses to operate. If the cluster is in its own subnet, you avoid the risk of IP address conflicts, which can cause problems for installation and normal operation. The cluster's subnet can be within the existing virtual network as long as no IP addresses overlap.
 
 ### Can I run Avere vFXT on InfiniBand?
 
