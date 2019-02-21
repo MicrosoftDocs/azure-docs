@@ -2,27 +2,18 @@
 title: How to change, delete, or manage your management groups in Azure - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
 author: rthorn17
-manager: rithorn
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/20/2018
+
+ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
 ---
 # Manage your resources with management groups
 
-Management groups are containers that help you manage access, policy, and compliance across
-multiple subscriptions. You can change, delete, and manage these containers to have hierarchies
-that can be used with [Azure Policy](../policy/overview.md) and [Azure Role Based Access Controls
-(RBAC)](../../role-based-access-control/overview.md). To learn more about management groups, see
-[Organize your resources with Azure management groups](overview.md).
+If your organization has many subscriptions, you may need a way to efficiently manage access, policies, and compliance for those subscriptions. Azure management groups provide a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group.
 
-To make changes to a management group, you must have an Owner or Contributor role on the management
-group. To see what permissions you have, select the management group and then select **IAM**. To
-learn more about RBAC Roles, see [Manage access and permissions with
-RBAC](../../role-based-access-control/overview.md).
+Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.  To learn more about management groups, see
+[Organize your resources with Azure management groups](overview.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -75,7 +66,7 @@ To delete a management group, the following requirements must be met:
 
    - To move a management group to another management group, see [Move management groups in the hierarchy](#Move-management-groups-in-the-hierarchy).
 
-1. You have write permissions on the management group Owner or Contributor role on the management group. To see what permissions you have, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).  
+1. You have write permissions on the management group ("Owner", "Contributor", or "Management Group Contributor"). To see what permissions you have, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).  
 
 ### Delete in the portal
 
@@ -87,7 +78,8 @@ To delete a management group, the following requirements must be met:
 
 1. Select **Delete**
 
-   - If the icon is disabled, hovering your mouse selector over the icon shows you the reason.
+> [!TIP]
+> If the icon is disabled, hovering your mouse selector over the icon shows you the reason.
 
    ![Delete group option](./media/delete.png)
 
@@ -123,15 +115,15 @@ You can view any management group you have a direct or inherited RBAC role on.
 
 1. Select **All services** > **Management groups**.
 
-1. The management group hierarchy page loads where you can explore all the management groups and subscriptions you have access to. Selecting the group name takes you down a level in the hierarchy. The navigation works the same as a file explorer does.
+1. The management group hierarchy page will load. This page is where you can explore all the management groups and subscriptions you have access to. Selecting the group name takes you down a level in the hierarchy. The navigation works the same as a file explorer does.
+
+1. To see the details of the management group, select the **(details)** link next to the title of the management group. If this link isn't available, you don't have permissions to view that management group.
 
    ![Main](./media/main.png)
 
-1. To see the details of the management group, select the **(details)** link next to the title of the management group. If this link isn't available, you don't have permissions to view that management group.  
-
 ### View in PowerShell
 
-You use the Get-AzureRmManagementGroup command to retrieve all groups.  
+You use the Get-AzureRmManagementGroup command to retrieve all groups.  See [https://aka.ms/Get-MG-Powershell](https://aka.ms/Get-MG-Powershell) for the full list of management group GET Powershell commands.  
 
 ```azurepowershell-interactive
 Get-AzureRmManagementGroup
@@ -141,6 +133,41 @@ For a single management group's information, use the -GroupName parameter
 
 ```azurepowershell-interactive
 Get-AzureRmManagementGroup -GroupName 'Contoso'
+```
+
+To return a specific management group and all the levels of the hierarchy under it, use **-Expand** and **-Recurse** parameters.  
+
+```azurepowershell-interactive
+PS C:\> $response = Get-AzureRmManagementGroup -GroupName TestGroupParent -Expand -Recurse
+PS C:\> $response
+
+Id                : /providers/Microsoft.Management/managementGroups/TestGroupParent
+Type              : /providers/Microsoft.Management/managementGroups
+Name              : TestGroupParent
+TenantId          : 00000000-0000-0000-0000-000000000000
+DisplayName       : TestGroupParent
+UpdatedTime       : 2/1/2018 11:15:46 AM
+UpdatedBy         : 00000000-0000-0000-0000-000000000000
+ParentId          : /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000
+ParentName        : 00000000-0000-0000-0000-000000000000
+ParentDisplayName : 00000000-0000-0000-0000-000000000000
+Children          : {TestGroup1DisplayName, TestGroup2DisplayName}
+
+PS C:\> $response.Children[0]
+
+Type        : /managementGroup
+Id          : /providers/Microsoft.Management/managementGroups/TestGroup1
+Name        : TestGroup1
+DisplayName : TestGroup1DisplayName
+Children    : {TestRecurseChild}
+
+PS C:\> $response.Children[0].Children[0]
+
+Type        : /managementGroup
+Id          : /providers/Microsoft.Management/managementGroups/TestRecurseChild
+Name        : TestRecurseChild
+DisplayName : TestRecurseChild
+Children    :
 ```
 
 ### View in Azure CLI
@@ -157,19 +184,27 @@ For a single management group's information, use the show command
 az account management-group show --name 'Contoso'
 ```
 
+To return a specific management group and all the levels of the hierarchy under it, use **-Expand** and **-Recurse** parameters.
+
+```azurecli-interactive
+az account management-group show --name 'Contoso' -e -r
+```
+
 ## Move subscriptions in the hierarchy
 
 One reason to create a management group is to bundle subscriptions together. Only management groups
 and subscriptions can be made children of another management group. A subscription that moves to a
 management group inherits all user access and policies from the parent management group.
 
-To move the subscription, there are a couple permissions you must have:
+To move the subscription, all of the following RBAC permissions need to be true:
 
 - "Owner" role on the child subscription.
-- "Owner" or "Contributor" role on the new parent management group.
-- "Owner" or "Contributor" role on the old parent management group.
+- "Owner", "Contributor", or "Management Group Contributor" role on the target parent management group.*
+- "Owner", "Contributor", or "Management Group Contributor" role on the existing parent management group.*
 
-To see what permissions you have, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).
+*: Unless the target or the existing parent management group is the Root management group. Since the Root management group is the default landing spot for all new management groups and subscriptions, users don't need permissions on it to move an item.
+
+To see what permissions you have in the Azure portal, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).
 
 ### Move subscriptions in the portal
 
@@ -239,8 +274,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ## Move management groups in the hierarchy  
 
-When you move a parent management group, all the child resources that include management groups,
-subscriptions, resource groups, and resources move with the parent.
+When you move a parent management group, the hierarchy under that group moves with it.
 
 ### Move management groups in the portal
 
@@ -280,17 +314,29 @@ az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 
 ## Audit management groups using activity logs
 
-To track management groups via this API, use the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs). It's currently not possible to use PowerShell, CLI, or Azure portal to track management groups activity.
+Management groups are supported within [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md). You can query all events that happen to a management group in the same central location as other Azure resources.  For example, you can see all Role Assignments or Policy Assignment changes made to a particular management group.
 
-1. As a tenant admin of the Azure AD tenant, [elevate access](../../role-based-access-control/elevate-access-global-admin.md) then assign a Reader role to the auditing user over the scope `/providers/microsoft.insights/eventtypes/management`.
-1. As the auditing user, call the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs) to see management group activities. You'll want to filter by Resource Provider **Microsoft.Management** for all management group activity.  Example:
+![Activity Logs with Management Groups](media/AL-MG.png)
 
-```xml
-GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+When looking to query on Management Groups outside of the Azure portal, the target scope for management groups looks like **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
+
+## Referencing management groups from other Resource Providers
+
+When referencing management groups from other Resource Provider's actions, use the following path as the scope. This path is used when using PowerShell, Azure CLI, and REST APIs.  
+
+>"/providers/Microsoft.Management/managementGroups/{yourMgID}"
+
+An example of using this path is when assigning a new role assignment to a management group in PowerShell
+
+```powershell-interactive
+New-AzureRmRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
-> [!NOTE]
-> To conveniently call this API from the command line, try [ARMClient](https://github.com/projectkudu/ARMClient).
+The same scope path is used when retrieving a policy definition at a management group.
+
+```http
+GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2018-05-01
+```
 
 ## Next steps
 
