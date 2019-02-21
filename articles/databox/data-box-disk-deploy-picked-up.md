@@ -29,7 +29,7 @@ Before you begin, make sure that you have completed the [Tutorial: Copy data to 
 
 1. Once the data validation is complete, unplug the disks. Remove the connecting cables.
 2. Wrap all the disks and the connecting cables with a bubble wrap and place those into the shipping box.
-3. Use the return shipping label in the clear plastic sleeve affixed to the box. If the label is damaged or lost, download a new shipping label from the Azure portal and affix on the device. Go to **Overview > Download shipping label**. 
+3. Use the return shipping label in the clear plastic sleeve affixed to the box. If the label is damaged or lost, download a new shipping label from the Azure portal and affix on the device. Go to **Overview > Download shipping label**.
 
     ![Download shipping label](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
 
@@ -73,15 +73,8 @@ Verify that your data is in the storage account(s) before you delete it from the
 
 - Your managed disk resource group(s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation.
 
-    - If your copy to managed disks in Azure was successful, you can go to the **Order details** in the Azure portal and make a note of the resource groups specified for managed disks.
-
-        ![Identify managed disk resource groups](media/data-box-deploy-copy-data-from-vhds/order-details-mananged-disk-res-groups.png)
-
-        Go to the noted resource group and locate your managed disks.
-
-        ![Managed disk attached to resource groups](media/data-box-deploy-copy-data-from-vhds/managed-disks-in-res-group.png)
-
-    - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a block blobs. Go to your staging **Storage account > Blobs** and then select the appropriate container - Standard SSD, Standard HDD, Premium SSD, or Ultra SSD. The VHDs are uploaded as block blobs in your staging storage account.
+    - If your copy to managed disks in Azure was successful, you can go to the **Order details** in the Azure portal and make a note of the resource group specified for managed disks.      Go to the noted resource group and locate your managed disks.
+    - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a block blob. Go to your staging **Storage account > Blobs** and then select the appropriate container - Standard SSD, Standard HDD, Premium SSD, or Ultra SSD. The VHDX/VHDs are uploaded as block blobs in your staging storage account.
 
 
  To verify that the data has uploaded into Azure, perform the following steps:
