@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 02/19/2019
 ms.author: juliako
 ---
 
@@ -50,10 +50,21 @@ Suppose you wanted to extract the first frame of all your videos as a thumbnail 
 
 A **Transform** helps you create the recipe once (Step 1), and submit Jobs using that recipe (Step 2).
 
+## Job error codes
+
+See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+
 ## Paging
 
 See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
 
+## Configure Media Reserved Units
+
+For the Audio Analysis and Video Analysis Jobs that are triggered by Media Services v3 or Video Indexer, it is highly recommended to provision your account with 10 S3 Media Reserved Units (MRUs). If you need more than 10 S3 MRUs, open a support ticket using the [Azure portal](https://portal.azure.com/).
+
+For details, see [Scale media processing with CLI](media-reserved-units-cli-how-to.md).
+
 ## Next steps
 
-[Upload, encode, and stream video files](stream-files-tutorial-with-api.md)
+- [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
+- [Tutorial: Analyze videos with Media Services v3 using .NET](analyze-videos-tutorial-with-api.md)

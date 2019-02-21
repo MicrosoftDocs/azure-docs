@@ -1,6 +1,11 @@
 {
     "redirections": [
-        {
+      {
+        "source_path": "articles/machine-learning/studio/consume-web-service-with-web-app-template.md",
+        "redirect_url": "/azure/machine-learning/studio/consume-web-services",
+        "redirect_document_id": false
+      },
+      {
           "source_path": "articles/machine-learning/studio/troubleshooting-retraining-models.md",
           "redirect_url": "/azure/machine-learning/studio/retrain-classic-web-service",
           "redirect_document_id": false
@@ -657,62 +662,62 @@
     {
       "source_path": "articles/cognitive-services/Emotion/emotion-api-how-to-topics/HowtoAnalyzeVideo_Emotion.md",
       "redirect_url": "/azure/cognitive-services/face/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Emotion/emotion-api-how-to-topics/HowtoCallEmotionForVideo.md",
       "redirect_url": "/azure/cognitive-services/face/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Emotion/QuickStarts/CSharp.md",
       "redirect_url": "/azure/cognitive-services/face/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Emotion/QuickStarts/curl.md",
       "redirect_url": "/azure/cognitive-services/face/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Emotion/QuickStarts/Java.md",
       "redirect_url": "/azure/cognitive-services/face/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Emotion/QuickStarts/JavaScript.md",
       "redirect_url": "/azure/cognitive-services/face/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Emotion/QuickStarts/PHP.md",
       "redirect_url": "/azure/cognitive-services/face/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Emotion/QuickStarts/Python.md",
       "redirect_url": "/azure/cognitive-services/face/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Emotion/QuickStarts/Ruby.md",
       "redirect_url": "/azure/cognitive-services/face/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Emotion/Tutorials/CSharpTutorial.md",
       "redirect_url": "/azure/cognitive-services/face/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Emotion/Tutorials/PythonTutorial.md",
       "redirect_url": "/azure/cognitive-services/face/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Emotion/FAQ.md",
       "redirect_url": "/azure/cognitive-services/face/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Emotion/Home.md",
@@ -4437,6 +4442,31 @@
     {
       "source_path": "articles/automation/automation-source-control-integration.md",
       "redirect_url": "/azure/automation/source-control-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-runbook-input-parameters.md",
+      "redirect_url": "/azure/automation/runbook-input-parameters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-creating-importing-runbook.md",
+      "redirect_url": "/azure/automation/manage-runbooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-testing-runbook.md",
+      "redirect_url": "/azure/automation/manage-runbooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-starting-a-runbook.md",
+      "redirect_url": "/azure/automation/start-runbooks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-pass-json-string.md",
+      "redirect_url": "/azure/automation/runbook-input-parameters",
       "redirect_document_id": false
     },
     {
@@ -14693,6 +14723,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/backup/backup-upgrade-backup-vault.md",
+      "redirect_url": "/azure/backup/backup-azure-backup-faq",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/backup/backup-azure-vms-first-look.md",
       "redirect_url": "/azure/backup/backup-azure-vms-first-look-arm",
       "redirect_document_id": false
@@ -17458,6 +17493,16 @@
       "source_path": "articles/active-directory/active-directory-identity-protection-risk-events.md",
       "redirect_url": "/azure/active-directory/active-directory-reporting-risk-events",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/authentication/concept-registration-mfa-sspr-converged.md",
+      "redirect_url": "/azure/active-directory/authentication/concept-registration-mfa-sspr-combined",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/authentication/howto-registration-mfa-sspr-converged-troubleshoot.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-registration-mfa-sspr-combined-troubleshoot",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/active-directory-reporting-activity-sign-ins-mfa.md",
@@ -23275,6 +23320,11 @@
     {
       "source_path": "articles/active-directory/active-directory-azureadjoin-personal-device.md",
       "redirect_url": "/azure/active-directory/user-help/device-management-azuread-joined-devices-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/user-help/security-info-manage-settings.md",
+      "redirect_url": "/azure/active-directory/user-help/security-info-add-update-methods-overview",
       "redirect_document_id": false
     },
     {
@@ -29205,12 +29255,12 @@
     },
     {
       "source_path": "articles/virtual-machines/windows/disks-ultra-ssd.md",
-      "redirect_url": "/azure/virtual-machines/windows/disks-types#ultra-disks-preview",
+      "redirect_url": "/azure/virtual-machines/windows/disks-types#ultra-ssd-preview",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/disks-ultra-ssd.md",
-      "redirect_url": "/azure/virtual-machines/linux/disks-types#ultra-disks-preview",
+      "redirect_url": "/azure/virtual-machines/linux/disks-types#ultra-ssd-preview",
       "redirect_document_id": false
     },
     {
@@ -35072,7 +35122,12 @@
       "source_path":  "articles/azure-monitor/platform/dashboards.md",
       "redirect_url":  "/azure/azure-monitor/learn/tutorial-logs-dashboards",
       "redirect_document_id":  false
-    },    
+    },
+    {
+      "source_path":  "articles/azure-monitor/azure-monitor-rebrand.md",
+      "redirect_url":  "/azure/azure-monitor/terminology",
+      "redirect_document_id":  false
+    },
     {
       "source_path": "articles/machine-learning/service/how-to-automated-ml.md",
       "redirect_url": "/azure/machine-learning/service/concept-automated-ml",
@@ -35757,6 +35812,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/expressroute/expressroute-global-reach-app-scenario.md",
+      "redirect_url": "/azure/expressroute/expressroute-global-reach",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/classic/index.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/classic/index",
       "redirect_document_id": false
@@ -35910,10 +35970,17 @@
       "source_path": "articles/cognitive-services/LUIS/luis-reference-faq.md",
       "redirect_url": "/azure/cognitive-services/LUIS/troubleshooting",
       "redirect_document_id": true
-    },{
+    },
+    {
       "source_path": "articles/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization.md",
       "redirect_url": "/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/data-lake-storage-integrate-with-other-services.md",
+      "redirect_url": "/azure/storage/blobs/data-lake-storage-data-scenarios",
+      "redirect_document_id": false
     }
+    
   ]
 }

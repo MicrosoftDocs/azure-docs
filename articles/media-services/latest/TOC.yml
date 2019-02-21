@@ -142,10 +142,7 @@
       href: job-input-from-http-how-to.md
     - name: Local file as Job input - .NET
       displayName: encode, encoding
-      href: job-input-from-local-file-how-to.md  
-    - name: Local file as Job input - REST
-      displayName: encode
-      href: upload-files-rest-how-to.md    
+      href: job-input-from-local-file-how-to.md    
     - name: Use a custom Transform - .NET
       displayName: encode, encoding, tranform
       href: customize-encoder-presets-how-to.md
