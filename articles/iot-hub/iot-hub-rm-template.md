@@ -188,10 +188,10 @@ You can now complete the application by calling the **CreateIoTHub** method befo
 
 3. Click **Debug** and then **Start Debugging** to run the application. It may take several minutes for the deployment to run.
 
-4. To verify your application added the new IoT hub, visit the [Azure portal][lnk-azure-portal] and view your list of resources. Alternatively, use the **Get-AzureRmResource** PowerShell cmdlet.
+4. To verify your application added the new IoT hub, visit the [Azure portal][lnk-azure-portal] and view your list of resources. Alternatively, use the **Get-AzResource** PowerShell cmdlet.
 
 > [!NOTE]
-> This example application adds an S1 Standard IoT Hub for which you are billed. You can delete the IoT hub through the [Azure portal][lnk-azure-portal] or by using the **Remove-AzureRmResource** PowerShell cmdlet when you are finished.
+> This example application adds an S1 Standard IoT Hub for which you are billed. You can delete the IoT hub through the [Azure portal][lnk-azure-portal] or by using the **Remove-AzResource** PowerShell cmdlet when you are finished.
 
 ## Next steps
 Now you have deployed an IoT hub using an Azure Resource Manager template with a C# program, you may want to explore further:
@@ -213,7 +213,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps
 [lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-storage-account]:../storage/common/storage-create-storage-account.md
