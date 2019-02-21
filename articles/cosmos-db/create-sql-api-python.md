@@ -10,7 +10,7 @@ ms.date: 09/24/2018
 ms.author: sngun
 
 ---
-# Azure Cosmos DB: Build a Python application to manage data stored in Azure Cosmos DB SQL API account
+# Azure Cosmos DB: Build a Python application using Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)

@@ -10,7 +10,7 @@ ms.date: 10/24/2018
 ms.author: sngun
 
 ---
-# Quickstart: Build a Java application to manage data stored in Azure Cosmos DB SQL API account
+# Quickstart: Build a Java application using Azure Cosmos DB SQL API account
 
 
 > [!div class="op_single_selector"]

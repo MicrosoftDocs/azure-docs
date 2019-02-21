@@ -10,7 +10,7 @@ ms.date: 12/01/2018
 ms.author: dech
 
 ---
-# Quickstart: Build an ASP.NET web app to manage data stored in Azure Cosmos DB SQL API account
+# Quickstart: Build an ASP.NET web app using Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
 > * [.NET (Preview)](create-sql-api-dotnet-preview.md)

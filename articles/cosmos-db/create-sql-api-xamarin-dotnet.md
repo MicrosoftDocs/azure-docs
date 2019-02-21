@@ -10,7 +10,7 @@ ms.date: 05/30/2018
 ms.author: masoucou
 
 ---
-# Quickstart: Build a todo app with Xamarin to manage data stored in Azure Cosmos DB SQL API account
+# Quickstart: Build a todo app with Xamarin using Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
