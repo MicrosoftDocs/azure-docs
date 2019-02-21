@@ -45,7 +45,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Database for MySQL](#azure-database-for-mysql)
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
-* [Azure Event Grid](#azure-event-grid-limits)
+* [Event Grid](#event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
@@ -53,16 +53,16 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
 * [BizTalk Services](#biztalk-services-limits)
-* [CDN](#cdn-limits)
-* [Cloud Services](#cloud-services-limits)
+* [Content Delivery Network](#content-delivery-network-limits)
+* [Azure Cloud Services](#azure-cloud-services-limits)
 * [Container Instances](#container-instances-limits)
 * [Container Registry](#container-registry-limits)
-* [Kubernetes Service](#kubernetes-service-limits)
+* [Azure Kubernetes Service](#azure-kubernetes-service-limits)
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [Database Migration Service](#database-migration-service-limits)
-* [DNS](#dns-limits)
+* [Azure DNS](#azure-dns-limits)
 * [Event Hubs](#event-hubs-limits)
 * [Azure Firewall](#azure-firewall-limits)
 * [Front Door](#azure-front-door-service-limits)
@@ -76,13 +76,13 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Networking](#networking-limits)
 * [Network Watcher](#network-watcher-limits)
-* [Notification Hub Service](#notification-hub-service-limits)
-* [Resource Group](#resource-group-limits)
+* [Notification Hubs](#notification-hubs-limits)
+* [Resource group](#resource-group-limits)
 * [Role-based access control](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
-* [Search](#search-limits)
+* [Azure Search](#azure-search-limits)
 * [Service Bus](#service-bus-limits)
-* [SignalR Service](#signalr-service-limits)
+* [Azure SignalR Service](#azure-signalr-service-limits)
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
@@ -92,7 +92,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Subscription](#subscription-limits)
 * [Traffic Manager](#traffic-manager-limits)
 * [Virtual Machines](#virtual-machines-limits)
-* [Virtual Machine Scale Sets](#virtual-machine-scale-sets-limits)
+* [Virtual machine scale sets](#virtual-machine-scale-sets-limits)
 
 ### Subscription limits
 #### Subscription limits - Azure Service Management (classic deployment model)
@@ -105,7 +105,7 @@ For information about Resource Manager API read and write limits, see [Throttlin
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-### Resource Group limits
+### Resource group limits
 [!INCLUDE [azure-resource-groups-limits](../includes/azure-resource-groups-limits.md)]
 
 ### Virtual Machines limits
@@ -117,7 +117,7 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 
-### Virtual Machine Scale Sets limits
+### Virtual machine scale sets limits
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
 ### Container Instances limits
@@ -128,7 +128,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
 
-### Kubernetes Service limits
+### Azure Kubernetes Service limits
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### Networking limits
@@ -148,7 +148,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 #### Traffic Manager limits
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
 
-#### DNS limits
+#### Azure DNS limits
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 #### Azure Firewall limits
@@ -200,7 +200,7 @@ For more information, see [Virtual machine sizes](virtual-machines/linux/sizes.m
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
 
-### Cloud Services limits
+### Azure Cloud Services limits
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
 
 ### App Service limits
@@ -228,7 +228,7 @@ For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQ
 ### Azure Database for PostgreSQL
 For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for PostgreSQL](postgresql/concepts-limits.md).
 
-### Search limits
+### Azure Search limits
 Pricing tiers determine the capacity and limits of your search service. Tiers include:
 
 * **Free** multitenant service, shared with other Azure subscribers, is intended for evaluation and small development projects.
@@ -248,7 +248,7 @@ To learn more about limits on a more granular level, such as document size, quer
 ### Media Services limits
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
 
-### CDN limits
+### Content Delivery Network limits
 [!INCLUDE [cdn-limits](../includes/cdn-limits.md)]
 
 ### Mobile Services limits
@@ -257,7 +257,7 @@ To learn more about limits on a more granular level, such as document size, quer
 ### Monitor limits
 [!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
 
-### Notification Hub Service limits
+### Notification Hubs limits
 [!INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
 ### Event Hubs limits
@@ -290,7 +290,7 @@ To learn more about limits on a more granular level, such as document size, quer
 ### Active Directory limits
 [!INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
 
-### Azure Event Grid limits
+### Event Grid limits
 [!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
 
 ### Azure Maps limits
@@ -308,7 +308,7 @@ To learn more about limits on a more granular level, such as document size, quer
 ### Backup limits
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
-### SignalR Service limits
+### Azure SignalR Service limits
 [!INCLUDE [signalr-service-limits](../includes/signalr-service-limits.md)]
 
 ### Site Recovery limits
@@ -346,5 +346,5 @@ For SQL Data Warehouse limits, see [SQL Data Warehouse Resource Limits](sql-data
 
 ## See also
 - [Understand Azure limits and increases](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
-- [Virtual Machine and Cloud Service sizes for Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Sizes for Cloud Services](cloud-services/cloud-services-sizes-specs.md)
+- [Virtual machine and cloud service sizes for Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Sizes for Azure Cloud Services](cloud-services/cloud-services-sizes-specs.md)
