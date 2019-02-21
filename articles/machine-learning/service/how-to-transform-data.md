@@ -285,7 +285,7 @@ dataflow.head(5)
 
 ### Filtering columns
 
-To filter columns, use `Dataflow.drop_columns()`. This method takes a list of columns to drop or a more complex argument called [`ColumnSelector`](https://docs.microsoft.com/en-us/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py).
+To filter columns, use `Dataflow.drop_columns()`. This method takes a list of columns to drop or a more complex argument called [`ColumnSelector`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.columnselector?view=azure-dataprep-py).
 
 #### Filtering columns with list of strings
 
@@ -490,7 +490,7 @@ df.head(2)
 |0|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|1.0|
 |1|ALABAMA|Jefferson County|Jefferson County, Alabama|1.019200e+10|0.0|
 
-## Next Steps
+## Next steps
 
 * See the SDK [overview](https://aka.ms/data-prep-sdk) for design patterns and usage examples
 * See the Azure Machine Learning Data Prep SDK [tutorial](tutorial-data-prep.md) for an example of solving a specific scenario
