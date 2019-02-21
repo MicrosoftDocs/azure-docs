@@ -23,7 +23,10 @@ This topic describes the PowerShell commands to perform many of the management t
 These commands parallel the management options available in the [Azure Search Management REST API](https://docs.microsoft.com/rest/api/searchmanagement).
 
 ## Prerequisites
-* You must have Azure PowerShell 1.0 or greater. For instructions, see [Install and configure Azure PowerShell](/powershell/azure/overview).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+* You must have Azure PowerShell. For installation instructions, see [Install Azure PowerShell](/powershell/azure/overview).
 * You must be logged in to your Azure subscription in PowerShell as described below.
 
 First, you must login to Azure with this command:
