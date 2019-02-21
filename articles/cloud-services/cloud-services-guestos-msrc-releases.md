@@ -12,12 +12,67 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/5/2019
+ms.date: 2/20/2019
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## February 2019 Guest OS
+
+>[!NOTE]
+>The February Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the February Guest OS. This list is subject to change.
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 19-02 | [4486474] | Internet Explorer | 2.83, 3.70, 4.63 | February 12, 2019 |
+| Rel 19-02 | [4487038] | Flash | 3.70, 4.63, 5.28, 6.4 | February 12, 2019 |
+| Rel 19-02 | [4486564] | Windows Security | 2.83 | February 12, 2019 |
+| Rel 19-02 | [4483483] | .NET 3.5.1 Security | 2.83 | February 12, 2019 |
+| Rel 19-02 | [4483474] | .NET 4.5.2 Security | 2.83 | February 12, 2019 |
+| Rel 19-02 | [4486993] | Windows Security | 3.70 | February 12, 2019 |
+| Rel 19-02 | [4483481] | .NET 3.5 Security | 3.70 | February 12, 2019 |
+| Rel 19-02 | [4483473] | .NET 4.5.2 Security | 3.70 | February 12, 2019 |
+| Rel 19-02 | [4487028] | Windows Security | 4.63 | February 12, 2019 |
+| Rel 19-02 | [4483484] | .NET 3.5 Security | 4.63 | February 12, 2019 |
+| Rel 19-02 | [4483472] | .NET 4.5.2 Security | 4.63 | February 12, 2019 |
+| Rel 19-02 | [4487026] | Windows Security | 5.28 | February 12, 2019 |
+| Rel 19-02 | [4487044] | Windows Security | 6.4 | February 12, 2019 |
+| Rel 19-02 | [4483452] | .NET 3.5, 4.7.2 Security | 6.4 | February 12, 2019 |
+| N/A | [4480970] | January Non-Security rollup | 2.83 | January 8, 2019 |
+| N/A | [4483483] | January Non-Security rollup .NET 3.5.1  | 2.83 | January 8, 2019 |
+| N/A | [4480059] | January Non-Security rollup .NET 4.5.2  | 2.83 | January 8, 2019 |
+| N/A | [4480975] | January Non-Security rollup | 3.70 | January 8, 2019 |
+| N/A | [4480061] | January Non-Security rollup .NET 3.5 | 3.70 | January 8, 2019 |
+| N/A | [4480058] | January Non-Security rollup .NET 4.5.2 | 3.70 | January 8, 2019 |
+| N/A | [4480963] | January Non-Security rollup | 4.63 | January 8, 2019 |
+| N/A | [4480064] | January Non-Security rollup .NET 3.5 | 4.63 | January 8, 2019 |
+| N/A | [4480057] | January Non-Security rollup .NET 4.5.2 | 4.63 | January 8, 2019 |
+
+[4486474]: http://support.microsoft.com/kb/4486474
+[4487038]: http://support.microsoft.com/kb/4487038
+[4486564]: http://support.microsoft.com/kb/4486564
+[4483483]: http://support.microsoft.com/kb/4483483
+[4483474]: http://support.microsoft.com/kb/4483474
+[4486993]: http://support.microsoft.com/kb/4486993
+[4483481]: http://support.microsoft.com/kb/4483481
+[4483473]: http://support.microsoft.com/kb/4483473
+[4487028]: http://support.microsoft.com/kb/4487028
+[4483484]: http://support.microsoft.com/kb/4483484
+[4483472]: http://support.microsoft.com/kb/4483472
+[4487026]: http://support.microsoft.com/kb/4487026
+[4487044]: http://support.microsoft.com/kb/4487044
+[4483452]: http://support.microsoft.com/kb/4483452
+[4480970]: http://support.microsoft.com/kb/4480970
+[4483483]: http://support.microsoft.com/kb/4483483
+[4480059]: http://support.microsoft.com/kb/4480059
+[4480975]: http://support.microsoft.com/kb/4480975
+[4480061]: http://support.microsoft.com/kb/4480061
+[4480058]: http://support.microsoft.com/kb/4480058
+[4480963]: http://support.microsoft.com/kb/4480963
+[4480064]: http://support.microsoft.com/kb/4480064
+[4480057]: http://support.microsoft.com/kb/4480057
 
 ## January 2019 Guest OS
 
