@@ -23,6 +23,7 @@ ms.author: kumud
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Template](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -55,7 +56,7 @@ Make sure you have the latest production version of the Azure PowerShell module.
 Start the PowerShell module for Azure Resource Manager.
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ### Step 2: View your subscriptions
@@ -63,7 +64,7 @@ Connect-AzureRmAccount
 Check your available Azure subscriptions.
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Enter your credentials when you're prompted for authentication.
@@ -73,7 +74,7 @@ Enter your credentials when you're prompted for authentication.
 Choose which of your Azure subscriptions to use for deploying the load balancer.
 
 ```powershell
-Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Select-AzSubscription -Subscriptionid "GUID of subscription"
 ```
 
 ### Step 4: Choose the resource group for the load balancer
@@ -81,7 +82,7 @@ Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 Create a new resource group for the load balancer. Skip this step if you're using an existing resource group.
 
 ```powershell
-New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+New-AzResourceGroup -Name NRP-RG -location "West US"
 ```
 
 Azure Resource Manager requires that all resource groups specify a location. The location is used as the default for all resources in the resource group. Always use the same resource group for all commands related to creating the load balancer.
@@ -93,13 +94,13 @@ In the example, we created a resource group named **NRP-RG** with the location W
 Create a subnet for the virtual network and assign it to the variable **$backendSubnet**.
 
 ```powershell
-$backendSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
+$backendSubnet = New-AzVirtualNetworkSubnetConfig -Name LB-Subnet-BE -AddressPrefix 10.0.2.0/24
 ```
 
 Create a virtual network.
 
 ```powershell
-$vnet= New-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
+$vnet= New-AzVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
 ```
 
 The virtual network is created. The **LB-Subnet-BE** subnet is added to the **NRPVNet** virtual network. These values are assigned to the **$vnet** variable.
@@ -113,7 +114,7 @@ Create a front-end IP pool for the incoming traffic and a back-end address pool 
 Create a front-end IP pool with the private IP address 10.0.2.5 for the subnet 10.0.2.0/24. This address is the incoming network traffic endpoint.
 
 ```powershell
-$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
+$frontendIP = New-AzLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
 ```
 
 ### Step 2: Create a back-end address pool
@@ -121,7 +122,7 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -Private
 Create a back-end address pool to receive incoming traffic from the front-end IP pool:
 
 ```powershell
-$beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
+$beaddresspool= New-AzLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
 ```
 
 ## Create the configuration rules, probe, and load balancer
@@ -138,13 +139,13 @@ The example creates the following four rule objects:
 * A load balancer rule: Load-balances all incoming traffic on public port 80 to local port 80 in the back-end address pool.
 
 ```powershell
-$inboundNATRule1= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
+$inboundNATRule1= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
 
-$inboundNATRule2= New-AzureRmLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
+$inboundNATRule2= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP2" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3442 -BackendPort 3389
 
-$healthProbe = New-AzureRmLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
+$healthProbe = New-AzLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "HealthProbe.aspx" -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
-$lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+$lbrule = New-AzLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 ```
 
 ### Step 2: Create the load balancer
@@ -152,7 +153,7 @@ $lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguratio
 Create the load balancer and combine the rule objects (inbound NAT for RDP, load balancer, and health probe):
 
 ```powershell
-$NRPLB = New-AzureRmLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
+$NRPLB = New-AzLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Location "West US" -FrontendIpConfiguration $frontendIP -InboundNatRule $inboundNATRule1,$inboundNatRule2 -LoadBalancingRule $lbrule -BackendAddressPool $beAddressPool -Probe $healthProbe
 ```
 
 ## Create the network interfaces
@@ -164,15 +165,15 @@ After creating the internal load balancer, define the network interfaces (NICs) 
 Get the resource virtual network and subnet. These values are used to create the network interfaces:
 
 ```powershell
-$vnet = Get-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
+$vnet = Get-AzVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG
 
-$backendSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
+$backendSubnet = Get-AzVirtualNetworkSubnetConfig -Name LB-Subnet-BE -VirtualNetwork $vnet
 ```
 
 Create the first network interface with the name **lb-nic1-be**. Assign the interface to the load balancer back-end pool. Associate the first NAT rule for RDP with this NIC:
 
 ```powershell
-$backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
+$backendnic1= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
 ```
 
 ### Step 2: Create the second network interface
@@ -180,7 +181,7 @@ $backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-n
 Create the second network interface with the name **lb-nic2-be**. Assign the second interface to the same load balancer back-end pool as the first interface. Associate the second NIC with the second NAT rule for RDP:
 
 ```powershell
-$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
+$backendnic2= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 ```
 
 Review the configuration:
@@ -192,7 +193,7 @@ The settings should be as follows:
     Name                 : lb-nic1-be
     ResourceGroupName    : NRP-RG
     Location             : westus
-    Id                   : /subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
+    Id                   : /subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be
     Etag                 : W/"d448256a-e1df-413a-9103-a137e07276d1"
     ProvisioningState    : Succeeded
     Tags                 :
@@ -202,25 +203,25 @@ The settings should be as follows:
                            "PrivateIpAddress": "10.0.2.6",
                            "PrivateIpAllocationMethod": "Static",
                            "Subnet": {
-                             "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
+                             "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/virtualNetworks/NRPVNet/subnets/LB-Subnet-BE"
                            },
                            "PublicIpAddress": {
                              "Id": null
                            },
                            "LoadBalancerBackendAddressPools": [
                              {
-                               "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
+                               "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/backendAddressPools/LB-backend"
                              }
                            ],
                            "LoadBalancerInboundNatRules": [
                              {
-                               "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
+                               "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/loadBalancers/NRPlb/inboundNatRules/RDP1"
                              }
                            ],
                            "ProvisioningState": "Succeeded",
                            "Name": "ipconfig1",
                            "Etag": "W/\"d448256a-e1df-413a-9103-a137e07276d1\"",
-                           "Id": "/subscriptions/f50504a2-1865-4541-823a-b32842e3e0ee/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
+                           "Id": "/subscriptions/[Id]/resourceGroups/NRP-RG/providers/Microsoft.Network/networkInterfaces/lb-nic1-be/ipConfigurations/ipconfig1"
                          }
                        ]
     DnsSettings          : {
@@ -235,7 +236,7 @@ The settings should be as follows:
 
 ### Step 3: Assign the NIC to a VM
 
-Assign the NIC to a virtual machine by using the `Add-AzureRmVMNetworkInterface` command.
+Assign the NIC to a virtual machine by using the `Add-AzVMNetworkInterface` command.
 
 For step-by-step instructions to create a virtual machine and assign the NIC, see [Create an Azure VM by using PowerShell](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json).
 
@@ -248,7 +249,7 @@ After the virtual machine has been created, add the network interface.
 Store the load balancer resource in a variable (if you haven't done that yet). We're using the variable name **$lb**. For the attribute values in the script, use the names for the load balancer resources that were created in the previous steps.
 
 ```powershell
-$lb = Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
+$lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
 ```
 
 ### Step 2: Store the back-end configuration
@@ -256,7 +257,7 @@ $lb = Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
 Store the back-end configuration into the **$backend** variable.
 
 ```powershell
-$backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
+$backend = Get-AzLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
 ```
 
 ### Step 3: Store the network interface
@@ -264,7 +265,7 @@ $backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -Loa
 Store the network interface in another variable. This interface was created in "Create the network interfaces, Step 1." We're using the variable name **$nic1**. Use the same network interface name from the previous example.
 
 ```powershell
-$nic = Get-AzureRmNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
+$nic = Get-AzNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
 ```
 
 ### Step 4: Change the back-end configuration
@@ -280,7 +281,7 @@ $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 Save the network interface object.
 
 ```powershell
-Set-AzureRmNetworkInterface -NetworkInterface $nic
+Set-AzNetworkInterface -NetworkInterface $nic
 ```
 
 After the interface is added to the back-end pool, network traffic is load-balanced according to the rules. These rules were configured in "Create the configuration rules, probe, and load balancer."
@@ -289,10 +290,10 @@ After the interface is added to the back-end pool, network traffic is load-balan
 
 ### Step 1: Assign the load balancer object to a variable
 
-Assign the load balancer object (from the previous example) to the **$slb** variable by using the `Get-AzureRmLoadBalancer` command:
+Assign the load balancer object (from the previous example) to the **$slb** variable by using the `Get-AzLoadBalancer` command:
 
 ```powershell
-$slb = Get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+$slb = Get-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 ### Step 2: Add a NAT rule
@@ -300,7 +301,7 @@ $slb = Get-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 Add a new inbound NAT rule to an existing load balancer. Use port 81 for the front-end pool and port 8181 for the back-end pool:
 
 ```powershell
-$slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
+$slb | Add-AzLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
 ```
 
 ### Step 3: Save the configuration
@@ -308,15 +309,15 @@ $slb | Add-AzureRmLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConf
 Save the new configuration by using the `Set-AzureLoadBalancer` command:
 
 ```powershell
-$slb | Set-AzureRmLoadBalancer
+$slb | Set-AzLoadBalancer
 ```
 
 ## Remove an existing load balancer
 
-Delete the **NRP-LB** load balancer in the **NRP-RG** resource group by using the `Remove-AzureRmLoadBalancer` command:
+Delete the **NRP-LB** load balancer in the **NRP-RG** resource group by using the `Remove-AzLoadBalancer` command:
 
 ```powershell
-Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
+Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
 > [!NOTE]
