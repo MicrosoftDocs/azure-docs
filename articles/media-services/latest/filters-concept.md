@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/20/2019
 ms.author: juliako
 
 ---
 # Define account filters and asset filters  
 
-When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
+When delivering your content to customers (Live Streaming events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
 
 Filters are server-side rules that allow your customers to do things like: 
 
@@ -64,16 +64,16 @@ Use this property with **Asset Filters**. It is not recommended to set the prope
 
 |Name|Description|
 |---|---|
-|**endTimestamp**|The absolute end time boundary. Applies to Video on Demand (VoD). For the Live presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD.<br/><br/>The value represents an absolute end point of the stream. It gets rounded to the closest next GOP start.<br/><br/>Use StartTimestamp and EndTimestamp to trim the playlist (manifest). For example, StartTimestamp=40000000 and EndTimestamp = 100000000 will generate a playlist that contains media between StartTimestamp and EndTimestamp. If a fragment straddles the boundary, the entire fragment will be included in the manifest.<br/><br/>Also, see the **forceEndTimestamp** definition that follows.|
-|**forceEndTimestamp**|Applies to Live filters.<br/><br/>**forceEndTimestamp** is a boolean that indicates whether or not **endTimestamp** was set to a valid value. <br/><br/>If the value is **true**, the **endTimestamp** value should be specified. If it is not specified, then a bad request is returned.<br/><br/>If for example, you want to define a filter that starts at 5 minutes into the input video, and lasts until the end of the stream, you would set **forceEndTimestamp** to false and omit setting **endTimestamp**.|
-|**liveBackoffDuration**|Applies to Live only. The property is used to define live playback position. Using this rule, you can delay live playback position and create a server-side buffer for players. LiveBackoffDuration is relative to the live position. The maximum live backoff duration is 300 seconds.|
-|**presentationWindowDuration**|Applies to Live. Use **presentationWindowDuration** to apply a sliding window to the playlist. For example, set presentationWindowDuration=1200000000 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.|
-|**startTimestamp**|Applies to VoD or Live streams. The value represents an absolute start point of the stream. The value gets rounded to the closest next GOP start.<br/><br/>Use **startTimestamp** and **endTimestamp** to trim the playlist (manifest). For example, startTimestamp=40000000 and endTimestamp = 100000000 will generate a playlist that contains media between StartTimestamp and EndTimestamp. If a fragment straddles the boundary, the entire fragment will be included in the manifest.|
-|**timescale**|Applies to VoD or Live streams. The timescale used by the timestamps and durations specified above. The default timescale is 10000000. An alternative timescale can be used. Default is 10000000 HNS (hundred nanosecond).|
+|**endTimestamp**|Applies to Video on Demand (VoD).<br/>For the Live Streaming presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD.<br/>This is a long value that represents an absolute end point of the presentation, rounded to the closest next GOP start. The unit is the timescale, so an endTimestamp of 1800000000 would be for 3 minutes.<br/>Use startTimestamp and endTimestamp to trim the fragments that will be in the playlist (manifest).<br/>For example, startTimestamp=40000000 and endTimestamp=100000000 using the default timescale will generate a playlist that contains fragments from between 4 seconds and 10 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest.|
+|**forceEndTimestamp**|Applies to Live Streaming only.<br/>Indicates whether the endTimestamp property must be present. If true, endTimestamp must be specified or a bad request code is returned.<br/>Allowed values: false, true.|
+|**liveBackoffDuration**|Applies to Live Streaming only.<br/> This value defines the latest live position that a client can seek to.<br/>Using this property, you can delay live playback position and create a server-side buffer for players.<br/>The unit for this property is timescale (see below).<br/>The maximum live back off duration is 300 seconds (3000000000).<br/>For example, a value of 2000000000 means that the latest available content is 20 seconds delayed from the real live edge.|
+|**presentationWindowDuration**|Applies to Live Streaming only.<br/>Use presentationWindowDuration to apply a sliding window of fragments to include in a playlist.<br/>The unit for this property is timescale (see below).<br/>For example, set presentationWindowDuration=1200000000 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 60 seconds.|
+|**startTimestamp**|Applies to Video on Demand (VoD) or Live Streaming.<br/>This is a long value that represents an absolute start point of the stream. The value gets rounded to the closest next GOP start. The unit is the timescale, so a start-timestamp of 150000000 would be for 15 seconds.<br/>Use startTimestamp and endTimestampp to trim the fragments that will be in the playlist (manifest).<br/>For example, startTimestamp=40000000 and endTimestamp=100000000 using the default timescale will generate a playlist that contains fragments from between 4 seconds and 10 seconds of the VoD presentation. If a fragment straddles the boundary, the entire fragment will be included in the manifest|
+|**timescale**|Applies to all timestamps and durations in a PresentationTimeRange.<br/>Default is 10000000 HNS (one hundred nanoseconds).<br/>For example, if you want to set a startTimestamp at 30 seconds, the value would be 300000000.|
 
 ### Tracks
 
-You specify a list of filter track property conditions (FilterTrackPropertyConditions) based on which the tracks of your stream (Live or Video on Demand) should be included into dynamically created manifest. The filters are combined using a logical **AND** and **OR** operation.
+You specify a list of filter track property conditions (FilterTrackPropertyConditions) based on which the tracks of your stream (Live Streaming or Video on Demand) should be included into dynamically created manifest. The filters are combined using a logical **AND** and **OR** operation.
 
 Filter track property conditions describe track types, values (described in the following table), and operations (Equal, NotEqual). 
 
