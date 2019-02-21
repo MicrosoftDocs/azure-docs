@@ -28,6 +28,7 @@ To set up Apple Push Notification Service (APNS):
 1. In the Azure portal, in the **Notification Hub**, select **Apple (APNS)**.
 
 1. For **Authentication Mode**, select either **Certificate** or **Token**.
+
    a. If you select **Certificate**:
       * Select the file icon, and then select the *.p12* file you want to upload.
       * Enter a password.
@@ -37,8 +38,8 @@ To set up Apple Push Notification Service (APNS):
 
    b. If you select **Token**:
 
-1. Enter the values for **Key Id**, **Bundle Id**, **Team Id**, and **Token**.
-   a. Select **Sandbox** mode. Or, to send push notifications to users who purchased your app from the store, select **Production** mode.
+      * Enter the values for **Key Id**, **Bundle Id**, **Team Id**, and **Token**.
+      * Select **Sandbox** mode. Or, to send push notifications to users who purchased your app from the store, select **Production** mode.
 
       ![Screenshot of an APNS token configuration in the Azure portal](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
 
@@ -76,6 +77,7 @@ To set up Microsoft Push Notification Service (MPNS) for Windows Phone:
 
 1. In the Azure portal, in the **Notification Hub**, select **Windows Phone (MPNS)**.
 1. Enable either unauthenticated or authenticated push notifications:
+
    a. To enable unauthenticated push notifications, select **Enable unauthenticated push** > **Save**.
 
       ![Screenshot that shows how to enable unauthenticated push notifications](./media/notification-hubs-windows-phone-get-started/azure-portal-unauth.png)
