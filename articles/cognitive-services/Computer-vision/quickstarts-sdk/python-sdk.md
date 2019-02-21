@@ -285,7 +285,7 @@ Several Computer Vision Python SDK samples are available to you in the SDK's Git
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Applying content tags to images](concept-tagging-images.md)
+> [Applying content tags to images](../concept-tagging-images.md)
 
 <!-- LINKS -->
 [pip]: https://pypi.org/project/pip/
