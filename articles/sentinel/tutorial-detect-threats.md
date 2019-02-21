@@ -21,7 +21,7 @@ ms.author: rkarlin
 
 This tutorial helps you detect threats with Azure Sentinel.
 
-After you [connected your data sources](sentinel-qs-onboard.md) to Azure Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Azure Sentinel lets you create advanced alert rules, that generate cases that you can assign and use to deeply investigate anomalies and threats in your environment. 
+After you [connected your data sources](qs-onboard.md) to Azure Sentinel, you want to be notified when something suspicious happens. To enable you to do this, Azure Sentinel lets you create advanced alert rules, that generate cases that you can assign and use to deeply investigate anomalies and threats in your environment. 
 
 
 ## Create detection rules

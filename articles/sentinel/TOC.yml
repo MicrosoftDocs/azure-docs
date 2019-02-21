@@ -3,14 +3,14 @@
 - name: Overview
   items:
   - name: About Azure Sentinel
-    href: sentinel-overview.md
+    href: overview.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Onboarding Azure Sentinel
-    href: sentinel-qs-onboard.md
+    href: qs-onboard.md
   - name: Get visibility into alerts
-    href: sentinel-qs-get-visibility.md
+    href: qs-get-visibility.md
   
 - name: Tutorials
   items:
@@ -22,39 +22,39 @@
 - name: How-to guides
   items:
   - name: Hunting
-    href: sentinel-hunting.md
+    href: hunting.md
     items:
     - name: Use notebooks to hunt
-      href: sentinel-notebooks.md
+      href: notebooks.md
     - name: Use bookmarks to hunt
-      href: sentinel-bookmarks.md
+      href: bookmarks.md
 
   - name: Connect Cloud App Security
-    href: sentinel-connect-mcas.md
+    href: connect-mcas.md
   - name: Connect Azure Activity Log
-    href: sentinel-connect-azure-activity.md
+    href: connect-azure-activity.md
   - name: Connect Azure Information Protection
-    href: sentinel-connect-aip.md
+    href: connect-aip.md
   - name: Connect Azure ATP
-    href: sentinel-connect-aatp.md
+    href: connect-aatp.md
   - name: Connect Azure Security Center
-    href: sentinel-connect-asc.md
+    href: connect-asc.md
   - name: Connect CEF
-    href: sentinel-connect-cef.md
+    href: connect-cef.md
   - name: Connect Syslog
-    href: sentinel-connect-syslog.md
+    href: connect-syslog.md
   - name: Connect Azure AD
-    href: sentinel-connect-aad.md
+    href: connect-aad.md
   - name: Connect Office 365
-    href: sentinel-connect-o365.md
+    href: connect-o365.md
   - name: Connect AWS
-    href: sentinel-connect-aws.md
+    href: connect-aws.md
   
 
 - name: Resources
   items:
   - name: Useful resources
-    href: sentinel-resources.md
+    href: resources.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Azure Security, Privacy, & Compliance blog

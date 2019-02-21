@@ -30,19 +30,19 @@ To stream logs from AWS to Azure Sentinel, you first have to download keys to yo
   
 1.  In your [Amazon Web Services console](https://console.aws.amazon.com/), under **Security, Identity & Compliance**, click on **IAM**.  
   
-     ![AWS identity and access](./media/sentinel-connect-aws/aws-identity-and-access.png "AWS identity and access")  
+     ![AWS identity and access](./media/connect-aws/aws-identity-and-access.png "AWS identity and access")  
   
 2.  Click on the **Users** tab and then click **Add user**.  
   
-     ![AWS users](./media/sentinel-connect-aws/aws-users.png "AWS users")
+     ![AWS users](./media/connect-aws/aws-users.png "AWS users")
   
 4.  In the **Details** step, provide a new user name for Azure Sentinel. Make sure that under **Access type** you select **Programmatic access** and click **Next permissions**.  
 
-     ![create user in AWS](./media/sentinel-connect-aws/aws-create-user.png "Create user in AWS")
+     ![create user in AWS](./media/connect-aws/aws-create-user.png "Create user in AWS")
 
 5. Click on the JSON tab:
 
-     ![AWS JSON](./media/sentinel-connect-aws/aws-json.png "AWS JSON tab")
+     ![AWS JSON](./media/connect-aws/aws-json.png "AWS JSON tab")
 
 6. Paste the following script into the provided area:
 
@@ -72,25 +72,25 @@ To stream logs from AWS to Azure Sentinel, you first have to download keys to yo
   
     ```  
 
-     ![AWS code](./media/sentinel-connect-aws/aws-code.png "AWS code")
+     ![AWS code](./media/connect-aws/aws-code.png "AWS code")
     
 6. Click **Review policy**.
 
 7. Provide a **Name** and click **Create policy**.
 
-     ![AWS name policy](./media/sentinel-connect-aws/aws-create-policy.png "AWS create policy")
+     ![AWS name policy](./media/connect-aws/aws-create-policy.png "AWS create policy")
 
 9. Back in the **Add user** screen, refresh the list if necessary, and select the user you created, and click **Next review**.
 
-   ![Review user policy in AWS](./media/sentinel-connect-aws/aws-review-user.png "Review user in AWS")
+   ![Review user policy in AWS](./media/connect-aws/aws-review-user.png "Review user in AWS")
 
 10. If all the details are correct, click **Create user**.
 
-    ![User permissions in AWS](./media/sentinel-connect-aws/aws-user-permissions.png "Review user permissions in AWS")
+    ![User permissions in AWS](./media/connect-aws/aws-user-permissions.png "Review user permissions in AWS")
 
 11. When you get the success message, click **Download .csv** to save a copy of the new user's credentials, you need these later.  
 
-    ![Download csv in AWS](./media/sentinel-connect-aws/aws-download-csv.png "Download csv in AWS")
+    ![Download csv in AWS](./media/connect-aws/aws-download-csv.png "Download csv in AWS")
   
 ## Step 2: Set Azure Sentinel to gather the data
 

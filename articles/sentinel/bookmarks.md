@@ -35,7 +35,7 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 1. Select one of the hunting queries and on the left, review the results. The window on the right provides a description of the query, the query syntax itself, a summary of the entities collected, and a summary of the Mitre attack pattern techniques that can be detected when the query is run. 
 
 1. Click **Show results** to view the query results in Log Analytics.
-  ![show results](./media/sentinel-bookmarks/show-results.png)
+  ![show results](./media/bookmarks/show-results.png)
 
 1. Add **Bookmarks** to further investigate any row for suspicious activity using a graph-based investigation experience. You can add tags and notes to add contextual information. Tags and comments are shared with other investigators and is a first step toward collaborative investigation experience.
   

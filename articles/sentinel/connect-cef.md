@@ -53,7 +53,7 @@ The connection between Azure Sentinel and your CEF appliance takes place in thre
 
 ## Connect to your CEF appliance via dedicated Azure VM
 
-![CEF in Azure](./media/sentinel-connect-cef/cef-syslog-azure.png)
+![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
 
 
 1. In the Azure Sentinel portal, click **Data collection** and select your appliance type. 
@@ -89,7 +89,7 @@ The connection between Azure Sentinel and your CEF appliance takes place in thre
 
 ## Connect to your CEF appliance via an on-prem Linux server
 
-![CEF on-prem](./media/sentinel-connect-cef/cef-syslog-onprem.png)
+![CEF on-prem](./media/connect-cef/cef-syslog-onprem.png)
 
 If you aren't using Azure, you can manually set up the Azure Sentinel agent to run on a dedicated Linux server.
 
@@ -127,7 +127,7 @@ If you aren't using Azure, you can manually set up the Azure Sentinel agent to r
         - Palo Alto
             - Make sure that the facility number same as in the Syslog agent​
             - The copy/paste operations from the PDF might change the text and insert random characters. To avoid this, copy the text to an editor and remove any characters that might break the log format before pasting it, as you can see in this example.
-            ![CEF text copy problem](./media/sentinel-connect-cef/paloalto-text-prob1.png)
+            ![CEF text copy problem](./media/connect-cef/paloalto-text-prob1.png)
        - Fortinet<br> If you're using Fortinent, and your logs aren't being received by the agent, run this command, depending on which type of Syslog daemon you are using, to set the facility and set the logs to search for the word Fortinet in the logs:
            - rsyslog.d: `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Fortinet\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
            - syslog-ng: `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Fortinet\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`

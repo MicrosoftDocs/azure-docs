@@ -28,7 +28,7 @@ Azure Sentinel harnesses the strength of the cloud to make this SIEM easier to u
 
 Azure Sentinel enables seamless data collection from services in the Microsoft ecosystem as well as on-premises data sources like servers, network equipment, and security appliances like firewalls. Azure Sentinel enables data collection in real time to allow for immediate analysis. Data collection methods include agents that are installed directly on monitored event source, collection of data using APIs provided by monitored event source and real-time syslog stream collection.
 
-![Azure Sentinel core capabilities](./media/sentinel-intro/core-capabilities.png)
+![Azure Sentinel core capabilities](./media/intro/core-capabilities.png)
 
 Azure Sentinel enables connection of:
 - Native service-to-service integration of all Microsoft solutions and their raw data.

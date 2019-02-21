@@ -38,22 +38,22 @@ In the following example, we run the built-in notebook to search for deep diving
 
 1. In the Azure Sentinel portal, click **Notebooks** and then select **Guided hunt location anomaly**.
   
-   ![select notebook](./media/sentinel-notebooks/select-notebook.png)
+   ![select notebook](./media/notebooks/select-notebook.png)
 
 1. The notebook walks you through the steps for performing the hunting process.  Models, libraries, and other dependencies and configuration for connectivity to Azure Sentinel is automatically imported to enable button-click execution. All code and libraries necessary to run notebook pre-loaded. You can immediately begin executing notebook against their Log Analytics workspace with no configuration.
  
-   ![run notebook](./media/sentinel-notebooks/run-notebook.png)
+   ![run notebook](./media/notebooks/run-notebook.png)
 
 
 1. Click **Hunting** to open raw logs to begin examining the data. Here you can see raw endpoint activity logs for sign-in activities for users who signed in from anomalous locations. This launches Log Analytics directly from within the Notebook experience. This pivots from within the Jupyter notebook to investigate a specific user. In this example, the environment is queried for any suspicious sign in activity related to the user identified in the prior query. 
 In this example, we did not find any suspicious activity, but that doesn’t stop us from investigating further.
-  ![run notebook](./media/sentinel-notebooks/notebook-geo.png)
+  ![run notebook](./media/notebooks/notebook-geo.png)
 
    You can pivot this investigation (or hunt) in many different directions to understand the full scope and extent of the activity. You have multiple investments to not only identify the relationships between these data sets and the entities contained within them, but also to automate traversing the data for the user.
 
 
-4. You can [add a bookmark](sentinel-bookmarks.md) to save the investigation for later. 
-  ![run notebook](./media/sentinel-notebooks/notebook-add-bookmark.png)
+4. You can [add a bookmark](bookmarks.md) to save the investigation for later. 
+  ![run notebook](./media/notebooks/notebook-add-bookmark.png)
 
 
 

@@ -14,7 +14,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/4/2019
 ms.author: rkarlin
 ---
 
@@ -28,11 +28,11 @@ To visualize and get analysis of what's happening on your network, first, take a
 
 1. In the Azure portal, select Azure Sentinel and then select the workspace you want to monitor.
 
-  ![Azure Sentinel overview](./media/sentinel-qs-get-visibility/overview.png)
+  ![Azure Sentinel overview](./media/qs-get-visibility/overview.png)
 
 - The toolbar across the top tells you how many events you got over the time period selected, and it compares it to the 24 hours before. It tells you from these events, you have alerts that were triggered (the small number represents change over the last 24 hours), and then it tells you for those events, how many are open, in progress, and closed. Check to see that there isn't a dramatic increase or drop in the number of events. If there is a drop, it could be that a connection stopped reporting to Azure Sentinel. If there is an increase, something suspicious may have happened. Check to see if you have new alerts.
  
-   ![Azure Sentinel funnel](./media/sentinel-qs-get-visibility/funnel.png)
+   ![Azure Sentinel funnel](./media/qs-get-visibility/funnel.png)
 
 The main body of the overview page gives you insight at a glance into the security status of your workspace:
 
@@ -40,14 +40,14 @@ The main body of the overview page gives you insight at a glance into the securi
 
 - **Potential malicious events**: When traffic is detected from sources that are known to be malicious, Azure Sentinel alerts you on the map. If you see orange, it is inbound traffic: someone is trying to access your organization from a known malicious IP address. If you see Outbound (red) activity, it means that data from your network is being streamed out of your organization to a known malicious IP address.
 
-   ![Azure Sentinel map](./media/sentinel-qs-get-visibility/map.png)
+   ![Azure Sentinel map](./media/qs-get-visibility/map.png)
 
 
 - **Recent cases**: To view your recent cases, their severity and the number of alerts associated with the case. If you see as sudden peak in a specific type of alert, it could mean that there is an active attack currently running. For example, if you have a sudden peak of 20 Pass-the-hash events from Azure ATP, it's possible that someone is currently trying to attack you.
 
 - **Data source anomalies**: Microsoft's data analysts created models that constantly search the data from your data sources for anomalies. If there aren't any anomalies, nothing is displayed. If anomalies are detected, you should deep dive into them to see what happened. For example, click on the spike in Azure Activity. You can click on **Chart** to see when the spike happened, and then filter for activities that occurred during that time period to see what caused the spike.
 
-   ![Azure Sentinel map](./media/sentinel-qs-get-visibility/anomolies.png)
+   ![Azure Sentinel map](./media/qs-get-visibility/anomolies.png)
 
 ## Use built-in dashboards
 
@@ -62,10 +62,10 @@ Built-in dashboards provide integrated data from your connected data sources to 
 
    - Add a dashboard for your firewall. For example, add the Palo Alto dashboard. The dashboard analyzes your firewall traffic, providing you with correlations between your firewall data and threat events and highlights suspicious events across entities. Provides you with information about trends in your traffic and lets you drill down into and filter results. 
 
-      ![Pal Alto dashboard](./media/sentinel-qs-get-visibility/palo-alto-week-query.png)
+      ![Pal Alto dashboard](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-You can customize the dashboards either by editing the main query ![button](./media/sentinel-qs-get-visibility/edit-query-button.png). You can click the button ![button](./media/sentinel-qs-get-visibility/go-to-la-button.png) to go to [Log Analytics to edit the query there](../azure-monitor/log-query/get-started-portal.md), and you can click the three dots and select **Customize tile data**, which enables you to edit the main time filter, or remove the specific tiles from the dashboard.
+You can customize the dashboards either by editing the main query ![button](./media/qs-get-visibility/edit-query-button.png). You can click the button ![button](./media/qs-get-visibility/go-to-la-button.png) to go to [Log Analytics to edit the query there](../azure-monitor/log-query/get-started-portal.md), and you can click the three dots and select **Customize tile data**, which enables you to edit the main time filter, or remove the specific tiles from the dashboard.
 
 For more information on working with queries, see [Tutorial: Visual data in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
@@ -120,5 +120,6 @@ You can create different dashboards based on role of person looking at the data 
 ## Next steps
 In this quickstart, you learned how to get started using Azure Sentinel. Continue to the tutorial for [how to write a playbook](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
+> [Create custom alerts](write-custom-alerts.md) to keep up to date with the latest anomalies and threats in your environment.
 > [Create playbooks](tutorial-respond-threats-playbook.md) to automate your responses to threats.
 
