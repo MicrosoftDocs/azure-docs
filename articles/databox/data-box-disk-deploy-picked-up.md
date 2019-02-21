@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -81,7 +81,7 @@ Verify that your data is in the storage account(s) before you delete it from the
 
         ![Managed disk attached to resource groups](media/data-box-deploy-copy-data-from-vhds/managed-disks-in-res-group.png)
 
-    - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a page blob but the conversion of VHD to managed disk fails. Go to your staging **Storage account > Blobs** and then select the appropriate container - Standard SSD, Standard HDD, Premium SSD, or Ultra SSD. The VHDs are uploaded as page blobs in your staging storage account.
+    - If you copied a VHDX, or a dynamic/differencing VHD, then the VHDX/VHD is uploaded to the staging storage account as a block blobs. Go to your staging **Storage account > Blobs** and then select the appropriate container - Standard SSD, Standard HDD, Premium SSD, or Ultra SSD. The VHDs are uploaded as block blobs in your staging storage account.
 
 
  To verify that the data has uploaded into Azure, perform the following steps:
