@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/19/2019
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -68,7 +68,7 @@ There are two ways that you can approve or deny access:
 
 1. To approve or deny each request, click the row to open the window to specify the action to take.
 
-1. Click **Approve** or **Deny**. If you unsure, you can click **Don't know**. Doing so will result in the user maintaining his/her access but the selection will be reflected in the audit logs.
+1. Click **Approve** or **Deny**. If you are unsure, you can click **Don't know**. Doing so will result in the user maintaining his/her access, but the selection will be reflected in the audit logs.
 
     ![Perform access review](./media/perform-access-review/approve-deny.png)
 
@@ -76,10 +76,10 @@ There are two ways that you can approve or deny access:
 
 1. Once you have specified the action to take, click **Save**.
 
-    If you want to change your response, select the row and update the response. For example, you can approve a previously denied user or deny a previously approved user. You can change your response at any time until the access review is ended. If there are multiple reviewers, the last submitted response would be recorded.
+    If you want to change your response, select the row and update the response. For example, you can approve a previously denied user or deny a previously approved user. You can change your response at any time until the access review has ended. If there are multiple reviewers, the last submitted response is recorded.
 
     > [!NOTE]
-    > If a user is denied access, they aren't removed immediately. They are removed when the review is ended or when an administrator stops the review.
+    > If a user is denied access, they aren't removed immediately. They are removed when the review has ended or when an administrator stops the review.
 
 ### Approve or deny access based on recommendations
 

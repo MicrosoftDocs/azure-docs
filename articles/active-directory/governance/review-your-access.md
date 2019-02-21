@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/19/2019
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -69,10 +69,10 @@ Once you have opened the access review, you can see your access.
 
     Your selection is submitted and you returned to the MyApps portal.
 
-    If you want to change your response, re-open the access reviews page and update your response. You can change your response at any time until the access review is ended.
+    If you want to change your response, re-open the access reviews page and update your response. You can change your response at any time until the access review has ended.
 
     > [!NOTE]
-    > If you indicated that you no longer need access, you aren't removed immediately. You are removed when the review is ended or when an administrator stops the review.
+    > If you indicated that you no longer need access, you aren't removed immediately. You are removed when the review has ended or when an administrator stops the review.
 
 ## Next steps
 
