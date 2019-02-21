@@ -165,7 +165,6 @@ Assume that you need to join this file with a dataset where date and time are in
 ```python
 builder = dataflow.builders.derive_column_by_example(source_columns=['DATE'], new_column_name='date_timerange')
 builder.add_example(source_data=df.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
-
 builder.preview(count=5) 
 ```
 
@@ -179,9 +178,12 @@ builder.preview(count=5)
 
 The code above first creates a builder for the derived column. You provide an array of source columns to consider (`DATE`), and a name for the new column to be added. As the first example, you pass in the second row (index 1) and give an expected value for the derived column.
 
-Finally, you call `builder.preview(count=5)` and can see the derived column next to the source column. The format seems correct, but you only see values for the same date "Jan 1, 2015".
+Finally, you call `builder.preview(skip=30, count=5)` and can see the derived column next to the source column. The format seems correct, but you only see values for the same date "Jan 1, 2015".
 
 Now, pass in the number of rows you want to `skip` from the top to see rows further down.
+
+> [!NOTE]
+> The preview() function skips rows but does not re-number the output index. In the example below, the index 0 in the table corresponds to index 30 in the dataflow.
 
 ```python
 builder.preview(skip=30, count=5)
@@ -189,59 +191,55 @@ builder.preview(skip=30, count=5)
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|30|1/1/2015 22:54|Jan 1, 2015 10PM-12AM|
-|31|1/1/2015 23:54|Jan 1, 2015 10PM-12AM|
-|32|1/1/2015 23:59|Jan 1, 2015 10PM-12AM|
-|33|1/2/2015 0:54|Feb 1, 2015 12AM-2AM|
-|34|1/2/2015 1:00|Feb 1, 2015 12AM-2AM|
+|0|1/1/2015 22:54|Jan 1, 2015 10PM-12AM|
+|1|1/1/2015 23:54|Jan 1, 2015 10PM-12AM|
+|2|1/1/2015 23:59|Jan 1, 2015 10PM-12AM|
+|3|1/2/2015 0:54|Feb 1, 2015 12AM-2AM|
+|4|1/2/2015 1:00|Feb 1, 2015 12AM-2AM|
 
 Here you see an issue with the generated program. Based solely on the one example you provided above, the derive program chose to parse the date as "Day/Month/Year", which is not what you want in this case. To fix this issue, target a specific record index and provide another example using the `add_example()` function on the `builder` variable.
 
 ```python
-builder.add_example(source_data=preview_df.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
+builder.add_example(source_data=df.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
 builder.preview(skip=30, count=5)
 ```
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|30|1/1/2015 22:54|Jan 1, 2015 10PM-12AM|
-|31|1/1/2015 23:54|Jan 1, 2015 10PM-12AM|
-|32|1/1/2015 23:59|Jan 1, 2015 10PM-12AM|
-|33|1/2/2015 0:54|Jan 2, 2015 12AM-2AM|
-|34|1/2/2015 1:00|Jan 2, 2015 12AM-2AM|
+|0|1/1/2015 22:54|Jan 1, 2015 10PM-12AM|
+|1|1/1/2015 23:54|Jan 1, 2015 10PM-12AM|
+|2|1/1/2015 23:59|Jan 1, 2015 10PM-12AM|
+|3|1/2/2015 0:54|Jan 2, 2015 12AM-2AM|
+|4|1/2/2015 1:00|Jan 2, 2015 12AM-2AM|
 
-Now rows correctly handle '1/2/2015' as 'Jan 2, 2015', but if you look further down the derived column, you see that values at the end have nothing in derived column. To fix that, you need to provide another example for row 66.
+Now rows correctly handle '1/2/2015' as 'Jan 2, 2015', but if you look beyond index 76 of the derived column, you see that values at the end have nothing in derived column.
 
 ```python
-builder.add_example(source_data=preview_df.iloc[66], example_value='Jan 29, 2015 8PM-10PM')
-builder.preview(skip=64, count=5)
+builder.preview(skip=75, count=5)
 ```
+
 
 ||DATE|date_timerange|
 |-----|-----|-----|
-|64|1/1/2015 22:54|Jan 1, 2015 10PM-12AM|
-|65|1/1/2015 23:54|Jan 1, 2015 10PM-12AM|
-|66|1/1/2015 23:59|Jan 1, 2015 10PM-12AM|
-|67|1/2/2015 0:54|Jan 2, 2015 12AM-2AM|
-|68|1/2/2015 1:00|Jan 2, 2015 12AM-2AM|
-
-
-To separate date and time with '|', you add another example. This time, instead of passing in a row from the preview, construct a dictionary of column name to value for the `source_data` parameter.
+|0|1/3/2015 7:00|Jan 3, 2015 6AM-8AM|
+|1|1/3/2015 7:54|Jan 3, 2015 6AM-8AM|
+|2|1/29/2015 6:54|None|
+|3|1/29/2015 7:00|None|
+|4|1/29/2015 7:54|None|
 
 ```python
-builder.add_example(source_data={'DATE': '11/11/2015 0:54'}, example_value='Nov 11, 2015 | 12AM-2AM')
-builder.preview(count=5)
+builder.add_example(source_data=df.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
+builder.preview(skip=75, count=5)
 ```
-
 ||DATE|date_timerange|
 |-----|-----|-----|
-|0|1/1/2015 22:54|None|
-|1|1/1/2015 23:54|None|
-|2|1/1/2015 23:59|None|
-|3|1/2/2015 0:54|None|
-|4|1/2/2015 1:00|None|
+|0|1/3/2015 7:00|Jan 3, 2015 6AM-8AM|
+|1|1/3/2015 7:54|Jan 3, 2015 6AM-8AM|
+|2|1/29/2015 6:54|Jan 29, 2015 6AM-8AM|
+|3|1/29/2015 7:00|Jan 29, 2015 6AM-8AM|
+|4|1/29/2015 7:54|Jan 29, 2015 6AM-8AM|
 
-This clearly had negative effects, as now the only rows that have any values in derived column are the ones that match exactly with the examples we provided. Call `list_examples()` on the builder object to see a list of current example derivations.
+ To see a list of current example derivations call `list_examples()` on the builder object.
 
 ```python
 examples = builder.list_examples()
@@ -252,32 +250,12 @@ examples = builder.list_examples()
 |0|1/1/2015 1:00|Jan 1, 2015 12AM-2AM|-1|
 |1|1/2/2015 0:54|Jan 2, 2015 12AM-2AM|-2|
 |2|1/29/2015 20:54|Jan 29, 2015 8PM-10PM|-3|
-|3|11/11/2015 0:54|Nov 11, 2015 \| 12AM-2AM|-4|
-
-In this case, inconsistent examples have been provided. To fix the issue, replace the first three examples with correct ones (including '|' between date and time).
-
-Fix inconsistent examples by deleting examples that are incorrect (by either passing in `example_row` from the pandas DataFrame, or by passing in `example_id` value) and then adding new modified examples back.
-
-```python
-builder.delete_example(example_id=-1)
-builder.delete_example(example_row=examples.iloc[1])
-builder.delete_example(example_row=examples.iloc[2])
-builder.add_example(examples.iloc[0], 'Jan 1, 2015 | 12AM-2AM')
-builder.add_example(examples.iloc[1], 'Jan 2, 2015 | 12AM-2AM')
-builder.add_example(examples.iloc[2], 'Jan 29, 2015 | 8PM-10PM')
-builder.preview(count=5)
-```
-
-| | DATE | date_timerange |
-| -------- | -------- | -------- |
-| 0 | 1/1/2015 0:54 | Jan 1, 2015 \| 12AM-2AM |
-| 1 | 1/1/2015 1:00 | Jan 1, 2015 \| 12AM-2AM |
-| 2 | 1/1/2015 1:54 | Jan 1, 2015 \| 12AM-2AM |
-| 3 | 1/1/2015 2:54 | Jan 1, 2015 \| 2AM-4AM |
-| 4 | 1/1/2015 3:54 | Jan 1, 2015 \| 2AM-4AM |
 
 
-Now the data looks correct and you call `to_dataflow()` on the builder, which will return a data flow with the desired derived columns added.
+In certain cases if you want to delete examples that are incorrect, you can pass in either `example_row` from the pandas DataFrame, or `example_id` value. For example, if you run `builder.delete_example(example_id=-1)`, it deletes the first transformation example.
+
+
+Call `to_dataflow()` on the builder, which returns a data flow with the desired derived columns added.
 
 ```python
 dataflow = builder.to_dataflow()
