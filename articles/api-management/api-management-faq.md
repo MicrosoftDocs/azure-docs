@@ -19,6 +19,8 @@ ms.author: apimpm
 # Azure API Management FAQs
 Get the answers to common questions, patterns, and best practices for Azure API Management.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Contact us
 * [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 

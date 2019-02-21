@@ -21,6 +21,8 @@ ms.author: apimpm
 # How to use Role-Based Access Control in Azure API Management
 Azure API Management relies on Azure Role-Based Access Control (RBAC) to enable fine-grained access management for API Management services and entities (for example, APIs and policies). This article gives you an overview of the built-in and custom roles in API Management. For more information on access management in the Azure portal, see [Get started with access management in the Azure portal](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Built-in roles
 API Management currently provides three built-in roles and will add two more roles in the near future. These roles can be assigned at different scopes, including subscription, resource group, and individual API Management instance. For instance, if you assign the "Azure API Management Service Reader" role to a user at the resource-group level, then the user has read access to all API Management instances inside the resource group. 
 

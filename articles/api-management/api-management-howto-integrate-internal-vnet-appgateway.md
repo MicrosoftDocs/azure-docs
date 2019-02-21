@@ -33,6 +33,8 @@ Combining API Management provisioned in an internal VNET with the Application Ga
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To follow the steps described in this article, you must have:
 
 * An active Azure subscription.
@@ -51,7 +53,7 @@ In the first setup example all your APIs are managed only from within your Virtu
 
 ## <a name="before-you-begin"> </a> Before you begin
 
-* Make sure that you are using the latest version of Azure PowerShell. More info is available at [Using Windows PowerShell with Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/powershell-azure-resource-manager).
+* Make sure that you are using the latest version of Azure PowerShell. See the installation instructions at [Install Azure PowerShell](/powershell/azure/install-az-ps). 
 
 ## What is required to create an integration between API Management and Application Gateway?
 

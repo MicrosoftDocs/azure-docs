@@ -24,6 +24,8 @@ Azure API Management can be deployed inside the virtual network (VNET), so it ca
 > [!NOTE]
 > Azure API Management supports both classic and Azure Resource Manager VNets.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## Prerequisites

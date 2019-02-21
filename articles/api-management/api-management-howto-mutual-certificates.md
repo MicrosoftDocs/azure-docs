@@ -24,6 +24,8 @@ For information about managing certificates using the API Management REST API, s
 
 ## <a name="prerequisites"> </a>Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 This guide shows you how to configure your API Management service instance to use client certificate authentication to access the back-end service for an API. Before following the steps in this article, you should have your back-end service configured for client certificate authentication ([to configure certificate authentication in Azure WebSites refer to this article][to configure certificate authentication in Azure WebSites refer to this article]). You need access to the certificate and the password for uploading it to the API Management service.
 
 ## <a name="step1"> </a>Upload a client certificate

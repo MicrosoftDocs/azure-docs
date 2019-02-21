@@ -23,6 +23,8 @@ This quickstart describes the steps for creating a new API Management instance u
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Log in to Azure
 
 Log in to the Azure portal at https://portal.azure.com.
