@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 02/21/2019
 ms.author: v-jansko
 ---
 
