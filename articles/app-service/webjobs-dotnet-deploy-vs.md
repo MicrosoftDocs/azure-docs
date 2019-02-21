@@ -20,7 +20,7 @@ ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
 
 # Develop and deploy WebJobs using Visual Studio - Azure App Service
 
-This topic explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](overview.md) as an [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure portal](https://portal.azure.com), see [Run Background tasks with WebJobs](webjobs-create.md).
+This article explains how to use Visual Studio to deploy a Console Application project to a web app in [App Service](overview.md) as an [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226). For information about how to deploy WebJobs by using the [Azure portal](https://portal.azure.com), see [Run Background tasks with WebJobs](webjobs-create.md).
 
 You can publish multiple WebJobs to a single web app. Make sure that each WebJob in a web app has a unique name.
 
@@ -47,15 +47,7 @@ By default, a WebJob published from a .NET Core console project runs only when t
 
 #### Scheduled execution
 
-When you publish a .NET Core console application to Azure, a new *settings.job* file is added to the project. Use this file to set an execution schedule for your WebJob. The following example runs every hour from 9 AM to 5 PM:
-
-```json
-{
-    "schedule": "0 0 9-17 * * *"
-}
-```
-
-WebJobs uses the same CRON expressions for scheduling as the timer trigger in Azure Functions. To learn more about CRON support, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#cron-expressions).
+When you publish a .NET Core console application to Azure, a new *settings.job* file is added to the project. Use this file to set an execution schedule for your WebJob. For more information, see [Scheduling a triggered WebJob](#scheduling-a-triggered-webjob).
 
 #### Continuous execution
 
@@ -77,7 +69,7 @@ You can use Visual Studio to change the WebJob to run continuously when Always O
 
 When Visual Studio deploys a WebJobs-enabled .NET Framework Console Application project, it performs two tasks:
 
-* Copies runtime files to the appropriate folder in the web app (*App_Data/jobs/continuous* for continuous WebJobs, *App_Data/jobs/triggered* for scheduled and on-demand WebJobs).
+* Copies runtime files to the appropriate folder in the web app (*App_Data/jobs/continuous* for continuous WebJobs and *App_Data/jobs/triggered* for scheduled or on-demand WebJobs).
 * Sets up [Azure Scheduler](https://docs.microsoft.com/azure/scheduler/) jobs for WebJobs that are scheduled to run at particular times. (This is not needed for continuous WebJobs.)
 
 A WebJobs-enabled project has the following items added to it:
@@ -217,6 +209,37 @@ To deploy a WebJobs project by itself, right-click the project in **Solution Exp
 ![Publish as Azure WebJob](./media/webjobs-dotnet-deploy-vs/paw.png)
 
 For an independent WebJob, the same **Publish Web** wizard that is used for web projects appears, but with fewer settings available to change.
+
+## Scheduling a triggered WebJob
+
+WebJobs uses a *settings.job* file to determine when a WebJob is run. Use this file to set an execution schedule for your WebJob. The following example runs every hour from 9 AM to 5 PM:
+
+```json
+{
+    "schedule": "0 0 9-17 * * *"
+}
+```
+
+This file must be located at the root of the WebJobs folder, along side your WebJob's script, such as `wwwroot\app_data\jobs\triggered\{job name}` or `wwwroot\app_data\jobs\continuous\{job name}`. When you deploy a WebJob from Visual Studio, mark your `settings.job` file properties as **Copy if newer**. 
+
+When you [create a WebJob from the Azure portal](webjobs-create.md), the settings.job file is created for you.
+
+[!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-alwayson-note.md)]
+
+### CRON expressions
+
+WebJobs uses the same CRON expressions for scheduling as the timer trigger in Azure Functions. To learn more about CRON support, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#cron-expressions).
+
+### setting.job reference
+
+The following settings are supported by WebJobs:
+
+| **Setting** | **Type**  | **Description** |
+| ----------- | --------- | --------------- |
+| `is_in_place` | All | Allows the job to run in place without being first copied to a temp folder. To learn more, see  [WebJobs working directory](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
+| `is_singleton` | Continuous | Only run the WebJobs on a single instance when scaled out. To learn more, see [Set a continuous job as singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
+| `schedule` | Triggered | Run the WebJob on a CRON-based schedule. TO learn more, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#cron-expressions). |
+| `stopping_wait_time`| All | Allows control of the shutdown behavior. To learn more, see [Graceful shutdown](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## Next Steps
 

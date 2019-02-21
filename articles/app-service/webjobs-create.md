@@ -178,10 +178,9 @@ You can enter a [CRON expression](../azure-functions/functions-bindings-timer.md
 {
     "schedule": "0 */15 * * * *"
 }
-``` 
+```
 
-> [!NOTE]
-> When you deploy a WebJob from Visual Studio, mark your `settings.job` file properties as **Copy if newer**.
+To learn more, see [Scheduling a triggered WebJob](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
 
 ## <a name="ViewJobHistory"></a> View the job history
 
