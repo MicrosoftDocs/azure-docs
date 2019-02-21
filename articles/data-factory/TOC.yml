@@ -72,6 +72,10 @@
         href: tutorial-incremental-copy-change-tracking-feature-portal.md
       - name: Azure PowerShell
         href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+    - name: 4 - Copy new files by lastmodifieddate
+      items:
+      - name: Copy Data tool
+        href: tutorial-incremental-copy-lastmodified-copy-data-tool.md
   - name: Transform data in cloud
     items:
     - name: HDInsight Spark
