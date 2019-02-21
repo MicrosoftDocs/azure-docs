@@ -15,7 +15,7 @@ ms.service: azure-spatial-anchors
 
 Azure Spatial Anchors is a managed cloud service and developer platform that enables multi-user, spatially aware mixed reality experiences across HoloLens, iOS, and Android devices.
 
-For more information, see [Azure Spatial Anchors overview](https://review.docs.microsoft.com/en-us/azure/spatial-anchors/overview?branch=release-pub-preview).
+For more information, see [Azure Spatial Anchors overview](overview.md).
 
 ## Azure Spatial Anchors Product FAQs
 
@@ -53,7 +53,7 @@ Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.
 
 **Q: Is there a way I can send diagnostics information to Microsoft?**
 
-**A**: Yes. Azure Spatial Anchors has a diagnostics mode that developers can choose to opt into through the Azure Spatial Anchors API. This is useful, for example, if you encounter an environment where you are unable to create and locate anchors predictably and you would like help. We may ask if you can submit a diagnostics report containing information that helps us debug. For more information see **Submitting Diagnostics in Azure Spatial Anchors**.
+**A**: Yes. Azure Spatial Anchors has a diagnostics mode that developers can choose to opt into through the Azure Spatial Anchors API. This is useful, for example, if you encounter an environment where you are unable to create and locate anchors predictably and you would like help. We may ask if you can submit a diagnostics report containing information that helps us debug. For more information see [**Submitting Diagnostics in Azure Spatial Anchors**]().
 
 ## Availability and Pricing FAQs
 
@@ -69,7 +69,7 @@ General Availability (GA) dates will be announced soon.
 
 **Q: Do you have any throttling limits in place?**
  
-**A**: Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we are ready to support our customers’ high-scale requirements. Contact us at [azuremrs@microsoft.com](mailto:azuremrs@microsoft.com) to discuss (Note this email is for production deployment topics only, for other support needs, visit the [Support](/spatial-anchor-support.md) page for instructions on how to file a support request or provide feedback). During this phase of Preview, we have not yet published our tiering and pricing structure, but we expect to do so soon.
+**A**: Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we are ready to support our customers’ high-scale requirements. Contact us at [azuremrs@microsoft.com](mailto:azuremrs@microsoft.com) to discuss (Note this email is for production deployment topics only, for other support needs, visit the [Support](spatial-anchor-support.md) page for instructions on how to file a support request or provide feedback). During this phase of Preview, we have not yet published our tiering and pricing structure, but we expect to do so soon.
 
 **Q: In what regions is Azure Spatial Anchors available?**
 
@@ -106,7 +106,7 @@ When you create an Anchor, the client SDK captures environment information aroun
 - Java or the Android NDK on Android
 - C++/WinRT on HoloLens.
 
-Get started with [development here](https://review.docs.microsoft.com/en-us/azure/spatial-anchors/?branch=release-pub-preview).
+Get started with [development here](index.yml).
 
 **Q: Does it work with Unreal?**
 
