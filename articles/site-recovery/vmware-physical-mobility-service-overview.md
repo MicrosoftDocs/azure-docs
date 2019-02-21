@@ -5,7 +5,7 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 02/19/2019
 ms.author: ramamill
 ---
 
@@ -46,7 +46,7 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
 If machines you want to replicate have active anti-virus software running, make sure you exclude the Mobility service installation folder from anti-virus operations (*C:\ProgramData\ASR\agent*). This ensures that replication works as expected.
 
-## Update the Mobility service
+## Update mobility service from Azure portal
 
 1. Before you start ensure that the configuration server, scale-out process servers, and any master target servers that are a part of your deployment are updated before you update the Mobility Service on protected machines.
 2. In the portal open the vault > **Replicated items**.
@@ -59,6 +59,14 @@ If machines you want to replicate have active anti-virus software running, make 
      ![Replicated items VM list](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 5. The Update Mobility Service job starts for each of the selected machines.
+
+## Update Mobility service through powershell script on Windows server
+
+Use following script to upgrade mobility service on a server through power shell cmdlet
+
+```azurepowershell
+Update-AzureRmRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
+```
 
 ## Update the account used for push installation of the Mobility service
 

@@ -62,7 +62,7 @@ To set up a classroom lab in a lab account, the user must be a member of the **L
 
 To provide educators the permission to create labs for their classes, add them to the **Lab Creator** role:
 
-1. On the **Lab Account** page, select **Access control (IAM)**, and click **+ Add role assignment** on the toolbar. 
+1. On the **Lab Account** page, select **Access control (IAM)**, select **+ Add** on the toolbar, and then select **+ Add role assignment** on the toolbar. 
 
     ![Access Control -> Add Role Assignment button](../media/tutorial-setup-lab-account/add-role-assignment-button.png)
 1. On the **Add role assignment** page, select **Lab Creator** for **Role**, select the user you want to add to the Lab Creators role, and select **Save**. 

@@ -57,7 +57,7 @@ The Backup extension running on the VM must have outbound access to Azure public
 - No explicit outbound network access is required for Azure VM to communicate with Azure Backup Service.
 - However, certain older virtual machines may face issues and fail with the error **ExtensionSnapshotFailedNoNetwork** when attempting to connect. In this case, use one of the following options so that the backup extension can communicate to Azure public IP addresses for backup traffic.
 
-   **Option** | **Action** ** | **Advantages** | **Disadvantages**
+   **Option** | **Action** | **Advantages** | **Disadvantages**
    --- | --- | --- | ---
    **Set up NSG rules** | Allow the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/>  You can add a rule that allows access to the Azure Backup service using a [service tag](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure), instead of individually allowing and managing every address range. [Learn more](../virtual-network/security-overview.md#service-tags) about service tags. | No additional costs. Simple to manage with service tags
    **Deploy a proxy** | Deploy an HTTP proxy server for routing traffic. | Provides access to the whole of Azure, and not just storage. Granular control over the storage URLs is allowed.<br/><br/> Single point of internet access for VMs.<br/><br/> Additional costs for proxy.<br/><br/> 
