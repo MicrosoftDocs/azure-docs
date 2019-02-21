@@ -1,6 +1,6 @@
 # [Azure Marketplace and AppSource documentation](index.md)
 ## [Azure Marketplace and AppSource roadmap](./marketplace-roadmap.md)
-## [Azure Marketplace policies and terms](./marketplace-policies.md)
+## [Azure Marketplace policies and terms](./policies-and-terms.md)
 
 ## [Azure Marketplace and AppSource overview and benefits](./marketplace-publishers-guide.md)  
 ### [Become a publisher on the marketplace](./become-publisher.md)  
