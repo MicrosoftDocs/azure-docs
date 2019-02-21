@@ -7,7 +7,7 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 02/21/2019
 ---
 
 # Connect to Azure Data Explorer with ODBC
