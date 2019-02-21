@@ -130,7 +130,7 @@ The query in the Stream Analytics job passes through the data without performing
 
 ### Configure job input
 
-1. In the notification message, select ** Go to resource** to see the **Stream Analytics job** page. 
+1. In the notification message, select **Go to resource** to see the **Stream Analytics job** page. 
 2. Select **Inputs** in the **JOB TOPOLOGY** section on the left menu.
 3. Select **Add stream input**, and then select **Event Hub**. 
 

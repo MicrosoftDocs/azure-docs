@@ -181,7 +181,7 @@ $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysf
 > [!NOTE]
 > For national clouds (for example Azure Government, Azure China, Azure Germany), you should also specify the `-Location` parameter.
 
-You can find your *TenantId*, or directory ID, in the [Azure portal](https://portal.azure.com). Select **Azure Active Directory -> Properties** and copy the the **Directory ID** value.
+You can find your *TenantId*, or directory ID, in the [Azure portal](https://portal.azure.com). Select **Azure Active Directory -> Properties** and copy the **Directory ID** value.
 
 *ClusterName* is used to prefix the Azure AD applications that are created by the script. It does not need to match the actual cluster name exactly. It is intended only to make it easier to map Azure AD artifacts to the Service Fabric cluster that they're being used with.
 
