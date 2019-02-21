@@ -89,9 +89,11 @@ This capability supports rewriting headers to the following server variables:
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | returns the list of ciphers supported by the client          |
 | ciphers_used               | returns the string of ciphers used for an established SSL connection |
+| client_IP                  | IP address of the client from which the Application Gateway is directly receiving the request. Note that if a proxy sits betwen the original client and the Application Gateway, this variable will return the IP address of the proxy from which the Application Gateway is receiving the request|
 | client_port                | client port                                                  |
 | client_tcp_rtt             | information about the client TCP connection; available on systems that support the TCP_INFO socket option |
 | client_user                | when using HTTP authentication, the username supplied for authentication |
+| cookie_<name>              | returns the value stored in the <name> cookie. |
 | host                       | in this order of precedence: host name from the request line, or host name from the “Host” request header field, or the server name matching a request |
 | http_method                | the method used to make the URL request. For example GET, POST etc. |
 | http_status                | session status, eg: 200, 400, 403 etc.                       |
