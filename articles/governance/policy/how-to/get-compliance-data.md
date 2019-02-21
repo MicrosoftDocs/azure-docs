@@ -520,9 +520,11 @@ Trent Baker
 ## Azure Monitor logs
 
 If you have a [Log Analytics workspace](../../../log-analytics/log-analytics-overview.md) with the
-`AzureActivity` solution tied to your subscription, you can also view non-compliance results from
-the evaluation cycle using simple Azure Data Explorer queries and the `AzureActivity` table. With
-details in Azure Monitor logs, alerts can be configured to watch for non-compliance.
+`AzureActivity` from the [Activity Log Analytics
+solution](../../../azure-monitor/platform/collect-activity-logs.md) tied to your subscription, you
+can also view non-compliance results from the evaluation cycle using simple Kusto queries and the
+`AzureActivity` table. With details in Azure Monitor logs, alerts can be configured to watch for
+non-compliance.
 
 ![Policy Compliance using Azure Monitor logs](../media/getting-compliance-data/compliance-loganalytics.png)
 
