@@ -15469,12 +15469,12 @@
     },
     {
       "source_path": "articles/marketplace/marketplace-terms.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/legal/marketplace/marketplace-terms",
+      "redirect_url": "https://docs.microsoft.com/en-us/legal/marketplace/terms",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/marketplace-participation-policy.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/legal/marketplace/marketplace-participation-policy",
+      "redirect_url": "https://docs.microsoft.com/en-us/legal/marketplace/participation-policy",
       "redirect_document_id": false
     },
     {

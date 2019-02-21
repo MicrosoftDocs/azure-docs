@@ -23,9 +23,9 @@ Offers on the Marketplace must comply with our policies and terms. We update the
 ## Policies and terms
 
 * [General listing and offer policies](https://docs.microsoft.com/en-us/legal/marketplace/general-policies)
-* [Participation policies](https://docs.microsoft.com/en-us/legal/marketplace/marketplace-participation-policy)
+* [Participation policies](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy)
 * [Rating and review policies](https://docs.microsoft.com/en-us/legal/marketplace/rating-review-policies)
-* [Azure Marketplace terms](https://docs.microsoft.com/en-us/legal/marketplace/marketplace-terms)
+* [Azure Marketplace terms](https://docs.microsoft.com/en-us/legal/marketplace/terms)
 
 ## Next steps
 
