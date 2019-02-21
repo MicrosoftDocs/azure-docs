@@ -76,7 +76,9 @@ There are two ways that you can approve or deny access:
 
 1. Once you have specified the action to take, click **Save**.
 
-    If you want to change your response, select the row and update the response. For example, you can approve a previously denied user or deny a previously approved user. You can change your response at any time until the access review has ended. If there are multiple reviewers, the last submitted response is recorded.
+    If you want to change your response, select the row and update the response. For example, you can approve a previously denied user or deny a previously approved user. You can change your response at any time until the access review has ended.
+
+    If there are multiple reviewers, the last submitted response is recorded. Consider an example where an administrator designates two reviewers – Alice and Bob. Alice opens the access review first and approves access. Before the review ends, Bob opens the access review and denies access. The last deny response is what is recorded.
 
     > [!NOTE]
     > If a user is denied access, they aren't removed immediately. They are removed when the review has ended or when an administrator stops the review.
