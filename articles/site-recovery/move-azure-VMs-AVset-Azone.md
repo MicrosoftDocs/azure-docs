@@ -21,12 +21,12 @@ In a scenario where your VMs are deployed as *single instance* into a specific r
 > [!IMPORTANT]
 > Currently, Azure Site Recovery supports moving VMs from one region to another and doesn't support moving within a region.
 
-## Check Prerequisites
+## Check prerequisites
 
 - Check whether the target region has [support for Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones). Check that your choice of [source region - target region combination is supported](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support). Make an informed decision on the target region.
 - Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
 - Review the [support limitations and requirements](azure-to-azure-support-matrix.md).
-- Check account permissions: If you just created your free Azure account, you're the admin of your subscription. If you aren't the subscription admin, work with the admin to assign the permissions you need. To enable replication for a VM and eventually copy data to the target using Azure Site Recovery, you must have:
+- Check account permissions. If you just created your free Azure account, you're the admin of your subscription. If you aren't the subscription admin, work with the admin to assign the permissions you need. To enable replication for a VM and eventually copy data to the target using Azure Site Recovery, you must have:
 
     1. Permission to create a VM in Azure resources. The *Virtual Machine Contributor* built-in role has these permissions, which include:
         - Permission to create a VM in the selected resource group
@@ -65,8 +65,7 @@ Configure outbound network connectivity](azure-to-azure-tutorial-enable-replicat
 
     - [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-        
-     - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+    - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
    For any other networking components, refer to the networking [documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 
@@ -85,11 +84,13 @@ The following steps will guide you on using Azure Site Recovery to enable replic
 1. In the Azure portal, select **Virtual machines**, and select the VM you want to move into Availability Zones.
 2. In **Operations**, select **Disaster recovery**.
 3. In **Configure disaster recovery** > **Target region**, select the target region to which you'll replicate. Ensure this region [supports](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones) Availability Zones.
+
 ![enable-rep-1.PNG](media/azure-vms-to-zones/enable-rep-1.PNG)
 
-1. Select **Next: Advanced settings**.
-2. Choose the appropriate values for the target subscription, target VM Resource Group, and virtual network.
-3. In the **Availability** section, choose the Availability Zone into which you want to move the VM. 
+4. Select **Next: Advanced settings**.
+5. Choose the appropriate values for the target subscription, target VM Resource Group, and virtual network.
+6. In the **Availability** section, choose the Availability Zone into which you want to move the VM. 
+
 > [!NOTE]
 > If you don’t see the option for Availability set or Availability Zone, ensure that the [prerequisites](#prepare-the-source-vms) are met and the [preparation](#prepare-the-source-vms) of source VMs is complete.
 
@@ -97,7 +98,7 @@ The following steps will guide you on using Azure Site Recovery to enable replic
 
 7. Select **Enable Replication**. This action starts a job to enable replication for the VM.
 
-## Check Settings
+## Check settings
 
 After the replication job has finished, you can check the replication status, modify replication settings, and test the deployment.
 
