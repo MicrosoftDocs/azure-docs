@@ -26,7 +26,7 @@ If your organization uses two-factor verification, you can set up your work or s
 1. On your computer, go to the [Additional security verification](https://aka.ms/mfasetup) page.
 
     >[!Note]
-    >If you don't see the **Additional security verification** page, it's possible that your administrator has turned on the security info (preview) experience. If that's the case, you should follow the instructions in the [Set up security info to use an authenticator app](security-info-setup-auth-app.md) section. If that's not the case, you will need to contact your organization's Help Desk for assistance. For more information about security info, see [Manage your security info](security-info-manage-settings.md).
+    >If you don't see the **Additional security verification** page, it's possible that your administrator has turned on the security info (preview) experience. If that's the case, you should follow the instructions in the [Set up security info to use an authenticator app](security-info-setup-auth-app.md) section. If that's not the case, you will need to contact your organization's Help Desk for assistance. For more information about security info, see [Security info (preview) overview](user-help-security-info-overview.md).
 
 2. Check the box next to **Authenticator app**, and then select **Configure**.
 
@@ -48,5 +48,7 @@ If your organization uses two-factor verification, you can set up your work or s
 ## Next steps
 
 - After you add your accounts to the app, you can sign in using the Authenticator app on your device. For more information, see [Sign in using the app](user-help-auth-app-sign-in.md).
+
+- If you're having trouble getting your verification code, see [Troubleshooting verification code issues](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-security-codes#securitycode)
 
 - For devices running iOS, you can also back up your account credentials and related app settings, such as the order of your accounts, to the cloud. For more information, see [Backup and recover with Microsoft Authenticator app](user-help-auth-app-backup-recovery.md).

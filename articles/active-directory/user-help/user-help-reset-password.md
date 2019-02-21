@@ -160,7 +160,7 @@ Here are some common error cases and their solutions:
 
 ## Next steps
 
-- Edit your security info to add or change your verification methods in the [Manage your security info (preview)](security-info-manage-settings.md) article. 
+- If you're having trouble getting your verification code, see [Troubleshooting verification code issues](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-security-codes#securitycode)
 
 - Learn about security info in the [Security info (preview) overview](user-help-security-info-overview.md) article.
 

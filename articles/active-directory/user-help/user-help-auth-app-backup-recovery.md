@@ -95,10 +95,12 @@ There are a few reasons why your backup might not be available:
  If you've already set up accounts in the Microsoft Authenticator app, the app won't be able to recover your backed-up accounts. Preventing recovery helps ensure that your account details aren't overwritten with out-of-date information. In this situation, you must remove any existing account information from the existing accounts set up in your Authenticator app before you can recover your backup.
 
 ## Next steps
-Now that you've backed up and recovered your account credentials to your new device, you can continue to use the Microsoft Authenticator app to verify your identity.
+Now that you've backed up and recovered your account credentials to your new device, you can continue to use the Microsoft Authenticator app to verify your identity. For more information, see [Sign in to your accounts using the Microsoft Authenticator app](user-help-sign-in.md).
 
 ## Related topics
-- [Get started with the Microsoft Authenticator app](user-help-auth-app-download-install.md)  
+
+- [What is the Microsoft Authenticator app?](user-help-auth-app-overview.md)
+
 - [Microsoft Authenticator app FAQ](user-help-auth-app-faq.md)
 
 - [Multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

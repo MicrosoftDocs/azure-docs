@@ -101,6 +101,7 @@ If you want to add an account to the mobile app manually, instead of using the Q
 6. Click **Done**.
 
 ## Next steps
+- If you're having trouble getting your verification code, see [Troubleshooting verification code issues](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-security-codes#securitycode)
 * Change your preferred options and [manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md)
 * Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for native device apps that don't support two-step verification.
 * Check out the [Microsoft Authenticator app](user-help-auth-app-download-install.md) for fast, secure authentication even when you don't have cell service.

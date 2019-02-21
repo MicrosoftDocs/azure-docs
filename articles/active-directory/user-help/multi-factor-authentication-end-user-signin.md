@@ -80,8 +80,10 @@ Sometimes you don't have the phone or device that you set up as your preferred v
 
 ## Next steps
 
-If you have problems signing in with two-step verification, get more information at [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
+- If you're having trouble getting your verification code, see [Troubleshooting verification code issues](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-security-codes#securitycode)
 
-Learn how to [Manage your two-step verification settings](multi-factor-authentication-end-user-manage-settings.md).
+- If you have problems signing in with two-step verification, get more information at [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-troubleshoot.md).
 
-Find out how to [Get started with the Microsoft Authenticator app](user-help-auth-app-download-install.md) so that you can use notifications to sign in, instead of texts and phone calls.
+- Learn how to [Manage your two-step verification settings](multi-factor-authentication-end-user-manage-settings.md).
+
+- Find out how to [Get started with the Microsoft Authenticator app](user-help-auth-app-download-install.md) so that you can use notifications to sign in, instead of texts and phone calls.
