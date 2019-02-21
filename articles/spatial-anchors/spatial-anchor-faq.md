@@ -114,4 +114,4 @@ Get started with [development here](index.yml).
 
 **Q: Does it work with Xamarin?**
 
-**A:** Yes. While we don' provide a Xamarin SDK, we expect developers can use Azure Spatial Anchors in their Xamarin apps by integrating with the Azure Spatial Anchors API.
+**A:** Yes. While we don't provide a Xamarin SDK, we expect developers can use Azure Spatial Anchors in their Xamarin apps by integrating with the Azure Spatial Anchors API.
