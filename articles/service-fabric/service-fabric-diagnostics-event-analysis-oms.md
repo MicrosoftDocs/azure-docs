@@ -61,7 +61,7 @@ The following image shows the home page of the Service Fabric Analytics solution
 
 On the Service Fabric Analytics page, click on the graph for **Service Fabric Events**.
 
-    ![Service Fabric Solution Operational Channel](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
+![Service Fabric Solution Operational Channel](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
 Click **List** to view the events in a list. 
 Once here you will see all the system events that have been collected. For reference, these are from the **WADServiceFabricSystemEventsTable** in the Azure Storage account, and similarly the reliable services and actors events you see next are from those respective tables.
@@ -77,7 +77,7 @@ ServiceFabricOperationalEvent
 
 You can query on many more fields such as the specific nodes (Computer) the system service (TaskName).
 
-### View Service Fabric Reliable Service and Actor events
+## View Service Fabric Reliable Service and Actor events
 
 On the Service Fabric Analytics page, click the graph for **Reliable Services**.
 
