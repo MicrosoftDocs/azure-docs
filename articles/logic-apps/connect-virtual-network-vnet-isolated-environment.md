@@ -110,16 +110,16 @@ minimize complexity when creating security rules.
 
 | Purpose | Direction | Source port <br>Destination port | Source service tag <br>Destination service tag | Notes |
 |---------|-----------|----------------------------------|------------------------------------------------|-------|
-| Communication from Azure Logic Apps | Outbound | * <br>80 & 443 | VIRTUAL_NETWORK <br>INTERNET | The port depends on the external service that the Logic Apps service communicates with |
+| Communication from Azure Logic Apps | Outbound | * <br>80 & 443 | VIRTUAL_NETWORK <br>INTERNET | The \* port depends on the external service with which the Logic Apps service communicates |
 | Azure Active Directory | Outbound | * <br>80 & 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory | |
 | Azure Storage dependency | Outbound | * <br>80 & 443 | VIRTUAL_NETWORK <br>Storage | |
-| Communication to Azure Logic Apps | Inbound | * <br>443 | INTERNET <br> VIRTUAL_NETWORK | The IP address for the computer or service that calls any request trigger or webhook in your logic app. Blocking this port prevents HTTP calls to logic apps with request triggers  |
-| Your logic app's run history | Inbound | * <br>443 | INTERNET <br>VIRTUAL_NETWORK | The IP address for the computer from which you view the logic app's run history. Although blocking this port doesn't prevent you from viewing the run history, you can't view the inputs and outputs for each step in your logic app. |
+| Communication to Azure Logic Apps | Inbound | * <br>443 | INTERNET <br> VIRTUAL_NETWORK | The IP address for the computer or service that calls any request trigger or webhook that exists in your logic app. Closing or blocking this port prevents HTTP calls to logic apps with request triggers.  |
+| Your logic app's run history | Inbound | * <br>443 | INTERNET <br>VIRTUAL_NETWORK | The IP address for the computer from which you view the logic app's run history. Although closing or blocking this port doesn't prevent you from viewing the run history, you can't view the inputs and outputs for each step in that run history. |
 | Connection management | Outbound | * <br>443 | VIRTUAL_NETWORK <br>INTERNET | |
 | Publish Diagnostic Logs & Metrics | Outbound | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor | |
 | Logic Apps Designer - dynamic properties | Inbound | * <br>454 | INTERNET <br>VIRTUAL_NETWORK | Requests come from the inbound Logic Apps access endpoint IP addresses in that region. |
 | App Service Management dependency | Inbound | * <br>454 & 455 | AppServiceManagement <br>VIRTUAL_NETWORK | |
-| Connector deployment | Inbound | * <br>454 & 3443 | INTERNET <br>VIRTUAL_NETWORK | Necessary for deploying and updating connectors. Closing this port causes ISE deployments to fail and prevents connector updates or fixes. |
+| Connector deployment | Inbound | * <br>454 & 3443 | INTERNET <br>VIRTUAL_NETWORK | Necessary for deploying and updating connectors. Closing or blockng this port causes ISE deployments to fail and prevents connector updates or fixes. |
 | API Management - management endpoint | Inbound | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK | |
 | Dependency from Log to Event Hub policy and monitoring agent | Outbound | * <br>5672 | VIRTUAL_NETWORK <br>EventHub | |
 | Access Azure Cache for Redis Instances between Role Instances | Inbound <br>Outbound | * <br>6379-6383 | VIRTUAL_NETWORK <br>VIRTUAL_NETWORK | |
