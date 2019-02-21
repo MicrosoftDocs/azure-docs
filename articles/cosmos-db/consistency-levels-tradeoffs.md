@@ -43,7 +43,7 @@ The exact RTT latency is a function of speed-of-light distance and the Azure net
 
 Within a globally distributed database environment there is a direct relationship between the consistency level and data durability in the presence of a region-wide outage. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after a disruptive event. The time required for an application to fully recover is known as recovery time objective (RTO). You also need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. The time period of updates that you might afford to lose is known as recovery point objective (RPO).
 
-The table defines the relationship between relationship between Consistency model and data durability in the presence of region wide outage. It is important to note that in a distributed system, even with strong consistency, it is impossible to have a distributed database with an RPO and RTO of zero due to the CAP Theorem. To learn more on why, see [Consistency levels in Azure Cosmos DB](consistency-levels.md).
+The table defines the relationship between Consistency model and data durability in the presence of region wide outage. It is important to note that in a distributed system, even with strong consistency, it is impossible to have a distributed database with an RPO and RTO of zero due to the CAP Theorem. To learn more on why, see [Consistency levels in Azure Cosmos DB](consistency-levels.md).
 
 |**Region(s)**|**Replication mode**|**Consistency level**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
