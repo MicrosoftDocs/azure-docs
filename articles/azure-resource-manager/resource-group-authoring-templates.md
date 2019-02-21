@@ -74,9 +74,7 @@ Each element has properties you can set. The following example shows the full sy
                 {
                     "name": "<name-of-array-property>",
                     "count": <number-of-iterations>,
-                    "input": {
-                        <properties-to-repeat>
-                    }
+                    "input": <object-or-value-to-repeat>
                 }
             ]
         },
@@ -84,9 +82,7 @@ Each element has properties you can set. The following example shows the full sy
             {
                 "name": "<variable-array-name>",
                 "count": <number-of-iterations>,
-                "input": {
-                    <properties-to-repeat>
-                }
+                "input": <object-or-value-to-repeat>
             }
         ]
     },

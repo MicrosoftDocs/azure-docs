@@ -60,7 +60,7 @@ This tutorial describes using AAC. However, FMLE doesn’t supports AAC by defau
 >
 >
 
-While the channel is starting, you can [configure the encoder](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
+While the channel is starting, you can [configure the encoder](media-services-configure-fmle-live-encoder.md).
 
 > [!IMPORTANT]
 > Note that billing starts as soon as Channel goes into a ready state. For more information, see [Channel's states](media-services-manage-live-encoder-enabled-channels.md#states).
