@@ -46,12 +46,12 @@ When you are ready to build a SQL Server availability group on Azure Virtual Mac
 ## Manually with Azure CLI
 Using Azure CLI to configure and deploy an availability group is the recommended option, as it's the simplest, and fastest. With Azure CLI, the creation of the Windows Failover cluster, joining SQL Server VMs to the cluster, and creation of the listener and Internal Load Balancer can all be achieved in under 30 minutes. This option still requires a manual creation of the availability group, but automates all the other necessary configurations. 
 
-For more information, see [Use Azure SQL VM CLI to create WSFC, listener, and ILB for an Always On availability group on a SQL Server VM in Azure](virtual-machines-windows-sql-availability-group-cli.md). 
+For more information, see [Use Azure SQL VM CLI to configure Always On availability group for SQL Server on Azure VM](virtual-machines-windows-sql-availability-group-cli.md). 
 
 ## Automatically with an Azure Quickstart Template
 The Azure Quickstart Templates utilize the SQL VM resource provider to deploy the Windows Failover Cluster, join SQL Server VMs to it, create the listener, and configure the Internal Load Balancer. This option still requires a manual creation of the availability group, and Internal Load Balancer (ILB) but automates and simplifies all the other necessary configurations (including the configuration of the ILB). 
 
-For more information, see [Use Azure Quickstart Template to create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+For more information, see [Use Azure Quickstart Template to configure Always On availability group for SQL Server on Azure VM](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 ## Automatically with an Azure Portal Template
