@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/17/2019
+ms.date: 1/15/2019
 ms.author: monhaber
 
 ---
@@ -25,13 +25,15 @@ With so many services offering security benefits, it's often hard to know what s
 ## Secure score calculation
 
 Security Center mimics the work of a security analyst, reviewing your security recommendations, and applying advanced algorithms to determine how crucial each recommendation is.
-Azure Security center constantly reviews your active recommendations and calculates your secure score based on them. The score of a recommendation is derived from its severity and security best practices that will affect your workload security the most.
+Azure Security center constantly reviews you active recommendations and calculates your secure score based on them, the score of a recommendation is derived from its severity and security best practices that will affect your workload security the most.
 
 Security Center also provides you with an **Overall secure score**. 
 
 **Overall secure score** is an accumulation of all your recommendation scores. You can view your overall secure score across your subscriptions or management groups, depending on what you select. The score will vary based on subscription selected and the active recommendations on these subscriptions.
 
-## View your secure score
+ 
+To check which recommendations impact your secure score most, you can view the top three most impactful recommendations in the Security Center dashboard or you can sort the recommendations in the recommendations list blade using the **Secure score impact** column.
+
 
 To view your overall secure score:
 
@@ -53,16 +55,6 @@ To view your overall secure score:
 
    ![secure score](./media/security-center-secure-score/security-center-secure-score1.png)
 
-
-## Improve your secure score
-
-To check which recommendations will improve your secure score the most:
-* View the top three most impactful recommendations in the Security Center dashboard 
-   ![top recommend list](./media/security-center-secure-score/top_recommend1.png)
-   
-   or
-* Sort the recommendations in the recommendations list blade using the **Secure score impact** column.
-  ![top recommend sort](./media/security-center-secure-score/top_recommend2.png)
 
 
 ## Individual secure score
