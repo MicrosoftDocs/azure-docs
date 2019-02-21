@@ -39,7 +39,7 @@ If you do not have an Azure account, [create an account](https://azure.microsoft
 
 
 ## Create Custom Vision resources in the Azure portal
-To use Custom Vision Service with Azure, you will need to create Custom Vision Training and Prediction resources in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). This will create both a Training and Prediction resource. 
+To use Custom Vision Service with Azure, you will need to create Custom Vision Training and Prediction resources in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). 
 
 > [!NOTE]
 > To move your project using this CustomVision.ai website experience, you must create your resources in the South Central US region, because all Limited Trial projects are hosted in South Central US. 
@@ -64,7 +64,7 @@ Multiple projects can be associated to a single resource. More detail about [Pri
 
 -	If you do not see the Azure resource you created earlier for Custom Vision Service, it may be in another directory. To move your project to a resource in another directory, follow the instructions below. 
 
- ![Project Migration modal.](./media/move-your-project-to-azure/Project_Migration_Modal.jpg)
+ ![Project Migration window.](./media/move-your-project-to-azure/Project_Migration_Window.jpg)
 
 
 ## Move your Limited Trial project to an Azure resource in another directory 
