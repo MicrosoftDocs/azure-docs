@@ -13,7 +13,7 @@ ms.date: 2/21/2019
 ms.author: rosh
 ---
 
-# Quickstart: Get news resulsts using the Bing News Search REST API and Go
+# Quickstart: Get news results using the Bing News Search REST API and Go
 
 This quickstart uses the Go language to call the Bing News Search API. The results include names and URLs of news sources identified by the query string.
 
