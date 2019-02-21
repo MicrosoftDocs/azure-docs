@@ -11,9 +11,9 @@ ms.custom: MVC
 ---
 
 # Move Azure VMs into Availability Zones
-Availability Zones in Azure protects your applications and data from datacenter failures. Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. The physical separation of Availability Zones within a region protects applications and data from datacenter failures. With Availability Zones, Azure offers industry-best 99.99% virtual machine (VM) uptime service-level agreement (SLA). Availability Zones are supported in select regions as mentioned in [What are Availability Zones in Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones)
+Availability Zones in Azure protect your applications and data from datacenter failures. Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. The physical separation of Availability Zones within a region protects applications and data from datacenter failures. With Availability Zones, Azure offers industry-best 99.99% virtual machine (VM) uptime service-level agreement (SLA). Availability Zones are supported in select regions as mentioned in [What are Availability Zones in Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones)
 
-In a scenario where your virtual machines are deployed as *single instance* into a specific region, and you want to improve your availability by moving these into an Availability Zone, you can do so by using Azure Site Recovery. This can further be categorized into:
+In a scenario where your VMs are deployed as *single instance* into a specific region, and you want to improve your availability by moving these VMs into an Availability Zone, you can do so by using Azure Site Recovery. This can further be categorized into:
 
 - Move single-instance VMs into Availability Zones in a target region
 - Move VMs in an Availability set into Availability Zones in a target region
@@ -23,10 +23,10 @@ In a scenario where your virtual machines are deployed as *single instance* into
 
 ## Check Prerequisites
 
-- Check whether the target region has [support for Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones). Check that your choice of [source region - target region combination is supported](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) and make an informed decision on the target region.
+- Check whether the target region has [support for Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones). Check that your choice of [source region - target region combination is supported](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support). Make an informed decision on the target region.
 - Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
 - Review the [support limitations and requirements](azure-to-azure-support-matrix.md).
-- Check account permissions: If you just created your free Azure account, you are the admin of your subscription. If you are not the subscription admin, work with the admin to assign the permissions you need. To enable replication for a VM and eventually copy data to the target using Azure Site Recovery, you must have:
+- Check account permissions: If you just created your free Azure account, you're the admin of your subscription. If you aren't the subscription admin, work with the admin to assign the permissions you need. To enable replication for a VM and eventually copy data to the target using Azure Site Recovery, you must have:
 
     1. Permission to create a VM in Azure resources. The *Virtual Machine Contributor* built-in role has these permissions, which include:
         - Permission to create a VM in the selected resource group
@@ -37,31 +37,31 @@ In a scenario where your virtual machines are deployed as *single instance* into
 
 ## Prepare the source VMs
 
-1. Your VMs should be using managed disks if you want to move them to an Availability Zone using Site Recovery. You can convert existing Windows virtual machines (VMs) that use unmanaged disks to use managed disks by following the steps mentioned at [Convert a Windows virtual machine from unmanaged disks to managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks). Ensure that the Availability set is configured as *Managed*.
-2. Check that all the latest root certificates are present on the Azure VMs you want to move. If the latest root certificates aren't present, the data copy to the target region cannot be enabled due to security constraints.
+1. Your VMs should be using managed disks if you want to move them to an Availability Zone using Site Recovery. You can convert existing Windows virtual machines (VMs) that use unmanaged disks to use managed disks. Follow the steps at [Convert a Windows virtual machine from unmanaged disks to managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks). Ensure that the Availability set is configured as *Managed*.
+2. Check that all the latest root certificates are present on the Azure VMs you want to move. If the latest root certificates aren't present, the data copy to the target region can't be enabled because of security constraints.
 
 3. For Windows VMs, install all the latest Windows updates on the VM, so that all the trusted root certificates are on the machine. In a disconnected environment, follow the standard Windows update and certificate update processes for your organization.
 
 4. For Linux VMs, follow the guidance provided by your Linux distributor to get the latest trusted root certificates and certificate revocation list on the VM.
 5. Make sure you're not using an authentication proxy to control network connectivity for VMs you want to move.
 
-6. If the VM you are trying to move doesn't have access to the internet and is using a firewall proxy to control outbound access, please check the requirements at [
+6. If the VM you're trying to move doesn't have access to the internet and is using a firewall proxy to control outbound access, check the requirements at [
 Configure outbound network connectivity](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
 
-7. Identify the source networking layout and all the resources that you are currently using, including load balancers, NSGs, and public IP, for your verification.
+7. Identify the source networking layout and all the resources that you're currently using for verification, including load balancers, NSGs, and public IP.
 
 ## Prepare the target region
 
-1. Check that your Azure subscription lets you create VMs in the target region used for disaster recovery. If required, contact support to enable the required quota.
+1. Check that your Azure subscription lets you create VMs in the target region used for disaster recovery. If necessary, contact support to enable the required quota.
 
-2. Make sure your subscription has enough resources to support VMs with sizes that match your source VMs. if you are using Site Recovery to copy data to the target, it picks the same size or the closest possible size for the target VM.
+2. Make sure your subscription has enough resources to support VMs with sizes that match your source VMs. if you're using Site Recovery to copy data to the target, it picks the same size or the closest possible size for the target VM.
 
-3. Ensure that you create a target resource for every component identified in the source networking layout. This is important to ensure that, after cutting over to the target region, your VMs have all the functionality and features that you had in the source.
+3. Ensure that you create a target resource for every component identified in the source networking layout. Doing so is important and ensures that, after cutting over to the target region, your VMs have all the functionality and features that you had in the source.
 
     > [!NOTE]
     > Azure Site Recovery automatically discovers and creates a virtual network and storage account when you enable replication for the source VM. You can also pre-create these resources and assign to the VM as part of the enable replication step. But for any other resources, as mentioned below, you need to manually create them in the target region.
 
-     Please refer to the following documents to create the most commonly used network resources that are relevant to you, based on the source VM configuration.
+     Refer to the following documents to create the most commonly used network resources that are relevant to you, based on the source VM configuration.
 
     - [Network Security Groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
@@ -73,7 +73,7 @@ Configure outbound network connectivity](azure-to-azure-tutorial-enable-replicat
 > [!IMPORTANT]
 > Ensure that you use a zone redundant load balancer in the target. You can read more at [Standard Load Balancer and Availability Zones](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
 
-4. Manually [create a non-production network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) in the target region if you want to test the configuration before you do the final cut over to the target region. This creates minimal interference with the production environment and is recommended.
+4. Manually [create a non-production network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) in the target region if you want to test the configuration before you do the final cut over to the target region. Doing so creates minimal interference with the production environment and is recommended.
 
 
 > [!NOTE]
@@ -84,14 +84,14 @@ The following steps will guide you on using Azure Site Recovery to enable replic
 
 1. In the Azure portal, select **Virtual machines**, and select the VM you want to move into Availability Zones.
 2. In **Operations**, select **Disaster recovery**.
-3. In **Configure disaster recovery** > **Target region** select the target region to which you'll replicate. Ensure this region [supports](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones) Availability Zones.
+3. In **Configure disaster recovery** > **Target region**, select the target region to which you'll replicate. Ensure this region [supports](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones) Availability Zones.
 ![enable-rep-1.PNG](media/azure-vms-to-zones/enable-rep-1.PNG)
 
 1. Select **Next: Advanced settings**.
 2. Choose the appropriate values for the target subscription, target VM Resource Group, and virtual network.
 3. In the **Availability** section, choose the Availability Zone into which you want to move the VM. 
 > [!NOTE]
-> If you don’t see the option for Availability set or Availability Zone, please ensure that the [prerequisites](#prepare-the-source-vms) are met and the [preparation](#prepare-the-source-vms) of source VMs is complete.
+> If you don’t see the option for Availability set or Availability Zone, ensure that the [prerequisites](#prepare-the-source-vms) are met and the [preparation](#prepare-the-source-vms) of source VMs is complete.
 
    ![enable-rep-2.PNG](media/azure-vms-to-zones/enable-rep-2.PNG)
 
@@ -136,18 +136,18 @@ After the replication job has finished, you can check the replication status, mo
 3. In **Failover**, select **Latest**. 
 4. Select **Shut down machine before beginning failover**. Site Recovery attempts to shut down the source VM before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page. 
 5. After the job is finished, check that the VM appears in the target Azure region as expected.
-6. In **Replicated items**, right-click the VM > **Commit**. This finishes the move process to the target region. Wait till the commit job is finished.
+6. In **Replicated items**, right-click the VM > **Commit**. Doing so finishes the move process to the target region. Wait until the commit job is finished.
 
-## Discard the resource in the source region 
+## Discard the resource in the source region
 
 1. Go to the VM.  Select **Disable Replication**.  This stops the process of copying the data for the VM.  
 
 > [!IMPORTANT]
-> It is important to do the above step to avoid getting charged for Site Recovery replication after the move. The source replication settings are cleaned up automatically. Please note that the Site Recovery extension that is installed as part of the replication isn't removed and needs to be removed manually.
+> It is important to do the above step to avoid getting charged for Site Recovery replication after the move. The source replication settings are cleaned up automatically. Note that the Site Recovery extension that is installed as part of the replication isn't removed and needs to be removed manually.
 
 ## Next steps
 
-In this tutorial you increased the availability of an Azure VM by moving into an Availability set or Availability Zone. Now you can set disaster recovery for the moved VM.
+In this tutorial, you increased the availability of an Azure VM by moving into an Availability set or Availability Zone. Now you can set disaster recovery for the moved VM.
 
 > [!div class="nextstepaction"]
 > [Set up disaster recovery after migration](azure-to-azure-quickstart.md)
