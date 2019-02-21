@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 02/21/2019
 ms.author: pafarley
 ---
 # Quickstart: Analyze a remote image using the REST API and Python in Computer Vision
@@ -20,7 +20,7 @@ You can run this quickstart in a step-by step fashion using a Jupyter notebook o
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/en-us/try/cognitive-services/) before you begin.
 
 ## Prerequisites
 
