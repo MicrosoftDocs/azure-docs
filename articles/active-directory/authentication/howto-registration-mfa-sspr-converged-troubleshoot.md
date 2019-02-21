@@ -4,15 +4,16 @@ description: Disable Azure AD Multi-Factor Authentication and self-service passw
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/02/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry, michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Disable Azure AD converged registration (Public preview)
 

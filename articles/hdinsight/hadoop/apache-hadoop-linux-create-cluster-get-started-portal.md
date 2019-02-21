@@ -60,7 +60,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
     |Property  |Description  |
     |---------|---------|
     |**Cluster type**     | Select **Hadoop** |
-    |**Operating system**     |  Select your Azure subscription. |
+    |**Operating system**     | Select **Linux** |
     |**Version**     | Select **Hadoop 2.7.3 (HDI 3.6)**|
 
     Click **Select** and then click **Next**.
@@ -169,6 +169,7 @@ If you're ready to start working with your own data and need to know more about 
 * For information on how HDInsight uses Azure Storage, see [Use Azure Storage with HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 * For information on how to create an HDInsight cluster with Data Lake Storage, see [Quickstart: Set up clusters in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * For information on how to upload data to HDInsight, see [Upload data to HDInsight](../hdinsight-upload-data.md).
+* [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 To learn more about analyzing data with HDInsight, see the following articles:
 

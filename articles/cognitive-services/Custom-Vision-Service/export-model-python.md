@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Run a TensorFlow model in Python.
 services: cognitive-services
 author: areddish
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: areddish

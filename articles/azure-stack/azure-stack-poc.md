@@ -17,6 +17,7 @@ ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
+ms.lastreviewed: 10/25/2018
 
 ---
 # What is Azure Stack?

@@ -4,7 +4,7 @@ description: Learn about the amount of time it takes for reporting events to sho
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory reporting latencies

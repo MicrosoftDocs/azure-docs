@@ -10,11 +10,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.date: 09/24/2018
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.collection: M365-identity-device-management
 ---
 
 # Developer guidance for Azure Active Directory conditional access
@@ -73,7 +74,7 @@ Developers can take this challenge and append it onto a new request to Azure AD.
 
 ### Prerequisites
 
-Azure AD conditional access is a feature included in [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis#choose-an-edition). You can learn more about licensing requirements in the [unlicensed usage report](../active-directory-conditional-access-unlicensed-usage-report.md). Developers can join the [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), which includes a free subscription to the Enterprise Mobility Suite, which includes Azure AD Premium.
+Azure AD conditional access is a feature included in [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). You can learn more about licensing requirements in the [unlicensed usage report](../active-directory-conditional-access-unlicensed-usage-report.md). Developers can join the [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), which includes a free subscription to the Enterprise Mobility Suite, which includes Azure AD Premium.
 
 ### Considerations for specific scenarios
 

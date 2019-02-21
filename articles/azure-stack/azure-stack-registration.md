@@ -16,12 +16,13 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
+ms.lastreviewed: 01/16/2019
 
 ---
 
 # Register Azure Stack with Azure
 
-Registering Azure Stack with Azure allows you to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. After you register Azure Stack, usage is reported to Azure commerce and you can see it under the subscription used for registration.
+Registering Azure Stack with Azure allows you to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. After you register Azure Stack, usage is reported to Azure commerce and you can see it under the Azure billing Subscription ID used for registration.
 
 The information in this article describes registering Azure Stack integrated systems with Azure. For information about registering the ASDK with Azure, see [Azure Stack registration](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-register) in the ASDK documentation.
 
@@ -139,7 +140,7 @@ Connected environments can access the internet and Azure. For these environments
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you [downloaded the Azure Stack tools](#bkmk_tools). Import the **RegisterWithAzure.psm1** module using PowerShell:
+5. Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you downloaded the Azure Stack tools. Import the **RegisterWithAzure.psm1** module using PowerShell:
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
@@ -203,7 +204,7 @@ Connected environments can access the internet and Azure. For these environments
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-5. Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you [downloaded the Azure Stack tools](#bkmk_tools). Import the **RegisterWithAzure.psm1** module using PowerShell:
+5. Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you downloaded the Azure Stack tools. Import the **RegisterWithAzure.psm1** module using PowerShell:
 
   ```PowerShell  
   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -222,11 +223,11 @@ Connected environments can access the internet and Azure. For these environments
 
 ## Register disconnected with capacity billing
 
-If you are registering Azure Stack in a disconnected environment (with no internet connectivity), you need to get a registration token from the Azure Stack environment and then use that token on a computer that can connect to Azure and has [PowerShell for Azure Stack installed](#bkmk_powershell).  
+If you are registering Azure Stack in a disconnected environment (with no internet connectivity), you need to get a registration token from the Azure Stack environment and then use that token on a computer that can connect to Azure and has PowerShell for Azure Stack installed.  
 
 ### Get a registration token from the Azure Stack environment
 
-1. Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you [downloaded the Azure Stack tools](#bkmk_tools). Import the **RegisterWithAzure.psm1** module:  
+1. Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you downloaded the Azure Stack tools. Import the **RegisterWithAzure.psm1** module:  
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1

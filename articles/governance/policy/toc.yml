@@ -22,6 +22,9 @@
   - name: Create and manage Azure Policy
     displayName: assign, definition, compliance, exempt, exclusion
     href: ./tutorials/create-and-manage.md
+  - name: Create a custom policy definition
+    displayName: disabled, parameters, rule, mode
+    href: ./tutorials/create-custom-policy-definition.md
   - name: Hands-on Labs - Exploring Azure Policy
     displayName: create, policy, training, learn
     href: https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy
@@ -110,6 +113,11 @@
     - name: Enforce Data Lake Store encryption
       displayName: deny
       href: samples/enforce-data-lake-store-encryption.md
+  - name: Key Vaults
+    items:
+    - name: Audit vaults for no virtual network endpoints
+      displayName: audit, KeyVault, indexed
+      href: samples/keyvault-no-vnet-rules.md
   - name: Monitoring
     items:
     - name: Audit diagnostic setting
@@ -265,7 +273,7 @@
   - name: Azure PowerShell
     items:
     - name: Policy
-      href: /powershell/module/azurerm.resources/#policies
+      href: /powershell/module/az.resources/#policies
     - name: Guest Configuration (preview)
       href: https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration
   - name: REST API

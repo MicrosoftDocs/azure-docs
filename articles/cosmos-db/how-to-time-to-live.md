@@ -8,7 +8,7 @@ ms.date: 11/14/2018
 ms.author: mjbrown
 ---
 
-# How to configure time to live in Azure Cosmos DB
+# Configure time to live in Azure Cosmos DB
 
 In Azure Cosmos DB, you can choose to configure Time to Live (TTL) at the container level, or you can override it at an item level after setting for the container. You can configure TTL for a container by using Azure portal or the language-specific SDKs. Item level TTL overrides can be configured by using the SDKs.
 

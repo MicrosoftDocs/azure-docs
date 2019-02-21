@@ -4,7 +4,7 @@ description: This topic shows how to start developing Azure Functions with Media
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 51bdcb01-1846-4e1f-bd90-70020ab471b0
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 02/10/2019
 ms.author: juliako
 
 ---
@@ -334,7 +334,7 @@ To test your function, you need to upload an MP4 file into the **input** contain
 4. Press **Upload** and browse to a .mp4 file that you want to upload.
 
 >[!NOTE]
-> When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs after a function app has gone idle. After the function app is running, blobs are processed immediately. For more information, see [Blob storage triggers and bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings).
+> When you're using a blob trigger on a Consumption plan, there can be up to a 10-minute delay in processing new blobs after a function app has gone idle. After the function app is running, blobs are processed immediately. For more information, see [Blob storage triggers and bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
 
 ## Next steps
 

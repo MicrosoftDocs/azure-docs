@@ -3,16 +3,17 @@ title: Add or delete users - Azure Active Directory | Microsoft Docs
 description: Instructions about how to add new users or delete existing users using Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # Add or delete users using Azure Active Directory

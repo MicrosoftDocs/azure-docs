@@ -8,7 +8,7 @@ ms.date: 11/15/2017
 ms.topic: article
 ms.service: virtual-machines
 ms.tgt_pltfrm: windows
-ms.component: disks
+ms.subservice: disks
 ---
 
 # Scalability and performance targets for VM disks on Windows

@@ -22,7 +22,7 @@ This quickstart shows you how to create Basic Load Balancer using Azure PowerShe
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable AzureRM` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure. 
 
 ## Create a resource group
 
@@ -67,7 +67,8 @@ To allow the load balancer to monitor the status of your app, you use a health p
 
 The following example creates a TCP probe. You can also create custom HTTP probes for more fine grained health checks. When using a custom HTTP probe, you must create the health check page, such as *healthcheck.aspx*. The probe must return an **HTTP 200 OK** response for the load balancer to keep the host in rotation.
 
-To create a TCP health probe, you use [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig). The following example creates a health probe named *myHealthProbe* that monitors each VM on *HTTP* port *80*:
+To create a TCP health probe, you use [New-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/new-azurermloadbalancerprobeconfig).
+The following example creates a health probe named *myHealthProbe* that monitors each VM on *HTTP* port *80*:
 
 ```azurepowershell-interactive
 $probe = New-AzureRmLoadBalancerProbeConfig `
@@ -272,7 +273,7 @@ The `-AsJob` parameter creates the VM as a background task, so the PowerShell pr
  
 Install IIS with a custom web page on both backend VMs as follows:
 
-1. Get the Public IP address of the Load Balancer. Using `Get-AzureRmPublicIPAdress`, obtain the Public IP address of the Load Balancer.
+1. Get the Public IP address of the Load Balancer. Using `Get-AzureRmPublicIPAddress`, obtain the Public IP address of the Load Balancer.
 
   ```azurepowershell-interactive
     Get-AzureRmPublicIPAddress `

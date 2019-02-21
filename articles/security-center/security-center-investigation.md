@@ -4,7 +4,7 @@ description: This document helps you use the investigation feature in Azure Secu
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566

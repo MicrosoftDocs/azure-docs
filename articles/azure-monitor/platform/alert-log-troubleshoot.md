@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
-ms.component: alerts
+ms.subservice: alerts
 ---
 # Troubleshooting log alerts in Azure Monitor  
 

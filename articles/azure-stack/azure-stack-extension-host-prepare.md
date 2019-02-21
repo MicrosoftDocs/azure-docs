@@ -5,16 +5,17 @@ services: azure-stack
 keywords: 
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/27/2018
+ms.date: 02/07/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
+ms.lastreviewed: 01/25/2019
 ---
 
 # Prepare for extension host for Azure Stack
 
-The Extension host secures Azure Stack by reducing the number of required TCP/IP ports. This article looks at preparing Azure Stack for the extension host, which is automatically enabled through an Azure Stack Update package after the 1808 update.
+The Extension host secures Azure Stack by reducing the number of required TCP/IP ports. This article looks at preparing Azure Stack for the extension host, which is automatically enabled through an Azure Stack Update package after the 1808 update. This article applies to Azure Stack updates 1808, 1809, and 1811.
 
 ## Certificate requirements
 
@@ -135,7 +136,7 @@ The article, [Azure Stack datacenter integration - Publish endpoints](azure-stac
 
 ### Publish new endpoints
 
-There are two new endpoints required to be published through your firewall. The allocated IPs from the public VIP pool can be retrieved using the following code which must be run via your Azure Stack [environment's privileged endpoint](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-privileged-endpoint).
+There are two new endpoints required to be published through your firewall. The allocated IPs from the public VIP pool can be retrieved using the following code which must be run via your Azure Stack [environment's privileged endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
 ```PowerShell
 # Create a PEP Session
@@ -181,7 +182,7 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 
 | Endpoint (VIP) | Protocol | Ports |
 |----------------|----------|-------|
-| AdminHosting | HTTPS | 443 |
+| Admin Hosting | HTTPS | 443 |
 | Hosting | HTTPS | 443 |
 
 ### Update existing publishing Rules (Post enablement of extension host)

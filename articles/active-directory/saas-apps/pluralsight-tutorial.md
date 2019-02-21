@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 4c3f07d2-4e1f-4ea3-9025-c663f1f2b7b4
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Pluralsight
 

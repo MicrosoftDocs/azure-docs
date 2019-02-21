@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 894b7520-5136-4973-a1ba-942a9f7f0a03
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Wrike
 

@@ -3,7 +3,7 @@ title: Integrate logs from Azure Key Vault by using Event Hubs | Microsoft Docs
 description: Tutorial that provides the necessary steps to make Key Vault logs available to a SIEM by using Azure Log Integration
 services: security
 author: barclayn
-manager: MBaldwin
+manager: barbkess
 editor: TomShinder
 
 ms.assetid:
@@ -70,7 +70,7 @@ Before you can complete the steps in this article, you need the following:
    a. In a PowerShell window, enter the ```Install-Module Azure``` command. Complete the installation steps.    
    b. Enter the ```Install-Module AzureRM``` command. Complete the installation steps.
 
-   For more information, see [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0).
+   For more information, see [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.0.0).
 
 
 ## Create supporting infrastructure elements

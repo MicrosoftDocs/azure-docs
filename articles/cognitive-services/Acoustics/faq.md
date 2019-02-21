@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: This page provides answers to questions asked frequently about Project Acoustics, including download instructions and bake process.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin

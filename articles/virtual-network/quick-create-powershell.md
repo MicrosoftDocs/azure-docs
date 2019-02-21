@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-If you decide to install and use PowerShell locally instead, this quickstart requires you to use AzureRM PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable AzureRM`. See [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) for install and upgrade info.
+If you decide to install and use PowerShell locally instead, this quickstart requires you to use AzureRM PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable AzureRM`. See [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) for install and upgrade info.
 
 Finally, if you're running PowerShell locally, you'll also need to run `Connect-AzureRmAccount`. That command creates a connection with Azure.
 

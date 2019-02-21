@@ -35,7 +35,7 @@ To view the AzureRm.RecoveryServices.Backup PowerShell cmdlet reference, see the
 
 To begin:
 
-1. [Download the latest version of PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (the minimum version required is: 1.4.0)
+1. [Download the latest version of PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (the minimum version required is: 1.4.0)
 
 2. Find the Azure Backup PowerShell cmdlets available by typing the following command:
 
@@ -73,7 +73,7 @@ The following tasks can be automated with PowerShell:
 
 * [Create a Recovery Services vault](backup-azure-vms-automation.md#create-a-recovery-services-vault)
 * [Back up Azure VMs](backup-azure-vms-automation.md#back-up-azure-vms)
-* [Trigger a backup job](backup-azure-vms-automation.md#trigger-a-backup-job)
+* [Trigger a backup job](backup-azure-vms-automation.md#trigger-a-backup)
 * [Monitor a backup job](backup-azure-vms-automation.md#monitoring-a-backup-job)
 * [Restore an Azure VM](backup-azure-vms-automation.md#restore-an-azure-vm)
 
@@ -349,11 +349,17 @@ $restorejob
 #### Restore managed disks
 
 > [!NOTE]
-> If the backed VM has managed disks and you want to restore them as managed disks, we have introduced the capability from Azure PowerShell v 6.7.0. onwards
+> If the backed VM has managed disks and you want to restore them as managed disks, we have introduced the capability from Azure PowerShell RM module v 6.7.0. onwards
 >
 >
 
-Provide an additional parameter **TargetResourceGroupName** to specify the RG to which managed disks will be restored.
+Provide an additional parameter **TargetResourceGroupName** to specify the RG to which managed disks will be restored. 
+
+> [!NOTE]
+> It is strongly recommended to use the **TargetResourceGroupName** parameter for restoring managed disks since it results in significant performance improvements. Also, from Azure Powershell Az module 1.0 onwards, this parameter is mandatory in case of a restore with managed disks
+>
+>
+
 
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"

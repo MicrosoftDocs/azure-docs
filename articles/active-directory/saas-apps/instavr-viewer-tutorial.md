@@ -4,7 +4,7 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 13ffa29f-d0a5-4b21-b296-cfd76f380940
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with InstaVR Viewer
 

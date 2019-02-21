@@ -23,13 +23,15 @@
 - name: How-to guides
   expanded: true
   items:
+  - name: Deploy PIM
+    href: pim-deployment-plan.md
   - name: Start using PIM
     href: pim-getting-started.md
   - name: Activate my roles
     items:
     - name: Activate my directory roles
       href: pim-how-to-activate-role.md
-    - name: Activate my resource roles
+    - name: Activate my Azure resource roles
       href: pim-resource-roles-activate-your-roles.md
   - name: Configure PIM
     items:
@@ -53,7 +55,7 @@
       href: pim-how-to-configure-security-alerts.md
     - name: View audit history
       href: pim-how-to-use-audit-log.md
-  - name: Manage resource roles
+  - name: Manage Azure resource roles
     items:
     - name: Assign roles
       href: pim-resource-roles-assign-roles.md
@@ -67,10 +69,8 @@
       href: pim-resource-roles-configure-role-settings.md
     - name: Configure alerts
       href: pim-resource-roles-configure-alerts.md
-    - name: View who has access
+    - name: View activity and audit history
       href: azure-pim-resource-rbac.md
-    - name: View audit history
-      href: pim-resource-roles-use-the-audit-log.md
     - name: Use custom roles
       href: pim-resource-roles-custom-role-policy.md
   - name: Review access
@@ -83,9 +83,9 @@
         href: pim-how-to-start-security-review.md
       - name: Complete an access review
         href: pim-how-to-complete-review.md
-    - name: Resource roles
+    - name: Azure resource roles
       items:
-      - name: Review my resource roles
+      - name: Review my Azure resource roles
         href: pim-resource-roles-perform-access-review.md
       - name: Start an access review
         href: pim-resource-roles-start-access-review.md

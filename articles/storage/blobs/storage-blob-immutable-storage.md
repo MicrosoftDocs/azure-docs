@@ -6,9 +6,9 @@ author: xyh1
 
 ms.service: storage
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 01/21/2019
 ms.author: hux
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Store business-critical data in Azure Blob storage
@@ -194,7 +194,7 @@ Yes. When a time-based retention policy is first created, it's in an *unlocked* 
 
 **Is the feature available in national and government clouds?**
 
-Immutable storage is currently available only in Azure public regions. If you're interested in a specific national cloud, email azurestoragefeedback@microsoft.com.
+Immutable storage is available in Azure Public, China, and Government regions. If Immutable storage is not available in your region, email azurestoragefeedback@microsoft.com.
 
 ## Sample PowerShell code
 

@@ -2,12 +2,12 @@
 title: How to filter events for Azure Event Grid
 description: Shows how to create Azure Event Grid subscriptions that filter events.
 services: event-grid
-author: tfitzmac
+author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/07/2018
-ms.author: tomfitz
+ms.date: 01/07/2019
+ms.author: spelluru
 ---
 
 # Filter events for Event Grid
@@ -16,7 +16,7 @@ This article shows how to filter events when creating an Event Grid subscription
 
 ## Filter by event type
 
-When creating an Event Grid subscription, you can specify which [event types](event-schema.md) to send to the endpoint. The examples in this section create event subscriptions for a resource group but limit the events that are sent to `Microsoft.Resources.ResourceWriteFailure` and `Microsoft.Resources.ResourceWriteSuccess`. If you need more flexibility when filtering events by event types, see [Filter by advanced operators and data fields](#filter-by-advanced-operators-and-data-fields).
+When creating an Event Grid subscription, you can specify which [event types](event-schema.md) to send to the endpoint. The examples in this section create event subscriptions for a resource group but limit the events that are sent to `Microsoft.Resources.ResourceWriteFailure` and `Microsoft.Resources.ResourceWriteSuccess`. If you need more flexibility when filtering events by event types, see Filter by advanced operators and data fields.
 
 For PowerShell, use the `-IncludedEventType` parameter when creating the subscription.
 
@@ -73,7 +73,7 @@ For a Resource Manager template, use the `includedEventTypes` property.
 
 ## Filter by subject
 
-You can filter events by the subject in the event data. You can specify a value to match for the beginning or end of the subject. If you need more flexibility when filtering events by subject, see [Filter by advanced operators and data fields](#filter-by-advanced-operators-and-data-fields).
+You can filter events by the subject in the event data. You can specify a value to match for the beginning or end of the subject. If you need more flexibility when filtering events by subject, see Filter by advanced operators and data fields.
 
 In the following PowerShell example, you create an event subscription that filters by the beginning of the subject. You use the `-SubjectBeginsWith` parameter to limit events to ones for a specific resource. You pass the resource ID of a network security group.
 

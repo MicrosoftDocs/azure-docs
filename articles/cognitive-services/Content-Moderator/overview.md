@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to use Content Moderator to track, flag, assess, and filter inappropriate material in user-generated content.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 01/10/2019
 ms.author: sajagtap

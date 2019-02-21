@@ -13,16 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.author: sethm
 ms.reviewer: unknown
+ms.lastreviewed: 01/29/2019
 
 ---
 # Azure Marketplace items available for Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit.*
 
-## Virtual Machine Extensions
+## Virtual Machine extensions
 
 Whenever there are updates to virtual machine (VM) extensions you use, you should download them. Extensions shipped in the product do not update in the normal patch and update process; so check for updates frequently. Other extensions are only available through Marketplace Management.
 
@@ -42,7 +43,7 @@ Whenever there are updates to virtual machine (VM) extensions you use, you shoul
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security Agent for Windows](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.ksws-windows-arm?tab=Overview) | With Kaspersky Hybrid Cloud Security, you can provision cybersecurity capabilities right inside your cloud workloads via Azure Extensions. | Kaspersky Lab | Windows |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security Agent for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.kesl-linux-arm?tab=Overview) | With Kaspersky Hybrid Cloud Security, you can provision cybersecurity capabilities right inside your cloud workloads via Azure Extensions. | Kaspersky Lab | Linux |
 
-## Microsoft Virtual Machine Images and Solution Templates
+## Microsoft Virtual Machine images and solution templates
 
 Microsoft Azure Stack supports the following Azure Marketplace virtual machines and solution templates. Download any dependencies separately, as noted. Applications such as SQL Server and Machine Learning Server require proper licensing, except where marked as Free or Trial.
 
@@ -76,7 +77,7 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![Microsoft Machine Learning Server 9.3.0 on Ubuntu 16.04](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 on Ubuntu 16.04](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onUbuntu1604) | Microsoft Machine Learning Server 9.3.0 on Ubuntu 16.04. | Microsoft + Canonical |
 | ![Microsoft Machine Learning Server 9.3.0 on CentOS Linux 7.2](media/azure-stack-marketplace-azure-items/microsoft.png) | [Microsoft Machine Learning Server 9.3.0 on CentOS Linux 7.2](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onCentOSLinux72) | Microsoft Machine Learning Server 9.3.0 on CentOS Linux 7.2. | Microsoft + Rogue Wave |
 
-## Linux Distributions
+## Linux distributions
 
 |  | Item name | Description | Publisher |
 | --- | --- | --- | --- |
@@ -84,7 +85,7 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![Container Linux by CoreOS](media/azure-stack-marketplace-azure-items/coreos.png) | [Container Linux by CoreOS](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Container Linux is a modern and minimal Linux distribution, providing an easy way to run containers, manage clusters and seamlessly update your servers - all components that enable warehouse-scale compute. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server is the world's most popular Linux for cloud environments. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux is one of the most popular Linux distributions. | credativ |
-| ![CentOS-based 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic)  |
+| ![CentOS-based 6.8](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.8](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased68HPC) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic)  |
 | ![CentOS-based 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic)  |
 | ![CentOS-based 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic) |
 | ![CentOS-based 7.5](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | This distribution of Linux is based on CentOS and is provided by Rogue Wave Software. | Rogue Wave Software (formerly OpenLogic) |
@@ -93,10 +94,11 @@ Microsoft Azure Stack supports the following Azure Marketplace virtual machines 
 | ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 | ![SLES 15 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 15 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 15. | SUSE |
 
-## Third-Party BYOL, Free, and Trial images and Solution Templates
+## Third-Party BYOL, free, trial images, and solution templates
 
 |  | Item name | Description | Publisher |
 | --- | --- | --- | --- |
+| ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | The A10 Networks vThunder Application Delivery Controller for Microsoft Azure is purpose-built for high performance, flexibility, and easy-to-deploy application delivery and server load balancing and optimized to run natively within the Azure cloud. | A10 Networks |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | The Arista vEOS Router is a feature-rich, multi-cloud, and multi-hypervisor virtual router that empowers enterprises and cloud providers to build consistent, highly secure, and scalable hybrid networks. | Arista Networks |
 | ![Barracuda Application Security Control Center](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Application Security Control Center](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | Centrally manage multiple Barracuda Web Application Firewalls (WAF). | Barracuda Networks, Inc. |
 | ![Barracuda Email Security Gateway](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Email Security Gateway](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | Email security gateway to protect against inbound email-borne threats. | Barracuda Networks, Inc. |

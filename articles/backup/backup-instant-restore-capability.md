@@ -2,19 +2,18 @@
 title: Azure Instant Restore Capability
 description: Azure Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
 services: backup
-author: trinadhk
+author: sogup
 manager: vijayts
-tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: trinadhk
+ms.author: sogup
 ---
 
 # Get improved backup and restore performance with Azure Backup Instant Restore capability
 
 > [!NOTE]
-> Based on the feedback received from users that the **VM backup stack V2** is confusing with Azure stack, we have renamed it to **Instant Restore** thus providing an upgraded and better experience.
+> Based on feedback from users we are renaming **VM backup stack V2** to **Instant Restore** to reduce confusion with Azure Stack functionality.
 
 The new model for Instant Restore provides the following feature enhancements:
 

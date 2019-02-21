@@ -105,7 +105,7 @@ The following example skillset uses the OCR skill to extract text from images em
       "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
       "context": "/document",
       "insertPreTag": " ",
-      "insertPostTag": " "
+      "insertPostTag": " ",
       "inputs": [
         {
           "name":"text", "source": "/document/content"
