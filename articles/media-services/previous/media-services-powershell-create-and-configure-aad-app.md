@@ -32,7 +32,7 @@ Learn how to use a PowerShell script to create an Azure Active Directory (Azure 
 
 ```powershell
 Connect-AzAccount
-Import-Module AzureRM.Resources
+Import-Module Az.Resources
 Set-AzContext -SubscriptionId $SubscriptionId
 $ServicePrincipal = New-AzADServicePrincipal -DisplayName $ApplicationDisplayName -Password $Password
 
