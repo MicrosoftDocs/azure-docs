@@ -15,18 +15,18 @@ ms.author: rosh
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Go
 
-Use this quickstart to call to the Bing News Search API and view results. This Go application uses a Get request. Then it displays results including names of the news results and URLs.
+This quickstart uses the Go language to call the Bing News Search API. The results include names and URLs of news sources identified by the query string.
 
 ## Prerequisites
 * Install the [Go binaries](https://golang.org/dl/)
-* The go-spew deep pretty printer is useful for display of results
+* Install the go-spew library for it pretty printer to display results
     * Install this libarary: `$ go get -u https://github.com/davecgh/go-spew`
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Create a project and import libraries
 
-Create a new Go project in your IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, and `encoding/json` to handle the JSON text of results.  
+Create a new Go project in your IDE or editor. Then import `net/http` for requests, `ioutil` to read the response, and `encoding/json` to handle the JSON text of results. The go-spew library is needed to parse JSON. 
 
 ```
 package main
@@ -89,7 +89,7 @@ The following code declares the main function and assigns required variables. Co
 func main() {
     // Verify the endpoint URI and replace the token string with a valid subscription key.  
     const endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/news/search"
-    token := "cb13365d129c4adb94a27a7a1229ff57"
+    token := "YOUR-ACCESS-KEY"
     searchTerm := "Microsoft Cognitive Services"
 
     // Declare a new GET request.
@@ -112,7 +112,7 @@ param := req.URL.Query()
 param.Add("q", searchTerm)
 req.URL.RawQuery = param.Encode()
 
-// Insert the request header.  
+// Insert the subscription-key header.  
 req.Header.Add("Ocp-Apim-Subscription-Key", token)
 
 ```
@@ -139,16 +139,18 @@ Send the request and read results using `ioutil`.
 
 ```
 resp, err := client.Do(req)
-	if err != nil {
-		panic(err)
-	}
-	
-    defer resp.Body.Close()
-	
-	resbody, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		panic(err)
-	}
+    if err != nil {
+	    panic(err)
+}
+
+// Close the connection.	
+defer resp.Body.Close()
+
+// Read the results
+resbody, err := ioutil.ReadAll(resp.Body)
+if err != nil {
+	panic(err)
+}
 
 ```
 
@@ -157,25 +159,25 @@ resp, err := client.Do(req)
 The `Unmarshall` function extracts information from the JSON text returned by the News Search API.  Then you can display nodes from the results using the `go-spew` pretty printer.
 
 ```
-	// Create a new answer.  
-    ans := new(NewsAnswer)
-    err = json.Unmarshal(body, &ans)
-    if err != nil {
-        fmt.Println(err)
-    }
+// Create a new answer object 
+ans := new(NewsAnswer)
+err = json.Unmarshal(body, &ans)
+if err != nil {
+    fmt.Println(err)
+}
 	
-	fmt.Print("Output of BingAnswer: \r\n\r\n")
+fmt.Print("Output of BingAnswer: \r\n\r\n")
 	
-    // Iterate over search results and print the result name and URL.
-    for _, result := range ans.Value{
-    spew.Dump(result.Name, result.URL)
-    }
+// Iterate over search results and print the result name and URL.
+for _, result := range ans.Value{
+spew.Dump(result.Name, result.URL)
+}
 
 ```
 
 ## Results
 
-The most useful results contain images similar to the image contained in the Post body.
+The results contain name and URL of each result.
 
 ```
 (string) (len=91) "Cognitive Services Market: Global Industry Analysis and Opportunity Assessment, 2019 - 2025"
@@ -200,4 +202,4 @@ The most useful results contain images similar to the image contained in the Pos
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [What is Bing News Search](earch-the-web.md)
+> [What is Bing News Search](search-the-web.md)
