@@ -87,7 +87,6 @@ If only one child (origin or destination) of a hierarchical entity is present, i
 
 1. In the utterance, `move John W. Smith leaving Seattle headed to Dallas`, select the word `Seattle`. A drop-down menu appears with a text box at the top. Enter the entity name `Location` in the text box then select **Create new entity** in the drop-down menu. 
 
-
     [![Screenshot of creating new entity on intent page](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png "Screenshot of creating new entity on intent page")](media/luis-quickstart-intent-and-hier-entity/tutorial-hierarichical-entity-labeling-1.png#lightbox)
 
 1. In the pop-up window, select the **Hierarchical** entity type with `Origin` and `Destination` as the child entities. Select **Done**.
