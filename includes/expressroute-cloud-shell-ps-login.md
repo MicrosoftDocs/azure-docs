@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-If you are running Azure PowerShell locally, connect to your Azure account. Open your PowerShell console with elevated privileges. The *Connect-AzAccount* cmdlet prompts you for credentials. After authenticating, it downloads your account settings so that they are available to Azure PowerShell. If you are using the Azure Cloud Shell, you will connect to your Azure account automatically after clicking 'Try it'.
+ If you are using the Azure Cloud Shell, you sign in to your Azure account automatically after clicking 'Try it'. To sign in locally, open your PowerShell console with elevated privileges and run the cmdlet to connect.
 
 ```azurepowershell
 Connect-AzAccount
