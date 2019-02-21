@@ -34,6 +34,17 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * Install AzCopy v10. See [Transfer data with AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
+*  Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+   There's a couple of specific things that you'll have to do as you perform the steps in that article.
+
+   :heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign the **Storage Blob Data Contributor** role to the service principal.
+
+   > [!IMPORTANT]
+   > Make sure to assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
+
+   :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, application ID, and authentication key values into a text file. You'll need those soon.
+
 ### Download the flight data
 
 This tutorial uses flight data from the Bureau of Transportation Statistics to demonstrate how to perform an ETL operation. You must download this data to complete the tutorial.
@@ -45,24 +56,6 @@ This tutorial uses flight data from the Bureau of Transportation Statistics to d
 3. Select the **Download** button and save the results to your computer. 
 
 4. Unzip the contents of the zipped file and make a note of the file name and the path of the file. You need this information in a later step.
-
-## Get your storage account name
-
-You'll need the name of your storage account. To get it, Log into the [Azure portal](https://portal.azure.com/), choose **All Services** and filter on the term *storage*. Then, select **Storage accounts** and locate your storage account.
-
-Paste the name into a text file. You'll need it soon.
-
-<a id="service-principal"/>
-
-## Create a service principal
-
-Create a service principal by following the guidance in this topic: [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
-
-There's a couple of things that you'll have to do as you perform the steps in that article.
-
-:heavy_check_mark: When performing the steps in the [Assign the application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) section of the article, make sure to assign your application to the **Blob Storage Contributor Role**.
-
-:heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, application ID, and authentication key values into a text file. You'll need those soon.
 
 ## Create an Azure Databricks service
 
@@ -141,9 +134,19 @@ In this section, you'll create a file system and a folder in your storage accoun
     mount_point = "/mnt/flightdata",
     extra_configs = configs)
     ```
-18. In this code block, replace the `storage-account-name`, `application-id`, `authentication-id`, and `tenant-id` placeholder values in this code block with the values that you collected when you completed the steps in the Set aside storage account configuration and [Create a service principal](#service-principal) sections of this article. Replace the `file-system-name` placeholder with any name that you want to give your file system.
 
-19. Press the **SHIFT + ENTER** keys to run the code in this block. 
+18. In this code block, replace the `application-id`, `authentication-id`, `tenant-id`, and `storage-account-name` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial. Replace the `file-system-name` placeholder value with whatever name you want to give the file system.
+
+   * The `application-id`, and `authentication-id` are from the app that you registered with active directory as part of creating a service principal.
+
+   * The `tenant-id` is from your subscription.
+
+   * The `storage-account-name` is the name of your Azure Data Lake Storage Gen2 storage account.
+
+    > [!NOTE]
+    > In a production setting, consider storing your authentication key in Azure Databricks. Then, add a look up key to your code block instead of the authentication key. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
+
+19. Press the **SHIFT + ENTER** keys to run the code in this block.
 
     Keep this notebook open as you will add commands to it later.
 

@@ -11,13 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/15/2019
 ms.author: spelluru
 
 ---
 
 # Specify a resource group for lab virtual machines in Azure DevTest Labs
-As a lab owner, you can configure your lab virtual machines to be created in a specific resource group. Use this feature to stay within resource group limits on your Azure subscription. This feature also enables you to consolidate all your lab resources within a single resource group. It also simplifies tracking of resources and applying [policies](../governance/policy/overview.md) to manage resources at the resource group level.
+
+As a lab owner, you can configure your lab virtual machines to be created in a specific resource group. This feature helps you in the following scenarios:
+
+- Have fewer resource groups created by labs in your subscription.
+- Have your labs operate within a fixed set of resource groups that you configure.
+- Work around restrictions and approvals required for creating resource groups within your Azure subscription.
+- Consolidate all your lab resources within a single resource group to simplify tracking those resources and applying [policies](../governance/policy/overview.md) to manage resources at the resource group level.
 
 With this feature, you can use a script to specify a new or existing resource group within your Azure subscription for all your lab VMs. Currently, Azure DevTest Labs supports this feature through an API.
 
@@ -29,7 +35,7 @@ You have the following options as a lab owner when using this API:
 - Enter a **new resource group** name for all virtual machines.
 - Continue using the existing behavior, in which a resource group is created for each VM in the lab.
  
-This setting applies to new virtual machines that are created in the lab. Older VMs in your lab that were created in their own resource groups are unaffected. However, you can migrate those virtual machines from their individual resource groups to the common resource group so that all your lab virtual machines are in one place. For more information, see [Move resources to a new resource group](../azure-resource-manager/resource-group-move-resources.md). Environments that are created in your lab continue to stay in their own resource groups.
+This setting applies to new virtual machines created in the lab. The older VMs in your lab that were created in their own resource groups remain unaffected. Environments that are created in your lab continue to remain in their own resource groups.
 
 How to use this API:
 - Use API version **2018_10_15_preview**.
@@ -83,7 +89,7 @@ If you're using an Azure Resource Manager template to create a lab, use the **vm
                 "labStorageType": "Premium",
                 "premiumDataDisks": "Disabled",
                 "provisioningState": "Succeeded",
-                "uniqueIdentifier": "6e6f668f-992b-435c-bac3-d328b745cd25"
+                "uniqueIdentifier": "000000000f-0000-0000-0000-00000000000000"
             },
             "dependsOn": []
         },

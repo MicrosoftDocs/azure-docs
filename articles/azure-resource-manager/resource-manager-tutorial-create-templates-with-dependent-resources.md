@@ -143,7 +143,7 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
@@ -151,6 +151,9 @@ There are many methods for deploying templates.  In this tutorial, you use Cloud
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile azuredeploy.json
     ```
+
+    > [!NOTE]
+    > There is a file IO issue with using Azure PowerShell in the Cloud shell.  The error message is *Cannot retrieve the dynamic parameters for the cmdlet. Cannot find path 'Azure:/azuredeploy.json' because it does not exist.*  A temporary workaround is not to include the **-TemplateFile** switch in the `New-AzResourceGroupDeploy` command. The command will prompt you to enter the file name.
 
 8. Run the following PowerShell command to list the newly created virtual machine:
 
