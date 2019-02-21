@@ -126,7 +126,7 @@ When you configure the token restricted policy, you must specify the primary ver
 
 ## Frequently asked questions
 
-### How to implement multi-DRM (PlayReady, Widevine, and FairPlay) system with Media Services v3 and also use Media Services license/key delivery service?
+### How to implement multi-DRM system with Media Services v3 and also use Media Services license/key delivery service?
 
 For end-to-end scenario, see the [following code example](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs). 
 
