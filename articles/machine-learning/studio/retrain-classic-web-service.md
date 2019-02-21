@@ -55,7 +55,7 @@ To get the correct PATCH URL programmatically, follow these steps:
 1. Run the [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) sample code.
 1. From the output of AddEndpoint, find the *HelpLocation* value and copy the URL.
 
-   ![HelpLocation in the output of the addEndpoint sample.][image2]
+   ![HelpLocation in the output of the addEndpoint sample.](./media/troubleshooting-retraining-a-model/addEndpoint-output.png)
 1. Paste the URL into a browser to navigate to a page that provides help links for the web service.
 1. Click the **Update Resource** link to open the patch help page.
 
@@ -76,7 +76,7 @@ Follow these steps to get the correct PATCH URL using the web portal:
 
 The PATCH help page contains the PATCH URL you must use and provides sample code you can use to call it.
 
-![Patch URL.][image5]
+![Patch URL.](./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png)
 
 ### Update the endpoint
 
@@ -144,6 +144,3 @@ To learn more about how to manage web services or keep track of multiple experim
 
 * [Explore the  Web Services portal](manage-new-webservice.md)
 * [Manage experiment iterations](manage-experiment-iterations.md)
-
-[image2]: ./media/troubleshooting-retraining-a-model/addEndpoint-output.png
-[image5]: ./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png
