@@ -35,9 +35,9 @@ Additionally, on a Azure IaaS VM guest failover cluster, we recommend a single N
 
 |  | Windows Server Version | SQL Server Version | SQL Server Edition | WSFC Quorum Config | DR with Multi-region | Multi-subnet support | Support for an existing AD | DR with multi-zone same region | Dist-AG support with no AD domain | Dist-AG support with no cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| [SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2016/2017 | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
-| [Quickstart Template](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2016/2017 | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
-| [Portal Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016/2012 R2 | 2014/2016 | Ent | File share | No | No | No | No | No | No |
+| [SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2016 </br> 2017 | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
+| [Quickstart Template](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2016 </br>2017 | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
+| [Portal Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2014</br>2016 | Ent | File share | No | No | No | No | No | No |
 | [Manual](virtual-machines-windows-portal-sql-availability-group-prereq.md) | All | All | All | All | Yes | Yes | Yes | Yes | Yes | Yes |
 | &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
 
