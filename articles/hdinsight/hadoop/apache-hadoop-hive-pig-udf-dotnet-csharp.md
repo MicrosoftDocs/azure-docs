@@ -4,11 +4,10 @@ description: Learn how to use C# user-defined functions (UDF) with Apache Hive a
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 02/15/2019
 ms.author: hrasheed
 
 ---
@@ -189,8 +188,10 @@ For more information on the version of the .NET framework and Mono included with
     ```hiveql
     -- Uncomment the following if you are using Azure Storage
     -- add file wasb:///HiveCSharp.exe;
-    -- Uncomment the following if you are using Azure Data Lake Storage
+    -- Uncomment the following if you are using Azure Data Lake Storage Gen1
     -- add file adl:///HiveCSharp.exe;
+    -- Uncomment the following if you are using Azure Data Lake Storage Gen2
+    -- add file abfs:///HiveCSharp.exe;
 
     SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'HiveCSharp.exe' AS

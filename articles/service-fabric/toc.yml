@@ -64,11 +64,7 @@
   - name: Create and manage a cluster
     items:
     - name: 1- Create a cluster on Azure
-      items:
-      - name: 1a- Create a Windows cluster
-        href: service-fabric-tutorial-create-vnet-and-windows-cluster.md
-      - name: 1b- Create a Linux cluster
-        href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
+      href: service-fabric-tutorial-create-vnet-and-windows-cluster.md      
     - name: 2- Scale the cluster
       href: service-fabric-tutorial-scale-cluster.md
     - name: 3- Upgrade the cluster runtime
@@ -607,6 +603,8 @@
           href: service-fabric-cluster-creation-via-arm.md        
         - name: Create using certificate common name
           href: service-fabric-create-cluster-using-cert-cn.md
+        - name: Create a Linux cluster
+          href: service-fabric-tutorial-create-vnet-and-linux-cluster.md
       - name: Scale
         items:
         - name: Manually scale out
@@ -696,11 +694,7 @@
       - name: Windows Cluster Diagnostics
         href: service-fabric-diagnostics-event-aggregation-wad.md
       - name: Linux Cluster Diagnostics
-        href: service-fabric-diagnostics-oms-syslog.md 
-      - name: Set up Log Analytics
-        href: service-fabric-diagnostics-oms-setup.md
-      - name: Monitor with Log Analytics
-        href: service-fabric-diagnostics-event-analysis-oms.md  
+        href: service-fabric-diagnostics-oms-syslog.md       
     - name: Monitor infrastructure
       items:
       - name: Collect performance counters with the Log Analytics Agent

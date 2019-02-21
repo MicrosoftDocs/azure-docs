@@ -13,7 +13,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/11/2019
+
+ms.date: 02/14/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -106,12 +107,7 @@ To configure Azure AD single sign-on with Zendesk, perform the following steps:
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<subdomain>.zendesk.com`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-	| |
-	|-|-|
-	| `<subdomain>.zendesk.com` |
-	| `https://<subdomain>.zendesk.com` |
-	| |
+  b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern: `https://<subdomain>.zendesk.com`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Zendesk Client support team](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.

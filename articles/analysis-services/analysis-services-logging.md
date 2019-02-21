@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -153,7 +153,29 @@ To view your diagnostic data, in Log Analytics workspace, open **Logs**  from th
 
 ![Log Search options in the Azure portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-In the query builder, expand **LogManagement** > **AzureDiagnostics**. AzureDiagnostics includes Engine and Service events. Notice a query is created on-the-fly. The EventClass\_s field contains xEvent names, which may look familiar if you've used xEvents for on-premises logging. Click **EventClass\_s** or one of the event names and Log Analytics continues constructing a query. Be sure to save your queries to reuse later.
+In the query builder, expand **LogManagement** > **AzureDiagnostics**. AzureDiagnostics includes Engine and Service events. Notice a query is created on-the-fly. The EventClass\_s field contains xEvent names, which may look familiar if you've used xEvents for on-premises logging. Click **EventClass\_s** or one of the event names and Log Analytics workspace continues constructing a query. Be sure to save your queries to reuse later.
+
+### Example query
+This query calculates and returns CPU for each query end/refresh end event for a model database and server:
+
+```Kusto
+let window =  AzureDiagnostics
+   | where ResourceProvider == "MICROSOFT.ANALYSISSERVICES" and ServerName_s =~"MyServerName" and DatabaseName_s == "Adventure Works Localhost" ;
+window
+| where OperationName has "QueryEnd" or (OperationName has "CommandEnd" and EventSubclass_s == 38)
+| where extract(@"([^,]*)", 1,Duration_s, typeof(long)) > 0
+| extend DurationMs=extract(@"([^,]*)", 1,Duration_s, typeof(long))
+| extend Engine_CPUTime=extract(@"([^,]*)", 1,CPUTime_s, typeof(long))
+| project  StartTime_t,EndTime_t,ServerName_s,OperationName,RootActivityId_g ,TextData_s,DatabaseName_s,ApplicationName_s,Duration_s,EffectiveUsername_s,User_s,EventSubclass_s,DurationMs,Engine_CPUTime
+| join kind=leftouter (
+window
+    | where OperationName == "ProgressReportEnd" or (OperationName == "VertiPaqSEQueryEnd" and EventSubclass_s  != 10) or OperationName == "DiscoverEnd" or (OperationName has "CommandEnd" and EventSubclass_s != 38)
+    | summarize sum_Engine_CPUTime = sum(extract(@"([^,]*)", 1,CPUTime_s, typeof(long))) by RootActivityId_g
+    ) on RootActivityId_g
+| extend totalCPU = sum_Engine_CPUTime + Engine_CPUTime
+
+```
+
 
 There are hundreds of queries you can use. To learn more about queries, see [Get started with Azure Monitor log queries](../azure-monitor/log-query/get-started-queries.md).
 

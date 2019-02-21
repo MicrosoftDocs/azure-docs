@@ -296,11 +296,11 @@ SQL Database uses some smart techniques that allow it to handle certain classes 
 
 - **Export**: You can export your Azure SQL database as a BACPAC file from the Azure portal
 
-   ![database export](./media/sql-database-export/database-export.png)
+   ![database export](./media/sql-database-export/database-export1.png)
 
 - **Import**: You can also import data as a BACPAC file into the database using the Azure portal.
 
-   ![database import](./media/sql-database-import/import.png)
+   ![database import](./media/sql-database-import/import1.png)
 
 ### How do I synchronize data between SQL Database and SQL Server
 

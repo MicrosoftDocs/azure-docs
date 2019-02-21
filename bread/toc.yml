@@ -228,9 +228,6 @@
     - name: Custom Vision Service
       tocHref: /azure/cognitive-services/custom-vision-service/
       topicHref: /azure/cognitive-services/custom-vision-service/
-    - name: Emotion
-      tocHref: /azure/cognitive-services/emotion/
-      topicHref: /azure/cognitive-services/emotion/home
     - name: Entity Linking
       tocHref: /azure/cognitive-services/entitylinking/
       topicHref: /azure/cognitive-services/entitylinking/home
