@@ -22,15 +22,15 @@ In this article, you learn how to add users to an Azure Machine Learning workspa
 ## Built-in roles
 Azure Machine Learning workspace is an Azure resource. And like any Azure resource, when a new Azure Machine Learning workspace is created, it comes with three default roles. You can add users to the workspace and assign them to one of these built-in roles.
 
-1. **Reader**
+- **Reader**
     
     This role allows read-only actions in the workspace. With this role, you can list and view assets in a workspace, such as experiments, runs, compute, models, web services, published pipelines and so on. But you are not allowed to create or update these assets.
 
-2. **Contributor**
+- **Contributor**
     
     This role allows users to view, create, edit, or delete (where applicable) assets in a workspace. For example, with this role you can create an experiment, create or attach a compute cluster, submit a run, register a model and deploy a web service.
 
-3. **Owner**
+- **Owner**
     
     This role gives you full access to the workspace, allowing you to view, create, edit, or delete (where applicable) assets in a workspace. Additionally, you can also add or remove users, and change their role assignments.
 
@@ -83,10 +83,10 @@ To create a custom role, first construct a role definition JSON file specifying 
 ```
 
 This role allows you to do everything in the workspace except for the following actions:
-1. It cannot create or update a compute resource.
-2. It cannot delete a compute resource.
-3. It cannot add, delete user, or alter any user's role assignments.
-4. It cannot delete the workspace.
+- It cannot create or update a compute resource.
+- It cannot delete a compute resource.
+- It cannot add, delete user, or alter any user's role assignments.
+- It cannot delete the workspace.
 
 To deploy this custom role, use the following Azure-CLI command:
 
