@@ -124,7 +124,7 @@ The group of access control rules that apply to and endpoint are configured in t
 </EndpointAcls>
 ```
 
-The rules in an access control group are configured in a <AccessControl name=""> section of the service configuration file. 
+The rules in an access control group are configured in a \<AccessControl name=""> section of the service configuration file. 
 
 The format is explained in Network Access Control Lists documentation.
 For example, to allow only IPs in the range 100.100.0.0 to 100.100.255.255 to access the HTTPS endpoint, the rules would look like this:
