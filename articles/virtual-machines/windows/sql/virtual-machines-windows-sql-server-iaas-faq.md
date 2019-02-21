@@ -83,6 +83,9 @@ This article provides answers to some of the most common questions about running
 
    Yes. You can move easily move between the two licensing models, if you originally started with a pay-as-you-go gallery image. However, you will not be able to switch your license to PAYG if you initially started with a BYOL image. For more information, see [How to change the licensing model for a SQL Server VM](virtual-machines-windows-sql-ahb.md).
 
+   > [!Note]
+   > Currently, this facility is available only for Public Cloud customers.
+
 1. **Should I use BYOL images or SQL VM RP to create new SQL VM?**
 
    Bring-your-own-license (BYOL) images are only available for EA customers. Other customers who have Software Assurance should use the SQL VM resource provider to create a SQL VM with [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/licensing-faq/). 

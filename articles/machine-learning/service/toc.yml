@@ -63,6 +63,8 @@
       href: how-to-manage-workspace.md
     - name: Use a Resource Manager template
       href: how-to-create-workspace-template.md
+    - name: Manage users and roles
+      href: how-to-assign-roles.md
   - name: Set up development environment 
     items:
     - name: Configure dev environments
