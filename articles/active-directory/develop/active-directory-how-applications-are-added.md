@@ -18,6 +18,7 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
+ms.collection: M365-identity-device-management
 ---
 
 # How and why applications are added to Azure AD

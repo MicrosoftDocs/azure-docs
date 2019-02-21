@@ -16,7 +16,7 @@ ms.date: 12/04/2018
 # Business Critical tier - Azure SQL Database
 
 > [!NOTE]
-> Business Critical tier is called Premium in DTU purchasing model. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-service-tiers.md).
+> Business Critical tier is called Premium in DTU purchasing model. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-purchase-models.md).
 
 Azure SQL Database is based on SQL Server Database Engine architecture that is adjusted for the cloud environment in order to ensure 99.99% availability even in the cases of infrastructure failures. There are three architectural models that are used in Azure SQL Database:
 - General Purpose/Standard 

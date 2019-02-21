@@ -12,9 +12,9 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-
 ---
-# Use the Copy Data tool to copy data 
+# Quickstart: Use the Copy Data tool to copy data
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](quickstart-create-data-factory-copy-data-tool.md)

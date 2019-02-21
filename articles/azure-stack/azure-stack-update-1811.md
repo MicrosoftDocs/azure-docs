@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/11/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed:  01/25/2019
+ms.lastreviewed: 01/25/2019
 
 ---
 
@@ -115,6 +115,18 @@ This update includes the following new features and improvements for Azure Stack
 - Managed Disks is now enabled by default when creating virtual machines using the Azure Stack portal. See the [known issues](#known-issues-post-installation) section for the additional steps required for Managed Disks to avoid VM creation failures.
 
 - This release introduces alert **Repair** actions for the Azure Stack operator. Some alerts in 1811 provide a **Repair** button in the alert that you can select to resolve the issue. For more information, see [Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md).
+
+- Updates to the update experience in Azure Stack. The update enhancements include: 
+    - Tabs that split the Updates from Update history for better tracking updates in progress and completed updates.
+    - Enhanced state visualizations in the essentials section with new icons and layout for Current and OEM versions as well as Last updated date.
+    - **View** link for the Release notes column takes the user directly to the documentation specific to that update rather than the generic update page.
+    - The **Update history** tab used to determine run times for each of the updates as well as enhanced filtering capabilities.  
+    - Azure Stack scale units that are connected will still automatically receive **Update available** as they become available.
+    - Azure Stack scale units that are not connected can import the updates just like before. 
+    - There are no changes in the process to download the JSON logs from the portal. Azure Stack operators will see expanding steps expressing progress.
+
+    For more information, see [Apply updates in Azure Stack](azure-stack-apply-updates.md).
+
 
 ## Fixed issues
 

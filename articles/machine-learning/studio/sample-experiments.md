@@ -14,16 +14,16 @@ ms.date: 01/05/2018
 ---
 # Create Azure Machine Learning Studio experiments from working examples in Azure AI Gallery
 
-Learn how to start with example experiments from [Azure AI Gallery](https://gallery.cortanaintelligence.com/) instead of creating machine learning experiments from scratch. You can use the examples to build your own machine learning solution.
+Learn how to start with example experiments from [Azure AI Gallery](https://gallery.azure.ai/) instead of creating machine learning experiments from scratch. You can use the examples to build your own machine learning solution.
 
-The gallery has example experiments by the Microsoft Azure Machine Learning team as well as examples shared by the Machine Learning community. You also can ask questions or post comments about experiments.
+The gallery has example experiments by the Microsoft Azure Machine Learning Studio team as well as examples shared by the Machine Learning community. You also can ask questions or post comments about experiments.
 
 To see how to use the gallery, watch the 3-minute video [Copy other people's work to do data science](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) from the series [Data Science for Beginners](data-science-for-beginners-the-5-questions-data-science-answers.md).
 
 
 
 ## Find an experiment to copy in Azure AI Gallery
-To see what experiments are available, go to the [Gallery](https://gallery.cortanaintelligence.com/) and click **Experiments** at the top of the page.
+To see what experiments are available, go to the [Gallery](https://gallery.azure.ai/) and click **Experiments** at the top of the page.
 
 ### Find the newest or most popular experiments
 On this page, you can see **Recently added** experiments, or scroll down to look at **What's popular** or the latest **Popular Microsoft experiments**.

@@ -1,19 +1,19 @@
 ---
 title: How to use redis-cli with Azure Cache for Redis | Microsoft Docs
 description: Learn how to use redis-cli with Azure Cache for Redis.
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
-ms.author: wesmc
+ms.author: yegu
 
 ---
 
@@ -27,10 +27,12 @@ If you want to run the command-line tool on another platform, download Azure Cac
 
 ## Gather cache access information
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 You can gather the information needed to access the cache using three methods:
 
 1. Azure CLI using [az redis list-keys](https://docs.microsoft.com/cli/azure/redis?view=azure-cli-latest#az-redis-list-keys)
-2. Azure PowerShell using [Get-AzureRmRedisCacheKey](https://docs.microsoft.com/powershell/module/azurerm.rediscache/Get-AzureRmRedisCacheKey?view=azurermps-4.4.1)
+2. Azure PowerShell using [Get-AzRedisCacheKey](https://docs.microsoft.com/powershell/module/az.rediscache/Get-AzRedisCacheKey)
 3. Using the Azure portal.
 
 In this section, you will retrieve the keys from the Azure portal.

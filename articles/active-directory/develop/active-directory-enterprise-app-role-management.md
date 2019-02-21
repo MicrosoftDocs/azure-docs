@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 01/07/2019
 ms.author: jeedes
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Configure the role claim issued in the SAML token for enterprise applications

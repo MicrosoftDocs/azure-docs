@@ -57,7 +57,7 @@ To enable the solution for the at-scale scenario, first configure the following 
 * Install the ServiceMap and InfrastructureInsights solutions. You can complete this installation only by using an Azure Resource Manager template that's provided in this article.
 * Configure the Log Analytics workspace to collect performance counters.
 
-To configure your workspace for the at-scale scenario, see [Set up Log Analytics workspace for an at-scale deployment](#setup-log-analytics-workspace).
+To configure your workspace for the at-scale scenario, see Set up Log Analytics workspace for an at-scale deployment.
 
 ### Supported operating systems
 
@@ -331,7 +331,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
         provisioningState       : Succeeded
 
 ### Enable by using Azure Policy
-To enable Azure Monitor for VMs at scale in a way that helps ensure consistent compliance and the automatic enabling of the newly provisioned VMs, we recommend [Azure Policy](../../azure-policy/azure-policy-introduction.md). These policies:
+To enable Azure Monitor for VMs at scale in a way that helps ensure consistent compliance and the automatic enabling of the newly provisioned VMs, we recommend [Azure Policy](../../governance/policy/overview.md). These policies:
 
 * Deploy the Log Analytics agent and the Dependency agent.
 * Report on compliance results.

@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to use the Speech to Text API in the Cognitive Services Speech service.
 services: cognitive-services
 author: erhopf
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service

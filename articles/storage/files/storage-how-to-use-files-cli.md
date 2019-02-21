@@ -53,7 +53,7 @@ STORAGEACCT=$(az storage account create \
 ```
 
 ### Get the storage account key
-Storage account keys control access to resources in a storage account. The keys are automatically created when you create a storage account. You can get the storage account keys for your storage account by using the [az storage account keys list](/cli/azure/storage/account/keys#list) command: 
+Storage account keys control access to resources in a storage account. The keys are automatically created when you create a storage account. You can get the storage account keys for your storage account by using the [az storage account keys list](/cli/azure/storage/account/keys) command: 
 
 ```azurecli-interactive 
 STORAGEKEY=$(az storage account keys list \
@@ -120,7 +120,7 @@ az storage file upload \
 
 If you're running Azure CLI locally, substitute `~/clouddrive` with a path that exists on your machine.
 
-After you upload the file, you can use the [`az storage file list`](/cli/azure/storage/file#az_storage_file_list) command to make sure that the file was uploaded to your Azure file share:
+After you upload the file, you can use the [`az storage file list`](/cli/azure/storage/file) command to make sure that the file was uploaded to your Azure file share:
 
 ```azurecli-interactive
 az storage file list \
@@ -132,7 +132,7 @@ az storage file list \
 ```
 
 ### Download a file
-You can use the [`az storage file download`](/cli/azure/storage/file#az_storage_file_download) command to download a copy of the file that you uploaded to the Cloud Shell scratch drive:
+You can use the [`az storage file download`](/cli/azure/storage/file) command to download a copy of the file that you uploaded to the Cloud Shell scratch drive:
 
 ```azurecli-interactive
 # Delete an existing file by the same name as SampleDownload.txt, if it exists, because you've run this example before
@@ -188,7 +188,7 @@ Another useful task that you can do with an Azure file share is create share sna
 - [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) snapshots for Linux systems
 - [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) snapshots for macOS
 - [Volume Shadow Copy Service (VSS)](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) for Windows file systems, such as NTFS and ReFS
- You can create a share snapshot by using the [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot) command:
+ You can create a share snapshot by using the [`az storage share snapshot`](/cli/azure/storage/share) command:
 
 ```azurecli-interactive
 SNAPSHOT=$(az storage share snapshot \
@@ -247,7 +247,7 @@ az storage file copy start \
 ```
 
 ### Delete a share snapshot
-You can delete a share snapshot by using the [`az storage share delete`](/cli/azure/storage/share#az_storage_share_delete) command. Use the variable that contains the `$SNAPSHOT` reference to the `--snapshot` parameter:
+You can delete a share snapshot by using the [`az storage share delete`](/cli/azure/storage/share) command. Use the variable that contains the `$SNAPSHOT` reference to the `--snapshot` parameter:
 
 ```azurecli-interactive
 az storage share delete \

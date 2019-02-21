@@ -46,7 +46,7 @@ The following Linux distributions are currently supported during the preview of 
 | openSUSE | openSUSE Leap 42.3 |
 | RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
 | SUSE Linux Enteprise Server | SLES 12 |
-| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, Ubuntu Server 17.10, and Ubuntu Server 18.04 |
+| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, and Ubuntu Server 18.04 |
 
 
 The following Azure regions are currently supported during the preview of this feature:
@@ -167,7 +167,7 @@ Some common errors when you try to SSH with Azure AD credentials include no RBAC
 
 ### Access denied: RBAC role not assigned
 
-If you see the following error on your SSH prompt, verify that you have [configured RBAC policies](#configure-rbac-policy-for-the-virtual-machine) for the VM that grants the user either the *Virtual Machine Administrator Login* or *Virtual Machine User Login* role:
+If you see the following error on your SSH prompt, verify that you have configured RBAC policies for the VM that grants the user either the *Virtual Machine Administrator Login* or *Virtual Machine User Login* role:
 
 ```bash
 login as: azureuser@contoso.onmicrosoft.com

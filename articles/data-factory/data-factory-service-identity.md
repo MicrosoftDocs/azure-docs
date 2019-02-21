@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/20/2019
 ms.author: jingwang
 ---
 
@@ -41,7 +41,7 @@ If you find your data factory doesn't have a service identity associated followi
 
 - [Generate service identity using PowerShell](#generate-service-identity-using-powershell)
 - [Generate service identity using REST API](#generate-service-identity-using-rest-api)
-- [Generate service identity using an Azure Resource Manager template](#generate-service-identity-using-azure-resource-manager-template)
+- Generate service identity using an Azure Resource Manager template
 - [Generate service identity using SDK](#generate-service-identity-using-sdk)
 
 >[!NOTE]
@@ -70,7 +70,7 @@ ProvisioningState : Succeeded
 Call below API with "identity" section in the request body:
 
 ```
-PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2017-09-01-preview
+PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
 **Request body**: add "identity": { "type": "SystemAssigned" }.
@@ -96,7 +96,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
         "provisioningState": "Succeeded",
         "loggingStorageAccountKey": "**********",
         "createTime": "2017-09-26T04:10:01.1135678Z",
-        "version": "2017-09-01-preview"
+        "version": "2018-06-01"
     },
     "identity": {
         "type": "SystemAssigned",
@@ -189,4 +189,4 @@ See the following topics which introduce when and how to use data factory servic
 - [Store credential in Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copy data from/to Azure Data Lake Store using managed identities for Azure resources authentication](connector-azure-data-lake-store.md)
 
-See [Managed Identities for Azure Resources Overview](articles/active-directory/managed-identities-azure-resources/overview.md) for more background on managed identities for Azure resources, which data factory service identity is based upon. 
+See [Managed Identities for Azure Resources Overview](/azure/active-directory/managed-identities-azure-resources/overview) for more background on managed identities for Azure resources, which data factory service identity is based upon. 

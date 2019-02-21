@@ -8,15 +8,15 @@ manager: mtillman
 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: users-groups-roles
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: curtand
-ms.reviewer: kairaz.contractor
+ms.reviewer: krbain
 ms.custom: it-pro
 
 #As an Azure AD identity administrator, I want to enforce naming policy on self-service groups, to help me sort and search in my tenant’s user-created groups. 
+ms.collection: M365-identity-device-management
 ---
 # Quickstart: Naming policy for groups in Azure Active Directory
 
