@@ -20,7 +20,7 @@ Configuring the load balancing method for a host pool allows you to adjust the W
 
 Breadth-first load balancing is the default configuration for new non-persistent host pools. Breadth-first load-balancing distributes new user sessions across all available session hosts in the host pool. When configuring breadth-first load balancing, you may set a maximum session limit per session host in the host pool.
 
-First, [download and import the Windows Virtual Desktop PowerShell module](https://rdmipreview.blob.core.windows.net/preview/Windows%20Virtual%20Destkop%20-%20PowerShell%20Reference.pdf?st=2019-02-18T19%3A03%3A00Z&se=2019-03-31T19%3A03%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=n4Wb3v%2Bc0xbzWmlljPJqVuXZMCoqQ1C%2F6uA7DfAsOQY%3D) to use in your PowerShell session if you haven't already.
+First, [download and import the Windows Virtual Desktop PowerShell module](powershell-get-started.md) to use in your PowerShell session if you haven't already.
 
 To configure a host pool to perform breadth-first load balancing without adjusting the maximum session limit, run the following PowerShell cmdlet:
 
