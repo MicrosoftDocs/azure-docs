@@ -51,7 +51,7 @@ What happens to rules and device dashboards when there is a version change?
 
 You can create multiple versions of the device template. Over time, you will have multiple connected devices using these device templates. You can migrate devices from one version of your device template to another. The following steps describe how to migrate a device:
 
-1. Go to the **Explorer** page.
+1. Go to the **Device Explorer** page.
 1. Select the device you need to migrate to another version.
 1. Choose **Migrate Device**.
 1. Select the version number you want to migrate the device to and choose **Migrate**.
