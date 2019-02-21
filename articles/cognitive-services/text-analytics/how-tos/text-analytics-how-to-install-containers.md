@@ -129,7 +129,7 @@ More [examples](../text-analytics-resource-container-config.md#example-docker-ru
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
-[!INCLUDE [Running mulitple containers on the same host](../../../includes/cognitive-services-containers-running-multiple-containers-on-same-host.md)]
+[!INCLUDE [Running mulitple containers on the same host](../../../../includes/cognitive-services-containers-running-multiple-containers-on-same-host.md)]
 
 ## Query the container's prediction endpoint
 
