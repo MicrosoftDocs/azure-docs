@@ -113,8 +113,8 @@ minimize complexity when creating security rules.
 | Communication from Azure Logic Apps | Outbound | * <br>80 & 443 | VIRTUAL_NETWORK <br>INTERNET | The port depends on the external service that the Logic Apps service communicates with |
 | Azure Active Directory | Outbound | * <br>80 & 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory | |
 | Azure Storage dependency | Outbound | * <br>80 & 443 | VIRTUAL_NETWORK <br>Storage | |
-| Communication to Azure Logic Apps | Inbound | * <br>443 | INTERNET <br> VIRTUAL_NETWORK | |
-| Your logic app's run history | Inbound | * <br>443 | INTERNET <br>VIRTUAL_NETWORK | |
+| Communication to Azure Logic Apps | Inbound | * <br>443 | INTERNET <br> VIRTUAL_NETWORK | The IP address for the computer or service that calls any request trigger or webhook in your logic app. Blocking this port prevents HTTP calls to logic apps with request triggers  |
+| Your logic app's run history | Inbound | * <br>443 | INTERNET <br>VIRTUAL_NETWORK | The IP address for the computer from which you view the logic app's run history. Although blocking this port doesn't prevent you from viewing the run history, you can't view the inputs and outputs for each step in your logic app. |
 | Connection management | Outbound | * <br>443 | VIRTUAL_NETWORK <br>INTERNET | |
 | Publish Diagnostic Logs & Metrics | Outbound | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor | |
 | Logic Apps Designer - dynamic properties | Inbound | * <br>454 | INTERNET <br>VIRTUAL_NETWORK | Requests come from the inbound Logic Apps access endpoint IP addresses in that region. |
