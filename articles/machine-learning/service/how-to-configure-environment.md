@@ -138,13 +138,11 @@ When you're using a local computer (which might also be a remote virtual machine
 
 1. Download and install [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7 version)  if you don't already have it.
 
-1. Open an Anaconda prompt
-
-1. Create a Conda environment with the following commands:
+1. Open an Anaconda prompt and create an environment with the following commands:
 
     ```shell
     # create a new Conda environment with Python 3.7
-    conda create -n myenv Python=3.7 cython numpy
+    conda create -n myenv python=3.7
 
     # activate the Conda environment
     conda activate myenv
