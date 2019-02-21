@@ -13,7 +13,7 @@ ms.custom: MVC
 # Move Azure VMs into Availability Zones
 Availability Zones in Azure protect your applications and data from datacenter failures. Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. The physical separation of Availability Zones within a region protects applications and data from datacenter failures. With Availability Zones, Azure offers industry-best 99.99% virtual machine (VM) uptime service-level agreement (SLA). Availability Zones are supported in select regions as mentioned in [What are Availability Zones in Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones)
 
-In a scenario where your VMs are deployed as *single instance* into a specific region, and you want to improve your availability by moving these VMs into an Availability Zone, you can do so by using Azure Site Recovery. This can further be categorized into:
+In a scenario where your VMs are deployed as *single instance* into a specific region, and you want to improve your availability by moving these VMs into an Availability Zone, you can do so by using Azure Site Recovery. This action can further be categorized into:
 
 - Move single-instance VMs into Availability Zones in a target region
 - Move VMs in an Availability set into Availability Zones in a target region
@@ -48,7 +48,7 @@ In a scenario where your VMs are deployed as *single instance* into a specific r
 6. If the VM you're trying to move doesn't have access to the internet and is using a firewall proxy to control outbound access, check the requirements at [
 Configure outbound network connectivity](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
 
-7. Identify the source networking layout and all the resources that you're currently using for verification, including load balancers, NSGs, and public IP.
+7. Identify the source networking layout and the resources you're currently using for verification, including load balancers, NSGs, and public IP.
 
 ## Prepare the target region
 
@@ -56,7 +56,7 @@ Configure outbound network connectivity](azure-to-azure-tutorial-enable-replicat
 
 2. Make sure your subscription has enough resources to support VMs with sizes that match your source VMs. if you're using Site Recovery to copy data to the target, it picks the same size or the closest possible size for the target VM.
 
-3. Ensure that you create a target resource for every component identified in the source networking layout. Doing so is important and ensures that, after cutting over to the target region, your VMs have all the functionality and features that you had in the source.
+3. Ensure that you create a target resource for every component identified in the source networking layout. Doing so is important. This action ensures that, after cutting over to the target region, your VMs have all the functionality and features that you had in the source.
 
     > [!NOTE]
     > Azure Site Recovery automatically discovers and creates a virtual network and storage account when you enable replication for the source VM. You can also pre-create these resources and assign to the VM as part of the enable replication step. But for any other resources, as mentioned below, you need to manually create them in the target region.
@@ -95,7 +95,7 @@ The following steps will guide you on using Azure Site Recovery to enable replic
 
    ![enable-rep-2.PNG](media/azure-vms-to-zones/enable-rep-2.PNG)
 
-7. Select **Enable Replication**. This starts a job to enable replication for the VM.
+7. Select **Enable Replication**. This action starts a job to enable replication for the VM.
 
 ## Check Settings
 
@@ -140,7 +140,7 @@ After the replication job has finished, you can check the replication status, mo
 
 ## Discard the resource in the source region
 
-1. Go to the VM.  Select **Disable Replication**.  This stops the process of copying the data for the VM.  
+1. Go to the VM.  Select **Disable Replication**.  This action stops the process of copying the data for the VM.  
 
 > [!IMPORTANT]
 > It is important to do the above step to avoid getting charged for Site Recovery replication after the move. The source replication settings are cleaned up automatically. Note that the Site Recovery extension that is installed as part of the replication isn't removed and needs to be removed manually.
