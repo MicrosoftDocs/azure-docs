@@ -74,6 +74,9 @@ The following steps guide you through the process of adding an owner or user to 
 11. When you return to the **Users** blade, the user has been added.  
 
 ## Add an external user to a lab using PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 In addition to adding users in the Azure portal, you can add an external user to your lab using a PowerShell script. 
 In the following example, modify the parameter values under the **Values to change** comment.
 You can retrieve the `subscriptionId`, `labResourceGroup`, and `labName` values from the lab blade in the Azure portal.

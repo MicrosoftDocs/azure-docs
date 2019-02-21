@@ -19,7 +19,9 @@ ms.author: spelluru
 
 This sample PowerShell script creates a custom image from a VHD file in Azure Lab Services
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## Prerequisites
 * **A lab**. The script requires you to have an existing lab. 

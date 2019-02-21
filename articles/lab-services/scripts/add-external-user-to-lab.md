@@ -19,6 +19,8 @@ ms.author: spelluru
 
 This sample PowerShell script adds an external user to a lab in Azure DevTest Labs. 
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Prerequisites

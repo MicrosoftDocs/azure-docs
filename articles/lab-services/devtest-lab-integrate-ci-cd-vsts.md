@@ -27,6 +27,8 @@ The process makes it easy to, for example, quickly deploy a "golden image" for a
 
 This article shows how to create and deploy a VM, create a custom image, and then delete the VM, all as one complete pipeline. You would ordinarily perform each task individually in your own custom build-test-deploy pipeline.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Before you begin
 Before you can integrate your CI/CD pipeline with Azure DevTest Labs, you must install the extension from Visual Studio Marketplace.
 1. Go to [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).

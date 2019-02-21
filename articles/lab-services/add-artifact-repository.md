@@ -23,6 +23,8 @@ The [public artifact repository](https://github.com/Azure/azure-devtestlab/tree/
 
 This article provides information on how to add your custom artifact repository by using Azure portal, Azure Resource Management templates, and Azure PowerShell. You can automate adding an artifact repository to a lab by writing PowerShell or CLI scripts. 
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 To add a repository to your lab, first, get key information from your repository. The following sections describe how to get the required information for repositories that are hosted on **GitHub** or **Azure DevOps**.
 

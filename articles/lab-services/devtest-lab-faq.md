@@ -20,6 +20,8 @@ ms.author: spelluru
 # Azure DevTest Labs FAQ
 Get answers to some of the most common questions about Azure DevTest Labs.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 **General**
 ## What if my question isn't answered here?
 If your question is not listed here, let us know, so we can help you find an answer.

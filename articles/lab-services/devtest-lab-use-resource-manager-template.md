@@ -24,6 +24,8 @@ When you are creating a virtual machine (VM) in DevTest Labs through the [Azure 
 
 This article describes Multi-VM vs. single-VM Resource Manager templates and shows you how to view and save a template when creating a VM.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Multi-VM vs. single-VM Resource Manager templates
 There are two ways to create VMs in DevTest Labs using a Resource Manager template: provision the Microsoft.DevTestLab/labs/virtualmachines resource or provision the Microsoft.Commpute/virtualmachines resource. Each is used in different scenarios and requires different permissions.
 

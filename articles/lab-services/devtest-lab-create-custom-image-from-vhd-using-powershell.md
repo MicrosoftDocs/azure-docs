@@ -25,6 +25,8 @@ ms.author: spelluru
 
 [!INCLUDE [devtest-lab-upload-vhd-options](../../includes/devtest-lab-upload-vhd-options.md)]
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Step-by-step instructions
 
 The following steps walk you through creating a custom image from a VHD file using PowerShell:
