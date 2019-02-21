@@ -15,7 +15,7 @@ This article introduces key concepts relating to device connectivity in Microsof
 
 Azure IoT Central uses [Azure IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/about-iot-dps) to register and connect devices at scale.
 
-- Customers can now generate device credentials and configure devices  offline without having to first register the devices in Azure IoT Central.
+- Customers can now generate device credentials and configure devices offline without having to first register the devices in Azure IoT Central.
 - Azure IoT Central supports device connection with X.509 certificates, while continuing to support and improve connectivity with shared access signatures.
 - Azure IoT Central customers can now use their own device IDs to register devices in Azure IoT Central, enabling simple integration with existing back-office systems.
 - There's one consistent way to connect devices to Azure IoT Central.
