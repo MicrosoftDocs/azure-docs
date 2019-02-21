@@ -48,8 +48,7 @@ Alternatively, if you have installed [Azure Machine Learning CLI](reference-azur
 az ml workspace share -n <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
 ```
 
-> [!NOTE]
-> The `user` field is the email address of an existing user in the same Azure Active Directory where the parent Azure subscription of the workspace lives. Below is an example of using this command:
+Please note that the `user` field is the email address of an existing user in the same Azure Active Directory where the parent Azure subscription of the workspace lives. Below is an example of how to use this command:
 
 ```azurecli-interactive 
 az ml workspace share -n my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
@@ -94,9 +93,15 @@ To deploy this custom role, use the following Azure-CLI command:
 az role definition create --role-definition data_scientist_role.json
 ```
 
-Once deployed, this role becomes available in the specified workspace, and you can add users and assign this role to them. 
+Once deployed, this role becomes available in the specified workspace. Now you can add users and assign this role to them in the Azure portal. Or, you can add a user with this role using the `az ml workspace share` CLI command:
+
+```azurecli-interactive
+az ml workspace share -n my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
+```
 
 You can also change the `AssignableScopes` field to set the scope of this custom role at the subscription level, the resource group level, or at a specific workspace level (as shown).
+
+For more information of how custom roles work in Azure, please refer to [this document](/azure/role-based-access-control/custom-roles).
 
 ## Next steps
 
