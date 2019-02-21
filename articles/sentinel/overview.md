@@ -67,7 +67,7 @@ Find, investigate, and respond to real threats in minutes, with built-in machine
 - 18 billion web pages scanned by Bing every month 
 - More than 200 global cloud, consumer, and commercial services  
 
-With **native integration of Machine Learning (ML), and User and Entity Behavioral Analysis (UEBA) models**, Azure Sentinel can help detect threats quickly. Connecting the dots by combining low fidelity alerts about different entities into potential high-fidelity security incidents. Azure Sentinel helps you reduce noise, using a fusion technique to correlate alerts, reducing thousands of events to a few suspicious actionable incidents, and then presenting those to you for case resolution. Use the built-in correlation rules as-is, or use them as a starting point to build your own. Azure Sentinel also provides machine learning rules map your network behavior and then look for anomalies across your resources.
+With **native integration of Machine Learning (ML), and User and Entity Behavioral Analysis (UEBA) models**, Azure Sentinel can help detect threats quickly. Connecting the dots by combining low fidelity alerts about different entities into potential high-fidelity security incidents. To help you reduce noise and minimize the number of alerts you have to review and investigate, Azure Sentinel uses a fusion technique to correlate alerts into cases. **Cases** are groups of related alerts that together create an actionable incident that you can investigate and resolve. Use the built-in correlation rules as-is, or use them as a starting point to build your own. Azure Sentinel also provides machine learning rules map your network behavior and then look for anomalies across your resources.
 
 ### Investigation
 

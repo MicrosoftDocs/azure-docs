@@ -24,7 +24,7 @@ This quickstart helps you quickly be able to view and monitor what's happening a
 
 ## Get visualization
 
-To visualize and get analysis of what's happening on your network, first, take a look at the overview dashboard to get an idea of the security posture of your organization. You can click on each element of these tiles to drill down to the raw data from which they are created.
+To visualize and get analysis of what's happening on your network, first, take a look at the overview dashboard to get an idea of the security posture of your organization. You can click on each element of these tiles to drill down to the raw data from which they are created. To help you reduce noise and minimize the number of alerts you have to review and investigate, Azure Sentinel uses a fusion technique to correlate alerts into cases. **Cases** are groups of related alerts that together create an actionable incident that you can investigate and resolve.
 
 1. In the Azure portal, select Azure Sentinel and then select the workspace you want to monitor.
 
@@ -69,7 +69,7 @@ You can customize the dashboards either by editing the main query ![button](./me
 
 For more information on working with queries, see [Tutorial: Visual data in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
-To add a new tile:
+### Add a new tile
 
 If you want to add a new tile, you can add it to an existing dashboard, either one that you create or an Azure Sentinel built-in dashboard. 
 1. In Log Analytics, create a tile using the instructions found in [Tutorial: Visual data in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
@@ -89,8 +89,7 @@ You can create a new dashboard from scratch or use a built-in dashboard as the b
 
 The following sample query enables you to compare trends of traffic across weeks. You can easily switch which device vendor and data source you run the query on. This example uses SecurityEvent from Windows, you can switch it to run on AzureActivity or CommonSecurityLog on any other firewall.
 
-  |where DeviceVendor = = "Palo Alto Networks":
-
+     |where DeviceVendor = = "Palo Alto Networks":
       // week over week query
       SecurityEvent
       | where TimeGenerated > ago(14d)
