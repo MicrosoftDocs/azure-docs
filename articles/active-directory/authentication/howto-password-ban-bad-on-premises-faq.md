@@ -42,6 +42,14 @@ No - on-premises Azure AD Password Protection is only supported in the public cl
 
 Not supported. Once deployed and enabled, Azure AD Password Protection doesn't discriminate - all users receive equal security benefits.
 
+**Q: What is the difference between a password change and a password set (or reset)?**
+
+A password change is when a user chooses a new password after proving they have knowledge of the old password. For example, this is what happens when a user logs into Windows and is then prompted to choose a new password.
+
+A password set (sometimes called a password reset) is when an administrator replaces the password on an account with a new password, for example by using the Active Directory Users and Computers management tool. This operation requires a high level of privilege (usually Domain Admin), and the person performing the operation usually does not have knowledge of the old password. Help-desk scenarios often do this, for instance when assisting a user who has forgotten their password. You will also see password set events when a brand new user account is being created for the first time with a password.
+
+The password validation policy behaves the same regardless of whether a password change or set is being done. The Azure AD Password Protection DC Agent service does log different events to inform you whether a password change or set operation was done.  See [Azure AD Password Protection monitoring and logging](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+
 **Q: Is it supported to install Azure AD Password Protection side by side with other password-filter-based products?**
 
 Yes. Support for multiple registered password filter dlls is a core Windows feature and not specific to Azure AD Password Protection. All registered password filter dlls must agree before a password is accepted.
