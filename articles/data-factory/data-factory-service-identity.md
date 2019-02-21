@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 02/20/2019
 ms.author: jingwang
 ---
 
@@ -70,7 +70,7 @@ ProvisioningState : Succeeded
 Call below API with "identity" section in the request body:
 
 ```
-PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2017-09-01-preview
+PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
 **Request body**: add "identity": { "type": "SystemAssigned" }.
@@ -96,7 +96,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
         "provisioningState": "Succeeded",
         "loggingStorageAccountKey": "**********",
         "createTime": "2017-09-26T04:10:01.1135678Z",
-        "version": "2017-09-01-preview"
+        "version": "2018-06-01"
     },
     "identity": {
         "type": "SystemAssigned",
