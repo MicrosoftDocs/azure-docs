@@ -43,7 +43,7 @@ For step-by-step instructions, see the following tutorial: <br/>
 You can get the metadata (LastModifiedDate) of your files first, and then copy the new and changed files only to the destination store.
 
 For step-by-step instructions, see the following tutorial: <br/>
-[Incrementally copy new and changed files only based on their LastModifiedDate from Azure Blob storage to Azure Blob storage by using the Copy Data tool](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
+[Incrementally copy new and changed files based on LastModifiedDate from Azure Blob storage by the Copy Data tool](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
 
 ## Next steps
