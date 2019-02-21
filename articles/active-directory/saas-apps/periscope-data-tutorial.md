@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/20/2019
+ms.date: 02/21/2019
 ms.author: jeedes
 
 ---
@@ -120,7 +120,7 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
 
 1. In a different web browser window, sign in to Periscope Data as an Administrator.
 
-2. open the gear menu in the bottom left and open the **Billing** > **Security** menu and perform the following steps. Only admins have access to these settings.
+2. Open the gear menu in the bottom left and open the **Billing** > **Security** menu and perform the following steps. Only admins have access to these settings.
 
     ![Periscope Data Configure information](./media/periscope-data-tutorial/configure01.png)
 
@@ -128,9 +128,9 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
 
     b. In the **Single Sign-On** textbox, select **Azure Active Directory**.
 
-    c. find the tag **SingleSignOnService** and paste the **Location** value in the **SSO URL** textbox.
+    c. Find the tag **SingleSignOnService** and paste the **Location** value in the **SSO URL** textbox.
 
-    d. find the tag **SingleLogoutService** and paste the **Location** value in the **SLO URL** textbox.
+    d. Find the tag **SingleLogoutService** and paste the **Location** value in the **SLO URL** textbox.
 
     e. Copy the **Identifier** value for your instance and paste it in **Identifier (Entity ID)** textbox of **Basic SAML Configuration** section on Azure portal.
 
