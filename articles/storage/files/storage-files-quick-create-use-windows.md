@@ -1,26 +1,29 @@
 ---
-title: Quickstart create and use an Azure file share for Windows | Microsoft Docs
-description: Use this quickstart to create and use an Azure file share for Windows.
+title: Azure Quickstart - Create and use an Azure Files share on Windows VMs | Microsoft Docs
+description: In this quickstart, you prepare the environment for using Azure Files share on a Windows virtual machine. This includes setting up the Files share in the Azure portal and on the virtual machine.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
-ms.author: wgries
-ms.component: files
+ms.author: rogarana
+ms.subservice: files
 #Customer intent: As a IT admin new to Azure Files, I want to try out Azure file share so I can determine whether I want to subscribe to the service.
 ---
 
 # Quickstart: Create and use an Azure file share for Windows
-The article demonstrates the basic steps for creating and using an Azure file share. In this quickstart, the emphasis is on quickly setting up an Azure file share so you can experience how the service works. If you need more detailed instructions for creating and using Azure file shares in your own environment, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
+
+The article demonstrates the basic steps for creating and using an Azure Files share. In this quickstart, the emphasis is on quickly setting up an Azure Files share so you can experience how the service works. If you need more detailed instructions for creating and using Azure file shares in your own environment, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure
+
 Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Prepare your environment
-Before you create an Azure file share, you need to set up the following items for this quickstart:
+
+In this quickstart, you set up the following items:
 
 - An Azure storage account and an Azure file share
 - A Windows Server 2016 Datacenter VM
@@ -32,6 +35,7 @@ Before you can work with an Azure file share, you have to create an Azure storag
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ### Create an Azure file share
+
 Next, you create a file share.
 
 1. When the Azure storage account deployment is complete, select **Go to resource**.
@@ -54,6 +58,7 @@ Next, you create a file share.
 So far, you've created an Azure storage account and a file share with one file in it in Azure. Next you'll create the Azure VM with Windows Server 2016 Datacenter to represent the on-premises server in this quickstart.
 
 ### Deploy a VM
+
 1. Next, expand the menu on the left side of the portal and choose **Create a resource** in the upper left-hand corner of the Azure portal.
 1. In the search box above the list of **Azure Marketplace** resources, search for and select **Windows Server 2016 Datacenter**, then choose **Create**.
 1. In the **Basics** tab, under **Project details**, select the resource group you created for this quickstart.
@@ -108,6 +113,7 @@ At this point, you've created a new virtual machine and attached a data disk. No
       ![The UNC path from the Azure Files Connect pane](./media/storage-files-quick-create-use-windows/portal_netuse_connect3.png)
 
 ## Create a share snapshot
+
 Now that you've mapped the drive, you can create a snapshot.
 
 1. In the portal, navigate to your file share and select **Create snapshot**.
@@ -128,7 +134,7 @@ Now that you've mapped the drive, you can create a snapshot.
 
 ## Restore from a snapshot
 
-1. From the portal, select *qsTestFile* > select the **Restore** button.
+1. From the file share snapshot blade, right-click the *qsTestFile*, and select the **Restore** button.
 1. Select **Overwrite original file**.
 
    ![Download and Restore buttons](./media/storage-files-quick-create-use-windows/snapshot-download-restore-portal.png)
@@ -143,6 +149,7 @@ Now that you've mapped the drive, you can create a snapshot.
    ![Delete button](./media/storage-files-quick-create-use-windows/portal-snapshots-delete.png)
 
 ## Use a share snapshot in Windows
+
 Just like with on-premises VSS snapshots, you can view the snapshots from your mounted Azure file share by using the Previous Versions tab.
 
 1. In File Explorer, locate the mounted share.
