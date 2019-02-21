@@ -93,7 +93,11 @@ To deploy this custom role, use the following Azure-CLI command:
 az role definition create --role-definition data_scientist_role.json
 ```
 
-Once deployed, this role becomes available in the specified workspace, and you can add users and assign this role to them. 
+Once deployed, this role becomes available in the specified workspace. Now you can add users and assign this role to them in the Azure portal. Or, you can add a user with this role using the `az ml workspace share` CLI command:
+
+```azurecli-interactive
+az ml workspace share -n my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
+```
 
 You can also change the `AssignableScopes` field to set the scope of this custom role at the subscription level, the resource group level, or at a specific workspace level (as shown).
 
