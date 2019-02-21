@@ -15,15 +15,17 @@ ms.author: dobett
 
 To use the [file upload functionality in IoT Hub](iot-hub-devguide-file-upload.md), you must first associate an Azure storage account with your IoT hub. You can use an existing storage account or create a new one.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps).
+* [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 * An Azure IoT hub. If you don't have an IoT hub, you can use the [New-AzIoTHub cmdlet](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) to create one or use the portal to [Create an IoT hub](iot-hub-create-through-portal.md).
 
-* An Azure storage account. If you don't have an Azure storage account, you can use the [Azure Storage PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.storage/) to create one or use the portal to [Create a storage account](../storage/common/storage-create-storage-account.md)
+* An Azure storage account. If you don't have an Azure storage account, you can use the [Azure Storage PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.storage/) to create one or use the portal to [Create a storage account](../storage/common/storage-create-storage-account.md)
 
 ## Sign in and set your Azure account
 
