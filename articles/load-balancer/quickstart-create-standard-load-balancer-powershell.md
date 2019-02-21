@@ -53,7 +53,7 @@ $publicIP = New-AzPublicIpAddress `
 
 ## Create Standard Load Balancer
 
-In this section, you configure the front-end IP and the back-end address pool for the load balancer and then create the Basic Load Balancer.
+In this section, you configure the front-end IP and the back-end address pool for the load balancer and then create the Standard Load Balancer.
 
 ### Create front-end IP
 
@@ -128,7 +128,7 @@ $natrule2 = New-AzLoadBalancerInboundNatRuleConfig `
 
 ### Create load balancer
 
-Create the Standard Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). The following example creates a public Basic Load Balancer named myLoadBalancer using the front-end IP configuration, back-end pool, health probe, load balancing rule, and NAT rules that you created in the preceding steps:
+Create the Standard Load Balancer with [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). The following example creates a public Standard Load Balancer named myLoadBalancer using the front-end IP configuration, back-end pool, health probe, load balancing rule, and NAT rules that you created in the preceding steps:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `
@@ -342,7 +342,7 @@ Remove-AzResourceGroup -Name myResourceGroupLB
 
 ## Next steps
 
-In this quickstart, you created a Basic Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+In this quickstart, you created a Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Azure Load Balancer tutorials](tutorial-load-balancer-basic-internal-portal.md)
