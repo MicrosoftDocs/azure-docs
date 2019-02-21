@@ -10,7 +10,7 @@ ms.date: 08/13/2018
 ms.author: asrastog
 ---
 
-# Use message routing to send device-to-cloud messages to different endpoints
+# Use IoT Hub message routing to send device-to-cloud messages to different endpoints
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
