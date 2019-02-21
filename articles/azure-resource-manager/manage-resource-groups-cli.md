@@ -61,8 +61,6 @@ az group show --name $resourceGroupName
 
 ## Delete resource groups
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
-
 The following CLI script deletes a resource group:
 
 ```azurecli-interactive

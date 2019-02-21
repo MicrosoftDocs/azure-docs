@@ -24,6 +24,8 @@ Other articles about managing resources:
 - [Manage Azure resources by using Azure CLI](./manage-resources-cli.md)
 - [Manage Azure resources by using Azure PowerShell](./manage-resources-powershell.md)
 
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+
 ## Deploy resources to a resource group
 
 After you have created a Resource Manager template, you can use the Azure portal to deploy your Azure resources. For creating a template, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](./resource-manager-quickstart-create-templates-use-the-portal.md). For deploying a template using the portal, see [Deploy resources with Resource Manager templates and Azure portal](resource-group-template-deploy-portal.md).
@@ -62,8 +64,6 @@ When viewing a resource in the portal, you see the options for managing that par
 The screenshot shows the management options for an Azure virtual machine. You can perform operations such as starting, restarting, and stopping a virtual machine.
 
 ## Delete resources
-
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 1. Open the resource in the portal. For the steps, see [Open resources](#open-resources).
 2. Select **Delete**. The following screenshot shows the management options for a virtual machine.

@@ -23,6 +23,8 @@ Other articles about managing resource groups:
 - [Manage Azure resource groups by using Azure CLI](./manage-resources-cli.md)
 - [Manage Azure resource groups by using Azure PowerShell](./manage-resources-powershell.md)
 
+[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+
 ## What is a resource group
 
 A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups based on what makes the most sense for your organization. Generally, add resources that share the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.
@@ -40,9 +42,9 @@ The resource group stores metadata about the resources. When you specify a locat
 3. Select **Add**.
 4. Enter the following values:
 
-    **Subscription**: Select your Azure subscription. 
-    **Resource group**: Enter a new resource group name. 
-    **Region**: Select an Azure location, such as **Central US**.
+    - **Subscription**: Select your Azure subscription. 
+    - **Resource group**: Enter a new resource group name. 
+    - **Region**: Select an Azure location, such as **Central US**.
 
     ![create resource group](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
 5. Select **Review + Create**
@@ -67,8 +69,6 @@ The resource group stores metadata about the resources. When you specify a locat
 3. Select the resource group you want to open.
 
 ## Delete resource groups
-
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 1. Open the resource group you want to delete.  See [Open resource groups](#open-resource-groups).
 2. Select **Delete resource group**.

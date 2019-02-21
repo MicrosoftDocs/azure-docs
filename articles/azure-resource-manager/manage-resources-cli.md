@@ -67,8 +67,6 @@ Typically, you deploy all the resources in your template to a single resource gr
 
 ## Delete resources
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
-
 The following script shows how to delete a storage account.
 
 ```azurecli-interactive

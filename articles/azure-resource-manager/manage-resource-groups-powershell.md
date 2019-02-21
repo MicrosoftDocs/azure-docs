@@ -14,7 +14,7 @@ ms.date: 02/11/2019
 ms.author: jgao
 
 ---
-# Manage Azure Resource Manager resource groups by using Azure Powershell
+# Manage Azure Resource Manager resource groups by using Azure PowerShell
 
 Learn how to use Azure PowerShell with [Azure Resource Manager](resource-group-overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using Azure PowerShell](./manage-resources-powershell.md).
 
@@ -61,8 +61,6 @@ Get-AzResourceGroup -Name $resourceGroupName
 ```
 
 ## Delete resource groups
-
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
 The following PowerShell script deletes a resource group:
 

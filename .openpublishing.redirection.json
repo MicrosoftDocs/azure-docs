@@ -2701,32 +2701,32 @@
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-export-template.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-portal.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-portal",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-export-template-cli.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-cli.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-cli",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-export-template-powershell.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/azure-resource-manager/resource-group-portal.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-portal.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-portal",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/azure-resource-manager/powershell-azure-resource-manager.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-powershell",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/azure-resource-manager/cli-azure-resource-manager.md",
-      "redirect_url": "/azure/azure-resource-manager/manage-resources-cli.md",
+      "redirect_url": "/azure/azure-resource-manager/manage-resources-cli",
       "redirect_document_id": true
     },
     {
