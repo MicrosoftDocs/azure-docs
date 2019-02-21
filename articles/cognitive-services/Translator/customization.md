@@ -7,7 +7,7 @@ author: Jann-Skotdal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
 ---
