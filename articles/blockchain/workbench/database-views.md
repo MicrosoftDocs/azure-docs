@@ -170,7 +170,7 @@ This view represents the majority of information related to actions taken on con
 | ContractDeployedByUserId                 | int           | No          | The unique identifier of the user that deployed the contract |
 | ContractDeployedByUserFirstName          | nvarchar(50)  | Yes         | First name of the user who deployed the contract |
 | ContractDeployedByUserLastName           | nvarchar(255) | Yes         | Last name of the user who deployed the contract |
-| ContractDeployedByUserExternalId         | nvarchar(255) | No          | External identifier of the user who deployed the contract. By default this ID is the guid that represents their identity in the consortium Azure Active Directory.                                                                                                                                                |
+| ContractDeployedByUserExternalId         | nvarchar(255) | No          | External identifier of the user who deployed the contract. By default, this ID is the guid that represents their identity in the consortium Azure Active Directory.                                                                                                                                                |
 | ContractDeployedByUserEmailAddress       | nvarchar(255) | Yes         | The email address of the user who deployed the contract |
 | WorkflowFunctionId                       | int           | No          | A unique identifier for a workflow function |
 | WorkflowFunctionName                     | nvarchar(50)  | No          | The name of the function |
@@ -182,7 +182,7 @@ This view represents the majority of information related to actions taken on con
 | ContractActionExecutedByUserId           | int           | No          | Unique identifier of the user that executed the contract action |
 | ContractActionExecutedByUserFirstName    | int           | Yes         | First name of the user who executed the contract action |
 | ContractActionExecutedByUserLastName     | nvarchar(50)  | Yes         | Last name of the user who executed the contract action |
-| ContractActionExecutedByUserExternalId   | nvarchar(255) | Yes         | External identifier of the user who executed the contract action. By default this ID is the guid that represents their identity in the consortium Azure Active Directory. |
+| ContractActionExecutedByUserExternalId   | nvarchar(255) | Yes         | External identifier of the user who executed the contract action. By default, this ID is the guid that represents their identity in the consortium Azure Active Directory. |
 | ContractActionExecutedByUserEmailAddress | nvarchar(255) | Yes         | The email address of the user who executed the contract action |
 | WorkflowFunctionParameterId              | int           | No          | A unique identifier for a parameter of the function |
 | WorkflowFunctionParameterName            | nvarchar(50)  | No          | The name of a parameter of the function |
@@ -229,7 +229,7 @@ This view represents the majority of information related to properties associate
 | ContractDeployedByUserId           | int           | No          | The unique identifier of the user that deployed the contract |
 | ContractDeployedByUserFirstName    | nvarchar(50)  | Yes         | First name of the user who deployed the contract |
 | ContractDeployedByUserLastName     | nvarchar(255) | Yes         | Last name of the user who deployed the contract |
-| ContractDeployedByUserExternalId   | nvarchar(255) | No          | External identifier of the user who deployed the contract. By default this ID is the guid that represents their identity in the consortium Azure Active Directory |
+| ContractDeployedByUserExternalId   | nvarchar(255) | No          | External identifier of the user who deployed the contract. By default, this ID is the guid that represents their identity in the consortium Azure Active Directory |
 | ContractDeployedByUserEmailAddress | nvarchar(255) | Yes         | The email address of the user who deployed the contract |
 | WorkflowPropertyId                 | int           |             | A unique identifier for a property of a workflow |
 | WorkflowPropertyDataTypeId         | int           | No          | The ID of the data type of the property |
@@ -268,7 +268,7 @@ This view represents the majority of information related to the state of a speci
 | ConnectionId                       | int           | No          | A unique identifier for the blockchain instance the workflow is deployed to |
 | ContractCodeId                     | int           | No          | A unique identifier for the code implementation of the contract |
 | ContractDeployedByUserId           | int           | No          | Unique identifier of the user that deployed the contract |
-| ContractDeployedByUserExternalId   | nvarchar(255) | No          | External identifier of the user who deployed the contract. By default this ID is the guid that represents their identity in the consortium Azure Active Directory. |
+| ContractDeployedByUserExternalId   | nvarchar(255) | No          | External identifier of the user who deployed the contract. By default, this ID is the guid that represents their identity in the consortium Azure Active Directory. |
 | ContractDeployedByUserFirstName    | nvarchar(50)  | Yes         | First name of the user who deployed the contract |
 | ContractDeployedByUserLastName     | nvarchar(255) | Yes         | Last name of the user who deployed the contract |
 | ContractDeployedByUserEmailAddress | nvarchar(255) | Yes         | The email address of the user who deployed the contract |
