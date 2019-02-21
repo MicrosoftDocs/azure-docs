@@ -35,7 +35,7 @@ The filter tool allows you to search projects by different filter conditions. It
 
 ## Edit a project
 
-Custom Translator gives ability to edit name and the description of a project. Other project metadata like category, source, target language are not available for edit. Below steps describe how to edit a project.
+Custom Translator gives you the ability to edit the name and description of a project. Other project metadata like the category, source language, and target language are not available for edit. The steps below describe how to edit a project.
 
 1.  Click on the pencil icon that appears when you hover over a project.
 
