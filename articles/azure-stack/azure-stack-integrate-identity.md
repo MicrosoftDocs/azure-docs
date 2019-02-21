@@ -6,25 +6,15 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/23/19
+ms.date: 02/21/2019
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 01/23/19
+ms.lastreviewed: 02/21/2019
 
 ---
 
 # Azure Stack datacenter integration - Identity
-You can deploy Azure Stack using Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS) as the identity providers. You must make the choice before you deploy Azure Stack. Deployment using AD FS is also referred to as deploying Azure Stack in disconnected mode.
-
-The following table shows the differences between the two identity choices:
-
-||Disconnected from the internet|Connected to the internet|
-|---------|---------|---------|
-|Billing|Must be Capacity<br> Enterprise Agreement (EA) only|Capacity or Pay-as-you-use<br>EA or Cloud Solution Provider (CSP)|
-|Identity|Must be AD FS|Azure AD or AD FS|
-|Marketplace |Supported<br>BYOL licensing|Supported<br>BYOL licensing|
-|Registration|Required, requires removable media<br> and a separate connected device.|Automated|
-|Patch and update|Required, requires removable media<br> and a separate connected device.|Update package can be downloaded directly<br> from the Internet to Azure Stack.|
+You can deploy Azure Stack using Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS) as the identity providers. You must make the choice before you deploy Azure Stack. In a connected scenario, you can choose Azure AD or AD FS. For a disconnected scenario, only AD FS is supported.
 
 > [!IMPORTANT]
 > You cannot switch the identity provider without redeploying the entire Azure Stack solution.
