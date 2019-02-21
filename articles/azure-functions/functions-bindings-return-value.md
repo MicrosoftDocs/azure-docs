@@ -15,7 +15,9 @@ ms.author: cshoe
 
 # Using the Azure Function return value
 
-In languages that have a return value, you can bind an [output binding](./functions-triggers-bindings.md#binding-direction) to the return value:
+This article explains how return values work inside a function.
+
+In languages that have a return value, you can bind a function [output binding](./functions-triggers-bindings.md#binding-direction) to the return value:
 
 * In a C# class library, apply the output binding attribute to the method return value.
 * In other languages, set the `name` property in *function.json* to `$return`.
@@ -160,5 +162,6 @@ def main(input: azure.functions.InputStream) -> str:
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"]
 > [Handle Azure Functions binding errors](./functions-bindings-errors.md)

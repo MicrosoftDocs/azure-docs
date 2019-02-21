@@ -15,7 +15,9 @@ ms.author: cshoe
 
 # Register Azure Functions binding extensions
 
-Azure Functions supports HTTP and timer out of the box. To work with other services, you  need to install or *register* a [binding](./functions-triggers-bindings.md) extension. Binding extensions are provided a via Azure Core Tools or NuGet packages. The following table indicates when and how you register bindings.
+Azure Functions supports HTTP and timer out of the box. To work with other services, you  need to install or *register* a [binding](./functions-triggers-bindings.md) extension. Binding extensions are provided via Azure Core Tools or NuGet packages. 
+
+The following table indicates when and how you register bindings.
 
 | Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 2.x  |
 |-------------------------|------------------------------------|------------------------------------|
