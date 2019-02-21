@@ -38,15 +38,15 @@ Media Services depends on a storage key provided to it. Specifically, the locato
 ## Steps to rotate storage keys 
  
  1. Change the storage account Primary key through the powershell cmdlet or [Azure](https://portal.azure.com/) portal.
- 2. Call Sync-AzureRmMediaServiceStorageKeys cmdlet with appropriate params to force media account to pick up storage account keys
+ 2. Call Sync-AzMediaServiceStorageKeys cmdlet with appropriate params to force media account to pick up storage account keys
  
     The following example shows how to sync keys to storage accounts.
   
-         Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+         Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
   
  3. Wait an hour or so. Verify the streaming scenarios are working.
  4. Change storage account secondary key through the powershell cmdlet or Azure portal.
- 5. Call Sync-AzureRmMediaServiceStorageKeys powershell with appropriate params to force media account to pick up new storage account keys. 
+ 5. Call Sync-AzMediaServiceStorageKeys powershell with appropriate params to force media account to pick up new storage account keys. 
  6. Wait an hour or so. Verify the streaming scenarios are working.
  
 ### A powershell cmdlet example 
@@ -59,7 +59,7 @@ The following example demonstrates how to get the storage account and sync it wi
 	$storageAccountName = "skystorage"
 	$storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-	Sync-AzureRmMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
+	Sync-AzMediaServiceStorageKeys -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccountId $storageAccountId
 
  
 ## Steps to add storage accounts to your AMS account
