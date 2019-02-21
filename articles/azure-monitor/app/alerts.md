@@ -29,9 +29,9 @@ There are three kinds of alerts:
 We focus on metric alerts in this article.
 
 ## Set a Metric alert
-Open the Alert rules blade, and then use the add button. 
+Open the Alert rules tab, and then use the add button.
 
-![In the Alert rules blade, choose Add Alert. Set your app as the resource to measure, provide a name for the alert, and choose a metric.](./media/alerts/01-set-metric.png)
+![In the Alert rules tab, choose Add Alert. Set your app as the resource to measure, provide a name for the alert, and choose a metric.](./media/alerts/01-set-metric.png)
 
 * Set the resource before the other properties. **Choose the "(components)" resource** if you want to set alerts on performance or usage metrics.
 * The name that you give to the alert must be unique within the resource group (not just your application).
@@ -39,11 +39,11 @@ Open the Alert rules blade, and then use the add button.
 * If you check the box "Email owners...", alerts are sent by email to everyone who has access to this resource group. To expand this set of people, add them to the [resource group or subscription](../../azure-monitor/app/resources-roles-access-control.md) (not the resource).
 * If you specify "Additional emails", alerts are sent to those individuals or groups (whether or not you checked the "email owners..." box). 
 * Set a [webhook address](../../azure-monitor/platform/alerts-webhooks.md) if you have set up a web app that responds to alerts. It is called both when the alert is Activated and when it is Resolved. (But note that at present, query parameters are not passed through as webhook properties.)
-* You can Disable or Enable the alert: see the buttons at the top of the blade.
+* You can Disable or Enable the alert: see the buttons at the top.
 
 *I don't see the Add Alert button.* 
 
-* Are you using an organizational account? You can set alerts if you have owner or contributor access to this application resource. Take a look at the Access Control blade. [Learn about access control][roles].
+* Are you using an organizational account? You can set alerts if you have owner or contributor access to this application resource. Take a look at the Access Control tab. [Learn about access control][roles].
 
 > [!NOTE]
 > In the alerts blade, you see that there's already an alert set up: [Proactive Diagnostics](../../azure-monitor/app/proactive-failure-diagnostics.md). The automatic alert monitors one particular metric, request failure rate. Unless you decide to disable the proactive alert, you don't need to set your own alert on request failure rate. 
@@ -53,7 +53,7 @@ Open the Alert rules blade, and then use the add button.
 ## See your alerts
 You get an email when an alert changes state between inactive and active. 
 
-The current state of each alert is shown in the Alert rules blade.
+The current state of each alert is shown in the Alert rules tab.
 
 There's a summary of recent activity in the alerts drop-down:
 
@@ -61,7 +61,7 @@ There's a summary of recent activity in the alerts drop-down:
 
 The history of state changes is in the Activity Log:
 
-![On the Overview blade, click Settings, Audit logs](./media/alerts/09-alerts.png)
+![On the Overview tab, click Settings, Audit logs](./media/alerts/09-alerts.png)
 
 ## How alerts work
 * An alert has three states: "Never activated", "Activated", and "Resolved." Activated means the condition you specified was true, when it was last evaluated.
@@ -88,10 +88,10 @@ Don't forget that [proactive failure rate diagnostics](../../azure-monitor/app/p
 
 ## How to set an exception alert using custom log search
 
-In this section we will go through how to set a query based exception alert. For this example let's say we want an alert when the failed rate is greater than 10% in the last 24 hours.
+In this section, we will go through how to set a query based exception alert. For this example, let's say we want an alert when the failed rate is greater than 10% in the last 24 hours.
 
 1. Go to your Application Insight resource in the Azure portal.
-2. On the left under configure click on **Alert**.
+2. On the left, under configure click on **Alert**.
 
     ![On the left under configure click alert](./media/alerts/1appinsightalert.png)
 
@@ -99,7 +99,7 @@ In this section we will go through how to set a query based exception alert. For
 
      ![At the top of the alert tab click new alert rule](./media/alerts/2createalert.png)
 
-4. Your resource should be auto selected. To set a condition click **Add condition**.
+4. Your resource should be auto selected. To set a condition, click **Add condition**.
 
     ![Click add condition](./media/alerts/3addcondition.png)
 
@@ -107,7 +107,7 @@ In this section we will go through how to set a query based exception alert. For
 
     ![Click custom log search](./media/alerts/4customlogsearch.png)
 
-6. In the custom log search tab enter your query in the "Search query" box. For this example we will use the below Kusto query.
+6. In the custom log search tab, enter your query in the "Search query" box. For this example, we will use the below Kusto query.
 	```kusto
      exceptions 
     | where timestamp >ago(24h) 
@@ -126,25 +126,25 @@ In this section we will go through how to set a query based exception alert. For
     > [!NOTE]
     > You can also apply these steps to other types of query-based alerts. You can learn more about the Kusto query language from this  [Kusto getting started doc](https://docs.microsoft.com/azure/kusto/concepts/) or this [SQL to Kusto cheat sheet](https://docs.microsoft.com/azure/kusto/query/sqlcheatsheet)
 
-7. Under "Alert logic" choose whether it's based on number of results or metric measurement. Then pick the condition ( greater than, equal to, less than) and a threshold. While you are changing these values you may notice the condition preview sentence changes.  
+7. Under "Alert logic", choose whether it's based on number of results or metric measurement. Then pick the condition (greater than, equal to, less than) and a threshold. While you are changing these values, you may notice the condition preview sentence changes.  
 
     ![Under Alert logic choose from the options provided for based on and condition, then type a threshold](./media/alerts/6alertlogic.png)
 
-8. Under "Evaluated based on" set the period and frequency. Then click **done**.
+8. Under "Evaluated based on", set the period and frequency. Then click **done**.
 
     ![Set period and frequency at the bottom and then click done](./media/alerts/7evaluate.png)
 
-9. We now see the condition we just created with the estimated monthly cost. Below this under ["Action Groups"](../platform/action-groups.md) you can create a new group or select an existing one. If you want you can customize the actions.
+9. We now see the condition we created with the estimated monthly cost. Below under ["Action Groups"](../platform/action-groups.md) you can create a new group or select an existing one. If you want, you can customize the actions.
 
     ![click on the select or create buttons under action group](./media/alerts/8actiongroup.png)
 
-10. Finally add your alert details ( alert rule name, description, severity). When you are done click **Create alert rule** at the bottom.
+10. Finally add your alert details (alert rule name, description, severity). When you are done, click **Create alert rule** at the bottom.
 
     ![Under alert detail type your alert rule name, write a description and pick a severity ](./media/alerts/9alertdetails.png)
 
 ## Who receives the (classic) alert notifications?
 
-This section only applies to classic alerts and will help you optimize your alert notifications to ensure that only your desired recipients receive notifications. To understand more about the difference between [classic alerts](../platform/alerts-classic.overview.md) and the new alerts experience refer to the [alerts overview article](../platform/alerts-overview.md). To control alert notification in the new alerts experience use [action groups](../platform/action-groups.md).
+This section only applies to classic alerts and will help you optimize your alert notifications to ensure that only your desired recipients receive notifications. To understand more about the difference between [classic alerts](../platform/alerts-classic.overview.md) and the new alerts experience, refer to the [alerts overview article](../platform/alerts-overview.md). To control alert notification in the new alerts experience, use [action groups](../platform/action-groups.md).
 
 * We recommend the use of specific recipients for classic alert notifications.
 
