@@ -155,7 +155,7 @@ If your application expects custom roles to be passed in a SAML response, you ne
     | Role name  | user.assignedroles |
 
 	>[!NOTE]
-	>if the role claim value is null, then Azure AD will not send this value in the token and this is default as per design.
+	>If the role claim value is null, then Azure AD will not send this value in the token and this is default as per design.
 
     a. click **Edit** button to open **User Attributes** dialog.
 
