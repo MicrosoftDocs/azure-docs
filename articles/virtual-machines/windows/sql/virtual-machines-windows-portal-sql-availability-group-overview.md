@@ -33,12 +33,12 @@ The key difference for an Availability Group in Azure Virtual Machines is that t
 
 Additionally, on a Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters. 
 
-|  | Windows Server Version | SQL Server Version | SQL Server Edition | WFCS Quorum Config | DR with Multi-region | Multi-subnet support | Support for an existing AD | DR with multi-zone same region | D-AG support with no AD domain | D-AG support with no cluster |  
+|  | Windows Server Version | SQL Server Version | SQL Server Edition | WSFC Quorum Config | DR with Multi-region | Multi-subnet support | Support for an existing AD | DR with multi-zone same region | Dist-AG support with no AD domain | Dist-AG support with no cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| SQL VM CLI | Win Server 2016 | SQL Server 2016/2017 | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
-| Azure Quickstart Template | Win Server 2016 | SQL Server 2016/2017 | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
-| Portal Template | Win Server 2016 </br> Win Server 2012 R2 | SQL Server 2014 / 2016 | Ent | FSW | No | No | No | No | No | No |
-| Manual | All | All | All | All | Yes | Yes | Yes | Yes | Yes | Yes |
+| [SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2016/2017 | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
+| [Quickstart Template](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2016/2017 | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
+| [Portal Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016/2012 R2 | 2014/2016 | Ent | File share | No | No | No | No | No | No |
+| [Manual](virtual-machines-windows-portal-sql-availability-group-prereq.md) | All | All | All | All | Yes | Yes | Yes | Yes | Yes | Yes |
 | &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
 
 When you are ready to build a SQL Server availability group on Azure Virtual Machines, refer to these tutorials.
