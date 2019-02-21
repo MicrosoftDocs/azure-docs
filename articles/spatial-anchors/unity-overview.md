@@ -13,7 +13,7 @@ ms.service: azure-spatial-anchors
 ---
 # Unity support
 
-Developers can choose Unity for creating and deploying Mixed Reality applications that use Azure Spatial Anchors. The following platforms are supported:
+Developers can choose Unity for creating and deploying mixed reality applications that use Azure Spatial Anchors. The following platforms are supported:
 
 > * [<img width="40" alt="Android logo" src="/media/logos/logo_android.svg" /> Android](quickstarts/get-started-unity-android.md)
 

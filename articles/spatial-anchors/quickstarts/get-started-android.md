@@ -14,7 +14,7 @@ ms.service: azure-spatial-anchors
 ---
 # Quickstart: Create an Android app with Azure Spatial Anchors, in either Java or C++/NDK
 
-This quickstart covers how to create an Android app using [Azure Spatial Anchors](../overview.md) in either Java or C++/NDK. Azure Spatial Anchors is a cross-platform developer service that allows you to create Mixed Reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an ARCore Android app that can save and recall a spatial anchor.
+This quickstart covers how to create an Android app using [Azure Spatial Anchors](../overview.md) in either Java or C++/NDK. Azure Spatial Anchors is a cross-platform developer service that allows you to create mixed reality experiences using objects that persist their location across devices over time. When you're finished, you'll have an ARCore Android app that can save and recall a spatial anchor.
 
 You'll learn how to:
 

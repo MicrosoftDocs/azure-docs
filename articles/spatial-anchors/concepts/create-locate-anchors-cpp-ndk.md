@@ -10,7 +10,7 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 # ms.reviewer: MSFT-alias-of-reviewer
-#Customer intent: As a Mixed Reality developer, I want and in-depth explanation of how to create and locate anchors using Azure Spatial Anchors in C++/NDK.
+#Customer intent: As a mixed reality developer, I want and in-depth explanation of how to create and locate anchors using Azure Spatial Anchors in C++/NDK.
 ---
 # Create and locate anchors using Azure Spatial Anchors in C++/NDK
 

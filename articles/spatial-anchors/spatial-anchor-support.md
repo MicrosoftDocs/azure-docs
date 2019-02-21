@@ -32,7 +32,7 @@ To open a technical support ticket within the Azure Portal for Azure Spatial Anc
 
 ![Azure portal support ticket fields](./media/spatial-anchor-support3.png)
 
-Filing a support ticket is the most direct way to receive a response. However, if you need to contact the Azure Spatial Anchors support team directly, please use the email: []().
+Filing a support ticket is the most direct way to receive a response. However, if you need to contact the Azure Spatial Anchors support team directly regarding an issue with production deployment (ie. throttling limits), please use the email: [azuremrs@microsoft.com](mailto:azuremrs@microsoft.com).
 
 ## Provide content feedback
 

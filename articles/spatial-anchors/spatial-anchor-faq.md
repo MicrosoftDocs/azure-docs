@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions about Azure Spatial Anchors | Microsoft Docs
-description: Azure Spatial Anchors is a managed cloud service and developer platform that enables cross-device, multi-user, mixed reality experiences across HoloLens, iOS and Android devices.
+description: Azure Spatial Anchors is a managed cloud service and developer platform that enables cross-device, multi-user, mixed reality experiences across HoloLens, iOS and Android devices. These FAQs address questions about the service from a technical point of view. 
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -13,19 +13,19 @@ ms.service: azure-spatial-anchors
 
 # Frequently asked questions about Azure Spatial Anchors
 
-Azure Spatial Anchors is a managed cloud service and developer platform that enables cross-device, multi-user, mixed reality experiences across HoloLens, iOS, and Android devices.
+Azure Spatial Anchors is a managed cloud service and developer platform that enables multi-user, spatially aware mixed reality experiences across HoloLens, iOS, and Android devices.
 
 For more information, see [Azure Spatial Anchors overview](https://review.docs.microsoft.com/en-us/azure/spatial-anchors/overview?branch=release-pub-preview).
 
 ## Azure Spatial Anchors Product FAQs
 
-**Q: Which devices do Azure Spatial Anchors support?**
+**Q: Which devices does Azure Spatial Anchors support?**
 
 **A:** Azure Spatial Anchors enables developers to build apps on HoloLens, on iOS devices with ARKit support, and on Android devices with ARCore support; for iOS and Android this includes both phones and tablets.
 
-**Q: Do I have to be cloud connected to use Azure Spatial Anchors?**
+**Q: Do I have to be connected to the cloud to use Azure Spatial Anchors?**
 
-**A:** Azure Spatial Anchors currently requires a network connection to the internet. We welcome your comments on our feedback site.
+**A:** Azure Spatial Anchors currently requires a network connection to the internet. We welcome your comments on our [feedback site](https://feedback.azure.com/forums/919252-azure-spatial-anchors).
 
 **Q: How accurately can Azure Spatial Anchors locate Anchors?**
 
@@ -45,39 +45,39 @@ For more information, see [Azure Spatial Anchors overview](https://review.docs.m
 
 **A**: When creating or locating anchors, pictures of the environment are processed on the device into a derived format. This derived format is transmitted to and stored on the service.
 
-Azure Spatial Anchors adheres to the [Azure service agreement]() and this information is treated as customer data.
+To provide transparency, below is an image of an environment and the derived sparse point cloud. The point cloud shows the geometric representation of the environment that's transmitted and stored on the service. For each point in the sparse point cloud, we transmit and store a hash of the visual characteristics of that point. The hash is derived from, but does not contain, any pixel data.
 
-In the interest of transparency, below is an image of an environment and the derived sparse point cloud data that is transmitted and stored on the service.
+Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9), and the [Microsoft Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409).
 
-![Environment image on left and sparse point cloud on right](./media/sparce-point-cloud.png)
- 
-Azure Spatial Anchors also includes a diagnostics mode API. This API allows apps to explicitly opt in to submit environment data, including pictures, that the product team can use to diagnose issues. Environmental data is useful when you encounter an environment where you are unable to create and locate anchors predictability. For more information, see [**Submitting Diagnostics in Azure Spatial Anchors**]().
+![An environment and its derived sparse point cloud](./media/sparce-point-cloud.png)
+
+**Q: Is there a way I can send diagnostics information to Microsoft?**
+
+**A**: Yes. Azure Spatial Anchors has a diagnostics mode that developers can choose to opt into through the Azure Spatial Anchors API. This is useful, for example, if you encounter an environment where you are unable to create and locate anchors predictably and you would like help. We may ask if you can submit a diagnostics report containing information that helps us debug. For more information see **Submitting Diagnostics in Azure Spatial Anchors**.
 
 ## Availability and Pricing FAQs
 
 **Q: Do you provide an SLA?**
 
-**A:** Azure Spatial Anchors is currently in Public Preview and during this time we do not provide a guaranteed SLA for service availability or data storage. For more information, see the [Microsoft Online Subscription Agreement](https://azure.microsoft.com/en-us/support/legal/subscription-agreement/) for more information about preview releases.
+**A:** As is standard for Azure services, we target an availability greater than 99.9%. Note that Azure Spatial Anchors is currently in Preview and as such the [Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) apply.
 
 **Q: Can I publish my apps using Azure Spatial Anchors to app stores? Can I use Azure Spatial Anchors for mission-critical production scenarios?**
 
-**A:** Azure Spatial Anchors is currently in Public Preview and during this time we invite you to develop apps, provide feedback about the product, and plan for your production deployments.
+**A:** Azure Spatial Anchors is currently in Preview and during this time we invite you to develop apps, [provide feedback](https://feedback.azure.com/forums/919252-azure-spatial-anchors) about the product, and plan for your production deployments.
 
 General Availability (GA) dates will be announced soon.
 
 **Q: Do you have any throttling limits in place?**
  
-**A**: Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we are ready to support our customers’ high-scale requirements. Contact us at [TBD](). During this phase of Public Preview, we have not yet published our tiering and pricing structure, but we expect to do so soon.
+**A**: Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we are ready to support our customers’ high-scale requirements. Contact us at [azuremrs@microsoft.com](mailto:azuremrs@microsoft.com) to discuss (Note this email is for production deployment topics only, for other support needs, visit the [Support](/spatial-anchor-support.md) page for instructions on how to file a support request or provide feedback). During this phase of Preview, we have not yet published our tiering and pricing structure, but we expect to do so soon.
 
 **Q: In what regions is Azure Spatial Anchors available?**
 
-**A:** You can get your own Azure Spatial Anchors today in the Azure East US 2 region. What this means is that both compute and storage powering this service are in this region. That said, there are no restrictions on where your clients are located. Going forward, we will expand regional availability of the service to all primary Azure regions.
+**A:** You can create an Azure Spatial Anchors account today in the Azure East US 2 region. What this means is that both compute and storage powering this service are in this region. That said, there are no restrictions on where your clients are located. In the future, we will expand regional availability of the service to all primary Azure regions.
 
 **Q: Do you charge for Azure Spatial Anchors? Will you ever charge?**
 
-**A:** Azure Spatial Anchors is currently in Public Preview and during this time the service is free.
-
-As we get closer to General Availability (GA), we will have more to share about pricing. For more information and to stay up-to-date, visit our [pricing page](http://azure.microsoft.com/pricing/details/azure-spatial-anchors).
+**A:** You can find details about pricing during Preview on our [pricing page](http://azure.microsoft.com/pricing/details/azure-spatial-anchors).
 
 ## Technical FAQs
 
@@ -91,13 +91,13 @@ When you create an Anchor, the client SDK captures environment information aroun
 
 **Q: How does Azure Spatial Anchors integrate with ARKit and ARCore on iOS and Android?**
 
-**A:** Azure Spatial Anchors leverages the native tracking capabilities of ARKit and ARCore. Our SDKs for iOS and Android integrate with the native platform capabilities and provide additional capabilities. These capabilities include allowing app developers to persist anchors in a managed cloud service, and allowing your apps to locate those anchors again by connecting to the service.
+**A:** Azure Spatial Anchors leverages the native tracking capabilities of ARKit and ARCore. In addition, our SDKs for iOS and Android offer capabilities such as persisting anchors in a managed cloud service, and allowing your apps to locate those anchors again by simply connecting to the service.
 
 **Q: How does Azure Spatial Anchors integrate with HoloLens?**
 
 **A:** Azure Spatial Anchors leverages the native tracking capabilities of HoloLens. We provide an Azure Spatial Anchors SDK for building apps on HoloLens. The SDK integrates with the native HoloLens capabilities and provides additional capabilities. These capabilities include allowing app developers to persist anchors in a managed cloud service and allowing your apps to locate those anchors again by connecting to the service.
 
-**Q: Which platforms and languages do Azure Spatial Anchors support?**
+**Q: Which platforms and languages does Azure Spatial Anchors support?**
 
 **A:** Developers can build apps with Azure Spatial Anchors using familiar tools and frameworks for their device:
 
@@ -110,8 +110,8 @@ Get started with [development here](https://review.docs.microsoft.com/en-us/azur
 
 **Q: Does it work with Unreal?**
 
-**A:** We do not have a supported Unreal SDK today, but are committed to making Azure Spatial Anchors work where developers need it. We'd love to hear your feedback.
+**A:** We expect to have support for Unreal soon.
 
 **Q: Does it work with Xamarin?**
 
-**A:** We do not have a supported Xamarin SDK today, but are committed to making Azure Spatial Anchors work where developers need it. We'd love to hear your feedback.
+**A:** Yes. While we don' provide a Xamarin SDK, we expect developers can use Azure Spatial Anchors in their Xamarin apps by integrating with the Azure Spatial Anchors API.
