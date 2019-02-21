@@ -88,7 +88,7 @@ As a first planning step, you should review your environment and determine wheth
 
 You can't use a hybrid Azure AD join if your environment consists of a single forest that synchronized identity data to more than one Azure AD tenant.
 
-If you are relying on the System Preparation Tool (Sysprep), make sure you create images from an installation of Windows that has not been configured for hybrid Azure AD join.
+If you are relying on the System Preparation Tool (Sysprep), make sure images created from an installation of Windows 10 1803 or earlier have not been configured for hybrid Azure AD join.
 
 If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, make sure you use a VM snapshot that has not been configured for hybrid Azure AD join.
 
