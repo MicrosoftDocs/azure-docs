@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/25/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) identity governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility. It provides you with capabilities to ensure that the right users have the right access to the right resources, and it allows you to protect, monitor, and audit access to critical assets -- while ensuring employee productivity.  
 
-Identity governance give organizations the ability to do the following across employees, business partners and vendors, and services and applications:
+Identity governance give organizations the ability to do the following tasks across employees, business partners and vendors, and services and applications:
 
 - Govern the identity lifecycle
 - Govern access lifecycle
@@ -39,9 +39,9 @@ Specifically, it is intended to help organizations address these four key questi
 
 Identity governance helps organizations achieve a balance between *productivity* - How quickly can a person have access to the resources they need, such as when they join my organization? And *security* - How should their access change over time, such as due to changes to that person's employment status?  Identity lifecycle management is the foundation for identity governance, and effective governance at scale requires modernizing the identity lifecycle management infrastructure for applications.
 
-For many organizations, identity lifecycle for employees is tied to the representation of that user in an HCM (human capital management) system.  Azure AD Premium automatically maintains user identities for people represented in Workday in both Active Directory and Azure Active Directory, as described in the [Workday inbound provisioning (preview) tutorial](../saas-apps/workday-inbound-tutorial.md).  Azure AD Premium also includes [Microsoft Identity Manager](/microsoft-identity-manager/), which can import records from on-premises HCM systems such as SAP, Oracle eBusiness, and Oracle PeopleSoft.
+For many organizations, identity lifecycle for employees is tied to the representation of that user in an HCM (human capital management) system.  Azure AD Premium automatically maintains user identities for people represented in Workday in both Active Directory and Azure Active Directory, as described in the [Workday inbound provisioning tutorial](../saas-apps/workday-inbound-tutorial.md).  Azure AD Premium also includes [Microsoft Identity Manager](/microsoft-identity-manager/), which can import records from on-premises HCM systems such as SAP, Oracle eBusiness, and Oracle PeopleSoft.
 
-Increasingly, scenarios require collaboration with people outside your organization. [Azure AD B2B](/azure/active-directory/b2b/) collaboration enables you to securely share your organization's applications and services with guest users and external partners from any organization, while maintaining control over your own corporate data.
+Increasingly, scenarios require collaboration with people outside your organization. [Azure AD B2B](/azure/active-directory/b2b/) collaboration enables you to securely share your organization's applications and services with guest users and external partners from any organization, while maintaining control over your own corporate data.  In addition, the upcoming Azure AD entitlement management feature will enable organizations to orchestrate how external users can request access. If a request is approved, then the external user will be automatically invited as needed, and Azure AD can be configured to subsequently  automatically remove the external user's account from your organization when the external user no longer has need for any access.
 
 ## Access lifecycle
 
@@ -49,7 +49,7 @@ Organizations need a process to manage access beyond what was initially provisio
 
 Typically, IT delegates access approval decisions to business decision makers.  Furthermore, IT can involve the users themselves.  For example, users that access confidential customer data in a company's marketing application in Europe need to know the company's policies. Guest users may be unaware of the handling requirements for data in an organization to which they have been invited.
 
-Organizations can automate the access lifecycle process through technologies such as [dynamic groups](../users-groups-roles/groups-dynamic-membership.md), coupled with user provisioning to [SaaS apps](../saas-apps/tutorial-list.md) or [apps integrated with SCIM](../manage-apps/use-scim-to-provision-users-and-groups.md).  Organizations can also control which [guest users have access to on-premises applications](../b2b/hybrid-cloud-to-on-premises.md).  These access rights can then be regularly reviewed using recurring [Azure AD access reviews](access-reviews-overview.md).
+Organizations can automate the access lifecycle process through technologies such as [dynamic groups](../users-groups-roles/groups-dynamic-membership.md), coupled with user provisioning to [SaaS apps](../saas-apps/tutorial-list.md) or [apps integrated with SCIM](../manage-apps/use-scim-to-provision-users-and-groups.md).  Organizations can also control which [guest users have access to on-premises applications](../b2b/hybrid-cloud-to-on-premises.md).  These access rights can then be regularly reviewed using recurring [Azure AD access reviews](access-reviews-overview.md).  The upcoming entitlement management features will allow users to request access and, if approved, be automatically assigned to one or more groups, apps and SharePoint Online sites.
 
 When a user attempts to access applications, Azure AD enforces [conditional access](/azure/active-directory/conditional-access/) policies. For example, conditional access policies can include displaying a [terms of use](active-directory-tou.md) and [ensuring the user has agreed to those terms](../conditional-access/require-tou.md) prior to being able to access an application.
 
