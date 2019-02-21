@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/29/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
 
-# About the Speech Translation API
+# What is speech translation?
 
 The Speech Service API lets you add end-to-end, real-time, multi-language translation of speech to your applications, tools, and devices. The same API can be used for both speech-to-speech and speech-to-text translation.
 
