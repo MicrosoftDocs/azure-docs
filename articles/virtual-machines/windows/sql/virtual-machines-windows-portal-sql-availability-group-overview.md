@@ -33,11 +33,31 @@ The key difference for an Availability Group in Azure Virtual Machines is that t
 
 Additionally, on a Azure IaaS VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters. 
 
+|  | Windows Server Version | SQL Server Version | SQL Server Edition | WFCS Quorum Config | DR with Multi-region | Multi-subnet support | Support for an existing AD | DR with multi-zone same region | D-AG support with no AD domain | D-AG support with no cluster |  
+| :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
+| SQL VM CLI | Win Server 2016 | SQL Server 2016/2017 | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
+| Azure Quickstart Template | Win Server 2016 | SQL Server 2016/2017 | Ent | Cloud witness | No | Yes | Yes | Yes | No | No |
+| Portal Template | Win Server 2016 </br> Win Server 2012 R2 | SQL Server 2014 / 2016 | Ent | FSW | No | No | No | No | No | No |
+| Manual | All | All | All | All | Yes | Yes | Yes | Yes | Yes | Yes |
+| &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
+
 When you are ready to build a SQL Server availability group on Azure Virtual Machines, refer to these tutorials.
 
-## Automatically create an availability group from a template
+## Manually with Azure CLI
+Using Azure CLI to configure and deploy an availability group is the recommended option, as it's the simplest, and fastest. With Azure CLI, the creation of the Windows Failover cluster, joining SQL Server VMs to the cluster, and creation of the listener and Internal Load Balancer can all be achieved in under 30 minutes. 
+
+For more information, see [Use Azure SQL VM CLI to create WSFC, listener, and ILB for an Always On availability group on a SQL Server VM in Azure](virtual-machines-windows-sql-availability-group-cli.md). 
+
+## Automatically with an Azure Quickstart Template
+The Azure Quickstart Templates utilize the SQL VM resource provider to deploy the Windows Failover Cluster, join SQL Server VMs to it, create the listener, and configure the Internal Load Balancer. 
+
+For more information, see [Use Azure Quickstart Template to create WSFC, listener, and configure ILB for an Always On availability group on a SQL Server VM](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+
+
+## Automatically with an Azure Portal Template
 
 [Configure Always On availability group in Azure VM automatically - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+
 
 ## Manually create an availability group in Azure portal
 

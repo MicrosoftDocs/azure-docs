@@ -36,7 +36,7 @@
 ### [Use Azure Storage for backup and restore](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 ### Always On availability group
 #### [Azure SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md)
-#### [Azure portal template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Azure Portal Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 #### [Multiple regions](virtual-machines-windows-portal-sql-availability-group-dr.md)
 #### Configure manually    
