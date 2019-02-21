@@ -75,7 +75,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
 
 ## Next steps
 
-In this quickstart, you built and ran an real-time serverless application in Visual Studio. Next, learn more about how to develop and deploy Azure Functions with Visual Studio.
+In this quickstart, you built and ran a real-time serverless application in VS Code. Next, learn more about how to deploy Azure Functions from VS Code.
 
 > [!div class="nextstepaction"]
-> [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md)
+> [Deploy Azure Functions with VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)

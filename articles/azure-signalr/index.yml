@@ -36,6 +36,10 @@ sections:
       text: C#
       href: /azure/azure-signalr/signalr-quickstart-azure-functions-csharp
     - image: 
+        src: https://docs.microsoft.com/azure/media/index/azurefunctions.svg
+      text: Java
+      href: /azure/azure-signalr/signalr-quickstart-azure-functions-java
+    - image: 
         src: https://docs.microsoft.com/media/logos/logo_REST.svg
       text: REST API
       href: /azure/azure-signalr/signalr-quickstart-rest-api
