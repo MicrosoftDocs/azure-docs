@@ -93,7 +93,7 @@ Connect-AzureRmAccount
 ```
 This step needs to be repeated for each session. Once authenticated, your subscription information should be displayed.
 
-![Azure Account][1]
+![Azure Account](./media/deploy-with-resource-manager-template/azuresubscription.png)
 
 Now that we have access to Azure, we can create the resource group.
 
@@ -107,7 +107,7 @@ $rg
 Verify that the resource group is correctly provisioned. **ProvisioningState** should be “Succeeded.”
 The resource group name is used by the template to generate the storage account name. The storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
 
-![Resource Group][2]
+![Resource Group](./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png)
 
 * Using the resource group deployment, deploy a new Machine Learning Workspace.
 
@@ -136,9 +136,5 @@ After the workspace is provisioned, you can also automate many Azure Machine Lea
 * Have a look at the [Azure Quickstart Templates Repository](https://github.com/Azure/azure-quickstart-templates).
 * Watch this video about [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
 * See the [Resource Manager template reference help](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)
-<!--Image references-->
-[1]: ./media/deploy-with-resource-manager-template/azuresubscription.png
-[2]: ./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png
-
 
 <!--Link references-->
