@@ -197,6 +197,15 @@ For the `contoso.com` domain example, create the A and TXT records according to 
 | A | `@` | IP address from [Copy the app's IP address](#info) |
 | TXT | `@` | `<app_name>.azurewebsites.net` |
 
+> [!NOTE]
+> To add a subdomain (like `www.contoso.com`) using an A record instead of a recommended [CNAME record](#map-a-cname-record), your A record and TXT record should look like the following table instead:
+>
+> | Record type | Host | Value |
+> | - | - | - |
+> | A | `www` | IP address from [Copy the app's IP address](#info) |
+> | TXT | `www` | `<app_name>.azurewebsites.net` |
+>
+
 When the records are added, the DNS records page looks like the following example:
 
 ![DNS records page](./media/app-service-web-tutorial-custom-domain/a-record.png)
