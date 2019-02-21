@@ -39,7 +39,7 @@ Save these values, you will need these values when you create a connection with 
 
 Use the following script:
 
-```
+```powershell
 ####################################
 # User Configuration Section Begins
 ####################################
@@ -196,7 +196,7 @@ try
 
     $adApp = New-AzureRmADApplication -DisplayName $siteName -HomePage $azureSite -IdentifierUris $azureSite -Password $clientSecret
 
-    Write-Host "AzureAD application created succesfully!!"
+    Write-Host "AzureAD application created successfully!!"
 }
 catch
 {
@@ -244,7 +244,7 @@ catch
 {
     Write-Host "Web App configuration failed. Please ensure all values are provided in Service Manager Authentication Settings in User Configuration Section"
 
-    # Delete the AzureRm AD Application if confiuration fails
+    # Delete the AzureRm AD Application if configuration fails
     Remove-AzureRmADApplication -ObjectId $adApp.ObjectId -Force
 
     # Delete the deployed web app if configuration fails

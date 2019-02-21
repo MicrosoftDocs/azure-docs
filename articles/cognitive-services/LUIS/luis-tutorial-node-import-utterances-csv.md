@@ -7,9 +7,9 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 01/30/2019
 ms.author: diberry
 ---
 
@@ -112,7 +112,7 @@ In order to use this application, you need to change the values in the index.js 
 Open the index.js file, and change these values at the top of the file.
 
 
-```nodejs
+```javascript
 // Change these values
 const LUIS_programmaticKey = "YOUR_PROGRAMMATIC_KEY";
 const LUIS_appName = "Sample App";

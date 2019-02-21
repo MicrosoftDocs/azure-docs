@@ -3,7 +3,7 @@ title: Tutorial - Create and use disks for scale sets with Azure CLI | Microsoft
 description: Learn how to use the Azure CLI to create and use Managed Disks with virtual machine scale set, including how to add, prepare, list, and detach disks.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
 
 ---
@@ -128,7 +128,7 @@ The disks that are created and attached to your scale set VM instances are raw d
 
 To automate the process across multiple VM instances in a scale set, you can use the Azure Custom Script Extension. This extension can execute scripts locally on each VM instance, such as to prepare attached data disks. For more information, see the [Custom Script Extension overview](../virtual-machines/linux/extensions-customscript.md).
 
-The following example executes a script from a GitHub sample repo on each VM instance with [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) that prepares all the raw attached data disks:
+The following example executes a script from a GitHub sample repo on each VM instance with [az vmss extension set](/cli/azure/vmss/extension) that prepares all the raw attached data disks:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -275,7 +275,7 @@ Information on the disk size, storage tier, and LUN (Logical Unit Number) is sho
 
 
 ## Detach a disk
-When you no longer need a given disk, you can detach it from the scale set. The disk is removed from all VM instances in the scale set. To detach a disk from a scale set, use [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) and specify the LUN of the disk. The LUNs are shown in the output from [az vmss show](/cli/azure/vmss#az_vmss_show) in the previous section. The following example detaches LUN *2* from the scale set:
+When you no longer need a given disk, you can detach it from the scale set. The disk is removed from all VM instances in the scale set. To detach a disk from a scale set, use [az vmss disk detach](/cli/azure/vmss/disk) and specify the LUN of the disk. The LUNs are shown in the output from [az vmss show](/cli/azure/vmss#az_vmss_show) in the previous section. The following example detaches LUN *2* from the scale set:
 
 ```azurecli-interactive
 az vmss disk detach \

@@ -6,7 +6,7 @@ services: cognitive-services
 author: chlandsi
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: chlandsi

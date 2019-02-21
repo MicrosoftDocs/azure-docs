@@ -29,7 +29,7 @@ To simplify some of the steps involved in configuring Azure AD with a Service Fa
 > [!NOTE]
 > You must complete the following steps before you create the cluster. Because the scripts expect cluster names and endpoints, the values should be planned and not values that you have already created.
 
-1. [Download the scripts][sf-aad-ps-script-download] to your computer.
+1. [Download the scripts](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) to your computer.
 2. Right-click the zip file, select **Properties**, select the **Unblock** check box, and then click **Apply**.
 3. Extract the zip file.
 4. Run `SetupApplications.ps1`, and provide the TenantId, ClusterName, and WebApplicationReplyUrl as parameters. For example:

@@ -267,7 +267,7 @@ Above function is invoked on an HttpRequest and writes multiple values to the Az
 
 ## Metadata
 
-Few triggers send [trigger metadata](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties) along with input data. You can use annotation `@BindingName` to bind to trigger metadata
+Few triggers send [trigger metadata](/azure/azure-functions/functions-triggers-bindings) along with input data. You can use annotation `@BindingName` to bind to trigger metadata
 
 
 ```Java

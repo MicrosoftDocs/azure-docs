@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with IQNavigator VMS | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and IQNavigator VMS.
 services: active-directory
@@ -8,7 +8,7 @@ manager: femila
 
 ms.assetid: a8a09b25-dfa5-4c31-aea2-53bf1853b365
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

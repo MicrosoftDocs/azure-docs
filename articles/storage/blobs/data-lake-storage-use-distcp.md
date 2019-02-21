@@ -3,7 +3,7 @@ title: Copy data into Azure Data Lake Storage Gen2 Preview using DistCp| Microso
 description: Use DistCp tool to copy data to and from Data Lake Storage Gen2 Preview
 services: storage
 author: seguler
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018

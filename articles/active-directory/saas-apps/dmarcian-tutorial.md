@@ -165,7 +165,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	* Under **Set up Login URL** section, copy the **Login URL** for your instance and paste it in **Sign-on URL** textbox in **dmarcian Domain and URLs section** on Azure portal.
 
 		> [!Note]
-		> You can modify the **Login URL** according to your organisation.
+		> You can modify the **Login URL** according to your organization.
 
 	* Click **Save**.
 

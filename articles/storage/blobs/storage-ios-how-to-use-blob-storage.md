@@ -9,7 +9,7 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # How to use Blob storage from iOS

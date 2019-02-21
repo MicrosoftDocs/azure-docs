@@ -80,6 +80,8 @@
       href: stream-analytics-job-reliability.md
     - name: Authenticate with managed identity
       href: stream-analytics-managed-identities-adls.md
+    - name: Use SQL reference
+      href: sql-reference-data.md
   - name: Build solutions
     items:
     - name: Twitter sentiment analysis
@@ -154,7 +156,7 @@
       href: stream-analytics-troubleshoot-output.md
     - name: Query logic
       href: stream-analytics-troubleshoot-query.md
-    - name: Diagnostic logs
+    - name: Activity and diagnostic logs
       href: stream-analytics-job-diagnostic-logs.md
   - name: Integrate with machine learning
     items:
@@ -347,9 +349,7 @@
           href: /stream-analytics-query/data-types-azure-stream-analytics 
         - name: Parsing JSON and AVRO data
           href: stream-analytics-parsing-json.md
-          maintainContext: true
     - name: Query Language Elements
-      expanded: true
       items: 
         - name: Query Language Elements Overview
           href: /stream-analytics-query/query-language-elements-azure-stream-analytics 
@@ -400,6 +400,8 @@
     href: /dotnet/api/microsoft.azure.management.streamanalytics
   - name: REST
     href: /rest/api/streamanalytics
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.streamanalytics/allversions
 - name: Resources
   items:
   - name: Stream Analytics previews

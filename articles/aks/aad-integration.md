@@ -18,7 +18,7 @@ This article shows you how to deploy the prerequisites for AKS and Azure AD, the
 
 The following limitations apply:
 
-- Existing non-RBAC enabled AKS clusters cannot currently be updated for RBAC use.
+- Azure AD can only be enabled when you create a new, RBAC-enabled cluster. You can't enable Azure AD on an existing AKS cluster.
 - *Guest* users in Azure AD, such as if you are using a federated login from a different directory, are not supported.
 
 ## Authentication details

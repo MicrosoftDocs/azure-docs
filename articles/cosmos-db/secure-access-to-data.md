@@ -8,7 +8,8 @@ ms.date: 08/19/2018
 ms.author: rafats
 
 ---
-# Securing access to Azure Cosmos DB data
+# Secure access to data in Azure Cosmos DB
+
 This article provides an overview of securing access to data stored in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 Azure Cosmos DB uses two types of keys to authenticate users and provide access to its data and resources. 

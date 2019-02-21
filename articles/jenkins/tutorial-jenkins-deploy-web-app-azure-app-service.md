@@ -212,7 +212,7 @@ subscription in the properties described by the table in this step:
    | Property | Value | Description | 
    |----------|-------|-------------| 
    | **Subscription ID** | <*yourAzureSubscription-ID*> | The GUID value for your Azure subscription <p>**Tip**: If you don't know your Azure subscription ID, run this Azure CLI command from either the command line or in Cloud Shell, and then use the `id` GUID value: <p>`az account list` | 
-   | **Client ID** | <*yourAzureServicePrincipal-ID*> | The `appId` GUID value for previously generated for your Azure service principal | 
+   | **Client ID** | <*yourAzureServicePrincipal-ID*> | The `appId` GUID value previously generated for your Azure service principal | 
    | **Client Secret** | <*yourSecurePassword*> | The `password` value or "secret" you provided for your Azure service principal | 
    | **Tenant ID** | <*yourAzureActiveDirectoryTenant-ID*> | The `tenant` GUID value for your Azure Active Directory tenant | 
    | **ID** | <*yourAzureServicePrincipalName*> | The `displayName` value for your Azure service principal | 

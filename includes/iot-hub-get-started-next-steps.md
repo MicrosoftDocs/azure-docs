@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-To continue to get started with Azure IoT Hub and to explore other IoT scenarios, see the following:
+To continue to get started with Azure IoT Hub and to explore all extended IoT scenarios, see the following:
 
 - [Manage cloud device messaging with Azure IoT Hub Toolkit extension for Visual Studio Code](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
 

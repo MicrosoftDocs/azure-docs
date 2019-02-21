@@ -7,7 +7,7 @@ author: aahill
 manager: cgronlun
 ms.assetid: C2862E98-8BCC-423B-9C4A-AC79A287BE38
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi

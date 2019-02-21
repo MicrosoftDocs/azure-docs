@@ -3,7 +3,7 @@ title: Runbook input parameters
 description: Runbook input parameters increase the flexibility of runbooks by allowing you to pass data to a runbook when it is started. This article describes different scenarios where input parameters are used in runbooks.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
@@ -282,4 +282,5 @@ When you execute a runbook by using a webhook, the predefined input parameter **
 * For details about different ways to start a runbook, see [Starting a runbook](automation-starting-a-runbook.md).
 * To edit a textual runbook, refer to [Editing textual runbooks](automation-edit-textual-runbook.md).
 * To edit a graphical runbook, refer to [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md).
+
 

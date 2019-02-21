@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 12/05/2018
+ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -21,7 +21,7 @@ ms.custom: it-pro
 # Built-in roles for Azure resources
 [Role-based access control (RBAC)](overview.md) has several built-in role definitions that you can assign to users, groups, and service principals. Role assignments are the way you control access to resources in Azure. If the built-in roles don't meet the specific needs of your organization, you can create your own [custom roles](custom-roles.md).
 
-The built-in roles are always evolving. To get the latest role definitions, use [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) or [az role definition list](/cli/azure/role/definition#az-role-definition-list).
+The built-in roles are always evolving. To get the latest role definitions, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) or [az role definition list](/cli/azure/role/definition#az-role-definition-list).
 
 ## Built-in role descriptions
 The following table provides brief descriptions of the built-in roles. Click the role name to see the list of `Actions`, `NotActions`, `DataActions`, and `NotDataActions` for each role.
@@ -33,6 +33,8 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Contributor](#contributor) | Lets you manage everything except access to resources. |
 | [Reader](#reader) | Lets you view everything, but not make any changes. |
 | [AcrImageSigner](#acrimagesigner) | acr image signer |
+| [AcrPull](#acrpull) | acr pull |
+| [AcrPush](#acrpush) | acr push |
 | [AcrQuarantineReader](#acrquarantinereader) | acr quarantine data reader |
 | [AcrQuarantineWriter](#acrquarantinewriter) | acr quarantine data writer |
 | [API Management Service Contributor](#api-management-service-contributor) | Can manage service and the APIs |
@@ -62,6 +64,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Cognitive Services Contributor](#cognitive-services-contributor) | Lets you create, read, update, delete and manage keys of Cognitive Services. |
 | [Cognitive Services User](#cognitive-services-user) | Lets you read and list keys of Cognitive Services. |
 | [Cosmos DB Account Reader Role](#cosmos-db-account-reader-role) | Can read Azure Cosmos DB account data. See [DocumentDB Account Contributor](#documentdb-account-contributor) for managing Azure Cosmos DB accounts. |
+| [CosmosBackupOperator](#cosmosbackupoperator) | Can submit restore request for a Cosmos DB database or a container for an account |
 | [Cost Management Contributor](#cost-management-contributor) | Can view costs and manage cost configuration (e.g. budgets, exports) |
 | [Cost Management Reader](#cost-management-reader) | Can view cost data and configuration (e.g. budgets, exports) |
 | [Data Box Contributor](#data-box-contributor) | Lets you manage everything under Data Box Service except giving access to others. |
@@ -72,8 +75,8 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [DevTest Labs User](#devtest-labs-user) | Lets you connect, start, restart, and shutdown your virtual machines in your Azure DevTest Labs. |
 | [DNS Zone Contributor](#dns-zone-contributor) | Lets you manage DNS zones and record sets in Azure DNS, but does not let you control who has access to them. |
 | [DocumentDB Account Contributor](#documentdb-account-contributor) | Can manage Azure Cosmos DB accounts. Azure Cosmos DB is formerly known as DocumentDB. |
-| [EventGrid EventSubscription Contributor (Preview)](#eventgrid-eventsubscription-contributor-preview) | Lets you manage EventGrid event subscription operations. |
-| [EventGrid EventSubscription Reader (Preview)](#eventgrid-eventsubscription-reader-preview) | Lets you read EventGrid event subscriptions. |
+| [EventGrid EventSubscription Contributor](#eventgrid-eventsubscription-contributor) | Lets you manage EventGrid event subscription operations. |
+| [EventGrid EventSubscription Reader](#eventgrid-eventsubscription-reader) | Lets you read EventGrid event subscriptions. |
 | [HDInsight Domain Services Contributor](#hdinsight-domain-services-contributor) | Can Read, Create, Modify and Delete Domain Services related operations needed for HDInsight Enterprise Security Package |
 | [Intelligent Systems Account Contributor](#intelligent-systems-account-contributor) | Lets you manage Intelligent Systems accounts, but not access to them. |
 | [Key Vault Contributor](#key-vault-contributor) | Lets you manage key vaults, but not access to them. |
@@ -94,7 +97,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Network Contributor](#network-contributor) | Lets you manage networks, but not access to them. |
 | [New Relic APM Account Contributor](#new-relic-apm-account-contributor) | Lets you manage New Relic Application Performance Management accounts and applications, but not access to them. |
 | [Reader and Data Access](#reader-and-data-access) | Lets you view everything but will not let you delete or create a storage account or contained resource. It will also allow read/write access to all data contained in a storage account via access to storage account keys. |
-| [Azure Cache for Redis Contributor](#redis-cache-contributor) | Lets you manage Azure Cache for Redis, but not access to them. |
+| [Redis Cache Contributor](#redis-cache-contributor) | Lets you manage Azure Cache for Redis, but not access to them. |
 | [Resource Policy Contributor (Preview)](#resource-policy-contributor-preview) | (Preview) Backfilled users from EA, with rights to create/modify resource policy, create support ticket and read resources/hierarchy. |
 | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. |
 | [Search Service Contributor](#search-service-contributor) | Lets you manage Search services, but not access to them. |
@@ -110,7 +113,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 | [Storage Account Contributor](#storage-account-contributor) | Lets you manage storage accounts, but not access to them. |
 | [Storage Account Key Operator Service Role](#storage-account-key-operator-service-role) | Storage Account Key Operators are allowed to list and regenerate keys on Storage Accounts |
 | [Storage Blob Data Contributor (Preview)](#storage-blob-data-contributor-preview) | Allows for read, write and delete access to Azure Storage blob containers and data |
-| [Storage Blob Data Owner (Preview)](#storage-blob-data-owner-preview) | Allows for read, write, delete, and POSIX superuser access to Azure Storage blob containers and data |
+| [Storage Blob Data Owner (Preview)](#storage-blob-data-owner-preview) | Allows for full access to Azure Storage blob containers and data, including assigning POSIX access control. |
 | [Storage Blob Data Reader (Preview)](#storage-blob-data-reader-preview) | Allows for read access to Azure Storage blob containers and data |
 | [Storage Queue Data Contributor (Preview)](#storage-queue-data-contributor-preview) | Allows for read, write, and delete access to Azure Storage queues and queue messages |
 | [Storage Queue Data Reader (Preview)](#storage-queue-data-reader-preview) | Allows for read access to Azure Storage queues and queue messages |
@@ -142,8 +145,8 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Actions** |  |
 > | * | Create and manage resources of all types |
 > | **NotActions** |  |
-> | Microsoft.Authorization/*/Delete | Can't delete roles and role assignments |
-> | Microsoft.Authorization/*/Write | Can't create roles and role assignments |
+> | Microsoft.Authorization/*/Delete | Delete roles and role assignments |
+> | Microsoft.Authorization/*/Write | Create roles and role assignments |
 > | Microsoft.Authorization/elevateAccess/Action | Grants the caller User Access Administrator access at the tenant scope |
 > | Microsoft.Blueprint/blueprintAssignments/write | Create or update any blueprint artifacts |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Delete any blueprint artifacts |
@@ -165,6 +168,25 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **Actions** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | Push/Pull content trust metadata for a container registry. |
+
+## AcrPull
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | acr pull |
+> | **Id** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
+> | **Actions** |  |
+> | Microsoft.ContainerRegistry/registries/pull/read | Pull or Get images from a container registry. |
+
+## AcrPush
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | acr push |
+> | **Id** | 8311e382-0749-4cb8-b61a-304f252e45ec |
+> | **Actions** |  |
+> | Microsoft.ContainerRegistry/registries/pull/read | Pull or Get images from a container registry. |
+> | Microsoft.ContainerRegistry/registries/push/write | Push or Write images to a container registry. |
 
 ## AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -381,7 +403,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Refreshes the container list |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Create and manage backup jobs |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Export Jobs |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Returns the Result of Export Job Operation. |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Create and manage meta data related to backup management |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Create and manage Results of backup management operations |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Create and manage backup policies |
@@ -441,8 +463,8 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Refreshes the container list |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Create and manage backup jobs |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Export Jobs |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Returns the Result of Export Job Operation. |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Returns Backup Management Metadata for Recovery Services Vault. |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
+> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Create and manage Results of backup management operations |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Get Results of Policy Operation. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returns all Protection Policies |
@@ -502,8 +524,8 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Returns the Result of Job Operation. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Returns all Job Objects |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Export Jobs |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Returns the Result of Export Job Operation. |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Returns Backup Management Metadata for Recovery Services Vault. |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
+> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Returns Backup Operation Result for Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Get Results of Policy Operation. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returns all Protection Policies |
@@ -750,6 +772,16 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
+## CosmosBackupOperator
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Can submit restore request for a Cosmos DB database or a container for an account |
+> | **Id** | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
+> | **Actions** |  |
+> | Microsoft.DocumentDB/databaseAccounts/backup/action | Submit a request to configure backup |
+> | Microsoft.DocumentDB/databaseAccounts/restore/action | Submit a restore request |
+
 ## Cost Management Contributor
 > [!div class="mx-tableFixed"]
 > | | |
@@ -936,7 +968,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-## EventGrid EventSubscription Contributor (Preview)
+## EventGrid EventSubscription Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -953,7 +985,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Support/* | Create and manage support tickets |
 
-## EventGrid EventSubscription Reader (Preview)
+## EventGrid EventSubscription Reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1197,6 +1229,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
 > | Microsoft.Insights/actiongroups/* |  |
+> | Microsoft.Insights/activityLogAlerts/* |  |
 > | Microsoft.Insights/AlertRules/* | Read/write/delete alert rules. |
 > | Microsoft.Insights/components/* | Read/write/delete Application Insights components. |
 > | Microsoft.Insights/DiagnosticSettings/* | Read/write/delete diagnostic settings. |
@@ -1281,7 +1314,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Storage/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
 > | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 
-## Azure Cache for Redis Contributor
+## Redis Cache Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1366,6 +1399,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Security/pricings/delete | Deletes the pricing settings for the scope |
 > | Microsoft.Security/securityContacts/delete | Deletes the security contact |
 > | Microsoft.Security/securityContacts/write | Updates the security contact |
+> | Microsoft.Security/InformationProtectionPolicies/write | Updates the information protection policies for the resource |
 > | Microsoft.Support/* | Create and manage support tickets |
 
 ## Security Manager (Legacy)
@@ -1426,7 +1460,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/* | Create and manage replication policies |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/* | Create and manage recovery plans |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* | Create and manage storage configuration of Recovery Services vault |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Returns token information for Recovery Services Vault. |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Read alerts for the Recovery services vault |
@@ -1493,7 +1527,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Read alerts for the Recovery services vault |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Returns token information for Recovery Services Vault. |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
@@ -1536,7 +1570,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Read any Policies |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Read any Recovery Plans |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Returns token information for Recovery Services Vault. |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
 > | Microsoft.Support/* | Create and manage support tickets |
@@ -1561,19 +1595,21 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Insights/metricDefinitions/read | Read metric definitions |
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit audit policies |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Can't edit audit settings |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | Edit audit policies |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | Edit audit settings |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Retrieve the database blob audit records |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Can't edit connection policies |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Can't edit data masking policies |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | Edit connection policies |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Edit data masking policies |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Can't edit security alert policies |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Can't edit security metrics |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Edit security alert policies |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Edit security metrics |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## SQL Security Manager
 > [!div class="mx-tableFixed"]
@@ -1589,6 +1625,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Create and manage SQL server auditing policies |
 > | Microsoft.Sql/servers/auditingSettings/* | Create and manage SQL server auditing setting |
 > | Microsoft.Sql/servers/extendedAuditingSettings/read | Retrieve details of the extended server blob auditing policy configured on a given server |
@@ -1612,6 +1649,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Sql/servers/firewallRules/* |  |
 > | Microsoft.Sql/servers/read | Return the list of servers or gets the properties for the specified server. |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Create and manage SQL server security alert policies |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | Microsoft.Support/* | Create and manage support tickets |
 
 ## SQL Server Contributor
@@ -1633,23 +1671,25 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | Microsoft.Insights/metricDefinitions/read | Read metric definitions |
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/auditingPolicies/* | Can't edit SQL server auditing policies |
-> | Microsoft.Sql/servers/auditingSettings/* | Can't edit SQL server auditing settings |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Can't edit SQL server database auditing policies |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Can't edit SQL server database auditing settings |
-> | Microsoft.Sql/servers/databases/auditRecords/read | Can't read audit records |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Can't edit SQL server database connection policies |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Can't edit SQL server database data masking policies |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/servers/auditingPolicies/* | Edit SQL server auditing policies |
+> | Microsoft.Sql/servers/auditingSettings/* | Edit SQL server auditing settings |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | Edit SQL server database auditing policies |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | Edit SQL server database auditing settings |
+> | Microsoft.Sql/servers/databases/auditRecords/read | Read audit records |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | Edit SQL server database connection policies |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Edit SQL server database data masking policies |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Can't edit SQL server database security alert policies |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Can't edit SQL server database security metrics |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Edit SQL server database security alert policies |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Edit SQL server database security metrics |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
-> | Microsoft.Sql/servers/securityAlertPolicies/* | Can't edit SQL server security alert policies |
+> | Microsoft.Sql/servers/securityAlertPolicies/* | Edit SQL server security alert policies |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## Storage Account Contributor
 > [!div class="mx-tableFixed"]
@@ -1686,8 +1726,8 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returns the result of deleting a container |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns a container or a list of containers |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returns the result of put or lease blob container |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns list of containers |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returns the result of put blob container |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returns the result of deleting a blob |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
@@ -1697,16 +1737,12 @@ The following table provides brief descriptions of the built-in roles. Click the
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Allows for read, write, delete, and POSIX superuser access to Azure Storage blob containers and data |
+> | **Description** | Allows for full access to Azure Storage blob containers and data, including assigning POSIX access control. |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Actions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returns the result of deleting a container |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns a container or a list of containers |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returns the result of put or lease blob container |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returns the result of deleting a blob |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returns the result of writing a blob |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* |  |
 
 ## Storage Blob Data Reader (Preview)
 > [!div class="mx-tableFixed"]
@@ -1715,7 +1751,7 @@ The following table provides brief descriptions of the built-in roles. Click the
 > | **Description** | Allows for read access to Azure Storage blob containers and data |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Actions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns a container or a list of containers |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returns list of containers |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
 

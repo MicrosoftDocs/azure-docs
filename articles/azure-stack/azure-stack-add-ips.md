@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: scottnap
+ms.lastreviewed: 09/17/2018
 
 ---
 # Add Public IP Addresses

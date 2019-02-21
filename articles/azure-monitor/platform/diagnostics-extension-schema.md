@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
+ms.subservice: diagnostic-extension
 ---
 # Azure Diagnostics extension configuration schema versions and history
 This page indexes Azure Diagnostics extension schema versions shipped as part of the Microsoft Azure SDK.  
@@ -204,3 +204,4 @@ If you're upgrading your project from Azure SDK 2.4 to Azure SDK 2.5 or later, y
 * **Diagnostics for cloud service applications can only be configured at the role level, not at the instance level.**
 * **Every time you deploy your app, the diagnostics configuration is updated** – This can cause parity issues if you change your diagnostics configuration from Server Explorer and then redeploy your app.
 * **In Azure SDK 2.5 and later, crash dumps are configured in the diagnostics configuration file, not in code** – If you have crash dumps configured in code, you'll have to manually transfer the configuration from code to the configuration file, because the crash dumps aren't transferred during the migration to Azure SDK 2.6.
+

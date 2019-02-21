@@ -14,6 +14,7 @@ ms.workload: na
 ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
+ms.lastreviewed: 12/12/2018
 
 ---
 # Give applications access to Azure Stack resources by creating service principals

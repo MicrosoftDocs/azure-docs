@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Learn how to use datastores to access data storage during training with Azure Machine Learning service
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
@@ -73,8 +73,8 @@ ds = Datastore.get(ws, datastore_name='your datastore name')
 
 You can also get all the datastores for a workspace:
 ```Python
-datastores = ws.datastores()
-for name, ds in datastores.items(),
+datastores = ws.datastores
+for name, ds in datastores.items():
     print(name, ds.datastore_type)
 ```
 

@@ -5,11 +5,11 @@ services: active-directory
 keywords: azure active directory identity protection, unblock user
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 
 ms.assetid: a953d425-a3ef-41f8-a55d-0202c3f250a7
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

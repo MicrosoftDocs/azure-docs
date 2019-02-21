@@ -141,7 +141,7 @@ After you fail Azure VMs over to the target Azure region using Site Recovery, yo
 
 #### Two circuits with two peering locations
 
-This configuration helps protects ExpressRoute circuits against regional disaster. If your primary peering loation goes down, connections can continue from the other location.
+This configuration helps protects ExpressRoute circuits against regional disaster. If your primary peering location goes down, connections can continue from the other location.
 
 - The circuit connected to the production environment is usually the primary. The secondary circuit typically has lower bandwidth, which can be increased if a disaster occurs.
 - After failover, you can establish connections from the secondary ExpressRoute circuit to the target vNet. Alternatively, you can have connections set up and ready in case of disaster, to reduce overall recovery time.

@@ -126,7 +126,7 @@ ms.topic: hub-page
                     <div class="cardText">
                         <h3>Analyze image using Computer Vision</h3>
                         <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk">Using C#</a></p>
-                        <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/java-analyze">Using Java</a></p>
+                        <p><a href="/azure/cognitive-services/bing-visual-search/quickstarts/java">Using Java</a></p>
                         <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/node-analyze">Using Node.js</a></p>
                         <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/python-analyze">Using Python</a></p>
                     </div>

@@ -112,7 +112,7 @@ $destapp = New-AzureRmWebApp -ResourceGroupName <Resource group name> -Name dest
 ```
 
 ## Current Restrictions
-This feature is currently in preview, and new capabilities are added over time. Here are the known restrictions on the current version of app cloning:
+Here are the known restrictions of app cloning:
 
 * Auto scale settings are not cloned
 * Backup schedule settings are not cloned

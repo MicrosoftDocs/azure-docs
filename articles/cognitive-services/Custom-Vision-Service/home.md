@@ -7,9 +7,9 @@ author: anrothMSFT
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 10/26/2018
+ms.date: 01/10/2019
 ms.author: anroth
 #Customer intent: As a data scientist/developer, I want to understand what the Custom Vision service does so that I can determine if it's suitable for my project.
 ---
@@ -23,7 +23,7 @@ The Custom Vision service uses a machine learning algorithm to classify images. 
 
 ### Classification and object detection
 
-Custom Vision functionality can be divided into two features. **Image classification** assigns a distribution of classifications to each image. **Object detection** is similar, but it also returns the coordinates in the image where the applied tags can be found.
+Custom Vision functionality can be divided into two features. **Image classification** assigns a distribution of classifications to each image. Both multiclass (one tag per image) and multilabel (any number of tags per image) classification models are supported. **Object detection** is similar to multilabel classification, but it also returns the coordinates in the image where the applied labels can be found.
 
 ### Optimization
 
@@ -35,6 +35,10 @@ Additionally, you can choose from several varieties of the Custom Vision algorit
 The Custom Vision Service is available as a set of native SDKs as well as through a web-based interface on the [Custom Vision home page](https://customvision.ai/). You can create, test, and train a model through either interface, or both.
 
 ![Custom Vision home page in a Chrome browser window](media/browser-home.png)
+
+## Data privacy and security
+
+As with all of the Cognitive Services, developers using the Custom Vision service should be aware of Microsoft's policies on customer data. See the [Cognitive Services page](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) on the Microsoft Trust Center to learn more.
 
 ## Next steps
 

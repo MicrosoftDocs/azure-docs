@@ -19,8 +19,6 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Evaluate Azure Stack
-    href: azure-stack-deploy-overview.md
   - name: Use the administration portal
     href: azure-stack-manage-portals.md
 - name: Tutorials
@@ -76,6 +74,8 @@
       items:    
       - name: Choose an identity provider
         href: azure-stack-integrate-identity.md
+      - name: Create registration role
+        href: azure-stack-registration-role.md
       - name: Validate Azure identity
         href: azure-stack-validate-identity.md
       - name: Validate ADFS integration
@@ -128,16 +128,8 @@
       href: azure-stack-registration.md
     - name: Region management
       href: azure-stack-region-management.md
-    - name: Connect to Azure
-      items:
-      - name: Connect using VPN
-        href: azure-stack-connect-vpn.md
-      - name: About VPN gateway
-        href: azure-stack-vpn-gateway-about-vpn-gateways.md
-      - name: VPN gateway settings
-        href: azure-stack-vpn-gateway-settings.md
-      - name: Connect using ExpressRoute
-        href: azure-stack-connect-expressroute.md  
+    - name: Connect to Azure using ExpressRoute
+      href: azure-stack-connect-expressroute.md  
     - name: Enable CLI for users
       href: azure-stack-cli-admin.md
     - name: Set up management environment
@@ -224,8 +216,6 @@
       href: azure-stack-marketplace-azure-items.md
     - name: Create and publish a marketplace item
       href: azure-stack-create-and-publish-marketplace-item.md
-    - name: Use the marketplace publishing tool
-      href: azure-stack-marketplace-publisher.md
     - name: Supported guest operating systems for Azure Stack
       href: azure-stack-supported-os.md
     - name: Add a custom virtual machine image

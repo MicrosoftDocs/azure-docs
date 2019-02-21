@@ -42,9 +42,9 @@ A Recovery Services vault is an entity that stores all the backups and recovery 
 
 6. In the **Resource group** section:
 
-    * select **Create new** if you want to create a new Resource group.
+    * click the **Select existing..**  drop-down menu to see the available list of Resource groups.
     Or
-    * select **Use existing** and click the drop-down menu to see the available list of Resource groups.
+    * select **Create new** if you want to create a new Resource group.
 
   For complete information on Resource groups, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
@@ -64,21 +64,21 @@ When you first create a Recovery Services vault you determine how storage is rep
 
 1. From the **Recovery Services vaults** blade, click the new vault.
 
-    ![Select the new vault from the list of Recovery Services vault](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![Select the new vault from the list of Recovery Services vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    When you select the vault, the **Recovery Services vault** blade narrows, and the Settings blade (*which has the name of the vault at the top*) and the vault details blade open.
+    When you select the vault, the Recovery Services vault blade narrows, and the **Overview** blade (*which has the name of the vault at the top*) the vault details blade open.
 
-    ![View the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+    ![View the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 
-2. In the new vault's Settings blade, use the vertical slide to scroll down to the Manage section, and click **Backup Infrastructure**.
+2. In the new vault under the **Settings** section, go to **Properties**.
 
-  The Backup Infrastructure blade opens.
+  The **Properties** blade opens.
 
-3. In the Backup Infrastructure blade, click **Backup Configuration** to open the **Backup Configuration** blade.
+3. In the **Properties** blade, click **Update** under **Backup Configuration** blade. The **Backup Configuration** blade opens.
 
-  ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+  ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-4. Choose the appropriate storage replication option for your vault.
+4. Choose the appropriate storage replication option for your vault and click **Save**.
 
   ![storage configuration choices](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
@@ -177,7 +177,7 @@ The backup policy is the schedule when recovery points are taken, and the length
 
 ### To create a backup schedule
 
-Set the backup schedule on the machine you want to back up. Note that the time set for the backup might differ from the local computer time because Azure Backup doesn't take daylight savings time (DST) into account. 
+Set the backup schedule on the machine you want to back up. Note that the time set for the backup might differ from the local computer time because Azure Backup doesn't take daylight savings time (DST) into account.
 1. Open the Microsoft Azure Backup agent. You can find it by searching your machine for **Microsoft Azure Backup**.
 
     ![Launch the Azure Backup agent](./media/backup-configure-vault/snap-in-search.png)

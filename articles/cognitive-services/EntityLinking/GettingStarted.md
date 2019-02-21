@@ -7,7 +7,7 @@ author: DavidLiCIG
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: entity-linking-intelligence
+ms.subservice: entity-linking-intelligence
 ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl

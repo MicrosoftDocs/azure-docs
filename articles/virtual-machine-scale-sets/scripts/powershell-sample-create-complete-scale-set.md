@@ -3,7 +3,7 @@ title: Azure PowerShell Samples - Create a complete virtual machine scale set | 
 description: Azure PowerShell Samples
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
 
 ---
 
 # Create a complete virtual machine scale set with PowerShell
-This script creates a virtual machine scale set running Windows Server 2016. Individual resources are configured and created, rather than the using the [built-in resource creation options avaiable here in New-AzureRmVmss](powershell-sample-create-simple-scale-set.md). After running the script, you can access the VM instances through RDP.
+This script creates a virtual machine scale set running Windows Server 2016. Individual resources are configured and created, rather than the using the [built-in resource creation options available here in New-AzureRmVmss](powershell-sample-create-simple-scale-set.md). After running the script, you can access the VM instances through RDP.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 

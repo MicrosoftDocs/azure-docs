@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure Data Box Disk FAQ | Microsoft Docs in data 
-description: Contains frquently asked questions and answers for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
+description: Contains frequently asked questions and answers for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
 author: alkohli
 
@@ -120,7 +120,7 @@ A.  No. Only one storage account, general or classic, is currently supported wit
 ### Q. What is the toolset available for my data with Data Box Disks?
 A. The toolset available with the Data Box Disk contains three tools:
  - **Data Box Disk Unlock tool**: Use this tool to unlock the encrypted disks that are shipped from Microsoft. When unlocking the disks using the tool, you need to provide a passkey available in the Data Box Disk order in the Azure portal. 
- - **Data Box Disk Validation tool**: Use this tool to validate the size, format, and blob names as per the Azure naming convnetions. It also generates checksums for the copied data which are then used to verify the data uploaded to Azure.
+ - **Data Box Disk Validation tool**: Use this tool to validate the size, format, and blob names as per the Azure naming conventions. It also generates checksums for the copied data which are then used to verify the data uploaded to Azure.
  - **Data Box Disk Split Copy tool**: Use this tool when you are using multiple disks and have a large dataset that needs to be split and copied across all the disks. This tool is currently available for Windows.
 
 The toolset is available both for Windows and Linux. You can download the toolset here:

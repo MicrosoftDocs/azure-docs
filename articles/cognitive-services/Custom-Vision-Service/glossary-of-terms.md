@@ -7,7 +7,7 @@ author: anrothMSFT
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: anroth

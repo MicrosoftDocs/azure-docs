@@ -1,5 +1,5 @@
 ---
-title: Provision throughput for Azure Cosmos DB 
+title: Provision throughput on Azure Cosmos containers and databases
 description: Learn how to set provisioned throughput for your Azure Cosmos DB containers and databases.
 author: aliuy
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.author: andrl
 
 ---
 
-# Provision throughput on Azure Cosmos containers and databases
+# Provision throughput on containers and databases
 
 An Azure Cosmos database is a unit of management for a set of containers. A database consists of a set of schema-agnostic containers. An Azure Cosmos container is the unit of scalability for both throughput and storage. A container is horizontally partitioned across a set of machines within an Azure region and is distributed across all Azure regions associated with your Azure Cosmos account.
 

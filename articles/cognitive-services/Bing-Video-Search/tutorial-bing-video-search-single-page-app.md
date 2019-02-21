@@ -7,9 +7,9 @@ author: mikedodaro
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-video-search
+ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 11/01/2017
+ms.date: 01/31/2019
 ms.author: rosh
 ---
 # Tutorial: Single-page Video Search app

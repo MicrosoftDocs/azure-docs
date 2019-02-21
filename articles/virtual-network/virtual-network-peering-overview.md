@@ -68,6 +68,8 @@ To confirm a virtual network peering, you can [check effective routes](diagnose-
 
 You can also troubleshoot connectivity to a virtual machine in a peered virtual network using Network Watcher's [connectivity check](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Connectivity check lets you see how traffic is routed from a source virtual machine's network interface to a destination virtual machine's network interface.
 
+You can also try the [Troubleshooter for virtual network peering issues](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues).
+
 ## Requirements and constraints
 
 The following constraints apply when virtual networks are globally peered:

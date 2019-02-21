@@ -71,7 +71,7 @@ Azure resources that support [Azure monitor](../../azure-monitor/overview.md) ca
 >
 
 * For the details of the available metrics, refer to [supported metrics with Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
-* For the details of the available logs, refer to [supported services and schema for diagnostic logs](../../azure-monitor/platform/tutorial-dashboards.md).
+* For the details of the available logs, refer to [supported services and schema for diagnostic logs](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ### Enable diagnostics with PowerShell
 You need the November 2016 (v2.3.0) or later release of [Azure PowerShell](/powershell/azure/overview).

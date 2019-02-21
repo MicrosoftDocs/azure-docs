@@ -8,7 +8,7 @@ ms.author: cbrooks
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: storage
-ms.component: blobs
+ms.subservice: blobs
 ms.custom: seodec18
 ---
 

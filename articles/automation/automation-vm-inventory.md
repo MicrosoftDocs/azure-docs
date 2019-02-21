@@ -3,7 +3,7 @@ title: Manage an Azure virtual machine with inventory collection | Microsoft Doc
 description: Manage a virtual machine with inventory collection
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
 author: jennyhunter-msft
 ms.author: jehunte
@@ -120,3 +120,4 @@ To remove your virtual machine from inventory management:
 
 * To learn about managing changes in files and registry settings on your virtual machines, see [Track software changes in your environment with the Change Tracking solution](../log-analytics/log-analytics-change-tracking.md).
 * To learn about managing Windows and package updates on your virtual machines, see [The Update Management solution in Azure](../operations-management-suite/oms-solution-update-management.md).
+

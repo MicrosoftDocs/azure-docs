@@ -95,6 +95,8 @@
       href: How-To/language-knowledge-base.md
     - name: Test a knowledge base
       href: How-To/test-knowledge-base.md
+    - name: Use active learning to improve knowledge base
+      href: How-to/improve-knowledge-base.md
   - name: Use knowledge base
     items: 
     - name: Use metadata with GenerateAnswer API

@@ -144,7 +144,7 @@ By default `ServerTelemetryChannel` uses the current user’s local app data fol
 
 
 Via configuration file:
-```
+```xml
 <TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel,   Microsoft.AI.ServerTelemetryChannel">
     <StorageFolder>D:\NewTestFolder</StorageFolder>
 </TelemetryChannel>
@@ -154,7 +154,7 @@ Via code:
 
 - Remove ServerTelemetryChannel from configuration file
 - Add this snippet to your configuration:
-```
+```csharp
 ServerTelemetryChannel channel = new ServerTelemetryChannel();
 channel.StorageFolder = @"D:\NewTestFolder";
 channel.Initialize(TelemetryConfiguration.Active);
@@ -168,7 +168,7 @@ In a Linux environment, local storage will be disabled unless a storage folder i
 
 The following code snippet shows how to set `ServerTelemetryChannel.StorageFolder` in the `ConfigureServices()` method of your `Startup.cs` class:
 
-```
+```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
 ```
 

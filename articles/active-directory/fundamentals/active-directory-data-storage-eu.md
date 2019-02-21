@@ -3,11 +3,11 @@ title: Identity data storage for European customers - Azure Active Directory | M
 description: Learn about where Azure Active Directory stores identity-related data for its European customers.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.author: lizross
 
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018

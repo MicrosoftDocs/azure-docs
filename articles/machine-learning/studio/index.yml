@@ -1,33 +1,24 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Machine Learning Studio Documentation
+title: Machine Learning Studio Documentation
 metadata:
-  title: Azure Machine Learning Studio Documentation
-  description: Learn how to use Azure Machine Learning Studio.
+  title: Azure Machine Learning Studio Documentation - Tutorials, Reference | Microsoft Docs 
+  description: Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.
   services: machine-learning
-  author: j-martens
-  
   ms.service: machine-learning
-  ms.component: studio
+  ms.subservice: studio
+  ms.topic: landing-page
+  
+  author: j-martens
+  ms.author: jmartens
   ms.tgt_pltfrm: na
   ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 09/24/2018
-  ms.author: jmartens
+  ms.date: 01/24/2019
+  
 abstract:
-  description: 'Azure Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.'
+  description: Azure Machine Learning Studio is a collaborative, drag-and-drop tool for building, testing, and deploying predictive analytics solutions on your data. Tutorials, videos, and example models show you how to use Studio to build and deploy machine learning models.
 
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Start learning about Azure Machine Learning Studio
-      href: create-experiment
-      image: 
-        src: /azure/machine-learning/media/index/machine-learning-studio.svg
-        href: create-experiment
         
 - title: 5-Minute Quickstarts
   items:
@@ -36,20 +27,34 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="create-experiment">Create your first experiment</a>
+    - html: <a href="create-experiment">Create your first Studio experiment</a>
     - html: <a href="algorithm-choice">Choose the best algorithm</a>
-    - html: <a href="deploy-consume-web-service-guide">Operationalize your model</a>
-    - html: <a href="data-science-for-beginners-the-5-questions-data-science-answers">Learn about Data Science</a>
+    - html: <a href="deploy-consume-web-service-guide">Deploy models as web services</a>
+    - html: <a href="data-science-for-beginners-the-5-questions-data-science-answers">Read about "Data Science for beginners"</a>
 
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
     text: 'Follow extended tutorials that walk you through creating and deploying models:'
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="walkthrough-develop-predictive-solution">Create and deploy a predictive solution</a>
     - html: <a href="azure-ml-customer-churn-scenario">Customer churn example</a>
+
+
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="powershell-module">PowerShell modules</a></p>
+    - title: Modules
+      html: <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algorithm & Module reference</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">REST management APIs</a></p><p><a href="web-service-error-codes">Web service error codes</a></p>
 
 - title: More Azure Machine Learning technologies
   items:
@@ -69,16 +74,3 @@ sections:
       image: 
         src: media/index/virtual-machines.svg
         href: /azure/machine-learning/data-science-virtual-machine/
-
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.machinelearning">PowerShell module (New)</a></p><p><a href="powershell-module">PowerShell module (Classic)</a></p>
-    - title: Modules
-      html: <p><a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">Algorithm & Module reference</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/machinelearning/">REST management APIs</a></p><p><a href="web-service-error-codes">Web service error codes</a></p>

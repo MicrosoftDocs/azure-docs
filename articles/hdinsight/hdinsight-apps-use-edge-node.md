@@ -61,8 +61,8 @@ After you have created an edge node, you can connect to the edge node using SSH,
 >
 > If you are using an Apache technology, you may be able to find assistance through the Apache project sites on [https://apache.org](https://apache.org), such as the [Apache Hadoop](https://hadoop.apache.org/) site.
 
-> [!NOTE]  
-> Like the other cluster nodes, edge nodes are also patch managed.  For more information, see [OS patching for HDInsight](./hdinsight-os-patching.md).
+> [!IMPORTANT]
+> Ubuntu images become available for new HDInsight cluster creation within 3 months of being published. As of January 2019, running clusters (including edge nodes) are **not** auto-patched. Customers must use script actions or other mechanisms to patch a running cluster.  For more information, see [OS patching for HDInsight](./hdinsight-os-patching.md).
 
 ## Add an edge node to an existing cluster
 In this section, you use a Resource Manager template to add an edge node to an existing HDInsight cluster.  The Resource Manager template can be found in [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). The Resource Manager template calls a script action located at https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. The script doesn't perform any actions.  It is to demonstrate calling script action from a Resource Manager template.

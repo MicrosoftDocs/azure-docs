@@ -12,8 +12,6 @@
     href: cloud-services-dotnet-get-started.md
   - name: Example Python for Visual Studio Cloud Service
     href: cloud-services-python-ptvs.md
-  - name: Set up a hybrid HPC cluster with Microsoft HPC Pack
-    href: cloud-services-setup-hybrid-hpcpack-cluster.md
 - name: How To
   items:
   - name: Plan

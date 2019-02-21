@@ -8,7 +8,7 @@ ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.component: disks
+ms.subservice: disks
 ---
 
 # About disks storage for Azure Windows VMs

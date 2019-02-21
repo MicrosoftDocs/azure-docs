@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
+ms.lastreviewed: 09/12/2018
 ---
  
 # Datacenter integration considerations for Azure Stack integrated systems

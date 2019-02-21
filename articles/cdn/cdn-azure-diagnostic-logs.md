@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure diagnostic logs | Microsoft Docs
 description: Customer can enable log analysis for Azure CDN.
 services: cdn
@@ -287,7 +287,7 @@ Follow these steps to add a Log Analytics Management Solution:
 
 ### Offers and pricing tiers
 
-You can see offers and pricing tiers for management solutions [here](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+You can see offers and pricing tiers for management solutions [here](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions).
 
 ### Customizing views
 

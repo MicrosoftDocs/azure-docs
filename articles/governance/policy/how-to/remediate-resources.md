@@ -4,7 +4,7 @@ description: This how-to walks you through the remediation of resources that are
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -16,6 +16,8 @@ Resources that are non-compliant to a **deployIfNotExists** policy can be put in
 state through **Remediation**. Remediation is accomplished by instructing Policy to run the
 **deployIfNotExists** effect of the assigned policy on your existing resources. This article shows
 the steps needed to understand and accomplish remediation with Policy.
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## How remediation security works
 
@@ -60,7 +62,7 @@ az role definition list --name 'Contributor'
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmRoleDefinition -Name 'Contributor'
+Get-AzRoleDefinition -Name 'Contributor'
 ```
 
 ## Manually configure the managed identity
@@ -84,16 +86,16 @@ SQL DB transparent data encryption**, sets the target resource group, and then c
 assignment.
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+# Login first with Connect-Azccount if not using Cloud Shell
 
 # Get the built-in "Deploy SQL DB transparent data encryption" policy definition
-$policyDef = Get-AzureRmPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
+$policyDef = Get-AzPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
 
 # Get the reference to the resource group
-$resourceGroup = Get-AzureRmResourceGroup -Name 'MyResourceGroup'
+$resourceGroup = Get-AzResourceGroup -Name 'MyResourceGroup'
 
 # Create the assignment using the -Location and -AssignIdentity properties
-$assignment = New-AzureRmPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
+$assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
 ```
 
 The `$assignment` variable now contains the principal ID of the managed identity along with the
@@ -105,7 +107,7 @@ standard values returned when creating a policy assignment. It can be accessed t
 The new managed identity must complete replication through Azure Active Directory before it can be
 granted the needed roles. Once replication is complete, the following example iterates the policy
 definition in `$policyDef` for the **roleDefinitionIds** and uses
-[New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) to
+[New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) to
 grant the new managed identity the roles.
 
 ```azurepowershell-interactive
@@ -116,7 +118,7 @@ if ($roleDefinitionIds.Count -gt 0)
 {
     $roleDefinitionIds | ForEach-Object {
         $roleDefId = $_.Split("/") | Select-Object -Last 1
-        New-AzureRmRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+        New-AzRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
     }
 }
 ```

@@ -30,7 +30,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to move
 Data factory currently supports only moving data from an SFTP server to other data stores, but not for moving data from other data stores to an SFTP server. It supports both on-premises and cloud SFTP servers.
 
 > [!NOTE]
-> Copy Activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file and use the activity in the pipeline. 
+> Copy Activity does not delete the source file after it is successfully copied to the destination. If you need to delete the source file after a successful copy, create a custom activity to delete the file and use the activity in the pipeline.
 
 ## Supported scenarios and authentication types
 You can use this SFTP connector to copy data from **both cloud SFTP servers and on-premises SFTP servers**. **Basic** and **SshPublicKey** authentication types are supported when connecting to the SFTP server.
@@ -203,7 +203,7 @@ In this example {Slice} is replaced with the value of Data Factory system variab
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },

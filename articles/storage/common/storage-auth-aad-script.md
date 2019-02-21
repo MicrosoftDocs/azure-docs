@@ -8,7 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.component: common
+ms.subservice: common
 ---
 
 # Use an Azure AD identity to access Azure Storage with CLI or PowerShell (Preview)
@@ -21,7 +21,7 @@ When you log in to Azure CLI or PowerShell with an Azure AD identity, an access 
 
 ## Supported operations
 
-The preview extensions are supported for operations on containers and queues. Which operations you may call depends on the permissions granted to the Azure AD identity with which you log in to Azure CLI or PowerShell. Permissions to Azure Storage containers or queues are assigned via role-based access control (RBAC). For example, if a Data Reader role is assigned to the identity, then you can run scripting commands that read data from a container or queue. If a Data Contributer role is assigned to the identity, then you can run scripting commands that read, write, or delete a container or queue or the data they contain. 
+The preview extensions are supported for operations on containers and queues. Which operations you may call depends on the permissions granted to the Azure AD identity with which you log in to Azure CLI or PowerShell. Permissions to Azure Storage containers or queues are assigned via role-based access control (RBAC). For example, if a Data Reader role is assigned to the identity, then you can run scripting commands that read data from a container or queue. If a Data Contributor role is assigned to the identity, then you can run scripting commands that read, write, or delete a container or queue or the data they contain. 
 
 For details about the permissions required for each Azure Storage operation on a container or queue, see [Permissions for calling REST operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
 

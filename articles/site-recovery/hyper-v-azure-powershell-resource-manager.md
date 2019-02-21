@@ -43,7 +43,7 @@ In addition, the specific example described in this article has the following pr
 1. Open a PowerShell console and run this command to sign in to your Azure account. The cmdlet brings up a web page prompts you for your account credentials: **Connect-AzureRmAccount**.
     - Alternately, you can include your account credentials as a parameter in the **Connect-AzureRmAccount** cmdlet, using the **-Credential** parameter.
     - If you are CSP partner working on behalf of a tenant, specify the customer as a tenant, by using their tenantID or tenant primary domain name. For example: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
-2. Associate the subscription you want to use with the acount, since an account can have several subscriptions:
+2. Associate the subscription you want to use with the account, since an account can have several subscriptions:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
 

@@ -32,7 +32,7 @@ Verify you have the following Azure Resource Manager modules installed on your c
 >[!NOTE]
 >We recommend that all your Azure Resource Manager modules are the same version to ensure compatibility when you run Azure Resource Manager commands from PowerShell.
 >
-To install the latest version of the Azure Resource Manager modules on your computer, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
+To install the latest version of the Azure Resource Manager modules on your computer, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.1).  
 
 ## Enable Azure Diagnostics  
 Configuring Azure Diagnostics for PaaS resources is accomplished by executing the script, **Enable-AzureRMDiagnostics.ps1**, which is available from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52).  The script supports the following scenarios:
@@ -62,7 +62,7 @@ Perform the following steps to download and execute the script.
 
 The script will run against each and every resource matching selected criteria and enable metrics collection for them. After it’s finished, you will see a message indicating configuration is complete.  
 
-Shortly after completion, you will start to see data from the Azure PaaS resource in your Log Analytics repository.  A record with type `AzureMetrics` is created and analyzing these records are supported by the [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) and [Azure Web Apps Analytics](../../azure-monitor/insights/azure-web-apps-analytics.md) management solutions.   
+Shortly after completion, you will start to see data from the Azure PaaS resource in your Log Analytics repository.  A record with type `AzureMetrics` is created and analyzing these records are supported by the [Azure SQL Analytics](../insights/azure-sql.md) and [Azure Web Apps Analytics](../insights/azure-web-apps-analytics.md) management solutions.   
 
 ## Update a resource to send data to another workspace
 If you have a resource that is already sending data to a Log Analytics workspace and you later decide to reconfigure it to reference another workspace, you can run the script with the `-Update` parameter.  
@@ -74,8 +74,8 @@ You will be prompted to answer the same information as when you ran the script t
 
 ## Next steps
 
-* Learn about [log searches](../../azure-monitor/log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log searches](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
 
-* Use [Custom Fields](../../azure-monitor/platform/custom-fields.md)( to parse the event records into individual fields.
+* Use [Custom Fields](custom-fields.md)( to parse the event records into individual fields.
 
-* Review [Create a custom dashboard for use in Log Analytics](../../azure-monitor/platform/dashboards.md) to understand how to visualize your log searches in meaningful ways for the organization.
+* Review [Create and share dashboards of Log Analytics data](../learn/tutorial-logs-dashboards.md) to understand how to visualize your log searches in meaningful ways for the organization.

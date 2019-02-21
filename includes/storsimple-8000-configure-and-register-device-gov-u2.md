@@ -75,7 +75,7 @@ ms.author: alkohli
 15. Return to the Azure Government Portal, and complete the following steps:
     
     1. Go to your StorSimple Device Manager service.
-    2. Click **Devices**. From the list of devices, identify the device that you are ddeploying. Verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**.
+    2. Click **Devices**. From the list of devices, identify the device that you are deploying. Verify that the device has successfully connected to the service by looking up the status. The device status should be **Online**.
             
         If the device status is **Offline**, wait for a couple of minutes for the device to come online.
        

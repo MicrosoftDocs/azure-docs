@@ -3,7 +3,7 @@ title: General Purpose tier - Azure SQL Database service | Microsoft Docs
 description: Learn about the Azure SQL Database General Purpose tier
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

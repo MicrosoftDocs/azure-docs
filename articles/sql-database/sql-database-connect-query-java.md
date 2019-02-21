@@ -10,7 +10,7 @@ author: ajlam
 ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/20/2018
+ms.date: 12/01/2018
 ---
 # Quickstart: Use Java to query an Azure SQL database
 
@@ -21,8 +21,6 @@ This article demonstrates how to use [Java](/sql/connect/jdbc/microsoft-jdbc-dri
 To complete this sample, make sure you have the following prerequisites:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you're using
 
 - Java-related software installed for your operating system:
 

@@ -146,6 +146,8 @@
       href: connector-azure-cosmos-db.md
     - name: Azure Cosmos DB MongDB API
       href: connector-azure-cosmos-db-mongodb-api.md
+    - name: Azure Data Explorer
+      href: connector-azure-data-explorer.md
     - name: Azure Data Lake Storage Gen1
       href: connector-azure-data-lake-store.md
     - name: Azure Data Lake Storage Gen2
@@ -263,7 +265,9 @@
       href: connector-salesforce.md
     - name: Salesforce Marketing Cloud
       href: connector-salesforce-marketing-cloud.md
-    - name: SAP Business Warehouse
+    - name: SAP Business Warehouse Open Hub
+      href: connector-sap-business-warehouse-open-hub.md
+    - name: SAP Business Warehouse MDX
       href: connector-sap-business-warehouse.md
     - name: SAP Cloud for Customer
       href: connector-sap-cloud-for-customer.md

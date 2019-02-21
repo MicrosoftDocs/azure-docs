@@ -15,7 +15,8 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jeffgilb
-ms.reviewer: 
+ms.reviewer: unknown
+ms.lastreviewed: 09/11/2018
 ms.custom: mvc
 
 ---

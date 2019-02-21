@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -18,9 +18,9 @@ This tutorial describes procedures to connect to Azure Data Box Blob storage via
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+> * Prerequisites
 > * Connect to Data Box Blob storage via *http* or *https*
 > * Copy data to Data Box
-> * Prepare to ship
 
 ## Prerequisites
 
@@ -197,18 +197,17 @@ If you only want to copy source resources that do not exist in the destination, 
     AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 
 
-## Prepare to ship
-
-[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
+Next step is to prepare your device to ship.
 
 ## Next steps
 
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
+> * Prerequisites
 > * Connect to Data Box Blob storage via *http* or *https*
 > * Copy data to Data Box
-> * Prepare to ship
+
 
 Advance to the next tutorial to learn how to ship your Data Box back to Microsoft.
 

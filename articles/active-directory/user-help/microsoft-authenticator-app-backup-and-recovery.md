@@ -3,13 +3,13 @@ title: Backup and recover with Microsoft Authenticator app - Azure Active Direct
 description: Learn how to backup and recover your account credentials, using the Microsoft Authenticator app.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
-ms.component: user-help
+ms.subservice: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ---
@@ -35,11 +35,11 @@ Before you can back up your credentials, must have both:
 Requiring you to sign in to both accounts together provides stronger security for your backup information.
 
 **To turn on Cloud backup**
--	On your iOS device, select **Settings**, select **Backup**, and then turn on **Auto backup**.
+-	On your iOS device, select **Settings**, select **Backup**, and then turn on **iCloud backup**.
 
     Your account credentials are backed up to your iCloud account.
 
-    ![iOS settings screen, showing the location of the auto backup settings](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
+    ![iOS settings screen, showing the location of the iCloud backup settings](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
 
 ## Recover your account credentials on your new device
 You can recover your account credentials from your iCloud account, using the same Microsoft recovery account you set up when you backed up your information.
@@ -98,7 +98,6 @@ Now that you've backed up and recovered your account credentials to your new dev
 
 ## Related topics
 - [Get started with the Microsoft Authenticator app](microsoft-authenticator-app-how-to.md)  
-
 - [Microsoft Authenticator app FAQ](microsoft-authenticator-app-faq.md)
 
 - [Multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

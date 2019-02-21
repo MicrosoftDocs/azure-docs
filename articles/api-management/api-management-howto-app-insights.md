@@ -61,8 +61,10 @@ Before you can use Azure Application Insights, you first need to create an insta
 6. Check the **Enable** box.
 7. Select your attached logger in the **Destination** dropdown.
 8. Input **100** as **Sampling (%)** and tick the **Always log errors** checkbox.
-9. Input **1024** in the **First bytes of body** field.
-10. Click **Save**.
+9. Click **Save**.
+
+> [!WARNING]
+> Overriding the default value **0** in the **First bytes of body** field may significantly decrease the performance of your APIs.
 
 > [!NOTE]
 > Behind the scene, a [Diagnostic](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) entity named 'applicationinsights' is created at the API level.

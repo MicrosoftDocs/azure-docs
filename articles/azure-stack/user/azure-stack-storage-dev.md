@@ -9,6 +9,7 @@ ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
+ms.lastreviewed: 12/03/2018
 
 ---
 
@@ -119,7 +120,7 @@ public static final String storageConnectionString =
 
 For Azure Stack, the endpoint suffix is specified in the declaration instance:
 
-```nodejs
+```javascript
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
 'myaccount.blob.local.azurestack.external');
 ```

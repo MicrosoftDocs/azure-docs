@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/01/2018
+ms.date: 01/28/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in VMware so I can use it to transfer data to Azure.  
 ---
@@ -15,7 +15,7 @@ ms.author: alkohli
 
 ## Overview
 
-This tutorial describes how to provision a Data Box Gateway on a host system running VMware ESXi 6.0 or 6.5. 
+This tutorial describes how to provision a Data Box Gateway on a host system running VMware ESXi 6.0, 6.5, or 6.7. 
 
 You need administrator privileges to provision and connect to a virtual device. The provisioning and initial setup can take around 10 minutes to complete.
 
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-The prerequisites to provision a virtual device on a host system running VMware ESXi 6.0 or 6.5, are as follows.
+The prerequisites to provision a virtual device on a host system running VMware ESXi 6.0, 6.5, or 6.7, are as follows.
 
 ### For the Data Box Gateway resource
 
@@ -49,7 +49,7 @@ Before you begin, make sure that:
 
 Before you deploy a virtual device, make sure that:
 
-* You have access to a host system running VMware (ESXi 6.0 or 6.5) that can be used to a provision a device.
+* You have access to a host system running VMware (ESXi 6.0, 6.5, or 6.7) that can be used to a provision a device.
 * The host system is able to dedicate the following resources to provision your virtual device:
 
   * A minimum of 4 cores.
@@ -69,7 +69,7 @@ Before you begin:
 
 To create a virtual device, you need:
 
-* Access to a host system running VMware ESXi Server 6.0 or 6.5. The host system is able to dedicate the following resources to your virtual device:
+* Access to a host system running VMware ESXi Server 6.0, 6.5, or 6.7. The host system is able to dedicate the following resources to your virtual device:
  
   * A minimum of 4 cores.
   * At least 8 GB of RAM. 
@@ -85,7 +85,7 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
 1. Copy the virtual device image on your system. You downloaded this virtual image (two files) through the Azure portal. Make a note of the location where you copied the image as you are using this image later in the procedure.
 
-2. Log in to the ESXi server using the vSphere web client. You need to have administrator privileges to create a virtual machine.
+2. Sign in to the ESXi server using the vSphere web client. You need to have administrator privileges to create a virtual machine.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   

@@ -7,7 +7,7 @@ author: Jann-Skotdal
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko

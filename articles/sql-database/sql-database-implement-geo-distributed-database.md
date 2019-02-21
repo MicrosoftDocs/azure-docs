@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/03/2018
+ms.date: 01/10/2019
 ---
 # Tutorial: Implement a geo-distributed database
 

@@ -19,15 +19,48 @@ The following sections show the mapping between the data consistency requested b
 
 ## <a id="cassandra-mapping"></a>Mapping between Apache Cassandra and Azure Cosmos DB consistency levels
 
-This table shows the "read consistency" mapping between the Apache Cassandra 4.x client and the default consistency level in Azure Cosmos DB. The table shows multi-region and single-region deployments.
+This table shows the consistency mapping between the Apache Cassandra and consistency levels in Azure Cosmos DB. For each of Cassandra Read and Write consistency levels, the corresponding Cosmos DB Consistency Level provides stronger, i.e., stricter guarantees.
 
-| **Apache Cassandra 4.x** | **Azure Cosmos DB (multi-region)** | **Azure Cosmos DB (single region)** |
+The following table shows the **write consistency mapping** between Azure Cosmos DB and Cassandra:
+
+| Cassandra | Azure Cosmos DB | Guarantee |
 | - | - | - |
-| ONE, TWO, THREE | Consistent prefix | Consistent prefix |
-| LOCAL_ONE | Consistent prefix | Consistent prefix |
-| QUORUM, ALL, SERIAL | Bounded staleness is the default. Strong is in private preview. | Strong |
-| LOCAL_QUORUM | Bounded staleness | Strong |
-| LOCAL_SERIAL | Bounded staleness | Strong |
+|ALL|Strong	 | Linearizability |
+| EACH_QUORUM	| Strong	| Linearizability |	
+| QUORUM, SERIAL |	Strong |	Linearizability |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY	| Consistent Prefix |Global Consistent Prefix |
+| EACH_QUORUM	| Strong	| Linearizability |
+| QUORUM, SERIAL |	Strong |	Linearizability |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY	| Consistent Prefix | Global Consistent Prefix |
+| QUORUM, SERIAL | Strong	| Linearizability |
+| LOCAL_QUORUM, THREE, TWO, ONE, LOCAL_ONE, ANY	| Consistent Prefix | Global Consistent Prefix |
+| LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE	| Bounded Staleness | <ul><li>Bounded Staleness.</li><li>At most K versions or t time behind.</li><li>Read latest committed value in the region.</li></ul> |
+| ONE, LOCAL_ONE, ANY	| Consistent Prefix	| Per-region Consistent Prefix |
+
+The following table shows the **Read consistency mapping** between Azure Cosmos DB and Cassandra:
+
+| Cassandra | Azure Cosmos DB | Guarantee |
+| - | - | - |
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO, ONE, LOCAL_ONE | Strong	| Linearizability|
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO	|Strong |	Linearizability |
+|LOCAL_ONE, ONE	| Consistent Prefix	| Global Consistent Prefix |
+| ALL, QUORUM, SERIAL	| Strong	| Linearizability |
+| LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |	Consistent Prefix	| Global Consistent Prefix |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM |	Consistent Prefix	| Global Consistent Prefix |
+| ALL, QUORUM, SERIAL, LOCAL_QUORUM, LOCAL_SERIAL, THREE, TWO	|Strong |	Linearizability |
+| LOCAL_ONE, ONE	| Consistent Prefix	| Global Consistent Prefix|
+| ALL, QUORUM, SERIAL	Strong	Linearizability
+LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE	|Consistent Prefix	| Global Consistent Prefix |
+|ALL	|Strong	|Linearizability |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM	|Consistent Prefix	|Global Consistent Prefix|
+|ALL, QUORUM, SERIAL	Strong	Linearizability
+LOCAL_ONE, ONE, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE	|Consistent Prefix	|Global Consistent Prefix |
+|ALL	|Strong	| Linearizability |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM	| Consistent Prefix	| Global Consistent Prefix |
+| QUORUM, LOCAL_QUORUM, LOCAL_SERIAL, TWO, THREE |	Bounded Staleness	| <ul><li>Bounded Staleness.</li><li>At most K versions or t time behind. </li><li>Read latest committed value in the region.</li></ul>
+| LOCAL_ONE, ONE |Consistent Prefix	| Per-region Consistent Prefix |
+| LOCAL_ONE, ONE, TWO, THREE, LOCAL_QUORUM, QUORUM	| Consistent Prefix	| Per-region Consistent Prefix |
+
 
 ## <a id="mongo-mapping"></a>Mapping between MongoDB 3.4 and Azure Cosmos DB consistency levels
 

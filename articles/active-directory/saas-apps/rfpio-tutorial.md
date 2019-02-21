@@ -1,14 +1,14 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with RFPIO | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and RFPIO.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: 87187076-7b50-4247-814f-f217b052703f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na

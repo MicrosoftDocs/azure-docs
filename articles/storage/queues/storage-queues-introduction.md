@@ -8,7 +8,7 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
-ms.component: queues
+ms.subservice: queues
 ---
 # Introduction to Queues
 

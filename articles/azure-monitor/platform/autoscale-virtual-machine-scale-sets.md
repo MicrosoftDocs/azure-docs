@@ -7,7 +7,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
-ms.component: autoscale
+ms.subservice: autoscale
 ---
 
 # Advanced autoscale configuration using Resource Manager templates for VM Scale Sets

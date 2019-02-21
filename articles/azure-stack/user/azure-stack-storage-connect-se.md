@@ -11,9 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2018
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
+ms.lastreviewed: 01/24/2019
 
 ---
 # Connect storage explorer to an Azure Stack subscription or a storage account
@@ -33,7 +34,10 @@ After you connect to an Azure Stack subscription or a storage account, you can u
 
 You need direct access to the Azure Stack or a VPN connection for storage explorer to access the Azure Stack subscription. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
-For the Azure Stack Development Kit, you need to export the Azure Stack authority root certificate.
+For the Azure Stack Development Kit (ASDK), you need to export the Azure Stack authority root certificate.
+
+> [!Note]  
+> For the ASDK, if you are connecting to your ASDK via VPN, don't use the root certificate (CA.cer) that was created during the VPN setup process.  This is a DER-encoded certificate, and will not allow Storage Explorer to retrieve your Azure Stack subscriptions. Follow the steps below to export a Base-64 encoded certificate to use with Storage Explorer.
 
 ### Export and then import the Azure Stack certificate
 

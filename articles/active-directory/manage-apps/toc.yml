@@ -99,6 +99,8 @@
         href: application-proxy-configure-custom-home-page.md
       - name: Translate inline links
         href: application-proxy-configure-hard-coded-link-translation.md
+      - name: Configure cookie settings
+        href: application-proxy-configure-cookie-settings.md
       - name: Publish using wildcards
         href: application-proxy-wildcard.md
       - name: Remove personal data

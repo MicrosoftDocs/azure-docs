@@ -13,9 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/22/2018
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
+ms.lastreviewed: 01/24/2019
 
 ---
 
@@ -96,7 +97,7 @@ This update includes the following improvements for Azure Stack.
 <!--  TBD – IS, ASDK --> 
 - *Basic A* virtual machine sizes are retired for [creating virtual machine scale sets](azure-stack-compute-add-scalesets.md) (VMSS) through the portal. To create a VMSS with this size, use PowerShell or a template.  
 
-### Common Vulnerabilities and Exposures
+### Common vulnerabilities and exposures
 
 This update installs the following updates:  
 
@@ -252,6 +253,8 @@ The following are post-installation known issues for this build version.
 
 ### Compute
 
+- When creating a [Dv2 series VM](./user/azure-stack-vm-considerations.md#virtual-machine-sizes), D11-14v2 VMs allow you to create 4, 8, 16, and 32 data disks respectively. However, the create VM pane shows 8, 16, 32, and 64 data disks.
+
 <!-- 3164607 – IS, ASDK -->
 - Reattaching a detached disk to the same virtual machine (VM) with the same name and LUN fails with an error such as **Cannot attach data disk 'datadisk' to VM 'vm1'**. The error occurs because the disk is currently being detached or the last detach operation failed. Please wait until the disk is completely detached and then try again or delete/detach the disk explicitly again. The workaround is to reattach it with a different name, or on a different LUN. 
 
@@ -263,7 +266,7 @@ The following are post-installation known issues for this build version.
 
    1. If the subscription was created before the 1808 update, deploying VM with Managed Disks may fail with an internal error message. To resolve the error, follow these steps for each subscription:
       1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
-      2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
+      2. Under the same subscription, go to **Access Control (IAM)**, and verify that the **AzureStack-DiskRP-Client** role is listed.
    2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory may fail with an internal error message. To resolve the error, follow these steps:
       1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4481066/).
       2. Follow the steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.

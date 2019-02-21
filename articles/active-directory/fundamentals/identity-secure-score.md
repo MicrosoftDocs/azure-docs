@@ -5,10 +5,10 @@ services: active-directory
 keywords: identity secure score, Azure AD, secure access to company resources
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: overview 
 ms.devlang: na
 ms.tgt_pltfrm: na

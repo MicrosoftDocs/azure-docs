@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/07/2018
+ms.date: 01/16/2019
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -32,6 +32,8 @@ This tutorial covers the following tasks:
 > * Additional practices
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -154,7 +156,7 @@ The linked template creates a storage account. The linked template is almost ide
 
 ## Upload the linked template
 
-The main template and the linked template need to be accessible from where you run the deployment. In this tutorial, you use the Cloud shell deployment method as you used in [Tutorial: Create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). The main template (azuredeploy.json) is uploaded to the shell. The linked template (linkedTemplate.json) must be shared somewhere securely. The following PowerShell script creates an Azure Storage account, uploads the template to the Storage account, and then generates a SAS token to grant limited access to the template file. To simply the tutorial, the script downloads a completed linked template from a shared location. If you want to use the linked template you created, you can use the [Cloud shell](https://shell.azure.com) to upload your linked template, and then modify the script to use your own linked template.
+The main template and the linked template need to be accessible from where you run the deployment. In this tutorial, you use the Cloud shell deployment method as you used in [Tutorial: Create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md). The main template (azuredeploy.json) is uploaded to the shell. The linked template (linkedTemplate.json) must be shared somewhere securely. The following PowerShell script creates an Azure Storage account, uploads the template to the Storage account, and then generates a SAS token to grant limited access to the template file. To simplify the tutorial, the script downloads a completed linked template from a shared location. If you want to use the linked template you created, you can use the [Cloud shell](https://shell.azure.com) to upload your linked template, and then modify the script to use your own linked template.
 
 > [!NOTE]
 > The script limits the SAS token to be used within eight hours. If you need more time to complete this tutorial, increase the expiry time.
@@ -174,10 +176,10 @@ $fileName = "linkedStorageAccount.json" # A file name used for downloading and u
 Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
 
 # Create a resource group
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroup -Name $resourceGroupName -Location $location
 
 # Create a storage account
-$storageAccount = New-AzureRmStorageAccount `
+$storageAccount = New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $storageAccountName `
     -Location $location `

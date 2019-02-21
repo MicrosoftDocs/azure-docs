@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-ms.component: common
+ms.subservice: common
 ---
 
 # Retrieving state information for an Import/Export job

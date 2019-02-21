@@ -9,12 +9,12 @@ editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2018
+ms.date: 01/30/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
@@ -41,7 +41,7 @@ ms.custom: aaddev
 
 - For password SSO, please ensure that your application supports form authentication so that password vaulting can be done to get single sign-on work as expected.
 
-- For automatic user-provisioning requests, application should be listed in the gallery with single sign-on feature enabled using any of the federation protocol described above. You can request for SSO and User provisioning together on the portal, if it's not already listed.
+- For automatic user-provisioning requests, application should be listed in the gallery with single sign-on feature enabled using SAML 2.0/WS-Fed. You can request for SSO and User provisioning together on the portal, if it's not already listed.
 
 ## Submit the request in the portal
 

@@ -4,11 +4,11 @@ description: Azure Active Directory can automatically provision users and groups
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -119,7 +119,7 @@ To make this process easier, [code samples](https://github.com/Azure/AzureAD-BYO
 ### Getting Started
 The easiest way to implement a SCIM endpoint that can accept provisioning requests from Azure AD is to build and deploy the code sample that outputs the provisioned users to a comma-separated value (CSV) file.
 
-**To create a sample SCIM endpoint:**
+#### To create a sample SCIM endpoint
 
 1. Download the code sample package at [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 2. Unzip the package and place it on your Windows machine at a location such as C:\AzureAD-BYOA-Provisioning-Samples\.
@@ -141,7 +141,7 @@ The easiest way to implement a SCIM endpoint that can accept provisioning reques
 8. In Windows under **Windows Settings > Network & Internet Settings**, select the **Windows Firewall > Advanced Settings**, and create an **Inbound Rule** that allows inbound access to port 9000.
 9. If the Windows machine is behind a router, the router needs to be configured to perform Network Access Translation between its port 9000 that is exposed to the internet, and port 9000 on the Windows machine. This configuration is required for Azure AD to be able to access this endpoint in the cloud.
 
-**To register the sample SCIM endpoint in Azure AD:**
+#### To register the sample SCIM endpoint in Azure AD
 
 1. Sign in to [the Azure portal](https://portal.azure.com). 
 2. Browse to **Azure Active Directory > Enterprise Applications**, and select **New application > All > Non-gallery application**.
@@ -421,7 +421,7 @@ The following illustration shows the messages that Azure Active Directory sends 
      System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource[]>  Query(
        Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters parameters, 
        string correlationIdentifier);
-   ````
+   ```
 
    Here is the definition of the Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters interface: 
 

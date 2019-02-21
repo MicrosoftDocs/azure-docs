@@ -235,7 +235,7 @@ Next, you need to modify the manifest to use application roles within Azure AD t
     > [!IMPORTANT]
     > The value **Administrator** is needed to identify Blockchain Workbench administrators.
 
-4. In the manifest, also change the **Oauth2AllowImplictFlow** value to **true**.
+4. In the manifest, also change the **Oauth2AllowImplicitFlow** value to **true**.
 
     ``` json
     "oauth2AllowImplicitFlow": true,

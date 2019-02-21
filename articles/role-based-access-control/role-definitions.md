@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
@@ -54,27 +54,23 @@ Here's the [Contributor](built-in-roles.md#contributor) role definition in JSON 
 
 ```json
 {
-    "Name":  "Contributor",
-    "Id":  "b24988ac-6180-42a0-ab88-20f7382dd24c",
-    "IsCustom":  false,
-    "Description":  "Lets you manage everything except access to resources.",
-    "Actions":  [
-                    "*"
-                ],
-    "NotActions":  [
-                       "Microsoft.Authorization/*/Delete",
-                       "Microsoft.Authorization/*/Write",
-                       "Microsoft.Authorization/elevateAccess/Action"
-                   ],
-    "DataActions":  [
-
-                    ],
-    "NotDataActions":  [
-
-                       ],
-    "AssignableScopes":  [
-                             "/"
-                         ]
+  "Name": "Contributor",
+  "Id": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "IsCustom": false,
+  "Description": "Lets you manage everything except access to resources.",
+  "Actions": [
+    "*"
+  ],
+  "NotActions": [
+    "Microsoft.Authorization/*/Delete",
+    "Microsoft.Authorization/*/Write",
+    "Microsoft.Authorization/elevateAccess/Action"
+  ],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/"
+  ]
 }
 ```
 
@@ -100,25 +96,21 @@ Here's the [Storage Blob Data Reader (Preview)](built-in-roles.md#storage-blob-d
 
 ```json
 {
-    "Name":  "Storage Blob Data Reader (Preview)",
-    "Id":  "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
-    "IsCustom":  false,
-    "Description":  "Allows for read access to Azure Storage blob containers and data",
-    "Actions":  [
-                    "Microsoft.Storage/storageAccounts/blobServices/containers/read"
-                ],
-    "NotActions":  [
-
-                   ],
-    "DataActions":  [
-                        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
-                    ],
-    "NotDataActions":  [
-
-                       ],
-    "AssignableScopes":  [
-                             "/"
-                         ]
+  "Name": "Storage Blob Data Reader (Preview)",
+  "Id": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+  "IsCustom": false,
+  "Description": "Allows for read access to Azure Storage blob containers and data",
+  "Actions": [
+    "Microsoft.Storage/storageAccounts/blobServices/containers/read"
+  ],
+  "NotActions": [],
+  "DataActions": [
+    "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+  ],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/"
+  ]
 }
 ```
 
@@ -160,13 +152,21 @@ To view and work with data operations, you must have the correct versions of the
 
 | Tool  | Version  |
 |---------|---------|
-| [Azure PowerShell](/powershell/azure/install-azurerm-ps) | 5.6.0 or later |
+| [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 or later |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 or later |
 | [Azure for .NET](/dotnet/azure/) | 2.8.0-preview or later |
 | [Azure SDK for Go](/go/azure/azure-sdk-go-install) | 15.0.0 or later |
 | [Azure for Java](/java/azure/) | 1.9.0 or later |
 | [Azure for Python](/python/azure) | 0.40.0 or later |
 | [Azure SDK for Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 or later |
+
+To view and use the data operations in the REST API, you must set the **api-version** parameter to the following version or later:
+
+- 2018-01-01-preview
+
+The Azure portal also allows users to browse and manage the contents of Queues and Blob containers via the Azure AD preview experience. To see and manage the contents of a Queue or Blob container click the **Explore data using Azure AD preview** on the storage account Overview.
+
+![Explore Queues and Blob containers using Azure AD preview](./media/role-definitions/rbac-dataactions-browsing.png)
 
 ## Actions
 

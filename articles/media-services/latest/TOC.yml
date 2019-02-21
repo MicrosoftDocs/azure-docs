@@ -25,56 +25,40 @@
   - name: Azure code samples
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3 
   - name: Azure CLI
-    href: cli-samples.md
+    href: cli-samples.md        
 - name: Concepts
   items:
-  - name: Accounts
+  - name: Ingest
     items:
-    - name: Migrate from v2 to v3
-      href: migrate-from-v2-to-v3.md
-    - name: Quotas and limitations
-      href: limits-quotas-constraints.md   
-    - name: Storage accounts
-      href: storage-account-concept.md      
-  - name: Entities
-    href: entities-overview.md
-    items:
-    - name: Account and Asset filters 
-      href: filters-dynamic-manifest-overview.md      
     - name: Assets
-      href: assets-concept.md        
-    - name: Content key policies
-      href: content-key-policy-concept.md 
-    - name: LiveEvents and LiveOutputs
-      href: live-events-outputs-concept.md    
-    - name: Streaming endpoints
-      href: streaming-endpoint-concept.md
-    - name: Streaming locators
-      href: streaming-locators-concept.md
-    - name: Streaming policies
-      href: streaming-policy-concept.md
-    - name: Transforms and Jobs
-      href: transforms-jobs-concept.md   
-  - name: Encoding content
+      href: assets-concept.md    
+  - name: Encode 
     href: encoding-concept.md
     items:
+    - name: Transforms and Jobs
+      href: transforms-jobs-concept.md   
     - name: Media Encoder standard formats
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
-      href: autogen-bitrate-ladder.md
-  - name: Handling Event Grid events
-    href: reacting-to-media-services-events.md      
-  - name: Protecting content
-    items:
-    - name: Overview
-      href: content-protection-overview.md
-    - name: Multi-DRM system with access control
-      href: design-multi-drm-system-with-access-control.md
-  - name: Analyzing content
+      href: autogen-bitrate-ladder.md      
+  - name: Analyze 
     href: analyzing-video-audio-files-concept.md
-  - name: Streaming live events
+    items:
+    - name: Transforms and Jobs
+      href: transforms-jobs-concept.md   
+  - name: Stream
+    items:
+    - name: Streaming Endpoints
+      href: streaming-endpoint-concept.md
+    - name: Streaming Locators
+      href: streaming-locators-concept.md
+    - name: Streaming Policies
+      href: streaming-policy-concept.md
+  - name: Stream live
     href: live-streaming-overview.md
     items:
+    - name: Live Events and Live Outputs
+      href: live-events-outputs-concept.md    
     - name: Recommended live encoders
       href: recommended-on-premises-live-encoders.md
     - name: Using a cloud DVR
@@ -85,8 +69,37 @@
       href: live-event-states-billing.md
     - name: Latency
       href: live-event-latency.md
-  - name: Azure Media Player
+  - name: Deliver
+    items:
+    - name: Filters and dynamic manifest
+      href: filters-dynamic-manifest-overview.md     
+  - name: Monitor
+    items:
+    - name: Event Grid
+      href: reacting-to-media-services-events.md      
+  - name: Protect
+    href: content-protection-overview.md  
+    items:
+    - name: Content Key Policies
+      href: content-key-policy-concept.md 
+    - name: Streaming Policies
+      href: streaming-policy-concept.md
+    - name: Streaming Locators
+      href: streaming-locators-concept.md      
+    - name: Multi-DRM system with access control
+      href: design-multi-drm-system-with-access-control.md
+  - name: Playback
     href: use-azure-media-player.md
+  - name: Accounts
+    items:
+    - name: Quotas and limitations
+      href: limits-quotas-constraints.md   
+    - name: Storage accounts
+      href: storage-account-concept.md    
+  - name: Filter, order, page entities
+    href: entities-overview.md 
+  - name: Migrate from v2 to v3
+    href: migrate-from-v2-to-v3.md      
 - name: How-to guides
   items:
   - name: Get started
@@ -123,6 +136,8 @@
       href: protect-with-aes128.md    
     - name: DRM dynamic encryption - .NET
       href: protect-with-drm.md
+    - name: Get content key policy - .NET
+      href: get-content-key-policy-dotnet-howto.md
     - name: Offline FairPlay for iOS 
       href: offline-fairplay-for-ios.md
     - name: Offline Widevine for Android
@@ -141,12 +156,12 @@
   items:
   - name: OpenAPI Specification (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
-  - name: SDKs/Tools
+  - name: REST
+    href: https://aka.ms/ams-v3-rest-ref 
+  - name: Azure CLI
+    href: https://aka.ms/ams-v3-cli-ref    
+  - name: SDKs
     items:
-    - name: REST
-      href: https://aka.ms/ams-v3-rest-ref
-    - name: Azure CLI
-      href: https://aka.ms/ams-v3-cli-ref
     - name: .NET
       href: https://aka.ms/ams-v3-dotnet-ref
     - name: Java
@@ -157,6 +172,8 @@
       href: https://aka.ms/ams-v3-nodejs-ref
     - name: Go
       href: https://aka.ms/ams-v3-go-ref
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.media/allversions
   - name: Event Grid schemas
     href: media-services-event-schemas.md
   - name: DRM licenses
@@ -193,7 +210,12 @@
       href: https://aka.ms/ams-v3-nodejs-sdk   
     - name: Ruby
       href: https://aka.ms/ams-v3-ruby-sdk
+  - name: AMSE
+    href: https://github.com/Azure/Azure-Media-Services-Explorer
   - name: Release notes
     href: release-notes.md
   - name: FAQ
     href: frequently-asked-questions.md
+  - name: Azure clouds and regions
+    href: azure-clouds-regions.md
+

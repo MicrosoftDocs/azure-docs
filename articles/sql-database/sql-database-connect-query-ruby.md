@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 12/20/2018
+ms.date: 01/02/2019
 ---
 # Quickstart: Use Ruby to query an Azure SQL database
 
@@ -22,8 +22,6 @@ This quickstart demonstrates how to use [Ruby](https://www.ruby-lang.org) to con
 To complete this quickstart, you need the following prerequisites:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-  
-- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you use for this quickstart.
   
 - Ruby and related software for your operating system:
   

@@ -1,5 +1,5 @@
 ---
-title: How to unify multiple Azure Monitor Application Insights resources  | Microsoft Docs
+title: Unify multiple Azure Monitor Application Insights resources  | Microsoft Docs
 description: This article provides details on how to use a function in Azure Monitor Logs to query multiple Application Insights resources and visualize that data. 
 services: azure-monitor
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.date: 01/10/2019
 ms.author: magoedte
 ---
 
-# How to unify multiple Azure Monitor Application Insights resources 
+# Unify multiple Azure Monitor Application Insights resources 
 This article describes how to query and view all your Application Insights application log data in one place, even when they are in different Azure subscriptions, as a replacement for the deprecation of the Application Insights Connector.  
 
 ## Recommended approach to query multiple Application Insights resources 
@@ -46,7 +46,20 @@ app('Contoso-app5').requests
 >
 >The parse operator is optional in this example, it extracts the application name from SourceApp property. 
 
-You are now ready to use applicationsScoping function in the cross-resource query. The function alias returns the union of the requests from all the defined applications. The query then filters for failed requests and visualizes the trends by application. ![Cross-query results example](media/unify-app-resource-data/app-insights-query-results.png)
+You are now ready to use applicationsScoping function in the cross-resource query:  
+
+```
+applicationsScoping 
+| where timestamp > ago(12h)
+| where success == 'False'
+| parse SourceApp with * '(' applicationName ')' * 
+| summarize count() by applicationName, bin(timestamp, 1h) 
+| render timechart
+```
+
+The function alias returns the union of the requests from all the defined applications. The query then filters for failed requests and visualizes the trends by application.
+
+![Cross-query results example](media/unify-app-resource-data/app-insights-query-results.png)
 
 ## Query across Application Insights resources and workspace data 
 When you stop the Connector and need to perform queries over a time range that was trimmed by Application Insights data retention (90 days), you need to perform [cross-resource queries](../../azure-monitor/log-query/cross-workspace-query.md) on the workspace and Application Insights resources for an intermediate period. This is until your applications data accumulates per the new Application Insights data retention mentioned above. The query requires some manipulations since the schemas in Application Insights and the workspace are different. See the table later in this section highlighting the schema differences. 
@@ -59,7 +72,7 @@ applicationsScoping //this brings data from Application Insights resources
 | where success == 'False' 
 | where duration > 1000 
 | union ( 
-    ApplicationInsights //this is Application Insights data in Log Analytics worspace 
+    ApplicationInsights //this is Application Insights data in Log Analytics workspace 
     | where TimeGenerated < (datetime("2018-12-01") 
     | where RequestSuccess == 'False' 
     | where RequestDuration > 1000 
@@ -103,12 +116,12 @@ The following table shows the schema differences between Log Analytics and Appli
 | ExceptionMessage | message | 
 | ExceptionType | type |
 | OperationID | operation_id |
-| OperationName | opeation_Name | 
+| OperationName | operation_Name | 
 | OS | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duration | 
 | PageViewName | name | 
-| ParentOpeartionID | operation_Id | 
+| ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
 | RequestDuration | duration | 
 | RequestID | id | 

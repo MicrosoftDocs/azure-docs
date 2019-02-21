@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 03/21/2018
+ ms.date: 01/14/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -62,7 +62,7 @@ Yes, you can use BGP for both cross-premises connections and VNet-to-VNet connec
 Yes, you can mix both BGP and non-BGP connections for the same Azure VPN gateway.
 
 ### Does Azure VPN gateway support BGP transit routing?
-Yes, BGP transit routing is supported, with the exception that Azure VPN gateways will **NOT** advertise default routes to other BGP peers. To enable transit routing across multiple Azure VPN gateways, you must enable BGP on all intermediate VNet-to-VNet connections.
+Yes, BGP transit routing is supported, with the exception that Azure VPN gateways will **NOT** advertise default routes to other BGP peers. To enable transit routing across multiple Azure VPN gateways, you must enable BGP on all intermediate VNet-to-VNet connections. For more information, see [About BGP](../articles/vpn-gateway/vpn-gateway-bgp-overview.md).
 
 ### Can I have more than one tunnel between Azure VPN gateway and my on-premises network?
 Yes, you can establish more than one S2S VPN tunnel between an Azure VPN gateway and your on-premises network. Please note that all these tunnels will be counted against the total number of tunnels for your Azure VPN gateways and you must enable BGP on both tunnels.

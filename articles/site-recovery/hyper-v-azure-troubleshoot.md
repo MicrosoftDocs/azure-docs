@@ -105,7 +105,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
 5. Check that the Backup service is enabled. Verify that it is enabled in **Hyper-V settings** > **Integration Services**.
 6. Make sure there are no conflicts with apps taking VSS snapshots. If multiple apps are trying to take VSS snapshots at the same time conflicts can occur. For example, if a Backup app is taking VSS snapshots when Site Recovery is scheduled by your replication policy to take a snapshot.   
 7. Check if the VM is experiencing a high churn rate:
-    - You can measure the daily data change rate for the guest VMs, using performance counters on Hyper-V host. To measure the data change rate, enable the following counter. Aggregrate a sample of this value across the VM disks for 5-15 minutes, to get the VM churn.
+    - You can measure the daily data change rate for the guest VMs, using performance counters on Hyper-V host. To measure the data change rate, enable the following counter. Aggregate a sample of this value across the VM disks for 5-15 minutes, to get the VM churn.
         - Category: “Hyper-V Virtual Storage Device”
         - Counter: “Write Bytes / Sec”</br>
         - This data churn rate will increase or remain at a high level, depending on how busy the VM or its apps are.

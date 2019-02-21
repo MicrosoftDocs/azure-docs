@@ -3,14 +3,14 @@ title: Tutorial - Grant access to a Node.js web API from a desktop app using Azu
 description: Tutorial on how to use Active Directory B2C to protect a Node.js web api and call it from a .NET desktop app.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 
 ms.author: davidmu
 ms.date: 3/01/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Tutorial: Grant access to a Node.js web API from a desktop app using Azure Active Directory B2C
@@ -124,7 +124,7 @@ The Node.js web API sample uses the Passport.js library to enable Azure AD B2C t
 1. Open the `index.js` file in the Node.js web API sample.
 2. Configure the sample with the Azure AD B2C tenant registration information. Change the following lines of code:
 
-```nodejs
+```javascript
 var tenantID = "<your-tenant-name>.onmicrosoft.com";
 var clientID = "<Application ID for your Node.js Web API>";
 var policyName = "B2C_1_SiUpIn";  // Sign-in / sign-up policy name

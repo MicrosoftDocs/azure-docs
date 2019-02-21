@@ -7,7 +7,7 @@ author: anrothMSFT
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: emotion-api
+ms.subservice: emotion-api
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: anroth

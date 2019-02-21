@@ -13,16 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
 # As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
 
 ---
 # Tutorial: Configure HTTPS on an Azure CDN custom domain
-
-> [!IMPORTANT]
-> This feature is not available with **Azure CDN Standard from Akamai** products. For a comparison of Azure Content Delivery Network (CDN) features, see [Compare Azure CDN product features](cdn-features.md).
 
 This tutorial shows how to enable the HTTPS protocol for a custom domain that's associated with an Azure CDN endpoint. By using the HTTPS protocol on your custom domain (for example, https:\//www.contoso.com), you ensure that your sensitive data is delivered securely via TLS/SSL encryption when it is sent across the internet. When your web browser is connected to a web site via HTTPS, it validates the web site’s security certificate and verifies it’s issued by a legitimate certificate authority. This process provides security and protects your web applications from attacks.
 
@@ -62,7 +59,7 @@ When you use a CDN-managed certificate, the HTTPS feature can be turned on with 
 
 To enable HTTPS on a custom domain, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), browse to your **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** profile.
+1. In the [Azure portal](https://portal.azure.com), browse to your **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon** or **Azure CDN Premium from Verizon** profile.
 
 2. In the list of CDN endpoints, select the endpoint containing your custom domain.
 
@@ -185,6 +182,9 @@ Automatic validation typically takes a few mins. If you don’t see your domain 
 
 If the CNAME record entry for your endpoint no longer exists or it contains the cdnverify subdomain, follow the rest of the instructions in this step.
 
+>[!NOTE]
+>Email validation of custom domain ownership is currently unavailable for **Azure CDN from Akamai** profiles. This feature is currently in our backlog. 
+
 After you enable HTTPS on your custom domain, the DigiCert CA validates ownership of your domain by contacting its registrant, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests that are not approved within six business days are automatically canceled. 
 
 ![WHOIS record](./media/cdn-custom-ssl/whois-record.png)
@@ -299,15 +299,11 @@ The following table shows the operation progress that occurs when you disable HT
 	
 	A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued SSL certificates use SHA-256 for enhanced server security.
 
-5. *Can I use a custom domain HTTPS with Azure CDN from Akamai?*
-
-	Currently, this feature is not available with **Azure CDN Standard from Akamai** profiles. Microsoft is working on supporting this feature in the coming months.
-
-6. *Do I need a Certificate Authority Authorization record with my DNS provider?*
+5. *Do I need a Certificate Authority Authorization record with my DNS provider?*
 
     No, a Certificate Authority Authorization record is not currently required. However, if you do have one, it must include DigiCert as a valid CA.
 
-7. *On June 20, 2018, Azure CDN from Verizon started using a dedicated certificate with SNI TLS/SSL by default. What happens to my existing custom domains using Subject Alternative Names (SAN) certificate and IP-based TLS/SSL?*
+6. *On June 20, 2018, Azure CDN from Verizon started using a dedicated certificate with SNI TLS/SSL by default. What happens to my existing custom domains using Subject Alternative Names (SAN) certificate and IP-based TLS/SSL?*
 
     Your existing domains will be gradually migrated to single certificate in the upcoming months if Microsoft analyzes that only SNI client requests are made to your application. If Microsoft detects there some non-SNI client requests made to your application, your domains will stay in the SAN certificate with IP-based TLS/SSL. In any case, there will be no interruption to your service or support to your client requests regardless of whether those requests are SNI or non-SNI.
 

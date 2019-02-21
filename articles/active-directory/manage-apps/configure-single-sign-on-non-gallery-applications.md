@@ -3,9 +3,9 @@ title: Single sign-on - non-gallery applications - Azure Active Directory | Micr
 description: Configure single sign-on (SSO) to non-gallery applications in Azure Active Directory (Azure AD)
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
 ms.date: 01/08/2019

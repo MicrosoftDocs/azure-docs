@@ -47,6 +47,8 @@
     href: batch-quota-limit.md
   - name: Supported VM sizes
     href: batch-pool-vm-sizes.md
+  - name: High availability and disaster recovery
+    href: high-availability-disaster-recovery.md
 - name: How-to guides
   items:
   - name: Manage Batch accounts

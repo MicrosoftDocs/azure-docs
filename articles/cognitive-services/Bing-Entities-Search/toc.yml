@@ -4,6 +4,9 @@
   items:
     - name: What is Bing Entity Search?
       href: search-the-web.md
+    - name: Compare the Bing Search APIs
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: REST API Quickstarts
   expanded: true
   items:
@@ -43,12 +46,13 @@
       href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Entity+Search
 - name: How-to guides
   items:
-  - name: Use and display requirements
-    href: use-display-requirements.md
   - name: Resize and crop thumbnails
     href: resize-and-crop-thumbnails.md
 - name: Reference
   items:
+  - name: Bing Search API use and display requirements
+    href: ../Bing-Web-Search/use-display-requirements.md
+    maintainContext: true
   - name: Bing Entity Search API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference
   - name: SDKs

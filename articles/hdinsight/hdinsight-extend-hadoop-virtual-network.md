@@ -302,7 +302,7 @@ For more information, see the [Controlling network traffic](#networktraffic) sec
 
 ## <a id="hdinsight-ports"></a> Required ports
 
-If you plan on using a network **virtual appliance firewall** to secure the virtual network, you must allow outbound traffic on the following ports:
+If you plan on using a **firewall** to secure the virtual network and access the cluster on certain ports, you should allow traffic on the ports needed for your scenario. By default, you won't need to whitelist these ports:
 
 * 53
 * 443

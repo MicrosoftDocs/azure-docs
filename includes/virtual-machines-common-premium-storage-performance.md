@@ -459,7 +459,7 @@ We will use four worker threads for driving Write operations and four worker thr
 *Maximum Write IOPS*  
 Create the job file with following specifications to get maximum Write IOPS. Name it "fiowrite.ini".
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -499,7 +499,7 @@ While the test runs, you will be able to see the number of write IOPS the VM and
 *Maximum Read IOPS*  
 Create the job file with following specifications to get maximum Read IOPS. Name it "fioread.ini".
 
-```
+```ini
 [global]
 size=30g
 direct=1
@@ -539,7 +539,7 @@ While the test runs, you will be able to see the number of read IOPS the VM and 
 *Maximum Read and Write IOPS*  
 Create the job file with following specifications to get maximum combined Read and Write IOPS. Name it "fioreadwrite.ini".
 
-```
+```ini
 [global]
 size=30g
 direct=1

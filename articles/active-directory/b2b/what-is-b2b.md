@@ -4,13 +4,13 @@ description: Azure Active Directory B2B collaboration supports guest user access
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: overview
 ms.date: 09/14/2018
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: mal
 
 ---

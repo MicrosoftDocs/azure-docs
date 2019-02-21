@@ -1,5 +1,5 @@
 ---
-title: Delegate administrator roles in Azure Active Directory | Microsoft Docs
+title: Understand admin role delegation - Azure Active Directory | Microsoft Docs
 description: Delegation models, examples, and role security in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,9 +9,9 @@ editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro

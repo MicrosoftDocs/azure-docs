@@ -9,7 +9,7 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.component: disks
+ms.subservice: disks
 ---
 # Migrate to Premium Storage by using Azure Site Recovery
 

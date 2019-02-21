@@ -41,7 +41,7 @@ Capacities scale linearly, so an S1 SKU with capacity 2 supports 2 GB (2 million
 ## Change the capacity of your environment
 1. In the Azure portal, locate and select your Time Series Insights environment. 
 
-2. In the menu for your Time Series Insighs environment, select **Configure**.
+2. In the menu for your Time Series Insights environment, select **Configure**.
 
    ![configure.png](media/scale-your-environment/configure.png)
 

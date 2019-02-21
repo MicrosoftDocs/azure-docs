@@ -8,7 +8,7 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.component: blobs
+ms.subservice: blobs
 ---
 
 # Reacting to Blob storage events

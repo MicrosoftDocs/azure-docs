@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 01/25/2019
 ---
 # Scale elastic pool resources in Azure SQL Database
 

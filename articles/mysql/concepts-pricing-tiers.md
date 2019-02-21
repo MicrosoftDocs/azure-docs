@@ -5,7 +5,7 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 02/01/2019
 ---
 
 # Azure Database for MySQL pricing tiers
@@ -47,14 +47,14 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | South Central US | X | X |
 | West US | X | X |
 | West US 2 |  | X |
+| Brazil South | X | X |
 | Canada Central | X | X |
 | Canada East | X | X |
-| Brazil South | X | X |
 | North Europe | X | X |
 | West Europe |  | X |
 | France Central |  | X |
-| UK West |  | X |
 | UK South |  | X |
+| UK West |  | X |
 | East Asia | X | X |
 | Southeast Asia | X | X |
 | Australia East |  | X |
@@ -62,17 +62,22 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Australia Central 2 |  | X |
 | Australia Southeast |  | X |
 | Central India | X | X |
-| West India | X | X |
 | South India |  | X |
+| West India | X | X |
 | Japan East | X | X |
 | Japan West | X | X |
 | Korea Central |  | X |
 | Korea South |  | X |
+| China East 1 | X |  |
+| China East 2 |  | X |
+| China North 1 | X |  |
+| China North 2 |  | X |
 | Germany Central |  | X |
 | US DoD Central  | X |  |
 | US DoD East  | X |  |
 | US Gov Arizona |  | X |
 | US Gov Texas |  | X |
+| US Gov Virginia |  | X |
 
 ## Storage
 
@@ -116,5 +121,5 @@ For the most up-to-date pricing information, see the service [pricing page](http
 ## Next steps
 
 - Learn how to [create a MySQL server in the portal](howto-create-manage-server-portal.md).
-- Learn how to [monitor and scale an Azure Database for MySQL server by using Azure CLI](scripts/sample-scale-server.md).
-- Learn about the [service limitations](concepts-limits.md).
+- Learn about [service limits](concepts-limits.md).
+- Learn how to [scale out with read replicas](howto-read-replicas-portal.md).

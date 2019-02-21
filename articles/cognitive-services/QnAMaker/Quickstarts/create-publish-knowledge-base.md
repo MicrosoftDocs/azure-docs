@@ -5,7 +5,7 @@ description: You can create a QnA Maker knowledge base (KB) from your own conten
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: diberry

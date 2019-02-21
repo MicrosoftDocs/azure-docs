@@ -32,6 +32,9 @@ ms.date: 08/17/2018
 
 ## Release notes
 
+### <a name="2.1.0"/>2.1.0
+* Bug fixes
+
 ### <a name="2.0.0"/>2.0.0
 * Added Multi-region write support
 * Fixed NuGet package dependencies on Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm, Microsoft.Spatial
@@ -67,6 +70,8 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |January 22, 2019|--- |
+| [2.0.0](#2.0.0) |September 26, 2018|--- |
 | [1.1.3](#1.1.3) |July 17, 2018|--- |
 | [1.1.1](#1.1.1) |March 26, 2018|--- |
 | [1.1.0](#1.1.0) |February 21, 2018|--- |

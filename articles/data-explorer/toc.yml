@@ -8,10 +8,14 @@
   items:
   - name: Create a cluster - Azure portal
     href: create-cluster-database-portal.md
+  - name: Create a cluster - Azure CLI
+    href: create-cluster-database-cli.md
   - name: Ingest data
     items:
     - name: Streaming data - Event Hub
       href: ingest-data-event-hub.md
+    - name: Streaming data - Event Grid
+      href: ingest-data-event-grid.md
     - name: Streaming data - Kafka
       href: ingest-data-kafka.md
     - name: Batching data - Python
@@ -20,6 +24,8 @@
       href: node-ingest-data.md
     - name: Batching data - .NET Standard SDK
       href: net-standard-ingest-data.md
+    - name: Batching data - Logstash
+      href: ingest-data-logstash.md
   - name: Query data
     items:
     - name: Web UI
@@ -61,8 +67,10 @@
       href: manage-database-permissions.md
     - name: Check cluster health
       href: check-cluster-health.md
-    - name: Manage cluster scaling
-      href: manage-cluster-scaling.md
+    - name: Manage cluster scale out
+      href: manage-cluster-scale-out.md
+    - name: Manage cluster scale up
+      href: manage-cluster-scale-up.md
     - name: Delete data
       href: delete-data.md
     - name: Deal with duplicate data

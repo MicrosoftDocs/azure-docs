@@ -140,7 +140,7 @@ Using PowerShell cmdlets, users cannot create files under the Azure drive. When 
 
 ### Commands that create GUI pop-ups are not supported
 
-If the user runs a command that would create a Windows dialog box, such as `Connect-AzureAD` or `Connect-AzureRmAccount`, one sees an error message such as: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
+If the user runs a command that would create a Windows dialog box, such as `Connect-AzureAD`, `Connect-AzureRmAccount`, or `Connect-AzAccount`, one sees an error message such as: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### Tab completion can throw PSReadline exception
 

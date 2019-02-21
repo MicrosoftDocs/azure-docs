@@ -103,6 +103,16 @@
       href: concepts-connectivity.md
     - name: Develop with Azure Kubernetes Service (AKS)
       href: concepts-aks.md
+    - name: Java
+      items:
+      - name: Configure Spring Data JDBC
+        href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
+      - name: Configure Spring Data JPA
+        href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
+  - name: Replication
+    items:
+    - name: Read replicas
+      href: concepts-read-replicas.md
 - name: How-to guides
   items:
   - name: Create users 
@@ -171,6 +181,10 @@
     items:
     - name: Azure portal
       href: howto-restart-server-portal.md
+  - name: Replication
+    items:
+    - name: Manage read replicas Azure portal
+      href: howto-read-replicas-portal.md
 - name: Reference
   items:
   - name: Azure CLI

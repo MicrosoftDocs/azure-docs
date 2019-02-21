@@ -6,7 +6,7 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: overview
 ms.date: 12/06/2018
 ms.author: erhopf

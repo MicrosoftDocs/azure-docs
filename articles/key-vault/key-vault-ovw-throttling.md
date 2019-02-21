@@ -48,6 +48,7 @@ Code that implements exponential backoff is shown below.
          bool retry = false;
          try
          {
+             /* The below 4 lines of code shows you how to use AppAuthentication library to fetch secrets from your Key Vault*/
              AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
              KeyVaultClient keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
              var secret = await keyVaultClient.GetSecretAsync("https://<YourKeyVaultName>.vault.azure.net/secrets/AppSecret")

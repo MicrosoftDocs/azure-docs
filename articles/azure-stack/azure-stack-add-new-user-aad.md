@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
+ms.lastreviewed: 09/17/2018
 ---
 
 # Add a new Azure Stack tenant account in Azure Active Directory

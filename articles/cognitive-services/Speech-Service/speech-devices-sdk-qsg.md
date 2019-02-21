@@ -7,7 +7,7 @@ author: erhopf
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
@@ -43,7 +43,7 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
 ## Set up the development kit
 
-1. Connect the development kit to a PC or power adapter by using a mini USB cable. When the kit is connected, a green power indicator lights up under the top board.
+1. Connect the development kit to a PC or power adapter by using a high quality micro USB cable. A green power indicator will light up under the top board.
 
 1. Connect the development kit to a computer by using a second mini USB cable.
 
@@ -71,6 +71,8 @@ Before you begin developing with the Speech Devices SDK, gather the information 
 
     > [!NOTE]
     > These commands use the Android Debug Bridge, `adb.exe`, which is part of the Android Studio installation. This tool is located in C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. You can add this directory to your path to make it more convenient to invoke `adb`. Otherwise, you must specify the full path to your installation of adb.exe in every command that invokes `adb`.
+    >
+    > If you see an error `no devices/emulators found` then check your USB cable is conected and is a high quality cable. You can use `adb devices` to check that your computer can talk to the development kit as it will return a list of devices.
 
     > [!TIP]
     > Mute your PC's microphone and speaker to be sure you are working with the development kit's microphones. This way, you won't accidentally trigger the device with audio from the PC.

@@ -67,7 +67,7 @@ The template that is used is available on the [Azure Service Fabric template sam
 The following command can create either Windows or Linux clusters, you need to specify the OS accordingly. The PowerShell/CLI commands also output the certificate in the specified *CertificateOutputFolder*; however, make sure certificate folder already created. The command takes in other parameters such as VM SKU as well.
 
 > [!NOTE]
-> The following PowerShell command only works with Azure Resource Manager PowerShell version > 6.1. To check the current version of Azure Resource Manager PowerShell version, run the following PowerShell command "Get-Module AzureRM". Follow [this link](/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0) to upgrade your Azure Resource Manager PowerShell version. 
+> The following PowerShell command only works with Azure Resource Manager PowerShell version > 6.1. To check the current version of Azure Resource Manager PowerShell version, run the following PowerShell command "Get-Module AzureRM". Follow [this link](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.3.0) to upgrade your Azure Resource Manager PowerShell version. 
 >
 >
 
@@ -289,7 +289,7 @@ At this point, you have a secure cluster running in Azure. Next, [connect to you
 For the JSON syntax and properties to use a template, see [Microsoft.ServiceFabric/clusters template reference](/azure/templates/microsoft.servicefabric/clusters).
 
 <!-- Links -->
-[azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[azure-powershell]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template

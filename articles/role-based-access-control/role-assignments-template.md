@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -87,16 +87,18 @@ The following shows an example of a Reader role assignment to a user after deplo
 
 ## Deploy template using Azure PowerShell
 
+[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+
 To deploy the previous template using Azure PowerShell, follow these steps.
 
 1. Create a new file named rbac-rg.json and copy the previous template.
 
 1. Sign in to [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-1. Get the unique identifier of a user, group, or application. For example, you can use the [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) command to list Azure AD users.
+1. Get the unique identifier of a user, group, or application. For example, you can use the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) command to list Azure AD users.
 
     ```azurepowershell
-    Get-AzureRmADUser
+    Get-AzADUser
     ```
 
 1. Use a GUID tool to generate a unique identifier that will be used for the role assignment. The identifier has the format: `11111111-1111-1111-1111-111111111111`
@@ -104,21 +106,21 @@ To deploy the previous template using Azure PowerShell, follow these steps.
 1. Create an example resource group.
 
     ```azurepowershell
-    New-AzureRmResourceGroup -Name ExampleGroup -Location "Central US"
+    New-AzResourceGroup -Name ExampleGroup -Location "Central US"
     ```
 
-1. Use the [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) command to start the deployment.
+1. Use the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) command to start the deployment.
 
     ```azurepowershell
-    New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
+    New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
     ```
 
     You are asked to specify the required parameters. The following shows an example of the output.
 
     ```Output
-    PS /home/user> New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
+    PS /home/user> New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-rg.json
     
-    cmdlet New-AzureRmResourceGroupDeployment at command pipeline position 1
+    cmdlet New-AzResourceGroupDeployment at command pipeline position 1
     Supply values for the following parameters:
     (Type !? for Help.)
     principalId: 22222222-2222-2222-2222-222222222222

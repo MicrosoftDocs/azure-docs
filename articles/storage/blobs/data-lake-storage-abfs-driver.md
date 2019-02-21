@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ---
 
 # The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Hadoop

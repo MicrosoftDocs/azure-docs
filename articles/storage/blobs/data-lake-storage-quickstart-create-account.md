@@ -3,7 +3,7 @@ title: Create an Azure Data Lake Storage Gen2 storage account | Microsoft Docs
 description: Quickly learn to create a new storage account with access to Data Lake Storage Gen2 using the Azure portal, Azure PowerShell, or the Azure CLI
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
@@ -120,11 +120,8 @@ Start by opening a PowerShell session with elevated permissions.
 Install the Az.Storage module
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -RequiredVersion 0.7.0 -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
-
-> [!NOTE]
-> Azure Powershell Az modules are the preferred modules for working with Azure services in Powershell. To learn more, see [Introducing the new Azure PowerShell Az module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 ### Log in to your Azure Subscription
 
@@ -190,7 +187,7 @@ To do that, enter the following command by using either the Cloud Shell or a loc
 
 ### Create a resource group
 
-To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group#az_group_create) command.
+To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group) command.
 
 ```azurecli-interactive
 az group create `
@@ -203,7 +200,7 @@ az group create `
 
 ### Create a general-purpose v2 storage account
 
-To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account) command.
 
 ```azurecli-interactive
 az storage account create `
@@ -217,7 +214,7 @@ az storage account create `
 
 ### Clean up resources
 
-To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group#az_group_delete) command.
+To remove the resource group and its associated resources, including the new storage account, use the [az group delete](/cli/azure/group) command.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

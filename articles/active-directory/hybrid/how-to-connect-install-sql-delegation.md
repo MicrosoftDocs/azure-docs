@@ -3,7 +3,7 @@ title: 'Install Azure AD Connect using SQL delegated administrator permissions |
 description: This topic describes an update to Azure AD Connect that allows for installation using an account that only has SQL dbo permissions.
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: jparsons
 ms.assetid:
@@ -11,9 +11,9 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ---
 

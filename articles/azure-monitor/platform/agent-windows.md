@@ -95,7 +95,7 @@ The following table highlights the specific Log Analytics parameters supported b
 |OPINSIGHTS_PROXY_USERNAME               | Username to access an authenticated proxy |
 |OPINSIGHTS_PROXY_PASSWORD               | Password to access an authenticated proxy |
 
-1. To extract the agent installation files, from an elevated command prompt run `MMASetup-<platform>.exe /c` and it will prompt you for the path to extract files to.  Alternatively, you can specify the path by passing the arguments `MMASetup-<platform>.exe /c /t:<Path>`.  
+1. To extract the agent installation files, from an elevated command prompt run `MMASetup-<platform>.exe /c` and it will prompt you for the path to extract files to.  Alternatively, you can specify the path by passing the arguments `MMASetup-<platform>.exe /c /t:<Full Path>`.  
 2. To silently install the agent and configure it to report to a workspace in Azure commercial cloud, from the folder you extracted the setup files to type: 
    
      ```dos

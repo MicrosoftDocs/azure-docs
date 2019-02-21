@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
+ms.lastreviewed: 10/15/2018
 
 ---
 # Integrate external monitoring solution with Azure Stack

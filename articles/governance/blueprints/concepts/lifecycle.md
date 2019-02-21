@@ -4,7 +4,7 @@ description: Learn about the lifecycle that a blueprint goes through and details
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
@@ -30,9 +30,9 @@ To fully understand a blueprint and the stages, we'll cover a standard lifecycle
 
 ## Creating and editing a blueprint
 
-When creating a blueprint, add artifacts to it, save to a management group, and provided a unique
-name and a unique version. The blueprint is now in a **Draft** mode and can't yet be assigned.
-While in the **Draft** mode, it can continue to be updated and changed.
+When creating a blueprint, add artifacts to it, save to a management group or subscription, and
+provided a unique name and a unique version. The blueprint is now in a **Draft** mode and can't yet
+be assigned. While in the **Draft** mode, it can continue to be updated and changed.
 
 A never published blueprint in **Draft** mode displays a different icon on the **Blueprint
 Definitions** page than ones that have been **Published**. The **Latest Version** is also displayed

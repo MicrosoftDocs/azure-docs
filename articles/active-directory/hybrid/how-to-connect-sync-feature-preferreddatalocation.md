@@ -4,16 +4,16 @@ description: Describes how to put your Office 365 user resources close to the us
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
 ---
@@ -26,7 +26,7 @@ By default, Office 365 resources for your users are located in the same geo as y
 By setting the attribute **preferredDataLocation**, you can define a user's geo. You can have the user's Office 365 resources, such as the mailbox and OneDrive, in the same geo as the user, and still have one tenant for your entire organization.
 
 > [!IMPORTANT]
-> Multi-Geo is currently available to customers with a minimum of 5000 Office 365 Services subscriptions. Please talk to your Microsoft representative for details.
+> Multi-Geo is currently available to customers with a minimum of 2,500 Office 365 Services subscriptions. Please talk to your Microsoft representative for details.
 >
 >
 
@@ -48,7 +48,7 @@ The geos in Office 365 available for Multi-Geo are:
 | United States | NAM |
 
 * If a geo is not listed in this table (for example, South America), then it cannot be used for Multi-Geo.
-* The India geo is only available to customers with billing address and licenses purchased in this geo.
+
 * Not all Office 365 workloads support the use of setting a user's geo.
 
 ### Azure AD Connect support for synchronization

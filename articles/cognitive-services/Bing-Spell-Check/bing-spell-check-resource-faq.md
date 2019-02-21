@@ -7,7 +7,7 @@ author: HeidiSteen
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist

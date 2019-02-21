@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
+ms.subservice: disks
 
 ---
 # How to detach a data disk from a Windows virtual machine

@@ -7,7 +7,7 @@ author: kegodin
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: kegodin

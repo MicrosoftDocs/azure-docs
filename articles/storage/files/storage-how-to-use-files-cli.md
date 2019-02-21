@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
-ms.component: files
+ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
@@ -30,7 +30,7 @@ az login
 ```
 
 ## Create a resource group
-A resource group is a logical container in which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can use the [az group create](/cli/azure/group#create) command to create one. 
+A resource group is a logical container in which Azure resources are deployed and managed. If you don't already have an Azure resource group, you can use the [az group create](/cli/azure/group) command to create one. 
 
 The following example creates a resource group named *myResourceGroup* in the *East US* location:
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 ## Create a storage account
 A storage account is a shared pool of storage in which you can deploy Azure file shares or other storage resources, such as blobs or queues. A storage account can contain an unlimited number of file shares. A share can store an unlimited number of files, up to the capacity limits of the storage account.
 
-The following example creates a storage account named *mystorageaccount\<random number\>* by using the [az storage account create](/cli/azure/storage/account#create) command, and then puts the name of that storage account in the `$STORAGEACCT` variable. Storage account names must be unique. Using `$RANDOM` appends a number to the storage account name to make it unique. 
+The following example creates a storage account named *mystorageaccount\<random number\>* by using the [az storage account create](/cli/azure/storage/account) command, and then puts the name of that storage account in the `$STORAGEACCT` variable. Storage account names must be unique. Using `$RANDOM` appends a number to the storage account name to make it unique. 
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
@@ -63,7 +63,7 @@ STORAGEKEY=$(az storage account keys list \
 ```
 
 ## Create an Azure file share
-Now, you can create your first Azure file share. Create file shares by using the [az storage share create](/cli/azure/storage/share#create) command. This example creates an Azure file share named *myshare*: 
+Now, you can create your first Azure file share. Create file shares by using the [az storage share create](/cli/azure/storage/share) command. This example creates an Azure file share named *myshare*: 
 
 ```azurecli-interactive
 az storage share create \
@@ -94,7 +94,7 @@ We expect most uses of Azure Files will want to work with their Azure file share
 The following examples show how to use the Azure CLI to manipulate your Azure file share with the File REST protocol. 
 
 ### Create a directory
-To create a new directory named *myDirectory* at the root of your Azure file share, use the [`az storage directory create`](/cli/azure/storage/directory#az_storage_directory_create) command:
+To create a new directory named *myDirectory* at the root of your Azure file share, use the [`az storage directory create`](/cli/azure/storage/directory) command:
 
 ```azurecli-interactive
 az storage directory create \
@@ -105,7 +105,7 @@ az storage directory create \
 ```
 
 ### Upload a file
-To demonstrate how to upload a file by using the [`az storage file upload`](/cli/azure/storage/file#az_storage_file_upload) command, first create a file to upload on the Cloud Shell scratch drive. In the following example, you create and then upload the file:
+To demonstrate how to upload a file by using the [`az storage file upload`](/cli/azure/storage/file) command, first create a file to upload on the Cloud Shell scratch drive. In the following example, you create and then upload the file:
 
 ```azurecli-interactive
 date > ~/clouddrive/SampleUpload.txt
@@ -258,7 +258,7 @@ az storage share delete \
 ```
 
 ## Clean up resources
-When you are done, you can use the [`az group delete`](/cli/azure/group#delete) command to remove the resource group and all related resources: 
+When you are done, you can use the [`az group delete`](/cli/azure/group) command to remove the resource group and all related resources: 
 
 ```azurecli-interactive 
 az group delete --name "myResourceGroup"

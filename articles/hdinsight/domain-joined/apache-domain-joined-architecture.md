@@ -49,9 +49,41 @@ For more information, see [Configure HDInsight clusters with ESP using Azure AD 
 
 If you have an on-premises Active Directory instance or more complex Active Directory setups for your domain, you can sync those identities to Azure AD by using Azure AD Connect. You can then enable Azure AD DS on that Active Directory tenant. 
 
-Because Kerberos relies on password hashes, you'll need to [enable password hash sync on Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). If you're using federation with Active Directory Federation Services (AD FS), you can optionally set up password hash sync as a backup in case your AD FS infrastructure fails. For more information, see [Enable password hash sync with Azure AD Connect sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
+Because Kerberos relies on password hashes, you must [enable password hash sync on Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). 
+
+If you're using federation with Active Directory Federation Services (ADFS), you must enable password hash sync (a recommended setup, please see [this](https://youtu.be/qQruArbu2Ew)) which also helps with disaster recovery in case your ADFS infrastructure fails and leaked credential protection. For more information, see [Enable password hash sync with Azure AD Connect sync](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
 Using on-premises Active Directory or Active Directory on IaaS VMs alone, without Azure AD and Azure AD DS, is not a supported configuration for HDInsight clusters with ESP.
+
+If federation is being used and password hashes are synced correcty, but you are getting authentication failures, please check if powershell service principle cloud password authetication is enabled, If not, you must set a [Home Realm Discovery (HRD) policy](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) for your AAD tenant. To chek and set the HRD policy:
+
+ 1. Install AzureAD powershell module
+
+ ```
+  Install-Module AzureAD
+ ```
+
+ 2. ```Connect-AzureAD``` using a global administrator (tenant administrator) credentials
+
+ 3. Check if the “Microsoft Azure Powershell” service principal has already been created
+
+ ```
+  $powershellSPN = Get-AzureADServicePrincipal -SearchString "Microsoft Azure Powershell"
+ ```
+
+ 4. If it doesn't exist (i.e. if ($powershellSPN -eq $null)) then create the service principal
+
+ ```
+  $powershellSPN = New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+ ```
+
+ 5. Create and Attach the policy to this service principal: 
+
+ ```
+ $policy = New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+
+ Add-AzureADServicePrincipalPolicy -Id $powershellSPN.ObjectId -refObjectID $policy.ID
+ ```
 
 ## Next steps
 

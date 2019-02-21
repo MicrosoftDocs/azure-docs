@@ -257,6 +257,9 @@ Start a command prompt and run the Thales new-world program.
 
 This program creates a **Security World** file at %NFAST_KMDATA%\local\world, which corresponds to the C:\ProgramData\nCipher\Key Management Data\local folder. You can use different values for the quorum but in our example, you’re prompted to enter three blank cards and pins for each one. Then, any two cards give full access to the security world. These cards become the **Administrator Card Set** for the new security world.
 
+> [!NOTE]
+> If your HSM supports newer cypher suite DLf3072s256mRijndael, you can replace --cipher-suite=DLf1024s160mRijndael with --cipher-suite=DLf3072s256mRijndael
+
 Then do the following:
 
 * Back up the world file. Secure and protect the world file, the Administrator Cards, and their pins, and make sure that no single person has access to more than one card.

@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
+ms.lastreviewed: 10/15/2018
 ---
 
 # Start and stop Azure Stack

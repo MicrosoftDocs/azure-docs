@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/25/2019
 ms.author: bwren
 ---
 
@@ -43,6 +43,7 @@ The `app` expression is used in a Log Analytics query to retrieve data from a sp
 * You must have read access to the application.
 * Identifying an application by its name assumes that it is unique across all accessible subscriptions. If you have multiple applications with the specified name, the query will fail because of the ambiguity. In this case you must use one of the other identifiers.
 * Use the related expression [workspace](workspace-expression.md) to query across Log Analytics workspaces.
+* The app() expression is currently not supported in the search query when using the Azure portal to create a [custom log search alert rule](../platform/alerts-log.md), unless an Application Insights application is used as the resource for the alert rule.
 
 ## Examples
 

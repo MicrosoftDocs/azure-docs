@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/16/2019
 ms.author: spelluru
 
 ---
@@ -28,7 +28,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 2. Select **Sign in**. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts. 
 3. In the **New Lab** window, do the following actions: 
     1. Specify a **name** for your lab. 
-    2. Specify **number of users** allowed into the lab. 
+    2. Specify the maximum **number of virtual machines** in the lab. You can increase or decrease the number of virtual machines in the lab later. 
     6. Select **Save**.
 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)

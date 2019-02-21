@@ -3,7 +3,7 @@ title: Azure Data Lake Storage Gen2 Spark Performance Tuning Guidelines | Micros
 description: Azure Data Lake Storage Gen2 Spark Performance Tuning Guidelines
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
@@ -41,7 +41,7 @@ This is the amount of memory that is being allocated to each executor.  The memo
 **Executor-cores**
 This sets the number of cores used per executor, which determines the number of parallel threads that can be run per executor.  For example, if executor-cores = 2, then each executor can run 2 parallel tasks in the executor.  The executor-cores needed will be dependent on the job.  I/O heavy jobs do not require a large amount of memory per task so each executor can handle more parallel tasks.
 
-By default, two virtual YARN cores are defined for each physical core when running Spark on HDInsight.  This number provides a good balance of concurrecy and amount of context switching from multiple threads.  
+By default, two virtual YARN cores are defined for each physical core when running Spark on HDInsight.  This number provides a good balance of concurrency and amount of context switching from multiple threads.  
 
 ## Guidance
 
