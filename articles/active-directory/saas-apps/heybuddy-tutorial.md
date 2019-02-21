@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/18/2019
+ms.date: 02/21/2019
 ms.author: jeedes
 
 ---
@@ -110,14 +110,14 @@ To configure Azure AD single sign-on with HeyBuddy, perform the following steps:
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier (Entity ID). The `Entity ID` in the Sign on url is auto generated for each organization. Contact [HeyBuddy Client support team](mailto:support@heybuddy.com) to get these values.
 
-5. HeyBuddy application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+5. Your HeyBuddy application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
 	![image](common/edit-attribute.png)
 
 	> [!NOTE]
 	> Please refer to this [link](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) on how to configure and setup the roles for the application.
 
-6. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
+6. In addition to above, HeyBuddy application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
 	| Name |  Source Attribute|
 	| -------- | --------- |
