@@ -96,6 +96,8 @@
       href: security-center-managing-and-responding-alerts.md
     - name: Security incidents
       href: security-center-incident.md
+    - name: Exporting alert logs to Log Analytics
+      href: security-center-alert-export.md   
     - name: Understanding security alerts
       href: security-center-alerts-type.md
     - name: Alert validation
