@@ -14,12 +14,8 @@
     href: manage-app-groups.md
   - name: 4. Create service principals and role assignments with PowerShell
     href: create-service-principal-role-powershell.md
-  - name: 5. Connect to Windows Virtual Desktop
-    href: connect.md
 - name: How-to
   items:
-  - name: Connect to a Remote Desktop environment
-    href: tenant-setup-remote-desktop.md
   - name: Connect to Windows Virtual Desktop resources
     items:
       - name: Connect with Windows 7 and Windows 10
