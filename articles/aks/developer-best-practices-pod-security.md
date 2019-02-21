@@ -73,6 +73,9 @@ AKS includes two ways to automatically authenticate pods or request credentials 
 
 ### Use pod managed identities
 
+> [!IMPORTANT]
+> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+
 A managed identity for Azure resources lets a pod authenticate itself against any service in Azure that supports it such as Storage, SQL. The pod is assigned an Azure Identity that lets them authenticate to Azure Active Directory and receive a digital token. This digital token can be presented to other Azure services that check if the pod is authorized to access the service and perform the required actions. This approach means that no secrets are required for database connection strings, for example. The simplified workflow for pod managed identity is shown in the following diagram:
 
 ![Simplified workflow for pod managed identity in Azure](media/developer-best-practices-pod-security/basic-pod-identity.png)
@@ -82,6 +85,9 @@ With a managed identity, your application code doesn't need to include credentia
 For more information about pod identities, see [Configure an AKS cluster to use pod managed identities][aad-pod-identity] and [Assign and use pod managed identities in your code][aad-pod-identity].
 
 ### Use Azure Key Vault with FlexVol
+
+> [!IMPORTANT]
+> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 Managed pod identities work great to authenticate against supporting Azure services. For your own services or applications without managed identities for Azure resources, you still authenticate using credentials or keys. A digital vault can be used to store these credentials.
 
