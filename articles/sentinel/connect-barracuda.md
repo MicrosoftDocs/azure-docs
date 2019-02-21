@@ -29,8 +29,8 @@ Barracuda Web Application Firewall (WAF) connector allows you to easily connect 
 ## Configure and connect Barracuda WAF
 Barracuda Web Application Firewall can integrate and export logs directly to [ASI] via Azure OMS Server.
 1. Go to [Barracuda WAF configuration flow](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/), and follow the instructions to set up the connection, using these parameters:
-- **Workspace ID**: 
-- **Primary key**:
+    - **Workspace ID**: copy the value of your workspace ID from the Azure Sentinel Barracuda connector page.
+    - **Primary key**: copy the value of your primary key from the Azure Sentinel Barracuda connector page.
 2. In the Azure Sentinel dashboard, go to the workspace on which you deployed Azure Sentinel and click the three dots at the end of the row and select **Advanced settings**. 
 1. Select **Data** and then **Syslog**.
 1. Make sure the facility you set in Barracuda exists and set the severity and click **Save**.
