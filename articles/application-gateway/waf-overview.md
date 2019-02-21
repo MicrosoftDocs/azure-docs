@@ -126,6 +126,16 @@ Application Gateway WAF can be configured to run in the following two modes:
 * **Detection mode** – When configured to run in detection mode, Application Gateway WAF monitors and logs all threat alerts to a log file. Logging diagnostics for Application Gateway should be turned on using the **Diagnostics** section. You also need to ensure that the WAF log is selected and turned on. When running in detection mode web application firewall does not block incoming requests.
 * **Prevention mode** – When configured to run in prevention mode, Application Gateway actively blocks intrusions and attacks detected by its rules. The attacker receives a 403 unauthorized access exception and the connection is terminated. Prevention mode continues to log such attacks in the WAF logs.
 
+### Anomaly Scoring Mode 
+ 
+OWASP has two modes for deciding whether blocking traffic or not. There is a Traditional mode, and an Anomaly Scoring mode. In the Traditional mode, any rule matching traffic is considered independently of whether other rules have matched too. While easier to understand, the lack of information on how many rules are fired by a specific request is one of the limitations of this mode. Hence the Anomaly Scoring mode was introduced, which has become the default with OWASP 3.x. 
+
+In Anomaly Scoring Mode, the fact that one of the rules described in the previous section matches on traffic does not immediately mean that the traffic is going to be blocked, assuming the firewall is in Prevention mode. Rules have a certain severity (Critical, Error, Warning and Notice), and depending on that severity they will increase a numeric value for the request called the Anomaly Score. For example, one matching Warning rule will contribute a value of 3, but one matching Critical rule will contribute a value of 5. 
+
+There is a threshold for the Anomaly Score under which traffic is not dropped, that threshold is set to 5. That means, a single matching Critical rule is enough so that Azure WAF blocks a request in Prevention mode (since the Critical rule increases the anomaly score by 5, according to the previous paragraph). However, one matching rule with a level of Warning will only increase the anomaly score by 3. Since 3 is still lower than the threshold 5, no traffic will be blocked, even if the WAF is in Prevention mode. 
+
+Note that the message logged when a WAF rules matches traffic will include the field action_s as "Blocked", but that does not necessarily mean that the traffic has actually been blocked. An anomaly score of 5 or higher is required to actually block traffic.  
+
 ### <a name="application-gateway-waf-reports"></a>WAF Monitoring
 
 Monitoring the health of your application gateway is important. Monitoring the health of your web application firewall and the applications that it protects are provided through logging and integration with Azure Monitor, Azure Security Center, and Azure Monitor logs.
