@@ -13,7 +13,7 @@ ms.date: 12/04/2018
 ms.custom: seodec18
 ---
 
-# Train TensorFlow models with Azure Machine Learning service
+# Train TensorFlow and Keras models with Azure Machine Learning service
 
 For deep neural network (DNN) training using TensorFlow, Azure Machine Learning provides a custom `TensorFlow` class of the `Estimator`. The Azure SDK's `TensorFlow` estimator (not to be conflated with the [`tf.estimator.Estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) class) enables you to easily submit TensorFlow training jobs for both single-node and distributed runs on Azure compute.
 
@@ -34,7 +34,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
                     script_params=script_params,
                     compute_target=compute_target,
                     entry_script='train.py',
-                    conda_packages=['scikit-learn'],
+                    conda_packages=['scikit-learn'], # in case you need scikit-learn in train.py
                     use_gpu=True)
 ```
 
@@ -55,6 +55,21 @@ Then, submit the TensorFlow job:
 ```Python
 run = exp.submit(tf_est)
 ```
+
+## Keras support
+[Keras](https://keras.io/) is a popular high-level DNN Python API that supports TensorFlow, CNTK or Theano as backends. If you use TensorFlow as backend, you can easily use the TensFlow estimator to train a Keras model. Here is an example of a TensorFlow estimator with Keras added to it:
+
+```Python
+from azureml.train.dnn import TensorFlow
+
+keras_est = TensorFlow(source_directory='./my-keras-proj',
+                       script_params=script_params,
+                       compute_target=compute_target,
+                       entry_script='keras_train.py',
+                       conda_packages=['keras'], # just add keras through conda
+                       use_gpu=True)
+```
+The above TensorFlow estimator constructor simply instructs Azure Machine Learning service to install Keras through Conda to the execution environment. And your `keras_train.py` can then import Keras API to train a Keras model. For a complete example, please see [this Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb).
 
 ## Distributed training
 The TensorFlow Estimator also enables you to train your models at scale across CPU and GPU clusters of Azure VMs. You can easily run distributed TensorFlow training with a few API calls, while Azure Machine Learning will manage behind the scenes all the infrastructure and orchestration needed to carry out these workloads.

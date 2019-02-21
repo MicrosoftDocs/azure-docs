@@ -142,12 +142,12 @@ Linear regression algorithms assume that data trends follow a straight
 line. These assumptions aren't bad for some problems, but on others they
 bring accuracy down.
 
-![Non-linear class boundary][1]
+![Non-linear class boundary](./media/algorithm-choice/image1.png)
 
 ***Non-linear class boundary*** *- relying on a linear classification
 algorithm would result in low accuracy*
 
-![Data with a nonlinear trend][2]
+![Data with a nonlinear trend](./media/algorithm-choice/image2.png)
 
 ***Data with a nonlinear trend*** *- using a linear regression method would
 generate much larger errors than necessary*
@@ -241,7 +241,7 @@ simple and fast, but it may be overly simplistic for some problems.
 Check here for a [linear regression
 tutorial](linear-regression-in-azure.md).
 
-![Data with a linear trend][3]
+![Data with a linear trend](./media/algorithm-choice/image3.png)
 
 ***Data with a linear trend***
 
@@ -258,7 +258,7 @@ dividing data into groups. Logistic regression gives linear class
 boundaries, so when you use it, make sure a linear approximation is
 something you can live with.
 
-![Logistic regression to two-class data with just one feature][4]
+![Logistic regression to two-class data with just one feature](./media/algorithm-choice/image4.png)
 
 ***A logistic regression to two-class data with just one feature*** *- the
 class boundary is the point at which the logistic curve is just as close to both classes*
@@ -284,7 +284,7 @@ same thing—subdivide the feature space into regions with mostly the same
 label. These can be regions of consistent category or of constant value,
 depending on whether you are doing classification or regression.
 
-![Decision tree subdivides a feature space][5]
+![Decision tree subdivides a feature space](./media/algorithm-choice/image5.png)
 
 ***A decision tree subdivides a feature space into regions of roughly
 uniform values***
@@ -337,7 +337,7 @@ And for those overachievers who wish to [specify their own network
 structure](https://go.microsoft.com/fwlink/?LinkId=402867), the
 possibilities are inexhaustible.
 
-![Boundaries learned by neural networks][6]
+![Boundaries learned by neural networks](./media/algorithm-choice/image6.png)
 ***The boundaries learned by neural networks can be complex and
 irregular***
 
@@ -362,7 +362,7 @@ or genomic. In these cases SVMs are able to separate classes more
 quickly and with less overfitting than most other algorithms, in
 addition to requiring only a modest amount of memory.
 
-![Support vector machine class boundary][7]
+![Support vector machine class boundary](./media/algorithm-choice/image7.png)
 
 ***A typical support vector machine class boundary maximizes the margin
 separating two classes***
@@ -417,13 +417,13 @@ and one based on [support vector
 machines](https://msdn.microsoft.com/library/azure/dn913103.aspx))
 - clustering ([K-means](https://msdn.microsoft.com/library/azure/5049a09b-bd90-4c4e-9b46-7c87e3a36810/))
 
-![PCA-based anomaly detection][8]
+![PCA-based anomaly detection](./media/algorithm-choice/image8.png)
 
 ***PCA-based anomaly detection*** *- the vast majority of the data falls
 into a stereotypical distribution; points deviating dramatically from
 that distribution are suspect*
 
-![Data set grouped using K-means][9]
+![Data set grouped using K-means](./media/algorithm-choice/image9.png)
 
 ***A data set is grouped into five clusters using K-means***
 
@@ -433,7 +433,7 @@ which breaks the N-class classification problem into N-1 two-class
 classification problems. The accuracy, training time, and linearity
 properties are determined by the two-class classifiers used.
 
-![Two-class classifiers combined to form a three-class classifier][10]
+![Two-class classifiers combined to form a three-class classifier](./media/algorithm-choice/image10.png)
 
 ***A pair of two-class classifiers combine to form a three-class
 classifier***
@@ -461,16 +461,3 @@ several languages.
 * For a list by category of all the machine learning algorithms available in Machine Learning Studio, see [Initialize Model](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) in the Machine Learning Studio Algorithm and Module Help.
 
 * For a complete alphabetical list of algorithms and modules in Machine Learning Studio, see [A-Z list of Machine Learning Studio modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list) in Machine Learning Studio Algorithm and Module Help.
-
-<!-- Media -->
-
-[1]: ./media/algorithm-choice/image1.png
-[2]: ./media/algorithm-choice/image2.png
-[3]: ./media/algorithm-choice/image3.png
-[4]: ./media/algorithm-choice/image4.png
-[5]: ./media/algorithm-choice/image5.png
-[6]: ./media/algorithm-choice/image6.png
-[7]: ./media/algorithm-choice/image7.png
-[8]: ./media/algorithm-choice/image8.png
-[9]: ./media/algorithm-choice/image9.png
-[10]: ./media/algorithm-choice/image10.png
