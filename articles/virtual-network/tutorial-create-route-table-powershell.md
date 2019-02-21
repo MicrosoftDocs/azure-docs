@@ -38,11 +38,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure. 
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a route table
 
-Before you can create a route table, create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* for all resources created in this article. 
+Before you can create a route table, create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* for all resources created in this article.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
@@ -59,7 +59,7 @@ $routeTablePublic = New-AzRouteTable `
 
 ## Create a route
 
-Create a route by retrieving the route table object with [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable), create a route with [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig), then write the route configuration to the route table with [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable). 
+Create a route by retrieving the route table object with [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable), create a route with [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig), then write the route configuration to the route table with [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable).
 
 ```azurepowershell-interactive
 Get-AzRouteTable `
@@ -153,7 +153,7 @@ $nic = New-AzNetworkInterface `
 
 ### Create a VM
 
-To create a VM and attach an existing network interface to it, you must first create a VM configuration with [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). The configuration includes the network interface created in the previous step. When prompted for a username and password, select the user name and password you want to log into the VM with. 
+To create a VM and attach an existing network interface to it, you must first create a VM configuration with [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). The configuration includes the network interface created in the previous step. When prompted for a username and password, select the user name and password you want to log into the VM with.
 
 ```azurepowershell-interactive
 # Create a credential object.
@@ -174,7 +174,7 @@ $vmConfig = New-AzVMConfig `
   Add-AzVMNetworkInterface -Id $nic.Id
 ```
 
-Create the VM using the VM configuration with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *myVmNva*. 
+Create the VM using the VM configuration with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *myVmNva*.
 
 ```azurepowershell-interactive
 $vmNva = New-AzVM `
@@ -188,9 +188,9 @@ The `-AsJob` option creates the VM in the background, so you can continue to the
 
 ## Create virtual machines
 
-Create two VMs in the virtual network so you can validate that traffic from the *Public* subnet is routed to the *Private* subnet through the network virtual appliance in a later step. 
+Create two VMs in the virtual network so you can validate that traffic from the *Public* subnet is routed to the *Private* subnet through the network virtual appliance in a later step.
 
-Create a VM in the *Public* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *myVmPublic* in the *Public* subnet of the *myVirtualNetwork* virtual network. 
+Create a VM in the *Public* subnet with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *myVmPublic* in the *Public* subnet of the *myVirtualNetwork* virtual network.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -236,9 +236,9 @@ mstsc /v:<publicIpAddress>
 
 Open the downloaded RDP file. If prompted, select **Connect**.
 
-Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection. 
+Enter the user name and password you specified when creating the VM (you may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You may receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
 
-In a later step, the tracert.exe command is used to test routing. Tracert uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall. Enable ICMP through the Windows firewall by entering the following command from PowerShell on the *myVmPrivate* VM:
+In a later step, the `tracert.exe` command is used to test routing. Tracert uses the Internet Control Message Protocol (ICMP), which is denied through the Windows Firewall. Enable ICMP through the Windows firewall by entering the following command from PowerShell on the *myVmPrivate* VM:
 
 ```powershell
 New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
@@ -253,13 +253,13 @@ From a command prompt on the *myVmPrivate* VM, remote desktop to the *myVmNva*:
 ``` 
 mstsc /v:myvmnva
 ```
-    
+
 To enable IP forwarding within the operating system, enter the following command in PowerShell from the *myVmNva* VM:
 
 ```powershell
 Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
 ```
-    
+
 Restart the *myVmNva* VM, which also disconnects the remote desktop session.
 
 While still connected to the *myVmPrivate* VM, create a remote desktop session to the *myVmPublic* VM, after the *myVmNva* VM restarts:
@@ -267,7 +267,7 @@ While still connected to the *myVmPrivate* VM, create a remote desktop session t
 ``` 
 mstsc /v:myVmPublic
 ```
-    
+
 Enable ICMP through the Windows firewall by entering the following command from PowerShell on the *myVmPublic* VM:
 
 ```powershell
@@ -281,17 +281,17 @@ tracert myVmPrivate
 ```
 
 The response is similar to the following example:
-    
+
 ```
 Tracing route to myVmPrivate.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net [10.0.1.4]
 over a maximum of 30 hops:
-        
+
 1    <1 ms     *        1 ms  10.0.2.4
 2     1 ms     1 ms     1 ms  10.0.1.4
-        
+
 Trace complete.
 ```
-      
+
 You can see that the first hop is 10.0.2.4, which is the NVA's private IP address. The second hop is 10.0.1.4, the private IP address of the *myVmPrivate* VM. The route added to the *myRouteTablePublic* route table and associated to the *Public* subnet caused Azure to route the traffic through the NVA, rather than directly to the *Private* subnet.
 
 Close the remote desktop session to the *myVmPublic* VM, which leaves you still connected to the *myVmPrivate* VM.
@@ -307,9 +307,9 @@ The response is similar to the following example:
 ```
 Tracing route to myVmPublic.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net [10.0.0.4]
 over a maximum of 30 hops:
-    
+
 1     1 ms     1 ms     1 ms  10.0.0.4
-   
+
 Trace complete.
 ```
 

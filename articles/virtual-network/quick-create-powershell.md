@@ -132,7 +132,7 @@ Get-AzPublicIpAddress `
 Open a command prompt on your local computer. Run the `mstsc` command. Replace `<publicIpAddress>` with the public IP address returned from the last step:
 
 > [!NOTE]
-> If you've been running these commands from a PowerShell prompt on your local computer, and you're on AzureRM PowerShell module version 5.4.1 or later, you can continue in that interface.
+> If you've been running these commands from a PowerShell prompt on your local computer, and you're using the Az PowerShell module version 1.0 or later, you can continue in that interface.
 
 ```cmd
 mstsc /v:<publicIpAddress>
@@ -162,7 +162,7 @@ A Remote Desktop Protocol (*.rdp*) file downloads to your computer and a Remote 
     ```powershell
     PS C:\Users\myVm1> ping myVm2
 
-    Pinging myVm2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudap
+    Pinging myVm2.ovvzzdcazhbu5iczfvonhg2zrb.bx.internal.cloudapp.net
     Request timed out.
     Request timed out.
     Request timed out.

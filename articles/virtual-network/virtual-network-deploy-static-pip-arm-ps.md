@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: jdial
-
 ---
+
 # Create a virtual machine with a static public IP address using PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

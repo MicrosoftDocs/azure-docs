@@ -18,7 +18,6 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom:
-
 ---
 
 # Restrict network access to PaaS resources with virtual network service endpoints using PowerShell
@@ -73,13 +72,13 @@ Create the subnet in the virtual network by writing the subnet configuration to 
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-## Enable a service endpoint 
+## Enable a service endpoint
 
 You can enable service endpoints only for services that support service endpoints. View service endpoint-enabled services available in an Azure location with [Get-AzVirtualNetworkAvailableEndpointService](/powershell/module/az.network/get-azvirtualnetworkavailableendpointservice). The following example returns a list of service-endpoint-enabled services available in the *eastus* region. The list of services returned will grow over time as more Azure services become service endpoint enabled.
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkAvailableEndpointService -Location eastus | Select Name
-``` 
+```
 
 Create an additional subnet in the virtual network. In this example, a subnet named *Private* is created with a service endpoint for *Microsoft.Storage*: 
 
@@ -275,7 +274,7 @@ New-AzVm `
     -Name "myVmPrivate"
 ```
 
-It takes a few minutes for Azure to create the VM. Do not continue to the next step until Azure finishes creating the VM and returns output to PowerShell. 
+It takes a few minutes for Azure to create the VM. Do not continue to the next step until Azure finishes creating the VM and returns output to PowerShell.
 
 ## Confirm access to storage account
 
@@ -288,7 +287,7 @@ Get-AzPublicIpAddress `
   | Select IpAddress
 ```
 
-Replace `<publicIpAddress>` in the following command, with the public IP address returned from the previous command, and then enter the following command: 
+Replace `<publicIpAddress>` in the following command, with the public IP address returned from the previous command, and then enter the following command:
 
 ```powershell
 mstsc /v:<publicIpAddress>
@@ -303,6 +302,7 @@ $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
 New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\my-file-share" -Credential $credential
 ```
+
 PowerShell returns output similar to the following example output:
 
 ```powershell

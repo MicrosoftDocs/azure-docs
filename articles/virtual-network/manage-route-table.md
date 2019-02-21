@@ -109,7 +109,7 @@ When you dissociate a route table from a subnet, Azure routes traffic based on i
 **Commands**
 
 - Azure CLI: [az network vnet subnet update](/cli/azure/network/vnet/subnet?view=azure-cli-latest)
-- PowerShell: [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) 
+- PowerShell: [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)
 
 ## Delete a route table
 
@@ -122,7 +122,7 @@ If a route table is associated to any subnets, it cannot be deleted. [Dissociate
 **Commands**
 
 - Azure CLI: [az network route-table delete](/cli/azure/network/route-table/route#az_network_route_table_delete)
-- PowerShell: [Remove-AzRouteTable](https://docs.microsoft.com/powershell/module/az.network/remove-azroutetable?view=azurermps-6.8.1) 
+- PowerShell: [Remove-AzRouteTable](/powershell/module/az.network/remove-azroutetable)
 
 ## Create a route
 
@@ -207,7 +207,7 @@ The effective routes for each network interface attached to a virtual machine ar
 **Commands**
 
 - Azure CLI: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
-- PowerShell: [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable) 
+- PowerShell: [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)
 
 ## Validate routing between two endpoints
 
@@ -224,7 +224,7 @@ You can determine the next hop type between a virtual machine and the IP address
 **Commands**
 
 - Azure CLI: [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az_network_watcher_show_next_hop)
-- PowerShell: [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop) 
+- PowerShell: [Get-AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop)
 
 ## Permissions
 
