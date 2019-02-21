@@ -1,3 +1,15 @@
+---
+ title: include file
+ description: include file
+ services: service-bus-messaging
+ author: spelluru
+ ms.service: service-bus-messaging
+ ms.topic: include
+ ms.date: 02/20/2019
+ ms.author: spelluru
+ ms.custom: include file
+---
+
 ## Create a topic using the Azure portal
 1. On the **Service Bus Namespace** page, select **Topics** on the left menu.
 2. Select **+ Topic** on the toolbar. 
