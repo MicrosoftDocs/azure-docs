@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Configure a development environment for Azure Machine Learning
 
-In this article, you learn how to configure a development environment to work with Azure Machine Learning service. Machine Learning service is platform agnostic. 
+In this article, you learn how to configure a development environment to work with Azure Machine Learning service. Machine Learning service is platform agnostic.
 
 The only requirements for your development environment are Python 3, Conda (for isolated environments), and a configuration file that contains your Azure Machine Learning workspace information.
 
@@ -105,7 +105,7 @@ To use the DSVM as a development environment, do the following:
             # create a Windows Server 2016 DSVM in your resource group
             # note you need to be at least a contributor to the resource group in order to execute this command successfully
             az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
-            ```    
+            ```
 
 2. The Azure Machine Learning SDK is already installed on the DSVM. To use the Conda environment that contains the SDK, use one of the following commands:
 
@@ -136,13 +136,12 @@ For more information, see [Data Science Virtual Machines](https://azure.microsof
 
 When you're using a local computer (which might also be a remote virtual machine), create a Conda environment and install the SDK by doing the following:
 
-1. Open a command prompt or shell.
+1. Download and install [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7 version)  if you don't already have it.
 
-1. Create a Conda environment with the following commands:
+1. Open an Anaconda prompt and create an environment with the following commands:
 
     ```shell
-    # create a new Conda environment with Python 3.6, NumPy, and Cython
-    conda create -n myenv Python=3.6 cython numpy
+    conda create -n myenv python=3.6.5
 
     # activate the Conda environment
     conda activate myenv
@@ -151,12 +150,32 @@ When you're using a local computer (which might also be a remote virtual machine
     source activate myenv
     ```
 
-    It might take several minutes to create the environment if Python 3.6 and other components need to be downloaded.
+    This example creates an environment using python 3.6.5, but any specific subversions can be chosen. SDK compatibility may not be guaranteed with certain major versions (3.5+ is recommended), and it's recommended to try a different version/subversion in your Anaconda environment if you run into errors. It will take several minutes to create the environment while components and packages are downloaded.
 
-1. Install the Azure Machine Learning SDK with notebook extras and the Data Preparation SDK by using the following command:
+1. Run the following commands in your new environment to enable environment-specific ipython kernels. This will ensure expected kernel and package import behavior when working with Jupyter Notebooks within Anaconda environments:
+
+    ```shell
+    conda install notebook ipykernel
+    ```
+
+    Then run the following command to create the kernel:
+
+    ```shell
+    ipython kernel install --user
+    ```
+
+1. Use the following commands to install packages:
+
+    This command installs the base Azure Machine Learning SDK with notebook and automl extras. The `automl` extra is a large install, and can be removed from the brackets if you don't intend to run automated machine learning experiments. The `automl` extra also includes the Azure Machine Learning Data Prep SDK by default as a dependency.
 
      ```shell
-    pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep
+    pip install azureml-sdk[notebooks,automl]
+    ```
+
+    Use this command to install the Azure Machine Learning Data Prep SDK on its own:
+
+    ```shell
+    pip install azureml-dataprep
     ```
 
    > [!NOTE]
@@ -164,47 +183,52 @@ When you're using a local computer (which might also be a remote virtual machine
    >
    > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
 
-   It might take several minutes to install the SDK.
+   It will take several minutes to install the SDK.
 
-1. Install packages for your machine learning experimentation. Use the following command and replace *\<new package>* with the package you want to install:
+1. Install other packages for your machine learning experimentation.
+
+    Use either of the following commands and replace *\<new package>* with the package you want to install. Installing packages via `conda install` requires that the package is part of the current channels (new channels can be added in Anaconda Cloud).
 
     ```shell
     conda install <new package>
     ```
 
-1. To verify that the SDK is installed, use the following Python code:
+    Alternatively, you can install packages via `pip`.
 
-    ```python
-    import azureml.core
-    azureml.core.VERSION
+    ```shell
+    pip install <new package>
     ```
 
 ### <a id="jupyter"></a>Jupyter Notebooks
 
 Jupyter Notebooks are part of the [Jupyter Project](https://jupyter.org/). They provide an interactive coding experience where you create documents that mix live code with narrative text and graphics. Jupyter Notebooks are also a great way to share your results with others, because you can save the output of your code sections in the document. You can install Jupyter Notebooks on a variety of platforms.
 
-The procedure in the [Local computer](#local) section installs optional components for Jupyter Notebooks. To enable these components in your Jupyter Notebook environment, do the following:
+The procedure in the [Local computer](#local) section installs necessary components for running Jupyter Notebooks in an Anaconda environment. To enable these components in your Jupyter Notebook environment, do the following:
 
-1. Open a command prompt or shell.
-
-1. To install a Conda-aware Jupyter Notebook Server, use the following command:
+1. Open an Anaconda prompt and activate your environment.
 
     ```shell
-    # install Jupyter
-    conda install nb_conda
+    conda activate myenv
     ```
 
-1. Open Jupyter Notebook with the following command:
+1. Launch the Jupyter Notebook server with the following command:
 
     ```shell
     jupyter notebook
     ```
 
-1. To verify that Jupyter Notebook can use the SDK, open a new notebook, select **myenv** as your kernel, and then run the following command in a notebook cell:
+1. To verify that Jupyter Notebook can use the SDK, create a **New** notebook, select **Python 3** as your kernel, and then run the following command in a notebook cell:
 
     ```python
     import azureml.core
     azureml.core.VERSION
+    ```
+
+1. If you encounter issues importing modules and receive a `ModuleNotFoundError`, ensure your Jupyter kernel is connected to the correct path for your environment by running the following code in a Notebook cell.
+
+    ```python
+    import sys
+    sys.path
     ```
 
 1. To configure the Jupyter Notebook to use your Azure Machine Learning service workspace, go to the [Create a workspace configuration file](#workspace) section.
@@ -217,8 +241,8 @@ To use Visual Studio Code for development, do the following:
 
 1. To learn how to use Visual Studio Code for Python development, see [Get started with Python in VSCode](https://code.visualstudio.com/docs/python/python-tutorial).
 
-1. To select the Conda environment, open VS Code, and then select Ctrl+Shift+P (Linux and Windows) or Command+Shift+P (Mac).  
-    The __Command Pallet__ opens. 
+1. To select the Conda environment, open VS Code, and then select Ctrl+Shift+P (Linux and Windows) or Command+Shift+P (Mac).
+    The __Command Pallet__ opens.
 
 1. Enter __Python: Select Interpreter__, and then select the Conda environment.
 
@@ -251,32 +275,32 @@ To prepare your Databricks cluster and get sample notebooks:
     | Workers | 2 or higher |
 
     Use these settings only if you will be using automated machine learning on Databricks:
-    
+
     |   Setting | Value |
     |----|---|
     | Worker node VM types | Memory optimized VM preferred |
     | Enable Autoscaling | Uncheck |
-    
-    The number of worker nodes in your Databricks cluster determines the max number of concurrent iterations in Automated ML settings.  
+
+    The number of worker nodes in your Databricks cluster determines the max number of concurrent iterations in Automated ML settings.
 
     It will take few minutes to create the cluster. Wait until the cluster is running before proceeding further.
 
-1. Install and attach the Azure Machine Learning SDK package to your cluster.  
+1. Install and attach the Azure Machine Learning SDK package to your cluster.
 
     * [Create a library](https://docs.databricks.com/user-guide/libraries.html#create-a-library) with one of these settings (_choose only one of these options_):
-    
+
         * To install Azure Machine Learning SDK _without_ automated machine learning capability:
             | Setting | Value |
             |----|---|
             |Source | Upload Python Egg or PyPI
             |PyPi Name | azureml-sdk[databricks]
-    
+
         * To install Azure Machine Learning SDK _with_ automated machine learning:
             | Setting | Value |
             |----|---|
             |Source | Upload Python Egg or PyPI
             |PyPi Name | azureml-sdk[automl_databricks]
-    
+
     * Do not select **Attach automatically to all clusters**
 
     * Select  **Attach** next to your cluster name
@@ -295,9 +319,9 @@ To prepare your Databricks cluster and get sample notebooks:
 
    If this step fails, restart your cluster by doing the following:
 
-   a. In the left pane, select **Clusters**. 
-   
-   b. In the table, select your cluster name. 
+   a. In the left pane, select **Clusters**.
+
+   b. In the table, select your cluster name.
 
    c. On the **Libraries** tab, select **Restart**.
 
