@@ -329,7 +329,7 @@ Now you need to create the data connections for your diagnostic logs and activit
 
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
-    | **Table** | *DiagnosticLogsRecords* | The table you created in the **AzureMonitoring** database. |
+    | **Table** | *DiagnosticLogsRecords* | The table you created in the *AzureMonitoring* database. |
     | **Data format** | *JSON* | The format used in the table. |
     | **Column mapping** | *DiagnosticLogsRecordsMapping* | The mapping you created in the *AzureMonitoring* database, which maps incoming JSON data to the column names and data types of the *DiagnosticLogsRecords* table.|
     | | |
