@@ -54,7 +54,17 @@ SQuirreL SQL is a JDBC client that can be used to remotely run Hive queries with
 2. In the following script, replace `sshuser` with the SSH user account name for the cluster.  Replace `CLUSTERNAME` with the HDInsight cluster name.  From a command line, enter the following command to copy files from an HDInsight cluster:
 
     ```bash
-    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:"/usr/hdp/current/hadoop-client/hadoop-auth.jar /usr/hdp/current/hadoop-client/hadoop-common.jar /usr/hdp/current/hadoop-client/lib/log4j-*.jar /usr/hdp/current/hadoop-client/lib/slf4j-*.jar /usr/hdp/current/hive-client/lib/commons-codec*.jar /usr/hdp/current/hive-client/lib/commons-logging-*.jar /usr/hdp/current/hive-client/lib/hive-*-1.2*.jar /usr/hdp/current/hive-client/lib/httpclient-*.jar /usr/hdp/current/hive-client/lib/httpcore-*.jar /usr/hdp/current/hive-client/lib/libfb*.jar /usr/hdp/current/hive-client/lib/libthrift-*.jar" C:\HD\hivedriver
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/hadoop-common.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/commons-codec*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libfb*.jar .
+    scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
     ```
 
 3. Start the SQuirreL SQL application. From the left of the window, select **Drivers**.
