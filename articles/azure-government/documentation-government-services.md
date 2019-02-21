@@ -27,7 +27,7 @@ For the most current list of services, see the [Products available by region](ht
 The **services available in Azure Government** are listed by category, as well as whether they are generally available or available through preview. 
 
 > [!NOTE]
-> ** = Service can be accessed through PowerShell and CLI, but not yet available through the [Azure Government portal](https://portal.azure.us).
+> Service can be accessed through PowerShell and CLI, but not yet available through the [Azure Government portal](https://portal.azure.us).
 >
 >
 
