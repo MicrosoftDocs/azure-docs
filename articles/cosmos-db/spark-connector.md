@@ -13,13 +13,19 @@ ms.author: ramkris
 
 You can run [Spark](https://spark.apache.org/) jobs with data stored in Azure Cosmos DB using the Cosmos DB Spark connector. Cosmos can be used for batch  and stream processing, and as a serving layer for low latency access.
 
-You can use the connector with [Azure Databricks](https://azure.microsoft.com/services/databricks) or [Azure HDInsight, which provide managed Spark clusters on Azure.
+You can use the connector with [Azure Databricks](https://azure.microsoft.com/services/databricks) or [Azure HDInsight, which provide managed Spark clusters on Azure. The following table shows supported Spark versions.
 
 | Component | Version |
 |---------|-------|
 | Apache Spark | 2.4.x, 2.3.x, 2.2.x, and 2.1.x |
 | Scala | 2.11 |
 | Azure Databricks runtime version | > 3.4 |
+
+> [!WARNING]
+> This connector supports the core (SQL) API of Azure Cosmos DB.
+> For Cosmos DB for MongoDB API, use the [MongoDB Spark connector](https://docs.mongodb.com/spark-connector/master/).
+> For Cosmos DB Cassandra API, use the [Cassandra Spark connector](https://github.com/datastax/spark-cassandra-connector).
+>
 
 ## Quickstart
 
@@ -38,12 +44,8 @@ readConfig = {
   "Endpoint" : "https://doctorwho.documents.azure.com:443/",
   "Masterkey" : "YOUR-KEY-HERE",
   "Database" : "DepartureDelays",
-  "preferredRegions" : "Central US;East US2",
   "Collection" : "flights_pcoll",
-  "SamplingRatio" : "1.0",
-  "schema_samplesize" : "1000",
-  "query_pagesize" : "2147483647",
-  "query_custom" : "SELECT c.date, c.delay, c.distance, c.origin, c.destination FROM c WHERE c.origin = 'SEA'"
+  "query_custom" : "SELECT c.date, c.delay, c.distance, c.origin, c.destination FROM c WHERE c.origin = 'SEA'" // Optional
 }
 
 # Connect via azure-cosmosdb-spark to create Spark DataFrame
@@ -64,9 +66,7 @@ val readConfig = Config(Map(
   "Endpoint" -> "https://doctorwho.documents.azure.com:443/",
   "Masterkey" -> "YOUR-KEY-HERE",
   "Database" -> "DepartureDelays",
-  "PreferredRegions" -> "Central US;East US2;", // Optional
   "Collection" -> "flights_pcoll",
-  "SamplingRatio" -> "1.0", // Optional
   "query_custom" -> "SELECT c.date, c.delay, c.distance, c.origin, c.destination FROM c WHERE c.origin = 'SEA'" // Optional
 ))
 
@@ -102,7 +102,7 @@ val writeConfig = Config(Map(
   "Masterkey" -> "YOUR-KEY-HERE",
   "Database" -> "DepartureDelays",
   "Collection" -> "flights_fromsea",
-  "WritingBatchSize" -> "1000" // Optional
+  "Upsert" : "true"
 ))
 
 // Upsert the dataframe to Cosmos DB
@@ -113,7 +113,8 @@ flights.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
 More more snippets and end to end samples, see [Jupyter](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/notebooks).
 
 ## <a name="bk_working_with_connector"></a> Working with the connector
-You can build and/or use the maven coordinates to work with `azure-cosmosdb-spark`.
+
+You can build the connector from source in Github, or download the uber jars from Maven in the links below.
 
 | Spark | Scala | Latest version |
 |---|---|---|
@@ -126,8 +127,9 @@ You can build and/or use the maven coordinates to work with `azure-cosmosdb-spar
 
 Create a library using within your Databricks workspace by following the guidance within the Azure Databricks Guide > [Use the Azure Cosmos DB Spark connector](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/cosmosdb-connector.html)
 
+> [!NOTE]
 > Note, the **Use the Azure Cosmos DB Spark Connector** page is currently not up-to-date. Instead of downloading the six separate jars into six different libraries, you can download the uber jar from maven at https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/1.3.5/jar) and install this one jar/library.
-
+> 
 
 ### Using spark-cli
 
@@ -164,7 +166,7 @@ mvn clean package
 
 ## Working with our samples
 
-Included in this GitHub repository are a number of sample notebooks and scripts that you can utilize:
+The [Cosmos DB Spark GitHub repository](https://github.com/Azure/azure-cosmosdb-spark) has the following sample notebooks and scripts that you can try.
 
 * **On-Time Flight Performance with Spark and Cosmos DB (Seattle)** [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.html): Connect Spark to Cosmos DB using HDInsight Jupyter notebook service to showcase Spark SQL, GraphFrames, and predicting flight delays using ML pipelines.
 * **[Connecting Spark with Cosmos DB Change feed](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Spark%2Band%2BCosmos%2BDB%2BChange%2BFeed.ipynb)**: A quick showcase on how to connect Spark to Cosmos DB Change Feed.
