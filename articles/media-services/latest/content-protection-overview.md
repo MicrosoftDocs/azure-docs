@@ -29,7 +29,7 @@ The following image illustrates the Media Services content protection workflow:
 
 This article explains concepts and terminology relevant to understanding content protection with Media Services. The article also has the [FAQ](#faq) section and provides links to articles that show how to protect content. 
 
-## Main components of the content protection system
+## Main components of a content protection system
 
 To successfully complete your "content protection" system/application design, you need to fully understanding the scope of the effort. The following list gives an overview of three parts you would need to implement. 
 
