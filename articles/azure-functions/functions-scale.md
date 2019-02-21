@@ -41,7 +41,7 @@ On an App Service plan, you can scale between tiers to allocate different amount
 When you're using a Consumption plan, instances of the Azure Functions host are dynamically added and removed based on the number of incoming events. This serverless plan scales automatically, and you're charged for compute resources only when your functions are running. On a Consumption plan, a function execution times out after a configurable period of time.
 
 > [!NOTE]
-> The default and maximum timeout for functions in consumption is described in the [Functions Versions](functions-versions.md) article.
+> The default and maximum timeout for functions in consumption is described in the [Azure Functions runtime versions overview](functions-versions.md#timeout) article.
 
 Billing is based on number of executions, execution time, and memory used. Billing is aggregated across all functions within a function app. For more information, see the [Azure Functions pricing page].
 
@@ -64,7 +64,7 @@ Consider an App Service plan in the following cases:
 * You want to run your function app on Linux, or you want to provide a custom image on which to run your functions.
 
 > [!NOTE]
-> The default and maximum timeout for functions in an App Service plan is described in the [Functions Versions](functions-versions.md) article.
+> The default and maximum timeout for functions in an App Service plan is described in the [Azure Functions runtime versions overview](functions-versions.md#timeout) article.
 
 A VM decouples cost from number of executions, execution time, and memory used. As a result, you won't pay more than the cost of the VM instance that you allocate. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/overview-hosting-plans.md). 
 
