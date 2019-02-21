@@ -16,6 +16,7 @@ An important part of any Analysis Services solution is monitoring how your serve
 
 ![Diagnostic logging to Storage, Event Hubs, or Azure Monitor logs](./media/analysis-services-logging/aas-logging-overview.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## What's logged?
 

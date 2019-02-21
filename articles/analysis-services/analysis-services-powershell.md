@@ -17,6 +17,8 @@ This article describes PowerShell cmdlets used to perform Azure Analysis Service
 
 Server management tasks like creating or deleting a server, suspending or resuming server operations, or changing the service level (tier) use Azure Resource Manager (resource) cmdlets and Analysis Services (server) cmdlets. Other tasks for managing databases like adding or removing role members, processing, or partitioning use cmdlets included in the same SqlServer module as SQL Server Analysis Services.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Permissions
 
 Most PowerShell tasks require you have Admin privileges on the Analysis Services server you are managing. Scheduled PowerShell tasks are unattended operations. The account or service principal running the scheduler must have Admin privileges on the Analysis Services server. 
