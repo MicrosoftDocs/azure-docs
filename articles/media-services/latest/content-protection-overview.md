@@ -35,17 +35,30 @@ To successfully complete your "content protection" system/application design, yo
 
 1. Azure Media Services code
   
-  * Configure license templates for PlayReady, Widevine and/or FairPlay. The templates let you configure rights and permissions for each of the used DRMs.
-  * Define license delivery authorization, specifying the logic of authorization check based on claims in JWT.
-  * Configure DRM encryption by specifying content keys and streaming protocols that should be used.
+  The [DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) sample shows you how to implement multi-DRM system with Media Services v3 and also use Media Services license/key delivery service. You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types), to see what makes sense to combine.
+  
+  The example shows how to:
 
-  > [!NOTE]
-  > You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](#streaming-protocols-and-encryption-types), to see what makes sense to combine.
-  
-  The following articles show steps for encrypting content with AES and/or DRM: 
-  
-  * [Protect with AES encryption](protect-with-aes128.md)
-  * [Protect with DRM](protect-with-drm.md)
+  1. Create and configure ContentKeyPolicies.
+
+    * Define license delivery authorization, specifying the logic of authorization check based on claims in JWT.
+    * Configure DRM encryption by specifying the content key.
+    * Configure [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), and [FairPlay](fairplay-license-overview.md) licenses. The templates let you configure rights and permissions for each of the used DRMs.
+
+        ```
+        ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
+        ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
+        ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
+        ```
+  2. Create a StreamingLocator that is configured to stream an encrypted asset. 
+
+    For example, you can set StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. This policy indicates that you want for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
+  3. Create a test token.
+
+    The **GetTokenAsync** method shows how to create a test token.
+  4. Build the streaming URL.
+
+    The **GetDASHStreamingUrlAsync** method shows how to build the streaming URL. In this case, the URL streams the **DASH** content.
 
 2. Player with AES or DRM client. A video player app based on a player SDK (either native or browser-based) needs to meet the following requirements:
   * The player SDK supports the needed DRM clients
@@ -125,31 +138,6 @@ With a token-restricted content key policy, the content key is sent only to a cl
 When you configure the token restricted policy, you must specify the primary verification key, issuer, and audience parameters. The primary verification key contains the key that the token was signed with. The issuer is the secure token service that issues the token. The audience, sometimes called scope, describes the intent of the token or the resource the token authorizes access to. The Media Services key delivery service validates that these values in the token match the values in the template.
 
 ## Frequently asked questions
-
-### How to implement multi-DRM system with Media Services v3 and also use Media Services license/key delivery service?
-
-For end-to-end scenario, see the [following code example](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs). 
-
-The example shows how to:
-
-1. Create and configure ContentKeyPolicies.
-
-  The sample contains functions that configure [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md), and [FairPlay](fairplay-license-overview.md) licenses.
-
-    ```
-    ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
-    ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
-    ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
-    ```
-2. Create a StreamingLocator that is configured to stream an encrypted asset. 
-
-  For example, you can set StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. This policy indicates that you want for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
-3. Create a test token.
-
-  The **GetTokenAsync** method shows how to create a test token.
-4. Build the streaming URL.
-
-  The **GetDASHStreamingUrlAsync** method shows how to build the streaming URL. In this case, the URL streams the **DASH** content.
 
 ### How and where to get JWT token before using it to request license or key?
 
