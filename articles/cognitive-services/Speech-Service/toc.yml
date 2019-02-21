@@ -92,11 +92,11 @@
   - name: Batch transcription (REST)
     href: batch-transcription.md
     displayName: recognize speech, speech recognition, speech to text, stt
-  - name: Prepare transcripts
+  - name: Prepare transcripts for customization
     href: prepare-transcription.md
-  - name: Use custom audio streams
+  - name: Consume audio input streams (SDK)
     href: how-to-use-audio-input-streams.md
-  - name: Select an audio input device
+  - name: Select an audio input device (SDK)
     href: how-to-select-audio-input-devices.md
     displayName: audio, microphone, input, device
   - name: Customization
@@ -128,6 +128,14 @@
       href: how-to-migrate-from-custom-speech-service.md
     - name: From the Translator Speech API
       href: how-to-migrate-from-translator-speech-api.md
+- name: Samples
+  items:
+  - name: Speech SDK
+    href: https://github.com/Azure-Samples/cognitive-services-speech-sdk
+  - name: Speech synthesis
+    href: https://github.com/Azure-Samples/Cognitive-Speech-TTS
+  - name: Batch transcription
+    href: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch
 - name: Reference
   items:
   - name: PowerShell
