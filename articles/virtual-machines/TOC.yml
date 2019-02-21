@@ -12,7 +12,7 @@
     href: workloads/oracle/oracle-considerations.md
   - name: SAP
     href: workloads/sap/get-started.md
-  - name: Mainframe Rehosting
+  - name: Mainframe rehosting
     items:
     - name: Overview
       items:
