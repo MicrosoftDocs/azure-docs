@@ -6,13 +6,13 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 02/21/2019
 ms.author: iainfou
 ---
 
 # Secure your cluster using pod security policies in Azure Kubernetes Service (AKS)
 
-To improve the security of your AKS cluster, you can limit what pods can scheduled. Pods that request resources you don't allow can't run in the AKS cluster. You define this access using pod security policies. This article shows you how to use pod security policies to limit the deployment of pods in AKS.
+To improve the security of your AKS cluster, you can limit what pods can be scheduled. Pods that request resources you don't allow can't run in the AKS cluster. You define this access using pod security policies. This article shows you how to use pod security policies to limit the deployment of pods in AKS.
 
 > [!IMPORTANT]
 > This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
@@ -21,7 +21,7 @@ To improve the security of your AKS cluster, you can limit what pods can schedul
 
 This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-You need the Azure CLI version 2.0.56 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+You need the Azure CLI version 2.0.58 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 To create or update an AKS cluster to use pod security policies, first enable a feature flag on your subscription. To register the *EnablePodSecurityPolicy* feature flag, use the [az feature register][az-feature-register] command as shown in the following example:
 
@@ -49,7 +49,7 @@ In a Kubernetes cluster, an admission controller is used to intercept requests t
 
 ## Test the creation of a privileged pod
 
-Before you enable PodSecurityPolicy, let's first test what happens when you schedile a pod with the security context of `privileged: true`. In the next step, a policy is created to block this type of request in a pod specification. Create a file named `nginx-privileged.yaml` and paste the following YAML manifest.
+Before you enable PodSecurityPolicy, let's first test what happens when you schedule a pod with the security context of `privileged: true`. In the next step, a policy is created to block this type of request in a pod specification. Create a file named `nginx-privileged.yaml` and paste the following YAML manifest:
 
 ```yaml
 apiVersion: v1
@@ -91,7 +91,9 @@ kubectl delete -f nginx-privileged.yaml
 
 ## Create a pod security policy
 
-Before you can enable pod security policy in an AKS cluster, you first define what these policies are. Without policies in place, no pods can be created in your cluster. Let's create a policy to reject pods that request privileged access like the one scheduled in the previous step. Create a file named `psp-deny-privileged.yaml` and paste the following YAML manifest:
+Before you can enable pod security policy in an AKS cluster, you first define what these policies are. Without policies in place, no pods can be created in your cluster.
+
+Let's create a policy to reject pods that request privileged access like the one scheduled in the previous step. Create a file named `psp-deny-privileged.yaml` and paste the following YAML manifest:
 
 ```yaml
 apiVersion: policy/v1beta1
@@ -122,7 +124,7 @@ kubectl apply -f psp-deny-privileged.yaml
 
 In the previous step, you created a pod security policy to reject pods that request privileged access. To allow the policy to be used, you first create a *Role* or a *ClusterRole*. Then, you associate one of these roles using a *RoleBinding* or *ClusterRoleBinding*. These roles and bindings are typically created at a group level, and give you the ability to target pod security policies at a specific namespace or across the whole cluster.
 
-For this article, create a ClusterRole that allows you to *use* the *psp-deny-privileged* policy created in the previous step. Create a file named *psp-deny-privileged-clusterrole.yaml* and paste the following YAML manifest:
+For this article, create a ClusterRole that allows you to *use* the *psp-deny-privileged* policy created in the previous step. Create a file named `psp-deny-privileged-clusterrole.yaml` and paste the following YAML manifest:
 
 ```yaml
 kind: ClusterRole
@@ -146,7 +148,7 @@ Create the ClusterRole using the [kubectl apply][kubectl-apply] command and spec
 kubectl apply -f psp-deny-privileged-clusterrole.yaml
 ```
 
-Now create a ClusterRoleBinding to use the ClusterRole created in the previous step. Create a file named *psp-deny-privileged-clusterrolebinding.yaml* and paste the following YAML manifest:
+Now create a ClusterRoleBinding to use the ClusterRole created in the previous step. Create a file named `psp-deny-privileged-clusterrolebinding.yaml` and paste the following YAML manifest:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -182,22 +184,49 @@ az aks update-cluster \
 
 ## Test the creation of privileged pod again
 
-With a pod security policy applied and a binding for the service account to use the policy, let's try to create a privileged pod again. Use the same *nginx-privileged.yaml* manifest to create the pod using the [kubectl apply][kubectl-apply] command:
+With a pod security policy applied and a binding for the service account to use the policy, let's try to create a privileged pod again. Use the same `nginx-privileged.yaml` manifest to create the pod using the [kubectl apply][kubectl-apply] command:
 
 ```console
 kubectl apply -f nginx-privileged.yaml
 ```
 
-The pod fails to be scheduled when the pod security policy admission controller validates the requests in the pod specification. As the pod specification requested privileged escalation, the *psp-deny-privileged* policy denies the request before the API server creates the resource.
+The pod fails to be scheduled when the pod security policy admission controller validates the requests in the pod specification. As the pod specification requested privileged escalation, the *psp-deny-privileged* policy denies the request before the API server creates the resource. The following example shows that the pod can't be scheduled:
 
-***-- SHOW EXAMPLE OF WHAT THE FAILURE LOOKS LIKE --***
+```console
+$ kubectl apply -f nginx-privileged.yaml
+
+Error from server (Forbidden): error when creating "nginx-privileged.yaml": pods "nginx-privileged" is forbidden: unable to validate against any pod security policy: [spec.containers[0].securityContext.privileged: Invalid value: true: Privileged containers are not allowed]
+```
+
+### Test the creation of an unprivileged pod
+
+If you try to create a regular deployment with pods that don't request the privilege escalation, the deployment is successful. The pod security policy admission controller validates that the pod specification complies with your policy definitions. To verify this behavior, create a file named `nginx-unprivileged.yaml` and paste the following YAML manifest:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-unprivileged
+spec:
+  containers:
+    - name: nginx-unprivileged
+      image: nginx:1.14.2
+```
+
+Create the pod using the [kubectl apply][kubectl-apply] command and specify the name of your YAML manifest:
+
+```console
+kubectl apply -f nginx-unprivileged.yaml
+```
+
+The pod is successfully scheduled.
 
 ## Clean up resources
 
-Delete the failed NGINX privileged pod created in the previous step using [kubectl delete][kubectl-delete] command and specify the name of your YAML manifest:
+Delete the NGINX unprivileged pod created in the previous step using [kubectl delete][kubectl-delete] command and specify the name of your YAML manifest:
 
 ```console
-kubectl delete -f nginx-privileged.yaml
+kubectl delete -f nginx-unprivileged.yaml
 ```
 
 To disable pod security policy, use the [az aks update-cluster][az-aks-update-cluster] command again. The following example disables pod security policy on the cluster name *myAKSCluster* in the resource group named *myResourceGroup*:
