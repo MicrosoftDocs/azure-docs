@@ -32,7 +32,9 @@ To open a technical support ticket within the Azure Portal for Azure Spatial Anc
 
 ![Azure portal support ticket fields](./media/spatial-anchor-support3.png)
 
-Filing a support ticket is the most direct way to receive a response. However, if you need to contact the Azure Spatial Anchors support team directly regarding an issue with production deployment (ie. throttling limits), please use the email: [azuremrs@microsoft.com](mailto:azuremrs@microsoft.com).
+## Community support
+
+For support from the user community, please see [Azure Spatial Anchors on Stack Overflow](https://stackoverflow.com/questions/tagged/azure-spatial-anchors). 
 
 ## Provide content feedback
 
@@ -40,8 +42,4 @@ On the bottom of each content article, there is an opportunity to open a GitHub 
 
 ## Provide product feedback
 
-To provide feedback, share an idea or suggestion for the Azure Spatial Anchors service, or vote on the ideas that others have submitted, visit the [Azure Feedback Forum](https://feedback.azure.com/forums/34192--general-feedback).
-
-## Community support
-
-For support from the Azure Spatial Anchor user community, please see our ["Azure Spatial Anchor" tag](https://stackoverflow.com/questions/tagged/azure-spatial-anchors) on Stack Overflow. 
+To provide feedback, share an idea or suggestion for the Azure Spatial Anchors service, or vote on the ideas that others have submitted, visit the [Azure Spatial Anchors Feedback Forum](https://feedback.azure.com/forums/919252-azure-spatial-anchors).

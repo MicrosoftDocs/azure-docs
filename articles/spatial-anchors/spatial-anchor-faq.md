@@ -27,11 +27,11 @@ For more information, see [Azure Spatial Anchors overview](overview.md).
 
 **A:** Azure Spatial Anchors currently requires a network connection to the internet. We welcome your comments on our [feedback site](https://feedback.azure.com/forums/919252-azure-spatial-anchors).
 
-**Q: How accurately can Azure Spatial Anchors locate Anchors?**
+**Q: How accurately can Azure Spatial Anchors locate anchors?**
 
-**A:** Many factors affect the accuracy of locating anchors--lighting conditions, the objects in the environment, and even the surface on which the anchor is placed. To determine if the accuracy will meet your needs, try the anchors in environments representative of where you plan to use them. If you encounter environments where accuracy isn't meeting your needs, see [**Submitting Diagnostics in Azure Spatial Anchors**]().
+**A:** Many factors affect the accuracy of locating anchors--lighting conditions, the objects in the environment, and even the surface on which the anchor is placed. To determine if the accuracy will meet your needs, try the anchors in environments representative of where you plan to use them. If you encounter environments where accuracy isn't meeting your needs, see [Submitting Diagnostics in Azure Spatial Anchors]().
 
-**Q: How long does it take to create and locate Anchor?**
+**Q: How long does it take to create and locate anchors?**
 
 **A:** The time required to create and locate anchors is dependent on many factors--network connection, the device's processing and load, and the specific environment. We have customers building applications in many industries including manufacturing, retail, and gaming indicating that the service enables a great user experience for their scenarios.
 
@@ -53,7 +53,7 @@ Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.
 
 **Q: Is there a way I can send diagnostics information to Microsoft?**
 
-**A**: Yes. Azure Spatial Anchors has a diagnostics mode that developers can choose to opt into through the Azure Spatial Anchors API. This is useful, for example, if you encounter an environment where you are unable to create and locate anchors predictably and you would like help. We may ask if you can submit a diagnostics report containing information that helps us debug. For more information see [**Submitting Diagnostics in Azure Spatial Anchors**]().
+**A**: Yes. Azure Spatial Anchors has a diagnostics mode that developers can choose to opt into through the Azure Spatial Anchors API. This is useful, for example, if you encounter an environment where you are unable to create and locate anchors predictably. We may ask if you can submit a diagnostics report containing information that helps us debug. For more information see [Submitting Diagnostics in Azure Spatial Anchors]().
 
 ## Availability and Pricing FAQs
 
@@ -69,7 +69,7 @@ General Availability (GA) dates will be announced soon.
 
 **Q: Do you have any throttling limits in place?**
  
-**A**: Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we are ready to support our customers’ high-scale requirements. Contact us at [azuremrs@microsoft.com](mailto:azuremrs@microsoft.com) to discuss (Note this email is for production deployment topics only, for other support needs, visit the [Support](spatial-anchor-support.md) page for instructions on how to file a support request or provide feedback). During this phase of Preview, we have not yet published our tiering and pricing structure, but we expect to do so soon.
+**A**: Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we are ready to support our customers’ high-scale requirements. [Contact us](mailto:azuremrs@microsoft.com) to discuss. During this phase of Preview, we have not yet published our tiering and pricing structure, but we expect to do so soon.
 
 **Q: In what regions is Azure Spatial Anchors available?**
 
@@ -87,7 +87,7 @@ General Availability (GA) dates will be announced soon.
 
 Given a 6DoF tracker as a building block, Azure Spatial Anchors allows you to designate certain points of interest in your real environment as "anchor" points. You might, for example, use an anchor to render content at a specific place in the real-world.
 
-When you create an Anchor, the client SDK captures environment information around that point and transmits it to the service. If another device looks for the anchor in that same space, similar data transmits to the service. That data is matched against the environment data previously stored. The position of the anchor relative to the device is then sent back for use in the application.
+When you create an anchor, the client SDK captures environment information around that point and transmits it to the service. If another device looks for the anchor in that same space, similar data transmits to the service. That data is matched against the environment data previously stored. The position of the anchor relative to the device is then sent back for use in the application.
 
 **Q: How does Azure Spatial Anchors integrate with ARKit and ARCore on iOS and Android?**
 
@@ -104,7 +104,7 @@ When you create an Anchor, the client SDK captures environment information aroun
 - Unity across HoloLens, iOS, and Android
 - Swift or Objective-C on iOS
 - Java or the Android NDK on Android
-- C++/WinRT on HoloLens.
+- C++/WinRT on HoloLens
 
 Get started with [development here](index.yml).
 
