@@ -22,7 +22,7 @@ Use this quickstart to call to the Bing News Search API and view results. This G
 * The go-spew deep pretty printer is useful for display of results
     * Install this libarary: `$ go get -u https://github.com/davecgh/go-spew`
 
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
+[!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Create a project and import libraries
 
@@ -200,5 +200,4 @@ The most useful results contain images similar to the image contained in the Pos
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [What is Bing News Search](overview.md)
-> [Bing Visual Search quickstart in Go](../bing-visual-search/quickstarts/go.md)
+> [What is Bing News Search](earch-the-web.md)
