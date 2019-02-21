@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/15/2019
+ms.date: 02/21/2019
 ms.author: jeedes
 
 ---
@@ -114,11 +114,11 @@ To configure Azure AD single sign-on with Hightail, perform the following steps:
     In the **Sign-on URL** text box, type the URL as:
     `https://www.hightail.com/loginSSO`
 
-6. Hightail application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+6. Your Hightail application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
 	![image](common/edit-attribute.png)
 
-7. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
+7. In addition to above, Hightail application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
 	| Name | Source Attribute|
 	| -------- |-------- |
@@ -239,10 +239,10 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Hightail test user
 
-The objective of this section is to create a user called Britta Simon in Hightail. There is no action item for you in this section. Hightail supports just-in-time user provisioning based on the custom claims. If you have configured the custom claims as shown in the section **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** above, a user is automatically created in the application it doesn't exist yet. 
+In this section, a user called Britta Simon is created in Hightail. Hightail supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Hightail, a new one is created after authentication.
 
->[!NOTE]
->If you need to create a user manually, you need to contact the [Hightail support team](mailto:support@hightail.com). 
+> [!NOTE]
+> If you need to create a user manually, you need to contact the [Hightail support team](mailto:support@hightail.com).
 
 ### Test single sign-on
 
