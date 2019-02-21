@@ -4,7 +4,7 @@ description: Migrate data from an on-premises Hadoop cluster to Azure Data Lake 
 services: storage
 author: normesta
 ms.service: storage
-ms.date: 02/11/2019
+ms.date: 02/21/2019
 ms.author: normesta
 ms.component: data-lake-storage-gen2
 ---
@@ -49,94 +49,55 @@ If you are ready, let's start.
 
 To copy the data from your on-premises Hadoop cluster to a Data Box device, you'll set a few things up, and then use the [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) tool.
 
-You can copy data to your Data Box via NFS or REST.
+Follow these steps to copy data to your Data Box via the REST.
 
-### Copy data via NFS
+1. Before you copy the data via REST, you need to connect to the REST. Sign in to the local web UI of Data Box and go to **Connect and copy** page. Against the Azure storage account for your Data Box, under **Access settings**, locate and select REST(Preview). 
 
-Before you begin, make sure that your Linux client is running a [Supported NFS version](). 
+    !["Connect and copy" page]()
 
-1. Create the directory where you will mount the Data Box NFS share.
+2. In the Access storage account and upload data dialog, copy the **Blob service endpoint** and the **Storage account key**. From the blob service endpoint, omit the https:// and the trailing slash. 
 
-    `mkdir /mnt/databox`
+    In this case, the endpoint is: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. The host portion of the URI that you'll use is: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. For an example, see how to [Connect to REST over http](/azure/databox/data-box-deploy-copy-data-via-rest.md). 
 
-2. Mount the Data Box NFS share to the directory you created.
+     !["Access storage account and upload data" dialog]()
 
-    `sudo mount -t nfs server_name:/nfsshare /mnt/databox`
-
-3. You may need to give full access permission to the current user. Type:
-
-    `chmod 777 /mnt/databox`
-
-4. Create a folder in the mounted share of the Data Box. You will copy data to this folder.
-
-    `mkdir /mnt/databox/hdfsdata`
-
-5. Use the [Distcp](https://mapr.com/docs/52/ReferenceGuide/hadoop-distcp.html) command to copy from Hadoop HDFS to the Data Box NFS share. 
-
-    `hadoop distcp -strategy dynamic -m 4 -update /source_hdfs_dir file:///mnt/databox/hdfsdata`
-
-    - `m` or `map` is the maximum number of simultaneous copies. More maps do not necessarily improve throughput. Plan this number carefully to not affect the production cluster. Start with half the number of cluster nodes. For example, if the cluster has 8 nodes, use `m` as 4.
-    - `strategy dynamic` allows faster data-nodes to copy more bytes than slower nodes. 
-
-6. Wait for the copy jobs to finish. After the data copy is complete, proceed to [Ship the Data Box to Microsoft](#ship-data-box-to-microsoft).
-
-
-### Copy data via REST
-
-1. Before you copy the data via REST, you need to connect to the REST. Follow the instructions in 
-
-    - [Connect to REST over http]().
-    - [Connect to REST over https]().
-    
-2. You also need to configure and enable Data Box storage in the Hadoop configuration. First, verify the Hadoop version. 
+3. Add the endpoint and the Data Box IP address to /etc/hosts on each node. 
 
     ```    
-    # hadoop version
+    10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
     ```
         
-3. Verify that the following files are in your Hadoop installation:
+3. Set a shell variable `azjars` to point to the `hadoop-azure` and the `microsoft-windowsazure-storage-sdk` jar files. These files are under the Hadoop installation directory. Use the full paths, separated with a comma. 
     
     ```
-    # ls -l $hadoop_install_dir/share/hadoop/tools/lib/ | grep azure
-    -rw-r--r-- 1 user group   662947 Aug 17  2016 azure-storage-2.0.0.jar
-    -rw-r--r-- 1 user group   157546 Aug 17  2016 hadoop-azure-2.7.3.jar
+    # azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar
+    # azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar
     ```
 
-4. Modify the file `hadoop-env.sh` and add those two files to Hadoop classpath at the end of the file
+4. Copy data from the Hadoop HDFS to Data Box Blob storage.
 
     ```
-    # vi $hadoop_install_dir/etc/hadoop/hadoop-env.sh
-    export HADOOP_CLASSPATH=$HADOOP_HOME/share/hadoop/tools/lib/hadoop-azure-2.7.3.jar:$HADOOP_HOME/share/hadoop/tools/lib/azure-storage-2.0.0.jar       
+    # hadoop distcp \
+    -libjars $azjars \
+    -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
+    -D fs.azure.account.key.[blob_service_endpoint]=[account_key] \
+    -strategy dynamic -m 4 -update \
+    [source_directory] \
+           wasb://[container_name]@[blob_service_endpoint]/[destination_folder]       
     ```
-5. Modify the file `core-site.xml` and add the following name-value pairs to point to the Data Box Object Storage (REST):
 
-    ```
-    # vi $hadoop_install_dir/etc/Hadoop/core-site.xml
-
-    <property>
-    <name>fs.AbstractFileSystem.wasb.Impl</name>
-    <value>org.apache.hadoop.fs.azure.Wasb</value>
-    </property>
-
-    <property>
-    <name>fs.azure.account.key.[Data_Box_Blob_Service_Endpoint]</name> 
-    <value>my_blob_account_key</value>
-    </property>
-    ```
-    You get the Data Box blob service endpoint from the **Connect and copy** page of the local web UI when you connect via REST. An example string for blob service endpoint (exclude `https://`) is: `mydataboxstorageaccount.blob.HCS-V6V3FS8OM9K.microsoftdatabox.com`.
-
-6. Create a folder that maps to a blob container in the destination storage account. Follow the instructions in [Create a container](/azure/databox/data-box-deploy-copy-data-via-rest.md#create-a-container).
-
-7. Copy data from the Hadoop HDFS to Data Box object storage location.
-
-    ```
-    # hadoop distcp -strategy dynamic -m 4 -update /[source_directory] wasb://[container_name]@[data_box_endpoint]/[destination_folder]
-    ```
-    The following example shows the command to copy data to Data Box object storage.
-    
-    ```
-    # hadoop distcp -strategy dynamic -m 4 -update /data/testfiles wasb://hdfscontainer@utsac1.blob.HCS-V6V3FS8OM9K.microsoftdatabox.com/testfiles
-    ```
+   For example:
+   
+   ```
+   # hadoop distcp \
+    -libjars $azjars \
+    -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
+    -D fs.azure.account.key.mystorageaccount.blob.mydataboxno.microsoftdatabox.com=myaccountkey \
+    -strategy dynamic -m 4 -update \
+    /data/testfiles \
+    wasb://hdfscontainer@mystorageaccount.blob.mydataboxno.microsoftdatabox.com/testfiles
+   ```
+         
     
 ## Ship the Data Box to Microsoft
 
