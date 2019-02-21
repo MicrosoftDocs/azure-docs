@@ -349,13 +349,13 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
 
 ## VMWare vSphere 6.7
 
-To backup vSphere 6.7 we need the following:
+To backup vSphere 6.7 do the following:
 
-- TLS 1.2 should be enabled on DPM Server
+- Enable TLS 1.2 on DPM Server
   >[!Note]
   >VMWare 6.7 onwards had enabled TLS as communication protocol.
 
-- Set the below registry keys -
+- Set the registry keys as follows:  
 
   Windows Registry Editor Version 5.00
 
