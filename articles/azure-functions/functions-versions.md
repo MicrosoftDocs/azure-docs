@@ -133,7 +133,6 @@ Azure Functions on an App Service Plan have an unlimited default and unlimited m
 
 The timeout value can be changed for the Function App by changing the property functionTimeout in the [host.json](functions-host-json.md#functiontimeout) project file for both runtime versions.
 
-
 ## Next steps
 
 For more information, see the following resources:
