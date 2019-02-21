@@ -3,7 +3,7 @@ title: Security alerts by type in Azure Security Center | Microsoft Docs
 description: This article discusses the different kinds of security alerts available in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: rkarlin
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/14/2019
-ms.author: monhaber
+ms.date: 12/3/2018
+ms.author: rkarlin
 
 ---
 # Understanding security alerts in Azure Security Center
@@ -178,19 +178,6 @@ Security Center resource analysis focuses on platform as a service (PaaS) servic
 * **Access from unfamiliar principal**: This alert is triggered when there is a change in the access pattern to SQL server, where someone has logged on to the SQL server using an unusual principal (SQL user). In some cases, the alert detects a legitimate action (new application, developer maintenance). In other cases, the alert detects a malicious action (former employee, external attacker).
 * **Access from a potentially harmful application**: This alert is triggered when a potentially harmful application is used to access the database. In some cases, the alert detects penetration testing in action. In other cases, the alert detects an attack using common attack tools.
 * **Brute force SQL credentials**: This alert is triggered when there is an abnormal high number of failed logins with different credentials. In some cases, the alert detects penetration testing in action. In other cases, the alert detects brute force attack.
-
-
-## Storage analysis
-
-Security Center resource analysis focuses on platform as a service (PaaS) services, such as the integration with [Azure Storage Advanced Threat Protection.](../storage/common/storage-advanced-threat-protection.md) Azure Storage Advanced Threat Protection triggers the following alerts that indicate unusual and potentially harmful attempts to access or exploit storage accounts:
-
-* **Access from unusual location**: This alert is triggered when there's a change in the access pattern to a storage account. For instance, when someone has accessed a storage account from an unusual geographical location. In some cases, the alert detects a legitimate action (a new application or developer’s maintenance operation). In other cases, the alert detects a malicious action (former employee, external attacker, etc.).
-* **Unusual data extraction**: This alert is triggered when there's a change in the data extraction pattern from a storage account. For instance, if someone has accessed an unusual amount of data in a storage account. In some cases, the alert detects a legitimate action (maintenance activity). In other cases, the alert detects a malicious action (data exfiltration/breach, unauthorized transfer of data).
-* **Unusual anonymous access**: This alert is triggered when there's a change in the access pattern to a storage account. For instance, suppose someone has anonymously accessed a storage account. In some cases, the alert detects a legitimate access using public read access. In other cases, the alert detects unauthorized access that exploits public read access to a container and its blobs.
-* **Unexpected delete**: This alert is triggered when one or more unexpected delete operations occur in a storage account, based on historical analysis of the storage account. For instance, suppose someone performed a DeleteBlob operation using a new application and from a new IP address. In some cases, the alert detects a legitimate action (the administrator used a different browser while traveling on business). In other cases, the alert detects a malicious action (an attacker deleting data).
-* **Access permission change**: This alert is triggered when there’s an unexpected change of access permission to a storage account. For instance, suppose someone changed the access permission to a storage account using a new application and from a new IP address. In some cases, the alert detects a legitimate action (the administrator used a different browser while traveling on business). In other cases, the alert detects a malicious action (e.g., an attacker increasing the privileges of an account they have gained access to).
-* **Upload Azure Cloud Service package**: This alert is triggered when there is an unexpected upload of an Azure Cloud Service package (.cspkg file) to a storage account. For instance, suppose a .cspkg file was uploaded from a new IP address. In some case, the alert detects a legitimate action. In other cases, the alert detects a malicious action (e.g., a Cloud Service package was uploaded in preparation for a deployment of a malicious service).
-
 
 ## Contextual information
 During an investigation, analysts need extra context to reach a verdict about the nature of the threat and how to mitigate it.  For example, a network anomaly was detected, but without understanding what else is happening on the network or with regard to the targeted resource it is every hard to understand what actions to take next. To aid with that, a Security Incident may include artifacts, related events, and information that may help the investigator. The availability of additional information will vary based on the type of threat detected and the configuration of your environment, and will not be available for all Security Incidents.
