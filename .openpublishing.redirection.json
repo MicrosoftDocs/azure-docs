@@ -15468,6 +15468,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/marketplace-terms.md",
+      "redirect_url": "https://docs.microsoft.com/en-us/legal/marketplace/marketplace-terms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/marketplace-participation-policy.md",
+      "redirect_url": "https://docs.microsoft.com/en-us/legal/marketplace/marketplace-participation-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/rating-review-policies.md",
+      "redirect_url": "https://docs.microsoft.com/en-us/legal/marketplace/rating-review-policies",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/cloud-partner-portal/cloud-partner-portal-delete-an-offer.md",
       "redirect_url": "https://go.microsoft.com/fwlink/?linkid=847458",
       "redirect_document_id": false
