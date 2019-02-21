@@ -75,7 +75,8 @@ There are two different sets of procedures to choose from. The configuration pro
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [working with cloud shell](../../includes/expressroute-cloud-shell-powershell-about.md)]
+[!INCLUDE [working with cloud shell](../../includes/expressroute-cloudshell-powershell-about.md)]
+
 
 ## <a name="new"></a>To create a new virtual network and coexisting connections
 This procedure walks you through creating a VNet and Site-to-Site and ExpressRoute connections that will coexist. The cmdlets that you use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions.

@@ -21,4 +21,4 @@ This article uses PowerShell cmdlets. To run the cmdlets, you can use Azure Clou
 
 **Running PowerShell locally**
 
-You can also run the Azure PowerShell cmdlets locally on your computer. PowerShell cmdlets are updated frequently. If you are not running the latest version, the values specified in the instructions may fail. To find the version of PowerShell that you are running locally, use the `Get-Module -ListAvailable Az` cmdlet. To install or update, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+You can also install and run the Azure PowerShell cmdlets locally on your computer. PowerShell cmdlets are updated frequently. If you are not running the latest version, the values specified in the instructions may fail. To find the version of PowerShell that you are running locally, use the `Get-Module -ListAvailable Az` cmdlet. To install or update, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
