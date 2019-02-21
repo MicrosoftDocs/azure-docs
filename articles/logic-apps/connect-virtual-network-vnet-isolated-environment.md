@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 02/20/2019
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -103,25 +103,28 @@ you can set up [network security groups](../virtual-network/security-overview.md
 for those subnets by learning [how to filter network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). 
 These tables describe the ports in your virtual network 
 that your ISE uses and where those ports get used. 
-The asterisk (*) represents any and all traffic sources. 
+The asterisk (\*) represents any and all possible traffic sources. 
 The [service tag](../virtual-network/security-overview.md#service-tags) 
 represents a group of IP address prefixes that help 
 minimize complexity when creating security rules.
 
-| Purpose | Direction | Source port <br>Destination port | Source service tag <br>Destination service tag |
-|---------|-----------|---------------------------------|-----------------------------------------------|
-| Communication to Azure Logic Apps <br>Communication from Azure Logic Apps | Inbound <br>Outbound | * <br>80 & 443 | INTERNET <br>VIRTUAL_NETWORK |
-| Azure Active Directory | Outbound | * <br>80 & 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory |
-| Azure Storage dependency | Outbound | * <br>80 & 443 | VIRTUAL_NETWORK <br>Storage |
-| Your logic app's run history | Inbound | * <br>443 | INTERNET <br>VIRTUAL_NETWORK |
-| Connection management | Outbound | * <br>443 | VIRTUAL_NETWORK <br>INTERNET |
-| Publish Diagnostic Logs & Metrics | Outbound | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor |
-| Logic Apps Designer - dynamic properties <br>Connector deployment <br>Request trigger endpoint | Inbound | * <br>454 | INTERNET <br>VIRTUAL_NETWORK |
-| App Service Management dependency | Inbound | * <br>454 & 455 | AppServiceManagement <br>VIRTUAL_NETWORK |
-| API Management - management endpoint | Inbound | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK |
-| Dependency from Log to Event Hub policy and monitoring agent | Outbound | * <br>5672 | VIRTUAL_NETWORK <br>EventHub |
-| Access Azure Cache for Redis Instances between Role Instances | Inbound <br>Outbound | * <br>6381-6383 | VIRTUAL_NETWORK <br>VIRTUAL_NETWORK |
-|||||
+| Purpose | Direction | Source port <br>Destination port | Source service tag <br>Destination service tag | Notes |
+|---------|-----------|----------------------------------|------------------------------------------------|-------|
+| Communication from Azure Logic Apps | Outbound | * <br>80 & 443 | VIRTUAL_NETWORK <br>INTERNET | The port depends on the external service that the Logic Apps service communicates with |
+| Azure Active Directory | Outbound | * <br>80 & 443 | VIRTUAL_NETWORK <br>AzureActiveDirectory | |
+| Azure Storage dependency | Outbound | * <br>80 & 443 | VIRTUAL_NETWORK <br>Storage | |
+| Communication to Azure Logic Apps | Inbound | * <br>443 | INTERNET <br> VIRTUAL_NETWORK | |
+| Your logic app's run history | Inbound | * <br>443 | INTERNET <br>VIRTUAL_NETWORK | |
+| Connection management | Outbound | * <br>443 | VIRTUAL_NETWORK <br>INTERNET | |
+| Publish Diagnostic Logs & Metrics | Outbound | * <br>443 | VIRTUAL_NETWORK <br>AzureMonitor | |
+| Logic Apps Designer - dynamic properties | Inbound | * <br>454 | INTERNET <br>VIRTUAL_NETWORK | Requests come from the inbound Logic Apps access endpoint IP addresses in that region. |
+| App Service Management dependency | Inbound | * <br>454 & 455 | AppServiceManagement <br>VIRTUAL_NETWORK | |
+| Connector deployment | Inbound | * <br>454 & 3443 | INTERNET <br>VIRTUAL_NETWORK | Necessary for deploying and updating connectors. Closing this port causes ISE deployments to fail and prevents connector updates or fixes. |
+| API Management - management endpoint | Inbound | * <br>3443 | APIManagement <br>VIRTUAL_NETWORK | |
+| Dependency from Log to Event Hub policy and monitoring agent | Outbound | * <br>5672 | VIRTUAL_NETWORK <br>EventHub | |
+| Access Azure Cache for Redis Instances between Role Instances | Inbound <br>Outbound | * <br>6379-6383 | VIRTUAL_NETWORK <br>VIRTUAL_NETWORK | |
+| Azure Load Balancer | Inbound | * <br>8500 | AzureLoadBalancer <br>VIRTUAL_NETWORK | |
+||||||
 
 <a name="vnet-access"></a>
 
