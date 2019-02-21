@@ -13,7 +13,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/29/2018
+ms.date: 02/19/2019
 ms.author: cynthn
 ---
 
@@ -27,7 +27,7 @@ During the build process, Packer creates temporary Azure resources as it builds 
 
 Create a resource group with [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
-```powershell
+```azurepowershell-interactive
 $rgName = "myResourceGroup"
 $location = "East US"
 New-AzResourceGroup -Name $rgName -Location $location
@@ -38,10 +38,8 @@ Packer authenticates with Azure using a service principal. An Azure service prin
 
 Create a service principal with [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) and assign permissions for the service principal to create and manage resources with [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). Replace *&lt;password&gt;* in the example with your own password.  
 
-```powershell
+```azurepowershell-interactive
 $sp = New-AzADServicePrincipal -DisplayName "AzurePacker" `
-    -Password (ConvertTo-SecureString "<password>" -AsPlainText -Force)
-Sleep 20
 New-AzRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $sp.ApplicationId
 ```
 
