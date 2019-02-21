@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/20/2019
+ms.date: 02/21/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -118,11 +118,11 @@ To configure Azure AD single sign-on with Cisco Webex Meetings, perform the foll
 
 	![Cisco Webex Meetings Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
-	In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.webex.com/`
+	In the **Sign-on URL** text box, type a URL:
+    `https://signin.webex.com/collabs/auth`
 
 	> [!Note]
-	> The Sign on URL value is not real. Update this value with the actual Sign on URL. The Sign on URL value is same as the auto populated Reply URL value from the above uploaded Federation metadata file.
+	> The Sign on URL value is same as the auto populated Reply URL value and you need to copy the **Reply URL** and paste in the sign-on URL textbox from the above uploaded Federation metadata file.
 
 5. Cisco Webex Meetings application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click on **Edit** icon to add the attributes.
 
@@ -135,7 +135,7 @@ To configure Azure AD single sign-on with Cisco Webex Meetings, perform the foll
 	|   firstname    | user.givenname |
 	|   lastname    | user.surname |
 	|   email       | user.mail |
-	|   UID    | user.mail |
+	|   uid    | user.mail |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -171,7 +171,6 @@ To configure Azure AD single sign-on with Cisco Webex Meetings, perform the foll
 
 ### Configure Cisco Webex Meetings Single Sign-On
 
-
 1. Go to [Cisco Cloud Collaboration Management](http://www.webex.com/go/connectadmin) with your administration credentials.
 
 2. Go to **Security Settings** and navigate to **Federated Web SSO Configuration**.
@@ -190,10 +189,10 @@ To configure Azure AD single sign-on with Cisco Webex Meetings, perform the foll
 
 	d. In the **AuthContextClassRef** textbox, type `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified` and if you want to enable the MFA using Azure AD type the two values like `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport` and `urn:oasis:names:tc:SAML:2.0:ac:classes:X509`.
 
-	e. Select **Auto Account Creation** and **Auto Account Update**.
+	e. Select **Auto Account Creation**.
 
 	>[!NOTE]
-	>For enabling **just-in-time** user provisioning you need check the **Auto Account Creation** and **Auto Account Update**. In addition to that SAML token attributes need to be passed in the SAML response.
+	>For enabling **just-in-time** user provisioning you need check the **Auto Account Creation**. In addition to that SAML token attributes need to be passed in the SAML response.
 
 	f. Click **Save**. 
 
