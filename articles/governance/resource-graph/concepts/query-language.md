@@ -1,13 +1,14 @@
 ---
-title: Understanding the Azure Resource Graph query language
-description: Describes how the query language for Azure Resource Graph works.
+title: Understand the query language
+description: Describes how the Kusto query language used by Azure Resource Graph works.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
+ms.custom: seodec18
 ---
 # Understanding the Azure Resource Graph query language
 
@@ -15,9 +16,9 @@ The query language for the Azure Resource Graph supports a number of operators a
 work and operate based on [Azure Data Explorer](../../../data-explorer/data-explorer-overview.md).
 
 The best way to learn about the query language used by Resource Graph is to start with the
-documentation for the Azure Data Explorer [Query Language](/azure/kusto/query/index). This
-provides an understanding about how the language is structured and how the various supported
-operators and functions work together.
+documentation for the Azure Data Explorer [Query Language](/azure/kusto/query/index). It provides
+an understanding about how the language is structured and how the various supported operators and
+functions work together.
 
 ## Supported tabular operators
 
@@ -49,6 +50,7 @@ Here is the list of supported functions in Resource Graph:
 - [strcat()](/azure/kusto/query/strcatfunction)
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
 - [tostring()](/azure/kusto/query/tostringfunction)
+- [zip()](/azure/kusto/query/zipfunction)
 
 ## Next steps
 

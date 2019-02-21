@@ -1,3 +1,10 @@
+---
+author: vladvino
+ms.service: api-management
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: vlvinogr
+---
 ## Related topics
 
 * [Import an OpenAPI Specification](../articles/api-management/import-api-from-oas.md)

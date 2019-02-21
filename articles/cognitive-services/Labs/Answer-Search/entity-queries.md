@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Queries for Entities using Project Answer Search
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: project-answer-search
+ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/16/2018
 ms.author: rosh
@@ -30,7 +30,7 @@ The data that the entity includes depends on the entity's type. Although entitie
 -	Attraction 
  
 To determine the type of entity that the response contains, use the `entityTypeHints` field as shown in the query for Bill Gates.
-````
+```
         },
         "description": "Bill Gates is an American business man and philanthropist, co-founder of Microsoft",
         "entityPresentationInfo": {
@@ -41,13 +41,13 @@ To determine the type of entity that the response contains, use the `entityTypeH
         },
         "bingId": "6d7d66a7-2cb8-0ae9-637c-f81fd749dc9a"
       }
-````
+```
 The following is a query for Space Needle:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=space+needle&mkt=en-us
-````
+```
 The response includes the `entities` answer. Note the `entityScenario` and `entityTypeHints` fields. 
-````
+```
   "entities": {
     "value": [
       {
@@ -105,21 +105,21 @@ The response includes the `entities` answer. Note the `entityScenario` and `enti
       }
     ]
   },
-````
+```
 
 A query can return a list if it is relevant.
 
 **Query:**
 The following query finds a list of endangered species:
 
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=list+of+endangered+species
 
-````
+```
 
 **Response:**
 The response includes a list formatted for display as tabular values:
-````
+```
   "facts": {
     "id": "https://www.bingapis.com/api/v7/#Facts",
     "contractualRules": [
@@ -216,7 +216,7 @@ The response includes a list formatted for display as tabular values:
     ]
   },
 
-````
+```
 
 
 ## Next steps

@@ -4,9 +4,11 @@ description: Learn about running disaster recovery drill from on-premises to Azu
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 12/31/2018
 ms.author: raynew
+ms.custom: MVC
 
 ---
 # Run a disaster recovery drill to Azure

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/16/2018
+ms.date: 2/20/2019
 ms.author: raiye
 
 ---
@@ -39,6 +39,21 @@ Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
 
+###### **February 5, 2019**
+The January Guest OS has released.
+
+###### **January 24, 2019**
+Family 6 Guest OS (Windows Server 2019) has released.
+
+###### **January 7, 2019**
+The December Guest OS has released.
+
+###### **December 14, 2018**
+The November Guest OS has released.
+
+###### **November 8, 2018**
+The October Guest OS has released.
+
 ###### **October 12, 2018**
 The September Guest OS has released.
 
@@ -48,76 +63,97 @@ The August Guest OS has released.
 ###### **August 3, 2018**
 The July Guest OS has released.
 
-###### **July 3, 2018**
-The June Guest OS has released.
-
-###### **June 1, 2018**
-The May Guest OS has released.
-
-###### **May 4, 2018**
-The April Guest OS has released.
-
-
 ## Releases
+
+## Family 6 releases
+**Windows Server 2019**
+
+.NET Framework installed: 3.5, 4.7.2
+
+> [!NOTE]
+> The Windows Azure SDK for .NET - 3.0 can be downloaded [here][Windows Azure SDK].
+>
+>Installation steps:
+>1.	Please uninstall any older versions of MicrosoftAzureAuthoringTools*.msi
+>2. Install the [Azure SDK for .NET - 3.0][Windows Azure SDK]
+>3. Restart your machine
+>4. Create a new Cloud Service project and add a single Worker Role
+>5. Change the OS Family to 6 and build a package
+>6. Deploy the package to Azure using the Azure portal or Visual Studio
+>
+
+
+| Configuration string | Release date | Disable date |
+| --- | --- | --- |
+| WA-GUEST-OS-6.3_201901-01 |February 5, 2019 |Post 6.5 |
+| WA-GUEST-OS-6.2_201812-01 |January 24, 2019 |Post 6.4 |
+|~~WA-GUEST-OS-6.1_201811-01~~ |January 24, 2019 |February 5, 2019 |
+
 ## Family 5 releases
 **Windows Server 2016**
 
-.NET Framework installed: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
+.NET Framework installed: 3.5, 4.6.2
 
 > [!NOTE]
 > The RDP password for OS family 5 must be a minimum of 10 characters.
 >
 
+
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-5.23_201809-01 |October 12, 2018 |Post 5.25 |
-| WA-GUEST-OS-5.22_201808-01 |September 12, 2018 |Post 5.24 |
+| WA-GUEST-OS-5.27_201901-01 |February 5, 2019 |Post 5.29 |
+| WA-GUEST-OS-5.26_201812-01 |January 7, 2019 |Post 5.28 |
+|~~WA-GUEST-OS-5.25_201811-01~~ |December 14, 2018 |February 5, 2019 |
+|~~WA-GUEST-OS-5.24_201810-01~~ |November 8, 2018 |January 7, 2019 |
+|~~WA-GUEST-OS-5.23_201809-01~~ |October 12, 2018 |December 14, 2018 |
+|~~WA-GUEST-OS-5.22_201808-01~~ |September 12, 2018 |November 8, 2018 |
 |~~WA-GUEST-OS-5.21_201807-02~~ |August 3, 2018 |October 12, 2018 |
-|~~WA-GUEST-OS-5.20_201806-01~~ |July 3, 2018 |September 12, 2018 |
-|~~WA-GUEST-OS-5.19_201805-01~~ |June 1, 2018 |August 3, 2018 |
-|~~WA-GUEST-OS-5.18_201804-01~~ |May 4, 2018 |July 3, 2018 |
 
 ## Family 4 releases
 **Windows Server 2012 R2**
 
-.NET Framework installed: 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework installed: 3.5, 4.5.1
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-4.58_201809-01 |October 12, 2018 |Post 4.60 |
-| WA-GUEST-OS-4.57_201808-01 |September 12, 2018 |Post 4.59 |
+| WA-GUEST-OS-4.62_201901-01 |February 5, 2019 |Post 4.64 |
+| WA-GUEST-OS-4.61_201812-01 |January 7, 2019 |Post 4.63 |
+|~~WA-GUEST-OS-4.60_201811-01~~ |December 14, 2018 |February 5, 2019 |
+|~~WA-GUEST-OS-4.59_201810-01~~ |November 8, 2018 |January 7, 2019 |
+|~~WA-GUEST-OS-4.58_201809-01~~ |October 12, 2018 |December 14, 2018 |
+|~~WA-GUEST-OS-4.57_201808-01~~ |September 12, 2018 |November 8, 2018 |
 |~~WA-GUEST-OS-4.56_201807-02~~ |August 3, 2018 |October 12, 2018 |
-|~~WA-GUEST-OS-4.55_201806-01~~ |July 3, 2018 |September 12, 2018 |
-|~~WA-GUEST-OS-4.54_201805-01~~ |June 1, 2018 |August 3, 2018 |
-|~~WA-GUEST-OS-4.53_201804-01~~ |May 4, 2018 |July 3, 2018 |
 
 ## Family 3 releases
 **Windows Server 2012**
 
-.NET Framework installed: 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework installed: 3.5, 4.5
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-3.65_201809-01 |October 12, 2018 |Post 3.67 |
-| WA-GUEST-OS-3.64_201808-01 |September 12, 2018 |Post 3.66 |
+| WA-GUEST-OS-3.69_201901-01 |February 5, 2019 |Post 3.71 |
+| WA-GUEST-OS-3.68_201812-01 |January 7, 2019 |Post 3.70 |
+|~~WA-GUEST-OS-3.67_201811-01~~ |December 14, 2018 |February 5, 2019 |
+|~~WA-GUEST-OS-3.66_201810-01~~ |November 8, 2018 |January 7, 2019 |
+|~~WA-GUEST-OS-3.65_201809-01~~ |October 12, 2018 |December 14, 2018 |
+|~~WA-GUEST-OS-3.64_201808-01~~ |September 12, 2018 |November 8, 2018 |
 |~~WA-GUEST-OS-3.63_201807-02~~ |August 3, 2018 |October 12, 2018 |
-|~~WA-GUEST-OS-3.62_201806-01~~ |July 3, 2018 |September 12, 2018 |
-|~~WA-GUEST-OS-3.61_201805-01~~ |June 1, 2018 |August 3, 2018 |
-|~~WA-GUEST-OS-3.60_201804-01~~ |May 4, 2018 |July 3, 2018 |
 
 ## Family 2 releases
 **Windows Server 2008 R2 SP1**
 
-.NET Framework installed: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework installed: 3.5 (includes 2.0 and 3.0)
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-2.78_201809-01 |October 12, 2018 |Post 2.80 |
-| WA-GUEST-OS-2.77_201808-01 |September 12, 2018 |Post 2.79 |
+| WA-GUEST-OS-2.82_201901-01 |February 5, 2019 |Post 2.84 |
+| WA-GUEST-OS-2.81_201812-01 |January 7, 2019 |Post 2.83 |
+|~~WA-GUEST-OS-2.80_201811-01~~ |December 14, 2018 |February 5, 2019 |
+|~~WA-GUEST-OS-2.79_201810-01~~ |November 8, 2018 |January 7, 2019 |
+|~~WA-GUEST-OS-2.78_201809-01~~ |October 12, 2018 |December 14, 2018 |
+|~~WA-GUEST-OS-2.77_201808-01~~ |September 12, 2018 |November 8, 2018 |
 |~~WA-GUEST-OS-2.76_201807-02~~ |August 3, 2018 |October 12, 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |July 3, 2018 |September 12, 2018 |
-|~~WA-GUEST-OS-2.74_201805-01~~ |June 1, 2018 |August 3, 2018|
-|~~WA-GUEST-OS-2.73_201804-01~~ |May 4, 2018 |July 3, 2018 |
 
 ## MSRC patch updates
 The list of patches that are included with each monthly Guest OS release is available [here][patches].
@@ -127,6 +163,7 @@ Even though the [retirement policy for the Azure SDK][retire policy sdk] indicat
 
 | Guest OS family | Compatible SDK versions |
 | --- | --- |
+| 6 |Version 2.9.6+ |
 | 5 |Version 2.9.5.1+ |
 | 4 |Version 2.1+ |
 | 3 |Version 1.8+ |
@@ -195,3 +232,4 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
+[Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917

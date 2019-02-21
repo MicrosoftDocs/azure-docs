@@ -1,4 +1,4 @@
-﻿---
+---
 title: Build your first data factory (REST) | Microsoft Docs
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Data Factory REST API.
 services: data-factory
@@ -11,7 +11,7 @@ ms.assetid: 7e0a2465-2d85-4143-a4bb-42e03c273097
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
@@ -46,7 +46,7 @@ The pipeline in this tutorial has one activity: **HDInsight Hive activity**. Thi
 ## Prerequisites
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
 * Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the CURL tool with REST commands to create a data factory.
-* Follow instructions from [this article](../../azure-resource-manager/resource-group-create-service-principal-portal.md) to:
+* Follow instructions from [this article](../../active-directory/develop/howto-create-service-principal-portal.md) to:
   1. Create a Web application named **ADFGetStartedApp** in Azure Active Directory.
   2. Get **client ID** and **secret key**.
   3. Get **tenant ID**.
@@ -216,8 +216,8 @@ The JSON defines a dataset named **AzureBlobOutput**, which represents output da
                 "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
                 "scriptLinkedService": "AzureStorageLinkedService",
                 "defines": {
-                    "inputtable": "wasb://adfgetstarted@<stroageaccountname>.blob.core.windows.net/inputdata",
-                    "partitionedtable": "wasb://adfgetstarted@<stroageaccountname>t.blob.core.windows.net/partitioneddata"
+                    "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                    "partitionedtable": "wasb://adfgetstarted@<storageaccountname>t.blob.core.windows.net/partitioneddata"
                 }
             },
             "inputs": [{

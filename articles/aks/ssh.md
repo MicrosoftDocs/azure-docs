@@ -125,7 +125,7 @@ To create an SSH connection to an AKS node, you run a helper pod in your AKS clu
      * Support:        https://ubuntu.com/advantage
     
       Get cloud support with Ubuntu Advantage Cloud Guest:
-        http://www.ubuntu.com/business/services/cloud
+        https://www.ubuntu.com/business/services/cloud
     
     [...]
     

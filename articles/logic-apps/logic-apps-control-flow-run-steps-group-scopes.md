@@ -453,7 +453,7 @@ here is the JSON definition for trigger and actions in the previous logic app:
 * For questions, visit the 
 [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * To submit or vote on features and suggestions, 
-visit the [Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+visit the [Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

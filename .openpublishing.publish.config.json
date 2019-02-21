@@ -142,7 +142,7 @@
     },
     {
       "path_to_root": "samples-luis",
-      "url": "https://github.com/Microsoft/Luis-Samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-language-understanding",
       "branch": "master",
       "branch_mapping": {}
     },
@@ -219,8 +219,104 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "aml-sdk-samples",
+      "url": "https://github.com/Azure/MachineLearningNotebooks",
+      "branch": "sdk-codetest",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-qnamaker-nodejs",
       "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-qnamaker-go",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-go",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-qnamaker-csharp",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-qnamaker-java",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-java",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-qnamaker-python",
+      "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-python",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-services-dotnet-sdk-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-services-java-sdk-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-java-sdk-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-services-vision-csharp-sdk-quickstarts",
+      "url": "https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-face-csharp-sample",
+      "url": "https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-services-face-android-detect",
+      "url": "https://github.com/Azure-Samples/cognitive-services-face-android-detect",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-cosmosdb-dotnet-web-app",
+      "url": "https://github.com/Azure-Samples/cosmos-dotnet-todo-app",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-services-content-moderator-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-content-moderator-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-eCommerceCatalogModeration",
+      "url": "https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-cogserv-containers",
+      "url": "https://github.com/Azure-Samples/cognitive-services-containers-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "samples-iot-distributed-tracing",
+      "url": "https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "AIVisualProvision",
+      "url": "https://github.com/Microsoft/AIVisualProvision",
       "branch": "master",
       "branch_mapping": {}
     }

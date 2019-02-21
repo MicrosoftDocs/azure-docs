@@ -1,6 +1,6 @@
 ---
-title: Integrate Azure DevTest Labs into your VSTS continuous integration and delivery pipeline | Microsoft Docs
-description: Learn how to integrate Azure DevTest Labs into your VSTS continuous integration and delivery pipeline
+title: Integrate Azure DevTest Labs into your Azure Pipelines continuous integration and delivery pipeline | Microsoft Docs
+description: Learn how to integrate Azure DevTest Labs into your Azure Pipelines continuous integration and delivery pipeline
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -81,7 +81,7 @@ This section describes how to create the Azure Resource Manager template that yo
 
 1. Check the script in to your source control system. Name it something like **GetLabVMParams.ps1**.
 
-   When you run this script on the agent as part of the release pipeline, and if you use task steps such as *Azure File Copy* or *PowerShell on Target Machines*, the script collects the values that you need to deploy your app to the VM. You would ordinarily use these tasks to deploy apps to an Azure VM. The tasks require values such as the VM Resource Group name, IP address, and fully qualified domain name (FDQN).
+   When you run this script on the agent as part of the release pipeline, and if you use task steps such as *Azure File Copy* or *PowerShell on Target Machines*, the script collects the values that you need to deploy your app to the VM. You would ordinarily use these tasks to deploy apps to an Azure VM. The tasks require values such as the VM Resource Group name, IP address, and fully qualified domain name (FQDN).
 
 ## Create a release pipeline in Release Management
 To create the release pipeline, do the following:
@@ -134,7 +134,7 @@ The next stage of the deployment is to create the VM to use as the "golden image
 1. In the release pipeline, select **Add tasks** and then, on the **Deploy** tab, add an *Azure PowerShell* task. Configure the task as follows:
 
    > [!NOTE]
-   > To collect the details of the DevTest Labs VM, see [Deploy: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) and execute the script.
+   > To collect the details of the DevTest Labs VM, see [Deploy: Azure PowerShell](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV3) and execute the script.
 
    a. For **Azure Connection Type**, select **Azure Resource Manager**.
 

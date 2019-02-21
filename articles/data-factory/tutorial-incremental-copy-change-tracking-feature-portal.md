@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
@@ -140,7 +140,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     ```
 
 ### Azure PowerShell
-Install the latest Azure PowerShell modules by following  instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Install the latest Azure PowerShell modules by following  instructions in [How to install and configure Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## Create a data factory
 
@@ -317,7 +317,7 @@ Click **Trigger** on the toolbar for the pipeline, and click **Trigger Now**.
 ### Review the results
 You see a file named `incremental-<GUID>.txt` in the `incchgtracking` folder of the `adftutorial` container. 
 
-![Output file from full copy](media\tutorial-incremental-copy-change-tracking-feature-portal\full-copy-output-file.png)
+![Output file from full copy](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
 
 The file should have the data from the Azure SQL database:
 
@@ -440,7 +440,7 @@ In this step, you create a pipeline with the following activities, and run it pe
 ### Review the results
 You see the second file in the `incchgtracking` folder of the `adftutorial` container. 
 
-![Output file from incremental copy](media\tutorial-incremental-copy-change-tracking-feature-portal\incremental-copy-output-file.png)
+![Output file from incremental copy](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
 
 The file should have only the delta data from the Azure SQL database. The record with `U` is the updated row in the database and `I` is the one added row. 
 
@@ -460,10 +460,10 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 
     
 ## Next steps
-Advance to the following tutorial to learn about transforming data by using a Spark cluster on Azure:
+Advance to the following tutorial to learn about copying new and changed files only based on their LastModifiedDate:
 
 > [!div class="nextstepaction"]
->[Transform data using Spark cluster in cloud](tutorial-transform-data-spark-portal.md)
+>[Copy new files by lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
 
 

@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
 
 ---
 # How to use PerfInsights
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) is a self-help diagnostics tool that collects and analyzes the diagnostic data, and provides a report to help troubleshoot Windows virtual machine performance problems in Azure. PerfInsights can be run on virtual machines as a standalone tool, directly from the portal by using [Performance Diagnostics for Azure virtual machines](performance-diagnostics.md), or by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md).
+[PerfInsights](https://aka.ms/perfinsightsdownload) is a self-help diagnostics tool that collects and analyzes the diagnostic data, and provides a report to help troubleshoot Windows virtual machine performance problems in Azure. PerfInsights can be run on virtual machines as a standalone tool, directly from the portal by using [Performance Diagnostics for Azure virtual machines](performance-diagnostics.md), or by installing [Azure Performance Diagnostics VM Extension](performance-diagnostics-vm-extension.md).
 
 If you are experiencing performance problems with virtual machines, before contacting support, run this tool.
 
@@ -187,7 +187,7 @@ For more information about this option, see [Install Azure Performance Diagnosti
 To run the PerfInsights tool, follow these steps:
 
 
-1. Download [PerfInsights.zip](http://aka.ms/perfinsightsdownload).
+1. Download [PerfInsights.zip](https://aka.ms/perfinsightsdownload).
 
 2. Unblock the PerfInsights.zip file. To do this, right-click the PerfInsights.zip file, and select **Properties**. In the **General** tab, select **Unblock**, and then select **OK**. This ensures that the tool runs without any additional security prompts.  
 
@@ -201,7 +201,7 @@ To run the PerfInsights tool, follow these steps:
     cd <the path of PerfInsights folder>
     PerfInsights
     ```
-    ![Screenshot of PerfInsights commandline ouput](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
+    ![Screenshot of PerfInsights commandline output](media/how-to-use-perfInsights/PerfInsightsCommandline.png)
     
     The basic syntax for running PerfInsights scenarios is:
     

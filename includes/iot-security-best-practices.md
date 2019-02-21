@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-# Internet of Things security best practices
+# Security best practices for Internet of Things (IoT)
 
 Securing an Internet of Things (IoT) infrastructure requires a rigorous security-in-depth strategy. This strategy requires you to secure data in the cloud, protect data integrity while in transit over the public internet, and securely provision devices. Each layer builds greater security assurance in the overall infrastructure.
 

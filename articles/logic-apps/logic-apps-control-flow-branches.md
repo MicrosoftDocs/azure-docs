@@ -44,7 +44,7 @@ Your logic app waits for all branches to finish before continuing workflow.
 Parallel branches run only when their `runAfter` property 
 values match the finished parent step's status. 
 For example, both `branchAction1` and `branchAction2` are set to 
-run only when the `parentAction` completes with `Succeded` status.
+run only when the `parentAction` completes with `Succeeded` status.
 
 > [!NOTE]
 > Before you start, your logic app must already 
@@ -211,7 +211,7 @@ structure in your logic app's JSON definition instead, for example:
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * To submit or vote on features and suggestions, visit the 
-[Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+[Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

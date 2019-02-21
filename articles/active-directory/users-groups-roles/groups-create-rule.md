@@ -1,21 +1,21 @@
 ---
-title: Create a dynamic group and check status in Azure Active Directory | Microsoft Docs
+title: Create a dynamic group and check status - Azure Active Directory | Microsoft Docs
 description: How to create a group membership rules in the Azure portal, check status.
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Create a dynamic group and check status
@@ -36,8 +36,9 @@ This article details how to set up a rule in the Azure portal for dynamic member
 
    ![Add dynamic membership rule](./media/groups-create-rule/add-dynamic-group-rule.png)
 
-5. After creating the rule, select **Add query** at the bottom of the blade.
-6. Select **Create** on the **Group** blade to create the group.
+5. To see the full list of custom extension properties that you can add to your membership query, select **Get custom extension properties**, enter the application ID, and then select **Refresh properties**. The full ist of properties will now be available to select.
+6. After creating the rule, select **Add query** at the bottom of the blade.
+7. Select **Create** on the **Group** blade to create the group.
 
 > [!TIP]
 > Group creation fails if the rule you entered was incorrectly formed or not valid. A notification is displayed in the upper-right hand corner of the portal, containing an explanation of why the rule could not be processed. Read it carefully to understand how you need to adjust the rule to make it valid.

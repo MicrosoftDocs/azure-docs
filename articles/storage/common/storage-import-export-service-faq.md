@@ -5,9 +5,9 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 12/13/2018
 ms.author: alkohli
-ms.component: common
+ms.subservice: common
 ---
 # Azure Import/Export service: frequently asked questions 
 The following are questions and answers that you may have when you use your Azure Import/Export service to transfer data into Azure storage. Questions and answers are arranged in the following categories:
@@ -61,7 +61,10 @@ You can view the status for completed jobs for up to 90 days. Completed jobs are
 
 ### If I want to import or export more than 10 drives, what should I do?
 One import or export job can reference only 10 drives in a single job. To ship more than 10 drives, you should create multiple jobs. Drives associated with the same job must be shipped together in the same package. 
-For more information and guidance when data capacity spans multiple disk import jobs, contact Microsoft at bulkimport@microsoft.com.                                                              
+For more information and guidance when data capacity spans multiple disk import jobs, contact Microsoft at bulkimport@microsoft.com. 
+
+### The uploaded blob shows status as "Lease expired". What should I do?
+You can ignore the “Lease Expired” field. Import/Export takes lease on the blob during upload to make sure that no other process can update the blob in parallel. Lease Expired implies that Import/export is no longer uploading to it and the blob is available for your use. 
 
 ## Shipping disks
 
@@ -126,11 +129,11 @@ Max Page Blob size is 1TB.
 ### Does Azure Import/Export support AES-256 encryption?
 Azure Import/Export service uses AES-128 bitlocker encryption by default. You can change this to AES-256 by manually encrypting with bitlocker before the data is copied. 
 
-- If using [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), below is a sample command
+- If using [WAImportExport V1](https://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), below is a sample command
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
     ```
-- If using [WAImportExport V2](https://www.microsoft.com/en-us/download/details.aspx?id=55280) specify "AlreadyEncrypted" and supply the key in the driveset CSV.
+- If using [WAImportExport V2](https://www.microsoft.com/download/details.aspx?id=55280) specify "AlreadyEncrypted" and supply the key in the driveset CSV.
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
     G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |

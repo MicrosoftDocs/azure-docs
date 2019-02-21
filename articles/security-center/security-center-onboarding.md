@@ -4,7 +4,7 @@ description: " Learn how to onboard to Azure Security Center Standard for enhanc
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/02/2018
+ms.date: 12/02/2018
 ms.author: rkarlin
 
 ---
 # Onboarding to Azure Security Center Standard for enhanced security
-Upgrade to Security Center Standard to take advantage of enhanced security management and threat protection for your hybrid cloud workloads.  You can try Standard free for 60 days. See the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
+Upgrade to Security Center Standard to take advantage of enhanced security management and threat protection for your hybrid cloud workloads.  You can try Standard free. See the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
 
 Security Center Standard includes:
 

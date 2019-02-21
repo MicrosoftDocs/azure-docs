@@ -31,6 +31,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
++ Learn the [Azure API Management terminology](api-management-terminology.md).
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
@@ -79,6 +80,9 @@ Developers must first subscribe to a product to get access to the API. When they
 2. Navigate to the **APIs** tab.
 3. Click **+ Add**.
 4. Choose an API and click **Select**.
+
+> [!TIP]
+> You can create or update user's subscription to a *Product* with custom subscription keys [through REST API](https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate) or PowerShell command.
 
 ## Next steps
 

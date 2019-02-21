@@ -1,13 +1,13 @@
-﻿---
+---
 title: What is Project Answer Search?
 titlesuffix: Azure Cognitive Services
 description: Introduction to the Project Answer Search.
 services: cognitive-services
 author: mikedodaro
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: project-answer-search
+ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
@@ -24,10 +24,10 @@ To get answers to a question or information about a person, place, or thing, sen
 The following query gets answers to the question: "What is the circumference of the earth?"
 
 GET:
-````
+```
 https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=what+is+circumference+of+the=earth?&mkt=en-us
 
-````
+```
 
 The URL parameter `q=` is required to specify the object of search.
 
@@ -35,7 +35,7 @@ The URL parameter `q=` is required to specify the object of search.
 
 The response includes HTTP headers, webpages, facts, and/or entities.
 
-````
+```
 BingAPIs-TraceId: AB2E75C998614ADB8EBF5110DF648298
 X-MSEdge-ClientID: 1E48FC4F7B8768C80B14F7997A106906
 BingAPIs-SessionId: 0504DDD6DAE84861A4842306F8DA7A58
@@ -232,7 +232,7 @@ JSON Response:
   }
 }
 
-````
+```
 
 ## Terms of use
 Project Answer Search and Project Video Trends are subject to the [Bing Search Use and Display Requirements](use-display-requirements.md).

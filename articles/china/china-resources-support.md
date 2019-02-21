@@ -26,7 +26,7 @@ Azure provides many self-service support options and support through 21Vianet.
 - [Azure School](https://school.azure.cn/) offers self-learning resources with access to Azure experts.
 
 ## Assisted support
-- [Open a request online](https://www.azure.cn/support/support-ticket-form/?l=zh-cn) (both English and Chinese versions are available).
+- [Open a request online](https://www.azure.cn/en-us/support/contact/) (both English and Chinese versions are available).
 - [Browse MSDN forum support](https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=windowsazurezhchs).
 - [Use Azure Cloud Assistant app to submit a request](https://www.azure.cn/azure-cloud-assistant/).
 

@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Use the Bing Image Search API to search for and get relevant images from the web.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.assetid: AB1B9898-C94A-4B59-91A1-8623C94BA3D4
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi
@@ -33,7 +33,7 @@ Host: api.cognitive.microsoft.com
 
 ## Get images from a specific web domain
 
-To get images from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator.
+To get images from a specific domain, use the [site:](https://msdn.microsoft.com/library/ff795613.aspx) query operator.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -66,7 +66,7 @@ Host: api.cognitive.microsoft.com
 * [license](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license)—Filter images by the type of license associated with the site.
 * [size](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#size)—Filter images by size, such as small images up to 200x200 pixels.
 
-To get images from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator.
+To get images from a specific domain, use the [site:](https://msdn.microsoft.com/library/ff795613.aspx) query operator.
 
  > [!NOTE]
  > Responses to queries using the `site:` operator might include adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) setting. Only use `site:` if you're aware of the content on the domain.

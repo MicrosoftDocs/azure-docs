@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
 ---
 
@@ -23,6 +23,8 @@ As an administrator, you may need to lock a subscription, resource group, or res
 
 * **CanNotDelete** means authorized users can still read and modify a resource, but they can't delete the resource. 
 * **ReadOnly** means authorized users can read a resource, but they can't delete or update the resource. Applying this lock is similar to restricting all authorized users to the permissions granted by the **Reader** role. 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## How locks are applied
 
@@ -45,7 +47,7 @@ The following example shows a template that creates an app service plan, a web s
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "hostingPlanName": {
@@ -100,9 +102,9 @@ The following example shows a template that creates an app service plan, a web s
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroup -Name sitegroup -Location southcentralus
-New-AzureRmResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
+```azurepowershell-interactive
+New-AzResourceGroup -Name sitegroup -Location southcentralus
+New-AzResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
 ```
 
 To deploy this example template with Azure CLI, use:
@@ -113,43 +115,43 @@ az group deployment create --resource-group sitegroup --template-uri https://raw
 ```
 
 ## PowerShell
-You lock deployed resources with Azure PowerShell by using the [New-AzureRmResourceLock](/powershell/module/azurerm.resources/new-azurermresourcelock) command.
+You lock deployed resources with Azure PowerShell by using the [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) command.
 
 To lock a resource, provide the name of the resource, its resource type, and its resource group name.
 
-```powershell
-New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
+```azurepowershell-interactive
+New-AzResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 To lock a resource group, provide the name of the resource group.
 
-```powershell
-New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
+```azurepowershell-interactive
+New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
-To get information about a lock, use [Get-​Azure​Rm​Resource​Lock](/powershell/module/azurerm.resources/get-azurermresourcelock). To get all the locks in your subscription, use:
+To get information about a lock, use [Get-​Azure​Rm​Resource​Lock](/powershell/module/az.resources/get-azresourcelock). To get all the locks in your subscription, use:
 
-```powershell
-Get-AzureRmResourceLock
+```azurepowershell-interactive
+Get-AzResourceLock
 ```
 
 To get all locks for a resource, use:
 
-```powershell
-Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
+```azurepowershell-interactive
+Get-AzResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 To get all locks for a resource group, use:
 
-```powershell
-Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup
+```azurepowershell-interactive
+Get-AzResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
 To delete a lock, use:
 
-```powershell
-$lockId = (Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
-Remove-AzureRmResourceLock -LockId $lockId
+```azurepowershell-interactive
+$lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
+Remove-AzResourceLock -LockId $lockId
 ```
 
 ## Azure CLI
@@ -214,6 +216,6 @@ In the request, include a JSON object that specifies the properties for the lock
 ## Next steps
 * To learn about logically organizing your resources, see [Using tags to organize your resources](resource-group-using-tags.md)
 * To change which resource group a resource resides in, see [Move resources to new resource group](resource-group-move-resources.md)
-* You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md).
+* You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../governance/policy/overview.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

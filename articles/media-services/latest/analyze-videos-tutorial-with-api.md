@@ -1,5 +1,5 @@
 ---
-title: Analyze videos with Azure Media Services | Microsoft Docs
+title: Analyze videos with Media Services using .NET - Azure | Microsoft Docs
 description: Follow the steps of this tutorial to analyze videos using Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -10,36 +10,34 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 10/15/2018
+ms.date: 02/18/2019
 ms.author: juliako
+ms.custom: seodec18
+
 ---
 
-# Tutorial: Analyze videos with Azure Media Services 
+# Tutorial: Analyze videos with Media Services v3 using .NET
 
-This tutorial shows you how to analyze videos with Azure Media Services. There are many scenarios in which you might want to gain deep insights into recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can run speech-to-text processing to convert customer support recordings into a searchable catalog, with indexes and dashboards. Then, they can obtain insights into their business such as a list of common complaints, sources of such complaints, etc.
+This tutorial shows you how to analyze videos with Azure Media Services. There are many scenarios in which you might want to gain deep insights into recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can run speech-to-text processing to convert customer support recordings into a searchable catalog, with indexes and dashboards. Then, they can obtain insights into their business such as a list of common complaints, sources of such complaints, and other useful information.
 
 This tutorial shows you how to:    
 
 > [!div class="checklist"]
-> * Create a Media Services account
-> * Access the Media Services API
-> * Configure the sample app
+> * Download the sample app described in the topic
 > * Examine the code that analyzes the specified video
 > * Run the app
 > * Examine the output
 > * Clean up resources
 
-> [!Note]
-> Use the Azure portal, as described in [Scaling media processing](../previous/media-services-scale-media-processing-overview.md), to set your Media Services account to 10 S3 Media Reserved Units.
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-If you do not have Visual Studio installed, you can get [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- If you do not have Visual Studio installed, you can get [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- [Create a Media Services account](create-account-cli-how-to.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
+- Follow the steps in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) and save the credentials. You will need to use them to access the API.
 
-## Download the sample
+## Download and configure the sample
 
 Clone a GitHub repository that contains the .NET sample to your machine using the following command:  
 
@@ -49,11 +47,7 @@ Clone a GitHub repository that contains the .NET sample to your machine using th
 
 The sample is located in the [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos) folder.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
-
-[!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
+Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/appsettings.json) in you downloaded project. Replace the values with credentials that you got from [accessing APIs](access-api-cli-how-to.md).
 
 ## Examine the code that analyzes the specified video
 
@@ -61,12 +55,15 @@ This section examines functions defined in the [Program.cs](https://github.com/A
 
 The sample performs the following actions:
 
-1. Creates a transform and a job that analyzes your video.
-2. Creates an input asset and uploads the video into it. The asset is used as the job's input.
+1. Creates a **Transform** and a **Job** that analyzes your video.
+2. Creates an input **Asset** and uploads the video into it. The asset is used as the job's input.
 3. Creates an output asset that stores the job's output. 
 4. Submits the job.
 5. Checks the job's status.
 6. Downloads the files that resulted from running the job. 
+
+> [!NOTE]
+> When using a Video or Audio Analyzer presets, use the Azure portal to set your account to have 10 S3 Media Reserved Units. For more information, see [Scale media processing](../previous/media-services-scale-media-processing-overview.md).
 
 ### Start using Media Services APIs with .NET SDK
 
@@ -126,6 +123,11 @@ The **Job** usually goes through the following states: **Scheduled**, **Queued**
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#WaitForJobToFinish)]
 
+
+### Job error codes
+
+See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+
 ### Download the result of the job
 
 The following function downloads the results from the output [Asset](https://docs.microsoft.com/rest/api/media/assets) into the "output" folder, so you can examine the results of the job. 
@@ -150,11 +152,11 @@ The output file of analyzing videos is called insights.json. This file contains 
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier. You can use the **CloudShell** tool.
+If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier. 
 
-In the **CloudShell**, execute the following command:
+Execute the following CLI command:
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

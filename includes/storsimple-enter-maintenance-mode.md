@@ -1,4 +1,10 @@
-<!--author=SharS last changed: 12/01/15-->
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+---
 
 #### To enter Maintenance mode
 1. In the serial console menu, choose option 1, **Log in with full access**.

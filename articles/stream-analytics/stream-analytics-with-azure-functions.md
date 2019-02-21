@@ -2,15 +2,13 @@
 title: "Tutorial: Run Azure Functions with Azure Stream Analytics jobs | Microsoft Docs"
 description: "In this tutorial, you learn how to configure Azure Functions as an output sink to Stream Analytics jobs."
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
-
+author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.workload: data-services
 ms.date: 04/09/2018
-ms.author: jasonh
+ms.author: mamccrea
 ms.reviewer: jasonh
 
 #Customer intent: "As an IT admin/developer I want to run Azure Functions with Stream Analytics jobs."
@@ -33,34 +31,34 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Configure a Stream Analytics job to run a function 
 
-This section demonstrates how to configure a Stream Analytics job to run a function that writes data to Azure Redis Cache. The Stream Analytics job reads events from Azure Event Hubs, and runs a query that invokes the function. This function reads data from the Stream Analytics job, and writes it to Azure Redis Cache.
+This section demonstrates how to configure a Stream Analytics job to run a function that writes data to Azure Cache for Redis. The Stream Analytics job reads events from Azure Event Hubs, and runs a query that invokes the function. This function reads data from the Stream Analytics job, and writes it to Azure Cache for Redis.
 
 ![Diagram showing relationships among the Azure services](./media/stream-analytics-with-azure-functions/image1.png)
 
 The following steps are required to achieve this task:
-* [Create a Stream Analytics job with Event Hubs as input](#create-stream-analytics-job-with-event-hub-as-input)  
-* [Create an Azure Redis Cache instance](#create-an-azure-redis-cache)  
-* [Create a function in Azure Functions that can write data to the Azure Redis Cache](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
-* [Update the Stream Analytics job with the function as output](#update-the-stream-analytic-job-with-azure-function-as-output)  
-* [Check Azure Redis Cache for results](#check-redis-cache-for-results)  
+* [Create a Stream Analytics job with Event Hubs as input](#create-a-stream-analytics-job-with-event-hubs-as-input)  
+* Create an Azure Cache for Redis instance  
+* Create a function in Azure Functions that can write data to the Azure Cache for Redis    
+* [Update the Stream Analytics job with the function as output](#update-the-stream-analytics-job-with-the-function-as-output)  
+* Check Azure Cache for Redis for results  
 
 ## Create a Stream Analytics job with Event Hubs as input
 
 Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detection.md) tutorial to create an event hub, start the event generator application, and create a Stream Analytics job. (Skip the steps to create the query and the output. Instead, see the following sections to set up Functions output.)
 
-## Create an Azure Redis Cache instance
+## Create an Azure Cache for Redis instance
 
-1. Create a cache in Azure Redis Cache by using the steps described in [Create a cache](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
+1. Create a cache in Azure Cache for Redis by using the steps described in [Create a cache](../azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
 2. After you create the cache, under **Settings**, select **Access Keys**. Make a note of the **Primary connection string**.
 
-   ![Screenshot of Azure Redis Cache connection string](./media/stream-analytics-with-azure-functions/image2.png)
+   ![Screenshot of Azure Cache for Redis connection string](./media/stream-analytics-with-azure-functions/image2.png)
 
-## Create a function in Azure Functions that can write data to Azure Redis Cache
+## Create a function in Azure Functions that can write data to Azure Cache for Redis
 
 1. See the [Create a function app](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) section of the Functions documentation. This walks you through how to create a function app and an [HTTP-triggered function in Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function), by using the CSharp language.  
 
-2. Browse to the **run.csx** function. Update it with the following code. (Make sure to replace "\<your redis cache connection string goes here\>" with the Azure Redis Cache primary connection string that you retrieved in the previous section.)  
+2. Browse to the **run.csx** function. Update it with the following code. (Make sure to replace "\<your Azure Cache for Redis connection string goes here\>" with the Azure Cache for Redis primary connection string that you retrieved in the previous section.)  
 
    ```csharp
    using System;
@@ -83,7 +81,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
       {        
          return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
       }
-      var connection = ConnectionMultiplexer.Connect("<your redis cache connection string goes here>");
+      var connection = ConnectionMultiplexer.Connect("<your Azure Cache for Redis connection string goes here>");
       log.Info($"Connection string.. {connection}");
     
       // Connection refers to a property that returns a ConnectionMultiplexer
@@ -150,7 +148,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
 
 1. Open your Stream Analytics job on the Azure portal.  
 
-2. Browse to your function, and select **Overview** > **Outputs** > **Add**. To add a new output, select **Azure Function** for the sink option. The new Functions output adapter is available, with the following properties:  
+2. Browse to your function, and select **Overview** > **Outputs** > **Add**. To add a new output, select **Azure Function** for the sink option. The Functions output adapter has the following properties:  
 
    |**Property name**|**Description**|
    |---|---|
@@ -158,7 +156,7 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
    |Import option| You can use the function from the current subscription, or provide the settings manually if the function is located in another subscription. |
    |Function App| Name of your Functions app. |
    |Function| Name of the function in your Functions app (name of your run.csx function).|
-   |Max Batch Size|Sets the maximum size for each output batch, which is sent to your function. By default, this value is set to 256 KB.|
+   |Max Batch Size|Sets the maximum size for each output batch which is sent to your function in bytes. By default, this value is set to 262,144 bytes (256 KB).|
    |Max Batch Count|Specifies the maximum number of events in each batch that is sent to the function. The default value is 100. This property is optional.|
    |Key|Allows you to use a function from another subscription. Provide the key value to access your function. This property is optional.|
 
@@ -183,21 +181,30 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
     
 6.	Start the Stream Analytics job.
 
-## Check Azure Redis Cache for results
+## Check Azure Cache for Redis for results
 
-1. Browse to the Azure portal, and find your Azure Redis Cache. Select **Console**.  
+1. Browse to the Azure portal, and find your Azure Cache for Redis. Select **Console**.  
 
-2. Use [Redis cache commands](https://redis.io/commands) to verify that your data is in Redis cache. (The command takes the format Get {key}.) For example:
+2. Use [Azure Cache for Redis commands](https://redis.io/commands) to verify that your data is in Azure Cache for Redis. (The command takes the format Get {key}.) For example:
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 
    This command should print the value for the specified key:
 
-   ![Screenshot of Azure Redis Cache output](./media/stream-analytics-with-azure-functions/image5.png)
+   ![Screenshot of Azure Cache for Redis output](./media/stream-analytics-with-azure-functions/image5.png)
+   
+## Error handling and retries
+In the event of a failure while sending events to Azure Functions, Stream Analytics retries to successfully complete the operation. However, there are some failures for which retries are not attempted and they are as follows:
+
+ 1. HttpRequestExceptions
+ 2. Request Entity Too Large (Http error code 413)
+ 3. ApplicationExceptions
 
 ## Known issues
 
 In the Azure portal, when you try to reset the Max Batch Size/ Max Batch Count value to empty (default), the value changes back to the previously entered value upon save. Manually enter the default values for these fields in this case.
+
+The use of [Http routing](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp) on your Azure Functions is currently not supported by Stream Analytics.
 
 ## Clean up resources
 

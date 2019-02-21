@@ -19,7 +19,7 @@ This article introduces the core concepts that help you scale applications in AK
 - [Manually scale](#manually-scale-pods-or-nodes)
 - [Horizontal pod autoscaler (HPA)](#horizontal-pod-autoscaler)
 - [Cluster autoscaler](#cluster-autoscaler)
-- [Azure Container Instance (ACI) integration with AKS](#burst-to-azure-container-instance)
+- [Azure Container Instance (ACI) integration with AKS](#burst-to-azure-container-instances)
 
 ## Manually scale pods or nodes
 
@@ -61,7 +61,7 @@ If a node does not have sufficient compute resources to run a requested pod, tha
 
 When the cluster autoscaler notices pods that cannot be scheduled due to node pool resource constraints, the number of nodes within the node pool is increased to provide the additional compute resources. When those additional nodes are successfully deployed and available for use within the node pool, the pods are then scheduled to run on them.
 
-If your application needs to scale rapidly, some pods may remain in a state waiting to be scheduled until the additional nodes deployed by the cluster autoscaler can accept the scheduled pods. For applications that have high burst demands, you can [scale with virtual nodes and Azure Container Instances](#burst-to-azure-container-instance).
+If your application needs to scale rapidly, some pods may remain in a state waiting to be scheduled until the additional nodes deployed by the cluster autoscaler can accept the scheduled pods. For applications that have high burst demands, you can scale with virtual nodes and Azure Container Instances.
 
 ### Scale down events
 

@@ -1,20 +1,21 @@
 ---
-title: Speech SDK API reference
-description: References for the Speech SDK.
-services: cognitive-services
+title: Speech SDK API reference - Speech Services
 titleSuffix: Azure Cognitive Services
+description: The Speech Software Development Kit (SDK) gives your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to Speech to Text, Speech Translation, and Intent Recognition.
+services: cognitive-services
 author: erhopf
-
+manager: nitinme
 ms.service: cognitive-services
-ms.component: speech-service
-ms.topic: article
-ms.date: 10/16/2018
+ms.subservice: speech-service
+ms.topic: conceptual
+ms.date: 12/06/2018
 ms.author: wolfma
+ms.custom: seodec18
 ---
 
 # Speech SDK API reference
 
-The Speech Software Development Kit (SDK) gives your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **Speech to Text**, **Speech Translation**, and **Intent Recognition**. A general overview about the capabilites and supported platforms can be found on the documentation [entry page](http://aka.ms/csspeech).
+The Speech Software Development Kit (SDK) gives your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **Speech to Text**, **Speech Translation**, and **Intent Recognition**. A general overview about the capabilites and supported platforms can be found on the documentation [entry page](https://aka.ms/csspeech).
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

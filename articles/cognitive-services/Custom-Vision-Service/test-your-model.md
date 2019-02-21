@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Learn how to test an image and then use it to retrain the model.
 services: cognitive-services
 author: anrothMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: anroth

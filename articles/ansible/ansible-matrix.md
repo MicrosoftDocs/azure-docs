@@ -3,7 +3,7 @@ title: Ansible module and version matrix for Azure
 description: Ansible module and version matrix for Azure
 ms.service: ansible
 keywords: ansible, roles, matrix, version, azure, devops
-author: tomarcher
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
@@ -16,7 +16,7 @@ ms.topic: article
 Ansible ships with a number of modules that can be executed directly on remote hosts or through playbooks.
 This article lists the Ansible modules for Azure that can provision Azure cloud resources such as virtual machine, networking, and container services. You can get these modules from the official release of Ansible or from the following playbook roles published by Microsoft.
 
-| Ansible module for Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | [Ansible Role](#introduction-to-azurepreviewmodule) | 
+| Ansible module for Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible Role | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|-------------------------------------| 
 | **Compute**                    |           |                          |                          |                            |                                | 
 | azure_rm_availabilityset                    | Yes          | Yes                         | Yes          | Yes          | Yes                                 | 
@@ -123,9 +123,9 @@ This article lists the Ansible modules for Azure that can provision Azure cloud 
 | azure_rm_autoscale_facts            | -            | -                         | -          | Yes          | Yes                                 | 
 
 ## Introduction to playbook role for Azure
-The [azure_preview_module playbook role](https://galaxy.ansible.com/Azure/azure_preview_modules/) is the most complete role and includes all the latest Azure modules. The updates and bug fixes are done in a more timely manner than the official Ansible release. If you use Ansible for Azure resource provisioning purposes, you're encouraged to install the azure_preview_module role.
+The [azure_preview_module playbook role](https://galaxy.ansible.com/Azure/azure_preview_modules/) is the most complete role and includes all the latest Azure modules. The updates and bug fixes are done in a more timely manner than the official Ansible release. If you use Ansible for Azure resource provisioning purposes, you're encouraged to install the azure_preview_module playbook role.
 
 The azure_preview_module playbook role is released every three weeks.
 
 ## Next steps
-More information related to playbook roles, refer to [Creating Reusable Playbooks](http://docs.ansible.com/ansible/latest/playbooks_reuse.html). 
+More information related to playbook roles, refer to [Creating Reusable Playbooks](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Mobile Xpense | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Mobile Xpense.
 services: active-directory
@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: e649fc4e-3e15-4948-b977-00bfe9f7db13
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 01/05/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Mobile Xpense
 
@@ -118,7 +119,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<sub-domain>.mobilexpense.com/<customername>`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Reply URL, and Sign-On URL. Contact [Mobile Xpense Client support team](http://www.mobilexpense.net/contact) to get these values. 
+	> These values are not real. Update these values with the actual Reply URL, and Sign-On URL. Contact [Mobile Xpense Client support team](https://www.mobilexpense.net/contact) to get these values. 
 
 1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 
@@ -128,7 +129,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On Save button](./media/mobilexpense-tutorial/tutorial_general_400.png)
 
-1. To configure single sign-on on **Mobile Xpense** side, you need to send the downloaded **Metadata XML** to [Mobile Xpense support team](http://www.mobilexpense.net/contact). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **Mobile Xpense** side, you need to send the downloaded **Metadata XML** to [Mobile Xpense support team](https://www.mobilexpense.net/contact). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -167,7 +168,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Create a Mobile Xpense test user
 
-In this section, you create a user called Britta Simon in MobileXpense. work with [MobileXpense support team](http://www.mobilexpense.net/contact) to add the users in the MobileXpense platform. Users must be created and activated before you use single sign-on. 
+In this section, you create a user called Britta Simon in MobileXpense. work with [MobileXpense support team](https://www.mobilexpense.net/contact) to add the users in the MobileXpense platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 

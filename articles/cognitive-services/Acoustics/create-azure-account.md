@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Follow this guide for setting up Azure Batch and Storage accounts necessary for working with acoustics.
 services: cognitive-services
 author: ashtat
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin

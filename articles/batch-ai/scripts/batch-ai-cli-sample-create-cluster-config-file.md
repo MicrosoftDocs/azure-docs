@@ -15,15 +15,20 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: danlep
+
+ROBOTS: NOINDEX
+
 ---
 
 # CLI example: Create a Batch AI cluster using a cluster configuration file
+
+[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
 
 This script demonstrates how to use a JSON configuration file to specify settings for a Batch AI cluster. Use these settings instead of corresponding command line parameters for `az batchai cluster create`. A configuration file is useful when you need to mount multiple file systems on the cluster nodes or want to use an identical configuration in several clusters.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.38 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
+If you decide to install and use the CLI locally, this guide requires that you run the Azure CLI version 2.0.38 or later. Run `az --version` to determine the version. If you need to install or upgrade, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli). 
 
 ## Example script
 

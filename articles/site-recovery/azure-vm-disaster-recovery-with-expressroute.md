@@ -1,12 +1,12 @@
 ---
-title: Integrate Azure ExpressRoute with disaster recovery for Azure VMs using Azure Site Recovery  | Microsoft Docs
+title: Integrate Azure ExpressRoute with disaster recovery for Azure VMs using the Azure Site Recovery service | Microsoft Docs
 description: Describes how to set up disaster recovery for Azure VMs using Azure Site Recovery and Azure ExpressRoute
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
 
 ---
@@ -32,7 +32,7 @@ ExpressRoute enables you to extend on-premises networks into the Microsoft Azure
 Before you begin, make sure you understand the following concepts:
 
 - ExpressRoute [circuits](../expressroute/expressroute-circuit-peerings.md)
-- ExpressRoute [routing domains](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains)
+- ExpressRoute [routing domains](../expressroute/expressroute-circuit-peerings.md#routingdomains)
 - ExpressRoute [locations](../expressroute/expressroute-locations.md).
 - Azure VM [replication architecture](azure-to-azure-architecture.md)
 - How to [set up replication](azure-to-azure-tutorial-enable-replication.md) for Azure VMs.
@@ -131,7 +131,7 @@ In our example, the following should happen when enabling replication for Azure 
 
 ## Fail over Azure VMs when using ExpressRoute
 
-After you fail Azure VMs over to the target Azure region using Site Recovery, you can access them using ExpressRoute [private peering](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+After you fail Azure VMs over to the target Azure region using Site Recovery, you can access them using ExpressRoute [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering).
 
 - You need to connect ExpressRoute to the target vNet with a new connection. The existing ExpressRoute connection isn't automatically transferred.
 - The way in which you set up your ExpressRoute connection to the target vNet depends on your ExpressRoute topology.
@@ -141,7 +141,7 @@ After you fail Azure VMs over to the target Azure region using Site Recovery, yo
 
 #### Two circuits with two peering locations
 
-This configuration helps protects ExpressRoute circuits against regional disaster. If your primary peering loation goes down, connections can continue from the other location.
+This configuration helps protects ExpressRoute circuits against regional disaster. If your primary peering location goes down, connections can continue from the other location.
 
 - The circuit connected to the production environment is usually the primary. The secondary circuit typically has lower bandwidth, which can be increased if a disaster occurs.
 - After failover, you can establish connections from the secondary ExpressRoute circuit to the target vNet. Alternatively, you can have connections set up and ready in case of disaster, to reduce overall recovery time.
@@ -180,12 +180,12 @@ In our example, we're using the following topology:
 - The target recovery region is Azure SouthEast Asia.
 - A secondary ExpressRoute circuit connection is established through a partner edge in Singapore.
 
-For a simple topology that uses a single ExpressRoute circuit, with same IP address after failover, [review this article](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity).
+For a simple topology that uses a single ExpressRoute circuit, with same IP address after failover, [review this article](site-recovery-retain-ip-azure-vm-failover.md#hybrid-resources-full-failover).
 
 ### Example steps
 To automate recovery in this example, here's what you need to do:
 
-1. Follow the steps to [set up replication](#azure-vm-replication-steps).
+1. Follow the steps to set up replication.
 2. [Fail over the Azure VMs](azure-to-azure-tutorial-failover-failback.md), with these additional steps during or after the failover.
 
     a. Create the Azure ExpressRoute Gateway in the target region hub VNet. This is need to connect the target hub vNet to the ExpressRoute circuit.

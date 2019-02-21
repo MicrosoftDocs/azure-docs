@@ -6,13 +6,13 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2017
+ms.date: 11/07/2018
 ms.author: dobett
 ---
 
 # Upload files with IoT Hub
 
-As detailed in the [IoT Hub endpoints](iot-hub-devguide-endpoints.md) article, a device can initiate a file upload by sending a notification through a device-facing endpoint (**/devices/{deviceId}/files**). When a device notifies IoT Hub that an upload is complete, IoT Hub sends a file upload notification message through the **/messages/servicebound/filenotifications** service-facing endpoint.
+As detailed in the [IoT Hub endpoints](iot-hub-devguide-endpoints.md) article, a device can start a file upload by sending a notification through a device-facing endpoint (**/devices/{deviceId}/files**). When a device notifies IoT Hub that an upload is complete, IoT Hub sends a file upload notification message through the **/messages/servicebound/filenotifications** service-facing endpoint.
 
 Instead of brokering messages through IoT Hub itself, IoT Hub instead acts as a dispatcher to an associated Azure Storage account. A device requests a storage token from IoT Hub that is specific to the file the device wishes to upload. The device uses the SAS URI to upload the file to storage, and when the upload is complete the device sends a notification of completion to IoT Hub. IoT Hub checks the file upload is complete and then adds a file upload notification message to the service-facing file notification endpoint.
 
@@ -28,14 +28,15 @@ Refer to [Device-to-cloud communication guidance](iot-hub-devguide-d2c-guidance.
 
 ## Associate an Azure Storage account with IoT Hub
 
-To use the file upload functionality, you must first link an Azure Storage account to the IoT Hub. You can complete this task either through the [Azure portal](https://portal.azure.com), or programmatically through the [IoT Hub resource provider REST APIs](/rest/api/iothub/iothubresource). Once you have associated an Azure Storage account with your IoT Hub, the service returns a SAS URI to a device when the device initiates a file upload request.
+To use the file upload functionality, you must first link an Azure Storage account to the IoT Hub. You can complete this task either through the Azure portal, or programmatically through the [IoT Hub resource provider REST APIs](/rest/api/iothub/iothubresource). Once you've associated an Azure Storage account with your IoT Hub, the service returns a SAS URI to a device when the device starts a file upload request.
+
+The [Upload files from your device to the cloud with IoT Hub](iot-hub-csharp-csharp-file-upload.md) how-to guides provide a complete walkthrough of the file upload process. These how-to guides show you how to use the Azure portal to associate a storage account with an IoT hub.
 
 > [!NOTE]
 > The [Azure IoT SDKs](iot-hub-devguide-sdks.md) automatically handle retrieving the SAS URI, uploading the file, and notifying IoT Hub of a completed upload.
 
-
 ## Initialize a file upload
-IoT Hub has an endpoint specifically for devices to request a SAS URI for storage to upload a file. To initiate the file upload process, the device sends a POST request to `{iot hub}.azure-devices.net/devices/{deviceId}/files` with the following JSON body:
+IoT Hub has an endpoint specifically for devices to request a SAS URI for storage to upload a file. To start the file upload process, the device sends a POST request to `{iot hub}.azure-devices.net/devices/{deviceId}/files` with the following JSON body:
 
 ```json
 {
@@ -48,7 +49,7 @@ IoT Hub returns the following data, which the device uses to upload the file:
 ```json
 {
     "correlationId": "somecorrelationid",
-    "hostName": "contoso.azure-devices.net",
+    "hostName": "yourstorageaccount.blob.core.windows.net",
     "containerName": "testcontainer",
     "blobName": "test-device1/image.jpg",
     "sasToken": "1234asdfSAStoken"
@@ -60,7 +61,7 @@ IoT Hub returns the following data, which the device uses to upload the file:
 > [!NOTE]
 > This section describes deprecated functionality for how to receive a SAS URI from IoT Hub. Use the POST method described previously.
 
-IoT Hub has two REST endpoints to support file upload, one to get the SAS URI for storage and the other to notify the IoT hub of a completed upload. The device initiates the file upload process by sending a GET to the IoT hub at `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. The IoT hub returns:
+IoT Hub has two REST endpoints to support file upload, one to get the SAS URI for storage and the other to notify the IoT hub of a completed upload. The device starts the file upload process by sending a GET to the IoT hub at `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. The IoT hub returns:
 
 * A SAS URI specific to the file to be uploaded.
 
@@ -68,7 +69,7 @@ IoT Hub has two REST endpoints to support file upload, one to get the SAS URI fo
 
 ## Notify IoT Hub of a completed file upload
 
-The device is responsible for uploading the file to storage using the Azure Storage SDKs. When the upload is complete, the device sends a POST request to `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` with the following JSON body:
+The device uploads the file to storage using the Azure Storage SDKs. When the upload is complete, the device sends a POST request to `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` with the following JSON body:
 
 ```json
 {
@@ -79,7 +80,7 @@ The device is responsible for uploading the file to storage using the Azure Stor
 }
 ```
 
-The value of `isSuccess` is a Boolean representing whether the file was uploaded successfully. The status code for `statusCode` is the status for the upload of the file to storage, and the `statusDescription` corresponds to the `statusCode`.
+The value of `isSuccess` is a Boolean that indicates whether the file was uploaded successfully. The status code for `statusCode` is the status for the upload of the file to storage, and the `statusDescription` corresponds to the `statusCode`.
 
 ## Reference topics:
 
@@ -87,7 +88,7 @@ The following reference topics provide you with more information about uploading
 
 ## File upload notifications
 
-Optionally, when a device notifies IoT Hub that an upload is complete, IoT Hub generates a notification message that contains the name and storage location of the file.
+Optionally, when a device notifies IoT Hub that an upload is complete, IoT Hub generates a notification message. This message contains the name and storage location of the file.
 
 As explained in [Endpoints](iot-hub-devguide-endpoints.md), IoT Hub delivers file upload notifications through a service-facing endpoint (**/messages/servicebound/fileuploadnotifications**) as messages. The receive semantics for file upload notifications are the same as for cloud-to-device messages and have the same [message lifecycle](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle). Each message retrieved from the file upload notification endpoint is a JSON record with the following properties:
 
@@ -115,7 +116,7 @@ As explained in [Endpoints](iot-hub-devguide-endpoints.md), IoT Hub delivers fil
 
 ## File upload notification configuration options
 
-Each IoT hub exposes the following configuration options for file upload notifications:
+Each IoT hub has the following configuration options for file upload notifications:
 
 | Property | Description | Range and default |
 | --- | --- | --- |
@@ -128,7 +129,7 @@ Each IoT hub exposes the following configuration options for file upload notific
 
 Other reference topics in the IoT Hub developer guide include:
 
-* [IoT Hub endpoints](iot-hub-devguide-endpoints.md) describes the various endpoints that each IoT hub exposes for run-time and management operations.
+* [IoT Hub endpoints](iot-hub-devguide-endpoints.md) describes the various IoT hub endpoints for run-time and management operations.
 
 * [Throttling and quotas](iot-hub-devguide-quotas-throttling.md) describes the quotas and throttling behaviors that apply to the IoT Hub service.
 
@@ -140,7 +141,7 @@ Other reference topics in the IoT Hub developer guide include:
 
 ## Next steps
 
-Now you have learned how to upload files from devices using IoT Hub, you may be interested in the following IoT Hub developer guide topics:
+Now you've learned how to upload files from devices using IoT Hub, you may be interested in the following IoT Hub developer guide topics:
 
 * [Manage device identities in IoT Hub](iot-hub-devguide-identity-registry.md)
 

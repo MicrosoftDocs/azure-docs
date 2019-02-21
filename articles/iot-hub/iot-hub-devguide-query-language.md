@@ -1,12 +1,12 @@
 ---
 title: Understand the Azure IoT Hub query language | Microsoft Docs
 description: Developer guide - description of the SQL-like IoT Hub query language used to retrieve information about device/module twins and jobs from your IoT hub.
-author: fsautomata
+author: rezasherafat
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/26/2018
-ms.author: elioda
+ms.date: 10/29/2018
+ms.author: rezas
 ---
 
 # IoT Hub query language for device and module twins, jobs, and message routing
@@ -163,15 +163,15 @@ SELECT * FROM devices.modules
 We don't allow join between the devices and devices.modules collections. If you want to query module twins across devices, you do it based on tags. This query will return all module twins across all devices with the scanning status:
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning'
+SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
 ```
 
 This query will return all module twins with the scanning status, but only on the specified subset of devices:
 
 ```sql
-Select * from devices.modules 
-  where properties.reported.status = 'scanning' 
-  and deviceId IN ['device1', 'device2']
+SELECT * FROM devices.modules 
+  WHERE properties.reported.status = 'scanning' 
+  AND deviceId IN ['device1', 'device2']
 ```
 
 ### C# example
@@ -202,7 +202,7 @@ The query functionality is exposed by the [Azure IoT service SDK for Node.js](io
 
 Here is an example of a simple query:
 
-```nodejs
+```javascript
 var query = registry.createQuery('SELECT * FROM devices', 100);
 var onResults = function(err, results) {
     if (err) {
@@ -356,7 +356,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name** refers to any property of the JSON document in the FROM collection. Some examples of SELECT clauses can be found in the [Getting started with device twin queries](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries) section.
+**Attribute_name** refers to any property of the JSON document in the FROM collection. Some examples of SELECT clauses can be found in the Getting started with device twin queries section.
 
 Currently, selection clauses different than **SELECT*** are only supported in aggregate queries on device twins.
 
@@ -384,6 +384,11 @@ GROUP BY <group_by_element>
 **Attribute_name** refers to any property of the JSON document in the FROM collection.
 
 Currently, the GROUP BY clause is only supported when querying device twins.
+
+> [!IMPORTANT]
+> The term `group` is currently treated as a special keyword in queries. In case, you use `group` as your property name, consider surrounding it with double brackets to avoid errors, e.g., `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
+>
+>
 
 ## Expressions and conditions
 At a high level, an *expression*:

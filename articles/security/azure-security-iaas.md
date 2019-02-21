@@ -4,7 +4,7 @@
   services: security
   documentationcenter: na
   author: barclayn
-  manager: MBaldwin
+  manager: barbkess
   editor: TomSh
 
   ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
@@ -37,7 +37,7 @@ The best practices are based on a consensus of opinion, and they work with curre
 The first step in protecting your VMs is to ensure that only authorized users can set up new VMs and access VMs.
 
 **Best practice**: Control VM access.   
-**Detail**: Use [Azure policies](../azure-policy/azure-policy-introduction.md) to establish conventions for resources in your organization and create customized policies. Apply these policies to resources, such as [resource groups](../azure-resource-manager/resource-group-overview.md). VMs that belong to a resource group inherit its policies.
+**Detail**: Use [Azure policies](../governance/policy/overview.md) to establish conventions for resources in your organization and create customized policies. Apply these policies to resources, such as [resource groups](../azure-resource-manager/resource-group-overview.md). VMs that belong to a resource group inherit its policies.
 
 If your organization has many subscriptions, you might need a way to efficiently manage access, policies, and compliance for those subscriptions. [Azure management groups](../azure-resource-manager/management-groups-overview.md) provide a level of scope above subscriptions. You organize subscriptions into management groups (containers) and apply your governance conditions to those groups. All subscriptions within a management group automatically inherit the conditions applied to the group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.
 
@@ -49,7 +49,7 @@ If your organization has many subscriptions, you might need a way to efficiently
 
 - [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): Can manage VMs, but not the virtual network or storage account to which they are connected.
 - [Classic Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): Can manage VMs created by using the classic deployment model, but not the virtual network or storage account to which the VMs are connected.
-- [Security Manager](../role-based-access-control/built-in-roles.md#security-manager): Can manage security components, security policies, and VMs.
+- [Security Admin](../role-based-access-control/built-in-roles.md#security-admin): In Security Center only: Can view security policies, view security states, edit security policies, view alerts and recommendations, dismiss alerts and recommendations.
 - [DevTest Labs User](../role-based-access-control/built-in-roles.md#devtest-labs-user): Can view everything and connect, start, restart, and shut down VMs.
 
 Your subscription admins and coadmins can change this setting, making them administrators of all the VMs in a subscription. Be sure that you trust all of your subscription admins and coadmins to log in to any of your machines.
@@ -135,8 +135,8 @@ Resource abuse can be a problem when VM processes consume more resources than th
 
 We recommend that you use [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) to gain visibility into your resource’s health. Azure Monitor features:
 
-- [Resource diagnostic log files](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md): Monitors your VM resources and identifies potential issues that might compromise performance and availability.
-- [Azure Diagnostics extension](../monitoring-and-diagnostics/azure-diagnostics.md): Provides monitoring and diagnostics capabilities on Windows VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](../virtual-machines/windows/extensions-diagnostics-template.md).
+- [Resource diagnostic log files](../azure-monitor/platform/diagnostic-logs-overview.md): Monitors your VM resources and identifies potential issues that might compromise performance and availability.
+- [Azure Diagnostics extension](../azure-monitor/platform/diagnostics-extension-overview.md): Provides monitoring and diagnostics capabilities on Windows VMs. You can enable these capabilities by including the extension as part of the [Azure Resource Manager template](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 Organizations that don't monitor VM performance can’t determine whether certain changes in performance patterns are normal or abnormal. A VM that’s consuming more resources than normal might indicate an attack from an external resource or a compromised process running in the VM.
 

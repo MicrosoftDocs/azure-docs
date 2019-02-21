@@ -1,18 +1,17 @@
 ---
-title: "Quickstart: Identify language from text - Translator Text, PHP"
+title: "Quickstart: Identify language from text, PHP - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you identify the language of the source text using the Translator Text API with PHP.
 services: cognitive-services
-author: noellelacharite
-manager: cgronlun
-
+author: erhopf
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/22/2018
-ms.author: nolachar
+ms.date: 02/08/2019
+ms.author: erhopf
 ---
-# Quickstart: Identify language from text with PHP
+# Quickstart: Identify language from text with the Translator Text REST API (PHP)
 
 In this quickstart, you identify the language of the source text using the Translator Text API.
 

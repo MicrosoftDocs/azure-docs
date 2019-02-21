@@ -1,14 +1,11 @@
 ---
 title: Pricing tiers for Azure Database for MySQL
 description: This article describes the pricing tiers for Azure Database for MySQL.
-services: mysql
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 02/01/2019
 ---
 
 # Azure Database for MySQL pricing tiers
@@ -18,7 +15,7 @@ You can create an Azure Database for MySQL server in one of three different pric
 |    | **Basic** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | Compute generation | Gen 4, Gen 5 | Gen 4, Gen 5 | Gen 5 |
-| vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memory per vCore | 2 GB | 5 GB | 10 GB |
 | Storage size | 5 GB to 1 TB | 5 GB to 4 TB | 5 GB to 4 TB |
 | Storage type | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
@@ -38,6 +35,12 @@ After you create a server, the number of vCores, hardware generation, and pricin
 
 Compute resources are provided as vCores, which represent the logical CPU of the underlying hardware. Currently, you can choose from two compute generations, Gen 4 and Gen 5. Gen 4 logical CPUs are based on Intel E5-2673 v3 (Haswell) 2.4-GHz processors. Gen 5 logical CPUs are based on Intel E5-2673 v4 (Broadwell) 2.3-GHz processors. Gen 4 and Gen 5 are available in the following regions ("X" denotes available).
 
+> [!IMPORTANT]
+> Beginning December 12, 2018, new customers will not be able to provision compute generation 4 servers in Brazil South, Canada Central, Canada East, East Asia, East US 2, Central India, West India, Japan West, North Central US, West US. Previously created compute generation 4 servers will be migrated to compute generation 5 starting February 1, 2019 in these regions.
+>
+> [!IMPORTANT]
+> Beginning February 15, 2019, new customers will not be able to provision compute generation 4 servers in Central US, East US, Japan East, North Europe, South Central US, South East Asia, West Europe. Previously created compute generation 4 servers will be migrated to compute generation 5 starting April 1, 2019 in these regions.
+
 | **Azure region** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
 | Central US |  | X |
@@ -47,14 +50,14 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | South Central US | X | X |
 | West US | X | X |
 | West US 2 |  | X |
+| Brazil South | X | X |
 | Canada Central | X | X |
 | Canada East | X | X |
-| Brazil South | X | X |
 | North Europe | X | X |
 | West Europe |  | X |
 | France Central |  | X |
-| UK West |  | X |
 | UK South |  | X |
+| UK West |  | X |
 | East Asia | X | X |
 | Southeast Asia | X | X |
 | Australia East |  | X |
@@ -62,17 +65,22 @@ Compute resources are provided as vCores, which represent the logical CPU of the
 | Australia Central 2 |  | X |
 | Australia Southeast |  | X |
 | Central India | X | X |
-| West India | X | X |
 | South India |  | X |
+| West India | X | X |
 | Japan East | X | X |
 | Japan West | X | X |
 | Korea Central |  | X |
 | Korea South |  | X |
+| China East 1 | X |  |
+| China East 2 |  | X |
+| China North 1 | X |  |
+| China North 2 |  | X |
 | Germany Central |  | X |
 | US DoD Central  | X |  |
 | US DoD East  | X |  |
 | US Gov Arizona |  | X |
 | US Gov Texas |  | X |
+| US Gov Virginia |  | X |
 
 ## Storage
 
@@ -116,5 +124,5 @@ For the most up-to-date pricing information, see the service [pricing page](http
 ## Next steps
 
 - Learn how to [create a MySQL server in the portal](howto-create-manage-server-portal.md).
-- Learn how to [monitor and scale an Azure Database for MySQL server by using Azure CLI](scripts/sample-scale-server.md).
-- Learn about the [service limitations](concepts-limits.md).
+- Learn about [service limits](concepts-limits.md).
+- Learn how to [scale out with read replicas](howto-read-replicas-portal.md).

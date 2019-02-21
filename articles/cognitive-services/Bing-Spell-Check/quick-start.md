@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: Shows how to get started using the Bing Spell Check API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 06/21/2016
 ms.author: scottwhi
@@ -15,7 +15,7 @@ ms.author: scottwhi
 
 # Quickstart: Your first spell check request
 
-Before you can make your first call, you need to get a Cognitive Services subscription key. To get a key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
+Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 To check a text string for spelling and grammar errors, you'd send a GET request to the following endpoint:  
   

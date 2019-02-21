@@ -38,7 +38,7 @@ If you do not have an Azure subscription, create a [free account][] before you b
 
 To complete this tutorial, make sure you have installed:
 
-1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 This tutorial requires that you run the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
@@ -284,4 +284,4 @@ Advance to the next tutorial to learn more about using the publish/subscribe cap
 > [Update inventory using PowerShell and topics/subscriptions](service-bus-tutorial-topics-subscriptions-cli.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Install and Configure Azure PowerShell]: /powershell/azure/install-azurerm-ps
+[Install and Configure Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps

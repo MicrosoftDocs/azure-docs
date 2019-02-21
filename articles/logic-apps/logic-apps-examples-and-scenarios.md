@@ -84,7 +84,7 @@ you can also extend logic apps.
 * [Set up long-running actions for workflow runs](../logic-apps/logic-apps-create-api-app.md)
 * [Respond to external events and actions with webhooks](../logic-apps/logic-apps-create-api-app.md)
 * [Call, trigger, or nest workflows with synchronous responses to HTTP requests](../logic-apps/logic-apps-http-endpoint.md)
-* [Tutorial: Build an AI-powered social dashboard in minutes with Logic Apps and Power BI](http://aka.ms/logicappsdemo)
+* [Tutorial: Build an AI-powered social dashboard in minutes with Logic Apps and Power BI](https://aka.ms/logicappsdemo)
 * [Video: Respond to Twilio SMS webhooks and send a text response](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## Control flow, error handling, and logging capabilities
@@ -122,7 +122,7 @@ which you can check in to source control for versioning.
 ## Content types, conversions, and transformations within a run
 
 You can access, convert, and transform multiple content types by using the many functions 
-in the Azure Logic Apps [workflow definition language](http://aka.ms/logicappsdocs). 
+in the Azure Logic Apps [workflow definition language](https://aka.ms/logicappsdocs). 
 For example, you can convert between a string, JSON, and XML with 
 the `@json()` and `@xml()` workflow expressions. 
 The Logic Apps engine preserves content types to support 
@@ -131,7 +131,7 @@ content transfer in a lossless manner between services.
 * [How workflow expressions work in logic apps](../logic-apps/logic-apps-author-definitions.md)
 * [Handle non-JSON content types](../logic-apps/logic-apps-content-type.md), 
 like `application/xml`, `application/octet-stream`, and `multipart/formdata`
-* [Workflow Definition Language schema for Azure Logic Apps](http://aka.ms/logicappsdocs)
+* [Workflow Definition Language schema for Azure Logic Apps](https://aka.ms/logicappsdocs)
 
 ## Other integrations and capabilities
 

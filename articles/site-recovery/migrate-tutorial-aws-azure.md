@@ -1,12 +1,12 @@
 ---
-title: Migrate VMs from AWS to Azure with Azure Site Recovery | Microsoft Docs
-description: This article describes how to migrate Windows VMs running in Amazon Web Services (AWS) to Azure by using Azure Site Recovery.
+title: Migrate AWS VMs to Azure with the Azure Site Recovery service | Microsoft Docs
+description: This article describes how to migrate Windows VMs running in Amazon Web Services (AWS) to Azure using Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
 
@@ -28,12 +28,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 - Ensure that the VMs that you want to migrate are running a supported OS version. Supported versions include: 
-  - Windows Server 2016 
-  - Windows Server 2012 R2
-  - Windows Server 2012 
-  - 64-bit version of Windows Server 2008 R2 SP1 or later
-  - Red Hat Enterprise Linux 6.7 (HVM virtualized instances only), with a Citrix PV or AWS PV driver. Instances running RedHat PV drivers *aren't* supported.
- - The Mobility service must be installed on each VM that you want to replicate. 
+      - Windows Server 2016 
+      - Windows Server 2012 R2
+      - Windows Server 2012 
+      - 64-bit version of Windows Server 2008 R2 SP1 or later
+      - Red Hat Enterprise Linux 6.4 to 6.10, 7.1 to 7.6 (HVM virtualized instances only)  *(Instances running RedHat PV drivers aren't supported.)*
+      - CentOS 6.4 to 6.10, 7.1 to 7.6 (HVM virtualized instances only)
+ 
+- The Mobility service must be installed on each VM that you want to replicate. 
 
     > [!IMPORTANT]
     > Site Recovery installs this service automatically when you enable replication for the VM. For automatic installation, you must prepare an account on the EC2 instances that Site Recovery will use to access the VM. 
@@ -116,7 +118,7 @@ On the **Prepare source** page, select **+ Configuration Server**.
 
 1. Use an EC2 instance that's running Windows Server 2012 R2 to create a configuration server and register it with your recovery vault.
 2. Configure the proxy on the EC2 instance VM you're using as the configuration server so that it can access the [service URLs](site-recovery-support-matrix-to-azure.md).
-3. Download [Microsoft Azure Site Recovery Unified Setup](http://aka.ms/unifiedinstaller_wus). You can download it to your local machine and then copy it to the VM you're using as the configuration server.
+3. Download [Microsoft Azure Site Recovery Unified Setup](https://aka.ms/unifiedinstaller_wus). You can download it to your local machine and then copy it to the VM you're using as the configuration server.
 4. Select the **Download** button to download the vault registration key. Copy the downloaded file to the VM you're using as the configuration server.
 5. On the VM, right-click the installer you downloaded for Microsoft Azure Site Recovery Unified Setup, and then select **Run as administrator**.
 
@@ -164,7 +166,7 @@ When you're finished with all five sections under **Prepare Infrastructure**, se
 
 Enable replication for each VM that you want to migrate. When replication is enabled, Site Recovery automatically installs the Mobility service.
 
-1. Go to the [Azure portal](htts://portal.azure.com).
+1. Go to the [Azure portal](https://portal.azure.com).
 1. On the page for your vault, under **Getting Started**, select **Site Recovery**.
 2. Under **For on-premises machines and Azure VMs**, select **Step 1: Replicate application**. Complete the wizard pages with the following information. Select **OK** on each page when you're done:
 	- 1: Configure source
@@ -238,7 +240,10 @@ Run an actual failover for the EC2 instances to migrate them to Azure VMs:
 1. In **Protected items** > **Replicated items**, select the AWS instances, and then select **Failover**.
 2. In **Failover**, select a **Recovery Point** to failover to. Select the latest recovery point, and start the failover. You can follow the failover progress on the **Jobs** page.
 1. Ensure that the VM appears in **Replicated items**.
-2. Right-click each VM, and then select **Complete Migration**. This finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
+2. Right-click each VM, and then select **Complete Migration**. This does the following:
+
+    - This finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
+    - This step cleans up the replication data. It doesn't delete the migrated VMs. 
 
     ![Complete migration](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

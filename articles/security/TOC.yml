@@ -28,6 +28,8 @@
     href: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Security technical capabilities
     href: azure-security-technical-capabilities.md
+  - name: Develop secure apps on Azure
+    href: abstract-develop-secure-apps.md
 - name: Data security and encryption
   href: security-azure-encryption-overview.md
   items:
@@ -239,17 +241,6 @@
       href: ./blueprints/ffiec-iaaswa-overview.md
     - name: PaaS web application
       href: ./blueprints/ffiec-paaswa-overview.md
-  - name: GDPR
-    displayName: blueprint, privacy, certifications
-    items:
-    - name: Data analytics
-      href: ./blueprints/gdpr-analytics-overview.md
-    - name: Data warehouse
-      href: ./blueprints/gdpr-datawarehouse-overview.md
-    - name: IaaS web application
-      href: ./blueprints/gdpr-iaaswa-overview.md
-    - name: PaaS web application
-      href: ./blueprints/gdpr-paaswa-overview.md
   - name: HIPAA/HITRUST
     displayName: blueprint, privacy, certifications
     items:
@@ -329,6 +320,15 @@
       href: azure-security-threat-modeling-tool-feature-overview.md
     - name: Threats
       href: azure-security-threat-modeling-tool-threats.md
+    - name: Releases
+      href: azure-security-threat-modeling-tool-releases.md
+      items:
+      - name: Threat Modeling Tool GA release 7.1.5091.2 - 9/12/2018
+        href: azure-security-threat-modeling-tool-releases-71509112.md
+      - name: Threat Modeling Tool update release 7.1.51023.1 - 11/1/2018
+        href: azure-security-threat-modeling-tool-releases-71510231.md
+      - name: Threat Modeling Tool update release 7.1.60126.1 - 1/29/2019
+        href: azure-security-threat-modeling-tool-releases-71601261.md
     - name: Mitigations
       href: azure-security-threat-modeling-tool-mitigations.md
       items:

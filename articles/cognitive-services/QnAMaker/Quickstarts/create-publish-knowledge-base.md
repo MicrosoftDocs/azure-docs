@@ -1,17 +1,17 @@
 ---
-title: "Quickstart: Creating a KB - QnA Maker"
+title: "Create, train, publish knowledge base - QnA Maker"
 titleSuffix: Azure Cognitive Services 
 description: You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. The QnA Maker KB in this example is created from a simple FAQ webpage to answer questions on BitLocker key recovery.
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 12/18/2018
 ms.author: diberry
 ---
 
-# Quickstart: Create, train, and publish your knowledge base
+# Create, train, and publish your QnA Maker knowledge base
 
 You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. The QnA Maker KB in this example is created from a simple FAQ webpage to answer questions on BitLocker key recovery.
 
@@ -53,9 +53,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 11. In the upper right, select **Save and train** to save your edits and train the QnA Maker model. Edits aren't kept unless they're saved.
 
-   ![Save and train](../media/qnamaker-quickstart-kb/add-qna-pair2.png)
-
-12. In the upper right, select **Test** to test that the changes you made took effect. Enter **hi there** in the box, and select Enter. You should see the answer you created as a response.
+12. In the upper right, select **Test** to test that the changes you made took effect. Enter `hi there` in the box, and select Enter. You should see the answer you created as a response.
 
 13. Select **Inspect** to examine the response in more detail. The test window is used to test your changes to the KB before they're published.
 

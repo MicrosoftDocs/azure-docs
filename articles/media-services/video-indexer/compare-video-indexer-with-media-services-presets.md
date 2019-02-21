@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/10/2019
 ms.author: juliako
 
 ---
@@ -27,15 +27,15 @@ Currently, there is an overlap between features offered by the [Video Indexer v2
 
 |Feature|Video Indexer APIs |Video Analyzer and Audio Analyzer Presets<br/>in Media Services v3 APIs|
 |---|---|---|
-|Media Insights|[Enhanced](../../cognitive-services/video-indexer/video-indexer-output-json-v2.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json) |[Fundamentals](../latest/intelligence-concept.md)|
-|Experiences|See the full list of supported features: <br/> [Overview](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)|Returns video insights only|
+|Media Insights|[Enhanced](video-indexer-output-json-v2.md) |[Fundamentals](../latest/intelligence-concept.md)|
+|Experiences|See the full list of supported features: <br/> [Overview](video-indexer-overview.md)|Returns video insights only|
 |Billing|[Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
-|Compliance|TBD|Media Services is compliant with many certifications. Check out [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) and search for "Media Services" to see if it complies with a certificate of interest.|
+|Compliance|[Azure compliance](https://aka.ms/AzureCompliance)|Media Services is compliant with many certifications. Check out [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) and search for "Media Services" to see if it complies with a certificate of interest.|
 |Free Trial|East US|Not available|
 |Availability |West US, East Asia, North Europe|See [Azure status](https://azure.microsoft.com/global-infrastructure/services/?products=media-services).|
 
 ## Next steps
 
-[Video Indexer overview](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)
+[Video Indexer overview](video-indexer-overview.md)
 
-[Media Services v3 overview](../../media-services/latest/media-services-overview.md)
+[Media Services v3 overview](../latest/media-services-overview.md)

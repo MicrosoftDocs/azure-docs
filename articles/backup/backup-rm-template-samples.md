@@ -2,17 +2,17 @@
 title: Azure Resource Manager templates for Azure Backup
 description: Azure Backup PowerShell Samples
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: sample
-ms.date: 04/18/2018
-ms.author: markgal
+ms.date: 01/31/2019
+ms.author: raynew
 ms.custom: mvc
 ---
 # Azure Resource Manager templates for Azure Backup
 
-The following table includes links to Azure Resource Manager templates for use with Recovery Services vaults and Azure Backup features.
+The following table includes links to Azure Resource Manager templates for use with Recovery Services vaults and Azure Backup features. To learn about the JSON syntax and properties, see [Microsoft.RecoveryServices resource types](/azure/templates/microsoft.recoveryservices/allversions).
 
 |   |   |
 |---|---|

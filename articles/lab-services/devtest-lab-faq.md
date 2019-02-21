@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure DevTest Labs FAQ | Microsoft Docs
 description: Find answers to common questions about Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
@@ -96,7 +96,7 @@ The following blog posts offer guidance and information about using the Azure De
 * [Deploy a new VM in an existing DevTest Labs lab from Azure DevOps Services](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
 * [Using Azure DevOps Services release management for continuous deployments to DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
-For other continuous integration (CI)/continuous delivery (CD) toolchains, you can achieve the same scenarios by deploying [Azure Resource Manager templates](https://aka.ms/dtlquickstarttemplate) by using [Azure PowerShell cmdlets](../azure-resource-manager/resource-group-template-deploy.md) and [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). You also can use [REST APIs for DevTest Labs](http://aka.ms/dtlrestapis) to integrate with your toolchain.  
+For other continuous integration (CI)/continuous delivery (CD) toolchains, you can achieve the same scenarios by deploying [Azure Resource Manager templates](https://aka.ms/dtlquickstarttemplate) by using [Azure PowerShell cmdlets](../azure-resource-manager/resource-group-template-deploy.md) and [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). You also can use [REST APIs for DevTest Labs](https://aka.ms/dtlrestapis) to integrate with your toolchain.  
 
 
 **Virtual machines**
@@ -137,7 +137,7 @@ To automate uploading VHD files to create custom images, you have two options:
 
 To find the destination storage account that's associated with your lab:
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. On the left menu, select **Resource Groups**.
 3. Find and select the resource group that's associated with your lab.
 4. Under **Overview**, select one of the storage accounts.
@@ -223,7 +223,7 @@ One possibility is that your virtual network name contains periods. If so, try r
 ## Why do I get a "Parent resource not found" error when I provision a VM from PowerShell?
 When one resource is a parent to another resource, the parent resource must exist before you create the child resource. If the parent resource does not exist, you see a **ParentResourceNotFound** message. If you don't specify a dependency on the parent resource, the child resource might be deployed before the parent.
 
-VMs are child resources under a lab in a resource group. When you use Resource Manager templates to deploy VMs by using PowerShell, the resource group name provided in the PowerShell script should be the resource group name of the lab. For more information, see [Troubleshoot common Azure deployment errors](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors#parentresourcenotfound).
+VMs are child resources under a lab in a resource group. When you use Resource Manager templates to deploy VMs by using PowerShell, the resource group name provided in the PowerShell script should be the resource group name of the lab. For more information, see [Troubleshoot common Azure deployment errors](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors).
 
 ## Where can I find more error information if a VM deployment fails?
 VM deployment errors are captured in activity logs. You can find lab VM activity logs under **Audit logs** or **Virtual machine diagnostics** on the resource menu on the lab's VM blade (the blade appears after you select the VM from the **My virtual machines** list).

@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 03/07/2018
+ms.date: 12/13/2018
 ---
 # Sync networking configuration for Azure App Service hosting plan
 
@@ -41,4 +41,4 @@ You are now ready to try to re-establish your connection to your Managed Instanc
 
 ## Next steps
 
-- For information about configuring your VNet for Managed Instance, see [Managed Instance VNet configuration](sql-database-managed-instance-vnet-configuration.md).
+- For information about configuring your VNet for Managed Instance, see [Managed Instance VNet architecture](sql-database-managed-instance-connectivity-architecture.md) and [How to configure existing VNet](sql-database-managed-instance-configure-vnet-subnet.md).

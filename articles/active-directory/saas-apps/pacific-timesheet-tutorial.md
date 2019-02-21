@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: e546e8ba-821a-4942-9545-c84b0670beab
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Pacific Timesheet
 
@@ -114,7 +115,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Pacific Timesheet support team](http://www.pacifictimesheet.com/support) to get these values.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Pacific Timesheet support team](https://www.pacifictimesheet.com/support) to get these values.
  
 1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 
@@ -128,7 +129,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/pacific-timesheet-tutorial/tutorial_pacifictimesheet_configure.png) 
 
-1. To configure single sign-on on **Pacific Timesheet** side, you need to send the downloaded **Certificate (Base64)**, **SAML Single Sign-On Service URL**, and **SAML Entity ID** to [Pacific Timesheet support team](http://www.pacifictimesheet.com/support). They set this setting to have the SAML SSO connection set properly on both sides.
+1. To configure single sign-on on **Pacific Timesheet** side, you need to send the downloaded **Certificate (Base64)**, **SAML Single Sign-On Service URL**, and **SAML Entity ID** to [Pacific Timesheet support team](https://www.pacifictimesheet.com/support). They set this setting to have the SAML SSO connection set properly on both sides.
 
 > [!TIP]
 > You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -167,7 +168,7 @@ The objective of this section is to create a test user in the Azure portal calle
  
 ### Creating a Pacific Timesheet test user
 
-In this section, you create a user called Britta Simon in Pacific Timesheet. Work with [Pacific Timesheet support team](http://www.pacifictimesheet.com/support) to create a user in the application.
+In this section, you create a user called Britta Simon in Pacific Timesheet. Work with [Pacific Timesheet support team](https://www.pacifictimesheet.com/support) to create a user in the application.
 
 ### Assigning the Azure AD test user
 

@@ -2,12 +2,12 @@
 title: 'Use Azure Virtual WAN to create a Point-to-Site connection to Azure | Microsoft Docs'
 description: In this tutorial, learn how to use Azure Virtual WAN to create a Point-to-Site VPN connection to Azure.
 services: virtual-wan
-author: cherylmc
+author: anzaman
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/26/2018
-ms.author: cherylmc
+ms.date: 01/07/2019
+ms.author: alzam
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
 # Tutorial: Create a Point-to-Site connection using Azure Virtual WAN (Preview)
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 ## <a name="register"></a>Register this feature
 
-Click the **TryIt** to register this feature easily using Azure Cloud Shell.
+Click the **TryIt** to register this feature easily using Azure Cloud Shell. If you would rather run PowerShell locally, make sure you have the latest version and sign in using the **Connect-AzureRmAccount** and **Select-AzureRmSubscription** commands.
 
 >[!NOTE]
 >If you don't register this feature, you will not be able to use it, or to see it in the portal.
@@ -74,7 +74,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="openvwan"></a>2. Create a virtual WAN
 
-From a browser, navigate to the [Azure portal (Preview)](http://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
+From a browser, navigate to the [Azure portal (Preview)](https://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
@@ -106,12 +106,13 @@ A P2S configuration defines the parameters for connecting remote clients.
 
 ## <a name="hub"></a>5. Edit hub assignment
 
-1. On the page for your virtual WAN, click **Point-to-site configurations**.
-2. Under **Hub**, you see a list of configurations that haven't yet been connected to a hub.
-3. Select the configuration that you want to associate and click **Edit hub assignment**
-4. From the dropdown, select the hub(s) that you want to associate the configuration to.
-5. Click **Assign**. 
-6. The operation will can take upto 30 minutes to complete.
+1. On the page for your virtual WAN, click **Hubs**.
+2. Select the hub that you want to assign the point-to-site configuration to.
+3. Click **"..."** and pick **Edit virtual hub**
+4. Check **Include point-to-site gateway**.
+5. Pick the **Gateway scale units** and the **Point-to-site configuration** along with an **Address pool** for the clients.
+6. Click **Confirm**. 
+7. The operation can take up to 30 minutes to complete.
 
 ## <a name="vnet"></a>6. Connect your VNet to a hub
 
@@ -130,9 +131,10 @@ In this step, you create the peering connection between your hub and a VNet. Rep
 
 Use the VPN profile to configure your clients.
 
-1. On the page for your virtual WAN, click **Point-to-site configurations**.
-2. At the top of the  page, click **Download point-to-site profile**. 
-3. Once the file has finished creating, you can click the link to download it.
+1. On the page for your virtual WAN, click **Hubs**.
+2. Select the hub that you want to download the profile for.
+3. Click **"..."** and pick **Download profile**. 
+4. Once the file has finished creating, you can click the link to download it.
 4. Use the profile file to configure the point-to-site clients.
 
 ## <a name="device"></a>8. Configure point-to-site clients
@@ -142,7 +144,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 #### OpenVPN
 
 1.	Download and install the OpenVPN client from the official website.
-2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configurations tab in Azure Portal, or New-AzureRmVpnClientConfiguration in PowerShell.
+2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configurations tab in Azure portal, or New-AzureRmVpnClientConfiguration in PowerShell.
 3.	Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in notepad.
 4.	Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See here how to export a certificate to get the encoded public key.
 5.	Fill in the private key section with the P2S client certificate private key in base64. See here how to extract private key.
@@ -161,7 +163,7 @@ Use the downloaded profile to configure the remote access clients. The procedure
 #### OpenVPN
 
 1.	Download and install an OpenVPN client, such as TunnelBlik from https://tunnelblick.net/downloads.html 
-2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in Azure Portal, or New-AzureRmVpnClientConfiguration in PowerShell.
+2.	Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in Azure portal, or New-AzureRmVpnClientConfiguration in PowerShell.
 3.	Unzip the profile. Open the vpnconfig.ovpn configuration file from the OpenVPN folder in notepad.
 4.	Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See here how to export a certificate to get the encoded public key.
 5.	Fill in the private key section with the P2S client certificate private key in base64. See here how to extract private key.

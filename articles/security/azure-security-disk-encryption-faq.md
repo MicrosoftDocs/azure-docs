@@ -1,15 +1,17 @@
 ---
-title: Azure Disk Encryption FAQ| Microsoft Docs
+title: FAQ - Azure Disk Encryption for IaaS VMs | Microsoft Docs
 description: This article provides answers to frequently asked questions about Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 author: mestew
 ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 10/16/2018
+ms.date: 01/25/2019
+
+ms.custom: seodec18
 ---
 
-# Azure Disk Encryption FAQ
+# Azure Disk Encryption for IaaS VMs FAQ
 
 This article provides answers to frequently asked questions (FAQ) about Azure Disk Encryption for Windows and Linux IaaS VMs. For more information about this service, see [Azure Disk Encryption for Windows and Linux IaaS VMs](azure-security-disk-encryption-overview.md).
 
@@ -36,12 +38,12 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 
 | Linux distribution | Version | Volume type supported for encryption|
 | --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | OS and data disk |
-| Ubuntu | 14.04.5-DAILY-LTS | OS and data disk |
-| RHEL | 7.5 | Data disk* |
-| RHEL | 7.4 | Data disk* |
-| RHEL | 7.3 | Data disk* |
-| RHEL | 7.2 | Data disk* |
+| Ubuntu | 16.04| OS and data disk |
+| Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS and data disk |
+| RHEL | 7.5 | OS and data disk* |
+| RHEL | 7.4 | OS and data disk* |
+| RHEL | 7.3 | OS and data disk* |
+| RHEL | 7.2 | OS and data disk* |
 | RHEL | 6.8 | Data disk* |
 | RHEL | 6.7 | Data disk* |
 | CentOS | 7.4 | OS and data disk |
@@ -53,15 +55,11 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 | CentOS | 6.7 | Data disk |
 | CentOS | 6.6 | Data disk |
 | CentOS | 6.5 | Data disk |
-| openSUSE | 13.2 | Data disk |
-| SLES | 12 SP1 | Data disk |
-| SLES | Priority: 12-SP1 | Data disk |
-| SLES | HPC 12 | Data disk |
-| SLES | Priority: 11-SP4 | Data disk |
-| SLES | 11 SP4 | Data disk |
+| openSUSE | 42.3 | Data disk |
+| SLES | 12-SP4 | Data disk |
+| SLES | 12-SP3 | Data disk |
 
-
-*__ADE is supported for RHEL for data disk. The current ADE implementation does work for OS disk but isn't currently jointly supported. Both Microsoft and Red Hat are working on a jointly supported solution. In the interim, you can reference the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article.__
+*__New ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. Please also refer to the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article for more information.__
 
 ## How can I start using Azure Disk Encryption?
 
@@ -131,7 +129,7 @@ If this workflow isn't possible, relying on [Storage Service Encryption](../stor
 
 ## What encryption method does Azure Disk Encryption use?
 
-On Windows, ADE uses the Bitlocker AES256 encryption method (AES256WithDiffuser on versions prior to Windows Server 2012). 
+On Windows, ADE uses the BitLocker AES256 encryption method (AES256WithDiffuser on versions prior to Windows Server 2012). 
 On Linux, ADE uses the dmcrypt default of aes-xts-plain64 with a 256-bit volume master key.
 
 ## If I use EncryptFormatAll and specify all volume types, will it erase the data on the data drives that we already encrypted?

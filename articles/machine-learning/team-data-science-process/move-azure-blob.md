@@ -1,29 +1,29 @@
 ---
-title: Move Data to and from Azure Blob Storage | Microsoft Docs
-description: Move Data to and from Azure Blob Storage
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
+title: Move Data to and from Azure Blob storage - Team Data Science Process
+description: Move Data to and from Azure Blob storage
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: d6681e30-ab45-45ea-a9fb-ac8acefe544d
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
-# Move data to and from Azure Blob Storage
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
+# Move data to and from Azure Blob storage
 
-<!-- just in case, adding this to separate these two include references -->
+The Team Data Science Process requires that data be ingested or loaded into a variety of different storage environments to be processed or analyzed in the most appropriate way in each stage of the process.
 
-[!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
+## Different technologies for moving data
+
+The following articles describe how to move data to and from Azure Blob storage using different technologies.
+
+* [Azure Storage-Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
+* [AzCopy](move-data-to-azure-blob-using-azcopy.md)
+* [Python](move-data-to-azure-blob-using-python.md)
+* [SSIS](move-data-to-azure-blob-using-ssis.md)
 
 Which method is best for you depends on your scenario. The [Scenarios for advanced analytics in Azure Machine Learning](plan-sample-scenarios.md) article helps you determine the resources you need for a variety of data science workflows used in the advanced analytics process.
 
@@ -31,6 +31,8 @@ Which method is best for you depends on your scenario. The [Scenarios for advanc
 > For a complete introduction to Azure blob storage, refer to [Azure Blob Basics](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) and to [Azure Blob Service](https://msdn.microsoft.com/library/azure/dd179376.aspx).
 > 
 > 
+
+## Using Azure Data Factory
 
 As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to: 
 
@@ -42,7 +44,7 @@ As an alternative, you can use [Azure Data Factory](https://azure.microsoft.com/
 For more information, see [Create predictive pipelines using Azure Data Factory and Azure Machine Learning](../../data-factory/transform-data-using-machine-learning.md).
 
 ## Prerequisites
-This document assumes that you have an Azure subscription, a storage account, and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure storage account name and account key.
+This article assumes that you have an Azure subscription, a storage account, and the corresponding storage key for that account. Before uploading/downloading data, you must know your Azure storage account name and account key.
 
 * To set up an Azure subscription, see [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 * For instructions on creating a storage account and for getting account and key information, see [About Azure storage accounts](../../storage/common/storage-create-storage-account.md).

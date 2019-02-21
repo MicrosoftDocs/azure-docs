@@ -95,7 +95,6 @@ The following condensed example output shows some of the Helm charts available f
 $ helm search
 
 NAME                           CHART VERSION	APP VERSION  DESCRIPTION
-stable/acs-engine-autoscaler   2.2.0         	2.1.1        Scales worker nodes within agent pools
 stable/aerospike               0.1.7        	v3.14.1.2    A Helm chart for Aerospike in Kubernetes
 stable/anchore-engine          0.1.7        	0.1.10       Anchore container analysis and policy evaluatio...
 stable/apm-server              0.1.0        	6.2.4        The server receives data from the Elastic APM a...
@@ -223,7 +222,7 @@ For more information about managing Kubernetes application deployments with Helm
 [helm]: https://github.com/kubernetes/helm/
 [helm-documentation]: https://docs.helm.sh/
 [helm-init]: https://docs.helm.sh/helm/#helm-init
-[helm-install]: https://docs.helm.sh/helm/#helm-install
+[helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 [helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
 [helm-list]: https://docs.helm.sh/helm/#helm-list
 [helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control

@@ -1,3 +1,10 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: jroth
+---
 The following table lists the limits that apply to IoT Hub Device Provisioning Service resources:
 
 | Resource | Limit |

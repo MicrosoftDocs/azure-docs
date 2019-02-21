@@ -3,12 +3,10 @@ title: 'Quickstart: Create an Azure Database for MariaDB server - Azure portal'
 description: This article shows you how to use the Azure portal to quickly create a sample Azure Database for MariaDB server in about five minutes. 
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 01/09/2019
 ---
 
 # Create an Azure Database for MariaDB server by using the Azure portal
@@ -50,9 +48,9 @@ To create an Azure Database for MariaDB server:
     Version | *the latest version*| The latest version (unless you have specific requirements to use a different version).
     Pricing tier | See description. | The compute, storage, and backup configurations for your new server. Select **Pricing tier** > **General Purpose**. Keep the default values for the following settings:<br><ul><li>**Compute Generation** (Gen 5)</li><li>**vCore** (2 vCores)</li><li>**Storage** (5 GB)</li><li>**Backup Retention Period** (7 days)</li></ul><br>To enable your server backups in geo-redundant storage, for **Backup Redundancy Options**, select **Geographically Redundant**. <br><br>To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
   
-    > [!IMPORTANT]
-    > The server admin sign-in and password that you specify here are required to sign in to the server and its databases later in this quickstart. Remember or record this information for later use.
-    > 
+   > [!NOTE]
+   > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/mariadb/) for more information.
+   > 
 
    ![Create server - Pricing tier window](./media/quickstart-create-mariadb-server-database-using-azure-portal/3-pricing-tier.png)
 

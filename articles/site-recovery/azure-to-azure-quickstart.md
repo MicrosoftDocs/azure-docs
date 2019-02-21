@@ -1,16 +1,16 @@
 ---
-title: Replicate an Azure VM to another Azure region
-description: This quickstart provides the steps required to replicate an Azure VM in one Azure region to a different region.
+title: Set up disaster recovery for an Azure IaaS VM to a secondary Azure region
+description: This quickstart provides the steps required for disaster recovery of an Azure IaaS VM between Azure regions, using the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
 ---
-# Replicate an Azure VM to another Azure region
+# Set up disaster recovery to a secondary Azure region for an Azure VM        
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running, during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
 
@@ -48,10 +48,10 @@ After the replication job has finished, you can check the replication status, mo
 
 The VM in the primary region stops replicating when you disable replication for it:
 
-- The source replication settings are cleaned up automatically.
+- The source replication settings are cleaned up automatically. Please note that the Site Recovery extension that is installed as part of the replication isn't removed and needs to be removed manually. 
 - Site Recovery billing for the VM also stops.
 
-Stop replication as follows:
+Stop replication as follows
 
 1. Select the VM.
 2. In **Disaster recovery**, click **Disable Replication**.

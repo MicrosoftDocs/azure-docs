@@ -1,5 +1,7 @@
 # Microsoft Azure Documentation
 
+> Between March 5th and March 9th 2019, the MicrosoftDocs/azure-docs repo will be undergoing a Migration from it's current Markdown engine to the [Markdig](https://github.com/lunet-io/markdig) markdown engine. During this time, we will be turning off the ability to suspending merging of public pull requests in order to complete the migration.
+
 Welcome to the open source [documentation](https://docs.microsoft.com/azure) of [Microsoft Azure](https://azure.microsoft.com). Please review this README file to understand how you can assist in contributing to the Microsoft Azure documentation.
 
 ## Getting Started
@@ -8,7 +10,7 @@ Contributing to open source is more than just providing updates, it's also letti
 
 ### Prerequisites
 
-You've decided to contribute, that's great! There are a few tools which are needed to contribute to the documentation.
+You've decided to contribute, that's great! To contribute to the documentation, you need a few tools.
 
 Contributing to the documentation requires a GitHub account. If you don't have an account, follow the instructions for [GitHub account setup](https://docs.microsoft.com/contribute/get-started-setup-github) from our contributor guide.
 
@@ -32,3 +34,4 @@ Please refer to [LICENSE](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE)
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+

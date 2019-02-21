@@ -28,11 +28,11 @@ You create an Azure Data Explorer cluster in an Azure resource group, with a def
 
 1. Select the **Create a resource** button (+) in the upper-left corner of the  portal.
 
-1. Search for *Azure Data Explorer*, then select **Azure Data Explorer**.
+1. Search for *Azure Data Explorer*.
 
    ![Search resources](media/create-cluster-database-portal/search-resources.png)
 
-1. In the lower-right corner, select **Create**.
+1. Under **Azure Data Explorer**, at the bottom of the screen, select **Create**.
 
 1. Enter a unique name for your cluster, select your subscription, and create a resource group named *test-resource-group*.
 
@@ -48,10 +48,12 @@ You create an Azure Data Explorer cluster in an Azure resource group, with a def
     | Subscription | Your subscription | Select the Azure subscription that you want to use for your cluster.|
     | Resource group | *test-resource-group* | Create a new resource group. |
     | Location | *West US* | Select *West US* for this quickstart. For a production system, select the region that best meets your needs.
-    | Compute specification | *D13_v2* | Select the lowest price specification for this quickstart. For a production system, select the specification that best meets your needs.
+    | Compute specifications | *D13_v2* | Select the lowest price specification for this quickstart. For a production system, select the specification that best meets your needs.
     | | |
 
-1. Select **Create** to provision the cluster. Provisioning typically takes about ten minutes. Select **Notifications** on the toolbar (the bell icon) to monitor the provisioning process.
+1. Select **Create** to provision the cluster. Provisioning typically takes about ten minutes. Select **Notifications** on the toolbar to monitor the provisioning process.
+
+    ![Notifications](media/create-cluster-database-portal/notifications.png)
 
 1. When the process is complete, select **Notifications**, then **Go to resource**.
 
@@ -72,8 +74,8 @@ You're now ready for the second step in the process: database creation.
     **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Database name | *TestDatabase* | The database name must be unique within the cluster.
-    | Retention period | *3650* | The time span for which it's guaranteed that the data is kept available to query. The time span is measured from the time that data is ingested.
-    | Cache period | *31* | The time span for which to keep frequently-queried data available in SSD storage or RAM, rather than in longer-term storage.
+    | Retention period | *3650* | The time span (in days) for which it's guaranteed that the data is kept available to query. The time span is measured from the time that data is ingested.
+    | Cache period | *31* | The time span (in days) for which to keep frequently-queried data available in SSD storage or RAM, rather than in longer-term storage.
     | | | |
 
 1. Select **Save** to create the database. Creation typically takes less than a minute. When the process is complete, you're back on the cluster **Overview** tab.

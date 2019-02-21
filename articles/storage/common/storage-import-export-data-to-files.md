@@ -5,9 +5,9 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/13/2018
 ms.author: alkohli
-ms.component: common
+ms.subservice: common
 ---
 # Use Azure Import/Export service to import data to Azure Files
 
@@ -23,7 +23,7 @@ Before you create an import job to transfer data into Azure Files, carefully rev
 - Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-quickstart-create-account.md).
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). 
 - Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
-- [Download the WAImportExport version 2](https://www.microsoft.com/download/details.aspx?id=55280) on the Windows system. Unzip to the default folder `waimportexport`. For example, `C:\WaImportExport`.
+- [Download the WAImportExport version 2](https://aka.ms/waiev2) on the Windows system. Unzip to the default folder `waimportexport`. For example, `C:\WaImportExport`.
 - Have a FedEx/DHL account. 
     - The account must be valid, should have balance, and must have return shipping capabilities.
     - Generate a tracking number for the export job.
@@ -144,7 +144,7 @@ Perform the following steps to create an import job in the Azure portal.
     - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
 
         > [!TIP] 
-        > Instead of specifying an email address for a single user, provide a group email. This ensures that you recieve notifications even if an admin leaves.
+        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
        ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 

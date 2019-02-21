@@ -13,9 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
+ms.lastreviewed: 10/23/2018
 ---
 
 # Tutorial: Offer highly available MySQL databases
@@ -42,7 +43,7 @@ Before starting the steps in this tutorial, ensure that the [MySQL Server resour
 > All of the following are required to create the MySQL cluster.
 
 - [MySQL with Replication](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster). This is the Bitnami solution template that will be used for the MySQL cluster deployment.
-- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian8backports?tab=Overview). Debian 8 "Jessie" with backports kernel for Microsoft Azure provided by credativ. Debian GNU/Linux is one of the most popular Linux distributions.
+- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian). Debian 8 "Jessie" with backports kernel for Microsoft Azure provided by credativ. Debian GNU/Linux is one of the most popular Linux distributions.
 - [Custom script for linux 2.0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.custom-script-linux?tab=Overview). Custom Script Extension is a tool to execute your VM customization tasks post VM provision. When this Extension is added to a Virtual Machine, it can download scripts from Azure storage and run them on the VM. Custom Script Extension tasks can also be automated using the Azure PowerShell cmdlets and Azure Cross-Platform Command-Line Interface (xPlat CLI).
 - VM Access For Linux Extension 1.4.7. The VM Access extension enables you to reset the password, SSH key, or the SSH configurations, so you can regain access to your VM. You can also add a new user with password or SSH key, or delete a user using this extension. This extension targets Linux VMs.
 
@@ -61,16 +62,15 @@ Use the steps in this section to deploy the MySQL Server cluster using the [MySQ
 - A public IP address (for the primary MySQL cluster VM)
 - Three Linux VMs to host the MySQL cluster
 
-1. Sign in to the administration portal:
-    - For an integrated system deployment, the portal address will vary based on your solution's region and external domain name. It will be in the format of https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
-    - If you’re using the Azure Stack Development Kit (ASDK), the portal address is [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Select **\+** **Create a resource** > **Compute**, and then **MySQL with Replication**.
 
-   ![Custom template deployment](media/azure-stack-tutorial-mysqlrp/createcluster1.png)
+   ![Custom template deployment](media/azure-stack-tutorial-mysqlrp/1.png)
 
 3. Provide basic deployment information on the **Basics** page. Review the default values and change as needed and click **OK**.<br><br>At a minimum, provide the following:
-   - Deployment name (default is mysql)
+   - Deployment name (default is mymysql)
    - Application root password. Provide a 12 character alphanumeric password with **no special characters**
    - Application database name (default is bitnami)
    - Number of MySQL database replica VMs to create (default is 2)
@@ -78,7 +78,7 @@ Use the steps in this section to deploy the MySQL Server cluster using the [MySQ
    - Select the resource group to use or create a new one
    - Select the location (default is local for ASDK)
 
-   ![Deployment basics](media/azure-stack-tutorial-mysqlrp/createcluster2.png)
+   [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "Deployment basics")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. On the **Environment Configuration** page, provide the following information and then click **OK**: 
    - Password or SSH public key to use for secure shell (SSH) authentication. If using a password, it must contain letters, numbers and **can** contain special characters
@@ -86,15 +86,15 @@ Use the steps in this section to deploy the MySQL Server cluster using the [MySQ
    - Data disk size in GB
 Click **OK**
 
-   ![Environment configuration](media/azure-stack-tutorial-mysqlrp/createcluster3.png)
+   [![](media/azure-stack-tutorial-mysqlrp/3-sm.PNG "Environment configuration")](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. Review the deployment **Summary**. Optionally, you can download the customized template and parameters, and then click **OK**.
 
-   ![Summary](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   [![](media/azure-stack-tutorial-mysqlrp/4-sm.PNG "Summary")](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. Click **Create** on the **Buy** page to start the deployment.
 
-   ![Buy](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   ![Buy](media/azure-stack-tutorial-mysqlrp/5.png)
 
     > [!NOTE]
     > The deployment will take about an hour. Ensure that the deployment has finished and the MySQL cluster has been completely configured before continuing. 
@@ -107,11 +107,11 @@ By default, no public access is configured for MySQL into the host VM. For the A
 
 1. In the administrator portal, navigate to the resource group created when deploying the MySQL cluster and select the network security group (**default-subnet-sg**):
 
-   ![open](media/azure-stack-tutorial-mysqlrp/nsg1.png)
+   ![open](media/azure-stack-tutorial-mysqlrp/6.png)
 
 2. Select **Inbound security rules** and then click **Add**.<br><br>Enter **3306** in the **Destination port range** and optionally provide a description in the **Name** and **Description** fields. Click Add to close the inbound security rule dialog.
 
-   ![open](media/azure-stack-tutorial-mysqlrp/nsg2.png)
+   ![open](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### Configure external access to the MySQL cluster
 Before the MySQL cluster can be added as an Azure Stack MySQL Server host, external access must be enabled.
@@ -164,9 +164,8 @@ After the MySQL cluster has been created, configured, and added as an Azure Stac
 > [!NOTE]
 > Run these steps from the Azure Stack user portal as a tenant user with a subscription providing MySQL Server capabilities (Microsoft.MySQLAdapter service).
 
-1. Sign in to the user portal:
-    - For an integrated system deployment, the portal address will vary based on your solution's region and external domain name. It will be in the format of https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
-    - If you’re using the Azure Stack Development Kit (ASDK), the user portal address is [https://portal.local.azurestack.external](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Select **\+** **Create a resource** > **Data \+ Storage**, and then **MySQL Database**.<br><br>Provide the required database property information including name, collation, the subscription to use, and location to use for the deployment. 
 

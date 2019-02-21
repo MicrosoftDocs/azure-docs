@@ -1,3 +1,10 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+---
 | Resource | Standard file shares | Premium file shares (preview) |
 |----------|---------------|------------------------------------------|
 | Minimum size of a file share | (no minimum; pay as you go) | 100 GiB |
@@ -9,3 +16,5 @@
 | Target throughput for single file share | Up to 60 MiB/second | Up to 612 MiB/sec (provisioned) |
 | Maximum open handles per file | 2,000 open handles | 2,000 open handles |
 | Maximum number of share snapshots | 200 share snapshots | 200 share snapshots |
+| Maximum object (directories and files) name length | 2048 characters | 2048 characters |
+| Maximum pathname component (in the path \A\B\C\D, each letter is a component) | 255 characters | 255 characters |

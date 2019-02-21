@@ -1,18 +1,19 @@
 ---
-title: Prediction score - Intents, entities - LUIS
-titleSuffix: Azure Cognitive Services
+title: Prediction scores
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: A prediction score indicates the degree of confidence LUIS has for prediction results. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 10/15/2018
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: diberry
 ---
 
-# Prediction score
+# Prediction scores indicate prediction accuracy for intent and entities
 A prediction score indicates the degree of confidence LUIS has for prediction results. 
 
 A prediction score is between zero (0) and one (1). An example of a highly confident LUIS score is 0.99. An example of a score of low confidence is 0.01. 
@@ -57,7 +58,7 @@ When you train the same model in a different app, and the scores are not this sa
 If your chatbot requires a specific LUIS score to indicate confidence in an intent, you should instead use the score difference between the top two intents. This provides flexibility for variations in training. 
 
 ## Punctuation
-Punctuation is a separate token in LUIS. An utterance that contains a period at the end versus an utterance that does not are two separate utterances and may get two different predictions. Make sure the model handles punctuation either in the [example utterances](luis-concept-utterance.md) (having and not having punctuation) or in the [patterns}(luis-concept-patterns.md) where it is easier to ignore punctuation with the special syntax: `I am applying for the {Job} position[.]`
+Punctuation is a separate token in LUIS. An utterance that contains a period at the end versus an utterance that does not are two separate utterances and may get two different predictions. Make sure the model handles punctuation either in the [example utterances](luis-concept-utterance.md) (having and not having punctuation) or in the [patterns](luis-concept-patterns.md) where it is easier to ignore punctuation with the special syntax: `I am applying for the {Job} position[.]`
 
 ## Next steps
 

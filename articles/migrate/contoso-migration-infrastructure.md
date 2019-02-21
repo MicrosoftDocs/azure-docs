@@ -252,8 +252,8 @@ Azure [Role-Based Access Control (RBAC)](https://docs.microsoft.com/azure/role-b
 
 Contoso admins now assigns roles to the AD groups that they synchronized from on-premises.
 
-1. In the **ControlCobRG** resource group, they click **Access control (IAM)** > **Add**.
-2. In **Add Permissions** > **Role**, > **Contributor**, they select the **ContosoCobRG** AD group from the list. The group then appears in the **Selected members** list. 
+1. In the **ControlCobRG** resource group, they click **Access control (IAM)** > **Add role assignment**.
+2. In **Add role assignment** > **Role**, > **Contributor**, they select the **ContosoCobRG** AD group from the list. The group then appears in the **Selected members** list. 
 3. They repeat this with the same permissions for the other resource groups (except for **ContosoAzureAdmins**), by adding the Contributor permissions to the AD account that matches the resource group.
 4. For the **ContosoAzureAdmins** AD group, they assign the **Owner** role.
 
@@ -642,7 +642,7 @@ As they configure identity and access control, Contoso has already begun to put 
 
 The Azure Policy service evaluates your resources, scanning for those not compliant with the policy definitions you have in place. For example, you might have a policy that only allows certain types of VMs, or requires resources to have a specific tag. 
 
-Azure policies specify a policy definition, and a policy assignment specifies the scope in which a policy should be applied. The scope can range from a management group to a resource group. [Learn](https://docs.microsoft.com/azure/azure-policy/create-manage-policy) about creating and managing policies.
+Azure policies specify a policy definition, and a policy assignment specifies the scope in which a policy should be applied. The scope can range from a management group to a resource group. [Learn](../governance/policy/tutorials/create-and-manage.md) about creating and managing policies.
 
 Contoso wants to get started with a couple of policies:
 

@@ -1,22 +1,22 @@
 ---
-title: Create an Azure Blueprint with REST API
-description: Use Azure Blueprints to create, define, and deploy artifacts.
+title: Create a blueprint with REST API
+description: Use Azure Blueprints to create, define, and deploy artifacts using the REST API.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
+ms.custom: seodec18
 ---
 # Define and Assign an Azure Blueprint with REST API
 
-Understanding how to create and assign blueprints in Azure enables an organization to define common
-patterns of consistency and develop reusable and rapidly deployable configurations based on
-Resource Manager templates, policy, security, and more. In this tutorial, you learn to use Azure
-Blueprints to do some of the common tasks related to creating, publishing, and assigning a
-blueprint within your organization, such as:
+Learning how to create and assign blueprints enables the definition of common patterns to develop
+reusable and rapidly deployable configurations based on Resource Manager templates, policy,
+security, and more. In this tutorial, you learn to use Azure Blueprints to do some of the common
+tasks related to creating, publishing, and assigning a blueprint within your organization, such as:
 
 > [!div class="checklist"]
 > - Create a new blueprint and add various supported artifacts
@@ -30,12 +30,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Getting started with REST API
 
-If you are unfamiliar with REST API, start by reviewing [Azure REST API
-Reference](/rest/api/azure/) to get a general understanding of REST API, specifically request URI
-and request body. This article uses these concepts to provide directions for working with Azure
-Blueprints and assumes a working knowledge of them. Tools such as
-[ARMClient](https://github.com/projectkudu/ARMClient) and others may handle authorization
-automatically and are recommended for beginners.
+If you're unfamiliar with REST API, start by reviewing [Azure REST API Reference](/rest/api/azure/)
+to get a general understanding of REST API, specifically request URI and request body. This article
+uses these concepts to provide directions for working with Azure Blueprints and assumes a working
+knowledge of them. Tools such as [ARMClient](https://github.com/projectkudu/ARMClient) and others
+may handle authorization automatically and are recommended for beginners.
+
+For the Blueprints specs, see [Azure Blueprints REST API](/rest/api/blueprints/).
 
 ### REST API and PowerShell
 
@@ -71,26 +72,26 @@ parameter of `Invoke-RestMethod`.
 ## Create a blueprint
 
 The first step in defining a standard pattern for compliance is to compose a blueprint from the
-available resources. In this example, create a blueprint named 'MyBlueprint' to configure role and
-policy assignments for the subscription, add a resource group, and create a Resource Manager
-template and role assignment on the resource group.
+available resources. We'll create a blueprint named 'MyBlueprint' to configure role and policy
+assignments for the subscription. Then we'll add a resource group, a Resource Manager template, and
+a role assignment on the resource group.
 
 > [!NOTE]
 > When using the REST API, the _blueprint_ object is created first. For each _artifact_ to be added that has parameters, the parameters need to be defined in advance on the initial _blueprint_.
 
 In each REST API URI, there are variables that are used that you need to replace with your own values:
 
-- `{YourMG}` - Replace with the name of your management group
+- `{YourMG}` - Replace with the ID of your management group
 - `{subscriptionId}` - Replace with your subscription ID
 
 1. Create the initial _blueprint_ object. The **Request Body** includes properties about the
-blueprint, any resource groups to create, and all of the blueprint level parameters that are set
-during assignment and used by the artifacts added in later steps.
+blueprint, any resource groups to create, and all of the blueprint level parameters. The parameters
+are set during assignment and used by the artifacts added in later steps.
 
    - REST API URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
      ```
 
    - Request Body
@@ -147,12 +148,13 @@ during assignment and used by the artifacts added in later steps.
 1. Add role assignment at subscription. The **Request Body** defines the _kind_ of artifact, the
 properties align to the role definition identifier, and the principal identities are passed as an
 array of values. In the example below, the principal identities granted the specified role are
-configured to a parameter that is set during blueprint assignment.
+configured to a parameter that is set during blueprint assignment. This example uses the
+_Contributor_ built-in role with a GUID of `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
    - REST API URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleContributor?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleContributor?api-version=2018-11-01-preview
      ```
 
    - Request Body
@@ -169,12 +171,14 @@ configured to a parameter that is set during blueprint assignment.
 
 1. Add policy assignment at subscription. The **Request Body** defines the _kind_ of artifact, the
 properties that align to a policy or initiative definition, and configures the policy assignment to
-use the defined blueprint parameters to be configured during blueprint assignment.
+use the defined blueprint parameters to configure during blueprint assignment. This example uses
+the _Apply tag and its default value to resource groups_ built-in policy with a GUID of
+`49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - REST API URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyTags?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyTags?api-version=2018-11-01-preview
      ```
 
    - Request Body
@@ -199,14 +203,15 @@ use the defined blueprint parameters to be configured during blueprint assignmen
 
 1. Add another policy assignment for Storage tag (reusing _storageAccountType_ parameter) at
 subscription. This additional policy assignment artifact demonstrates that a parameter defined on
-the blueprint can be used by more than one artifact. In the example, the **storageAccountType** is
-used to set a tag on the resource group providing information about the storage account that is
-created in the next step.
+the blueprint is usable by more than one artifact. In the example, the **storageAccountType** is
+used to set a tag on the resource group. This value provides information about the storage account
+that is created in the next step. This example uses the _Apply tag and its default value to
+resource groups_ built-in policy with a GUID of `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - REST API URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2018-11-01-preview
      ```
 
    - Request Body
@@ -230,17 +235,18 @@ created in the next step.
      ```
 
 1. Add template under resource group. The **Request Body** for a Resource Manager template includes
-the normal JSON component of the template, defines the target resource group with
-**properties.resourceGroup**, and reuses the **storageAccountType**, **tagName**, and **tagValue**
-blueprint parameters by providing each to the template. The blueprint parameters are made available
-to the template by defining **properties.parameters** and inside the template JSON that key/value
-is used to inject the value. The blueprint and template parameter names could be the same, but were
-made different to illustrate how each is passed from the blueprint to the template artifact.
+the normal JSON component of the template and defines the target resource group with
+**properties.resourceGroup**. The template also reuses the **storageAccountType**, **tagName**, and
+**tagValue** blueprint parameters by passing each to the template. The blueprint parameters are
+available to the template by defining **properties.parameters** and inside the template JSON that
+key-value pair is used to inject the value. The blueprint and template parameter names could be the
+same, but were made different to illustrate how each passes from the blueprint to the template
+artifact.
 
    - REST API URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/templateStorage?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/templateStorage?api-version=2018-11-01-preview
      ```
 
    - Request Body
@@ -323,12 +329,13 @@ made different to illustrate how each is passed from the blueprint to the templa
 
 1. Add role assignment under resource group. Similar to the previous role assignment entry, the
 example below uses the definition identifier for the **Owner** role and provides it a different
-parameter from the blueprint.
+parameter from the blueprint. This example uses the _Owner_ built-in role with a GUID of
+`8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
 
    - REST API URI
 
      ```http
-     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2017-11-11-preview
+     PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2018-11-01-preview
      ```
 
    - Request Body
@@ -347,25 +354,32 @@ parameter from the blueprint.
 ## Publish a blueprint
 
 Now that the artifacts have been added to the blueprint, it's time to publish it. Publishing makes
-it available to be assigned to a subscription.
+it available to assign to a subscription.
 
 - REST API URI
 
   ```http
-  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/versions/{BlueprintVersion}?api-version=2017-11-11-preview
+  PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/versions/{BlueprintVersion}?api-version=2018-11-01-preview
   ```
 
 The value for `{BlueprintVersion}` is a string of letters, numbers, and hyphens (no spaces or other
-special characters) with a maximum length of 20 characters. Use something unique and informational
-such as **v20180622-135541**.
+special characters) with a max length of 20 characters. Use something unique and informational such
+as **v20180622-135541**.
 
 ## Assign a blueprint
 
-Once a blueprint has been published using REST API, it can be assigned to a subscription. Assign
-the blueprint you created to one of the subscriptions under your management group hierarchy. The
-**Request Body** specifies the blueprint to be assigned, provides name and location to any resource
-groups in the blueprint definition, and provides all parameters that were defined on the blueprint
-and used by one or more attached artifacts.
+Once a blueprint is published using REST API, it's assignable to a subscription. Assign the
+blueprint you created to one of the subscriptions under your management group hierarchy. If the
+blueprint is saved to a subscription, it can only be assigned to that subscription. The **Request
+Body** specifies the blueprint to assign, provides name and location to any resource groups in the
+blueprint definition, and provides all parameters defined on the blueprint and used by one or more
+attached artifacts.
+
+In each REST API URI, there are variables that are used that you need to replace with your own values:
+
+- `{tenantId}` - Replace with your tenant ID
+- `{YourMG}` - Replace with the ID of your management group
+- `{subscriptionId}` - Replace with your subscription ID
 
 1. Provide the Azure Blueprint service principal the **Owner** role on the target subscription. The AppId is static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), but the service principal ID various by tenant. Details can be requested for your tenant using the following REST API. It uses [Azure Active Directory Graph API](../../active-directory/develop/active-directory-graph-api.md) which has different authorization.
 
@@ -380,7 +394,7 @@ and used by one or more attached artifacts.
    - REST API URI
 
      ```http
-     PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2017-11-11-preview
+     PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
      ```
 
    - Request Body
@@ -426,17 +440,37 @@ and used by one or more attached artifacts.
      }
      ```
 
+   - User-assigned managed identity
+
+     A blueprint assignment can also use a [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md). In this case, the **identity** portion of the request body changes as follows.  Replace `{yourRG}` and `{userIdentity}` with your resource group name and the name of your user-assigned managed identity, respectively.
+
+     ```json
+     "identity": {
+         "type": "userAssigned",
+         "tenantId": "{tenantId}",
+         "userAssignedIdentities": {
+             "/subscriptions/{subscriptionId}/resourceGroups/{yourRG}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userIdentity}": {}
+         }
+     },
+     ```
+
+     The **user-assigned managed identity** can be in any subscription and resource group the user
+     assigning the blueprint has permissions to.
+
+     > [!IMPORTANT]
+     > Blueprints doesn't manage the user-assigned managed identity. Users are responsible for assigning
+     > sufficient roles and permissions or the blueprint assignment will fail.
+
 ## Unassign a blueprint
 
-Blueprints can be removed from a subscription if they are no longer needed or have been replaced by
-newer blueprints with updated patterns, policies, and designs. When a blueprint is removed, the
-artifacts assigned as part of that blueprint are left behind. To remove a blueprint assignment, use
-the following REST API operation:
+You can remove a blueprint from a subscription. Removal is often done when the artifact resources
+are no longer needed. When a blueprint is removed, the artifacts assigned as part of that blueprint
+are left behind. To remove a blueprint assignment, use the following REST API operation:
 
 - REST API URI
 
   ```http
-  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2017-11-11-preview
+  DELETE https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
 ## Delete a blueprint
@@ -446,7 +480,7 @@ To remove the blueprint itself, use the following REST API operation:
 - REST API URI
 
   ```http
-  DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2017-11-11-preview
+  DELETE https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
   ```
 
 ## Next steps

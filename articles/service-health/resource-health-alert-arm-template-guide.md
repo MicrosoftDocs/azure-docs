@@ -1,20 +1,11 @@
 ---
 title: Configure Azure resource health alerts using Resource Manager templates | Microsoft Docs
 description: Create alerts programmatically that notify you when your Azure resources become unavailable.
-author: shawntabrizi
-manager: scotthit
-editor: ''
-services: service-health
-documentationcenter: service-health
-
-ms.assetid:
+author: stephbaron
+ms.author: stbaron
+ms.topic: conceptual
 ms.service: service-health
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
 ms.date: 9/4/2018
-ms.author: shtabriz
 
 ---
 
@@ -28,8 +19,8 @@ Azure Resource Health keeps you informed about the current and historical health
 
 To follow the instructions on this page, you'll need to set up a few things in advance:
 
-1. You need to install the [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (`AzureRm`)
-2. You need to [create or reuse an Action Group](../monitoring-and-diagnostics/monitoring-action-groups.md) configured to notify you
+1. You need to install the [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (`AzureRm`)
+2. You need to [create or reuse an Action Group](../azure-monitor/platform/action-groups.md) configured to notify you
 
 ## Instructions
 1. Using PowerShell, log in to Azure using your account, and select the subscription you want to interact with
@@ -54,7 +45,7 @@ To follow the instructions on this page, you'll need to set up a few things in a
         Supply values for the following parameters:
         (Type !? for Help.)
         activityLogAlertName: <Alert Name>
-        actionGroupResourceId: /subscriptions/<subscriptionId>/resourceGroups/<resouceGroup>/providers/microsoft.insights/actionGroups/<actionGroup>
+        actionGroupResourceId: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.insights/actionGroups/<actionGroup>
 
 6. If everything worked successfully, you'll get a confirmation in PowerShell
 
@@ -432,4 +423,4 @@ Learn more about Resource Health:
 -  [Resource types and health checks available through Azure Resource Health](resource-health-checks-resource-types.md)
 
 Create Service Health Alerts:
--  [Configure Alerts for Service Health](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) 
+-  [Configure Alerts for Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

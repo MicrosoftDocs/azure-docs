@@ -1,17 +1,16 @@
 ---
-title: Set up IP addressing to connect after failover to Azure with Azure Site Recovery | Microsoft Docs
-description: Describes how to set up IP addressing to connect to Azure VMs after failover from on-premises with Azure Site Recovery
+title: Set up IP addressing to connect after disaster recovery and failover to Azure with Azure Site Recovery | Microsoft Docs
+description: Describes how to set up IP addressing to connect to Azure VMs after disaster recovery and failover from on-premises with Azure Site Recovery
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
 
 ---
-# Set up IP addressing to connect after failover to Azure
+# Set up IP addressing to connect to Azure VMs after failover
 
 This article explains the networking requirements for connecting to Azure VMs, after using the [Azure Site Recovery](site-recovery-overview.md) service for replication and failover to Azure.
 
@@ -69,7 +68,7 @@ For Woodgrove to be able to replicate its VMs to Azure while retaining the IP ad
 #### Site-to-site connection
 
 In addition to the vnet-to-vnet connection, after failover, Woodgrove can set up site-to-site VPN connectivity:
-- When you set up a site-to-site connection, in the Azure network you can only route traffic to the on-premises location (local-ntwork) if the IP address range is different from the on-premises IP address range. This is because Azure doesn’t support stretched subnets. So, if you have subnet 192.168.1.0/24 on-premises, you can’t add a local-network 192.168.1.0/24 in the Azure network. This is expected because Azure doesn’t know that there are no active VMs in the subnet, and that the subnet is being created for disaster recovery only.
+- When you set up a site-to-site connection, in the Azure network you can only route traffic to the on-premises location (local-network) if the IP address range is different from the on-premises IP address range. This is because Azure doesn’t support stretched subnets. So, if you have subnet 192.168.1.0/24 on-premises, you can’t add a local-network 192.168.1.0/24 in the Azure network. This is expected because Azure doesn’t know that there are no active VMs in the subnet, and that the subnet is being created for disaster recovery only.
 - To be able to correctly route network traffic out of an Azure network, the subnets in the network and the local-network mustn't conflict.
 
 
@@ -77,7 +76,7 @@ In addition to the vnet-to-vnet connection, after failover, Woodgrove can set up
 
 ## Assigning new IP addresses
 
-This [blog post](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explains how to set up the Azure networking infrastructure when you don't need to retain IP addresses after failover. It starts with an application description, looks at how to set up networking on-premises and in Azure, and concludes with information about running failovers.
+This [blog post](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explains how to set up the Azure networking infrastructure when you don't need to retain IP addresses after failover. It starts with an application description, looks at how to set up networking on-premises and in Azure, and concludes with information about running failovers.
 
 ## Next steps
 [Run a failover](site-recovery-failover.md)

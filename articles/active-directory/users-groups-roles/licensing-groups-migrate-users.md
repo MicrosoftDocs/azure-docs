@@ -1,23 +1,23 @@
 ---
 
-  title: Migrate user licenses users to group-based licensing in Azure Active Directory | Microsoft Docs
-  description: How to switch from individual user licenses to group-based licensing using Azure Active Directory
-  services: active-directory
-  keywords: Azure AD licensing
-  documentationcenter: ''
-  author: curtand
-  manager: mtillman
-  editor: ''
+title: Migrate users to group-based licensing - Azure Active Directory | Microsoft Docs
+description: How to switch from individual user licenses to group-based licensing using Azure Active Directory
+services: active-directory
+keywords: Azure AD licensing
+documentationcenter: ''
+author: curtand
+manager: mtillman
+editor: ''
 
-  ms.service: active-directory
-  ms.topic: article
-  ms.workload: identity
-  ms.component: users-groups-roles
-  ms.date: 01/14/2018
-  ms.author: curtand
-
-  ms.custom: seohack1
-
+ms.service: active-directory
+ms.topic: article
+ms.workload: identity
+ms.subservice: users-groups-roles
+ms.date: 01/31/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.custom: "seohack1;it-pro"
+ms.collection: M365-identity-device-management
 ---
 
 # How to add licensed users to a group for licensing in Azure Active Directory
@@ -83,7 +83,9 @@ Here is what the migration process could look like:
 
 To learn more about other scenarios for license management through groups, read
 
-* [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
 * [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
 * [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
+* [How to migrate users between product licenses using group-based licensing in Azure Active Directory](licensing-groups-change-licenses.md)
 * [Azure Active Directory group-based licensing additional scenarios](licensing-group-advanced.md)
+* [PowerShell examples for group-based licensing in Azure Active Directory](licensing-ps-examples.md)

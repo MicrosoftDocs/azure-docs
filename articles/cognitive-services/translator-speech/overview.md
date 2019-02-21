@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Use the Translator Speech service API to add speech to speech and speech to text translation to your applications.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
@@ -19,7 +19,7 @@ ms.author: v-jansko
 
 The Translator Speech API can be used to add end-to-end, real-time, speech translations to applications, tools, or any solution requiring multi-language speech translation regardless of the target OS or development languages. The API can be used for both speech to speech and speech to text translation.
 
-Translator Text API is an Azure service, part of the [Azure Cognitive Services API collection](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive) of machine learning and AI algorithms in the cloud, readily consumable in your development projects.
+Translator Text API is an Azure service, part of the [Azure Cognitive Services API collection](https://docs.microsoft.com/azure/) of machine learning and AI algorithms in the cloud, readily consumable in your development projects.
 
 With the Translator Speech API, client applications stream speech audio to the service and receive back a stream of text- and audio-based results, which include the recognized text in the source language and its translation in the target language. Text results are produced by applying Automatic Speech Recognition (ASR) powered by deep neural networks to the incoming audio stream. Raw ASR output is further improved by a new technique called TrueText to more closely reflect user intent. For example, TrueText removes disfluencies (the hmms and coughs), repeated words, and restores proper punctuation and capitalization. The ability to mask or exclude profanities is also included. The recognition and translation engines are specifically trained to handle conversational speech. 
 
@@ -30,7 +30,7 @@ For speech to speech translation, the service provides the ability to synthesize
 The Translator Speech API uses the WebSocket protocol to provide a full-duplex communication channel between the client and the server. 
 
 ## About Microsoft Translator
-Microsoft Translator is a cloud-based machine translation service. At the core of this service are the [Translator Text API] (https://www.microsoft.com/en-us/translator/translatorapi.aspx) and Translator Speech API which power various Microsoft products and services and are used by thousands of businesses worldwide in their applications and workflows, allowing their content to reach a worldwide audience.
+Microsoft Translator is a cloud-based machine translation service. At the core of this service are the [Translator Text API](https://www.microsoft.com/en-us/translator/translatorapi.aspx) and Translator Speech API which power various Microsoft products and services and are used by thousands of businesses worldwide in their applications and workflows, allowing their content to reach a worldwide audience.
 
 Learn more about the [Microsoft Translator service](https://www.microsoft.com/en-us/translator/home.aspx)
 
@@ -63,6 +63,6 @@ Learn more about [how NMT works](https://www.microsoft.com/en-us/translator/mt.a
 > [Start coding](quickstarts/csharp.md)
 
 ## See also
-- [Cognitive Services Documentation page](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)
+- [Cognitive Services Documentation page](https://docs.microsoft.com/azure/)
 - [Cognitive Services Product page](https://azure.microsoft.com/services/cognitive-services/)
 - [Solution and pricing information](https://www.microsoft.com/en-us/translator/home.aspx) 

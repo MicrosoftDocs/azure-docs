@@ -1,15 +1,15 @@
 ---
-title: How to change, delete, or manage your management groups in Azure
-description: Learn how to maintain and update your management group hierarchy. 
+title: How to change, delete, or manage your management groups in Azure - Azure Governance
+description: Learn how to view, maintain, update, and delete your management group hierarchy.
 author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 11/20/2018
 ms.author: rithorn
+ms.topic: conceptual
 ---
 # Manage your resources with management groups
 
@@ -40,11 +40,11 @@ You can change the name of the management group by using the portal, PowerShell,
 
 1. Select the **Rename group** option at the top of the page.
 
-   ![Rename Group](./media/detail_action_small.png)
+   ![Rename Group option](./media/detail_action_small.png)
 
 1. When the menu opens, enter the new name you would like to have displayed.
 
-   ![Rename Group](./media/rename_context.png)
+   ![Rename Group pane](./media/rename_context.png)
 
 1. Select **Save**.
 
@@ -89,11 +89,11 @@ To delete a management group, the following requirements must be met:
 
    - If the icon is disabled, hovering your mouse selector over the icon shows you the reason.
 
-   ![delete Group](./media/delete.png)
+   ![Delete group option](./media/delete.png)
 
 1. There's a window that opens confirming you want to delete the management group.
 
-   ![delete Group](./media/delete_confirm.png)
+   ![Delete group confirmation window](./media/delete_confirm.png)
 
 1. Select **Yes**.
 
@@ -199,19 +199,19 @@ To see what permissions you have, select the management group and then select **
 
 1. Select the ellipse at the end of the row for the subscription in the list you want to move.
 
-   ![Move](./media/move_small.png)
+   ![Move option](./media/move_small.png)
 
 1. Select **Move**.
 
 1. On the menu that opens, select the **Parent management group**.
 
-   ![Move](./media/move_small_context.png)
+   ![Move pane](./media/move_small_context.png)
 
 1. Select **Save**.
 
 ### Move subscriptions in PowerShell
 
-To move a subscription in PowerShell, you use the Add-AzureRmManagementGroupSubscription command.  
+To move a subscription in PowerShell, you use the New-AzureRmManagementGroupSubscription command.  
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
@@ -278,12 +278,26 @@ Use the update command to move a management group with Azure CLI.
 az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 ```
 
+## Audit management groups using activity logs
+
+To track management groups via this API, use the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs). It's currently not possible to use PowerShell, CLI, or Azure portal to track management groups activity.
+
+1. As a tenant admin of the Azure AD tenant, [elevate access](../../role-based-access-control/elevate-access-global-admin.md) then assign a Reader role to the auditing user over the scope `/providers/microsoft.insights/eventtypes/management`.
+1. As the auditing user, call the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs) to see management group activities. You'll want to filter by Resource Provider **Microsoft.Management** for all management group activity.  Example:
+
+```xml
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> To conveniently call this API from the command line, try [ARMClient](https://github.com/projectkudu/ARMClient).
+
 ## Next steps
 
-To Learn more about management groups, see:
+To learn more about management groups, see:
 
-- [Organize your resources with Azure management groups](overview.md)
 - [Create management groups to organize Azure resources](create.md)
-- [Install the Azure Powershell module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Install the Azure CLI Extension](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [How to change, delete, or manage your management groups](manage.md)
+- [Review management groups in Azure PowerShell Resources Module](https://aka.ms/mgPSdocs)
+- [Review management groups in REST API](https://aka.ms/mgAPIdocs)
+- [Review management groups in Azure CLI](https://aka.ms/mgclidoc)

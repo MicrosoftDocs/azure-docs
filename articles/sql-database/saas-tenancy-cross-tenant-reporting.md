@@ -9,9 +9,9 @@ ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewers: billgib,AyoOlubeko
+ms.reviewers: billgib,ayolubek
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 01/25/2019
 ---
 # Cross-tenant reporting using distributed queries
 
@@ -122,7 +122,7 @@ This exercise adds schema (the external data source and external table definitio
 
     ![create external data source](media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
-   The external tables that reference the global views described in the previous section, and defined with **DISTRIBUTION = SHARDED(VenueId)**. Because each *VenueId* maps to a single database, this improves performance for many scenarios as shown in the next section.
+   The external tables that reference the global views described in the previous section, and defined with **DISTRIBUTION = SHARDED(VenueId)**. Because each *VenueId* maps to an individual database, this improves performance for many scenarios as shown in the next section.
 
     ![create external tables](media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 
@@ -142,7 +142,7 @@ Now that the *adhocreporting* database is set up, go ahead and run some distribu
 
 When inspecting the execution plan, hover over the plan icons for details. 
 
-Important to note, is that setting **DISTRIBUTION = SHARDED(VenueId)** when the external data source is defined improves performance for many scenarios. As each *VenueId* maps to a single database, filtering is easily done remotely, returning only the data needed.
+Important to note, is that setting **DISTRIBUTION = SHARDED(VenueId)** when the external data source is defined improves performance for many scenarios. As each *VenueId* maps to a individual database, filtering is easily done remotely, returning only the data needed.
 
 1. Open ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* in SSMS.
 2. Ensure you are connected to the **adhocreporting** database.

@@ -38,4 +38,4 @@ Learn more about the Popup class and its methods used in this article:
 Check out more code samples:
 
 > [!div class="nextstepaction"]
-> [Code sample page](http://aka.ms/AzureMapsSamples)
+> [Code sample page](https://aka.ms/AzureMapsSamples)

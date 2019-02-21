@@ -3,16 +3,17 @@ title: What is the MyApps portal in Azure Active Directory? | Microsoft Docs
 description: Learn how to use variations of the MyApps portal (web browser, Android app, iPhone and iPad app) to access SaaS apps.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
+ms.collection: M365-identity-device-management
 ---
 
 # What is the MyApps portal?
@@ -38,9 +39,9 @@ By using the MyApps portal, you can edit some of your profile settings and do th
 
 ## Access the MyApps portal
 
-You can access the MyApps portal by going to `http://myapps.microsoft.com`.
+You can access the MyApps portal by going to `https://myapps.microsoft.com`.
 
-If you have custom branding configured for your sign-in page, you can load the branding by appending your organization’s domain to the URL (for example, `http://myapps.microsoft.com/<your domain>.com`).
+If you have custom branding configured for your sign-in page, you can load the branding by appending your organization’s domain to the URL (for example, `https://myapps.microsoft.com/<your domain>.com`).
 
 You can use any active or verified domain name that has been configured in your Azure portal, as shown here:
 ![Wingtip Toys domain name][2]  
@@ -63,7 +64,7 @@ The installer is architecture-specific. If you click the download link, you only
 
 
 The MyApps portal extension is currently available for:
-- **Edge**: on Windows 10 Anniversary Edition or later. 
+- **Microsoft Edge**: on Windows 10 Anniversary Edition or later. 
 - **Chrome**: on Windows 7 or later, and on MacOS X or later.
 - **Firefox 26.0 or later**: on Windows XP SP2 or later, and on Mac OS X 10.6 or later.
 - **Internet Explorer 11**: on Windows 7 or later (limited support).
@@ -77,11 +78,11 @@ To sign in to password-based single sign-on, you must use the extension. After t
 - You can use internal company URLs while remote through [Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
-> Additional features are available only for Edge, Chrome, and Firefox.
+> Additional features are available only for Microsoft Edge, Chrome, and Firefox.
 >
 You can download the extension directly from the following sites:
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 If you are using a My Apps URL other than `https://myapps.microsoft.com`, configure your default URL by doing the following:
@@ -135,7 +136,7 @@ If you are an Azure administrator and you are signed in to the Azure portal by u
 To test in a *different* user account, do the following:
 
 1. At the upper right of the Azure portal or the MyApps portal, select **Sign Out**. 
-2. Go to the [MyApps portal](http://myapps.microsoft.com).
+2. Go to the [MyApps portal](https://myapps.microsoft.com).
 3. On the sign-in page, type the username and password for the account in your directory that you want to test.
 
 

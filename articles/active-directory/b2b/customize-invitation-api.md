@@ -4,15 +4,16 @@ description: Azure Active Directory B2B collaboration supports your cross-compan
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: reference
 ms.date: 04/11/2017
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory B2B collaboration API and customization
@@ -73,7 +74,7 @@ In this mode, whoever is using the API needs to have the permissions to be creat
 ### App only mode
 In app only context, the app needs the User.Invite.All scope for the invitation to succeed.
 
-For more information, refer to: https://graph.microsoft.io/docs/authorization/permission_scopes
+For more information, refer to: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## PowerShell

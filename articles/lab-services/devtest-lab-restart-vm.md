@@ -33,7 +33,7 @@ You can quickly and easily restart a virtual machine in  DevTest Labs by followi
    >
 
 ## Steps to restart a VM in a lab in Azure DevTest Labs
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **All Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the lab that includes the VM  you want to restart.  
 1. In the left panel, select **My Virtual Machines**. 

@@ -8,7 +8,7 @@ keywords: item level recovery; file recovery from Azure VM backup; restore files
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
-ms.author: pullabhk
+ms.author: pvrk
 ---
 # Recover files from Azure virtual machine backup
 
@@ -39,7 +39,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 4. From the **Select recovery point** drop-down menu, select the recovery point that holds the files you want. By default, the latest recovery point is already selected.
 
-5. To download the software used to copy files from the recovery point, click **Download Executable** (for Windows Azure VM) or **Download Script** (for Linux Azure VM).
+5. To download the software used to copy files from the recovery point, click **Download Executable** (for Windows Azure VM) or **Download Script** (for Linux Azure VM, a python script is generated).
 
     ![Generated password](./media/backup-azure-restore-files-from-vm/download-executable.png)
 

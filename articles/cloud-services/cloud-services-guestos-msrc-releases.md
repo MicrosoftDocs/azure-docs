@@ -12,12 +12,227 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/16/2018
+ms.date: 2/20/2019
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## February 2019 Guest OS
+
+>[!NOTE]
+>The February Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the February Guest OS. This list is subject to change.
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 19-02 | [4486474] | Internet Explorer | 2.83, 3.70, 4.63 | February 12, 2019 |
+| Rel 19-02 | [4487038] | Flash | 3.70, 4.63, 5.28, 6.4 | February 12, 2019 |
+| Rel 19-02 | [4486564] | Windows Security | 2.83 | February 12, 2019 |
+| Rel 19-02 | [4483483] | .NET 3.5.1 Security | 2.83 | February 12, 2019 |
+| Rel 19-02 | [4483474] | .NET 4.5.2 Security | 2.83 | February 12, 2019 |
+| Rel 19-02 | [4486993] | Windows Security | 3.70 | February 12, 2019 |
+| Rel 19-02 | [4483481] | .NET 3.5 Security | 3.70 | February 12, 2019 |
+| Rel 19-02 | [4483473] | .NET 4.5.2 Security | 3.70 | February 12, 2019 |
+| Rel 19-02 | [4487028] | Windows Security | 4.63 | February 12, 2019 |
+| Rel 19-02 | [4483484] | .NET 3.5 Security | 4.63 | February 12, 2019 |
+| Rel 19-02 | [4483472] | .NET 4.5.2 Security | 4.63 | February 12, 2019 |
+| Rel 19-02 | [4487026] | Windows Security | 5.28 | February 12, 2019 |
+| Rel 19-02 | [4487044] | Windows Security | 6.4 | February 12, 2019 |
+| Rel 19-02 | [4483452] | .NET 3.5, 4.7.2 Security | 6.4 | February 12, 2019 |
+| N/A | [4480970] | January Non-Security rollup | 2.83 | January 8, 2019 |
+| N/A | [4483483] | January Non-Security rollup .NET 3.5.1  | 2.83 | January 8, 2019 |
+| N/A | [4480059] | January Non-Security rollup .NET 4.5.2  | 2.83 | January 8, 2019 |
+| N/A | [4480975] | January Non-Security rollup | 3.70 | January 8, 2019 |
+| N/A | [4480061] | January Non-Security rollup .NET 3.5 | 3.70 | January 8, 2019 |
+| N/A | [4480058] | January Non-Security rollup .NET 4.5.2 | 3.70 | January 8, 2019 |
+| N/A | [4480963] | January Non-Security rollup | 4.63 | January 8, 2019 |
+| N/A | [4480064] | January Non-Security rollup .NET 3.5 | 4.63 | January 8, 2019 |
+| N/A | [4480057] | January Non-Security rollup .NET 4.5.2 | 4.63 | January 8, 2019 |
+
+[4486474]: http://support.microsoft.com/kb/4486474
+[4487038]: http://support.microsoft.com/kb/4487038
+[4486564]: http://support.microsoft.com/kb/4486564
+[4483483]: http://support.microsoft.com/kb/4483483
+[4483474]: http://support.microsoft.com/kb/4483474
+[4486993]: http://support.microsoft.com/kb/4486993
+[4483481]: http://support.microsoft.com/kb/4483481
+[4483473]: http://support.microsoft.com/kb/4483473
+[4487028]: http://support.microsoft.com/kb/4487028
+[4483484]: http://support.microsoft.com/kb/4483484
+[4483472]: http://support.microsoft.com/kb/4483472
+[4487026]: http://support.microsoft.com/kb/4487026
+[4487044]: http://support.microsoft.com/kb/4487044
+[4483452]: http://support.microsoft.com/kb/4483452
+[4480970]: http://support.microsoft.com/kb/4480970
+[4483483]: http://support.microsoft.com/kb/4483483
+[4480059]: http://support.microsoft.com/kb/4480059
+[4480975]: http://support.microsoft.com/kb/4480975
+[4480061]: http://support.microsoft.com/kb/4480061
+[4480058]: http://support.microsoft.com/kb/4480058
+[4480963]: http://support.microsoft.com/kb/4480963
+[4480064]: http://support.microsoft.com/kb/4480064
+[4480057]: http://support.microsoft.com/kb/4480057
+
+## January 2019 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 19-01 | [4480116] | Windows 10 Security | 6.3 | January 8, 2019 |
+| Rel 19-01 | [4480961] | Windows 10 Security | 5.27 | January 8, 2019 |
+| Rel 19-01 | [4480964] | Windows Security | 4.62 | January 8, 2019 |
+| Rel 19-01 | [4480972] | Windows Security | 3.69 | January 8, 2019 |
+| Rel 19-01 | [4480960] | Windows Security | 2.82 | January 8, 2019 |
+| Rel 19-01 | [4480056] | .Net Security | 6.3 | January 8, 2019 |
+| Rel 19-01 | [4480074] | .Net 4.x Security | 4.62 | January 8, 2019 |
+| Rel 19-01 | [4480075] | .Net 4.x Security | 3.69 | January 8, 2019 |
+| Rel 19-01 | [4480076] | .Net 4.x Security | 2.82 | January 8, 2019 |
+| Rel 19-01 | [4480086] | .Net 3.x Security | 4.62 | January 8, 2019 |
+| Rel 19-01 | [4480083] | .Net 3.x Security | 3.69 | January 8, 2019 |
+| Rel 19-01 | [4480085] | .Net 3.x Security | 2.82 | January 8, 2019 |
+| Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27, 6.3 | January 8, 2019 |
+| Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | January 8, 2019 |
+| N/A | [4471318] | December Non-Security rollup | 2.82 | December 11, 2018 |
+| N/A | [4470641] | December Non-Security Rollup .NET 3.x | 2.82 | December 11, 2018 |
+| N/A | [4470637] | December Non-Security Rollup .NET 4.x | 2.82 | December 11, 2018 |
+| N/A | [4471330] | December Non-Security rollup | 3.69 | December 11, 2018 |
+| N/A | [4470629] | December Non-Security Rollup .NET 3.x | 3.69 | December 11, 2018 |
+| N/A | [4470623] | December Non-Security Rollup .NET 4.x | 3.69 | December 11, 2018 |
+| N/A | [4471320] | December Non-Security rollup | 4.62 | December 11, 2018 |
+| N/A | [4470630] | December Non-Security Rollup .NET 3.x | 4.62 | December 11, 2018 |
+| N/A | [4470622] | December Non-Security Rollup .NET 4.x | 4.62 | December 11, 2018 |
+
+[4480116]: http://support.microsoft.com/kb/4480116
+[4480961]: http://support.microsoft.com/kb/4480961
+[4480964]: http://support.microsoft.com/kb/4480964
+[4480972]: http://support.microsoft.com/kb/4480972
+[4480960]: http://support.microsoft.com/kb/4480960
+[4480056]: http://support.microsoft.com/kb/4480056
+[4480074]: http://support.microsoft.com/kb/4480074
+[4480075]: http://support.microsoft.com/kb/4480075
+[4480076]: http://support.microsoft.com/kb/4480076
+[4480086]: http://support.microsoft.com/kb/4480086
+[4480083]: http://support.microsoft.com/kb/4480083
+[4480085]: http://support.microsoft.com/kb/4480085
+[4480979]: http://support.microsoft.com/kb/4480979
+[4480965]: http://support.microsoft.com/kb/4480965
+[4471318]: http://support.microsoft.com/kb/4471318
+[4470641]: http://support.microsoft.com/kb/4470641
+[4470637]: http://support.microsoft.com/kb/4470637
+[4471330]: http://support.microsoft.com/kb/4471330
+[4470629]: http://support.microsoft.com/kb/4470629
+[4470623]: http://support.microsoft.com/kb/4470623
+[4471320]: http://support.microsoft.com/kb/4471320
+[4470630]: http://support.microsoft.com/kb/4470630
+[4470622]: http://support.microsoft.com/kb/4470622
+
+## December 2018 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-12 | [4471321] | Windows 10 Security | 5.26 | December 11, 2018 |
+| Rel 18-12 | [4471328] | Windows Security	 | 2.81 | December 11, 2018 |
+| Rel 18-12 | [4471326] | Windows Security	 | 3.68 | December 11, 2018 |
+| Rel 18-12 | [4471322] | Windows Security	 | 4.61 | December 11, 2018 |
+| Rel 18-12 | [4470600] | .Net 3.x Security	 | 2.81 | December 11, 2018 |
+| Rel 18-12 | [4470601] | .Net 3.x Security	 | 3.68 | December 11, 2018|
+| Rel 18-12 | [4470602] | .Net 3.x Security	 | 4.61 | December 11, 2018 |
+| Rel 18-12 | [4470493] | .Net 4.x Security	 | 2.81 | December 11, 2018 |
+| Rel 18-12 | [4470492] | .Net 4.x Security	 | 3.68 | December 11, 2018 |
+| Rel 18-12 | [4470491] | .Net 4.x Security	 | 4.61| December 11, 2018 |
+| Rel 18-12 | [4471331] | Flash	 | 3.68, 4.61, 5.26 | December 5, 2018  |
+| Rel 18-12 | [4470199] | Internet Explorer	 | 2.81, 3.68, 4.61 | December 11, 2018 |
+| N/A | [4468323] | Timezone update	   | 2.81, 3.68, 4.61 | December 13, 2018 |
+| N/A | [4467107] | November Non-Security rollup   | 2.81 | November 13, 2018 |
+| N/A | [4467701] | November Non-Security rollup 	 | 3.68 | November 13, 2018 |
+| N/A | [4467697] | November Non-Security rollup 	 | 4.61 | November 13, 2018 |
+
+[4471321]: http://support.microsoft.com/kb/4471321
+[4471328]: http://support.microsoft.com/kb/4471328
+[4471326]: http://support.microsoft.com/kb/4471326
+[4471322]: http://support.microsoft.com/kb/4471322
+[4470600]: http://support.microsoft.com/kb/4470600
+[4470601]: http://support.microsoft.com/kb/4470601
+[4470602]: http://support.microsoft.com/kb/4470602
+[4470493]: http://support.microsoft.com/kb/4470493
+[4470492]: http://support.microsoft.com/kb/4470492
+[4470491]: http://support.microsoft.com/kb/4470491
+[4471331]: http://support.microsoft.com/kb/4471331
+[4470199]: http://support.microsoft.com/kb/4470199
+[4468323]: http://support.microsoft.com/kb/4468323
+[4467107]: http://support.microsoft.com/kb/4467107
+[4467701]: http://support.microsoft.com/kb/4467701
+[4467697]: http://support.microsoft.com/kb/4467697
+
+## November 2018 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-11 | [4466536] | Internet Explorer | 2.80, 3.67, 4.60 | November 13, 2018 |
+| Rel 18-11 | [4467694] | Flash | 3.67, 4.60, 5.25 | November 13, 2018 |
+| Rel 18-11 | [4467106] | Windows Security | 2.80 | November 13, 2018 |
+| Rel 18-11 | [4467678] | Windows Security | 3.67 | November 13, 2018 |
+| Rel 18-11 | [4467703] | Windows Security | 4.60 | November 13, 2018 |
+| Rel 18-11 | [4467691] | Windows 10 Security | 5.25 | November 13, 2018 |
+| N/A | [3173426] | Servicing Stack Update | 3.67 | July 12, 2016 |
+| N/A | [4465659] | Servicing Stack Update | 5.25 | November 13, 2018 |
+| N/A | [4462923] | October Non-Security rollup | 2.80 | October 9, 2018 |
+| N/A | [4462929] | October Non-Security rollup | 3.67 | October 9, 2018 |
+| N/A | [4462926] | October Non-Security rollup | 4.60 | October 9, 2018 |
+| N/A | [3109976] | App compat shims | 4.60 | April 12, 2016 |
+| N/A | [4457037] | App compat shims | 4.60| June 12, 2018 |
+
+[4466536]: http://support.microsoft.com/kb/4466536
+[4467694]: http://support.microsoft.com/kb/4467694
+[4467106]: http://support.microsoft.com/kb/4467106
+[4467678]: http://support.microsoft.com/kb/4467678
+[4467703]: http://support.microsoft.com/kb/4467703
+[4467691]: http://support.microsoft.com/kb/4467691
+[3173426]: http://support.microsoft.com/kb/3173426
+[4465659]: http://support.microsoft.com/kb/4465659
+[4462923]: http://support.microsoft.com/kb/4462923
+[4462929]: http://support.microsoft.com/kb/4462929
+[4462926]: http://support.microsoft.com/kb/4462926
+[3109976]: http://support.microsoft.com/kb/3109976
+[4457037]: http://support.microsoft.com/kb/4457037
+
+## October 2018 Guest OS
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 18-10 | [4462917] | Windows 10 Security | 5.24 | October 9, 2018 |
+| Rel 18-10 | [4462915] | Windows Security | 2.79 | October 9, 2018 |
+| Rel 18-10 | [4462931] | Windows Security | 3.66 | October 9, 2018 |
+| Rel 18-10 | [4462941] | Windows Security | 4.59 | October 9, 2018 |
+| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5.24 | October 9, 2018 |
+| Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | October 9, 2018 |
+| N/A | [4339284] | Time zone update | 2.79, 3.66, 4.59 | July 24, 2018 |
+| N/A | [4457144] | September Non-Security rollup | 2.79 | September 11, 2018 |
+| N/A | [4457044] | September Non-Security .NET 3.5 rollup | 2.79 | September 11, 2018 |
+| N/A | [4457038] | September Non-Security .NET 4.5.2 rollup | 2.79 | September 11, 2018 |
+| N/A | [4457135] | September Non-Security rollup | 3.66 | September 11, 2018 |
+| N/A | [4457042] | September Non-Security .NET 3.5 rollup | 3.66 | September 11, 2018 |
+| N/A | [4457037] | September Non-Security .NET 4.5.2 rollup | 3.66 | September 11, 2018 |
+| N/A | [4457129] | September Non-Security rollup | 4.59 | September 11, 2018 |
+| N/A | [4457045] | September Non-Security .NET 3.5 rollup | 4.59 | September 11, 2018 |
+| N/A | [4457036] | September Non-Security .NET 4.5.2 rollup | 4.59 | September 11, 2018 |
+
+[4462917]: http://support.microsoft.com/kb/4462917
+[4462915]: http://support.microsoft.com/kb/4462915
+[4462931]: http://support.microsoft.com/kb/4462931
+[4462941]: http://support.microsoft.com/kb/4462941
+[4462930]: http://support.microsoft.com/kb/4462930
+[4462949]: http://support.microsoft.com/kb/4462949
+[4339284]: http://support.microsoft.com/kb/4339284
+[4457144]: http://support.microsoft.com/kb/4457144
+[4457044]: http://support.microsoft.com/kb/4457044
+[4457038]: http://support.microsoft.com/kb/4457038
+[4457135]: http://support.microsoft.com/kb/4457135
+[4457042]: http://support.microsoft.com/kb/4457042
+[4457037]: http://support.microsoft.com/kb/4457037
+[4457129]: http://support.microsoft.com/kb/4457129
+[4457045]: http://support.microsoft.com/kb/4457045
+[4457036]: http://support.microsoft.com/kb/4457036
 
 ## September 2018 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |

@@ -7,6 +7,8 @@
 - name: Quickstarts
   expanded: true
   items:
+    - name: Create a multi-service application
+      href: terrafom-quickstart.md
     - name: Install and configure Terraform
       href: /azure/virtual-machines/linux/terraform-install-configure
       maintainContext: true
@@ -21,8 +23,10 @@
           href: terraform-slot-walkthru.md
     - name: Containers
       items:
-        - name: Create a Kubernetes cluster with AKS and Terraform
+        - name: Create a Kubernetes cluster with AKS
           href: terraform-create-k8s-cluster-with-tf-and-aks.md
+        - name: Create a Kubernetes cluster with Application Gateway as ingress controller with AKS
+          href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: Infrastructure
       items:
         - name: Create a Terraform VM with MSI enabled
@@ -41,6 +45,8 @@
           href: terraform-vscode-extension.md
         - name: Create a Terraform base template using Yeoman
           href: terraform-vscode-module-generator.md
+        - name: Test Terraform modules using Terratest
+          href: terratest-in-terraform-modules.md
 - name: Samples
   items:
     - name: Configuration templates

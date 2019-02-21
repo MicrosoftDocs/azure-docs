@@ -1,18 +1,17 @@
 ---
 title: 'Quickstart: Cassandra API with .NET - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and .NET
-services: cosmos-db
+
 ms.service: cosmos-db
-ms.component: cosmosdb-cassandra
+ms.subservice: cosmosdb-cassandra
 author: SnehaGunda
 ms.author: sngun
-ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
 ---
 
-# Quickstart: Build a Cassandra app with .NET and Azure Cosmos DB
+# Quickstart: Build a Cassandra app with .NET SDK and Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -113,7 +112,7 @@ This step is optional. If you're interested to learn how the code creates the da
 
 Now go back to the Azure portal to get your connection string information and copy it into the app. The connection string information enables your app to communicate with your hosted database.
 
-1. In the [Azure portal](http://portal.azure.com/), select **Connection String**.
+1. In the [Azure portal](https://portal.azure.com/), select **Connection String**.
 
     Use the ![Copy button](./media/create-cassandra-dotnet/copy.png) button on the right side of the screen to copy the USERNAME value.
 

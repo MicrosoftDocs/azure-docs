@@ -3,7 +3,7 @@ title: Get started with Storage Explorer | Microsoft Docs
 description: Manage Azure storage resources with Storage Explorer
 services: storage
 documentationcenter: na
-author: cawa
+author: cawaMS
 manager: paulyuk
 editor: ''
 
@@ -37,7 +37,7 @@ Azure Storage Explorer is supported on the following versions of Windows:
 
 For all versions of Windows, .NET Framework 4.6.2 or greater is required.
 
-[Download and install Storage Explorer](http://www.storageexplorer.com)
+[Download and install Storage Explorer](https://www.storageexplorer.com)
 
 # [macOS](#tab/macos)
 
@@ -45,7 +45,7 @@ Azure Storage Explorer is supported on the following versions of macOS:
 
 * macOS 10.12 "Sierra" and later versions
 
-[Download and install Storage Explorer](http://www.storageexplorer.com)
+[Download and install Storage Explorer](https://www.storageexplorer.com)
 
 # [Linux](#tab/linux)
 
@@ -66,7 +66,7 @@ You must also have the following dependencies/libraries installed to run Azure S
 
 The Azure Storage Explorer [Release Notes](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) contain specific steps for some distributions.
 
-[Download and install Storage Explorer](http://www.storageexplorer.com)
+[Download and install Storage Explorer](https://www.storageexplorer.com)
 
 ---
 
@@ -83,8 +83,8 @@ In addition, you can work with storage accounts in global and national Azure:
 * [Connect to an Azure subscription](#connect-to-an-azure-subscription): Manage storage resources that belong to your Azure subscription.
 * [Work with local development storage](#work-with-local-development-storage): Manage local storage by using the Azure Storage Emulator.
 * [Attach to external storage](#attach-or-detach-an-external-storage-account): Manage storage resources that belong to another Azure subscription or that are under national Azure clouds by using the storage account's name, key, and endpoints.
-* [Attach a storage account by using an SAS](#attach-storage-account-using-sas): Manage storage resources that belong to another Azure subscription by using a shared access signature (SAS).
-* [Attach a service by using an SAS](#attach-service-using-sas): Manage a specific storage service (blob container, queue, or table) that belongs to another Azure subscription by using an SAS.
+* [Attach a storage account by using an SAS](#attach-a-storage-account-by-using-a-shared-access-signature-sas): Manage storage resources that belong to another Azure subscription by using a shared access signature (SAS).
+* [Attach a service by using an SAS](#attach-a-service-by-using-a-shared-access-signature-sas): Manage a specific storage service (blob container, queue, or table) that belongs to another Azure subscription by using an SAS.
 * [Connect to an Azure Cosmos DB account by using a connection string](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string): Manage Cosmos DB account by using a connection string.
 
 ## Connect to an Azure subscription
@@ -217,7 +217,7 @@ To illustrate this scenario, let's say that UserA is an admin of an Azure subscr
 
 3. UserB uses Storage Explorer to attach to the account that belongs to UserA by using the supplied SAS.
 
-### Generate a SAS connection string for the account you want to share
+### Generate a SAS query string for the account you want to share
 
 1. In Storage Explorer, right-click the storage account you want share, and then select **Get Shared Access Signature...**.
 
@@ -227,7 +227,7 @@ To illustrate this scenario, let's say that UserA is an admin of an Azure subscr
 
     ![Get SAS dialog box][15]
 
-3. Next to the **Connection String** text box, select **Copy** to copy it to your clipboard, and then click **Close**.
+3. Next to the **Query String** text box, select **Copy** to copy it to your clipboard, and then click **Close**.
 
 ### Attach to a storage account by using a SAS Connection String
 
@@ -291,7 +291,7 @@ Besides manage Azure Cosmos DB accounts through Azure subscription, an alternati
 
     ![connect to Azure Cosmos DB by connection string][21]
 
-2. Choose Azure Cosmos DB API, paste your **Connection String**, and then click **OK** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account#get-the--connection-string).
+2. Choose Azure Cosmos DB API, paste your **Connection String**, and then click **OK** to connect Azure Cosmos DB account. For information on retrieving the connection string, see [Get the connection string](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
     ![connection-string][22]
 

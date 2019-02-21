@@ -13,33 +13,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 01/14/2019
 ms.author: jeffgilb
-ms.reviewer:
+ms.reviewer: unknown
+ms.lastreviewed: 01/14/2019
 
 ---
 # Key features and concepts in Azure Stack
 If you’re new to Microsoft Azure Stack, these terms and feature descriptions might be helpful.
 
 ## Personas
-There are two varieties of users for Microsoft Azure Stack, the cloud operator (provider) and the tenant (consumer).
+There are two varieties of users for Microsoft Azure Stack, the Operator and the User.
 
-* A **cloud operator** can configure Azure Stack and manage offers, plans, services, quotas, and pricing to provide resources for their tenants.  Cloud operators also manage capacity and respond to alerts.  
-* A **tenant** (also referred to as a user) consumes services that the cloud administrator offers. Tenants can provision, monitor, and manage services that they have subscribed to, such as Web Apps, Storage, and Virtual Machines.
+* An Azure Stack **Operator** can configure Azure Stack by managing offers, plans, services, quotas, and pricing to provide resources for their tenant users. Operators also manage capacity and respond to alerts.  
+* An Azure Stack **User** (also referred to as a tenant) consumes services that the Operator offers. Users can provision, monitor, and manage services that they have subscribed to, such as web apps, storage, and virtual machines.
 
 ## Portal
-The primary methods of interacting with Microsoft Azure Stack are the administrator portal, user portal, and PowerShell.
+The primary methods of interacting with Microsoft Azure Stack are the administration portal, user portal, and PowerShell.
 
-The Azure Stack portals are each backed by separate instances of Azure Resource Manager.  A cloud operator uses the administrator portal to manage Azure Stack, and to do things like create tenant offerings.  The user portal (also referred to as the tenant portal) provides a self-service experience for consumption of cloud resources, like virtual machines, storage accounts, and Web Apps. For more information, see [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md).
+The Azure Stack portals are each backed by separate instances of Azure Resource Manager. An Operator uses the administration portal to manage Azure Stack, and to do things like create tenant offerings. The user portal (also referred to as the tenant portal) provides a self-service experience for consumption of cloud resources, like virtual machines, storage accounts, and web apps. For more information, see [Using the Azure Stack administrator and user portals](azure-stack-manage-portals.md).
 
 ## Identity 
-Azure Stack uses either Azure Active Directory (AAD) or Active Directory Federation Services (AD FS) as an identity provider.  
+Azure Stack uses either Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS) as an identity provider.  
 
 ### Azure Active Directory
-Azure Active Directory is Microsoft's cloud-based, multi-tenant identity provider.  Most hybrid scenarios use Azure Active Directory as the identity store.
+Azure AD is Microsoft's cloud-based, multi-tenant identity provider. Most hybrid scenarios use Azure AD as the identity store.
 
 ### Active Directory Federation Services
-You may choose to use Active Directory Federation Services (AD FS) for disconnected deployments of Azure Stack.  Azure Stack, resource providers, and other applications work much the same way with AD FS as they do with Azure Active Directory. Azure Stack includes its own AD FS and Active Directory instance, and an Active Directory Graph API. Azure Stack Development Kit supports the following AD FS scenarios:
+You may choose to use Active Directory Federation Services (AD FS) for disconnected deployments of Azure Stack. Azure Stack resource providers, and other applications, work much the same way with AD FS as they do with Azure AD. Azure Stack includes its own Active Directory instance and an Active Directory Graph API. Azure Stack Development Kit supports the following AD FS scenarios:
 
 - Sign in to the deployment by using AD FS.
 - Create a virtual machine with secrets in Key Vault
@@ -89,9 +90,9 @@ For the administrator, a Default Provider Subscription is created during deploym
 By using Azure Resource Manager, you can work with your infrastructure resources in a template-based, declarative model.   It provides a single interface that you can use to deploy and manage your solution components. For full information and guidance, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 ### Resource groups
-Resource groups are collections of resources, services, and applications—and each resource has a type, such as virtual machines, virtual networks, public IPs, storage accounts, and websites. Each resource must be in a resource group and so resource groups help logically organize resources, such as by workload or location.  In Microsoft Azure Stack, resources such as plans and offers are also managed in resource groups.
+Resource groups are collections of resources, services, and applications—and each resource has a type, such as virtual machines, virtual networks, public IPs, storage accounts, and websites. Each resource must be in a resource group and so resource groups help logically organize resources, such as by workload or location. In Azure Stack, resources such as plans and offers are also managed in resource groups.
 
-Unlike [Azure](../azure-resource-manager/resource-group-move-resources.md), you cannot move resources between resource groups. When you view the properties of a resource or resource group in the Azure Stack admin portal, the *Move* button is grayed-out and unavailable. 
+Unlike [Azure](../azure-resource-manager/resource-group-move-resources.md), you cannot move Azure Stack resources between resource groups. When you view the properties of a resource or resource group in the Azure Stack administration portal, the *Move* button is grayed-out and unavailable. Additionally, the use of the **Change resource group** or **Change subscription** actions from resource group or resource group item properties is also not supported. All attempted move operations will fail.
  
 ### Azure Resource Manager templates
 With Azure Resource Manager, you can create a template (in JSON format) that defines deployment and configuration of your application. This template is known as an Azure Resource Manager template and provides a declarative way to define deployment. By using a template, you can repeatedly deploy your application throughout the app lifecycle and have confidence your resources are deployed in a consistent state.
@@ -125,23 +126,13 @@ Azure Queue storage provides cloud messaging between application components. In 
 The KeyVault RP provides management and auditing of secrets, such as passwords and certificates. As an example, a tenant can use the KeyVault RP to provide administrator passwords or keys during VM deployment.
 
 ## High availability for Azure Stack
-*Applies to: Azure Stack 1802 or higher versions*
+To achieve high availability of a multi-VM production system in Azure, VMs are placed in an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) that spreads them across multiple fault domains and update domains. In the smaller scale of Azure Stack, a fault domain in an availability set is defined as a single node in the scale unit.  
 
-To achieve high availability of a multi-VM production system in Azure, VMs are placed in an availability set that spreads them across multiple fault domains and update domains. In this way, [VMs deployed in availability sets](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) are physically isolated from each other on separate server racks to allow for failure resiliency as shown in the following diagram:
-
-  ![Azure Stack high availability](media/azure-stack-key-features/high-availability.png)
-
-### Availability sets in Azure Stack
 While the infrastructure of Azure Stack is already resilient to failures, the underlying technology (failover clustering) still incurs some downtime for VMs on an impacted physical server if there is a hardware failure. Azure Stack supports having an availability set with a maximum of three fault domains to be consistent with Azure.
 
 - **Fault domains**. VMs placed in an availability set will be physically isolated from each other by spreading them as evenly as possible over multiple fault domains (Azure Stack nodes). If there is a hardware failure, VMs from the failed fault domain will be restarted in other fault domains, but, if possible, kept in separate fault domains from the other VMs in the same availability set. When the hardware comes back online, VMs will be rebalanced to maintain high availability. 
  
 - **Update domains**. Update domains are another Azure concept that provides high availability in availability sets. An update domain is a logical group of underlying hardware that can undergo maintenance at the same time. VMs located in the same update domain will be restarted together during planned maintenance. As tenants create VMs within an availability set, the Azure platform automatically distributes VMs across these update domains. In Azure Stack, VMs are live migrated across the other online hosts in the cluster before their underlying host is updated. Since there is no tenant downtime during a host update, the update domain feature on Azure Stack only exists for template compatibility with Azure. 
-
-### Upgrade scenarios 
-VMs in availability sets that were created before Azure Stack version 1802 are given a default number of fault and update domains (1 and 1 respectively). To achieve high availability for VMs in these pre-existing availability sets, you must first delete the existing VMs and then redeploy them into a new availability set with the correct fault and update domain counts as described in [Change the availability set for a Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/change-availability-set). 
-
-For virtual machine scale sets, an availability set is created internally with a default fault domain and update domain count (3 and 5 respectively). Any virtual machine scale sets created before the 1802 update will be placed in an availability set with the default fault and update domain counts (1 and 1 respectively). To update these virtual machine scale set instances to achieve the newer spread, scale out the virtual machine scale sets by the number of instances that were present before the 1802 update and then delete the older instances of the virtual machine scale sets. 
 
 ## Role Based Access Control (RBAC)
 You can use RBAC to grant system access to authorized users, groups, and services by assigning them roles at a subscription, resource group, or individual resource level. Each role defines the access level a user, group, or service has over Microsoft Azure Stack resources.
@@ -150,14 +141,6 @@ Azure RBAC has three basic roles that apply to all resource types: Owner, Contri
 
 ## Usage data
 Microsoft Azure Stack collects and aggregates usage data across all resource providers, and transmits it to Azure for processing by Azure commerce. The usage data collected on Azure Stack can be viewed via a REST API. There is an Azure-consistent Tenant API as well as Provider and Delegated Provider APIs to get usage data across all tenant subscriptions. This data can be used to integrate with an external tool or service for billing or chargeback. Once usage has been processed by Azure commerce, it can be viewed in the Azure billing portal.
-
-## In-development build of Azure Stack Development Kit
-In-development builds let early-adopters evaluate the most recent version of the Azure Stack Development Kit. They’re incremental builds based on the most recent major release. While major versions will continue to be released every few months, the in-development builds will release intermittently between the major releases.
-
-In-development builds will provide the following benefits:
-- Bug fixes
-- New features
-- Other improvements
 
 ## Next steps
 [Administration basics](azure-stack-manage-basics.md)

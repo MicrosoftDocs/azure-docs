@@ -4,15 +4,16 @@ description: What authentication methods are available in Azure AD for MFA and S
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 02/20/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry, michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # What are authentication methods?
 
@@ -119,7 +120,7 @@ Microsoft recommends the use of an email account that would not require the user
 
 The Microsoft Authenticator app provides an additional level of security to your Azure AD work or school account or your Microsoft account.
 
-The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
+The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
 > [!NOTE]
 > Users will not have the option to register their mobile app when registering for self-service password reset. Instead, users can register their mobile app at [https://aka.ms/mfasetup](https://aka.ms/mfasetup) or in the security info registration preview at [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
@@ -168,6 +169,8 @@ Once properly formatted as a CSV file, an administrator can then sign in to the 
 Depending on the size of the CSV file, it may take a few minutes to process. Click the **Refresh** button to get the current status. If there are any errors in the file, you will have the option to download a CSV file listing any errors for you to resolve.
 
 Once any errors have been addressed, the administrator then can activate each key by clicking **Activate** for the token to be activated and entering the OTP displayed on the token.
+
+Users may have a combination of up to 5 OATH hardware tokens or authenticator applications such as the Microsoft Authenticator app configured for use at any time.
 
 ## Mobile phone
 
@@ -223,6 +226,6 @@ If your organization is federated for SSO with Azure AD and you are going to be 
 
 [Enable Azure Multi-Factor Authentication for your organization](howto-mfa-getstarted.md)
 
-[Enable converged registration for Azure Multi-Factor Authentication and Azure AD self-service password reset](concept-registration-mfa-sspr-converged.md)
+[Enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
 
 [End-user authentication method configuration documentation](https://aka.ms/securityinfoguide)

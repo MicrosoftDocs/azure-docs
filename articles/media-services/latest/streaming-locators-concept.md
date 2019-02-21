@@ -11,97 +11,29 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 02/03/2019
 ms.author: juliako
 ---
 
 # Streaming Locators
 
-To provide your clients with a URL that they can use to play back encoded video or audio files, you need to create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) and build the streaming URLs. For more information, see [Stream a file](stream-files-dotnet-quickstart.md).
+To make videos in the output Asset available to clients for playback, you have to create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) and then build streaming URLs. For .NET sample, see [Get a Streaming Locator](stream-files-tutorial-with-api.md#get-a-streaming-locator).
 
-## StreamingLocator definition
+The process of creating a **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-The following table shows the StreamingLocator's properties and gives their definitions.
+When creating a **Streaming Locator**, you need to specify the [Asset](https://docs.microsoft.com/rest/api/media/assets) name and the [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies) name. You can either use one of the predefined Streaming Policies or created a custom policy. The predefined policies currently available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'. When using a custom streaming policy, you should design a limited set of such policies for your Media Service account, and reuse them for your Streaming Locators whenever the same options and protocols are needed. 
 
-|Name|Type|Description|
-|---|---|---|
-|id	|string|Fully qualified resource ID for the resource.|
-|name	|string|The name of the resource.|
-|properties.alternativeMediaId	|string|Alternative Media ID of this Streaming Locator.|
-|properties.assetName	|string|Asset name|
-|properties.contentKeys	|StreamingLocatorContentKey[]|The ContentKeys used by this Streaming Locator.|
-|properties.created	|string|The creation time of the Streaming Locator.|
-|properties.defaultContentKeyPolicyName	|string|Name of the default ContentKeyPolicy used by this Streaming Locator.|
-|properties.endTime	|string|The end time of the Streaming Locator.|
-|properties.startTime	|string|The start time of the Streaming Locator.|
-|properties.streamingLocatorId	|string|The StreamingLocatorId of the Streaming Locator.|
-|properties.streamingPolicyName	|string|Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'|
-|type	|string|The type of the resource.|
+If you want to specify encryption options on your stream, create the [Content Key Policy](https://docs.microsoft.com/rest/api/media/contentkeypolicies) that configures how the content key is delivered to end clients via the Key Delivery component of Media Services. Associate your Streaming Locator with the **Content Key Policy** and the content key. You can let Media Services to autogenerate the key. The following .NET example shows how to configure AES encryption with a token restriction in Media Services v3: [EncodeHTTPAndPublishAESEncrypted](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/EncodeHTTPAndPublishAESEncrypted). **Content Key Policies** are updatable, you might want to update the policy if you need to do a key rotation. It can take up to 15 minutes for the Key Delivery caches to update and pick up the updated policy. It is recommended to not create a new Content Key Policy for each Streaming Locator. You should try to reuse the existing policies whenever the same options are needed.
 
-For the full definition, see [Streaming Locators](https://docs.microsoft.com/rest/api/media/streaminglocators).
+> [!IMPORTANT]
+> * Properties of **Streaming Locators** that are of the Datetime type are always in UTC format.
+> * You should design a limited set of policies for your Media Service account and reuse them for your Streaming Locators whenever the same options are needed. 
 
 ## Filtering, ordering, paging
 
-Media Services supports the following OData query options for Streaming Locators: 
-
-* $filter 
-* $orderby 
-* $top 
-* $skiptoken 
-
-Operator description:
-
-* Eq = equal to
-* Ne = not equal to
-* Ge = Greater than or equal to
-* Le = Less than or equal to
-* Gt = Greater than
-* Lt = Less than
-
-### Filtering/ordering
-
-The following table shows how these options may be applied to the StreamingLocator properties: 
-
-|Name|Filter|Order|
-|---|---|---|
-|id	|||
-|name|Eq, ne, ge, le, gt, lt|Ascending and descending|
-|properties.alternativeMediaId	|||
-|properties.assetName	|||
-|properties.contentKeys	|||
-|properties.created	|Eq, ne, ge, le,  gt, lt|Ascending and descending|
-|properties.defaultContentKeyPolicyName	|||
-|properties.endTime	|Eq, ne, ge, le, gt, lt|Ascending and descending|
-|properties.startTime	|||
-|properties.streamingLocatorId	|||
-|properties.streamingPolicyName	|||
-|type	|||
-
-### Pagination
-
-Pagination is supported for each of the four enabled sort orders. Currently, the page size is 10.
-
-> [!TIP]
-> You should always use the next link to enumerate the collection and not depend on a particular page size.
-
-If a query response contains many items, the service returns an "\@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. You cannot configure the page size. 
-
-If StreamingLocators are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded.) 
-
-The following C# example shows how to enumerate through all StreamingLocators in the account.
-
-```csharp
-var firstPage = await MediaServicesArmClient.StreamingLocators.ListAsync(CustomerResourceGroup, CustomerAccountName);
-
-var currentPage = firstPage;
-while (currentPage.NextPageLink != null)
-{
-    currentPage = await MediaServicesArmClient.StreamingLocators.ListNextAsync(currentPage.NextPageLink);
-}
-```
-
-For REST examples, see [Streaming Locators - List](https://docs.microsoft.com/rest/api/media/streaminglocators/streaminglocators_list)
+See [Filtering, ordering, paging of Media Services entities](entities-overview.md).
 
 ## Next steps
 
-[Stream a file](stream-files-dotnet-quickstart.md)
+* [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
+* [Use DRM dynamic encryption and license delivery service](protect-with-drm.md)

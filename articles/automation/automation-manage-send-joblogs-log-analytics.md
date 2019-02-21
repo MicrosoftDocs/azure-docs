@@ -3,10 +3,10 @@ title: Forward Azure Automation job data to Log Analytics
 description: This article demonstrates how to send job status and runbook job streams to Azure Log Analytics to deliver additional insight and management.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/12/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -59,12 +59,13 @@ If you need to find the *Name* of your Automation account, in the Azure portal s
    Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
    ```
 
-After running this script, you'll see records in Log Analytics within 10 minutes of new JobLogs or JobStreams being written.
+After running this script, it may take an hour before you start to see records in Log Analytics of new JobLogs or JobStreams being written.
 
 To see the logs, run the following query in Log Analytics log search:
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### Verify configuration
+
 To confirm that your Automation account is sending logs to your Log Analytics workspace, check that diagnostics are correctly configured on the Automation account by using the following PowerShell:
 
 ```powershell-interactive
@@ -72,14 +73,16 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 In the output ensure that:
-+ Under *Logs*, the value for *Enabled* is *True*.
-+ The value of *WorkspaceId* is set to the ResourceId of your Log Analytics workspace.
+
+* Under *Logs*, the value for *Enabled* is *True*.
+* The value of *WorkspaceId* is set to the ResourceId of your Log Analytics workspace.
 
 ## Log Analytics records
 
 Diagnostics from Azure Automation creates two types of records in Log Analytics and are tagged as **AzureDiagnostics**. The following queries use the upgraded query language to Log Analytics. For information on common queries between legacy query language and the new Azure Log Analytics query language visit [Legacy to new Azure Log Analytics Query Language cheat sheet](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
 
 ### Job Logs
+
 | Property | Description |
 | --- | --- |
 | TimeGenerated |Date and time when the runbook job executed. |
@@ -124,6 +127,7 @@ Diagnostics from Azure Automation creates two types of records in Log Analytics 
 | ResourceType | AUTOMATIONACCOUNTS |
 
 ## Viewing Automation Logs in Log Analytics
+
 Now that you started sending your Automation job logs to Log Analytics, let’s see what you can do with these logs inside Log Analytics.
 
 To see the logs, run the following query:
@@ -138,7 +142,7 @@ To create an alert rule, you start by creating a log search for the runbook job 
 2. Create a log search query for your alert by typing the following search into the query field: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  You can also group by the RunbookName by using: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    If you set up logs from more than one Automation account or subscription to your workspace, you can group your alerts by subscription and Automation account. Automation account name can be found in the Resource field in the search of JobLogs.
-1. To open the **Create rule** screen, click **+ New Alert Rule** at the top of the page. For more information on the options to configure the alert, see [Log alerts in Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
+3. To open the **Create rule** screen, click **+ New Alert Rule** at the top of the page. For more information on the options to configure the alert, see [Log alerts in Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### Find all jobs that have completed with errors
 In addition to alerting on failures, you can find when a runbook job has a non-terminating error. In these cases PowerShell produces an error stream, but the non-terminating errors don't cause your job to suspend or fail.    
@@ -179,4 +183,5 @@ Log Analytics provides greater operational visibility to your Automation jobs an
 * To learn more about how to construct different search queries and review the Automation job logs with Log Analytics, see [Log searches in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 * To understand how to create and retrieve output and error messages from runbooks, see [Runbook output and messages](automation-runbook-output-and-messages.md).
 * To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md).
-* To learn more about Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../log-analytics/log-analytics-azure-storage.md).
+* To learn more about Log Analytics and data collection sources, see [Collecting Azure storage data in Log Analytics overview](../azure-monitor/platform/collect-azure-metrics-logs.md).
+

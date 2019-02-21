@@ -67,7 +67,7 @@ To add a repository to your lab, first, get key information from your repository
 10. Continue to the [Connect your lab to the repository](#connect-your-lab-to-the-repository) section.
 
 ## Connect your lab to the repository
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Select **More Services**, and then select **DevTest Labs** from the list of services.
 3. From the list of labs, select your lab. 
 4. Select **Configuration and policies** > **Repositories** > **+ Add**.

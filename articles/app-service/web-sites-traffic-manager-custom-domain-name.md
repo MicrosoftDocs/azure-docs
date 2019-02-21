@@ -1,5 +1,5 @@
 ---
-title: Configure a custom domain name for a web app in Azure App Service that uses Traffic Manager for load balancing.
+title: Configure DNS names for apps that use Traffic Manager - Azure App Service
 description: Use a custom domain name for an a web app in Azure App Service that includes Traffic Manager for load balancing.
 services: app-service\web
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Configuring a custom domain name for a web app in Azure App Service using Traffic Manager
@@ -22,7 +23,7 @@ ms.author: cephalin
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-This article provides generic instructions for using a custom domain name with an [App Service](app-service-web-overview.md) app that is integrated with [Traffic Manager](../traffic-manager/traffic-manager-overview.md) for load balancing.
+This article provides generic instructions for using a custom domain name with an [App Service](overview.md) app that is integrated with [Traffic Manager](../traffic-manager/traffic-manager-overview.md) for load balancing.
 
 [!INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -42,7 +43,7 @@ This article provides generic instructions for using a custom domain name with a
 
 ## Add a DNS record for your custom domain
 > [!NOTE]
-> If you have purchased domain through Azure App Service Web Apps then skip following steps and refer to the final step of [Buy Domain for Web Apps](custom-dns-web-site-buydomains-web-app.md) article.
+> If you have purchased domain through Azure App Service Web Apps then skip following steps and refer to the final step of [Buy Domain for Web Apps](manage-custom-dns-buy-domain.md) article.
 > 
 > 
 
@@ -65,9 +66,7 @@ Once you have finished adding or modifying DNS records at your domain provider, 
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
 
 ## Next steps
-For more information, see the [Node.js Developer Center](http://azure.microsoft.com/develop/nodejs/).
-
-[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+For more information, see the [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/).
 
 <!-- URL List -->
 

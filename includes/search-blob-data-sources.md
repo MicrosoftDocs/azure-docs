@@ -1,3 +1,10 @@
+---
+author: mgottein
+ms.service: search
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: magottei
+---
 * PDF
 * Microsoft Office formats: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (Outlook emails)  
 * HTML

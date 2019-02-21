@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Reference documentation for the Translator Speech API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
@@ -45,7 +45,7 @@ Treat your subscription key and the access token as secrets that should be hidde
 ## 5. Process the results
 **Process the results streamed back from the service.** The format of partial results, final results and text-to-speech audio segments are described in the documentation of the `/speech/translate` operation below.
 
-Code samples demonstrating use of the Translator Speech API are available from the [Microsoft Translator Github site](https://github.com/MicrosoftTranslator).
+Code samples demonstrating use of the Translator Speech API are available from the [Microsoft Translator GitHub site](https://github.com/MicrosoftTranslator).
 
 ## Implementation notes
 
@@ -84,6 +84,9 @@ Audio input is in the Waveform Audio File Format (WAVE, or more commonly known a
 Notice that the total file size (bytes 4-7) and the size of the "data" (bytes 40-43) are set to zero. This is OK for the streaming scenario where the total size is not necessarily known upfront.
 
 After sending the WAV (RIFF) header, the client sends chunks of the audio data. The client will typically stream fixed size chunks representing a fixed duration (e.g. stream 100ms of audio at a time).
+
+### Signal the end of the utterance
+The Translator Speech API returns the transcript and the translation of the audio stream as you're sending the audio. The final transcript, the final translation, and the translated audio will be returned to you only after the end of the utterance. In some cases you may want to force the end of the utterance. Please send 2.5 seconds of silence to force the end of the utterance. 
 
 ### Final result
 A final speech recognition result is generated at the end of an utterance. A result is transmitted from the service to the client using a WebSocket message of type Text. The message content is the JSON serialization of an object with the following properties:

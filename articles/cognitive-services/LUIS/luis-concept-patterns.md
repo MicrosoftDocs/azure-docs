@@ -1,15 +1,15 @@
 ---
-title: Learn how Patterns increase prediction accuracy
-titleSuffix: Azure Cognitive Services
-description: Patterns are designed to improve accuracy when several utterances are very similar. A pattern allows you to gain more accuracy for an intent without providing many more utterances.
+title: Patterns help prediction
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: A pattern allows you to gain more accuracy for an intent without providing many more utterances.
 services: cognitive-services
 author: diberry
-manager: cgronlun
-
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.subservice: language-understanding
+ms.topic: conceptual
+ms.date: 12/10/2018
 ms.author: diberry
 ---
 # Patterns improve prediction accuracy
@@ -38,6 +38,8 @@ Patterns use a mix of prediction technologies. Setting an intent for a template 
 ## Patterns do not improve entity detection
 While patterns require entities, a pattern does not help detect the entity. A pattern is only meant to help the prediction with intents and roles.  
 
+Do not expect to see improved entity prediction if you collapse multiple utterances into a single pattern. For Simple entities to fire, you need to add utterances or use list entities else your pattern will not fire.
+
 ## Patterns use entity roles
 If two or more entities in a pattern are contextually related, patterns use entity [roles](luis-concept-roles.md) to extract contextual information about entities. This is equivalent to hierarchical entity children, but is **only** available in patterns. 
 
@@ -45,7 +47,7 @@ If two or more entities in a pattern are contextually related, patterns use enti
 Given enough example utterances, LUIS would be able to increase prediction confidence without patterns. Patterns increase the confidence score without having to provide as many utterances.  
 
 ## Pattern matching
-A pattern is matched based on detecting the entities inside the pattern first, then validating the rest of the words and word order of the pattern. Entities are required in the pattern for a pattern to match. 
+A pattern is matched based on detecting the entities inside the pattern first, then validating the rest of the words and word order of the pattern. Entities are required in the pattern for a pattern to match. The pattern is applied at the token level, not the character level. 
 
 ## Pattern syntax
 Pattern syntax is a template for an utterance. The template should contain words and entities you want to match as well as words and punctuation you want to ignore. It is **not** a regular expression. 
@@ -84,7 +86,7 @@ To add a **Pattern.any** entity into the pattern template, surround the Pattern.
 In these book title examples, the contextual words of the book title are not confusing to LUIS. LUIS knows where the book title ends because it is in a pattern and marked with a Pattern.any entity.
 
 ### Explicit lists
-If your pattern contains a Pattern.any, and the pattern syntax allows for the possibility of an incorrect entity extraction based on the utterance, create an [Explicit List](https://aka.ms/ExplicitList) through the authoring API to allow the exception. 
+If your pattern contains a Pattern.any, and the pattern syntax allows for the possibility of an incorrect entity extraction based on the utterance, create an [Explicit List](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) through the authoring API to allow the exception. 
 
 For example, suppose you have a pattern containing both optional syntax, `[]`, and entity syntax, `{}`, combined in a way to extract data incorrectly.
 
@@ -97,7 +99,7 @@ Consider the pattern `[find] email about {subject} [from {person}]'. In the foll
 
 In the preceding table, the utterance `email about the man from La Mancha`, the subject should be `the man from La Mancha` (a book title) but because the subject includes the optional word `from`, the title is incorrectly predicted. 
 
-To fix this exception to the pattern, add `the man from la mancha` as an explicit list match for the {subject} entity using the [authoring API for explicit list](https://aka.ms/ExplicitList).
+To fix this exception to the pattern, add `the man from la mancha` as an explicit list match for the {subject} entity using the [authoring API for explicit list](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
 ### Syntax to mark optional text in a template utterance
 Mark optional text in the utterance using the regular expression square bracket syntax, `[]`. The optional text can nest square brackets up to two brackets only.

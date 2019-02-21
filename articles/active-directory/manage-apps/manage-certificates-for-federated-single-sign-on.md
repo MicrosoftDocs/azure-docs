@@ -3,20 +3,20 @@ title: Manage federation certificates in Azure AD | Microsoft Docs
 description: Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
-editor: ''
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Manage certificates for federated single sign-on in Azure Active Directory
 This article covers common questions and information related to the certificates that Azure Active Directory (Azure AD) creates to establish federated single sign-on (SSO) to your SaaS applications. Add applications from the Azure AD app gallery or by using a non-gallery application template. Configure the application by using the federated SSO option.
@@ -72,11 +72,15 @@ The following renewal steps should result in no significant downtime for your us
 
     ![Generate a new certificate](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
 
-2. Select the desired expiration date and time for your new certificate and click **Save**.
+2. Select the desired expiration date and time for your new certificate and click **Save**. Selecting a date that overlaps with the existing certificate will ensure that any downtime due to cert expiry is limited. 
 
-3. Download the certificate in the **SAML Signing certificate** option. Upload the new certificate to the SaaS application's single sign-on configuration screen. To learn how to do this for your particular SaaS application, click the **View application configuration tutorial** link.
+3. If the app can automatically roll over a certificate, set the new certificate to active.  Sign in to the app to check that it works.
+
+4. If the app doesn’t automatically pickup the new cert, but can handle more than one signing cert, before the old one expires, upload the new one to the app, then go back to the portal and make it the active certificate. 
+
+5. If the app can only handle one certificate at a time, pick a downtime window, download the new certificate, upload it to the application, come back to the Azure Portal and set the new certificate as active. 
    
-4. To activate the new certificate in Azure AD, select the **Make new certificate active** check box and click the **Save** button at the top of the page. This rolls over the new certificate on the Azure AD side. The status of the certificate changes from **New** to **Active**. From that point, Azure AD starts using the new certificate for signing the response. 
+6. To activate the new certificate in Azure AD, select the **Make new certificate active** check box and click the **Save** button at the top of the page. This rolls over the new certificate on the Azure AD side. The status of the certificate changes from **New** to **Active**. From that point, Azure AD starts using the new certificate for signing the response. 
    
     ![Generate a new certificate](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
 

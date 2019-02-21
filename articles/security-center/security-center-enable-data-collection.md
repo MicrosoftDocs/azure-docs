@@ -4,7 +4,7 @@ description: " Learn how to enable data collection in Azure Security Center. "
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/5/2018
+ms.date: 12/2/2018
 ms.author: rkarlin
 
 ---
@@ -44,7 +44,7 @@ When automatic provisioning is On, Security Center provisions the Microsoft Moni
 
 To enable automatic provisioning of the Microsoft Monitoring Agent:
 1. Under the Security Center main menu, select **Security policy**.
-2. Select the subscription.
+2. Click **Edit settings** in the Settings column of the desired subscription in the list.
 
   ![Select subscription][7]
 
@@ -78,13 +78,13 @@ To select a workspace created by Security Center:
 2. Click **Save**.<br>
 	Security Center creates a new resource group and default workspace in that geolocation, and connects the agent to that workspace. The naming convention for the workspace and resource group is:<br>
 **Workspace: DefaultWorkspace-[subscription-ID]-[geo]<br>
-Resource Group: DefaultResouceGroup-[geo]**
+Resource Group: DefaultResourceGroup-[geo]**
 
    If a subscription contains VMs from multiple geolocations, then Security Center creates multiple workspaces. Multiple workspaces are created to maintain data privacy rules.
 -	Security Center will automatically enable a Security Center solution on the workspace per the pricing tier set for the subscription. 
 
 > [!NOTE]
-> Workspaces created by Security Center do not incur Log Analytics charges. Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace. For the Free tier, Security Center enables the *SecurityCenterFree* solution on the default workspace. For the Standard tier, Security Center enables the *Security* solution on the default workspace.
+> Log Analytics pricing tier of workspaces created by Security Center does not affect Security Center billing. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace. For the Free tier, Security Center enables the *SecurityCenterFree* solution on the default workspace. For the Standard tier, Security Center enables the *Security* solution on the default workspace.
 
 For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -132,7 +132,7 @@ To select an existing Log Analytics workspace:
 
     a.  In the Security Center main menu, select **Security policy**.
      
-    b.	Select the desired Workspace in which you intend to connect the agent.
+    b.	Select the desired Workspace in which you intend to connect the agent by clicking **Edit settings** in the Settings column of the desired subscription in the list.
         ![Select workspace][8]
     c. Set the pricing tier.
         ![Select pricing tier][9] 
@@ -259,7 +259,7 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
     a.	[Install the OMS virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md)
     
     b.	[Install the OMS virtual machine extension for Linux](../virtual-machines/extensions/oms-linux.md)
-5.	To deploy the extensions on existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../log-analytics/log-analytics-quick-collect-azurevm.md).
+5.	To deploy the extensions on existing VMs, follow the instructions in [Collect data about Azure Virtual Machines](../azure-monitor/learn/quick-collect-azurevm.md).
 
   > [!NOTE]
   > The section **Collect event and performance data** is optional.
@@ -277,7 +277,7 @@ You can manually install the Microsoft Monitoring Agent, so Security Center can 
      
             $PublicConf = '{
                 "workspaceId": "WorkspaceID value",
-                "MultipleConnectistopOnons": true
+                "MultipleConnections": true
             }' 
  
             $PrivateConf = '{

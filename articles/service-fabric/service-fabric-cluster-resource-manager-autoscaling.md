@@ -25,7 +25,9 @@ A common scenario where auto-scaling is useful is when the load on a particular 
 * If all instances of my gateway are using more than two cores on average, then scale the gateway service out by adding one more instance. Do this every hour, but never have more than seven instances in total.
 * If all instances of my gateway are using less than 0.5 cores on average, then scale the service in by removing one instance. Do this every hour, but never have fewer than three instances in total.
 
-Auto scaling is supported for both containers and regular Service Fabric services. The rest of this article describes the scaling policies, ways to enable or to disable auto scaling, and gives examples on how to use this feature.
+Auto scaling is supported for both containers and regular Service Fabric services. In order to use auto scaling, you need to be running on version 6.2 or above of the Service Fabric runtime. 
+
+The rest of this article describes the scaling policies, ways to enable or to disable auto scaling, and gives examples on how to use this feature.
 
 ## Describing auto scaling
 Auto scaling policies can be defined for each service in a Service Fabric cluster. Each scaling policy consists of two parts:
@@ -38,7 +40,7 @@ All triggers that are currently supported work either with [logical load metrics
 There are two mechanisms that are currently supported for auto scaling. The first one is meant for stateless services or for containers where auto scaling is performed by adding or removing [instances](service-fabric-concepts-replica-lifecycle.md). For both stateful and stateless services, auto scaling can also be performed by adding or removing named [partitions](service-fabric-concepts-partitioning.md) of the service.
 
 > [!NOTE]
-> Currently there is support for only one scaling policy per service.
+> Currently there is support for only one scaling policy per service, and only one scaling trigger per scaling policy.
 
 ## Average partition load trigger with instance based scaling
 The first type of trigger is based on the load of instances in a stateless service partition. Metric loads are first smoothed to obtain the load for every instance of a partition, and then these values are averaged across all instances of the partition. There are three factors that determine when the service will be scaled:

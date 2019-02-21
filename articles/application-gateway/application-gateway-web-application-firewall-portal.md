@@ -30,7 +30,7 @@ In this article, you learn how to:
 
 ## Log in to Azure
 
-Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
+Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 ## Create an application gateway
 
@@ -117,7 +117,7 @@ In this example, you create two virtual machines to be used as backend servers f
 ### Add backend servers
 
 1. Click **All resources**, and then click **myAppGateway**.
-2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGateayBackendPool**.
+2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
 3. Click **Add target** to add each virtual machine that you created to the backend pool.
 
     ![Add backend servers](./media/application-gateway-web-application-firewall-portal/application-gateway-backend.png)
@@ -128,7 +128,7 @@ In this example, you create two virtual machines to be used as backend servers f
 
 ## Create a storage account
 
-In this tutorial, the application gateway uses a storage account to store data for detection and prevention purposes. You could also use Log Analytics or Event Hub to record data.
+In this tutorial, the application gateway uses a storage account to store data for detection and prevention purposes. You could also use Azure Monitor logs or Event Hub to record data.
 
 1. Click **New** found on the upper left-hand corner of the Azure portal.
 2. Select **Storage**, and then select **Storage account - blob, file, table, queue**.

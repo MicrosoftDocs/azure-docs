@@ -1,27 +1,27 @@
 ---
-title: 'Quickstart: Recognize speech in JavaScript in a browser using the Cognitive Services Speech SDK'
-titleSuffix: "Microsoft Cognitive Services"
-description: Learn how to recognize speech in JavaScript in a browser using the Cognitive Services Speech SDK
+title: 'Quickstart: Recognize speech, JavaScript (Browser) - Speech Services'
+titleSuffix: Azure Cognitive Services
+description: Learn how to recognize speech in JavaScript in a browser using the Speech SDK
 services: cognitive-services
 author: fmegen
-
+manager: nitinme
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
-ms.date: 10/12/2018
+ms.subservice: speech-service
+ms.topic: quickstart
+ms.date: 2/20/2019
 ms.author: fmegen
 ---
 
-# Quickstart: Recognize speech in JavaScript in a browser using the Cognitive Services Speech SDK
+# Quickstart: Recognize speech in JavaScript in a browser using the Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you'll learn how to create a website using the JavaScript binding of the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the Microsoft Cognitive Services Speech SDK ([Download version 1.0.1](https://aka.ms/csspeech/jsbrowserpackage)).
+The application is based on the Microsoft Cognitive Services Speech SDK ([Download version 1.3.0](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## Prerequisites
 
-* A subscription key for the Speech service. See [Try the speech service for free](get-started.md).
+* A subscription key for the Speech service. See [Try the Speech Service for free](get-started.md).
 * A PC or Mac, with a working microphone.
 * A text editor.
 * A current version of Chrome or Microsoft Edge.
@@ -35,8 +35,8 @@ Create a new, empty folder. In case you want to host the sample on a web server,
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This should result in two files being unpacked, i.e., `microsoft.cognitiveservices.speech.sdk.bundle.js` and `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
-The latter file is optional and used to help debugging into SDK code, if necessary.
+Download the Speech SDK as a [.zip package](https://aka.ms/csspeech/jsbrowserpackage) and unpack it into the newly created folder. This results in two files being unpacked, `microsoft.cognitiveservices.speech.sdk.bundle.js` and `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
+The latter file is optional, and is useful for debugging into the SDK code.
 
 ## Create an index.html page
 
@@ -69,7 +69,7 @@ Create a new file in the folder, named `index.html` and open this file with a te
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#speechsdkref)]
 
-1. Wire up handlers for the recognition button, recognition result, and subscription related fields defined by the UI code:
+1. Wire up handlers for the recognition button, recognition result, and subscription-related fields defined by the UI code:
 
   [!code-html[](~/samples-cognitive-services-speech-sdk/quickstart/js-browser/index.html#quickstartcode)]
 
@@ -98,10 +98,7 @@ To launch the app, double-click on the index.html file or open index.html with y
 
 To launch your app, open your favorite web browser and point it to the public URL that you host the folder on, enter your [region](regions.md), and trigger a recognition using the microphone. If configured, it will acquire a token from your token source.
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/js-browser` folder.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get our samples](speech-sdk.md#get-the-samples)
+> [Explore JavaScript samples on GitHub](https://aka.ms/csspeech/samples)
