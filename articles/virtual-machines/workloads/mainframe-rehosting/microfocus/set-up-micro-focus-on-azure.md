@@ -12,14 +12,14 @@ keywords:
 
 # Install Micro Focus Enterprise Server 4.0 and Enterprise Developer 4.0 on Azure
 
-This articles shows how to set up [Micro Focus Enterprise Server 4.0](https://www.microfocus.com/documentation/enterprise-developer/es30/) and
+This article shows how to set up [Micro Focus Enterprise Server 4.0](https://www.microfocus.com/documentation/enterprise-developer/es30/) and
 [Micro Focus Enterprise Developer 4.0](https://www.microfocus.com/documentation/enterprise-developer/ed_30/) on Azure.
 
 A common workload on Azure is a development and test environment, because it is so cost-effective and easy to deploy and tear down. With Enterprise Server, Micro Focus has created one of the largest mainframe rehosting platforms available. You can run z/OS workloads on a less expensive x86 platform on Azure using either Windows or Linux virtual machines (VMs).
 
 This setup uses Azure VMs running the Windows Server 2016 image from the Azure Marketplace with Microsoft SQL Server 2017 already installed. This setup also applies to Azure Stack.
 
-The corresponding development environment for Enterprise Server is Enterprise Developer, which runs on either Microsoft Visual Studio 2017, Visual Studio Community (free to download), or Eclipse. This articles shows how to deploy it using a Windows Server 2016 virtual machine that comes with Visual Studio 2017 installed.
+The corresponding development environment for Enterprise Server is Enterprise Developer, which runs on either Microsoft Visual Studio 2017, Visual Studio Community (free to download), or Eclipse. This article shows how to deploy it using a Windows Server 2016 virtual machine that comes with Visual Studio 2017 installed.
 
 ## Prerequisites
 
