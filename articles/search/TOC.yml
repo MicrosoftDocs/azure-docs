@@ -109,7 +109,7 @@
         href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
-  - name: Designing Indexes
+  - name: Design indexes
     items:
     - name: Create a basic index
       href: search-what-is-an-index.md
@@ -117,11 +117,11 @@
       href: search-create-index-portal.md
     - name: Analyzers
       items:
-      - name: Add text analyzers
+      - name: Adding analyzers
         href: search-analyzers.md
-      - name: Add language analyzers
+      - name: Add a language analyzer
         href: index-add-language-analyzers.md
-      - name: Add custom analyzers
+      - name: Add a custom analyzer
         href: index-add-custom-analyzers.md
     - name: Add autosuggest
       href: index-add-suggesters.md
@@ -135,7 +135,7 @@
       href: search-example-adventureworks-modeling.md
     - name: Model multi-level facets
       href: search-example-adventureworks-multilevel-faceting.md
-  - name: Indexing data
+  - name: Load data
     items:
     - name: Data import overview
       href: search-what-is-data-import.md
@@ -189,25 +189,25 @@
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
       href: cognitive-search-resources-documentation.md
-  - name: Querying data
+  - name: Query data
     items:
     - name: Create a basic query
       href: search-query-overview.md
     - name: Search Explorer (portal)
       href: search-explorer.md
-    - name: Simple syntax examples 
+    - name: Simple query syntax
+      href: query-simple-syntax.md
+    - name: Full Lucene query syntax
+      href: query-lucene-syntax.md
+    - name: Query examples (simple syntax)
       href: search-query-simple-examples.md
-    - name: Lucene syntax examples
+    - name: Query examples (full Lucene)
       href: search-query-lucene-examples.md
-    - name: Query syntax
-      items:
-      - name: Simple query syntax
-        href: query-simple-syntax.md
-      - name: Lucene query syntax
-        href: query-lucene-syntax.md
-    - name: Paging results
+  - name: Handle results
+    items:
+    - name: Page-related features
       href: search-pagination-page-layout.md
-  - name: Filtering and sorting data
+  - name: Filter and sort data
     items:
     - name: Filter overview
       href: search-filters.md
