@@ -1,6 +1,6 @@
 ---
 title: Azure Quickstart - Create and use an Azure Files share on Windows VMs | Microsoft Docs
-description: In this quickstart, you prepare the environment for using Azure Files share on a Windows virtual machine. This includes setting up the Files share in the Azure portal and on the virtual machine.
+description: In this quickstart, you setup an Azure Files share in the Azure portal and connect it to a Windows virtual machine.
 services: storage
 author: roygara
 ms.service: storage
@@ -30,7 +30,7 @@ In this quickstart, you set up the following items:
 
 ### Create a storage account
 
-Before you can work with an Azure file share, you have to create an Azure storage account. A storage account is a shared pool of storage in which you can deploy an Azure file share or other storage resources, such as blobs or queues. A storage account can contain an unlimited number of shares. A share can store an unlimited number of files, up to the capacity limits of the storage account.
+Before you can work with an Azure file share, you have to create an Azure storage account. A general-purpose v2 storage account provides access to all of the Azure Storage services: blobs, files, queues, and tables. The quickstart creates a general-purpose v2 storage account but, the steps to create any type of storage account are similar. A storage account can contain an unlimited number of shares. A share can store an unlimited number of files, up to the capacity limits of the storage account.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
