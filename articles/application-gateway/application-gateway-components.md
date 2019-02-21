@@ -1,5 +1,5 @@
 ---
-title: Application Gateway Components
+title: Azure Application Gateway Components
 description: This article provides information on the various components in Application Gateway
 services: application-gateway
 author: abshamsft

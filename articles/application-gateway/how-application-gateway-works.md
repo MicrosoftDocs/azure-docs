@@ -1,5 +1,5 @@
 ---
-title: How Application Gateway Works
+title: How Azure Application Gateway Works
 description: This article provides information on how to the Application Gateway Works
 services: application-gateway
 author: abshamsft
