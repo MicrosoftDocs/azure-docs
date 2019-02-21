@@ -276,17 +276,16 @@ except HTTPFailure as e:
 
 While working with the [ComputerVisionAPI][ref_computervisionclient] client, you might encounter transient failures caused by [rate limits][computervision_request_units] enforced by the service, or other transient problems like network outages. For information about handling these types of failures, see [Retry pattern][azure_pattern_retry] in the Cloud Design Patterns guide, and the related [Circuit Breaker pattern][azure_pattern_circuit_breaker].
 
-## Next steps
-
 ### More sample code
 
 Several Computer Vision Python SDK samples are available to you in the SDK's GitHub repository. These samples provide example code for additional scenarios commonly encountered while working with Computer Vision:
 
 * [recognize_text][recognize-text]
 
-### Additional documentation
+## Next steps
 
-For more extensive documentation on the Computer Vision service, see the [Azure Computer Vision documentation][computervision_docs] on docs.microsoft.com.
+> [!div class="nextstepaction"]
+> [Applying content tags to images](../concept-tagging-images.md)
 
 <!-- LINKS -->
 [pip]: https://pypi.org/project/pip/
