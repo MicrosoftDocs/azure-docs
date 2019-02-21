@@ -46,7 +46,7 @@ If none of the built-in roles meet your specific needs, custom roles can be crea
 When you create a custom role, it's easier to start with one of the built-in roles. Edit the attributes to add **Actions**, **NotActions**, or **AssignableScopes**, and then save the changes as a new role. The following example begins with the "Azure API Management Service Reader" role and creates a custom role called "Calculator API Editor." You can assign the custom role to a specific API. Consequently, this role only has access to that API. 
 
 ```
-$role = Get-AzureRmRoleDefinition "API Management Service Reader Role"
+$role = Get-AzRoleDefinition "API Management Service Reader Role"
 $role.Id = $null
 $role.Name = 'Calculator API Contributor'
 $role.Description = 'Has read access to Contoso APIM instance and write access to the Calculator API.'
@@ -54,8 +54,8 @@ $role.Actions.Add('Microsoft.ApiManagement/service/apis/write')
 $role.Actions.Add('Microsoft.ApiManagement/service/apis/*/write')
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add('/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<service name>/apis/<api ID>')
-New-AzureRmRoleDefinition -Role $role
-New-AzureRmRoleAssignment -ObjectId <object ID of the user account> -RoleDefinitionName 'Calculator API Contributor' -Scope '/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<service name>/apis/<api ID>'
+New-AzRoleDefinition -Role $role
+New-AzRoleAssignment -ObjectId <object ID of the user account> -RoleDefinitionName 'Calculator API Contributor' -Scope '/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<service name>/apis/<api ID>'
 ```
 
 The [Azure Resource Manager resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement) article contains the list of permissions that can be granted on the API Management level.
